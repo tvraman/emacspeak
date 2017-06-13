@@ -12,6 +12,215 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-reftex,  Prev: emacspeak-re-builder,  Up: Emacspeak Commands And Options
+
+12.149 emacspeak-redefine
+=========================
+
+This module redefines a few vital functions, since advising them won’t
+help.  Convention used: To redefine function fn: The original function
+will be renamed to Orig-fn.  A new function called emacspeak-fn will be
+defined.  Finally, we will fset fn to emacspeak-fn In the case of
+backward-char, forward-char, and self-insert-command mere redefinition
+of the function will not do: We will need to bind the new functions
+explicitly to the keys.
+
+12.149.1 emacspeak-redefine Commands
+------------------------------------
+
+12.149.1.1 emacspeak-backward-char
+..................................
+
+ -- Command: emacspeak-backward-char (&optional arg)
+
+     Backward-char redefined to speak char moved to.
+
+     (fn &optional ARG)
+
+12.149.1.2 emacspeak-forward-char
+.................................
+
+ -- Command: emacspeak-forward-char (&optional arg)
+
+     Forward-char redefined to speak char moved to.
+
+     (fn &optional ARG)
+
+12.149.1.3 emacspeak-self-insert-command
+........................................
+
+ -- Command: emacspeak-self-insert-command (&optional arg)
+
+     Insert a character.
+     Speaks the character if emacspeak-character-echo is true.
+     See  command emacspeak-toggle-word-echo bound to
+     C-e d w.
+     Speech flushes as you type.
+
+     (fn &optional ARG)
+
+
+File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-redefine,  Up: Emacspeak Commands And Options
+
+12.150 emacspeak-reftex
+=======================
+
+This module speech-enables refteex – reftex is a minor mode that makes
+navigation of TeX documents possible via a table of contents buffer.
+
+
+File: emacspeak.info,  Node: emacspeak-related,  Next: emacspeak-remote,  Prev: emacspeak-reftex,  Up: Emacspeak Commands And Options
+
+12.151 emacspeak-related
+========================
+
+RELATED == Switch among related buffers (melpa).  Speech-enable
+interactive commands.
+
+
+File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-replace,  Prev: emacspeak-related,  Up: Emacspeak Commands And Options
+
+12.152 emacspeak-remote
+=======================
+
+In a running emacspeak session, nuke the running server and start
+talking to a remote speech server, after prompting for host and port
+
+12.152.1 emacspeak-remote Commands
+----------------------------------
+
+12.152.1.1 emacspeak-remote-connect-to-server
+.............................................
+
+ -- Command: emacspeak-remote-connect-to-server (host port)
+     ‘C-e M-r’
+     ‘<fn> M-r’
+
+     Connect to and start using remote speech server running on
+     host host and listening on port port. Host is the hostname of the
+     remote server, typically the desktop machine. Port is the tcp
+     port that that host is listening on for speech requests.
+
+     (fn HOST PORT)
+
+12.152.1.2 emacspeak-remote-edit-current-remote-hostname
+........................................................
+
+ -- Command: emacspeak-remote-edit-current-remote-hostname
+
+     Interactively set up where we came from.
+     Value is persisted for use with ssh servers.
+
+12.152.1.3 emacspeak-remote-home
+................................
+
+ -- Command: emacspeak-remote-home
+
+     Open ssh session to where we came from.
+     Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
+
+12.152.1.4 emacspeak-remote-quick-connect-to-server
+...................................................
+
+ -- Command: emacspeak-remote-quick-connect-to-server
+     ‘C-; q’
+     ‘C-x @ h q’
+
+     Connect to remote server.
+     Does not prompt for host or port, but quietly uses the guesses
+     that appear as defaults when prompting. Use this once you are
+     sure the guesses are usually correct.
+
+12.152.1.5 emacspeak-remote-quick-connect-via-ssh
+.................................................
+
+ -- Command: emacspeak-remote-quick-connect-via-ssh
+
+     Connect via ssh to remote Emacspeak server.
+     Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
+
+12.152.1.6 emacspeak-remote-ssh-to-server
+.........................................
+
+ -- Command: emacspeak-remote-ssh-to-server (login host port)
+
+     Open ssh session to where we came from.
+
+     (fn LOGIN HOST PORT)
+
+12.152.2 emacspeak-remote Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-remote-default-ssh-server
+     Default ssh server to use for remote speech server.
+
+ -- Variable: User Option emacspeak-remote-hooks
+     List of hook functions that are run after emacspeak is set to run
+     as a remote application.  Use this to add actions you typically
+     perform after you enter remote mode.
+
+
+File: emacspeak.info,  Node: emacspeak-replace,  Next: emacspeak-rg,  Prev: emacspeak-remote,  Up: Emacspeak Commands And Options
+
+12.153 emacspeak-replace
+========================
+
+This module causes emacs’ replacement functions to use voice locking
+
+12.153.1 emacspeak-replace Options
+----------------------------------
+
+ -- Variable: User Option emacspeak-replace-personality
+     Personality used in search and replace to indicate word that is
+     being replaced.
+
+
+File: emacspeak.info,  Node: emacspeak-rg,  Next: emacspeak-rmail,  Prev: emacspeak-replace,  Up: Emacspeak Commands And Options
+
+12.154 emacspeak-rg
+===================
+
+RG == Emacs front-end to ripgrep (rg).
+
+12.154.1 emacspeak-rg Options
+-----------------------------
+
+ -- Variable: User Option emacspeak-rg-context-personality
+     Personality used for rg-context-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-rg-error-personality
+     Personality used for rg-error-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-rg-file-tag-personality
+     Personality used for rg-file-tag-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-rg-filename-personality
+     Personality used for rg-filename-face This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-rg-info-personality
+     Personality used for rg-info-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-rg-match-personality
+     Personality used for rg-match-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-rg-warning-personality
+     Personality used for rg-warning-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-rpm,  Prev: emacspeak-rg,  Up: Emacspeak Commands And Options
 
 12.155 emacspeak-rmail
@@ -3195,19 +3404,6 @@ broken.
 
      Speak tweet under point.
 
-12.188.2 emacspeak-twittering Options
--------------------------------------
-
- -- Variable: User Option emacspeak-twittering-uri-personality
-     Personality used for twittering-uri-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-twittering-username-personality
-     Personality used for twittering-username-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-vdiff,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 
@@ -3670,96 +3866,10 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.194.2 emacspeak-w3m Options
 ------------------------------
 
- -- Variable: User Option emacspeak-w3m-anchor-voice
-     Personality used for w3m-anchor This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
-     Personality used for w3m-arrived-anchor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-bold-voice
-     Personality used for w3m-bold This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-w3m-current-anchor-voice
-     Personality used for w3m-current-anchor This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
-     Personality used for w3m-form-button-pressed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-voice
-     Personality used for w3m-form-button This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-w3m-form-voice
-     Personality used for w3m-form This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option
-          emacspeak-w3m-header-line-location-content-voice
-     Personality used for w3m-header-line-location-content This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
-     Personality used for w3m-header-line-location-title This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-history-current-url-voice
-     Personality used for w3m-history-current-url This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-image-voice
-     Personality used for w3m-image This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-w3m-insert-voice
-     Personality used for w3m-insert This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-italic-voice
-     Personality used for w3m-italic This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
-
- -- Variable: User Option emacspeak-w3m-strike-through-voice
-     Personality used for w3m-strike-through This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-selected-voice
-     Personality used for w3m-tab-selected This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-unselected-voice
-     Personality used for w3m-tab-unselected This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-w3m-underline-voice
-     Personality used for w3m-underline This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options
@@ -6006,8 +6116,15 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional FILE)
 
-12.203.1.99 emacspeak-wizards-show-environment-variable
-.......................................................
+12.203.1.99 emacspeak-wizards-show-defined-voices
+.................................................
+
+ -- Command: emacspeak-wizards-show-defined-voices
+
+     Display a buffer with sample text in the defined voices.
+
+12.203.1.100 emacspeak-wizards-show-environment-variable
+........................................................
 
  -- Command: emacspeak-wizards-show-environment-variable (v)
 
@@ -6015,7 +6132,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn V)
 
-12.203.1.100 emacspeak-wizards-show-eval-result
+12.203.1.101 emacspeak-wizards-show-eval-result
 ...............................................
 
  -- Command: emacspeak-wizards-show-eval-result (form)
@@ -6025,7 +6142,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FORM)
 
-12.203.1.101 emacspeak-wizards-show-face
+12.203.1.102 emacspeak-wizards-show-face
 ........................................
 
  -- Command: emacspeak-wizards-show-face (face)
@@ -6034,14 +6151,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FACE)
 
-12.203.1.102 emacspeak-wizards-show-memory-used
+12.203.1.103 emacspeak-wizards-show-memory-used
 ...............................................
 
  -- Command: emacspeak-wizards-show-memory-used
 
      Convenience command to view state of memory used in this session so far.
 
-12.203.1.103 emacspeak-wizards-speak-iso-datetime
+12.203.1.104 emacspeak-wizards-speak-iso-datetime
 .................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -6050,7 +6167,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.203.1.104 emacspeak-wizards-spot-words
+12.203.1.105 emacspeak-wizards-spot-words
 .........................................
 
  -- Command: emacspeak-wizards-spot-words (ext word)
@@ -6060,7 +6177,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn EXT WORD)
 
-12.203.1.105 emacspeak-wizards-squeeze-blanks
+12.203.1.106 emacspeak-wizards-squeeze-blanks
 .............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -6071,7 +6188,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.203.1.106 emacspeak-wizards-sunrise-sunset
+12.203.1.107 emacspeak-wizards-sunrise-sunset
 .............................................
 
  -- Command: emacspeak-wizards-sunrise-sunset (address &optional arg)
@@ -6080,7 +6197,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ADDRESS &optional ARG)
 
-12.203.1.107 emacspeak-wizards-term
+12.203.1.108 emacspeak-wizards-term
 ...................................
 
  -- Command: emacspeak-wizards-term (create)
@@ -6094,7 +6211,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.203.1.108 emacspeak-wizards-terminal
+12.203.1.109 emacspeak-wizards-terminal
 .......................................
 
  -- Command: emacspeak-wizards-terminal (program)
@@ -6103,7 +6220,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PROGRAM)
 
-12.203.1.109 emacspeak-wizards-tex-tie-current-word
+12.203.1.110 emacspeak-wizards-tex-tie-current-word
 ...................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
@@ -6112,28 +6229,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.203.1.110 emacspeak-wizards-thanks-mail-signature
+12.203.1.111 emacspeak-wizards-thanks-mail-signature
 ....................................................
 
  -- Command: emacspeak-wizards-thanks-mail-signature
 
      insert thanks , –Raman at the end of mail message
 
-12.203.1.111 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.203.1.112 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.203.1.112 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.203.1.113 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.203.1.113 emacspeak-wizards-tramp-open-location
+12.203.1.114 emacspeak-wizards-tramp-open-location
 ..................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
@@ -6143,7 +6260,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn NAME)
 
-12.203.1.114 emacspeak-wizards-tune-in-radio-browse
+12.203.1.115 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -6155,7 +6272,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.203.1.115 emacspeak-wizards-tune-in-radio-search
+12.203.1.116 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -6164,7 +6281,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.203.1.116 emacspeak-wizards-unhex-uri
+12.203.1.117 emacspeak-wizards-unhex-uri
 ........................................
 
  -- Command: emacspeak-wizards-unhex-uri (uri)
@@ -6173,7 +6290,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn URI)
 
-12.203.1.117 emacspeak-wizards-units
+12.203.1.118 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -6182,14 +6299,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units in a comint sub-process.
 
-12.203.1.118 emacspeak-wizards-vc-n
+12.203.1.119 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.203.1.119 emacspeak-wizards-vc-viewer
+12.203.1.120 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -6200,7 +6317,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.203.1.120 emacspeak-wizards-vc-viewer-mode
+12.203.1.121 emacspeak-wizards-vc-viewer-mode
 .............................................
 
  -- Command: emacspeak-wizards-vc-viewer-mode
@@ -6215,14 +6332,14 @@ Contains various wizards for the Emacspeak desktop.
      This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.203.1.121 emacspeak-wizards-vc-viewer-refresh
+12.203.1.122 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.203.1.122 emacspeak-wizards-vi-as-su-file
+12.203.1.123 emacspeak-wizards-vi-as-su-file
 ............................................
 
  -- Command: emacspeak-wizards-vi-as-su-file (file)
@@ -6231,7 +6348,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILE)
 
-12.203.1.123 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.203.1.124 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -6240,7 +6357,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  m-player mode.
 
-12.203.1.124 emacspeak-wizards-view-buffers-filtered-by-mode
+12.203.1.125 emacspeak-wizards-view-buffers-filtered-by-mode
 ............................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-mode (mode)
@@ -6249,7 +6366,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn MODE)
 
-12.203.1.125 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.203.1.126 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -6260,7 +6377,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  mode of current-buffer.
 
-12.203.1.126 emacspeak-wizards-voice-sampler
+12.203.1.127 emacspeak-wizards-voice-sampler
 ............................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)
@@ -6269,7 +6386,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PERSONALITY)
 
-12.203.1.127 emacspeak-wizards-xl-display
+12.203.1.128 emacspeak-wizards-xl-display
 .........................................
 
  -- Command: emacspeak-wizards-xl-display
@@ -6279,7 +6396,7 @@ Contains various wizards for the Emacspeak desktop.
      Previews those contents as HTML and nukes the buffer
      visiting the xls file.
 
-12.203.1.128 emacspeak-wizards-xl-mode
+12.203.1.129 emacspeak-wizards-xl-mode
 ......................................
 
  -- Command: emacspeak-wizards-xl-mode
@@ -6296,7 +6413,7 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.203.1.129 emacspeak-wizards-yql-lookup
+12.203.1.130 emacspeak-wizards-yql-lookup
 .........................................
 
  -- Command: emacspeak-wizards-yql-lookup (symbols)
@@ -6308,7 +6425,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn SYMBOLS)
 
-12.203.1.130 emacspeak-wizards-yql-quotes
+12.203.1.131 emacspeak-wizards-yql-quotes
 .........................................
 
  -- Command: emacspeak-wizards-yql-quotes
@@ -8081,7 +8198,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.232 URL Templates
 ====================
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 85 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -8282,10 +8399,6 @@ goog:us
    Guardian RSS Feeds Directory
 
    Guardian Feeds Directory
-
-   Lightweight weather from wunderground
-
-   Pull light-weight weather feed for specified state/city.
 
    MLB Scorecard
 
@@ -9375,48 +9488,4 @@ module *emacspeak-feeds* for organizing feeds on the Emacspeak desktop.
 A companion package *emacspeak-webspace* implements additional goodies
 including a continuously updating ticker of headlines taken from the
 user’s collection of subscribed feeds.
-
-
-File: emacspeak.info,  Node: Mashing It Up --- Leveraging Evolving Web APIs,  Next: Conclusion --- Turning Twenty,  Prev: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Up: Emacspeak At Twenty
-
-15.15 Mashing It Up — Leveraging Evolving Web APIs
-==================================================
-
-The next step in this evolution came with the arrival of richer Web APIs
-— especially ones that defined a clean client/server separation.  In
-this respect, the world of Web APIs is a somewhat mixed bag in that many
-Web sites equate a Web API with a JS-based API that can be exclusively
-invoked from within a Web-Browser run-time.  The issue with that type of
-API binding is that the only runtime that is supported is a full-blown
-Web browser; but the arrival of native mobile apps has actually proven a
-net positive in encouraging sites to create a cleaner separation.
-Emacspeak has leveraged these APIs to create Emacspeak front-ends to
-many useful services, here are a few:
-
-  1. Minibuffer completion for Google Search using Google Suggest to
-     provide completions.
-  2. Librivox for browsing and playing free audio books.
-  3. NPR for browsing and playing NPR archived programs.
-  4. BBC for playing a wide variety of streaming content available from
-     the BBC.
-  5. A Google Maps front-end that provides instantaneous access to
-     directions and Places search.
-  6. Access to Twitter via package *twittering-mode*.
-
-   And a lot more than will fit this margin!  This is an example of
-generalizing the concept of a mashup as seen on the Web with respect to
-creating hybrid applications by bringing together a collection of
-different Web APIs.  Another way to think of such separation is to view
-an application as a *head* and a *body* — where the *head* is a specific
-user interface, with the *body* implementing the application logic.  A
-cleanly defined separation between the *head* and *body* allows one to
-attach _different_ user interfaces i.e., *heads* to the given *body*
-without any loss of functionality, or the need to re-implement the
-entire application.  Modern platforms like Android enable such
-separation via an Intent
-(http://developer.android.com/reference/android/content/Intent.html)
-mechanism.  The Web platform as originally defined around URLs is
-actually well-suited to this type of separation — though the full
-potential of this design pattern remains to be fully realized given
-today’s tight association of the Web to the Web Browser.
 
