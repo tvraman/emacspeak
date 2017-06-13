@@ -577,6 +577,23 @@ take effect."
       (normal-mode))))
 
 ;;}}}
+;;{{{ Helper: voice-setup-defined-voices 
+
+(defun voice-setup-defined-voices ()
+  "Return list of voices defined via defvoice."
+  (let ((result nil))
+    (mapatoms
+     #'(lambda (s)
+         (when  
+             (and
+              (string-match "^voice-"  (symbol-name s))
+              (boundp s)
+              (symbolp (symbol-value s))
+              (string-match  "^acss-" (symbol-name  (symbol-value s))))
+           (push s result))))
+    result))
+
+;;}}}
 ;;{{{ describe-voice at point:
 (defvar voice-setup-personality-history nil
   "History variable to use when reading personality names.")
