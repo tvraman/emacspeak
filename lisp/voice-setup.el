@@ -634,7 +634,7 @@ these are available via minibuffer history."
       (when (called-interactively-p 'interactive)
         (emacspeak-auditory-icon 'help)
         (message "Displayed personality in help window.")))
-     (t (error "%s doesn't look like a valid personality." personality)))))
+     (t (message "%s doesn't look like a valid personality." personality)))))
     
         
 
