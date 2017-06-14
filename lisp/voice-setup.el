@@ -620,7 +620,7 @@ these are available via minibuffer history."
         (values nil))
     (when voice (setq settings (intern (format "%s-settings" voice))))
     (cond
-     ((bound-and-true-p settings) ;;; display it
+     ((default-value settings) ;;; display it
       (setq values (symbol-value settings))
       (with-help-window (help-buffer)
         (with-current-buffer standard-output
