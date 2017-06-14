@@ -156,7 +156,7 @@
         ("'" describe-text-properties)
         ("," emacspeak-wizards-color-at-point)
         ("/" describe-face)
-        ("\"" voice-setup-describe-personality)
+        ("C-v" voice-setup-describe-personality)
         ("\;" describe-font)
         ("p" list-packages)
         )
