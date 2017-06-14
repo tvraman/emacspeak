@@ -2430,7 +2430,7 @@ of the source buffer."
 (declare (special emacspeak-wizards--project-shell-directory))
   (ems--shell-pushd-if-needed emacspeak-wizards--project-shell-directory (current-buffer))
   (emacspeak-auditory-icon 'task-done)
-  (message  default-directory))
+  (message  (abbreviate-file-name default-directory)))
 
 (defun emacspeak-wizards-shell-re-key (key buffer)
   "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
