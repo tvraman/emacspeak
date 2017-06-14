@@ -619,9 +619,6 @@ these are available via minibuffer history."
         (n '(family average-pitch pitch-range stress richness punctuations))
         (values nil))
     (when voice (setq settings (intern (format "%s-settings" voice))))
-		(unless settings
-			(setq settings
-						(intern (format "%s-settings" (symbol-value voice)))))
     (cond
      ((bound-and-true-p settings) ;;; display it
       (setq values (symbol-value settings))
