@@ -25,7 +25,11 @@ bookmarks for use when reding  Daisy (Bookshare) and Epub2 ebooks.
 
 Module ~emacspeak-vdiff~ speech-enables package ~vdiff~ --- a
 diff-tool with some advantages over  ~ediff~.
+** voice-setup.el
 
+New interactive command ~voice-setup-describe-personality~ (bound to
+_C-h C-v_) is the voice equivalent of Emacs' built-in 
+~describe-face~.  Emacspeak binds ~describe-face~ to _C-h /_.
 ** Speech-enable Package shx ---Shell Extras For Emacs
 
 Module ~emacspeak-shx~ speech-enables package ~shx~ from melpa.
