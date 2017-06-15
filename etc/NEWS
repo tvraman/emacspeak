@@ -35,6 +35,10 @@ _C-h C-v_) is the voice equivalent of Emacs' built-in
 Module ~emacspeak-shx~ speech-enables package ~shx~ from melpa.
 This provides useful extensions in shell buffers that mirror
 functionality present in eshell.
+** IDO Support 
+Module ~emacspeak-ido~ has been updated to improve and simplify ~ido~
+support.
+
 
 ** Speech-Enable RipGrep Front-End:
 
