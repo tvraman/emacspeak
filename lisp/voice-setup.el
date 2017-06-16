@@ -633,7 +633,7 @@ these are available via minibuffer history."
                            (elt n i) (elt values i))))))
       (when (called-interactively-p 'interactive)
         (emacspeak-auditory-icon 'help)
-        (message "%s uses %s see  help." personality voice)))
+        (message "Personality %s uses %s." personality voice)))
      (t (message "%s doesn't look like a valid personality." personality)))))
     
         
