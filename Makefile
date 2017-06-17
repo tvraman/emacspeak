@@ -45,7 +45,7 @@ README = README
 # {{{  User level targets emacspeak info  outloud espeak 
 
 emacspeak:
-	@test -f  lisp/emacspeak-loaddefs.el || @$(MAKE) config
+	@test -f  lisp/emacspeak-loaddefs.el || $(MAKE) config
 	@cd lisp && $(MAKE)
 	@make   $(README)
 	@chmod 644 $(README)
