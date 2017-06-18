@@ -594,8 +594,6 @@ take effect."
 
 ;;}}}
 ;;{{{ describe-voice at point:
-(defvar voice-setup-personality-history nil
-  "History variable to use when reading personality names.")
 
 (defun voice-setup-describe-personality(personality)
   "Describe specified voice --- analogous to \\[describe-face].
@@ -605,13 +603,16 @@ these are available via minibuffer history."
   (interactive
    (list
     (let* ((v (dtk-get-style))
-           (voice-setup-personality-history
-						(when (listp v) (mapcar #'symbol-name v))))
+					 (vh nil))
+			(setq v
+						(if (listp v)
+								(mapcar #'symbol-name v)
+							(symbol-name v)))
+			(setq vh v)
       (when (listp v) (setq v (cl-first v )))
-      (setq v (symbol-name v))
-      (intern
-       (read-from-minibuffer "Personality: "
-                             nil nil nil 'voice-setup-personality-history  v )))))
+      (read-from-minibuffer
+			 "Personality: "
+       nil nil 'read 'vh  v ))))
 	(let ((voice (get personality 'observing))
         (settings nil)
         (n '(family average-pitch pitch-range stress richness punctuations))
