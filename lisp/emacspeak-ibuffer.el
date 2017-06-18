@@ -590,25 +590,6 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)))
-
-;;;;;;;;;;;;;;;;;;;;;;
-;; now, go back to ibuffer-yank and add the missing functions:
-
-;; (defun ibuffer-yank ()
-;; (defun ibuffer-yank-filter-group (name)
-;; (defun ibuffer-or-filter (&optional reverse)
-;; (defun ibuffer-save-filter-groups (name groups)
-;; (defun ibuffer-delete-saved-filter-groups (name)
-;; (defun ibuffer-switch-to-saved-filter-groups (name)
-;; (defun ibuffer-pop-filter ()
-;; (defun ibuffer-exchange-filters ()
-;; (defun ibuffer-negate-filter ()
-;; (defun ibuffer-save-filters (name filters)
-;; (defun ibuffer-delete-saved-filters (name)
-;; (defun ibuffer-add-saved-filters (name)
-;; (defun ibuffer-switch-to-saved-filters (name)
-;; (defun ibuffer-do-occur (regexp &optional nlines)
-
 ;;}}}
 (provide 'emacspeak-ibuffer)
 ;;{{{ end of file
