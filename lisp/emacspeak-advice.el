@@ -2445,7 +2445,12 @@ Produce auditory icons if possible."
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
     (emacspeak-auditory-icon 'open-object)
     (when minibuffer-default (emacspeak-auditory-icon 'help))
-    (tts-with-punctuations 'all (emacspeak-speak-buffer))))
+    (tts-with-punctuations
+		 'all
+		 (dtk-speak
+			(concat
+			 (buffer-string)
+			 minibuffer-default)))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
