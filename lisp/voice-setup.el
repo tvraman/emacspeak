@@ -1,5 +1,4 @@
 ;;; voice-setup.el --- Setup voices for voice-lock  -*- lexical-binding: t; -*-
-;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock mode for Emacspeak
 ;;{{{  LCD Archive entry:
@@ -607,14 +606,13 @@ these are available via minibuffer history."
    (list
     (let* ((v (dtk-get-style))
            (voice-setup-personality-history
-            (when (listp v)
-              (mapcar #'symbol-name (dtk-get-style)))))
+						(when (listp v) (mapcar #'symbol-name v))))
       (when (listp v) (setq v (cl-first v )))
       (setq v (symbol-name v))
       (intern
        (read-from-minibuffer "Personality: "
-                             nil nil nil 'voice-setup-personality-history v)))))
-  (let ((voice (get personality 'observing))
+                             nil nil nil 'voice-setup-personality-history  v )))))
+	(let ((voice (get personality 'observing))
         (settings nil)
         (n '(family average-pitch pitch-range stress richness punctuations))
         (values nil))
@@ -632,11 +630,8 @@ these are available via minibuffer history."
            (insert (format "%s: %s\n"
                            (elt n i) (elt values i))))))
       (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon 'help)
-        (message "Personality %s uses %s." personality voice)))
+        (emacspeak-speak-help)))
      (t (message "%s doesn't look like a valid personality." personality)))))
-    
-        
 
 ;;}}}
 (provide 'voice-setup)
