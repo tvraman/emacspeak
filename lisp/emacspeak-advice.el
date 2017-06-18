@@ -2450,7 +2450,7 @@ Produce auditory icons if possible."
 		 (dtk-speak
 			(concat
 			 (buffer-string)
-			 minibuffer-default)))))
+			 minibuffer-default))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
