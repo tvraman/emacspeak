@@ -590,6 +590,13 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)))
+
+(defadvice ibuffer-pop-filter (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+		(emacspeak-auditory-icon 'select-object)
+		(emacspeak-speak-line)))
+
 ;;}}}
 (provide 'emacspeak-ibuffer)
 ;;{{{ end of file
