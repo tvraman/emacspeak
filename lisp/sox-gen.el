@@ -128,12 +128,24 @@
 
 ;;}}}
 ;;{{{ SoX Command Generator:
+(defvar sox-gen-processes nil
+	"Handle to list of running sox processes.")
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
-  (declare (special sox-play sox-gen-p))
+  (declare (special sox-play sox-gen-p sox-gen-processes))
   (when sox-gen-p
-    (apply #'start-process "SoX" nil sox-play  (split-string cmd))))
+		(push 
+    (apply #'start-process "SoX" nil sox-play  (split-string cmd))
+		sox-gen-processes)))
+
+(defun sox-gen-kill-process ()
+	"Delete SoX process at the front of the sox-gen-processes list."
+	(interactive)
+	(declare (special sox-gen-processes))
+	(let ((proc (pop sox-gen-processes)))
+		(when proc (delete-process proc)
+					(message "Deleted sox generator."))))
 
 ;;}}}
 ;;{{{ Binaural Audio:
