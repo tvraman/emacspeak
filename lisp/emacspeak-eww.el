@@ -1889,7 +1889,9 @@ Warning, this is fragile, and depends on a stable id for the
    (list
     (concat
      (emacspeak-eww-current-title)": "
-     (read-from-minibuffer "Mark: " nil nil nil nil "current"))))
+		 (let ((input (read-from-minibuffer "Mark: " nil nil nil nil "current")))
+			 (if (zerop (length input))
+					 "current" input)))))
   (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
