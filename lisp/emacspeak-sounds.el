@@ -254,6 +254,9 @@ Do not set this by hand;
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-get-sound-filename sound-name)
        "&"))))
+;;;###autoload
+(defvar emacspeak-sox (executable-find "sox")
+"Name of SoX executable.")
 
 ;;;###autoload
 (defcustom emacspeak-soxplay-command 
