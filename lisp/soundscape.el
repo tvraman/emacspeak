@@ -199,7 +199,8 @@ Default is to return NullAgent if name not found."
       (setq proc
             (apply
              #'start-process
-             "Boodler" nil soundscape-player
+             "Boodler" nil
+             "nice" "-n"  "19" soundscape-player
              `(,@soundscape-manager-options ,scape)))
       (when (process-live-p proc) (puthash scape proc soundscape-processes)))))
 
@@ -403,7 +404,8 @@ Optional interactive prefix arg restarts the listener if already running."
        soundscape-listener-process
        (apply
         #'start-process
-        "SoundscapeListener" " *Soundscapes*"  soundscape-player
+        "SoundscapeListener" " *Soundscapes*"
+        "nice" "-n"  "19" soundscape-player
         `(,@soundscape-manager-options
           "--listen" "--port" ,soundscape--remote
           "org.emacspeak.listen/SoundscapePanel"
