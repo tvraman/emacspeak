@@ -572,6 +572,7 @@ necessary."
 
 ;;}}}
 ;;{{{ commands
+mp
 (defun emacspeak-m-player-get-position ()
   "Return list suitable to use as an amark. --- see emacspeak-amark.el."
   (declare (special emacspeak-m-player-process))
@@ -1077,6 +1078,8 @@ arg `reset' starts with all filters set to 0."
 
 (defvar emacspeak-m-player-bindings
   '(
+    ("M-[" emacspeak-m-player-set-clip-start)
+    ("M-]" emacspeak-m-player-set-clip-end)
     (";" emacspeak-m-player-pop-to-player)
     ("%" emacspeak-m-player-display-percent)
     ("(" emacspeak-m-player-left-channel)
@@ -1114,6 +1117,7 @@ arg `reset' starts with all filters set to 0."
     ("R" emacspeak-m-player-edit-reverb)
     ("S" emacspeak-amark-save)
     ("x" emacspeak-m-player-pan)
+    ("w" emacspeak-m-player-write-clip)
     ("SPC" emacspeak-m-player-pause)
     ("[" emacspeak-m-player-slower)
     ("]" emacspeak-m-player-faster)
@@ -1611,6 +1615,64 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (error "No running MPlayer."))
 
   (emacspeak-m-player-dispatch "af_del ladspa"))
+
+;;}}}
+;;{{{ Clipping:
+
+;;; Functionality restored from emacspeak-alsaplayer.el:
+
+(defvar-local emacspeak-m-player-clip-start nil
+  "Start position of clip.")
+
+(defvar-local emacspeak-m-player-clip-end nil
+  "End position of clip.")
+
+(defun emacspeak-m-player-set-clip-start    ()
+  "Set start of clip marker."
+  (interactive)
+  (setq emacspeak-m-player-clip-start
+        (cl-first (emacspeak-m-player-get-position)))
+  (when  (called-interactively-p 'interactive)
+    (message "mark set at %s" emacspeak-m-player-clip-start)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defun emacspeak-m-player-set-clip-end    ()
+  "Set end of clip marker."
+  (interactive)
+  (declare (special emacspeak-m-player-clip-end))
+  (setq emacspeak-m-player-clip-end
+        (cl-first (emacspeak-m-player-get-position)))
+  (when  (called-interactively-p 'interactive)
+    (message "mark set at %s" emacspeak-m-player-clip-end)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defvar emacspeak-m-player-mp3split-program
+  (executable-find "mp3splt")
+  "Program used to clip mp3 files.")
+
+(defun emacspeak-m-player-write-clip (path start end)
+  "Invoke mp3splt to clip selected range."
+  (interactive
+   (list
+    (let ((completion-ignore-case t)
+          (read-file-name-completion-ignore-case t))
+      (expand-file-name
+       (read-file-name "Path:")))
+    (read-minibuffer "Start: " emacspeak-m-player-clip-start)
+    (read-minibuffer "End: " emacspeak-m-player-clip-end)))
+  (when (stringp start) (setq start (read start)))
+  (when (stringp end) (setq end (read end)))
+  (cd (file-name-directory path))
+  (shell-command
+   (format "%s %s %s %s"
+           emacspeak-m-player-mp3split-program
+           path
+           (format "%d.%d"
+                   (/ start 60)
+                   (% start 60))
+           (format "%d.%d"
+                   (/ end 60)
+                   (% end 60)))))
 
 ;;}}}
 (provide 'emacspeak-m-player)
