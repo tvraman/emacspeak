@@ -1171,6 +1171,7 @@ s               emacspeak-m-player-scale-speed
 t               emacspeak-m-player-play-tracks-jump
 u               emacspeak-m-player-url
 v               emacspeak-m-player-volume-change
+w               emacspeak-m-player-write-clip
 x               emacspeak-m-player-pan
 {               emacspeak-m-player-half-speed
 }               emacspeak-m-player-double-speed
@@ -1184,6 +1185,8 @@ DEL             emacspeak-m-player-reset-speed
 &lt;right&gt;           emacspeak-m-player-forward-10s
 &lt;up&gt;              emacspeak-m-player-backward-1min
 
+M-[             emacspeak-m-player-set-clip-start
+M-]             emacspeak-m-player-set-clip-end
 M-l             emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
@@ -1644,10 +1647,63 @@ Seek  by offset into stream from current position.
 </pre>
       </div>
     </dd>
+  </dl><a name=
+  "emacspeak_002dm_002dplayer_002dset_002dclip_002dend" id=
+  "emacspeak_002dm_002dplayer_002dset_002dclip_002dend"></a>
+
+  <h4 class="subsubsection">12.114.2.58
+  emacspeak-m-player-set-clip-end</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend" id=
+    "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend"></a>Command:
+    <strong>emacspeak-m-player-set-clip-end</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend-1"
+      id=
+      "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend-1">
+      </a>
+
+      <div class="format">
+        <pre class="format">
+Set end of clip marker.
+</pre>
+      </div>
+    </dd>
+  </dl><a name=
+  "emacspeak_002dm_002dplayer_002dset_002dclip_002dstart" id=
+  "emacspeak_002dm_002dplayer_002dset_002dclip_002dstart"></a>
+
+  <h4 class="subsubsection">12.114.2.59
+  emacspeak-m-player-set-clip-start</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart"
+    id=
+    "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart"></a>Command:
+    <strong>emacspeak-m-player-set-clip-start</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart-1"
+      id=
+      "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart-1">
+      </a>
+
+      <div class="format">
+        <pre class="format">
+Set start of clip marker.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dshuffle" id=
   "emacspeak_002dm_002dplayer_002dshuffle"></a>
 
-  <h4 class="subsubsection">12.114.2.58
+  <h4 class="subsubsection">12.114.2.60
   emacspeak-m-player-shuffle</h4>
 
   <dl>
@@ -1678,7 +1734,7 @@ Launch M-Player with shuffle turned on.
   </dl><a name="emacspeak_002dm_002dplayer_002dslave_002dcommand"
   id="emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>
 
-  <h4 class="subsubsection">12.114.2.59
+  <h4 class="subsubsection">12.114.2.61
   emacspeak-m-player-slave-command</h4>
 
   <dl>
@@ -1705,7 +1761,7 @@ Dispatch slave command read from minibuffer.
   </dl><a name="emacspeak_002dm_002dplayer_002dslower" id=
   "emacspeak_002dm_002dplayer_002dslower"></a>
 
-  <h4 class="subsubsection">12.114.2.60
+  <h4 class="subsubsection">12.114.2.62
   emacspeak-m-player-slower</h4>
 
   <dl>
@@ -1728,7 +1784,7 @@ This affects pitch.
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline" id=
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>
 
-  <h4 class="subsubsection">12.114.2.61
+  <h4 class="subsubsection">12.114.2.63
   emacspeak-m-player-speak-mode-line</h4>
 
   <dl>
@@ -1754,7 +1810,7 @@ Speak mode line
   </dl><a name="emacspeak_002dm_002dplayer_002dstream_002dinfo" id=
   "emacspeak_002dm_002dplayer_002dstream_002dinfo"></a>
 
-  <h4 class="subsubsection">12.114.2.62
+  <h4 class="subsubsection">12.114.2.64
   emacspeak-m-player-stream-info</h4>
 
   <dl>
@@ -1781,7 +1837,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
   </dl><a name="emacspeak_002dm_002dplayer_002durl" id=
   "emacspeak_002dm_002dplayer_002durl"></a>
 
-  <h4 class="subsubsection">12.114.2.63 emacspeak-m-player-url</h4>
+  <h4 class="subsubsection">12.114.2.65 emacspeak-m-player-url</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002durl" id=
@@ -1814,7 +1870,7 @@ Call emacspeak-m-player with specified URL.
   </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dhrtf" id=
   "emacspeak_002dm_002dplayer_002dusing_002dhrtf"></a>
 
-  <h4 class="subsubsection">12.114.2.64
+  <h4 class="subsubsection">12.114.2.66
   emacspeak-m-player-using-hrtf</h4>
 
   <dl>
@@ -1848,7 +1904,7 @@ This will work if the soundcard is set to 48000.
   </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dopenal"
   id="emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>
 
-  <h4 class="subsubsection">12.114.2.65
+  <h4 class="subsubsection">12.114.2.67
   emacspeak-m-player-using-openal</h4>
 
   <dl>
@@ -1887,7 +1943,7 @@ feature. Calling spec is like ‘emacspeak-m-player’.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dchange"
   id="emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>
 
-  <h4 class="subsubsection">12.114.2.66
+  <h4 class="subsubsection">12.114.2.68
   emacspeak-m-player-volume-change</h4>
 
   <dl>
@@ -1914,7 +1970,7 @@ Change volume to specified absolute value.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
   "emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>
 
-  <h4 class="subsubsection">12.114.2.67
+  <h4 class="subsubsection">12.114.2.69
   emacspeak-m-player-volume-down</h4>
 
   <dl>
@@ -1937,7 +1993,7 @@ Decrease volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dset" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dset"></a>
 
-  <h4 class="subsubsection">12.114.2.68
+  <h4 class="subsubsection">12.114.2.70
   emacspeak-m-player-volume-set</h4>
 
   <dl>
@@ -1963,7 +2019,7 @@ Set Volume in steps from 1 to 9.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dup" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dup"></a>
 
-  <h4 class="subsubsection">12.114.2.69
+  <h4 class="subsubsection">12.114.2.71
   emacspeak-m-player-volume-up</h4>
 
   <dl>
@@ -1983,10 +2039,33 @@ Increase volume.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dm_002dplayer_002dwrite_002dclip" id=
+  "emacspeak_002dm_002dplayer_002dwrite_002dclip"></a>
+
+  <h4 class="subsubsection">12.114.2.72
+  emacspeak-m-player-write-clip</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dwrite_002dclip" id=
+    "index-emacspeak_002dm_002dplayer_002dwrite_002dclip"></a>Command:
+    <strong>emacspeak-m-player-write-clip</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dwrite_002dclip-1" id=
+      "index-emacspeak_002dm_002dplayer_002dwrite_002dclip-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Invoke mp3splt to clip selected range in current file.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"
   id="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>
 
-  <h4 class="subsubsection">12.114.2.70
+  <h4 class="subsubsection">12.114.2.73
   emacspeak-m-player-youtube-player</h4>
 
   <dl>
@@ -2013,7 +2092,7 @@ Use youtube-dl and mplayer to stream YouTube content.
   </dl><a name="emacspeak_002dmultimedia" id=
   "emacspeak_002dmultimedia"></a>
 
-  <h4 class="subsubsection">12.114.2.71 emacspeak-multimedia</h4>
+  <h4 class="subsubsection">12.114.2.74 emacspeak-multimedia</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmultimedia" id=
@@ -2097,6 +2176,7 @@ s               emacspeak-m-player-scale-speed
 t               emacspeak-m-player-play-tracks-jump
 u               emacspeak-m-player-url
 v               emacspeak-m-player-volume-change
+w               emacspeak-m-player-write-clip
 x               emacspeak-m-player-pan
 {               emacspeak-m-player-half-speed
 }               emacspeak-m-player-double-speed
@@ -2110,6 +2190,8 @@ DEL             emacspeak-m-player-reset-speed
 &lt;right&gt;           emacspeak-m-player-forward-10s
 &lt;up&gt;              emacspeak-m-player-backward-1min
 
+M-[             emacspeak-m-player-set-clip-start
+M-]             emacspeak-m-player-set-clip-end
 M-l             emacspeak-m-player-load-playlist
 
 .
