@@ -1631,7 +1631,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   "Set start of clip marker."
   (interactive)
   (setq emacspeak-m-player-clip-start
-        (cl-first (emacspeak-m-player-get-position)))
+        (read (cl-first (emacspeak-m-player-get-position))))
   (when  (called-interactively-p 'interactive)
     (message "mark set at %s" emacspeak-m-player-clip-start)
     (emacspeak-auditory-icon 'mark-object)))
@@ -1641,38 +1641,30 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (interactive)
   (declare (special emacspeak-m-player-clip-end))
   (setq emacspeak-m-player-clip-end
-        (cl-first (emacspeak-m-player-get-position)))
+        (read (cl-first (emacspeak-m-player-get-position))))
   (when  (called-interactively-p 'interactive)
     (message "mark set at %s" emacspeak-m-player-clip-end)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defvar emacspeak-m-player-mp3split-program
-  (executable-find "mp3splt")
+  (executable-find "sox")
   "Program used to clip mp3 files.")
-
-(defun emacspeak-m-player-write-clip (path start end)
-  "Invoke mp3splt to clip selected range."
-  (interactive
-   (list
-    (let ((completion-ignore-case t)
-          (read-file-name-completion-ignore-case t))
-      (expand-file-name
-       (read-file-name "Path:")))
-    (read-minibuffer "Start: " emacspeak-m-player-clip-start)
-    (read-minibuffer "End: " emacspeak-m-player-clip-end)))
-  (when (stringp start) (setq start (read start)))
-  (when (stringp end) (setq end (read end)))
-  (cd (file-name-directory path))
-  (shell-command
-   (format "%s %s %s %s"
-           emacspeak-m-player-mp3split-program
-           path
-           (format "%d.%d"
-                   (/ start 60)
-                   (% start 60))
-           (format "%d.%d"
-                   (/ end 60)
-                   (% end 60)))))
+(defun emacspeak-m-player-write-clip ()
+  "Invoke mp3splt to clip selected range in current file."
+  (interactive)
+  (declare (special emacspeak-m-player-mp3split-program
+                    emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
+  (cl-assert (eq major-mode 'emacspeak-m-player-mode ) nil "Not in an MPlayer buffer.")
+  (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")
+  (cl-assert (numberp emacspeak-m-player-clip-end) nil "Set end of clip with M-]")
+  (let ((file (cl-second (emacspeak-m-player-get-position))))
+    (shell-command
+     (format "%s %s clip-%s  trim %s %s"
+             emacspeak-m-player-mp3split-program
+             file file 
+             emacspeak-m-player-clip-start
+             (- emacspeak-m-player-clip-end emacspeak-m-player-clip-start)))
+    (message "Wrote clip to clip-%s" file)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
