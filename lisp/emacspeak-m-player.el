@@ -1646,13 +1646,11 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (message "mark set at %s" emacspeak-m-player-clip-end)
     (emacspeak-auditory-icon 'mark-object)))
 
-(defvar emacspeak-m-player-mp3split-program
-  (executable-find "sox")
-  "Program used to clip mp3 files.")
+
 (defun emacspeak-m-player-write-clip ()
   "Invoke mp3splt to clip selected range in current file."
   (interactive)
-  (declare (special emacspeak-m-player-mp3split-program
+  (declare (special emacspeak-sox
                     emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
   (cl-assert (eq major-mode 'emacspeak-m-player-mode ) nil "Not in an MPlayer buffer.")
   (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")
@@ -1660,8 +1658,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (let ((file (cl-second (emacspeak-m-player-get-position))))
     (shell-command
      (format "%s %s clip-%s  trim %s %s"
-             emacspeak-m-player-mp3split-program
-             file file 
+             emacspeak-sox file file 
              emacspeak-m-player-clip-start
              (- emacspeak-m-player-clip-end emacspeak-m-player-clip-start)))
     (message "Wrote clip to clip-%s" file)))
