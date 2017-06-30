@@ -1657,7 +1657,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (cl-assert (numberp emacspeak-m-player-clip-end) nil "Set end of clip with M-]")
   (let ((file (cl-second (emacspeak-m-player-get-position))))
     (shell-command
-     (format "%s %s clip-%s  trim %s %s"
+     (format "%s '%s' 'clip-%s'  trim %s %s"
              emacspeak-sox file file 
              emacspeak-m-player-clip-start
              (- emacspeak-m-player-clip-end emacspeak-m-player-clip-start)))
