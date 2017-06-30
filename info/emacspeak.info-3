@@ -12,6 +12,38 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-redefine,  Prev: emacspeak-racket,  Up: Emacspeak Commands And Options
+
+12.148 emacspeak-re-builder
+===========================
+
+Speech-enable re-builder.  Will be used to advantage in efficiently
+setting up outline regexp wizards
+
+12.148.1 emacspeak-re-builder Options
+-------------------------------------
+
+ -- Variable: User Option emacspeak-reb-match-0-voice
+     Personality used for reb-match-0 This personality uses
+     voice-lock-overlay-0 whose effect can be changed globally by
+     customizing voice-lock-overlay-0-settings.
+
+ -- Variable: User Option emacspeak-reb-match-1-voice
+     Personality used for reb-match-1 This personality uses
+     voice-lock-overlay-1 whose effect can be changed globally by
+     customizing voice-lock-overlay-1-settings.
+
+ -- Variable: User Option emacspeak-reb-match-2-voice
+     Personality used for reb-match-2 This personality uses
+     voice-lock-overlay-2 whose effect can be changed globally by
+     customizing voice-lock-overlay-2-settings.
+
+ -- Variable: User Option emacspeak-reb-match-3-voice
+     Personality used for reb-match-3 This personality uses
+     voice-lock-overlay-3 whose effect can be changed globally by
+     customizing voice-lock-overlay-3-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-reftex,  Prev: emacspeak-re-builder,  Up: Emacspeak Commands And Options
 
 12.149 emacspeak-redefine
@@ -7670,7 +7702,14 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.224.2.4 sox-relax
+12.224.2.4 sox-gen-kill-process
+...............................
+
+ -- Command: sox-gen-kill-process
+
+     Delete SoX process at the front of the sox-gen-processes list.
+
+12.224.2.5 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -7680,7 +7719,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.224.2.5 sox-rev-up
+12.224.2.6 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -7690,7 +7729,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.224.2.6 sox-slide-binaural
+12.224.2.7 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -7699,7 +7738,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.224.2.7 sox-tone-binaural
+12.224.2.8 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -7709,7 +7748,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.224.2.8 sox-tone-slide-binaural
+12.224.2.9 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -7720,8 +7759,8 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.224.2.9 sox-turn-down
-........................
+12.224.2.10 sox-turn-down
+.........................
 
  -- Command: sox-turn-down (length)
 
@@ -7730,7 +7769,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.224.2.10 sox-wind-down
+12.224.2.11 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -7982,9 +8021,9 @@ be customized via custom see the documentation for defvoice.
 ...........................................
 
  -- Command: voice-setup-describe-personality (personality)
-     ‘C-h "’
-     ‘<f1> "’
-     ‘<help> "’
+     ‘C-h C-v’
+     ‘<f1> C-v’
+     ‘<help> C-v’
 
      Describe specified voice — analogous to C-h /.
      When called interactively, ‘personality’ defaults to first personality at point.

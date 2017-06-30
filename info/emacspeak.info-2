@@ -5768,6 +5768,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      t		emacspeak-m-player-play-tracks-jump
      u		emacspeak-m-player-url
      v		emacspeak-m-player-volume-change
+     w		emacspeak-m-player-write-clip
      x		emacspeak-m-player-pan
      {		emacspeak-m-player-half-speed
      }		emacspeak-m-player-double-speed
@@ -5781,6 +5782,8 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      <right>		emacspeak-m-player-forward-10s
      <up>		emacspeak-m-player-backward-1min
 
+     M-[		emacspeak-m-player-set-clip-start
+     M-]		emacspeak-m-player-set-clip-end
      M-l		emacspeak-m-player-load-playlist
 
      In addition to any hooks its parent mode ‘comint-mode’ might have run,
@@ -5931,7 +5934,21 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn OFFSET)
 
-12.114.2.58 emacspeak-m-player-shuffle
+12.114.2.58 emacspeak-m-player-set-clip-end
+...........................................
+
+ -- Command: emacspeak-m-player-set-clip-end
+
+     Set end of clip marker.
+
+12.114.2.59 emacspeak-m-player-set-clip-start
+.............................................
+
+ -- Command: emacspeak-m-player-set-clip-start
+
+     Set start of clip marker.
+
+12.114.2.60 emacspeak-m-player-shuffle
 ......................................
 
  -- Command: emacspeak-m-player-shuffle
@@ -5940,7 +5957,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Launch M-Player with shuffle turned on.
 
-12.114.2.59 emacspeak-m-player-slave-command
+12.114.2.61 emacspeak-m-player-slave-command
 ............................................
 
  -- Command: emacspeak-m-player-slave-command (command)
@@ -5949,7 +5966,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn COMMAND)
 
-12.114.2.60 emacspeak-m-player-slower
+12.114.2.62 emacspeak-m-player-slower
 .....................................
 
  -- Command: emacspeak-m-player-slower
@@ -5957,14 +5974,14 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Slow down playback.
      This affects pitch.
 
-12.114.2.61 emacspeak-m-player-speak-mode-line
+12.114.2.63 emacspeak-m-player-speak-mode-line
 ..............................................
 
  -- Command: emacspeak-m-player-speak-mode-line
 
      Speak mode line
 
-12.114.2.62 emacspeak-m-player-stream-info
+12.114.2.64 emacspeak-m-player-stream-info
 ..........................................
 
  -- Command: emacspeak-m-player-stream-info (&optional toggle-cue)
@@ -5974,7 +5991,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional TOGGLE-CUE)
 
-12.114.2.63 emacspeak-m-player-url
+12.114.2.65 emacspeak-m-player-url
 ..................................
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
@@ -5985,7 +6002,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL &optional PLAYLIST-P)
 
-12.114.2.64 emacspeak-m-player-using-hrtf
+12.114.2.66 emacspeak-m-player-using-hrtf
 .........................................
 
  -- Command: emacspeak-m-player-using-hrtf
@@ -5995,7 +6012,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      Add af resample=48000,hrtf to startup options.
      This will work if the soundcard is set to 48000.
 
-12.114.2.65 emacspeak-m-player-using-openal
+12.114.2.67 emacspeak-m-player-using-openal
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal (resource &optional
@@ -6010,7 +6027,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn RESOURCE &optional PLAY-LIST)
 
-12.114.2.66 emacspeak-m-player-volume-change
+12.114.2.68 emacspeak-m-player-volume-change
 ............................................
 
  -- Command: emacspeak-m-player-volume-change (value)
@@ -6019,14 +6036,14 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn VALUE)
 
-12.114.2.67 emacspeak-m-player-volume-down
+12.114.2.69 emacspeak-m-player-volume-down
 ..........................................
 
  -- Command: emacspeak-m-player-volume-down
 
      Decrease volume.
 
-12.114.2.68 emacspeak-m-player-volume-set
+12.114.2.70 emacspeak-m-player-volume-set
 .........................................
 
  -- Command: emacspeak-m-player-volume-set (&optional arg)
@@ -6035,14 +6052,21 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn &optional ARG)
 
-12.114.2.69 emacspeak-m-player-volume-up
+12.114.2.71 emacspeak-m-player-volume-up
 ........................................
 
  -- Command: emacspeak-m-player-volume-up
 
      Increase volume.
 
-12.114.2.70 emacspeak-m-player-youtube-player
+12.114.2.72 emacspeak-m-player-write-clip
+.........................................
+
+ -- Command: emacspeak-m-player-write-clip
+
+     Invoke mp3splt to clip selected range in current file.
+
+12.114.2.73 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url)
@@ -6051,7 +6075,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.114.2.71 emacspeak-multimedia
+12.114.2.74 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
@@ -6119,6 +6143,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      t		emacspeak-m-player-play-tracks-jump
      u		emacspeak-m-player-url
      v		emacspeak-m-player-volume-change
+     w		emacspeak-m-player-write-clip
      x		emacspeak-m-player-pan
      {		emacspeak-m-player-half-speed
      }		emacspeak-m-player-double-speed
@@ -6132,6 +6157,8 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      <right>		emacspeak-m-player-forward-10s
      <up>		emacspeak-m-player-backward-1min
 
+     M-[		emacspeak-m-player-set-clip-start
+     M-]		emacspeak-m-player-set-clip-end
      M-l		emacspeak-m-player-load-playlist
 
      .
@@ -7173,7 +7200,6 @@ binds ‘s’ to this command.
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
-     ‘C-c .’
 
      Create a hydra with no body and the heads:
 
@@ -8865,36 +8891,4 @@ racket-mode implements an IDE for racket, a dialect of scheme.
      Personality used for racket-selfeval-face This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-redefine,  Prev: emacspeak-racket,  Up: Emacspeak Commands And Options
-
-12.148 emacspeak-re-builder
-===========================
-
-Speech-enable re-builder.  Will be used to advantage in efficiently
-setting up outline regexp wizards
-
-12.148.1 emacspeak-re-builder Options
--------------------------------------
-
- -- Variable: User Option emacspeak-reb-match-0-voice
-     Personality used for reb-match-0 This personality uses
-     voice-lock-overlay-0 whose effect can be changed globally by
-     customizing voice-lock-overlay-0-settings.
-
- -- Variable: User Option emacspeak-reb-match-1-voice
-     Personality used for reb-match-1 This personality uses
-     voice-lock-overlay-1 whose effect can be changed globally by
-     customizing voice-lock-overlay-1-settings.
-
- -- Variable: User Option emacspeak-reb-match-2-voice
-     Personality used for reb-match-2 This personality uses
-     voice-lock-overlay-2 whose effect can be changed globally by
-     customizing voice-lock-overlay-2-settings.
-
- -- Variable: User Option emacspeak-reb-match-3-voice
-     Personality used for reb-match-3 This personality uses
-     voice-lock-overlay-3 whose effect can be changed globally by
-     customizing voice-lock-overlay-3-settings.
 

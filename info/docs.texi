@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1185 commands and 1119 options.
+This chapter documents a total of 1189 commands and 1119 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -3987,6 +3987,72 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 
 @end defvar
 
+@defvar {User Option} emacspeak-voice-latex-bold-personality
+Personality used for font-latex-bold-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-doctex-documentation-personality
+Personality used for font-latex-doctex-documentation-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-doctex-preprocessor-personality
+Personality used for font-latex-doctex-preprocessor-face
+This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-italic-personality
+Personality used for font-latex-italic-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-math-personality
+Personality used for font-latex-math-face
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-sedate-personality
+Personality used for font-latex-sedate-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-string-personality
+Personality used for font-latex-string-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-subscript-personality
+Personality used for font-latex-subscript-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-superscript-personality
+Personality used for font-latex-superscript-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-verbatim-personality
+Personality used for font-latex-verbatim-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-warning-personality
+Personality used for font-latex-warning-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-voice-lock-builtin-personality
 Personality used for font-lock-builtin-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
@@ -4687,74 +4753,6 @@ Speak the size of the file on current line
 
 Speech-enables the AucTeX package.
 AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
-
-@subsection emacspeak-auctex Options
-
-@defvar {User Option} emacspeak-voice-latex-bold-personality
-Personality used for font-latex-bold-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-doctex-documentation-personality
-Personality used for font-latex-doctex-documentation-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-doctex-preprocessor-personality
-Personality used for font-latex-doctex-preprocessor-face
-This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-italic-personality
-Personality used for font-latex-italic-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-math-personality
-Personality used for font-latex-math-face
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-sedate-personality
-Personality used for font-latex-sedate-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-string-personality
-Personality used for font-latex-string-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-subscript-personality
-Personality used for font-latex-subscript-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-superscript-personality
-Personality used for font-latex-superscript-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-verbatim-personality
-Personality used for font-latex-verbatim-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-warning-personality
-Personality used for font-latex-warning-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
 
 @node emacspeak-aumix
 @section emacspeak-aumix
@@ -11534,6 +11532,7 @@ s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
 u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
+w		emacspeak-m-player-write-clip
 x		emacspeak-m-player-pan
 @{		emacspeak-m-player-half-speed
 @}		emacspeak-m-player-double-speed
@@ -11547,6 +11546,8 @@ DEL		emacspeak-m-player-reset-speed
 <right>		emacspeak-m-player-forward-10s
 <up>		emacspeak-m-player-backward-1min
 
+M-[		emacspeak-m-player-set-clip-start
+M-]		emacspeak-m-player-set-clip-end
 M-l		emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
@@ -11735,6 +11736,24 @@ Seek  by offset into stream from current position.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-set-clip-end
+@deffn {Command} emacspeak-m-player-set-clip-end   
+@findex emacspeak-m-player-set-clip-end
+
+@format
+Set end of clip marker.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-set-clip-start
+@deffn {Command} emacspeak-m-player-set-clip-start   
+@findex emacspeak-m-player-set-clip-start
+
+@format
+Set start of clip marker.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-shuffle
 @deffn {Command} emacspeak-m-player-shuffle   
 @table @kbd
@@ -11889,6 +11908,15 @@ Increase volume.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-write-clip
+@deffn {Command} emacspeak-m-player-write-clip   
+@findex emacspeak-m-player-write-clip
+
+@format
+Invoke mp3splt to clip selected range in current file.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-youtube-player
 @deffn {Command} emacspeak-m-player-youtube-player  (url)
 @findex emacspeak-m-player-youtube-player
@@ -11973,6 +12001,7 @@ s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
 u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
+w		emacspeak-m-player-write-clip
 x		emacspeak-m-player-pan
 @{		emacspeak-m-player-half-speed
 @}		emacspeak-m-player-double-speed
@@ -11986,6 +12015,8 @@ DEL		emacspeak-m-player-reset-speed
 <right>		emacspeak-m-player-forward-10s
 <up>		emacspeak-m-player-backward-1min
 
+M-[		emacspeak-m-player-set-clip-start
+M-]		emacspeak-m-player-set-clip-end
 M-l		emacspeak-m-player-load-playlist
 
 .
@@ -13170,11 +13201,6 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
 @subsubsection emacspeak-muggles-outliner/body
 @deffn {Command} emacspeak-muggles-outliner/body   
-@table @kbd
-@item C-c .
-@kindex C-c .
-@end table
-
 @findex emacspeak-muggles-outliner/body
 
 @format
@@ -25122,6 +25148,15 @@ Parameter ‘theme’ specifies variant.
 @end format
 @end deffn
 
+@subsubsection sox-gen-kill-process
+@deffn {Command} sox-gen-kill-process   
+@findex sox-gen-kill-process
+
+@format
+Delete SoX process at the front of the sox-gen-processes list.
+@end format
+@end deffn
+
 @subsubsection sox-relax
 @deffn {Command} sox-relax  (length)
 @findex sox-relax
@@ -25463,12 +25498,12 @@ Interactively toggle voice lock.
 @subsubsection voice-setup-describe-personality
 @deffn {Command} voice-setup-describe-personality  (personality)
 @table @kbd
-@item C-h "
-@kindex C-h "
-@item <f1> "
-@kindex <f1> "
-@item <help> "
-@kindex <help> "
+@item C-h C-v
+@kindex C-h C-v
+@item <f1> C-v
+@kindex <f1> C-v
+@item <help> C-v
+@kindex <help> C-v
 @end table
 
 @findex voice-setup-describe-personality
