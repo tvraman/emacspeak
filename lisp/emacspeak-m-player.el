@@ -1078,8 +1078,8 @@ arg `reset' starts with all filters set to 0."
 
 (defvar emacspeak-m-player-bindings
   '(
-    ("M-[" emacspeak-m-player-set-clip-start)
-    ("M-]" emacspeak-m-player-set-clip-end)
+    ("M-," emacspeak-m-player-set-clip-start)
+    ("M-." emacspeak-m-player-set-clip-end)
     (";" emacspeak-m-player-pop-to-player)
     ("%" emacspeak-m-player-display-percent)
     ("(" emacspeak-m-player-left-channel)
