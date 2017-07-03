@@ -174,7 +174,7 @@ Optional interactive prefix arg prompts for a filename."
      (2048-print-board))
     (message "Added row.")))
 
-(defun emacspeak-2048-drop-row ()
+ (defun emacspeak-2048-drop-row ()
   "Drop last  row  from  the current board."
   (interactive)
   (declare (special *2048-board* *2048-rows*))
@@ -207,6 +207,25 @@ Optional interactive prefix arg prompts for a filename."
             (aref board index)))
      (message "Added column."))))
 
+
+ (defun emacspeak-2048-drop-column ()
+  "Drop last  row  from  the current board."
+  (interactive)
+  (declare (special *2048-board* *2048-columns* *2048-columns*))
+	(let ((board (copy-sequence *2048-board*))
+				(bound 0))
+		(setq *2048-columns* (1- *2048-columns*))
+    (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
+    (cl-loop
+     for   i from 0 to (1- (length *2048-board*)) do
+		 (cond
+		 ((= bound *2048-columns*) (setq bound 0))
+		 (t
+			(incf bound)
+     (aset  *2048-board* i  (aref board i)))))
+     (2048-print-board))
+    (emacspeak-auditory-icon 'delete-object)
+    (message "Dropped column."))
 (defun emacspeak-2048-board-reset ()
   "Reset board to default size."
   (declare (special *2048-rows* *2048-columns* *2048-board*))
@@ -269,6 +288,7 @@ Optional interactive prefix arg prompts for a filename."
   (voice-lock-mode -1)
   (define-key 2048-mode-map "#" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
+	(define-key 2048-mode-map "d" 'emacspeak-2048-drop-column)
   (define-key 2048-mode-map "P" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
   (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)
