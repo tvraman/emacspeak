@@ -1652,6 +1652,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (interactive)
   (declare (special emacspeak-sox
                     emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
+	(cl-assert emacspeak-sox  nil "SoX needs to be installed to use this command.")
   (cl-assert (eq major-mode 'emacspeak-m-player-mode ) nil "Not in an MPlayer buffer.")
   (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")
   (cl-assert (numberp emacspeak-m-player-clip-end) nil "Set end of clip with M-]")
