@@ -121,7 +121,7 @@
 ;;;###autoload
 (defcustom soundscape-manager-options
   '("-o" "alsa"
-    "-m" "0.5")
+    "-m" "0.4")
   "User customizable options list passed to boodler.
 Defaults specify alsa as the output and set master volume to 0.5"
   :group 'soundscape
