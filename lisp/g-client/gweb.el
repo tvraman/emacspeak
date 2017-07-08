@@ -97,27 +97,26 @@
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
-  (unless (> (length input) 0) (setq input minibuffer-default))
   (unless corpus (setq corpus "psy"))
 	(when input 
 		(g-using-scratch
-   (let ((js nil)
-         (url (format gweb-suggest-url corpus (g-url-encode input))))
-     (call-process
-      g-curl-program
-      nil t nil
-      "-s" url)
-     (goto-char (point-min))
-     (setq js (json-read))
-     (setq js  (aref js 1))
-     (cl-loop for e across js
-           collect
-           (replace-regexp-in-string
-            "</?b>" ""
-            ;;; note: psy is different:
-            (if (string= corpus "psy")
-                (aref e 0)
-              e)))))))
+		 (let ((js nil)
+					 (url (format gweb-suggest-url corpus (g-url-encode input))))
+			 (call-process
+				g-curl-program
+				nil t nil
+				"-s" url)
+			 (goto-char (point-min))
+			 (setq js (json-read))
+			 (setq js  (aref js 1))
+			 (cl-loop for e across js
+								collect
+								(replace-regexp-in-string
+								 "</?b>" ""
+;;; note: psy is different:
+								 (if (string= corpus "psy")
+										 (aref e 0)
+									 e)))))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
@@ -130,7 +129,8 @@
 
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
-  (save-current-buffer
+	(when (and (stringp string) (> (length string)  0))
+		(save-current-buffer
     (set-buffer
      (let ((window (minibuffer-selected-window)))
        (if (window-live-p window)
@@ -141,7 +141,7 @@
      (t
       (complete-with-action action
                             (gweb-suggest string)
-                            string predicate)))))
+                            string predicate))))))
 
 ;;{{{  Generate suggest handlers for Google properties
 (cl-loop for c in
