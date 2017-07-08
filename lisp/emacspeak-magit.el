@@ -58,13 +58,8 @@
 (voice-setup-add-map
  '(
    (magit-branch-current voice-lighten)
-   (magit-diff-add voice-animate-extra)
-   (magit-diff-del voice-animate-extra)
-   (magit-diff-file-header voice-animate)
-   (magit-diff-hunk-header voice-animate-medium)
-   (magit-diff-none voice-monotone)
-   (magit-item-highlight voice-brighten)
-   (magit-item-mark voice-lighten-extra)
+   (magit-diff-added voice-animate-extra)
+   (magit-diff-added-highlight voice-animate-extra)
    (magit-log-graph voice-monotone)
    (magit-log-head-label-bisect-bad voice-smoothen)
    (magit-log-head-label-bisect-good voice-bolden)
