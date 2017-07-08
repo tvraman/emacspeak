@@ -98,7 +98,7 @@
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
   (unless (> (length input) 0)
-		(setq input (or minibuffer-default " ")))
+		(setq input (or minibuffer-default "emacspeak")))
   (unless corpus (setq corpus "psy"))
   (g-using-scratch
    (let ((js nil)
