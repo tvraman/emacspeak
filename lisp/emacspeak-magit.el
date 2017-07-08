@@ -57,7 +57,7 @@
 ;;{{{ Map voices to faces:
 (voice-setup-add-map
  '(
-   (magit-branch voice-lighten)
+   (magit-branch-current voice-lighten)
    (magit-diff-add voice-animate-extra)
    (magit-diff-del voice-animate-extra)
    (magit-diff-file-header voice-animate)
