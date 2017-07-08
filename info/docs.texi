@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1189 commands and 1108 options.
+This chapter documents a total of 1190 commands and 1153 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4164,6 +4164,15 @@ Add a column  to the current board.
 
 @format
 Add a row  to the current board.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-drop-column
+@deffn {Command} emacspeak-2048-drop-column   
+@findex emacspeak-2048-drop-column
+
+@format
+Drop last  row  from  the current board.
 @end format
 @end deffn
 
@@ -11884,6 +11893,60 @@ git clone git://github.com/magit/magit.git
 
 @subsection emacspeak-magit Options
 
+@defvar {User Option} emacspeak-magit-bisect-bad-voice
+Personality used for magit-bisect-bad
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-bisect-good-voice
+Personality used for magit-bisect-good
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-bisect-skip-voice
+Personality used for magit-bisect-skip
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-blame-date-voice
+Personality used for magit-blame-date
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-blame-hash-voice
+Personality used for magit-blame-hash
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-blame-heading-voice
+Personality used for magit-blame-heading
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-blame-name-voice
+Personality used for magit-blame-name
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-blame-summary-voice
+Personality used for magit-blame-summary
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-branch-current-voice
+Personality used for magit-branch-current
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-branch-local-voice
 Personality used for magit-branch-local
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
@@ -11896,15 +11959,15 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-branch-voice
-Personality used for magit-branch
+@defvar {User Option} emacspeak-magit-cherry-equivalent-voice
+Personality used for magit-cherry-equivalent
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-diff-add-voice
-Personality used for magit-diff-add
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+@defvar {User Option} emacspeak-magit-cherry-unmatched-voice
+Personality used for magit-cherry-unmatched
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -11914,9 +11977,27 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-diff-added-voice
+Personality used for magit-diff-added
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-diff-base-highlight-voice
 Personality used for magit-diff-base-highlight
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-base-voice
+Personality used for magit-diff-base
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-conflict-heading-voice
+Personality used for magit-diff-conflict-heading
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 
 @end defvar
 
@@ -11926,15 +12007,9 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-diff-del-voice
-Personality used for magit-diff-del
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-diff-file-header-voice
-Personality used for magit-diff-file-header
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+@defvar {User Option} emacspeak-magit-diff-context-voice
+Personality used for magit-diff-context
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
@@ -11944,9 +12019,15 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-diff-hunk-header-voice
-Personality used for magit-diff-hunk-header
-This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
+@defvar {User Option} emacspeak-magit-diff-file-heading-selection-voice
+Personality used for magit-diff-file-heading-selection
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-file-heading-voice
+Personality used for magit-diff-file-heading
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -11956,15 +12037,45 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-diff-hunk-heading-selection-voice
+Personality used for magit-diff-hunk-heading-selection
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-diff-hunk-heading-voice
 Personality used for magit-diff-hunk-heading
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-diff-none-voice
-Personality used for magit-diff-none
+@defvar {User Option} emacspeak-magit-diff-hunk-region-voice
+Personality used for magit-diff-hunk-region
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-lines-boundary-voice
+Personality used for magit-diff-lines-boundary
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-lines-heading-voice
+Personality used for magit-diff-lines-heading
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-our-highlight-voice
+Personality used for magit-diff-our-highlight
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-our-voice
+Personality used for magit-diff-our
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
@@ -11974,9 +12085,45 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-diff-removed-voice
+Personality used for magit-diff-removed
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-their-highlight-voice
+Personality used for magit-diff-their-highlight
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-their-voice
+Personality used for magit-diff-their
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diffstat-added-voice
+Personality used for magit-diffstat-added
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diffstat-removed-voice
+Personality used for magit-diffstat-removed
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-dimmed-voice
 Personality used for magit-dimmed
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-filename-voice
+Personality used for magit-filename
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -11986,21 +12133,33 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-head-voice
+Personality used for magit-head
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-header-line-voice
 Personality used for magit-header-line
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-item-highlight-voice
-Personality used for magit-item-highlight
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@defvar {User Option} emacspeak-magit-keyword-voice
+Personality used for magit-keyword
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-item-mark-voice
-Personality used for magit-item-mark
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@defvar {User Option} emacspeak-magit-log-author-voice
+Personality used for magit-log-author
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-log-date-voice
+Personality used for magit-log-date
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
@@ -12010,63 +12169,15 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-log-head-label-bisect-bad-voice
-Personality used for magit-log-head-label-bisect-bad
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-head-label-bisect-good-voice
-Personality used for magit-log-head-label-bisect-good
+@defvar {User Option} emacspeak-magit-popup-argument-voice
+Personality used for magit-popup-argument
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-log-head-label-default-voice
-Personality used for magit-log-head-label-default
+@defvar {User Option} emacspeak-magit-popup-disabled-argument-voice
+Personality used for magit-popup-disabled-argument
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-head-label-local-voice
-Personality used for magit-log-head-label-local
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-head-label-patches-voice
-Personality used for magit-log-head-label-patches
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-head-label-remote-voice
-Personality used for magit-log-head-label-remote
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-head-label-tags-voice
-Personality used for magit-log-head-label-tags
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-message-voice
-Personality used for magit-log-message
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-sha1-voice
-Personality used for magit-log-sha1
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-log-tag-label-voice
-Personality used for magit-log-tag-label
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
@@ -12079,6 +12190,90 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-magit-popup-key-voice
 Personality used for magit-popup-key
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-popup-option-value-voice
+Personality used for magit-popup-option-value
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-amend-voice
+Personality used for magit-reflog-amend
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-checkout-voice
+Personality used for magit-reflog-checkout
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-cherry-pick-voice
+Personality used for magit-reflog-cherry-pick
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-commit-voice
+Personality used for magit-reflog-commit
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-merge-voice
+Personality used for magit-reflog-merge
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-other-voice
+Personality used for magit-reflog-other
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-rebase-voice
+Personality used for magit-reflog-rebase
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-remote-voice
+Personality used for magit-reflog-remote
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-reflog-reset-voice
+Personality used for magit-reflog-reset
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-refname-stash-voice
+Personality used for magit-refname-stash
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-refname-voice
+Personality used for magit-refname
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-refname-wip-voice
+Personality used for magit-refname-wip
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-section-heading-selection-voice
+Personality used for magit-section-heading-selection
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -12097,6 +12292,90 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-magit-section-secondary-heading-voice
 Personality used for magit-section-secondary-heading
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-done-voice
+Personality used for magit-sequence-done
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-drop-voice
+Personality used for magit-sequence-drop
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-head-voice
+Personality used for magit-sequence-head
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-onto-voice
+Personality used for magit-sequence-onto
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-part-voice
+Personality used for magit-sequence-part
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-pick-voice
+Personality used for magit-sequence-pick
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-sequence-stop-voice
+Personality used for magit-sequence-stop
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-bad-voice
+Personality used for magit-signature-bad
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-error-voice
+Personality used for magit-signature-error
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-expired-key-voice
+Personality used for magit-signature-expired-key
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-expired-voice
+Personality used for magit-signature-expired
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-good-voice
+Personality used for magit-signature-good
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-revoked-voice
+Personality used for magit-signature-revoked
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-signature-untrusted-voice
+Personality used for magit-signature-untrusted
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 
 @end defvar
 

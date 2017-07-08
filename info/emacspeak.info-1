@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 1, 2017.
+last updated on July 8, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1189 commands and 1108 options.
+This chapter documents a total of 1190 commands and 1153 options.
 
 * Menu:
 
@@ -6422,14 +6422,21 @@ Speech-enable 2048 Game
 
      Add a row  to the current board.
 
-12.10.1.3 emacspeak-2048-drop-row
+12.10.1.3 emacspeak-2048-drop-column
+....................................
+
+ -- Command: emacspeak-2048-drop-column
+
+     Drop last  row  from  the current board.
+
+12.10.1.4 emacspeak-2048-drop-row
 .................................
 
  -- Command: emacspeak-2048-drop-row
 
      Drop last  row  from  the current board.
 
-12.10.1.4 emacspeak-2048-export
+12.10.1.5 emacspeak-2048-export
 ...............................
 
  -- Command: emacspeak-2048-export (&optional prompt)
@@ -6440,7 +6447,7 @@ Speech-enable 2048 Game
 
      (fn &optional PROMPT)
 
-12.10.1.5 emacspeak-2048-import
+12.10.1.6 emacspeak-2048-import
 ...............................
 
  -- Command: emacspeak-2048-import (&optional prompt)
@@ -6450,14 +6457,14 @@ Speech-enable 2048 Game
 
      (fn &optional PROMPT)
 
-12.10.1.6 emacspeak-2048-pop-state
+12.10.1.7 emacspeak-2048-pop-state
 ..................................
 
  -- Command: emacspeak-2048-pop-state
 
      Reset state from stack.
 
-12.10.1.7 emacspeak-2048-prune-stack
+12.10.1.8 emacspeak-2048-prune-stack
 ....................................
 
  -- Command: emacspeak-2048-prune-stack (drop)
@@ -6466,15 +6473,15 @@ Speech-enable 2048 Game
 
      (fn DROP)
 
-12.10.1.8 emacspeak-2048-push-state
+12.10.1.9 emacspeak-2048-push-state
 ...................................
 
  -- Command: emacspeak-2048-push-state
 
      Push current game state on stack.
 
-12.10.1.9 emacspeak-2048-randomize-game
-.......................................
+12.10.1.10 emacspeak-2048-randomize-game
+........................................
 
  -- Command: emacspeak-2048-randomize-game (&optional count)
 
@@ -6482,21 +6489,21 @@ Speech-enable 2048 Game
 
      (fn &optional COUNT)
 
-12.10.1.10 emacspeak-2048-score
+12.10.1.11 emacspeak-2048-score
 ...............................
 
  -- Command: emacspeak-2048-score
 
      Show total on board.
 
-12.10.1.11 emacspeak-2048-speak-board
+12.10.1.12 emacspeak-2048-speak-board
 .....................................
 
  -- Command: emacspeak-2048-speak-board
 
      Speak board.
 
-12.10.1.12 emacspeak-2048-speak-transposed-board
+12.10.1.13 emacspeak-2048-speak-transposed-board
 ................................................
 
  -- Command: emacspeak-2048-speak-transposed-board

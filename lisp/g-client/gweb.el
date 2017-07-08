@@ -97,7 +97,8 @@
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
-  (unless (> (length input) 0) (setq input minibuffer-default))
+  (unless (> (length input) 0)
+		(setq input (or minibuffer-default " ")))
   (unless corpus (setq corpus "psy"))
   (g-using-scratch
    (let ((js nil)
