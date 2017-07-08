@@ -376,6 +376,7 @@ _f_ auto-fill-mode:    %`auto-fill-function
 _g_ debug-on-quit:    %`debug-on-quit
 _h_ hydra-is-helpful    %`hydra-is-helpful
 _i_ ido-everywhere    %`ido-everywhere
+_I_ flx-ido-mode    %`flx-ido-mode
 _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 _w_ whitespace-mode:   %`whitespace-mode
@@ -389,6 +390,7 @@ _w_ whitespace-mode:   %`whitespace-mode
    ("g"  toggle-debug-on-quit)
    ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
    ("i" ido-everywhere)
+	 ("I" flx-ido-mode)
    ("t" toggle-truncate-lines)
    ("u" ido-ubiquitous-mode "Ubiquitous IDo")
    ("w" whitespace-mode)
