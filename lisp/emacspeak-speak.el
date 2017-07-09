@@ -964,7 +964,11 @@ are indicated with auditory icon ellipses."
             (inhibit-modification-hooks t)
             (line nil)
             (orig (point))
-            (linenum (when (and (boundp 'linum-mode) linum-mode)  (line-number-at-pos)))
+            (linenum 
+						 (when
+								 (or (bound-and-true-p display-line-numbers)
+										 (bound-and-true-p linenum-mode))
+							 (line-number-at-pos)))
             (indent nil))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
@@ -1032,7 +1036,7 @@ are indicated with auditory icon ellipses."
                 (put-text-property   0 (length indent)
                                      'personality voice-indent   indent)
                 (setq line (concat indent line)))
-              (when (and linum-mode linenum)
+              (when  linenum
                 (setq linenum (format "%d" linenum))
                 (setq linenum (propertize linenum 'personality   voice-lighten))
                 (setq line (concat linenum line)))
