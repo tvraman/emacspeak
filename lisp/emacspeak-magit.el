@@ -242,11 +242,13 @@ magit-section-show-level-3-all magit-section-show-level-4-all
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
-(defadvice magit-invoke-popup-action (before emacspeak pre act comp)
+(defadvice magit-invoke-popup-action (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
 		(dtk-stop)
-		(emacspeak-auditory-icon 'close-object)))
+		(dtk-notify-stop)
+		(emacspeak-auditory-icon 'close-object)
+		(emacspeak-speak-mode-line)))
 
 	
 ;;}}}
