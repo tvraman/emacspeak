@@ -785,7 +785,7 @@ Arguments START and END specify region to speak."
 (defun dtk-stop (&optional all)
   "Stop speech now.
 Optional arg `all' or interactive call   silences notification stream as well."
-  (interactive)
+  (interactive "P")
   (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
   (when
 			(and (dtk-notify-process) (or all (called-interactively-p 'interactive)))
