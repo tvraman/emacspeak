@@ -62,6 +62,7 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
 (require 'derived)
+(eval-when-compile(require 'subr-x))
 (require 'locate)
 ;;}}}
 ;;{{{  Customizations, Variables:
