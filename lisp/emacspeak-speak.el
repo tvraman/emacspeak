@@ -2829,7 +2829,9 @@ Numeric prefix arg COUNT specifies number of lines to move."
     (set-buffer (window-buffer (next-window)))
     (goto-char (window-point))
     (emacspeak-speak-line)))
-
+(defun emacspeak-speak-current-window ()
+	"Speak window contents."
+	(emacspeak-speak-region (window-start) (window-end)))
 ;;;###autoload
 (defun emacspeak-speak-predefined-window (&optional arg)
   "Speak one of the first 10 windows on the screen.
