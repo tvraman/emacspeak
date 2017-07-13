@@ -48,7 +48,7 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
-;(when (> emacs-major-version 24) (package-initialize))
+(eval-when-compile (when (> emacs-major-version 24) (package-initialize)))
 
 ;;}}}
 
