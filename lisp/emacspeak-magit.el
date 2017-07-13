@@ -245,7 +245,7 @@ magit-section-show-level-3-all magit-section-show-level-4-all
 (defadvice magit-invoke-popup-action (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-		(call-interactively #'dtk-stop)
+		(dtk-stop 'all)
 		(emacspeak-auditory-icon 'close-object)
 		(emacspeak-speak-mode-line)))
 
