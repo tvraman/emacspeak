@@ -782,12 +782,14 @@ Arguments START and END specify region to speak."
       (dtk-interp-say string))))
 
 ;;;###autoload
-(defun dtk-stop ()
+(defun dtk-stop (&optional all)
   "Stop speech now.
-Interactive call   silences notification stream as well."
+Optional arg `all' or interactive call   silences notification stream as well."
   (interactive)
   (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
-  (when  (called-interactively-p 'interactive)    (dtk-notify-stop)))
+  (when
+			(and (dtk-notify-process) (or all (called-interactively-p 'interactive)))
+    (dtk-notify-stop)))
 
 (defun dtk-reset-default-voice()
   (declare (special tts-default-voice))

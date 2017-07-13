@@ -652,7 +652,11 @@ Suitable for text searches."
   (declare (special emacspeak-epub-files-command
                     emacspeak-speak-directory-settings
                     emacspeak-epub-this-epub))
-  (let* ((directory (file-name-directory epub-file))
+  (let* ((directory
+					(string-trim
+					 (shell-command-to-string
+						(format "cd %s; pwd" 
+										(file-name-directory epub-file)))))
         (locals (locate-dominating-file directory emacspeak-speak-directory-settings))
         (buffer (get-buffer-create "FullText EPub"))
         (files
