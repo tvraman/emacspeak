@@ -59,7 +59,7 @@
 (require 'gweb)
 (require 'gmaps)
 (require 'derived)
-(require 'html2text)
+
 ;;}}}
 ;;{{{ Data Structures
 

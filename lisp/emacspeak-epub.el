@@ -82,8 +82,7 @@
   "Command to convert html to text on stdin."
 
   :type '(choice
-          (const :tag "lynx"  "lynx -dump -stdin")
-          (const "html2text" "html2text"))
+          (const :tag "lynx"  "lynx -dump -stdin"))
   :group 'emacspeak-epub)
 
 (defvar emacspeak-epub-zip-extract
