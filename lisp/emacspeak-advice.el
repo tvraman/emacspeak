@@ -780,6 +780,7 @@ icon."
      "Speak the prompt"
      (let ((prompt (ad-get-arg 0))
 					 (dtk-stop-immediately nil))
+       (emacspeak-auditory-icon 'item)
        (setq emacspeak-last-message prompt)
        (setq emacspeak-read-char-prompt-cache prompt)
        (tts-with-punctuations
