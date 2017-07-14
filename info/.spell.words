@@ -152,6 +152,7 @@ Dfilter
 DHTML
 dialup
 dichotically
+diffstat
 dired
 Dired
 DIRNAME
@@ -316,7 +317,6 @@ IDE
 ido
 IDO
 iheart
-IIT
 ILisp
 IM
 IMap
@@ -329,6 +329,7 @@ infromation
 inlined
 inlinetask
 inputed
+Installable
 interop
 interp
 invada
@@ -353,7 +354,6 @@ ju
 kbd
 kcbsFM
 keybinding
-Keybinding
 keybindings
 Keybindings
 keymap
@@ -522,10 +522,12 @@ readonly
 RealAudio
 RealPlayer
 reb
+rebase
+reflog
+refname
 refteex
 reftex
 reinstall
-rekey
 renderer
 Renderer
 repl
@@ -535,7 +537,10 @@ restartable
 RET
 reverb
 Reverb
+rg
+RG
 RichText
+ripgrep
 rivo
 rjc
 rmail
@@ -568,10 +573,10 @@ Sep
 ses
 sexp
 SFO
-sha
 shr
+shx
+SHX
 sigbegone
-siggen
 sigs
 situationally
 sldb
@@ -579,8 +584,6 @@ smil
 smoothen
 Smoothen
 snd
-sonification
-Sonification
 Sorenson
 soundscape
 Soundscape
@@ -659,6 +662,8 @@ transcoder
 Transcoder
 Treese
 trplayer
+tts
+TTS
 tty
 TuneIn
 tvr
@@ -678,6 +683,7 @@ unraised
 unselected
 untabify
 untranscode
+untrusted
 upto
 uri
 URI
@@ -689,9 +695,12 @@ utils
 vc
 vco
 vcs
+vdiff
+VDIFF
 Veillard's
 ViaVoice
 viewability
+vimdiff
 vm
 VM
 VMMail
@@ -725,6 +734,7 @@ WikiData
 windmove
 winring
 WinRing
+wip
 WordNet
 wunderground
 wvText
