@@ -393,7 +393,6 @@ _w_ whitespace-mode:   %`whitespace-mode
 	 ("I" flx-ido-mode)
    ("t" toggle-truncate-lines)
    ("u" ido-ubiquitous-mode "Ubiquitous IDo")
-   ("w" whitespace-mode)
    ("q" nil "quit")))
 
 ;;}}}
