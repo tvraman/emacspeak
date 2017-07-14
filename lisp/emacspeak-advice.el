@@ -778,7 +778,8 @@ icon."
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak the prompt"
-     (let ((prompt (ad-get-arg 0)))
+     (let ((prompt (ad-get-arg 0))
+					 (dtk-stop-immediately nil))
        (setq emacspeak-last-message prompt)
        (setq emacspeak-read-char-prompt-cache prompt)
        (tts-with-punctuations
