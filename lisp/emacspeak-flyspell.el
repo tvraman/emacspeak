@@ -52,7 +52,7 @@
 ;;; @item helm: A helm interface for picking amongst  corrections.
 ;;; @end itemize
 ;;;
-;;; Use Customization emacspeak-flyspell-correct-interface to pick
+;;; Use Customization emacspeak-flyspell-correct to pick
 ;;; between ido, popup and helm.
 
 ;;; Code:
