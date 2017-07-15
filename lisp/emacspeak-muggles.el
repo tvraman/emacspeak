@@ -379,8 +379,6 @@ _i_ ido-everywhere    %`ido-everywhere
 _I_ flx-ido-mode    %`flx-ido-mode
 _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
-_w_ whitespace-mode:   %`whitespace-mode
-
 "
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
    ("F" flyspell-mode)
