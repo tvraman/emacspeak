@@ -51,15 +51,16 @@ which defaults to emacs-personal-library."
 
 (defun load-library-if-available (lib)
   "Safe load library."
-  (let ((emacspeak-speak-messages nil))
+  (let ((emacspeak-speak-messages nil)
+        (start nil))
     (condition-case nil
         (cond
          ((locate-library lib)
-          (message "Start: %s at %s" lib (format-time-string "%H.%M.%S.%3N"))
+          (setq start (current-time))
           (load-library lib)
-          (message "Done: %s at %s" lib (format-time-string "%H.%M.%S.%3N"))
-          (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item))
-          (message "Loaded %s" lib))
+          (message "<%s %s/>"  lib (format-time-string "%H.%M.%S.%3N" (time-subtract (current-time) start)))
+          (setq start nil)
+          (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item)))
          (t (message "Could not locate library %s" lib)
             nil))
       (error (message "Error loading %s" lib)))))
