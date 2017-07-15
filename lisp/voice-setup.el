@@ -560,7 +560,7 @@ either case, the buffer is refontified to have the new mapping
 take effect."
   (interactive)
   (declare (special voice-setup-buffer-face-voice-table))
-  (let* ((personality (get-text-property (point) 'personality))
+  (let* ((personality  (dtk-get-style))
          (face (get-text-property (point) 'face))
          (orig (gethash face voice-setup-buffer-face-voice-table)))
     (cond
