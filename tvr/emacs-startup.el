@@ -237,8 +237,6 @@ which defaults to emacs-personal-library."
     (server-start)
     (pinentry-start)
     (bbdb-insinuate-vm)
-    (when (locate-library "ido-ubiquitous") (ido-ubiquitous-mode 1))
-
     ;;}}}
     ;;{{{ Save abbrevs On Quit:
 
