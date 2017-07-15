@@ -58,7 +58,7 @@ which defaults to emacs-personal-library."
          ((locate-library lib)
           (setq start (current-time))
           (load-library lib)
-          (message "<%s %s/>"  lib (format-time-string "%H.%M.%S.%3N" (time-subtract (current-time) start)))
+          (message "<%s %s/>"  lib (float-time (time-subtract (current-time) start)))
           (setq start nil)
           (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item)))
          (t (message "Could not locate library %s" lib)
@@ -131,7 +131,7 @@ which defaults to emacs-personal-library."
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
       (when (featurep 'emacspeak)
         (emacspeak-sounds-select-theme "pan-chimes/"))
-      (message "<emacspeak %s/>"   (format-time-string "%H.%M.%S.%3N" (time-subtract (current-time) e-start))))
+      (message "<emacspeak %s/>"   (float-time (time-subtract (current-time) e-start))))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
 
