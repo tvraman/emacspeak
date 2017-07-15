@@ -25,7 +25,7 @@
   "Exactly like setq, but handles custom."
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 
-(defsubst augment-load-path (path &optional library whence at-end)
+(defun augment-load-path (path &optional library whence at-end)
   "add directory to load path. Path is resolved relative to `whence'
 which defaults to emacs-personal-library."
   (interactive "Denter directory name: ")
@@ -41,7 +41,7 @@ which defaults to emacs-personal-library."
      at-end))
   (when library (locate-library library)))
 
-(defsubst augment-auto-mode-alist (ext mode)
+(defun augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
   (setq auto-mode-alist
@@ -58,7 +58,9 @@ which defaults to emacs-personal-library."
          ((locate-library lib)
           (setq start (current-time))
           (load-library lib)
-          (message "<%s %s>"  lib (float-time (time-subtract (current-time) start)))
+          (message
+           "<%s %s>"
+           lib (float-time (time-subtract (current-time) start)))
           (setq start nil)
           (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item)))
          (t (message "Could not locate library %s" lib)
@@ -66,7 +68,7 @@ which defaults to emacs-personal-library."
       (error (message "Error loading %s" lib)))))
 
 ;;}}}
-;;{{{ shell-bind-keys:
+;;{{{ tvr-shell-bind-keys:
 
 (defun tvr-shell-bind-keys ()
   "Set up additional shell mode keys."
@@ -91,6 +93,7 @@ which defaults to emacs-personal-library."
 
 ;;}}}
 ;;{{{ customize custom
+
 (defun tvr-customize ()
   "Load my customizations from my custom-file."
   (declare (special custom-file))
@@ -101,7 +104,8 @@ which defaults to emacs-personal-library."
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (declare (special emacs-personal-library emacs-private-library))
-  (let ((gc-cons-threshold 8000000))
+  (let ((gc-cons-threshold 8000000)
+        (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
     (tooltip-mode -1)
@@ -123,9 +127,10 @@ which defaults to emacs-personal-library."
 
     (when (file-exists-p  emacs-personal-library)
       (augment-load-path emacs-personal-library))
-
+    (package-initialize)
     ;;}}}
     ;;{{{ Load and customize emacspeak
+
     (let ((e-start (current-time)))
       (load-file
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
@@ -153,14 +158,13 @@ which defaults to emacs-personal-library."
        ([f11]shell)
        ([f12]vm)
        ( "\C-xc"compile)
-       (  "\C-x%"comment-region)
        ( "\M-r"replace-string)
        ( "\M-e"end-of-word)
        ( "\M-\C-j"imenu)
        ( "\M-\C-c"calendar))
      do
      (global-set-key (first key) (second key)))
-;;; Experimental:
+
     (global-set-key [S-return] 'other-window)
 
 ;;; Smarten up ctl-x-map
@@ -179,13 +183,6 @@ which defaults to emacs-personal-library."
     (unless enable-completion (completion-mode ))
 
     ;;}}}
-    ;;{{{  different mode settings
-
-;;; Mode hooks.
-
-
-
-    ;;}}}
     ;;{{{ outline mode setup:
 
     (load-library-if-available "outline")
@@ -195,8 +192,6 @@ which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
-
-    (package-initialize)
 
     ;;; mail-abbrevs-setup added to mail-mode hooks in custom.
 
@@ -211,7 +206,7 @@ which defaults to emacs-personal-library."
        "mspools-prepare" "sigbegone"
        "vdiff-prepare"
 ;;; Web:
-       ;"w3-prepare"
+                                        ;"w3-prepare"
        "elfeed-prepare"
 ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
@@ -224,12 +219,12 @@ which defaults to emacs-personal-library."
                                         ;"jde-prepare" "ecb-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
-       ;"tramp-prepare"
+                                        ;"tramp-prepare"
        "fap-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-setup"
        "color-theme-prepare"
-       ;"elscreen-prepare"
+                                        ;"elscreen-prepare"
        "local"))
 
     ;;}}}
@@ -252,27 +247,30 @@ which defaults to emacs-personal-library."
       (add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
+    (message "<start-up-my-emacs %s>"
+             (float-time (time-subtract (current-time) tvr-start)))
     )) ;end defun
 ;;{{{  start it up
 
 (add-hook
  'after-init-hook
  #'(lambda ()
-     (tvr-customize)
-     (soundscape-toggle)
-     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-     (calendar)
-     (when (dbus-list-known-names :session)
-       (nm-enable)
-       (emacspeak-dbus-sleep-enable)
-       (emacspeak-dbus-watch-screen-lock))
-     (custom-reevaluate-setting 'gweb-my-address)
-
-     (emacspeak-wizards-project-shells-initialize)
-     (play-sound
-      `(sound
-        :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
-     (message "Successfully initialized Emacs for %s" user-login-name)))
+     (let ((after-start (current-time)))
+       (tvr-customize)
+       (soundscape-toggle)
+       (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+       (calendar)
+       (when (dbus-list-known-names :session)
+         (nm-enable)
+         (emacspeak-dbus-sleep-enable)
+         (emacspeak-dbus-watch-screen-lock))
+       (custom-reevaluate-setting 'gweb-my-address)
+       (emacspeak-wizards-project-shells-initialize)
+       (play-sound
+        `(sound
+          :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
+       (message "<%s after-init-hook " (float-time (time-subtract (current-time) after-start)))
+       (message "Successfully initialized Emacs for %s" user-login-name))))
 (start-up-my-emacs)
 
 ;;}}}
