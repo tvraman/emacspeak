@@ -227,7 +227,8 @@ which defaults to emacs-personal-library."
        "tramp-prepare"  "fap-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-setup"
-       "color-theme-prepare" "elscreen-prepare"
+       "color-theme-prepare"
+       ;"elscreen-prepare"
        "local"))
 
     ;;}}}
