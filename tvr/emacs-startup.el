@@ -55,7 +55,9 @@ which defaults to emacs-personal-library."
     (condition-case nil
         (cond
          ((locate-library lib)
+          (message "Start: %s at %s" lib (format-time-string "%H.%M.%S.%3N"))
           (load-library lib)
+          (message "Done: %s at %s" lib (format-time-string "%H.%M.%S.%3N"))
           (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item))
           (message "Loaded %s" lib))
          (t (message "Could not locate library %s" lib)
