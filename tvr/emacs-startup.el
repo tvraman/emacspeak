@@ -70,8 +70,8 @@ which defaults to emacs-personal-library."
 
 (defun tvr-shell-bind-keys ()
   "Set up additional shell mode keys."
-  (cl-loop ;;; global keys 
-   for i from 0 to 9 do 
+  (cl-loop ;;; global keys
+   for i from 0 to 9 do
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
   (cl-loop ;;; global  keys
    for  key in
@@ -80,7 +80,7 @@ which defaults to emacs-personal-library."
      ("C-c >" emacspeak-wizards-next-shell))
    do
    (global-set-key (kbd (first key)) (second key)))
-  (cl-loop ;;; shell mode bindings 
+  (cl-loop ;;; shell mode bindings
    for b in
    '(
      ("SPC" comint-magic-space)
@@ -94,8 +94,8 @@ which defaults to emacs-personal-library."
 (defun tvr-customize ()
   "Load my customizations from my custom-file."
   (declare (special custom-file))
-(setq custom-file (expand-file-name "~/.customize-emacs"))
-(when (file-exists-p custom-file) (load-file custom-file)))
+  (setq custom-file (expand-file-name "~/.customize-emacs"))
+  (when (file-exists-p custom-file) (load-file custom-file)))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -126,12 +126,12 @@ which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Load and customize emacspeak
-
-    (load-file
-     (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
-    (when (featurep 'emacspeak)
-      (emacspeak-sounds-select-theme "pan-chimes/"))
-
+    (let ((e-start (current-time)))
+      (load-file
+       (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
+      (when (featurep 'emacspeak)
+        (emacspeak-sounds-select-theme "pan-chimes/"))
+      (message "<emacspeak %s/>"   (format-time-string "%H.%M.%S.%3N" (time-subtract (current-time) e-start))))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
 
@@ -183,7 +183,7 @@ which defaults to emacs-personal-library."
 
 ;;; Mode hooks.
 
-    
+
 
     ;;}}}
     ;;{{{ outline mode setup:
@@ -264,7 +264,7 @@ which defaults to emacs-personal-library."
        (emacspeak-dbus-sleep-enable)
        (emacspeak-dbus-watch-screen-lock))
      (custom-reevaluate-setting 'gweb-my-address)
-     
+
      (emacspeak-wizards-project-shells-initialize)
      (play-sound
       `(sound
