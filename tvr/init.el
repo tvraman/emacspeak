@@ -211,7 +211,8 @@ which defaults to emacs-personal-library."
        "mspools-prepare" "sigbegone"
        "vdiff-prepare"
 ;;; Web:
-       "w3-prepare" "elfeed-prepare"
+       ;"w3-prepare"
+       "elfeed-prepare"
 ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
@@ -223,10 +224,12 @@ which defaults to emacs-personal-library."
                                         ;"jde-prepare" "ecb-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
-       "tramp-prepare"  "fap-prepare"
+       ;"tramp-prepare"
+       "fap-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-setup"
-       "color-theme-prepare" "elscreen-prepare"
+       "color-theme-prepare"
+       ;"elscreen-prepare"
        "local"))
 
     ;;}}}
