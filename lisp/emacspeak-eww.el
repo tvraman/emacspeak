@@ -1966,7 +1966,8 @@ interactive prefix arg `delete', delete that mark instead."
     current-prefix-arg))
   (declare (special emacspeak-eww-marks))
   (cond
-   (delete (emacspeak-eww-delete-mark name))
+   (delete (emacspeak-eww-delete-mark name)
+					 (emacspeak-auditory-icon 'delete-object))
    (t
     (let* ((bm (gethash name emacspeak-eww-marks))
            (handler nil)
