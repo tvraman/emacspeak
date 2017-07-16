@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 13, 2017.
+last updated on July 15, 2017.
 
    The manual is divided into the following chapters.
 
@@ -4043,7 +4043,6 @@ system.
      C-M-k		kill-emacs
      M-%		emacspeak-goto-percent
      M-;		emacspeak-webutils-play-media-at-point
-     M-P		emacspeak-show-property-at-point
      M-a		emacspeak-set-auditory-icon-player
      M-b		emacspeak-speak-other-buffer
      M-c		emacspeak-copy-current-file
@@ -4053,6 +4052,7 @@ system.
      M-i		emacspeak-table-display-table-in-region
      M-l		emacspeak-link-current-file
      M-m		emacspeak-toggle-mail-alert
+     M-p		emacspeak-show-property-at-point
      M-q		voice-setup-toggle-silence-personality
      M-r		emacspeak-remote-connect-to-server
      M-s		emacspeak-symlink-current-file

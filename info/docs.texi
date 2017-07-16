@@ -1354,7 +1354,6 @@ C-M-b		emacspeak-submit-bug
 C-M-k		kill-emacs
 M-%		emacspeak-goto-percent
 M-;		emacspeak-webutils-play-media-at-point
-M-P		emacspeak-show-property-at-point
 M-a		emacspeak-set-auditory-icon-player
 M-b		emacspeak-speak-other-buffer
 M-c		emacspeak-copy-current-file
@@ -1364,6 +1363,7 @@ M-h		emacspeak-speak-hostname
 M-i		emacspeak-table-display-table-in-region
 M-l		emacspeak-link-current-file
 M-m		emacspeak-toggle-mail-alert
+M-p		emacspeak-show-property-at-point
 M-q		voice-setup-toggle-silence-personality
 M-r		emacspeak-remote-connect-to-server
 M-s		emacspeak-symlink-current-file
@@ -12688,6 +12688,8 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
+
+(fn LATEX)
 @end format
 @end deffn
 
@@ -13353,7 +13355,6 @@ Create a hydra with no body and the heads:
 "I":    ‘flx-ido-mode’,
 "t":    ‘toggle-truncate-lines’,
 "u":    ‘ido-ubiquitous-mode’,
-"w":    ‘whitespace-mode’,
 "q":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
@@ -16791,13 +16792,13 @@ numeric prefix arg to give to command yank.
 
 @format
 Speak the line containing the mark.
-With no argument, speaks the
-line containing the mark--this is where ‘exchange-point-and-mark’
-C-x C-x would jump.  Numeric prefix arg ’COUNT’ speaks
-line containing mark ’n’ where ’n’ is one less than the number of
-times one has to jump using ‘set-mark-command’ to get to this marked
-position.  The location of the mark is indicated by an aural highlight
-achieved by a change in voice personality.
+With no argument, speaks the line containing the mark--this is
+where ‘exchange-point-and-mark’ C-x C-x would
+jump.  Numeric prefix arg ’COUNT’ speaks line containing mark ’n’
+where ’n’ is one less than the number of times one has to jump
+using ‘set-mark-command’ to get to this marked position.  The
+location of the mark is indicated by an aural highlight achieved
+by a change in voice personality.
 
 (fn COUNT)
 @end format
@@ -22314,10 +22315,10 @@ at point.
 @subsubsection emacspeak-show-property-at-point
 @deffn {Command} emacspeak-show-property-at-point  (&optional property)
 @table @kbd
-@item C-e M-P
-@kindex C-e M-P
-@item <fn> M-P
-@kindex <fn> M-P
+@item C-e M-p
+@kindex C-e M-p
+@item <fn> M-p
+@kindex <fn> M-p
 @end table
 
 @findex emacspeak-show-property-at-point

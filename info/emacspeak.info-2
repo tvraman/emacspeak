@@ -6405,6 +6405,8 @@ and backward-page can be used to move through each chunk of output.
      Tries to guess default based on context.
      Uses guessed default if user enters an empty string.
 
+     (fn LATEX)
+
 12.119.4.4 emacspeak-maths-enter-guess
 ......................................
 
@@ -6983,7 +6985,6 @@ binds ‘s’ to this command.
      "I":    ‘flx-ido-mode’,
      "t":    ‘toggle-truncate-lines’,
      "u":    ‘ido-ubiquitous-mode’,
-     "w":    ‘whitespace-mode’,
      "q":    ‘nil’
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
