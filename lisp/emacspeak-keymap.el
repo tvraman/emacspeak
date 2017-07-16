@@ -242,7 +242,7 @@
    ("M-s" emacspeak-symlink-current-file)
    ("M-t" emacspeak-tapestry-describe-tapestry)
    ("M-u" emacspeak-feeds-add-feed)
-   ("M-P" emacspeak-show-property-at-point)
+   ("M-p" emacspeak-show-property-at-point)
    ("M-v" emacspeak-show-personality-at-point)
    ("N" emacspeak-view-emacspeak-news)
    ("P" emacspeak-speak-paragraph-interactively)
