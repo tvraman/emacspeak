@@ -2269,21 +2269,18 @@ Argument STRING specifies the alphanumeric phone number."
 ;;;###autoload
 (defun emacspeak-speak-current-mark (count)
   "Speak the line containing the mark.
-With no argument, speaks the
-line containing the mark--this is where `exchange-point-and-mark'
-\\[exchange-point-and-mark] would jump.  Numeric prefix arg 'COUNT' speaks
-line containing mark 'n' where 'n' is one less than the number of
-times one has to jump using `set-mark-command' to get to this marked
-position.  The location of the mark is indicated by an aural highlight
-achieved by a change in voice personality."
+With no argument, speaks the line containing the mark--this is
+where `exchange-point-and-mark' \\[exchange-point-and-mark] would
+jump.  Numeric prefix arg 'COUNT' speaks line containing mark 'n'
+where 'n' is one less than the number of times one has to jump
+using `set-mark-command' to get to this marked position.  The
+location of the mark is indicated by an aural highlight achieved
+by a change in voice personality."
   (interactive "p")
-  (unless (mark)
-    (error "No marks set in this buffer"))
-  (when (and current-prefix-arg
-             (> count (length mark-ring)))
+  (unless (mark) (error "No marks set in this buffer"))
+  (when (and current-prefix-arg (> count (length mark-ring)))
     (error "Not that many marks in this buffer"))
-  (let (
-        (line nil)
+  (let ((line nil)
         (position nil)
         (context
          (format "mark %s "
