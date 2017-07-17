@@ -564,13 +564,16 @@ take effect."
          (face (get-text-property (point) 'face))
          (orig (gethash face voice-setup-buffer-face-voice-table)))
     (cond
+     ((null personality) (message "No personality here."))
      ((eq personality  'inaudible)
       (voice-setup-set-voice-for-face face  orig)
+      (message "Made personality %s audible." orig)
       (emacspeak-auditory-icon 'open-object))    
      (t (voice-setup-set-voice-for-face face 'inaudible)
         (setf
          (gethash face voice-setup-buffer-face-voice-table)
          personality)
+        (message "Silenced personality
         (emacspeak-auditory-icon 'close-object)))
     (when (buffer-file-name)
       (normal-mode))))
