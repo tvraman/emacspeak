@@ -573,10 +573,9 @@ take effect."
         (setf
          (gethash face voice-setup-buffer-face-voice-table)
          personality)
-        (message "Silenced personality
+        (message "Silenced personality %s" personality)
         (emacspeak-auditory-icon 'close-object)))
-    (when (buffer-file-name)
-      (normal-mode))))
+    (when (buffer-file-name) (normal-mode))))
 
 ;;}}}
 ;;{{{ Helper: voice-setup-defined-voices 
