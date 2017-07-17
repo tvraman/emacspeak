@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 15, 2017.
+last updated on July 17, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1190 commands and 1153 options.
+This chapter documents a total of 1191 commands and 1156 options.
 
 * Menu:
 
@@ -3927,7 +3927,7 @@ system.
      C-n		emacspeak-speak-next-window
      C-o		emacspeak-ocr
      C-p		emacspeak-speak-previous-window
-     C-q		emacspeak-toggle-comint-autospeak
+     C-q		emacspeak-toggle-inaudible-or-comint-autospeak
      C-s		tts-restart
      C-t		emacspeak-table-submap-command
      C-u		emacspeak-feeds-browse

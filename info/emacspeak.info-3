@@ -2112,8 +2112,6 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-toggle-comint-autospeak (&optional prefix)
-     ‘C-e C-q’
-     ‘<fn> C-q’
 
      Toggle state of Emacspeak comint autospeak.
      When turned on, comint output is automatically spoken.  Turn this on if
@@ -2141,7 +2139,18 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle Emacspeak’s default header line.
 
-12.170.1.112 emacspeak-toggle-line-echo
+12.170.1.112 emacspeak-toggle-inaudible-or-comint-autospeak
+...........................................................
+
+ -- Command: emacspeak-toggle-inaudible-or-comint-autospeak
+     ‘C-e C-q’
+     ‘<fn> C-q’
+
+     Toggle comint-autospeak when in a comint buffer.
+     Otherwise call voice-setup-toggle-silence-personality which toggles the
+     personality under point.
+
+12.170.1.113 emacspeak-toggle-line-echo
 .......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -2152,7 +2161,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.170.1.113 emacspeak-toggle-mail-alert
+12.170.1.114 emacspeak-toggle-mail-alert
 ........................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
@@ -2165,7 +2174,7 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.170.1.114 emacspeak-toggle-show-point
+12.170.1.115 emacspeak-toggle-show-point
 ........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
@@ -2176,7 +2185,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.170.1.115 emacspeak-toggle-speak-line-invert-filter
+12.170.1.116 emacspeak-toggle-speak-line-invert-filter
 ......................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -2188,7 +2197,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.170.1.116 emacspeak-toggle-speak-messages
+12.170.1.117 emacspeak-toggle-speak-messages
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -2197,7 +2206,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle the state of whether emacspeak echoes messages.
 
-12.170.1.117 emacspeak-toggle-word-echo
+12.170.1.118 emacspeak-toggle-word-echo
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -2208,7 +2217,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.170.1.118 emacspeak-use-customized-blink-paren
+12.170.1.119 emacspeak-use-customized-blink-paren
 .................................................
 
  -- Command: emacspeak-use-customized-blink-paren
@@ -2217,7 +2226,7 @@ of emacspeak from becoming dependent on the speech server modules
      We need to call this in case Emacs is anal and loads its own
      builtin blink-paren function which does not talk.
 
-12.170.1.119 emacspeak-view-notifications
+12.170.1.120 emacspeak-view-notifications
 .........................................
 
  -- Command: emacspeak-view-notifications
@@ -2227,7 +2236,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.170.1.120 emacspeak-voiceify-rectangle
+12.170.1.121 emacspeak-voiceify-rectangle
 .........................................
 
  -- Command: emacspeak-voiceify-rectangle (start end &optional
@@ -2240,7 +2249,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.170.1.121 emacspeak-voiceify-region
+12.170.1.122 emacspeak-voiceify-region
 ......................................
 
  -- Command: emacspeak-voiceify-region (start end &optional personality)
@@ -2252,7 +2261,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.170.1.122 emacspeak-zap-tts
+12.170.1.123 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts
@@ -2282,8 +2291,8 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-comint-autospeak
      Says if comint output is automatically spoken.  You can use
-     ‘emacspeak-toggle-comint-autospeak‘ bound to C-e C-q to toggle this
-     setting.
+     ‘emacspeak-toggle-comint-autospeak‘ bound to M-x
+     emacspeak-toggle-comint-autospeak to toggle this setting.
 
  -- Variable: User Option emacspeak-decoration-rule
      *Regular expressions to match lines that are purely decorative
@@ -2678,8 +2687,7 @@ User interface to tables
 12.176.1.2 emacspeak-table-copy-current-element-to-register
 ...........................................................
 
- -- Command: emacspeak-table-copy-current-element-to-register (&rest
-          rest)
+ -- Command: emacspeak-table-copy-current-element-to-register (register)
      ‘C-e C-t x’
      ‘<fn> C-t x’
 
@@ -7126,7 +7134,7 @@ Implements the Google Maps API
 12.216.1.1 gmaps
 ................
 
- -- Command: gmaps (&rest rest)
+ -- Command: gmaps
      ‘C-; e’
      ‘C-x @ h e’
 
@@ -7139,7 +7147,7 @@ Implements the Google Maps API
 12.216.1.2 gmaps-bicycling-directions
 .....................................
 
- -- Command: gmaps-bicycling-directions (&rest rest)
+ -- Command: gmaps-bicycling-directions (origin destination)
 
      :around advice: ‘ad-Advice-gmaps-bicycling-directions’
 
@@ -7159,7 +7167,7 @@ Implements the Google Maps API
 12.216.1.4 gmaps-driving-directions
 ...................................
 
- -- Command: gmaps-driving-directions (&rest rest)
+ -- Command: gmaps-driving-directions (origin destination)
 
      :around advice: ‘ad-Advice-gmaps-driving-directions’
 
@@ -7202,7 +7210,7 @@ Implements the Google Maps API
 12.216.1.6 gmaps-place-details
 ..............................
 
- -- Command: gmaps-place-details (&rest rest)
+ -- Command: gmaps-place-details
 
      :around advice: ‘ad-Advice-gmaps-place-details’
 
@@ -7222,7 +7230,7 @@ Implements the Google Maps API
 12.216.1.8 gmaps-places-nearby
 ..............................
 
- -- Command: gmaps-places-nearby (&rest rest)
+ -- Command: gmaps-places-nearby (&optional clear-filter)
 
      :around advice: ‘ad-Advice-gmaps-places-nearby’
 
@@ -7234,7 +7242,7 @@ Implements the Google Maps API
 12.216.1.9 gmaps-places-search
 ..............................
 
- -- Command: gmaps-places-search (&rest rest)
+ -- Command: gmaps-places-search (query &optional clear-filter)
 
      :around advice: ‘ad-Advice-gmaps-places-search’
 
@@ -7257,7 +7265,7 @@ Implements the Google Maps API
 12.216.1.11 gmaps-set-current-location
 ......................................
 
- -- Command: gmaps-set-current-location (&rest rest)
+ -- Command: gmaps-set-current-location (address)
 
      :around advice: ‘ad-Advice-gmaps-set-current-location’
 
@@ -7268,7 +7276,7 @@ Implements the Google Maps API
 12.216.1.12 gmaps-set-current-radius
 ....................................
 
- -- Command: gmaps-set-current-radius (&rest rest)
+ -- Command: gmaps-set-current-radius (radius)
 
      :around advice: ‘ad-Advice-gmaps-set-current-radius’
 
@@ -7279,7 +7287,7 @@ Implements the Google Maps API
 12.216.1.13 gmaps-transit-directions
 ....................................
 
- -- Command: gmaps-transit-directions (&rest rest)
+ -- Command: gmaps-transit-directions (origin destination)
 
      :around advice: ‘ad-Advice-gmaps-transit-directions’
 
@@ -7290,7 +7298,7 @@ Implements the Google Maps API
 12.216.1.14 gmaps-walking-directions
 ....................................
 
- -- Command: gmaps-walking-directions (&rest rest)
+ -- Command: gmaps-walking-directions (origin destination)
 
      :around advice: ‘ad-Advice-gmaps-walking-directions’
 
@@ -7644,7 +7652,7 @@ always work.  This module can be used independent of Emacspeak.
 12.223.1.2 sox-delete-effect-at-point
 .....................................
 
- -- Command: sox-delete-effect-at-point (&rest rest)
+ -- Command: sox-delete-effect-at-point
 
      :around advice: ‘ad-Advice-sox-delete-effect-at-point’
 
@@ -7677,7 +7685,7 @@ always work.  This module can be used independent of Emacspeak.
 12.223.1.5 sox-open-file
 ........................
 
- -- Command: sox-open-file (&rest rest)
+ -- Command: sox-open-file (snd-file)
 
      :around advice: ‘ad-Advice-sox-open-file’
 
@@ -7695,7 +7703,7 @@ always work.  This module can be used independent of Emacspeak.
 12.223.1.7 sox-refresh
 ......................
 
- -- Command: sox-refresh (&rest rest)
+ -- Command: sox-refresh
 
      :around advice: ‘ad-Advice-sox-refresh’
 

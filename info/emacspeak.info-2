@@ -1830,7 +1830,7 @@ move around the terminal and have different parts spoken.
 12.69.1.1 emacspeak-eterm-copy-region-to-register
 .................................................
 
- -- Command: emacspeak-eterm-copy-region-to-register (&rest rest)
+ -- Command: emacspeak-eterm-copy-region-to-register (register)
 
      :around advice: ‘ad-Advice-emacspeak-eterm-copy-region-to-register’
 
@@ -1895,7 +1895,7 @@ move around the terminal and have different parts spoken.
 12.69.1.7 emacspeak-eterm-paste-register
 ........................................
 
- -- Command: emacspeak-eterm-paste-register (&rest rest)
+ -- Command: emacspeak-eterm-paste-register (register)
 
      :around advice: ‘ad-Advice-emacspeak-eterm-paste-register’
 
@@ -4126,10 +4126,20 @@ INDIUM == Javascript IDE This module speech-enables Indium.
 12.101.1 emacspeak-indium Options
 ---------------------------------
 
+ -- Variable: User Option emacspeak-indium-breakpoint-personality
+     Personality used for indium-breakpoint-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-indium-button-personality
      Personality used for indium-button-face This personality uses
      voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-indium-frame-url-personality
+     Personality used for indium-frame-url-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option emacspeak-indium-header-personality
      Personality used for indium-header-face This personality uses
@@ -4150,6 +4160,11 @@ INDIUM == Javascript IDE This module speech-enables Indium.
      Personality used for indium-link-face This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-indium-litable-personality
+     Personality used for indium-litable-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-indium-repl-error-personality
      Personality used for indium-repl-error-face This personality uses

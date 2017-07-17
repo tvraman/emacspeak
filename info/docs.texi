@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1190 commands and 1153 options.
+This chapter documents a total of 1191 commands and 1156 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1238,7 +1238,7 @@ RET		emacspeak-speak-continuously
 C-n		emacspeak-speak-next-window
 C-o		emacspeak-ocr
 C-p		emacspeak-speak-previous-window
-C-q		emacspeak-toggle-comint-autospeak
+C-q		emacspeak-toggle-inaudible-or-comint-autospeak
 C-s		tts-restart
 C-t		emacspeak-table-submap-command
 C-u		emacspeak-feeds-browse
@@ -7325,7 +7325,7 @@ To move around the terminal and have different parts spoken.
 @subsection emacspeak-eterm Commands
 
 @subsubsection emacspeak-eterm-copy-region-to-register
-@deffn {Command} emacspeak-eterm-copy-region-to-register  (&rest rest)
+@deffn {Command} emacspeak-eterm-copy-region-to-register  (register)
 @findex emacspeak-eterm-copy-region-to-register
 
 @format
@@ -7402,7 +7402,7 @@ in a non eterm buffer if executed via C-e C-e
 @end deffn
 
 @subsubsection emacspeak-eterm-paste-register
-@deffn {Command} emacspeak-eterm-paste-register  (&rest rest)
+@deffn {Command} emacspeak-eterm-paste-register  (register)
 @findex emacspeak-eterm-paste-register
 
 @format
@@ -10042,9 +10042,21 @@ This module speech-enables Indium.
 
 @subsection emacspeak-indium Options
 
+@defvar {User Option} emacspeak-indium-breakpoint-personality
+Personality used for indium-breakpoint-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-indium-button-personality
 Personality used for indium-button-face
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-indium-frame-url-personality
+Personality used for indium-frame-url-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -10069,6 +10081,12 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-indium-link-personality
 Personality used for indium-link-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-indium-litable-personality
+Personality used for indium-litable-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -17904,13 +17922,6 @@ current local  value to the result.
 
 @subsubsection emacspeak-toggle-comint-autospeak
 @deffn {Command} emacspeak-toggle-comint-autospeak  (&optional prefix)
-@table @kbd
-@item C-e C-q
-@kindex C-e C-q
-@item <fn> C-q
-@kindex <fn> C-q
-@end table
-
 @findex emacspeak-toggle-comint-autospeak
 
 @format
@@ -17948,6 +17959,24 @@ set the current local value to the result.
 
 @format
 Toggle Emacspeak’s default header line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-toggle-inaudible-or-comint-autospeak
+@deffn {Command} emacspeak-toggle-inaudible-or-comint-autospeak   
+@table @kbd
+@item C-e C-q
+@kindex C-e C-q
+@item <fn> C-q
+@kindex <fn> C-q
+@end table
+
+@findex emacspeak-toggle-inaudible-or-comint-autospeak
+
+@format
+Toggle comint-autospeak when in a comint buffer.
+Otherwise call voice-setup-toggle-silence-personality which toggles the 
+personality under point.
 @end format
 @end deffn
 
@@ -18163,7 +18192,7 @@ setting.
 Says if comint output is automatically spoken.
 You can use
   ‘emacspeak-toggle-comint-autospeak‘ bound to
-  C-e C-q to toggle this
+  M-x emacspeak-toggle-comint-autospeak to toggle this
 setting.
 
 @end defvar
@@ -18676,7 +18705,7 @@ Copy current table element to kill ring.
 @end deffn
 
 @subsubsection emacspeak-table-copy-current-element-to-register
-@deffn {Command} emacspeak-table-copy-current-element-to-register  (&rest rest)
+@deffn {Command} emacspeak-table-copy-current-element-to-register  (register)
 @table @kbd
 @item C-e C-t x
 @kindex C-e C-t x
@@ -24518,7 +24547,7 @@ Implements the Google Maps API
 @subsection gmaps Commands
 
 @subsubsection gmaps
-@deffn {Command} gmaps  (&rest rest)
+@deffn {Command} gmaps   
 @table @kbd
 @item C-; e
 @kindex C-; e
@@ -24538,7 +24567,7 @@ Google Maps Interaction.
 @end deffn
 
 @subsubsection gmaps-bicycling-directions
-@deffn {Command} gmaps-bicycling-directions  (&rest rest)
+@deffn {Command} gmaps-bicycling-directions  (origin destination)
 @findex gmaps-bicycling-directions
 
 @format
@@ -24562,7 +24591,7 @@ Display  directions obtained from Google Maps.
 @end deffn
 
 @subsubsection gmaps-driving-directions
-@deffn {Command} gmaps-driving-directions  (&rest rest)
+@deffn {Command} gmaps-driving-directions  (origin destination)
 @findex gmaps-driving-directions
 
 @format
@@ -24609,7 +24638,7 @@ M-i		backward-button
 @end deffn
 
 @subsubsection gmaps-place-details
-@deffn {Command} gmaps-place-details  (&rest rest)
+@deffn {Command} gmaps-place-details   
 @findex gmaps-place-details
 
 @format
@@ -24633,7 +24662,7 @@ Place details need to have been expanded first.
 @end deffn
 
 @subsubsection gmaps-places-nearby
-@deffn {Command} gmaps-places-nearby  (&rest rest)
+@deffn {Command} gmaps-places-nearby  (&optional clear-filter)
 @findex gmaps-places-nearby
 
 @format
@@ -24647,7 +24676,7 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 @end deffn
 
 @subsubsection gmaps-places-search
-@deffn {Command} gmaps-places-search  (&rest rest)
+@deffn {Command} gmaps-places-search  (query &optional clear-filter)
 @findex gmaps-places-search
 
 @format
@@ -24674,7 +24703,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @end deffn
 
 @subsubsection gmaps-set-current-location
-@deffn {Command} gmaps-set-current-location  (&rest rest)
+@deffn {Command} gmaps-set-current-location  (address)
 @findex gmaps-set-current-location
 
 @format
@@ -24687,7 +24716,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @end deffn
 
 @subsubsection gmaps-set-current-radius
-@deffn {Command} gmaps-set-current-radius  (&rest rest)
+@deffn {Command} gmaps-set-current-radius  (radius)
 @findex gmaps-set-current-radius
 
 @format
@@ -24700,7 +24729,7 @@ Set current radius
 @end deffn
 
 @subsubsection gmaps-transit-directions
-@deffn {Command} gmaps-transit-directions  (&rest rest)
+@deffn {Command} gmaps-transit-directions  (origin destination)
 @findex gmaps-transit-directions
 
 @format
@@ -24713,7 +24742,7 @@ Transit directions from Google Maps.
 @end deffn
 
 @subsubsection gmaps-walking-directions
-@deffn {Command} gmaps-walking-directions  (&rest rest)
+@deffn {Command} gmaps-walking-directions  (origin destination)
 @findex gmaps-walking-directions
 
 @format
@@ -25127,7 +25156,7 @@ Adds  effect at the end of the effect list
 @end deffn
 
 @subsubsection sox-delete-effect-at-point
-@deffn {Command} sox-delete-effect-at-point  (&rest rest)
+@deffn {Command} sox-delete-effect-at-point   
 @findex sox-delete-effect-at-point
 
 @format
@@ -25166,7 +25195,7 @@ key             binding
 @end deffn
 
 @subsubsection sox-open-file
-@deffn {Command} sox-open-file  (&rest rest)
+@deffn {Command} sox-open-file  (snd-file)
 @findex sox-open-file
 
 @format
@@ -25188,7 +25217,7 @@ Play sound from current context.
 @end deffn
 
 @subsubsection sox-refresh
-@deffn {Command} sox-refresh  (&rest rest)
+@deffn {Command} sox-refresh   
 @findex sox-refresh
 
 @format
