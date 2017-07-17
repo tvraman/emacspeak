@@ -63,7 +63,10 @@
    (indium-repl-stdout-face voice-monotone)
    (indium-repl-error-face  voice-animate-extra)
    (indium-link-face voice-bolden)
-   (indium-highlight-face voice-animate)))
+   (indium-highlight-face voice-animate)
+	 (indium-breakpoint-face voice-lighten)
+	 (indium-frame-url-face  boice-bolden)
+	 (indium-litable-face voice-smoothen)))
 
 ;;}}}
 ;;{{{ Advice indium-backend.el:
