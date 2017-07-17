@@ -213,7 +213,7 @@
    ("C-n" emacspeak-speak-next-window)
    ("C-o" emacspeak-ocr)
    ("C-p" emacspeak-speak-previous-window)
-   ("C-q" emacspeak-toggle-comint-autospeak)
+   ("C-q" emacspeak-toggle-inaudible-or-comint-autospeak)
    ("C-s" tts-restart)
    ("C-u" emacspeak-feeds-browse)
    ("C-v" view-mode)
