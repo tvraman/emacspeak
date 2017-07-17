@@ -125,6 +125,15 @@
 
 ;;}}}
 ;;{{{ Advice indium-repl.el
+(defadvice indium-repl-return (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+		(save-excursion
+			(forward-line -1)
+(emacspeak-speak-line)
+(emacspeak-auditory-icon 'close-object))))
+		
+
 
 (cl-loop
  for f in 
