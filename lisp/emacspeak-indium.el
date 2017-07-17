@@ -65,8 +65,8 @@
    (indium-link-face voice-bolden)
    (indium-highlight-face voice-animate)
 	 (indium-breakpoint-face voice-lighten)
-	 (indium-frame-url-face  boice-bolden)
-	 (indium-litable-face voice-smoothen)))
+	 (indium-frame-url-face  voice-animate)
+	 (indium-litable-face voice-lighten)))
 
 ;;}}}
 ;;{{{ Advice indium-backend.el:
