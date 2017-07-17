@@ -110,6 +110,7 @@
   indium-debugger-step-into
   indium-debugger-step-out
   indium-debugger-step-over)
+
 ;;}}}
 ;;{{{ Advice indium-inspector.el
 
@@ -124,6 +125,17 @@
 
 ;;}}}
 ;;{{{ Advice indium-repl.el
+
+(cl-loop
+ for f in 
+ '(indium-repl-next-input indium-repl-previous-input)
+ do
+ (eval
+	`(defadvice ,f (after emacspeak pre act comp)
+		 "Provide auditory feedback."
+		 (when (ems-interactive-p)
+			 (emacspeak-auditory-icon 'large-movement)
+			 (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ Advice indium-scratch.el
