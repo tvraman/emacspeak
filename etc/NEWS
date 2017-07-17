@@ -39,6 +39,14 @@ functionality present in eshell.
 Module ~emacspeak-ido~ has been updated to improve and simplify ~ido~
 support.
 
+** New Command To Toggle Autospeak Or Inaudible 
+
+New command _emacspeak-toggle-inaudible-or-comint-autospeak_ bound to
+_C-e C-q_
+toggles comint autospeak in comint buffers; otherwise calls
+_voice-setup-toggle-silence-personality_ --- command
+_voice-setup-toggle-silence-personality_
+is still available on _C-e M-q_ in all buffers.
 
 ** Speech-Enable RipGrep Front-End:
 
