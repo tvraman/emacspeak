@@ -2567,6 +2567,16 @@ you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
 
+;;;###autoload
+(defun emacspeak-toggle-inaudible-or-comint-autospeak ( )
+  "Toggle comint-autospeak when in a comint buffer.
+Otherwise call voice-setup-toggle-silence-personality which toggles the 
+personality under point."
+  (interactive)
+	(cond
+	 ((derived-mode-p 'comint-mode) (emacspeak-toggle-comint-autospeak))
+	 (t (voice-setup-toggle-silence-personality))))
+
 (defvar emacspeak-comint-output-monitor nil
   "Switch to monitor comint output.
 When turned on,  comint output will be spoken even when the
