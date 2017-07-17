@@ -2574,8 +2574,8 @@ Otherwise call voice-setup-toggle-silence-personality which toggles the
 personality under point."
   (interactive)
 	(cond
-	 ((derived-mode-p 'comint-mode) (emacspeak-toggle-comint-autospeak))
-	 (t (voice-setup-toggle-silence-personality))))
+	 ((derived-mode-p 'comint-mode) (funcall-interactively #'emacspeak-toggle-comint-autospeak))
+	 (t (funcall-interactively #'voice-setup-toggle-silence-personality))))
 
 (defvar emacspeak-comint-output-monitor nil
   "Switch to monitor comint output.
