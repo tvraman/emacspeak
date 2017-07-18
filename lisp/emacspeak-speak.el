@@ -2558,6 +2558,7 @@ You can use
 setting."
   :group 'emacspeak-speak
   :type 'boolean)
+(make-variable-buffer-local 'emacspeak-comint-autospeak)
 
 (ems-generate-switcher ' emacspeak-toggle-comint-autospeak
                          'emacspeak-comint-autospeak
