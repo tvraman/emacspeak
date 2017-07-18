@@ -387,7 +387,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("f" auto-fill-mode)
    ("g"  toggle-debug-on-quit)
    ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
-   ("i" ido-everywhere)
+   ("i" ido-mode)
 	 ("I" flx-ido-mode)
    ("t" toggle-truncate-lines)
    ("u" ido-ubiquitous-mode "Ubiquitous IDo")
