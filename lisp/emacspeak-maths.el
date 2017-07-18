@@ -576,7 +576,7 @@ For use on Wikipedia pages  for example."
      ("SPC" emacspeak-maths-enter "enter")
      ("a" emacspeak-maths-speak-alt "Alt Text")
      ("d" emacspeak-maths-depth "Depth")
-     ("r" emacspeak-maths-root "Root")
+     ;("r" emacspeak-maths-root "Root")
      ("<up>" emacspeak-maths-up "Up")
      ("<down>" emacspeak-maths-down"down")
      ("<left>" emacspeak-maths-left "left")
