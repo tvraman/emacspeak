@@ -2424,6 +2424,15 @@ of the source buffer."
   (emacspeak-wizards--build-shells-table))
 
 ;;;###autoload
+(defun emacspeak-wizards-shell-directory-set ()
+  "Define current directory as this shell's project directory."
+  (interactive)
+  (declare (special emacspeak-wizards--project-shell-directory))
+  (setq emacspeak-wizards--project-shell-directory default-directory)
+  (emacspeak-auditory-icon 'task-done)
+  (message  (abbreviate-file-name default-directory)))
+
+;;;###autoload
 (defun emacspeak-wizards-shell-directory-reset ()
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)

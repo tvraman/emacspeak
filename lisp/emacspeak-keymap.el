@@ -430,6 +430,7 @@ relief."
     ("8" emacspeak-wizards-shell-by-key ) 
     ("9" emacspeak-wizards-shell-by-key ) 
 		("." emacspeak-wizards-shell-directory-reset)
+    ("," emacspeak-wizards-shell-directory-set)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("b" battery)
     ("e" emacspeak-we-xsl-map)
