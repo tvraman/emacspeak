@@ -129,7 +129,7 @@
 
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
-	(when (and (stringp string) (> (length string)  0))
+	(when (and (sit-for 0.1)(stringp string) (> (length string)  0))
 		(save-current-buffer
     (set-buffer
      (let ((window (minibuffer-selected-window)))
