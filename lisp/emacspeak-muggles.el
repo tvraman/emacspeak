@@ -381,16 +381,16 @@ _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 "
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
-   ("F" flyspell-mode)
-   ("a" abbrev-mode)
-   ("d" toggle-debug-on-error)
-   ("f" auto-fill-mode)
-   ("g"  toggle-debug-on-quit)
+   ("F" (call-interactively #'flyspell-mode))
+   ("a" (call-interactively #'abbrev-mode))
+   ("d" (call-interactively #'toggle-debug-on-error))
+   ("f" (call-interactively #'auto-fill-mode))
+   ("g"  (call-interactively #'toggle-debug-on-quit))
    ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
-   ("i" ido-mode)
-	 ("I" flx-ido-mode)
-   ("t" toggle-truncate-lines)
-   ("u" ido-ubiquitous-mode "Ubiquitous IDo")
+   ("i" (call-interactively #'ido-mode))
+	 ("I" (call-interactively #'flx-ido-mode))
+   ("t" (call-interactively #'toggle-truncate-lines))
+   ("u" (call-interactively #'ido-ubiquitous-mode))
    ("q" nil "quit")))
 
 ;;}}}
