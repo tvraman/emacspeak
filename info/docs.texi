@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1191 commands and 1156 options.
+This chapter documents a total of 1192 commands and 1156 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1324,6 +1324,7 @@ C-SPC		emacspeak-speak-current-mark
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
 
+x ,		emacspeak-wizards-shell-directory-set
 x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
@@ -12747,7 +12748,6 @@ Create a hydra with no body and the heads:
 "SPC":    ‘emacspeak-maths-enter’,
 "a":    ‘emacspeak-maths-speak-alt’,
 "d":    ‘emacspeak-maths-depth’,
-"r":    ‘emacspeak-maths-root’,
 "<up>":    ‘emacspeak-maths-up’,
 "<down>":    ‘emacspeak-maths-down’,
 "<left>":    ‘emacspeak-maths-left’,
@@ -13369,7 +13369,7 @@ Create a hydra with no body and the heads:
 "f":    ‘auto-fill-mode’,
 "g":    ‘toggle-debug-on-quit’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-"i":    ‘ido-everywhere’,
+"i":    ‘ido-mode’,
 "I":    ‘flx-ido-mode’,
 "t":    ‘toggle-truncate-lines’,
 "u":    ‘ido-ubiquitous-mode’,
@@ -23468,6 +23468,22 @@ Prompts for and runs shell command on current file.
 
 @format
 Set current directory to this shell’s initial directory if one was defined.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-shell-directory-set
+@deffn {Command} emacspeak-wizards-shell-directory-set   
+@table @kbd
+@item C-e x ,
+@kindex C-e x ,
+@item <fn> x ,
+@kindex <fn> x ,
+@end table
+
+@findex emacspeak-wizards-shell-directory-set
+
+@format
+Define current directory as this shell’s project directory.
 @end format
 @end deffn
 
