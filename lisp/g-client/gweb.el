@@ -180,8 +180,7 @@
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
-  (let* ((minibuffer-completing-file-name t) ;; accept spaces
-				 (flx-ido-mode  nil)
+  (let ((flx-ido-mode  nil)
          (completion-ignore-case t)
          (word (thing-at-point 'word))
          (query nil))
