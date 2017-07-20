@@ -177,10 +177,13 @@
 
 ;;; Emacs 23 and beyond:
 ;;; i.e. if complete-with-action is defined
+(defvar gweb-completion-flag nil
+"Flag that records  Google Suggest in progress.")
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
   (let ((flx-ido-mode  nil)
+        (gweb-completion-flag t)
          (completion-ignore-case t)
          (word (thing-at-point 'word))
          (query nil))
@@ -193,6 +196,14 @@
            word                        ; initial input
            'gweb-history))
     (g-url-encode query)))
+
+
+(defadvice ido-complete-space (around emacspeak pre act comp)
+  "Fix up ido-complete-space for use with Google autocomplete."
+  (cond
+   (gweb-completion-flag  (insert ?\ ))
+   (t ad-do-it))
+  ad-return-value)
 
 ;;;###autoload
 
