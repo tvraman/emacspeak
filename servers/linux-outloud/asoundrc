@@ -250,7 +250,7 @@ pcm.tts_mono_mid_right {
 # Azimuth:   Clockwise: -90..270 --- 0 is North.
 # Elevation: -45 .. 90
 
-pcm.hrtf_a45_e45 {
+pcm.tts_a45_e45 {
   type plug
   slave.pcm {
     type ladspa
@@ -265,7 +265,7 @@ pcm.hrtf_a45_e45 {
 }
 
 
-pcm.hrtf_a135_e45 {
+pcm.tts_a135_e45 {
   type plug
   slave.pcm {
     type ladspa
@@ -279,7 +279,7 @@ pcm.hrtf_a135_e45 {
   }
 }
 
-pcm.hrtf_a225_e45 {
+pcm.tts_a225_e45 {
   type plug
   slave.pcm {
     type ladspa
@@ -294,7 +294,7 @@ pcm.hrtf_a225_e45 {
 }
 
 
-pcm.hrtf_am45_e45 {
+pcm.tts_am45_e45 {
   type plug
   slave.pcm {
     type ladspa
@@ -310,7 +310,7 @@ pcm.hrtf_am45_e45 {
 
 # negative Elevation:
 
-pcm.hrtf_a45_em45 {
+pcm.tts_a45_em45 {
   type plug
   slave.pcm {
     type ladspa
@@ -325,7 +325,7 @@ pcm.hrtf_a45_em45 {
 }
 
 
-pcm.hrtf_a135_em45 {
+pcm.tts_a135_em45 {
   type plug
   slave.pcm {
     type ladspa
@@ -339,7 +339,7 @@ pcm.hrtf_a135_em45 {
   }
 }
 
-pcm.hrtf_a225_em45 {
+pcm.tts_a225_em45 {
   type plug
   slave.pcm {
     type ladspa
@@ -354,7 +354,7 @@ pcm.hrtf_a225_em45 {
 }
 
 
-pcm.hrtf_am45_em45 {
+pcm.tts_am45_em45 {
   type plug
   slave.pcm {
     type ladspa
