@@ -242,6 +242,67 @@ pcm.tts_mono_mid_right {
 }
 
 # }}}
+# {{{ HRTF Devices Using Zam Plugin:
+
+pcm.hrtf_a45_e45 {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default" # Set this line to match your configuration
+    path "/usr/lib/ladspa/"
+    plugins [{
+              label ZamHeadX2
+              input {controls [45 45 2.5 ]}
+            }
+]
+  }
+}
+
+
+pcm.hrtf_a135_e45 {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default" # Set this line to match your configuration
+    path "/usr/lib/ladspa/"
+    plugins [{
+              label ZamHeadX2
+              input {controls [135 45 2.5 ]}
+            }
+]
+  }
+}
+
+pcm.hrtf_a225_e45 {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default" # Set this line to match your configuration
+    path "/usr/lib/ladspa/"
+    plugins [{
+              label ZamHeadX2
+              input {controls [225 45 2.5 ]}
+            }
+]
+  }
+}
+
+
+pcm.hrtf_am45_e45 {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default" # Set this line to match your configuration
+    path "/usr/lib/ladspa/"
+    plugins [{
+              label ZamHeadX2
+              input {controls [-45 45 2.5 ]}
+            }
+]
+  }
+}
+
+# }}}
 # {{{Equal:
 
 ctl.equal {type equal}
