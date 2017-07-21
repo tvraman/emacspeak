@@ -535,6 +535,11 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
              (if soundscape--auto "on" "off"))))
 (defvar soundscape--cached-device nil
   "Cache    last used audio device.")
+(defconst soundscape--filters
+  '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"
+"tts_a45_e45" "tts_a135_e45" "tts_a225_e45" "tts_am45_e45"
+"tts_a45_em45" "tts_a135_em45" "tts_a225_em45" "tts_am45_em45")
+  "Available virtual ALSA devices for filtering soundscapes.")
 
 (defun soundscape-restart (&optional device)
   "Restart Soundscape  environment.
@@ -542,13 +547,14 @@ With prefix arg `device', prompt for a alsa/ladspa device.
 Caches most recently used device, which then becomes the default for future invocations."
   (interactive "P")
   (declare (special soundscape--last-mode  soundscape--scapes
-                    soundscape--cached-device
+                    soundscape--filters soundscape--cached-device
                     soundscape--auto soundscape-manager-options))
   (setq soundscape--scapes nil soundscape--last-mode nil)
   (when device
     (setq soundscape--cached-device
           (completing-read
-           "Filter: " '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"))))
+           "Filter: "
+           soundscape--filters )))
   (let ((soundscape-manager-options
          (append
           (copy-sequence soundscape-manager-options) ; clone default options
