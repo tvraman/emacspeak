@@ -931,7 +931,9 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=tap_autopan:tap_autopan:.016:33:1")))
 
 (defun emacspeak-m-player-add-filter (filter-name &optional edit)
-  "Adds specified filter."
+  "Adds specified filter. Prompts with one of several pre-defined
+filters. Optional interactive prefix arg `edit' enables editting the
+selected filter before it is applied."
   (interactive
    (list
     (completing-read "Filter:"
