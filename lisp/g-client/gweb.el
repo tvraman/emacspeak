@@ -179,6 +179,8 @@
 ;;; i.e. if complete-with-action is defined
 (defvar gweb-completion-flag nil
 "Flag that records  Google Suggest in progress.")
+;;; This is dynamically scoped:
+(defvar flx-ido-mode)
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
