@@ -213,8 +213,8 @@ arg ‘reset’ starts with all filters set to 0.
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dadd_002dfilter" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dfilter"></a>Command:
-    <strong>emacspeak-m-player-add-filter</strong>
-    <em>(filter-name)</em></dt>
+    <strong>emacspeak-m-player-add-filter</strong> <em>(filter-name
+    &amp;optional edit)</em></dt>
 
     <dd>
       <a name=
@@ -223,9 +223,11 @@ arg ‘reset’ starts with all filters set to 0.
 
       <div class="format">
         <pre class="format">
-Adds specified filter.
+Adds specified filter. Prompts with one of several pre-defined
+filters. Optional interactive prefix arg ‘edit’ enables editting the
+selected filter before it is applied.
 
-(fn FILTER-NAME)
+(fn FILTER-NAME &amp;optional EDIT)
 </pre>
       </div>
     </dd>
@@ -2204,8 +2206,8 @@ M-l             emacspeak-m-player-load-playlist
   <h4 class="subsection">12.114.3 emacspeak-m-player Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-660" id=
-    "index-User-Option-660"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-690" id=
+    "index-User-Option-690"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-options</em></dt>
 
     <dd>
@@ -2214,8 +2216,8 @@ M-l             emacspeak-m-player-load-playlist
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-661" id=
-    "index-User-Option-661"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-691" id=
+    "index-User-Option-691"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-program</em></dt>
 
     <dd>
@@ -2224,8 +2226,8 @@ M-l             emacspeak-m-player-load-playlist
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-662" id=
-    "index-User-Option-662"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-692" id=
+    "index-User-Option-692"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-m-player-recent-amark-name</em></dt>
 
@@ -2235,8 +2237,8 @@ M-l             emacspeak-m-player-load-playlist
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-663" id=
-    "index-User-Option-663"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-693" id=
+    "index-User-Option-693"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-reverb-filter</em></dt>
 
     <dd>
@@ -2245,8 +2247,8 @@ M-l             emacspeak-m-player-load-playlist
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-664" id=
-    "index-User-Option-664"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-694" id=
+    "index-User-Option-694"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-youtube-dl</em></dt>
 
     <dd>
@@ -2255,8 +2257,8 @@ M-l             emacspeak-m-player-load-playlist
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-665" id=
-    "index-User-Option-665"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-695" id=
+    "index-User-Option-695"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-media-location-bindings</em></dt>
 
     <dd>
