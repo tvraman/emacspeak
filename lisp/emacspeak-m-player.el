@@ -930,15 +930,20 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=tap_autopan:tap_autopan:.0016:100:1,"
     "ladspa=tap_autopan:tap_autopan:.016:33:1")))
 
-(defun emacspeak-m-player-add-filter (filter-name)
+(defun emacspeak-m-player-add-filter (filter-name &optional edit)
   "Adds specified filter."
   (interactive
    (list
     (completing-read "Filter:"
                      emacspeak-m-player-filters
-                     nil nil)))
+                     nil nil)
+    current-prefix-arg))
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-active-filters))
+  (when edit
+    (setq filter-name
+          (read-from-minibuffer
+           "Edit Filter: " filter-name)))
   (when (process-live-p  emacspeak-m-player-process)
     (push filter-name emacspeak-m-player-active-filters)
     (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
