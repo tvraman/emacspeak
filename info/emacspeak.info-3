@@ -12,6 +12,157 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
+
+12.144 emacspeak-py
+===================
+
+This speech-enables python-mode available on sourceforge and ELPA
+
+12.144.1 emacspeak-py Options
+-----------------------------
+
+ -- Variable: User Option emacspeak-py-XXX-tag-personality
+     Personality used for py-XXX-tag-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-py-builtins-personality
+     Personality used for py-builtins-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-py-class-name-personality
+     Personality used for py-class-name-face This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-py-decorators-personality
+     Personality used for py-decorators-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-py-def-class-personality
+     Personality used for py-def-class-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-py-exception-name-personality
+     Personality used for py-exception-name-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-py-import-from-personality
+     Personality used for py-import-from-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-py-number-personality
+     Personality used for py-number-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-py-object-reference-personality
+     Personality used for py-object-reference-face This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option emacspeak-py-pseudo-keyword-personality
+     Personality used for py-pseudo-keyword-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-py-try-if-personality
+     Personality used for py-try-if-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-py-variable-name-personality
+     Personality used for py-variable-name-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
+
+12.145 emacspeak-pydoc
+======================
+
+PYDOC == Python Documentation Viewer
+
+12.145.1 emacspeak-pydoc Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-pydoc-button-personality
+     Personality used for pydoc-button-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-name-personality
+     Personality used for pydoc-callable-name-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-param-personality
+     Personality used for pydoc-callable-param-face This personality
+     uses emacspeak-voice-lock-variable-name-personality whose effect
+     can be changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-class-name-link-personality
+     Personality used for pydoc-class-name-link-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-data-personality
+     Personality used for pydoc-data-face This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-pydoc-envvars-personality
+     Personality used for pydoc-envvars-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-package-link-personality
+     Personality used for pydoc-package-link-face This personality uses
+     emacspeak-voice-lock-variable-name-personality whose effect can be
+     changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-source-file-link-personality
+     Personality used for pydoc-source-file-link-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
+     Personality used for pydoc-sphinx-directive-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
+     Personality used for pydoc-sphinx-param-name-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
+     Personality used for pydoc-sphinx-param-type-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-string-personality
+     Personality used for pydoc-string-face This personality uses
+     emacspeak-voice-lock-string-personality whose effect can be changed
+     globally by customizing
+     emacspeak-voice-lock-string-personality-settings.
+
+ -- Variable: User Option
+          emacspeak-pydoc-superclass-name-link-personality
+     Personality used for pydoc-superclass-name-link-face This
+     personality uses voice-bolden-extra whose effect can be changed
+     globally by customizing voice-bolden-extra-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
 
 12.146 emacspeak-python
@@ -3493,19 +3644,6 @@ broken.
 
      Speak tweet under point.
 
-12.188.2 emacspeak-twittering Options
--------------------------------------
-
- -- Variable: User Option emacspeak-twittering-uri-personality
-     Personality used for twittering-uri-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-twittering-username-personality
-     Personality used for twittering-username-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-vdiff,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 
@@ -3968,96 +4106,10 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.194.2 emacspeak-w3m Options
 ------------------------------
 
- -- Variable: User Option emacspeak-w3m-anchor-voice
-     Personality used for w3m-anchor This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
-     Personality used for w3m-arrived-anchor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-bold-voice
-     Personality used for w3m-bold This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-w3m-current-anchor-voice
-     Personality used for w3m-current-anchor This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
-     Personality used for w3m-form-button-pressed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-voice
-     Personality used for w3m-form-button This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-w3m-form-voice
-     Personality used for w3m-form This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option
-          emacspeak-w3m-header-line-location-content-voice
-     Personality used for w3m-header-line-location-content This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
-     Personality used for w3m-header-line-location-title This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-history-current-url-voice
-     Personality used for w3m-history-current-url This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-image-voice
-     Personality used for w3m-image This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-w3m-insert-voice
-     Personality used for w3m-insert This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-italic-voice
-     Personality used for w3m-italic This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
-
- -- Variable: User Option emacspeak-w3m-strike-through-voice
-     Personality used for w3m-strike-through This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-selected-voice
-     Personality used for w3m-tab-selected This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-unselected-voice
-     Personality used for w3m-tab-unselected This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-w3m-underline-voice
-     Personality used for w3m-underline This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options
@@ -9430,71 +9482,4 @@ two-dimensional data.
 * Menu:
 
 * Speech-Enabling Interactive Games::
-
-
-File: emacspeak.info,  Node: Speech-Enabling Interactive Games,  Up: Conversational Gestures For The Audio Desktop
-
-15.9.1 Speech-Enabling Interactive Games
-----------------------------------------
-
-So in 1997, I went the next step in asking — given access to the
-underlying infromation, is it possible to build effective eyes-free
-interaction to highly interactive tasks?  I picked *Tetris* as a means
-of exploring this space, the result was an Emacspeak extension to
-speech-enable module *tetris.el*.  The details of what was learned were
-published as a paper in Assets 98, and expanded as a chapter on
-Conversational Gestures in my book on Auditory Interfaces; that book was
-in a sense a culmination of stepping back and gaining a sense of
-perspective of what I had build during this period.  The work on
-Conversational Gestures also helped in formalizing the abstract user
-interface layer that formed part of the XForms
-(http://www.w3.org/MarkUp/Forms/) work at the W3C.
-
-   Speech-enabling games for effective eyes-free interaction has proven
-highly educational.  Interactive games are typically built to challenge
-the user, and if the eyes-free interface is inefficient, you just wont
-play the game — contrast this with a task that you *must* perform, where
-you’re likely to make do with a sub-optimal interface.  Over the years,
-Emacspeak has come to include eyes-free interfaces to several games
-including Tetris (http://en.wikipedia.org/wiki/Tetris), Sudoku
-(http://en.wikipedia.org/wiki/2048_(video_game)), and of late the
-popular 2048 game (http://en.wikipedia.org/wiki/2048_(video_game)).
-Each of these have in turn contributed to enhancing the interaction
-model in Emacspeak, and those innovations typically make their way to
-the rest of the environment.
-
-
-File: emacspeak.info,  Node: Accessing Media Streams,  Next: EBooks --- Ubiquitous Access To Books,  Prev: Conversational Gestures For The Audio Desktop,  Up: Emacspeak At Twenty
-
-15.10 Accessing Media Streams
-=============================
-
-Streaming real-time audio on the Internet became a reality with the
-advent of RealAudio in 1995; soon there were a large number of media
-streams available on the Internet ranging from music streams to live
-radio stations.  But there was an interesting twist — for the most part,
-all of these media streams expected one to look at the screen, even
-though the primary content was purely audio (streaming video hadn’t
-arrived yet!).  Starting in 1996, Emacspeak started including a variety
-of eyes-free front-ends for accessing media streams.  Initially, this
-was achieved by building a wrapper around *trplayer* — a headless
-version of RealPlayer; later I built Emacspeak module
-*emacspeak-m-player* for interfacing with package *mplayer*.  A key
-aspect of streaming media integration in emacspeak is that one can
-launch and control streams without ever switching away from one’s
-primary task; thus, you can continue to type email or edit code while
-seamlessly launching and controlling media streams.  Over the years,
-Emacspeak has come to integrate with Emacs packages like *emms* as well
-as providing wrappers for *mplayer* and *alsaplayer* — collectively,
-these let you efficiently launch all types of media streams, including
-streaming video, without having to explicitly switch context.
-
-   In the mid-90’s, Emacspeak started including a directory of media
-links to some of the more popular radio stations — primarily as a means
-of helping users getting started — Emacs’ ability to rapidly complete
-directory and file-names turned out to be the most effective means of
-quickly launching everything from streaming radio stations to audio
-books.  And even better — as the Emacs community develops better and
-smarter ways of navigating the filesystem using completions, e.g.,
-package *ido*, these types of actions become even more efficient!
 
