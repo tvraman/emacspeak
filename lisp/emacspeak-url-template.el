@@ -1480,7 +1480,7 @@ prompts for a location and speaks the forecast. \n\n"
 
 (emacspeak-url-template-define
  "NOAA Weather"
- (format "https://forecast-v3.weather.gov/point/%.4f,%.4f?view=plain"
+ (format "https://forecast-v3.weather.gov/point/%.4f,%.4f?view=plain&mode=min"
 				 calendar-latitude calendar-longitude)
  nil 
 #'(lambda nil
