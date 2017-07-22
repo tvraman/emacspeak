@@ -1484,7 +1484,7 @@ prompts for a location and speaks the forecast. \n\n"
 				 calendar-latitude calendar-longitude)
  nil 
 #'(lambda nil
-		(search-forward "Today")
+		(re-search-forward "^T")
 (forward-line -1)
 (emacspeak-speak-rest-of-buffer))
  "Weather forecast from NOAA")
