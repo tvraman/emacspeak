@@ -1476,6 +1476,21 @@ prompts for a location and speaks the forecast. \n\n"
  "Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us")
 
 ;;}}}
+;;{{{ NOAA Weather:
+
+(emacspeak-url-template-define
+ "NOAA Weather"
+ (format "https://forecast-v3.weather.gov/point/%.4f,%.4f?view=plain"
+				 calendar-latitude calendar-longitude)
+ nil 
+#'(lambda nil
+		(search-forward "Extended")
+(forward-line -1)
+(emacspeak-speak-rest-of-buffer))
+ "Weather forecast from NOAA")
+
+
+;;}}}
 ;;{{{ Flight Status
 
 (emacspeak-url-template-define
