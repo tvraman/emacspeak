@@ -450,7 +450,7 @@ To use, configure variable gweb-my-address via M-x customize-variable."
                     calendar-latitude calendar-longitude))
   (cond
    ((null gweb-my-location)
-    (message "First configure gweb-my-address."))
+    (message "First customize gweb-my-address."))
    (t
     (setq calendar-latitude
           (g-json-get 'lat gweb-my-location)
