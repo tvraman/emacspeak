@@ -537,6 +537,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   "Cache    last used audio device.")
 (defconst soundscape--filters
   '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"
+		tts_a0_em45 tts_a0_e90
 "tts_a45_e45" "tts_a135_e45" "tts_a225_e45" "tts_am45_e45"
 "tts_a45_em45" "tts_a135_em45" "tts_a225_em45" "tts_am45_em45")
   "Available virtual ALSA devices for filtering soundscapes.")
