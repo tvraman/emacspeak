@@ -3454,12 +3454,13 @@ Default is to display weather for `gweb-my-address'."
 			(with-current-buffer buffer
 				(erase-buffer)
 				(org-mode)
+				(insert  "* NOAA Weather Forecast\n")
 				(cl-loop
 				 for p across periods do
 				 (let-alist p
 					 (insert 
 						(format
-						 "* Forecast For %s: %s\n\n%s\n\n"
+						 "** Forecast For %s: %s\n\n%s\n\n"
 						 .name .shortForecast
 						 .detailedForecast)))
 				 (fill-region start (point))
@@ -3468,6 +3469,7 @@ Default is to display weather for `gweb-my-address'."
 				(insert
 				 (format "\nUpdated at %s\n"
 								 (emacspeak-wizards--format-noaa-time updated)))
+				;;; Now produce hourly forecast
 				(let-alist 
 						(g-json-get-result
 						 (format
@@ -3477,8 +3479,6 @@ Default is to display weather for `gweb-my-address'."
 		 						(when ask (gmaps-geocode (read-from-minibuffer "Address:"))))
 							 "/hourly")))
 					(setq periods .properties.periods)
-					
-					
 					
 					(insert
 					 (format "\n* Hourly Forecast:Updated At %s \n"
