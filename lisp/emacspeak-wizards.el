@@ -3429,20 +3429,41 @@ interactive prefix arg `ask' asks for location address;
 Default is to display weather for `gweb-my-address'."
 	(interactive)
 	(declare (special gweb-my-address))
-	(let-alist
-			(g-json-get-result
-			 (format
-				"curl --silent '%s'"
-				(emacspeak-wizards-noaa-api-url
-				 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
+	(let-alist w
+		;; (g-json-get-result
+		;;  (format
+		;; 	"curl --silent '%s'"
+		;; 	(emacspeak-wizards-noaa-api-url
+		;; 	 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
 		(let ((buffer (get-buffer-create "*NOAA Weather*"))
-					(inhibit-read-only  nil))
-		(with-current-buffer buffer
-			(erase-buffer)
-			(insert (format "Updated at %s"
-											.properties.updated))
-			(org-mode))
-		(pop-to-buffer buffer))))
+					(inhibit-read-only  nil)
+					(updated .properties.updated)
+					(periods .properties.periods)
+					(start (point-min)))
+			(with-current-buffer buffer
+				(erase-buffer)
+				(org-mode)
+				(cl-loop
+				 for p across periods do
+				 (let-alist p
+					 (insert 
+						(format
+						 "* Forecast For %s 
+Temperature: %s %s %s
+Wind Speed %s Wind Direction %s
+%s\n
+"
+						 .name
+						 .temperature  .temperatureUnit .temperatureTrend
+						 .windSpeed .windDirection
+						 .detailedForecast\n\n))))
+				(fill-region start (point))
+				(insert "\n")
+				(setq start (point))
+				(insert
+				 (format "Updated at %s"
+								 (format-time-string "%c" (date-to-time updated)))))
+			(funcall-interactively #'pop-to-buffer buffer))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
