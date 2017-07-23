@@ -3427,7 +3427,7 @@ Location is specified as returned by gmaps-geocode and defaults to
 	"Display weather information using NOAA Weather API.  Optional
 interactive prefix arg `ask' asks for location address;
 Default is to display weather for `gweb-my-address'."
-	(interactive)
+	(interactive "P")
 	(declare (special gweb-my-address))
 	(let-alist 
 			(g-json-get-result
