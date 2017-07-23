@@ -23218,8 +23218,10 @@ Switch to next shell.
 
 @format
 Display weather information using NOAA Weather API.  Optional
-interactive prefix arg ‘ask’ asks for location address;
-Default is to display weather for ‘gweb-my-address’.
+interactive prefix arg ‘ask’ asks for location address; Default is to
+display weather for ‘gweb-my-address’.  Data is retrieved only once,
+subsequent calls switch to previously displayed results. Kill that
+buffer to get new data.
 
 (fn &optional ASK)
 @end format

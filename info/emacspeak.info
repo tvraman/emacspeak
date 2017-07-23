@@ -16,7 +16,7 @@ Indirect:
 emacspeak.info-1: 327
 emacspeak.info-2: 307643
 emacspeak.info-3: 603057
-emacspeak.info-4: 902402
+emacspeak.info-4: 900426
 
 Tag Table:
 (Indirect)
@@ -289,60 +289,60 @@ Node: emacspeak-widget764837
 Node: emacspeak-windmove766331
 Node: emacspeak-winring766637
 Node: emacspeak-wizards767067
-Node: emacspeak-woman812840
-Node: emacspeak-xkcd813067
-Node: emacspeak-xml-shell813668
-Node: emacspeak-xref816887
-Node: emacspeak-xslt817168
-Node: emacspeak-yasnippet819060
-Node: espeak-voices819620
-Node: g820221
-Node: g-app820542
-Node: g-auth821660
-Node: g-utils822073
-Node: gm-nnir823377
-Node: gmaps824196
-Node: gweb828931
-Node: ladspa829256
-Node: mac-voices831211
-Node: outloud-voices831584
-Node: plain-voices832372
-Node: soundscape832727
-Node: sox837448
-Node: sox-gen840301
-Node: stack-f846910
-Node: tetris847198
-Node: toy-braille847339
-Node: tts848176
-Node: tts-cmds850179
-Node: voice-setup850688
-Node: xbacklight858337
-Node: URL Templates859801
-Node: Emacspeak Keyboard Commands865932
-Node: TTS Servers867994
-Node: Emacspeak At Twenty875041
-Node: Turning Twenty876752
-Node: Using UNIX With Speech Output --- 1994877440
-Node: Key Enabler --- Emacs And Lisp Advice879281
-Node: Key Component --- Text To Speech (TTS)880326
-Node: Emacspeak And Software Development882870
-Node: Programming Defensively885486
-Node: Emacspeak And Authoring Documents886745
-Node: Emacspeak And The Early Days Of The Web888320
-Node: Audio Formatting --- Generalizing Aural CSS891768
-Node: Conversational Gestures For The Audio Desktop894836
-Node: Speech-Enabling Interactive Games898191
-Node: Accessing Media Streams899968
-Node: EBooks --- Ubiquitous Access To Books902402
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks904950
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols906816
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access910298
-Node: Mashing It Up --- Leveraging Evolving Web APIs913842
-Node: Conclusion --- Turning Twenty916347
-Node: References917729
-Node: Acknowledgments918659
-Node: Concept Index918817
-Node: Key Index922460
+Node: emacspeak-woman812971
+Node: emacspeak-xkcd813198
+Node: emacspeak-xml-shell813799
+Node: emacspeak-xref817018
+Node: emacspeak-xslt817299
+Node: emacspeak-yasnippet819191
+Node: espeak-voices819751
+Node: g820352
+Node: g-app820673
+Node: g-auth821791
+Node: g-utils822204
+Node: gm-nnir823508
+Node: gmaps824327
+Node: gweb829062
+Node: ladspa829387
+Node: mac-voices831342
+Node: outloud-voices831715
+Node: plain-voices832503
+Node: soundscape832858
+Node: sox837579
+Node: sox-gen840432
+Node: stack-f847041
+Node: tetris847329
+Node: toy-braille847470
+Node: tts848307
+Node: tts-cmds850310
+Node: voice-setup850819
+Node: xbacklight858468
+Node: URL Templates859932
+Node: Emacspeak Keyboard Commands866063
+Node: TTS Servers868125
+Node: Emacspeak At Twenty875172
+Node: Turning Twenty876883
+Node: Using UNIX With Speech Output --- 1994877571
+Node: Key Enabler --- Emacs And Lisp Advice879412
+Node: Key Component --- Text To Speech (TTS)880457
+Node: Emacspeak And Software Development883001
+Node: Programming Defensively885617
+Node: Emacspeak And Authoring Documents886876
+Node: Emacspeak And The Early Days Of The Web888451
+Node: Audio Formatting --- Generalizing Aural CSS891899
+Node: Conversational Gestures For The Audio Desktop894967
+Node: Speech-Enabling Interactive Games898322
+Node: Accessing Media Streams900426
+Node: EBooks --- Ubiquitous Access To Books902533
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks905081
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols906947
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access910429
+Node: Mashing It Up --- Leveraging Evolving Web APIs913973
+Node: Conclusion --- Turning Twenty916478
+Node: References917860
+Node: Acknowledgments918790
+Node: Concept Index918948
+Node: Key Index922591
 
 End Tag Table
 

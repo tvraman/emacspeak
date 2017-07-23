@@ -3436,8 +3436,10 @@ Location is specified as returned by gmaps-geocode and defaults to
 
 (defun emacspeak-wizards-noaa-weather (&optional ask)
 	"Display weather information using NOAA Weather API.  Optional
-interactive prefix arg `ask' asks for location address;
-Default is to display weather for `gweb-my-address'."
+interactive prefix arg `ask' asks for location address; Default is to
+display weather for `gweb-my-address'.  Data is retrieved only once,
+subsequent calls switch to previously displayed results. Kill that
+buffer to get new data."
 	(interactive "P")
 	(cond
 	 ((buffer-live-p (get-buffer"*NOAA Weather*"))
