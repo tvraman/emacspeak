@@ -3436,7 +3436,7 @@ Default is to display weather for `gweb-my-address'."
 		 		(emacspeak-wizards-noaa-api-url
 		 		 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
 		(let ((buffer (get-buffer-create "*NOAA Weather*"))
-					(inhibit-read-only  nil)
+					(inhibit-read-only  t)
 					(updated .properties.updated)
 					(periods .properties.periods)
 					(start (point-min)))
@@ -3457,6 +3457,29 @@ Default is to display weather for `gweb-my-address'."
 				(insert
 				 (format "\nUpdated at %s\n"
 								 (format-time-string "%c" (date-to-time updated))))
+				(let-alist 
+						(g-json-get-result
+						 (format
+		 					"curl --location --location-trusted --silent '%s'"
+		 					(concat
+							 (emacspeak-wizards-noaa-api-url
+		 						(when ask (gmaps-geocode (read-from-minibuffer "Address:"))))
+							 "/hourly")))
+					(setq periods .properties.periods)
+					
+					
+					
+					(insert
+					 (format "\n* Hourly Forecast:Updated At %s \n"
+									 (format-time-string "%c" (date-to-time updated))))					 (cl-loop
+					 for p across periods do
+					 (let-alist p
+						 (insert
+							(format
+							 "  - %s: %s %s:  Wind Speed: %s Wind Direction: %s\n"
+							 (format-time-string "%c" (date-to-time .startTime) t)
+							 .shortForecast
+							 .temperature .windSpeed .windDirection)))))
 				(goto-char (point-min))
 				(emacspeak-speak-buffer))
 			(funcall-interactively #'display-buffer buffer))))
