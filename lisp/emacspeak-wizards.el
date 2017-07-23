@@ -3491,8 +3491,8 @@ Default is to display weather for `gweb-my-address'."
 						 "  - %s: %s %s:  Wind Speed: %s Wind Direction: %s\n"
 						 (emacspeak-wizards--format-noaa-time .startTime)
 						 .shortForecast
-						 .temperature .windSpeed .windDirection)))))
-			(goto-char (point-min))
+						 .temperature .windSpeed .windDirection))))
+			(goto-char (point-min)))
 			(emacspeak-speak-buffer)
 			(funcall-interactively #'display-buffer buffer))))
 
