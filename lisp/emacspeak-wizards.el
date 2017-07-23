@@ -3448,17 +3448,17 @@ Default is to display weather for `gweb-my-address'."
 				 (let-alist p
 					 (insert 
 						(format
-						 "* Forecast For %s\n\n%s\n\n"
-						 .name
-						 .detailedForecast))))
-				(fill-region start (point))
-				(insert "\n")
+						 "* Forecast For %s: %s\n\n%s\n\n"
+						 .name .shortForecast
+						 .detailedForecast)))
+				 (fill-region start (point))
+				 (insert "\n"))
 				(setq start (point))
 				(insert
-				 (format "Updated at %s"
-								 (format-time-string "%c" (date-to-time updated))
-								 (goto-char (point-min))
-								 (emacspeak-speak-buffer))))
+				 (format "\nUpdated at %s\n"
+								 (format-time-string "%c" (date-to-time updated))))
+				(goto-char (point-min))
+				(emacspeak-speak-buffer))
 			(funcall-interactively #'display-buffer buffer))))
 
 ;;}}}
