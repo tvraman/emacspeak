@@ -442,6 +442,7 @@ relief."
     ("p" paradox-list-packages)
     ("Q" emacspeak-wizards-yql-lookup)
     ("q" emacspeak-wizards-yql-quotes)
+		("w" emacspeak-wizards-noaa-weather)
     ("r" jabber-activity-switch-to)
     ("s" emacspeak-emergency-tts-restart)
     ("t" emacspeak-speak-telephone-directory)

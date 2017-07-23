@@ -154,7 +154,6 @@ Optional argument `raw-p' returns raw JSON  object."
               (when gweb-my-location
                 (setq gweb-my-postal-code
                       (gmaps-postal-code-from-location gweb-my-location)))
-              
               (when (featurep 'emacspeak)
                 (emacspeak-calendar-setup-sunrise-sunset)))
             (set-default sym val))
