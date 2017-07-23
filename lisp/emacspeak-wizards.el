@@ -3471,8 +3471,7 @@ buffer to get new data."
 							(format
 							 "** Forecast For %s: %s\n\n%s\n\n"
 							 .name .shortForecast .detailedForecast)))
-					 (fill-region start (point))
-					 (insert "\n"))
+					 (fill-region start (point)))
 					(insert
 					 (format "\nUpdated at %s\n"
 									 (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
