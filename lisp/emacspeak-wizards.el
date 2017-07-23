@@ -3432,7 +3432,7 @@ Default is to display weather for `gweb-my-address'."
 	(let-alist 
 			(g-json-get-result
 		   (format
-		 		"curl --silent '%s'"
+		 		"curl --location --location-trusted --silent '%s'"
 		 		(emacspeak-wizards-noaa-api-url
 		 		 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
 		(let ((buffer (get-buffer-create "*NOAA Weather*"))
