@@ -3449,7 +3449,8 @@ Default is to display weather for `gweb-my-address'."
 					(start (point-min)))
 			(with-current-buffer buffer
 				(erase-buffer)
-				(org-mode)
+				(special-mode)
+				(orgstruct-mode)
 				(let-alist ;;; produce faily forecast
 						(g-json-get-result
 						 (format
