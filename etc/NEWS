@@ -47,6 +47,10 @@ toggles comint autospeak in comint buffers; otherwise calls
 _voice-setup-toggle-silence-personality_ --- command
 _voice-setup-toggle-silence-personality_
 is still available on _C-e M-q_ in all buffers.
+** Implemented NOAA Weather API
+
+Command _emacspeak-wizards-noaa-weather_ implements a light-weight
+client for the NOAA Weather API.
 
 ** Speech-Enable RipGrep Front-End:
 
