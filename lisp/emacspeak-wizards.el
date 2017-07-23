@@ -3417,6 +3417,7 @@ Location is specified as returned by gmaps-geocode and defaults to
   `gweb-my-location'."
 	(declare (special gweb-my-location))
 	(cl-assert  (or geo gweb-my-location) nil "Location not specified.")
+	(unless geo (setq geo gweb-my-location))
 	(format
 	 "https://api.weather.gov/points/%.4f,%.4f/forecast"
 	 (g-json-get 'lat geo)
@@ -3426,18 +3427,24 @@ Location is specified as returned by gmaps-geocode and defaults to
 	"Display weather information using NOAA Weather API.  Optional
 interactive prefix arg `ask' asks for location address;
 Default is to display weather for `gweb-my-address'."
+	(interactive)
 	(declare (special gweb-my-address))
 	(let-alist
 			(g-json-get-result
-				 (format
-					"curl --silent '%s'"
-					(emacspeak-wizards-noaa-api-url
-					 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
-		
-									
-		))
-;;}}}
+			 (format
+				"curl --silent '%s'"
+				(emacspeak-wizards-noaa-api-url
+				 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
+		(let ((buffer (get-buffer-create "*NOAA Weather*"))
+					(inhibit-read-only  nil))
+		(with-current-buffer buffer
+			(erase-buffer)
+			(insert (format "Updated at %s"
+											.properties.updated))
+			(org-mode))
+		(pop-to-buffer buffer))))
 
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
