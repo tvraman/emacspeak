@@ -3411,29 +3411,30 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;}}}
 ;;{{{ NOAA Weather API:
-(defun emacspeak-wizards-noaa-api-url  (&optional lat long)
+(defun emacspeak-wizards-noaa-api-url  (&optional geo)
 	"Return NOAA Weather API REST end-point for specified lat/long.
-Defaults to `gweb-my-location'."
+Location is specified as returned by gmaps-geocode and defaults to 
+  `gweb-my-location'."
 	(declare (special gweb-my-location))
-	(cl-assert  (or (and lat long) gweb-my-location) nil "Location not specified.")
+	(cl-assert  (or geo gweb-my-location) nil "Location not specified.")
 	(format
 	 "https://api.weather.gov/points/%.4f,%.4f/forecast"
-	 (or lat (g-json-get 'lat gweb-my-location))
-	 (or long (g-json-get 'lng gweb-my-location))))
+	 (g-json-get 'lat geo)
+	 (g-json-get 'lng geo)))
 
-(defun emacspeak-wizards-noaa-weather (&optional prompt-address)
+(defun emacspeak-wizards-noaa-weather (&optional ask)
 	"Display weather information using NOAA Weather API.  Optional
-interactive prefix arg `prompt-address' prompts for location address;
+interactive prefix arg `ask' asks for location address;
 Default is to display weather for `gweb-my-address'."
 	(declare (special gweb-my-address))
-	(when prompt-address
-		(let ((geo (gmaps-geocode(read-from-minibuffer "Address: "))))
-			(setq lat (format "%.4f" (g-json-get 'lat geo))
-						long (format "%.4f" (g-json-get 'lng  geo)))))
 	(let-alist
-			((w
-				(g-json-get-result
-				 (format "curl --silent '%s'" (emacspeak-wizards-noaa-api-url lat long)))))
+			(g-json-get-result
+				 (format
+					"curl --silent '%s'"
+					(emacspeak-wizards-noaa-api-url
+					 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
+		
+									
 		))
 ;;}}}
 
