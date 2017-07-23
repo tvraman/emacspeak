@@ -3500,8 +3500,9 @@ Default is to display weather for `gweb-my-address'."
 						 .shortForecast
 						 .temperature .windSpeed .windDirection))))
 				(goto-char (point-min)))
-			(emacspeak-speak-buffer)
-			(funcall-interactively #'display-buffer buffer))))
+			(switch-to-buffer buffer)
+			(emacspeak-auditory-icon 'select-object)
+			(emacspeak-speak-buffer))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
