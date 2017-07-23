@@ -3411,7 +3411,7 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;}}}
 ;;{{{ NOAA Weather API:
-(defun emacspeak-wizards-noaa-api-url  (&optional geo)
+(defun emacspeak-wizards--noaa-api-url  (&optional geo)
 	"Return NOAA Weather API REST end-point for specified lat/long.
 Location is specified as returned by gmaps-geocode and defaults to 
   `gweb-my-location'."
@@ -3433,7 +3433,7 @@ Default is to display weather for `gweb-my-address'."
 			(g-json-get-result
 		   (format
 		 		"curl --location --location-trusted --silent '%s'"
-		 		(emacspeak-wizards-noaa-api-url
+		 		(emacspeak-wizards--noaa-api-url
 		 		 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
 		(let ((buffer (get-buffer-create "*NOAA Weather*"))
 					(inhibit-read-only  t)
@@ -3462,7 +3462,7 @@ Default is to display weather for `gweb-my-address'."
 						 (format
 		 					"curl --location --location-trusted --silent '%s'"
 		 					(concat
-							 (emacspeak-wizards-noaa-api-url
+							 (emacspeak-wizards--noaa-api-url
 		 						(when ask (gmaps-geocode (read-from-minibuffer "Address:"))))
 							 "/hourly")))
 					(setq periods .properties.periods)
