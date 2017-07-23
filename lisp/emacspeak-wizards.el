@@ -3411,6 +3411,17 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;}}}
 ;;{{{ NOAA Weather API:
+
+;;; NOAA: format time 
+;;; NOAA data has a ":" in tz
+
+(defun emacspeak-wizards--format-noaa-time (iso-date)
+	"Utility function to correctly format ISO date-time strings from NOAA."
+;;; first strip offending ":" in tz 
+	(when (and (= (length iso-date) 25) (char-equal ?: (aref iso-date 22)))
+		(setq iso-date (concat  (substring iso-date 0 22) "00")))
+  (format-time-string "%c" (date-to-time iso-date)))
+  
 (defun emacspeak-wizards--noaa-api-url  (&optional geo)
 	"Return NOAA Weather API REST end-point for specified lat/long.
 Location is specified as returned by gmaps-geocode and defaults to 
@@ -3456,7 +3467,7 @@ Default is to display weather for `gweb-my-address'."
 				(setq start (point))
 				(insert
 				 (format "\nUpdated at %s\n"
-								 (format-time-string "%c" (date-to-time updated))))
+								 (emacspeak-wizards--format-noaa-time updated)))
 				(let-alist 
 						(g-json-get-result
 						 (format
@@ -3471,17 +3482,18 @@ Default is to display weather for `gweb-my-address'."
 					
 					(insert
 					 (format "\n* Hourly Forecast:Updated At %s \n"
-									 (format-time-string "%c" (date-to-time updated))))					 (cl-loop
-					 for p across periods do
-					 (let-alist p
-						 (insert
-							(format
-							 "  - %s: %s %s:  Wind Speed: %s Wind Direction: %s\n"
-							 (format-time-string "%c" (date-to-time .startTime) t)
-							 .shortForecast
-							 .temperature .windSpeed .windDirection)))))
-				(goto-char (point-min))
-				(emacspeak-speak-buffer))
+									 (emacspeak-wizards--format-noaa-time updated))))					
+				(cl-loop
+				 for p across periods do
+				 (let-alist p
+					 (insert
+						(format
+						 "  - %s: %s %s:  Wind Speed: %s Wind Direction: %s\n"
+						 (emacspeak-wizards--format-noaa-time .startTime)
+						 .shortForecast
+						 .temperature .windSpeed .windDirection)))))
+			(goto-char (point-min))
+			(emacspeak-speak-buffer)
 			(funcall-interactively #'display-buffer buffer))))
 
 ;;}}}
