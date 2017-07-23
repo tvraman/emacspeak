@@ -3445,21 +3445,23 @@ buffer to get new data."
 	 ((buffer-live-p (get-buffer"*NOAA Weather*"))
 		(funcall-interactively #'switch-to-buffer "*NOAA Weather*"))
 	 (t ;;; Get the data and display 
-		(let ((buffer (get-buffer-create "*NOAA Weather*"))
-					(inhibit-read-only  t)
-					(date nil)
-					(start (point-min)))
+		(let* ((buffer (get-buffer-create "*NOAA Weather*"))
+					 (inhibit-read-only  t)
+					 (date nil)
+					 (start (point-min))
+					 (address (when ask (read-from-minibuffer "Address:")))
+					 (geo  (when ask (gmaps-geocode address))))
 			(with-current-buffer buffer
 				(erase-buffer)
 				(special-mode)
 				(orgstruct-mode)
+				(insert (format "* Weather Forecast For %s\n\n"
+												(if ask address gweb-my-address)))
 				(let-alist ;;; produce faily forecast
 						(g-json-get-result
 						 (format
 		 					"curl --location --location-trusted --silent '%s'"
-		 					(emacspeak-wizards--noaa-api-url
-		 					 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
-					(insert  "* NOAA Weather Forecast\n")
+		 					(emacspeak-wizards--noaa-api-url geo)))
 					(cl-loop
 					 for p across .properties.periods do
 					 (let-alist p
@@ -3477,8 +3479,7 @@ buffer to get new data."
 						 (format
 		 					"curl --location --location-trusted --silent '%s'"
 		 					(concat
-							 (emacspeak-wizards--noaa-api-url
-		 						(when ask (gmaps-geocode (read-from-minibuffer "Address:"))))
+							 (emacspeak-wizards--noaa-api-url geo)
 							 "/hourly")))
 					(insert
 					 (format "\n* Hourly Forecast:Updated At %s \n"
