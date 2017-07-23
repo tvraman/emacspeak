@@ -3441,6 +3441,7 @@ display weather for `gweb-my-address'.  Data is retrieved only once,
 subsequent calls switch to previously displayed results. Kill that
 buffer to get new data."
 	(interactive "P")
+	(declare (special gweb-my-address g-curl-common-options))
 	(cond
 	 ((buffer-live-p (get-buffer"*NOAA Weather*"))
 		(funcall-interactively #'switch-to-buffer "*NOAA Weather*"))
@@ -3460,7 +3461,8 @@ buffer to get new data."
 				(let-alist ;;; produce faily forecast
 						(g-json-get-result
 						 (format
-		 					"curl --location --location-trusted --silent '%s'"
+		 					"curl %s  '%s'"
+							g-curl-common-options
 		 					(emacspeak-wizards--noaa-api-url geo)))
 					(cl-loop
 					 for p across .properties.periods do
@@ -3477,10 +3479,9 @@ buffer to get new data."
 				(let-alist ;;; Now produce hourly forecast
 						(g-json-get-result
 						 (format
-		 					"curl --location --location-trusted --silent '%s'"
-		 					(concat
-							 (emacspeak-wizards--noaa-api-url geo)
-							 "/hourly")))
+		 					"curl %s '%s'"
+							g-curl-common-options
+		 					(concat (emacspeak-wizards--noaa-api-url geo) "/hourly")))
 					(insert
 					 (format "\n* Hourly Forecast:Updated At %s \n"
 									 (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
