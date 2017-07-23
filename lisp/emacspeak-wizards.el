@@ -3415,12 +3415,12 @@ Optional interactive prefix arg shows  unprocessed results."
 ;;; NOAA: format time 
 ;;; NOAA data has a ":" in tz
 
-(defun emacspeak-wizards--format-noaa-time (iso-date)
+(defun emacspeak-wizards--format-noaa-time (fmt iso)
 	"Utility function to correctly format ISO date-time strings from NOAA."
 ;;; first strip offending ":" in tz 
-	(when (and (= (length iso-date) 25) (char-equal ?: (aref iso-date 22)))
-		(setq iso-date (concat  (substring iso-date 0 22) "00")))
-  (format-time-string "%c" (date-to-time iso-date)))
+	(when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
+		(setq iso (concat  (substring iso 0 22) "00")))
+  (format-time-string fmt (date-to-time iso)))
   
 (defun emacspeak-wizards--noaa-api-url  (&optional geo)
 	"Return NOAA Weather API REST end-point for specified lat/long.
@@ -3448,6 +3448,7 @@ Default is to display weather for `gweb-my-address'."
 		 		 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
 		(let ((buffer (get-buffer-create "*NOAA Weather*"))
 					(inhibit-read-only  t)
+					(date nil)
 					(updated .properties.updated)
 					(periods .properties.periods)
 					(start (point-min)))
@@ -3468,8 +3469,8 @@ Default is to display weather for `gweb-my-address'."
 				(setq start (point))
 				(insert
 				 (format "\nUpdated at %s\n"
-								 (emacspeak-wizards--format-noaa-time updated)))
-				;;; Now produce hourly forecast
+								 (emacspeak-wizards--format-noaa-time "%c" updated)))
+;;; Now produce hourly forecast
 				(let-alist 
 						(g-json-get-result
 						 (format
@@ -3482,17 +3483,23 @@ Default is to display weather for `gweb-my-address'."
 					
 					(insert
 					 (format "\n* Hourly Forecast:Updated At %s \n"
-									 (emacspeak-wizards--format-noaa-time updated))))					
+									 (emacspeak-wizards--format-noaa-time "%c" updated))))					
 				(cl-loop
 				 for p across periods do
 				 (let-alist p
+					 (unless (and date
+												(string= date  (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+						 (insert
+							(format "** %s\n"
+											(emacspeak-wizards--format-noaa-time "%A %X" .startTime)))
+						 (setq date (emacspeak-wizards--format-noaa-time "%x" .startTime)))
 					 (insert
 						(format
-						 "  - %s: %s %s:  Wind Speed: %s Wind Direction: %s\n"
-						 (emacspeak-wizards--format-noaa-time .startTime)
+						 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+						 (emacspeak-wizards--format-noaa-time "%R" .startTime)
 						 .shortForecast
 						 .temperature .windSpeed .windDirection))))
-			(goto-char (point-min)))
+				(goto-char (point-min)))
 			(emacspeak-speak-buffer)
 			(funcall-interactively #'display-buffer buffer))))
 
