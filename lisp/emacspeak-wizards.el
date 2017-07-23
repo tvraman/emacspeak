@@ -3439,62 +3439,66 @@ Location is specified as returned by gmaps-geocode and defaults to
 interactive prefix arg `ask' asks for location address;
 Default is to display weather for `gweb-my-address'."
 	(interactive "P")
-	(let ((buffer (get-buffer-create "*NOAA Weather*"))
-				(inhibit-read-only  t)
-				(date nil)
-				(start (point-min)))
-		(with-current-buffer buffer
-			(erase-buffer)
-			(org-mode)
-			(let-alist  ;;; produce faily forecast
-					(g-json-get-result
-					 (format
-		 				"curl --location --location-trusted --silent '%s'"
-		 				(emacspeak-wizards--noaa-api-url
-		 				 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
-				(insert  "* NOAA Weather Forecast\n")
-				(cl-loop
-				 for p across .properties.periods do
-				 (let-alist p
-					 (insert 
-						(format
-						 "** Forecast For %s: %s\n\n%s\n\n"
-						 .name .shortForecast .detailedForecast)))
-				 (fill-region start (point))
-				 (insert "\n"))
-				(insert
-				 (format "\nUpdated at %s\n"
-								 (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
-			(let-alist  ;;; Now produce hourly forecast
-					(g-json-get-result
-					 (format
-		 				"curl --location --location-trusted --silent '%s'"
-		 				(concat
-						 (emacspeak-wizards--noaa-api-url
-		 					(when ask (gmaps-geocode (read-from-minibuffer "Address:"))))
-						 "/hourly")))
-				(insert
-				 (format "\n* Hourly Forecast:Updated At %s \n"
-								 (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
-				(cl-loop
-				 for p across .properties.periods do
-				 (let-alist p
-					 (unless (and date
-												(string= date  (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+	(cond
+	 ((buffer-live-p (get-buffer"*NOAA Weather*"))
+		(funcall-interactively #'switch-to-buffer "*NOAA Weather*"))
+	 (t ;;; Get the data and display 
+		(let ((buffer (get-buffer-create "*NOAA Weather*"))
+					(inhibit-read-only  t)
+					(date nil)
+					(start (point-min)))
+			(with-current-buffer buffer
+				(erase-buffer)
+				(org-mode)
+				(let-alist ;;; produce faily forecast
+						(g-json-get-result
+						 (format
+		 					"curl --location --location-trusted --silent '%s'"
+		 					(emacspeak-wizards--noaa-api-url
+		 					 (when ask (gmaps-geocode (read-from-minibuffer "Address:"))))))
+					(insert  "* NOAA Weather Forecast\n")
+					(cl-loop
+					 for p across .properties.periods do
+					 (let-alist p
+						 (insert 
+							(format
+							 "** Forecast For %s: %s\n\n%s\n\n"
+							 .name .shortForecast .detailedForecast)))
+					 (fill-region start (point))
+					 (insert "\n"))
+					(insert
+					 (format "\nUpdated at %s\n"
+									 (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
+				(let-alist ;;; Now produce hourly forecast
+						(g-json-get-result
+						 (format
+		 					"curl --location --location-trusted --silent '%s'"
+		 					(concat
+							 (emacspeak-wizards--noaa-api-url
+		 						(when ask (gmaps-geocode (read-from-minibuffer "Address:"))))
+							 "/hourly")))
+					(insert
+					 (format "\n* Hourly Forecast:Updated At %s \n"
+									 (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
+					(cl-loop
+					 for p across .properties.periods do
+					 (let-alist p
+						 (unless (and date
+													(string= date  (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+							 (insert
+								(format "** %s\n"
+												(emacspeak-wizards--format-noaa-time "%A %X" .startTime)))
+							 (setq date (emacspeak-wizards--format-noaa-time "%x" .startTime)))
 						 (insert
-							(format "** %s\n"
-											(emacspeak-wizards--format-noaa-time "%A %X" .startTime)))
-						 (setq date (emacspeak-wizards--format-noaa-time "%x" .startTime)))
-					 (insert
-						(format
-						 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-						 (emacspeak-wizards--format-noaa-time "%R" .startTime)
-						 .shortForecast
-						 .temperature .windSpeed .windDirection)))))
-			(goto-char (point-min)))
-		(switch-to-buffer buffer)
-		(emacspeak-auditory-icon 'select-object)
-		(emacspeak-speak-buffer)))
+							(format
+							 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+							 (emacspeak-wizards--format-noaa-time "%R" .startTime)
+							 .shortForecast
+							 .temperature .windSpeed .windDirection)))))
+				(goto-char (point-min)))
+			(switch-to-buffer buffer)
+			(emacspeak-auditory-icon 'select-object)
+			(emacspeak-speak-buffer)))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
