@@ -3459,14 +3459,12 @@ Default is to display weather for `gweb-my-address'."
 					 (insert 
 						(format
 						 "** Forecast For %s: %s\n\n%s\n\n"
-						 .name .shortForecast
-						 .detailedForecast)))
+						 .name .shortForecast .detailedForecast)))
 				 (fill-region start (point))
 				 (insert "\n"))
 				(insert
 				 (format "\nUpdated at %s\n"
-								 (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
-				(setq start (point)))
+								 (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
 			(let-alist  ;;; Now produce hourly forecast
 					(g-json-get-result
 					 (format
