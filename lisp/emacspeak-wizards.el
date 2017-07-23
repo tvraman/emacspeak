@@ -3410,6 +3410,32 @@ Optional interactive prefix arg shows  unprocessed results."
 					gweb-my-postal-code)))
 
 ;;}}}
+;;{{{ NOAA Weather API:
+(defun emacspeak-wizards-noaa-api-url  (&optional lat long)
+	"Return NOAA Weather API REST end-point for specified lat/long.
+Defaults to `gweb-my-location'."
+	(declare (special gweb-my-location))
+	(cl-assert  (or (and lat long) gweb-my-location) nil "Location not specified.")
+	(format
+	 "https://api.weather.gov/points/%.4f,%.4f/forecast"
+	 (or lat (g-json-get 'lat gweb-my-location))
+	 (or long (g-json-get 'lng gweb-my-location))))
+
+(defun emacspeak-wizards-noaa-weather (&optional prompt-address)
+	"Display weather information using NOAA Weather API.  Optional
+interactive prefix arg `prompt-address' prompts for location address;
+Default is to display weather for `gweb-my-address'."
+	(declare (special gweb-my-address))
+	(when prompt-address
+		(let ((geo (gmaps-geocode(read-from-minibuffer "Address: "))))
+			(setq lat (format "%.4f" (g-json-get 'lat geo))
+						long (format "%.4f" (g-json-get 'lng  geo)))))
+	(let-alist
+			((w
+				(g-json-get-result
+				 (format "curl --silent '%s'" (emacspeak-wizards-noaa-api-url lat long)))))
+		))
+;;}}}
 
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
