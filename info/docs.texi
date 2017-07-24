@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1193 commands and 1156 options.
+This chapter documents a total of 1194 commands and 1156 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -9766,6 +9766,15 @@ Speak text using Google Network TTS.
 Speak region using Google Network TTS.
 
 (fn START END)
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-what-is-my-ip
+@deffn {Command} emacspeak-google-what-is-my-ip   
+@findex emacspeak-google-what-is-my-ip
+
+@format
+Show my public IP
 @end format
 @end deffn
 

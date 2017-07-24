@@ -3874,6 +3874,13 @@ e.g.  blog search are tbm=
 
      (fn START END)
 
+12.90.1.38 emacspeak-google-what-is-my-ip
+.........................................
+
+ -- Command: emacspeak-google-what-is-my-ip
+
+     Show my public IP
+
 12.90.2 emacspeak-google Options
 --------------------------------
 
