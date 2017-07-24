@@ -614,6 +614,14 @@ This variable is buffer-local.")
   (emacspeak-google-tts (buffer-substring-no-properties start end)))
 
 ;;}}}
+;;{{{ What Is My IP:
+
+(defun emacspeak-google-what-is-my-ip ()
+   "Show my public IP"
+   (interactive )
+   (emacspeak-we-xslt-filter  "//w-answer"
+"https://www.google.com/search?lite=90586&q=what+is+my+ip" 'speak))
+;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
