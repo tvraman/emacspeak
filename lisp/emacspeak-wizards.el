@@ -3442,6 +3442,55 @@ Location is specified as returned by gmaps-geocode and defaults to
    (g-json-get 'lat geo)
    (g-json-get 'lng geo)))
 
+(defun ems--noaa-get-data (ask)
+	"Internal functon that gets NOAA data and returns a results buffer."
+	(declare (special gweb-my-address))
+	(let* ((buffer (get-buffer-create "*NOAA Weather*"))
+				 (inhibit-read-only  t)
+				 (date nil)
+				 (start (point-min))
+				 (address (when ask (read-from-minibuffer "Address:")))
+				 (geo  (when ask (gmaps-geocode address))))
+		(unless address (setq address gweb-my-address))
+		(with-current-buffer buffer
+			(erase-buffer)
+			(special-mode)
+			(orgstruct-mode)
+			(setq header-line-format (format "NOAA Weather For %s" address))
+			(insert (format "* Weather Forecast For %s\n\n" address))
+;;; produce faily forecast
+			(let-alist (g-json-from-url (ems--noaa-url geo))
+				(cl-loop
+				 for p across .properties.periods do
+				 (let-alist p
+					 (insert
+						(format
+						 "** Forecast For %s: %s\n\n%s\n\n"
+						 .name .shortForecast .detailedForecast)))
+				 (fill-region start (point)))
+				(insert
+				 (format "\nUpdated at %s\n"
+								 (ems--noaa-time "%c" .properties.updated))))
+			(let-alist ;;; Now produce hourly forecast
+					(g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
+				(insert
+				 (format "\n* Hourly Forecast:Updated At %s \n"
+								 (ems--noaa-time "%c" .properties.updated)))
+				(cl-loop
+				 for p across .properties.periods do
+				 (let-alist p
+					 (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
+						 (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
+						 (setq date (ems--noaa-time "%x" .startTime)))
+					 (insert
+						(format
+						 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+						 (ems--noaa-time "%R" .startTime)
+						 .shortForecast
+						 .temperature .windSpeed .windDirection)))))
+			(goto-char (point-min)))
+		buffer))
+
 (defun emacspeak-wizards-noaa-weather (&optional ask)
   "Display weather information using NOAA Weather API.  Optional
 interactive prefix arg `ask' asks for location address; Default is to
@@ -3449,55 +3498,11 @@ display weather for `gweb-my-address'.  Data is retrieved only once,
 subsequent calls switch to previously displayed results. Kill that
 buffer to get new data."
   (interactive "P")
-  (declare (special gweb-my-address ))
-  (unless (buffer-live-p (get-buffer"*NOAA Weather*")) ;;; Get the data 
-		(let* ((buffer (get-buffer-create "*NOAA Weather*"))
-					 (inhibit-read-only  t)
-					 (date nil)
-					 (start (point-min))
-					 (address (when ask (read-from-minibuffer "Address:")))
-					 (geo  (when ask (gmaps-geocode address))))
-			(unless address (setq address gweb-my-address))
-			(with-current-buffer buffer
-				(erase-buffer)
-				(special-mode)
-				(orgstruct-mode)
-				(setq header-line-format (format "NOAA Weather For %s" address))
-				(insert (format "* Weather Forecast For %s\n\n" address))
-;;; produce faily forecast
-				(let-alist (g-json-from-url (ems--noaa-url geo))
-					(cl-loop
-					 for p across .properties.periods do
-					 (let-alist p
-						 (insert
-							(format
-							 "** Forecast For %s: %s\n\n%s\n\n"
-							 .name .shortForecast .detailedForecast)))
-					 (fill-region start (point)))
-					(insert
-					 (format "\nUpdated at %s\n"
-									 (ems--noaa-time "%c" .properties.updated))))
-				(let-alist ;;; Now produce hourly forecast
-						(g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
-					(insert
-					 (format "\n* Hourly Forecast:Updated At %s \n"
-									 (ems--noaa-time "%c" .properties.updated)))
-					(cl-loop
-					 for p across .properties.periods do
-					 (let-alist p
-						 (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
-							 (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
-							 (setq date (ems--noaa-time "%x" .startTime)))
-						 (insert
-							(format
-							 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-							 (ems--noaa-time "%R" .startTime)
-							 .shortForecast
-							 .temperature .windSpeed .windDirection)))))
-				(goto-char (point-min)))))
-	(switch-to-buffer (get-buffer"*NOAA Weather*"))
-	(emacspeak-auditory-icon 'select-object)
-	(emacspeak-speak-buffer))
+	(let ((buffer (or  (buffer-live-p (get-buffer"*NOAA Weather*"))
+										 (ems--noaa-get-data ask))))
+		(switch-to-buffer buffer)
+		(emacspeak-auditory-icon 'select-object)
+		(emacspeak-speak-buffer)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
