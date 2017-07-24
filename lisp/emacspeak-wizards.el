@@ -3498,8 +3498,7 @@ display weather for `gweb-my-address'.  Data is retrieved only once,
 subsequent calls switch to previously displayed results. Kill that
 buffer to get new data."
   (interactive "P")
-	(let ((buffer (or  (buffer-live-p (get-buffer"*NOAA Weather*"))
-										 (ems--noaa-get-data ask))))
+	(let ((buffer (or   (get-buffer"*NOAA Weather*") (ems--noaa-get-data ask))))
 		(switch-to-buffer buffer)
 		(emacspeak-auditory-icon 'select-object)
 		(emacspeak-speak-buffer)))
