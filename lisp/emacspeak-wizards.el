@@ -3413,14 +3413,14 @@ Optional interactive prefix arg shows  unprocessed results."
 ;;; NOAA: format time
 ;;; NOAA data has a ":" in tz
 
-(defun emacspeak-wizards--format-noaa-time (fmt iso)
+(defun emacspeak-wizards--noaa-time (fmt iso)
   "Utility function to correctly format ISO date-time strings from NOAA."
 ;;; first strip offending ":" in tz
   (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
     (setq iso (concat  (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
 
-(defun emacspeak-wizards--noaa-api-url  (&optional geo)
+(defun emacspeak-wizards--noaa-url  (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
 Location is specified as returned by gmaps-geocode and defaults to
   `gweb-my-location'."
@@ -3457,7 +3457,7 @@ buffer to get new data."
         (insert (format "* Weather Forecast For %s\n\n"
                         (if ask address gweb-my-address)))
 ;;; produce faily forecast
-        (let-alist (g-json-from-url (emacspeak-wizards--noaa-api-url geo))
+        (let-alist (g-json-from-url (emacspeak-wizards--noaa-url geo))
           (cl-loop
            for p across .properties.periods do
            (let-alist p
@@ -3468,25 +3468,27 @@ buffer to get new data."
            (fill-region start (point)))
           (insert
            (format "\nUpdated at %s\n"
-                   (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
+                   (emacspeak-wizards--noaa-time "%c" .properties.updated))))
         (let-alist ;;; Now produce hourly forecast
-						(g-json-from-url (concat (emacspeak-wizards--noaa-api-url geo) "/hourly"))
+						(g-json-from-url (concat (emacspeak-wizards--noaa-url geo) "/hourly"))
           (insert
            (format "\n* Hourly Forecast:Updated At %s \n"
-                   (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
+                   (emacspeak-wizards--noaa-time "%c" .properties.updated)))
           (cl-loop
            for p across .properties.periods do
            (let-alist p
-             (unless (and date
-                          (string= date  (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+             (unless
+								 (and
+									date
+                  (string= date (emacspeak-wizards--noaa-time "%x" .startTime)))
                (insert
                 (format "** %s\n"
-                        (emacspeak-wizards--format-noaa-time "%A %X" .startTime)))
-               (setq date (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+                        (emacspeak-wizards--noaa-time "%A %X" .startTime)))
+               (setq date (emacspeak-wizards--noaa-time "%x" .startTime)))
              (insert
               (format
                "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-               (emacspeak-wizards--format-noaa-time "%R" .startTime)
+               (emacspeak-wizards--noaa-time "%R" .startTime)
                .shortForecast
                .temperature .windSpeed .windDirection)))))
         (goto-char (point-min)))
