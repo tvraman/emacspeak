@@ -3450,59 +3450,54 @@ subsequent calls switch to previously displayed results. Kill that
 buffer to get new data."
   (interactive "P")
   (declare (special gweb-my-address ))
-  (cond
-   ((buffer-live-p (get-buffer"*NOAA Weather*"))
-    (switch-to-buffer "*NOAA Weather*")
-    (emacspeak-speak-buffer))
-   (t ;;; Get the data and display
-    (let* ((buffer (get-buffer-create "*NOAA Weather*"))
-           (inhibit-read-only  t)
-           (date nil)
-           (start (point-min))
-           (address (when ask (read-from-minibuffer "Address:")))
-           (geo  (when ask (gmaps-geocode address))))
-      (with-current-buffer buffer
-        (erase-buffer)
-        (special-mode)
-        (orgstruct-mode)
-				(setq header-line-format
-							(format "NOAA Weather For %s" address))
-        (insert (format "* Weather Forecast For %s\n\n"
-                        (if ask address gweb-my-address)))
+  (unless (buffer-live-p (get-buffer"*NOAA Weather*")) ;;; Get the data 
+		(let* ((buffer (get-buffer-create "*NOAA Weather*"))
+					 (inhibit-read-only  t)
+					 (date nil)
+					 (start (point-min))
+					 (address (when ask (read-from-minibuffer "Address:")))
+					 (geo  (when ask (gmaps-geocode address))))
+			(unless address (setq address gweb-my-address))
+			(with-current-buffer buffer
+				(erase-buffer)
+				(special-mode)
+				(orgstruct-mode)
+				(setq header-line-format (format "NOAA Weather For %s" address))
+				(insert (format "* Weather Forecast For %s\n\n" address))
 ;;; produce faily forecast
-        (let-alist (g-json-from-url (ems--noaa-url geo))
-          (cl-loop
-           for p across .properties.periods do
-           (let-alist p
-             (insert
-              (format
-               "** Forecast For %s: %s\n\n%s\n\n"
-               .name .shortForecast .detailedForecast)))
-           (fill-region start (point)))
-          (insert
-           (format "\nUpdated at %s\n"
-                   (ems--noaa-time "%c" .properties.updated))))
-        (let-alist ;;; Now produce hourly forecast
-            (g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
-          (insert
-           (format "\n* Hourly Forecast:Updated At %s \n"
-                   (ems--noaa-time "%c" .properties.updated)))
-          (cl-loop
-           for p across .properties.periods do
-           (let-alist p
-             (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
-               (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
-               (setq date (ems--noaa-time "%x" .startTime)))
-             (insert
-              (format
-               "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-               (ems--noaa-time "%R" .startTime)
-               .shortForecast
-               .temperature .windSpeed .windDirection)))))
-        (goto-char (point-min)))
-      (switch-to-buffer buffer)
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-buffer)))))
+				(let-alist (g-json-from-url (ems--noaa-url geo))
+					(cl-loop
+					 for p across .properties.periods do
+					 (let-alist p
+						 (insert
+							(format
+							 "** Forecast For %s: %s\n\n%s\n\n"
+							 .name .shortForecast .detailedForecast)))
+					 (fill-region start (point)))
+					(insert
+					 (format "\nUpdated at %s\n"
+									 (ems--noaa-time "%c" .properties.updated))))
+				(let-alist ;;; Now produce hourly forecast
+						(g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
+					(insert
+					 (format "\n* Hourly Forecast:Updated At %s \n"
+									 (ems--noaa-time "%c" .properties.updated)))
+					(cl-loop
+					 for p across .properties.periods do
+					 (let-alist p
+						 (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
+							 (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
+							 (setq date (ems--noaa-time "%x" .startTime)))
+						 (insert
+							(format
+							 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+							 (ems--noaa-time "%R" .startTime)
+							 .shortForecast
+							 .temperature .windSpeed .windDirection)))))
+				(goto-char (point-min)))))
+	(switch-to-buffer (get-buffer"*NOAA Weather*"))
+	(emacspeak-auditory-icon 'select-object)
+	(emacspeak-speak-buffer))
 
 ;;}}}
 (provide 'emacspeak-wizards)
