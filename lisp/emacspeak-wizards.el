@@ -3465,6 +3465,8 @@ buffer to get new data."
         (erase-buffer)
         (special-mode)
         (orgstruct-mode)
+				(setq header-line-format
+							(format "NOAA Weather For %s" address))
         (insert (format "* Weather Forecast For %s\n\n"
                         (if ask address gweb-my-address)))
 ;;; produce faily forecast
@@ -3488,13 +3490,8 @@ buffer to get new data."
           (cl-loop
            for p across .properties.periods do
            (let-alist p
-             (unless
-                 (and
-                  date
-                  (string= date (ems--noaa-time "%x" .startTime)))
-               (insert
-                (format "** %s\n"
-                        (ems--noaa-time "%A %X" .startTime)))
+             (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
+               (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
                (setq date (ems--noaa-time "%x" .startTime)))
              (insert
               (format
