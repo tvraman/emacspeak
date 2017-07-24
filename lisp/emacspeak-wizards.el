@@ -850,7 +850,8 @@ If no property is set, show a message and exit."
         (intern
          (completing-read
           "Display property: "
-          (cl-loop  for p in properties  and i from 0 if (evenp i) collect p)))))
+          (cl-loop
+					 for p in properties  and i from 0 if (evenp i) collect p)))))
       (t (message "No property set at point ")
          nil))))
   (if property
@@ -1756,7 +1757,8 @@ Use with caution."
   (declare (special emacspeak-wizards-spot-words-extension))
   (compile
    (format
-    "find . -type f -name '*%s' -print0 | xargs -0 -e  perl -pi -e    \'s/%s/%s/g' "
+    "find . -type f -name '*%s' -print0 \
+| xargs -0 -e  perl -pi -e \'s/%s/%s/g' "
     ext word correction))
   (setq emacspeak-wizards-spot-words-extension ext)
   (emacspeak-auditory-icon 'task-done))
@@ -1800,9 +1802,9 @@ Use with caution."
 ;;{{{ VC viewer
 (defcustom emacspeak-wizards-vc-viewer-command
   "setterm -dump %s -file %s"
-  "Command line for dumping out virtual console.
-Make sure you have access to /dev/vcs* by adding yourself to the appropriate group.
-On Ubuntu and Debian this is group `tty'."
+  "Command line for dumping out virtual console.  Make sure you have
+access to /dev/vcs* by adding yourself to the appropriate group.  On
+Ubuntu and Debian this is group `tty'."
   :type 'string
   :group 'emacspeak-wizards)
 
@@ -2239,8 +2241,8 @@ RIVO is implemented by rivo.pl ---
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
-  (declare (special emacspeak-media-last-url
-                    emacspeak-media-shortcuts-directory emacspeak-media-history))
+  (declare (special emacspeak-media-last-url emacspeak-media-shortcuts-directory
+										emacspeak-media-history))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program
@@ -2435,7 +2437,8 @@ of the source buffer."
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)
   (declare (special emacspeak-wizards--project-shell-directory))
-  (ems--shell-pushd-if-needed emacspeak-wizards--project-shell-directory (current-buffer))
+  (ems--shell-pushd-if-needed
+	 emacspeak-wizards--project-shell-directory (current-buffer))
   (emacspeak-auditory-icon 'task-done)
   (message  (abbreviate-file-name default-directory)))
 
@@ -2703,7 +2706,8 @@ term if needed."
     (while (not (eobp))
       (let ((fields
              (split-string
-              (buffer-substring (line-beginning-position) (line-end-position)))))
+              (buffer-substring
+							 (line-beginning-position) (line-end-position)))))
         (push (cons (fourth fields) (second fields))
               emacspeak-wizards-espeak-voices-alist))
       (forward-line 1))))
@@ -2780,7 +2784,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                 (not (string-match "^ad-Orig" name))
                 (not (ad-find-some-advice s 'any  "emacspeak")))
              (push s result)))))
-    (sort result #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+    (sort result
+					#'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
@@ -2799,7 +2804,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                       (null (voice-setup-get-voice-for-face s)))
                    s)))
            (face-list)))))
-    (sort result #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+    (sort result
+					#'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
@@ -3029,7 +3035,8 @@ Optional interactive prefix arg `category' prompts for a category."
    result-row))
 
 (defun yql-result-row (headers result-row)
-  "Takes a list corresponding to a result, and returns a vector sorted per headers."
+  "Takes a list corresponding to a result, and returns a vector sorted
+per headers."
   (let ((row (make-vector (length result-row) nil)))
     (cl-loop
      for h across headers
@@ -3071,7 +3078,8 @@ sorted in lexical order with duplicates removed when saving."
 (defvar emacspeak-wizards-yq-base
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
-   (concat "env=" (url-hexify-string "store://datatables.org/alltableswithkeys"))
+   (concat
+		"env=" (url-hexify-string "store://datatables.org/alltableswithkeys"))
    "&format=json"
    "&q=")
   "REST-end-point for Yahoo Quotes API.")
@@ -3169,7 +3177,8 @@ Returns a list of lists, one list per ticker."
                collect (emacspeak-wizards-yq-filter r))))))
 
 (defun emacspeak-wizards-yq-result-row (r)
-  "Takes a list corresponding to a quote, and returns a vector sorted per headers."
+  "Takes a list corresponding to a quote, and returns a vector sorted
+per headers."
   (declare (special emacspeak-wizards-yq-headers))
   (let ((row (make-vector (length r) nil)))
     (cl-loop
@@ -3218,8 +3227,9 @@ Symbols are separated by whitespace."
     (emacspeak-table-prepare-table-buffer
      (emacspeak-wizards-yq-table tickers)
      (get-buffer-create buff))
-    (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-quotes-row-filter
-          emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
+    (setq
+		 emacspeak-table-speak-row-filter emacspeak-wizards-yql-quotes-row-filter
+     emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (rename-buffer buff 'unique)
     (goto-char (point-min))
     (switch-to-buffer buff)
@@ -3413,14 +3423,14 @@ Optional interactive prefix arg shows  unprocessed results."
 ;;; NOAA: format time
 ;;; NOAA data has a ":" in tz
 
-(defun emacspeak-wizards--noaa-time (fmt iso)
+(defun ems--noaa-time (fmt iso)
   "Utility function to correctly format ISO date-time strings from NOAA."
 ;;; first strip offending ":" in tz
   (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
     (setq iso (concat  (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
 
-(defun emacspeak-wizards--noaa-url  (&optional geo)
+(defun ems--noaa-url  (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
 Location is specified as returned by gmaps-geocode and defaults to
   `gweb-my-location'."
@@ -3442,7 +3452,8 @@ buffer to get new data."
   (declare (special gweb-my-address ))
   (cond
    ((buffer-live-p (get-buffer"*NOAA Weather*"))
-    (funcall-interactively #'switch-to-buffer "*NOAA Weather*"))
+    (switch-to-buffer "*NOAA Weather*")
+    (emacspeak-speak-buffer))
    (t ;;; Get the data and display
     (let* ((buffer (get-buffer-create "*NOAA Weather*"))
            (inhibit-read-only  t)
@@ -3457,7 +3468,7 @@ buffer to get new data."
         (insert (format "* Weather Forecast For %s\n\n"
                         (if ask address gweb-my-address)))
 ;;; produce faily forecast
-        (let-alist (g-json-from-url (emacspeak-wizards--noaa-url geo))
+        (let-alist (g-json-from-url (ems--noaa-url geo))
           (cl-loop
            for p across .properties.periods do
            (let-alist p
@@ -3468,27 +3479,27 @@ buffer to get new data."
            (fill-region start (point)))
           (insert
            (format "\nUpdated at %s\n"
-                   (emacspeak-wizards--noaa-time "%c" .properties.updated))))
+                   (ems--noaa-time "%c" .properties.updated))))
         (let-alist ;;; Now produce hourly forecast
-						(g-json-from-url (concat (emacspeak-wizards--noaa-url geo) "/hourly"))
+            (g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
           (insert
            (format "\n* Hourly Forecast:Updated At %s \n"
-                   (emacspeak-wizards--noaa-time "%c" .properties.updated)))
+                   (ems--noaa-time "%c" .properties.updated)))
           (cl-loop
            for p across .properties.periods do
            (let-alist p
              (unless
-								 (and
-									date
-                  (string= date (emacspeak-wizards--noaa-time "%x" .startTime)))
+                 (and
+                  date
+                  (string= date (ems--noaa-time "%x" .startTime)))
                (insert
                 (format "** %s\n"
-                        (emacspeak-wizards--noaa-time "%A %X" .startTime)))
-               (setq date (emacspeak-wizards--noaa-time "%x" .startTime)))
+                        (ems--noaa-time "%A %X" .startTime)))
+               (setq date (ems--noaa-time "%x" .startTime)))
              (insert
               (format
                "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-               (emacspeak-wizards--noaa-time "%R" .startTime)
+               (ems--noaa-time "%R" .startTime)
                .shortForecast
                .temperature .windSpeed .windDirection)))))
         (goto-char (point-min)))
