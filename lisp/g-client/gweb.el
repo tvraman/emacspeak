@@ -203,7 +203,8 @@
 (defadvice ido-complete-space (around emacspeak pre act comp)
   "Fix up ido-complete-space for use with Google autocomplete."
   (cond
-   (gweb-completion-flag  (funcall-interactively #'insert-char  ?\ ))
+   (gweb-completion-flag  (insert-char  ?\ )
+													(emacspeak-speak-word))
    (t ad-do-it))
   ad-return-value)
 
