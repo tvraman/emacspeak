@@ -169,7 +169,11 @@
 
 (cl-loop
  for f in
- '(org-cycle org-shifttab)
+ '(
+	 org-cycle org-shifttab
+	 orgstruct-hijacker-org-cycle
+	 orgstruct-hijacker-org-cycle-1 orgstruct-hijacker-org-cycle-2
+	 orgstruct-hijacker-org-cycle-3 orgstruct-hijacker-org-cycle-4)
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
