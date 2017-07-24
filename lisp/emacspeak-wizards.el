@@ -3443,7 +3443,7 @@ Location is specified as returned by gmaps-geocode and defaults to
    (g-json-get 'lng geo)))
 
 (defun ems--noaa-get-data (ask)
-	"Internal functon that gets NOAA data and returns a results buffer."
+	"Internal function that gets NOAA data and returns a results buffer."
 	(declare (special gweb-my-address))
 	(let* ((buffer (get-buffer-create "*NOAA Weather*"))
 				 (inhibit-read-only  t)
