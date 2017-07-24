@@ -3458,7 +3458,7 @@ Location is specified as returned by gmaps-geocode and defaults to
 			(orgstruct-mode)
 			(setq header-line-format (format "NOAA Weather For %s" address))
 			(insert (format "* Weather Forecast For %s\n\n" address))
-;;; produce faily forecast
+;;; produce Daily forecast
 			(let-alist (g-json-from-url (ems--noaa-url geo))
 				(cl-loop
 				 for p across .properties.periods do
