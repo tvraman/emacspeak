@@ -3456,8 +3456,8 @@ buffer to get new data."
         (orgstruct-mode)
         (insert (format "* Weather Forecast For %s\n\n"
                         (if ask address gweb-my-address)))
-        (let-alist ;;; produce faily forecast
-            (g-json-from-url (emacspeak-wizards--noaa-api-url geo))
+;;; produce faily forecast
+        (let-alist (g-json-from-url (emacspeak-wizards--noaa-api-url geo))
           (cl-loop
            for p across .properties.periods do
            (let-alist p
@@ -3470,8 +3470,7 @@ buffer to get new data."
            (format "\nUpdated at %s\n"
                    (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
         (let-alist ;;; Now produce hourly forecast
-            (g-json-from-url
-             (concat (emacspeak-wizards--noaa-api-url geo) "/hourly"))
+						(g-json-from-url (concat (emacspeak-wizards--noaa-api-url geo) "/hourly"))
           (insert
            (format "\n* Hourly Forecast:Updated At %s \n"
                    (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
