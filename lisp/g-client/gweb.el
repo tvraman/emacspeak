@@ -185,6 +185,7 @@
 (defun gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
   (let ((flx-ido-mode  nil)
+        (ido-max-prospects 5)
         (gweb-completion-flag t)
          (completion-ignore-case t)
          (word (thing-at-point 'word))
