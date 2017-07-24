@@ -3258,7 +3258,7 @@ where `sport' is either mlb or nba."
   "Format  MLB standing."
   (let-alist  s
     (format
-     "%s %s  are %s in the %s %s.
+     "** %s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
