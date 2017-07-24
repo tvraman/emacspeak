@@ -8,4 +8,3 @@
    (if(not (string= "-"  (projectile-project-name)))
        (format "[%s]" (projectile-project-name))
      "")))
-(projectile-mode -1)
