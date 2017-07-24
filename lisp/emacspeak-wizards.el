@@ -2071,7 +2071,6 @@ for the current voice family."
     (switch-to-buffer  buffer)
     (goto-char (point-min))))
 
-
 ;;;###autoload
 (defun emacspeak-wizards-show-defined-voices ()
   "Display a buffer with sample text in the defined voices."
@@ -2086,7 +2085,7 @@ for the current voice family."
       (set-buffer buffer)
       (erase-buffer)
       (cl-loop
-       for v in voices do 
+       for v in voices do
        (insert
         (format "This is a sample of voice %s. " (symbol-name v)))
        (put-text-property
@@ -2267,22 +2266,21 @@ RIVO is implemented by rivo.pl ---
 ;;{{{ Organizing Shells: next, previous, tag
 
 (defun ems--shell-pushd-if-needed(dir target)
-	"Helper: execute pushd in shell `target' if needed."
-	(with-current-buffer target
+  "Helper: execute pushd in shell `target' if needed."
+  (with-current-buffer target
     (unless (string= (expand-file-name dir) default-directory)
       (goto-char (point-max))
       (insert (format "pushd %s" dir))
       (comint-send-input)
       (shell-process-pushd dir))))
-	
+
 (defun emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
-	(cl-loop
-	 for  b in (buffer-list)  
-	 when (with-current-buffer   b (eq major-mode 'shell-mode)) collect  b))
+  (cl-loop
+   for  b in (buffer-list)
+   when (with-current-buffer   b (eq major-mode 'shell-mode)) collect  b))
 
-
-	(defun emacspeak-wizards-switch-shell (direction)
+(defun emacspeak-wizards-switch-shell (direction)
   "Switch to next/previous shell buffer.
 Direction specifies previous/next."
   (let* ((shells (emacspeak-wizards-get-shells))
@@ -2351,14 +2349,14 @@ of the source buffer."
 (defun emacspeak-wizards--build-shells-table ()
   "Populate hash-table with live shell buffers."
   (declare (special emacspeak-wizards--shells-table))
-;;; First, remove dead buffers 
-	(cl-loop 
+;;; First, remove dead buffers
+  (cl-loop
    for k being the hash-keys of emacspeak-wizards--shells-table
    unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
    do (remhash k emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
         (v (hash-table-values emacspeak-wizards--shells-table)))
-;;; Add in live shells that are new 
+;;; Add in live shells that are new
     (mapc
      #'(lambda (s)
          (when  (not (memq s v))
@@ -2380,8 +2378,8 @@ of the source buffer."
   (interactive "P")
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
-	(unless (emacspeak-wizards-get-shells) (shell))
-	(emacspeak-wizards--build-shells-table)
+  (unless (emacspeak-wizards-get-shells) (shell))
+  (emacspeak-wizards--build-shells-table)
   (cond
    ((and prefix (eq major-mode 'shell-mode))
     (emacspeak-wizards-shell-re-key
@@ -2389,10 +2387,10 @@ of the source buffer."
      (current-buffer)))
    (t
     (let* ((directory default-directory)
-           (key 
-						(% 
-						 (read (format "%c" last-input-event))
-						 (length (hash-table-keys emacspeak-wizards--shells-table))))
+           (key
+            (%
+             (read (format "%c" last-input-event))
+             (length (hash-table-keys emacspeak-wizards--shells-table))))
            (buffer (gethash key emacspeak-wizards--shells-table)))
       (when (and prefix buffer-file-name) ;  source determines target directory
         (ems--shell-pushd-if-needed directory buffer))
@@ -2418,8 +2416,8 @@ of the source buffer."
    for pair in emacspeak-wizards-project-shells do
    (let ((name (cl-first pair))
          (dir (cl-second pair)))
-		 (ems--shell-pushd-if-needed dir (shell name))
-		 (with-current-buffer(shell name)
+     (ems--shell-pushd-if-needed dir (shell name))
+     (with-current-buffer(shell name)
        (setq emacspeak-wizards--project-shell-directory dir))))
   (emacspeak-wizards--build-shells-table))
 
@@ -2436,7 +2434,7 @@ of the source buffer."
 (defun emacspeak-wizards-shell-directory-reset ()
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)
-(declare (special emacspeak-wizards--project-shell-directory))
+  (declare (special emacspeak-wizards--project-shell-directory))
   (ems--shell-pushd-if-needed emacspeak-wizards--project-shell-directory (current-buffer))
   (emacspeak-auditory-icon 'task-done)
   (message  (abbreviate-file-name default-directory)))
@@ -2447,21 +2445,21 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   (declare (special emacspeak-wizards--shells-table
                     emacspeak-wizards--project-shell-directory))
   (cond
-	 ((eq buffer (gethash key emacspeak-wizards--shells-table))
-		(message "Rekey: Nothing to do"))
-	 (t
-		(setq key  ;;; works as a circular list
-					(%  key (length (hash-table-keys emacspeak-wizards--shells-table))))
-		(let ((swap-buffer (gethash key emacspeak-wizards--shells-table))
-					(swap-key  nil))
-			(cl-loop
-			 for k being the hash-keys of emacspeak-wizards--shells-table do
-			 (when  (eq buffer  (gethash k emacspeak-wizards--shells-table))
-				 (setq swap-key  k)))
-			(puthash key buffer emacspeak-wizards--shells-table)
-			(when swap-key
-				(puthash swap-key swap-buffer emacspeak-wizards--shells-table))
-			(message "%s is now  on %s" (buffer-name buffer) key)))))
+   ((eq buffer (gethash key emacspeak-wizards--shells-table))
+    (message "Rekey: Nothing to do"))
+   (t
+    (setq key  ;;; works as a circular list
+          (%  key (length (hash-table-keys emacspeak-wizards--shells-table))))
+    (let ((swap-buffer (gethash key emacspeak-wizards--shells-table))
+          (swap-key  nil))
+      (cl-loop
+       for k being the hash-keys of emacspeak-wizards--shells-table do
+       (when  (eq buffer  (gethash k emacspeak-wizards--shells-table))
+         (setq swap-key  k)))
+      (puthash key buffer emacspeak-wizards--shells-table)
+      (when swap-key
+        (puthash swap-key swap-buffer emacspeak-wizards--shells-table))
+      (message "%s is now  on %s" (buffer-name buffer) key)))))
 
 ;;}}}
 ;;{{{ show commentary:
@@ -3281,7 +3279,8 @@ Optional interactive prefix arg shows  unprocessed results."
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)
-      (insert (format  "Standings: %s\n\n" date))
+      (orgstruct-mode)
+      (insert (format  "* Standings: %s\n\n" date))
       (cond
        (raw
         (cl-loop
@@ -3379,130 +3378,122 @@ Optional interactive prefix arg shows  unprocessed results."
 ;;; customizations are many. This function allows one to clean-up
 ;;; saved settings in smaller groups by specifying a pattern to match.
 
-
 (defun emacspeak-wizards-customize-saved (pattern)
   "Customize  saved options  matching `pattern'."
   (interactive "sFilter Regex: ")
   (let ((found nil))
-		(mapatoms (lambda (symbol)
-								(and  (string-match pattern (symbol-name  symbol))
-											(or (get symbol 'saved-value)
-													(get symbol 'saved-variable-comment))
-											(boundp symbol)
-											(push (list symbol 'custom-variable) found))))
+    (mapatoms (lambda (symbol)
+                (and  (string-match pattern (symbol-name  symbol))
+                      (or (get symbol 'saved-value)
+                          (get symbol 'saved-variable-comment))
+                      (boundp symbol)
+                      (push (list symbol 'custom-variable) found))))
     (when (not found) (user-error "No saved user options matching %s" pattern))
     (custom-buffer-create
-		 (custom-sort-items found t nil)
-		 (format "*Customize %d Saved options Matching %s*" (length found) pattern))
-			(emacspeak-speak-mode-line)))
+     (custom-sort-items found t nil)
+     (format "*Customize %d Saved options Matching %s*" (length found) pattern))
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ Quick Weather:
 ;;;###autoload
 (defun emacspeak-wizards-quick-weather ()
-	"Bring up weather forecast for current location."
-	(interactive)
-	(declare (special gweb-my-postal-code))
-	(funcall-interactively
-	 #'emacspeak-feeds-rss-display
-	 (format
-					"http://www.wunderground.com/auto/rss_full/%s.xml"
-					gweb-my-postal-code)))
+  "Bring up weather forecast for current location."
+  (interactive)
+  (declare (special gweb-my-postal-code))
+  (funcall-interactively
+   #'emacspeak-feeds-rss-display
+   (format
+    "http://www.wunderground.com/auto/rss_full/%s.xml"
+    gweb-my-postal-code)))
 
 ;;}}}
 ;;{{{ NOAA Weather API:
 
-;;; NOAA: format time 
+;;; NOAA: format time
 ;;; NOAA data has a ":" in tz
 
 (defun emacspeak-wizards--format-noaa-time (fmt iso)
-	"Utility function to correctly format ISO date-time strings from NOAA."
-;;; first strip offending ":" in tz 
-	(when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
-		(setq iso (concat  (substring iso 0 22) "00")))
+  "Utility function to correctly format ISO date-time strings from NOAA."
+;;; first strip offending ":" in tz
+  (when (and (= (length iso) 25) (char-equal ?: (aref iso 22)))
+    (setq iso (concat  (substring iso 0 22) "00")))
   (format-time-string fmt (date-to-time iso)))
-  
+
 (defun emacspeak-wizards--noaa-api-url  (&optional geo)
-	"Return NOAA Weather API REST end-point for specified lat/long.
-Location is specified as returned by gmaps-geocode and defaults to 
+  "Return NOAA Weather API REST end-point for specified lat/long.
+Location is specified as returned by gmaps-geocode and defaults to
   `gweb-my-location'."
-	(declare (special gweb-my-location))
-	(cl-assert  (or geo gweb-my-location) nil "Location not specified.")
-	(unless geo (setq geo gweb-my-location))
-	(format
-	 "https://api.weather.gov/points/%.4f,%.4f/forecast"
-	 (g-json-get 'lat geo)
-	 (g-json-get 'lng geo)))
+  (declare (special gweb-my-location))
+  (cl-assert  (or geo gweb-my-location) nil "Location not specified.")
+  (unless geo (setq geo gweb-my-location))
+  (format
+   "https://api.weather.gov/points/%.4f,%.4f/forecast"
+   (g-json-get 'lat geo)
+   (g-json-get 'lng geo)))
 
 (defun emacspeak-wizards-noaa-weather (&optional ask)
-	"Display weather information using NOAA Weather API.  Optional
+  "Display weather information using NOAA Weather API.  Optional
 interactive prefix arg `ask' asks for location address; Default is to
 display weather for `gweb-my-address'.  Data is retrieved only once,
 subsequent calls switch to previously displayed results. Kill that
 buffer to get new data."
-	(interactive "P")
-	(declare (special gweb-my-address g-curl-common-options))
-	(cond
-	 ((buffer-live-p (get-buffer"*NOAA Weather*"))
-		(funcall-interactively #'switch-to-buffer "*NOAA Weather*"))
-	 (t ;;; Get the data and display 
-		(let* ((buffer (get-buffer-create "*NOAA Weather*"))
-					 (inhibit-read-only  t)
-					 (date nil)
-					 (start (point-min))
-					 (address (when ask (read-from-minibuffer "Address:")))
-					 (geo  (when ask (gmaps-geocode address))))
-			(with-current-buffer buffer
-				(erase-buffer)
-				(special-mode)
-				(orgstruct-mode)
-				(insert (format "* Weather Forecast For %s\n\n"
-												(if ask address gweb-my-address)))
-				(let-alist ;;; produce faily forecast
-						(g-json-get-result
-						 (format
-		 					"curl %s  '%s'"
-							g-curl-common-options
-		 					(emacspeak-wizards--noaa-api-url geo)))
-					(cl-loop
-					 for p across .properties.periods do
-					 (let-alist p
-						 (insert 
-							(format
-							 "** Forecast For %s: %s\n\n%s\n\n"
-							 .name .shortForecast .detailedForecast)))
-					 (fill-region start (point)))
-					(insert
-					 (format "\nUpdated at %s\n"
-									 (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
-				(let-alist ;;; Now produce hourly forecast
-						(g-json-get-result
-						 (format
-		 					"curl %s '%s'"
-							g-curl-common-options
-		 					(concat (emacspeak-wizards--noaa-api-url geo) "/hourly")))
-					(insert
-					 (format "\n* Hourly Forecast:Updated At %s \n"
-									 (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
-					(cl-loop
-					 for p across .properties.periods do
-					 (let-alist p
-						 (unless (and date
-													(string= date  (emacspeak-wizards--format-noaa-time "%x" .startTime)))
-							 (insert
-								(format "** %s\n"
-												(emacspeak-wizards--format-noaa-time "%A %X" .startTime)))
-							 (setq date (emacspeak-wizards--format-noaa-time "%x" .startTime)))
-						 (insert
-							(format
-							 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-							 (emacspeak-wizards--format-noaa-time "%R" .startTime)
-							 .shortForecast
-							 .temperature .windSpeed .windDirection)))))
-				(goto-char (point-min)))
-			(switch-to-buffer buffer)
-			(emacspeak-auditory-icon 'select-object)
-			(emacspeak-speak-buffer)))))
+  (interactive "P")
+  (declare (special gweb-my-address ))
+  (cond
+   ((buffer-live-p (get-buffer"*NOAA Weather*"))
+    (funcall-interactively #'switch-to-buffer "*NOAA Weather*"))
+   (t ;;; Get the data and display
+    (let* ((buffer (get-buffer-create "*NOAA Weather*"))
+           (inhibit-read-only  t)
+           (date nil)
+           (start (point-min))
+           (address (when ask (read-from-minibuffer "Address:")))
+           (geo  (when ask (gmaps-geocode address))))
+      (with-current-buffer buffer
+        (erase-buffer)
+        (special-mode)
+        (orgstruct-mode)
+        (insert (format "* Weather Forecast For %s\n\n"
+                        (if ask address gweb-my-address)))
+        (let-alist ;;; produce faily forecast
+            (g-json-from-url (emacspeak-wizards--noaa-api-url geo))
+          (cl-loop
+           for p across .properties.periods do
+           (let-alist p
+             (insert
+              (format
+               "** Forecast For %s: %s\n\n%s\n\n"
+               .name .shortForecast .detailedForecast)))
+           (fill-region start (point)))
+          (insert
+           (format "\nUpdated at %s\n"
+                   (emacspeak-wizards--format-noaa-time "%c" .properties.updated))))
+        (let-alist ;;; Now produce hourly forecast
+            (g-json-from-url
+             (concat (emacspeak-wizards--noaa-api-url geo) "/hourly"))
+          (insert
+           (format "\n* Hourly Forecast:Updated At %s \n"
+                   (emacspeak-wizards--format-noaa-time "%c" .properties.updated)))
+          (cl-loop
+           for p across .properties.periods do
+           (let-alist p
+             (unless (and date
+                          (string= date  (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+               (insert
+                (format "** %s\n"
+                        (emacspeak-wizards--format-noaa-time "%A %X" .startTime)))
+               (setq date (emacspeak-wizards--format-noaa-time "%x" .startTime)))
+             (insert
+              (format
+               "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+               (emacspeak-wizards--format-noaa-time "%R" .startTime)
+               .shortForecast
+               .temperature .windSpeed .windDirection)))))
+        (goto-char (point-min)))
+      (switch-to-buffer buffer)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-buffer)))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
