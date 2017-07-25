@@ -618,10 +618,12 @@ This variable is buffer-local.")
 ;;{{{ What Is My IP:
 
 (defun emacspeak-google-what-is-my-ip ()
-   "Show my public IP"
-   (interactive )
-   (emacspeak-we-xslt-filter  "//w-answer"
-"https://www.google.com/search?lite=90586&q=what+is+my+ip" 'speak))
+  "Show my public IP"
+  (interactive )
+  (emacspeak-we-extract-by-class
+   "_h4c _rGd vk_h"
+   "https://www.google.com/search?lite=90586&q=what+is+my+ip" 'speak))
+
 ;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
