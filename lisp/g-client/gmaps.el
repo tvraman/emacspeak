@@ -79,11 +79,11 @@
   (format "%saddress=%s&sensor=false"
           gmaps-geocoder-base address))
 
-(defun gmaps-reverse-geocoder-url (address)
+(defun gmaps-reverse-geocoder-url (location)
   "Return URL   for reverse geocoding location."
   (declare (special gmaps-geocoder-base))
   (format "%slatlng=%s&sensor=false"
-          gmaps-geocoder-base address))
+          gmaps-geocoder-base location))
 
 ;;;###autoload
 (defun gmaps-geocode (address &optional raw-p)
