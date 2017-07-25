@@ -277,22 +277,22 @@ Parameter `key' is the API  key."
   (let ((i 1)
         (inhibit-read-only t)
         (start (point)))
-    (cl-loop for step across (g-json-get 'steps leg)
-          do
-          (insert
-           (format "%d:\t%-40ss\t%s\t%s\n"
-                   i
-                   (g-json-get  'html_instructions step)
-                   (g-json-get 'text (g-json-get 'distance step))
-                   (g-json-get 'text (g-json-get 'duration step))))
-          (save-excursion
-            (save-restriction
-              (narrow-to-region start (point))
-              (shr-render-region start end ))
-          (put-text-property start (1- (point))
-                             'maps-data step)
-          (setq start  (point))
-          (incf i))))
+    (cl-loop
+     for step across (g-json-get 'steps leg)
+     do
+     (insert
+      (format "%d:\t%-40ss\t%s\t%s\n"
+              i
+              (g-json-get  'html_instructions step)
+              (g-json-get 'text (g-json-get 'distance step))
+              (g-json-get 'text (g-json-get 'duration step))))
+     (save-excursion
+       (save-restriction
+         (shr-render-region start (point))
+         (put-text-property start (1- (point))
+                            'maps-data step)
+         (setq start  (point))
+         (incf i))))))
 
 (defun gmaps-display-route (route)
   "Display route in a Maps buffer."
