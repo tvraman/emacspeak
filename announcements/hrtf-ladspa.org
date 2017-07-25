@@ -97,7 +97,7 @@ simultaneously.
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
-#+TITLE: Spatial Audio: HRTF ALSA Virtual Devices Using LADSPA
+#+TITLE: Spatial Audio:  ALSA Virtual Devices Using LADSPA
 #+DATE: <2017-07-24 Mon>
 #+AUTHOR: raman
 #+EMAIL: raman@google.com
