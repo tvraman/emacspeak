@@ -288,7 +288,8 @@ Parameter `key' is the API  key."
               (g-json-get 'text (g-json-get 'duration step))))
      (save-excursion
        (save-restriction
-         (shr-render-region start (point))
+         (narrow-to-region start (point))
+         (html2text)
          (put-text-property start (1- (point))
                             'maps-data step)
          (setq start  (point))
