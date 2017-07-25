@@ -197,14 +197,10 @@ Parameter `key' is the API  key."
 
 (defun gmaps-routes (origin destination mode)
   "Return routes as found by Google Maps Directions."
-  (let ((result
-         (g-json-get-result
-          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
-                  g-curl-program g-curl-common-options
-                  (gmaps-directions-url origin  destination mode)))))
+  (let-alist (g-json-from-url (gmaps-directions-url origin  destination mode))
     (cond
-     ((string= "OK" (g-json-get 'status result)) (g-json-get 'routes result))
-     (t (error "Status %s from Maps" (g-json-get 'status result))))))
+     ((string= "OK" .status) .routes)
+     (t (error "Status %s from Maps" .status)))))
 
 ;;; https://developers.google.com/places/
 
@@ -292,7 +288,7 @@ Parameter `key' is the API  key."
           (save-excursion
             (save-restriction
               (narrow-to-region start (point))
-              (html2text)))
+              (shr-render-region start end ))
           (put-text-property start (1- (point))
                              'maps-data step)
           (setq start  (point))
