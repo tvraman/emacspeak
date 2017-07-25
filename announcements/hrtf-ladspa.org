@@ -1,0 +1,107 @@
+* Overview 
+
+I have long wanted to apply HRTF filters to [[https://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][soundscapes]] on the
+Emacspeak Audio Desktop to produce effects that are better
+spatialized.  I just got this working over the weekend using LADSPA
+Plugin /ZamHeadX2-ladspa.so/ from package [[https://github.com/zamaudio/zam-plugins.git][zam-plugins]].
+
+* Getting ZAM Plugins
+
+#+BEGIN_SRC 
+git clone https://github.com/zamaudio/zam-plugins.git 
+#+END_SRC
+And follow the instructions in the  README file.
+
+Next,   do 
+#+BEGIN_SRC 
+sudo make install
+#+END_SRC
+to install the plugins.
+
+Finally, make sure that the install location is on your LADSPA path.
+
+** Adding HRTF Virtual  Devices Via ASOUNDRC
+
+After updating Emacspeak from GitHub,
+open file [[https://github.com/tvraman/emacspeak//blob/2d93e0f92427e4f64064aa75e380fa66bbb87fcf/servers/linux-outloud/asoundrc][servers/linux-outloud/asoundrc]] 
+and copy the section marked /HRTF/ to your personal _.asoundrc_ ---
+this defines a number of virtual devices that use the newly installed
+LADSPA plugin.
+*Beware*: Back-up your _.asoundrc_ first and make sure you can restore
+it even if you lose speech.
+
+* Spatialized Soundscapes
+
+In a running Emacspeak session,  invoke  command 
+#+BEGIN_SRC 
+soundscape-restart
+#+END_SRC
+with an interactive prefix arg  and specify one of the available
+devices using standard Emacs completion.
+
+For use with Soundscapes, I recommend one of the devices that place
+sound directly in front of the listener (azimuth 0) but with a non-0
+elevation.
+
+The HRTF devices are named with prefix _tts_ because I  would like to
+use these with software TTS; but for now the   result with TTS is not
+as good as it is with Soundscapes.
+
+Notice that command _soundscape-restart_ offers a number of virtual
+ALSA devices based on your _.asoundrc_; see the next section for a
+summary. 
+* Virtual ALSA Devices For Use As A Soundscape Filter
+
+Here is a list of available LADSPA devices in my setup that can be
+used  to add additional effects to Soundscapes:
+
+  - crossfeed:  Apply a BS2B filter.
+  - default:  No filters, vanilla audio.
+  - tap-reverb:  Reverb filter from package tap-plugins.
+  - reverb-crossfeed:  Reverb filter followed by BS2B.
+  - tts-a0-e15:  HRTF at (0, 15).
+  - tts-a0-e30:  HRTF at (0, 30).
+  - tts-a0-e60:  HRTF at (0, 60).
+  - tts-a0-e90:  HRTF at (0, 90).
+  - tts-a0-em15:  HRTF at (0, -15).
+  - tts-a0-em30:  HRTF at (0, -30).
+  - tts-a0-em45:  HRTF at (0, -45).
+  - tts-a135-e45:  HRTF at (135, 45).
+  - tts-a135-em45:  HRTF at (135, -45).
+  - tts-a225-e45:  HRTF at (225, 45).
+  - tts-a225-em45:  HRTF at (225, -45).
+  - tts-a45-e45:  HRTF at (45, 45).
+  - tts-a45-em45:  HRTF at (45, -45).
+  - tts-am45-e45:  HRTF at (-45, 45).
+  - tts-am45-em45:  HRTF at (-45, -45).
+
+* Other Uses Of HRTF Devices 
+
+You can experiment with these devices using aplay e.g.:
+#+BEGIN_SRC 
+aplay -Dtts_a0_e0 filename.wav
+#+END_SRC
+
+You can also apply the HRTF Ladspa plugin from within /MPlayer/ when
+using emacspeak.
+To try this, use _C-e ; f_ and pick the Zam effect when prompted.
+Invoke that command with an interactive prefix arg --- _C-u C-e ; f_
+--- to edit the params passed to the Zam filter.
+
+HRTF filters  when  playing media are mostly useful to position a
+radio station in 3d space when playing  more than one station
+simultaneously.
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Spatial Audio: HRTF ALSA Virtual Devices Using LADSPA
+#+DATE: <2017-07-24 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50 (Org mode 9.0.9)
