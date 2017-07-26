@@ -89,7 +89,7 @@
 (defun gmaps-geocode (address &optional raw-p)
   "Geocode given address.
 Optional argument `raw-p' returns complete JSON  object."
-  (let ((result 
+  (let ((result
          (g-json-get-result
           (format "%s --max-time 8 --connect-timeout 10 %s '%s'"
                   g-curl-program g-curl-common-options
@@ -104,7 +104,7 @@ Optional argument `raw-p' returns complete JSON  object."
 (defun gmaps-reverse-geocode (lat-long &optional raw-p)
   "Reverse geocode lat-long.
 Optional argument `raw-p' returns raw JSON  object."
-  (let ((result 
+  (let ((result
          (g-json-get-result
           (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
                   g-curl-program g-curl-common-options
@@ -122,9 +122,9 @@ Optional argument `raw-p' returns raw JSON  object."
   "Reverse geocode location and return postal coe."
   (condition-case nil
       (g-json-get
-       'short_name 
+       'short_name
        (find-if  ; component whose type contains postal_code
-        #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=)) 
+        #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=))
         (g-json-get ; from address_components at finest granularity
          'address_components
          (aref (gmaps-reverse-geocode location 'raw) 0))))
@@ -140,7 +140,6 @@ Optional argument `raw-p' returns raw JSON  object."
   nil
   "Postal Code --- automatically set by reverse geocoding gweb-my-address")
 
-
 (defcustom gweb-my-address
   nil
   "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
@@ -149,7 +148,7 @@ Optional argument `raw-p' returns raw JSON  object."
           (string  :tag "Address"))
   :set  #'(lambda (sym val)
             (declare (special gweb-my-location))
-            (when val 
+            (when val
               (setq gweb-my-location (gmaps-geocode val))
               (when gweb-my-location
                 (setq gweb-my-postal-code
@@ -160,7 +159,7 @@ Optional argument `raw-p' returns raw JSON  object."
   :group 'gweb)
 
 ;;}}}
-;;{{{ Maps Directions 
+;;{{{ Maps Directions
 
 ;;; See  https://developers.google.com/maps/documentation/directions/
 (defvar gmaps-directions-base
@@ -176,7 +175,7 @@ Parameters 'origin' and 'destination' are  be url-encoded."
 
 ;;; Places:
 ;;; https://developers.google.com/places/documentation/
-;; 
+;;
 (defvar gmaps-places-base
   "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
   "Base URL  end-point for talking to the Google Maps Places service.")
@@ -212,7 +211,7 @@ Parameter `key' is the API  key."
   :group 'gmaps)
 
 ;;}}}
-;;{{{ Maps UI: 
+;;{{{ Maps UI:
 
 (make-variable-buffer-local 'gmaps-current-location)
 
@@ -232,24 +231,24 @@ Parameter `key' is the API  key."
 (declaim (special gmaps-mode-map))
 
 (cl-loop for k in
-      '(
-        ("d" gmaps-driving-directions)
-        ("w" gmaps-walking-directions)
-        ("t" gmaps-transit-directions)
-        ("b" gmaps-bicycling-directions)
-        ("n" gmaps-places-nearby)
-        ("c" gmaps-set-current-location)
-        ("f" gmaps-set-current-filter)
-        ("r" gmaps-set-current-radius)
-        ("s" gmaps-places-search)
-        (" " gmaps-place-details)
-        ("\M-i" backward-button)
-        ("\C-i" forward-button)
-        ("[" backward-page)
-        ("]" forward-page)
-        )
-      do
-      (define-key  gmaps-mode-map (first k) (second k)))
+         '(
+           ("d" gmaps-driving-directions)
+           ("w" gmaps-walking-directions)
+           ("t" gmaps-transit-directions)
+           ("b" gmaps-bicycling-directions)
+           ("n" gmaps-places-nearby)
+           ("c" gmaps-set-current-location)
+           ("f" gmaps-set-current-filter)
+           ("r" gmaps-set-current-radius)
+           ("s" gmaps-places-search)
+           (" " gmaps-place-details)
+           ("\M-i" backward-button)
+           ("\C-i" forward-button)
+           ("[" backward-page)
+           ("]" forward-page)
+           )
+         do
+         (define-key  gmaps-mode-map (first k) (second k)))
 
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
@@ -274,53 +273,47 @@ Parameter `key' is the API  key."
 
 (defun gmaps-display-leg (leg)
   "Display a leg of a route."
-  (let ((i 1)
-        (inhibit-read-only t)
+  (let ((inhibit-read-only t)
         (start (point)))
+    (insert "<ol>")
     (cl-loop
      for step across (g-json-get 'steps leg) do
-		 (let-alist step 
-     (insert
-      (format "%d:\t%-40ss\t%s\t%s\n"
-              i .html_instructions 
-               .distance.text .duration.text))
-     (save-excursion
-       (save-restriction
-         (narrow-to-region start (point))
-         (html2text)
-         (put-text-property start (1- (point)) 'maps-data step)
-         (setq start  (point))
-         (incf i)))))))
+     (let-alist step
+       (insert
+        (format "<li>:%s%s%s</li>\n"
+                .html_instructions .distance.text .duration.text))))
+    (shr-render-region start (point))))
+
 
 (defun gmaps-display-route (route)
   "Display route in a Maps buffer."
-	(let-alist route 
-		(let ((i 1)
-					(inhibit-read-only t)
-					(length (length  .legs))
-					(leg nil))
-			(insert (format "Summary: %s\n" .summary))
-			(cond
-			 ((= 1 length)
-				(setq leg (aref .legs 0))
-				(insert (format "From %s to %s\n%s\t%s\n"
-												(g-json-get 'start_address leg)
-												(g-json-get 'end_address leg)
-												(g-json-get 'text (g-json-get 'distance leg))
-												(g-json-get 'text (g-json-get 'duration leg))))
-				(gmaps-display-leg (aref .legs 0)))
-			 (t
-				(cl-loop
-				 for leg across .legs
-				 do
-				 (insert (format "Leg:%d: From %s to %s\n"
-												 i
-												 (g-json-get 'start_address leg)
-												 (g-json-get 'end_address leg)))
-				 (gmaps-display-leg leg)
-				 (incf i))))
-			(insert (format "Warnings: %s\n" .warnings))
-			(insert (format "Copyrights: %s\n\f\n" .copyrights)))))
+  (let-alist route
+    (let ((i 1)
+          (inhibit-read-only t)
+          (length (length  .legs))
+          (leg nil))
+      (insert (format "Summary: %s\n" .summary))
+      (cond
+       ((= 1 length)
+        (setq leg (aref .legs 0))
+        (insert (format "From %s to %s\n%s\t%s\n"
+                        (g-json-get 'start_address leg)
+                        (g-json-get 'end_address leg)
+                        (g-json-get 'text (g-json-get 'distance leg))
+                        (g-json-get 'text (g-json-get 'duration leg))))
+        (gmaps-display-leg (aref .legs 0)))
+       (t
+        (cl-loop
+         for leg across .legs
+         do
+         (insert (format "Leg:%d: From %s to %s\n"
+                         i
+                         (g-json-get 'start_address leg)
+                         (g-json-get 'end_address leg)))
+         (gmaps-display-leg leg)
+         (incf i))))
+      (insert (format "Warnings: %s\n" .warnings))
+      (insert (format "Copyrights: %s\n\f\n" .copyrights)))))
 
 (defun gmaps-read-origin-destination ()
   "Read origin and destination addresses using context-based
@@ -356,7 +349,7 @@ origin/destination may be returned as a lat,long string."
      ((= 1 length) (gmaps-display-route (aref routes 0)))
      (t
       (cl-loop
-			 for route across routes do
+       for route across routes do
        (insert (format  "\nRoute %d\n" i))
        (incf i)
        (gmaps-display-route route))))))
@@ -532,14 +525,14 @@ origin/destination may be returned as a lat,long string."
   (interactive  "sAddress: ")
   (declare (special gmaps-current-location))
   (condition-case nil
-      (progn 
+      (progn
         (setq gmaps-current-location (gmaps-geocode address))
         (put 'gmaps-current-location 'address address)
         (message "Moved to %s" address))
     (error (message "Error finding %s" address))))
 
 (defstruct gmaps-places-filter
-  type ; singleton as per new API 
+  type ; singleton as per new API
   types ; multiple types (until Feb 2017)
   keyword name)
 
@@ -557,7 +550,7 @@ origin/destination may be returned as a lat,long string."
             (if keyword (format "&keyword=%s" keyword) "")
             (if name (format "&name=%s" name) "")
             (if type (format "&type=%s" type) "")
-            (if types (format "&types=%s" (mapconcat #'identity types "|")) ""))))    
+            (if types (format "&types=%s" (mapconcat #'identity types "|")) ""))))
 
 (defun gmaps-places-filter-as-string (filter)
   "Convert filter structure into display-friendly string."
@@ -721,8 +714,8 @@ Optional  prefix arg clears any active filters."
      ((= 1 length) (gmaps-display-place (aref places 0)))
      (t
       (cl-loop for place across places
-            do
-            (gmaps-display-place place))))))
+               do
+               (gmaps-display-place place))))))
 (defun gmaps-colonize-timestring (timestring)
   "Insert `:' to turn 0800 into 08:00. "
   (format "%s:%s"
@@ -739,14 +732,14 @@ Optional  prefix arg clears any active filters."
           '["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"]
           day)))
     (setq open
-          (find-if 
+          (find-if
            #'(lambda (h)
                (= day (g-json-lookup "open.day" h))) hours)
           close
           (find-if
            #'(lambda (h) (= day (g-json-lookup "close.day" h))) hours))
     (format "%s Open: %s, Close: %s"
-            weekday 
+            weekday
             (gmaps-colonize-timestring (g-json-lookup "open.time" open))
             (gmaps-colonize-timestring (g-json-lookup "close.time" close)))))
 
