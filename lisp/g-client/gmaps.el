@@ -278,22 +278,19 @@ Parameter `key' is the API  key."
         (inhibit-read-only t)
         (start (point)))
     (cl-loop
-     for step across (g-json-get 'steps leg)
-     do
+     for step across (g-json-get 'steps leg) do
+		 (let-alist step 
      (insert
       (format "%d:\t%-40ss\t%s\t%s\n"
-              i
-              (g-json-get  'html_instructions step)
-              (g-json-get 'text (g-json-get 'distance step))
-              (g-json-get 'text (g-json-get 'duration step))))
+              i .html_instructions 
+               .distance.text .duration.text))
      (save-excursion
        (save-restriction
          (narrow-to-region start (point))
          (html2text)
-         (put-text-property start (1- (point))
-                            'maps-data step)
+         (put-text-property start (1- (point)) 'maps-data step)
          (setq start  (point))
-         (incf i))))))
+         (incf i)))))))
 
 (defun gmaps-display-route (route)
   "Display route in a Maps buffer."
@@ -358,11 +355,11 @@ origin/destination may be returned as a lat,long string."
     (cond
      ((= 1 length) (gmaps-display-route (aref routes 0)))
      (t
-      (cl-loop for route across routes
-            do
-            (insert (format  "\nRoute %d\n" i))
-            (incf i)
-            (gmaps-display-route route))))))
+      (cl-loop
+			 for route across routes do
+       (insert (format  "\nRoute %d\n" i))
+       (incf i)
+       (gmaps-display-route route))))))
 
 (defun gmaps-driving-directions (origin destination)
   "Driving directions from Google Maps."
