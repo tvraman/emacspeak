@@ -284,7 +284,6 @@ Parameter `key' is the API  key."
                 .html_instructions .distance.text .duration.text))))
     (shr-render-region start (point))))
 
-
 (defun gmaps-display-route (route)
   "Display route in a Maps buffer."
   (let-alist route
@@ -626,37 +625,37 @@ Uses default radius. optional interactive prefix arg clears any active filters."
   (unless gmaps-current-location (error "Set current location."))
   (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))
-	(let-alist
-			(g-json-from-url
-			 (format "%s&%s&%s%s"
-							 (gmaps-places-url-base "nearbysearch" gmaps-places-key)
-							 (format "location=%s,%s"
-											 (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
-							 (format "radius=%s" gmaps-current-radius)
-							 (if gmaps-current-filter
-									 (gmaps-places-filter-as-params gmaps-current-filter)
-								 "")))
-		(let ((start nil)
-					(inhibit-read-only t))
-			(cond
-			 ((string= "OK" .status)
-				(goto-char (point-max))
-				(setq start (point))
-				(insert
-				 (format "Places within %sm of  %s\n"
-								 gmaps-current-radius
-								 (get 'gmaps-current-location 'address)))
-				(when gmaps-current-filter
-					(insert (format "Filter: %s\n"
-													(gmaps-places-filter-as-string gmaps-current-filter))))
-				(gmaps-display-places .results)
-				(goto-char start))
-			 ((string= "ZERO_RESULTS"  .status)
-				(insert
-				 (format "No places within %sm  matching %s.\n"
-								 gmaps-current-radius
-								 (gmaps-places-filter-as-string gmaps-current-filter))))
-			 (t (error "Status %s from Maps" .status))))))
+  (let-alist
+      (g-json-from-url
+       (format "%s&%s&%s%s"
+               (gmaps-places-url-base "nearbysearch" gmaps-places-key)
+               (format "location=%s,%s"
+                       (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
+               (format "radius=%s" gmaps-current-radius)
+               (if gmaps-current-filter
+                   (gmaps-places-filter-as-params gmaps-current-filter)
+                 "")))
+    (let ((start nil)
+          (inhibit-read-only t))
+      (cond
+       ((string= "OK" .status)
+        (goto-char (point-max))
+        (setq start (point))
+        (insert
+         (format "Places within %sm of  %s\n"
+                 gmaps-current-radius
+                 (get 'gmaps-current-location 'address)))
+        (when gmaps-current-filter
+          (insert (format "Filter: %s\n"
+                          (gmaps-places-filter-as-string gmaps-current-filter))))
+        (gmaps-display-places .results)
+        (goto-char start))
+       ((string= "ZERO_RESULTS"  .status)
+        (insert
+         (format "No places within %sm  matching %s.\n"
+                 gmaps-current-radius
+                 (gmaps-places-filter-as-string gmaps-current-filter))))
+       (t (error "Status %s from Maps" .status))))))
 
 (defun gmaps-places-search (query &optional clear-filter)
   "Perform a places search.
@@ -669,7 +668,7 @@ Optional  prefix arg clears any active filters."
   (declare (special gmaps-current-filter gmaps-places-key))
   (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))
-	(let-alist 
+  (let-alist
       (g-json-from-url
        (format "%s&query=%s%s"
                (gmaps-places-url-base "textsearch" gmaps-places-key)
@@ -677,22 +676,22 @@ Optional  prefix arg clears any active filters."
                (if gmaps-current-filter
                    (gmaps-places-filter-as-params gmaps-current-filter)
                  "")))
-		(let ((start nil)
-					(inhibit-read-only t))
-			(cond
-			 ((string= "OK" .status)
-				(goto-char (point-max))
-				(setq start (point))
-				(insert (format "Places  matching %s\n" query))
-				(when gmaps-current-filter
-					(insert
-					 (format "Filter: %s\n"
-									 (gmaps-places-filter-as-string gmaps-current-filter))))
-				(gmaps-display-places .results)
-				(goto-char start))
-			 ((string= "ZERO_RESULTS"  .status)
-				(insert (format "No places matching %s" query)))
-			 (t (error "Status %s from Maps" (g-json-get 'status result)))))))
+    (let ((start nil)
+          (inhibit-read-only t))
+      (cond
+       ((string= "OK" .status)
+        (goto-char (point-max))
+        (setq start (point))
+        (insert (format "Places  matching %s\n" query))
+        (when gmaps-current-filter
+          (insert
+           (format "Filter: %s\n"
+                   (gmaps-places-filter-as-string gmaps-current-filter))))
+        (gmaps-display-places .results)
+        (goto-char start))
+       ((string= "ZERO_RESULTS"  .status)
+        (insert (format "No places matching %s" query)))
+       (t (error "Status %s from Maps" (g-json-get 'status result)))))))
 
 (defun gmaps-display-places (places)
   "Display places in Maps interaction buffer."
@@ -702,7 +701,7 @@ Optional  prefix arg clears any active filters."
      ((= 1 length) (gmaps-display-place (aref places 0)))
      (t
       (cl-loop
-			 for place across places do
+       for place across places do
        (gmaps-display-place place))))))
 
 (defun gmaps-colonize-timestring (timestring)
@@ -792,22 +791,19 @@ Optional  prefix arg clears any active filters."
 
 (defun gmaps-display-place (place)
   "Display place in Maps buffer."
-  (let ((inhibit-read-only t)
-        (start (point)))
-    (insert
-     (format "%s\t%s\t%s\n"
-             (g-json-get  'name place)
-             (g-json-get 'types place)
-             (g-json-get 'vicinity place)))
-    (put-text-property start (1- (point))
-                       'maps-data place)))
+  (let-alist place
+    (let ((inhibit-read-only t)
+          (start (point)))
+      (insert
+       (format "%s\t%s\t%s\n"
+               .name .types .vicinity))
+      (put-text-property start (1- (point)) 'maps-data place))))
 
 (defun gmaps-place-details ()
   "Display details for place at point.
 Insert reviews if already displaying details."
   (interactive)
-  (declare (special g-curl-program g-curl-common-options
-                    gmaps-places-key))
+  (declare (special gmaps-places-key))
   (unless (eq major-mode 'gmaps-mode) (error "Not in a Google Maps buffer."))
   (unless
       (or (get-text-property  (point) 'maps-data)
@@ -819,21 +815,20 @@ Insert reviews if already displaying details."
    (t
     (let* ((inhibit-read-only t)
            (place-ref
-            (g-json-get 'reference (get-text-property (point)'maps-data)))
-           (result
-            (and place-ref
-                 (g-json-get-result
-                  (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
-                          g-curl-program g-curl-common-options
-                          (format "%s&%s"
-                                  (gmaps-places-url-base "details" gmaps-places-key)
-                                  (format "reference=%s" place-ref)))))))
-      (cond
-       ((string= "OK" (g-json-get 'status result))
-        (put-text-property (line-beginning-position) (line-end-position)
-                           'place-details t)
-        (gmaps-display-place-details (g-json-get 'result result)))
-       (t (error "Status %s from Maps" (g-json-get 'status result))))))))
+            (g-json-get 'reference (get-text-property (point)'maps-data))))
+      (unless place-ref (error "No place here"))
+      (let-alist
+          (g-json-from-url
+           (format
+            "%s&%s"
+            (gmaps-places-url-base "details" gmaps-places-key)
+            (format "reference=%s" place-ref)))
+        (cond
+         ((string= "OK" .status)
+          (put-text-property (line-beginning-position) (line-end-position)
+                             'place-details t)
+          (gmaps-display-place-details .result))
+         (t (error "Status %s from Maps" .result))))))))
 
 (defun gmaps-place-reviews ()
   "Display reviews for place at point.
