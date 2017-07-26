@@ -666,40 +666,33 @@ Optional  prefix arg clears any active filters."
    (list
     (read-from-minibuffer "Search For: ")
     current-prefix-arg))
-  (declare (special g-curl-program g-curl-common-options
-                    gmaps-current-filter
-                    gmaps-places-key))
+  (declare (special gmaps-current-filter gmaps-places-key))
   (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))
-  (let ((start nil)
-        (inhibit-read-only t)
-        (result
-         (g-json-get-result
-          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
-                  g-curl-program g-curl-common-options
-                  (format "%s&query=%s%s"
-                          (gmaps-places-url-base "textsearch" gmaps-places-key)
-                          (url-hexify-string query)
-                          (if gmaps-current-filter
-                              (gmaps-places-filter-as-params gmaps-current-filter)
-                            ""))))))
-    (cond
-     ((string= "OK" (g-json-get 'status result))
-      (goto-char (point-max))
-      (setq start (point))
-      (insert
-       (format "Places  matching %s\n"
-               query))
-      (when gmaps-current-filter
-        (insert (format "Filter: %s\n"
-                        (gmaps-places-filter-as-string gmaps-current-filter))))
-      (gmaps-display-places (g-json-get 'results result))
-      (goto-char start))
-     ((string= "ZERO_RESULTS"  (g-json-get 'status result))
-      (insert
-       (format "No places matching %s" query)))
-     (t (error "Status %s from Maps" (g-json-get 'status
-                                                 result))))))
+	(let-alist 
+      (g-json-from-url
+       (format "%s&query=%s%s"
+               (gmaps-places-url-base "textsearch" gmaps-places-key)
+               (url-hexify-string query)
+               (if gmaps-current-filter
+                   (gmaps-places-filter-as-params gmaps-current-filter)
+                 "")))
+		(let ((start nil)
+					(inhibit-read-only t))
+			(cond
+			 ((string= "OK" .status)
+				(goto-char (point-max))
+				(setq start (point))
+				(insert (format "Places  matching %s\n" query))
+				(when gmaps-current-filter
+					(insert
+					 (format "Filter: %s\n"
+									 (gmaps-places-filter-as-string gmaps-current-filter))))
+				(gmaps-display-places .results)
+				(goto-char start))
+			 ((string= "ZERO_RESULTS"  .status)
+				(insert (format "No places matching %s" query)))
+			 (t (error "Status %s from Maps" (g-json-get 'status result)))))))
 
 (defun gmaps-display-places (places)
   "Display places in Maps interaction buffer."
