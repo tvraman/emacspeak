@@ -691,7 +691,7 @@ Optional  prefix arg clears any active filters."
         (goto-char start))
        ((string= "ZERO_RESULTS"  .status)
         (insert (format "No places matching %s" query)))
-       (t (error "Status %s from Maps" (g-json-get 'status result)))))))
+       (t (error "Status %s from Maps" .status))))))
 
 (defun gmaps-display-places (places)
   "Display places in Maps interaction buffer."
@@ -745,49 +745,48 @@ Optional  prefix arg clears any active filters."
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
-  (goto-char (line-end-position))
-  (insert "\n")
-  (let ((start (point))
-        (hours (g-json-lookup "opening_hours.periods" details))
-        (open (g-json-lookup "opening_hours.open_now" details))
-        (website (g-json-get 'website details))
-        (url (g-json-get 'url details))
-        (rating (g-json-get 'rating details))
-        (price (g-json-get 'price_level  details))
-        (phone  (g-json-get 'international_phone_number details))
-        (address (g-json-get 'formatted_address details)))
-    (when hours
-      (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w"))))
-            (here nil))
-        (insert-text-button
-         "[Hours]\t"
-         'hours hours
-         'action
-         #'(lambda (b) (gmaps-display-places-hours  (button-get b 'hours))))
-        (setq here (point))
-        (insert (format "%s\t" today))
-        (put-text-property  here (point)
-                            'open-hours t)))
-    (when website
-      (insert-text-button "[WebSite]\t"
-                          'url-link website
-                          'action #'(lambda (b) (browse-url
-                                                 (button-get b
-                                                             'url-link)))))
-    (when url
-      (insert-text-button "[Places URL]\n"
-                          'url-link url
-                          'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
-    (when (or address phone)
-      (insert (format "%s\t%s\n" address  phone)))
-    (insert (format "Open: %s\tRating: %s\tPrice: %s\n"
-                    (if open "Yes" "No")
-                    (or rating "N/A")
-                    (or price "N/A")))
-    (indent-rigidly start  (point) 4)
-    (put-text-property start (point)
-                       'place-details details)
-    (goto-char start)))
+	(goto-char (line-end-position))
+	(insert "\n")
+	(let-alist details
+		(let ((start (point))
+					(hours .opening_hours.periods)
+					(open .opening_hours.open_now))
+			(when hours
+				(let ((today (gmaps-hours-for-day hours (read (format-time-string "%w"))))
+							(here nil))
+					(insert-text-button
+					 "[Hours]\t"
+					 'hours hours
+					 'action
+					 #'(lambda (b)
+							 (gmaps-display-places-hours  (button-get b 'hours))))
+					(setq here (point))
+					(insert (format "%s\t" today))
+					(put-text-property  here (point) 'open-hours t)))
+			(when .website
+				(insert-text-button
+				 "[WebSite]\t"
+				 'url-link .website
+				 'action
+				 #'(lambda (b)
+						 (browse-url (button-get b 'url-link)))))
+			(when .url
+				(insert-text-button
+				 "[Places URL]\n"
+				 'url-link .url
+				 'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
+			(when (or .formatted_address .international_phone_number)
+				(insert
+				 (format "%s\t%s\n" .formatted_address  .international_phone_number)))
+			(insert
+			 (format "Open: %s\tRating: %s\tPrice: %s\n"
+							 (if open "Yes" "No")
+							 (or .ratings "N/A")
+							 (or .price_level "N/A")))
+			(indent-rigidly start  (point) 4)
+			(put-text-property start (point)
+												 'place-details details)
+			(goto-char start))))
 
 (defun gmaps-display-place (place)
   "Display place in Maps buffer."
