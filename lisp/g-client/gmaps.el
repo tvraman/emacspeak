@@ -701,9 +701,10 @@ Optional  prefix arg clears any active filters."
     (cond
      ((= 1 length) (gmaps-display-place (aref places 0)))
      (t
-      (cl-loop for place across places
-               do
-               (gmaps-display-place place))))))
+      (cl-loop
+			 for place across places do
+       (gmaps-display-place place))))))
+
 (defun gmaps-colonize-timestring (timestring)
   "Insert `:' to turn 0800 into 08:00. "
   (format "%s:%s"
