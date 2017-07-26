@@ -621,47 +621,42 @@ Optional interactive prefix arg prompts for all filter fields."
   "Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters."
   (interactive "P")
-  (declare (special g-curl-program g-curl-common-options
-                    gmaps-current-location gmaps-current-filter
-                    gmaps-places-key
-                    gmaps-places-radius))
+  (declare (special gmaps-current-location gmaps-current-filter
+                    gmaps-places-key gmaps-places-radius))
   (unless gmaps-current-location (error "Set current location."))
   (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))
-  (let ((start nil)
-        (inhibit-read-only t)
-        (result
-         (g-json-get-result
-          (format "%s --max-time 2 --connect-timeout 1 %s '%s'"
-                  g-curl-program g-curl-common-options
-                  (format "%s&%s&%s%s"
-                          (gmaps-places-url-base "nearbysearch" gmaps-places-key)
-                          (format "location=%s,%s"
-                                  (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
-                          (format "radius=%s" gmaps-current-radius)
-                          (if gmaps-current-filter
-                              (gmaps-places-filter-as-params gmaps-current-filter)
-                            ""))))))
-    (cond
-     ((string= "OK" (g-json-get 'status result))
-      (goto-char (point-max))
-      (setq start (point))
-      (insert
-       (format "Places within %sm of  %s\n"
-               gmaps-current-radius
-               (get 'gmaps-current-location 'address)))
-      (when gmaps-current-filter
-        (insert (format "Filter: %s\n"
-                        (gmaps-places-filter-as-string gmaps-current-filter))))
-      (gmaps-display-places (g-json-get 'results result))
-      (goto-char start))
-     ((string= "ZERO_RESULTS"  (g-json-get 'status result))
-      (insert
-       (format "No places within %sm  matching %s.\n"
-               gmaps-current-radius
-               (gmaps-places-filter-as-string gmaps-current-filter))))
-     (t (error "Status %s from Maps" (g-json-get 'status
-                                                 result))))))
+	(let-alist
+			(g-json-from-url
+			 (format "%s&%s&%s%s"
+							 (gmaps-places-url-base "nearbysearch" gmaps-places-key)
+							 (format "location=%s,%s"
+											 (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
+							 (format "radius=%s" gmaps-current-radius)
+							 (if gmaps-current-filter
+									 (gmaps-places-filter-as-params gmaps-current-filter)
+								 "")))
+		(let ((start nil)
+					(inhibit-read-only t))
+			(cond
+			 ((string= "OK" .status)
+				(goto-char (point-max))
+				(setq start (point))
+				(insert
+				 (format "Places within %sm of  %s\n"
+								 gmaps-current-radius
+								 (get 'gmaps-current-location 'address)))
+				(when gmaps-current-filter
+					(insert (format "Filter: %s\n"
+													(gmaps-places-filter-as-string gmaps-current-filter))))
+				(gmaps-display-places .result)
+				(goto-char start))
+			 ((string= "ZERO_RESULTS"  .status)
+				(insert
+				 (format "No places within %sm  matching %s.\n"
+								 gmaps-current-radius
+								 (gmaps-places-filter-as-string gmaps-current-filter))))
+			 (t (error "Status %s from Maps" .status))))))
 
 (defun gmaps-places-search (query &optional clear-filter)
   "Perform a places search.
