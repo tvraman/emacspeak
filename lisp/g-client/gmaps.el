@@ -649,7 +649,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
 				(when gmaps-current-filter
 					(insert (format "Filter: %s\n"
 													(gmaps-places-filter-as-string gmaps-current-filter))))
-				(gmaps-display-places .result)
+				(gmaps-display-places .results)
 				(goto-char start))
 			 ((string= "ZERO_RESULTS"  .status)
 				(insert
