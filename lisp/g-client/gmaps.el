@@ -297,38 +297,33 @@ Parameter `key' is the API  key."
 
 (defun gmaps-display-route (route)
   "Display route in a Maps buffer."
-  (let ((i 1)
-        (inhibit-read-only t)
-        (length (length  (g-json-get 'legs route)))
-        (leg nil))
-    (insert
-     (format "Summary: %s\n"
-             (g-json-get 'summary route)))
-    (cond
-     ((= 1 length)
-      (setq leg (aref (g-json-get 'legs route) 0))
-      (insert (format "From %s to %s\n%s\t%s\n"
-                      (g-json-get 'start_address leg)
-                      (g-json-get 'end_address leg)
-                      (g-json-get 'text (g-json-get 'distance leg))
-                      (g-json-get 'text (g-json-get 'duration leg))))
-      (gmaps-display-leg (aref (g-json-get 'legs route) 0)))
-     (t
-      (cl-loop
-       for leg across (g-json-get 'legs route)
-       do
-       (insert (format "Leg:%d: From %s to %s\n"
-                       i
-                       (g-json-get 'start_address leg)
-                       (g-json-get 'end_address leg)))
-       (gmaps-display-leg leg)
-       (incf i))))
-    (insert
-     (format "Warnings: %s\n"
-             (g-json-get 'warnings route)))
-    (insert
-     (format "Copyrights: %s\n\f\n"
-             (g-json-get 'copyrights route)))))
+	(let-alist route 
+		(let ((i 1)
+					(inhibit-read-only t)
+					(length (length  .legs))
+					(leg nil))
+			(insert (format "Summary: %s\n" .summary))
+			(cond
+			 ((= 1 length)
+				(setq leg (aref .legs 0))
+				(insert (format "From %s to %s\n%s\t%s\n"
+												(g-json-get 'start_address leg)
+												(g-json-get 'end_address leg)
+												(g-json-get 'text (g-json-get 'distance leg))
+												(g-json-get 'text (g-json-get 'duration leg))))
+				(gmaps-display-leg (aref .legs 0)))
+			 (t
+				(cl-loop
+				 for leg across .legs
+				 do
+				 (insert (format "Leg:%d: From %s to %s\n"
+												 i
+												 (g-json-get 'start_address leg)
+												 (g-json-get 'end_address leg)))
+				 (gmaps-display-leg leg)
+				 (incf i))))
+			(insert (format "Warnings: %s\n" .warnings))
+			(insert (format "Copyrights: %s\n\f\n" .copyrights)))))
 
 (defun gmaps-read-origin-destination ()
   "Read origin and destination addresses using context-based
