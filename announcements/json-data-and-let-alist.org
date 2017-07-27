@@ -1,0 +1,120 @@
+* Summary 
+Module /json-read/ consumes JSON data structures and transforms them
+into their elisp equivalent, where JSON dictionaries become alists and
+JSON arrays become vectors. Accessing that data from lisp would
+ordinarily require using lisp accessors such as _assoc_, _car_ and
+_cdr_. With /let-alist/, we get data-binding for free --- the result
+is elisp code that uses dotted-variables to directly access specific
+slots in a deeply nested data structure. Thus, processing data
+available as JSON via Web APIs is a really good use-case for
+/let-alist/. Long-standing wish --- I wish Emacs' JSON parsing were
+implemented in native code rather than in elisp.
+
+** A Working Example 
+
+
+I recently implemented myself a [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-wizards.el#L3494][NOAA Weather API Client]] --- it pulls
+the NOAA Weather Forecast (weekly and hourly) as JSON objects, and
+produces an /org-mode/ buffer that renders the data.
+Note that though the above is part of a much larger
+/emacspeak-wizards/ module, the above function and its dependencies
+are themselves mostly independent of Emacspeak, except for the last
+two forms in the weather forecast function.
+Here is an annotated version of the  function that gets NOAA data and
+leverages /let-alist/ to process the  results:
+
+#+BEGIN_SRC  emacs-lisp
+(defun ems--noaa-get-data (ask)
+	"Internal function that gets NOAA data and returns a results buffer."
+	(declare (special gweb-my-address))
+	(let* ((buffer (get-buffer-create "*NOAA Weather*"))
+				 (inhibit-read-only  t)
+				 (date nil)
+				 (start (point-min))
+				 (address (when ask (read-from-minibuffer "Address:")))
+				 (geo  (when ask (gmaps-geocode address))))
+		(unless address (setq address gweb-my-address))
+		(with-current-buffer buffer
+			(erase-buffer)
+			(special-mode)
+			(orgstruct-mode)
+			(setq header-line-format (format "NOAA Weather For %s" address))
+			(insert (format "* Weather Forecast For %s\n\n" address))
+;;; produce Daily forecast
+			(let-alist (g-json-from-url (ems--noaa-url geo))
+				(cl-loop
+				 for p across .properties.periods do
+				 (let-alist p
+					 (insert
+						(format
+						 "** Forecast For %s: %s\n\n%s\n\n"
+						 .name .shortForecast .detailedForecast)))
+				 (fill-region start (point)))
+				(insert
+				 (format "\nUpdated at %s\n"
+								 (ems--noaa-time "%c" .properties.updated))))
+			(let-alist ;;; Now produce hourly forecast
+					(g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
+				(insert
+				 (format "\n* Hourly Forecast:Updated At %s \n"
+								 (ems--noaa-time "%c" .properties.updated)))
+				(cl-loop
+				 for p across .properties.periods do
+				 (let-alist p
+					 (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
+						 (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
+						 (setq date (ems--noaa-time "%x" .startTime)))
+					 (insert
+						(format
+						 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+						 (ems--noaa-time "%R" .startTime)
+						 .shortForecast
+						 .temperature .windSpeed .windDirection)))))
+			(goto-char (point-min)))
+		buffer))
+#+END_SRC
+
+
+  1. In the above_ /gweb-my-address_ is a Lat/Lng pair as returned by
+     _gmaps-geocode_ defined in [[https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gmaps.el#L89][g-client/gmaps.el]]. That is used as the
+     default location for which we retrieve the forecast.
+  2. Parameter _ask_ if non-nil results in the user being prompted
+    for the address --- that address is then geocoded using
+    the Google Maps API.
+  3. The weather forecast display will leverage _org-mode_ for
+    structured navigation; however we dont want that buffer to be
+    editable in general; moreover _special-mode_ gives us nice
+    features  such as _q_ for quitting that window. So we use
+    _special-mode_ as the major mode, and _orgstruct-mode_ as a minor
+    mode to get the best of both worlds.
+  4. The API call to NOAA results in a JSON data structure where
+     _result.properties.periods_ holds an array of forecast
+     objects. Using that result in /let-alist/ gives us data binding
+     for free! Notice the following:
+     1. We can  use _.properties.periods_ in the _cl-loop_ as the list
+        to iterate over.
+     2. Within that loop body, a second /let-list/  enables data
+        binding over the forecast object that we are processing in the
+        loop body.
+     3. Data accesses inside the loop body are again simple given the
+        data binding created by the /let-alist/.
+
+The code for generating the hourly forecast is similar in spirit ---
+the main take-away here is that /let-alist/ saves a lot of
+boiler-plate code that would have been otherwise required to take
+apart the nested list structure we got back with our data.
+  
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Using /let-alist/ When Processing  JSON Data 
+#+DATE: <2017-07-27 Thu>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50 (Org mode 9.0.9)
