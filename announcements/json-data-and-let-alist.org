@@ -110,7 +110,7 @@ apart the nested list structure we got back with our data.
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
-#+TITLE: Data-Binding In  Emacs Lisp:  *let-alist* When Processing  JSON Data 
+#+TITLE: Data-Binding In  Emacs Lisp:  let-alist When Processing  JSON Data 
 #+DATE: <2017-07-27 Thu>
 #+AUTHOR: T.V Raman
 #+EMAIL: raman@google.com
