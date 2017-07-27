@@ -1,7 +1,7 @@
 [core]
 pager=cat
 	editor = emacsclient
-				 HooksPath = git-hooks
+				 hooksPath = git-hooks
 [alias]
 	p = pull --rebase --all
   s=status --short
