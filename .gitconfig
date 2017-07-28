@@ -1,0 +1,28 @@
+[core]
+  pager=cat
+	editor = emacsclient
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	hooksPath = ./git-hooks
+[branch "master"]
+[remote "origin"]
+	url = https://github.com/tvraman/emacspeak/
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+	pushRemote = origin
+[alias]
+	p = pull --rebase --all
+  s=status --short
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ci = commit -a -m
+[push]
+	default = simple
+[credential]
+	helper = cache --timeout=7200
+[transfer]
+  fsckObjects = true
