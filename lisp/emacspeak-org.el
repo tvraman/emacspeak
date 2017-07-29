@@ -186,7 +186,7 @@
          (emacspeak-speak-line)
          (dtk-notify-speak
 					(format "%s"
-									(or org-cycle-subtree-status org-cycle-global-status)))
+									(if (ad-get-arg 0) org-cycle-global-status org-cycle-subtree-status)))
          (emacspeak-auditory-icon 'select-object)))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
