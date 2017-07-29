@@ -23226,11 +23226,12 @@ Switch to next shell.
 @findex emacspeak-wizards-noaa-weather
 
 @format
-Display weather information using NOAA Weather API.  Optional
-interactive prefix arg ‘ask’ asks for location address; Default is to
-display weather for ‘gweb-my-address’.  Data is retrieved only once,
-subsequent calls switch to previously displayed results. Kill that
-buffer to get new data.
+Display weather information using NOAA Weather API.  
+Data is retrieved only once, subsequent calls switch to previously
+displayed results. Kill that buffer or use an interactive prefix
+arg (C-u) to get new data.  Optional second interactive prefix
+arg (C-u C-u) asks for location address; Default is to display
+weather for ‘gweb-my-address’.  
 
 (fn &optional ASK)
 @end format
@@ -24109,9 +24110,9 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-vc-viewer-command
-Command line for dumping out virtual console.
-Make sure you have access to /dev/vcs* by adding yourself to the appropriate group.
-On Ubuntu and Debian this is group ‘tty’.
+Command line for dumping out virtual console.  Make sure you have
+access to /dev/vcs* by adding yourself to the appropriate group.  On
+Ubuntu and Debian this is group ‘tty’.
 
 @end defvar
 
