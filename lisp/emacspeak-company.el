@@ -76,12 +76,14 @@
 
 ;;}}}
 ;;{{{ Emacspeak Front-End For Company:
+
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
   (ems-with-messages-silenced
    (case command
-     (pre-command (emacspeak-company-speak-this))
-     (post-command (emacspeak-company-speak-this))
+     (pre-command nil)
+     (post-command (emacspeak-play-auditory-icon 'help)
+(emacspeak-company-speak-this))
      (hide nil))))
 
 ;;}}}
