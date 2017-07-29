@@ -109,8 +109,8 @@ Startup  apps that need the network."
    30 nil
    #'(lambda ()
        (when (featurep 'jabber) (jabber-connect-all))
-       (when (featurep 'twittering-mode) (twittering-start))))
-       (emacspeak-play-auditory-icon 'network-up)
+       (when (featurep 'twittering-mode) (twittering-start)))
+       (emacspeak-play-auditory-icon 'network-up))
        (message
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
