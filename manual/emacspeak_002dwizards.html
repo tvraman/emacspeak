@@ -2767,11 +2767,12 @@ Switch to next shell.
 
       <div class="format">
         <pre class="format">
-Display weather information using NOAA Weather API.  Optional
-interactive prefix arg ‘ask’ asks for location address; Default is to
-display weather for ‘gweb-my-address’.  Data is retrieved only once,
-subsequent calls switch to previously displayed results. Kill that
-buffer to get new data.
+Display weather information using NOAA Weather API.  
+Data is retrieved only once, subsequent calls switch to previously
+displayed results. Kill that buffer or use an interactive prefix
+arg (C-u) to get new data.  Optional second interactive prefix
+arg (C-u C-u) asks for location address; Default is to display
+weather for ‘gweb-my-address’.  
 
 (fn &amp;optional ASK)
 </pre>
