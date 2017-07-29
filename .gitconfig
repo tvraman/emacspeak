@@ -5,7 +5,7 @@
 	filemode = true
 	bare = false
 	logallrefupdates = true
-	hooksPath = ./git-hooks
+	hooksPath = ./git-hooks/
 [branch "master"]
 [remote "origin"]
 	url = https://github.com/tvraman/emacspeak/
