@@ -48,10 +48,11 @@
 
 ;;{{{  introduction
 
-;;; Commentary:
-;;; Provide Google services --- such as search, search-based completion etc.
-;;; For use from within Emacs tools.
-;;; This is meant to be fast and efficient --- and uses WebAPIs as opposed to HTML  scraping.
+;;; Commentary: Provide Google services --- such as search,
+;;; search-based completion etc.  For use from within Emacs tools.
+;;; This is meant to be fast and efficient --- and uses WebAPIs as
+;;; opposed to HTML scraping.
+
 ;;; Code:
 
 ;;}}}
@@ -79,29 +80,37 @@
 ;;{{{ google suggest helper:
 
 ;;; Get search completions from Google
-;;; Service Names: (corpus)
-;; youtube : 'youtube',
-;;                      books : 'books',
-;;                      products : 'products-cc',
-;;                      news : 'news-cc',
-;;                      img : 'img',
-;;                      web : 'psy'
-;; youtube: 'youtube
 
-(defvar gweb-suggest-url
+;;                      web : 'psy'
+;; youtube: 'yt
+
+;; 'http://suggestqueries.google.com/complete/search?ds=yt&q=cricket'
+;; 'http://suggestqueries.google.com/complete/search?ds=n&q=cric'
+
+(defvar gweb-search-suggest-url
   "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=%s&q=%s"
   "URL  that gets suggestions from Google as JSON.")
-;;; corpus is ds=n for News
-;;; ds=r for recipes
+
+(defvar gweb-g-suggest-url 
+"http://suggestqueries.google.com/complete/search?ds=%s&q=%s"
+"Query Suggest: Youtube: yt, News: n")
+
+
 
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
-  (declare (special gweb-suggest-url))
+  (declare (special gweb-search-suggest-url
+										gweb-g-suggest-url))
   (unless corpus (setq corpus "psy"))
 	(when input 
 		(g-using-scratch
 		 (let ((js nil)
-					 (url (format gweb-suggest-url corpus (g-url-encode input))))
+					 (url
+						(format
+						 (cond
+							((string= corpus "psy") gweb-search-suggest-url)
+							(t gweb-g-suggest-url))
+						 corpus (g-url-encode input))))
 			 (call-process
 				g-curl-program
 				nil t nil
@@ -121,7 +130,7 @@
 (defvar gweb-google-suggest-metadata
   '(metadata .
              (
-                                        ; Google suggest returns suggestions already sorted
+;;; Google suggest returns suggestions already sorted
               (display-sort-function . identity)
                                         ; add annots function here
               ))
