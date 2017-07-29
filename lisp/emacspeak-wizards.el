@@ -3449,8 +3449,8 @@ Location is specified as returned by gmaps-geocode and defaults to
 				 (inhibit-read-only  t)
 				 (date nil)
 				 (start (point-min))
-				 (address (when ask (read-from-minibuffer "Address:")))
-				 (geo  (when ask (gmaps-geocode address))))
+				 (address (when (= 16 (car ask)) (read-from-minibuffer "Address:")))
+				 (geo  (when (= 16 (car ask)) (gmaps-geocode address))))
 		(unless address (setq address gweb-my-address))
 		(with-current-buffer buffer
 			(erase-buffer)
@@ -3492,13 +3492,18 @@ Location is specified as returned by gmaps-geocode and defaults to
 		buffer))
 
 (defun emacspeak-wizards-noaa-weather (&optional ask)
-  "Display weather information using NOAA Weather API.  Optional
-interactive prefix arg `ask' asks for location address; Default is to
-display weather for `gweb-my-address'.  Data is retrieved only once,
-subsequent calls switch to previously displayed results. Kill that
-buffer to get new data."
+  "Display weather information using NOAA Weather API.  
+Data is retrieved only once, subsequent calls switch to previously
+displayed results. Kill that buffer or use an interactive prefix
+arg (C-u) to get new data.  Optional second interactive prefix
+arg (C-u C-u) asks for location address; Default is to display
+weather for `gweb-my-address'.  "
   (interactive "P")
-	(let ((buffer (or   (get-buffer"*NOAA Weather*") (ems--noaa-get-data ask))))
+	(let ((buffer
+				 (cond
+					(ask (ems--noaa-get-data ask))
+				  ((get-buffer"*NOAA Weather*") (get-buffer"*NOAA Weather*"))
+					(t (ems--noaa-get-data ask)))))
 		(switch-to-buffer buffer)
 		(emacspeak-auditory-icon 'select-object)
 		(emacspeak-speak-buffer)))
