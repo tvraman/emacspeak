@@ -50,11 +50,12 @@ already enabled or service is not available."
    ((not (nm-service-p))
     (message "NetworkManager service not available.") nil)
    ((not nm-dbus-registration)
-    (setq nm-dbus-registration (dbus-register-signal
-                                :system
-                                "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
-                                "org.freedesktop.NetworkManager" "StateChanged"
-                                'nm-state-dbus-signal-handler))
+    (setq nm-dbus-registration
+					(dbus-register-signal
+           :system
+           "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
+           "org.freedesktop.NetworkManager" "StateChanged"
+           'nm-state-dbus-signal-handler))
     (message "Enabled integration with NetworkManager."))
    ((message "Integration with NetworkManager already enabled."))))
 
