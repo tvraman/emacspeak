@@ -92,8 +92,8 @@
   "URL  that gets suggestions from Google as JSON.")
 
 (defvar gweb-g-suggest-url 
-"http://suggestqueries.google.com/complete/search?ds=%s&q=%s"
-"Query Suggest: Youtube: yt, News: n")
+	"http://suggestqueries.google.com/complete/search?ds=%s&q=%s&client=chrome"
+	"Query Suggest: Youtube: yt, News: n")
 
 
 
