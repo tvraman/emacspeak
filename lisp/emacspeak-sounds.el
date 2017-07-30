@@ -248,12 +248,10 @@ Do not set this by hand;
         (start-process
          emacspeak-play-program nil emacspeak-play-program
          emacspeak-play-args
-         (emacspeak-get-sound-filename sound-name)
-         "&")
+         (emacspeak-get-sound-filename sound-name))
       (start-process
        emacspeak-play-program nil emacspeak-play-program
-       (emacspeak-get-sound-filename sound-name)
-       "&"))))
+       (emacspeak-get-sound-filename sound-name)))))
 ;;;###autoload
 (defvar emacspeak-sox (executable-find "sox")
 "Name of SoX executable.")
