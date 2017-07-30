@@ -91,6 +91,7 @@ already enabled or service is not available."
 
 (defun nm-state-dbus-signal-handler (nmstate)
   "Handles NetworkManager signals and runs appropriate hooks."
+	(message (print nmstate))
   (cond
    ((or (= 10 nmstate) (= 20 nmstate) (= 30 nmstate) (= 50 nmstate) (= 60 nmstate))
     (run-hooks 'nm-disconnected-hook))
