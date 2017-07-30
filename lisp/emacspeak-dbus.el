@@ -110,7 +110,7 @@ Startup  apps that need the network."
    #'(lambda ()
        (when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
-	(emacspeak-auditory-icon 'network-up)
+	(emacspeak-play-auditory-icon 'network-up)
        (message
 				(mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
@@ -205,6 +205,9 @@ already disabled."
   (amixer-restore  amixer-alsactl-config-file)
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
+	(run-at-time  30 nil
+								#'(lambda ()
+										(when (nm-connected-p) (emacspeak-dbus-nm-connected))))
   (when
       (dbus-call-method
        :session
