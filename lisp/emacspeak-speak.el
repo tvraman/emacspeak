@@ -56,6 +56,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'ido)
+(require 'sox-gen)
 (require 'time-date)
 (require 'rect)
 (require 'voice-setup)
