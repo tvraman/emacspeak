@@ -111,7 +111,7 @@ Startup  apps that need the network."
        (when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
 	(emacspeak-play-auditory-icon 'network-up)
-       (message
+       (dtk-notify-speak
 				(mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (defun emacspeak-dbus-nm-disconnected ()
