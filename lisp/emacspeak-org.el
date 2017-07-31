@@ -184,7 +184,8 @@
          (emacspeak-org-table-speak-current-element))
         (t
 ;;; org produces relevant feedback via org-unlogged-message (folded, children)
-         (emacspeak-speak-line)))))))
+         (let ((dtk-stop-immediately nil))
+         (emacspeak-speak-line))))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
