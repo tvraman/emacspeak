@@ -184,10 +184,11 @@
          (emacspeak-org-table-speak-current-element))
         (t
          (emacspeak-speak-line)
-         (dtk-notify-speak
-					(format "%s"
-									(if (ad-get-arg 0) org-cycle-global-status org-cycle-subtree-status)))
-         (emacspeak-auditory-icon 'select-object)))))))
+				 ;;; commenting out following lines: they dup feedback
+         ;(dtk-notify-speak
+					;(format "%s"
+									;(if (ad-get-arg 0) org-cycle-global-status org-cycle-subtree-status)))
+				 ))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
