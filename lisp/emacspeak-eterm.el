@@ -533,7 +533,11 @@ Optional argument COUNT specifies how many changes to skip."
 
 ;;}}}
 ;;{{{  reviewing the terminal:
-
+(defvar-local emacspeak-eterm-pointer nil
+  "Terminal pointer. Can be moved around to listen to the contents of the
+terminal. See commands provided by the emacspeak extension to eterm:
+\\{emacspeak-eterm-keymap}.
+Each term-mode buffer has a buffer local value of this variable. ")
 (defvar emacspeak-eterm-review-p nil 
   "T if eterm is in review mode. 
 In review mode, you can move around the terminal and listen to parts of it.
@@ -1036,11 +1040,7 @@ available with the prefix emacspeak-eterm-prefix and are listed below:
 (defvar emacspeak-eterm-column nil
   "Record the column last spoken")
 
-(defvar emacspeak-eterm-pointer nil
-  "Terminal pointer. Can be moved around to listen to the contents of the
-terminal. See commands provided by the emacspeak extension to eterm:
-\\{emacspeak-eterm-keymap}.
-Each term-mode buffer has a buffer local value of this variable. ")
+
 
 (defvar emacspeak-eterm-marker nil
   "Mark set in an eterm buffer. Used to cut and paste from the terminal.")
