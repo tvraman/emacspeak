@@ -119,6 +119,13 @@ which defaults to emacs-personal-library."
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
 
+;;; Hide compilation window when not relevant:
+    (setq
+     compilation-finish-functions
+     #'(lambda (buf str)
+         (if (null (string-match ".*exited abnormally.*" str))  
+             (run-at-time 2 nil #'delete-windows-on buf)  
+           (message "No Compilation Errors!"))))
     ;;}}}
     ;;{{{ Augment Load Path:
 
@@ -257,19 +264,24 @@ which defaults to emacs-personal-library."
        (tvr-customize)
        (soundscape-toggle)
        (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-       (calendar)
        (when (dbus-list-known-names :session)
          (nm-enable)
          (emacspeak-dbus-sleep-enable)
          (emacspeak-dbus-watch-screen-lock))
        (custom-reevaluate-setting 'gweb-my-address)
+       (delete-other-windows)
        (emacspeak-wizards-project-shells-initialize)
+       (calendar)
+       
        (play-sound
         `(sound
           :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
        (message "<%s after-init-hook " (float-time (time-subtract (current-time) after-start)))
        (message "Successfully initialized Emacs for %s" user-login-name))))
 (start-up-my-emacs)
+(put 'timer-list 'disabled nil)
+(when (get-buffer "*Compile-Log*")
+         (delete-windows-on "*Compile-Log*"))
 
 ;;}}}
 (provide 'emacs-startup)
@@ -278,4 +290,3 @@ which defaults to emacs-personal-library."
 ;;;folded-file: t
 ;;;end:
 ;;}}}
-(put 'timer-list 'disabled nil)
