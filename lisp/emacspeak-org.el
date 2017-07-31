@@ -166,26 +166,25 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
-;;; Warning: Duplicate output in orgstruct-mode  for now 
+;;; orgstruct-mode defines structured navigators that in turn call org-cycle.
+;;; Removing itneractive check in advice for org-cycle 
+;;; to speech enable all such nav commands.
+;;; Note that org itself produces the folded state via org-unlogged-message
+;;; Which gets spoken by Emacspeak
 (cl-loop
  for f in
- '(
-	 org-cycle org-shifttab
-	 orgstruct-hijacker-org-cycle
-	 orgstruct-hijacker-org-cycle-1 orgstruct-hijacker-org-cycle-2
-	 orgstruct-hijacker-org-cycle-3 orgstruct-hijacker-org-cycle-4)
+ '(org-cycle org-shifttab)
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (cond
-        ((org-at-table-p 'any)
-         (emacspeak-org-table-speak-current-element))
-        (t
+     (cond
+      ((org-at-table-p 'any)
+       (emacspeak-org-table-speak-current-element))
+      (t
 ;;; org produces relevant feedback via org-unlogged-message (folded, children)
-         (let ((dtk-stop-immediately nil))
-         (emacspeak-speak-line))))))))
+       (let ((dtk-stop-immediately nil))
+         (emacspeak-speak-line)))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
