@@ -183,12 +183,8 @@
         ((org-at-table-p 'any)
          (emacspeak-org-table-speak-current-element))
         (t
-         (emacspeak-speak-line)
-				 ;;; commenting out following lines: they dup feedback
-         ;(dtk-notify-speak
-					;(format "%s"
-									;(if (ad-get-arg 0) org-cycle-global-status org-cycle-subtree-status)))
-				 ))))))
+;;; org produces relevant feedback via org-unlogged-message (folded, children)
+         (emacspeak-speak-line)))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
