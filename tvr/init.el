@@ -114,6 +114,7 @@ which defaults to emacs-personal-library."
     (scroll-bar-mode -1)
     (fringe-mode 0)
     (setq text-quoting-style 'grave)
+    (put 'timer-list 'disabled nil)
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
@@ -272,16 +273,14 @@ which defaults to emacs-personal-library."
        (delete-other-windows)
        (emacspeak-wizards-project-shells-initialize)
        (calendar)
-       
        (play-sound
         `(sound
           :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
        (message "<%s after-init-hook " (float-time (time-subtract (current-time) after-start)))
        (message "Successfully initialized Emacs for %s" user-login-name))))
 (start-up-my-emacs)
-(put 'timer-list 'disabled nil)
-(when (get-buffer "*Compile-Log*")
-         (delete-windows-on "*Compile-Log*"))
+
+
 
 ;;}}}
 (provide 'emacs-startup)
