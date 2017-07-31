@@ -3444,14 +3444,19 @@ Location is specified as returned by gmaps-geocode and defaults to
 
 (defun ems--noaa-get-data (ask)
 	"Internal function that gets NOAA data and returns a results buffer."
-	(declare (special gweb-my-address))
+	(declare (special gweb-my-address gweb-my-location))
 	(let* ((buffer (get-buffer-create "*NOAA Weather*"))
 				 (inhibit-read-only  t)
 				 (date nil)
 				 (start (point-min))
-				 (address (when (= 16 (car ask)) (read-from-minibuffer "Address:")))
-				 (geo  (when (= 16 (car ask)) (gmaps-geocode address))))
-		(unless address (setq address gweb-my-address))
+				 (address
+					(if (and ask (= 16 (car ask)))
+							(read-from-minibuffer "Address:")
+						gweb-my-address))
+				 (geo  (if (and ask (= 16 (car ask)))
+									 (gmaps-geocode address)
+								 gweb-my-location)))
+		(unless address (setq address ))
 		(with-current-buffer buffer
 			(erase-buffer)
 			(special-mode)
