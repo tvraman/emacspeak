@@ -272,14 +272,16 @@ which defaults to emacs-personal-library."
        (delete-other-windows)
        (emacspeak-wizards-project-shells-initialize)
        (calendar)
-       (when (get-buffer "*Compile-Log*")
-         (delete-windows-on "*Compile-Log*"))
+       
        (play-sound
         `(sound
           :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
        (message "<%s after-init-hook " (float-time (time-subtract (current-time) after-start)))
        (message "Successfully initialized Emacs for %s" user-login-name))))
 (start-up-my-emacs)
+(put 'timer-list 'disabled nil)
+(when (get-buffer "*Compile-Log*")
+         (delete-windows-on "*Compile-Log*"))
 
 ;;}}}
 (provide 'emacs-startup)
@@ -288,4 +290,3 @@ which defaults to emacs-personal-library."
 ;;;folded-file: t
 ;;;end:
 ;;}}}
-(put 'timer-list 'disabled nil)
