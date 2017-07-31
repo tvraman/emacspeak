@@ -15,7 +15,7 @@
    "gmail"
    (nnimap-address "imap.gmail.com")
    (nnimap-server-port 993)
-   ;(nnimap-fetch-partial-articles "text/")
+   (nnimap-fetch-partial-articles "text/")
    (nnimap-record-commands t)
    (nnimap-expunge-on-close always)
    (nnimap-stream ssl)))
@@ -30,7 +30,7 @@
     (nnimap-user ,(format "%s@gmail.com" user))
     (nnimap-address "imap.gmail.com")
     (nnimap-server-port 993)
-    ;(nnimap-fetch-partial-articles "text/")
+    (nnimap-fetch-partial-articles "text/")
     ;(nnimap-record-commands t)
     (nnimap-expunge-on-close always)
     (nnimap-stream ssl)
