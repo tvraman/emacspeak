@@ -166,7 +166,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
-
+;;; Warning: Duplicate output in orgstruct-mode  for now 
 (cl-loop
  for f in
  '(
