@@ -119,6 +119,13 @@ which defaults to emacs-personal-library."
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
 
+;;; Hide compilation window when not relevant:
+    (setq
+     compilation-finish-functions
+     #'(lambda (buf str)  
+         (if (null (string-match ".*exited abnormally.*" str))  
+             (run-at-time 2 nil #'delete-windows-on buf)  
+           (message "No Compilation Errors!"))))
     ;;}}}
     ;;{{{ Augment Load Path:
 
