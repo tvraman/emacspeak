@@ -278,7 +278,7 @@ which defaults to emacs-personal-library."
           :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
        (message "<%s after-init-hook " (float-time (time-subtract (current-time) after-start)))
        (message "Successfully initialized Emacs for %s" user-login-name))))
-(start-up-my-emacs)
+(with-no-warnings(start-up-my-emacs))
 (put 'timer-list 'disabled nil)
 (when (get-buffer "*Compile-Log*")
          (delete-windows-on "*Compile-Log*"))
