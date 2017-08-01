@@ -548,15 +548,14 @@ from English to German")
 
 (emacspeak-url-template-define
  "NY Times Mobile"
- "http://mobile.nytimes.com"
+ "https://mobile.nytimes.com"
  nil
  #'(lambda ()
      (emacspeak-url-template-setup-content-filter)
      (emacspeak-speak-buffer))
  "NYTimes Mobile Site"
  #'(lambda (url)
-     (emacspeak-we-extract-by-role "main" url))
- )
+     (emacspeak-we-xslt-filter "//main" url)))
 
 ;;}}}
 ;;{{{ google OverviewOfNews
