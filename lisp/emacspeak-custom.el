@@ -77,6 +77,14 @@
     (emacspeak-auditory-icon 'button)
     (dtk-speak "Set for current session")))
 
+(defadvice Custom-save (around emacspeak pre act comp)
+  "Silence messages."
+  (let ((inhibit-message  t))
+ad-do-it)
+  ad-return-value)
+
+
+
 (defadvice Custom-save (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
