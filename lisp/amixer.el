@@ -122,7 +122,10 @@
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db amixer-device amixer-program))
   (unless amixer-program (error "You dont have a standard amixer."))
-  (let ((controls nil)
+  (let (
+				(message-log-max nil)
+				(inhibit-message  t) ;;; no spam in *Messages*
+				(controls nil)
         (fields nil)
         (slots nil)
 				(emacspeak-speak-messages nil))
