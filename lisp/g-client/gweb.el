@@ -75,6 +75,18 @@
 
 (defvar gweb-referer "http://emacspeak.sf.net"
   "Referer URL to send to the API.")
+(defvar gweb-history nil
+  "History of Google Search queries.")
+
+(put 'gweb-history 'history-length 100)
+(put 'gweb-history 'history-delete-duplicates t)
+
+(defvar gweb-completion-flag nil
+"Flag that records  Google Suggest in progress.")
+;;; This is dynamically scoped:
+(defvar flx-ido-mode)
+(defvar gweb-completion-corpus "psy"
+  "Corpus to use for completion. Let-bind this for using a different corpus.")
 
 ;;}}}
 ;;{{{ google suggest helper:
@@ -90,8 +102,9 @@
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-search-suggest-url
+                    gweb-completion-corpus
 										gweb-g-suggest-url))
-  (unless corpus (setq corpus "psy"))
+  (unless corpus (setq corpus gweb-completion-corpus))
 	(when input 
 		(let* ((url
 						(format
@@ -135,45 +148,6 @@
       (complete-with-action action
                             (gweb-suggest string)
                             string predicate))))))
-
-;;{{{  Generate suggest handlers for Google properties
-(cl-loop for c in
-      '("news-cc" "products-cc" "youtube" "books" "img")
-      do
-      (eval
-       `(defun
-            , (intern
-               (format  "gweb-%s-suggest-completer" c))
-            (string predicate action)
-          ,(format
-            "Generate completions using Google %s Suggest. " c)
-          (save-current-buffer
-            (set-buffer
-             (let ((window (minibuffer-selected-window)))
-               (if (window-live-p window)
-                   (window-buffer window)
-                 (current-buffer))))
-            (cond
-             ((eq action 'metadata) gweb-google-suggest-metadata)
-             (t
-              (complete-with-action action
-                                    (gweb-suggest string ,c)
-                                    string predicate)))))))
-
-;;}}}
-
-(defvar gweb-history nil
-  "History of Google Search queries.")
-
-(put 'gweb-history 'history-length 100)
-(put 'gweb-history 'history-delete-duplicates t)
-
-;;; Emacs 23 and beyond:
-;;; i.e. if complete-with-action is defined
-(defvar gweb-completion-flag nil
-"Flag that records  Google Suggest in progress.")
-;;; This is dynamically scoped:
-(defvar flx-ido-mode)
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
