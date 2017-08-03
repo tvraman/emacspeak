@@ -135,6 +135,7 @@
 
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
+  (declare (special gweb-completion-corpus))
 	(when (and (sit-for 0.2)(stringp string) (> (length string)  0))
 		(save-current-buffer
     (set-buffer
@@ -146,11 +147,12 @@
      ((eq action 'metadata) gweb-google-suggest-metadata)
      (t
       (complete-with-action action
-                            (gweb-suggest string)
+                            (gweb-suggest string gweb-completion-corpus)
                             string predicate))))))
 
-(defun gweb-google-autocomplete (&optional prompt)
-  "Read user input using Google Suggest for auto-completion."
+(defun gweb--autocomplete-helper (&optional prompt)
+  "Helper: Read user input using Google Suggest for auto-completion.
+Uses corpus found in gweb-completion-corpus"
   (let ((flx-ido-mode  nil)
         (ido-max-prospects 5)
         (gweb-completion-flag t)
@@ -167,6 +169,22 @@
            'gweb-history))
     (g-url-encode query)))
 
+
+(defun gweb-google-autocomplete (&optional prompt)
+  "Autocomplete using Google Search corpus."
+  (let ((gweb-completion-corpus "psy"))
+    (gweb--autocomplete-helper (or prompt "Google: "))))
+
+
+(defun gweb-youtube-autocomplete (&optional prompt)
+  "Autocomplete using Youtube Search corpus."
+  (let ((gweb-completion-corpus "yt"))
+    (gweb--autocomplete-helper (or prompt "YouTube: "))))
+
+(defun gweb-news-autocomplete (&optional prompt)
+  "Autocomplete using News Search corpus."
+  (let ((gweb-completion-corpus "n"))
+    (gweb--autocomplete-helper (or prompt "News: "))))
 
 (defadvice ido-complete-space (around emacspeak pre act comp)
   "Fix up ido-complete-space for use with Google autocomplete."
