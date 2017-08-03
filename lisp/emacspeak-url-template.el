@@ -577,7 +577,7 @@ from English to German")
 (emacspeak-url-template-define
  "html Google News Search"
  "https://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
- (list "Google News: ")
+ (list #'gweb-news-autocomplete)
  #'(lambda ()
      (emacspeak-url-template-setup-content-filter)
      (emacspeak-speak-rest-of-buffer))
@@ -597,7 +597,7 @@ from English to German")
 (emacspeak-url-template-define
  "Google News Search"
  "https://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
- (list "Google News: ")
+ (list #'gweb-news-autocomplete)
  nil
  "Search Google news."
  #'emacspeak-url-template-google-atom-news-display)
