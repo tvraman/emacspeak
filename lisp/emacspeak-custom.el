@@ -78,18 +78,15 @@
     (dtk-speak "Set for current session")))
 
 (defadvice Custom-save (around emacspeak pre act comp)
-  "Silence messages."
+  "Silence messages and produce auditory feedback."
   (let ((inhibit-message  t))
-ad-do-it)
+		ad-do-it)
+	(when (ems-interactive-p)
+    (emacspeak-auditory-icon 'save-object)
+    (dtk-speak "Set and saved"))
   ad-return-value)
 
 
-
-(defadvice Custom-save (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)
-    (dtk-speak "Set and saved")))
 
 (defadvice Custom-buffer-done (after emacspeak pre act comp)
   "Provide auditory feedback."
