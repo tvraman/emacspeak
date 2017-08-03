@@ -205,102 +205,10 @@
 
 ;;;###autoload
 
-(defun gweb-google-autocomplete-with-corpus (corpus)
-  "Read user input using Google Suggest for auto-completion.
-Uses specified corpus for prompting and suggest selection."
-  (let* (
-         (completer (intern (format "gweb-%s-suggest-completer"  corpus)))
-         (minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (query nil))
-    (unless (fboundp completer)
-      (error "No  suggest handler for corpus %s" corpus))
-    (setq query
-          (completing-read
-           (format "%s: " corpus)
-           completer                   ; collection
-           nil nil                     ; predicate required-match
-           word                        ; initial input
-           'gweb-history))
-    (g-url-encode query)))
 ;;; For news:
 
-(defun gweb-news-autocomplete (&optional prompt)
-  "Read user input using Google News Suggest for auto-completion."
-  (let* ((minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (query nil))
-    (setq query
-          (completing-read
-           (or prompt "Google News: ")
-           'gweb-news-cc-suggest-completer
-           nil nil
-           word 'gweb-history))
-    (g-url-encode query)))
 
-;;}}}
-;;{{{ Search Helpers
 
-(defun gweb-results (query url-end-point)
-  "Return results list obtained from url-end-point."
-  (declare (special  gweb-referer))
-  (let((response nil))
-    (g-using-scratch
-     (call-process g-curl-program nil t nil
-                   "-s"
-                   "-e" gweb-referer
-                   (format url-end-point  query))
-     (goto-char (point-min))
-     (setq response (json-read))
-     (when (= 200 (g-json-get 'responseStatus response))
-       (g-json-get
-        'results
-        (g-json-get 'responseData response))))))
-
-(defun gweb-web-results (query)
-  "Return Web Search results list."
-  (declare (special gweb-web-url))
-  (gweb-results query gweb-web-url))
-
-;;}}}
-;;{{{ News Helpers:
-
-;;; Google News Search
-(defun gweb-news-results (query)
-  "Return News Search results."
-  (declare (special gweb-news-url))
-  (gweb-results (g-url-encode query) gweb-news-url))
-
-(defun gweb-news-html (query)
-  "Return simple HTML from News search."
-  (let ((results (gweb-news-results query)))
-    (when results
-      (concat
-       (format "<html><title>News Results For %s</title><ol>" query)
-       (mapconcat
-        #'(lambda (a)
-            (format "<li><a href='%s'>%s</a>\n%s
-<a href='%s'>Related Stories</a></li>"
-                    (cdr (assq 'unescapedUrl a))
-                    (cdr (assq 'title a))
-                    (cdr (assq 'content a))
-                    (cdr (assq 'clusterUrl a))))
-        results
-        "")
-       "</ol></html>"))))
-
-(defun gweb-news-view (query)
-  "Display News Search results  in a browser."
-  (interactive "sNews Search: ")
-  (let ((html (gweb-news-html query)))
-    (cond
-     ((null html) (message "No news found."))
-     (t
-      (g-using-scratch
-       (insert html)
-       (browse-url-of-buffer))))))
 ;;}}}
 ;;{{{ Interactive Commands:
 
