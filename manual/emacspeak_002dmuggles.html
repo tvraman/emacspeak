@@ -634,16 +634,16 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 Create a hydra with no body and the heads:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-"F":    ‘flyspell-mode’,
-"a":    ‘abbrev-mode’,
-"d":    ‘toggle-debug-on-error’,
-"f":    ‘auto-fill-mode’,
-"g":    ‘toggle-debug-on-quit’,
+"F":    ‘(call-interactively (function flyspell-mode))’,
+"a":    ‘(call-interactively (function abbrev-mode))’,
+"d":    ‘(call-interactively (function toggle-debug-on-error))’,
+"f":    ‘(call-interactively (function auto-fill-mode))’,
+"g":    ‘(call-interactively (function toggle-debug-on-quit))’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-"i":    ‘ido-mode’,
-"I":    ‘flx-ido-mode’,
-"t":    ‘toggle-truncate-lines’,
-"u":    ‘ido-ubiquitous-mode’,
+"i":    ‘(call-interactively (function ido-mode))’,
+"I":    ‘(call-interactively (function flx-ido-mode))’,
+"t":    ‘(call-interactively (function toggle-truncate-lines))’,
+"u":    ‘(call-interactively (function ido-ubiquitous-mode))’,
 "q":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
