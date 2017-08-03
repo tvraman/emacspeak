@@ -194,43 +194,6 @@ Uses corpus found in gweb-completion-corpus"
    (t ad-do-it))
   ad-return-value)
 
-;;;###autoload
-
-(defun gweb-google-autocomplete-with-corpus (corpus)
-  "Read user input using Google Suggest for auto-completion.
-Uses specified corpus for prompting and suggest selection."
-  (let* (
-         (completer (intern (format "gweb-%s-suggest-completer"  corpus)))
-         (minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (query nil))
-    (unless (fboundp completer)
-      (error "No  suggest handler for corpus %s" corpus))
-    (setq query
-          (completing-read
-           (format "%s: " corpus)
-           completer                   ; collection
-           nil nil                     ; predicate required-match
-           word                        ; initial input
-           'gweb-history))
-    (g-url-encode query)))
-;;; For news:
-
-(defun gweb-news-autocomplete (&optional prompt)
-  "Read user input using Google News Suggest for auto-completion."
-  (let* ((minibuffer-completing-file-name t) ;; accept spaces
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (query nil))
-    (setq query
-          (completing-read
-           (or prompt "Google News: ")
-           'gweb-news-cc-suggest-completer
-           nil nil
-           word 'gweb-history))
-    (g-url-encode query)))
-
 ;;}}}
 (provide 'gweb)
 ;;{{{ end of file
