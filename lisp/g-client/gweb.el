@@ -87,37 +87,29 @@
 	"http://suggestqueries.google.com/complete/search?ds=%s&q=%s&client=chrome"
 	"Query Suggest: Youtube: yt, News: n")
 
-
-
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-search-suggest-url
 										gweb-g-suggest-url))
   (unless corpus (setq corpus "psy"))
 	(when input 
-		(g-using-scratch
-		 (let ((js nil)
-					 (url
+		(let* ((url
 						(format
 						 (cond
 							((string= corpus "psy") gweb-search-suggest-url)
 							(t gweb-g-suggest-url))
-						 corpus (g-url-encode input))))
-			 (call-process
-				g-curl-program
-				nil t nil
-				"-s" url)
-			 (goto-char (point-min))
-			 (setq js (json-read))
-			 (setq js  (aref js 1))
-			 (cl-loop for e across js
-								collect
-								(replace-regexp-in-string
-								 "</?b>" ""
+						 corpus
+             (g-url-encode input)))
+           (js (g-json-from-url url)))
+			(setq js  (aref js 1))
+			(cl-loop
+       for e across js collect
+			 (replace-regexp-in-string
+				"</?b>" ""
 ;;; note: psy is different:
-								 (if (string= corpus "psy")
-										 (aref e 0)
-									 e)))))))
+				(if (string= corpus "psy")
+						(aref e 0)
+					e))))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
