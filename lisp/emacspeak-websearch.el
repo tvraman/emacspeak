@@ -1021,6 +1021,28 @@ Results"
       (rename-buffer "Currency Rates"))))
 
 ;;}}}
+;;{{{ YouTube Search:
+
+(emacspeak-websearch-set-searcher 'youtube-search
+                                  'emacspeak-websearch-youtube-search)
+
+(emacspeak-websearch-set-key ?y 'youtube-search)
+
+(defvar emacspeak-websearch-youtube-search-uri
+  "https://www.youtube.com/results?search_query=%s"
+  "REST end-point for YouTube Search.")
+
+;;;###autoload
+(defun emacspeak-websearch-youtube-search (query)
+  "YouTube search."
+  (interactive (list (gweb-youtube-autocomplete)))
+  (declare (special emacspeak-websearch-youtube-search-uri))
+  (emacspeak-we-extract-by-id
+   "results"
+   (format emacspeak-websearch-youtube-search-uri (url-encode-url query))
+   'speak))
+
+;;}}}
 ;;{{{ Shopping at Amazon
 
 (emacspeak-websearch-set-searcher 'amazon-search
