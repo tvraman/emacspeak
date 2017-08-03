@@ -1,0 +1,8 @@
+#!/bin/bash
+# Description: Headless Chrome -- with audio on right channel 
+set -x
+
+
+pidof Xvfb ||  nice -n 15 Xvfb -ac :5 -screen 0 800x200x16 &
+export DISPLAY=:5
+nice -n 15 google-chrome --alsa-output-device=tts_mono_right --remote-debugging-port=9222 "$@"  2>&1 > /dev/null &
