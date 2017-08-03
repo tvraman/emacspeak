@@ -555,7 +555,7 @@ from English to German")
      (emacspeak-speak-buffer))
  "NYTimes Mobile Site"
  #'(lambda (url)
-     (emacspeak-we-xslt-filter "//main" url)))
+     (emacspeak-we-extract-by-role "main" url)))
 
 ;;}}}
 ;;{{{ google OverviewOfNews
