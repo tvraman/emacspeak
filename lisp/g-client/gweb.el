@@ -79,14 +79,6 @@
 ;;}}}
 ;;{{{ google suggest helper:
 
-;;; Get search completions from Google
-
-;;                      web : 'psy'
-;; youtube: 'yt
-
-;; 'http://suggestqueries.google.com/complete/search?ds=yt&q=cricket'
-;; 'http://suggestqueries.google.com/complete/search?ds=n&q=cric'
-
 (defvar gweb-search-suggest-url
   "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=%s&q=%s"
   "URL  that gets suggestions from Google as JSON.")
