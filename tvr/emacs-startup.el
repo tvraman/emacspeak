@@ -104,7 +104,7 @@ which defaults to emacs-personal-library."
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (declare (special emacs-personal-library emacs-private-library))
-  (let ((gc-cons-threshold 8000000)
+  (let ((gc-cons-threshold 64000000)
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
