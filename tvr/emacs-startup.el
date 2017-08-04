@@ -262,7 +262,7 @@ which defaults to emacs-personal-library."
  #'(lambda ()
      (let ((after-start (current-time)))
        (tvr-customize)
-       (soundscape-toggle)
+       (soundscape-restart "tts_a0_e60")
        (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
        (when (dbus-list-known-names :session)
          (nm-enable)
