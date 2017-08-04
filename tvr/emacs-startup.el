@@ -7,8 +7,6 @@
 ;;}}}
 ;;{{{ personal lib
 
-(setq inhibit-startup-echo-area-message user-login-name)
-
 (defvar emacs-private-library (expand-file-name "~/.elisp")
   "Private library directory. ")
 
@@ -108,6 +106,8 @@ which defaults to emacs-personal-library."
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
+    (setq inhibit-startup-echo-area-message user-login-name)
+    (setq initial-scratch-message "")
     (tooltip-mode -1)
     (menu-bar-mode -1)
     (tool-bar-mode -1)
