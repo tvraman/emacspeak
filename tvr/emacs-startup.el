@@ -269,10 +269,8 @@ which defaults to emacs-personal-library."
          (emacspeak-dbus-sleep-enable)
          (emacspeak-dbus-watch-screen-lock))
        (custom-reevaluate-setting 'gweb-my-address)
-       (delete-other-windows)
        (emacspeak-wizards-project-shells-initialize)
        (calendar)
-       
        (play-sound
         `(sound
           :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
