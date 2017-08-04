@@ -177,7 +177,9 @@ which defaults to emacs-personal-library."
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
-
+;;; cut/copy to/from registers:
+(define-key ctl-x-map "x" 'copy-to-register)
+(define-key ctl-x-map "c" 'insert-register)
 ;;; Shell navigation:
     (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
