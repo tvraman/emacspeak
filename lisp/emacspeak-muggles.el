@@ -96,6 +96,8 @@
 	(require 'xbacklight)
 	(require 'view)
 	(require 'org)
+	(require 'whitespace)
+	(require 'ido)
 	(require 'emacspeak-m-player))
 
 ;;}}}
@@ -362,7 +364,7 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;{{{ Option Toggle
 
 ;;; Cloned from hydra-examples.el and modified to tase.
-(require 'whitespace)
+
 (global-set-key
  (kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
@@ -555,7 +557,6 @@ Info-mode:
 (defun emacspeak-muggles-ido-yank ()
   "Pick what to yank using ido completion."
   (interactive)
-  (require 'ido)
   (when (eq last-command 'yank)
     (delete-region (region-beginning) (region-end)))
   (let ((orig (point)))
