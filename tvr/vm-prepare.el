@@ -1,5 +1,5 @@
 ;;; Augment load path:  -*- lexical-binding: t; -*-
-(augment-load-path "vm/lisp" "vm")
+(augment-load-path "vm/lisp" "vm-autoloads")
 (defun make-local-hook (hook)
   "Make the hook HOOK local to the current buffer.
 The return value is HOOK.

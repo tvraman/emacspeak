@@ -281,7 +281,7 @@ applied."
   "Writes out the persistent emacspeak pronunciation dictionaries."
   (interactive)
   (declare (special emacspeak-pronounce-dictionaries))
-  (let* (
+  (let* ((coding-system-for-write 'utf-8)
          (print-level nil)
          (print-length nil)
          (filename (read-file-name
@@ -317,9 +317,10 @@ Optional argument FILENAME specifies the dictionary file."
   (declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
     (condition-case nil
+				(let ((coding-system-for-read  'utf-8))
         (progn
           (load-file filename)
-          (setq emacspeak-pronounce-dictionaries-loaded t))
+          (setq emacspeak-pronounce-dictionaries-loaded t)))
       (error
        (message "Error loading pronunciation dictionary, deactivating  pronunciations.")
        (setq emacspeak-pronounce-dictionaries (make-hash-table)
