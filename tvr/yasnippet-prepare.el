@@ -1,8 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
-(load-library "yasnippet")
-
-(yas-reload-all)
+(load-library "yasnippet-autoloads")
+(eval-after-load "yasnippet"
+  (progn 
+(yas-reload-all)))
 (add-hook
  'prog-mode-hook
  #'(lambda nil

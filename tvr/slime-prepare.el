@@ -1,7 +1,6 @@
 ;; -*- lexical-binding: t; -*-
-(augment-load-path "slime" "slime")
+(augment-load-path "slime" "slime-autoloads")
 (load-library "slime-autoloads")
-(require 'slime)
 (setq inferior-lisp-program (executable-find "clisp"))
 (setq common-lisp-hyperspec-root
       (if (file-exists-p "/usr/share/doc/hyperspec/")
