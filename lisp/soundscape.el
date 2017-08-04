@@ -117,6 +117,13 @@
 
 (defvar soundscape--scapes nil
   "Cache of currently running scapes.")
+;;;###autoload
+(defcustom soundscape-device nil
+  "Alsa sound device to use for soundscapes."
+  :type  '(choice  :tag "Device"
+                   (const :tag "None" nil)
+                   (string :tag "Alsa Device Name"))
+:group 'soundscape)
 
 ;;;###autoload
 (defcustom soundscape-manager-options
@@ -192,7 +199,7 @@ Default is to return NullAgent if name not found."
   "Play soundscape."
   (interactive (list (soundscape-read)))
   (declare (special soundscape-processes
-                    soundscape-manager-options))
+                    soundscape-device soundscape-manager-options))
   (let ((process-connection-type  nil)
         (proc (gethash scape soundscape-processes)))
     (unless (process-live-p proc)
@@ -201,7 +208,10 @@ Default is to return NullAgent if name not found."
              #'start-process
              "Boodler" nil
              "nice" "-n"  "19" soundscape-player
-             `(,@soundscape-manager-options ,scape)))
+             `(,@soundscape-manager-options
+"--device"
+,soundscape-device
+,scape)))
       (when (process-live-p proc) (puthash scape proc soundscape-processes)))))
 
 (defun soundscape-stop (scape)
@@ -395,7 +405,7 @@ Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
 Optional interactive prefix arg restarts the listener if already running."
   (interactive "P")
   (declare (special soundscape-listener-process soundscape--remote
-                    soundscape-manager-options
+                    soundscape-manager-options soundscape-device
                     soundscape-remote-control soundscape-default-theme))
   (let ((process-connection-type nil))
     (cond
@@ -407,6 +417,8 @@ Optional interactive prefix arg restarts the listener if already running."
         "SoundscapeListener" " *Soundscapes*"
         "nice" "-n"  "19" soundscape-player
         `(,@soundscape-manager-options
+          "--device"
+,soundscape-device
           "--listen" "--port" ,soundscape--remote
           "org.emacspeak.listen/SoundscapePanel"
           ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
@@ -551,7 +563,8 @@ Caches most recently used device, which then becomes the default for future invo
   (interactive "P")
   (declare (special soundscape--last-mode  soundscape--scapes
                     soundscape--filters soundscape--cached-device
-                    soundscape--auto soundscape-manager-options))
+                    soundscape--auto soundscape-manager-options
+                    soundscape-device))
   (setq soundscape--scapes nil soundscape--last-mode nil)
   (when  device
     (setq soundscape--cached-device
@@ -560,6 +573,8 @@ Caches most recently used device, which then becomes the default for future invo
                "Filter: "
                soundscape--filters )
             device)))
+  (unless soundscape--cached-device
+    (setq soundscape--cached-device soundscape-device))
   (let ((soundscape-manager-options
          (append
           (copy-sequence soundscape-manager-options) ; clone default options
