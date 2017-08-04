@@ -80,20 +80,23 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(eval-when-compile (require 'cl-lib))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-hydra)
-(require 'hideshow)
-(require 'outline)
+
 (cl-eval-when '(load)
   (when (locate-library "package")
     (unless (locate-library "hydra") (package-install 'hydra))))
-(require 'hydra "hydra" 'no-error)
-(require 'xbacklight)
-(require 'view)
-(require 'org)
-(require 'emacspeak-m-player)
+
+(eval-when-compile
+	(require 'hideshow)
+	(require 'outline)
+	(require 'hydra "hydra" 'no-error)
+	(require 'xbacklight)
+	(require 'view)
+	(require 'org)
+	(require 'emacspeak-m-player))
 
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
