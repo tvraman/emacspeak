@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
-(augment-load-path "emms/lisp" "emms")
-(require 'emms-setup)
+(augment-load-path "emms/lisp" "emms-autoloads")
+;(require 'emms-setup)
 (emms-all)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/mp3")
