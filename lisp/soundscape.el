@@ -553,11 +553,13 @@ Caches most recently used device, which then becomes the default for future invo
                     soundscape--filters soundscape--cached-device
                     soundscape--auto soundscape-manager-options))
   (setq soundscape--scapes nil soundscape--last-mode nil)
-  (when device
+  (when  device
     (setq soundscape--cached-device
-          (completing-read
-           "Filter: "
-           soundscape--filters )))
+          (if (called-interactively-p 'interactive)
+              (completing-read
+               "Filter: "
+               soundscape--filters )
+            device)))
   (let ((soundscape-manager-options
          (append
           (copy-sequence soundscape-manager-options) ; clone default options

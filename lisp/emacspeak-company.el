@@ -82,7 +82,7 @@
   (ems-with-messages-silenced
    (case command
      (pre-command nil)
-     (post-command (emacspeak-play-auditory-icon 'help)
+     (post-command (emacspeak-native-auditory-icon 'help)
 (emacspeak-company-speak-this))
      (hide nil))))
 
@@ -116,7 +116,7 @@
     (pushnew 'emacspeak-company-frontend company-frontends))
   (add-hook
    'company-completion-started-hook
-   #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'open-object)))
+   #'(lambda (&rest _ignore) (emacspeak-native-auditory-icon 'open-object)))
 
   (add-hook
    'company-completion-finished-hook
