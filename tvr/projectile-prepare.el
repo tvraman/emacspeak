@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
-(load-library "projectile")
+(load-library "projectile-autoloads")
 ;(projectile-global-mode)
 (global-set-key (kbd "C-c ;") 'projectile-command-map)
 (csetq 
