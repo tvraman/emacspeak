@@ -1,6 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 (augment-load-path "emms/lisp" "emms-autoloads")
-;(require 'emms-setup)
+(eval-after-load "emms"
+(progn
+(require 'emms-setup)
 (emms-all)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/mp3")
@@ -33,6 +35,6 @@
       do
     (emacspeak-keymap-update emms-prefix-map key))
 (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
-;(require 'emms-info-libtag)
-(setq emms-info-functions '(emms-info-libtag))
+
+))
 (global-set-key "\C-x@h." 'emms-prefix-command)
