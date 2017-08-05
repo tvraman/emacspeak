@@ -1,0 +1,35 @@
+diff --git a/lisp/mac-voices.el b/lisp/mac-voices.el
+index 82069c536..332ecec5b 100644
+--- a/lisp/mac-voices.el
++++ b/lisp/mac-voices.el
+@@ -106,8 +106,8 @@ COMMAND-STRING to the TTS engine."
+ ;;{{{ voice definitions
+ 
+ ;;; the nine predefined voices: TODO: figure out if embedding is possible (and update voice names).
+-(mac-define-voice 'paul  " [{voice alex}] ")
+-(mac-define-voice 'harry " [{voice ralf}] ")
++(mac-define-voice 'paul  " [{voice systemDefault}] ")
++(mac-define-voice 'harry " [{voice alex}] ")
+ (mac-define-voice 'dennis " [{voice bruce}] ")
+ (mac-define-voice 'frank " [{voice fred}] ")
+ (mac-define-voice 'betty " [{voice victoria}] ")
+diff --git a/servers/mac b/servers/mac
+index f06d48d53..ce07ed273 100755
+--- a/servers/mac
++++ b/servers/mac
+@@ -560,9 +560,12 @@ def processSpeechQueue():
+       writeDebugLog(4, "Voice change")
+       voice = item[1]
+       if voice in voiceMap:
+-        speechSynthesizer.setVoice_(voiceMap[voice])
+-        writeDebugLog(6, "set voice to " + voiceMap[voice])  
+-        processSpeechQueue()
++        voice = voiceMap[voice]
++      else:
++        voice = NSSpeechSynthesizer.defaultVoice()
++      if voice != speechSynthesizer.voice():
++        speechSynthesizer.setVoice_(voice)
++      processSpeechQueue()
+ 
+     # Custom embeds.
+     elif item[0] == 'textclip':
