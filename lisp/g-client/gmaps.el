@@ -298,7 +298,9 @@ Parameter `key' is the API  key."
     (put-text-property start (point) 'face font-lock-doc-face)
     (insert "\n\f\n")
     (and gweb-my-address (gmaps-set-current-location gweb-my-address))
-    (setq header-line-format '("Google Maps: " (:eval (get 'gmaps-current-location 'address))))))
+    (setq header-line-format
+					'("Google Maps: "
+						(:eval (get  (gmaps--location-address gmaps-current-location )))))))
 
 (declaim (special gmaps-mode-map))
 
@@ -400,7 +402,8 @@ origin/destination may be returned as a lat,long string."
          (destination nil))
     (setq origin
           (cond
-           (gmaps-current-location (url-hexify-string(get 'gmaps-current-location 'address)))
+           (gmaps-current-location
+						(url-hexify-string (gmaps--location-address gmaps-current-location)))
            (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
     (setq destination
           (cond
@@ -595,12 +598,8 @@ origin/destination may be returned as a lat,long string."
   " Set current location."
   (interactive  "sAddress: ")
   (declare (special gmaps-current-location))
-  (condition-case nil
-      (progn
-        (setq gmaps-current-location (gmaps-geocode address))
-        (put 'gmaps-current-location 'address address)
-        (message "Moved to %s" address))
-    (error (message "Error finding %s" address))))
+  (setq gmaps-current-location (gmaps-address-location address))
+	(message "Moved to %s" address))
 
 (defstruct gmaps-places-filter
   type ; singleton as per new API
@@ -702,7 +701,8 @@ Uses default radius. optional interactive prefix arg clears any active filters."
        (format "%s&%s&%s%s"
                (gmaps-places-url-base "nearbysearch" gmaps-places-key)
                (format "location=%s,%s"
-                       (g-json-get 'lat gmaps-current-location) (g-json-get 'lng gmaps-current-location))
+                       (g-json-get 'lat (gmaps--location-lat-lng gmaps-current-location))
+											 (g-json-get 'lng (gmaps--location-lat-lng gmaps-current-location)))
                (format "radius=%s" gmaps-current-radius)
                (if gmaps-current-filter
                    (gmaps-places-filter-as-params gmaps-current-filter)
