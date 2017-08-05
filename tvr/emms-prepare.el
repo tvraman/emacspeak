@@ -3,6 +3,7 @@
 (eval-after-load "emms"
 (progn
 (require 'emms-setup)
+(setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
 (emms-all)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/mp3")
@@ -34,7 +35,7 @@
         )
       do
     (emacspeak-keymap-update emms-prefix-map key))
-(setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
+
 
 ))
 (global-set-key "\C-x@h." 'emms-prefix-command)
