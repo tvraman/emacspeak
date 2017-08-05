@@ -72,6 +72,25 @@
 	zip
 	lat-lng)
 
+(defvar gmaps-location-table (make-hash-table  :test  #'equal)
+	"Hash table that memoizes geolocation.")
+
+(defun gmaps-memoize-geocode (address-string)
+	"Memoized version of gmaps-geocode."
+	(declare (special gmaps-location-table))
+  (let ((found (gethash address gmaps-location-table))
+				(result nil))
+		(cond
+		 (found (gmaps-location-lat-lng found))
+		 (t ;;; Get geocode from network  and  memoize
+			(setq result (gmaps-geocode address))
+			(puthash  address
+								(make-gmaps-location
+								 :address address
+								 :lat-lng result )
+								gmaps-location-table))
+		 result)))
+					
 ;;}}}
 
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
