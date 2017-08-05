@@ -2,7 +2,7 @@
 
 (load-library "yasnippet-autoloads")
 (eval-after-load "yasnippet"
-  (progn 
+  `(progn 
 (yas-reload-all)))
 (add-hook
  'prog-mode-hook

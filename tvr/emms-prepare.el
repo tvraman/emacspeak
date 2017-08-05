@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 (augment-load-path "emms/lisp" "emms-autoloads")
 (eval-after-load "emms"
-(progn
+`(progn
 (require 'emms-setup)
 (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
 (emms-all)
