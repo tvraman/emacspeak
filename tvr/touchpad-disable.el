@@ -1,7 +1,8 @@
 ;;; Disable mouse buttons and touchpad.
 ;;; Avoids accidental touches 
-
-(loop
+(require 'cl-lib)
+(load-library "disable-mouse-autoloads")
+(cl-loop
  for  k in 
  '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]    
    [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]  
@@ -27,7 +28,8 @@
 ;; To enable it, type:
 ;; xinput set-prop 11 "Device Enabled" 1
 (defgroup touchpad-unprepare nil
-  "disable mouse/touchpad in emacs")
+  "disable mouse/touchpad in emacs"
+  :group 'applications)
 (defcustom touchpad-device "11"
   "Device ID of touchpad.
 Set by locating it via xinput --list."
