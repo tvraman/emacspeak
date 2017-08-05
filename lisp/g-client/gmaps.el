@@ -220,11 +220,10 @@ Optional argument `raw-p' returns raw JSON  object."
       (declare (special gweb-my-location))
       (when val
         (setq gweb-my-location (gmaps-address-location val))
-        (setq gweb-my-postal-code
-              (gmaps--location-zip gweb-my-location))
-        (when (featurep 'emacspeak)
-          (emacspeak-calendar-setup-sunrise-sunset))
-      (set-default sym (gmaps--location-address gweb-my-location))))
+        (setq gweb-my-postal-code (gmaps--location-zip gweb-my-location))
+        (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
+      (set-default sym
+									 (gmaps--location-address gweb-my-location))))
   :group 'gweb)
 
 ;;}}}
