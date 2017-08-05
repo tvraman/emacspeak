@@ -58,6 +58,8 @@
 (require 'derived)
 (require 'find-dired)
 (require 'emacspeak-preamble)
+(require 'gweb)
+(require 'gmaps)
 (require 'emacspeak-table-ui)
 (require 'shell)
 (require 'texinfo)
@@ -3436,7 +3438,7 @@ Location is specified as returned by gmaps-geocode and defaults to
   `gweb-my-location'."
   (declare (special gweb-my-location))
   (cl-assert  (or geo gweb-my-location) nil "Location not specified.")
-  (unless geo (setq geo gweb-my-location))
+  (unless geo (setq geo (gmaps--location-lat-lng gweb-my-location)))
   (format
    "https://api.weather.gov/points/%.4f,%.4f/forecast"
    (g-json-get 'lat geo)
@@ -3454,7 +3456,7 @@ Location is specified as returned by gmaps-geocode and defaults to
 							(read-from-minibuffer "Address:")
 						gweb-my-address))
 				 (geo  (if (and ask (= 16 (car ask)))
-									 (gmaps-geocode address)
+									 (gmaps--location-lat-lng (gmaps-address-location address))
 								 gweb-my-location)))
 		(with-current-buffer buffer
 			(erase-buffer)
