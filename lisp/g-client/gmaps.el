@@ -90,7 +90,7 @@
   (let ((found (gethash address gmaps-location-table))
 				(result nil))
 		(cond
-		 (found (gmaps--location-lat-lng found))
+		 (found found )
 		 (t ;;; Get geocode from network  and  memoize
 			(setq result 
 						(let-alist (aref (gmaps-geocode address 'raw) 0)
@@ -215,16 +215,16 @@ Optional argument `raw-p' returns raw JSON  object."
   :type '(choice
           (const :tag "None" nil)
           (string  :tag "Address"))
-  :set  #'(lambda (sym val)
-            (declare (special gweb-my-location))
-            (when val
-              (setq gweb-my-location (gmaps-geocode val))
-              (when gweb-my-location
-                (setq gweb-my-postal-code
-                      (gmaps-postal-code-from-location gweb-my-location)))
-              (when (featurep 'emacspeak)
-                (emacspeak-calendar-setup-sunrise-sunset)))
-            (set-default sym val))
+  :set
+	#'(lambda (sym val)
+      (declare (special gweb-my-location))
+      (when val
+        (setq gweb-my-location (gmaps-address-location val))
+        (setq gweb-my-postal-code
+              (gmaps--location-zip gweb-my-location))
+        (when (featurep 'emacspeak)
+          (emacspeak-calendar-setup-sunrise-sunset))
+      (set-default sym (gmaps--location-address gweb-my-location))))
   :group 'gweb)
 
 ;;}}}
