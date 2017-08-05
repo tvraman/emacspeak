@@ -318,7 +318,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
                      nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play duration (sox-binaural-get-effect name))
-  (when emacspeak-use-auditory-icons(emacspeak-native-auditory-icon 'time))
+  (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'time))
   (dtk-notify-say
    (format "%s: %s" name (sox--format-seconds duration))))
 
@@ -338,7 +338,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (run-with-timer
      dur nil
      #'(lambda (n1 n2  d)
-         (when emacspeak-use-auditory-icons(emacspeak-native-auditory-icon 'time))
+         (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'time))
          (dtk-notify-say
           (format "%s  to %s %s" n1 n2 (sox--format-seconds d)))
          (sox--binaural-play  d slide))

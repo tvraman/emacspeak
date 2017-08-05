@@ -65,6 +65,15 @@
   :group 'g)
 
 ;;}}}
+;;{{{ Address Structure 
+
+(cl-defstruct gmaps-location
+	address
+	zip
+	lat-lng)
+
+;;}}}
+
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
 
 ;;; See http://feedproxy.google.com/~r/GoogleGeoDevelopersBlog/~3/0aP4dsogPJ4/introducing-new-google-geocoding-web.html

@@ -286,7 +286,7 @@ Use Serve when working with remote speech servers."
   :type '(choice
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
-          (const emacspeak-native-auditory-icon)
+          (const emacspeak-play-auditory-icon)
           (const emacspeak-soxplay-auditory-icon)
           (const emacspeak-queue-auditory-icon)))
 
@@ -327,7 +327,7 @@ Optional interactive PREFIX arg toggles global value."
 (defvar emacspeak-sounds-auditory-icon-players
   '("emacspeak-serve-auditory-icon"
     "emacspeak-play-auditory-icon"
-    "emacspeak-native-auditory-icon")
+    "emacspeak-play-auditory-icon")
   "Table of auditory icon players used  when selecting a player.")
 
 (defun emacspeak-select-auditory-icon-player ()

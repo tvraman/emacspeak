@@ -110,7 +110,7 @@ Startup  apps that need the network."
    #'(lambda ()
        (when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
-	(emacspeak-native-auditory-icon 'network-up)
+	(emacspeak-play-auditory-icon 'network-up)
        (dtk-notify-speak
 				(mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
