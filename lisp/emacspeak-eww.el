@@ -2002,7 +2002,7 @@ interactive prefix arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
-  (declare (special emacspeak-eww-marks-file ))
+  (declare (special emacspeak-eww-marks-file emacspeak-eww-marks ))
   (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
         (print-length nil)
         (print-level nil))
