@@ -85,7 +85,8 @@
 
 (defun gmaps-address-location (address)
 	"Returns gmaps--location structure. Memoized to save network calls."
-	(declare (special gmaps-location-table))
+	(declare (special gmaps-location-table gmaps-locations-loaded-p))
+	(unless gmaps-locations-loaded-p (gmaps-locations-load))
   (let ((found (gethash address gmaps-location-table))
 				(result nil))
 		(cond
@@ -103,6 +104,7 @@
 							 :lat-lng .geometry.location)))
 			(puthash  address result gmaps-location-table)
 			(puthash  (gmaps--location-address result) result gmaps-location-table)
+			(gmaps-locations-save)
 			result))))
 
 
@@ -129,7 +131,8 @@
       (insert ") ;;; set hash table\n\n")
 			(insert "(setq gmaps-locations-loaded-p t)\n")
       (save-buffer))
-    (message "Saved GMaps Locations.")
+		(when (called-interactively-p 'interactive)
+			(message "Saved GMaps Locations."))
     (emacspeak-auditory-icon 'save-object)))					
 
 ;;}}}
