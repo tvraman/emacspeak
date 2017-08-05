@@ -67,7 +67,7 @@
 ;;}}}
 ;;{{{ Address Structure 
 
-(cl-defstruct gmaps-location
+(cl-defstruct gmaps--location
 	address
 	zip
 	lat-lng)
@@ -75,21 +75,25 @@
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
 	"Hash table that memoizes geolocation.")
 
-(defun gmaps-memoize-geocode (address-string)
-	"Memoized version of gmaps-geocode."
+(defun gmaps-location-address (address-string)
+	"Returns gmaps--location structure. Memoized to save network calls."
 	(declare (special gmaps-location-table))
   (let ((found (gethash address gmaps-location-table))
 				(result nil))
 		(cond
-		 (found (gmaps-location-lat-lng found))
+		 (found (gmaps--location-lat-lng found))
 		 (t ;;; Get geocode from network  and  memoize
-			(setq result (gmaps-geocode address))
-			(puthash  address
-								(make-gmaps-location
-								 :address address
-								 :lat-lng result )
-								gmaps-location-table)))
-		 result))
+			(setq result 
+						(let-alist (aref (gmaps-geocode address 'raw) 0)
+							(make-gmaps--location  
+							 :address .formatted_address
+							 :zip (g-json-get 'short_name
+																(find-if ; component whose type contains postal_code
+																 #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=))
+																 .address_components))
+							 :lat-lng .geometry.location)))
+			(puthash  address result gmaps-location-table)
+			result))))
 					
 ;;}}}
 
