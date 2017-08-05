@@ -73,6 +73,13 @@
 	zip
 	lat-lng)
 
+(defun gmaps-locations-load ()
+  "Load saved GMaps locations."
+  (interactive)
+  (declare (special gmaps-locations-file))
+  (when (file-exists-p gmaps-locations-file)
+    (load-file gmaps-locations-file)))
+
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
 	"Hash table that memoizes geolocation.")
 
@@ -97,7 +104,34 @@
 			(puthash  address result gmaps-location-table)
 			(puthash  (gmaps--location-address result) result gmaps-location-table)
 			result))))
-					
+
+
+(defvar gmaps-locations-loaded-p nil
+  "Record if Locations cache  is loaded.")
+
+(defvar gmaps-locations-file
+  (expand-file-name "gmaps-locations" emacspeak-resource-directory)
+  "File where we save Locations.")
+
+
+(defun gmaps-locations-save ()
+  "Save GMaps Locations."
+  (interactive)
+  (declare (special gmaps-locations-file gmaps-location-table ))
+  (let ((buffer (find-file-noselect gmaps-locations-file))
+        (print-length nil)
+        (print-level nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (insert  ";;; Auto-generated.\n\n")
+      (insert "(setq gmaps-location-table\n")
+      (pp gmaps-location-table (current-buffer))
+      (insert ") ;;; set hash table\n\n")
+			(insert "(setq gmaps-locations-loaded-p t)\n")
+      (save-buffer))
+    (message "Saved GMaps Locations.")
+    (emacspeak-auditory-icon 'save-object)))					
+
 ;;}}}
 
 ;;{{{ Maps Geo-Coding and Reverse Geo-Coding:
