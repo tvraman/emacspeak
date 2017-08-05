@@ -6,7 +6,7 @@
 
 ;;}}}
 ;;{{{ personal lib
-
+(defvar emacspeak-speak-messages)
 (defvar emacs-private-library (expand-file-name "~/.elisp")
   "Private library directory. ")
 
@@ -60,7 +60,7 @@ which defaults to emacs-personal-library."
            "<%s %s>"
            lib (float-time (time-subtract (current-time) start)))
           (setq start nil)
-          (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item)))
+          (emacspeak-play-auditory-icon 'item))
          (t (message "Could not locate library %s" lib)
             nil))
       (error (message "Error loading %s" lib)))))
