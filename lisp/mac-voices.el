@@ -106,8 +106,8 @@ COMMAND-STRING to the TTS engine."
 ;;{{{ voice definitions
 
 ;;; the nine predefined voices: TODO: figure out if embedding is possible (and update voice names).
-(mac-define-voice 'paul  " [{voice alex}] ")
-(mac-define-voice 'harry " [{voice ralf}] ")
+(mac-define-voice 'paul  " [{voice systemDefault}] ")
+(mac-define-voice 'harry " [{voice alex}] ")
 (mac-define-voice 'dennis " [{voice bruce}] ")
 (mac-define-voice 'frank " [{voice fred}] ")
 (mac-define-voice 'betty " [{voice victoria}] ")
