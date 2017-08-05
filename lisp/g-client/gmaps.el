@@ -88,8 +88,8 @@
 								(make-gmaps-location
 								 :address address
 								 :lat-lng result )
-								gmaps-location-table))
-		 result)))
+								gmaps-location-table)))
+		 result))
 					
 ;;}}}
 
