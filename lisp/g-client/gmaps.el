@@ -69,6 +69,7 @@
 
 (cl-defstruct gmaps--location
 	address
+	alias ; short-form entered by user
 	zip
 	lat-lng)
 
@@ -85,7 +86,8 @@
 		 (t ;;; Get geocode from network  and  memoize
 			(setq result 
 						(let-alist (aref (gmaps-geocode address 'raw) 0)
-							(make-gmaps--location  
+							(make-gmaps--location
+							 :alias address
 							 :address .formatted_address
 							 :zip (g-json-get 'short_name
 																(find-if ; component whose type contains postal_code
@@ -93,6 +95,7 @@
 																 .address_components))
 							 :lat-lng .geometry.location)))
 			(puthash  address result gmaps-location-table)
+			(puthash  (gmaps--location-address result) result gmaps-location-table)
 			result))))
 					
 ;;}}}
