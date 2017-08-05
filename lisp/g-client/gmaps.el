@@ -75,7 +75,7 @@
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
 	"Hash table that memoizes geolocation.")
 
-(defun gmaps-location-address (address-string)
+(defun gmaps-location-address (address)
 	"Returns gmaps--location structure. Memoized to save network calls."
 	(declare (special gmaps-location-table))
   (let ((found (gethash address gmaps-location-table))
