@@ -2842,7 +2842,7 @@ mapped to voices."
    (list
     (read-from-minibuffer "Address: ")
     current-prefix-arg))
-  (let* ((geo (gmaps-geocode address))
+  (let* ((geo (gmaps-address-geocode address))
          (calendar-latitude (g-json-get 'lat geo))
          (calendar-longitude (g-json-get 'lng geo))
          (calendar-time-zone
