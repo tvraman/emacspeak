@@ -118,7 +118,7 @@ which defaults to emacs-personal-library."
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
-
+(put 'timer-list 'disabled nil)
 ;;; Hide compilation window when not relevant:
     (setq
      compilation-finish-functions
@@ -271,15 +271,14 @@ which defaults to emacs-personal-library."
        (custom-reevaluate-setting 'gweb-my-address)
        (emacspeak-wizards-project-shells-initialize)
        (calendar)
-       (play-sound
-        `(sound
-          :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
+       (start-process
+        "play" nil "play"
+        (expand-file-name "highbells.au" emacspeak-sounds-directory))
        (message "<%s after-init-hook " (float-time (time-subtract (current-time) after-start)))
        (message "Successfully initialized Emacs for %s" user-login-name))))
-(with-no-warnings(start-up-my-emacs))
-(put 'timer-list 'disabled nil)
-(when (get-buffer "*Compile-Log*")
-         (delete-windows-on "*Compile-Log*"))
+(start-up-my-emacs)
+
+
 
 ;;}}}
 (provide 'emacs-startup)
