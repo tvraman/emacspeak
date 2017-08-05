@@ -452,11 +452,12 @@ To use, configure variable gweb-my-address via M-x customize-variable."
    ((null gweb-my-location)
     (message "First customize gweb-my-address."))
    (t
-    (setq calendar-latitude
-          (g-json-get 'lat gweb-my-location)
-          calendar-longitude (g-json-get 'lng gweb-my-location))
-    (message "Setup for %s"
-             gweb-my-address))))
+    (setq
+		 calendar-latitude
+     (g-json-get 'lat (gmaps--location-lat-lng gweb-my-location))
+     calendar-longitude
+		 (g-json-get 'lng (gmaps--location-lat-lng gweb-my-location)))
+    (message "Setup for %s" gweb-my-address))))
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
   "Like calendar's sunrise-sunset, but speaks location intelligently."
