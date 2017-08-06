@@ -446,7 +446,7 @@
   "Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gweb-my-address via M-x customize-variable."
   (interactive)
-  (declare (special gweb-my-location gweb-my-address
+  (declare (special  gweb-my-address
                     calendar-latitude calendar-longitude))
   (cond
    ((null gweb-my-location)
@@ -454,9 +454,9 @@ To use, configure variable gweb-my-address via M-x customize-variable."
    (t
     (setq
 		 calendar-latitude
-     (g-json-get 'lat (gmaps--location-lat-lng gweb-my-location))
+     (g-json-get 'lat (gmaps-address-geocode gweb-my-address))
      calendar-longitude
-		 (g-json-get 'lng (gmaps--location-lat-lng gweb-my-location)))
+		 (g-json-get 'lng (gmaps-address-geocode gweb-my-address)))
     (message "Setup for %s" gweb-my-address))))
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
