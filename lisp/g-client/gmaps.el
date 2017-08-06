@@ -716,7 +716,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (insert
          (format "Places within %sm of  %s\n"
                  gmaps-current-radius
-                 (get 'gmaps-current-location 'address)))
+                  (gmaps--location-address gmaps-current-location)))
         (when gmaps-current-filter
           (insert (format "Filter: %s\n"
                           (gmaps-places-filter-as-string gmaps-current-filter))))
