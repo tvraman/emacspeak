@@ -81,6 +81,7 @@ dist:
 config:
 	@cd etc && $(MAKE) config  
 	@cd lisp && $(MAKE) config
+	@cd lisp/g-client  && $(MAKE) config
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
