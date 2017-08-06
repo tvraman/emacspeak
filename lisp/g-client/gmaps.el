@@ -106,7 +106,7 @@
 			(puthash  (gmaps--location-address result) result gmaps-location-table)
 			(gmaps-locations-save)
 			result))))
-
+;;;###autoload
 (defun gmaps-address-geocode(address)
 	"Return lat/long for a given address."
 	(gmaps--location-lat-lng (gmaps-address-location address)))
