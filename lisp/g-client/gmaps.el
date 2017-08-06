@@ -300,7 +300,7 @@ Parameter `key' is the API  key."
     (and gweb-my-address (gmaps-set-current-location gweb-my-address))
     (setq header-line-format
 					'("Google Maps: "
-						(:eval (get  (gmaps--location-address gmaps-current-location )))))))
+						(:eval   (gmaps--location-address gmaps-current-location ))))))
 
 (declaim (special gmaps-mode-map))
 
