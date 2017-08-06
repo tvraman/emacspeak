@@ -210,7 +210,7 @@ Optional argument `raw-p' returns raw JSON  object."
   nil
   "Geo coordinates --- automatically set by reverse geocoding gweb-my-address")
 
-(defvar gweb-my-postal-code
+(defvar gweb-my-zip
   nil
   "Postal Code --- automatically set by reverse geocoding gweb-my-address")
 
@@ -225,7 +225,7 @@ Optional argument `raw-p' returns raw JSON  object."
       (declare (special gweb-my-location))
       (when val
         (setq gweb-my-location (gmaps-address-location val))
-        (setq gweb-my-postal-code (gmaps--location-zip gweb-my-location))
+        (setq gweb-my-zip (gmaps--location-zip gweb-my-location))
         (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
       (set-default sym
 									 (gmaps--location-address gweb-my-location))))

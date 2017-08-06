@@ -637,7 +637,7 @@ from English to German")
  (list
   #'(lambda ()
       (read-from-minibuffer "City/Zip: "
-                            (bound-and-true-p gweb-my-postal-code))))
+                            (bound-and-true-p gweb-my-zip))))
  nil
  "Google News By Region."
  #'emacspeak-url-template-google-atom-news-display)
@@ -1096,7 +1096,7 @@ Set up URL rewrite rule to get print page."
  (list
   #'(lambda nil
       (read-from-minibuffer "State/City:"
-                            (bound-and-true-p  gweb-my-postal-code))))
+                            (bound-and-true-p  gweb-my-zip))))
  nil
  "Pull RSS weather feed for specified state/city."
  #'emacspeak-feeds-rss-display)
@@ -1106,7 +1106,7 @@ Set up URL rewrite rule to get print page."
  "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
  (list
   #'(lambda () (read-from-minibuffer "Zip: "
-                                     (bound-and-true-p  gweb-my-postal-code))))
+                                     (bound-and-true-p  gweb-my-zip))))
  'emacspeak-speak-buffer
  "Weather forecast from weather underground mobile."
  )
