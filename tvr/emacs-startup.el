@@ -207,10 +207,10 @@ which defaults to emacs-personal-library."
        "mspools-prepare" "sigbegone"
        "vdiff-prepare"
 ;;; Web:
-                                        ;"w3-prepare"
+                                        ; "w3-prepare"
        "elfeed-prepare"
 ;;; Authoring:
-       "auctex-prepare" "nxml-prepare" "folding-prepare"
+       "auctex-prepare"  "folding-prepare"
        "calc-prepare"
        "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"

@@ -1,16 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 (load-library "folding")
-(declare (special fold-fold-on-startup
-                  fold-keys-already-setup
-                  fold-keys-already-setup
-                  fold-dont-bind-keys
-                  fold-inhibit-startup-message
-                  ))
 
 (setq fold-fold-on-startup nil)
 (setq fold-keys-already-setup nil)
 (add-hook 'folding-mode-hook
-          (function (lambda()
+          #'(lambda()
                       (unless fold-keys-already-setup
                         (setq fold-keys-already-setup t)
                         (define-prefix-command 'ctl-f-folding-mode-prefix)
@@ -23,7 +17,7 @@
                         (define-key 'ctl-f-folding-mode-prefix "s" 'fold-show)
                         (define-key 'ctl-f-folding-mode-prefix "t" 'fold-top-level)
                         )
-                      (local-set-key "\C-f" 'ctl-f-folding-mode-prefix))))
+                      (local-set-key "\C-f" 'ctl-f-folding-mode-prefix)))
 
 (setq fold-dont-bind-keys t)
 (setq fold-inhibit-startup-message t)

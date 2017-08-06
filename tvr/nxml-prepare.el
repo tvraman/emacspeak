@@ -1,5 +1,5 @@
 ;;;$Id$  -*- lexical-binding: t; -*-
-(augment-load-path "nxml-mode" "nxml-mode")
+
 ;(load-library "rng-auto")
 (setq auto-mode-alist
       (cons '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|html\\)\\'" . nxml-mode)
@@ -45,7 +45,7 @@
      magic-mode-alist)
 
 (mapc
-     (lambda (pair)
+     #'(lambda (pair)
        (if (or (eq (cdr pair) 'xml-mode)
                (eq (cdr pair) 'sgml-mode)
                (eq (cdr pair) 'html-mode))

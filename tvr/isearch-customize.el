@@ -8,4 +8,3 @@
   (interactive)
   (isearch-exit)
   (goto-char isearch-other-end))
-
