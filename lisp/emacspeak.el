@@ -495,6 +495,7 @@ commands and options for details."
   (require 'emacspeak-personality)
   (dtk-initialize)
   (tts-configure-synthesis-setup)
+	(require 'emacspeak-keymap)
   (require 'emacspeak-redefine)
   (require 'emacspeak-replace)
   (require 'emacspeak-advice)
