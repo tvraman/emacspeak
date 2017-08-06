@@ -38,7 +38,7 @@
 # what emacs is called on your system
 EMACS = emacs
 # How to run in batch mode
-BATCH = -batch -q -no-site-file   
+BATCH = -batch -q -no-site-file
 DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
 OBJECTS= g-auth.elc \
@@ -49,31 +49,28 @@ gweb.elc \
 gmaps.elc \
 gm-nnir.elc \
 
-
 MODULES=\
- g-auth.el g-app.el g-utils.el g.el gweb.el gmaps.el gm-nnir.el 
+g-auth.el g-app.el g-utils.el g.el gweb.el gmaps.el gm-nnir.el
 
 # How to compile
 %.elc:  %.el
-	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
+$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 
 # }}}
 # {{{build time target: config, all
 
 all: ${MODULES} g-loaddefs.el
-	@make config 
-	@make $(OBJECTS)
+@make config
+@make $(OBJECTS)
 
 config: g-cus-load.el g-autogen.el
 
-
-
 g-loaddefs.el:${MODULES}
-	@echo ";;;Auto generated" > g-loaddefs.el
-	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-generate-autoloads
+@echo ";;;Auto generated" > g-loaddefs.el
+$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-generate-autoloads
 
 g-cus-load.el:${MODULES}
-	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-custom-make-dependencies "."
+$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-custom-make-dependencies "."
 
 # }}}
 # {{{  Make rules for the various modules
@@ -84,27 +81,27 @@ g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
 gweb.elc: gweb.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
-gm-nnir.elc: gm-nnir.el 
+gm-nnir.elc: gm-nnir.el
 # }}}
 # {{{dist
 
 dist:../g-client.tar.bz2
 
-../g-client.tar.bz2: 
-	rm -f $@
-	tar  cfj $@ -X .excludes -C ..  g-client
+../g-client.tar.bz2:
+rm -f $@
+tar  cfj $@ -X .excludes -C ..  g-client
 
 # }}}
 # {{{  user level target-- clean
 
 clean:
-	rm -f *.elc   g-cus-loads.el g-loaddefs.el
+rm -f *.elc   g-cus-loads.el g-loaddefs.el
 
 # }}}
 # {{{dev targets:
 
 indent:
-	emacs -batch -q -no-site-file -l ../../utils/indent-files.el
+emacs -batch -q -no-site-file -l ../../utils/indent-files.el
 
 # }}}
 # {{{ end of file
