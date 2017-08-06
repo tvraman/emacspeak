@@ -3436,17 +3436,16 @@ Optional interactive prefix arg shows  unprocessed results."
   "Return NOAA Weather API REST end-point for specified lat/long.
 Location is specified as returned by gmaps-geocode and defaults to
   `gweb-my-location'."
-  (declare (special gweb-my-location))
-  (cl-assert  (or geo gweb-my-location) nil "Location not specified.")
-  (unless geo (setq geo (gmaps--location-lat-lng gweb-my-location)))
+  (declare (special gweb-my-address))
+  (cl-assert  (or geo gweb-my-address) nil "Location not specified.")
+  (unless geo (setq geo (gmaps-address-geocode gweb-my-address)))
   (format
    "https://api.weather.gov/points/%.4f,%.4f/forecast"
-   (g-json-get 'lat geo)
-   (g-json-get 'lng geo)))
+   (g-json-get 'lat geo) (g-json-get 'lng geo)))
 
 (defun ems--noaa-get-data (ask)
 	"Internal function that gets NOAA data and returns a results buffer."
-	(declare (special gweb-my-address gweb-my-location))
+	(declare (special gweb-my-address))
 	(let* ((buffer (get-buffer-create "*NOAA Weather*"))
 				 (inhibit-read-only  t)
 				 (date nil)
@@ -3457,7 +3456,7 @@ Location is specified as returned by gmaps-geocode and defaults to
 						gweb-my-address))
 				 (geo  (if (and ask (= 16 (car ask)))
 									 (gmaps-address-geocode  address)
-								 (gmaps--location-lat-lng gweb-my-location))))
+								 (gmaps-address-geocode gweb-my-address))))
 		(with-current-buffer buffer
 			(erase-buffer)
 			(special-mode)
