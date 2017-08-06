@@ -107,10 +107,13 @@
 			(gmaps-locations-save)
 			result))))
 
-
 (defun gmaps-address-geocode(address)
 	"Return lat/long for a given address."
 	(gmaps--location-lat-lng (gmaps-address-location address)))
+
+(defun gmaps-address-zip(address)
+	"Return ZIP code  for a given address."
+	(gmaps--location-zip (gmaps-address-location address)))
 
 (defvar gmaps-locations-loaded-p nil
   "Record if Locations cache  is loaded.")
