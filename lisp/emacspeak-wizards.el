@@ -3456,7 +3456,7 @@ Location is specified as returned by gmaps-geocode and defaults to
 							(read-from-minibuffer "Address:")
 						gweb-my-address))
 				 (geo  (if (and ask (= 16 (car ask)))
-									 (gmaps--location-lat-lng (gmaps-address-location address))
+									 (gmaps-address-geocode  address)
 								 (gmaps--location-lat-lng gweb-my-location))))
 		(with-current-buffer buffer
 			(erase-buffer)
