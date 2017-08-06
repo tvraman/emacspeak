@@ -114,6 +114,7 @@
 
 (defvar gmaps-locations-loaded-p nil
   "Record if Locations cache  is loaded.")
+(defvar emacspeak-resource-directory)
 
 (defvar gmaps-locations-file
   (expand-file-name "gmaps-locations" emacspeak-resource-directory)
