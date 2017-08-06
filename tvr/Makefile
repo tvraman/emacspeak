@@ -7,7 +7,7 @@ COMPILE =  -f batch-byte-compile
 SETUP = emacs-startup.elc console.elc screen.elc x.elc my-functions.elc \
 vm-prepare.elc gnus-prepare.elc bbdb-prepare.elc mspools-prepare.elc \
 laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
-nxml-prepare.elc folding-prepare.elc \
+ folding-prepare.elc \
 auctex-prepare.elc reftex-prepare.elc \
 calc-prepare.elc js-prepare.elc tcl-prepare.elc \
 slime-prepare.elc company-prepare.elc python-mode-prepare.elc \
