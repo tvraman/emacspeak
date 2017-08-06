@@ -2,5 +2,5 @@
 
 
 
-(load-library "eshell")
+
 
