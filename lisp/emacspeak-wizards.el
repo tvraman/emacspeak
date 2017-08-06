@@ -59,7 +59,6 @@
 (require 'find-dired)
 (require 'emacspeak-preamble)
 (require 'gweb)
-(require 'gmaps)
 (require 'emacspeak-table-ui)
 (require 'shell)
 (require 'texinfo)
