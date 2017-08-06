@@ -3434,8 +3434,7 @@ Optional interactive prefix arg shows  unprocessed results."
 
 (defun ems--noaa-url  (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
-Location is specified as returned by gmaps-geocode and defaults to
-  `gweb-my-location'."
+Location is a Lat/Lng pair retrieved from Googke Maps API."
   (declare (special gweb-my-address))
   (cl-assert  (or geo gweb-my-address) nil "Location not specified.")
   (unless geo (setq geo (gmaps-address-geocode gweb-my-address)))
