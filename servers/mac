@@ -106,24 +106,8 @@ renderingBlacklist = ['*', '(', ')', '\n', '/']
 literalPunctuation = ["'", ","]
 
 # map voice short names to apple class names.
-voiceMap= {'alex':'com.apple.speech.synthesis.voice.Alex',
-           'victoria':'com.apple.speech.synthesis.voice.Victoria',
-           'vicki':'com.apple.speech.synthesis.voice.Vicki',
-           'ralf':'com.apple.speech.synthesis.voice.Ralph',
-           'kathy':'com.apple.speech.synthesis.voice.Kathy',
-           'junior':'com.apple.speech.synthesis.voice.Junior',
-           'fred':'com.apple.speech.synthesis.voice.Fred',
-           'tracy':'com.acapelagroup.AGix.voice.Tracy22k_HQ',
-           'daniel':'com.apple.speech.synthesis.voice.daniel.premium',
-           'emily':'com.apple.speech.synthesis.voice.emily.premium',
-           'fiona':'com.apple.speech.synthesis.voice.fiona.premium',
-           'karen':'com.apple.speech.synthesis.voice.karen.premium',
-           'lee':'com.apple.speech.synthesis.voice.lee.premium',
-           'moira':'com.apple.speech.synthesis.voice.moira.premium',
-           'sangeeta':'com.apple.speech.synthesis.voice.sangeeta.premium',
-           'tessa':'com.apple.speech.synthesis.voice.tessa.premium',
-           'tom':'com.apple.speech.synthesis.voice.tom.premium',
-           'bruce':'com.apple.speech.synthesis.voice.Bruce'}
+voiceMap = dict([(NSSpeechSynthesizer.attributesForVoice_(v)['VoiceName'].lower(), v) 
+                    for v in list(NSSpeechSynthesizer.availableVoices())])
 
 # A queue of either text or audio filenames waiting to be dispatched to NSSpeechSynthesizer.
 speechQueue = []
