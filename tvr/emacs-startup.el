@@ -264,7 +264,7 @@ which defaults to emacs-personal-library."
          (emacspeak-dbus-watch-screen-lock))
        (custom-reevaluate-setting 'gweb-my-address)
        (emacspeak-wizards-project-shells-initialize)
-       (calendar)
+       ;(calendar)
        (start-process
         "play" nil "play"
         (expand-file-name "highbells.au" emacspeak-sounds-directory))
