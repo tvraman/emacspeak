@@ -3390,7 +3390,8 @@ Optional interactive prefix arg shows  unprocessed results."
 ;;; saved settings in smaller groups by specifying a pattern to match.
 
 (defun emacspeak-wizards-customize-saved (pattern)
-  "Customize  saved options  matching `pattern'."
+  "Customize saved options matching `pattern'.  This command enables
+updating custom settings for a specific package or group of packages."
   (interactive "sFilter Regex: ")
   (let ((found nil))
     (mapatoms (lambda (symbol)
