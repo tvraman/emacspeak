@@ -58,19 +58,19 @@
 (require 'derived)
 (require 'find-dired)
 (require 'emacspeak-preamble)
-(require 'gweb)
 (require 'emacspeak-table-ui)
-(require 'shell)
 (require 'texinfo)
 (require 'term)
-(require 'cus-edit)
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 (eval-when-compile
+	(require 'gweb)
+	(require 'shell)
   (require 'calendar)
-  (require 'solar)
-  (require 'gmaps))
+	(require 'cus-edit)
+	(require 'org)
+  (require 'solar))
 ;;}}}
 ;;{{{ custom
 
