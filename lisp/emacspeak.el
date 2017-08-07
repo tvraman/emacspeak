@@ -436,7 +436,7 @@ caps."
   "Play startup icon if requested."
   (declare (special emacspeak-play-emacspeak-startup-icon))
   (let ((player  (or (executable-find "mplayer")
-                     (executable-find "mpg321"))))
+                     (executable-find "play"))))
     (when (and  emacspeak-play-emacspeak-startup-icon player)
       (start-process
        "mp3" nil
