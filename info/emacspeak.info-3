@@ -5703,7 +5703,8 @@ Contains various wizards for the Emacspeak desktop.
      ‘<f1> C-s’
      ‘<help> C-s’
 
-     Customize  saved options  matching ‘pattern’.
+     Customize saved options matching ‘pattern’.  This command enables
+     updating custom settings for a specific package or group of packages.
 
      (fn PATTERN)
 

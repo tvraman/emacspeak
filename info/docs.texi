@@ -22711,7 +22711,8 @@ Count slides starting from point.
 @findex emacspeak-wizards-customize-saved
 
 @format
-Customize  saved options  matching ‘pattern’.
+Customize saved options matching ‘pattern’.  This command enables
+updating custom settings for a specific package or group of packages.
 
 (fn PATTERN)
 @end format
