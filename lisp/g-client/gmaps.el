@@ -208,7 +208,6 @@ Optional argument `raw-p' returns raw JSON  object."
     (error "")))
 
 ;;; Example of use:
-;;;###autoload
 (defvar gweb-my-location
   nil
   "Geo coordinates --- automatically set by reverse geocoding gweb-my-address")
@@ -216,7 +215,7 @@ Optional argument `raw-p' returns raw JSON  object."
 (defvar gweb-my-zip
   nil
   "Postal Code --- automatically set by reverse geocoding gweb-my-address")
-
+;;;###autoload
 (defcustom gweb-my-address
   nil
   "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
@@ -229,9 +228,9 @@ Optional argument `raw-p' returns raw JSON  object."
       (when val
         (setq gweb-my-location (gmaps-address-location val))
         (setq gweb-my-zip (gmaps--location-zip gweb-my-location))
-        (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
-      (set-default sym
-									 (gmaps--location-address gweb-my-location))))
+        (set-default sym (gmaps--location-address gweb-my-location))
+      (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
+			val))
   :group 'gweb)
 
 ;;}}}
