@@ -3493,7 +3493,7 @@ Location is a Lat/Lng pair retrieved from Googke Maps API."
 						 .temperature .windSpeed .windDirection)))))
 			(goto-char (point-min)))
 		buffer))
-
+;;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
   "Display weather information using NOAA Weather API.  
 Data is retrieved only once, subsequent calls switch to previously
