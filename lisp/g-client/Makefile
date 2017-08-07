@@ -64,9 +64,7 @@ all: ${MODULES} g-loaddefs.el
 	@make config 
 	@make $(OBJECTS)
 
-config: g-cus-load.el g-autogen.el
-
-
+config: g-cus-load.el g-loaddefs.el
 
 g-loaddefs.el:${MODULES}
 	@echo ";;;Auto generated" > g-loaddefs.el
