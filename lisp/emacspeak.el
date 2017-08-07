@@ -432,7 +432,7 @@ caps."
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
-(defun emacspeak-play-startup-icon ()
+(defsubst emacspeak-play-startup-icon ()
   "Play startup icon if requested."
   (declare (special emacspeak-play-emacspeak-startup-icon))
   (let ((player  (or (executable-find "mplayer")
@@ -499,14 +499,13 @@ commands and options for details."
   (require 'emacspeak-redefine)
   (require 'emacspeak-replace)
   (require 'emacspeak-advice)
-  (emacspeak-play-startup-icon)
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-load-dictionaries
      emacspeak-pronounce-dictionaries-file))
   (emacspeak-setup-programming-modes)
-  (run-hooks 'emacspeak-startup-hook)
   (emacspeak-use-customized-blink-paren)
+  (run-hooks 'emacspeak-startup-hook)
   (tts-with-punctuations
    'some
    (dtk-speak-and-echo
@@ -515,7 +514,9 @@ commands and options for details."
  I am  completely operational,  and all my circuits are functioning perfectly!"
      (substitute-command-keys
       "\\[emacspeak-describe-emacspeak]")
-     emacspeak-version))))
+     emacspeak-version)))
+	(emacspeak-play-startup-icon))
+
 ;;;###autoload
 (defun emacspeak-info ()
   "Open Emacspeak Info Manual."
