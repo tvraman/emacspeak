@@ -652,7 +652,8 @@ Suitable for text searches."
   (declare (special emacspeak-epub-files-command
                     emacspeak-speak-directory-settings
                     emacspeak-epub-this-epub))
-  (let* ((directory
+  (let* ((gc-cons-threshold 8000000)
+(directory
 					(string-trim
 					 (shell-command-to-string
 						(format "cd %s; pwd" 
