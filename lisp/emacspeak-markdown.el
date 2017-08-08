@@ -103,54 +103,50 @@
 (cl-loop
  for f in
  '(
+	 markdown-backward-block markdown-backward-page
+	 markdown-beginning-of-list markdown-beginning-of-text-block
+	 markdown-edit-code-block markdown-end-of-list
+	 markdown-end-of-text-block markdown-forward-block markdown-forward-page
+	 markdown-insert-inline-link-dwim markdown-insert-kbd
+	 markdown-insert-strike-through
+	 markdown-outline-next markdown-outline-next-same-level
+	 markdown-outline-previous
+	 markdown-outline-previous-same-level markdown-outline-up
+	 markdown-reference-goto-link
+	 markdown-up-heading markdown-up-list
    markdown-demote-subtree markdown-demote markdown-demote-list-item
-                           markdown-promote-subtree 
-                           markdown-move-subtree-up markdown-move-subtree-down
-                           
-                           markdown-backward-paragraph markdown-cycle
-                           markdown-enter-key
-                           markdown-beginning-of-block
-                           markdown-beginning-of-defun
-                           markdown-end-of-block markdown-end-of-block-element
-                           markdown-insert-footnote markdown-insert-code
-                           markdown-insert-bold markdown-insert-blockquote
-                           markdown-forward-paragraph markdown-footnote-goto-text
-                           markdown-end-of-defun
-                           markdown-insert-gfm-code-block
-                           markdown-insert-header
-                           markdown-insert-header-atx-1
-                           markdown-insert-header-atx-2
-                           markdown-insert-header-atx-3
-                           markdown-insert-header-atx-4
-                           markdown-insert-header-atx-5
-                           markdown-insert-header-atx-6
-                           markdown-insert-header-dwim
-                           markdown-insert-header-setext-1
-                           markdown-insert-header-setext-2
-                           markdown-insert-header-setext-dwim
-                           markdown-insert-hr
-                           markdown-insert-image
-                           markdown-insert-italic
-                           markdown-insert-link
-                           markdown-insert-list-item
-                           markdown-insert-pre
-                           markdown-insert-reference-image
-                           markdown-insert-reference-link-dwim
-                           markdown-insert-uri
-                           markdown-insert-wiki-link
-                           markdown-jump
-                           markdown-move-down markdown-move-list-item-down
-                           markdown-move-list-item-up markdown-move-up
-                           markdown-next-visible-heading markdown-previous-visible-heading
-                           markdown-next-heading markdown-previous-heading
-                           markdown-forward-same-level markdown-backward-same-level
-                           markdown-hide-subtree markdown-hide-body markdown-hide-sublevels
-                           markdown-indent-line
-
-                           markdown-next-link markdown-previous-link
-                           markdown-promote markdown-promote-list-item
-                           markdown-reference-goto-definition
-                           )
+   markdown-promote-subtree markdown-move-subtree-up markdown-move-subtree-down
+   markdown-backward-paragraph markdown-cycle
+   markdown-enter-key
+   markdown-beginning-of-block markdown-beginning-of-defun
+   markdown-end-of-block markdown-end-of-block-element
+   markdown-insert-footnote markdown-insert-code
+   markdown-insert-bold markdown-insert-blockquote
+   markdown-forward-paragraph markdown-footnote-goto-text
+   markdown-end-of-defun markdown-insert-gfm-code-block
+   markdown-insert-header markdown-insert-header-atx-1
+   markdown-insert-header-atx-2 markdown-insert-header-atx-3
+   markdown-insert-header-atx-4 markdown-insert-header-atx-5
+   markdown-insert-header-atx-6 markdown-insert-header-dwim
+   markdown-insert-header-setext-1 markdown-insert-header-setext-2
+   markdown-insert-header-setext-dwim
+   markdown-insert-hr markdown-insert-image
+   markdown-insert-italic markdown-insert-link
+   markdown-insert-list-item markdown-insert-pre
+   markdown-insert-reference-image markdown-insert-reference-link-dwim
+   markdown-insert-uri markdown-insert-wiki-link
+   markdown-jump
+   markdown-move-down markdown-move-list-item-down
+   markdown-move-list-item-up markdown-move-up
+   markdown-next-visible-heading markdown-previous-visible-heading
+   markdown-next-heading markdown-previous-heading
+   markdown-forward-same-level markdown-backward-same-level
+   markdown-hide-subtree markdown-hide-body markdown-hide-sublevels
+   markdown-indent-line
+   markdown-next-link markdown-previous-link
+   markdown-promote markdown-promote-list-item
+   markdown-reference-goto-definition
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -163,8 +159,8 @@
  for f in
  '(
    markdown-check-refs markdown-check-change-for-wiki-link
-                       markdown-export markdown-export-and-preview
-                       markdown-indent-region markdown-blockquote-region)
+   markdown-export markdown-export-and-preview
+   markdown-indent-region markdown-blockquote-region)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -177,7 +173,7 @@
  for f in
  '(
    markdown-complete-region markdown-complete-buffer
-                            markdown-complete-at-point markdown-complete)
+   markdown-complete-at-point markdown-complete)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -186,43 +182,7 @@
        (emacspeak-auditory-icon 'complete)
        (emacspeak-speak-line)))))
 
-;; (
-;;  
-;;  
-;;  
-;;  
-;;  
-;;  
-;;  
-
-;;  markdown-enable-math
-
-;;  markdown-exdent-region
-;;  
-;;  
-;;  markdown-follow-link-at-point
-;;  markdown-follow-thing-at-point
-;;  markdown-follow-wiki-link-at-point
-;;  markdown-fontify-buffer-wiki-links
-;;  markdown-footnote-kill
-;;  markdown-footnote-return
-;;  markdown-indent-line
-;;  markdown-indent-region
-;;  
-;;  markdown-kill-thing-at-point
-;;  markdown-mode
-;;  markdown-mode-menu
-;;  markdown-open
-;;  markdown-other-window
-;;  markdown-pre-region
-;;  
-;;  markdown-reload-extensions
-;;  markdown-remove-header
-;;  markdown-shifttab
-;;  markdown-standalone
-;;  markdown-unfontify-region-wiki-links)
-
-;;}}}
+	;;}}}
 (provide 'emacspeak-markdown)
 ;;{{{ end of file
 
