@@ -586,8 +586,9 @@ Info-mode:
 
 ;;}}}
 ;;{{{ hydra-ox:
-
-(when (locate-library "hydra-ox")(require 'hydra-ox))
+(eval-after-load 'org
+	`(progn
+		 (when (locate-library "hydra-ox")(require 'hydra-ox))))
 
 ;;}}}
 (provide 'emacspeak-muggles)
