@@ -85,16 +85,20 @@
    ))
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-
-(defadvice markdown-exdent-or-delete (around emacspeak pre act)
-  "Speak character you're deleting."
-  (cond
-   ((ems-interactive-p)
-    (dtk-tone 500 100 'force)
-    (emacspeak-speak-this-char (preceding-char))
-    ad-do-it)
-   (t ad-do-it))
-  ad-return-value)
+(cl-loop
+ for f in
+ '(markdown-outdent-or-delete markdown-exdent-or-delete)
+ do
+ (eval
+	`(defadvice ,f (around emacspeak pre act)
+		 "Speak character you're deleting."
+		 (cond
+			((ems-interactive-p)
+			 (dtk-tone 500 100 'force)
+			 (emacspeak-speak-this-char (preceding-char))
+			 ad-do-it)
+			(t ad-do-it))
+		 ad-return-value)))
 
 (cl-loop
  for f in
