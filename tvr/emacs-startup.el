@@ -262,7 +262,7 @@ which defaults to emacs-personal-library."
          (nm-enable)
          (emacspeak-dbus-sleep-enable)
          (emacspeak-dbus-watch-screen-lock))
-       (custom-reevaluate-setting 'gweb-my-address)
+       ;(custom-reevaluate-setting 'gweb-my-address)
        (emacspeak-wizards-project-shells-initialize)
        ;(calendar)
        (start-process
