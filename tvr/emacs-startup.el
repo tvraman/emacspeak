@@ -49,8 +49,7 @@ which defaults to emacs-personal-library."
 
 (defun load-library-if-available (lib)
   "Safe load library."
-  (let ((emacspeak-speak-messages nil)
-        (start nil))
+  (let ((start nil))
     (condition-case nil
         (cond
          ((locate-library lib)
