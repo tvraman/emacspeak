@@ -49,7 +49,8 @@ which defaults to emacs-personal-library."
 
 (defun load-library-if-available (lib)
   "Safe load library."
-  (let ((start nil))
+  (let ((start nil)
+        (emacspeak-speak-messages nil))
     (condition-case nil
         (cond
          ((locate-library lib)
@@ -100,7 +101,7 @@ which defaults to emacs-personal-library."
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (declare (special emacs-personal-library emacs-private-library))
-  (let ((gc-cons-threshold 32000000)
+  (let ((gc-cons-threshold 8000000)
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
