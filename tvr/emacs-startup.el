@@ -58,8 +58,7 @@ which defaults to emacs-personal-library."
           (message
            "<%s %s>"
            lib (float-time (time-subtract (current-time) start)))
-          (setq start nil)
-          (emacspeak-play-auditory-icon 'item))
+          (setq start nil))
          (t (message "Could not locate library %s" lib)
             nil))
       (error (message "Error loading %s" lib)))))
