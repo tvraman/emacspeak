@@ -105,7 +105,7 @@
 ;;; Invoking that command temporarily activates the previously supplied keymap.
 ;;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
 ;;; Inspired by the Hydra package.
-
+;;;###autoload
 (defun emacspeak-muggles-generate (k-map)
   "Generate a Muggle from specified k-map.
 Argument `k-map' is a symbol  that names a keymap."
@@ -586,6 +586,7 @@ Info-mode:
 
 ;;}}}
 ;;{{{ hydra-ox:
+
 (when (locate-library "hydra-ox")(require 'hydra-ox))
 
 ;;}}}
