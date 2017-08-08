@@ -91,13 +91,9 @@
 
 (eval-when-compile
 	(require 'hideshow)
-	(require 'outline)
 	(require 'hydra "hydra" 'no-error)
 	(require 'xbacklight)
 	(require 'view)
-	(require 'org)
-	(require 'whitespace)
-	(require 'ido)
 	(require 'emacspeak-m-player))
 
 ;;}}}
