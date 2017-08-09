@@ -918,6 +918,21 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-server-opened voice-lighten)))
 
 ;;}}}
+;;{{{ server mode:
+
+(cl-loop
+ for f in 
+ '(gnus-server-edit-buffer gnus-group-enter-server-mode gnus-browse-exit)
+ do
+ (eval
+	`(defadvice ,f (after emacspeak pre act comp)
+		 "Provide auditory feedback."
+		 (when (ems-interactive-p)
+			 (emacspeak-speak-mode-line)))))
+
+
+
+;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
 ;;; local variables:
