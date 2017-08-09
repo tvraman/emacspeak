@@ -922,7 +922,7 @@ Helps to prevent words from being spelled instead of spoken."
 
 (cl-loop
  for f in 
- '(gnus-server-edit-buffer gnus-group-enter-server-mode)
+ '(gnus-server-edit-buffer gnus-group-enter-server-mode gnus-browse-exit)
  do
  (eval
 	`(defadvice ,f (after emacspeak pre act comp)
