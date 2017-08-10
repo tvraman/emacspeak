@@ -203,7 +203,8 @@ which defaults to emacs-personal-library."
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare"
-       "mspools-prepare" "sigbegone"
+       "mspools-prepare"
+       ;"sigbegone"
        "vdiff-prepare"
 ;;; Web:
                                         ; "w3-prepare"
