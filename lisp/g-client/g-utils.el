@@ -224,24 +224,24 @@ Customize this to live on your local disk."
   (declare (special g-html-charent-alist))
   (save-excursion
     (cl-loop for entry in g-html-charent-alist
-          do
-          (let ((entity (car  entry))
-                (replacement (cdr entry)))
-            (goto-char start)
-            (while (search-forward entity end t)
-              (replace-match replacement))))))
+             do
+             (let ((entity (car  entry))
+                   (replacement (cdr entry)))
+               (goto-char start)
+               (while (search-forward entity end t)
+                 (replace-match replacement))))))
 
 (defun g-html-escape-region (start end)
   "Escape HTML entities."
   (declare (special g-html-charent-alist))
   (save-excursion
     (cl-loop for entry in g-html-charent-alist
-          do
-          (let ((entity (cdr  entry))
-                (replacement (car entry)))
-            (goto-char start)
-            (while (search-forward entity end t)
-              (replace-match replacement))))))
+             do
+             (let ((entity (cdr  entry))
+                   (replacement (car entry)))
+               (goto-char start)
+               (while (search-forward entity end t)
+                 (replace-match replacement))))))
 
 ;;}}}
 ;;{{{ json conveniences:

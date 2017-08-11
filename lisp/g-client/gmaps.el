@@ -68,10 +68,10 @@
 ;;{{{ Address Structure 
 
 (cl-defstruct gmaps--location
-	address
-	alias ; short-form entered by user
-	zip
-	lat-lng)
+  address
+  alias ; short-form entered by user
+  zip
+  lat-lng)
 
 (defun gmaps-locations-load ()
   "Load saved GMaps locations."
@@ -81,39 +81,39 @@
     (load-file gmaps-locations-file)))
 
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
-	"Hash table that memoizes geolocation.")
+  "Hash table that memoizes geolocation.")
 ;;;###autoload
 (defun gmaps-address-location (address)
-	"Returns gmaps--location structure. Memoized to save network calls."
-	(declare (special gmaps-location-table gmaps-locations-loaded-p))
-	(unless gmaps-locations-loaded-p (gmaps-locations-load))
+  "Returns gmaps--location structure. Memoized to save network calls."
+  (declare (special gmaps-location-table gmaps-locations-loaded-p))
+  (unless gmaps-locations-loaded-p (gmaps-locations-load))
   (let ((found (gethash address gmaps-location-table))
-				(result nil))
-		(cond
-		 (found found )
-		 (t ;;; Get geocode from network  and  memoize
-			(setq result 
-						(let-alist (aref (gmaps-geocode address 'raw) 0)
-							(make-gmaps--location
-							 :alias address
-							 :address .formatted_address
-							 :zip (g-json-get 'short_name
-																(find-if ; component whose type contains postal_code
-																 #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=))
-																 .address_components))
-							 :lat-lng .geometry.location)))
-			(puthash  address result gmaps-location-table)
-			(puthash  (gmaps--location-address result) result gmaps-location-table)
-			(gmaps-locations-save)
-			result))))
+        (result nil))
+    (cond
+     (found found)
+     (t ;;; Get geocode from network  and  memoize
+      (setq result 
+            (let-alist (aref (gmaps-geocode address 'raw) 0)
+              (make-gmaps--location
+               :alias address
+               :address .formatted_address
+               :zip (g-json-get 'short_name
+                                (find-if ; component whose type contains postal_code
+                                 #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=))
+                                 .address_components))
+               :lat-lng .geometry.location)))
+      (puthash  address result gmaps-location-table)
+      (puthash  (gmaps--location-address result) result gmaps-location-table)
+      (gmaps-locations-save)
+      result))))
 ;;;###autoload
 (defun gmaps-address-geocode(address)
-	"Return lat/long for a given address."
-	(gmaps--location-lat-lng (gmaps-address-location address)))
+  "Return lat/long for a given address."
+  (gmaps--location-lat-lng (gmaps-address-location address)))
 
 (defun gmaps-address-zip(address)
-	"Return ZIP code  for a given address."
-	(gmaps--location-zip (gmaps-address-location address)))
+  "Return ZIP code  for a given address."
+  (gmaps--location-zip (gmaps-address-location address)))
 
 (defvar gmaps-locations-loaded-p nil
   "Record if Locations cache  is loaded.")
@@ -123,11 +123,10 @@
   (expand-file-name "gmaps-locations" emacspeak-resource-directory)
   "File where we save Locations.")
 
-
 (defun gmaps-locations-save ()
   "Save GMaps Locations."
   (interactive)
-  (declare (special gmaps-locations-file gmaps-location-table ))
+  (declare (special gmaps-locations-file gmaps-location-table))
   (let ((buffer (find-file-noselect gmaps-locations-file))
         (print-length nil)
         (print-level nil))
@@ -137,11 +136,11 @@
       (insert "(setq gmaps-location-table\n")
       (pp gmaps-location-table (current-buffer))
       (insert ") ;;; set hash table\n\n")
-			(insert "(setq gmaps-locations-loaded-p t)\n")
+      (insert "(setq gmaps-locations-loaded-p t)\n")
       (save-buffer))
-		(when (called-interactively-p 'interactive)
-			(message "Saved GMaps Locations."))
-    (emacspeak-auditory-icon 'save-object)))					
+    (when (called-interactively-p 'interactive)
+      (message "Saved GMaps Locations."))
+    (emacspeak-auditory-icon 'save-object)))                                    
 
 ;;}}}
 
@@ -223,14 +222,14 @@ Optional argument `raw-p' returns raw JSON  object."
           (const :tag "None" nil)
           (string  :tag "Address"))
   :set
-	#'(lambda (sym val)
+  #'(lambda (sym val)
       (declare (special gweb-my-location))
       (when val
         (setq gweb-my-location (gmaps-address-location val))
         (setq gweb-my-zip (gmaps--location-zip gweb-my-location))
         (set-default sym (gmaps--location-address gweb-my-location))
-      (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
-			val))
+        (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
+        val))
   :group 'gweb)
 
 ;;}}}
@@ -302,8 +301,8 @@ Parameter `key' is the API  key."
     (insert "\n\f\n")
     (and gweb-my-address (gmaps-set-current-location gweb-my-address))
     (setq header-line-format
-					'("Google Maps: "
-						(:eval   (gmaps--location-address gmaps-current-location ))))))
+          '("Google Maps: "
+            (:eval   (gmaps--location-address gmaps-current-location))))))
 
 (declaim (special gmaps-mode-map))
 
@@ -406,7 +405,7 @@ origin/destination may be returned as a lat,long string."
     (setq origin
           (cond
            (gmaps-current-location
-						(url-hexify-string (gmaps--location-address gmaps-current-location)))
+            (url-hexify-string (gmaps--location-address gmaps-current-location)))
            (t (url-hexify-string (read-from-minibuffer "Start Address: ")))))
     (setq destination
           (cond
@@ -602,7 +601,7 @@ origin/destination may be returned as a lat,long string."
   (interactive  "sAddress: ")
   (declare (special gmaps-current-location))
   (setq gmaps-current-location (gmaps-address-location address))
-	(message "Moved to %s" address))
+  (message "Moved to %s" address))
 
 (defstruct gmaps-places-filter
   type ; singleton as per new API
@@ -705,7 +704,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
                (gmaps-places-url-base "nearbysearch" gmaps-places-key)
                (format "location=%s,%s"
                        (g-json-get 'lat (gmaps--location-lat-lng gmaps-current-location))
-											 (g-json-get 'lng (gmaps--location-lat-lng gmaps-current-location)))
+                       (g-json-get 'lng (gmaps--location-lat-lng gmaps-current-location)))
                (format "radius=%s" gmaps-current-radius)
                (if gmaps-current-filter
                    (gmaps-places-filter-as-params gmaps-current-filter)
@@ -719,7 +718,7 @@ Uses default radius. optional interactive prefix arg clears any active filters."
         (insert
          (format "Places within %sm of  %s\n"
                  gmaps-current-radius
-                  (gmaps--location-address gmaps-current-location)))
+                 (gmaps--location-address gmaps-current-location)))
         (when gmaps-current-filter
           (insert (format "Filter: %s\n"
                           (gmaps-places-filter-as-string gmaps-current-filter))))
@@ -820,48 +819,48 @@ Optional  prefix arg clears any active filters."
 
 (defun gmaps-display-place-details (details)
   "Insert place details."
-	(goto-char (line-end-position))
-	(insert "\n")
-	(let-alist details
-		(let ((start (point))
-					(hours .opening_hours.periods)
-					(open .opening_hours.open_now))
-			(when hours
-				(let ((today (gmaps-hours-for-day hours (read (format-time-string "%w"))))
-							(here nil))
-					(insert-text-button
-					 "[Hours]\t"
-					 'hours hours
-					 'action
-					 #'(lambda (b)
-							 (gmaps-display-places-hours  (button-get b 'hours))))
-					(setq here (point))
-					(insert (format "%s\t" today))
-					(put-text-property  here (point) 'open-hours t)))
-			(when .website
-				(insert-text-button
-				 "[WebSite]\t"
-				 'url-link .website
-				 'action
-				 #'(lambda (b)
-						 (browse-url (button-get b 'url-link)))))
-			(when .url
-				(insert-text-button
-				 "[Places URL]\n"
-				 'url-link .url
-				 'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
-			(when (or .formatted_address .international_phone_number)
-				(insert
-				 (format "%s\t%s\n" .formatted_address  .international_phone_number)))
-			(insert
-			 (format "Open: %s\tRating: %s\tPrice: %s\n"
-							 (if open "Yes" "No")
-							 (or .ratings "N/A")
-							 (or .price_level "N/A")))
-			(indent-rigidly start  (point) 4)
-			(put-text-property start (point)
-												 'place-details details)
-			(goto-char start))))
+  (goto-char (line-end-position))
+  (insert "\n")
+  (let-alist details
+    (let ((start (point))
+          (hours .opening_hours.periods)
+          (open .opening_hours.open_now))
+      (when hours
+        (let ((today (gmaps-hours-for-day hours (read (format-time-string "%w"))))
+              (here nil))
+          (insert-text-button
+           "[Hours]\t"
+           'hours hours
+           'action
+           #'(lambda (b)
+               (gmaps-display-places-hours  (button-get b 'hours))))
+          (setq here (point))
+          (insert (format "%s\t" today))
+          (put-text-property  here (point) 'open-hours t)))
+      (when .website
+        (insert-text-button
+         "[WebSite]\t"
+         'url-link .website
+         'action
+         #'(lambda (b)
+             (browse-url (button-get b 'url-link)))))
+      (when .url
+        (insert-text-button
+         "[Places URL]\n"
+         'url-link .url
+         'action #'(lambda (b) (browse-url (button-get b 'url-link)))))
+      (when (or .formatted_address .international_phone_number)
+        (insert
+         (format "%s\t%s\n" .formatted_address  .international_phone_number)))
+      (insert
+       (format "Open: %s\tRating: %s\tPrice: %s\n"
+               (if open "Yes" "No")
+               (or .ratings "N/A")
+               (or .price_level "N/A")))
+      (indent-rigidly start  (point) 4)
+      (put-text-property start (point)
+                         'place-details details)
+      (goto-char start))))
 
 (defun gmaps-display-place (place)
   "Display place in Maps buffer."

@@ -82,7 +82,7 @@
 (put 'gweb-history 'history-delete-duplicates t)
 
 (defvar gweb-completion-flag nil
-"Flag that records  Google Suggest in progress.")
+  "Flag that records  Google Suggest in progress.")
 ;;; This is dynamically scoped:
 (defvar flx-ido-mode)
 (defvar gweb-completion-corpus "psy"
@@ -96,33 +96,33 @@
   "URL  that gets suggestions from Google as JSON.")
 
 (defvar gweb-g-suggest-url 
-	"http://suggestqueries.google.com/complete/search?ds=%s&q=%s&client=chrome"
-	"Query Suggest: Youtube: yt, News: n")
+  "http://suggestqueries.google.com/complete/search?ds=%s&q=%s&client=chrome"
+  "Query Suggest: Youtube: yt, News: n")
 
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-search-suggest-url
                     gweb-completion-corpus
-										gweb-g-suggest-url))
+                    gweb-g-suggest-url))
   (unless corpus (setq corpus gweb-completion-corpus))
-	(when input 
-		(let* ((url
-						(format
-						 (cond
-							((string= corpus "psy") gweb-search-suggest-url)
-							(t gweb-g-suggest-url))
-						 corpus
+  (when input 
+    (let* ((url
+            (format
+             (cond
+              ((string= corpus "psy") gweb-search-suggest-url)
+              (t gweb-g-suggest-url))
+             corpus
              (g-url-encode input)))
            (js (g-json-from-url url)))
-			(setq js  (aref js 1))
-			(cl-loop
+      (setq js  (aref js 1))
+      (cl-loop
        for e across js collect
-			 (replace-regexp-in-string
-				"</?b>" ""
+       (replace-regexp-in-string
+        "</?b>" ""
 ;;; note: psy is different:
-				(if (string= corpus "psy")
-						(aref e 0)
-					e))))))
+        (if (string= corpus "psy")
+            (aref e 0)
+          e))))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
@@ -136,19 +136,19 @@
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
   (declare (special gweb-completion-corpus))
-	(when (and (sit-for 0.2)(stringp string) (> (length string)  0))
-		(save-current-buffer
-    (set-buffer
-     (let ((window (minibuffer-selected-window)))
-       (if (window-live-p window)
-           (window-buffer window)
-         (current-buffer))))
-    (cond
-     ((eq action 'metadata) gweb-google-suggest-metadata)
-     (t
-      (complete-with-action action
-                            (gweb-suggest string gweb-completion-corpus)
-                            string predicate))))))
+  (when (and (sit-for 0.2)(stringp string) (> (length string)  0))
+    (save-current-buffer
+      (set-buffer
+       (let ((window (minibuffer-selected-window)))
+         (if (window-live-p window)
+             (window-buffer window)
+           (current-buffer))))
+      (cond
+       ((eq action 'metadata) gweb-google-suggest-metadata)
+       (t
+        (complete-with-action action
+                              (gweb-suggest string gweb-completion-corpus)
+                              string predicate))))))
 
 (defun gweb--autocomplete-helper (&optional prompt)
   "Helper: Read user input using Google Suggest for auto-completion.
@@ -156,9 +156,9 @@ Uses corpus found in gweb-completion-corpus"
   (let ((flx-ido-mode  nil)
         (ido-max-prospects 5)
         (gweb-completion-flag t)
-         (completion-ignore-case t)
-         (word (thing-at-point 'word))
-         (query nil))
+        (completion-ignore-case t)
+        (word (thing-at-point 'word))
+        (query nil))
     (setq gweb-history (remove-duplicates gweb-history :test #'string-equal))
     (setq query
           (completing-read
@@ -169,12 +169,10 @@ Uses corpus found in gweb-completion-corpus"
            'gweb-history))
     (g-url-encode query)))
 
-
 (defun gweb-google-autocomplete (&optional prompt)
   "Autocomplete using Google Search corpus."
   (let ((gweb-completion-corpus "psy"))
     (gweb--autocomplete-helper (or prompt "Google: "))))
-
 
 (defun gweb-youtube-autocomplete (&optional prompt)
   "Autocomplete using Youtube Search corpus."
@@ -190,7 +188,7 @@ Uses corpus found in gweb-completion-corpus"
   "Fix up ido-complete-space for use with Google autocomplete."
   (cond
    (gweb-completion-flag  (insert-char  ?\ )
-													(emacspeak-speak-word))
+                          (emacspeak-speak-word))
    (t ad-do-it))
   ad-return-value)
 
