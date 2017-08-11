@@ -110,7 +110,12 @@
   :group 'emacspeak)
 
 (defcustom emacspeak-maths-inferior-program
-  (executable-find "node")
+  (cond
+	 ((executable-find "node") (executable-find "node"))
+	 ((and (locate-library "nvm")
+				 (nvm--installed-versions))
+		(nvm-use (cadar (nvm--installed-versions)))) ; try to find highest version
+	 (t  nil))
   "Location of `node' executable."
   :type 'file
   :group 'emacspeak-maths)
