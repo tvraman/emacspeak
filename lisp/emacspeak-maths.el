@@ -113,12 +113,12 @@
   (cond
    ((executable-find "node") (executable-find "node"))
    ((and (locate-library "nvm")
-         (nvm--installed-versions))
-		(require 'nvm)
+         (nvm--installed-versions)
+				 (require 'nvm))
     (let ((v
            (car (last
                  (sort (mapcar #'car (nvm--installed-versions)) #'string=)))))
-      (nvm-use "8.3.0")
+      (nvm-use v)
       (executable-find "node"))) 
    (t  nil))
   "Location of `node' executable.  Make sure the environment in which
