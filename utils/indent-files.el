@@ -1,11 +1,12 @@
 ;;; indent.el --- Indent Emacspeak Source Code.  -*- lexical-binding: t; -*-
 
-(require 'cl)
+(require 'cl-lib)
 
 (defun batch-indent-files ()
   "Batch indent  elisp files in directory."
   (let ((file-list (directory-files default-directory nil "\\.el$")))
-    (loop
+    (setq-default indent-tabs-mode nil)
+    (cl-loop
      for f in file-list do
      (let ((indent-tabs-mode nil))
        (find-file f)
