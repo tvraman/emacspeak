@@ -101,7 +101,6 @@
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'hydra "hydra" 'no-error))
 (require 'emacspeak-hydra)
-
 ;;}}}
 ;;{{{ Customizations And Variables:
 
@@ -113,8 +112,8 @@
   (cond
    ((executable-find "node") (executable-find "node"))
    ((and (locate-library "nvm")
-         (nvm--installed-versions)
-				 (require 'nvm))
+         (require 'nvm)
+				 (nvm--installed-versions))
     (let ((v
            (car (last
                  (sort (mapcar #'car (nvm--installed-versions)) #'string=)))))
