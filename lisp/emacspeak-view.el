@@ -89,7 +89,7 @@
  for f in
  '(
    View-exit-and-edit View-kill-and-leave
-                      View-quit-all View-quit)
+   View-quit-all View-quit)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -304,29 +304,29 @@ keybindings for view mode")
   (unless emacspeak-view-keys-optimized
     (setq emacspeak-view-keys-optimized t)
     (cl-loop for edit-command in emacspeak-view-edit-commands
-          do
-          (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
-            (cl-loop for key in edit-keys 
-                  do
-                  (let ((command (lookup-key emacspeak-keymap key)))
-                    (when command
-                      (define-key view-mode-map key command))))))
+             do
+             (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
+               (cl-loop for key in edit-keys 
+                        do
+                        (let ((command (lookup-key emacspeak-keymap key)))
+                          (when command
+                            (define-key view-mode-map key command))))))
     (cl-loop for k in
-          '(
-            ("[" backward-paragraph)
-            ("]" forward-paragraph)
-            )
-          do
-          (define-key view-mode-map (first k) (second k)))))
+             '(
+               ("[" backward-paragraph)
+               ("]" forward-paragraph)
+               )
+             do
+             (define-key view-mode-map (first k) (second k)))))
 
 (defun emacspeak-view-setup-keys()
   "Setup emacspeak convenience keys"
   (declare (special view-mode-map))
   (cl-loop for i from 0 to 9
-        do
-        (define-key view-mode-map
-          (format "%s" i)
-          'emacspeak-speak-predefined-window))
+           do
+           (define-key view-mode-map
+             (format "%s" i)
+             'emacspeak-speak-predefined-window))
 ;;;convenience keys
   (define-key view-mode-map "\C-j"
     'emacspeak-hide-speak-block-sans-prefix)

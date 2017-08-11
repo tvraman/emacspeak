@@ -615,10 +615,10 @@ The processed  data is  presented using emacspeak table navigation. "
             (make-vector (count-lines (point-min) (point-max))
                          nil))
       (cl-loop for i from 0 to (1- (length elements))
-            do
-            (setq fields (ems-csv-get-fields))
-            (aset elements i (apply 'vector fields))
-            (forward-line 1))
+               do
+               (setq fields (ems-csv-get-fields))
+               (aset elements i (apply 'vector fields))
+               (forward-line 1))
       (setq table (emacspeak-table-make-table elements))  
       )
     (kill-buffer scratch)
@@ -674,28 +674,28 @@ the documentation on the table browser."
         (set (make-local-variable 'positions) (make-hash-table))
         (setq count (1-  (emacspeak-table-num-columns table)))
         (cl-loop for row across (emacspeak-table-elements table)
-              do
-              (cl-loop for _element across row
-                    do
-                    (setf
-                     (gethash
-                      (intern (format "element:%s:%s" i j))
-                      positions)
-                     (point))
-                    (insert
-                     (format "%s%s"
-                             (emacspeak-table-this-element table i j)
-                             (if (=  j count)
-                                 "\n"
-                               "\t")))
-                    (put-text-property column-start (point)
-                                       'column j)
-                    (setq column-start (point))
-                    (incf j))
-              (setq j 0)
-              (put-text-property row-start (point) 'row i)
-              (setq row-start (point))
-              (incf i))
+                 do
+                 (cl-loop for _element across row
+                          do
+                          (setf
+                           (gethash
+                            (intern (format "element:%s:%s" i j))
+                            positions)
+                           (point))
+                          (insert
+                           (format "%s%s"
+                                   (emacspeak-table-this-element table i j)
+                                   (if (=  j count)
+                                       "\n"
+                                     "\t")))
+                          (put-text-property column-start (point)
+                                             'column j)
+                          (setq column-start (point))
+                          (incf j))
+                 (setq j 0)
+                 (put-text-property row-start (point) 'row i)
+                 (setq row-start (point))
+                 (incf i))
         (emacspeak-table-mode)
         (goto-char (point-min))))
     (switch-to-buffer buffer)
@@ -722,15 +722,15 @@ browsing table elements"
   (let ((key (read-char)))
     (setq emacspeak-table-speak-element
           (case  key
-            (?b 'emacspeak-table-speak-both-headers-and-element)
-            (?c 'emacspeak-table-speak-column-header-and-element)
-            (?r 'emacspeak-table-speak-row-header-and-element)
-            (?d 'emacspeak-table-speak-current-element)
-            (?f 'emacspeak-table-speak-row-filtered)
-            (?g 'emacspeak-table-speak-column-filtered)
-            (?. 'emacspeak-table-speak-coordinates)
-            (otherwise (message "Invalid method specified")
-                       emacspeak-table-speak-element)))
+                 (?b 'emacspeak-table-speak-both-headers-and-element)
+                 (?c 'emacspeak-table-speak-column-header-and-element)
+                 (?r 'emacspeak-table-speak-row-header-and-element)
+                 (?d 'emacspeak-table-speak-current-element)
+                 (?f 'emacspeak-table-speak-row-filtered)
+                 (?g 'emacspeak-table-speak-column-filtered)
+                 (?. 'emacspeak-table-speak-coordinates)
+                 (otherwise (message "Invalid method specified")
+                            emacspeak-table-speak-element)))
     (emacspeak-auditory-icon 'button)))
 
 ;;}}}
@@ -866,9 +866,9 @@ the matching cell current. When called from a program, `what' can
          (slice
           (or what
               (case (read-char)
-                (?r 'row)
-                (?c 'column)
-                (otherwise (error "Can only search in either row or column")))))
+                    (?r 'row)
+                    (?c 'column)
+                    (otherwise (error "Can only search in either row or column")))))
          (pattern
           (read-string
            (format "Search in current  %s for: " slice))))
@@ -918,9 +918,9 @@ match, makes the matching row or column current."
          (found nil)
          (slice
           (case (read-char)
-            (?r 'row)
-            (?c 'column)
-            (otherwise (error "Can only search in either row or column"))))
+                (?r 'row)
+                (?c 'column)
+                (otherwise (error "Can only search in either row or column"))))
          (pattern
           (read-string
            (format "Search %s headers for: " slice))))
@@ -1117,18 +1117,18 @@ markup to use."
             col-separator (emacspeak-table-markup-col-separator markup))
       (insert (format "%s" table-start))
       (cl-loop for row across table
-            do
-            (insert (format "%s" row-start))
-            (let
-                ((current 0)
-                 (final (length row)))
-              (cl-loop
-               for column across row do
-               (insert (format "%s %s %s"
-                               col-start column col-end))
-               (incf current)
-               (unless (= current final)
-                 (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
+               do
+               (insert (format "%s" row-start))
+               (let
+                   ((current 0)
+                    (final (length row)))
+                 (cl-loop
+                  for column across row do
+                  (insert (format "%s %s %s"
+                                  col-start column col-end))
+                  (incf current)
+                  (unless (= current final)
+                    (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
       (insert (format "%s" table-end))))))
 
 ;;}}}
@@ -1238,16 +1238,16 @@ future  use."
       (set-buffer buffer)
       (erase-buffer)
       (cl-loop for key being the hash-keys of
-            emacspeak-table-ui-filter-table
-            do
-            (insert
-             (format
-              "\n(setf
+               emacspeak-table-ui-filter-table
+               do
+               (insert
+                (format
+                 "\n(setf
  (gethash %s emacspeak-table-ui-filter-table)
  (quote %s))"
-              (prin1-to-string key)
-              (prin1-to-string (emacspeak-table-ui-filter-get
-                                key)))))
+                 (prin1-to-string key)
+                 (prin1-to-string (emacspeak-table-ui-filter-get
+                                   key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 

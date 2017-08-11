@@ -122,7 +122,6 @@ Provide an auditory icon if possible."
   (shx-insert "Browsing " 'font-lock-keyword-face url "\n")
   (browse-url url))
 
-
 (defun shx-cmd-grep (grep-args)
   "Run grep with `grep-args'."
   (shx-insert "grep " 'font-lock-keyword-face grep-args "\n")

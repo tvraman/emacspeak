@@ -58,29 +58,29 @@
 
 ;;; Jumpers: Move to tags by various means
 (cl-loop for f in
-      '(
-        gtags-find-with-grep
-        gtags-find-with-idutils
-        gtags-make-complete-list
-        gtags-select-tag
-        gtags-select-mode
-        gtags-select-tag-by-event
-        gtags-find-symbol
-        gtags-find-file
-        gtags-find-pattern
-        gtags-find-tag
-        gtags-display-browser
-        gtags-find-tag-by-event
-        gtags-find-rtag
-        gtags-find-tag-from-here
-        )
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+         '(
+           gtags-find-with-grep
+           gtags-find-with-idutils
+           gtags-make-complete-list
+           gtags-select-tag
+           gtags-select-mode
+           gtags-select-tag-by-event
+           gtags-find-symbol
+           gtags-find-file
+           gtags-find-pattern
+           gtags-find-tag
+           gtags-display-browser
+           gtags-find-tag-by-event
+           gtags-find-rtag
+           gtags-find-tag-from-here
+           )
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-speak-line)))))
 
 (defadvice gtags-pop-stack (after emacspeak pre act comp)
   "Provide auditory feedback."

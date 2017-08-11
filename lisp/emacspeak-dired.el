@@ -139,11 +139,11 @@
  for  f in
  '(
    dired-next-subdir dired-prev-subdir
-                     dired-tree-up dired-tree-down dired-up-directory
-                     dired-next-marked-file dired-prev-marked-file
-                     dired-next-dirline dired-prev-dirline
-                     dired-jump
-                     )
+   dired-tree-up dired-tree-down dired-up-directory
+   dired-next-marked-file dired-prev-marked-file
+   dired-next-dirline dired-prev-dirline
+   dired-jump
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)

@@ -376,7 +376,7 @@
   "Table of implemented effects.")
 
 (defun
- sox-register-effect (name)
+    sox-register-effect (name)
   "Register effect."
   (pushnew name sox-effects :test #'string=))
 

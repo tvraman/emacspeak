@@ -65,7 +65,7 @@
            (set-default sym val)
            (when (and (getenv "DTK_PROGRAM")
                       (string-match "outloud" (getenv "DTK_PROGRAM")))
-           (setq-default dtk-speech-rate val))))
+             (setq-default dtk-speech-rate val))))
 
 ;;}}}
 ;;{{{ Forward declarations:

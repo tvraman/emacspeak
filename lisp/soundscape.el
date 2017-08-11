@@ -123,7 +123,7 @@
   :type  '(choice  :tag "Device"
                    (const :tag "None" nil)
                    (string :tag "Alsa Device Name"))
-:group 'soundscape)
+  :group 'soundscape)
 
 ;;;###autoload
 (defcustom soundscape-manager-options
@@ -209,9 +209,9 @@ Default is to return NullAgent if name not found."
              "Boodler" nil
              "nice" "-n"  "19" soundscape-player
              `(,@soundscape-manager-options
-"--device"
-,soundscape-device
-,scape)))
+               "--device"
+               ,soundscape-device
+               ,scape)))
       (when (process-live-p proc) (puthash scape proc soundscape-processes)))))
 
 (defun soundscape-stop (scape)
@@ -273,14 +273,14 @@ Default is to return NullAgent if name not found."
 (defconst soundscape-communication-modes
   '(
     message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
-                 mspools-mode vm-presentation-mode vm-mode mail-mode
-                 twittering-mode jabber-roster-mode jabber-chat-mode erc-mode)
+    mspools-mode vm-presentation-mode vm-mode mail-mode
+    twittering-mode jabber-roster-mode jabber-chat-mode erc-mode)
   "List of mode names that get the Communication mood.")
 
 (defconst soundscape-help-modes
   '(
     Info-mode  help-mode  Man-mode
-               Custom-mode messages-buffer-mode)
+    Custom-mode messages-buffer-mode)
   "List of mode names that get the Help mood.")
 
 ;;;###autoload
@@ -418,7 +418,7 @@ Optional interactive prefix arg restarts the listener if already running."
         "nice" "-n"  "19" soundscape-player
         `(,@soundscape-manager-options
           "--device"
-,soundscape-device
+          ,soundscape-device
           "--listen" "--port" ,soundscape--remote
           "org.emacspeak.listen/SoundscapePanel"
           ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
@@ -510,7 +510,7 @@ Optional interactive prefix arg `force' skips optimization checks."
 ;;}}}
 ;;{{{ SoundScape Toggle:
 (defun
- soundscape-quiet ()
+    soundscape-quiet ()
   "Activate NullAgent."
   (when (process-live-p soundscape-remote-control)
     (process-send-string soundscape-remote-control "soundscape 0\n")))
@@ -549,11 +549,11 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   "Cache    last used audio device.")
 (defconst soundscape--filters
   '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"
-		tts_a0_em45 tts_a0_e90
-		"tts_a0_em30" "tts_a0_em15"
-		"tts_a0_e60" "tts_a0_e30" "tts_a0_e15"
-"tts_a45_e45" "tts_a135_e45" "tts_a225_e45" "tts_am45_e45"
-"tts_a45_em45" "tts_a135_em45" "tts_a225_em45" "tts_am45_em45")
+    tts_a0_em45 tts_a0_e90
+    "tts_a0_em30" "tts_a0_em15"
+    "tts_a0_e60" "tts_a0_e30" "tts_a0_e15"
+    "tts_a45_e45" "tts_a135_e45" "tts_a225_e45" "tts_am45_e45"
+    "tts_a45_em45" "tts_a135_em45" "tts_a225_em45" "tts_am45_em45")
   "Available virtual ALSA devices for filtering soundscapes.")
 
 (defun soundscape-restart (&optional device)
@@ -571,7 +571,7 @@ Caches most recently used device, which then becomes the default for future invo
           (if (called-interactively-p 'interactive)
               (completing-read
                "Filter: "
-               soundscape--filters )
+               soundscape--filters)
             device)))
   (unless soundscape--cached-device
     (setq soundscape--cached-device soundscape-device))

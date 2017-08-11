@@ -137,9 +137,9 @@
     (read-from-minibuffer "Title: ")
     (read-from-minibuffer "URL: ")
     (ecase (read-char-exclusive "a Atom, o OPML, r RSS: ")
-      (?a 'atom)
-      (?o 'opml)
-      (?r 'rss))))
+           (?a 'atom)
+           (?o 'opml)
+           (?r 'rss))))
   (declare (special emacspeak-feeds))
   (let ((found (emacspeak-feeds-added-p url)))
     (cond
@@ -189,8 +189,8 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (setq feeds (read buffer)))
     (kill-buffer buffer)
     (cl-loop for f in feeds
-          do
-          (apply #'emacspeak-feeds-add-feed f))
+             do
+             (apply #'emacspeak-feeds-add-feed f))
     (when
         (y-or-n-p
          (format "After restoring %d feeds, we have a total of %d feeds. Save? "
@@ -247,9 +247,9 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
                                emacspeak-eww-style))
              (lexical-let ((u feed-url)
                            (s style))
-               (setq eww-current-url u
-                     emacspeak-eww-feed t 
-                     emacspeak-eww-style s))))
+                          (setq eww-current-url u
+                                emacspeak-eww-feed t 
+                                emacspeak-eww-style s))))
         (with-current-buffer buffer
           (emacspeak-webutils-without-xsl
            (goto-char (point-min))
@@ -337,8 +337,6 @@ Argument `feed' is a feed structure (label url type)."
      ((string-match "rss" url)
       (emacspeak-feeds-rss-display url))
      (t (emacspeak-feeds-rss-display url)))))
-
-
 
 ;;}}}
 (provide 'emacspeak-feeds)

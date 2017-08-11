@@ -53,7 +53,6 @@
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
-
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
@@ -98,7 +97,7 @@ interactive command. Turn off the flag once used."
           (caller-advice ; advice wrapper of containing function
            (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
-       ; T if called from our advice
+                                        ; T if called from our advice
       (setq result (eq caller caller-advice))
       (when result
         (setq ems-called-interactively-p nil) ; turn off now that we used  it

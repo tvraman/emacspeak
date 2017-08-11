@@ -406,55 +406,55 @@ This variable is buffer-local.")
 ;;{{{ Interactive Commands
 
 (cl-loop for this-tool in
-      (emacspeak-google-toolbelt)
-      do
-      (eval
-       `(defun
-            ,(intern
-              (format
-               "emacspeak-google-toolbelt-change-%s"
-               (emacspeak-google-tool-name this-tool)))
-            ()
-          ,(format
-            "Change  %s in the currently active toolbelt."
-            (emacspeak-google-tool-name this-tool))
-          (interactive)
-          (let*
-              ((belt (emacspeak-google-toolbelt))
-               (tool
-                (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
-                                                        ,(emacspeak-google-tool-name this-tool)))
-                         belt))
-               (param (emacspeak-google-tool-param tool))
-               (value (emacspeak-google-tool-value tool))
-               (range (emacspeak-google-tool-range tool)))
-            (cond
-             ((and (listp range)
-                   (= 2 (length range)))
+         (emacspeak-google-toolbelt)
+         do
+         (eval
+          `(defun
+               ,(intern
+                 (format
+                  "emacspeak-google-toolbelt-change-%s"
+                  (emacspeak-google-tool-name this-tool)))
+               ()
+             ,(format
+               "Change  %s in the currently active toolbelt."
+               (emacspeak-google-tool-name this-tool))
+             (interactive)
+             (let*
+                 ((belt (emacspeak-google-toolbelt))
+                  (tool
+                   (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
+                                                           ,(emacspeak-google-tool-name this-tool)))
+                            belt))
+                  (param (emacspeak-google-tool-param tool))
+                  (value (emacspeak-google-tool-value tool))
+                  (range (emacspeak-google-tool-range tool)))
+               (cond
+                ((and (listp range)
+                      (= 2 (length range)))
 ;;; toggle value
-              (setf (emacspeak-google-tool-value tool)
-                    (if (equal value (first range))
-                        (second range)
-                      (first range))))
-             ((listp range)
+                 (setf (emacspeak-google-tool-value tool)
+                       (if (equal value (first range))
+                           (second range)
+                         (first range))))
+                ((listp range)
 ;;; Prompt using completion
-              (setf  (emacspeak-google-tool-value tool)
-                     (completing-read
-                      "Set tool to: "
-                      range)))
-             ((stringp range)
-              (setf (emacspeak-google-tool-value tool)
-                    (read-from-minibuffer  range)))
-             (t (error "Unexpected type!")))
-            (let
-                ((emacspeak-websearch-google-options
-                  (concat
-                   (emacspeak-google-toolbelt-to-tbs belt)
-                   (emacspeak-google-toolbelt-to-tbm belt))))
-              (emacspeak-webutils-cache-google-toolbelt belt)
-              (emacspeak-websearch-google
-               (or emacspeak-google-query
-                   (gweb-google-autocomplete))))))))
+                 (setf  (emacspeak-google-tool-value tool)
+                        (completing-read
+                         "Set tool to: "
+                         range)))
+                ((stringp range)
+                 (setf (emacspeak-google-tool-value tool)
+                       (read-from-minibuffer  range)))
+                (t (error "Unexpected type!")))
+               (let
+                   ((emacspeak-websearch-google-options
+                     (concat
+                      (emacspeak-google-toolbelt-to-tbs belt)
+                      (emacspeak-google-toolbelt-to-tbm belt))))
+                 (emacspeak-webutils-cache-google-toolbelt belt)
+                 (emacspeak-websearch-google
+                  (or emacspeak-google-query
+                      (gweb-google-autocomplete))))))))
 
 (defun emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."
@@ -526,7 +526,7 @@ This variable is buffer-local.")
    ("a" emacspeak-google-sign-out)
    ("c" emacspeak-webutils-google-extract-from-cache)
    ("g" emacspeak-websearch-google)
-	 ("i" emacspeak-google-what-is-my-ip)
+   ("i" emacspeak-google-what-is-my-ip)
    ("l" emacspeak-webutils-google-who-links-to-this-page)
    ("s" emacspeak-webutils-google-similar-to-this-page)
    )
@@ -542,16 +542,16 @@ This variable is buffer-local.")
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (cl-loop for f in
-      '(gmaps-driving-directions gmaps-bicycling-directions
-                                 gmaps-walking-directions gmaps-transit-directions
-                                 gmaps-places-nearby gmaps-places-search)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'task-done)
-            (emacspeak-speak-rest-of-buffer)))))
+         '(gmaps-driving-directions gmaps-bicycling-directions
+                                    gmaps-walking-directions gmaps-transit-directions
+                                    gmaps-places-nearby gmaps-places-search)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'task-done)
+               (emacspeak-speak-rest-of-buffer)))))
 
 (defadvice gmaps-set-current-location (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -619,7 +619,7 @@ This variable is buffer-local.")
 
 (defun emacspeak-google-what-is-my-ip ()
   "Show my public IP"
-  (interactive )
+  (interactive)
   (emacspeak-we-extract-by-class
    "_h4c _rGd vk_h"
    "https://www.google.com/search?lite=90586&q=what+is+my+ip" 'speak))

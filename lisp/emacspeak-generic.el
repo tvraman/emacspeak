@@ -59,12 +59,12 @@
 ;;}}}
 ;;{{{  generic setup
 (cl-loop for mode in generic-mode-list
-      do
-      (when (functionp mode)
-        (eval
-         `(defadvice ,mode (after emacspeak pre act comp)
-            "Setup Emacspeak programming mode hooks."
-            (emacspeak-setup-programming-mode)))))
+         do
+         (when (functionp mode)
+           (eval
+            `(defadvice ,mode (after emacspeak pre act comp)
+               "Setup Emacspeak programming mode hooks."
+               (emacspeak-setup-programming-mode)))))
 
 ;;}}}
 (provide 'emacspeak-generic)

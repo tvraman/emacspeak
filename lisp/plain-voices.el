@@ -594,7 +594,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special plain-voice-table))
   (cl-loop for k being the hash-keys of plain-voice-table
-        collect   k))
+           collect   k))
 
 ;;}}}
 ;;{{{ configurater

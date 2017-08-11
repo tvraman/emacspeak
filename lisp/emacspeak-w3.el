@@ -304,7 +304,7 @@ document is displayed in a separate buffer. "
 ;;;This should eventually be done via a DOM API
 
 (defun emacspeak-w3-html-stack () (get-text-property (point)
-                                                        'html-stack))
+                                                     'html-stack))
 
 (defun emacspeak-w3-get-onclick ()
   "Return onclick handler if any at point."
@@ -744,15 +744,15 @@ HTML."
 (require 'mm-decode)
 (declaim (special  mm-inline-media-tests))
 (cl-loop for mm in
-      '("application/xml"
-        "application/xml+xhtml"
-        "text/xml")
-      do
-      (pushnew
-       (list mm
-             'mm-inline-text-html-render-with-w3
-             #'(lambda (&rest _args) mm-text-html-renderer))
-       mm-inline-media-tests))
+         '("application/xml"
+           "application/xml+xhtml"
+           "text/xml")
+         do
+         (pushnew
+          (list mm
+                'mm-inline-text-html-render-with-w3
+                #'(lambda (&rest _args) mm-text-html-renderer))
+          mm-inline-media-tests))
 
 ;;}}}
 ;;{{{ fix error in insert-char call for emacs 24

@@ -67,13 +67,13 @@ s   Sub-square Distribution.
   (interactive)
   (let ((c (read-char "Summary: ")))
     (case c
-      (?d (call-interactively 'emacspeak-sudoku-board-distribution-summarize))
-      (?r (call-interactively 'emacspeak-sudoku-board-rows-summarize))
-      (?c (call-interactively
-           'emacspeak-sudoku-board-columns-summarize))
-      (?s (call-interactively
-           'emacspeak-sudoku-board-sub-squares-summarize))
-      (otherwise (message "Unknown summary type?")))))
+          (?d (call-interactively 'emacspeak-sudoku-board-distribution-summarize))
+          (?r (call-interactively 'emacspeak-sudoku-board-rows-summarize))
+          (?c (call-interactively
+               'emacspeak-sudoku-board-columns-summarize))
+          (?s (call-interactively
+               'emacspeak-sudoku-board-sub-squares-summarize))
+          (otherwise (message "Unknown summary type?")))))
 
 (defun emacspeak-sudoku-board-distribution-summarize ()
   "Shows distribution of filled numbers."
@@ -81,11 +81,11 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((counts (make-vector 9 0)))
     (cl-loop for row in current-board
-          do
-          (cl-loop for v in row
-                do
-                (if (> v 0)
-                    (incf (aref counts (1- v))))))
+             do
+             (cl-loop for v in row
+                      do
+                      (if (> v 0)
+                          (incf (aref counts (1- v))))))
     (dtk-speak-list
      (cl-loop for i across counts collect i)
      3)))
@@ -96,7 +96,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (dtk-speak-list
    (cl-loop for r in current-board
-         collect  (count 0 r))
+            collect  (count 0 r))
    3))
 
 (defun emacspeak-sudoku-board-columns-summarize ()
@@ -105,7 +105,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (dtk-speak-list
    (cl-loop for c from 0 to 8
-         collect  (count 0 (sudoku-column current-board c)))
+            collect  (count 0 (sudoku-column current-board c)))
    3))
 
 (defun emacspeak-sudoku-board-sub-squares-summarize ()
@@ -114,7 +114,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (dtk-speak-list
    (cl-loop for s from 0 to 8
-         collect  (count 0 (sudoku-subsquare current-board s)))
+            collect  (count 0 (sudoku-subsquare current-board s)))
    3))
 
 (defun emacspeak-sudoku-speak-current-cell-coordinates ()
@@ -265,11 +265,11 @@ s   Sub-square Distribution.
                     sudoku-onscreen-instructions))
   (let ((original (sudoku-get-cell-from-point (point))))
     (cl-loop for cell in cell-list
-          do
-          (let ((x (car cell))
-                (y (cadr  cell)))
-            (when (= (sudoku-cell start-board x y) 0)
-              (setq current-board (sudoku-change-cell current-board x y 0)))))
+             do
+             (let ((x (car cell))
+                   (y (cadr  cell)))
+               (when (= (sudoku-cell start-board x y) 0)
+                 (setq current-board (sudoku-change-cell current-board x y 0)))))
     (setq buffer-read-only nil)
     (erase-buffer)
     (sudoku-board-print current-board
@@ -284,7 +284,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (cl-loop for i from 0 to  8
-           collect  (list i (second cell)))))
+              collect  (list i (second cell)))))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
@@ -295,7 +295,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (cl-loop for i from 0 to  8
-           collect  (list (first cell) i))))
+              collect  (list (first cell) i))))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
@@ -305,9 +305,9 @@ s   Sub-square Distribution.
         (col-start (* (% square 3)  3)))
     
     (cl-loop for r from row-start to (+ 2 row-start)
-          nconc
-          (cl-loop  for c from col-start to (+ 2 col-start)
-                 collect (list c r)))))
+             nconc
+             (cl-loop  for c from col-start to (+ 2 col-start)
+                       collect (list c r)))))
 
 (defun emacspeak-sudoku-erase-current-sub-square ()
   "Erase current sub-square."
@@ -324,24 +324,24 @@ s   Sub-square Distribution.
 ;;{{{ advice motion:
 
 (cl-loop for f   in
-      '(
-        sudoku-move-point-left 
-        sudoku-move-point-leftmost 
-        sudoku-move-point-right 
-        sudoku-move-point-rightmost 
-        sudoku-move-point-up 
-        sudoku-move-point-upmost 
-        sudoku-move-point-down 
-        sudoku-move-point-downmost)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Produce auditory output."
-          (when (ems-interactive-p)
-            (emacspeak-sudoku-speak-current-cell-value)
-            (if (eq (get-text-property  (point) 'face) 'bold)
-                (emacspeak-auditory-icon 'item)
-              (emacspeak-auditory-icon 'select-object))))))
+         '(
+           sudoku-move-point-left 
+           sudoku-move-point-leftmost 
+           sudoku-move-point-right 
+           sudoku-move-point-rightmost 
+           sudoku-move-point-up 
+           sudoku-move-point-upmost 
+           sudoku-move-point-down 
+           sudoku-move-point-downmost)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Produce auditory output."
+             (when (ems-interactive-p)
+               (emacspeak-sudoku-speak-current-cell-value)
+               (if (eq (get-text-property  (point) 'face) 'bold)
+                   (emacspeak-auditory-icon 'item)
+                 (emacspeak-auditory-icon 'select-object))))))
 
 ;;}}}
 ;;{{{ advice interaction:
@@ -415,41 +415,41 @@ See
 
 (declaim (special sudoku-mode-map))
 (cl-loop for k in
-      '(
-        ("u" emacspeak-sudoku-up-sub-square)
-        ("d" emacspeak-sudoku-down-sub-square)
-        ("/" emacspeak-sudoku-how-many-remaining)
-        ("n" emacspeak-sudoku-next-sub-square)
-        ("p" emacspeak-sudoku-previous-sub-square)
-        ("h" sudoku-move-point-left)
-        ("l" sudoku-move-point-right)
-        ("j" sudoku-move-point-down)
-        ("k" sudoku-move-point-up)
-        ("R" emacspeak-sudoku-speak-remaining-in-row)
-        ("S" emacspeak-sudoku-speak-remaining-in-sub-square)
-        ("C" emacspeak-sudoku-speak-remaining-in-column)
-        ("?" emacspeak-sudoku-hint)
-        ("<home>" sudoku-move-point-leftmost)
-        ("<end>" sudoku-move-point-rightmost)
-        ("a" sudoku-move-point-leftmost)
-        ("e" sudoku-move-point-rightmost)
-        ("b" sudoku-move-point-downmost)
-        ("t" sudoku-move-point-upmost)
-        ("." emacspeak-sudoku-speak-current-cell-value)
-        ("=" emacspeak-sudoku-speak-current-cell-coordinates)
-        ("\C-e" emacspeak-prefix-command)
-        ("r" emacspeak-sudoku-speak-current-row)
-        ("c" emacspeak-sudoku-speak-current-column)
-        ("s" emacspeak-sudoku-speak-current-sub-square)
-        ("\M-s" emacspeak-sudoku-erase-current-sub-square)
-        ("\M-r" emacspeak-sudoku-erase-current-row)
-        ("\M-c" emacspeak-sudoku-erase-current-column)
-        (","  emacspeak-sudoku-board-summarizer)
-        ("m" emacspeak-sudoku-history-push)
-        ("M" emacspeak-sudoku-history-pop)
-        )
-      do
-      (define-key  sudoku-mode-map (first k) (second k)))
+         '(
+           ("u" emacspeak-sudoku-up-sub-square)
+           ("d" emacspeak-sudoku-down-sub-square)
+           ("/" emacspeak-sudoku-how-many-remaining)
+           ("n" emacspeak-sudoku-next-sub-square)
+           ("p" emacspeak-sudoku-previous-sub-square)
+           ("h" sudoku-move-point-left)
+           ("l" sudoku-move-point-right)
+           ("j" sudoku-move-point-down)
+           ("k" sudoku-move-point-up)
+           ("R" emacspeak-sudoku-speak-remaining-in-row)
+           ("S" emacspeak-sudoku-speak-remaining-in-sub-square)
+           ("C" emacspeak-sudoku-speak-remaining-in-column)
+           ("?" emacspeak-sudoku-hint)
+           ("<home>" sudoku-move-point-leftmost)
+           ("<end>" sudoku-move-point-rightmost)
+           ("a" sudoku-move-point-leftmost)
+           ("e" sudoku-move-point-rightmost)
+           ("b" sudoku-move-point-downmost)
+           ("t" sudoku-move-point-upmost)
+           ("." emacspeak-sudoku-speak-current-cell-value)
+           ("=" emacspeak-sudoku-speak-current-cell-coordinates)
+           ("\C-e" emacspeak-prefix-command)
+           ("r" emacspeak-sudoku-speak-current-row)
+           ("c" emacspeak-sudoku-speak-current-column)
+           ("s" emacspeak-sudoku-speak-current-sub-square)
+           ("\M-s" emacspeak-sudoku-erase-current-sub-square)
+           ("\M-r" emacspeak-sudoku-erase-current-row)
+           ("\M-c" emacspeak-sudoku-erase-current-column)
+           (","  emacspeak-sudoku-board-summarizer)
+           ("m" emacspeak-sudoku-history-push)
+           ("M" emacspeak-sudoku-history-pop)
+           )
+         do
+         (define-key  sudoku-mode-map (first k) (second k)))
 
 ;;}}}
 (provide 'emacspeak-sudoku)

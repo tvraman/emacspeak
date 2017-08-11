@@ -58,15 +58,15 @@
   (declare (special table-cell-map))
   (when  table-cell-map
     (cl-loop for k in
-          (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
-          do
-          (define-key table-cell-map k '*table--cell-self-insert-command))
+             (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
+             do
+             (define-key table-cell-map k '*table--cell-self-insert-command))
     (cl-loop for k in
-          '(
-            ("S-TAB" table-backward-cell)
-            ("\C-e." emacspeak-etable-speak-cell))
-          do
-          (emacspeak-keymap-update table-cell-map k))))
+             '(
+               ("S-TAB" table-backward-cell)
+               ("\C-e." emacspeak-etable-speak-cell))
+             do
+             (emacspeak-keymap-update table-cell-map k))))
 
 ;;}}}
 ;;{{{ Advice edit commands
@@ -169,16 +169,16 @@ Otherwise cue user to the line just created."
      (t (error "Cant identify cell.")))))
 
 (cl-loop for f in
-      '(table-forward-cell table-backward-cell)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback by speaking current cell
+         '(table-forward-cell table-backward-cell)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback by speaking current cell
       contents."
-          (when (ems-interactive-p)
-            (table--finish-delayed-tasks)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-etable-speak-cell)))))
+             (when (ems-interactive-p)
+               (table--finish-delayed-tasks)
+               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-etable-speak-cell)))))
 
 ;;}}}
 (provide  'emacspeak-etable)

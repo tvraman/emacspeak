@@ -199,7 +199,6 @@ This is set to nil when playing Internet  streams.")
            (string :tag "option"))
   :group 'emacspeak-m-player)
 
-
 (defcustom emacspeak-media-location-bindings  nil
   "*Map specific key sequences to launching MPlayer accelerators
 on a specific directory."
@@ -214,9 +213,9 @@ on a specific directory."
   :set #'(lambda (sym val)
            (mapc
             #'(lambda (binding)
-              (let ((key (cl-first binding))
-                    (directory (cl-second binding)))
-                (emacspeak-m-player-bind-accelerator directory (kbd key))))
+                (let ((key (cl-first binding))
+                      (directory (cl-second binding)))
+                  (emacspeak-m-player-bind-accelerator directory (kbd key))))
             val)
            (set-default sym val)))
 
@@ -355,15 +354,15 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
             (dired-get-filename nil 'no-error)))
         (ido-work-directory-list
          (cl-loop
-					for d in ido-work-directory-list
+          for d in ido-work-directory-list
           when (string-match  emacspeak-media-directory-regexp  d) collect d))
-				(result nil))
+        (result nil))
     (setq result
-					(read-file-name
-					 "Media Resource: "
-					 (emacspeak-m-player-guess-directory)
-					 default 'must-match default))
-		result))
+          (read-file-name
+           "Media Resource: "
+           (emacspeak-m-player-guess-directory)
+           default 'must-match default))
+    result))
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
@@ -463,7 +462,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
       (message "MPlayer opened  %s" 
-																		 (abbreviate-file-name resource)))))
+               (abbreviate-file-name resource)))))
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
@@ -567,8 +566,8 @@ necessary."
             "\n" 'omit-nulls)))
       (setq emacspeak-m-player-command-list
             (cl-loop  for c in commands
-                   collect
-                   (split-string c " " 'omit-nulls)))))))
+                      collect
+                      (split-string c " " 'omit-nulls)))))))
 
 ;;}}}
 ;;{{{ commands
@@ -1158,7 +1157,7 @@ arg `reset' starts with all filters set to 0."
   "Key bindings used by Emacspeak M-Player.")
 
 (cl-loop for k in emacspeak-m-player-bindings do
-      (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
+         (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
 
 (defun emacspeak-m-player-volume-set (&optional arg)
   "Set Volume in steps from 1 to 9."
@@ -1655,14 +1654,13 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (message "mark set at %s" emacspeak-m-player-clip-end)
     (emacspeak-auditory-icon 'mark-object)))
 
-
 (defun emacspeak-m-player-write-clip ()
   "Invoke mp3splt to clip selected range in current file."
   (interactive)
   (declare (special emacspeak-sox
                     emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
-	(cl-assert emacspeak-sox  nil "SoX needs to be installed to use this command.")
-  (cl-assert (eq major-mode 'emacspeak-m-player-mode ) nil "Not in an MPlayer buffer.")
+  (cl-assert emacspeak-sox  nil "SoX needs to be installed to use this command.")
+  (cl-assert (eq major-mode 'emacspeak-m-player-mode) nil "Not in an MPlayer buffer.")
   (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")
   (cl-assert (numberp emacspeak-m-player-clip-end) nil "Set end of clip with M-]")
   (let ((file (cl-second (emacspeak-m-player-get-position))))

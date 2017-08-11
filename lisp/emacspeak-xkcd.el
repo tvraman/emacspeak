@@ -83,7 +83,6 @@
    (cdr 
     (assoc 'transcript (json-read-from-string (xkcd-get-json "" xkcd-cur))))))
 
-
 (defadvice xkcd-get (after emacspeak first pre act comp)
   "Insert cached transcript in xkcd-transcript."
   (let ((inhibit-read-only t))

@@ -52,7 +52,6 @@
 ;;; And that module sets up flyspell-correct to use IDO-style completion,
 ;;; i.e. you can move through corrections with C-r and C-s.
 
-
 ;;; Code:
 ;;}}}
 ;;{{{ requires
@@ -132,16 +131,14 @@ many available corrections."
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-  "Produce auditory icons for ispell."
-  (cond
-   ((ems-interactive-p)
-    (let ((dtk-stop-immediately t))
-      (ems-with-messages-silenced ad-do-it)
-      (emacspeak-auditory-icon 'task-done)))
-   (t ad-do-it))
-  ad-return-value)))
-
-
+     "Produce auditory icons for ispell."
+     (cond
+      ((ems-interactive-p)
+       (let ((dtk-stop-immediately t))
+         (ems-with-messages-silenced ad-do-it)
+         (emacspeak-auditory-icon 'task-done)))
+      (t ad-do-it))
+     ad-return-value)))
 
 (defadvice ispell-word (around emacspeak pre act comp)
   "Produce auditory icons for ispell."

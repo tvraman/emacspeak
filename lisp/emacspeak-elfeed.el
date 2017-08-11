@@ -70,12 +70,12 @@
  for f in
  '(
    elfeed-apply-hooks-now elfeed-search-browse-url elfeed-show-entry elfeed-show-visit
-                          elfeed-update-feed elfeed-update elfeed-show-refresh
-                          elfeed-search-update--force elfeed-search-update elfeed-search-untag-all-unread
-                          elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
-                          elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
-                          elfeed-db-compact elfeed-add-feed
-                          )
+   elfeed-update-feed elfeed-update elfeed-show-refresh
+   elfeed-search-update--force elfeed-search-update elfeed-search-untag-all-unread
+   elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
+   elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
+   elfeed-db-compact elfeed-add-feed
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

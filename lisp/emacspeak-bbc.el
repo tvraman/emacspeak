@@ -281,8 +281,8 @@ chrome: Hand off URL to Chrome."
 on user preference."
   (declare (special emacspeak-bbc-button-action))
   (ecase emacspeak-bbc-button-action
-    ('chrome (funcall #'emacspeak-bbc-chrome-action button))
-    ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
+         ('chrome (funcall #'emacspeak-bbc-chrome-action button))
+         ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
 
 ;;}}}
 ;;{{{ BBC IPlayer Interaction

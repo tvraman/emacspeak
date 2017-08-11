@@ -65,13 +65,13 @@
  for f in
  '(
    elscreen-jump-0 elscreen-jump-1 elscreen-jump-2 elscreen-jump-3
-                   elscreen-jump-4 elscreen-jump-5 elscreen-jump-6 elscreen-jump-7
-                   elscreen-jump-8 elscreen-jump-9
-                   elscreen-toggle elscreen-swap elscreen-select-and-goto
-                   elscreen-previous elscreen-next elscreen-jump
-                   elscreen-goto elscreen-find-file-read-only elscreen-find-file
-                   elscreen-find-and-goto-by-buffer elscreen-execute-extended-command elscreen-dired
-                   elscreen-clone elscreen-create)
+   elscreen-jump-4 elscreen-jump-5 elscreen-jump-6 elscreen-jump-7
+   elscreen-jump-8 elscreen-jump-9
+   elscreen-toggle elscreen-swap elscreen-select-and-goto
+   elscreen-previous elscreen-next elscreen-jump
+   elscreen-goto elscreen-find-file-read-only elscreen-find-file
+   elscreen-find-and-goto-by-buffer elscreen-execute-extended-command elscreen-dired
+   elscreen-clone elscreen-create)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

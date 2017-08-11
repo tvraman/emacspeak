@@ -181,15 +181,15 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
     (lexical-let ((lh load-history)
                   (emacspeak-speak-messages nil))
 ;;; cdr down lh till we hit emacspeak-load-history-pointer
-      (while (and lh
-                  (not (eq lh emacspeak-load-history-pointer)))
+                 (while (and lh
+                             (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
-        (emacspeak-fix-commands-loaded-from lh)
-        (when (called-interactively-p 'interactive)
-          (message "Fixed commands in %s" (first (first lh))))
-        (setq lh (rest lh)))
+                   (emacspeak-fix-commands-loaded-from lh)
+                   (when (called-interactively-p 'interactive)
+                     (message "Fixed commands in %s" (first (first lh))))
+                   (setq lh (rest lh)))
 ;;;memoize for future call
-      (setq emacspeak-load-history-pointer load-history))
+                 (setq emacspeak-load-history-pointer load-history))
     (when (called-interactively-p 'interactive)
       (message "Fixed recently defined  interactive commands")))
   t)

@@ -548,7 +548,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
      "Speak what was completed."
      (cond
       ((ems-interactive-p)
-       (let ((orig (save-excursion (skip-syntax-backward "^ >" ) (point))))
+       (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
          (ems-with-messages-silenced
           ad-do-it
           (emacspeak-auditory-icon 'complete)
@@ -779,7 +779,7 @@ icon."
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak the prompt"
      (let ((prompt (ad-get-arg 0))
-					 (dtk-stop-immediately nil))
+           (dtk-stop-immediately nil))
        (emacspeak-auditory-icon 'item)
        (setq emacspeak-last-message prompt)
        (setq emacspeak-read-char-prompt-cache prompt)
@@ -930,7 +930,7 @@ icon."
     (emacspeak-speak-line)))
 (cl-loop
  for f in
- '( comint-history-isearch-backward comint-history-isearch-backward-regexp)
+ '(comint-history-isearch-backward comint-history-isearch-backward-regexp)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -1725,7 +1725,7 @@ Indicate change of selection with an auditory icon
    describe-function describe-variable
    describe-face describe-font
    describe-text-properties describe-syntax
-   describe-package )
+   describe-package)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -2305,7 +2305,7 @@ Produce auditory icons if possible."
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))
     (when (process-live-p dtk-notify-process)
-      (dtk-notify-speak (buffer-name )))))
+      (dtk-notify-speak (buffer-name)))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
@@ -2448,19 +2448,19 @@ Produce auditory icons if possible."
     (emacspeak-auditory-icon 'open-object)
     (when minibuffer-default (emacspeak-auditory-icon 'help))
     (tts-with-punctuations
-		 'all
-		 (dtk-speak
-			(concat
-			 (buffer-string)
-			 (if (stringp minibuffer-default)
-minibuffer-default
-""))))))
+     'all
+     (dtk-speak
+      (concat
+       (buffer-string)
+       (if (stringp minibuffer-default)
+           minibuffer-default
+         ""))))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook 'at-end)
 
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
-	(dtk-stop)
+  (dtk-stop)
   (emacspeak-auditory-icon 'close-object))
 
 (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
@@ -2492,9 +2492,6 @@ minibuffer-default
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
-
-
 
 (defadvice expand-abbrev (around emacspeak pre act comp)
   "Speak what you expanded."

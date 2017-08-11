@@ -102,30 +102,30 @@ end   as specified by grid."
             (goto-char start)
           (goto-char end))
         (cl-loop for i from 0 to (1- num-rows)
-              do
-              (beginning-of-line)
-              (setq this-line
-                    (buffer-substring (line-beginning-position) (line-end-position)))
-              (setq this-length (length this-line))
-              (setq this-row (make-vector num-columns ""))
-              (cl-loop for j from 0 to (1- (length grid))
-                    do
-                    (when (< (1- (nth j grid)) this-length)
+                 do
+                 (beginning-of-line)
+                 (setq this-line
+                       (buffer-substring (line-beginning-position) (line-end-position)))
+                 (setq this-length (length this-line))
+                 (setq this-row (make-vector num-columns ""))
+                 (cl-loop for j from 0 to (1- (length grid))
+                          do
+                          (when (< (1- (nth j grid)) this-length)
 ;;; within bounds 
-                      (aset  this-row j
-                             (substring
-                              this-line
-                              (if (= j 0) 
-                                  0
-                                (nth  (1- j) grid))
-                              (1- (nth j grid))))))
-              (aset this-row (length grid)
-                    (if (< (nth (1- (length grid)) grid) this-length)
-                        (substring this-line
-                                   (nth (1- (length grid)) grid))
-                      ""))
-              (aset result-grid i this-row)
-              (forward-line 1))
+                            (aset  this-row j
+                                   (substring
+                                    this-line
+                                    (if (= j 0) 
+                                        0
+                                      (nth  (1- j) grid))
+                                    (1- (nth j grid))))))
+                 (aset this-row (length grid)
+                       (if (< (nth (1- (length grid)) grid) this-length)
+                           (substring this-line
+                                      (nth (1- (length grid)) grid))
+                         ""))
+                 (aset result-grid i this-row)
+                 (forward-line 1))
         result-grid))))
 
 ;;}}}
@@ -175,16 +175,16 @@ end   as specified by grid."
       (set-buffer buffer)
       (erase-buffer)
       (cl-loop for key being the hash-keys of
-            emacspeak-gridtext-table
-            do
-            (insert
-             (format
-              "\n(setf
+               emacspeak-gridtext-table
+               do
+               (insert
+                (format
+                 "\n(setf
  (gethash %s emacspeak-gridtext-table)
  (quote %s))"
-              (prin1-to-string key)
-              (prin1-to-string (emacspeak-gridtext-get
-                                key)))))
+                 (prin1-to-string key)
+                 (prin1-to-string (emacspeak-gridtext-get
+                                   key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 

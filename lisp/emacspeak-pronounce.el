@@ -70,9 +70,9 @@
 (require 'thingatpt)
 (eval-when (compile)
                                         ;avoid recursive include during compile
-  (provide 'emacspeak-pronounce)
-  (require 'dtk-speak)
-  (require 'emacspeak-sounds))
+           (provide 'emacspeak-pronounce)
+           (require 'dtk-speak)
+           (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{ customizations
@@ -190,20 +190,20 @@ modes."
          (mode-alist (emacspeak-pronounce-get-dictionary mode))
          (super-alist nil))
     (cl-loop for super in mode-supers
-          do
-          (setq super-alist (emacspeak-pronounce-get-dictionary super))
-          (cl-loop for element in super-alist
-                do
-                (puthash (car element) (cdr element) table)))
+             do
+             (setq super-alist (emacspeak-pronounce-get-dictionary super))
+             (cl-loop for element in super-alist
+                      do
+                      (puthash (car element) (cdr element) table)))
     (cl-loop for element in mode-alist
-          do
-          (puthash (car element) (cdr element) table))
+             do
+             (puthash (car element) (cdr element) table))
     (cl-loop for element in dir-alist
-          do
-          (puthash (car element) (cdr element) table))
+             do
+             (puthash (car element) (cdr element) table))
     (cl-loop for element in file-alist
-          do
-          (puthash (car element) (cdr element) table))
+             do
+             (puthash (car element) (cdr element) table))
     table))
 
 ;;}}}
@@ -296,11 +296,11 @@ applied."
       (auto-fill-mode nil)
       (erase-buffer)
       (cl-loop for key being the hash-keys of emacspeak-pronounce-dictionaries
-            do
-            (insert
-             (format "(emacspeak-pronounce-set-dictionary '%S\n '%S)\n"
-                     key
-                     (emacspeak-pronounce-get-dictionary key))))
+               do
+               (insert
+                (format "(emacspeak-pronounce-set-dictionary '%S\n '%S)\n"
+                        key
+                        (emacspeak-pronounce-get-dictionary key))))
       (save-buffer))))
 
 (defvar emacspeak-pronounce-dictionaries-loaded nil
@@ -317,10 +317,10 @@ Optional argument FILENAME specifies the dictionary file."
   (declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
     (condition-case nil
-				(let ((coding-system-for-read  'utf-8))
-        (progn
-          (load-file filename)
-          (setq emacspeak-pronounce-dictionaries-loaded t)))
+        (let ((coding-system-for-read  'utf-8))
+          (progn
+            (load-file filename)
+            (setq emacspeak-pronounce-dictionaries-loaded t)))
       (error
        (message "Error loading pronunciation dictionary, deactivating  pronunciations.")
        (setq emacspeak-pronounce-dictionaries (make-hash-table)
@@ -624,10 +624,10 @@ See http://www.charm.net/~kmarsh/smiley.html. "
 for the specified mode."
   (let ((mode-alist (emacspeak-pronounce-get-dictionary mode)))
     (cl-loop for e in dictionary
-          do
-          (unless (assoc (car e)
-                         mode-alist)
-            (push e mode-alist)))
+             do
+             (unless (assoc (car e)
+                            mode-alist)
+               (push e mode-alist)))
     (emacspeak-pronounce-set-dictionary mode mode-alist)))
 
 ;;}}}
@@ -694,9 +694,9 @@ specified pronunciation dictionary key."
    (list
     (let ((keys
            (cl-loop for k being the hash-keys of
-                 emacspeak-pronounce-dictionaries
-                 collect
-                 (symbol-name k))))
+                    emacspeak-pronounce-dictionaries
+                    collect
+                    (symbol-name k))))
       (completing-read "Edit dictionary: "
                        (mapcar
                         #'(lambda (k)
@@ -726,17 +726,17 @@ specified pronunciation dictionary key."
   (message emacspeak-pronounce-help)
   (let ((event (read-char)))
     (case event
-      (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
-      (?d (call-interactively
-           'emacspeak-pronounce-define-pronunciation t))
-      (?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
-      (?e (call-interactively
-           'emacspeak-pronounce-edit-pronunciations t))
-      (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
-      (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
-      (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
-      (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
-      (otherwise (message emacspeak-pronounce-help)))
+          (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
+          (?d (call-interactively
+               'emacspeak-pronounce-define-pronunciation t))
+          (?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
+          (?e (call-interactively
+               'emacspeak-pronounce-edit-pronunciations t))
+          (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
+          (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
+          (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
+          (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
+          (otherwise (message emacspeak-pronounce-help)))
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}

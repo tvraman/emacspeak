@@ -81,14 +81,14 @@
 
 (declaim (special emacspeak-web-prefix))
 (cl-loop for k in
-      '(
-        ("R" emacspeak-xslt-view-region)
-        ("b" browse-url-of-buffer)
-        ("m" emacspeak-wizards-eww-buffer-list)
-        ("r" browse-url-of-region)
-        )
-      do
-      (emacspeak-keymap-update  emacspeak-web-prefix k))
+         '(
+           ("R" emacspeak-xslt-view-region)
+           ("b" browse-url-of-buffer)
+           ("m" emacspeak-wizards-eww-buffer-list)
+           ("r" browse-url-of-region)
+           )
+         do
+         (emacspeak-keymap-update  emacspeak-web-prefix k))
 (define-key emacspeak-hyper-keymap "w" 'emacspeak-web-prefix)
 ;;}}}
 ;;{{{ web-pre-process
@@ -162,12 +162,12 @@ Note that the Web browser should reset this hook after using it.")
   "Clean up charents in XML."
   (declare (special emacspeak-webutils-charent-alist))
   (cl-loop for entry in emacspeak-webutils-charent-alist
-        do
-        (let ((entity (car  entry))
-              (replacement (cdr entry)))
-          (goto-char start)
-          (while (search-forward entity end t)
-            (replace-match replacement)))))
+           do
+           (let ((entity (car  entry))
+                 (replacement (cdr entry)))
+             (goto-char start)
+             (while (search-forward entity end t)
+               (replace-match replacement)))))
 
 (defun emacspeak-webutils-supported-p ()
   "Check if this is a supported browser."
@@ -179,19 +179,19 @@ Note that the Web browser should reset this hook after using it.")
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
   (lexical-let
-      ((p dtk-punctuation-mode)
-       (r dtk-speech-rate))
-    (add-hook
-     'emacspeak-web-post-process-hook
-     #'(lambda nil
-         (declare (special emacspeak-we-xpath-filter))
-         (let ((inhibit-read-only t))
-           (dtk-set-punctuations p)
-           (dtk-set-rate r)
-           (emacspeak-dtk-sync)
-           (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
-           (emacspeak-speak-buffer)))
-     'at-end)))
+   ((p dtk-punctuation-mode)
+    (r dtk-speech-rate))
+   (add-hook
+    'emacspeak-web-post-process-hook
+    #'(lambda nil
+        (declare (special emacspeak-we-xpath-filter))
+        (let ((inhibit-read-only t))
+          (dtk-set-punctuations p)
+          (dtk-set-rate r)
+          (emacspeak-dtk-sync)
+          (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
+          (emacspeak-speak-buffer)))
+    'at-end)))
 
 (defun emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."
@@ -340,17 +340,17 @@ and xsl environment specified by style, params and options."
   "Returns list of attributes from HTML stack."
   (delete nil
           (cl-loop for e in html-stack
-                append
-                (mapcar 'car (rest e)))))
+                   append
+                   (mapcar 'car (rest e)))))
 
 (defun emacspeak-webutils-get-property-from-html-stack (html-stack prop)
   "Extract and return list of prop values from HTML  stack.
 Stack is a list of the form ((element-name (attribute-alist)))."
   (let ((props nil))
     (cl-loop for element in html-stack
-          do
-          (push (cdr (assoc prop (rest element)))
-                props))
+             do
+             (push (cdr (assoc prop (rest element)))
+                   props))
     (nreverse (delq nil props))))
 
 ;;}}}
@@ -537,7 +537,7 @@ Useful in handling double-redirect from TuneIn."
     (shell-command
      (format "%s %s %s "
              emacspeak-xslt-program
-             (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory )
+             (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory)
              feed-url)
      (current-buffer))
     (goto-char (point-min))

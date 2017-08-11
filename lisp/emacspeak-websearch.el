@@ -107,9 +107,9 @@
   "Displays key mapping used by Emacspeak Websearch."
   (interactive)
   (let ((map (cl-loop for key being the hash-keys of
-                   emacspeak-websearch-keytable
-                   collect
-                   (cons key (gethash key emacspeak-websearch-keytable)))))
+                      emacspeak-websearch-keytable
+                      collect
+                      (cons key (gethash key emacspeak-websearch-keytable)))))
     (setq map (sort map
                     #'(lambda (a b)
                         (< (car a)
@@ -119,13 +119,13 @@
         (set-buffer "*Help*")
         (princ "Websearch Keys:\n\n")
         (cl-loop for m in map
-              do
-              (princ (key-description (list (car m))))
-              (move-to-column 16)
-              (princ "`")
-              (princ (emacspeak-websearch-get-searcher (cdr m)))
-              (princ "'")
-              (princ "\n"))
+                 do
+                 (princ (key-description (list (car m))))
+                 (move-to-column 16)
+                 (princ "`")
+                 (princ (emacspeak-websearch-get-searcher (cdr m)))
+                 (princ "'")
+                 (princ "\n"))
         (help-setup-xref
          (list #'emacspeak-websearch-help)
          (called-interactively-p 'interactive))))
@@ -166,8 +166,8 @@ When using supported browsers,  this interface attempts to speak the most releva
   "Holds history of search queries.")
 
 (defun emacspeak-websearch-read-query (prompt &optional
-                                                 default
-                                                 initial)
+                                              default
+                                              initial)
   (let ((answer
          (read-from-minibuffer
           prompt
@@ -248,9 +248,9 @@ When using supported browsers,  this interface attempts to speak the most releva
           "a Articles c Citations")))
     (setq options
           (case type-char
-            (?a
-             emacspeak-websearch-citeseer-article-options)
-            (?c emacspeak-websearch-citeseer-citation-options)))
+                (?a
+                 emacspeak-websearch-citeseer-article-options)
+                (?c emacspeak-websearch-citeseer-citation-options)))
     (browse-url
      (concat emacspeak-websearch-citeseer-uri
              "q="
@@ -335,18 +335,18 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
        (concat emacspeak-websearch-company-news-uri
                (format "%s?"
                        (case type-char
-                         (?n "/h")
-                         (?p "/pr")
-                         (?r "/ae")
-                         (?c "/ao")
-                         (?i "/it")
-                         (?q "")
-                         (?k "/ks")
-                         (?b "/bc")
-                         (?t "/ta")
-                         (?e "/ce")
-                         (?o "/op")
-                         (?s "/sec")))
+                             (?n "/h")
+                             (?p "/pr")
+                             (?r "/ae")
+                             (?c "/ao")
+                             (?i "/it")
+                             (?q "")
+                             (?k "/ks")
+                             (?b "/bc")
+                             (?t "/ta")
+                             (?e "/ce")
+                             (?o "/op")
+                             (?s "/sec")))
                (format "s=%s" ticker)))
       (emacspeak-webutils-post-process
        (format-time-string "%Y")
@@ -506,10 +506,10 @@ Optional second arg as-html processes the results as HTML rather than data."
   (let ((site
          (read-char emacspeak-websearch-software-sites)))
     (case site
-      (?p (call-interactively 'emacspeak-websearch-cpan-search))
-      (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
-      (?t (call-interactively 'emacspeak-websearch-ctan-search))
-      (otherwise (message emacspeak-websearch-software-sites)))))
+          (?p (call-interactively 'emacspeak-websearch-cpan-search))
+          (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
+          (?t (call-interactively 'emacspeak-websearch-ctan-search))
+          (otherwise (message emacspeak-websearch-software-sites)))))
 
 ;;}}}
 ;;{{{ Gutenberg
@@ -533,8 +533,8 @@ Optional second arg as-html processes the results as HTML rather than data."
   (browse-url
    (concat emacspeak-websearch-gutenberg-uri
            (ecase type
-             (?a "author=")
-             (?t "title="))
+                  (?a "author=")
+                  (?t "title="))
            (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process
    query

@@ -111,8 +111,8 @@
  for f in
  '(
    clojure-cycle-if clojure-cycle-privacy
-                    clojure-introduce-let clojure-move-to-let
-                    clojure-let-backward-slurp-sexp clojure-let-forward-slurp-sexp)
+   clojure-introduce-let clojure-move-to-let
+   clojure-let-backward-slurp-sexp clojure-let-forward-slurp-sexp)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -125,7 +125,7 @@
  for f in
  '(
    clojure-thread clojure-thread-first-all clojure-thread-last-all
-                  clojure-unwind clojure-unwind-all)
+   clojure-unwind clojure-unwind-all)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -140,15 +140,15 @@
  for f in
  '(
    clojure-convert-collection-to-list clojure-convert-collection-to-map
-                                      clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
-                                      clojure-convert-collection-to-vector) do
-                                      (eval
-                                       `(defadvice ,f (after emacspeak pre act comp)
-                                          "Provide auditory feedback."
-                                          (when (ems-interactive-p)
-                                            (let ((begin (point)))
-                                              (forward-sexp)
-                                              (dtk-speak(buffer-substring begin (point))))))))
+   clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
+   clojure-convert-collection-to-vector) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (let ((begin (point)))
+         (forward-sexp)
+         (dtk-speak(buffer-substring begin (point))))))))
 
 ;;}}}
 (provide 'emacspeak-clojure)

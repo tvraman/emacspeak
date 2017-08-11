@@ -69,8 +69,8 @@
 ;;{{{ keymaps
 (declaim (special mspools-mode-map))
 (eval-when (load)
-  (require 'emacspeak-keymap)
-  )
+           (require 'emacspeak-keymap)
+           )
 
 ;;}}}
 (provide 'emacspeak-mspools)

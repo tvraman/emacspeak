@@ -59,13 +59,13 @@
   "Commands to speech enable")
 
 (cl-loop for f in emacspeak-find-func-commands
-      do
-      (eval
-       `(defadvice ,f  (after emacspeak pre act comp)
-          "Speak current line"
-          (when  (ems-interactive-p)
-            (emacspeak-auditory-icon 'open-object)
-            (dtk-speak (format "Found %s" (ad-get-arg 0)))))))
+         do
+         (eval
+          `(defadvice ,f  (after emacspeak pre act comp)
+             "Speak current line"
+             (when  (ems-interactive-p)
+               (emacspeak-auditory-icon 'open-object)
+               (dtk-speak (format "Found %s" (ad-get-arg 0)))))))
 
 ;;}}}
 

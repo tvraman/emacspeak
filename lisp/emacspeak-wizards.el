@@ -65,11 +65,11 @@
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 (eval-when-compile
-	(require 'gweb)
-	(require 'shell)
+  (require 'gweb)
+  (require 'shell)
   (require 'calendar)
-	(require 'cus-edit)
-	(require 'org)
+  (require 'cus-edit)
+  (require 'org)
   (require 'solar))
 ;;}}}
 ;;{{{ custom
@@ -641,11 +641,11 @@ meaning of `next'."
 ;;{{{ emacspeak clipboard
 
 (eval-when (load)
-  (condition-case nil
-      (unless (file-exists-p emacspeak-resource-directory)
-        (make-directory emacspeak-resource-directory))
-    (error (message "Make sure you have an Emacspeak resource directory %s"
-                    emacspeak-resource-directory))))
+           (condition-case nil
+               (unless (file-exists-p emacspeak-resource-directory)
+                 (make-directory emacspeak-resource-directory))
+             (error (message "Make sure you have an Emacspeak resource directory %s"
+                             emacspeak-resource-directory))))
 
 (defcustom emacspeak-clipboard-file
   (concat emacspeak-resource-directory "/" "clipboard")
@@ -852,7 +852,7 @@ If no property is set, show a message and exit."
          (completing-read
           "Display property: "
           (cl-loop
-					 for p in properties  and i from 0 if (evenp i) collect p)))))
+           for p in properties  and i from 0 if (evenp i) collect p)))))
       (t (message "No property set at point ")
          nil))))
   (if property
@@ -2243,7 +2243,7 @@ RIVO is implemented by rivo.pl ---
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
   (declare (special emacspeak-media-last-url emacspeak-media-shortcuts-directory
-										emacspeak-media-history))
+                    emacspeak-media-history))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program
@@ -2439,7 +2439,7 @@ of the source buffer."
   (interactive)
   (declare (special emacspeak-wizards--project-shell-directory))
   (ems--shell-pushd-if-needed
-	 emacspeak-wizards--project-shell-directory (current-buffer))
+   emacspeak-wizards--project-shell-directory (current-buffer))
   (emacspeak-auditory-icon 'task-done)
   (message  (abbreviate-file-name default-directory)))
 
@@ -2708,7 +2708,7 @@ term if needed."
       (let ((fields
              (split-string
               (buffer-substring
-							 (line-beginning-position) (line-end-position)))))
+               (line-beginning-position) (line-end-position)))))
         (push (cons (fourth fields) (second fields))
               emacspeak-wizards-espeak-voices-alist))
       (forward-line 1))))
@@ -2786,7 +2786,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                 (not (ad-find-some-advice s 'any  "emacspeak")))
              (push s result)))))
     (sort result
-					#'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
@@ -2806,7 +2806,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                    s)))
            (face-list)))))
     (sort result
-					#'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
@@ -3080,7 +3080,7 @@ sorted in lexical order with duplicates removed when saving."
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
    (concat
-		"env=" (url-hexify-string "store://datatables.org/alltableswithkeys"))
+    "env=" (url-hexify-string "store://datatables.org/alltableswithkeys"))
    "&format=json"
    "&q=")
   "REST-end-point for Yahoo Quotes API.")
@@ -3229,7 +3229,7 @@ Symbols are separated by whitespace."
      (emacspeak-wizards-yq-table tickers)
      (get-buffer-create buff))
     (setq
-		 emacspeak-table-speak-row-filter emacspeak-wizards-yql-quotes-row-filter
+     emacspeak-table-speak-row-filter emacspeak-wizards-yql-quotes-row-filter
      emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (rename-buffer buff 'unique)
     (goto-char (point-min))
@@ -3443,57 +3443,57 @@ Location is a Lat/Lng pair retrieved from Googke Maps API."
    (g-json-get 'lat geo) (g-json-get 'lng geo)))
 
 (defun ems--noaa-get-data (ask)
-	"Internal function that gets NOAA data and returns a results buffer."
-	(declare (special gweb-my-address))
-	(let* ((buffer (get-buffer-create "*NOAA Weather*"))
-				 (inhibit-read-only  t)
-				 (date nil)
-				 (start (point-min))
-				 (address
-					(if (and ask (= 16 (car ask)))
-							(read-from-minibuffer "Address:")
-						gweb-my-address))
-				 (geo  (if (and ask (= 16 (car ask)))
-									 (gmaps-address-geocode  address)
-								 (gmaps-address-geocode gweb-my-address))))
-		(with-current-buffer buffer
-			(erase-buffer)
-			(special-mode)
-			(orgstruct-mode)
-			(setq header-line-format (format "NOAA Weather For %s" address))
-			(insert (format "* Weather Forecast For %s\n\n" address))
+  "Internal function that gets NOAA data and returns a results buffer."
+  (declare (special gweb-my-address))
+  (let* ((buffer (get-buffer-create "*NOAA Weather*"))
+         (inhibit-read-only  t)
+         (date nil)
+         (start (point-min))
+         (address
+          (if (and ask (= 16 (car ask)))
+              (read-from-minibuffer "Address:")
+            gweb-my-address))
+         (geo  (if (and ask (= 16 (car ask)))
+                   (gmaps-address-geocode  address)
+                 (gmaps-address-geocode gweb-my-address))))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (special-mode)
+      (orgstruct-mode)
+      (setq header-line-format (format "NOAA Weather For %s" address))
+      (insert (format "* Weather Forecast For %s\n\n" address))
 ;;; produce Daily forecast
-			(let-alist (g-json-from-url (ems--noaa-url geo))
-				(cl-loop
-				 for p across .properties.periods do
-				 (let-alist p
-					 (insert
-						(format
-						 "** Forecast For %s: %s\n\n%s\n\n"
-						 .name .shortForecast .detailedForecast)))
-				 (fill-region start (point)))
-				(insert
-				 (format "\nUpdated at %s\n"
-								 (ems--noaa-time "%c" .properties.updated))))
-			(let-alist ;;; Now produce hourly forecast
-					(g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
-				(insert
-				 (format "\n* Hourly Forecast:Updated At %s \n"
-								 (ems--noaa-time "%c" .properties.updated)))
-				(cl-loop
-				 for p across .properties.periods do
-				 (let-alist p
-					 (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
-						 (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
-						 (setq date (ems--noaa-time "%x" .startTime)))
-					 (insert
-						(format
-						 "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
-						 (ems--noaa-time "%R" .startTime)
-						 .shortForecast
-						 .temperature .windSpeed .windDirection)))))
-			(goto-char (point-min)))
-		buffer))
+      (let-alist (g-json-from-url (ems--noaa-url geo))
+        (cl-loop
+         for p across .properties.periods do
+         (let-alist p
+           (insert
+            (format
+             "** Forecast For %s: %s\n\n%s\n\n"
+             .name .shortForecast .detailedForecast)))
+         (fill-region start (point)))
+        (insert
+         (format "\nUpdated at %s\n"
+                 (ems--noaa-time "%c" .properties.updated))))
+      (let-alist ;;; Now produce hourly forecast
+          (g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
+        (insert
+         (format "\n* Hourly Forecast:Updated At %s \n"
+                 (ems--noaa-time "%c" .properties.updated)))
+        (cl-loop
+         for p across .properties.periods do
+         (let-alist p
+           (unless (and date (string= date (ems--noaa-time "%x" .startTime)))
+             (insert (format "** %s\n" (ems--noaa-time "%A %X" .startTime)))
+             (setq date (ems--noaa-time "%x" .startTime)))
+           (insert
+            (format
+             "  - %s %s %s:  Wind Speed: %s Wind Direction: %s\n"
+             (ems--noaa-time "%R" .startTime)
+             .shortForecast
+             .temperature .windSpeed .windDirection)))))
+      (goto-char (point-min)))
+    buffer))
 ;;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
   "Display weather information using NOAA Weather API.  
@@ -3503,14 +3503,14 @@ arg (C-u) to get new data.  Optional second interactive prefix
 arg (C-u C-u) asks for location address; Default is to display
 weather for `gweb-my-address'.  "
   (interactive "P")
-	(let ((buffer
-				 (cond
-					(ask (ems--noaa-get-data ask))
-				  ((get-buffer"*NOAA Weather*") (get-buffer"*NOAA Weather*"))
-					(t (ems--noaa-get-data ask)))))
-		(switch-to-buffer buffer)
-		(emacspeak-auditory-icon 'select-object)
-		(emacspeak-speak-buffer)))
+  (let ((buffer
+         (cond
+          (ask (ems--noaa-get-data ask))
+          ((get-buffer"*NOAA Weather*") (get-buffer"*NOAA Weather*"))
+          (t (ems--noaa-get-data ask)))))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-buffer)))
 
 ;;}}}
 (provide 'emacspeak-wizards)

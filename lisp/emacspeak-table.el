@@ -178,12 +178,12 @@ Calls callback once per column."
         (count   (emacspeak-table-num-rows table))
         (found nil))
     (cl-loop for   i from 0   to count
-          and row = next then (% (incf row) count)
-          if  (funcall predicate  pattern
-                       (emacspeak-table-this-element table  row index))
-          do (setq found t)
-          until found
-          finally return (and found row))))
+             and row = next then (% (incf row) count)
+             if  (funcall predicate  pattern
+                          (emacspeak-table-this-element table  row index))
+             do (setq found t)
+             until found
+             finally return (and found row))))
 
 ;;}}}
 ;;{{{  Moving point:

@@ -133,35 +133,35 @@
 ;;; help map additions:
 
 (cl-loop for binding in
-      '(
-        (":" describe-help-keys)
-        ("B" customize-browse)
-        ("G" customize-group)
-        ("M" emacspeak-speak-popup-messages)
-        ("T" emacspeak-view-notifications)
-        ("M-F" find-function-at-point)
-        ("M-V" find-variable-at-point)
-        ("M-f" find-function)
-        ("M-k" find-function-on-key)
-        ("M-v" find-variable)
-        ("V" customize-variable)
-        ("C-e"   emacspeak-describe-emacspeak)
-        ("C-j" finder-commentary)
-        ("C-l" emacspeak-learn-emacs-mode)
-        ("C-m" man)
-        ("C-s" emacspeak-wizards-customize-saved)
-        ("C-r" info-display-manual)
-        ("SPC" customize-group)
-        ("TAB" emacspeak-info-wizard)
-        ("'" describe-text-properties)
-        ("," emacspeak-wizards-color-at-point)
-        ("/" describe-face)
-        ("C-v" voice-setup-describe-personality)
-        ("\;" describe-font)
-        ("p" list-packages)
-        )
-      do
-      (emacspeak-keymap-update help-map binding))
+         '(
+           (":" describe-help-keys)
+           ("B" customize-browse)
+           ("G" customize-group)
+           ("M" emacspeak-speak-popup-messages)
+           ("T" emacspeak-view-notifications)
+           ("M-F" find-function-at-point)
+           ("M-V" find-variable-at-point)
+           ("M-f" find-function)
+           ("M-k" find-function-on-key)
+           ("M-v" find-variable)
+           ("V" customize-variable)
+           ("C-e"   emacspeak-describe-emacspeak)
+           ("C-j" finder-commentary)
+           ("C-l" emacspeak-learn-emacs-mode)
+           ("C-m" man)
+           ("C-s" emacspeak-wizards-customize-saved)
+           ("C-r" info-display-manual)
+           ("SPC" customize-group)
+           ("TAB" emacspeak-info-wizard)
+           ("'" describe-text-properties)
+           ("," emacspeak-wizards-color-at-point)
+           ("/" describe-face)
+           ("C-v" voice-setup-describe-personality)
+           ("\;" describe-font)
+           ("p" list-packages)
+           )
+         do
+         (emacspeak-keymap-update help-map binding))
 
 ;;; emacspeak-keymap bindings:
 (cl-loop
@@ -398,11 +398,11 @@ relief."
     (keymap)
   "We define keys that invoke editing commands to be undefined"
   (cl-loop for k in
-        (where-is-internal 'emacspeak-self-insert-command
-                           (list keymap))
-        do
-        (define-key keymap k 'undefined)
-        ))
+           (where-is-internal 'emacspeak-self-insert-command
+                              (list keymap))
+           do
+           (define-key keymap k 'undefined)
+           ))
 
 (defun emacspeak-keymap-refresh ()
   "Load emacspeak-keymap module."
@@ -419,17 +419,17 @@ relief."
 
 (defcustom emacspeak-personal-keys 
   '(
-    ("0" emacspeak-wizards-shell-by-key ) 
-    ("1" emacspeak-wizards-shell-by-key ) 
-    ("2" emacspeak-wizards-shell-by-key ) 
-    ("3" emacspeak-wizards-shell-by-key ) 
-    ("4" emacspeak-wizards-shell-by-key ) 
-    ("5" emacspeak-wizards-shell-by-key ) 
-    ("6" emacspeak-wizards-shell-by-key ) 
-    ("7" emacspeak-wizards-shell-by-key ) 
-    ("8" emacspeak-wizards-shell-by-key ) 
-    ("9" emacspeak-wizards-shell-by-key ) 
-		("." emacspeak-wizards-shell-directory-reset)
+    ("0" emacspeak-wizards-shell-by-key) 
+    ("1" emacspeak-wizards-shell-by-key) 
+    ("2" emacspeak-wizards-shell-by-key) 
+    ("3" emacspeak-wizards-shell-by-key) 
+    ("4" emacspeak-wizards-shell-by-key) 
+    ("5" emacspeak-wizards-shell-by-key) 
+    ("6" emacspeak-wizards-shell-by-key) 
+    ("7" emacspeak-wizards-shell-by-key) 
+    ("8" emacspeak-wizards-shell-by-key) 
+    ("9" emacspeak-wizards-shell-by-key) 
+    ("." emacspeak-wizards-shell-directory-reset)
     ("," emacspeak-wizards-shell-directory-set)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("b" battery)
@@ -442,7 +442,7 @@ relief."
     ("p" paradox-list-packages)
     ("Q" emacspeak-wizards-yql-lookup)
     ("q" emacspeak-wizards-yql-quotes)
-		("w" emacspeak-wizards-noaa-weather)
+    ("w" emacspeak-wizards-noaa-weather)
     ("r" jabber-activity-switch-to)
     ("s" emacspeak-emergency-tts-restart)
     ("t" emacspeak-speak-telephone-directory)
@@ -545,7 +545,7 @@ interactive command that the key sequence executes."
     ("S" soundscape-stop)
     ("b" emacspeak-bbc)
     ("e" elfeed)
-    ;("h" emacspeak-webspace-headlines-browse)
+                                        ;("h" emacspeak-webspace-headlines-browse)
     ("l" emacspeak-m-player-locate-media)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("p" proced)
@@ -693,7 +693,7 @@ command that the key sequence executes."
     ("t" twit)
     ("u" browse-url)
     ("v" emacspeak-evil-toggle-evil)
-		("w" emacspeak-wizards-quick-weather))
+    ("w" emacspeak-wizards-quick-weather))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
 keys on your Linux PC keyboard into a `hyper' key on Linux by
@@ -781,8 +781,7 @@ interactive command that the key sequence executes."
   "Recover end-of-line."
   (declare (special emacspeak-prefix))
   (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
-(global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
-
+  (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
 
 ;;}}}
 (provide 'emacspeak-keymap)

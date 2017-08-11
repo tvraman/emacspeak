@@ -611,8 +611,8 @@ widget before summarizing."
   (let ((widget (widget-at (point))))
     (when(and widget  level)
       (cl-loop for i from 1 to level
-            do
-            (setq widget (widget-get  widget :parent))))
+               do
+               (setq widget (widget-get  widget :parent))))
     (cond
      (widget (emacspeak-widget-summarize widget))
      (t (message "No widget under point")))))
@@ -720,8 +720,8 @@ widget before summarizing."
                         :tag "voices")))
     (widget-put w :args 
                 (cl-loop for key being the hash-keys of dectalk-voice-table 
-                      collect
-                      (list 'personality :value key)))
+                         collect
+                         (list 'personality :value key)))
     w))
 
 ;;}}}

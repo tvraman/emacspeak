@@ -1040,8 +1040,6 @@ available with the prefix emacspeak-eterm-prefix and are listed below:
 (defvar emacspeak-eterm-column nil
   "Record the column last spoken")
 
-
-
 (defvar emacspeak-eterm-marker nil
   "Mark set in an eterm buffer. Used to cut and paste from the terminal.")
 
@@ -1318,7 +1316,7 @@ emacspeak-eterm-remote-hostnames")
           (forward-line 1))))))
 
 (eval-when (load)
-  (emacspeak-eterm-load-remote-hosts-cache))
+           (emacspeak-eterm-load-remote-hosts-cache))
 ;;;###autoload
 (defun emacspeak-eterm-cache-remote-host (host)
   "Add this hostname to cache of remote hostnames"

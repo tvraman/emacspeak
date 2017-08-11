@@ -64,7 +64,7 @@
            (set-default sym val)
            (when (and (getenv "DTK_PROGRAM")
                       (string-match "dtk" (getenv "DTK_PROGRAM")))
-           (setq-default dtk-speech-rate val))))
+             (setq-default dtk-speech-rate val))))
 
 ;;}}}
 ;;{{{  Top-level TTS  switcher
@@ -629,7 +629,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special dectalk-voice-table))
   (cl-loop for k being the hash-keys of dectalk-voice-table
-        collect   k))
+           collect   k))
 
 ;;}}}
 ;;{{{ configurater

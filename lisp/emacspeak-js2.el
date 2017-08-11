@@ -81,70 +81,70 @@
     (emacspeak-speak-line)))
 
 (cl-loop for f in
-      '(js2-mode-forward-sexp js2-mode-backward-sibling js2-next-error)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+         '(js2-mode-forward-sexp js2-mode-backward-sibling js2-next-error)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-speak-line)))))
 (cl-loop for f in
-      '(
-        js2-beginning-of-line js2-indent-line
-                              js2-indent-bounce-backwards js2-forward-sws
-                              js2-backward-sws js2-enter-key
-                              js2-end-of-line
-                              js2-mode-match-single-quote js2-mode-match-paren
-                              js2-mode-match-double-quote js2-mode-match-curly
-                              js2-mode-match-bracket js2-mode-magic-close-paren
-                              js2-insert-and-indent)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)))))
+         '(
+           js2-beginning-of-line js2-indent-line
+           js2-indent-bounce-backwards js2-forward-sws
+           js2-backward-sws js2-enter-key
+           js2-end-of-line
+           js2-mode-match-single-quote js2-mode-match-paren
+           js2-mode-match-double-quote js2-mode-match-curly
+           js2-mode-match-bracket js2-mode-magic-close-paren
+           js2-insert-and-indent)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)))))
 
 (cl-loop for f in
-      '(js2-mode-hide-comments js2-mode-hide-element
-                               js2-mode-hide-functions js2-mode-hide-warnings-and-errors)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'close-object)
-            (message "Hid %s"
-                     ,(substring (symbol-name f)
-                                 (length "js2-mode-hide-")))))))
+         '(js2-mode-hide-comments js2-mode-hide-element
+                                  js2-mode-hide-functions js2-mode-hide-warnings-and-errors)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'close-object)
+               (message "Hid %s"
+                        ,(substring (symbol-name f)
+                                    (length "js2-mode-hide-")))))))
 
 (cl-loop for f in
-      '(js2-mode-show-all js2-mode-show-comments
-                          js2-mode-show-element js2-mode-show-functions)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'open-object)
-            (message "Showed %s"
-                     ,(substring (symbol-name f)
-                                 (length "js2-mode-show-")))))))
+         '(js2-mode-show-all js2-mode-show-comments
+                             js2-mode-show-element js2-mode-show-functions)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'open-object)
+               (message "Showed %s"
+                        ,(substring (symbol-name f)
+                                    (length "js2-mode-show-")))))))
 
 (cl-loop for f in
-      '(js2-mode-toggle-warnings-and-errors
-        js2-mode-toggle-hide-functions
-        js2-mode-toggle-hide-comments                    js2-mode-toggle-element)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'button)
-            (message "Toggled %s"
-                     ,(substring (symbol-name f)
-                                 (length "js2-mode-toggle-")))))))
+         '(js2-mode-toggle-warnings-and-errors
+           js2-mode-toggle-hide-functions
+           js2-mode-toggle-hide-comments                    js2-mode-toggle-element)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'button)
+               (message "Toggled %s"
+                        ,(substring (symbol-name f)
+                                    (length "js2-mode-toggle-")))))))
 (defadvice js2-narrow-to-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)

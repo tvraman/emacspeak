@@ -76,7 +76,7 @@
   "Populate control with its settings information."
   (declare (special amixer-card amixer-device))
   (let ((fields nil)
-				(emacspeak-speak-messages nil)
+        (emacspeak-speak-messages nil)
         (slots nil)
         (current nil))
     (with-temp-buffer
@@ -123,12 +123,12 @@
   (declare (special amixer-db amixer-device amixer-program))
   (unless amixer-program (error "You dont have a standard amixer."))
   (let (
-				(message-log-max nil)
-				(inhibit-message  t) ;;; no spam in *Messages*
-				(controls nil)
+        (message-log-max nil)
+        (inhibit-message  t) ;;; no spam in *Messages*
+        (controls nil)
         (fields nil)
         (slots nil)
-				(emacspeak-speak-messages nil))
+        (emacspeak-speak-messages nil))
     (with-temp-buffer
       (shell-command
        (format
@@ -172,7 +172,7 @@
   "Return list of enumerated values."
   (declare (special amixer-device))
   (let ((values nil)
-				(emacspeak-speak-messages nil))
+        (emacspeak-speak-messages nil))
     (with-temp-buffer
       (shell-command
        (format
@@ -284,7 +284,7 @@ Interactive prefix arg refreshes cache."
   (interactive)
   (declare (special amixer-device))
   (let ((amixer-device "equal")
-				(emacspeak-speak-messages nil))
+        (emacspeak-speak-messages nil))
     (amixer 'refresh)
 ;;; mark db dirty.
     (setq amixer-db nil)))
@@ -300,7 +300,7 @@ Interactive prefix arg refreshes cache."
     "-Dequal"
     "cset"
     (format "numid=%s" i)
-    "66,66" ))
+    "66,66"))
   (message "Reset equalizer"))
 
 ;;;###autoload
@@ -313,7 +313,7 @@ Interactive prefix arg refreshes cache."
     (start-process
      "AlsaCtl" nil alsactl-program
      "-f"amixer-alsactl-config-file
-     "store" )
+     "store")
     (emacspeak-auditory-icon 'task-done)
     (message "Persisted amixer state.")))
 ;;}}}

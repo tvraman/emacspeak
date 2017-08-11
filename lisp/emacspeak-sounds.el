@@ -67,7 +67,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (eval-when (compile)
-  (require 'dtk-speak))
+           (require 'dtk-speak))
 
 ;;}}}
 ;;{{{  state of auditory icons
@@ -254,7 +254,7 @@ Do not set this by hand;
        (emacspeak-get-sound-filename sound-name)))))
 ;;;###autoload
 (defvar emacspeak-sox (executable-find "sox")
-"Name of SoX executable.")
+  "Name of SoX executable.")
 
 ;;;###autoload
 (defcustom emacspeak-soxplay-command 

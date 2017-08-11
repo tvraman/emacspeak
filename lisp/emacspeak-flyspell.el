@@ -75,8 +75,8 @@ fly spell checking."
   :prefix "emacspeak-flyspell-")
 
 (voice-setup-add-map
- '( (flyspell-incorrect voice-bolden)
-    (flyspell-duplicate voice-monotone)))
+ '((flyspell-incorrect voice-bolden)
+   (flyspell-duplicate voice-monotone)))
 
 ;;}}}
 ;;{{{ advice

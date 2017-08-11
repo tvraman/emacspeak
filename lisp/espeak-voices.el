@@ -469,7 +469,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special espeak-voice-table))
   (cl-loop for k being the hash-keys of espeak-voice-table 
-        collect   k))
+           collect   k))
 
 ;;}}}
 ;;{{{ Configurater 
@@ -484,8 +484,8 @@ and TABLE gives the values along that dimension."
     (setq espeak-character-to-speech-table
           (let ((table (copy-seq dtk-character-to-speech-table)))
             (cl-loop for entry across-ref table 
-                  when   (string-match "\\(\\[\\*\\]\\)"  entry) do
-                  (setf entry (replace-match " " nil nil  entry 1)))
+                     when   (string-match "\\(\\[\\*\\]\\)"  entry) do
+                     (setf entry (replace-match " " nil nil  entry 1)))
             table))))
 ;;;###autoload
 (defun espeak-configure-tts ()

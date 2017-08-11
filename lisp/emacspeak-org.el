@@ -137,22 +137,22 @@
  for f in
  '(
    org-mark-ring-goto org-mark-ring-push
-                      org-next-visible-heading org-previous-visible-heading
-                      org-forward-heading-same-level org-backward-heading-same-level
-                      org-backward-sentence org-forward-sentence
-                      org-backward-element org-forward-element
-                      org-backward-paragraph org-forward-paragraph
-                      org-next-link org-previous-link org-open-at-point
-                      org-goto  org-goto-ret
-                      org-goto-left org-goto-right
-                      org-goto-quit
-                      org-next-item org-previous-item
-                      org-metaleft org-metaright org-metaup org-metadown
-                      org-meta-return
-                      org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
-                      org-mark-element org-mark-subtree
-                      org-agenda-forward-block org-agenda-backward-block
-                      )
+   org-next-visible-heading org-previous-visible-heading
+   org-forward-heading-same-level org-backward-heading-same-level
+   org-backward-sentence org-forward-sentence
+   org-backward-element org-forward-element
+   org-backward-paragraph org-forward-paragraph
+   org-next-link org-previous-link org-open-at-point
+   org-goto  org-goto-ret
+   org-goto-left org-goto-right
+   org-goto-quit
+   org-next-item org-previous-item
+   org-metaleft org-metaright org-metaup org-metadown
+   org-meta-return
+   org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
+   org-mark-element org-mark-subtree
+   org-agenda-forward-block org-agenda-backward-block
+   )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
@@ -233,8 +233,8 @@
 (cl-loop for f in
          '(
            org-cut-subtree org-copy-subtree
-                           org-paste-subtree org-archive-subtree
-                           org-narrow-to-subtree)
+           org-paste-subtree org-archive-subtree
+           org-narrow-to-subtree)
          do
          (eval
           `(defadvice ,f(after emacspeak pre act comp)
@@ -316,9 +316,9 @@
  for f in
  '(
    org-agenda-next-date-line org-agenda-previous-date-line
-                             org-agenda-next-line org-agenda-previous-line
-                             org-agenda-goto-today
-                             )
+   org-agenda-next-line org-agenda-previous-line
+   org-agenda-goto-today
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -663,7 +663,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
           (format "%c: %s\n" (cl-first e) (cl-second e)))
       choices "\n"))
     (sit-for 5)))
-    
 
 ;;}}}
 ;;{{{ Preview HTML With EWW:

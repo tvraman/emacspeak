@@ -642,7 +642,7 @@ Argument COMPLEMENT  is the complement of separator."
   "Use voice VOICE to speak letter."
   (declare (special  dtk-quiet tts-default-voice))
   (unless (or (eq 'inaudible voice) dtk-quiet
-               (null letter)(string-equal  letter ""))
+              (null letter)(string-equal  letter ""))
     (dtk-interp-queue-code (tts-voice-reset-code))
     (dtk-interp-queue-code
      (cond
@@ -662,7 +662,6 @@ Argument COMPLEMENT  is the complement of separator."
       (t       "")))
     (dtk-interp-letter letter)
     (dtk-interp-queue-code (tts-voice-reset-code))))
-
 
 ;;;Internal function used by dtk-speak to send text out.
 ;;;Handles voice locking etc.
@@ -788,7 +787,7 @@ Optional arg `all' or interactive call   silences notification stream as well."
   (interactive "P")
   (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
   (when
-			(and (dtk-notify-process) (or all (called-interactively-p 'interactive)))
+      (and (dtk-notify-process) (or all (called-interactively-p 'interactive)))
     (dtk-notify-stop)))
 
 (defun dtk-reset-default-voice()
@@ -1920,18 +1919,18 @@ Optional argument group-count specifies grouping for intonation."
       (setq buffer-undo-list t)
       (erase-buffer)
       (cl-loop  for element in text
-             do
-             (insert
-              (format "%s%s "
-                      element
-                      (cond
-                       ((null group-count) "")
-                       ((= len counter) ". ")
-                       ((and group-count
-                             (zerop (% counter group-count)))
-                        ", ")
-                       (t ""))))
-             (incf counter))
+                do
+                (insert
+                 (format "%s%s "
+                         element
+                         (cond
+                          ((null group-count) "")
+                          ((= len counter) ". ")
+                          ((and group-count
+                                (zerop (% counter group-count)))
+                           ", ")
+                          (t ""))))
+                (incf counter))
       (setq contents (buffer-string)))
     (dtk-speak contents)))
 

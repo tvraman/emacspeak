@@ -161,7 +161,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
   "Return list of voices that map to non-existent faces."
   (declare (special voice-setup-face-voice-table))
   (cl-loop for f being the hash-keys of voice-setup-face-voice-table
-        unless (facep f) collect f))
+           unless (facep f) collect f))
 
 ;;}}}
 ;;{{{ special form def-voice-font
@@ -260,15 +260,15 @@ VOICE-NAME are  changed."
   (let* ((plist (symbol-plist voice-name))
          (l (1- (length plist))))
     (cl-loop for i from 0 to l by 2
-          collect (nth i plist))))
+             collect (nth i plist))))
 
 (defun voice-setup-update-personalities (personality)
   "Update  personalities  that use this voice to  new setting."
   (let ((value (symbol-value personality))
         (observers (voice-setup-observing-personalities personality)))
     (cl-loop for o in observers
-          do                            ;o is already quoted
-          (set o value))))
+             do                            ;o is already quoted
+             (set o value))))
 
 ;;; note that for now we dont use  gain settings
 
@@ -355,10 +355,10 @@ command \\[customize-variable] on <personality>-settings. "
 (defvoice voice-smoothen-extra (list nil nil nil 4 5)
   "Extra smoothen current voice.")
 
-(defvoice voice-smoothen-medium (list nil nil nil 3 4 )
+(defvoice voice-smoothen-medium (list nil nil nil 3 4)
   "Add medium smoothen current voice.")
 
-(defvoice voice-smoothen (list nil nil  2 2 )
+(defvoice voice-smoothen (list nil nil  2 2)
   "Smoothen current voice.")
 
 (defvoice voice-brighten-medium (list nil nil nil 5 6)
@@ -605,15 +605,15 @@ these are available via minibuffer history."
   (interactive
    (list
     (let* ((v (dtk-get-style)))
-			(setq v
-						(if (listp v)
-								(mapcar #'symbol-name v)
-							(symbol-name v)))
-      (when (listp v) (setq v (cl-first v )))
+      (setq v
+            (if (listp v)
+                (mapcar #'symbol-name v)
+              (symbol-name v)))
+      (when (listp v) (setq v (cl-first v)))
       (read-from-minibuffer
-			 "Personality: "
-       nil nil 'read nil  v ))))
-	(let ((voice (get personality 'observing))
+       "Personality: "
+       nil nil 'read nil  v))))
+  (let ((voice (get personality 'observing))
         (settings nil)
         (n '(family average-pitch pitch-range stress richness punctuations))
         (values nil))

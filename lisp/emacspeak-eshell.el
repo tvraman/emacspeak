@@ -98,20 +98,20 @@ Provide an auditory icon if possible."
 ;;{{{ advice em-hist
 
 (cl-loop for f in
-      '(
-        eshell-next-input eshell-previous-input
-                          eshell-next-matching-input eshell-previous-matching-input
-                          eshell-next-matching-input-from-input eshell-previous-matching-input-from-input)
-      do
-      (eval
-       `(defadvice ,f (after  emacspeak pre act comp)
-          "Speak selected command."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (save-excursion
-              (beginning-of-line)
-              (eshell-skip-prompt)
-              (emacspeak-speak-line 1))))))
+         '(
+           eshell-next-input eshell-previous-input
+           eshell-next-matching-input eshell-previous-matching-input
+           eshell-next-matching-input-from-input eshell-previous-matching-input-from-input)
+         do
+         (eval
+          `(defadvice ,f (after  emacspeak pre act comp)
+             "Speak selected command."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (save-excursion
+                 (beginning-of-line)
+                 (eshell-skip-prompt)
+                 (emacspeak-speak-line 1))))))
 
 ;;}}}
 ;;{{{  advice em-ls
@@ -163,33 +163,33 @@ personalities."
 ;;{{{ Advice em-prompt
 
 (cl-loop for f in
-      '(
-        eshell-next-prompt eshell-previous-prompt
-                           eshell-forward-matching-input  eshell-backward-matching-input)
-      do
-      (eval
-       `(defadvice ,f (after  emacspeak pre act comp)
-          "Speak selected command."
-          (when (ems-interactive-p)
-            (let ((emacspeak-speak-messages nil))
-              (emacspeak-auditory-icon 'select-object)
-              (emacspeak-speak-line 1))))))
+         '(
+           eshell-next-prompt eshell-previous-prompt
+           eshell-forward-matching-input  eshell-backward-matching-input)
+         do
+         (eval
+          `(defadvice ,f (after  emacspeak pre act comp)
+             "Speak selected command."
+             (when (ems-interactive-p)
+               (let ((emacspeak-speak-messages nil))
+                 (emacspeak-auditory-icon 'select-object)
+                 (emacspeak-speak-line 1))))))
 
 ;;}}}
 ;;{{{  advice esh-arg
 
 (cl-loop for f in
-      '(
-        eshell-insert-buffer-name
-        eshell-insert-process
-        eshell-insert-envvar)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Speak output."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line)))))
+         '(
+           eshell-insert-buffer-name
+           eshell-insert-process
+           eshell-insert-envvar)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Speak output."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-speak-line)))))
 
 (defadvice eshell-insert-process (after emacspeak pre
                                         act comp)

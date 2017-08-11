@@ -87,7 +87,6 @@
          (not (eq (overlay-get ovr 'vdiff-type) 'fold))
          ovr)))
 
-
 (defun  emacspeak-vdiff-speak-this-hunk ()
   "Speak VDiff hunk under point."
   (interactive)
@@ -112,7 +111,7 @@
 ;;{{{ Interactive Commands:
 
 '(
-)
+  )
 
 (cl-loop
  for f in
@@ -140,18 +139,16 @@
 (cl-loop
  for f in
  '(vdiff-buffers vdiff-buffers3 vdiff-magit-compare
-  vdiff-current-file vdiff-files vdiff-files3)
+                 vdiff-current-file vdiff-files vdiff-files3)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
-    (emacspeak-speak-mode-line)))))
-  
-  
-;;}}}
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-mode-line)))))
 
+;;}}}
 
 ;;{{{ open/close Folds:
 (cl-loop
@@ -198,7 +195,7 @@
 (eval-after-load
     "vdiff"
   `(progn
-     (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk )
+     (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk)
      (define-key vdiff-mode-prefix-map   (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
      (define-key vdiff-mode-prefix-map   (kbd "l") 'emacspeak-vdiff-speak-other-line)))
 

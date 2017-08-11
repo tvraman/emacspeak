@@ -92,8 +92,8 @@
  for f in
  '(
    image-type jabber-chat-with jabber-chat-with-jid-at-point
-              jabber-keepalive-do jabber-fsm-handle-sentinel jabber-xml-resolve-namespace-prefixes
-              jabber-process-roster jabber-keepalive-got-response)
+   jabber-keepalive-do jabber-fsm-handle-sentinel jabber-xml-resolve-namespace-prefixes
+   jabber-process-roster jabber-keepalive-got-response)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
@@ -276,12 +276,12 @@ session."
 
 (when (boundp 'jabber-chat-mode-map)
   (cl-loop for k in
-        '(
-          ("M-n" emacspeak-jabber-chat-next-message)
-          ("M-p" emacspeak-jabber-chat-previous-message)
-          ("M-SPC " emacspeak-jabber-chat-speak-this-message))
-        do
-        (emacspeak-keymap-update  jabber-chat-mode-map k)))
+           '(
+             ("M-n" emacspeak-jabber-chat-next-message)
+             ("M-p" emacspeak-jabber-chat-previous-message)
+             ("M-SPC " emacspeak-jabber-chat-speak-this-message))
+           do
+           (emacspeak-keymap-update  jabber-chat-mode-map k)))
 
 ;;}}}
 (provide 'emacspeak-jabber)

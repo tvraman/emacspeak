@@ -57,20 +57,20 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(ivy-action voice-animate)
-(ivy-confirm-face voice-bolden)
-(ivy-current-match voice-lighten)
-(ivy-cursor voice-smoothen)
-(ivy-match-required-face voice-bolden-extra)
-(ivy-minibuffer-match-face-1 voice-monotone)
-(ivy-minibuffer-match-face-2 voice-monotone-medium)
-(ivy-minibuffer-match-face-3 voice-monotone-light)
-(ivy-minibuffer-match-face-4 voice-monotone)
-(ivy-modified-buffer voice-bolden-and-animate)
-(ivy-remote voice-lighten)
-(ivy-subdir voice-smoothen)
-(ivy-virtual voice-animate)))
+ '(
+   (ivy-action voice-animate)
+   (ivy-confirm-face voice-bolden)
+   (ivy-current-match voice-lighten)
+   (ivy-cursor voice-smoothen)
+   (ivy-match-required-face voice-bolden-extra)
+   (ivy-minibuffer-match-face-1 voice-monotone)
+   (ivy-minibuffer-match-face-2 voice-monotone-medium)
+   (ivy-minibuffer-match-face-3 voice-monotone-light)
+   (ivy-minibuffer-match-face-4 voice-monotone)
+   (ivy-modified-buffer voice-bolden-and-animate)
+   (ivy-remote voice-lighten)
+   (ivy-subdir voice-smoothen)
+   (ivy-virtual voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -115,7 +115,7 @@
   (sit-for 1.5)
   (emacspeak-speak-buffer))
 
-(defadvice ivy-read (before emacspeak pre act comp )
+(defadvice ivy-read (before emacspeak pre act comp)
   "Speak prompt"
   (emacspeak-auditory-icon 'open-object)
   (dtk-speak (ad-get-arg 0)))

@@ -72,17 +72,17 @@
 ;;}}}
 ;;{{{ advice interactive commands
 (cl-loop for f in
-      '(muse-follow-name-at-point
-        muse-follow-name-at-point-other-window
-        muse-next-reference
-        muse-previous-reference)
-      do
-      (eval
-       `(defadvice   ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+         '(muse-follow-name-at-point
+           muse-follow-name-at-point-other-window
+           muse-next-reference
+           muse-previous-reference)
+         do
+         (eval
+          `(defadvice   ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-muse)

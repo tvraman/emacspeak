@@ -70,8 +70,8 @@
   (dtk-speak
    (format "%s at %s %s "
            (case(char-after (point))
-             (?o "stone")
-             (?. "hole"))
+                (?o "stone")
+                (?. "hole"))
            (emacspeak-solitaire-current-row)
            (emacspeak-solitaire-current-column))))
 
@@ -89,8 +89,8 @@
           (count 1))
       (while (not (eolp))
         (case (char-after (point))
-          (?o (emacspeak-solitaire-stone))
-          (?. (emacspeak-solitaire-hole)))
+              (?o (emacspeak-solitaire-stone))
+              (?. (emacspeak-solitaire-hole)))
         (incf count)
         (when (and (>= row 3)
                    (<= row 5)
@@ -107,28 +107,28 @@
     (let ((row (emacspeak-solitaire-current-row))
           (column (emacspeak-solitaire-current-column)))
       (cl-loop for i  from 1 to(- row 1)
-            do
-            (solitaire-up))
+               do
+               (solitaire-up))
       (case (char-after (point))
-        (?o (emacspeak-solitaire-stone))
-        (?. (emacspeak-solitaire-hole)))
+            (?o (emacspeak-solitaire-stone))
+            (?. (emacspeak-solitaire-hole)))
       (cond
        ((and (>= column 3)
              (<= column 5))
         (cl-loop for count from 2 to 7 
-              do
-              (when  (= count 3) (dtk-silence 10))
-              (when (= count 6) (dtk-silence 10))
-              (solitaire-down)
-              (case (char-after (point))
-                (?o (emacspeak-solitaire-stone))
-                (?. (emacspeak-solitaire-hole)))))
+                 do
+                 (when  (= count 3) (dtk-silence 10))
+                 (when (= count 6) (dtk-silence 10))
+                 (solitaire-down)
+                 (case (char-after (point))
+                       (?o (emacspeak-solitaire-stone))
+                       (?. (emacspeak-solitaire-hole)))))
        (t (cl-loop for count from 2 to 3
-                do
-                (solitaire-down)
-                (case (char-after (point))
-                  (?o (emacspeak-solitaire-stone))
-                  (?. (emacspeak-solitaire-hole)))))))
+                   do
+                   (solitaire-down)
+                   (case (char-after (point))
+                         (?o (emacspeak-solitaire-stone))
+                         (?. (emacspeak-solitaire-hole)))))))
     (dtk-force)))
 
 ;;}}}

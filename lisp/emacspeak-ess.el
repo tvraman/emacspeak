@@ -83,14 +83,14 @@ Cue electric insertion with a tone."
 ;;{{{ Structure commands 
 
 (cl-loop for f in
-      '(ess-beginning-of-function ess-end-of-function)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Produce auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+         '(ess-beginning-of-function ess-end-of-function)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Produce auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-speak-line)))))
 
 (defadvice ess-mark-function (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -109,22 +109,22 @@ Cue electric insertion with a tone."
 ;;{{{ Evaluators
 
 (cl-loop for f in
-      '(
-        ess-eval-function ess-eval-buffer
-                          ess-eval-function-and-go ess-eval-buffer-and-go
-                          ess-eval-chunk ess-eval-chunk-and-go
-                          ess-eval-line ess-eval-line-and-go
-                          ess-eval-paragraph ess-eval-paragraph-and-go
-                          ess-eval-paragraph-and-step
-                          ess-eval-region ess-eval-region-and-go
-                          ess-eval-line-and-step ess-eval-function-or-paragraph-and-step)
-      do
-      (eval
-       `
-       (defadvice ,f (after emacspeak pre act comp)
-         "Provide auditory feedback."
-         (when (ems-interactive-p)
-           (emacspeak-auditory-icon 'select-object)))))
+         '(
+           ess-eval-function ess-eval-buffer
+           ess-eval-function-and-go ess-eval-buffer-and-go
+           ess-eval-chunk ess-eval-chunk-and-go
+           ess-eval-line ess-eval-line-and-go
+           ess-eval-paragraph ess-eval-paragraph-and-go
+           ess-eval-paragraph-and-step
+           ess-eval-region ess-eval-region-and-go
+           ess-eval-line-and-step ess-eval-function-or-paragraph-and-step)
+         do
+         (eval
+          `
+          (defadvice ,f (after emacspeak pre act comp)
+            "Provide auditory feedback."
+            (when (ems-interactive-p)
+              (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ Switchers
@@ -135,15 +135,15 @@ Cue electric insertion with a tone."
     (emacspeak-auditory-icon 'help)
     (message "Displayed help in other window.")))
 (cl-loop for f in
-      '(
-        ess-switch-to-ess ess-switch-to-end-of-ESS)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-mode-line)))))
+         '(
+           ess-switch-to-ess ess-switch-to-end-of-ESS)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-speak-mode-line)))))
 
 ;;}}}
 ;;{{{ set up programming mode:

@@ -87,15 +87,15 @@
     (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop for command in
-      '(twittering-goto-next-thing
-        twittering-goto-previous-thing)
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Speak thing moved to."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'mark-object)
-            (emacspeak-speak-this-face-chunk)))))
+         '(twittering-goto-next-thing
+           twittering-goto-previous-thing)
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Speak thing moved to."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'mark-object)
+               (emacspeak-speak-this-face-chunk)))))
 
 (defun emacspeak-twittering-speak-this-tweet ()
   "Speak tweet under point."
@@ -106,21 +106,21 @@
            (get-text-property (point) 'text))))
 
 (cl-loop for command in
-      '(twittering-goto-first-status
-        twittering-scroll-up
-        twittering-scroll-down
-        twittering-goto-next-status
-        twittering-goto-previous-status
-        twittering-goto-next-status-of-user
-        twittering-goto-previous-status-of-user
-        )
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Speak status moved to."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-twittering-speak-this-tweet)))))
+         '(twittering-goto-first-status
+           twittering-scroll-up
+           twittering-scroll-down
+           twittering-goto-next-status
+           twittering-goto-previous-status
+           twittering-goto-next-status-of-user
+           twittering-goto-previous-status-of-user
+           )
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Speak status moved to."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-twittering-speak-this-tweet)))))
 
 (defadvice twittering-edit-post-status (after emacspeak pre act comp)
   "Produce auditory feedback."
@@ -133,26 +133,26 @@
     (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop for command in
-      '(twittering-friends-timeline
-        twittering-replies-timeline
-        twittering-user-timeline
-        twittering-direct-messages-timeline
-        twittering-update-status-interactive
-        twittering-search
-        twittering-switch-to-previous-timeline
-        twittering-switch-to-next-timeline
-        twittering-other-user-list-interactive
-        twittering-visit-timeline
-        twittering-current-timeline
-        twittering-view-user-page
-        )
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Provide spoken and auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'news)
-            (emacspeak-speak-mode-line)))))
+         '(twittering-friends-timeline
+           twittering-replies-timeline
+           twittering-user-timeline
+           twittering-direct-messages-timeline
+           twittering-update-status-interactive
+           twittering-search
+           twittering-switch-to-previous-timeline
+           twittering-switch-to-next-timeline
+           twittering-other-user-list-interactive
+           twittering-visit-timeline
+           twittering-current-timeline
+           twittering-view-user-page
+           )
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Provide spoken and auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'news)
+               (emacspeak-speak-mode-line)))))
 (defadvice twittering-kill-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -173,15 +173,15 @@
 ;;{{{ Silence chatter
 
 (cl-loop for f in
-      '(twittering-get-and-render-timeline
-        twittering-http-default-sentinel
-        twittering-http-post-default-sentinel
-        twittering-http-get-default-sentinel twittering-retrieve-single-tweet-sentinel)
-      do
-      (eval
-       `(defadvice ,f  (around emacspeak pre act comp)
-          "Silence spoken messages while twitter is updating."
-          (ems-with-messages-silenced ad-do-it))))
+         '(twittering-get-and-render-timeline
+           twittering-http-default-sentinel
+           twittering-http-post-default-sentinel
+           twittering-http-get-default-sentinel twittering-retrieve-single-tweet-sentinel)
+         do
+         (eval
+          `(defadvice ,f  (around emacspeak pre act comp)
+             "Silence spoken messages while twitter is updating."
+             (ems-with-messages-silenced ad-do-it))))
 
 ;;}}}
 ;;{{{ additional interactive comand

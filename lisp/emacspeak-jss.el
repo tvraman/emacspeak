@@ -115,17 +115,17 @@
 
 ;;; Advice Killing Commands:
 (cl-loop for f in
-      '(jss-script-kill
-        jss-debugger-kill
-        jss-console-kill
-        jss-browser-kill-buffer)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory icon."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'close-object)
-            (emacspeak-speak-mode-line)))))
+         '(jss-script-kill
+           jss-debugger-kill
+           jss-console-kill
+           jss-browser-kill-buffer)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory icon."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'close-object)
+               (emacspeak-speak-mode-line)))))
 
         ;;; Setup JSS buffers in programming mode:
 (add-hook 'jss-super-mode-hook 'emacspeak-setup-programming-mode
@@ -139,41 +139,41 @@
 ;;; Cue task completion
 
 (cl-loop for f in
-      '(jss-browser-mode-refresh
-        jss-connect
-        jss-console-clear-buffer
-        jss-console-ensure-connection
-        jss-console-reload-page)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'task-done)
-            (emacspeak-speak-mode-line)))))
+         '(jss-browser-mode-refresh
+           jss-connect
+           jss-console-clear-buffer
+           jss-console-ensure-connection
+           jss-console-reload-page)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'task-done)
+               (emacspeak-speak-mode-line)))))
 
 ;;; Navigators:
 
 (cl-loop for f in
-      '(
-        jss-previous-button
-        jss-next-button
-        jss-frame-previous
-        jss-frame-next
-        jss-frame-goto-source
-        jss-frame-goto-exception
-        jss-debugger-stepper-step-into
-        jss-debugger-stepper-step-out
-        jss-debugger-stepper-step-over
-        jss-debugger-frame-goto-prompt
-        )
-      do
-      (eval
-       `(defadvice,f (after emacspeak pre act comp)
-          "provide auditory feedback."
-          (when  (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+         '(
+           jss-previous-button
+           jss-next-button
+           jss-frame-previous
+           jss-frame-next
+           jss-frame-goto-source
+           jss-frame-goto-exception
+           jss-debugger-stepper-step-into
+           jss-debugger-stepper-step-out
+           jss-debugger-stepper-step-over
+           jss-debugger-frame-goto-prompt
+           )
+         do
+         (eval
+          `(defadvice,f (after emacspeak pre act comp)
+             "provide auditory feedback."
+             (when  (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-jss)

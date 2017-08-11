@@ -134,10 +134,10 @@ s(defun emacspeak-vm-yank-header ()
        (while (not header)
          (setq header
                (case
-                   (read-char "f From s Subject t To")
-                 (?s subject)
-                 (?f from)
-                 (?t to))))
+                (read-char "f From s Subject t To")
+                (?s subject)
+                (?f from)
+                (?t to))))
        (kill-new header)
        (message "%s" header)))
     (t (error "No current message."))))
@@ -601,14 +601,14 @@ If N is negative, move backward instead."
   :group 'emacspeak-vm)
 (defvar emacspeak-vm-demote-html-attachments
   '(
-        favorite-internal  "text/plain" "text/enriched"
-        "text/html" "application/xml+xhtml")
+    favorite-internal  "text/plain" "text/enriched"
+    "text/html" "application/xml+xhtml")
   "Setting that prefers text/plain alternatives over html/xhtml.")
 
 (defvar emacspeak-vm-promote-html-attachments
   '(
-        favorite-internal   "text/html" "application/xml+xhtml"
-        "text/plain" "text/enriched")
+    favorite-internal   "text/html" "application/xml+xhtml"
+    "text/plain" "text/enriched")
   "Setting that prefers  alternatives  html/xhtml over text/plain.")
 
 (defun emacspeak-vm-use-raman-settings ()

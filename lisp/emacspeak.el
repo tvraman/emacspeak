@@ -495,7 +495,7 @@ commands and options for details."
   (require 'emacspeak-personality)
   (dtk-initialize)
   (tts-configure-synthesis-setup)
-	(require 'emacspeak-keymap)
+  (require 'emacspeak-keymap)
   (require 'emacspeak-redefine)
   (require 'emacspeak-replace)
   (require 'emacspeak-advice)
@@ -515,7 +515,7 @@ commands and options for details."
      (substitute-command-keys
       "\\[emacspeak-describe-emacspeak]")
      emacspeak-version)))
-	(emacspeak-play-startup-icon))
+  (emacspeak-play-startup-icon))
 
 ;;;###autoload
 (defun emacspeak-info ()
@@ -544,7 +544,5 @@ commands and options for details."
 ;;; end:
 
 ;;}}}
-
-
 
 ;;; emacspeak.el ends here

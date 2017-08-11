@@ -42,7 +42,6 @@
 ;;; Commentary:
 ;;; RG ==  Emacs front-end to ripgrep (rg).
 
-
 ;;; Code:
 
 ;;}}}
@@ -57,14 +56,14 @@
 ;;{{{ Map Faces:
 
 (voice-setup-add-map 
-'(
-(rg-context-face voice-bolden)
-(rg-error-face voice-animate)
-(rg-file-tag-face voice-smoothen)
-(rg-filename-face voice-annotate)
-(rg-info-face voice-monotone)
-(rg-match-face voice-lighten)
-(rg-warning-face voice-animate)))
+ '(
+   (rg-context-face voice-bolden)
+   (rg-error-face voice-animate)
+   (rg-file-tag-face voice-smoothen)
+   (rg-filename-face voice-annotate)
+   (rg-info-face voice-monotone)
+   (rg-match-face voice-lighten)
+   (rg-warning-face voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -81,11 +80,10 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
-
 (cl-loop
  for f in
  '(rg-next-file
-rg-prev-file)
+   rg-prev-file)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

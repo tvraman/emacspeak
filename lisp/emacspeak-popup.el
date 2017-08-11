@@ -70,7 +70,7 @@
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
   (let ((msg (elt (popup-list popup) (popup-cursor popup))))
-  (message msg)))
+    (message msg)))
 
 (defadvice popup-menu-event-loop (around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -115,7 +115,7 @@
 
 (eval-after-load
     "popup"
-  `(define-key popup-menu-keymap   emacspeak-prefix 'emacspeak-prefix-command ))
+  `(define-key popup-menu-keymap   emacspeak-prefix 'emacspeak-prefix-command))
 
 ;;}}}
 

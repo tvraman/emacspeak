@@ -90,30 +90,30 @@
  '(markdown-outdent-or-delete markdown-exdent-or-delete)
  do
  (eval
-	`(defadvice ,f (around emacspeak pre act)
-		 "Speak character you're deleting."
-		 (cond
-			((ems-interactive-p)
-			 (dtk-tone 500 100 'force)
-			 (emacspeak-speak-this-char (preceding-char))
-			 ad-do-it)
-			(t ad-do-it))
-		 ad-return-value)))
+  `(defadvice ,f (around emacspeak pre act)
+     "Speak character you're deleting."
+     (cond
+      ((ems-interactive-p)
+       (dtk-tone 500 100 'force)
+       (emacspeak-speak-this-char (preceding-char))
+       ad-do-it)
+      (t ad-do-it))
+     ad-return-value)))
 
 (cl-loop
  for f in
  '(
-	 markdown-backward-block markdown-backward-page
-	 markdown-beginning-of-list markdown-beginning-of-text-block
-	 markdown-edit-code-block markdown-end-of-list
-	 markdown-end-of-text-block markdown-forward-block markdown-forward-page
-	 markdown-insert-inline-link-dwim markdown-insert-kbd
-	 markdown-insert-strike-through
-	 markdown-outline-next markdown-outline-next-same-level
-	 markdown-outline-previous
-	 markdown-outline-previous-same-level markdown-outline-up
-	 markdown-reference-goto-link
-	 markdown-up-heading markdown-up-list
+   markdown-backward-block markdown-backward-page
+   markdown-beginning-of-list markdown-beginning-of-text-block
+   markdown-edit-code-block markdown-end-of-list
+   markdown-end-of-text-block markdown-forward-block markdown-forward-page
+   markdown-insert-inline-link-dwim markdown-insert-kbd
+   markdown-insert-strike-through
+   markdown-outline-next markdown-outline-next-same-level
+   markdown-outline-previous
+   markdown-outline-previous-same-level markdown-outline-up
+   markdown-reference-goto-link
+   markdown-up-heading markdown-up-list
    markdown-demote-subtree markdown-demote markdown-demote-list-item
    markdown-promote-subtree markdown-move-subtree-up markdown-move-subtree-down
    markdown-backward-paragraph markdown-cycle
@@ -182,7 +182,7 @@
        (emacspeak-auditory-icon 'complete)
        (emacspeak-speak-line)))))
 
-	;;}}}
+;;}}}
 (provide 'emacspeak-markdown)
 ;;{{{ end of file
 

@@ -140,7 +140,7 @@
  for f in
  '(
    package-menu-mark-delete package-menu-mark-install package-show-package-list
-                            package-menu-mark-unmark package-menu-backup-unmark)
+   package-menu-mark-unmark package-menu-backup-unmark)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act com)

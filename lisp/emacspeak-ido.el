@@ -71,17 +71,17 @@
   (setq emacspeak-ido-cache-current-directory ido-current-directory))
 
 (defgroup emacspeak-ido nil
-	"IDO Completions On The emacspeak Audio Desktop."
-	:group  'emacspeak)
+  "IDO Completions On The emacspeak Audio Desktop."
+  :group  'emacspeak)
 
 (defcustom emacspeak-ido-typing-delay 0.15
-"How long we wait before speaking completions."
-:type 'float 
-:group 'emacspeak-ido)(defadvice ido-exhibit (after emacspeak pre act comp)
+  "How long we wait before speaking completions."
+  :type 'float 
+  :group 'emacspeak-ido)(defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
   (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
     (dtk-speak
-		 (concat 
+     (concat 
       (minibuffer-contents)
       (format " %d choices: " (length ido-matches))
       (if(or (null ido-current-directory)
@@ -152,17 +152,17 @@ The default value of 12 is too high for using ido effectively with speech. "
 (cl-loop 
  for f in
  '(
-	 ido-switch-buffer ido-switch-buffer-other-window
+   ido-switch-buffer ido-switch-buffer-other-window
    ido-switch-buffer-other-frame ido-display-buffer
-	 ido-find-file ido-find-file-other-frame ido-find-file-other-window
+   ido-find-file ido-find-file-other-frame ido-find-file-other-window
    ido-find-alternate-file ido-find-file-read-only ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
  do
  (eval
   `(defadvice   ,f(after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-			 (emacspeak-auditory-icon 'open-object)
-(emacspeak-speak-mode-line)))))
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-mode-line)))))
 
 ;;; note that though these are after advice fragments,
 ;;; ido-matches does not reflect the change at the time we
@@ -216,8 +216,8 @@ The default value of 12 is too high for using ido effectively with speech. "
   (declare (special ido-completion-map))
   (define-key ido-common-completion-map "\C-f" 'ido-enter-find-file)
   (define-key ido-common-completion-map "^" 'ido-up-directory)
-	(define-key ido-common-completion-map emacspeak-prefix 'emacspeak-prefix-command)
-	(define-key ido-common-completion-map (kbd "M-e")  'ido-edit-input))
+  (define-key ido-common-completion-map emacspeak-prefix 'emacspeak-prefix-command)
+  (define-key ido-common-completion-map (kbd "M-e")  'ido-edit-input))
 
 (emacspeak-ido-keys)
 ;;}}}

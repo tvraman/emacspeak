@@ -1354,9 +1354,9 @@ extension:<ext> Filter by file extension
   "Generate a setter that sets emacspeak-eww-url-template
 to specified name for use as a callback."
   (eval
-    `#'(lambda ()
-       (declare (special emacspeak-eww-url-template))
-       (setq emacspeak-eww-url-template ',name))))
+   `#'(lambda ()
+        (declare (special emacspeak-eww-url-template))
+        (setq emacspeak-eww-url-template ',name))))
 
 ;;;###autoload
 (defun emacspeak-url-template-fetch (&optional documentation)

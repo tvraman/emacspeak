@@ -142,7 +142,7 @@
                  "\n" 'omit-null))
          (result (make-ladspa-plugin :library library :label label :desc desc)))
     (cl-loop for c in lines do
-          (push (ladspa-control c) controls))
+             (push (ladspa-control c) controls))
     (setf (ladspa-plugin-controls result) (reverse controls))
     result))
 
@@ -152,12 +152,12 @@ list of parsed ladspa-plugin structures, one per label."
   (declare (special ladspa-analyse))
   (let ((result nil)
         (labels
-            (split-string
-             (shell-command-to-string
-              (format "%s -l %s" ladspa-analyse library))
-             "\n" 'omit-null)))
+         (split-string
+          (shell-command-to-string
+           (format "%s -l %s" ladspa-analyse library))
+          "\n" 'omit-null)))
     (cl-loop for label in labels  do
-          (push (ladspa-analyse-label library label) result))
+             (push (ladspa-analyse-label library label) result))
     (reverse result)))
 
 (defun ladspa-plugins (&optional refresh)
@@ -184,10 +184,10 @@ list of parsed ladspa-plugin structures, one per label."
   "Populate Ladspa hash-table."
   (declare (special ladspa-table))
   (cl-loop for p in (ladspa-plugins) do
-        (puthash (intern (ladspa-plugin-label p)) p ladspa-table)))
+           (puthash (intern (ladspa-plugin-label p)) p ladspa-table)))
 
 (defun
- ladspa-table-get (label)
+    ladspa-table-get (label)
   "Return plugin by label."
   (gethash label ladspa-table))
 
@@ -235,7 +235,7 @@ list of parsed ladspa-plugin structures, one per label."
         (plugins (ladspa-plugins refresh)))
     (erase-buffer)
     (cl-loop for  p in plugins do
-          (ladspa-draw-plugin p))))
+             (ladspa-draw-plugin p))))
 
 (define-derived-mode ladspa-mode special-mode
   "Interactively manipulate Ladspa filters."
@@ -271,17 +271,17 @@ list of parsed ladspa-plugin structures, one per label."
 
 (declaim (special ladspa-mode-map))
 (cl-loop for k in
-      '(
-        ("RET" ladspa-instantiate)
-        ("a" emacspeak-m-player-add-ladspa)
-        ("d" emacspeak-m-player-delete-ladspa)
-        ("p" previous-line)
-        ("n" next-line)
-        ("SPC" ladspa-analyse-plugin-at-point)
-        ("e" ladspa-edit-control)
-        )
-      do
-      (define-key ladspa-mode-map (kbd (first k)) (second k)))
+         '(
+           ("RET" ladspa-instantiate)
+           ("a" emacspeak-m-player-add-ladspa)
+           ("d" emacspeak-m-player-delete-ladspa)
+           ("p" previous-line)
+           ("n" next-line)
+           ("SPC" ladspa-analyse-plugin-at-point)
+           ("e" ladspa-edit-control)
+           )
+         do
+         (define-key ladspa-mode-map (kbd (first k)) (second k)))
 
 ;;}}}
 ;;{{{ Instantiate Ladspa Plugin:
@@ -297,13 +297,13 @@ list of parsed ladspa-plugin structures, one per label."
   "Instantiate plugin  by prompting for control values."
   (let* ((controls (ladspa-plugin-controls plugin)))
     (cl-loop for c in controls do
-          (setf (ladspa-control-value c)
-                (read-from-minibuffer
-                 (format "%s: Range %s -- %s: Default %s"
-                         (ladspa-control-desc c)
-                         (ladspa-control-min c) (ladspa-control-max c)
-                         (ladspa-control-default c))
-                 nil nil nil nil (ladspa-control-default c)))))
+             (setf (ladspa-control-value c)
+                   (read-from-minibuffer
+                    (format "%s: Range %s -- %s: Default %s"
+                            (ladspa-control-desc c)
+                            (ladspa-control-min c) (ladspa-control-max c)
+                            (ladspa-control-default c))
+                    nil nil nil nil (ladspa-control-default c)))))
   plugin)
 
 (defun ladspa-instantiate ()

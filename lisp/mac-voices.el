@@ -390,7 +390,7 @@ and TABLE gives the values along that dimension."
   "List defined voices."
   (declare (special mac-voice-table))
   (cl-loop for k being the hash-keys of mac-voice-table 
-        collect   k))
+           collect   k))
 
 ;;}}}
 ;;{{{ Configurater 

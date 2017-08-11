@@ -77,19 +77,19 @@
     (emacspeak-speak-mode-line)))
 
 (cl-loop for command in
-      '(analog-next-group
-        analog-previous-group
-        analog-next-entry
-        analog-previous-entry
-        analog-refresh-display-buffer
-        analog-toggle-timer-and-redisplay)
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object)))))
+         '(analog-next-group
+           analog-previous-group
+           analog-next-entry
+           analog-previous-entry
+           analog-refresh-display-buffer
+           analog-toggle-timer-and-redisplay)
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)
+               (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ voice setup 
@@ -245,10 +245,10 @@ emacspeak-speak-and-skip-extent-upto-char "
   (mapcar 
    #'(lambda (cmd)
        (cl-loop for k in
-             (where-is-internal cmd)
-             do
-             (define-key analog-mode-map k
-               'emacspeak-speak-and-skip-extent-upto-this-char)))
+                (where-is-internal cmd)
+                do
+                (define-key analog-mode-map k
+                  'emacspeak-speak-and-skip-extent-upto-this-char)))
    (list 'emacspeak-self-insert-command
          'completion-separator-self-insert-command)))
 

@@ -116,14 +116,14 @@
           'emacspeak-calendar-setup)
 
 (cl-loop for f in
-      '(fancy-diary-display simple-diary-display
-                            diary-list-entries)
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act com)
-          "Silence messages."
-          (let ((emacspeak-speak-messages (not (ems-interactive-p))))
-            ad-do-it))))
+         '(fancy-diary-display simple-diary-display
+                               diary-list-entries)
+         do
+         (eval
+          `(defadvice ,f (around emacspeak pre act com)
+             "Silence messages."
+             (let ((emacspeak-speak-messages (not (ems-interactive-p))))
+               ad-do-it))))
 
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
@@ -270,14 +270,14 @@
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'large-movement)))
 (cl-loop for f in
-      '(exit-calendar calendar-exit calendar-quit)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act)
-          "Speak modeline. "
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'close-object)
-            (emacspeak-speak-mode-line)))))
+         '(exit-calendar calendar-exit calendar-quit)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act)
+             "Speak modeline. "
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'close-object)
+               (emacspeak-speak-mode-line)))))
 
 (defadvice insert-block-diary-entry (before emacspeak pre act)
   "Speak the line. "
@@ -447,16 +447,16 @@
 To use, configure variable gweb-my-address via M-x customize-variable."
   (interactive)
   (declare (special  gweb-my-address
-                    calendar-latitude calendar-longitude))
+                     calendar-latitude calendar-longitude))
   (cond
    ((null gweb-my-location)
     (message "First customize gweb-my-address."))
    (t
     (setq
-		 calendar-latitude
+     calendar-latitude
      (g-json-get 'lat (gmaps-address-geocode gweb-my-address))
      calendar-longitude
-		 (g-json-get 'lng (gmaps-address-geocode gweb-my-address)))
+     (g-json-get 'lng (gmaps-address-geocode gweb-my-address)))
     (message "Setup for %s" gweb-my-address))))
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
@@ -476,26 +476,26 @@ To use, configure variable gweb-my-address via M-x customize-variable."
 ;;{{{ Lunar Phases
 
 (cl-loop for f in
-      '(calendar-lunar-phases lunar-phases phases-of-moon)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (with-current-buffer lunar-phases-buffer
-              (emacspeak-auditory-icon 'open-object)
-              (emacspeak-speak-buffer))))))
+         '(calendar-lunar-phases lunar-phases phases-of-moon)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (with-current-buffer lunar-phases-buffer
+                 (emacspeak-auditory-icon 'open-object)
+                 (emacspeak-speak-buffer))))))
 
 (cl-loop for f in
-      '(holidays calendar-list-holidays)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (with-current-buffer holiday-buffer
-              (emacspeak-auditory-icon 'open-object)
-              (emacspeak-speak-buffer))))))
+         '(holidays calendar-list-holidays)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (with-current-buffer holiday-buffer
+                 (emacspeak-auditory-icon 'open-object)
+                 (emacspeak-speak-buffer))))))
 
 ;;}}}
 (provide 'emacspeak-calendar)

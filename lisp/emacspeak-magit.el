@@ -179,15 +179,15 @@
  for f in
  '(
    magit-section-forward magit-section-backward magit-section-up
-                         magit-section-forward-sibling magit-section-backward-sibling
-                         magit-ignore-file magit-ignore-item
-                         magit-stash
-                         magit-unstage magit-unstage-all magit-unstage-file
-                         magit-stage magit-stage-file  magit-stage-modified
-                         magit-ignore-item-locally
-                         magit-goto-next-section magit-goto-previous-section
-                         magit-goto-parent-section magit-goto-line
-                         magit-goto-section magit-goto-section-at-path)
+   magit-section-forward-sibling magit-section-backward-sibling
+   magit-ignore-file magit-ignore-item
+   magit-stash
+   magit-unstage magit-unstage-all magit-unstage-file
+   magit-stage magit-stage-file  magit-stage-modified
+   magit-ignore-item-locally
+   magit-goto-next-section magit-goto-previous-section
+   magit-goto-parent-section magit-goto-line
+   magit-goto-section magit-goto-section-at-path)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -203,9 +203,9 @@
  for f in
  '(
    magit-section-show-level-1  magit-section-show-level-2
-magit-section-show-level-3 magit-section-show-level-4
-magit-section-show-level-1-all magit-section-show-level-2-all
-magit-section-show-level-3-all magit-section-show-level-4-all
+   magit-section-show-level-3 magit-section-show-level-4
+   magit-section-show-level-1-all magit-section-show-level-2-all
+   magit-section-show-level-3-all magit-section-show-level-4-all
    magit-section-cycle-diffs)
  do
  (eval
@@ -245,42 +245,41 @@ magit-section-show-level-3-all magit-section-show-level-4-all
 (defadvice magit-invoke-popup-action (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-		(dtk-stop 'all)
-		(emacspeak-auditory-icon 'close-object)
-		(emacspeak-speak-mode-line)))
+    (dtk-stop 'all)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
-	
 ;;}}}
 ;;{{{ Advice hide/show commands:
 (cl-loop for f in
-      '(magit-show magit-show-branches
-                   magit-show-branches-mode
-                   magit-show-item-or-scroll-down magit-show-item-or-scroll-up
-                   magit-show-level
-                   magit-show-level-1 magit-show-level-1-all
-                   magit-show-level-2 magit-show-level-2-all
-                   magit-show-level-3 magit-show-level-3-all
-                   magit-show-level-4 magit-show-level-4-all
-                   magit-show-only-files magit-show-only-files-all
-                   magit-expand-section magit-expand-collapse-section
-                   magit-show-section magit-show-stash)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'open-object)))))
+         '(magit-show magit-show-branches
+                      magit-show-branches-mode
+                      magit-show-item-or-scroll-down magit-show-item-or-scroll-up
+                      magit-show-level
+                      magit-show-level-1 magit-show-level-1-all
+                      magit-show-level-2 magit-show-level-2-all
+                      magit-show-level-3 magit-show-level-3-all
+                      magit-show-level-4 magit-show-level-4-all
+                      magit-show-only-files magit-show-only-files-all
+                      magit-expand-section magit-expand-collapse-section
+                      magit-show-section magit-show-stash)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)
+               (emacspeak-auditory-icon 'open-object)))))
 
 (cl-loop for f in
-      '(magit-hide-section magit-collapse-section)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'close-object)))))
+         '(magit-hide-section magit-collapse-section)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)
+               (emacspeak-auditory-icon 'close-object)))))
 
 ;;}}}
 ;;{{{ Additional commands to advice:

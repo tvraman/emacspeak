@@ -81,10 +81,10 @@
   "Emacspeak front-end for Company."
   (ems-with-messages-silenced
    (case command
-     (pre-command nil)
-     (post-command (emacspeak-play-auditory-icon 'help)
-(emacspeak-company-speak-this))
-     (hide nil))))
+         (pre-command nil)
+         (post-command (emacspeak-play-auditory-icon 'help)
+                       (emacspeak-company-speak-this))
+         (hide nil))))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:

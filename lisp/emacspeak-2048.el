@@ -154,7 +154,7 @@ Optional interactive prefix arg prompts for a filename."
     (load-file file)
     (cl-loop
      for i in
-		 '(4096 8192 16384 32768 65536 131072) do
+     '(4096 8192 16384 32768 65536 131072) do
      (2048-init-tile i))
     (emacspeak-auditory-icon 'task-done)
     (message "Imported game %s." file)))
@@ -175,7 +175,7 @@ Optional interactive prefix arg prompts for a filename."
      (2048-print-board))
     (message "Added row.")))
 
- (defun emacspeak-2048-drop-row ()
+(defun emacspeak-2048-drop-row ()
   "Drop last  row  from  the current board."
   (interactive)
   (declare (special *2048-board* *2048-rows*))
@@ -208,25 +208,24 @@ Optional interactive prefix arg prompts for a filename."
             (aref board index)))
      (message "Added column."))))
 
-
- (defun emacspeak-2048-drop-column ()
+(defun emacspeak-2048-drop-column ()
   "Drop last  row  from  the current board."
   (interactive)
   (declare (special *2048-board* *2048-columns* *2048-columns*))
-	(let ((board (copy-sequence *2048-board*))
-				(bound 0))
-		(setq *2048-columns* (1- *2048-columns*))
+  (let ((board (copy-sequence *2048-board*))
+        (bound 0))
+    (setq *2048-columns* (1- *2048-columns*))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
     (cl-loop
      for   i from 0 to (1- (length *2048-board*)) do
-		 (cond
-		 ((= bound *2048-columns*) (setq bound 0))
-		 (t
-			(incf bound)
-     (aset  *2048-board* i  (aref board i)))))
-     (2048-print-board))
-    (emacspeak-auditory-icon 'delete-object)
-    (message "Dropped column."))
+     (cond
+      ((= bound *2048-columns*) (setq bound 0))
+      (t
+       (incf bound)
+       (aset  *2048-board* i  (aref board i)))))
+    (2048-print-board))
+  (emacspeak-auditory-icon 'delete-object)
+  (message "Dropped column."))
 (defun emacspeak-2048-board-reset ()
   "Reset board to default size."
   (declare (special *2048-rows* *2048-columns* *2048-board*))
@@ -248,10 +247,10 @@ Optional interactive prefix arg prompts for a filename."
   (declare (special *2048-board*      *2048-columns* *2048-rows*))
   (dtk-speak-list
    (cl-loop for col from 0 to (- *2048-columns*  1)
-         collect
-         (cl-loop for row from 0 to (- *2048-rows*  1)
-               collect
-               (aref  *2048-board*  (+ col (* 4 row)))))
+            collect
+            (cl-loop for row from 0 to (- *2048-rows*  1)
+                     collect
+                     (aref  *2048-board*  (+ col (* 4 row)))))
    *2048-rows*))
 
 (cl-loop
@@ -289,7 +288,7 @@ Optional interactive prefix arg prompts for a filename."
   (voice-lock-mode -1)
   (define-key 2048-mode-map "#" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
-	(define-key 2048-mode-map "d" 'emacspeak-2048-drop-column)
+  (define-key 2048-mode-map "d" 'emacspeak-2048-drop-column)
   (define-key 2048-mode-map "P" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
   (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)

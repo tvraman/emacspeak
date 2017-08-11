@@ -176,65 +176,65 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 (cl-loop for f in 
-      '(nxml-backward-up-element
-        nxml-forward-balanced-item
-        nxml-up-element
-        nxml-forward-paragraph
-        nxml-backward-paragraph
-        nxml-backward-single-paragraph
-        nxml-backward-single-balanced-item
-        nxml-forward-element
-        nxml-backward-element)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+         '(nxml-backward-up-element
+           nxml-forward-balanced-item
+           nxml-up-element
+           nxml-forward-paragraph
+           nxml-backward-paragraph
+           nxml-backward-single-paragraph
+           nxml-backward-single-balanced-item
+           nxml-forward-element
+           nxml-backward-element)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-speak-line)))))
 
 (cl-loop for f in 
-      '(nxml-balanced-close-start-tag-block
-        nxml-finish-element
-        nxml-balanced-close-start-tag-inline)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'close-object)
-            (dtk-speak
-             (format "Closed %s"
-                     (xmltok-start-tag-qname)))))))
+         '(nxml-balanced-close-start-tag-block
+           nxml-finish-element
+           nxml-balanced-close-start-tag-inline)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'close-object)
+               (dtk-speak
+                (format "Closed %s"
+                        (xmltok-start-tag-qname)))))))
 ;;{{{ speech enable outliner 
 
 (cl-loop for f in
-      '(nxml-hide-all-text-content 
-        nxml-hide-direct-text-content 
-        nxml-hide-other 
-        nxml-hide-subheadings 
-        nxml-hide-text-content)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory icon."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'close-object)
-            (emacspeak-speak-line)))))
+         '(nxml-hide-all-text-content 
+           nxml-hide-direct-text-content 
+           nxml-hide-other 
+           nxml-hide-subheadings 
+           nxml-hide-text-content)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory icon."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'close-object)
+               (emacspeak-speak-line)))))
 
 (cl-loop for f in
-      '(nxml-show 
-        nxml-show-all 
-        nxml-show-direct-subheadings 
-        nxml-show-direct-text-content 
-        nxml-show-subheadings)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory icon."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'open-object)
-            (emacspeak-speak-line)))))
+         '(nxml-show 
+           nxml-show-all 
+           nxml-show-direct-subheadings 
+           nxml-show-direct-text-content 
+           nxml-show-subheadings)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory icon."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'open-object)
+               (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ Outline summarizer:

@@ -310,10 +310,10 @@ See \\{emacspeak-ocr-mode-map}.
   'emacspeak-ocr-set-scan-image-options)
 (define-key emacspeak-ocr-mode-map "C" 'emacspeak-ocr-set-compress-image-options)
 (cl-loop for i from 1 to 9
-      do
-      (define-key emacspeak-ocr-mode-map
-        (format "%s" i)
-        'emacspeak-ocr-page))
+         do
+         (define-key emacspeak-ocr-mode-map
+           (format "%s" i)
+           'emacspeak-ocr-page))
 
 ;;}}}
 ;;{{{ interactive commands

@@ -72,17 +72,17 @@
  for f in
  '(
    epa-mail-verify epa-mail-import-keys
-                   epa-file-select-keys epa-insert-keys
-                   epa-verify-region epa-verify-file epa-verify-cleartext-in-region
-                   epa-sign-region epa-sign-file epa-mail-sign
-                   epa-mail-encrypt epa-mail-decrypt
-                   epa-import-keys-region epa-import-keys
-                   epa-import-armor-in-region epa-export-keys
-                   epa-decrypt-region epa-decrypt-file epa-decrypt-armor-in-region
-                   epa-encrypt-file epa-encrypt-region
-                   epa-dired-do-verify epa-dired-do-sign
-                   epa-dired-do-encrypt epa-dired-do-decrypt
-                   )
+   epa-file-select-keys epa-insert-keys
+   epa-verify-region epa-verify-file epa-verify-cleartext-in-region
+   epa-sign-region epa-sign-file epa-mail-sign
+   epa-mail-encrypt epa-mail-decrypt
+   epa-import-keys-region epa-import-keys
+   epa-import-armor-in-region epa-export-keys
+   epa-decrypt-region epa-decrypt-file epa-decrypt-armor-in-region
+   epa-encrypt-file epa-encrypt-region
+   epa-dired-do-verify epa-dired-do-sign
+   epa-dired-do-encrypt epa-dired-do-decrypt
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -105,7 +105,7 @@
  for f in
  '(
    epa-mail-mode epa-global-mail-mode
-                 epa-file-disable epa-file-enable)
+   epa-file-disable epa-file-enable)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

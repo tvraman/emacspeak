@@ -60,9 +60,9 @@
  for   f in 
  '(
    xref-find-definitions xref-pop-marker-stack
-                         xref-next-line xref-prev-line
-                         xref-find-regexp 
-                         xref-find-apropos xref-goto-xref)
+   xref-next-line xref-prev-line
+   xref-find-regexp 
+   xref-find-apropos xref-goto-xref)
  do
  (eval
   `(defadvice ,f (after emacspeak pre  act comp)
@@ -75,7 +75,7 @@
  for f in 
  '(
    xref-find-definitions-other-frame  xref-find-definitions-other-window
-                                      xref-show-location-at-point)
+   xref-show-location-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre  act comp)

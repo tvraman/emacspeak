@@ -218,7 +218,7 @@ book.</p>")
            (format
             "Re-execute this command with an interactive prefix argument and
 specify offset %s to get more results."
-                   (+ offset emacspeak-librivox-results-limit))))
+            (+ offset emacspeak-librivox-results-limit))))
         (browse-url-of-buffer)))))
 
 (defvar emacspeak-librivox-genre-list
@@ -322,11 +322,11 @@ more results."
    (list
     (read-char "a: Author, t: Title,  p:Play, g:Genre, d: Browse Local")))
   (ecase search-type
-    (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
-    (?a (call-interactively 'emacspeak-librivox-search-by-author))
-    (?p (call-interactively 'emacspeak-librivox-play))
-    (?t (call-interactively 'emacspeak-librivox-search-by-title))
-    (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
+         (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
+         (?a (call-interactively 'emacspeak-librivox-search-by-author))
+         (?p (call-interactively 'emacspeak-librivox-play))
+         (?t (call-interactively 'emacspeak-librivox-search-by-title))
+         (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
 ;;}}}
 ;;{{{ Cache Playlists:

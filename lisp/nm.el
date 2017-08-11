@@ -51,7 +51,7 @@ already enabled or service is not available."
     (message "NetworkManager service not available.") nil)
    ((not nm-dbus-registration)
     (setq nm-dbus-registration
-					(dbus-register-signal
+          (dbus-register-signal
            :system
            "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
            "org.freedesktop.NetworkManager" "StateChanged"

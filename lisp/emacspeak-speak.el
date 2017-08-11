@@ -966,10 +966,10 @@ are indicated with auditory icon ellipses."
             (line nil)
             (orig (point))
             (linenum 
-						 (when
-								 (or (bound-and-true-p display-line-numbers)
-										 (bound-and-true-p linenum-mode))
-							 (line-number-at-pos)))
+             (when
+                 (or (bound-and-true-p display-line-numbers)
+                     (bound-and-true-p linenum-mode))
+               (line-number-at-pos)))
             (indent nil))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
@@ -1968,9 +1968,9 @@ Displays name of current buffer.")
   (cond
    (header-line-format
     (let ((window-count (length (window-list))))
-    (emacspeak-auditory-icon 'item)
-    (when (> window-count 1 ) (sox-multiwindow))
-    (dtk-speak (format-mode-line header-line-format))))
+      (emacspeak-auditory-icon 'item)
+      (when (> window-count 1) (sox-multiwindow))
+      (dtk-speak (format-mode-line header-line-format))))
    (t (dtk-speak "No header line."))))
 
 ;;;###autoload
@@ -2222,33 +2222,33 @@ Argument STRING specifies the alphanumeric phone number."
              do
              (aset string i
                    (case character
-                     (?a  ?2)
-                     (?b ?2)
-                     (?c ?2)
-                     (?d ?3)
-                     (?e ?3)
-                     (?f ?3)
-                     (?g ?4)
-                     (?h ?4)
-                     (?i ?4)
-                     (?j ?5)
-                     (?k ?5)
-                     (?l ?5)
-                     (?m ?6)
-                     (?n ?6)
-                     (?o ?6)
-                     (?p ?7)
-                     (?r ?7)
-                     (?s ?7)
-                     (?t ?8)
-                     (?u ?8)
-                     (?v ?8)
-                     (?w ?9)
-                     (?x ?9)
-                     (?y ?9)
-                     (?q ?1)
-                     (?z ?1)
-                     (otherwise character)))
+                         (?a  ?2)
+                         (?b ?2)
+                         (?c ?2)
+                         (?d ?3)
+                         (?e ?3)
+                         (?f ?3)
+                         (?g ?4)
+                         (?h ?4)
+                         (?i ?4)
+                         (?j ?5)
+                         (?k ?5)
+                         (?l ?5)
+                         (?m ?6)
+                         (?n ?6)
+                         (?o ?6)
+                         (?p ?7)
+                         (?r ?7)
+                         (?s ?7)
+                         (?t ?8)
+                         (?u ?8)
+                         (?v ?8)
+                         (?w ?9)
+                         (?x ?9)
+                         (?y ?9)
+                         (?q ?1)
+                         (?z ?1)
+                         (otherwise character)))
              (incf i))
     string))
 
@@ -2570,14 +2570,14 @@ PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
 
 ;;;###autoload
-(defun emacspeak-toggle-inaudible-or-comint-autospeak ( )
+(defun emacspeak-toggle-inaudible-or-comint-autospeak ()
   "Toggle comint-autospeak when in a comint buffer.
 Otherwise call voice-setup-toggle-silence-personality which toggles the 
 personality under point."
   (interactive)
-	(cond
-	 ((derived-mode-p 'comint-mode) (funcall-interactively #'emacspeak-toggle-comint-autospeak))
-	 (t (funcall-interactively #'voice-setup-toggle-silence-personality))))
+  (cond
+   ((derived-mode-p 'comint-mode) (funcall-interactively #'emacspeak-toggle-comint-autospeak))
+   (t (funcall-interactively #'voice-setup-toggle-silence-personality))))
 
 (defvar emacspeak-comint-output-monitor nil
   "Switch to monitor comint output.
@@ -3017,7 +3017,7 @@ Prompts for PERSONALITY  with completion when called interactively."
       (operate-on-rectangle
        #' (lambda (start-seg _begextra _endextra)
             (emacspeak-put-personality start-seg  (point) personality))
-          start end  nil))))
+       start end  nil))))
 
 ;;;###autoload
 (defun emacspeak-voiceify-region (start end &optional personality)
@@ -3680,7 +3680,7 @@ This command  is designed for use in a windowing environment like X."
 (defun describe-help-keys ()
   "Show bindings under C-h."
   (interactive)
-  (describe-bindings "\C-h" )
+  (describe-bindings "\C-h")
   (emacspeak-auditory-icon 'help)
   (with-current-buffer (window-buffer (selected-window))
     (emacspeak-speak-mode-line)))

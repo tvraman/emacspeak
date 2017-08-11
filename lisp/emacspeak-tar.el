@@ -181,7 +181,7 @@
   )
 
 (eval-when (load)
-  (emacspeak-tar-setup-keys))
+           (emacspeak-tar-setup-keys))
 
 ;;}}}
 (provide 'emacspeak-tar)

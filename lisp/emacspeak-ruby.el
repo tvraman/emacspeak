@@ -53,22 +53,22 @@
 ;;{{{ Advice navigation:
 
 (cl-loop for command   in
-      '(
-        ruby-mark-defun
-        ruby-beginning-of-defun 
-        ruby-end-of-defun 
-        ruby-beginning-of-block 
-        ruby-end-of-block 
-        ruby-forward-sexp
-        ruby-backward-sexp
-        )
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'paragraph)))))
+         '(
+           ruby-mark-defun
+           ruby-beginning-of-defun 
+           ruby-end-of-defun 
+           ruby-beginning-of-block 
+           ruby-end-of-block 
+           ruby-forward-sexp
+           ruby-backward-sexp
+           )
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)
+               (emacspeak-auditory-icon 'paragraph)))))
 
 ;;}}}
 ;;{{{ Advice insertion and electric:
@@ -110,20 +110,20 @@ Cue electric insertion with a tone.")
 ;;}}}
 ;;{{{ Advice inferior ruby:
 (cl-loop for command in
-      '(
-        ruby-run
-        switch-to-ruby
-        ruby-send-region-and-go
-        ruby-send-block-and-go
-        ruby-send-definition-and-go
-        )
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line)))))
+         '(
+           ruby-run
+           switch-to-ruby
+           ruby-send-region-and-go
+           ruby-send-block-and-go
+           ruby-send-definition-and-go
+           )
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-speak-line)))))
 
 ;;}}}
 

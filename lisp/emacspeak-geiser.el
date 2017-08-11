@@ -79,9 +79,9 @@
  for f in
  '(
    geiser run-geiser
-          geiser--switch-to-repl
-          geiser-mode-switch-to-repl geiser-doc-switch-to-repl
-          geiser-mode-switch-to-repl-and-enter geiser-show-logs)
+   geiser--switch-to-repl
+   geiser-mode-switch-to-repl geiser-doc-switch-to-repl
+   geiser-mode-switch-to-repl-and-enter geiser-show-logs)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -94,13 +94,13 @@
  for f in
  '(
    geiser-compile-current-buffer geiser-compile-definition
-                                 geiser-compile-definition-and-go geiser-compile-file geiser-eval-buffer
-                                 geiser-eval-buffer-and-go geiser-eval-definition geiser-eval-definition-and-go
-                                 geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
-                                 geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
-                                 geiser-load-current-buffer geiser-load-file
-                                 geiser-log-clear geiser-repl-clear-buffer
-                                 geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
+   geiser-compile-definition-and-go geiser-compile-file geiser-eval-buffer
+   geiser-eval-buffer-and-go geiser-eval-definition geiser-eval-definition-and-go
+   geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
+   geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
+   geiser-load-current-buffer geiser-load-file
+   geiser-log-clear geiser-repl-clear-buffer
+   geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -142,8 +142,8 @@
  for f in
  '(
    geiser-repl-previous-prompt geiser-repl-next-prompt
-                               geiser-repl--previous-error  geiser-repl--next-error
-                               )
+   geiser-repl--previous-error  geiser-repl--next-error
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -191,7 +191,7 @@
  for f in
  '(
    geiser-xref-callees geiser-xref-callers geiser-xref-generic-methods
-                       )
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

@@ -90,11 +90,11 @@
     (unless (locate-library "hydra") (package-install 'hydra))))
 
 (eval-when-compile
-	(require 'hideshow)
-	(require 'hydra "hydra" 'no-error)
-	(require 'xbacklight)
-	(require 'view)
-	(require 'emacspeak-m-player))
+  (require 'hideshow)
+  (require 'hydra "hydra" 'no-error)
+  (require 'xbacklight)
+  (require 'view)
+  (require 'emacspeak-m-player))
 
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
@@ -347,7 +347,7 @@ Argument `k-map' is a symbol  that names a keymap."
  (defhydra  emacspeak-muggles-hideshow
    (
     :body-pre (emacspeak-hydra-body-pre  "Hide Show")
-              :pre emacspeak-hydra-pre :post emacspeak-hydra-post :color blue)
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post :color blue)
    "Hideshow"
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-hideshow"))
    ("h" hs-hide-block)
@@ -389,7 +389,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("g"  (call-interactively #'toggle-debug-on-quit))
    ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
    ("i" (call-interactively #'ido-mode))
-	 ("I" (call-interactively #'flx-ido-mode))
+   ("I" (call-interactively #'flx-ido-mode))
    ("t" (call-interactively #'toggle-truncate-lines))
    ("u" (call-interactively #'ido-ubiquitous-mode))
    ("q" nil "quit")))
@@ -587,8 +587,8 @@ Info-mode:
 ;;}}}
 ;;{{{ hydra-ox:
 (eval-after-load 'org
-	`(progn
-		 (when (locate-library "hydra-ox")
+  `(progn
+     (when (locate-library "hydra-ox")
        (require 'hydra-ox)
        (define-key org-mode-map (kbd "C-c DEL") 'hydra-ox/body))))
 

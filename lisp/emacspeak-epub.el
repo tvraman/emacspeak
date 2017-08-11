@@ -272,9 +272,9 @@ Useful if table of contents in toc.ncx is empty."
       (erase-buffer)
       (insert  "<ol>\n")
       (cl-loop for f in files
-            do
-            (insert
-             (format "<li><a href=\"%s\">%s</a></li>\n" f f)))
+               do
+               (insert
+                (format "<li><a href=\"%s\">%s</a></li>\n" f f)))
       (insert "</ol>\n")
       (add-hook
        'emacspeak-web-post-process-hook
@@ -358,9 +358,9 @@ Useful if table of contents in toc.ncx is empty."
                 :title title
                 :author author)))))
     (cl-loop for f being the hash-keys of emacspeak-epub-db
-          do
-          (setq filename (emacspeak-epub-shell-unquote f))
-          (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
+             do
+             (setq filename (emacspeak-epub-shell-unquote f))
+             (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
     (when updated (emacspeak-epub-bookshelf-save))))
 
 (defvar emacspeak-epub-find-program
@@ -625,14 +625,14 @@ Suitable for text searches."
       (erase-buffer)
       (setq buffer-undo-list t)
       (cl-loop for f in files
-            do
-            (setq command
-                  (format "unzip -c -qq %s %s | %s"
-                          epub-file 
-                          (shell-quote-argument f)
-                          emacspeak-epub-html-to-text-command))
-            (insert (shell-command-to-string command))
-            (goto-char (point-max)))
+               do
+               (setq command
+                     (format "unzip -c -qq %s %s | %s"
+                             epub-file 
+                             (shell-quote-argument f)
+                             emacspeak-epub-html-to-text-command))
+               (insert (shell-command-to-string command))
+               (goto-char (point-max)))
       (setq buffer-read-only t)
       (goto-char (point-min)))
     (switch-to-buffer buffer)
@@ -653,22 +653,22 @@ Suitable for text searches."
                     emacspeak-speak-directory-settings
                     emacspeak-epub-this-epub))
   (let* ((gc-cons-threshold 8000000)
-(directory
-					(string-trim
-					 (shell-command-to-string
-						(format "cd %s; pwd" 
-										(file-name-directory epub-file)))))
-        (locals (locate-dominating-file directory emacspeak-speak-directory-settings))
-        (buffer (get-buffer-create "FullText EPub"))
-        (files
-         (split-string
-          (shell-command-to-string
-           (format  emacspeak-epub-files-command epub-file))
-          "\n" 'omit-nulls))
-        (inhibit-read-only t)
-        (command nil))
+         (directory
+          (string-trim
+           (shell-command-to-string
+            (format "cd %s; pwd" 
+                    (file-name-directory epub-file)))))
+         (locals (locate-dominating-file directory emacspeak-speak-directory-settings))
+         (buffer (get-buffer-create "FullText EPub"))
+         (files
+          (split-string
+           (shell-command-to-string
+            (format  emacspeak-epub-files-command epub-file))
+           "\n" 'omit-nulls))
+         (inhibit-read-only t)
+         (command nil))
     (when locals 
-    (setq locals (expand-file-name  emacspeak-speak-directory-settings locals)))
+      (setq locals (expand-file-name  emacspeak-speak-directory-settings locals)))
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
@@ -753,8 +753,8 @@ Suitable for text searches."
            (t
             (setq result
                   (cl-loop for i from 0 to(- count 2)
-                        collect
-                        (upcase (aref  (nth i fields) 0))))
+                           collect
+                           (upcase (aref  (nth i fields) 0))))
             (setq result
                   (mapconcat
                    #'(lambda (c) (format "%c" c))
@@ -827,39 +827,39 @@ Letters do not insert themselves; instead, they are commands.
 
 (declaim (special emacspeak-epub-mode-map))
 (cl-loop for k in
-      '(
-        ("/" emacspeak-epub-calibre-results)
-        ("A" emacspeak-epub-bookshelf-calibre-author)
-        ("S" emacspeak-epub-bookshelf-calibre-search)
-        ("T" emacspeak-epub-bookshelf-calibre-title)
-        ("C" emacspeak-epub-gutenberg-catalog)
-        ("G" emacspeak-epub-gutenberg-download)
-        ("\C-a" emacspeak-epub-bookshelf-add-directory)
-        ("\C-d" emacspeak-epub-bookshelf-remove-directory)
-        ("\C-k" emacspeak-epub-delete)
-        ("C-l" emacspeak-epub-bookshelf-redraw)
-        ("\C-m" emacspeak-epub-open)
-        ("\C-o" emacspeak-epub-bookshelf-open-epub)
-        ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
-        ("\C-x\C-s" emacspeak-epub-bookshelf-save)
-        ("M-s" emacspeak-epub-bookshelf-save)
-        ("a" emacspeak-epub-bookshelf-add-epub)
-        ("b" emacspeak-epub-bookshelf-open)
-        ("c" emacspeak-epub-bookshelf-clear)
-        ("d" emacspeak-epub-bookshelf-remove-this-book)
-        ("e" emacspeak-epub-eww)
-        ("f" emacspeak-epub-browse-files)
-        ("g" emacspeak-epub-google)
-        ("l" emacspeak-epub-locate-epubs)
-        ("n" next-line)
-        ("o" emacspeak-epub-open)
-        ("p" previous-line)
-        ("r" emacspeak-epub-bookshelf-rename)
-        ("t" emacspeak-epub-fulltext)
-        ("RET" emacspeak-epub-open)
-        )
-      do
-      (emacspeak-keymap-update emacspeak-epub-mode-map k))
+         '(
+           ("/" emacspeak-epub-calibre-results)
+           ("A" emacspeak-epub-bookshelf-calibre-author)
+           ("S" emacspeak-epub-bookshelf-calibre-search)
+           ("T" emacspeak-epub-bookshelf-calibre-title)
+           ("C" emacspeak-epub-gutenberg-catalog)
+           ("G" emacspeak-epub-gutenberg-download)
+           ("\C-a" emacspeak-epub-bookshelf-add-directory)
+           ("\C-d" emacspeak-epub-bookshelf-remove-directory)
+           ("\C-k" emacspeak-epub-delete)
+           ("C-l" emacspeak-epub-bookshelf-redraw)
+           ("\C-m" emacspeak-epub-open)
+           ("\C-o" emacspeak-epub-bookshelf-open-epub)
+           ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
+           ("\C-x\C-s" emacspeak-epub-bookshelf-save)
+           ("M-s" emacspeak-epub-bookshelf-save)
+           ("a" emacspeak-epub-bookshelf-add-epub)
+           ("b" emacspeak-epub-bookshelf-open)
+           ("c" emacspeak-epub-bookshelf-clear)
+           ("d" emacspeak-epub-bookshelf-remove-this-book)
+           ("e" emacspeak-epub-eww)
+           ("f" emacspeak-epub-browse-files)
+           ("g" emacspeak-epub-google)
+           ("l" emacspeak-epub-locate-epubs)
+           ("n" next-line)
+           ("o" emacspeak-epub-open)
+           ("p" previous-line)
+           ("r" emacspeak-epub-bookshelf-rename)
+           ("t" emacspeak-epub-fulltext)
+           ("RET" emacspeak-epub-open)
+           )
+         do
+         (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
 ;;}}}
 ;;{{{ Gutenberg Hookup:

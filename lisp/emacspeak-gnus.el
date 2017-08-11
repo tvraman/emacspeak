@@ -813,9 +813,9 @@ Helps to prevent words from being spelled instead of spoken."
  for hook  in 
  '(
    gnus-article-mode-hook gnus-group-mode-hook gnus-summary-mode-hook
-                          gnus-agent-mode-hook  gnus-article-edit-mode-hook
-                          gnus-server-mode-hook gnus-category-mode-hook
-                          )
+   gnus-agent-mode-hook  gnus-article-edit-mode-hook
+   gnus-server-mode-hook gnus-category-mode-hook
+   )
  do
  (add-hook
   hook 
@@ -925,12 +925,10 @@ Helps to prevent words from being spelled instead of spoken."
  '(gnus-server-edit-buffer gnus-group-enter-server-mode gnus-browse-exit)
  do
  (eval
-	`(defadvice ,f (after emacspeak pre act comp)
-		 "Provide auditory feedback."
-		 (when (ems-interactive-p)
-			 (emacspeak-speak-mode-line)))))
-
-
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)))))
 
 ;;}}}
 (provide 'emacspeak-gnus)

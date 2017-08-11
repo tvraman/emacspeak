@@ -56,12 +56,12 @@
 
 (voice-setup-add-map
  '(
- (evil-ex-commands voice-bolden)
- (evil-ex-info voice-monotone)
- (evil-ex-lazy-highlight voice-animate)
- (evil-ex-search voice-bolden-and-animate)
- (evil-ex-substitute-matches voice-lighten)
- (evil-ex-substitute-replacement voice-smoothen)))
+   (evil-ex-commands voice-bolden)
+   (evil-ex-info voice-monotone)
+   (evil-ex-lazy-highlight voice-animate)
+   (evil-ex-search voice-bolden-and-animate)
+   (evil-ex-substitute-matches voice-lighten)
+   (evil-ex-substitute-replacement voice-smoothen)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -72,9 +72,9 @@
 (cl-loop
  for f in
  '(
-       evil-beginning-of-line evil-end-of-line
-                              evil-next-line evil-previous-line
-                              evil-ret evil-window-top)
+   evil-beginning-of-line evil-end-of-line
+   evil-next-line evil-previous-line
+   evil-ret evil-window-top)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -86,17 +86,17 @@
 (cl-loop
  for f in
  '(
-       evil-goto-mark evil-goto-mark-line
-                      evil-goto-definition evil-goto-first-line evil-goto-line
-                      evil-forward-section-begin evil-forward-section-end
-                      evil-backward-paragraph evil-forward-paragraph
-                      evil-backward-section-begin evil-backward-section-end
-                      evil-previous-open-paren evil-previous-match evil-next-match
-                      evil-next-line-first-non-blank evil-next-line-1-first-non-blank
-                      evil-next-close-paren evil-last-non-blank
-                      evil-jump-backward evil-jump-forward evil-jump-to-tag
-                      evil-forward-sentence-begin evil-first-non-blank
-                      evil-backward-sentence-begin )
+   evil-goto-mark evil-goto-mark-line
+   evil-goto-definition evil-goto-first-line evil-goto-line
+   evil-forward-section-begin evil-forward-section-end
+   evil-backward-paragraph evil-forward-paragraph
+   evil-backward-section-begin evil-backward-section-end
+   evil-previous-open-paren evil-previous-match evil-next-match
+   evil-next-line-first-non-blank evil-next-line-1-first-non-blank
+   evil-next-close-paren evil-last-non-blank
+   evil-jump-backward evil-jump-forward evil-jump-to-tag
+   evil-forward-sentence-begin evil-first-non-blank
+   evil-backward-sentence-begin)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -112,10 +112,10 @@
 (cl-loop
  for f in
  '(
-       evil-backward-WORD-begin evil-backward-WORD-end
-                                evil-forward-WORD-begin evil-forward-WORD-end
-                                evil-backward-word-begin evil-backward-word-end
-                                evil-forward-word-begin evil-forward-word-end)
+   evil-backward-WORD-begin evil-backward-WORD-end
+   evil-forward-WORD-begin evil-forward-WORD-end
+   evil-backward-word-begin evil-backward-word-end
+   evil-forward-word-begin evil-forward-word-end)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -131,7 +131,6 @@
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (char-after (1- (point))))))
 
-
 (defadvice evil-forward-char (before emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
@@ -139,7 +138,6 @@
 
 ;;}}}
 ;;{{{ Deletion:
-
 
 (defadvice evil-delete-char (before emacspeak pre act comp)
   "Speak char we are deleting."
@@ -191,7 +189,7 @@
      "Speak what was completed."
      (cond
       ((ems-interactive-p)
-       (let ((orig (save-excursion (skip-syntax-backward "^ >" ) (point))))
+       (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
          (ems-with-messages-silenced
           ad-do-it
           (emacspeak-auditory-icon 'complete)
@@ -200,7 +198,7 @@
             (dtk-speak (word-at-point))))))
       (t ad-do-it))
      ad-return-value)))
-     
+
 (cl-loop
  for f in
  '(evil-complete-next-line evil-complete-previous-line)
@@ -231,10 +229,10 @@
   (declare (special emacspeak-prefix))
   (when (keymapp keymap)
     (let ((orig (lookup-key keymap emacspeak-prefix)))
-    (when orig
-      (define-key keymap emacspeak-prefix  'emacspeak-prefix-command)
-      (define-key keymap (concat emacspeak-prefix "e") orig)
-      (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig)))))
+      (when orig
+        (define-key keymap emacspeak-prefix  'emacspeak-prefix-command)
+        (define-key keymap (concat emacspeak-prefix "e") orig)
+        (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig)))))
 
 (declaim (special
           evil-normal-state-map evil-insert-state-map
@@ -279,9 +277,9 @@
 (cl-loop
  for hook in
  '(
-          evil-normal-state-exit-hook evil-insert-state-exit-hook
-          evil-visual-state-exit-hook evil-replace-state-exit-hook
-          evil-operator-state-exit-hook evil-motion-state-exit-hook)
+   evil-normal-state-exit-hook evil-insert-state-exit-hook
+   evil-visual-state-exit-hook evil-replace-state-exit-hook
+   evil-operator-state-exit-hook evil-motion-state-exit-hook)
  do
  (add-hook hook #'emacspeak-evil-state-change-hook))
 (defadvice evil-exit-emacs-state (after emacspeak pre act comp)
@@ -303,8 +301,6 @@
   (emacspeak-auditory-icon (if evil-mode 'on 'off))
   (message "Turned %s evil-mode"
            (if evil-mode "on" "off")))
-
-
 
 ;;}}}
 (provide 'emacspeak-evil)

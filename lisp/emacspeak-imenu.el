@@ -125,17 +125,17 @@
             (emacspeak-imenu-flatten-index-alist
              imenu--index-alist t)))
     (cl-loop for item  in emacspeak-imenu-flattened-index-alist
-          do
-          (setq guess
-                (cond
-                 ((overlayp (cdr item))
-                  (overlay-start (cdr item)))
-                 ((markerp (cdr item))
-                  (marker-position (cdr item)))
-                 (t (cdr item))))
-          (when (< position guess)
-            (if (< guess target)
-                (setq target guess))))
+             do
+             (setq guess
+                   (cond
+                    ((overlayp (cdr item))
+                     (overlay-start (cdr item)))
+                    ((markerp (cdr item))
+                     (marker-position (cdr item)))
+                    (t (cdr item))))
+             (when (< position guess)
+               (if (< guess target)
+                   (setq target guess))))
     (goto-char target)
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'large-movement)
@@ -161,17 +161,17 @@
             (emacspeak-imenu-flatten-index-alist
              imenu--index-alist t)))
     (cl-loop for item  in emacspeak-imenu-flattened-index-alist
-          do
-          (setq guess
-                (cond
-                 ((overlayp (cdr item))
-                  (overlay-start (cdr item)))
-                 ((markerp (cdr item))
-                  (marker-position (cdr item)))
-                 (t (cdr item))))
-          (when (> position guess)
-            (if (> guess target)
-                (setq target guess))))
+             do
+             (setq guess
+                   (cond
+                    ((overlayp (cdr item))
+                     (overlay-start (cdr item)))
+                    ((markerp (cdr item))
+                     (marker-position (cdr item)))
+                    (t (cdr item))))
+             (when (> position guess)
+               (if (> guess target)
+                   (setq target guess))))
     (goto-char target)
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'large-movement)

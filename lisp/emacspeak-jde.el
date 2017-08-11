@@ -228,19 +228,19 @@
 ;;{{{ speech enable jdb interaction 
 
 (cl-loop for command in
-      '(
-        jde-debug-step-into
-        jde-debug-step-out
-        jde-debug-step-over
-        jde-debug-up
-        jde-debug-down)
-      do
-      (eval
-       `(defadvice ,command (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object)))))
+         '(
+           jde-debug-step-into
+           jde-debug-step-out
+           jde-debug-step-over
+           jde-debug-up
+           jde-debug-down)
+         do
+         (eval
+          `(defadvice ,command (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)
+               (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice jde-db-run (after emacspeak pre act comp)
   "Provide auditory feedback."

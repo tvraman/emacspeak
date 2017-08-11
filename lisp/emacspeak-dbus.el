@@ -110,9 +110,9 @@ Startup  apps that need the network."
    #'(lambda ()
        (when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
-	(emacspeak-play-auditory-icon 'network-up)
-       (dtk-notify-speak
-				(mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
+  (emacspeak-play-auditory-icon 'network-up)
+  (dtk-notify-speak
+   (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
@@ -205,9 +205,9 @@ already disabled."
   (amixer-restore  amixer-alsactl-config-file)
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
-	(run-at-time  30 nil
-								#'(lambda ()
-										(when (nm-connected-p) (emacspeak-dbus-nm-connected))))
+  (run-at-time  30 nil
+                #'(lambda ()
+                    (when (nm-connected-p) (emacspeak-dbus-nm-connected))))
   (when
       (dbus-call-method
        :session
@@ -228,22 +228,22 @@ already disabled."
   (declare (special emacspeak-dbus-screen-lock-handle
                     emacspeak-screen-saver-saved-configuration))
   (setq emacspeak-dbus-screen-lock-handle
-  (dbus-register-signal
-   :session
-   "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-   "org.gnome.ScreenSaver" "ActiveChanged"
-   #'(lambda(lock)
-       (if lock
-           (progn
-             (sox-tones 1.5 1.5)
-             (emacspeak-screen-saver))
-         (progn
-           (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
-           (sox-tones)
-           (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
-           (set-window-configuration emacspeak-screen-saver-saved-configuration))
-           (dtk-notify-say "Unlocking screen")
-           (emacspeak-speak-mode-line)))))))
+        (dbus-register-signal
+         :session
+         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+         "org.gnome.ScreenSaver" "ActiveChanged"
+         #'(lambda(lock)
+             (if lock
+                 (progn
+                   (sox-tones 1.5 1.5)
+                   (emacspeak-screen-saver))
+               (progn
+                 (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
+                 (sox-tones)
+                 (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
+                   (set-window-configuration emacspeak-screen-saver-saved-configuration))
+                 (dtk-notify-say "Unlocking screen")
+                 (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
   "De-Register a handler to watch screen lock/unlock."

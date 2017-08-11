@@ -77,9 +77,9 @@
            (gomoku-point-y)
            (gomoku-point-x)
            (case (char-after (point))
-             (?X "x")
-             (?. "-")
-             (?O "0")))))
+                 (?X "x")
+                 (?. "-")
+                 (?O "0")))))
 
 (defun emacspeak-gomoku-show-current-row ()
   "Aurally display current row"
@@ -89,11 +89,11 @@
         (values nil))
     (setq values
           (cl-loop for i from 1 to gomoku-board-width
-                collect 
-                (case (emacspeak-gomoku-cell-value row i)
-                  (0 "-")
-                  (1  "x")
-                  (6 "0"))))
+                   collect 
+                   (case (emacspeak-gomoku-cell-value row i)
+                         (0 "-")
+                         (1  "x")
+                         (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -105,11 +105,11 @@
         (values nil))
     (setq values
           (cl-loop for i from 1 to gomoku-board-height
-                collect 
-                (case (emacspeak-gomoku-cell-value i column)
-                  (0 "-")
-                  (1  "x")
-                  (6 "0"))))
+                   collect 
+                   (case (emacspeak-gomoku-cell-value i column)
+                         (0 "-")
+                         (1  "x")
+                         (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -135,12 +135,12 @@
             diag-start-y (+ 1 (- row column)))))
     (setq values
           (cl-loop for i from diag-start-y  to gomoku-board-height
-                and j from diag-start-x to gomoku-board-width 
-                collect
-                (case (emacspeak-gomoku-cell-value i j)
-                  (0 "-")
-                  (1  "x")
-                  (6 "0"))))
+                   and j from diag-start-x to gomoku-board-width 
+                   collect
+                   (case (emacspeak-gomoku-cell-value i j)
+                         (0 "-")
+                         (1  "x")
+                         (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -169,12 +169,12 @@
             (- (+ row column) diag-start-x))))
     (setq values
           (cl-loop for i from diag-start-y  to gomoku-board-height
-                and j downfrom   diag-start-x  to 1 
-                collect
-                (case (emacspeak-gomoku-cell-value i j)
-                  (0 "-")
-                  (1  "x")
-                  (6 "0"))))
+                   and j downfrom   diag-start-x  to 1 
+                   collect
+                   (case (emacspeak-gomoku-cell-value i j)
+                         (0 "-")
+                         (1  "x")
+                         (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -351,11 +351,11 @@
   "Add additional keybindings"
   (declare (special gomoku-mode-map))
   (cl-loop for key in (where-is-internal 'backward-char (list gomoku-mode-map))
-        do
-        (define-key gomoku-mode-map key 'gomoku-move-left))
+           do
+           (define-key gomoku-mode-map key 'gomoku-move-left))
   (cl-loop for key in (where-is-internal 'forward-char (list gomoku-mode-map))
-        do
-        (define-key gomoku-mode-map key 'gomoku-move-right))
+           do
+           (define-key gomoku-mode-map key 'gomoku-move-right))
   (define-key gomoku-mode-map "\t"
     'emacspeak-gomoku-speak-emacs-previous-move)
   (define-key gomoku-mode-map "\M-\t"

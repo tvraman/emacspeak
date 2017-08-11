@@ -134,12 +134,12 @@ first initializing it if necessary."
         (setq line (ems-this-line)))
       (setq fields (split-string line))
       (cl-loop for f in fields 
-            and i from 0
-            do
-            (setq emacspeak-arc-header-list-format
-                  (cons
-                   (list f i)
-                   emacspeak-arc-header-list-format)))))
+               and i from 0
+               do
+               (setq emacspeak-arc-header-list-format
+                     (cons
+                      (list f i)
+                      emacspeak-arc-header-list-format)))))
   emacspeak-arc-header-list-format)
 (defun emacspeak-arc-get-field-index (field)
   (let ((marked-p (save-excursion
@@ -224,7 +224,7 @@ first initializing it if necessary."
   )
 
 (eval-when (load)
-  (emacspeak-arc-setup-keys))
+           (emacspeak-arc-setup-keys))
 ;;}}}
 (provide 'emacspeak-arc)
 ;;{{{ end of file 

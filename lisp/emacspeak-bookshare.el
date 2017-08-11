@@ -484,7 +484,6 @@ Optional interactive prefix arg prompts for a category to use as a filter."
    (emacspeak-bookshare-download-url id 1)
    target))
 
-
 (defun emacspeak-bookshare-download-audio(id target)
   "Download audio format of specified book to target location."
   (interactive)
@@ -803,12 +802,12 @@ b Browse
 
 ;; ;;}}}
 (cl-loop for p in
-      '(author title id metadata target directory)
-      do
-      (eval
-       `(defun ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
-          ,(format "Auto-generated function: Get %s at point. " p)
-          (get-text-property (point) ',p))))
+         '(author title id metadata target directory)
+         do
+         (eval
+          `(defun ,(intern (format "emacspeak-bookshare-get-%s" p)) ()
+             ,(format "Auto-generated function: Get %s at point. " p)
+             (get-text-property (point) ',p))))
 
 ;;}}}
 ;;{{{ Bookshare Mode:
@@ -817,32 +816,32 @@ b Browse
   "Define keys for  Bookshare Interaction."
   (declare (special emacspeak-bookshare-mode-map))
   (cl-loop for k in
-        '(
-          ("e" emacspeak-epub)
-          ("q" bury-buffer)
-          ("f" emacspeak-bookshare-flush-lines)
-          ("v" emacspeak-bookshare-view)
-          ("c" emacspeak-bookshare-toc-at-point)
-          ("\C-m" emacspeak-bookshare-toc-at-point)
-          ("M-n" emacspeak-bookshare-next-result)
-          ("M-p" emacspeak-bookshare-previous-result)
-          ("["  backward-page)
-          ("]" forward-page)
-          ("b" emacspeak-bookshare-browse)
-          ("SPC" emacspeak-bookshare-expand-at-point)
-          ("U" emacspeak-bookshare-unpack-at-point)
-          ("A" emacspeak-bookshare-download-audio-at-point)
-          ("3" emacspeak-bookshare-download-epub-3-at-point)
-          ("V" emacspeak-bookshare-view-at-point)
-          ("C" emacspeak-bookshare-fulltext)
-          ("D" emacspeak-bookshare-download-daisy-at-point)
-          ("E" emacspeak-bookshare-eww)
-          ("B" emacspeak-bookshare-download-brf-at-point)
-          ("j" next-line)
-          ("k" previous-line)
-          )
-        do
-        (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
+           '(
+             ("e" emacspeak-epub)
+             ("q" bury-buffer)
+             ("f" emacspeak-bookshare-flush-lines)
+             ("v" emacspeak-bookshare-view)
+             ("c" emacspeak-bookshare-toc-at-point)
+             ("\C-m" emacspeak-bookshare-toc-at-point)
+             ("M-n" emacspeak-bookshare-next-result)
+             ("M-p" emacspeak-bookshare-previous-result)
+             ("["  backward-page)
+             ("]" forward-page)
+             ("b" emacspeak-bookshare-browse)
+             ("SPC" emacspeak-bookshare-expand-at-point)
+             ("U" emacspeak-bookshare-unpack-at-point)
+             ("A" emacspeak-bookshare-download-audio-at-point)
+             ("3" emacspeak-bookshare-download-epub-3-at-point)
+             ("V" emacspeak-bookshare-view-at-point)
+             ("C" emacspeak-bookshare-fulltext)
+             ("D" emacspeak-bookshare-download-daisy-at-point)
+             ("E" emacspeak-bookshare-eww)
+             ("B" emacspeak-bookshare-download-brf-at-point)
+             ("j" next-line)
+             ("k" previous-line)
+             )
+           do
+           (emacspeak-keymap-update  emacspeak-bookshare-mode-map k)))
 
 (emacspeak-bookshare-define-keys)
 
@@ -890,9 +889,9 @@ b Browse
   (interactive)
   (let ((action (read-char "p Popular, l Latest")))
     (case action
-      (?p (call-interactively 'emacspeak-bookshare-action))
-      (?l (call-interactively 'emacspeak-bookshare-action))
-      (otherwise (error "Unrecognized browse action.")))))
+          (?p (call-interactively 'emacspeak-bookshare-action))
+          (?l (call-interactively 'emacspeak-bookshare-action))
+          (otherwise (error "Unrecognized browse action.")))))
 
 (defun emacspeak-bookshare-expand-at-point ()
   "Expand entry at point by retrieving metadata.
@@ -952,7 +951,6 @@ Target location is generated from author and title."
           (if (zerop (emacspeak-bookshare-download-daisy id new))
               (message "Downloaded to %s" new)
             (error "Error downloading to %s" new)))))))))
-
 
 (defun emacspeak-bookshare-download-audio-at-point ()
   "Download audio version of book under point.
@@ -1301,7 +1299,7 @@ Useful for fulltext search in a book."
   (unless (fboundp 'eww)
     (error "Your Emacs doesn't have EWW."))
   (let ((gc-cons-threshold 8000000)
-				(xsl (emacspeak-bookshare-xslt directory))
+        (xsl (emacspeak-bookshare-xslt directory))
         (buffer (get-buffer-create "Full Text"))
         (command nil)
         (inhibit-read-only t))

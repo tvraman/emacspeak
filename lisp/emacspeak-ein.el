@@ -147,63 +147,63 @@
 ;;{{{ Worksheets:
 
 (cl-loop for f in
-      '(
-        ein:worksheet-clear-all-output
-        ein:worksheet-delete-cell
-        ein:worksheet-clear-output
-        ein:worksheet-kill-cell
-        )
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'delete-object)))))
+         '(
+           ein:worksheet-clear-all-output
+           ein:worksheet-delete-cell
+           ein:worksheet-clear-output
+           ein:worksheet-kill-cell
+           )
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'delete-object)))))
 ;; ein:worksheet-change-cell-type
 ;; ein:worksheet-copy-cell
 ;; ein:worksheet-dedent-cell-text
 
 (cl-loop for f in
-      '(
-        ein:worksheet-execute-all-cell
-        ein:worksheet-execute-autoexec-cells
-        ein:worksheet-execute-cell-and-insert-below
-        ein:worksheet-execute-cell-and-goto-next
-        ein:worksheet-execute-cell)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'task-done)
-            (emacspeak-speak-line)))))
+         '(
+           ein:worksheet-execute-all-cell
+           ein:worksheet-execute-autoexec-cells
+           ein:worksheet-execute-cell-and-insert-below
+           ein:worksheet-execute-cell-and-goto-next
+           ein:worksheet-execute-cell)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'task-done)
+               (emacspeak-speak-line)))))
 (cl-loop for f in
-      '(
-        ein:worksheet-goto-next-input
-        ein:worksheet-goto-prev-input
-        ein:worksheet-next-input-history
-        ein:worksheet-previous-input-history
-        )
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-ein-speak-current-cell)))))
+         '(
+           ein:worksheet-goto-next-input
+           ein:worksheet-goto-prev-input
+           ein:worksheet-next-input-history
+           ein:worksheet-previous-input-history
+           )
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'large-movement)
+               (emacspeak-ein-speak-current-cell)))))
 
 (cl-loop for f in
-      '(
-        ein:worksheet-yank-cell
-        ein:worksheet-insert-cell-above
-        ein:worksheet-insert-cell-below)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'yank-object)
-            (emacspeak-speak-line)))))
+         '(
+           ein:worksheet-yank-cell
+           ein:worksheet-insert-cell-above
+           ein:worksheet-insert-cell-below)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'yank-object)
+               (emacspeak-speak-line)))))
 
 ;; ein:worksheet-merge-cell
 ;; ein:worksheet-move-cell-down
@@ -221,11 +221,11 @@
 ;;{{{ Bind additional interactive commands
 (when (boundp 'ein:notebook-mode-map)
   (cl-loop for k in
-        '(
-          ("\C-c." emacspeak-ein-speak-current-cell)
-          )
-        do
-        (emacspeak-keymap-update ein:notebook-mode-map k)))
+           '(
+             ("\C-c." emacspeak-ein-speak-current-cell)
+             )
+           do
+           (emacspeak-keymap-update ein:notebook-mode-map k)))
 
 ;;}}}
 (provide 'emacspeak-ein)

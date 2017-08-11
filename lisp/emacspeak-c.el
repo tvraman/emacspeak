@@ -364,7 +364,7 @@ and their meanings. ")
  for f in
  '(
    c-previous-statement c-next-statement
-                        c-awk-beginning-of-defun c-awk-end-of-defunm)
+   c-awk-beginning-of-defun c-awk-end-of-defunm)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -402,7 +402,7 @@ and their meanings. ")
  for f in
  '(
    c-indent-new-comment-line c-indent-line-or-region
-                             c-indent-exp c-fill-paragraph)
+   c-indent-exp c-fill-paragraph)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -415,9 +415,9 @@ and their meanings. ")
  for f in
  '(
    c-toggle-auto-hungry-state c-toggle-auto-newline
-                              c-toggle-auto-state c-toggle-electric-state
-                              c-toggle-hungry-state c-toggle-parse-state-debug
-                              c-toggle-syntactic-indentation)
+   c-toggle-auto-state c-toggle-electric-state
+   c-toggle-hungry-state c-toggle-parse-state-debug
+   c-toggle-syntactic-indentation)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

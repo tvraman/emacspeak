@@ -53,14 +53,14 @@
 ;;{{{ Advice interactive commands.
 
 (cl-loop for c in
-      '(wdired-next-line wdired-previous-line)
-      do
-      (eval
-       `(defadvice ,c (after emacspeak pre act comp)
-          "Provide spoken feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-dired-speak-line)))))
+         '(wdired-next-line wdired-previous-line)
+         do
+         (eval
+          `(defadvice ,c (after emacspeak pre act comp)
+             "Provide spoken feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (emacspeak-dired-speak-line)))))
 
 (defadvice wdired-upcase-word (after emacspeak pre act comp)
   "Provide spoken feedback."

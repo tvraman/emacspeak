@@ -81,7 +81,7 @@
  for f in
  '(
    tide-find-next-reference tide-find-previous-reference tide-goto-reference
-                            tide-jump-back tide-jump-to-definition)
+   tide-jump-back tide-jump-to-definition)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

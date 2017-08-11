@@ -726,32 +726,32 @@ Retain previously set punctuations  mode."
          emacspeak-eww-style)
                                         ; this is a displayed feed
     (lexical-let
-        ((p dtk-punctuation-mode)
-         (r dtk-speech-rate)
-         (u (emacspeak-eww-current-url))
-         (s emacspeak-eww-style))
-      (kill-buffer)
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (dtk-set-punctuations p)
-           (dtk-set-rate r))
-       'at-end)
-      (emacspeak-feeds-feed-display u s 'speak)))
+     ((p dtk-punctuation-mode)
+      (r dtk-speech-rate)
+      (u (emacspeak-eww-current-url))
+      (s emacspeak-eww-style))
+     (kill-buffer)
+     (add-hook
+      'emacspeak-web-post-process-hook
+      #'(lambda ()
+          (dtk-set-punctuations p)
+          (dtk-set-rate r))
+      'at-end)
+     (emacspeak-feeds-feed-display u s 'speak)))
    ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
     (lexical-let
-        ((n emacspeak-eww-url-template)
-         (p dtk-punctuation-mode)
-         (r dtk-speech-rate))
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda nil
-           (dtk-set-punctuations p)
-           (dtk-set-rate r))
-       'at-end)
-      (kill-buffer)
-      (emacspeak-url-template-open (emacspeak-url-template-get  n))))
+     ((n emacspeak-eww-url-template)
+      (p dtk-punctuation-mode)
+      (r dtk-speech-rate))
+     (add-hook
+      'emacspeak-web-post-process-hook
+      #'(lambda nil
+          (dtk-set-punctuations p)
+          (dtk-set-rate r))
+      'at-end)
+     (kill-buffer)
+     (emacspeak-url-template-open (emacspeak-url-template-get  n))))
    (t ad-do-it)))
 
 (cl-loop
@@ -1883,15 +1883,15 @@ Warning, this is fragile, and depends on a stable id for the
 (defvar emacspeak-eww-marks (make-hash-table :test #'equal)
   "Stores   EWW-marks.")
 
-(defun emacspeak-eww-add-mark (name )
+(defun emacspeak-eww-add-mark (name)
   "Interactively add a mark with name title+`name' at current position."
   (interactive
    (list
     (concat
      (emacspeak-eww-current-title)": "
-		 (let ((input (read-from-minibuffer "Mark: " nil nil nil nil "current")))
-			 (if (zerop (length input))
-					 "current" input)))))
+     (let ((input (read-from-minibuffer "Mark: " nil nil nil nil "current")))
+       (if (zerop (length input))
+           "current" input)))))
   (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
@@ -1967,7 +1967,7 @@ interactive prefix arg `delete', delete that mark instead."
   (declare (special emacspeak-eww-marks))
   (cond
    (delete (emacspeak-eww-delete-mark name)
-					 (emacspeak-auditory-icon 'delete-object))
+           (emacspeak-auditory-icon 'delete-object))
    (t
     (let* ((bm (gethash name emacspeak-eww-marks))
            (handler nil)
@@ -2002,7 +2002,7 @@ interactive prefix arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
-  (declare (special emacspeak-eww-marks-file emacspeak-eww-marks ))
+  (declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
   (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
         (print-length nil)
         (print-level nil))

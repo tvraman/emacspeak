@@ -228,16 +228,16 @@ An automatically updating speedbar consumes resources.")
                (emacspeak-speedbar-speak-line)
                (emacspeak-auditory-icon
                 (case action-char
-                  (?+ 'open-object)
-                  (?- 'close-object)
-                  (t 'large-movement))))
+                      (?+ 'open-object)
+                      (?- 'close-object)
+                      (t 'large-movement))))
        (t (message "No target on this line"))))))
 
 ;;}}}
 ;;{{{  hooks
 (declaim (special speedbar-mode-map))
 (eval-when (load)
-  )
+           )
 (defun emacspeak-speedbar-enter-hook ()
   "Actions taken when we enter the Speedbar"
   (declare (special speedbar-mode-map
