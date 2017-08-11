@@ -246,7 +246,7 @@ which defaults to emacs-personal-library."
       (add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
-    (message "<start-up-my-emacs %s>"
+    (message "<start-up-my-emacs %.4f>"
              (float-time (time-subtract (current-time) tvr-start)))
     )) ;end defun
 ;;{{{  start it up
