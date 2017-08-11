@@ -111,12 +111,19 @@
 
 (defcustom emacspeak-maths-inferior-program
   (cond
-	 ((executable-find "node") (executable-find "node"))
-	 ((and (locate-library "nvm")
-				 (nvm--installed-versions))
-		(nvm-use (cadar (nvm--installed-versions)))) ; try to find highest version
-	 (t  nil))
-  "Location of `node' executable."
+   ((executable-find "node") (executable-find "node"))
+   ((and (locate-library "nvm")
+         (nvm--installed-versions))
+    (let ((v
+           (car (last
+                 (sort (mapcar #'car (nvm--installed-versions)) #'string=)))))
+      (nvm-use "8.3.0")
+      (executable-find "node"))) 
+   (t  nil))
+  "Location of `node' executable.  Make sure the environment in which
+Emacs is launched finds the right installation of node.  M-x
+package-install nvm makes it easier to have Emacs find the right node
+install."
   :type 'file
   :group 'emacspeak-maths)
 
