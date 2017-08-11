@@ -114,6 +114,7 @@
    ((executable-find "node") (executable-find "node"))
    ((and (locate-library "nvm")
          (nvm--installed-versions))
+		(require 'nvm)
     (let ((v
            (car (last
                  (sort (mapcar #'car (nvm--installed-versions)) #'string=)))))
