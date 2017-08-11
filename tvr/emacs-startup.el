@@ -57,7 +57,7 @@ which defaults to emacs-personal-library."
           (setq start (current-time))
           (load-library lib)
           (message
-           "<%s %s>"
+           "<%s %.4f>"
            lib (float-time (time-subtract (current-time) start)))
           (setq start nil))
          (t (message "Could not locate library %s" lib)
@@ -268,7 +268,7 @@ which defaults to emacs-personal-library."
        (start-process
         "play" nil "play"
         (expand-file-name "highbells.au" emacspeak-sounds-directory))
-       (message "<after-init-hook: %s" (float-time (time-subtract (current-time) after-start)))
+       (message "<after-init-hook: %.4f" (float-time (time-subtract (current-time) after-start)))
        (message "Successfully initialized Emacs for %s" user-login-name))))
 (start-up-my-emacs)
 
