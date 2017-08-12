@@ -536,6 +536,7 @@ interactive command that the key sequence executes."
     ("SPC"  emacspeak-wizards-scratch)
     ("." auto-correct-update)
     ("f" flyspell-mode)
+    ("g" emacspeak-google-tts-region)
     ("j" ido-imenu-anywhere)
     ("o" ciel-co)
     ("r" soundscape-restart)
