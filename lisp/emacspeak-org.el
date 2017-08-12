@@ -672,6 +672,31 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (funcall-interactively #'eww-open-file file))
 
 ;;}}}
+;;{{{ Edit Special Advice:
+
+(cl-loop
+ for f in 
+ '(org-edit-src-exit org-edit-src-abort)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in
+ '(org-edit-src-code org-edit-special) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-mode-line)))))
+
+;;}}}
+
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
