@@ -96,11 +96,11 @@
 (require 'derived)
 (cl-eval-when '(load)
   (when (locate-library "package")
-    (unless (locate-library "hydra") (package-install 'hydra))))
+    (unless (locate-library "hydra") (package-install 'hydra))
+    (unless (locate-library "nvm") (package-install 'nvm))))
 (require 'hydra "hydra" 'no-error)
+(require 'nvm "nvm" 'no-error )
 (require 'emacspeak-preamble)
-(eval-when-compile (require 'hydra "hydra" 'no-error))
-(require 'emacspeak-hydra)
 ;;}}}
 ;;{{{ Customizations And Variables:
 
@@ -112,7 +112,6 @@
   (cond
    ((executable-find "node") (executable-find "node"))
    ((and (locate-library "nvm")
-         (require 'nvm)
          (nvm--installed-versions))
     (let ((v (car (sort (mapcar #'car (nvm--installed-versions)) #'string>))))
       (nvm-use v)
