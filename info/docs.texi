@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1197 commands and 1157 options.
+This chapter documents a total of 1198 commands and 1157 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12717,6 +12717,8 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
+
+(fn LATEX)
 @end format
 @end deffn
 
@@ -22860,6 +22862,15 @@ Enumerate unadvised commands matching pattern.
 Enumerate unmapped faces matching pattern.
 
 (fn &optional PATTERN)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-espeak-line
+@deffn {Command} emacspeak-wizards-espeak-line   
+@findex emacspeak-wizards-espeak-line
+
+@format
+Speak line using espeak polyglot wizard.
 @end format
 @end deffn
 
