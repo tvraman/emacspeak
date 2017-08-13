@@ -1497,6 +1497,20 @@ prompts for a location and speaks the forecast. \n\n"
  "Flight Tracker")
 
 ;;}}}
+;;{{{ Washington Post
+
+(emacspeak-url-template-define
+ "Washington Post"
+ "https://www.washingtonpost.com/"
+ nil nil
+ "Washington Post Contents"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class-list 
+'("headline " "blurb normal normal-style ")
+url
+'speak)))
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
