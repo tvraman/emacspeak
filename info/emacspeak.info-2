@@ -3469,14 +3469,23 @@ is nearly 20 years old)
 12.87.1 emacspeak-gnus Commands
 -------------------------------
 
-12.87.1.1 emacspeak-gnus-summary-catchup-quietly-and-exit
+12.87.1.1 emacspeak-gnus-async
+..............................
+
+ -- Command: emacspeak-gnus-async
+     ‘C-; G’
+     ‘C-x @ h G’
+
+     Run gnus on a separate thread.
+
+12.87.1.2 emacspeak-gnus-summary-catchup-quietly-and-exit
 .........................................................
 
  -- Command: emacspeak-gnus-summary-catchup-quietly-and-exit
 
      Catch up on all articles in current group.
 
-12.87.1.2 emacspeak-gnus-summary-hide-all-headers
+12.87.1.3 emacspeak-gnus-summary-hide-all-headers
 .................................................
 
  -- Command: emacspeak-gnus-summary-hide-all-headers
@@ -3485,7 +3494,7 @@ is nearly 20 years old)
      Use this command if you don’t want to listen to any article headers when
      reading news.
 
-12.87.1.3 emacspeak-gnus-summary-show-some-headers
+12.87.1.4 emacspeak-gnus-summary-show-some-headers
 ..................................................
 
  -- Command: emacspeak-gnus-summary-show-some-headers
@@ -3869,6 +3878,8 @@ e.g.  blog search are tbm=
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end)
+     ‘C-' g’
+     ‘C-x @ s g’
 
      Speak region using Google Network TTS.
 

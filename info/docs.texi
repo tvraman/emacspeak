@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1198 commands and 1157 options.
+This chapter documents a total of 1199 commands and 1157 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1507,6 +1507,7 @@ SPC		emacspeak-webspace
 B		eww-list-bookmarks
 C		apu-chars
 F		rg-dwim
+G		emacspeak-gnus-async
 N		emacspeak-npr-listing
 a		emacspeak-wizards-term
 b		eww-list-buffers
@@ -1553,6 +1554,7 @@ S		soundscape-stop
 b		emacspeak-bbc
 e		elfeed
 f		flyspell-mode
+g		emacspeak-google-tts-region
 j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -9268,6 +9270,22 @@ Updating support in 2014 (Emacspeak is nearly 20 years old)
 
 @subsection emacspeak-gnus Commands
 
+@subsubsection emacspeak-gnus-async
+@deffn {Command} emacspeak-gnus-async   
+@table @kbd
+@item C-; G
+@kindex C-; G
+@item C-x @@ h G
+@kindex C-x @@ h G
+@end table
+
+@findex emacspeak-gnus-async
+
+@format
+Run gnus on a separate thread.
+@end format
+@end deffn
+
 @subsubsection emacspeak-gnus-summary-catchup-quietly-and-exit
 @deffn {Command} emacspeak-gnus-summary-catchup-quietly-and-exit   
 @findex emacspeak-gnus-summary-catchup-quietly-and-exit
@@ -9758,6 +9776,13 @@ Speak text using Google Network TTS.
 
 @subsubsection emacspeak-google-tts-region
 @deffn {Command} emacspeak-google-tts-region  (start end)
+@table @kbd
+@item C-' g
+@kindex C-' g
+@item C-x @@ s g
+@kindex C-x @@ s g
+@end table
+
 @findex emacspeak-google-tts-region
 
 @format

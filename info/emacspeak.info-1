@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1198 commands and 1157 options.
+This chapter documents a total of 1199 commands and 1157 options.
 
 * Menu:
 
@@ -4196,6 +4196,7 @@ system.
      B		eww-list-bookmarks
      C		apu-chars
      F		rg-dwim
+     G		emacspeak-gnus-async
      N		emacspeak-npr-listing
      a		emacspeak-wizards-term
      b		eww-list-buffers
@@ -4242,6 +4243,7 @@ system.
      b		emacspeak-bbc
      e		elfeed
      f		flyspell-mode
+     g		emacspeak-google-tts-region
      j		ido-imenu-anywhere
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode
