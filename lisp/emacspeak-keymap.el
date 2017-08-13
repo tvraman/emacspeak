@@ -670,6 +670,7 @@ command that the key sequence executes."
     ("'" emacspeak-m-player-using-hrtf)
     ("B" eww-list-bookmarks)
     ("C" apu-chars)
+    ("G" emacspeak-gnus-async)
     ("N" emacspeak-npr-listing)
     ("a" emacspeak-wizards-term)
     ("b" eww-list-buffers)

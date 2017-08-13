@@ -931,6 +931,15 @@ Helps to prevent words from being spelled instead of spoken."
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
+;;{{{ Async Gnus:
+
+;;;###autoload
+(defun emacspeak-gnus-async ()
+  "Run gnus on a separate thread."
+  (interactive)
+  (make-thread #'gnus))
+
+;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
 ;;; local variables:
