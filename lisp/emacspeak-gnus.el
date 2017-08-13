@@ -176,7 +176,7 @@ reading news."
 
 ;;; emacs can hang if too many message sfly by as gnus starts
 (defadvice gnus (around emacspeak pre act)
-  "Temporarily deactivate advice on message"
+  "Quieten messages, produce auditory icon."
   (dtk-speak  "Starting gnus")
   (ems-with-messages-silenced ad-do-it)
   (emacspeak-auditory-icon 'news)
