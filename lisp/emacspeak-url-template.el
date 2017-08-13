@@ -1506,7 +1506,7 @@ prompts for a location and speaks the forecast. \n\n"
  "Washington Post Contents"
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list 
-'("headline " "blurb normal normal-style ")
+'("headline normal normal-style text-align-inherit " "headline " "blurb normal normal-style ")
 url
 'speak)))
 
