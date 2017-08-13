@@ -612,6 +612,9 @@ This variable is buffer-local.")
 (defun emacspeak-google-tts-region (start end)
   "Speak region using Google Network TTS."
   (interactive "r")
+  (unless (and start end)
+    (setq start (line-beginning-position)
+          end (line-end-position)))
   (emacspeak-google-tts (buffer-substring-no-properties start end)))
 
 ;;}}}
