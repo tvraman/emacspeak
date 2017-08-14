@@ -446,7 +446,7 @@
   "Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gweb-my-address via M-x customize-variable."
   (interactive)
-  (declare (special  gweb-my-address
+  (declare (special  gweb-my-address gweb-my-location
                      calendar-latitude calendar-longitude))
   (cond
    ((null gweb-my-location)
