@@ -81,7 +81,6 @@
 ;;{{{  Required modules
 
 (eval-when-compile (require 'cl-lib))
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-hydra)
 

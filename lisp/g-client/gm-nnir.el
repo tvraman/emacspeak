@@ -55,7 +55,6 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
 
 (require 'nnir)
 

@@ -50,7 +50,6 @@
 ;;{{{ required modules
 
 (require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'tts)
 (require 'dtk-interp)

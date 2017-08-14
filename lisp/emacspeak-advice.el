@@ -69,7 +69,6 @@
 
 (require 'advice)
 (require 'cl-lib)
-(declaim (optimize (safety 0) (speed 3)))
 (require 'voice-setup)
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)

@@ -40,7 +40,6 @@
 ;;{{{ required packages
 
 (require 'cl-lib)
-(cl-declaim (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{ top level

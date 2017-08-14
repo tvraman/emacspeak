@@ -55,7 +55,6 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'dired)
 (require 'eww   "eww" 'noerror)

@@ -48,7 +48,6 @@
 
 ;;; Code:
 (require 'cl-lib)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
 (require 'emacspeak-webutils)

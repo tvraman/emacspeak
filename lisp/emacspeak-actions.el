@@ -50,7 +50,6 @@
 
 ;;; Code:
 (require 'cl-lib)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-sounds)
 (require 'emacspeak-speak)
 ;;}}}

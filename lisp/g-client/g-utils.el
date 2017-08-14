@@ -56,7 +56,6 @@
 
 (require 'cl)
 (require 'json)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{ Customizations:

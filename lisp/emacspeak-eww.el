@@ -397,7 +397,6 @@
 ;;{{{ Required modules
 
 (require 'cl-lib)
-(cl-declaim (optimize (safety 0) (speed 3)))
 (require 'pp)
 (eval-when-compile(require 'subr-x))
 (eval-when-compile (require 'eww "eww" 'no-error))

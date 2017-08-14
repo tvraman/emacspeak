@@ -94,7 +94,6 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)

@@ -571,7 +571,7 @@ necessary."
 
 ;;}}}
 ;;{{{ commands
-mp
+
 (defun emacspeak-m-player-get-position ()
   "Return list suitable to use as an amark. --- see emacspeak-amark.el."
   (declare (special emacspeak-m-player-process))

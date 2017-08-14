@@ -51,7 +51,6 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require '2048-game "2048-game" 'no-error)
 ;;}}}

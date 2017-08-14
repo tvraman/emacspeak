@@ -91,7 +91,6 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
-(declaim  (optimize  (safety 0) (speed 3)))
 (require 'comint)
 (require 'derived)
 (cl-eval-when '(load)
