@@ -349,7 +349,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
     (soundscape-map-mode mode scape)
-    <    (soundscape-sync major-mode)
+        (soundscape-sync major-mode)
     (message "Now using %s for %s" scape mode)))
 
 ;;}}}
