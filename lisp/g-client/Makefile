@@ -41,9 +41,7 @@ EMACS = emacs
 BATCH = -batch -q -no-site-file   
 DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
-OBJECTS= g-auth.elc \
-g-app.elc \
-g-utils.elc \
+OBJECTS= g-utils.elc \
 g.elc \
 gweb.elc \
 gmaps.elc \
@@ -51,7 +49,7 @@ gm-nnir.elc \
 
 
 MODULES=\
- g-auth.el g-app.el g-utils.el g.el gweb.el gmaps.el gm-nnir.el 
+  g-utils.el g.el gweb.el gmaps.el gm-nnir.el 
 
 # How to compile
 %.elc:  %.el
@@ -77,9 +75,9 @@ g-cus-load.el:${MODULES}
 # {{{  Make rules for the various modules
 
 g-utils.elc: g-utils.el
-g-auth.elc: g-auth.el g-utils.elc
-g-app.elc: g-auth.elc g-utils.elc g-app.el
-g.elc: g.el  g-auth.elc
+g-auth
+g-app
+g.elc: g.el  
 gweb.elc: gweb.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
 gm-nnir.elc: gm-nnir.el 
