@@ -547,9 +547,9 @@ def processSpeechQueue():
         voice = voiceMap[voice]
       else:
         voice = NSSpeechSynthesizer.defaultVoice()
-      if voice != speechSynthesizer.voice():
-        speechSynthesizer.setVoice_(voice)
-        writeDebugLog(6, "set voice to " + voice)
+
+      speechSynthesizer.setVoice_(voice)
+      writeDebugLog(6, "set voice to " + voice)
       processSpeechQueue()
 
     # Custom embeds.
