@@ -54,7 +54,7 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'g-utils)
 (require 'pp)
 ;;}}}
@@ -304,7 +304,7 @@ Parameter `key' is the API  key."
           '("Google Maps: "
             (:eval   (gmaps--location-address gmaps-current-location))))))
 
-(declaim (special gmaps-mode-map))
+(cl-declaim (special gmaps-mode-map))
 
 (cl-loop for k in
          '(
