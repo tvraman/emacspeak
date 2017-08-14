@@ -75,8 +75,6 @@ g-cus-load.el:${MODULES}
 # {{{  Make rules for the various modules
 
 g-utils.elc: g-utils.el
-g-auth
-g-app
 g.elc: g.el  
 gweb.elc: gweb.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
