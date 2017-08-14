@@ -46,7 +46,7 @@
 ;;; Code:
 ;;}}}
 ;;{{{ requires
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'emacspeak-hide)
 (require 'gnus)

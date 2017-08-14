@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{  Required modules
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'stack-f)
 (require 'sudoku "sudoku" 'no-error)

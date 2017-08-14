@@ -49,7 +49,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'url)

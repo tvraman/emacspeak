@@ -68,7 +68,7 @@
 ;;{{{ Required modules
 
 (require 'advice)
-(require 'cl)
+(require 'cl-lib)
 (declaim (optimize (safety 0) (speed 3)))
 (require 'voice-setup)
 (require 'dtk-speak)

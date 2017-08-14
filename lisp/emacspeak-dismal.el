@@ -128,7 +128,7 @@
 ;;; Code:
 ;;}}}
 ;;{{{  requires 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ custom

@@ -85,7 +85,7 @@
 ;;}}}
 ;;{{{ Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'easy-mmode))
 (require 'custom)
