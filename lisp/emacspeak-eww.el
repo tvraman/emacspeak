@@ -1005,12 +1005,12 @@ Retain previously set punctuations  mode."
           (property (dom-attr dom 'property))
           (el (symbol-name (dom-tag dom)))
           (children (dom-children dom)))
-      (when id (pushnew id eww-id-cache :test #'string=))
-      (when class (pushnew class eww-class-cache :test #'string=))
-      (when itemprop (pushnew itemprop eww-itemprop-cache :test #'string=))
-      (when role (pushnew role eww-role-cache :test #'string=))
-      (when property (pushnew property eww-property-cache :test #'string=))
-      (when el (pushnew el eww-element-cache :test #'string=))
+      (when id (cl-pushnew id eww-id-cache :test #'string=))
+      (when class (cl-pushnew class eww-class-cache :test #'string=))
+      (when itemprop (cl-pushnew itemprop eww-itemprop-cache :test #'string=))
+      (when role (cl-pushnew role eww-role-cache :test #'string=))
+      (when property (cl-pushnew property eww-property-cache :test #'string=))
+      (when el (cl-pushnew el eww-element-cache :test #'string=))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
 
@@ -1129,7 +1129,7 @@ for use as a DOM filter."
      do
      (setq value (funcall reader))
      (cond
-      (value (pushnew   value value-list))
+      (value (cl-pushnew   value value-list))
       (t (setq done t))))
     value-list))
 

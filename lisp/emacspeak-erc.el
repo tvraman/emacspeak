@@ -50,6 +50,7 @@
 
 ;;}}}
 ;;{{{ required modules
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'erc)
 ;;}}}
@@ -167,8 +168,7 @@ Optional interactive prefix  arg defines a pronunciation that
   (declare (special emacspeak-erc-people-to-monitor))
   (unless (eq major-mode 'erc-mode)
     (error "Not in an ERC buffer."))
-  (pushnew name emacspeak-erc-people-to-monitor
-           :test #'string-equal)
+  (cl-pushnew name emacspeak-erc-people-to-monitor :test #'string-equal)
   (when quiten-pronunciation
     (emacspeak-pronounce-add-buffer-local-dictionary-entry name ""))
   (emacspeak-auditory-icon 'select-object)

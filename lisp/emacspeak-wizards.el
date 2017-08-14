@@ -253,9 +253,8 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
         (start nil)
         (end nil))
     (shell-command command buffer-name)
-    (pushnew   command
-               emacspeak-speak-run-shell-command-history
-               :test 'string-equal)
+    (cl-pushnew   command
+                  emacspeak-speak-run-shell-command-history :test 'string-equal)
     (save-current-buffer
       (set-buffer buffer-name)
       (untabify (point-min) (point-max))

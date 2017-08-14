@@ -39,7 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ required modules
-
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'eww)
@@ -174,8 +174,7 @@ When using supported browsers,  this interface attempts to speak the most releva
           initial  nil nil
           (car emacspeak-websearch-history)
           (or default (word-at-point)))))
-    (pushnew answer  emacspeak-websearch-history :test
-             #'string-equal)
+    (cl-pushnew answer  emacspeak-websearch-history :test #'string=)
     answer))
 
 ;;}}}

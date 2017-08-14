@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'company "company" 'no-error))
@@ -113,7 +113,7 @@
   "Set front-end to our  front-end action."
   (declare (special company-frontends))
   (when (boundp 'company-frontends)
-    (pushnew 'emacspeak-company-frontend company-frontends))
+    (cl-pushnew 'emacspeak-company-frontend company-frontends))
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'open-object)))

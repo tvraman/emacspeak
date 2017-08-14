@@ -124,10 +124,8 @@ cap C   Save clip to disk
 
 (defun cd-tool-get-clip-command (&optional save)
   "Query for and return an appropriate CD clip command"
-  (declare (special cd-tool-clipper
-                    cd-tool-clip-track-history
-                    cd-tool-clip-skip-history
-                    cd-tool-clip-duration-history))
+  (declare (special cd-tool-clipper cd-tool-clip-track-history
+                    cd-tool-clip-skip-history cd-tool-clip-duration-history))
   (let ((filename (when save
                     (read-file-name
                      "File name to save clip to: ")))
@@ -148,9 +146,9 @@ cap C   Save clip to disk
                                         nil ;KEYMAP
                                         nil ; READ
                                         cd-tool-clip-duration-history)))
-    (pushnew track cd-tool-clip-track-history)
-    (pushnew  skip cd-tool-clip-skip-history)
-    (pushnew duration cd-tool-clip-duration-history)
+    (cl-pushnew track cd-tool-clip-track-history :test #'string=)
+    (cl-pushnew  skip cd-tool-clip-skip-history :test #'string=)
+    (cl-pushnew duration cd-tool-clip-duration-history :test #'string=)
     (format "%s %s -t %s -o %s -d %s %s"
             cd-tool-clipper
             cd-tool-clipper-default-args

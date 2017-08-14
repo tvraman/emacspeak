@@ -59,7 +59,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'derived)
 (require 'ladspa)
@@ -378,7 +378,7 @@
 (defun
     sox-register-effect (name)
   "Register effect."
-  (pushnew name sox-effects :test #'string=))
+  (cl-pushnew name sox-effects :test #'string=))
 
 ;;; To define support for an effect,:
 ;;; 1. Add it to the effect table below.

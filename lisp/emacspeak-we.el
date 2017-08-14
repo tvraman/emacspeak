@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
@@ -965,7 +965,7 @@ used as well."
              nil nil nil
              'emacspeak-we-xpath-filter-history
              emacspeak-we-recent-xpath-filter))
-      (pushnew emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history)
+      (cl-pushnew emacspeak-we-xpath-filter emacspeak-we-xpath-filter-history :test #'string=)
       (setq emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter))
     (emacspeak-we-xslt-filter emacspeak-we-xpath-filter
                               (or redirect url)
@@ -1015,7 +1015,7 @@ used as well."
              nil nil nil
              'emacspeak-we-class-filter-history
              emacspeak-we-recent-class-filter))
-      (pushnew emacspeak-we-class-filter emacspeak-we-class-filter-history)
+      (cl-pushnew emacspeak-we-class-filter emacspeak-we-class-filter-history :test #'string=)
       (setq emacspeak-we-recent-class-filter
             emacspeak-we-class-filter))
     (emacspeak-we-xslt-filter
