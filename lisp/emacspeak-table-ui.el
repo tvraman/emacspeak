@@ -479,7 +479,7 @@ Optional prefix arg prompts for a new filter."
 
 (defun ems-csv-forward-field ()
   "Skip forward over one field."
-  (if (eq (following-char) ?\")
+  (if (and (following-char) (eq (following-char) ?\"))
       (forward-sexp)
     (skip-chars-forward "^,\n")))
 
@@ -572,7 +572,7 @@ the documentation on the table browser."
                                               (1- (point))))
              (t (buffer-substring-no-properties start  (point)))))
       (push this-field fields)
-      (when (= (char-after) ?,)
+      (when(and (char-after) (= (char-after) ?,))
         (forward-char 1))
       (setq start (point)))
     (when (= (preceding-char) ?,)
