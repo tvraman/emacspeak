@@ -562,7 +562,6 @@ the documentation on the table browser."
   (let ((fields nil)
         (this-field nil)
         (start (line-beginning-position)))
-                                        ;(save-excursion
     (goto-char start)
     (while (not (eolp))
       (ems-csv-forward-field)
@@ -576,7 +575,6 @@ the documentation on the table browser."
       (when (= (char-after) ?,)
         (forward-char 1))
       (setq start (point)))
-                                        ;)
     (when (= (preceding-char) ?,)
       (push "" fields))
     (nreverse fields)))
