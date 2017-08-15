@@ -955,7 +955,6 @@ icon."
            (count (ad-get-arg 0)))
        (setq count (or count 1))
        ad-do-it
-       m
        (cond
         ((= (point) (+ count orig))
          (save-excursion
