@@ -119,7 +119,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defvar emacspeak-vm-user-login-name  (user-login-name)
   "Login name of this user")
-s(defun emacspeak-vm-yank-header ()
+(defun emacspeak-vm-yank-header ()
    "Yank specified header into kill ring."
    (interactive)
    (declare (special vm-message-pointer))
