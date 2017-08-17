@@ -109,7 +109,8 @@ fly spell checking."
 (add-hook
  'flyspell-incorrect-hook
  #'(lambda (_s _e p)
-     (unless (eq p 'doublon) (emacspeak-auditory-icon 'help))))
+     (unless (eq p 'doublon) (emacspeak-auditory-icon 'help))
+     nil))
 
 ;;}}}
 ;;{{{ use flyspell-correct if available:
