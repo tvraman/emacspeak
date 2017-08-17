@@ -105,6 +105,12 @@ fly spell checking."
       (when (flyspell-overlay-p o)
         (put-text-property (overlay-start o) (overlay-end o) 'personality nil))
       (setq overlay-list (cdr overlay-list)))))
+
+(add-hook
+ 'flyspell-incorrect-hook
+ #'(lambda (_s _e p)
+     (unless (eq p 'doublon) (emacspeak-auditory-icon 'help))))
+
 ;;}}}
 ;;{{{ use flyspell-correct if available:
 
