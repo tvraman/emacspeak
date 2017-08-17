@@ -105,11 +105,6 @@ fly spell checking."
       (when (flyspell-overlay-p o)
         (put-text-property (overlay-start o) (overlay-end o) 'personality nil))
       (setq overlay-list (cdr overlay-list)))))
-
-(defadvice flyspell-highlight-incorrect-region (after emacspeak pre act comp)
-  "Play auditory icon on error."
-  (emacspeak-auditory-icon 'help))
-
 ;;}}}
 ;;{{{ use flyspell-correct if available:
 
