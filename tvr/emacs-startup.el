@@ -185,11 +185,12 @@ which defaults to emacs-personal-library."
     ;;}}}
     ;;{{{ outline mode setup:
 
-    (load-library-if-available "outline")
+    (eval-after-load 'outline
+      `(progn
 ;;;restore what we are about to steal
     (define-key outline-mode-prefix-map "o" 'open-line)
     (global-set-key "\C-o"outline-mode-prefix-map)
-
+))
     ;;}}}
     ;;{{{ Prepare needed libraries
 
