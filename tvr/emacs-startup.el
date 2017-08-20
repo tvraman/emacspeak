@@ -273,7 +273,7 @@ which defaults to emacs-personal-library."
         "play" nil "play"
         (expand-file-name "highbells.au" emacspeak-sounds-directory))
        (message "<after-init-hook: %.4f" (float-time (time-subtract (current-time) after-start)))
-       (message "Successfully initialized Emacs for %s in %s"
+       (message "<Successfully initialized Emacs for %s in %s>"
                 user-login-name (emacs-init-time)))))
 (start-up-my-emacs)
 
