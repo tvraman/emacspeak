@@ -94,6 +94,7 @@
   "Load all modules"
   (declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
+  (let ((file-name-handler-alist nil))
     (package-initialize) ; bootstrap emacs package system
     ;;; Bootstrap Emacspeak
     (load-library "emacspeak-load-path")
@@ -103,7 +104,7 @@
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
-       (load-library f))))
+       (load-library f)))))
 
 (defconst self-document-patterns
   (concat "^"
@@ -118,7 +119,7 @@
 (defvar self-document-command-count 0
   "Global count of commands.")
 
-(defun self-document-command-p (f)
+(defsubst self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
   (declare (special self-document-patterns))
   (when (and (fboundp f) (commandp f)
@@ -132,7 +133,7 @@
 (defvar self-document-option-count 0
   "Global count of options.")
 
-(defun self-document-option-p (o)
+(defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-patterns))
   (when (and
@@ -200,6 +201,7 @@
 ;;; initialize table
 (defun self-document-build-map()
   "Build a map of module names to commands and options."
+  (let ((file-name-handler-alist nil))
   (cl-loop
    for f in self-document-files do
    (let ((module (file-name-sans-extension f)))
@@ -207,7 +209,7 @@
               (make-self-document :name module
                                   :commentary (sd-get-commentary module))
               self-document-map)))
-  (mapatoms #'self-document-map-symbol ))
+  (mapatoms #'self-document-map-symbol )))
 
 ;;}}}
 ;;{{{ Document Commands In A Module
@@ -225,6 +227,7 @@
 (defun self-document-module-preamble (self)
   "Generate preamble for module documentation."
   (let ((name (self-document-name self))
+        (file-name-handler-alist nil)
         (lmc (self-document-commentary self)))
     (insert (format "\n@node %s\n@section %s\n\n\n" name name))
     (insert (format "\n\n%s\n\n"
@@ -244,6 +247,7 @@
 (defun self-document-module-options (self)
   "Document options for this module."
   (let ((name (self-document-name self))
+        (file-name-handler-alist nil)
         (options  nil))
     (insert (format "@subsection %s Options\n\n" name))
     (setq options
@@ -279,6 +283,7 @@
 (defun self-document-module-commands (self)
   "Document commands for this module."
   (let ((name (self-document-name self))
+        (file-name-handler-alist nil)
         (commands  nil))
     (insert (format "@subsection %s Commands\n\n" name))
     (setq commands
@@ -289,13 +294,14 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
+  (let ((file-name-handler-alist nil))
 ;;; Only generate in non-degenerate case
   (when (or (self-document-commentary self)
             (> 0 (length (self-document-commands self)))
             (> 0 (length (self-document-options self))))
     (self-document-module-preamble self)
     (when (self-document-commands self) (self-document-module-commands self))
-    (when (self-document-options self)(self-document-module-options self))))
+    (when (self-document-options self)(self-document-module-options self)))))
 
 ;;}}}
 ;;{{{ Iterate over all modules
@@ -338,7 +344,8 @@
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (declare (special self-document-map))
-  (let ((output (find-file-noselect "docs.texi"))
+  (let ((file-name-handler-alist nil)
+        (output (find-file-noselect "docs.texi"))
         (keys nil))
     (self-document-load-modules)
     (self-document-build-map)
