@@ -82,8 +82,6 @@
 
 (eval-when-compile (require 'cl))
 (require 'emacspeak-preamble)
-(require 'emacspeak-hydra)
-
 (cl-eval-when '(load)
   (when (locate-library "package")
     (unless (locate-library "hydra") (package-install 'hydra))))
@@ -91,6 +89,7 @@
 (eval-when-compile
   (require 'hideshow)
   (require 'hydra "hydra" 'no-error)
+  (require 'emacspeak-hydra)
   (require 'xbacklight)
   (require 'view)
   (require 'emacspeak-m-player))
