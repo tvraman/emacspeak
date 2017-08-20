@@ -256,6 +256,7 @@ emacspeak-2048.elc \
 emacspeak-texinfo.elc \
 emacspeak-todo-mode.elc \
 emacspeak-twittering.elc \
+emacspeak-typo.elc \
 emacspeak-url-template.elc \
 emacspeak-vdiff.elc \
 emacspeak-view.elc \
@@ -530,6 +531,7 @@ emacspeak-2048.elc: emacspeak-2048.el dtk-speak.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
+emacspeak-typo.elc: emacspeak-typo.el dtk-speak.elc 
 emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc emacspeak-we.elc
 emacspeak-vdiff.elc: emacspeak-vdiff.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc

@@ -306,6 +306,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "todo-mode" 'emacspeak-todo-mode)
 (emacspeak-do-package-setup "twit" 'emacspeak-twit)
 (emacspeak-do-package-setup "twittering-mode" 'emacspeak-twittering)
+(emacspeak-do-package-setup "typo" 'emacspeak-typo)
 (emacspeak-do-package-setup "vdiff" 'emacspeak-vdiff)
 (emacspeak-do-package-setup "view" 'emacspeak-view)
 (emacspeak-do-package-setup "view-pr" 'emacspeak-view-process)
