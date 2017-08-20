@@ -57,7 +57,7 @@
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
 ;;; @item View-Mode: <C-c v> Temporarily behave like view-mode.
 ;;; @item Navigate: <s-n> Navigate with ease.
-;;;@item  org-mode structure nav: <C-c SPC> Structure navigation  for org-mode.
+;;;@item  org-mode structure nav: <C-c C-SPC> Structure navigation  for org-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: <s-m> Emacspeak-M-Player Commands
 ;;;@item m-player: <s-;> Emacspeak-M-Player muggle
