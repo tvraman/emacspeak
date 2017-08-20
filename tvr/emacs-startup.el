@@ -50,6 +50,7 @@ which defaults to emacs-personal-library."
 (defun load-library-if-available (lib)
   "Safe load library."
   (let ((start nil)
+        (file-name-handler-alist nil)
         (emacspeak-speak-messages nil))
     (condition-case nil
         (cond
@@ -94,14 +95,16 @@ which defaults to emacs-personal-library."
 (defun tvr-customize ()
   "Load my customizations from my custom-file."
   (declare (special custom-file))
+  (let ((file-name-handler-alist nil))
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (when (file-exists-p custom-file) (load-file custom-file)))
+  (when (file-exists-p custom-file) (load-file custom-file))))
 
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (declare (special emacs-personal-library emacs-private-library))
   (let ((gc-cons-threshold 8000000)
+        (file-name-handler-alist nil) ; to speed up, avoid tramp etc
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
