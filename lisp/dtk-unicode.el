@@ -81,7 +81,7 @@
     (?­ .  "-") ; soft-hyphen 
     (?‘ . " backquote  ")           ; LEFT SINGLE QUOTATION MARK
     (?’ . "'")                      ; right SINGLE QUOTATION MARK
-    (?‐ . "-")                      ; hyphen
+    (?‐ . "hyphen")                      ; hyphenm
     (?– . "--")                     ; n-dash
     (?— . "---")                    ; m-dash
     (?  . " ") ; hair space 
