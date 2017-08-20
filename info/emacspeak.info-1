@@ -3139,6 +3139,7 @@ This chapter documents a total of 1194 commands and 1155 options.
 * emacspeak-tide::Speech-enable TIDE.
 * emacspeak-todo-mode::speech-enable todo-mode.
 * emacspeak-twittering::Speech-enable Twittering-mode.
+* emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.

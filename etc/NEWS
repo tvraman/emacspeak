@@ -51,6 +51,9 @@ is still available on _C-e M-q_ in all buffers.
 
 Command _emacspeak-wizards-noaa-weather_ implements a light-weight
 client for the NOAA Weather API.
+** Speech-Enable Typographic Editting Support
+
+Module ~emacspeak-typo~ speech-enables package ~typo~.
 
 ** Speech-Enable RipGrep Front-End:
 
