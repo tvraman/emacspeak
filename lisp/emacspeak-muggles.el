@@ -80,7 +80,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl-lib))
+(eval-when-compile (require 'cl))
 (require 'emacspeak-preamble)
 (require 'emacspeak-hydra)
 
