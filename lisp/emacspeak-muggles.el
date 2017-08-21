@@ -63,6 +63,7 @@
 ;;;@item m-player: <s-;> Emacspeak-M-Player muggle
 ;;;@item pianobar: <s-'> Emacspeak-M-pianobar Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
+;;; @item origami: C-c / OrigamiProvide  bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
@@ -88,6 +89,7 @@
 (require 'emacspeak-hydra)
 (eval-when-compile
   (require 'hideshow)
+  (require 'origami "origami" 'no-error)
   (require 'hydra "hydra" 'no-error)
   (require 'xbacklight)
   (require 'view)
@@ -580,6 +582,30 @@ Info-mode:
 
 (global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
+
+;;}}}
+;;{{{ origami:
+
+(global-set-key
+   (kbd "C-c /")
+   (defhydra emacspeak-origami
+     (:color red
+:body-pre
+    (progn
+      (emacspeak-hydra-body-pre "Origami")
+      (emacspeak-hydra-toggle-talkative))
+    :hint nil
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+     "
+    _o_pen node    _n_ext fold       toggle _f_orward
+    _c_lose node   _p_revious fold   toggle _a_ll
+    "
+     ("o" origami-open-node)
+     ("c" origami-close-node)
+     ("n" origami-next-fold)
+     ("p" origami-previous-fold)
+     ("f" origami-forward-toggle-node)
+     ("a" origami-toggle-all-nodes)))
 
 ;;}}}
 ;;{{{ hydra-ox:
