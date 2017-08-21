@@ -7806,7 +7806,7 @@ named "ocr"
      Directory where images and OCR results will be placed.
 
 
-File: emacspeak.info,  Node: emacspeak-org,  Next: emacspeak-outline,  Prev: emacspeak-ocr,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-org,  Next: emacspeak-origami,  Prev: emacspeak-ocr,  Up: Emacspeak Commands And Options
 
 12.132 emacspeak-org
 ====================
@@ -7901,17 +7901,44 @@ http://orgmode.org/
      Key of template used for capturing hot list.
 
 
-File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-package,  Prev: emacspeak-org,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-origami,  Next: emacspeak-outline,  Prev: emacspeak-org,  Up: Emacspeak Commands And Options
 
-12.133 emacspeak-outline
+12.133 emacspeak-origami
+========================
+
+ORIGAMI == One More Flexible Folding Mechanism This module
+speech-enables origami-mode.
+
+12.133.1 emacspeak-origami Options
+----------------------------------
+
+ -- Variable: User Option emacspeak-origami-fold-fringe-personality
+     Personality used for origami-fold-fringe-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-origami-fold-header-personality
+     Personality used for origami-fold-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-origami-fold-replacement-personality
+     Personality used for origami-fold-replacement-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-package,  Prev: emacspeak-origami,  Up: Emacspeak Commands And Options
+
+12.134 emacspeak-outline
 ========================
 
 Provide additional advice to outline-mode
 
-12.133.1 emacspeak-outline Commands
+12.134.1 emacspeak-outline Commands
 -----------------------------------
 
-12.133.1.1 emacspeak-outline-speak-backward-heading
+12.134.1.1 emacspeak-outline-speak-backward-heading
 ...................................................
 
  -- Command: emacspeak-outline-speak-backward-heading
@@ -7919,7 +7946,7 @@ Provide additional advice to outline-mode
      Analogous to outline-backward-same-level
      except that the outline section is  spoken
 
-12.133.1.2 emacspeak-outline-speak-forward-heading
+12.134.1.2 emacspeak-outline-speak-forward-heading
 ..................................................
 
  -- Command: emacspeak-outline-speak-forward-heading
@@ -7927,7 +7954,7 @@ Provide additional advice to outline-mode
      Analogous to outline-forward-same-level,
      except that the outline section is  spoken
 
-12.133.1.3 emacspeak-outline-speak-next-heading
+12.134.1.3 emacspeak-outline-speak-next-heading
 ...............................................
 
  -- Command: emacspeak-outline-speak-next-heading
@@ -7935,7 +7962,7 @@ Provide additional advice to outline-mode
      Analogous to outline-next-visible-heading,
      except that the outline section is  spoken
 
-12.133.1.4 emacspeak-outline-speak-previous-heading
+12.134.1.4 emacspeak-outline-speak-previous-heading
 ...................................................
 
  -- Command: emacspeak-outline-speak-previous-heading
@@ -7943,14 +7970,14 @@ Provide additional advice to outline-mode
      Analogous to outline-previous-visible-heading,
      except that the outline section is  spoken
 
-12.133.1.5 emacspeak-outline-speak-this-heading
+12.134.1.5 emacspeak-outline-speak-this-heading
 ...............................................
 
  -- Command: emacspeak-outline-speak-this-heading
 
      Speak current outline section starting from point
 
-12.133.2 emacspeak-outline Options
+12.134.2 emacspeak-outline Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-outline-dont-query-before-speaking
@@ -7959,30 +7986,30 @@ Provide additional advice to outline-mode
 
 File: emacspeak.info,  Node: emacspeak-package,  Next: emacspeak-paradox,  Prev: emacspeak-outline,  Up: Emacspeak Commands And Options
 
-12.134 emacspeak-package
+12.135 emacspeak-package
 ========================
 
 PACKAGE == package.el Manage Emacs packages.  This module speech-enables
 package.el with a few convenience commands.
 
-12.134.1 emacspeak-package Commands
+12.135.1 emacspeak-package Commands
 -----------------------------------
 
-12.134.1.1 emacspeak-package-next-line
+12.135.1.1 emacspeak-package-next-line
 ......................................
 
  -- Command: emacspeak-package-next-line
 
      Move to next line and speak it.
 
-12.134.1.2 emacspeak-package-previous-line
+12.135.1.2 emacspeak-package-previous-line
 ..........................................
 
  -- Command: emacspeak-package-previous-line
 
      Move to next line and speak it.
 
-12.134.1.3 emacspeak-package-summarize-line
+12.135.1.3 emacspeak-package-summarize-line
 ...........................................
 
  -- Command: emacspeak-package-summarize-line
@@ -7992,24 +8019,24 @@ package.el with a few convenience commands.
 
 File: emacspeak.info,  Node: emacspeak-paradox,  Next: emacspeak-perl,  Prev: emacspeak-package,  Up: Emacspeak Commands And Options
 
-12.135 emacspeak-paradox
+12.136 emacspeak-paradox
 ========================
 
 PARADOX == paradox.el Improved package management interface Manage Emacs
 packages.  This module speech-enables paradox.el with a few convenience
 commands.
 
-12.135.1 emacspeak-paradox Commands
+12.136.1 emacspeak-paradox Commands
 -----------------------------------
 
-12.135.1.1 emacspeak-paradox-summarize-line
+12.136.1.1 emacspeak-paradox-summarize-line
 ...........................................
 
  -- Command: emacspeak-paradox-summarize-line
 
      Succinct Summary.
 
-12.135.2 emacspeak-paradox Options
+12.136.2 emacspeak-paradox Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-paradox-comment-personality
@@ -8046,7 +8073,7 @@ commands.
 
 File: emacspeak.info,  Node: emacspeak-perl,  Next: emacspeak-personality,  Prev: emacspeak-paradox,  Up: Emacspeak Commands And Options
 
-12.136 emacspeak-perl
+12.137 emacspeak-perl
 =====================
 
 Provide additional advice to perl-mode
@@ -8054,7 +8081,7 @@ Provide additional advice to perl-mode
 
 File: emacspeak.info,  Node: emacspeak-personality,  Next: emacspeak-php-mode,  Prev: emacspeak-perl,  Up: Emacspeak Commands And Options
 
-12.137 emacspeak-personality
+12.138 emacspeak-personality
 ============================
 
 Implementation Notes From 2015:
@@ -8078,7 +8105,7 @@ voice-locking.
    This module defines a personality interface for implementing voice
 lock via font lock.
 
-12.137.1 emacspeak-personality Options
+12.138.1 emacspeak-personality Options
 --------------------------------------
 
  -- Variable: User Option emacspeak-personality-voiceify-faces
@@ -8105,7 +8132,7 @@ lock via font lock.
 
 File: emacspeak.info,  Node: emacspeak-php-mode,  Next: emacspeak-pianobar,  Prev: emacspeak-personality,  Up: Emacspeak Commands And Options
 
-12.138 emacspeak-php-mode
+12.139 emacspeak-php-mode
 =========================
 
 speech-enable php-mode.el (available from sourceforge project php-mode)
@@ -8113,10 +8140,10 @@ speech-enable php-mode.el (available from sourceforge project php-mode)
 
 File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: emacspeak-php-mode,  Up: Emacspeak Commands And Options
 
-12.139 emacspeak-pianobar
+12.140 emacspeak-pianobar
 =========================
 
-12.139.1 PIANOBAR == Pandora Client for Emacs
+12.140.1 PIANOBAR == Pandora Client for Emacs
 ---------------------------------------------
 
 pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian: sudo
@@ -8128,7 +8155,7 @@ http://www.emacswiki.org/emacs/pianobar.el Provides access to Pandora
 Radio via pianobar from the comfort of Emacs.  This module
 speech-enables Pianobar and enhances it for the Complete Audio Desktop.
 
-12.139.2 Emacspeak Usage:
+12.140.2 Emacspeak Usage:
 -------------------------
 
 Emacspeak implements command emacspeak-pianobar, a light-weight wrapper
@@ -8147,10 +8174,10 @@ buffer.  The most useful keys are ‘right’ for skipping tracks, ‘up’ and
 be controlled by pressing the Pianobar prefix key (‘C-e '’) followed by
 keys from ‘pianobar-key-map’.
 
-12.139.3 emacspeak-pianobar Commands
+12.140.3 emacspeak-pianobar Commands
 ------------------------------------
 
-12.139.3.1 emacspeak-pianobar
+12.140.3.1 emacspeak-pianobar
 .............................
 
  -- Command: emacspeak-pianobar
@@ -8159,7 +8186,7 @@ keys from ‘pianobar-key-map’.
 
      Start or control Emacspeak Pianobar player.
 
-12.139.3.2 emacspeak-pianobar-command
+12.140.3.2 emacspeak-pianobar-command
 .....................................
 
  -- Command: emacspeak-pianobar-command (key)
@@ -8168,7 +8195,7 @@ keys from ‘pianobar-key-map’.
 
      (fn KEY)
 
-12.139.3.3 emacspeak-pianobar-electric-mode-toggle
+12.140.3.3 emacspeak-pianobar-electric-mode-toggle
 ..................................................
 
  -- Command: emacspeak-pianobar-electric-mode-toggle
@@ -8176,42 +8203,42 @@ keys from ‘pianobar-key-map’.
      Toggle electric mode in pianobar buffer.
      If electric mode is on, keystrokes invoke pianobar commands directly.
 
-12.139.3.4 emacspeak-pianobar-next-preset
+12.140.3.4 emacspeak-pianobar-next-preset
 .........................................
 
  -- Command: emacspeak-pianobar-next-preset
 
      Switch to next preset.
 
-12.139.3.5 emacspeak-pianobar-previous-preset
+12.140.3.5 emacspeak-pianobar-previous-preset
 .............................................
 
  -- Command: emacspeak-pianobar-previous-preset
 
      Switch to previous preset.
 
-12.139.3.6 emacspeak-pianobar-switch-to-preset
+12.140.3.6 emacspeak-pianobar-switch-to-preset
 ..............................................
 
  -- Command: emacspeak-pianobar-switch-to-preset
 
      Switch to one of the  presets.
 
-12.139.3.7 emacspeak-pianobar-volume-down
+12.140.3.7 emacspeak-pianobar-volume-down
 .........................................
 
  -- Command: emacspeak-pianobar-volume-down
 
      Decrease volume
 
-12.139.3.8 emacspeak-pianobar-volume-up
+12.140.3.8 emacspeak-pianobar-volume-up
 .......................................
 
  -- Command: emacspeak-pianobar-volume-up
 
      Increase volume
 
-12.139.4 emacspeak-pianobar Options
+12.140.4 emacspeak-pianobar Options
 -----------------------------------
 
  -- Variable: User Option emacspeak-pianobar-max-preset
@@ -8220,7 +8247,7 @@ keys from ‘pianobar-key-map’.
 
 File: emacspeak.info,  Node: emacspeak-popup,  Next: emacspeak-proced,  Prev: emacspeak-pianobar,  Up: Emacspeak Commands And Options
 
-12.140 emacspeak-popup
+12.141 emacspeak-popup
 ======================
 
 POPUP == popup.el from MELPA
@@ -8228,16 +8255,16 @@ POPUP == popup.el from MELPA
 
 File: emacspeak.info,  Node: emacspeak-proced,  Next: emacspeak-projectile,  Prev: emacspeak-popup,  Up: Emacspeak Commands And Options
 
-12.141 emacspeak-proced
+12.142 emacspeak-proced
 =======================
 
 PROCED == Process Editor A new Task Manager for Emacs.  Proced is part
 of emacs 23.
 
-12.141.1 emacspeak-proced Commands
+12.142.1 emacspeak-proced Commands
 ----------------------------------
 
-12.141.1.1 emacspeak-proced-jump-to-process
+12.142.1.1 emacspeak-proced-jump-to-process
 ...........................................
 
  -- Command: emacspeak-proced-jump-to-process (name)
@@ -8246,42 +8273,42 @@ of emacs 23.
 
      (fn NAME)
 
-12.141.1.2 emacspeak-proced-next-field
+12.142.1.2 emacspeak-proced-next-field
 ......................................
 
  -- Command: emacspeak-proced-next-field
 
      Navigate to next field.
 
-12.141.1.3 emacspeak-proced-next-line
+12.142.1.3 emacspeak-proced-next-line
 .....................................
 
  -- Command: emacspeak-proced-next-line
 
      Move to next line and speak a summary.
 
-12.141.1.4 emacspeak-proced-previous-field
+12.142.1.4 emacspeak-proced-previous-field
 ..........................................
 
  -- Command: emacspeak-proced-previous-field
 
      Navigate to previous field.
 
-12.141.1.5 emacspeak-proced-previous-line
+12.142.1.5 emacspeak-proced-previous-line
 .........................................
 
  -- Command: emacspeak-proced-previous-line
 
      Move to next line and speak a summary.
 
-12.141.1.6 emacspeak-proced-speak-args
+12.142.1.6 emacspeak-proced-speak-args
 ......................................
 
  -- Command: emacspeak-proced-speak-args
 
      Speak command  invocation  for this process.
 
-12.141.1.7 emacspeak-proced-speak-field
+12.142.1.7 emacspeak-proced-speak-field
 .......................................
 
  -- Command: emacspeak-proced-speak-field (field-name)
@@ -8290,14 +8317,14 @@ of emacs 23.
 
      (fn FIELD-NAME)
 
-12.141.1.8 emacspeak-proced-speak-that-field
+12.142.1.8 emacspeak-proced-speak-that-field
 ............................................
 
  -- Command: emacspeak-proced-speak-that-field
 
      Speak desired field via single keystroke.
 
-12.141.1.9 emacspeak-proced-speak-this-field
+12.142.1.9 emacspeak-proced-speak-this-field
 ............................................
 
  -- Command: emacspeak-proced-speak-this-field (&optional position)
@@ -8309,7 +8336,7 @@ of emacs 23.
 
 File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-pronounce,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
 
-12.142 emacspeak-projectile
+12.143 emacspeak-projectile
 ===========================
 
 PROJECTILE == ‘M-x package-install projectile’.  Project management in
@@ -8318,7 +8345,7 @@ Emacs.
 
 File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-py,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
 
-12.143 emacspeak-pronounce
+12.144 emacspeak-pronounce
 ==========================
 
 This module implements user customizable pronunciation dictionaries for
@@ -8335,17 +8362,17 @@ association lists defining the dictionary.  Users of this module can
 retrieve a dictionary made up of all applicable association lists for a
 given file.
 
-12.143.1 emacspeak-pronounce Commands
+12.144.1 emacspeak-pronounce Commands
 -------------------------------------
 
-12.143.1.1 emacspeak-pronounce-clear-dictionaries
+12.144.1.1 emacspeak-pronounce-clear-dictionaries
 .................................................
 
  -- Command: emacspeak-pronounce-clear-dictionaries
 
      Clear all current pronunciation dictionaries.
 
-12.143.1.2 emacspeak-pronounce-define-local-pronunciation
+12.144.1.2 emacspeak-pronounce-define-local-pronunciation
 .........................................................
 
  -- Command: emacspeak-pronounce-define-local-pronunciation (word
@@ -8356,7 +8383,7 @@ given file.
 
      (fn WORD PRONUNCIATION)
 
-12.143.1.3 emacspeak-pronounce-define-pronunciation
+12.144.1.3 emacspeak-pronounce-define-pronunciation
 ...................................................
 
  -- Command: emacspeak-pronounce-define-pronunciation
@@ -8365,7 +8392,7 @@ given file.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.143.1.4 emacspeak-pronounce-define-template-pronunciation
+12.144.1.4 emacspeak-pronounce-define-template-pronunciation
 ............................................................
 
  -- Command: emacspeak-pronounce-define-template-pronunciation
@@ -8374,7 +8401,7 @@ given file.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.143.1.5 emacspeak-pronounce-dispatch
+12.144.1.5 emacspeak-pronounce-dispatch
 .......................................
 
  -- Command: emacspeak-pronounce-dispatch
@@ -8383,7 +8410,7 @@ given file.
 
      Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
 
-12.143.1.6 emacspeak-pronounce-edit-pronunciations
+12.144.1.6 emacspeak-pronounce-edit-pronunciations
 ..................................................
 
  -- Command: emacspeak-pronounce-edit-pronunciations (key)
@@ -8393,7 +8420,7 @@ given file.
 
      (fn KEY)
 
-12.143.1.7 emacspeak-pronounce-load-dictionaries
+12.144.1.7 emacspeak-pronounce-load-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-load-dictionaries (&optional filename)
@@ -8403,7 +8430,7 @@ given file.
 
      (fn &optional FILENAME)
 
-12.143.1.8 emacspeak-pronounce-refresh-pronunciations
+12.144.1.8 emacspeak-pronounce-refresh-pronunciations
 .....................................................
 
  -- Command: emacspeak-pronounce-refresh-pronunciations
@@ -8411,14 +8438,14 @@ given file.
      Refresh pronunciation table for current buffer.
      Activates pronunciation dictionaries if not already active.
 
-12.143.1.9 emacspeak-pronounce-save-dictionaries
+12.144.1.9 emacspeak-pronounce-save-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-save-dictionaries
 
      Writes out the persistent emacspeak pronunciation dictionaries.
 
-12.143.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
+12.144.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
 ..........................................................
 
  -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
@@ -8438,14 +8465,14 @@ given file.
 
      (fn &optional STATE)
 
-12.143.1.11 emacspeak-pronounce-yank-word
+12.144.1.11 emacspeak-pronounce-yank-word
 .........................................
 
  -- Command: emacspeak-pronounce-yank-word
 
      Yank word at point into minibuffer.
 
-12.143.2 emacspeak-pronounce Options
+12.144.2 emacspeak-pronounce Options
 ------------------------------------
 
  -- Variable: User Option
@@ -8472,12 +8499,12 @@ given file.
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
 
-12.144 emacspeak-py
+12.145 emacspeak-py
 ===================
 
 This speech-enables python-mode available on sourceforge and ELPA
 
-12.144.1 emacspeak-py Options
+12.145.1 emacspeak-py Options
 -----------------------------
 
  -- Variable: User Option emacspeak-py-XXX-tag-personality
@@ -8539,84 +8566,4 @@ This speech-enables python-mode available on sourceforge and ELPA
      Personality used for py-variable-name-face This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
-
-12.145 emacspeak-pydoc
-======================
-
-PYDOC == Python Documentation Viewer
-
-12.145.1 emacspeak-pydoc Options
---------------------------------
-
- -- Variable: User Option emacspeak-pydoc-button-personality
-     Personality used for pydoc-button-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-name-personality
-     Personality used for pydoc-callable-name-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-param-personality
-     Personality used for pydoc-callable-param-face This personality
-     uses emacspeak-voice-lock-variable-name-personality whose effect
-     can be changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-class-name-link-personality
-     Personality used for pydoc-class-name-link-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-data-personality
-     Personality used for pydoc-data-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-pydoc-envvars-personality
-     Personality used for pydoc-envvars-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-package-link-personality
-     Personality used for pydoc-package-link-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-source-file-link-personality
-     Personality used for pydoc-source-file-link-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
-     Personality used for pydoc-sphinx-directive-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
-     Personality used for pydoc-sphinx-param-name-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
-     Personality used for pydoc-sphinx-param-type-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-string-personality
-     Personality used for pydoc-string-face This personality uses
-     emacspeak-voice-lock-string-personality whose effect can be changed
-     globally by customizing
-     emacspeak-voice-lock-string-personality-settings.
-
- -- Variable: User Option
-          emacspeak-pydoc-superclass-name-link-personality
-     Personality used for pydoc-superclass-name-link-face This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
 

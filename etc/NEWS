@@ -54,6 +54,9 @@ client for the NOAA Weather API.
 ** Speech-Enable Typographic Editting Support
 
 Module ~emacspeak-typo~ speech-enables package ~typo~.
+** Speech-Enable Package Origami 
+
+Module ~emacspeak-origami~ speech-enables package ~origami~.
 
 ** Speech-Enable RipGrep Front-End:
 

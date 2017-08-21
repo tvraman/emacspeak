@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1194 commands and 1155 options.
+This chapter documents a total of 1194 commands and 1158 options.
 
 * Menu:
 
@@ -3083,6 +3083,7 @@ This chapter documents a total of 1194 commands and 1155 options.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
+* emacspeak-origami::Speech-enable ORIGAMI.
 * emacspeak-outline::Speech enable Outline –   Browsing  Structured Documents.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.

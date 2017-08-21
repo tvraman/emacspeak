@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1194 commands and 1155 options.
+This chapter documents a total of 1194 commands and 1158 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -137,6 +137,7 @@ This chapter documents a total of 1194 commands and 1155 options.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
+* emacspeak-origami::Speech-enable ORIGAMI.
 * emacspeak-outline::Speech enable Outline --   Browsing  Structured Documents.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
@@ -14432,6 +14433,32 @@ echoes row header and element
 
 @defvar {User Option} emacspeak-org-bookmark-key
 Key of template used for capturing  hot list.
+
+@end defvar
+
+@node emacspeak-origami
+@section emacspeak-origami
+
+ORIGAMI ==  One More Flexible Folding Mechanism
+This module speech-enables origami-mode.
+
+@subsection emacspeak-origami Options
+
+@defvar {User Option} emacspeak-origami-fold-fringe-personality
+Personality used for origami-fold-fringe-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-origami-fold-header-personality
+Personality used for origami-fold-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-origami-fold-replacement-personality
+Personality used for origami-fold-replacement-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
