@@ -3,6 +3,7 @@
 ;(projectile-global-mode)
 (eval-after-load 'projectile
   `(progn 
+(global-set-key (kbd "C-c '") 'projectile-commander)
 (global-set-key (kbd "C-c ;") 'projectile-command-map)
 (csetq 
  projectile-mode-line
