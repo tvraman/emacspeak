@@ -255,6 +255,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "newsticker" 'emacspeak-newsticker)
 (emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)
 (emacspeak-do-package-setup "org" 'emacspeak-org)
+(emacspeak-do-package-setup "origami" 'emacspeak-origami)
 (emacspeak-do-package-setup "outline" 'emacspeak-outline)
 (emacspeak-do-package-setup "perl-mode" 'emacspeak-perl)
 (emacspeak-do-package-setup "php-mode" 'emacspeak-php-mode)
