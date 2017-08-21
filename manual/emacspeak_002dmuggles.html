@@ -135,6 +135,8 @@
 
     <li>hideshow: C-c h Provide HideShow bindings.</li>
 
+    <li>origami: C-c / OrigamiProvide bindings.</li>
+
     <li>toggle-option: &lt;C-c o&gt; Single binding for toggling
     options.</li>
 
@@ -757,6 +759,40 @@ Create a hydra with no body and the heads:
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dorigami_002fbody" id=
+  "emacspeak_002dorigami_002fbody"></a>
+
+  <h4 class="subsubsection">12.125.2.14 emacspeak-origami/body</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dorigami_002fbody" id=
+    "index-emacspeak_002dorigami_002fbody"></a>Command:
+    <strong>emacspeak-origami/body</strong></dt>
+
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-c /</kbd></dt>
+
+        <dd><a name="index-C_002dc-_002f" id=
+        "index-C_002dc-_002f"></a></dd>
+      </dl><a name="index-emacspeak_002dorigami_002fbody-1" id=
+      "index-emacspeak_002dorigami_002fbody-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Create a hydra with no body and the heads:
+
+"o":    ‘origami-open-node’,
+"c":    ‘origami-close-node’,
+"n":    ‘origami-next-fold’,
+"p":    ‘origami-previous-fold’,
+"f":    ‘origami-forward-toggle-node’,
+"a":    ‘origami-toggle-all-nodes’
+
+The body can be accessed via ‘emacspeak-origami/body’.
 </pre>
       </div>
     </dd>
