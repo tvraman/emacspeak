@@ -40,7 +40,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; ORIGAMI ==  One More Flexible Folding Mechanism 
+;;; ORIGAMI ==  One More Flexible Folding Mechanism
 ;;; This module speech-enables origami-mode.
 ;;; Code:
 
@@ -53,34 +53,22 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
-'(
-(origami-fold-fringe-face voice-monotone)
-(origami-fold-header-face voice-bolden-medium)
-(origami-fold-replacement-face voice-smoothen)))
+(voice-setup-add-map
+ '(
+   (origami-fold-fringe-face voice-monotone)
+   (origami-fold-header-face voice-bolden-medium)
+   (origami-fold-replacement-face voice-smoothen)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
 '(
-origami-forward-toggle-node
-origami-mode
-
-
-
-
-origami-recursively-toggle-node
-origami-redo
-origami-reset
-origami-show-node
-origami-show-only-node
-origami-toggle-all-nodes
-origami-toggle-node
-origami-undo
-)
+  origami-forward-toggle-node origami-recursively-toggle-node
+  origami-toggle-all-nodes origami-toggle-node
+  )
 
 (cl-loop
- for f in 
+ for f in
  '(
    origami-previous-fold origami-next-fold
    origami-forward-fold-same-level origami-backward-fold-same-level
@@ -93,9 +81,8 @@ origami-undo
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-
 (cl-loop
- for f in 
+ for f in
  '(origami-close-node-recursively origami-close-node origami-close-all-nodes )
  do
  (eval
@@ -106,8 +93,10 @@ origami-undo
        (emacspeak-speak-line)))))
 
 (cl-loop
- for f in 
- '(origami-open-node-recursively origami-open-node origami-open-all-nodes )
+ for f in
+ '(
+   origami-show-only-node  origami-show-node
+   origami-open-node-recursively origami-open-node origami-open-all-nodes )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -116,6 +105,18 @@ origami-undo
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
 
+(cl-loop
+ for f in
+ '(
+   origami-forward-toggle-node origami-recursively-toggle-node
+   origami-toggle-all-nodes origami-toggle-node)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-origami)
