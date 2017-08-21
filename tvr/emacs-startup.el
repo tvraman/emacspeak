@@ -253,26 +253,26 @@ which defaults to emacs-personal-library."
              (float-time (time-subtract (current-time) tvr-start)))
     )) ;end defun
 ;;{{{  start it up
-
-(add-hook
- 'after-init-hook
- #'(lambda ()
-     (let ((after-start (current-time)))
-       (tvr-customize)
-       (soundscape-toggle)
-       (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-       (when (dbus-list-known-names :session)
-         (nm-enable)
-         (emacspeak-dbus-sleep-enable)
-         (emacspeak-dbus-watch-screen-lock))
-       (emacspeak-wizards-project-shells-initialize)
+(defun tvr-after-init ()
+  "Actions to take after Emacs is up and ready."
+  (let ((after-start (current-time)))
+    (tvr-customize)
+    (soundscape-toggle)
+    (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+    (when (dbus-list-known-names :session)
+      (nm-enable)
+      (emacspeak-dbus-sleep-enable)
+      (emacspeak-dbus-watch-screen-lock))
+    (emacspeak-wizards-project-shells-initialize)
                                         ;(calendar)
-       (start-process
-        "play" nil "play"
-        (expand-file-name "highbells.au" emacspeak-sounds-directory))
-       (message "<after-init-hook: %.4f" (float-time (time-subtract (current-time) after-start)))
-       (message "<Successfully initialized Emacs for %s in %s>"
-                user-login-name (emacs-init-time)))))
+    (start-process
+     "play" nil "play"
+     (expand-file-name "highbells.au" emacspeak-sounds-directory))
+    (message "<after-init-hook: %.4f" (float-time (time-subtract (current-time) after-start)))
+    (message "<Successfully initialized Emacs for %s in %s>"
+             user-login-name (emacs-init-time))))
+
+(add-hook 'after-init-hook #'tvr-after-init)
 (start-up-my-emacs)
 
 ;;}}}
