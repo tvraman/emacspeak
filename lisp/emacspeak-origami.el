@@ -63,18 +63,11 @@
 ;;{{{ Interactive Commands:
 
 '(
-  
-origami-close-all-nodes
-origami-close-node
-origami-close-node-recursively
-origami-forward-fold
-
 origami-forward-toggle-node
 origami-mode
 
-origami-open-all-nodes
-origami-open-node
-origami-open-node-recursively
+
+
 
 origami-recursively-toggle-node
 origami-redo
@@ -90,7 +83,8 @@ origami-undo
  for f in 
  '(
    origami-previous-fold origami-next-fold
-   origami-forward-fold-same-level origami-backward-fold-same-level)
+   origami-forward-fold-same-level origami-backward-fold-same-level
+   origami-forward-fold)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -98,6 +92,30 @@ origami-undo
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+
+
+(cl-loop
+ for f in 
+ '(origami-close-node-recursively origami-close-node origami-close-all-nodes )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in 
+ '(origami-open-node-recursively origami-open-node origami-open-all-nodes )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 (provide 'emacspeak-origami)
