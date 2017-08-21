@@ -59,8 +59,7 @@ which defaults to emacs-personal-library."
           (load-library lib)
           (message
            "<%s %.4f>"
-           lib (float-time (time-subtract (current-time) start)))
-          (setq start nil))
+           lib (float-time (time-subtract (current-time) start))))
          (t (message "Could not locate library %s" lib)
             nil))
       (error (message "Error loading %s" lib)))))
