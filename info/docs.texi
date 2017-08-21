@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1194 commands and 1158 options.
+This chapter documents a total of 1195 commands and 1158 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -3690,6 +3690,24 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-org-warning-voice
 Personality used for org-warning
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-origami-fold-fringe-personality
+Personality used for origami-fold-fringe-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-origami-fold-header-personality
+Personality used for origami-fold-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-origami-fold-replacement-personality
+Personality used for origami-fold-replacement-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
@@ -13065,6 +13083,7 @@ attempt to automatically install package hydra if it is not found.
 @item m-player: <s-;> Emacspeak-M-Player muggle
 @item pianobar: <s-'> Emacspeak-M-pianobar Commands
 @item hideshow: C-c h Provide HideShow bindings.
+@item origami: C-c / OrigamiProvide  bindings.
 @item toggle-option:  <C-c o> Single binding for toggling options.
 @item outliner: <C-c .> Bindings from outline-minor-mode.
 @item Info-Summary: <?> in Info Info Summary Muggle
@@ -13492,6 +13511,29 @@ Create a hydra with no body and the heads:
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-origami/body
+@deffn {Command} emacspeak-origami/body   
+@table @kbd
+@item C-c /
+@kindex C-c /
+@end table
+
+@findex emacspeak-origami/body
+
+@format
+Create a hydra with no body and the heads:
+
+"o":    ‘origami-open-node’,
+"c":    ‘origami-close-node’,
+"n":    ‘origami-next-fold’,
+"p":    ‘origami-previous-fold’,
+"f":    ‘origami-forward-toggle-node’,
+"a":    ‘origami-toggle-all-nodes’
+
+The body can be accessed via ‘emacspeak-origami/body’.
 @end format
 @end deffn
 
@@ -14441,26 +14483,6 @@ Key of template used for capturing  hot list.
 
 ORIGAMI ==  One More Flexible Folding Mechanism
 This module speech-enables origami-mode.
-
-@subsection emacspeak-origami Options
-
-@defvar {User Option} emacspeak-origami-fold-fringe-personality
-Personality used for origami-fold-fringe-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-origami-fold-header-personality
-Personality used for origami-fold-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-origami-fold-replacement-personality
-Personality used for origami-fold-replacement-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
 
 @node emacspeak-outline
 @section emacspeak-outline

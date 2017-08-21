@@ -6729,6 +6729,7 @@ attempt to automatically install package hydra if it is not found.
    • m-player: <s-;> Emacspeak-M-Player muggle
    • pianobar: <s-’> Emacspeak-M-pianobar Commands
    • hideshow: C-c h Provide HideShow bindings.
+   • origami: C-c / OrigamiProvide bindings.
    • toggle-option: <C-c o> Single binding for toggling options.
    • outliner: <C-c .> Bindings from outline-minor-mode.
    • Info-Summary: <?> in Info Info Summary Muggle
@@ -7100,6 +7101,23 @@ binds ‘s’ to this command.
      "l":    ‘browse-kill-ring’
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
+
+12.125.2.14 emacspeak-origami/body
+..................................
+
+ -- Command: emacspeak-origami/body
+     ‘C-c /’
+
+     Create a hydra with no body and the heads:
+
+     "o":    ‘origami-open-node’,
+     "c":    ‘origami-close-node’,
+     "n":    ‘origami-next-fold’,
+     "p":    ‘origami-previous-fold’,
+     "f":    ‘origami-forward-toggle-node’,
+     "a":    ‘origami-toggle-all-nodes’
+
+     The body can be accessed via ‘emacspeak-origami/body’.
 
 
 File: emacspeak.info,  Node: emacspeak-muse,  Next: emacspeak-net-utils,  Prev: emacspeak-muggles,  Up: Emacspeak Commands And Options
@@ -7908,24 +7926,6 @@ File: emacspeak.info,  Node: emacspeak-origami,  Next: emacspeak-outline,  Prev:
 
 ORIGAMI == One More Flexible Folding Mechanism This module
 speech-enables origami-mode.
-
-12.133.1 emacspeak-origami Options
-----------------------------------
-
- -- Variable: User Option emacspeak-origami-fold-fringe-personality
-     Personality used for origami-fold-fringe-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-origami-fold-header-personality
-     Personality used for origami-fold-header-face This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-origami-fold-replacement-personality
-     Personality used for origami-fold-replacement-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-package,  Prev: emacspeak-origami,  Up: Emacspeak Commands And Options

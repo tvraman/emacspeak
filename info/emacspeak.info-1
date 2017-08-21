@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1194 commands and 1158 options.
+This chapter documents a total of 1195 commands and 1158 options.
 
 * Menu:
 
@@ -6023,6 +6023,21 @@ system.
      Personality used for org-warning This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-origami-fold-fringe-personality
+     Personality used for origami-fold-fringe-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-origami-fold-header-personality
+     Personality used for origami-fold-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-origami-fold-replacement-personality
+     Personality used for origami-fold-replacement-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
 
  -- Variable: User Option emacspeak-outline-1-voice
      Personality used for outline-1 This personality uses
