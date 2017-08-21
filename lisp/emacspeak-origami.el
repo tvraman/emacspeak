@@ -106,6 +106,12 @@
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
 
+(defun emacspeak-origami-invisible-p ()
+  "Check if point  is on  a closed or open node."
+  (condition-case nil 
+  (overlay-get (overlay-get (first (overlays-at (point))) 'fold-overlay) 'invisible)
+  (error nil))
+
 (cl-loop
  for f in
  '(
@@ -116,7 +122,8 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-auditory-icon
+        (if  (emacspeak-origami-invisible-p ) 'on 'off))
        (emacspeak-speak-line)))))
 
 ;;}}}
