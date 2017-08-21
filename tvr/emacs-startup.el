@@ -96,8 +96,8 @@ which defaults to emacs-personal-library."
   "Load my customizations from my custom-file."
   (declare (special custom-file))
   (let ((file-name-handler-alist nil))
-  (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (when (file-exists-p custom-file) (load-file custom-file))))
+    (setq custom-file (expand-file-name "~/.customize-emacs"))
+    (when (file-exists-p custom-file) (load-file custom-file))))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -120,8 +120,8 @@ which defaults to emacs-personal-library."
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
-(put 'timer-list 'disabled nil)
-    
+    (put 'timer-list 'disabled nil)
+
     ;;}}}
     ;;{{{ Augment Load Path:
 
@@ -191,9 +191,9 @@ which defaults to emacs-personal-library."
     (eval-after-load 'outline
       `(progn
 ;;;restore what we are about to steal
-    (define-key outline-mode-prefix-map "o" 'open-line)
-    (global-set-key "\C-o"outline-mode-prefix-map)
-))
+         (define-key outline-mode-prefix-map "o" 'open-line)
+         (global-set-key "\C-o"outline-mode-prefix-map)
+         ))
     ;;}}}
     ;;{{{ Prepare needed libraries
 
@@ -208,7 +208,7 @@ which defaults to emacs-personal-library."
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare"
        "mspools-prepare"
-       ;"sigbegone"
+                                        ;"sigbegone"
        "vdiff-prepare"
 ;;; Web:
                                         ; "w3-prepare"
@@ -225,7 +225,7 @@ which defaults to emacs-personal-library."
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
                                         ;"tramp-prepare"
-       ;"fap-prepare"
+                                        ;"fap-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-prepare"
        "color-theme-prepare"
@@ -266,9 +266,8 @@ which defaults to emacs-personal-library."
          (nm-enable)
          (emacspeak-dbus-sleep-enable)
          (emacspeak-dbus-watch-screen-lock))
-       ;(custom-reevaluate-setting 'gweb-my-address)
        (emacspeak-wizards-project-shells-initialize)
-       ;(calendar)
+                                        ;(calendar)
        (start-process
         "play" nil "play"
         (expand-file-name "highbells.au" emacspeak-sounds-directory))
@@ -276,8 +275,6 @@ which defaults to emacs-personal-library."
        (message "<Successfully initialized Emacs for %s in %s>"
                 user-login-name (emacs-init-time)))))
 (start-up-my-emacs)
-
-
 
 ;;}}}
 (provide 'emacs-startup)
