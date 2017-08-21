@@ -61,6 +61,12 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+(defadvice origami-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon (if origami-mode 'on 'off))
+    (message "Turned %s origami mode." (if origami-mode 'on 'off))))
+    
 
 (cl-loop
  for f in
