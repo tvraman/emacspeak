@@ -1,8 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
-    (load-library"mspools")
+    (autoload 'mspools-show "mspools" "Mail Spools" t)
     (and (featurep 'vm)
-         (declare (special vm-mode-map))
          (define-key vm-mode-map "o" 'mspools-show))
 (defun mspools-compute-size (file)
     (with-temp-buffer
