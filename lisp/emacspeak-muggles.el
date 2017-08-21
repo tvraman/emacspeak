@@ -348,7 +348,7 @@ Argument `k-map' is a symbol  that names a keymap."
     :body-pre
     (progn 
       (emacspeak-hydra-body-pre  "Hide Show")
-      (unless hs-minor-mode (hs-minor-mode 1)))
+      (hs-minor-mode 1))
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post :color blue)
    "Hideshow"
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-hideshow"))
@@ -595,7 +595,7 @@ Info-mode:
      (:color red
 :body-pre
     (progn
-      (unless origami-mode (origami-mode 1))
+      (origami-mode 1)
       (emacspeak-hydra-body-pre "Origami")
       (emacspeak-hydra-toggle-talkative))
     :hint nil
