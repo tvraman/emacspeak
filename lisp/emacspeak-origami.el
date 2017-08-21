@@ -62,11 +62,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  origami-forward-toggle-node origami-recursively-toggle-node
-  origami-toggle-all-nodes origami-toggle-node
-  )
-
 (cl-loop
  for f in
  '(
