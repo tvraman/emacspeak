@@ -345,7 +345,10 @@ Argument `k-map' is a symbol  that names a keymap."
  (kbd "C-c h")
  (defhydra  emacspeak-muggles-hideshow
    (
-    :body-pre (emacspeak-hydra-body-pre  "Hide Show")
+    :body-pre
+    (progn 
+      (emacspeak-hydra-body-pre  "Hide Show")
+      (unless hs-minor-mode (hs-minor-mode 1)))
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post :color blue)
    "Hideshow"
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-hideshow"))
