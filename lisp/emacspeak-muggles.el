@@ -592,6 +592,7 @@ Info-mode:
      (:color red
 :body-pre
     (progn
+      (unless origami-mode (origami-mode 1))
       (emacspeak-hydra-body-pre "Origami")
       (emacspeak-hydra-toggle-talkative))
     :hint nil
