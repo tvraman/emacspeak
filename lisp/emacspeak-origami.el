@@ -60,13 +60,33 @@
    (origami-fold-replacement-face voice-smoothen)))
 
 ;;}}}
+;;{{{ Advice low-level internals: hide/show overlay
+(defadvice origami-hide-overlay (after emacspeak pre act comp)
+  "Attach auditory icon at front."
+  (let ((s
+         (save-excursion
+           (goto-char (overlay-start (ad-get-arg 0)))
+           (line-beginning-position))))
+    (put-text-property s (1+ s)
+                       'auditory-icon 'ellipses)))
+
+(defadvice origami-show-overlay (after emacspeak pre act comp)
+  "Remove auditory icon at front."
+  (let ((s
+         (save-excursion
+           (goto-char (overlay-start (ad-get-arg 0)))
+           (line-beginning-position))))
+    (put-text-property s (1+ s)
+                       'auditory-icon nil)))
+
+;;}}}
 ;;{{{ Interactive Commands:
 (defadvice origami-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if origami-mode 'on 'off))
     (message "Turned %s origami mode." (if origami-mode 'on 'off))))
-    
+
 
 (cl-loop
  for f in
@@ -108,9 +128,9 @@
 
 (defun emacspeak-origami-invisible-p ()
   "Check if point  is on  a closed or open node."
-  (condition-case nil 
-  (overlay-get (overlay-get (first (overlays-at (point))) 'fold-overlay) 'invisible)
-  (error nil))
+  (condition-case nil
+      (overlay-get (overlay-get (first (overlays-at (point))) 'fold-overlay) 'invisible)
+    (error nil)))
 
 (cl-loop
  for f in
