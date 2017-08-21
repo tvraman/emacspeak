@@ -1,7 +1,10 @@
 ;; -*- lexical-binding: t; -*-
-(require 'epa)
+
 (augment-load-path "twittering-mode" "twittering-mode")
-(load-library "twittering-mode")
+(autoload 'twit "twittering-mode" t)
+(eval-after-load 'twit
+`(progn
+   (require 'epa)
 (setq twittering-use-master-password t)
 (setq epa-protocol 'OpenPGP)
 (setq twittering-timer-interval 300)
@@ -12,3 +15,4 @@
                 ))
 (setq twittering-number-of-tweets-on-retrieval 50)
 (setq twittering-edit-skeleton 'inherit-any)
+))
