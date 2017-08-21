@@ -1,0 +1,105 @@
+* TL;DR:
+
+Describes my Emacs start-up file, and what I did to speed it up from
+12 seconds to under 4 seconds.
+*  Overview Of Steps 
+
+  - Byte-compile start-up files.
+  - Temporarily increase _gc-cons-threshold_ during startup.
+  - Load package autoloads (not packages) during start-up.
+  - Use _eval-after-load_ to advantage for post-package setup.
+  - Lexically bind _file-name-handler-alist_ to _nil_ if start-up
+    is split across many files. 
+  - Used memoization to avoid network lookup of current location during startup.
+  
+
+I have  a large number of elpa/melpa packages installed:
+#+BEGIN_SRC emacs-lisp
+(length load-path)
+#+END_SRC
+: 400
+
+With the above, my emacs (Emacs 26 built from Git) startup time is on
+average 4 seconds.  This includes starting up emacspeak (including
+speech servers), as well as launching a number of project-specific
+shell buffers.  Given that I rarely restart Emacs, the startup time is
+academic --- but speeding up Emacs startup did get me to clean-up my
+Emacs setup.
+
+* Introduction 
+
+I have now used Emacs for more than 25 years, and my [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L1][Emacs start-up
+file]] has followed the same structure through this time.
+
+  1. The init file defines a ~start-up-emacs~ function that does the
+     bulk of the work.
+  2. Package-specific configuration is split up into
+     ~<package>-prepare.el~ files.
+  3. All of these files are byte-compiled.
+
+As a first step, I added code to my start-up file to time the loading
+of various modules.
+
+* Load Byte-Compiled Start-Up File
+
+I keep my ~emacs-startup.el~ checked into GitHub.
+My Emacs init-file is a symlink to the byte-compiled version of the
+above --- this is something that goes back to my time as a
+grad-student at Cornell (when GitHub of course did not exist).
+That is also when I originally learnt the trick of temporarily setting
+_gc-cons-threshold_ to 8MB --- Emacs' default is 800K.
+
+* Package Autoloads And ~eval-after-load~
+
+Over time, some of the package-specific setup files had come to
+directly load packages --- it just made it easier to do
+package-specific setup at the time.  As part of the cleanup, I updated
+these to strictly load package-autoload files and wrapped post-package
+setup code in ~eval-after-load~ --- this is effectively the same as
+using ~use-package~.
+
+
+* Loading Files Faster 
+
+Emacs has an extremely flexible mechanism for loading files --- this
+means you can load compressed, encrypted or remote files without
+having to worry about it. That flexibility comes at a cost --- if you
+are sure you dont need this flexibility during start-up, then locally
+binding ~file-name-handler-alist~ to ~nil~ is a big win --- in my
+case, it  sped things up by 50%.
+
+* Avoid Network Calls During Start-Up
+
+In my case, I set ~calendar-latitude~ and ~calendar-longitude~ by
+geocoding my address --- geocoding is done by calling the Google Maps
+API.  The geocoding API is plenty fast that you normally dont notice
+it --- but it was adding anywhere from 1--3 seconds during
+startup. Since my address doesn't change that often, I updated module
+[[https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gmaps.el#L1][gmaps]] to use a memoized version. My address is set via ~Customize~,
+and the geocoded lat/long is saved to disk automatically.
+
+
+
+
+* References 
+
+1. [[https://anuragpeshne.github.io/essays/emacsSpeed.html][Emacs Speed]] What got it all started.
+2. [[https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/][file-name-handler-alist]] The article that gave me the most useful
+   tip of them all.
+
+
+Net 
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Emacs Start-Up: Speeding It Up
+#+DATE: <2017-08-21 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50 (Org mode 9.0.9)
