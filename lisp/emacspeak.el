@@ -392,8 +392,7 @@ caps."
        (dtk-toggle-split-caps))
    (emacspeak-pronounce-refresh-pronunciations)
    (or emacspeak-audio-indentation
-       (emacspeak-toggle-audio-indentation))
-   (hs-minor-mode 1)))
+       (emacspeak-toggle-audio-indentation))))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
