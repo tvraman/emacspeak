@@ -66,21 +66,23 @@
   (let ((s
          (save-excursion
            (goto-char (overlay-start (ad-get-arg 0)))
-           (line-beginning-position))))
-    (put-text-property s (1+ s)
-                       'auditory-icon 'ellipses)))
+           (line-beginning-position)))
+        (e (overlay-end (ad-get-arg 0))))
+    (put-text-property s e 'auditory-icon 'ellipses)))
 
 (defadvice origami-show-overlay (after emacspeak pre act comp)
   "Remove auditory icon at front."
   (let ((s
          (save-excursion
            (goto-char (overlay-start (ad-get-arg 0)))
-           (line-beginning-position))))
-    (put-text-property s (1+ s)
-                       'auditory-icon nil)))
+           (line-beginning-position)))
+        (e (overlay-end (ad-get-arg 0))))
+    (put-text-property s e 'auditory-icon nil)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
+(defvar origami-mode)
+
 (defadvice origami-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -142,9 +144,10 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon
-        (if  (emacspeak-origami-invisible-p ) 'on 'off))
-       (emacspeak-speak-line)))))
+       (let ((flag (if  (emacspeak-origami-invisible-p ) 'on 'off)))
+       (emacspeak-auditory-icon flag)
+       (message "%s nodes." (if flag "Expanded " "Collapsed "))
+       (emacspeak-speak-line))))))
 
 ;;}}}
 (provide 'emacspeak-origami)
