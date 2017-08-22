@@ -2,11 +2,11 @@
 
 (augment-load-path "twittering-mode" "twittering-mode")
 (autoload 'twit "twittering-mode" t)
+(setq twittering-use-master-password t)
+(setq epa-protocol 'OpenPGP)
 (eval-after-load 'twit
 `(progn
    (require 'epa)
-(setq twittering-use-master-password t)
-(setq epa-protocol 'OpenPGP)
 (setq twittering-timer-interval 300)
 (setq twittering-timer-interval-for-redisplaying 300)
 (setq twittering-initial-timeline-spec-string
