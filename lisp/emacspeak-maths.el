@@ -93,11 +93,6 @@
 (require 'cl-lib)
 (require 'comint)
 (require 'derived)
-(cl-eval-when '(load)
-  (when (locate-library "package")
-    (unless (locate-library "hydra") (package-install 'hydra))
-    (unless (locate-library "nvm") (package-install 'nvm))))
-(require 'hydra "hydra" 'no-error)
 (require 'nvm "nvm" 'no-error )
 (require 'emacspeak-preamble)
 ;;}}}
@@ -180,7 +175,7 @@ Otherwise, Examine head of sexp, and applies associated handler to the tail."
    ((stringp sexp)
     (emacspeak-maths-handle-string sexp))
    (t
-    (cl-assert  (listp sexp) t "%s is not a list." contents)
+    (cl-assert  (listp sexp) t "%s is not a list." sexp)
     (let ((handler (emacspeak-maths-handler-get(car sexp))))
       (cl-assert (fboundp handler) t "%s is not  a function.")
       (funcall handler (cdr sexp))))))
@@ -565,30 +560,6 @@ For use on Wikipedia pages  for example."
   (let ((alt-text (get-text-property (point) 'shr-alt)))
     (unless (string-equal alt-text "No image under point")
       (funcall-interactively #'emacspeak-maths-enter alt-text))))
-
-;;}}}
-;;{{{ Muggle: Speak And Browse Math
-(when (featurep 'hydra)
-  (global-set-key
-   (kbd "s-SPC")
-   (defhydra emacspeak-maths-navigator
-     (:body-pre
-      (progn
-        (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-        (emacspeak-hydra-body-pre "Spoken Math"))
-      :pre emacspeak-hydra-pre
-      :post emacspeak-hydra-post)
-     "Spoken Math"
-     ("o" emacspeak-maths-switch-to-output :color blue)
-     ("RET" emacspeak-maths-enter-guess)
-     ("SPC" emacspeak-maths-enter "enter")
-     ("a" emacspeak-maths-speak-alt "Alt Text")
-     ("d" emacspeak-maths-depth "Depth")
-                                        ;("r" emacspeak-maths-root "Root")
-     ("<up>" emacspeak-maths-up "Up")
-     ("<down>" emacspeak-maths-down"down")
-     ("<left>" emacspeak-maths-left "left")
-     ("<right>" emacspeak-maths-right "right"))))
 
 ;;}}}
 ;;{{{ Advice Preview:
