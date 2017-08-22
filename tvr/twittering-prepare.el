@@ -4,7 +4,7 @@
 (autoload 'twit "twittering-mode" t)
 (setq twittering-use-master-password t)
 (setq epa-protocol 'OpenPGP)
-(eval-after-load 'twit
+(eval-after-load "twittering-mode"
 `(progn
    (require 'epa)
 (setq twittering-timer-interval 300)
