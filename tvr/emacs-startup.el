@@ -46,6 +46,11 @@ which defaults to emacs-personal-library."
         (cons
          (cons ext mode)
          auto-mode-alist)))
+(defsubst tvr-time-it (start what)
+  "Emit timing information."
+  (message
+   "<%s %.4f>"
+   what (float-time (time-subtract (current-time) start))))
 
 (defsubst load-library-if-available (lib)
   "Safe load library."
