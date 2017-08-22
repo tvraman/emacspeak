@@ -103,7 +103,7 @@
   (let* ((selected (nth company-selection company-candidates))
          (doc-buffer (or (company-call-backend 'doc-buffer selected)
                          (error "No documentation available"))))
-    (emacspeak-auditory-icon 'help)
+    ;(emacspeak-auditory-icon 'help)
     (with-current-buffer doc-buffer (dtk-speak (buffer-string)))))
 
 ;;}}}
