@@ -47,21 +47,17 @@ which defaults to emacs-personal-library."
          (cons ext mode)
          auto-mode-alist)))
 
-(defun load-library-if-available (lib)
+(defsubst load-library-if-available (lib)
   "Safe load library."
-  (let ((start nil)
+  (let ((start (current-time))
         (file-name-handler-alist nil)
         (emacspeak-speak-messages nil))
     (condition-case nil
-        (cond
-         ((locate-library lib)
-          (setq start (current-time))
+        (progn
           (load-library lib)
           (message
            "<%s %.4f>"
            lib (float-time (time-subtract (current-time) start))))
-         (t (message "Could not locate library %s" lib)
-            nil))
       (error (message "Error loading %s" lib)))))
 
 ;;}}}
