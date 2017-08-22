@@ -14,7 +14,7 @@
 (autoload 'calc-grab-region	   "calc" "Grab region of Calc data" t)
 (autoload 'calc-grab-rectangle	   "calc" "Grab rectangle of data" t)
 
-(augment-load-path "calc" "calc")
+
 (global-set-key "\e#" 'calc-dispatch)
 ;;; End of Calc autoloads.
 ;;; Calc mode settings:
