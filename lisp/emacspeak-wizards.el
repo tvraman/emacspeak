@@ -2838,21 +2838,24 @@ mapped to voices."
     (sort result #'(lambda (a b) (string-lessp a b)))))
 ;;}}}
 ;;{{{ Muggles Wizrd:
+(defvar emacspeak-wizards-muggles-pattern
+  "emacspeak-muggles-.*/body"
+  "Pattern matching muggles we are interested in.")
 
 (defun emacspeak-wizards-enumerate-muggles ()
   "Enumerate all interactive muggles."
   (interactive)
+  (declare (special emacspeak-wizards-muggles-pattern))
   (let ((result nil))
     (mapatoms
      #'(lambda (s)
          (let ((name (symbol-name s)))
            (when
                (and
-                (string-match "emacspeak-muggles.*/body"  name)
+                (string-match emacspeak-wizards-muggles-pattern  name)
                 (commandp s))
              (push s result)))))
-    (sort result
-          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+    result))
 
 
 (defun emacspeak-wizards-generate-muggles-autoloads ()
