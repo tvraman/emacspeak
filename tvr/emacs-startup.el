@@ -198,7 +198,7 @@ which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
        "emacspeak-m-player" "emacspeak-dbus"
-       "emacspeak-muggles" "emacspeak-maths"
+       "emacspeak-muggles-autoloads"; "emacspeak-maths"
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare"
