@@ -294,8 +294,8 @@ OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 all: $(OBJECTS)
 	cd g-client; $(MAKE)
 
-muggles: emacspeak-muggles.el
-	make emacspeak-muggles.elc
+muggles: emacspeak-muggles.elc emacspeak-muggles-autoloads.el
+
 
 emacspeak-muggles-autoloads.el: emacspeak-muggles.el 
 	$(EMACS) $(BATCH)  $(DEPS)    -l $< -f emacspeak-muggles-generate-autoloads
