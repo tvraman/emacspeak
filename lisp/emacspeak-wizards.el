@@ -2854,6 +2854,27 @@ mapped to voices."
     (sort result
           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
 
+
+(defun emacspeak-wizards-generate-muggles-autoloads ()
+  "Generate autoload lines for all defined muggles."
+  (let ((muggles (emacspeak-wizards-enumerate-muggles))
+        (buff
+         (find-file-noselect
+          (expand-file-name "emacspeak-muggles-autoloads"
+                            emacspeak-lisp-directory))))
+    (with-current-buffer buff
+      (erase-buffer)
+      (insert ";;; Auto Generated: Do Not Hand Edit.\n\n")
+      (cl-loop
+       for m in muggles do
+       (insert
+        (format "(autoload  \'%s \"emacspeak-muggles\" \"%s\" t)\n"
+                m m)))
+      (save-buffer))
+    (message "Generated autoloads for muggles.")))
+       
+    
+    
 ;;}}}
 ;;{{{ Global sunrise/sunset wizard:
 
