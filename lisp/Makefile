@@ -296,6 +296,9 @@ all: $(OBJECTS)
 
 muggles: emacspeak-muggles.el
 	make emacspeak-muggles.elc
+
+emacspeak-muggles-autoloads.el: emacspeak-muggles.el 
+	$(EMACS) $(BATCH)  $(DEPS)    -l $< -f emacspeak-muggles-generate-autoloads
 maths: emacspeak-maths.el
 	make emacspeak-maths.elc
 force:
