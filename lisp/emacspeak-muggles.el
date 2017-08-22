@@ -260,7 +260,10 @@ Argument `k-map' is a symbol  that names a keymap."
 (define-key
   org-mode-map (kbd "C-c t")
   (defhydra emacspeak-muggles-org-table
-    (:body-pre (emacspeak-hydra-body-pre "Org Table UI")
+    (:body-pre
+     (progn
+       (emacspeak-hydra-body-pre "Org Table UI")
+       (when hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
                :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
     "Org Table UI"
     ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
