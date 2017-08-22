@@ -60,9 +60,7 @@ which defaults to emacs-personal-library."
     (condition-case nil
         (progn
           (load-library lib)
-          (message
-           "<%s %.4f>"
-           lib (float-time (time-subtract (current-time) start))))
+          (tvr-time-it start lib))
       (error (message "Error loading %s" lib)))))
 
 ;;}}}
@@ -139,7 +137,7 @@ which defaults to emacs-personal-library."
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
       (when (featurep 'emacspeak)
         (emacspeak-sounds-select-theme "pan-chimes/"))
-      (message "<emacspeak %s>"   (float-time (time-subtract (current-time) e-start))))
+      (tvr-time-it e-start "emacspeak"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
 
@@ -250,9 +248,7 @@ which defaults to emacs-personal-library."
       (add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
-    (message "<start-up-my-emacs %.4f>"
-             (float-time (time-subtract (current-time) tvr-start)))
-    )) ;end defun
+    (tvr-time-it tvr-start "start-up-my-emacs"))) ;end defun
 ;;{{{  start it up
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
@@ -269,7 +265,7 @@ which defaults to emacs-personal-library."
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
-    (message "<after-init-hook: %.4f" (float-time (time-subtract (current-time) after-start)))
+    (tvr-time-it after-start "after-init")
     (message "<Successfully initialized Emacs for %s in %s>"
              user-login-name (emacs-init-time))))
 
