@@ -645,6 +645,52 @@ Info-mode:
    ("<right>" emacspeak-maths-right "right")))
 
 ;;}}}
+;;{{{ Muggles Autoload Wizard:
+
+(defvar emacspeak-muggles-pattern
+  "emacspeak-muggles-.*/body"
+  "Pattern matching muggles we are interested in.")
+
+(defun emacspeak-muggles-enumerate ()
+  "Enumerate all interactive muggles."
+  (declare (special emacspeak-muggles-pattern))
+  (let ((result nil))
+    (mapatoms
+     #'(lambda (s)
+         (let ((name (symbol-name s)))
+           (when
+               (and
+                (string-match emacspeak-muggles-pattern  name)
+                (commandp s))
+             (push s result)))))
+    result))
+
+;;;###autoload
+(defun emacspeak-muggles-generate-autoloads ()
+  "Generate autoload lines for all defined muggles."
+  (let ((muggles (emacspeak-muggles-enumerate))
+        (buff
+         (find-file-noselect
+          (expand-file-name "emacspeak-muggles-autoloads"
+                            emacspeak-lisp-directory))))
+    (with-current-buffer buff
+      (erase-buffer)
+      (insert ";;; Auto Generated: Do Not Hand Edit.\n\n")
+      (cl-loop
+       for m in muggles do
+       (let ((key  (where-is-internal m nil 'first)))
+       (insert
+        (format "(autoload  \'%s \"emacspeak-muggles\" \"%s\" t)\n"
+                m m))
+       (when key 
+       (insert
+        (format
+         "(global-set-key %s \'%s)\n"
+         key m))))
+      (save-buffer)))
+    (message "Generated autoloads for muggles.")))
+
+;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
