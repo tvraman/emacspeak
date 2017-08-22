@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-(augment-load-path "bbdb/lisp" "bbdb")
+
 (load-library "bbdb-autoloads")
 
 ;; Configuration for bbdb
