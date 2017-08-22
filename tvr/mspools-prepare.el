@@ -1,12 +1,14 @@
 ;; -*- lexical-binding: t; -*-
 
-    (autoload 'mspools-show "mspools" "Mail Spools" t)
-    (and (featurep 'vm)
-         (define-key vm-mode-map "o" 'mspools-show))
+(autoload 'mspools-show "mspools" "Mail Spools" t)
+(and (featurep 'vm)
+     (define-key vm-mode-map "o" 'mspools-show))
+(eval-after-load "mspools"
+  `(progn
 (defun mspools-compute-size (file)
-    (with-temp-buffer
-      (shell-command (format "grep '^From ' %s" file) (current-buffer))
-          (count-lines (point-min) (point-max))))
+  (with-temp-buffer
+    (shell-command (format "grep '^From ' %s" file) (current-buffer))
+    (count-lines (point-min) (point-max))))
 
 (defun mspools-size-folder (spool)
   "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
@@ -16,6 +18,7 @@
                                         ;size could be nil if the sym-link points to a non-existent file
                                         ;so check this first.
     (if (and size  (> size 0))
- 	(cons spool  size)
+ 	      (cons spool  size)
                                         ;else SPOOL is empty
       nil)))
+))
