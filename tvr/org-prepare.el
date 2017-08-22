@@ -23,4 +23,8 @@
   #'(lambda nil (interactive) (org-todo "STARTED")))
 (define-key org-todo-state-map "w"
   #'(lambda nil (interactive) (org-todo "WAITING")))
+(require 'emacspeak-muggles-autoloads)
+(define-key org-mode-map (kbd "C-c C-SPC") 'emacspeak-muggles-org-nav/body)
+(define-key org-mode-map (kbd "C-c t") 'emacspeak-muggles-org-table/body
+(define-key org-mode-map (kbd "C-c DEL") 'hydra-ox/body)
 ))

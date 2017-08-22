@@ -20,3 +20,4 @@
 (autoload  'emacspeak-muggles-m-player/body "emacspeak-muggles" "emacspeak-muggles-m-player/body" t)
 (global-set-key [8388667] 'emacspeak-muggles-m-player/body)
 (autoload  'emacspeak-muggles-org-nav/body "emacspeak-muggles" "emacspeak-muggles-org-nav/body" t)
+(provide 'emacspeak-muggles-autoloads)

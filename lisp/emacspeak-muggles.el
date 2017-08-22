@@ -671,7 +671,7 @@ Info-mode:
   (let ((muggles (emacspeak-muggles-enumerate))
         (buff
          (find-file-noselect
-          (expand-file-name "emacspeak-muggles-autoloads"
+          (expand-file-name "emacspeak-muggles-autoloads.el"
                             emacspeak-lisp-directory))))
     (with-current-buffer buff
       (erase-buffer)
@@ -686,8 +686,9 @@ Info-mode:
        (insert
         (format
          "(global-set-key %s \'%s)\n"
-         key m))))
-      (save-buffer)))
+         key m)))))
+      (insert "(provide \'emacspeak-muggles-autoloads)\n")
+      (save-buffer))
     (message "Generated autoloads for muggles.")))
 
 ;;}}}
