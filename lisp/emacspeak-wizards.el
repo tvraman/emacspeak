@@ -2837,7 +2837,7 @@ mapped to voices."
            (face-list)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
 ;;}}}
-;;{{{ Muggles Wizrd:
+;;{{{ Muggles Wizard:
 (defvar emacspeak-wizards-muggles-pattern
   "emacspeak-muggles-.*/body"
   "Pattern matching muggles we are interested in.")
@@ -2856,8 +2856,7 @@ mapped to voices."
                 (commandp s))
              (push s result)))))
     result))
-
-
+;;;###autoload
 (defun emacspeak-wizards-generate-muggles-autoloads ()
   "Generate autoload lines for all defined muggles."
   (let ((muggles (emacspeak-wizards-enumerate-muggles))
@@ -2870,10 +2869,16 @@ mapped to voices."
       (insert ";;; Auto Generated: Do Not Hand Edit.\n\n")
       (cl-loop
        for m in muggles do
+       (let ((key  (where-is-internal m nil 'first)))
        (insert
         (format "(autoload  \'%s \"emacspeak-muggles\" \"%s\" t)\n"
-                m m)))
-      (save-buffer))
+                m m))
+       (when key 
+       (insert
+        (format
+         "(global-set-key %s \'%s)\n"
+         key m))))
+      (save-buffer)))
     (message "Generated autoloads for muggles.")))
        
     
