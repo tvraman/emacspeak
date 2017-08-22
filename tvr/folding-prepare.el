@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(autoload 'folding-mode "folding" "folding mode" t)
+(load-library "folding")
 (eval-after-load "folding"
 `(progn 
 (setq fold-fold-on-startup nil)
