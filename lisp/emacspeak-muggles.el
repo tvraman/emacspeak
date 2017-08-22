@@ -89,6 +89,7 @@
 (require 'emacspeak-hydra)
 (eval-when-compile
   (require 'hideshow)
+  (require 'emacspeak-maths)
   (require 'origami "origami" 'no-error)
   (require 'hydra "hydra" 'no-error)
   (require 'xbacklight)
@@ -618,6 +619,30 @@ Info-mode:
      (when (locate-library "hydra-ox")
        (require 'hydra-ox)
        (define-key org-mode-map (kbd "C-c DEL") 'hydra-ox/body))))
+
+;;}}}
+;;{{{ Muggle: Speak And Browse Math
+
+(global-set-key
+ (kbd "s-SPC")
+ (defhydra emacspeak-muggles-maths-navigator
+   (:body-pre
+    (progn
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-body-pre "Spoken Math"))
+    :pre emacspeak-hydra-pre
+    :post emacspeak-hydra-post)
+   "Spoken Math"
+   ("o" emacspeak-maths-switch-to-output :color blue)
+   ("RET" emacspeak-maths-enter-guess)
+   ("SPC" emacspeak-maths-enter "enter")
+   ("a" emacspeak-maths-speak-alt "Alt Text")
+   ("d" emacspeak-maths-depth "Depth")
+                                        ;("r" emacspeak-maths-root "Root")
+   ("<up>" emacspeak-maths-up "Up")
+   ("<down>" emacspeak-maths-down"down")
+   ("<left>" emacspeak-maths-left "left")
+   ("<right>" emacspeak-maths-right "right")))
 
 ;;}}}
 (provide 'emacspeak-muggles)
