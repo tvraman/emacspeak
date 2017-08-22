@@ -2837,6 +2837,24 @@ mapped to voices."
            (face-list)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
 ;;}}}
+;;{{{ Muggles Wizrd:
+
+(defun emacspeak-wizards-enumerate-muggles ()
+  "Enumerate all interactive muggles."
+  (interactive)
+  (let ((result nil))
+    (mapatoms
+     #'(lambda (s)
+         (let ((name (symbol-name s)))
+           (when
+               (and
+                (string-match "emacspeak-muggles.*/body"  name)
+                (commandp s))
+             (push s result)))))
+    (sort result
+          #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+
+;;}}}
 ;;{{{ Global sunrise/sunset wizard:
 
 ;;;###autoload
