@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(augment-load-path "elfeed" "elfeed")
+
 (load-library "elfeed-autoloads")
 (eval-after-load "elfeed"
   `(progn
