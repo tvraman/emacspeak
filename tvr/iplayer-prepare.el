@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(load-library "iplayer")
+(load-library "iplayer-autoloads")
 (push '("w" "BBC World Service") iplayer-presets)
 (push '("a" "BBC Asian Network") iplayer-presets)
 (define-key iplayer-mode-map "a" 'iplayer-preset)

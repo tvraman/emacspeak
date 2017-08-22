@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
-(load-library "folding")
-
+(autoload 'folding-mode "folding" "folding mode" t)
+(eval-after-load "folding"
+`(progn 
 (setq fold-fold-on-startup nil)
 (setq fold-keys-already-setup nil)
 (add-hook 'folding-mode-hook
@@ -46,3 +47,4 @@
 (fold-add-to-marks-list 'html-helper-mode "<!-- { " "<!-- } -->" "-->")
 (fold-add-to-marks-list 'tcl-mode "# {{{" "# }}}" " ")
 (fold-add-to-marks-list 'sh-mode "# {{{" "# }}}" " ")
+))
