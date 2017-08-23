@@ -14,7 +14,9 @@ slime-prepare.elc company-prepare.elc python-mode-prepare.elc \
  org-prepare.elc erc-prepare.elc \
 jabber-prepare.elc twittering-prepare.elc \
 fap-prepare.elc iplayer-prepare.elc \
-auto-correct-prepare.elc color-theme-prepare.elc 
+auto-correct-prepare.elc color-theme-prepare.elc \
+helm-prepare.elc vdiff-prepare.elc \
+projectile-prepare.elc  yasnippet-prepare.elc emms-prepare.elc 
 
 all: $(SETUP)
 
