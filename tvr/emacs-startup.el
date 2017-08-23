@@ -110,7 +110,8 @@ which defaults to emacs-personal-library."
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name)
-    (setq initial-scratch-message "")
+    (setq initial-scratch-message ""
+          initial-buffer-choice t)
     (tooltip-mode -1)
     (menu-bar-mode -1)
     (tool-bar-mode -1)
@@ -247,7 +248,7 @@ which defaults to emacs-personal-library."
     ;;{{{ Save abbrevs On Quit:
 
     (when (file-exists-p abbrev-file-name)
-      (read-abbrev-file)
+      ;(read-abbrev-file) ; done by emacs automatically 
       (add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
