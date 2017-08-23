@@ -132,8 +132,9 @@ such as pronunciation dictionaries are stored. ")
 
 (add-to-list 'load-path emacspeak-lisp-directory)
 (add-to-list 'load-path (expand-file-name "g-client" emacspeak-lisp-directory))
+
 (let ((file-name-handler-alist nil))
-  (load-library "emacspeak"))
+  (load (expand-file-name "emacspeak.elc" emacspeak-lisp-directory)))
 
 (defvar dtk-startup-hook nil)
 ;;;###autoload
@@ -189,8 +190,9 @@ TTS engine should use ALSA for this to be usable."
 (add-hook
  'Info-mode-hook
  #'(lambda ()
+     (let ((file-name-handler-alist nil))
      (unless emacspeak-info-already-loaded
-       (load-library "emacspeak-info")
+       (load-library "emacspeak-info"))
        (setq emacspeak-info-already-loaded t))))
 
 ;;}}}
