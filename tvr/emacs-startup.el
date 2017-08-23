@@ -93,9 +93,11 @@ which defaults to emacs-personal-library."
 (defun tvr-customize ()
   "Load my customizations from my custom-file."
   (declare (special custom-file))
-  (let ((file-name-handler-alist nil))
-    (setq custom-file (expand-file-name "~/.customize-emacs"))
-    (when (file-exists-p custom-file) (load-file custom-file))))
+  (let ((file-name-handler-alist nil)
+        (gc-cons-threshold  8000000)
+        (emacspeak-speak-messages nil))
+    (setq-default custom-file (expand-file-name "~/.customize-emacs"))
+    (when (file-exists-p custom-file) (load custom-file))))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -103,6 +105,7 @@ which defaults to emacs-personal-library."
   (declare (special emacs-personal-library emacs-private-library))
   (let ((gc-cons-threshold 8000000)
         (file-name-handler-alist nil) ; to speed up, avoid tramp etc
+        (emacspeak-speak-messages nil)
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
@@ -252,7 +255,9 @@ which defaults to emacs-personal-library."
 ;;{{{  start it up
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
-  (let ((after-start (current-time)))
+  (let ((after-start (current-time))
+        (gc-cons-threshold 8000000)
+        (emacspeak-speak-messages nil))
     (tvr-customize)
     (soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
@@ -261,13 +266,14 @@ which defaults to emacs-personal-library."
       (emacspeak-dbus-sleep-enable)
       (emacspeak-dbus-watch-screen-lock))
     (emacspeak-wizards-project-shells-initialize)
-                                        ;(calendar)
+;;;(calendar)
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
     (tvr-time-it after-start "after-init")))
-
 (add-hook 'after-init-hook #'tvr-after-init)
+(add-hook 'emacs-startup-hook #'delete-other-windows)
+
 (start-up-my-emacs)
 (message "<Successfully initialized Emacs for %s in %s>"
              user-login-name (emacs-init-time))
