@@ -663,14 +663,15 @@ Info-mode:
          (let ((name (symbol-name s)))
            (when
                (and
-                (string-match emacspeak-muggles-pattern  name)
-                (commandp s))
+                (commandp s)
+                (string-match emacspeak-muggles-pattern  name))
              (push s result)))))
     result))
 
 ;;;###autoload
 (defun emacspeak-muggles-generate-autoloads ()
-  "Generate autoload lines for all defined muggles."
+  "Generate autoload lines for all defined muggles.
+Also generates global keybindings if any."
   (let ((muggles (emacspeak-muggles-enumerate))
         (buff
          (find-file-noselect
@@ -682,15 +683,10 @@ Info-mode:
       (cl-loop
        for m in muggles do
        (let ((key  (where-is-internal m nil 'first)))
-       (insert
-        (format "(autoload  \'%s \"emacspeak-muggles\" \"%s\" t)\n"
-                m m))
+       (insert (format "(autoload \'%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
        (when key 
-       (insert
-        (format
-         "(global-set-key %s \'%s)\n"
-         key m)))))
-      (insert "(provide \'emacspeak-muggles-autoloads)\n")
+       (insert (format "(global-set-key %s \'%s)\n" key m)))))
+      (insert "\n(provide \'emacspeak-muggles-autoloads)\n")
       (save-buffer))
     (message "Generated autoloads for muggles.")))
 
