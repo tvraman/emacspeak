@@ -64,8 +64,9 @@
   (require 'amixer)
 (require 'sox-gen)
 (require 'derived)
-(require 'dbus))
-(require 'nm "nm" 'no-error)
+(require 'dbus)
+(require 'nm "nm" 'no-error))
+
 
 ;;}}}
 ;;{{{ Forward Declarations:
