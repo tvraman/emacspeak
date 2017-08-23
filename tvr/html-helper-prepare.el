@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 (autoload 'html-helper-mode "html-helper-mode")
 (augment-auto-mode-alist "\\.html$" 'html-helper-mode)

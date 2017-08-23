@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (load-library "fff")
 (load-library "fff-rfc")
 (fff-install-map)

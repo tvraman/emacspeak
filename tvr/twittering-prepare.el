@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 (augment-load-path "twittering-mode" "twittering-mode")
 (autoload 'twit "twittering-mode"  "twitter client"t)

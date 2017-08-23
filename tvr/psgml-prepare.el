@@ -1,4 +1,4 @@
-;;;$Id$  -*- lexical-binding: t; -*-
+;;;$Id$  -*- lexical-binding: nil; -*-
 ;;{{{ autload and load path
 
 (augment-load-path "psgml" "psgml")

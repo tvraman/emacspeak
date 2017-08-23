@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (load-library "sawfish")
 (define-key sawfish-mode-map "\M-\C-i" 'sawfish-complete-symbol)
 

@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (augment-load-path "dictionary" "dictionary")
 
 (global-set-key "\C-c/" 'dictionary-prefix-command)

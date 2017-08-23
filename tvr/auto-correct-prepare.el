@@ -1,4 +1,4 @@
-;;; Taken from endless' Blog:  -*- lexical-binding: t; -*-
+;;; Taken from endless' Blog:  -*- lexical-binding: nil; -*-
 
 (define-key ctl-x-map "\C-i" #'auto-correct-update)
 ;;; shift-space is too  easy to trigger accidentally.

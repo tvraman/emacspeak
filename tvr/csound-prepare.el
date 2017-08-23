@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (augment-load-path "stef-elisp" "stef-elisp")
 (require 'cc-mode)
 (require 'stef-elisp)

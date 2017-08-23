@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (load-library "iplayer-autoloads")
 (eval-after-load "iplayer"
   `(progn

@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: nil; -*-
 (load-library "projectile-autoloads")
 ;(projectile-global-mode)
 (eval-after-load 'projectile

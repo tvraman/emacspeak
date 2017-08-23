@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 (load-library  "color-theme-autoloads")
 (color-theme-initialize)
