@@ -126,10 +126,10 @@ Stop apps that use the network."
         (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
-(when (featurep 'nm)
+
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
-(nm-enable))
+
 ;;}}}
 ;;{{{ Sleep/Resume:
 
