@@ -263,7 +263,7 @@ which defaults to emacs-personal-library."
     (when (dbus-list-known-names :session)
       (load-library "emacspeak-dbus")
       (nm-enable)
-      (emacspeak-dbus-sleep-enable)
+ (emacspeak-dbus-sleep-enable)
       (emacspeak-dbus-watch-screen-lock))
     (emacspeak-wizards-project-shells-initialize)
 ;;;(calendar)
