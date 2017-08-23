@@ -232,7 +232,8 @@ which defaults to emacs-personal-library."
        "auto-correct-prepare"
        "color-theme-prepare"
                                         ;"elscreen-prepare"
-       "local"))
+       ; "local" ; use default.el instead
+       ))
 
     ;;}}}
     ;;{{{ turn on modes:
@@ -247,9 +248,9 @@ which defaults to emacs-personal-library."
     ;;}}}
     ;;{{{ Save abbrevs On Quit:
 
-    (when (file-exists-p abbrev-file-name)
+    ;(when (file-exists-p abbrev-file-name)
       ;(read-abbrev-file) ; done by emacs automatically 
-      (add-hook #'kill-emacs-hook #'write-abbrev-file))
+      ;(add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
     (tvr-time-it tvr-start "start-up-my-emacs"))) ;end defun
