@@ -58,13 +58,15 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(eval-when-compile (require 'cl))
 (require 'emacspeak-preamble)
-(require 'amixer)
+(eval-when-compile
+  (require 'amixer)
 (require 'sox-gen)
 (require 'derived)
-(require 'dbus)
+(require 'dbus))
 (require 'nm "nm" 'no-error)
+
 ;;}}}
 ;;{{{ Forward Declarations:
 
