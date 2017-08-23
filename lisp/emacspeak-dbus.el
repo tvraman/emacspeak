@@ -90,7 +90,7 @@ switch to a screen-saver soundscape."
   "Record window configuration when screen-saver was launched.")
 
 (defun emacspeak-screen-saver ()
-
+  "Launch Emacspeak screen-saver."
   (declare (special emacspeak-screen-saver-saved-configuration))
   (setq emacspeak-screen-saver-saved-configuration (current-window-configuration))"Initialize screen-saver buffer  if needed, and switch to  it."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
@@ -126,10 +126,10 @@ Stop apps that use the network."
         (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
-
+(when (featurep 'nm)
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
-
+(nm-enable))
 ;;}}}
 ;;{{{ Sleep/Resume:
 
@@ -222,6 +222,7 @@ already disabled."
 
 ;;}}}
 ;;{{{ Watch Screensaver:
+
 (defvar emacspeak-dbus-screen-lock-handle nil
   "Handle to DBus signal registration for watching screenlock.")
 
