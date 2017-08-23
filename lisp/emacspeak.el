@@ -61,11 +61,12 @@
 ;;{{{ autoloads
 
 (unless noninteractive
-  (load-library "emacspeak-loaddefs")
-  (load-library "emacspeak-cus-load")
-  (load-library "g-loaddefs")
-  (load-library "g-cus-load"))
-
+  (let ((file-name-handler-alist nil))
+    (mapc
+     #'(lambda (f)
+         (load (expand-file-name f emacspeak-lisp-directory)))
+     '("emacspeak-loaddefs.el" "emacspeak-cus-load.el"
+    "g-client/g-loaddefs" "g-client/g-cus-load"))))
 ;;}}}
 ;;{{{  Customize groups
 
