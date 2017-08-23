@@ -137,10 +137,7 @@ which defaults to emacs-personal-library."
     ;;{{{ Load and customize emacspeak
 
     (let ((e-start (current-time)))
-      (load-file
-       (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
-      (when (featurep 'emacspeak)
-        (emacspeak-sounds-select-theme "pan-chimes/"))
+      (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
       (tvr-time-it e-start "emacspeak"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
