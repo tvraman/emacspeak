@@ -487,34 +487,35 @@ commands and options for details."
             emacspeak-info-directory
             use-dialog-box emacspeak-pronounce-dictionaries-file
             emacspeak-play-program emacspeak-sounds-directory))
-  (emacspeak-export-environment)
-  (setq use-dialog-box nil)
-  (when (boundp 'Info-directory-list)
-    (push emacspeak-info-directory Info-directory-list))
-  (require 'emacspeak-personality)
-  (dtk-initialize)
-  (tts-configure-synthesis-setup)
-  (require 'emacspeak-keymap)
-  (require 'emacspeak-redefine)
-  (require 'emacspeak-replace)
-  (require 'emacspeak-advice)
-  (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
-  (when emacspeak-pronounce-load-pronunciations-on-startup
-    (emacspeak-pronounce-load-dictionaries
-     emacspeak-pronounce-dictionaries-file))
-  (emacspeak-setup-programming-modes)
-  (emacspeak-use-customized-blink-paren)
-  (run-hooks 'emacspeak-startup-hook)
-  (tts-with-punctuations
-   'some
-   (dtk-speak-and-echo
-    (format
-     "  Press %s to get an   overview of emacspeak  %s \
+  (let ((file-name-handler-alist nil))
+    (emacspeak-export-environment)
+    (setq use-dialog-box nil)
+    (when (boundp 'Info-directory-list)
+      (push emacspeak-info-directory Info-directory-list))
+    (require 'emacspeak-personality)
+    (dtk-initialize)
+    (tts-configure-synthesis-setup)
+    (require 'emacspeak-keymap)
+    (require 'emacspeak-redefine)
+    (require 'emacspeak-replace)
+    (require 'emacspeak-advice)
+    (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
+    (when emacspeak-pronounce-load-pronunciations-on-startup
+      (emacspeak-pronounce-load-dictionaries
+       emacspeak-pronounce-dictionaries-file))
+    (emacspeak-setup-programming-modes)
+    (emacspeak-use-customized-blink-paren)
+    (run-hooks 'emacspeak-startup-hook)
+    (tts-with-punctuations
+     'some
+     (dtk-speak-and-echo
+      (format
+       "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly!"
-     (substitute-command-keys
-      "\\[emacspeak-describe-emacspeak]")
-     emacspeak-version)))
-  (emacspeak-play-startup-icon))
+       (substitute-command-keys
+        "\\[emacspeak-describe-emacspeak]")
+       emacspeak-version)))
+    (emacspeak-play-startup-icon)))
 
 ;;;###autoload
 (defun emacspeak-info ()

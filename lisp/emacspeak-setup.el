@@ -132,8 +132,8 @@ such as pronunciation dictionaries are stored. ")
 
 (add-to-list 'load-path emacspeak-lisp-directory)
 (add-to-list 'load-path (expand-file-name "g-client" emacspeak-lisp-directory))
-
-(load-library "emacspeak")
+(let ((file-name-handler-alist nil))
+  (load-library "emacspeak"))
 
 (defvar dtk-startup-hook nil)
 ;;;###autoload
