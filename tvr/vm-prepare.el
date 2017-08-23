@@ -1,5 +1,8 @@
-;;; Augment load path:  -*- lexical-binding: nil; -*-
+;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
 (augment-load-path "vm/lisp" "vm-autoloads")
+(load-library "vm-autoloads")
+(eval-after-load "vm"
+  `(progn
 (defun make-local-hook (hook)
   "Make the hook HOOK local to the current buffer.
 The return value is HOOK.
@@ -29,7 +32,6 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (make-local-variable hook)
     (set hook (list t)))
   hook)
-(load-library "vm-autoloads")
 
 (global-set-key "\M-\C-v" 'vm-visit-folder)
 
@@ -64,3 +66,4 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (message "Opening %s with Chrome" url)))
 
 (define-key vm-mode-map "C" 'vm-chromium)
+))
