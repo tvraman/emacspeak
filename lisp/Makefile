@@ -180,7 +180,7 @@ emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jabber.elc \
 emacspeak-indium.elc \
-emacspeak-jde.elc \
+emacspeak-jdee.elc \
 emacspeak-js2.elc \
 emacspeak-jss.elc \
 emacspeak-kite.elc \
@@ -443,7 +443,7 @@ emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc voice-setup.elc
 emacspeak-indium.elc: emacspeak-indium.el dtk-speak.elc voice-setup.elc
-emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
+emacspeak-jdee.elc: emacspeak-jdee.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-jss.elc: emacspeak-jss.el dtk-speak.elc voice-setup.elc

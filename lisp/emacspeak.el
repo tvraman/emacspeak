@@ -232,7 +232,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "info" 'emacspeak-info)
 (emacspeak-do-package-setup "ispell" 'emacspeak-ispell)
 (emacspeak-do-package-setup "jabber" 'emacspeak-jabber)
-(emacspeak-do-package-setup "jde" 'emacspeak-jde)
+(emacspeak-do-package-setup "jdee" 'emacspeak-jdee)
 (emacspeak-do-package-setup "js2" 'emacspeak-js2)
 (emacspeak-do-package-setup "indium" 'emacspeak-indium)
 (emacspeak-do-package-setup "js2-mode" 'emacspeak-js2)
