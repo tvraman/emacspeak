@@ -201,7 +201,7 @@ which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
-       "emacspeak-m-player" "emacspeak-dbus"
+       "emacspeak-m-player" 
        "emacspeak-muggles-autoloads"; "emacspeak-maths"
        "my-functions"
 ;;; Mail:
@@ -261,6 +261,7 @@ which defaults to emacs-personal-library."
     (soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
     (when (dbus-list-known-names :session)
+      (load-library "emacspeak-dbus")
       (nm-enable)
       (emacspeak-dbus-sleep-enable)
       (emacspeak-dbus-watch-screen-lock))
