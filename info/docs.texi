@@ -1353,6 +1353,7 @@ x DEL		desktop-clear
 C-M-@@		emacspeak-speak-spaces-at-point
 C-M-b		emacspeak-submit-bug
 C-M-k		kill-emacs
+C-M-l		emacspeak-speak-overlay-before/after-string
 M-%		emacspeak-goto-percent
 M-;		emacspeak-webutils-play-media-at-point
 M-a		emacspeak-set-auditory-icon-player
@@ -12935,8 +12936,6 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
-
-(fn LATEX)
 @end format
 @end deffn
 

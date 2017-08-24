@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 23, 2017.
+last updated on August 24, 2017.
 
    The manual is divided into the following chapters.
 
@@ -4042,6 +4042,7 @@ system.
      C-M-@		emacspeak-speak-spaces-at-point
      C-M-b		emacspeak-submit-bug
      C-M-k		kill-emacs
+     C-M-l		emacspeak-speak-overlay-before/after-string
      M-%		emacspeak-goto-percent
      M-;		emacspeak-webutils-play-media-at-point
      M-a		emacspeak-set-auditory-icon-player
