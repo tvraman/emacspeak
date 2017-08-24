@@ -251,7 +251,7 @@
 ;;}}}
 ;;{{{ Advice hide/show commands:
 (cl-loop for f in
-         '(magit-show magit-show-branches
+         '(magit-show magit-show-branches magit-show-commit
                       magit-show-branches-mode
                       magit-show-item-or-scroll-down magit-show-item-or-scroll-up
                       magit-show-level
