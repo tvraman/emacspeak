@@ -960,6 +960,7 @@ are indicated with auditory icon ellipses."
             (inhibit-read-only t)
             (before-string (get-char-property (point) 'before-string))
         (after-string (get-char-property (point) 'after-string))
+        (display (get-char-property (point) 'display))
             (start  nil)
             (end nil)
             (inhibit-point-motion-hooks t)
@@ -999,7 +1000,7 @@ are indicated with auditory icon ellipses."
             (or (invisible-p end)
                 (get-text-property  start 'emacspeak-hidden-block))
           (emacspeak-auditory-icon 'ellipses))
-        (when (or before-string after-string) (emacspeak-auditory-icon 'progress))
+        (when (or display before-string after-string) (emacspeak-auditory-icon 'progress))
         (cond
 ;;; C1..C5
          ((string-equal ""  line)
@@ -1044,6 +1045,7 @@ are indicated with auditory icon ellipses."
                 (setq linenum (propertize linenum 'personality   voice-lighten))
                 (setq line (concat linenum line)))
               (dtk-speak line)))))))))
+
 (defun emacspeak-speak-overlay-properties  ()
   "Speak display, before-string or after-string property if any."
   (interactive)
