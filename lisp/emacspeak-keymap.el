@@ -208,6 +208,7 @@
    ("C-i" emacspeak-open-info)
    ("C-j" emacspeak-hide-speak-block-sans-prefix)
    ("C-l" emacspeak-speak-line-number)
+   ("M-C-l" emacspeak-speak-overlay-before/after-string)
    ("C-m"  emacspeak-speak-continuously)
    ("C-n" emacspeak-speak-next-window)
    ("C-o" emacspeak-ocr)

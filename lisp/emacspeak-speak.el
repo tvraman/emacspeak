@@ -958,6 +958,8 @@ are indicated with auditory icon ellipses."
     (save-excursion
       (let ((inhibit-field-text-motion t)
             (inhibit-read-only t)
+            (before-string (get-char-property (point) 'before-string))
+        (after-string (get-char-property (point) 'after-string))
             (start  nil)
             (end nil)
             (inhibit-point-motion-hooks t)
@@ -997,6 +999,7 @@ are indicated with auditory icon ellipses."
             (or (invisible-p end)
                 (get-text-property  start 'emacspeak-hidden-block))
           (emacspeak-auditory-icon 'ellipses))
+        (when (or before-string after-string) (emacspeak-auditory-icon 'progress))
         (cond
 ;;; C1..C5
          ((string-equal ""  line)
@@ -1041,7 +1044,19 @@ are indicated with auditory icon ellipses."
                 (setq linenum (propertize linenum 'personality   voice-lighten))
                 (setq line (concat linenum line)))
               (dtk-speak line)))))))))
-
+(defun emacspeak-speak-overlay-before/after-string  ()
+  "Speak befre-string/after-string if any."
+  (interactive)
+  (let ((before-string (get-char-property (point) 'before-string))
+        (after-string (get-char-property (point) 'after-string)))
+    
+    (cond
+     ((and (null before-string) (null after-string))
+      (message "No before/after string here."))
+     ((and before-string after-string)
+      (dtk-speak  (concat before-string  after-string))
+      (emacspeak-auditory-icon 'time)) ;rename icon later
+      (t (dtk-speak (or before-string after-string))))))
 ;;;###autoload
 (defun emacspeak-speak-visual-line ()
   "Speaks current visual line.
