@@ -786,6 +786,10 @@ interactive command that the key sequence executes."
   (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
 
 ;;}}}
+;;{{{ Global Bindings From Other Modules:
+(global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
+
+;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 

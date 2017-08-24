@@ -1950,7 +1950,7 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defvar emacspeak-eww-marks-loaded-p nil
   "Record if EWW Marks are loaded.")
-
+;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)
   "Open specified EWW marked location. If the content is already being
 displayed in this Emacs session, jump to it directly. With optional
@@ -1992,7 +1992,7 @@ interactive prefix arg `delete', delete that mark instead."
            'at-end))
         (funcall handler book)))))))
 
-(global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
+
 
 (defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-resource-directory)
