@@ -1044,19 +1044,19 @@ are indicated with auditory icon ellipses."
                 (setq linenum (propertize linenum 'personality   voice-lighten))
                 (setq line (concat linenum line)))
               (dtk-speak line)))))))))
-(defun emacspeak-speak-overlay-before/after-string  ()
-  "Speak befre-string/after-string if any."
+(defun emacspeak-speak-overlay-properties  ()
+  "Speak display, before-string or after-string property if any."
   (interactive)
   (let ((before-string (get-char-property (point) 'before-string))
-        (after-string (get-char-property (point) 'after-string)))
-    
+        (after-string (get-char-property (point) 'after-string))
+        (display (get-char-property (point) 'display)))
     (cond
-     ((and (null before-string) (null after-string))
-      (message "No before/after string here."))
-     ((and before-string after-string)
-      (dtk-speak  (concat before-string  after-string))
-      (emacspeak-auditory-icon 'time)) ;rename icon later
-      (t (dtk-speak (or before-string after-string))))))
+     ((and (null before-string) (null after-string) (null display))
+      (message "No interesting overlay properties here."))
+      (t
+       (emacspeak-auditory-icon 'ellipses)
+       (dtk-speak (concat display before-string after-string))))))
+
 ;;;###autoload
 (defun emacspeak-speak-visual-line ()
   "Speaks current visual line.
