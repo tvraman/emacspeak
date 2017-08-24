@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1195 commands and 1169 options.
+This chapter documents a total of 1196 commands and 1169 options.
 
 * Menu:
 
@@ -4042,7 +4042,7 @@ system.
      C-M-@		emacspeak-speak-spaces-at-point
      C-M-b		emacspeak-submit-bug
      C-M-k		kill-emacs
-     C-M-l		emacspeak-speak-overlay-before/after-string
+     C-M-l		emacspeak-speak-overlay-properties
      M-%		emacspeak-goto-percent
      M-;		emacspeak-webutils-play-media-at-point
      M-a		emacspeak-set-auditory-icon-player
