@@ -348,6 +348,54 @@
   (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
+;;{{{ Magit Blame:
+
+(defun emacspeak-magit-blame-speak ()
+  "Summarize current blame chunk."
+  (let ((o (first (overlays-at (point)))))
+    (when o
+      (dtk-speak
+       (concat
+        (buffer-substring (line-beginning-position) (line-end-position))
+        (overlay-get o 'before-string))))))
+
+
+
+
+
+(cl-loop
+ for f in
+ '(
+   magit-blame-previous-chunk magit-blame-previous-chunk-same-commit
+   magit-blame-next-chunk magit-blame-next-chunk-same-commit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-magit-blame-speak)
+       (emacspeak-auditory-icon 'large-movement)))))
+
+
+(defadvice magit-blame-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+(defadvice magit-blame-toggle-headings (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon (if magit-blame-show-headings 'on 'off))
+    (message "Toggled blame headings.")))
+
+(defadvice magit-blame (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (message "Entering Magit Blame")
+    (emacspeak-auditory-icon 'button)))
+
+
+;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
 
