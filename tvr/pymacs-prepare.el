@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 (autoload 'pymacs-apply "pymacs")
 (autoload 'pymacs-call "pymacs")
 (autoload 'pymacs-eval "pymacs" nil t)

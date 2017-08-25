@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 
 (load-library "jabber-autoloads")
 (setq fsm-debug nil)

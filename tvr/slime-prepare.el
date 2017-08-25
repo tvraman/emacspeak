@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 (augment-load-path "slime" "slime-autoloads")
 (load-library "slime-autoloads")
 (eval-after-load "slime"

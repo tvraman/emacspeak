@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 
 (define-key isearch-mode-map [(control return)]
   #'isearch-exit-other-end)

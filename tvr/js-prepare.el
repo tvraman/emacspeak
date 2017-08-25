@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 
 (load "js2-mode-autoloads")
 (eval-after-load "js2-mode"

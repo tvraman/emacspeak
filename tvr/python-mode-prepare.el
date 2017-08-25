@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 
 (load-library "python-mode-autoloads")
 (eval-after-load "python-mode"

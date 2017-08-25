@@ -1,2 +1,2 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 (augment-load-path "global/gtags" "gtags")

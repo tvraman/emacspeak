@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 (load-library "folding")
 (eval-after-load "folding"
 `(progn 

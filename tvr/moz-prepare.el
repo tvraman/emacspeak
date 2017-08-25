@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 (load-library "js-mode")
 (load-library "moz")
 (augment-auto-mode-alist  ".js$" 'js-mode)

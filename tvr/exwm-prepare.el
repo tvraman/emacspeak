@@ -1,4 +1,4 @@
-;; Load EXWM  -*- lexical-binding: ; -*-
+;; Load EXWM  -*- lexical-binding: t; -*-
 (require 'exwm)
 
 ;; Fix problems with Ido

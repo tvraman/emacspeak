@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 
 (load-library "helm-autoloads")
 ;;; Taken from http://tuhdo.github.io/helm-intro.html

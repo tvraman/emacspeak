@@ -1,4 +1,4 @@
-;;; File At Point  -*- lexical-binding: ; -*-
+;;; File At Point  -*- lexical-binding: t; -*-
 
 
 (eval-after-load 'ffap

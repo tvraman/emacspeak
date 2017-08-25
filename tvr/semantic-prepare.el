@@ -1,4 +1,4 @@
-;; -*- lexical-binding: ; -*-
+;; -*- lexical-binding: t; -*-
 (augment-load-path  "semantic" "semantic")
 (augment-load-path "cedet" "cedet")
 ;;; enable  desired semantic minor modes via custom.

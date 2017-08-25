@@ -1,4 +1,4 @@
-;;;$Id:$  -*- lexical-binding: ; -*-
+;;;$Id:$  -*- lexical-binding: t; -*-
 (augment-load-path "speedbar" )
 (load-library "speedbar")
 (add-hook 'speedbar-load-hook
