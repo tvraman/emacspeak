@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (when (boundp 'package-archives)
   (add-to-list
    'package-archives

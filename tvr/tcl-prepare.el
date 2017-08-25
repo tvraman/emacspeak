@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 (autoload 'tcl-mode "tcl" "tcl" t)
 

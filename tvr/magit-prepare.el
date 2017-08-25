@@ -1,2 +1,2 @@
-;;; Autoloads for magit  -*- lexical-binding: t; -*-
+;;; Autoloads for magit  -*- lexical-binding: nil; -*-
 (load-library "magit-autoloads")

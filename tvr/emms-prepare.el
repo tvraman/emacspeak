@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (augment-load-path "emms/lisp" "emms-autoloads")
 (eval-after-load "emms"
 `(progn
