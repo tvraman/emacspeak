@@ -22,3 +22,5 @@ all: $(SETUP)
 
 %.elc: %.el
 	$(EMACS) $(BATCH) $(COMPILE) $<
+clean:
+	rm -f *.elc
