@@ -1,4 +1,4 @@
-;;; Install emacs-eclim via elpa.  -*- lexical-binding: nil; -*-
+;;; Install emacs-eclim via elpa.  -*- lexical-binding: ; -*-
 (require 'emacs-eclim-autoloads)
 (require 'eclim)
 (require 'eclimd)

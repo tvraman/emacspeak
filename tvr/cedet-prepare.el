@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (augment-load-path "cedet")
 (setq semantic-load-turn-useful-things-on t)
 (load-library "cedet")

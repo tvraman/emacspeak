@@ -1,4 +1,4 @@
-;;; $Id$  -*- lexical-binding: nil; -*-
+;;; $Id$  -*- lexical-binding: ; -*-
 ;;; Support for the elisp library elib.
 (augment-load-path "elib" "stack-f")
 (load-library "string")

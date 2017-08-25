@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (augment-load-path "scala-mode" "scala-mode")
 (load-library "scala-mode")
 (augment-auto-mode-alist

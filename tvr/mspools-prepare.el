@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 
 (autoload 'mspools-show "mspools" "Mail Spools" t)
 (and (featurep 'vm)

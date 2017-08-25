@@ -1,4 +1,4 @@
-;;; Emacs initialization file for Raman:  -*- lexical-binding: nil; -*-
+;;; Emacs initialization file for Raman:  -*- lexical-binding: ; -*-
 ;;{{{ History:
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.

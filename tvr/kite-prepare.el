@@ -1,3 +1,3 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (augment-load-path "kite" "kite")
 (require 'kite)

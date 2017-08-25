@@ -1,4 +1,4 @@
-;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: nil; -*-
+;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: ; -*-
 
 (load-library "org-autoloads")
 (eval-after-load "org"

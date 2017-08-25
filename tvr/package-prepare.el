@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (require 'package)
 (setq package-archive-priorities
       '(("melpa-stable" . 20)

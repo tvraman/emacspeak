@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (load-library "enwc-setup")
 (require 'enwc)
 (setq enwc-backends '(nm))

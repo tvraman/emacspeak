@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (augment-load-path "malabar-mode/lisp" "malabar-mode")
 
 (setq semantic-default-submodes

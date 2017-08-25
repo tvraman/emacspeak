@@ -1,4 +1,4 @@
-;;; See http://johnwiegley.com/org.mode.day.planner.html  -*- lexical-binding: nil; -*-
+;;; See http://johnwiegley.com/org.mode.day.planner.html  -*- lexical-binding: ; -*-
 (load-library "remember")
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))

@@ -1,3 +1,3 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (augment-load-path "daml-emacs" "damlite")
 (load-library "damlite")

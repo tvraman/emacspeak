@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (load-library "midge-mode")
 (setq auto-mode-alist (cons '("\\.mgh?$" . midge-mode) auto-mode-alist))
 

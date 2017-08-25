@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (require 'my-functions)
 (augment-load-path "dmacro")
 (autoload 'insert-dmacro "dmacro" 

@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 
 ;;; Commands added by calc-private-autoloads on Fri Mar 25 22:44:12 1994.
 (autoload 'calc-dispatch	   "calc" "Calculator Options" t)

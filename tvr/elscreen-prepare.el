@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;; -*- lexical-binding: ; -*-
 (when (locate-library "elscreen")
   (elscreen-start)
   (let ((copy-map (copy-keymap elscreen-map)))
