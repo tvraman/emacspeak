@@ -1000,7 +1000,7 @@ are indicated with auditory icon ellipses."
             (or (invisible-p end)
                 (get-text-property  start 'emacspeak-hidden-block))
           (emacspeak-auditory-icon 'ellipses))
-        (when (or display before-string after-string) (emacspeak-auditory-icon 'progress))
+        (when (or display before-string after-string) (emacspeak-auditory-icon 'more))
         (cond
 ;;; C1..C5
          ((string-equal ""  line)
