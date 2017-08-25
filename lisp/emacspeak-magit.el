@@ -395,6 +395,22 @@
     (emacspeak-auditory-icon 'button)))
 
 
+(defadvice magit-diff-show-or-scroll-up (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (let ((orig (point)))
+      ad-do-it
+      (cond
+       ((= orig (point))
+        (message "Displayed commit in other window.")
+        (emacspeak-auditory-icon 'open-object))
+       (t (emacspeak-auditory-icon 'scroll)
+          (emacspeak-speak-line)))))
+   (t ad-do-it))
+  ad-return-value)
+
+
 ;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
