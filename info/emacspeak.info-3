@@ -3603,7 +3603,7 @@ File: emacspeak.info,  Node: emacspeak-typo,  Next: emacspeak-url-template,  Pre
 12.190 emacspeak-typo
 =====================
 
-TYPO == Typographical Editting This module speech-enables typo-mode.
+TYPO == Typographical Editing This module speech-enables typo-mode.
 Typo-mode’s magic insertion commands are speech-enabled to speak the
 inserted char.
 

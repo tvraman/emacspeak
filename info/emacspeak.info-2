@@ -6711,7 +6711,7 @@ attempt to automatically install package hydra if it is not found.
    • m-player: <s-;> Emacspeak-M-Player muggle
    • pianobar: <s-’> Emacspeak-M-pianobar Commands
    • hideshow: C-c h Provide HideShow bindings.
-   • origami: C-c / OrigamiProvide bindings.
+   • origami: C-c / Origami bindings.
    • toggle-option: <C-c o> Single binding for toggling options.
    • outliner: <C-c .> Bindings from outline-minor-mode.
    • Info-Summary: <?> in Info Info Summary Muggle
