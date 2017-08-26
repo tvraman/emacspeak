@@ -63,7 +63,7 @@
 ;;;@item m-player: <s-;> Emacspeak-M-Player muggle
 ;;;@item pianobar: <s-'> Emacspeak-M-pianobar Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
-;;; @item origami: C-c / OrigamiProvide  bindings.
+;;; @item origami: C-c / Origami   bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle

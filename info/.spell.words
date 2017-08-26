@@ -8,6 +8,7 @@ Alist
 allcaps
 allout
 alsa
+Alsa
 ALSA
 alsactl
 alsaplayer
@@ -30,6 +31,7 @@ arg
 ARG
 args
 ASIN
+async
 auctex
 Auctex
 AucTeX
@@ -37,8 +39,6 @@ AUI
 aumix
 AUMIX
 Austen's
-auth
-Auth
 autodoc
 autoload
 automagically
@@ -191,6 +191,7 @@ ediary
 ediff
 Ediff
 editting
+Editting
 edmacro
 eflite
 ein
@@ -343,8 +344,8 @@ irc
 IRC
 isearch
 JDB
-jde
-JDE
+jdee
+JDEE
 jpeg
 JPEG
 js
@@ -460,6 +461,7 @@ opml
 OPML
 OReilly
 O'Reilly
+OrigamiProvide
 OSS
 outliner
 outloud
@@ -719,7 +721,6 @@ wah
 wav
 wdired
 wearables
-WebAPIs
 webedit
 webjump
 webkit
