@@ -177,6 +177,23 @@ pcm.tts_autopan {
 }
 
 # }}}
+# {{{A Soft left device:
+
+pcm.soft_left {
+    type plug
+    slave.pcm {
+        type route
+        slave.pcm "media"
+        ttable {
+            0.0 =  0.60
+            0.1 = 0.03
+            1.0 =  0.60
+            1.1 = 0.03
+        }
+    }
+} 
+
+# }}}
 # {{{TTS Mono:
 
 #  The Route plugin routes audio among channles using a TTable .
