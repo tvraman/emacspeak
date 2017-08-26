@@ -57,6 +57,17 @@ Module ~emacspeak-typo~ speech-enables package ~typo~.
 ** Speech-Enable Package Origami 
 
 Module ~emacspeak-origami~ speech-enables package ~origami~.
+** Magit  Enhancements 
+
+Module ~emacspeak-magit~ speech-enables ~magit-blame~.
+
+** Overlay Displays 
+
+Emacs modules can annotate the visual display with overlay properties
+display, before-string and/or after-string.
+Command ~emacspeak-speak-line~ (C-e l) indicates the presence of these
+properties with auditory icon “more” — these properties can  be spoken
+using command ~emacspeak-speak-overlay-properties~.
 
 ** Speech-Enable RipGrep Front-End:
 
