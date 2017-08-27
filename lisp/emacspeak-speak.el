@@ -940,7 +940,7 @@ from point.  Negative prefix optional arg speaks from start of line to
 point.  Voicifies if option `voice-lock-mode' is on.  Indicates
 indentation with a tone or a spoken message if audio indentation is in
 use see `emacspeak-toggle-audio-indentation' bound to
-\\[emacspeak-toggle-audio-indentation]..  Indicates position of point
+\\[emacspeak-toggle-audio-indentation].  Indicates position of point
 with an aural highlight if option `emacspeak-show-point' is turned on
 --see command `emacspeak-show-point' bound to
 \\[emacspeak-show-point].  Lines that start hidden blocks of text,
