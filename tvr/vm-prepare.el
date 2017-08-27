@@ -1,4 +1,4 @@
-;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
+;;; vm-prepare.l :  -*- lexical-binding: t; -*-
 (augment-load-path "vm/lisp" "vm-autoloads")
 (load-library "vm-autoloads")
 (eval-after-load "vm"
