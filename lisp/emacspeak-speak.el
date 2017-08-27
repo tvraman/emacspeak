@@ -533,9 +533,10 @@ Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode)))
 
 ;;; Execute action at point
-(defun emacspeak-handle-action-at-point ()
+(defun emacspeak-handle-action-at-point (&optional pos)
   "Execute action specified at point."
   (declare (special emacspeak-action-mode))
+  (setq pos (or pos (point)))
   (let ((action-spec (get-text-property (point) 'emacspeak-action)))
     (when (and emacspeak-action-mode action-spec)
       (condition-case nil
@@ -976,7 +977,7 @@ with auditory icon `more'.  These can then be spoken using command
                  (bound-and-true-p linenum-mode))
            (line-number-at-pos)))
         (indent nil))
-    (emacspeak-handle-action-at-point)
+    (emacspeak-handle-action-at-point (line-beginning-position))
     (setq start (line-beginning-position))
     (setq end (line-end-position))
                                         ;determine what to speak based on prefix arg
