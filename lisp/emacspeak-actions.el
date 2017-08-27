@@ -37,9 +37,8 @@
 
 ;;}}}
 
-
-;;; Commentary:
 ;;{{{  Introduction:
+;;; Commentary:
 
 ;;; Define mode-specific  actions.
 ;;; Actions are defined by adding them to hook
