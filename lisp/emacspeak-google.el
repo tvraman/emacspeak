@@ -587,19 +587,19 @@ This variable is buffer-local.")
   "REST endpoint for network speech synthesis.")
 ;;;###autoload
 (defun emacspeak-google-tts (text &optional lang)
-  "Speak text using Google Network TTS."
+  "Speak text using Google Network TTS.
+Optional interactive prefix arg `lang' prompts for language identifier."
   (interactive
    (list
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
   (declare (special emacspeak-google-tts-default-language
                     emacspeak-google-tts-rest-uri emacspeak-m-player-program))
-  (when (called-interactively-p 'interactive)
-    (unless lang
-      (setq lang
-            (read-from-minibuffer
-             "Language: " nil nil t nil
-             emacspeak-google-tts-default-language))))
+  (when lang
+    (setq lang
+          (read-from-minibuffer
+           "Language: " nil nil t nil
+           emacspeak-google-tts-default-language)))
   (let ((url (format emacspeak-google-tts-rest-uri
                      (or lang emacspeak-google-tts-default-language)
                      (url-hexify-string  text))))
@@ -608,10 +608,11 @@ This variable is buffer-local.")
      "google-tts" nil  emacspeak-m-player-program url)))
 
 ;;;###autoload
-(defun emacspeak-google-tts-region (start end)
+(defun emacspeak-google-tts-region (start end &optional ask-lang)
   "Speak region using Google Network TTS."
-  (interactive "r")
-  (emacspeak-google-tts (buffer-substring-no-properties start end)))
+  (interactive
+   (list (region-beginning) (region-end) current-prefix-arg))
+  (emacspeak-google-tts (buffer-substring-no-properties start end) ask-lang))
 
 ;;}}}
 ;;{{{ What Is My IP:
