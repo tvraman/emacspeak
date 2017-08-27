@@ -203,6 +203,7 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (declare (special amixer-alsactl-config-file))
+  (message "Running resume hook.")
   (amixer-restore  amixer-alsactl-config-file)
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
