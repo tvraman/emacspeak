@@ -951,7 +951,7 @@ icon ellipses. Presence of additional presentational overlays (created
 via property display, before-string, or after-string) is indicated
 with auditory icon `more'.  These can then be spoken using command
 \\[emacspeak-speak-overlay-properties]."
-  (interactive "P")
+  (interactive "p")
   (declare (special voice-animate voice-indent linum-mode
                     dtk-stop-immediately dtk-punctuation-mode
                     emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
@@ -959,7 +959,6 @@ with auditory icon `more'.  These can then be spoken using command
                     emacspeak-decoration-rule emacspeak-horizontal-rule
                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when dtk-stop-immediately (dtk-stop))
-  (when (listp arg) (setq arg (car arg)))
   (let ((inhibit-field-text-motion t)
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
