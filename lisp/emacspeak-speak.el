@@ -1062,6 +1062,7 @@ with auditory icon `more'.  These can then be spoken using command
        (emacspeak-auditory-icon 'ellipses)
        (dtk-speak (concat display before-string after-string))))))
 
+
 ;;;###autoload
 (defun emacspeak-speak-visual-line ()
   "Speaks current visual line.
