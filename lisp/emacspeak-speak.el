@@ -959,7 +959,7 @@ with auditory icon `more'.  These can then be spoken using command
                     emacspeak-decoration-rule emacspeak-horizontal-rule
                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when dtk-stop-immediately (dtk-stop))
-  (when arg (setq arg (car arg)))
+  (when (listp arg) (setq arg (car arg)))
   (let ((inhibit-field-text-motion t)
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
@@ -1043,7 +1043,7 @@ with auditory icon `more'.  These can then be spoken using command
             (setq linenum (format "%d" linenum))
             (setq linenum (propertize linenum 'personality   voice-lighten))
             (setq line (concat linenum line)))
-          (dtk-speak line))))))))
+          (dtk-speak line)))))))
 
 (defun emacspeak-speak-overlay-properties  ()
   "Speak display, before-string or after-string property if any."
