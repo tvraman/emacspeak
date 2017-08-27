@@ -935,18 +935,21 @@ with a long string of gibberish."
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
-  "Speaks current line.  With prefix ARG, speaks the rest of the
-line from point.  Negative prefix optional arg speaks from start
-of line to point.  Voicifies if option `voice-lock-mode' is on.
-Indicates indentation with a tone or a spoken message if audio
-indentation is in use.  Indicates position of point with an aural
-highlight if option `emacspeak-show-point' is turned on --see
-command `emacspeak-show-point' bound to \\[emacspeak-show-point].
-Lines that start hidden blocks of text, e.g.  outline header
-lines, or header lines of blocks created by command
-`emacspeak-hide-or-expose-block' are indicated with auditory icon
-ellipses. Presence of additional presentational overlays  (created via property display, before-string,  or after-string) is indicated with  auditory  icon `more'.
-These can then be spoken using command \\[emacspeak-speak-overlay-properties]."
+  "Speaks current line.  With prefix ARG, speaks the rest of the line
+from point.  Negative prefix optional arg speaks from start of line to
+point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+indentation with a tone or a spoken message if audio indentation is in
+use see `emacspeak-toggle-audio-indentation' bound to
+\\[emacspeak-toggle-audio-indentation]..  Indicates position of point
+with an aural highlight if option `emacspeak-show-point' is turned on
+--see command `emacspeak-show-point' bound to
+\\[emacspeak-show-point].  Lines that start hidden blocks of text,
+e.g.  outline header lines, or header lines of blocks created by
+command `emacspeak-hide-or-expose-block' are indicated with auditory
+icon ellipses. Presence of additional presentational overlays (created
+via property display, before-string, or after-string) is indicated
+with auditory icon `more'.  These can then be spoken using command
+\\[emacspeak-speak-overlay-properties]."
   (interactive "P")
   (declare (special voice-animate voice-indent linum-mode
                     dtk-quiet dtk-stop-immediately dtk-punctuation-mode
