@@ -661,7 +661,7 @@ setting.."
 ;;; Indicate indentation.
 ;;; Argument indent   indicates number of columns to indent.
 
-(defun emacspeak-indent (indent)
+(defun ems--tone-indent (indent)
   "Produce tone indent."
   (when (> indent 1)
     (let ((duration (+ 50 (* 20  indent)))
@@ -999,7 +999,7 @@ with auditory icon `more'.  These can then be spoken using command
       (when emacspeak-audio-indentation (setq indent (current-indentation)))
       (when (and emacspeak-audio-indentation (null arg)
                  (eq emacspeak-audio-indentation-method 'tone))
-        (emacspeak-indent indent))
+        (ems--tone-indent indent))
       (when
           (or (invisible-p end)
               (get-text-property  start 'emacspeak-hidden-block))
