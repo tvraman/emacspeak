@@ -959,7 +959,7 @@ with auditory icon `more'.  These can then be spoken using command
                     emacspeak-decoration-rule emacspeak-horizontal-rule
                     emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when dtk-stop-immediately (dtk-stop))
-  (when (listp arg) (setq arg (car arg)))
+  (when arg (setq arg (car arg)))
   (let ((inhibit-field-text-motion t)
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
