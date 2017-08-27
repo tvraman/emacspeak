@@ -964,8 +964,8 @@ with auditory icon `more'.  These can then be spoken using command
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
-        (before-string (get-char-property (point) 'before-string))
-        (after-string (get-char-property (point) 'after-string))
+        (before (get-char-property (point) 'before-string))
+        (after (get-char-property (point) 'after-string))
         (display (get-char-property (point) 'display))
         (start  nil)
         (end nil)
@@ -977,10 +977,9 @@ with auditory icon `more'.  These can then be spoken using command
                  (bound-and-true-p linenum-mode))
            (line-number-at-pos)))
         (indent nil))
-    (emacspeak-handle-action-at-point (line-beginning-position))
-    (setq start (line-beginning-position))
-    (setq end (line-end-position))
-                                        ;determine what to speak based on prefix arg
+    (setq  start (line-beginning-position)
+           end (line-end-position))
+;;;determine what to speak based on prefix arg
     (cond
      ((null arg))
      ((> arg 0) (setq start orig))
@@ -992,18 +991,18 @@ with auditory icon `more'.  These can then be spoken using command
                (buffer-substring  start end))
             (buffer-substring start end)))
     (when (and (null arg) emacspeak-speak-line-column-filter)
-      (setq line
-            (emacspeak-speak-line-apply-column-filter
-             line emacspeak-speak-line-invert-filter)))
+      (setq
+       line
+       (emacspeak-speak-line-apply-column-filter
+        line emacspeak-speak-line-invert-filter)))
     (when emacspeak-audio-indentation (setq indent (current-indentation)))
-    (when (and emacspeak-audio-indentation (null arg)
+    (when (and (null arg) emacspeak-audio-indentation
                (eq emacspeak-audio-indentation-method 'tone))
       (ems--tone-indent indent))
-    (when
-        (or (invisible-p end)
-            (get-text-property  start 'emacspeak-hidden-block))
+    (when (or (invisible-p end)
+              (get-text-property  start 'emacspeak-hidden-block))
       (emacspeak-auditory-icon 'ellipses))
-    (when (or display before-string after-string) (emacspeak-auditory-icon 'more))
+    (when (or display before after) (emacspeak-auditory-icon 'more))
     (cond
 ;;; C1..C5
      ((string-equal ""  line)
@@ -1035,19 +1034,16 @@ with auditory icon `more'.  These can then be spoken using command
               t))))
         (when  speakable
           (when
-              (and indent 
-                   (eq 'speak emacspeak-audio-indentation-method)
-                   (null arg)
-                   (> indent 0))
+              (and (null arg) indent (> indent 0)
+                   (eq 'speak emacspeak-audio-indentation-method))
             (setq indent (format "indent %d" indent))
-            (put-text-property   0 (length indent)
-                                 'personality voice-indent   indent)
+            (setq indent (propertize indent 'personality voice-indent   ))
             (setq line (concat indent line)))
           (when  linenum
             (setq linenum (format "%d" linenum))
             (setq linenum (propertize linenum 'personality   voice-lighten))
             (setq line (concat linenum line)))
-          (dtk-speak line)))))))
+          (dtk-speak line))))))))
 
 (defun emacspeak-speak-overlay-properties  ()
   "Speak display, before-string or after-string property if any."
