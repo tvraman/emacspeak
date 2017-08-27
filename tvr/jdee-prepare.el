@@ -1,9 +1,6 @@
 ;;;$Id$  -*- lexical-binding: t; -*-
 ;;; Setup Emacs JDE
 ;;{{{ locations
-
-(augment-load-path "elib" "avltree")
-
 (setq my-use-cedet t)
 (cond
  (my-use-cedet (load-library "cedet-prepare"))
