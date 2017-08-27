@@ -2345,14 +2345,12 @@ Produce auditory icons if possible."
 (defadvice mark-sexp (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
-    (let ((lines (count-lines (point)
-                              (mark 'force)))
-          (chars (abs (- (point) (mark 'force)))))
+    (let ((lines (count-lines (point) (marker-position (mark-marker))))
+          (chars (abs (- (point) (marker-position (mark-marker))))))
       (emacspeak-auditory-icon 'mark-object)
       (if (> lines 1)
           (message "Marked S expression spanning %s lines" lines)
-        (message "marked S expression containing %s characters"
-                 chars)))))
+        (message "marked S expression containing %s characters" chars)))))
 
 (defadvice mark-end-of-sentence (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
