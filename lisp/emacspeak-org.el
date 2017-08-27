@@ -446,7 +446,7 @@
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
-
+(add-hook 'orgstruct-mode-hook 'emacspeak-org-mode-setup)
 ;;; advice end-of-line here to call org specific action
 (defadvice end-of-line (after emacspeak-org pre act comp)
   "Call org specific actions in org mode."
