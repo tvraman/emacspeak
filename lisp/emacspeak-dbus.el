@@ -115,6 +115,7 @@ Startup  apps that need the network."
   (dtk-notify-speak
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
+
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
 Stop apps that use the network."
@@ -203,7 +204,6 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (declare (special amixer-alsactl-config-file))
-  (message "Running resume hook.")
   (amixer-restore amixer-alsactl-config-file )
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
@@ -216,7 +216,8 @@ already disabled."
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
     (dtk-say "Enter password to unlock screen. ")
-    (emacspeak-auditory-icon 'help)))
+    (emacspeak-auditory-icon 'help))
+  (message "Successfully ran resume hook."))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
