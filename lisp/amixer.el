@@ -191,6 +191,8 @@
            values))
         (forward-line 1))
       (nreverse values))))
+
+;;;###autoload
 (defvar amixer-alsactl-config-file
   nil
   "Personal sound card settings. Copied from /var/lib/alsa/asound.state
