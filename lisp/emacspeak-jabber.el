@@ -158,13 +158,11 @@
 
 (defadvice jabber-presence-default-message (around emacspeak pre
                                                    act comp)
-  "Allow emacspeak to control if the message is spoken."
+  "Allow emacspeak to control if the message is spoken/displayed."
   (cond
    (emacspeak-jabber-speak-presence-alerts ad-do-it)
-   (t
-    (let ((message-log-max nil))
-      (ems-with-messages-silenced ad-do-it))))
-  ad-return-value)
+   (t nil))
+  nil)
 
 ;;;this is what I use as my jabber alert function:
 (defun emacspeak-jabber-message-default-message (from buffer text)
