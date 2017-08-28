@@ -163,7 +163,7 @@
    (emacspeak-jabber-speak-presence-alerts ad-do-it)
    (t
     (ems-with-messages-silenced
-     ad-do-i)))
+     ad-do-it)))
   ad-return-value)
 
 ;;;this is what I use as my jabber alert function:
