@@ -629,21 +629,22 @@ icon."
           "In Emacs 25, this  will  inhibit messages in echo area. "))
 (defadvice message (around emacspeak pre act comp)
   "Speak the message."
-  (declare (special emacspeak-last-message inhibit-message
+  (declare (special emacspeak-last-message 
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t))
     ad-do-it
     (when
         (and
-         emacspeak-speak-messages          ; speaking messages
-         (current-message)
-         (/= emacspeak-lazy-message-time ;; previous message not recent
-             (setq emacspeak-lazy-message-time (nth 1 (current-time)))))
-      (setq emacspeak-last-message (ansi-color-apply (current-message)))
+         emacspeak-speak-messages       ; speaking messages
+         (not (string= (current-message) emacspeak-last-message))
+         (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
+      (setq emacspeak-last-message (ansi-color-apply (current-message))
+            emacspeak-lazy-message-time (current-time))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
                              (dtk-notify-speak  emacspeak-last-message 'dont-log)))
     ad-return-value))
+
 (declare-function  emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
 
 (defcustom emacspeak-eldoc-speak-explicitly
