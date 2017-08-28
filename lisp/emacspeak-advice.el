@@ -636,6 +636,7 @@ icon."
     (when
         (and
          emacspeak-speak-messages       ; speaking messages
+         (current-message)
          (not (string= (current-message) emacspeak-last-message))
          (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
       (setq emacspeak-last-message (ansi-color-apply (current-message))
