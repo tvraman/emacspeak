@@ -180,13 +180,11 @@ Assumes that point is at the front of a field value."
 
 (defadvice forms-prev-field (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cond
-   ((ems-interactive-p)
-    ad-do-it
+  
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-forms-speak-field))
-   (t ad-do-it))
-  ad-return-value)
+    (emacspeak-forms-speak-field)))   
+  
 
 (defadvice forms-kill-record (after emacspeak pre act comp)
   "Provide auditory feedback."
