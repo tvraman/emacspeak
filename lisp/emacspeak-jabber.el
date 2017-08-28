@@ -156,13 +156,13 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defadvice jabber-presence-default-message (around emacspeak pre
-                                                   act comp)
-  "Allow emacspeak to control if the message is spoken/displayed."
-  (cond
-   (emacspeak-jabber-speak-presence-alerts ad-do-it)
-   (t nil))
-  nil)
+(defun emacspeak-jabber-presence-default-message (&rest ignore)
+  "Default presence alert used by Emacspeak.
+Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
+nil)
+(add-hook
+ 'jabber-alert-presence-message-function
+ #'emacspeak-jabber-presence-default-message)
 
 ;;;this is what I use as my jabber alert function:
 (defun emacspeak-jabber-message-default-message (from buffer text)
