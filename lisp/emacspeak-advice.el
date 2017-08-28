@@ -643,11 +643,11 @@ icon."
          m emacspeak-speak-messages     ; speaking messages
          (not (string= m emacspeak-last-message))
          (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
-      (setq emacspeak-last-message (ansi-color-apply m)
-            emacspeak-lazy-message-time (current-time))
+      (setq emacspeak-lazy-message-time (current-time)
+            emacspeak-last-message (ansi-color-apply m))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                             (dtk-notify-speak  emacspeak-last-message 'dont-log)))
+                             (dtk-notify-speak  m 'dont-log)))
     ad-return-value))
 
 (declare-function  emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
