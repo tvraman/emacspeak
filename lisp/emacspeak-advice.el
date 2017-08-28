@@ -149,11 +149,12 @@ beginning or end of a physical line produces an appropriate auditory icon."
             (let* ((button (button-at (point)))
                    (start (button-start button))
                    (end (button-end button)))
-              (dtk-speak (buffer-substring start end)))
+              (dtk-speak (buffer-substring start end))
+              (emacspeak-auditory-icon 'large-movement))
           (error nil))))
       (t ad-do-it))
      ad-return-value)))
-       (emacspeak-auditory-icon 'large-movement))))))
+
 
 (cl-loop
  for f in
