@@ -139,16 +139,20 @@ beginning or end of a physical line produces an appropriate auditory icon."
  '(forward-button backward-button)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Speak the button."
-     (when (ems-interactive-p)
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Speak the button. Silence messages to reduce chatter."
+     (cond
+      ((ems-interactive-p)
        (ems-with-messages-silenced
-       (condition-case nil
-           (let* ((button (button-at (point)))
-                  (start (button-start button))
-                  (end (button-end button)))
-             (dtk-speak (buffer-substring start end)))
-         (error nil))
+        ad-do-it
+        (condition-case nil
+            (let* ((button (button-at (point)))
+                   (start (button-start button))
+                   (end (button-end button)))
+              (dtk-speak (buffer-substring start end)))
+          (error nil))))
+      (t ad-do-it))
+     ad-return-value)))
        (emacspeak-auditory-icon 'large-movement))))))
 
 (cl-loop
