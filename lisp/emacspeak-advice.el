@@ -633,15 +633,16 @@ icon."
   "Speak the message."
   (declare (special emacspeak-last-message 
                     emacspeak-speak-messages emacspeak-lazy-message-time))
-  (let ((inhibit-read-only t))
+  (let ((inhibit-read-only t)
+        (m nil))
     ad-do-it
+    (setq m (current-message))
     (when
         (and
-         emacspeak-speak-messages       ; speaking messages
-         (current-message)
-         (not (string= (current-message) emacspeak-last-message))
+         m emacspeak-speak-messages     ; speaking messages
+         (not (string= m emacspeak-last-message))
          (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
-      (setq emacspeak-last-message (ansi-color-apply (current-message))
+      (setq emacspeak-last-message (ansi-color-apply m)
             emacspeak-lazy-message-time (current-time))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
