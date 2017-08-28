@@ -628,10 +628,10 @@ icon."
   (when emacspeak-advice-progress-reporter
     (emacspeak-auditory-icon 'progress)))
 
-
+(defvar inhibit-message)
 (defadvice message (around emacspeak pre act comp)
   "Speak the message."
-  (declare (special emacspeak-last-message 
+  (declare (special emacspeak-last-message  inhibit-message
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t)
         (m nil))
@@ -639,6 +639,7 @@ icon."
     (setq m (current-message))
     (when
         (and
+         (null inhibit-message)
          m emacspeak-speak-messages     ; speaking messages
          (not (string= m emacspeak-last-message))
          (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
