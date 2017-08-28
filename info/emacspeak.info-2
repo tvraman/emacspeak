@@ -12,6 +12,492 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
+
+12.22 emacspeak-bbdb
+====================
+
+Speech-enables BBDB. I have used BBDB to manage email address and
+contact information since 1991.
+
+
+File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
+
+12.23 emacspeak-bibtex
+======================
+
+Speech extensions for bibtex mode.
+
+
+File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
+
+12.24 emacspeak-bookmark
+========================
+
+Speech enable bookmarks
+
+
+File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
+
+12.25 emacspeak-bookshare
+=========================
+
+BOOKSHARE == http://www.bookshare.org provides book access to
+print-disabled users.  It provides a simple Web API
+http://developer.bookshare.org This module implements an Emacspeak
+Bookshare client.  For now, users will need to get their own API key
+This version needs Emacs with libxml2 support You need Emacs 24.1 or
+higher.
+
+12.25.1 emacspeak-bookshare Commands
+------------------------------------
+
+12.25.1.1 emacspeak-bookshare
+.............................
+
+ -- Command: emacspeak-bookshare
+     ‘C-e C-b’
+     ‘<fn> C-b’
+
+     Bookshare  Interaction.
+
+12.25.1.2 emacspeak-bookshare-action
+....................................
+
+ -- Command: emacspeak-bookshare-action
+
+     Call action specified by  invoking key.
+
+12.25.1.3 emacspeak-bookshare-author-search
+...........................................
+
+ -- Command: emacspeak-bookshare-author-search (query &optional
+          category)
+
+     Perform a Bookshare author search.
+     Interactive prefix arg filters search by category.
+
+     (fn QUERY &optional CATEGORY)
+
+12.25.1.4 emacspeak-bookshare-browse
+....................................
+
+ -- Command: emacspeak-bookshare-browse
+
+     Browse Bookshare.
+
+12.25.1.5 emacspeak-bookshare-browse-latest
+...........................................
+
+ -- Command: emacspeak-bookshare-browse-latest
+
+     Return latest books.
+
+12.25.1.6 emacspeak-bookshare-browse-popular
+............................................
+
+ -- Command: emacspeak-bookshare-browse-popular (&optional category)
+
+     Browse popular books.
+     Optional interactive prefix arg prompts for a category to use as a filter.
+
+     (fn &optional CATEGORY)
+
+12.25.1.7 emacspeak-bookshare-download-audio
+............................................
+
+ -- Command: emacspeak-bookshare-download-audio (id target)
+
+     Download audio format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.25.1.8 emacspeak-bookshare-download-audio-at-point
+.....................................................
+
+ -- Command: emacspeak-bookshare-download-audio-at-point
+
+     Download audio version of book under point.
+     Target location is generated from author and title.
+
+12.25.1.9 emacspeak-bookshare-download-brf
+..........................................
+
+ -- Command: emacspeak-bookshare-download-brf (id target)
+
+     Download Daisy format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.25.1.10 emacspeak-bookshare-download-brf-at-point
+....................................................
+
+ -- Command: emacspeak-bookshare-download-brf-at-point
+
+     Download Braille version of book under point.
+     Target location is generated from author and title.
+
+12.25.1.11 emacspeak-bookshare-download-daisy
+.............................................
+
+ -- Command: emacspeak-bookshare-download-daisy (id target)
+
+     Download Daisy format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.25.1.12 emacspeak-bookshare-download-daisy-at-point
+......................................................
+
+ -- Command: emacspeak-bookshare-download-daisy-at-point
+
+     Download Daisy version of book under point.
+     Target location is generated from author and title.
+
+12.25.1.13 emacspeak-bookshare-download-epub-3
+..............................................
+
+ -- Command: emacspeak-bookshare-download-epub-3 (id target)
+
+     Download epub-3 format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.25.1.14 emacspeak-bookshare-download-epub-3-at-point
+.......................................................
+
+ -- Command: emacspeak-bookshare-download-epub-3-at-point
+
+     Download epub-3 version of book under point.
+     Target location is generated from author and title.
+
+12.25.1.15 emacspeak-bookshare-download-internal
+................................................
+
+ -- Command: emacspeak-bookshare-download-internal (url target)
+
+     Download content  to target location.
+
+     (fn URL TARGET)
+
+12.25.1.16 emacspeak-bookshare-eww
+..................................
+
+ -- Command: emacspeak-bookshare-eww (directory)
+
+     Render complete book using EWW
+
+     (fn DIRECTORY)
+
+12.25.1.17 emacspeak-bookshare-expand-at-point
+..............................................
+
+ -- Command: emacspeak-bookshare-expand-at-point
+
+     Expand entry at point by retrieving metadata.
+     Once retrieved, memoize to avoid multiple retrievals.
+
+12.25.1.18 emacspeak-bookshare-extract-and-view
+...............................................
+
+ -- Command: emacspeak-bookshare-extract-and-view (url)
+
+     Extract content referred to by link under point, and render via the browser.
+
+     (fn URL)
+
+12.25.1.19 emacspeak-bookshare-extract-xml
+..........................................
+
+ -- Command: emacspeak-bookshare-extract-xml (url)
+
+     Extract content referred to by link under point, and return an XML buffer.
+
+     (fn URL)
+
+12.25.1.20 emacspeak-bookshare-flush-lines
+..........................................
+
+ -- Command: emacspeak-bookshare-flush-lines (regexp)
+
+     Flush lines matching regexp in Bookshare buffer.
+
+     (fn REGEXP)
+
+12.25.1.21 emacspeak-bookshare-fulltext
+.......................................
+
+ -- Command: emacspeak-bookshare-fulltext (directory)
+
+     Display fulltext contents of  book in specified directory.
+     Useful for fulltext search in a book.
+
+     (fn DIRECTORY)
+
+12.25.1.22 emacspeak-bookshare-fulltext-search
+..............................................
+
+ -- Command: emacspeak-bookshare-fulltext-search (query)
+
+     Perform a Bookshare fulltext search.
+
+     (fn QUERY)
+
+12.25.1.23 emacspeak-bookshare-get-more-results
+...............................................
+
+ -- Command: emacspeak-bookshare-get-more-results
+
+     Get next page of results for last query.
+
+12.25.1.24 emacspeak-bookshare-id-search
+........................................
+
+ -- Command: emacspeak-bookshare-id-search (query)
+
+     Perform a Bookshare id search.
+
+     (fn QUERY)
+
+12.25.1.25 emacspeak-bookshare-isbn-search
+..........................................
+
+ -- Command: emacspeak-bookshare-isbn-search (query)
+
+     Perform a Bookshare isbn search.
+
+     (fn QUERY)
+
+12.25.1.26 emacspeak-bookshare-list-preferences
+...............................................
+
+ -- Command: emacspeak-bookshare-list-preferences
+
+     Return preference list.
+
+12.25.1.27 emacspeak-bookshare-mode
+...................................
+
+ -- Command: emacspeak-bookshare-mode
+
+     A Bookshare front-end for the Emacspeak desktop.
+
+     The Emacspeak Bookshare front-end is launched by command
+     emacspeak-bookshare bound to C-e C-b
+
+     This command switches to a special buffer that has Bookshare
+     commands bounds to single keystrokes– see the key-binding list at
+     the end of this description. Use Emacs online help facility to
+     look up help on these commands.
+
+     emacspeak-bookshare-mode provides the necessary functionality to
+     Search and download Bookshare material,
+     Manage a local library of downloaded Bookshare content,
+     And commands to easily read newer Daisy books from Bookshare.
+
+     Here is a list of all emacspeak Bookshare commands  with their key-bindings:
+     a Author Search
+     A Author/Title Search
+     t Title Search
+     s Full Text Search
+     d Date Search
+     b Browse
+
+     key             binding
+     —             ——-
+
+     RET		emacspeak-bookshare-toc-at-point
+     ESC		Prefix Command
+     SPC		emacspeak-bookshare-expand-at-point
+     +		emacspeak-bookshare-action
+     /		emacspeak-bookshare-action
+     3		emacspeak-bookshare-download-epub-3-at-point
+     A		emacspeak-bookshare-download-audio-at-point
+     B		emacspeak-bookshare-download-brf-at-point
+     C		emacspeak-bookshare-fulltext
+     D		emacspeak-bookshare-download-daisy-at-point
+     E		emacspeak-bookshare-eww
+     I		emacspeak-bookshare-action
+     P		emacspeak-bookshare-action
+     S		emacspeak-bookshare-action
+     U		emacspeak-bookshare-unpack-at-point
+     V		emacspeak-bookshare-view-at-point
+     [		backward-page
+     ]		forward-page
+     a		emacspeak-bookshare-action
+     b		emacspeak-bookshare-browse
+     c		emacspeak-bookshare-toc-at-point
+     d		emacspeak-bookshare-action
+     e		emacspeak-epub
+     f		emacspeak-bookshare-flush-lines
+     i		emacspeak-bookshare-action
+     j		next-line
+     k		previous-line
+     l .. m		emacspeak-bookshare-action
+     p		emacspeak-bookshare-action
+     q		bury-buffer
+     s .. t		emacspeak-bookshare-action
+     v		emacspeak-bookshare-view
+
+     M-n		emacspeak-bookshare-next-result
+     M-p		emacspeak-bookshare-previous-result
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
+     during initialization.
+
+12.25.1.28 emacspeak-bookshare-next-result
+..........................................
+
+ -- Command: emacspeak-bookshare-next-result
+
+     Move to next result.
+
+12.25.1.29 emacspeak-bookshare-periodical-list
+..............................................
+
+ -- Command: emacspeak-bookshare-periodical-list
+
+     Return list of periodicals.
+
+12.25.1.30 emacspeak-bookshare-previous-result
+..............................................
+
+ -- Command: emacspeak-bookshare-previous-result
+
+     Move to previous result.
+
+12.25.1.31 emacspeak-bookshare-set-preference
+.............................................
+
+ -- Command: emacspeak-bookshare-set-preference (preference-id value)
+
+     Set preference preference-id to value.
+
+     (fn PREFERENCE-ID VALUE)
+
+12.25.1.32 emacspeak-bookshare-sign-out
+.......................................
+
+ -- Command: emacspeak-bookshare-sign-out
+
+     Sign out, clearing password.
+
+12.25.1.33 emacspeak-bookshare-since-search
+...........................................
+
+ -- Command: emacspeak-bookshare-since-search (query &optional category)
+
+     Perform a Bookshare date  search.
+     Optional interactive prefix arg filters by category.
+
+     (fn QUERY &optional CATEGORY)
+
+12.25.1.34 emacspeak-bookshare-title-search
+...........................................
+
+ -- Command: emacspeak-bookshare-title-search (query &optional category)
+
+     Perform a Bookshare title search.
+     Interactive prefix arg filters search by category.
+
+     (fn QUERY &optional CATEGORY)
+
+12.25.1.35 emacspeak-bookshare-toc
+..................................
+
+ -- Command: emacspeak-bookshare-toc (directory)
+
+     View TOC for book in specified directory.
+
+     (fn DIRECTORY)
+
+12.25.1.36 emacspeak-bookshare-toc-at-point
+...........................................
+
+ -- Command: emacspeak-bookshare-toc-at-point
+
+     View TOC for book at point.
+     Make sure it’s downloaded and unpacked first.
+
+12.25.1.37 emacspeak-bookshare-unpack-at-point
+..............................................
+
+ -- Command: emacspeak-bookshare-unpack-at-point
+
+     Unpack downloaded content if necessary.
+
+12.25.1.38 emacspeak-bookshare-url-executor
+...........................................
+
+ -- Command: emacspeak-bookshare-url-executor (url)
+
+     Custom URL executor for use in Bookshare TOC.
+
+     (fn URL)
+
+12.25.1.39 emacspeak-bookshare-version-handler
+..............................................
+
+ -- Command: emacspeak-bookshare-version-handler (&rest ignore)
+
+     Do nothing and return nil.
+     This function accepts any number of arguments, but ignores them.
+
+     (fn &rest IGNORE)
+
+12.25.1.40 emacspeak-bookshare-view
+...................................
+
+ -- Command: emacspeak-bookshare-view (directory)
+
+     View book in specified directory.
+
+     (fn DIRECTORY)
+
+12.25.1.41 emacspeak-bookshare-view-at-point
+............................................
+
+ -- Command: emacspeak-bookshare-view-at-point
+
+     View book at point.
+     Make sure it’s downloaded and unpacked first.
+
+12.25.1.42 emacspeak-bookshare-view-page-range
+..............................................
+
+ -- Command: emacspeak-bookshare-view-page-range (url)
+
+     Play pages in specified page range from URL.
+
+     (fn URL)
+
+12.25.2 emacspeak-bookshare Options
+-----------------------------------
+
+ -- Variable: User Option emacspeak-bookshare-api-key
+     Web API key for this application.  See
+     http://developer.bookshare.org/docs for details on how to get an
+     API key.
+
+ -- Variable: User Option emacspeak-bookshare-browser-function
+     Function to display Bookshare Book content in a WWW browser.  This
+     is used by the various Bookshare view commands to display content
+     from Daisy books.
+
+ -- Variable: User Option emacspeak-bookshare-directory
+     Customize this to the root of where books are organized.
+
+ -- Variable: User Option emacspeak-bookshare-html-to-text-command
+     Command to convert html to text on stdin.
+
+ -- Variable: User Option emacspeak-bookshare-user-id
+     Bookshare user Id.
+
+ -- Variable: User Option emacspeak-bookshare-xslt
+     Name of bookshare XSL transform.
+
+
 File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
 
 12.26 emacspeak-browse-kill-ring
@@ -3871,19 +4357,20 @@ e.g.  blog search are tbm=
  -- Command: emacspeak-google-tts (text &optional lang)
 
      Speak text using Google Network TTS.
+     Optional interactive prefix arg ‘lang’ prompts for language identifier.
 
      (fn TEXT &optional LANG)
 
 12.90.1.37 emacspeak-google-tts-region
 ......................................
 
- -- Command: emacspeak-google-tts-region (start end)
+ -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
      ‘C-' g’
      ‘C-x @ s g’
 
      Speak region using Google Network TTS.
 
-     (fn START END)
+     (fn START END &optional ASK-LANG)
 
 12.90.1.38 emacspeak-google-what-is-my-ip
 .........................................
@@ -6442,8 +6929,6 @@ and backward-page can be used to move through each chunk of output.
      Tries to guess default based on context.
      Uses guessed default if user enters an empty string.
 
-     (fn LATEX)
-
 12.119.4.4 emacspeak-maths-enter-guess
 ......................................
 
@@ -8343,229 +8828,4 @@ File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-pronounce,  
 
 PROJECTILE == ‘M-x package-install projectile’.  Project management in
 Emacs.
-
-
-File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-py,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
-
-12.144 emacspeak-pronounce
-==========================
-
-This module implements user customizable pronunciation dictionaries for
-emacspeak.  Custom pronunciations can be defined per file, per directory
-and/or per major mode.  Emacspeak maintains a persistent user dictionary
-upon request and loads these in new emacspeak sessions.  This module
-implements the user interface to the custom dictionary as well as
-providing the internal API used by the rest of emacspeak in using the
-dictionary.  Algorithm:
-
-   The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names.  The hash values are
-association lists defining the dictionary.  Users of this module can
-retrieve a dictionary made up of all applicable association lists for a
-given file.
-
-12.144.1 emacspeak-pronounce Commands
--------------------------------------
-
-12.144.1.1 emacspeak-pronounce-clear-dictionaries
-.................................................
-
- -- Command: emacspeak-pronounce-clear-dictionaries
-
-     Clear all current pronunciation dictionaries.
-
-12.144.1.2 emacspeak-pronounce-define-local-pronunciation
-.........................................................
-
- -- Command: emacspeak-pronounce-define-local-pronunciation (word
-          pronunciation)
-
-     Define buffer local pronunciation.
-     Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
-
-     (fn WORD PRONUNCIATION)
-
-12.144.1.3 emacspeak-pronounce-define-pronunciation
-...................................................
-
- -- Command: emacspeak-pronounce-define-pronunciation
-
-     Interactively define entries in the pronunciation dictionaries.
-     Default term to define is delimited by region.
-     First loads any persistent dictionaries if not already loaded.
-
-12.144.1.4 emacspeak-pronounce-define-template-pronunciation
-............................................................
-
- -- Command: emacspeak-pronounce-define-template-pronunciation
-
-     Interactively define template entries in the pronunciation dictionaries.
-     Default term to define is delimited by region.
-     First loads any persistent dictionaries if not already loaded.
-
-12.144.1.5 emacspeak-pronounce-dispatch
-.......................................
-
- -- Command: emacspeak-pronounce-dispatch
-     ‘C-e M-d’
-     ‘<fn> M-d’
-
-     Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
-
-12.144.1.6 emacspeak-pronounce-edit-pronunciations
-..................................................
-
- -- Command: emacspeak-pronounce-edit-pronunciations (key)
-
-     Prompt for and launch a pronunciation editor on the
-     specified pronunciation dictionary key.
-
-     (fn KEY)
-
-12.144.1.7 emacspeak-pronounce-load-dictionaries
-................................................
-
- -- Command: emacspeak-pronounce-load-dictionaries (&optional filename)
-
-     Load pronunciation dictionaries.
-     Optional argument FILENAME specifies the dictionary file.
-
-     (fn &optional FILENAME)
-
-12.144.1.8 emacspeak-pronounce-refresh-pronunciations
-.....................................................
-
- -- Command: emacspeak-pronounce-refresh-pronunciations
-
-     Refresh pronunciation table for current buffer.
-     Activates pronunciation dictionaries if not already active.
-
-12.144.1.9 emacspeak-pronounce-save-dictionaries
-................................................
-
- -- Command: emacspeak-pronounce-save-dictionaries
-
-     Writes out the persistent emacspeak pronunciation dictionaries.
-
-12.144.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
-..........................................................
-
- -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
-          state)
-
-     Toggle use of pronunciation dictionaries in current buffer.
-     Pronunciations can be defined on a per file, per directory and/or per
-     mode basis.
-     Pronunciations are activated on a per buffer basis.
-     Turning on the use of pronunciation dictionaries results in emacspeak
-     composing a pronunciation table based on the currently defined
-     pronunciation dictionaries.
-     After this, the pronunciations will be applied whenever text in the
-     buffer is spoken.
-     Optional argument state can be used from Lisp programs to
-     explicitly turn pronunciations on or off.
-
-     (fn &optional STATE)
-
-12.144.1.11 emacspeak-pronounce-yank-word
-.........................................
-
- -- Command: emacspeak-pronounce-yank-word
-
-     Yank word at point into minibuffer.
-
-12.144.2 emacspeak-pronounce Options
-------------------------------------
-
- -- Variable: User Option
-          emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-     Pronunciations for well known namespace URIs.
-
- -- Variable: User Option emacspeak-pronounce-dictionaries-file
-     File that holds the persistent emacspeak pronunciation
-     dictionaries.
-
- -- Variable: User Option
-          emacspeak-pronounce-internet-smileys-pronunciations
-     Pronunciation dictionary used in all instant messenger and IRC chat
-     modes.  See http://www.charm.net/~kmarsh/smiley.html.
-
- -- Variable: User Option
-          emacspeak-pronounce-load-pronunciations-on-startup
-     Says if user dictionaries loaded on emacspeak startup.
-
- -- Variable: User Option emacspeak-pronounce-pronunciation-personality
-     *Pronunciation personality.  This is the personality used when
-     speaking things that have a pronunciation applied.
-
-
-File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
-
-12.145 emacspeak-py
-===================
-
-This speech-enables python-mode available on sourceforge and ELPA
-
-12.145.1 emacspeak-py Options
------------------------------
-
- -- Variable: User Option emacspeak-py-XXX-tag-personality
-     Personality used for py-XXX-tag-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-py-builtins-personality
-     Personality used for py-builtins-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-py-class-name-personality
-     Personality used for py-class-name-face This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-py-decorators-personality
-     Personality used for py-decorators-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-py-def-class-personality
-     Personality used for py-def-class-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-py-exception-name-personality
-     Personality used for py-exception-name-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-py-import-from-personality
-     Personality used for py-import-from-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-py-number-personality
-     Personality used for py-number-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-py-object-reference-personality
-     Personality used for py-object-reference-face This personality uses
-     voice-monotone-light whose effect can be changed globally by
-     customizing voice-monotone-light-settings.
-
- -- Variable: User Option emacspeak-py-pseudo-keyword-personality
-     Personality used for py-pseudo-keyword-face This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-py-try-if-personality
-     Personality used for py-try-if-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-py-variable-name-personality
-     Personality used for py-variable-name-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
 
