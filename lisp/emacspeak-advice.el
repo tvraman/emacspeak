@@ -142,13 +142,14 @@ beginning or end of a physical line produces an appropriate auditory icon."
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak the button."
      (when (ems-interactive-p)
+       (ems-with-messages-silenced
        (condition-case nil
            (let* ((button (button-at (point)))
                   (start (button-start button))
                   (end (button-end button)))
              (dtk-speak (buffer-substring start end)))
          (error nil))
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-auditory-icon 'large-movement))))))
 
 (cl-loop
  for f in
@@ -622,11 +623,7 @@ icon."
   (when emacspeak-advice-progress-reporter
     (emacspeak-auditory-icon 'progress)))
 
-;;; forward decl:
 
-(unless (boundp 'inhibit-message)(defvar inhibit-message nil)
-        (defvar inhibit-message nil
-          "In Emacs 25, this  will  inhibit messages in echo area. "))
 (defadvice message (around emacspeak pre act comp)
   "Speak the message."
   (declare (special emacspeak-last-message 

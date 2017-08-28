@@ -123,7 +123,6 @@
   (unless amixer-program (error "You dont have a standard amixer."))
   (let (
         (message-log-max nil)
-        (inhibit-message  t) ;;; no spam in *Messages*
         (controls nil)
         (fields nil)
         (slots nil)
