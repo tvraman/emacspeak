@@ -544,8 +544,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (when (called-interactively-p 'interactive)
     (message "Automatic Soundscapes are now %s"
              (if soundscape--auto "on" "off"))))
-(defvar soundscape--cached-device nil
-  "Cache    last used audio device.")
+
 (defconst soundscape--filters
   '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"
     "tts_a0_e45" tts_a0_em45 tts_a0_e90
@@ -558,32 +557,25 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
 (defun soundscape-restart (&optional device)
   "Restart Soundscape  environment.
 With prefix arg `device', prompt for a alsa/ladspa device.
-Caches most recently used device, which then becomes the default for future invocations."
+This is then saved to soundscape-device for future use."
   (interactive "P")
   (declare (special soundscape--last-mode  soundscape--scapes
-                    soundscape--filters soundscape--cached-device
-                    soundscape--auto soundscape-manager-options
-                    soundscape-device))
+                    soundscape--filters soundscape--auto
+                    soundscape-manager-options soundscape-device))
   (setq soundscape--scapes nil soundscape--last-mode nil)
   (when  device
-    (setq soundscape--cached-device
+    (setq soundscape-device
           (if (called-interactively-p 'interactive)
               (completing-read
                "Filter: "
                soundscape--filters)
             device)))
-  (unless soundscape--cached-device
-    (setq soundscape--cached-device soundscape-device))
-  (let ((soundscape-manager-options
-         (append
-          (copy-sequence soundscape-manager-options) ; clone default options
-          (when soundscape--cached-device `("--device" ,soundscape--cached-device)))))
     (when soundscape--auto
       (soundscape-toggle)
       (soundscape-listener-shutdown))
     (soundscape-toggle)
     (sit-for 0.1)
-    (soundscape-sync major-mode 'force)))
+    (soundscape-sync major-mode 'force))
 
 ;;}}}
 ;;{{{ Display Theme:
