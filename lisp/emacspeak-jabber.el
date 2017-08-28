@@ -162,7 +162,8 @@
   (cond
    (emacspeak-jabber-speak-presence-alerts ad-do-it)
    (t
-    (ems-with-messages-silenced ad-do-it)))
+    (let ((message-log-max nil))
+      (ems-with-messages-silenced ad-do-it))))
   ad-return-value)
 
 ;;;this is what I use as my jabber alert function:
