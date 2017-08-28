@@ -1894,6 +1894,7 @@ only speak upto the first ctrl-m."
 (defmacro ems-with-messages-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   `(let ((emacspeak-speak-messages nil)
+         (inhibit-messages t)
          (emacspeak-use-auditory-icons nil))
      ,@body))
 
