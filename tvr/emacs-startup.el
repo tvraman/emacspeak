@@ -56,6 +56,7 @@ which defaults to emacs-personal-library."
   "Safe load library."
   (let ((start (current-time))
         (file-name-handler-alist nil)
+        (inhibit-message t)
         (emacspeak-speak-messages nil))
     (condition-case nil
         (progn
@@ -95,6 +96,7 @@ which defaults to emacs-personal-library."
   (declare (special custom-file))
   (let ((file-name-handler-alist nil)
         (gc-cons-threshold  8000000)
+        (inhibit-message t)
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (when (file-exists-p custom-file) (load custom-file))))
@@ -106,6 +108,7 @@ which defaults to emacs-personal-library."
   (let ((gc-cons-threshold 8000000)
         (file-name-handler-alist nil) ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
+        (inhibit-message t)
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
@@ -256,6 +259,7 @@ which defaults to emacs-personal-library."
   "Actions to take after Emacs is up and ready."
   (let ((after-start (current-time))
         (gc-cons-threshold 8000000)
+        (inhibit-message t)
         (emacspeak-speak-messages nil))
     (tvr-customize)
     (soundscape-toggle)

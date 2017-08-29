@@ -1,6 +1,9 @@
 ;;; vm-prepare.l :  -*- lexical-binding: t; -*-
 (augment-load-path "vm/lisp" "vm-autoloads")
-(load-library "vm-autoloads")
+;(load-library "vm-autoloads")
+(autoload 'vm "vm" "vm" t)
+(autoload 'vm-visit-folder "vm" "vm" t)
+(global-set-key "\M-\C-v" 'vm-visit-folder)
 (eval-after-load "vm"
   `(progn
 (defun make-local-hook (hook)
@@ -32,8 +35,6 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (make-local-variable hook)
     (set hook (list t)))
   hook)
-
-(global-set-key "\M-\C-v" 'vm-visit-folder)
 
 (defadvice vm-check-emacs-version(around work-in-20-emacs pre act com) t)
 
