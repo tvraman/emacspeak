@@ -1027,6 +1027,17 @@ table markup.")
                                    :col-end ""
                                    :col-separator " & "))
 
+
+(emacspeak-table-markup-set-table
+ 'org-mode
+ (emacspeak-table-make-markup
+  :table-start "|-|\n"
+  :table-end "|-|\n"
+  :row-start "|"
+  :row-end "|\n"
+  :col-start ""
+  :col-end ""
+  :col-separator " | "))
 (emacspeak-table-markup-set-table 'latex-mode
                                   (emacspeak-table-markup-get-table
                                    'latex2e-mode))
