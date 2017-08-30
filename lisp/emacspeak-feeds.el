@@ -93,9 +93,9 @@
   (cl-loop
    for f in emacspeak-feeds
    do
-   (set-text-properties 0 (length (second f)) nil (second f))
+   (set-text-properties 0 (length (cl-second f)) nil (cl-second f))
    (puthash
-    (second f); strip props 
+    (cl-second f); strip props 
     f emacspeak-feeds-feeds-table)))
 
 (defcustom emacspeak-feeds
@@ -120,7 +120,7 @@
       (set-default
        sym
        (sort val #'(lambda (a b)
-                     (string-lessp (first a) (first b)))))
+                     (string-lessp (cl-first a) (cl-first b)))))
       (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
 
@@ -143,7 +143,7 @@
   (let ((found (emacspeak-feeds-added-p url)))
     (cond
      (found
-      (message "Feed already present  as %s" (first found)))
+      (message "Feed already present  as %s" (cl-first found)))
      (t (push (list title url type) emacspeak-feeds)
         (let ((dtk-quiet t))
           (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
@@ -289,7 +289,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 (defun emacspeak-feeds-browse-feed (feed &optional speak)
   "Display specified feed.
 Argument `feed' is a feed structure (label url type)."
-  (let ((uri (second feed))
+  (let ((uri (cl-second feed))
         (type  (third feed))
         (style nil))
     (setq style
