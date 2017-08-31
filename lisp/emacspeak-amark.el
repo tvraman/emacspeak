@@ -52,7 +52,7 @@
 ;;; Code:
 ;;}}}
 ;;{{{  Required modules
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-sounds)
 ;;}}}
 ;;{{{ Structure:
@@ -83,7 +83,7 @@ Automatically becomes buffer-local when set.")
   "Return matching AMark if found in buffer-local AMark list."
   (interactive (list (completing-read "Name: " (emacspeak-amark-names))))
   (declare (special emacspeak-amark-list))
-  (find name emacspeak-amark-list :test #'string= :key #'emacspeak-amark-name))
+  (cl-find name emacspeak-amark-list :test #'string= :key #'emacspeak-amark-name))
 
 (defun emacspeak-amark-add (path name position)
   "Add an AMark to the buffer local list of AMarks. AMarks are
