@@ -834,7 +834,7 @@ used as well."
   (interactive
    (list
     (cond
-     ((and (not _prompt)emacspeak-we-class-filter) emacspeak-we-class-filter)
+     ((and (not current-prefix-arg)emacspeak-we-class-filter) emacspeak-we-class-filter)
      (t (setq emacspeak-we-class-filter
               (read-from-minibuffer "Class: "))))
     (emacspeak-webutils-read-this-url)
@@ -867,7 +867,7 @@ used as well."
   (interactive
    (list
     (cond
-     ((and (not _prompt)emacspeak-we-id-filter) emacspeak-we-id-filter)
+     ((and (not current-prefix-arg)emacspeak-we-id-filter) emacspeak-we-id-filter)
      (t
       (setq emacspeak-we-id-filter
             (read-from-minibuffer "Id: "))))
