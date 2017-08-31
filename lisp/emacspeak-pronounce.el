@@ -68,7 +68,7 @@
 
 (require 'voice-setup)
 (require 'thingatpt)
-(eval-when (compile)
+(cl-eval-when (compile)
                                         ;avoid recursive include during compile
            (provide 'emacspeak-pronounce)
            (require 'dtk-speak)

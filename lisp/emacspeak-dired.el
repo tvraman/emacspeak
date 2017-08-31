@@ -348,7 +348,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 ;;}}}
 ;;{{{  keys
-(eval-when (load))
+(cl-eval-when (load))
 
 (defun emacspeak-dired-setup-keys ()
   "Add emacspeak keys to dired."

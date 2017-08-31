@@ -366,7 +366,7 @@
 
 ;;}}}
 ;;{{{  keymap
-(eval-when (load))
+(cl-eval-when (load))
 
 (defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"

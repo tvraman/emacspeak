@@ -181,7 +181,7 @@
   (define-key tar-mode-map "c" 'emacspeak-tar-speak-file-date)
   )
 
-(eval-when (load)
+(cl-eval-when (load)
            (emacspeak-tar-setup-keys))
 
 ;;}}}

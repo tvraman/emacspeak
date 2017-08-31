@@ -2982,7 +2982,7 @@ any other key to speak entire sexp."
 ;;}}}
 ;;{{{  emacs rectangles and regions:
 
-(eval-when (compile) (require 'rect))
+(eval-when-compile (require 'rect))
 ;;; These help you listen to columns of text. Useful for tabulated data
 ;;;###autoload
 (defun emacspeak-speak-rectangle (start end)

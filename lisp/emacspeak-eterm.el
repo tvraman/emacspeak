@@ -1317,7 +1317,7 @@ emacspeak-eterm-remote-hostnames")
           (intern host emacspeak-eterm-remote-hosts-table)
           (forward-line 1))))))
 
-(eval-when (load)
+(cl-eval-when (load)
            (emacspeak-eterm-load-remote-hosts-cache))
 ;;;###autoload
 (defun emacspeak-eterm-cache-remote-host (host)

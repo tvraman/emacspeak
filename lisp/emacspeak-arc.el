@@ -222,7 +222,7 @@ first initializing it if necessary."
     'emacspeak-arc-speak-file-permissions)
   )
 
-(eval-when (load)
+(cl-eval-when (load)
            (emacspeak-arc-setup-keys))
 ;;}}}
 (provide 'emacspeak-arc)

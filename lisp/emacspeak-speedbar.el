@@ -237,7 +237,7 @@ An automatically updating speedbar consumes resources.")
 ;;}}}
 ;;{{{  hooks
 (cl-declaim (special speedbar-mode-map))
-(eval-when (load)
+(cl-eval-when (load)
            )
 (defun emacspeak-speedbar-enter-hook ()
   "Actions taken when we enter the Speedbar"

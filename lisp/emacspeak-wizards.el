@@ -639,7 +639,7 @@ meaning of `next'."
 ;;}}}
 ;;{{{ emacspeak clipboard
 
-(eval-when (load)
+(cl-eval-when (load)
            (condition-case nil
                (unless (file-exists-p emacspeak-resource-directory)
                  (make-directory emacspeak-resource-directory))

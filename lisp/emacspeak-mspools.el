@@ -69,7 +69,7 @@
 ;;}}}
 ;;{{{ keymaps
 (cl-declaim (special mspools-mode-map))
-(eval-when (load)
+(cl-eval-when (load)
            (require 'emacspeak-keymap)
            )
 

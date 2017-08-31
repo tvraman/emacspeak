@@ -1140,7 +1140,8 @@ icon."
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
   "Replacing mouse oriented completer with keyboard friendly equivalent"
-  (let ((completions (sort (ad-get-arg 0) 'string-lessp)))
+  (let ((completions (sort (ad-get-arg 0) 'string-lessp))
+        (_common (ad-get-arg 1)))
     (with-output-to-temp-buffer "*Completions*"
       (display-completion-list completions))
     (with-current-buffer (get-buffer "*Completions*")

@@ -137,7 +137,7 @@
 
 ;;}}}
 ;;{{{ add keybinding on emacspeak desktop
-(eval-when (load)
+(cl-eval-when (load)
            (define-key emacspeak-keymap "\C-k" 'browse-kill-ring))
 ;;}}}
 (provide 'emacspeak-browse-kill-ring)
