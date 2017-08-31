@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'twittering-mode "twittering-mode" 'no-error)
 ;;}}}

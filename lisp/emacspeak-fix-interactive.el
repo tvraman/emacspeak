@@ -100,13 +100,13 @@ use the minibuffer."
           (split-string
            (cl-second (interactive-form  sym))
            "\n"))
-         (count (count-if 'ems-prompt-without-minibuffer-p  prompts)))
+         (count (cl-count-if 'ems-prompt-without-minibuffer-p  prompts)))
                                         ;memoize call
     (put sym 'emacspeak-checked-interactive t)
                                         ; advice if necessary
     (cond
      ((zerop count) t)                  ;do nothing
-     ((notany #'(lambda (s) (string-match "%s" s))
+     ((cl-notany #'(lambda (s) (string-match "%s" s))
               prompts)
                                         ; generate auto advice
       (put sym 'emacspeak-auto-advised t)
@@ -155,7 +155,7 @@ use the minibuffer."
                      'locate-file-completion
                      (cons load-path (get-load-suffixes)))))
   (dolist
-      (item (rest (assoc module load-history)))
+      (item (cl-rest (assoc module load-history)))
     (and (listp item)
          (eq 'defun (car item))
          (symbolp (cdr item))
@@ -177,16 +177,15 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
   (interactive)
   (cl-declare (special load-history emacspeak-load-history-pointer))
   (unless (eq emacspeak-load-history-pointer load-history)
-    (lexical-let ((lh load-history)
-                  (emacspeak-speak-messages nil))
+    (let ((lh load-history))
 ;;; cdr down lh till we hit emacspeak-load-history-pointer
                  (while (and lh
                              (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
                    (emacspeak-fix-commands-loaded-from lh)
                    (when (called-interactively-p 'interactive)
-                     (message "Fixed commands in %s" (cl-first (first lh))))
-                   (setq lh (rest lh)))
+                     (message "Fixed commands in %s" (cl-first (cl-first lh))))
+                   (setq lh (cl-rest lh)))
 ;;;memoize for future call
                  (setq emacspeak-load-history-pointer load-history))
     (when (called-interactively-p 'interactive)

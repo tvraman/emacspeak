@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'custom)
 (require 'ido)
 (require 'sox-gen)

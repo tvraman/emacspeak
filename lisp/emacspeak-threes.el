@@ -79,7 +79,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'sox-gen)
 
@@ -203,7 +203,7 @@
 ;;}}}
 ;;{{{ Push And Pop states:
 
-(defstruct emacspeak-threes-game-state
+(cl-defstruct emacspeak-threes-game-state
   board)
 
 (defvar emacspeak-threes-game-stack nil

@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{ Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'emacspeak-sounds)
 (require 'emacspeak-fix-interactive)

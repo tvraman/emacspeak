@@ -81,7 +81,7 @@
 ;;}}}
 ;;{{{ Stream Metadata:
 
-(defstruct emacspeak-m-player-metadata
+(cl-defstruct emacspeak-m-player-metadata
   title artist album info
   year comment track genre)
 

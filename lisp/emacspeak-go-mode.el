@@ -46,7 +46,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (eval-when-compile
   (require 'go-mode "go-mode" 'no-error))

@@ -50,13 +50,13 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require '2048-game "2048-game" 'no-error)
 ;;}}}
 ;;{{{ Push And Pop states:
 
-(defstruct emacspeak-2048-game-state
+(cl-defstruct emacspeak-2048-game-state
   board score
   rows cols
   )

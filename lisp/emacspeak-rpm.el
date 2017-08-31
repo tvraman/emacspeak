@@ -147,7 +147,7 @@
 
 ;;{{{ required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'advice)
 (require 'emacspeak-speak)
 (require 'thingatpt)

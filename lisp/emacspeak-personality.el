@@ -93,7 +93,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'custom)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)

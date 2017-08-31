@@ -66,7 +66,7 @@
 ;;}}}
 ;;{{{ structures
 
-(defstruct (emacspeak-url-template
+(cl-defstruct (emacspeak-url-template
             (:constructor emacspeak-url-template-constructor))
   name ;Human-readable name
   template ;template URL string

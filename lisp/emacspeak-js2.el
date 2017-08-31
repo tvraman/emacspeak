@@ -48,7 +48,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'js2-mode "js2-mode" 'no-error)
 ;;}}}

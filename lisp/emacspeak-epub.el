@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{ Required Modules:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
@@ -148,7 +148,7 @@
   (split-string
    (shell-command-to-string (format emacspeak-epub-ls-command file))))
 
-(defstruct emacspeak-epub
+(cl-defstruct emacspeak-epub
   path ; path to .epub file
   toc ; path to .ncx file in archive
   base ; directory in archive that holds toc.ncx
@@ -328,7 +328,7 @@ Useful if table of contents in toc.ncx is empty."
 (defvar emacspeak-epub-db (make-hash-table :test  #'equal)
   "In memory cache of epub bookshelf.")
 
-(defstruct emacspeak-epub-metadata
+(cl-defstruct emacspeak-epub-metadata
   title
   author)
 
@@ -956,7 +956,7 @@ Fetch if needed, or if refresh is T."
 
 ;;; Record returned by queries:
 
-(defstruct emacspeak-epub-calibre-record
+(cl-defstruct emacspeak-epub-calibre-record
                                         ; "b.title,  b.author_sort, b.path,  d.format"
   title author  path format)
 

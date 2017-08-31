@@ -241,7 +241,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
      beat-spec-list " ")
     (+ gain sox-binaural-gain-offset))))
 
-(defstruct sox--binaural
+(cl-defstruct sox--binaural
   beats ; list of beat-specs
   gain ; overall gain
   )

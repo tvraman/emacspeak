@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ Structure:
 
-(defstruct emacspeak-amark
+(cl-defstruct emacspeak-amark
   path                                  ; fully qualified pathname
   name                                  ; Bookmark tag
   position                              ; Offset in ms from start

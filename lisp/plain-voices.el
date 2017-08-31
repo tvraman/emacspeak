@@ -47,7 +47,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'acss-structure)
 (require 'tts)
 

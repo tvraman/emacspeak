@@ -61,7 +61,7 @@
 ;;; Code:
 ;;{{{ required packages
 
-(require 'cl)
+(require 'cl-lib)
 (require 'custom)
 (eval-when-compile (require 'calendar))
 

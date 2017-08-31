@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{ required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'custom)
 (require 'tts)
 (require 'dtk-interp)
@@ -590,7 +590,7 @@ Argument MODE  specifies the current pronunciation mode."
 (defun dtk-chunk-only-on-punctuations()
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
-        (delete-if
+        (cl-delete-if
          #'(lambda (x) (= x 32))
          dtk-chunk-separator-syntax)))
 

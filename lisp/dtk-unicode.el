@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{ Preamble
 
-(require 'cl)
+(require 'cl-lib)
 (require 'descr-text)
 
 ;;}}}

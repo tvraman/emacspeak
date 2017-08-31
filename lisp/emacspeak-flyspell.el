@@ -60,7 +60,7 @@
 ;;}}}
 ;;{{{ Requires
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble) (require 'flyspell "flyspell" 'no-error)
 
 ;;}}}

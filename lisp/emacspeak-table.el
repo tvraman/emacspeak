@@ -59,7 +59,7 @@
 ;;; While enumerating a slice, ask for information about neighbours:
 ;;;
 
-(defstruct (emacspeak-table
+(cl-defstruct (emacspeak-table
             (:constructor cons-emacspeak-table))
   row-header                            ;pointer to column  0
   column-header                         ;pointer to row 0

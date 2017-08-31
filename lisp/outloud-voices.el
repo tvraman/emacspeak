@@ -48,7 +48,7 @@
 ;;}}}
 ;;{{{ Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'acss-structure)
 (require 'dtk-unicode)
 (require 'tts)

@@ -37,7 +37,7 @@
 ;;}}}
 ;;{{{ Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'acss-structure)
 (require 'tts)
 
@@ -481,7 +481,7 @@ and TABLE gives the values along that dimension."
              (boundp 'dtk-character-to-speech-table)
              (vectorp dtk-character-to-speech-table))
     (setq espeak-character-to-speech-table
-          (let ((table (copy-seq dtk-character-to-speech-table)))
+          (let ((table (cl-copy-seq  dtk-character-to-speech-table)))
             (cl-loop for entry across-ref table 
                      when   (string-match "\\(\\[\\*\\]\\)"  entry) do
                      (setf entry (replace-match " " nil nil  entry 1)))

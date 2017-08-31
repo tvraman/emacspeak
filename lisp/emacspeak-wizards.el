@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'lisp-mnt)
 (require 'subr-x)
 (require 'desktop)

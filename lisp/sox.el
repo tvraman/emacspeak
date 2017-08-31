@@ -189,13 +189,13 @@
 ;;}}}
 ;;{{{ Top-level Context:
 
-(defstruct sox-effect
+(cl-defstruct sox-effect
   type ; native: nil ladspa: 'ladspa
   name ; effect name
   params ; list of effect name/value pairs
   )
 
-(defstruct sox-context
+(cl-defstruct sox-context
   file ; file being manipulated
   effects ; list of effects with params
   start-time ; play start time

@@ -62,7 +62,7 @@
 ;;}}}
 ;;{{{  structures 
 
-(defstruct (emacspeak-filtertext
+(cl-defstruct (emacspeak-filtertext
             (:constructor
              emacspeak-filtertext-constructor))
   text                                  ;original text

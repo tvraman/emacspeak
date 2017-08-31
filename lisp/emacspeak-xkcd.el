@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'json)
 (require 'xkcd "xkcd" 'no-error)

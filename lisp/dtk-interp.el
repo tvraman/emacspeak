@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{ requires
 
-(require 'cl)
+(require 'cl-lib)
 
 ;;}}}
 ;;{{{ Forward declarations:

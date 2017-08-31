@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'gweb)
 (require 'gmaps)
@@ -64,7 +64,7 @@
 
 ;;; One tool on a tool-belt
 
-(defstruct emacspeak-google-tool
+(cl-defstruct emacspeak-google-tool
   name ; human readable
   param ; url param bit
   range ; range of possible values

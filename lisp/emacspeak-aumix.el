@@ -40,7 +40,7 @@
 
 ;;{{{ required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-forms)

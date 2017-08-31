@@ -54,7 +54,7 @@
 
 ;;}}}
 ;;{{{ required:
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'voice-setup)
 (require 'ediff)

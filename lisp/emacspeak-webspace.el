@@ -47,7 +47,7 @@
 ;;}}}
 ;;{{{ Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'ring)
 (require 'derived)
@@ -155,7 +155,7 @@ Generates auditory and visual display."
 ;;}}}
 ;;{{{ Headlines:
 
-(defstruct emacspeak-webspace-fs
+(cl-defstruct emacspeak-webspace-fs
   feeds
   titles ; (title url)
   timer slow-timer

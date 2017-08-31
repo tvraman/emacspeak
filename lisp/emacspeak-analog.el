@@ -48,7 +48,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ autoloads to help compiler

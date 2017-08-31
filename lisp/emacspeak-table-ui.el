@@ -978,7 +978,7 @@ match, makes the matching row or column current."
 ;;}}}
 ;;{{{  define table markup structure and accessors
 
-(defstruct (emacspeak-table-markup
+(cl-defstruct (emacspeak-table-markup
             (:constructor
              emacspeak-table-make-markup))
   table-start
