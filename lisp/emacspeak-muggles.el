@@ -81,7 +81,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (cl-eval-when '(load)
@@ -92,6 +92,7 @@
   (require 'hideshow)
   (require 'emacspeak-maths)
   (require 'origami "origami" 'no-error)
+  (require 'browse-kill-ring "browse-kill-ring" 'no-error)
   (require 'hydra "hydra" 'no-error)
   (require 'xbacklight)
   (require 'view)
