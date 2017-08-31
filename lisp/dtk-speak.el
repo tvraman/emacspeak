@@ -1630,7 +1630,7 @@ ALSA_DEFAULT to specified device before starting the server."
 Optional interactive prefix arg restarts current TTS server."
   (interactive "P")
   (cl-declare (special tts-device tts-device-list))
-  (let ((pos (position tts-device tts-device-list :test
+  (let ((pos (cl-position tts-device tts-device-list :test
                        #'string=))
         (len (length tts-device-list)))
     (cond

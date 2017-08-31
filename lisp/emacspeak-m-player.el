@@ -1243,7 +1243,7 @@ As the default, use current position."
 
 (defun ems-file-index (name file-list)
   "Return index of name in file-list."
-  (position (expand-file-name name) file-list :test #'string=))
+  (cl-position (expand-file-name name) file-list :test #'string=))
 
 ;;;###autoload
 (defun emacspeak-m-player-amark-jump ()

@@ -2298,20 +2298,20 @@ by a change in voice personality."
   (when (and current-prefix-arg (> count (length mark-ring)))
     (error "Not that many marks in this buffer"))
   (let ((line nil)
-        (position nil)
+        (pos nil)
         (context
          (format "mark %s "
                  (if current-prefix-arg count   0))))
     (put-text-property 0 (length context)
                        'personality voice-annotate context)
-    (setq position
+    (setq pos
           (if current-prefix-arg
               (elt mark-ring(1-  count))
             (mark)))
     (save-excursion
-      (goto-char position)
+      (goto-char pos)
       (ems-set-personality-temporarily
-       position (1+ position) voice-animate
+       pos (1+ pos) voice-animate
        (setq line (ems-this-line))))
     (dtk-speak
      (concat context line))))
@@ -2465,14 +2465,14 @@ Speak that chunk after moving."
   (interactive
    (list (read-command "Command to execute repeatedly:")))
   (let ((key "")
-        (position (point))
+        (pos (point))
         (continue t)
         (message (format "Press space to execute %s again" command)))
     (while continue
       (call-interactively command)
       (cond
-       ((= (point) position) (setq continue nil))
-       (t (setq position (point))
+       ((= (point) pos) (setq continue nil))
+       (t (setq pos (point))
           (setq key
                 (let ((dtk-stop-immediately nil))
                   (read-key-sequence message)))

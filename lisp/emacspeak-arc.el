@@ -142,14 +142,12 @@ first initializing it if necessary."
                       emacspeak-arc-header-list-format)))))
   emacspeak-arc-header-list-format)
 (defun emacspeak-arc-get-field-index (field)
-  (let ((marked-p (save-excursion
-                    (beginning-of-line)
-                    (= ?\  (following-char))))
-        (position (cadr (assoc field
-                               (emacspeak-arc-get-header-line-format)))))
-    (if marked-p
-        (1- position)
-      position)))
+  (let ((marked-p
+         (save-excursion
+           (beginning-of-line)
+           (= ?\  (following-char))))
+        (pos (cadr (assoc field (emacspeak-arc-get-header-line-format)))))
+    (if marked-p (1- pos) pos)))
 
 (defun emacspeak-arc-speak-file-name ()
   "Speak the name of the file on current line"

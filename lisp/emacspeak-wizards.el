@@ -1600,7 +1600,7 @@ directory to where find is to be launched."
                     emacspeak-wizards-available-browsers))
   (let* ((count (length emacspeak-wizards-available-browsers))
          (current
-          (position browse-url-browser-function
+          (cl-position browse-url-browser-function
                     emacspeak-wizards-available-browsers))
          (next  (% (1+ current) count)))
     (setq browse-url-browser-function

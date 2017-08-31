@@ -414,7 +414,7 @@ With a prefix argument, extracts url under point."
 (defun emacspeak-webutils-transcoded-to-plain-url (url)
   "Extract plain URL from Google transcoder URL."
   (let ((prefix (substring emacspeak-webutils-google-transcoder-url 0
-                           (1+ (position ?? emacspeak-webutils-google-transcoder-url)))))
+                           (1+ (cl-position ?? emacspeak-webutils-google-transcoder-url)))))
     (when (equal prefix (substring url 0 (length prefix)))
       (let* ((args (substring url (length prefix)))
              (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))

@@ -270,7 +270,7 @@
      "Jump to process: "
      emacspeak-proced-process-cache)))
   (cl-declare (special emacspeak-proced-process-cache))
-  (let ((pos (position name  emacspeak-proced-process-cache
+  (let ((pos (cl-position name  emacspeak-proced-process-cache
                        :test #'string-equal)))
     (cond
      (pos

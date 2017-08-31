@@ -375,7 +375,7 @@ list of parsed ladspa-plugin structures, one per label."
            (ladspa-control-default control)))
     (insert
      (format "%s:  %s:\t%s"
-             (1+ (position control (ladspa-plugin-controls plugin)))
+             (1+ (cl-position control (ladspa-plugin-controls plugin)))
              (ladspa-control-desc control) (ladspa-control-value control)))
     (put-text-property
      (line-beginning-position) (line-end-position)

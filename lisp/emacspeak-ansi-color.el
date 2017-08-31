@@ -64,7 +64,7 @@
              (color (cdr (assq 'foreground-color  face-spec)))
              (color-index
               (when color
-                (position  color ansi-color-names-vector
+                (cl-position  color ansi-color-names-vector
                            :test #'string-equal)))
              (style nil)
              (color-parameter nil))
