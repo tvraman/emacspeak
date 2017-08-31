@@ -111,7 +111,7 @@
   "Construct a ladspa control instance from c-str."
   (assert (stringp c-str) nil "Error: c-str is not a string.")
   (let* ((fields (split-string c-str "," 'omit-null))
-         (desc (string-trim (first fields)))
+         (desc (string-trim (cl-first fields)))
          (range
           (when (>= (length fields) 3)
             (split-string (third fields) " " 'omit)))
@@ -122,9 +122,9 @@
     (when (string-match "^Ports:" desc)
       (setq desc (string-trim (substring desc  7))))
     (setf (ladspa-control-desc result) desc
-          (ladspa-control-min result) (first range)
+          (ladspa-control-min result) (cl-first range)
           (ladspa-control-max result) (third range)
-          (ladspa-control-default result)(second default))
+          (ladspa-control-default result)(cl-second default))
     result))
 
 (defun ladspa-analyse-label (library summary)
@@ -280,7 +280,7 @@ list of parsed ladspa-plugin structures, one per label."
            ("e" ladspa-edit-control)
            )
          do
-         (define-key ladspa-mode-map (kbd (first k)) (second k)))
+         (define-key ladspa-mode-map (kbd (cl-first k)) (cl-second k)))
 
 ;;}}}
 ;;{{{ Instantiate Ladspa Plugin:

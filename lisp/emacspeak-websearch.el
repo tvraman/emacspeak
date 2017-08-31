@@ -978,8 +978,8 @@ Results"
         (url nil))
     (setq url
           (format emacspeak-websearch-exchange-rate-converter-uri
-                  (upcase (first fields))
-                  (upcase (second fields))))
+                  (upcase (cl-first fields))
+                  (upcase (cl-second fields))))
     (emacspeak-we-extract-table-by-match
      "↔"
      url 'speak)))

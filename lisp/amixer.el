@@ -95,7 +95,7 @@
       (setq slots
             (cl-loop for f in fields
                      collect
-                     (second (split-string f "="))))
+                     (cl-second (split-string f "="))))
       (while (and (not (eobp))
                   (looking-at "^ *;"))
         (forward-line 1))
@@ -150,13 +150,13 @@
         (setq slots
               (cl-loop for f in fields
                        collect
-                       (second (split-string f "="))))
+                       (cl-second (split-string f "="))))
         (push
          (cons
           (third slots)
           (make-amixer-control
-           :numid (first slots)
-           :iface (second slots)
+           :numid (cl-first slots)
+           :iface (cl-second slots)
            :name (third slots)))
          controls)
         (forward-line 1))               ; done collecting controls

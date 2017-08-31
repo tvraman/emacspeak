@@ -54,7 +54,7 @@
 ;;{{{ Additional helpers:
 (defun dom-alternate-links (dom)
   "Return link elements specifying rel=alternate."
-  (remove-if-not
+  (cl-remove-if-not
    #'(lambda (l) (equal "alternate"
                         (dom-attr l 'rel)))
    (dom-by-tag dom 'link)))
@@ -109,7 +109,7 @@ ATTRIBUTE would typically be `class', `id' or the like."
           when matches append matches))
         (attr (dom-attr dom attribute)))
     (if (and attr
-             (find-if #'(lambda (match) (string-match match attr)) match-list))
+             (cl-find-if #'(lambda (match) (string-match match attr)) match-list))
         (cons dom matches)
       matches)))
 

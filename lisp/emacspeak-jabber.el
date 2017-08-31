@@ -156,7 +156,7 @@
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
-(defun emacspeak-jabber-presence-default-message (&rest ignore)
+(defun emacspeak-jabber-presence-default-message (&rest _ignore)
   "Default presence alert used by Emacspeak.
 Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 nil)

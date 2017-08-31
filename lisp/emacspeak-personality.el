@@ -319,7 +319,7 @@ Simple means that voiceification is not cumulative."
           (voice nil)
           (value nil))
       (setq facep (emacspeak-personality-plist-face-p properties))
-      (when facep (setq value (second facep))
+      (when facep (setq value (cl-second facep))
             (setq voice (ems-get-voice-for-face value))
             (when voice
               (funcall emacspeak-personality-voiceify-faces start end voice object))))))
@@ -336,7 +336,7 @@ Simple means that voiceification is not cumulative."
           (value nil))
       (setq facep (emacspeak-personality-plist-face-p properties))
       (when  facep
-        (setq value (second facep))
+        (setq value (cl-second facep))
         (setq voice (ems-get-voice-for-face value))
         
         (when voice
@@ -354,7 +354,7 @@ Simple means that voiceification is not cumulative."
      ((and  emacspeak-personality-voiceify-faces
             voice-lock-mode facep)
       ad-do-it
-      (setq value (second facep))
+      (setq value (cl-second facep))
       (setq voice (ems-get-voice-for-face value))
       (when voice
         (funcall emacspeak-personality-voiceify-faces 0

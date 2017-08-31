@@ -186,15 +186,15 @@ Optional argument `noauth' says no user auth needed."
   (unless emacspeak-bookshare-last-action-uri
     (error "No query to  page!"))
   (let ((root
-         (first (split-string emacspeak-bookshare-last-action-uri "/for")))
+         (cl-first (split-string emacspeak-bookshare-last-action-uri "/for")))
         (page nil))
     (setq page (string-match "/page/" root))
     (cond
      (page
       (setq page (split-string root "/page/"));Already paged once
       (format "%s/page/%s/for/%s?api_key=%s"
-              (first page)
-              (1+ (read (second page)))
+              (cl-first page)
+              (1+ (read (cl-second page)))
               emacspeak-bookshare-user-id
               emacspeak-bookshare-api-key))
      (t
@@ -578,8 +578,8 @@ b Browse
    )
  do
  (progn
-   (emacspeak-bookshare-action-set (first a) (second a))
-   (define-key emacspeak-bookshare-mode-map (kbd (first a))
+   (emacspeak-bookshare-action-set (cl-first a) (cl-second a))
+   (define-key emacspeak-bookshare-mode-map (kbd (cl-first a))
      'emacspeak-bookshare-action)))
 
 ;;}}}
@@ -752,7 +752,7 @@ b Browse
   (let* ((children (dom-children metadata))
          (available (dom-by-tag metadata 'download-format))
          (display
-          (remove-if
+          (cl-remove-if
            #'(lambda (c)
                (member (dom-tag c)
                        emacspeak-bookshare-metadata-filtered-elements))
@@ -1153,8 +1153,8 @@ Make sure it's downloaded and unpacked first."
         (url nil))
     (unless (= (length fields) 2)
       (error "No fragment identifier in this link."))
-    (setq url (first fields)
-          id (second fields))
+    (setq url (cl-first fields)
+          id (cl-second fields))
     (emacspeak-xslt-url
      emacspeak-we-xsl-filter
      url
@@ -1231,7 +1231,7 @@ Make sure it's downloaded and unpacked first."
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
     (emacspeak-xslt-view-file
      xsl
-     (first (directory-files directory 'full ".xml")))))
+     (cl-first (directory-files directory 'full ".xml")))))
 ;;;###autoload
 (defcustom emacspeak-bookshare-html-to-text-command
   "lynx -dump -stdin"
@@ -1267,7 +1267,7 @@ Useful for fulltext search in a book."
              "%s  --nonet --novalid %s %s | %s"
              emacspeak-xslt-program xsl
              (shell-quote-argument
-              (first (directory-files directory 'full ".xml")))
+              (cl-first (directory-files directory 'full ".xml")))
              emacspeak-bookshare-html-to-text-command))
       (erase-buffer)
       (setq buffer-undo-list t)
@@ -1308,7 +1308,7 @@ Useful for fulltext search in a book."
              "%s  --nonet --novalid %s %s "
              emacspeak-xslt-program xsl
              (shell-quote-argument
-              (first (directory-files directory 'full ".xml")))))
+              (cl-first (directory-files directory 'full ".xml")))))
       (erase-buffer)
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)

@@ -172,9 +172,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody pitch=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 10)
@@ -196,9 +196,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody pitch=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 26)
      (1 32.5)
@@ -220,9 +220,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody pitch=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 40)
      (1 48)
@@ -258,9 +258,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody range=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 10)
@@ -282,9 +282,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody range=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 10)
@@ -306,9 +306,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody range=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 10)
@@ -354,9 +354,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "<prosody volume=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    ;;            (format " ri:%s sm:%s "
    ;;                    (third setting)))))
    '(
@@ -379,11 +379,11 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format "<prosody volume=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    ;;            (format " ri:%s sm:%s "
-   ;;                     (second setting)
+   ;;                     (cl-second setting)
    ;;                     (third setting)))))
    '(
      (0 10 100)
@@ -405,11 +405,11 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format "<prosody volume=\"%s\">"
-                    (second setting)))))
+                    (cl-second setting)))))
    ;;            (format " ri:%s sm:%s "
-   ;;                     (second setting)
+   ;;                     (cl-second setting)
    ;;                     (third setting)))))
    '(
      (0 10 100)

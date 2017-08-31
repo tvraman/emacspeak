@@ -228,7 +228,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
   (cl-loop
    for fv in fv-alist
    do
-   (voice-setup-map-face (first fv) (second fv))))
+   (voice-setup-map-face (cl-first fv) (cl-second fv))))
 
 ;;}}}
 ;;{{{  special form defvoice

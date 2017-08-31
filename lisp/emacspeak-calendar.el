@@ -342,15 +342,15 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Yearly diary entry for %s %s"
-             (calendar-month-name(first (calendar-cursor-to-date t)))
-             (second (calendar-cursor-to-date t)))))
+             (calendar-month-name(cl-first (calendar-cursor-to-date t)))
+             (cl-second (calendar-cursor-to-date t)))))
 
 (defadvice insert-monthly-diary-entry (before emacspeak pre act)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Monthly diary entry for %s"
-             (second (calendar-cursor-to-date t)))))
+             (cl-second (calendar-cursor-to-date t)))))
 
 (defadvice calendar-cursor-holidays (after emacspeak pre act comp)
   "Speak the displayed holidays"

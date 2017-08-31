@@ -753,8 +753,8 @@ specified pronunciation dictionary key."
     (let ((fields (mapcar #'read (split-string string "-"))))
       (propertize
        (calendar-date-string
-        (list (second fields)
-              (first fields)
+        (list (cl-second fields)
+              (cl-first fields)
               (cond
                ((< (third fields) 50)
                 (+ 2000 (third fields)))

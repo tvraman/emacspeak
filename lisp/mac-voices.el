@@ -177,9 +177,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " [[pbas %s]] "
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 1)
      (1 10)
@@ -201,9 +201,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " [[pbas %s]]"
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 10)
@@ -227,9 +227,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " [[pbas %s]] "
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 5)
      (1 17)
@@ -268,9 +268,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " [[pmod %s]] "
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 14.1)
@@ -307,9 +307,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " [{echo %s %s %s %s}] "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)
                     (fourth setting)
                     (fifth setting)

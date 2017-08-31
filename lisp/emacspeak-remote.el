@@ -156,8 +156,8 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
        fields host port user)
     (setq fields (split-string spec "[@:]"))
     (setq
-     user  (first fields)
-     host (second fields)
+     user  (cl-first fields)
+     host (cl-second fields)
      port (third fields))
     (ssh
      (format "%s -p %s -l %s"

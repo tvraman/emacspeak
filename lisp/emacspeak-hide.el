@@ -211,10 +211,10 @@ Returns t if a block was found and hidden."
                                        'intangible t))
             (add-text-properties begin (point)
                                  (list 'emacspeak-hide-block-prefix (nth 2  prefix)
-                                       'emacspeak-hidden-block (first prefix)
+                                       'emacspeak-hidden-block (cl-first prefix)
                                        'personality emacspeak-hidden-header-line-personality)))
           (message "Hid %s  %s lines"
-                   count (first prefix))
+                   count (cl-first prefix))
           t)
          (t (message "Not on a block") nil)))))))
 

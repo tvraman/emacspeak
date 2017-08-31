@@ -91,8 +91,8 @@ Date defaults to today."
                                    nil 'must-match)
                   ":"))
          (date (emacspeak-speak-read-date-year/month/date))
-         (station (first fields))
-         (outlet (second fields)))
+         (station (cl-first fields))
+         (outlet (cl-second fields)))
     (format emacspeak-bbc-json-schedules-template
             station
             (if  (null outlet) "" (format "%s/" outlet))

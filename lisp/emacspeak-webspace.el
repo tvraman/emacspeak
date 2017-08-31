@@ -106,7 +106,7 @@
      (button (emacspeak-auditory-icon 'yank-object)
              (message "%s"
                       (kill-new
-                       (or (second (button-get button 'feed))
+                       (or (cl-second (button-get button 'feed))
                            (button-get button 'link)
                            (button-get button 'url)))))
      (t (error "No link under point")))))
@@ -150,7 +150,7 @@ Generates auditory and visual display."
            (" " emacspeak-webspace-headlines-browse)
            )
          do
-         (define-key emacspeak-webspace-keymap (first k) (second k)))
+         (define-key emacspeak-webspace-keymap (cl-first k) (cl-second k)))
 
 ;;}}}
 ;;{{{ Headlines:
@@ -237,7 +237,7 @@ Updated headlines found in emacspeak-webspace-headlines."
       "No News Is Good News")
      (t (let ((h (ring-remove titles 0)))
           (ring-insert-at-beginning titles h)
-          (first h))))))
+          (cl-first h))))))
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
@@ -252,7 +252,7 @@ Updated headlines found in emacspeak-webspace-headlines."
             #'vector
             (delq nil
                   (mapcar
-                   #'(lambda (f) (unless (eq  'opml (third f)) (second f)))
+                   #'(lambda (f) (unless (eq  'opml (third f)) (cl-second f)))
                    emacspeak-feeds)))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
@@ -329,7 +329,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-feed-reader-insert-button (feed)
   "Insert a button for this feed at point."
   (insert-text-button
-   (first feed) ; label
+   (cl-first feed) ; label
    'type 'emacspeak-webspace-feed-link
    'feed feed))
 
@@ -458,7 +458,7 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
          (insert (emacspeak-webspace-kg-format-result r))
          (insert "</li>\n"))
         (insert "</ol>\n"))
-       (t(insert  (emacspeak-webspace-kg-format-result (first results)))))
+       (t(insert  (emacspeak-webspace-kg-format-result (cl-first results)))))
       (insert "</body></html>\n")
       (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))))

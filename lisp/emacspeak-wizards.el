@@ -1028,7 +1028,7 @@ Signals beginning  of buffer."
   (interactive (list (read-from-minibuffer "Run program: ")))
   (switch-to-buffer-other-frame
    (ansi-term program
-              (first (split-string program))))
+              (cl-first (split-string program))))
   (delete-other-windows)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
@@ -2261,7 +2261,7 @@ RIVO is implemented by rivo.pl ---
              ("\C-ch" emacspeak-wizards-refresh-shell-history)
              ("\C-cr" comint-redirect-send-command))
            do
-           (define-key shell-mode-map (first b) (second b))))
+           (define-key shell-mode-map (cl-first b) (cl-second b))))
 
 ;;}}}
 ;;{{{ Organizing Shells: next, previous, tag
@@ -2291,7 +2291,7 @@ Direction specifies previous/next."
       (when  (> direction 0) (bury-buffer))
       (setq target
             (if  (> direction 0)
-                (second shells)
+                (cl-second shells)
               (nth (1- (length shells)) shells)))
       (funcall-interactively #'pop-to-buffer target))
      ((= 1 (length shells)) (shell "1-shell"))
@@ -2707,7 +2707,7 @@ term if needed."
              (split-string
               (buffer-substring
                (line-beginning-position) (line-end-position)))))
-        (push (cons (fourth fields) (second fields))
+        (push (cons (fourth fields) (cl-second fields))
               emacspeak-wizards-espeak-voices-alist))
       (forward-line 1))))
 
@@ -3005,7 +3005,7 @@ Optional interactive prefix arg `category' prompts for a category."
            (shell-command-to-string (format "iheart-url -s '%s'" q))
            "\n"))
     (setq hits (split-string (pop results) ":"))
-    (when (zerop (read (second hits))) (error "No matches found."))
+    (when (zerop (read (cl-second hits))) (error "No matches found."))
     (with-current-buffer (get-buffer-create ihr)
       (erase-buffer)
       (insert (propertize "Press <enter> to play selected station.\n\n"
@@ -3017,7 +3017,7 @@ Optional interactive prefix arg `category' prompts for a category."
         (line-beginning-position) (line-end-position)
         (list
          'keymap emacspeak-wizards-iheart-map
-         'ihr-id (second (split-string r ":"))))
+         'ihr-id (cl-second (split-string r ":"))))
        (insert "\n"))
       (special-mode)
       (goto-char (point-min))
@@ -3036,7 +3036,7 @@ Optional interactive prefix arg `category' prompts for a category."
 
 (defun yql-filter (headers result-row)
   "Filter out fields we dont care about."
-  (remove-if-not
+  (cl-remove-if-not
    #'(lambda  (r) (memq (car r) headers))
    result-row))
 
@@ -3156,7 +3156,7 @@ sorted in lexical order with duplicates removed when saving."
 (defun emacspeak-wizards-yq-filter (r)
   "Only keep fields we care about."
   (declare (special emacspeak-wizards-yq-headers))
-  (remove-if-not
+  (cl-remove-if-not
    #'(lambda  (q) (memq (car q) emacspeak-wizards-yq-headers))
    r))
 

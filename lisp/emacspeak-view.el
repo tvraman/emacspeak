@@ -317,7 +317,7 @@ keybindings for view mode")
                ("]" forward-paragraph)
                )
              do
-             (define-key view-mode-map (first k) (second k)))))
+             (define-key view-mode-map (cl-first k) (cl-second k)))))
 
 (defun emacspeak-view-setup-keys()
   "Setup emacspeak convenience keys"

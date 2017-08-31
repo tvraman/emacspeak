@@ -871,8 +871,8 @@ name of the list.")
         (setq result
               (format
                "year_%s/month_%s/day_%s"
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)))
         result))
   )
@@ -907,8 +907,8 @@ name of the list.")
         (setq result
               (format
                "year_%s/month_%s/day_%s/"
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)))
         result)))
  nil
@@ -930,11 +930,11 @@ name of the list.")
         (setq result
               (format
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)))
         result))
   "Visiting Team: "
@@ -961,11 +961,11 @@ name of the list.")
         (setq result
               (format
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)))
         result))
   "Visiting Team: "
@@ -1001,11 +1001,11 @@ JSON is retrieved from `url'."
         (setq result
               (format
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)))
         result))
   "Visiting Team: "
@@ -1029,11 +1029,11 @@ JSON is retrieved from `url'."
         (setq result
               (format
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)
-               (first fields)
-               (second fields)
+               (cl-first fields)
+               (cl-second fields)
                (third fields)))
         result))
   "Visiting Team: "
@@ -1492,7 +1492,7 @@ prompts for a location and speaks the forecast. \n\n"
       (let* ((code (read-from-minibuffer "Flight Number: "))
              (fields (split-string code)))
         (format "airline=%s&flightNumber=%s"
-                (first fields) (second fields)))))
+                (cl-first fields) (cl-second fields)))))
  nil
  "Flight Tracker")
 

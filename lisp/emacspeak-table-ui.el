@@ -350,29 +350,29 @@ Full List Of Keybindings:
        0 (length value)
        'face 'bold  value)
       value)
-     ((and (listp token) (numberp (first token)) (numberp (second token)))
+     ((and (listp token) (numberp (cl-first token)) (numberp (cl-second token)))
       (setq value
             (emacspeak-table-get-entry-with-headers
-             (first token) (second token)))
+             (cl-first token) (cl-second token)))
       (put-text-property 0 (length value) 'face 'bold value)
       value)
-     ((and (symbolp (first token)) (fboundp  (first token)))
+     ((and (symbolp (cl-first token)) (fboundp  (first token)))
 ;;; applying a function:
       (setq value
             (funcall
-             (first token) ;;; get args 
+             (cl-first token) ;;; get args 
              (cond
               ((and
-                (= 2 (length token)) (numberp (second token)))
+                (= 2 (length token)) (numberp (cl-second token)))
                (emacspeak-table-get-entry-with-headers
                 (emacspeak-table-current-row emacspeak-table)
-                (second token)))
+                (cl-second token)))
               ((and
                 (= 3 (length token))
-                (numberp (second token))
+                (numberp (cl-second token))
                 (numberp (third token)))
                (emacspeak-table-get-entry-with-headers
-                (second token) (third token))))))
+                (cl-second token) (third token))))))
       (put-text-property 0 (length value) 'face 'bold  value)
       value)
      (t  (format "%s" token)))))
@@ -418,26 +418,26 @@ Optional prefix arg prompts for a new filter."
        token
        (emacspeak-table-current-column emacspeak-table)))
      ((and (listp token)
-           (numberp (first token))
-           (numberp (second token)))
-      (emacspeak-table-get-entry-with-headers (first token) (second token)))
-     ((and (symbolp (first token)) (fboundp  (first token)))
+           (numberp (cl-first token))
+           (numberp (cl-second token)))
+      (emacspeak-table-get-entry-with-headers (cl-first token) (cl-second token)))
+     ((and (symbolp (cl-first token)) (fboundp  (first token)))
 ;;; applying a function:
       (setq value
             (funcall
-             (first token) ;;; get args 
+             (cl-first token) ;;; get args 
              (cond
               ((and
-                (= 2 (length token)) (numberp (second token)))
+                (= 2 (length token)) (numberp (cl-second token)))
                (emacspeak-table-get-entry-with-headers
-                (second token)
+                (cl-second token)
                 (emacspeak-table-current-column emacspeak-table)))
               ((and
                 (= 3 (length token))
-                (numberp (second token))
+                (numberp (cl-second token))
                 (numberp (third token)))
                (emacspeak-table-get-entry-with-headers
-                (second token) (third token))))))
+                (cl-second token) (third token))))))
       (put-text-property 0 (length value) 'face 'bold  value)
       value)   
      (t  (format "%s" token)))))
@@ -1161,7 +1161,7 @@ markup to use."
          (buffer(get-buffer-create  (format "sorted-on-%d" column))))
     (setq row-head (pop rows)) ;;; header does not play in sort
     (setq  rows
-           (remove-if
+           (cl-remove-if
             #'(lambda (row)
                 (null (aref row column)))
             rows))

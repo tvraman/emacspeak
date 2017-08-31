@@ -73,7 +73,7 @@
    (not (get  sym 'emacspeak-checked-interactive))
    (not (eq 'byte-compile-obsolete (get sym 'byte-compile)))
    (functionp (indirect-function sym))
-   (stringp (second (interactive-form  sym)))))
+   (stringp (cl-second (interactive-form  sym)))))
 
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advises interactive commands to speak prompts."
@@ -98,7 +98,7 @@ use the minibuffer."
   (declare (special emacspeak-fix-interactive-problematic-functions))
   (let* ((prompts
           (split-string
-           (second (interactive-form  sym))
+           (cl-second (interactive-form  sym))
            "\n"))
          (count (count-if 'ems-prompt-without-minibuffer-p  prompts)))
                                         ;memoize call
@@ -185,7 +185,7 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
 ;;; fix commands in this module
                    (emacspeak-fix-commands-loaded-from lh)
                    (when (called-interactively-p 'interactive)
-                     (message "Fixed commands in %s" (first (first lh))))
+                     (message "Fixed commands in %s" (cl-first (first lh))))
                    (setq lh (rest lh)))
 ;;;memoize for future call
                  (setq emacspeak-load-history-pointer load-history))

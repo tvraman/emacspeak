@@ -324,7 +324,7 @@ document is displayed in a separate buffer. "
 
 (defun emacspeak-w3-html-stack-top-element (&optional stack)
   (or stack (setq stack (emacspeak-w3-html-stack)))
-  (first (first stack)))
+  (cl-first (first stack)))
 
 (defun emacspeak-w3-next-parsed-item ()
   "Move to and speak next parsed item."
@@ -625,8 +625,8 @@ If a rewrite rule is defined in the current buffer, we change
         (error "Not on a link."))
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-we-url-rewrite-rule)
-             (second emacspeak-we-url-rewrite-rule)
+             (cl-first emacspeak-we-url-rewrite-rule)
+             (cl-second emacspeak-we-url-rewrite-rule)
              url))
       (push redirect minibuffer-history))))
 

@@ -204,7 +204,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "") ;no-op -- change to taste
             )))
    '(
@@ -230,7 +230,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "") ; no-op --- change to taste
             )))
    '(
@@ -255,7 +255,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format ""); no-op --- change to taste
             )))
    '(
@@ -298,7 +298,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format ""); no-op --- chagne to taste.
             )))
    '(
@@ -323,7 +323,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format ""); no-op --- change to taste
             )))
    '(
@@ -348,7 +348,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format ""); no-op --- change to taste
             )))
    '(
@@ -393,7 +393,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "") ; no-op --- edit to taste
             )))
    '(
@@ -418,7 +418,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "") ; no-op --- change to taste
             )))
    '(
@@ -443,7 +443,7 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format "") ; no-op --- change to taste.
             )))
    '(
@@ -480,7 +480,7 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format "") ; no-op --- change to taste
             )))
    '(
@@ -504,7 +504,7 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format "") ; no-op --- change to taste
             )))
    '(
@@ -528,7 +528,7 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format "") ; no-op -- change to taste.
             )))
    '(

@@ -195,7 +195,7 @@
   "Speak emacs' previous move"
   (interactive)
   (declare (special gomoku-game-history))
-  (let ((square (car (first gomoku-game-history))))
+  (let ((square (car (cl-first gomoku-game-history))))
     (message "I last played on square %s %s"
              (gomoku-index-to-y square)
              (gomoku-index-to-x square))))
@@ -204,7 +204,7 @@
   "Speak human' previous move"
   (interactive)
   (declare (special gomoku-game-history))
-  (let ((square (car (second gomoku-game-history))))
+  (let ((square (car (cl-second gomoku-game-history))))
     (message "You last played on square %s %s"
              (gomoku-index-to-y square)
              (gomoku-index-to-x square))))

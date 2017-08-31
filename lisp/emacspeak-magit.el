@@ -352,7 +352,7 @@
 
 (defun emacspeak-magit-blame-speak ()
   "Summarize current blame chunk."
-  (let ((o (first (overlays-at (point)))))
+  (let ((o (cl-first (overlays-at (point)))))
     (when o
       (dtk-speak
        (concat

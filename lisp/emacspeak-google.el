@@ -421,7 +421,7 @@ This variable is buffer-local.")
              (let*
                  ((belt (emacspeak-google-toolbelt))
                   (tool
-                   (find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
+                   (cl-find-if #'(lambda (tool) (string-equal (emacspeak-google-tool-name tool)
                                                            ,(emacspeak-google-tool-name this-tool)))
                             belt))
                   (param (emacspeak-google-tool-param tool))
@@ -432,9 +432,9 @@ This variable is buffer-local.")
                       (= 2 (length range)))
 ;;; toggle value
                  (setf (emacspeak-google-tool-value tool)
-                       (if (equal value (first range))
-                           (second range)
-                         (first range))))
+                       (if (equal value (cl-first range))
+                           (cl-second range)
+                         (cl-first range))))
                 ((listp range)
 ;;; Prompt using completion
                  (setf  (emacspeak-google-tool-value tool)

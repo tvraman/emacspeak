@@ -203,10 +203,10 @@ and TABLE gives the values along that dimension."
   (mapcar
    #'(lambda (setting)
        (aset table
-             (first setting)
+             (cl-first setting)
              (format
               " `vb%s `vh%s "
-              (second setting) (third setting))))
+              (cl-second setting) (third setting))))
    '(
      (0 40 75) ; pitch, head-size
      (1 45 70)
@@ -229,9 +229,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " `vb%s `vh% s"
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 0 90)
@@ -256,9 +256,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " `vb%s `vh% s"
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 5 70)
@@ -297,9 +297,9 @@ and TABLE gives the values along that dimension."
   (mapcar
    #'(lambda (setting)
        (aset table
-             (first setting)
+             (cl-first setting)
              (format
-              " `vf%s  " (second setting))))
+              " `vf%s  " (cl-second setting))))
    '(
      (0 0)
      (1 5)
@@ -321,9 +321,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " `vf%s  "
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 5)
@@ -345,9 +345,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " `vf%s  "
-                    (second setting)))))
+                    (cl-second setting)))))
    '(
      (0 0)
      (1 5)
@@ -380,9 +380,9 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapcar
    #'(lambda (setting)
-       (aset table (first setting)
+       (aset table (cl-first setting)
              (format " `vr%s  "
-                     (second setting))))
+                     (cl-second setting))))
 ;;; stress markers not used for now.
    '(
      (0 0 "`00")
@@ -416,10 +416,10 @@ and TABLE gives the values along that dimension."
   (mapcar
    #'(lambda (setting)
        (aset table
-             (first setting)
+             (cl-first setting)
              (format
               " `vy%s  `vv%s "
-              (second setting) (third setting))))
+              (cl-second setting) (third setting))))
    '(; whisper, volume 
      (0 0 60)
      (1 4 78)

@@ -286,13 +286,13 @@ emacspeak-dismal-row-summarizer-list"
                                       value)
                   value)
                  ((and (listp token)
-                       (numberp (first token))
-                       (numberp (second token)))
+                       (numberp (cl-first token))
+                       (numberp (cl-second token)))
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value
-                                 (first token)
-                                 (second token))))
+                                 (cl-first token)
+                                 (cl-second token))))
                   (put-text-property 0   (length value)
                                      'personality emacspeak-dismal-value-personality 
                                      value)
@@ -332,13 +332,13 @@ emacspeak-dismal-col-summarizer-list"
                                      emacspeak-dismal-value-personality value)
                   value)
                  ((and (listp token)
-                       (numberp (first token))
-                       (numberp (second token)))
+                       (numberp (cl-first token))
+                       (numberp (cl-second token)))
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value
-                                 (first token)
-                                 (second token))))
+                                 (cl-first token)
+                                 (cl-second token))))
                   (put-text-property 0 (length value)
                                      'personality
                                      emacspeak-dismal-value-personality value)
@@ -363,11 +363,11 @@ emacspeak-dismal-sheet-summarizer-list"
          (cond
           ((stringp token) token)
           ((and (listp token)
-                (numberp (first token))
-                (numberp (second token)))
+                (numberp (cl-first token))
+                (numberp (cl-second token)))
            (emacspeak-dismal-cell-value
-            (first token)
-            (second token)))
+            (cl-first token)
+            (cl-second token)))
           (t  (format "%s" token)))))
       emacspeak-dismal-sheet-summarizer-list 
       " "))))

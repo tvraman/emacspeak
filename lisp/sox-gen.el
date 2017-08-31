@@ -228,16 +228,16 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     length
     (mapconcat
      #'(lambda (spec)
-         (let ((f (first spec))
-               (b (second spec)))
+         (let ((f (cl-first spec))
+               (b (cl-second spec)))
            (cond
             ((numberp  b)
              (format "sin %s sin %s" f (+ f b)))
-            ((and (listp b) (numberp (first b)) (numberp (second b)))
+            ((and (listp b) (numberp (cl-first b)) (numberp (cl-second b)))
              (format "sin %s sin %s"
                      f
                      (format "%s:%s"    ;slide
-                             (+ f (first b)) (+ f (second b))))))))
+                             (+ f (cl-first b)) (+ f (cl-second b))))))))
      beat-spec-list " ")
     (+ gain sox-binaural-gain-offset))))
 
@@ -368,8 +368,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
       (let ((a-i (elt a-beats i))
             (b-i (elt b-beats i)))
         (list
-         (/ (+ (first a-i) (first b-i)) 2) ; carrier frequency
-         (list (second a-i) (second b-i))))))))
+         (/ (+ (cl-first a-i) (first b-i)) 2) ; carrier frequency
+         (list (cl-second a-i) (second b-i))))))))
 
 ;;}}}
 
@@ -404,7 +404,7 @@ binaural beat to another."
 
 (defun sox--theme-compute-length (theme scale)
   "Return  how long  this theme  invocation will run in seconds."
-  (let  ((intervals (mapcar #'(lambda (th) (* scale (second th))) theme))
+  (let  ((intervals (mapcar #'(lambda (th) (* scale (cl-second th))) theme))
          (result 0))
     (cl-loop for i in intervals do
              (incf result i)
@@ -433,9 +433,9 @@ binaural beat to another."
     (cl-loop
      for beat in theme
      and i from 0 do
-     (let* ((b (first beat))
-            (next (first (elt theme (+ 1 i))))
-            (end (* dur-scale  (second beat)))
+     (let* ((b (cl-first beat))
+            (next (cl-first (elt theme (+ 1 i))))
+            (end (* dur-scale  (cl-second beat)))
             (slider-start (+ start end))
             (slider-len (/ end sox-binaural-slider-scale)))
        (run-with-timer                  ; start now
@@ -511,7 +511,7 @@ Param `length' specifies total duration."
 (cl-loop
  for s in sox--chakra-settings-0 do
  (sox-define-binaural-effect
-  (first s)
+  (cl-first s)
   (make-sox--binaural
    :beats `(,(cdr s))
    :gain -10)))
@@ -534,7 +534,7 @@ Param `length' specifies total duration."
 (cl-loop
  for s in sox--chakra-settings-1 do
  (sox-define-binaural-effect
-  (first s)
+  (cl-first s)
   (make-sox--binaural
    :beats `(,(cdr s))
    :gain -10)))

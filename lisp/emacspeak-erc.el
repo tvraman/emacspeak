@@ -185,7 +185,7 @@ Optional interactive prefix  arg defines a pronunciation that
   (unless (eq major-mode 'erc-mode)
     (error "Not in an ERC buffer."))
   (setq emacspeak-erc-people-to-monitor
-        (remove-if
+        (cl-remove-if
          (function
           (lambda (x)
             (string-equal x name)))
@@ -332,11 +332,11 @@ set the current local value to the result.")
               "none")
              (t (fourth fields)))
             (third fields)
-            (first fields)
+            (cl-first fields)
             (cond
-             ((string-equal "0" (second fields)) 
+             ((string-equal "0" (cl-second fields)) 
               "no")
-             (t (second fields))))))
+             (t (cl-second fields))))))
 
 (defvar emacspeak-erc-cricket-4-6-pattern
   " [0-9]+x\[46]"

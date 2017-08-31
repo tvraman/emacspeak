@@ -1077,8 +1077,8 @@ attr-value list for use as a DOM filter."
            for pair in (quote ,attr-list)
            until found
            do
-           (setq attr (first pair)
-                 value (second pair))
+           (setq attr (cl-first pair)
+                 value (cl-second pair))
            (setq found (string= (dom-attr  node attr) value)))
           (when found node)))))
 
@@ -1601,7 +1601,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((tags (emacspeak-eww-here-tags)))
     (cond
      ((null tags) (error "No enclosing element here."))
-     ((= 1 (length tags))  (first tags))
+     ((= 1 (length tags))  (cl-first tags))
      (t (intern
          (completing-read
           (or prompt "Jump to: ")

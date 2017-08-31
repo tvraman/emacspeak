@@ -228,7 +228,7 @@ nil if CHAR is not in Unicode."
 
 (defun dtk-unicode-char-property (char prop-name)
   "Get character property by name."
-  (second (assoc prop-name (dtk-unicode-char-properties char))))
+  (cl-second (assoc prop-name (dtk-unicode-char-properties char))))
 
 (defun dtk-unicode-char-punctuation-p (char)
   "Use unicode properties to determine whether CHAR is a ppunctuation character."

@@ -102,9 +102,9 @@
      (t
       (cl-loop
        for p in params do
-       (when (second p) (insert (propertize (first p) 'face 'italic))
+       (when (cl-second p) (insert (propertize (cl-first p) 'face 'italic))
              (insert "\t")
-             (insert (propertize (second p) 'face 'bold))
+             (insert (propertize (cl-second p) 'face 'bold))
              (insert "\t")))))
     (put-text-property orig (point) 'sox-effect effect))
   (insert "\n"))
@@ -184,7 +184,7 @@
      ("s" sox-save)
      )
    do
-   (define-key sox-mode-map (kbd (first k)) (second k))))
+   (define-key sox-mode-map (kbd (cl-first k)) (cl-second k))))
 
 ;;}}}
 ;;{{{ Top-level Context:
@@ -250,7 +250,7 @@
        (push (sox-effect-name e) options)
        (cl-loop
         for  p in (sox-effect-params e) do
-        (when (second p)(push (second p)  options))))))
+        (when (cl-second p)(push (second p)  options))))))
     (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
     (apply #'start-process

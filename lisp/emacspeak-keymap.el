@@ -63,14 +63,14 @@
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
-  (define-key keymap  (kbd (first binding)) (second binding)))
+  (define-key keymap  (kbd (cl-first binding)) (cl-second binding)))
 
 (defun emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with specified list of bindings."
   (cl-loop
    for binding in bindings
    do
-   (define-key keymap (kbd (first binding)) (second binding)))) 
+   (define-key keymap (kbd (cl-first binding)) (cl-second binding)))) 
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command  or keymap that can be bound to a key."
@@ -756,7 +756,7 @@ interactive command that the key sequence executes."
                  (line-beginning-position) (line-end-position))
                 " " 'omit-nulls)))
           (push
-           (list (first fields) (intern (second fields)))
+           (list (cl-first fields) (intern (cl-second fields)))
            bindings))
         (forward-line 1)))
     (setq bindings (nreverse (copy-sequence bindings)))
@@ -772,7 +772,7 @@ interactive command that the key sequence executes."
       (goto-char (point-max))
       (cl-loop
        for binding  in (symbol-value variable) do
-       (insert (format "%s %s\n" (first binding) (second binding))))
+       (insert (format "%s %s\n" (cl-first binding) (cl-second binding))))
       (save-buffer buffer))
     (switch-to-buffer buffer)))
 

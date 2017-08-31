@@ -75,7 +75,7 @@ displayed buffers."
         for buffer in buffer-map
         and window in window-list
         collect
-        (let ((w (format "%s "  (second buffer)))
+        (let ((w (format "%s "  (cl-second buffer)))
               (corners  (window-edges window))
               (tl nil)
               (br nil))
@@ -83,7 +83,7 @@ displayed buffers."
            0 (length w)
            'personality voice-animate w)
           (setq
-           tl (format  " %d %d " (first corners) (second corners))
+           tl (format  " %d %d " (cl-first corners) (cl-second corners))
            br  (format " %d %d " (third corners) (fourth corners)))
           (put-text-property 0 (length tl) 'personality voice-bolden tl)
           (put-text-property 0 (length br) 'personality voice-bolden br)

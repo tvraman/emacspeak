@@ -469,8 +469,8 @@ Value returned is compatible with `encode-time'."
        (if (string-match "-" (substring rfc-3339 -6))
            -60
          60)
-       (+ (* 60 (first fields))
-          (second fields)))))))
+       (+ (* 60 (cl-first fields))
+          (cl-second fields)))))))
 
 (defun emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
@@ -749,10 +749,10 @@ current local  value to the result.")
                             'personality 'inaudible line))
       (while filter
         (setq pair (pop filter))
-        (when (and (<= (first pair) l)
-                   (<= (second pair) l))
-          (put-text-property (first pair)
-                             (second pair)
+        (when (and (<= (cl-first pair) l)
+                   (<= (cl-second pair) l))
+          (put-text-property (cl-first pair)
+                             (cl-second pair)
                              'personality personality
                              line))))
     line))
@@ -2752,8 +2752,8 @@ Otherwise just display a message."
 top left %s %s "
            (window-height)
            (window-width)
-           (first (window-edges))
-           (second (window-edges))))
+           (cl-first (window-edges))
+           (cl-second (window-edges))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-window ()
@@ -3585,8 +3585,8 @@ This function is sensitive to calendar mode when prompting."
         (setq default (format-time-string time-format-string
                                           (apply 'encode-time 0 0
                                                  0
-                                                 (second date)
-                                                 (first date)
+                                                 (cl-second date)
+                                                 (cl-first date)
                                                  (list (third date)))))))
     (read-from-minibuffer prompt
                           default

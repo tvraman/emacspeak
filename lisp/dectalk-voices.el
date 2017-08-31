@@ -220,9 +220,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " ap %s hs % s"
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 96 115)
@@ -247,9 +247,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " ap %s hs % s"
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 50 125)
@@ -273,9 +273,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " ap %s hs % s"
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 160 115)
@@ -317,9 +317,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " pr %s as %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 0 0)
@@ -343,9 +343,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " pr %s as %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 0 0)
@@ -369,9 +369,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " pr %s as %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 0 0)
@@ -415,9 +415,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " hr %s sr %s qu %s bf %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)
                     (fourth setting)
                     (fifth setting)))))
@@ -443,9 +443,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " hr %s sr %s qu %s bf %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)
                     (fourth setting)
                     (fifth setting)))))
@@ -471,9 +471,9 @@ and TABLE gives the values along that dimension."
    (function
     (lambda (setting)
       (aset table
-            (first setting)
+            (cl-first setting)
             (format " hr %s sr %s qu %s bf %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)
                     (fourth setting)
                     (fifth setting)))))
@@ -511,9 +511,9 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format " ri %s sm %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 0 100)
@@ -536,9 +536,9 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format " ri %s sm %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 100 0)
@@ -561,9 +561,9 @@ and TABLE gives the values along that dimension."
   (mapcar
    (function
     (lambda (setting)
-      (aset table (first setting)
+      (aset table (cl-first setting)
             (format " ri %s sm %s "
-                    (second setting)
+                    (cl-second setting)
                     (third setting)))))
    '(
      (0 0 100)

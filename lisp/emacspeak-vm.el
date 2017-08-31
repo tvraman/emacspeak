@@ -728,7 +728,7 @@ text using wvText."
   "Helper to add a converter specification."
   (declare (special vm-mime-type-converter-alist))
   (unless
-      (find-if
+      (cl-find-if
        #'(lambda  (i)
            (string-equal (car i) (car converter)))
        vm-mime-type-converter-alist)

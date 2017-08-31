@@ -86,8 +86,8 @@ a rewrite rule even if one is already defined."
             (read-minibuffer  "Specify rewrite rule: " "(")))
     (setq redirect
           (replace-regexp-in-string
-           (first emacspeak-we-url-rewrite-rule)
-           (second emacspeak-we-url-rewrite-rule)
+           (cl-first emacspeak-we-url-rewrite-rule)
+           (cl-second emacspeak-we-url-rewrite-rule)
            url))
     (emacspeak-auditory-icon 'select-object)
     (browse-url (or redirect url))))
@@ -843,8 +843,8 @@ used as well."
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-we-url-rewrite-rule)
-             (second emacspeak-we-url-rewrite-rule)
+             (cl-first emacspeak-we-url-rewrite-rule)
+             (cl-second emacspeak-we-url-rewrite-rule)
              url)))
     (emacspeak-we-extract-by-class
      class
@@ -881,8 +881,8 @@ used as well."
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-we-url-rewrite-rule)
-             (second emacspeak-we-url-rewrite-rule)
+             (cl-first emacspeak-we-url-rewrite-rule)
+             (cl-second emacspeak-we-url-rewrite-rule)
              url)))
     (emacspeak-we-extract-by-id
      id
@@ -954,8 +954,8 @@ used as well."
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-we-url-rewrite-rule)
-             (second emacspeak-we-url-rewrite-rule)
+             (cl-first emacspeak-we-url-rewrite-rule)
+             (cl-second emacspeak-we-url-rewrite-rule)
              url)))
     (when (or prompt (null emacspeak-we-xpath-filter))
       (setq emacspeak-we-xpath-filter
@@ -1004,8 +1004,8 @@ used as well."
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-we-url-rewrite-rule)
-             (second emacspeak-we-url-rewrite-rule)
+             (cl-first emacspeak-we-url-rewrite-rule)
+             (cl-second emacspeak-we-url-rewrite-rule)
              url)))
     (when (or prompt (null emacspeak-we-class-filter))
       (setq emacspeak-we-class-filter
@@ -1050,8 +1050,8 @@ used as well."
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
             (replace-regexp-in-string
-             (first emacspeak-we-url-rewrite-rule)
-             (second emacspeak-we-url-rewrite-rule)
+             (cl-first emacspeak-we-url-rewrite-rule)
+             (cl-second emacspeak-we-url-rewrite-rule)
              url)))
     (when (or prompt
               (null emacspeak-we-xpath-junk))

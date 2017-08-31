@@ -149,7 +149,7 @@ Speak field or char moved to."
           (start nil)
           (end nil)
           (left 0)
-          (right  (first fields)))
+          (right  (cl-first fields)))
       (beginning-of-line)
       (while (and fields 
                   (<=  right col))
@@ -180,7 +180,7 @@ Speak field or char moved to."
 (defun emacspeak-analog-next-field (fields)
   "Move to next field."
   (let ((col (current-column))
-        (end (first fields)))
+        (end (cl-first fields)))
     (while (and fields 
                 (<= end col))
       (setq end (pop fields)))  
@@ -195,7 +195,7 @@ Speak field or char moved to."
   (let ((col (current-column))
         (prev 0)
         (start 0)
-        (end (first fields)))
+        (end (cl-first fields)))
     (while (and fields 
                 (< end col))
       (setq prev start

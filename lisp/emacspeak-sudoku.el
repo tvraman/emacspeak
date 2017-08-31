@@ -121,8 +121,8 @@ s   Sub-square Distribution.
 
   "speak current cell coordinates."
   (interactive)
-  (let ((row (second (sudoku-get-cell-from-point (point))))
-        (column (first (sudoku-get-cell-from-point (point)))))
+  (let ((row (cl-second (sudoku-get-cell-from-point (point))))
+        (column (cl-first (sudoku-get-cell-from-point (point)))))
     (message
      (format "Row %s Column %s"
              row column))))
@@ -133,7 +133,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-row current-board
-                                (second cell))
+                                (cl-second cell))
                     3)))
 
 (defun emacspeak-sudoku-speak-current-column ()
@@ -142,13 +142,13 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-column  current-board
-                                    (first cell))
+                                    (cl-first cell))
                     3)))
 
 (defun emacspeak-sudoku-cell-sub-square (cell)
   "Return sub-square that this cell is in."
-  (let ((row (second cell))
-        (column (first cell)))
+  (let ((row (cl-second cell))
+        (column (cl-first cell)))
     (+ (* 3 (/ row 3))
        (/ column 3))))
 
@@ -168,7 +168,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
-     (sudoku-cell current-board (first cell) (second cell)))))
+     (sudoku-cell current-board (cl-first cell) (cl-second cell)))))
 
 (defun emacspeak-sudoku-hint ()
   "Provide hint for current cell."
@@ -177,8 +177,8 @@ s   Sub-square Distribution.
   (let* ((cell (sudoku-get-cell-from-point (point)))
          (possibles (sudoku-cell-possibles
                      current-board
-                     (first cell)
-                     (second cell))))
+                     (cl-first cell)
+                     (cl-second cell))))
     (cond
      (possibles 
       (dtk-speak-list possibles))
@@ -191,7 +191,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (count 0
-            (sudoku-row current-board (second cell))))))
+            (sudoku-row current-board (cl-second cell))))))
 
 (defun emacspeak-sudoku-speak-remaining-in-column ()
   "Speaks number of remaining cells in current column."
@@ -200,7 +200,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak
      (count 0
-            (sudoku-column current-board  (first cell))))))
+            (sudoku-column current-board  (cl-first cell))))))
 
 (defun emacspeak-sudoku-speak-remaining-in-sub-square ()
   "Speaks number of remaining cells in current sub-square."
@@ -284,7 +284,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (cl-loop for i from 0 to  8
-              collect  (list i (second cell)))))
+              collect  (list i (cl-second cell)))))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
@@ -295,7 +295,7 @@ s   Sub-square Distribution.
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
      (cl-loop for i from 0 to  8
-              collect  (list (first cell) i))))
+              collect  (list (cl-first cell) i))))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
@@ -449,7 +449,7 @@ See
            ("M" emacspeak-sudoku-history-pop)
            )
          do
-         (define-key  sudoku-mode-map (first k) (second k)))
+         (define-key  sudoku-mode-map (cl-first k) (cl-second k)))
 
 ;;}}}
 (provide 'emacspeak-sudoku)
