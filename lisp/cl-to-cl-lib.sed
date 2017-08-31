@@ -1,5 +1,5 @@
 s/(declare /(cl-declare /
-s/(second /(cl-second /
+#s/(second /(cl-second /
 s/(third /(cl-third /
 s/(fourth /(cl-fourth /
 s/(third /(cl-third /
