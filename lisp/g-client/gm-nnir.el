@@ -99,7 +99,7 @@
 
 (defun gm-nnir-read-imap-clause ()
   "Read one IMap search clause with smart prompts."
-  (declare (special gm-nnir-search-criteria))
+  (cl-declare (special gm-nnir-search-criteria))
   (let*
       ((completion-ignore-case t)
        (key (upcase (completing-read "Search Clause" gm-nnir-search-criteria)))
@@ -144,7 +144,7 @@ Default is to search All Mail when not on a group."
          (nnir-query-spec (query ,q))
          (nnir-group-spec
           (
-           ,(format "nnimap:%s" (second gnus-select-method))
+           ,(format "nnimap:%s" (cl-second gnus-select-method))
            ("[Gmail]/All Mail"))))))
      (t (error "Dont know how to find default nnimap group")))))
 

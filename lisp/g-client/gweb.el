@@ -100,7 +100,7 @@
 
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
-  (declare (special gweb-search-suggest-url
+  (cl-declare (special gweb-search-suggest-url
                     gweb-completion-corpus
                     gweb-g-suggest-url))
   (unless corpus (setq corpus gweb-completion-corpus))
@@ -134,7 +134,7 @@
 
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
-  (declare (special gweb-completion-corpus))
+  (cl-declare (special gweb-completion-corpus))
   (when (and (sit-for 0.2)(stringp string) (> (length string)  0))
     (save-current-buffer
       (set-buffer

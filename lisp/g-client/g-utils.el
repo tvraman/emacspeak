@@ -126,7 +126,7 @@ Receives buffer containing HTML as its argument."
 Customize this to live on your local disk."
   :type 'file
   :set '(lambda (sym val)
-          (declare (special g-cookie-options))
+          (cl-declare (special g-cookie-options))
           (setq g-cookie-options
                 (format "--cookie %s --cookie-jar %s"
                         val val))
@@ -135,7 +135,7 @@ Customize this to live on your local disk."
 
 (defun g-cookie-jar ()
   "Return our cookie jar."
-  (declare (special g-cookie-jar))
+  (cl-declare (special g-cookie-jar))
 
   (unless g-cookie-jar (setq g-cookie-jar (make-temp-file ".g-cookie-jar")))
   g-cookie-jar)
@@ -147,7 +147,7 @@ Customize this to live on your local disk."
 
 (defun g-cookie-options ()
   "Return cookie jar options."
-  (declare (special g-cookie-options))
+  (cl-declare (special g-cookie-options))
   (unless g-cookie-options
     (setq g-cookie-options
           (format "--cookie %s --cookie-jar %s"
@@ -175,7 +175,7 @@ Customize this to live on your local disk."
 
 (defun g-curl-debug ()
   "Determines if we show stderr output."
-  (declare (special g-curl-debug))
+  (cl-declare (special g-curl-debug))
   (if g-curl-debug
       ""
     " 2>/dev/null"))
@@ -200,7 +200,7 @@ Customize this to live on your local disk."
 
 (defun g-xsl-transform-region (start end xsl)
   "Replace region by result of transforming via XSL."
-  (declare (special g-xslt-program))
+  (cl-declare (special g-xslt-program))
   (call-process-region
    start end
    g-xslt-program
@@ -220,7 +220,7 @@ Customize this to live on your local disk."
 
 (defun g-html-unescape-region (start end)
   "Unescape HTML entities."
-  (declare (special g-html-charent-alist))
+  (cl-declare (special g-html-charent-alist))
   (save-excursion
     (cl-loop for entry in g-html-charent-alist
              do
@@ -232,7 +232,7 @@ Customize this to live on your local disk."
 
 (defun g-html-escape-region (start end)
   "Escape HTML entities."
-  (declare (special g-html-charent-alist))
+  (cl-declare (special g-html-charent-alist))
   (save-excursion
     (cl-loop for entry in g-html-charent-alist
              do
@@ -313,7 +313,7 @@ references, poor-man's xpath."
 
 (defun g-get-result (command)
   "Run command and return its output."
-  (declare (special shell-file-name shell-command-switch))
+  (cl-declare (special shell-file-name shell-command-switch))
   (g-using-scratch
    (call-process shell-file-name nil t
                  nil shell-command-switch
@@ -336,7 +336,7 @@ string."
   "Display result retrieved by command using specified style.
 Typically, content is pulled using Curl , converted to HTML using style  and
   previewed via `g-html-handler'."
-  (declare (special g-xslt-program g-html-handler))
+  (cl-declare (special g-xslt-program g-html-handler))
   (g-using-scratch
    (call-process shell-file-name nil t
                  nil shell-command-switch
@@ -349,7 +349,7 @@ Typically, content is pulled using Curl , converted to HTML using style  and
   "Display XML string  using specified style.
 XML string is transformed via style
   and previewed via `g-html-handler'."
-  (declare (special g-xslt-program g-html-handler))
+  (cl-declare (special g-xslt-program g-html-handler))
   (g-using-scratch
    (insert string)
    (when style
@@ -360,7 +360,7 @@ XML string is transformed via style
   "Display XML buffer  using specified style.
 XML  is transformed via style
   and previewed via `g-html-handler'."
-  (declare (special g-xslt-program g-html-handler))
+  (cl-declare (special g-xslt-program g-html-handler))
   (save-excursion
     (set-buffer buffer)
     (when style
@@ -392,7 +392,7 @@ Note that in the Curl output, we see lf rather than crlf.")
 
 (defun g-http-headers (start end)
   "Parse HTTP headers in region and return an alist."
-  (declare (special g-crlf-pair))
+  (cl-declare (special g-crlf-pair))
   (goto-char start)
   (when (search-forward g-crlf-pair end 'no-error)
     (setq end (point)))
@@ -420,14 +420,14 @@ Note that in the Curl output, we see lf rather than crlf.")
                                 ": "))
             (when (= 2 (length fields))
               (push
-               (cons (first fields) (second fields))
+               (cons (first fields) (cl-second fields))
                headers))
             (forward-line 1))
           headers)))
 
 (defun g-http-body (start end)
   "Return body from HTTP response."
-  (declare (special g-crlf-pair))
+  (cl-declare (special g-crlf-pair))
   (goto-char start)
   (cond
    ((search-forward g-crlf-pair end 'no-error)
@@ -445,7 +445,7 @@ Note that in the Curl output, we see lf rather than crlf.")
 
 (defun g-get-user-input ()
   "Pop up a temporary buffer and collect user input."
-  (declare (special g-user-edit-buffer))
+  (cl-declare (special g-user-edit-buffer))
   (let ((annotation nil))
     (pop-to-buffer (get-buffer-create g-user-edit-buffer))
     (erase-buffer)

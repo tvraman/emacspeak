@@ -75,7 +75,7 @@
 (defun gmaps-locations-load ()
   "Load saved GMaps locations."
   (interactive)
-  (declare (special gmaps-locations-file))
+  (cl-declare (special gmaps-locations-file))
   (when (file-exists-p gmaps-locations-file)
     (load-file gmaps-locations-file)))
 
@@ -84,7 +84,7 @@
 ;;;###autoload
 (defun gmaps-address-location (address)
   "Returns gmaps--location structure. Memoized to save network calls."
-  (declare (special gmaps-location-table gmaps-locations-loaded-p))
+  (cl-declare (special gmaps-location-table gmaps-locations-loaded-p))
   (unless gmaps-locations-loaded-p (gmaps-locations-load))
   (let ((found (gethash address gmaps-location-table))
         (result nil))
@@ -125,7 +125,7 @@
 (defun gmaps-locations-save ()
   "Save GMaps Locations."
   (interactive)
-  (declare (special gmaps-locations-file gmaps-location-table))
+  (cl-declare (special gmaps-locations-file gmaps-location-table))
   (let ((buffer (find-file-noselect gmaps-locations-file))
         (print-length nil)
         (print-level nil))
@@ -153,13 +153,13 @@
 
 (defun gmaps-geocoder-url (address)
   "Return URL   for geocoding address."
-  (declare (special gmaps-geocoder-base))
+  (cl-declare (special gmaps-geocoder-base))
   (format "%saddress=%s&sensor=false"
           gmaps-geocoder-base address))
 
 (defun gmaps-reverse-geocoder-url (location)
   "Return URL   for reverse geocoding location."
-  (declare (special gmaps-geocoder-base))
+  (cl-declare (special gmaps-geocoder-base))
   (format "%slatlng=%s&sensor=false"
           gmaps-geocoder-base location))
 
@@ -222,7 +222,7 @@ Optional argument `raw-p' returns raw JSON  object."
           (string  :tag "Address"))
   :set
   #'(lambda (sym val)
-      (declare (special gweb-my-location))
+      (cl-declare (special gweb-my-location))
       (when val
         (setq gweb-my-location (gmaps-address-location val))
         (setq gweb-my-zip (gmaps--location-zip gweb-my-location))
@@ -242,7 +242,7 @@ Optional argument `raw-p' returns raw JSON  object."
 (defun gmaps-directions-url (origin destination mode)
   "Return URL   for getting directions from origin to destination.
 Parameters 'origin' and 'destination' are  be url-encoded."
-  (declare (special gmaps-directions-base))
+  (cl-declare (special gmaps-directions-base))
   (format gmaps-directions-base  origin destination
           mode (float-time)))
 
@@ -257,7 +257,7 @@ Parameters 'origin' and 'destination' are  be url-encoded."
   "Return URL  for Places services.
 Parameter `query-type' is one of nearbysearch or textsearch.
 Parameter `key' is the API  key."
-  (declare (special gmaps-places-base))
+  (cl-declare (special gmaps-places-base))
   (format gmaps-places-base  query-type key))
 
 ;;}}}
@@ -323,7 +323,7 @@ Parameter `key' is the API  key."
            ("]" forward-page)
            )
          do
-         (define-key  gmaps-mode-map (first k) (second k)))
+         (define-key  gmaps-mode-map (first k) (cl-second k)))
 
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
@@ -332,7 +332,7 @@ Parameter `key' is the API  key."
 (defun gmaps ()
   "Google Maps Interaction."
   (interactive)
-  (declare (special gmaps-interaction-buffer))
+  (cl-declare (special gmaps-interaction-buffer))
   (let ((buffer (get-buffer gmaps-interaction-buffer)))
     (cond
      ((buffer-live-p buffer) (switch-to-buffer buffer))
@@ -385,7 +385,7 @@ Parameter `key' is the API  key."
                          (g-json-get 'start_address leg)
                          (g-json-get 'end_address leg)))
          (gmaps-display-leg leg)
-         (incf i))))
+         (cl-incf i))))
       (insert (format "Warnings: %s\n" .warnings))
       (insert (format "Copyrights: %s\n\f\n" .copyrights)))))
 
@@ -393,7 +393,7 @@ Parameter `key' is the API  key."
   "Read origin and destination addresses using context-based
 guesses. Addresses are returned url-encoded; if available
 origin/destination may be returned as a lat,long string."
-  (declare (special gmaps-current-location))
+  (cl-declare (special gmaps-current-location))
   (let* ((maps-data (get-text-property (point) 'maps-data))
          (place-location (and maps-data
                               (g-json-lookup
@@ -426,7 +426,7 @@ origin/destination may be returned as a lat,long string."
       (cl-loop
        for route across routes do
        (insert (format  "\nRoute %d\n" i))
-       (incf i)
+       (cl-incf i)
        (gmaps-display-route route))))))
 
 (defun gmaps-driving-directions (origin destination)
@@ -598,7 +598,7 @@ origin/destination may be returned as a lat,long string."
 (defun gmaps-set-current-location (address)
   " Set current location."
   (interactive  "sAddress: ")
-  (declare (special gmaps-current-location))
+  (cl-declare (special gmaps-current-location))
   (setq gmaps-current-location (gmaps-address-location address))
   (message "Moved to %s" address))
 
@@ -636,7 +636,7 @@ origin/destination may be returned as a lat,long string."
             (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
 (defun gmaps-place-read-types ()
   "Returns a list of types."
-  (declare (special gmaps-place-types))
+  (cl-declare (special gmaps-place-types))
   (let ((result nil)
         (type (completing-read "Type: Blank to quit " gmaps-place-types)))
     (while (not (= 0 (length type)))
@@ -646,14 +646,14 @@ origin/destination may be returned as a lat,long string."
 
 (defun gmaps-place-read-type ()
   "Returns a type."
-  (declare (special gmaps-place-types))
+  (cl-declare (special gmaps-place-types))
   (completing-read "Type: " gmaps-place-types))
 
 (defun gmaps-set-current-filter (&optional all)
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
   (interactive "P")
-  (declare (special gmaps-current-filter gmaps-place-types))
+  (cl-declare (special gmaps-current-filter gmaps-place-types))
   (cond
    (all
     (let ((name (read-string "Name: "))
@@ -684,7 +684,7 @@ Optional interactive prefix arg prompts for all filter fields."
 (defun gmaps-set-current-radius  (radius)
   "Set current radius"
   (interactive "nRadius: ")
-  (declare (special gmaps-current-radius))
+  (cl-declare (special gmaps-current-radius))
   (setq gmaps-current-radius radius)
   (call-interactively 'gmaps-places-nearby))
 
@@ -692,7 +692,7 @@ Optional interactive prefix arg prompts for all filter fields."
   "Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters."
   (interactive "P")
-  (declare (special gmaps-current-location gmaps-current-filter
+  (cl-declare (special gmaps-current-location gmaps-current-filter
                     gmaps-places-key gmaps-places-radius))
   (unless gmaps-current-location (error "Set current location."))
   (and clear-filter (setq gmaps-current-filter nil))
@@ -738,7 +738,7 @@ Optional  prefix arg clears any active filters."
    (list
     (read-from-minibuffer "Search For: ")
     current-prefix-arg))
-  (declare (special gmaps-current-filter gmaps-places-key))
+  (cl-declare (special gmaps-current-filter gmaps-places-key))
   (and clear-filter (setq gmaps-current-filter nil))
   (goto-char (point-max))
   (let-alist
@@ -875,7 +875,7 @@ Optional  prefix arg clears any active filters."
   "Display details for place at point.
 Insert reviews if already displaying details."
   (interactive)
-  (declare (special gmaps-places-key))
+  (cl-declare (special gmaps-places-key))
   (unless (eq major-mode 'gmaps-mode) (error "Not in a Google Maps buffer."))
   (unless
       (or (get-text-property  (point) 'maps-data)

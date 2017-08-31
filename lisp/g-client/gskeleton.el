@@ -86,7 +86,7 @@
 
 (defun gskeleton-p (service)
   "Check if this is Skeleton."
-  (declare (special gskeleton-service-name))
+  (cl-declare (special gskeleton-service-name))
   (string-equal service gskeleton-service-name))
 
 ;;}}}
@@ -94,7 +94,7 @@
 
 (defun make-gskeleton-auth ()
   "Make a new gskeleton auth handle."
-  (declare (special gskeleton-service-name
+  (cl-declare (special gskeleton-service-name
                     gskeleton-user-email gskeleton-user-password))
   (make-g-auth :service gskeleton-service-name
                :email gskeleton-user-email
@@ -105,7 +105,7 @@
 
 (defun gskeleton-authenticate ()
   "Authenticate into Google Skeleton."
-  (declare (special gskeleton-auth-handle))
+  (cl-declare (special gskeleton-auth-handle))
   (g-authenticate gskeleton-auth-handle))
 
 ;;}}}
@@ -116,13 +116,13 @@
   "URL template for feed of feeds from skeleton.")
 (defun gskeleton-feeds-url (userid)
   "Return url for feed of feeds."
-  (declare (special gskeleton-feeds-template-url))
+  (cl-declare (special gskeleton-feeds-template-url))
   (format gskeleton-feeds-template-url userid))
 
 (defun gskeleton-skels ()
   "Retrieve and display feed of feeds after authenticating."
   (interactive)
-  (declare (special gskeleton-auth-handle
+  (cl-declare (special gskeleton-auth-handle
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
                     g-cookie-options))
@@ -143,7 +143,7 @@
 (defun gskeleton-sign-out()
   "Resets client so you can start with a different userid."
   (interactive)
-  (declare (special gskeleton-auth-handle
+  (cl-declare (special gskeleton-auth-handle
                     gskeleton-user-email gskeleton-user-password))
   (message "Signing out %s from Skeleton"
            (g-auth-email gskeleton-auth-handle))
@@ -155,7 +155,7 @@
 (defun gskeleton-sign-in()
   "Resets client so you can start with a different userid."
   (interactive)
-  (declare (special gskeleton-auth-handle gskeleton-user-email))
+  (cl-declare (special gskeleton-auth-handle gskeleton-user-email))
   (setq gskeleton-user-email
         (read-from-minibuffer "User Email:"))
   (setq gskeleton-auth-handle (make-gskeleton-auth))

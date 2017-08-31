@@ -81,7 +81,7 @@
 
 (defun g-autogen-generate-autoloads ()
   "Generate G autoloads."
-  (declare (special  g-autogen-autoloads-file
+  (cl-declare (special  g-autogen-autoloads-file
                      g-autogen-updator g-directory))
   (let ((generated-autoload-file g-autogen-autoloads-file))
     (funcall g-autogen-updator g-directory)))
@@ -95,7 +95,7 @@
 
 (defun g-autogen-custom-make-dependencies ()
   "Generate G custom dependencies."
-  (declare (special  g-autogen-custom-dependencies-file))
+  (cl-declare (special  g-autogen-custom-dependencies-file))
   (let ((generated-custom-dependencies-file g-autogen-custom-dependencies-file))
     (custom-make-dependencies)))
 
