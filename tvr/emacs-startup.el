@@ -131,10 +131,10 @@ which defaults to emacs-personal-library."
     ;;{{{ Augment Load Path:
 
     (when (file-exists-p  emacs-private-library)
-      (augment-load-path emacs-private-library ))
+      (push emacs-private-library load-path))
 
     (when (file-exists-p  emacs-personal-library)
-      (augment-load-path emacs-personal-library))
+      (push emacs-personal-library load-path))
     (package-initialize)
     ;;}}}
     ;;{{{ Load and customize emacspeak
