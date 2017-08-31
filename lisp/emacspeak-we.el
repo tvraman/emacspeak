@@ -1078,7 +1078,7 @@ and provide a completion list of applicable  property values. Filter document by
     current-prefix-arg))
   (let* ((completion-ignore-case t)
          (choices
-          (mapcar 'symbol-name (intersection
+          (mapcar 'symbol-name (cl-intersection
                                 '(id class style role)
                                 (emacspeak-webutils-property-names-from-html-stack (emacspeak-w3-html-stack)))))
          (property
