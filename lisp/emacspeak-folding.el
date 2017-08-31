@@ -101,7 +101,7 @@ Then speak the folded line."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end: 
 
 ;;}}}

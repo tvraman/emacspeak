@@ -323,7 +323,7 @@ If we are on the last call, do nothing."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end: 
 
 ;;}}}

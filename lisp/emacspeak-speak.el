@@ -3708,7 +3708,7 @@ This command  is designed for use in a windowing environment like X."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}

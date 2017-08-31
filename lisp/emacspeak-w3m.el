@@ -719,7 +719,7 @@ instead of the modeline."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}

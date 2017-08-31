@@ -187,7 +187,7 @@ Otherwise cue user to the line just created."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end: 
 
 ;;}}}

@@ -213,7 +213,7 @@ They have to be redefined and rebound to make them talk in versions older than E
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}

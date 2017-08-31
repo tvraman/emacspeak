@@ -136,7 +136,7 @@ Useful in voiceifying rich text."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end: 
 
 ;;}}}

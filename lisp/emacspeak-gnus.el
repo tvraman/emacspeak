@@ -945,6 +945,6 @@ Helps to prevent words from being spelled instead of spoken."
 ;;{{{  end of file 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end: 
 ;;}}}

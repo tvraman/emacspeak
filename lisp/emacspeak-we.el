@@ -1166,7 +1166,7 @@ and provide a completion list of applicable  property values. Filter document by
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
+;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}
