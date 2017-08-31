@@ -420,7 +420,7 @@ and TABLE gives the values along that dimension."
                     (cl-second setting)
                     (cl-third setting)
                     (cl-fourth setting)
-                    (fifth setting)))))
+                    (cl-fifth setting)))))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -448,7 +448,7 @@ and TABLE gives the values along that dimension."
                     (cl-second setting)
                     (cl-third setting)
                     (cl-fourth setting)
-                    (fifth setting)))))
+                    (cl-fifth setting)))))
    '(
      (0  0 0 0 0)
      (1 4 6 2 2)
@@ -476,7 +476,7 @@ and TABLE gives the values along that dimension."
                     (cl-second setting)
                     (cl-third setting)
                     (cl-fourth setting)
-                    (fifth setting)))))
+                    (cl-fifth setting)))))
    '(
      (0  1 1 0 0)
      (1 3 4 11 0)

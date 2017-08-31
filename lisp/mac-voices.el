@@ -312,7 +312,7 @@ and TABLE gives the values along that dimension."
                     (cl-second setting)
                     (cl-third setting)
                     (cl-fourth setting)
-                    (fifth setting)
+                    (cl-fifth setting)
                     ))))
    '(
      (0 1 1 0.1 0.1)
