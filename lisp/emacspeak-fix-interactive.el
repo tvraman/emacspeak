@@ -40,6 +40,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'dtk-speak)
 ;;{{{  Introduction:
