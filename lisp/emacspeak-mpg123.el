@@ -238,7 +238,7 @@ to skip to the next track. "
   (kill-process emacspeak-mp3-playlist-process)
   (message "Stopped playlist. "))
 
-(declaim (special mpg123-mode-map))
+(cl-declaim (special mpg123-mode-map))
 
 (define-key  mpg123-mode-map "L"
   'emacspeak-mp3-playlist-play)

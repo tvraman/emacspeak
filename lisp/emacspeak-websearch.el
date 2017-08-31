@@ -714,7 +714,7 @@ https://www.google.com/options/specialsearches.html "
               (max from to))))))
 
 (when (featurep 'calendar)
-  (declaim (special calendar-mode-map))
+  (cl-declaim (special calendar-mode-map))
   (define-key calendar-mode-map "gg"
     'emacspeak-websearch-google-search-in-date-range))
 

@@ -531,7 +531,7 @@ element. "
 ;;}}}
 ;;{{{ silence  w3 package
 
-(declaim (special url-http-version))
+(cl-declaim (special url-http-version))
 (setq url-http-version "1.0")
 
 (defadvice w3-fetch-callback
@@ -742,7 +742,7 @@ HTML."
 
 ;;; fix mm-inline-types
 (require 'mm-decode)
-(declaim (special  mm-inline-media-tests))
+(cl-declaim (special  mm-inline-media-tests))
 (cl-loop for mm in
          '("application/xml"
            "application/xml+xhtml"

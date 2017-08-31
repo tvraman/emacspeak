@@ -262,7 +262,7 @@ applied."
 ;;}}}
 ;;{{{ loading, clearing and saving dictionaries
 
-(declaim (special emacspeak-resource-directory))
+(cl-declaim (special emacspeak-resource-directory))
 
 (defcustom emacspeak-pronounce-dictionaries-file
   (expand-file-name ".dictionary"

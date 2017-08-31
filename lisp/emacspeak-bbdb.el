@@ -52,9 +52,9 @@
 ;;{{{  Variable settings:
 
 ;;; Emacspeak will not work if bbdb is in electric mode
-(declaim (special bbdb-electric-p))
+(cl-declaim (special bbdb-electric-p))
 (setq bbdb-electric-p nil)
-(declaim (special bbdb-mode-map))
+(cl-declaim (special bbdb-mode-map))
 
 (add-hook 'bbdb-mode-hook
           (function (lambda ()

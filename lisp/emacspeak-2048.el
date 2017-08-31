@@ -283,7 +283,7 @@ Optional interactive prefix arg prompts for a filename."
 
 (defun emacspeak-2048-setup ()
   "Emacspeak setup for 2048."
-  (declaim (special  2048-mode-map))
+  (cl-declaim (special  2048-mode-map))
   (voice-lock-mode -1)
   (define-key 2048-mode-map "#" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
@@ -309,7 +309,7 @@ Optional interactive prefix arg prompts for a filename."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-pronounce-define-local-pronunciation "0" "o")
   (emacspeak-2048-speak-board))
-(declaim (special-display-p 2048-mode-hook))
+(cl-declaim (special-display-p 2048-mode-hook))
 (add-hook '2048-mode-hook 'emacspeak-2048-setup)
 ;;}}}
 ;;{{{ Counting moves:

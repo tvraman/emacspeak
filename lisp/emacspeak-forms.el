@@ -254,7 +254,7 @@ Assumes that point is at the front of a field value."
 
 ;;}}}
 ;;{{{ bind smart filters
-(declaim (special forms-mode-map forms-mode-ro-map
+(cl-declaim (special forms-mode-map forms-mode-ro-map
                   forms-mode-edit-map))
 (add-hook 'forms-mode-hooks
           (function

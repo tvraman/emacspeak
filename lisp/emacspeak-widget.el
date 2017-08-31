@@ -77,7 +77,7 @@
    (widget-inactive voice-lighten)
    ))
 
-(declaim (special widget-menu-minibuffer-flag))
+(cl-declaim (special widget-menu-minibuffer-flag))
 (setq  widget-menu-minibuffer-flag t)
 
 ;;}}}
@@ -691,7 +691,7 @@ widget before summarizing."
     (widget-apply w :notify)
     (emacspeak-widget-summarize w)))
 
-(declaim (special widget-keymap
+(cl-declaim (special widget-keymap
                   widget-field-keymap
                   widget-text-keymap))
 

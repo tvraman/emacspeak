@@ -88,7 +88,7 @@ a local  Emacspeak terminal buffer.")
 
 ;;;Remote hostname guessing
 ;;;
-(declaim (special emacspeak-resource-directory))
+(cl-declaim (special emacspeak-resource-directory))
 
 (defvar emacspeak-remote-hostname
   (expand-file-name  ".current-remote-hostname"

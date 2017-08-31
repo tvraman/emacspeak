@@ -214,7 +214,7 @@ nil)
 (add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
 ;;}}}
 ;;{{{ Pronunciations
-(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
+(cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'jabber-chat-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 (emacspeak-pronounce-augment-pronunciations 'jabber-mode

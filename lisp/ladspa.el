@@ -268,7 +268,7 @@ list of parsed ladspa-plugin structures, one per label."
 (declare-function emacspeak-m-player-add-ladspa "emacspeak-m-player.el")
 (declare-function emacspeak-m-player-delete-ladspa "emacspeak-m-player.el")
 
-(declaim (special ladspa-mode-map))
+(cl-declaim (special ladspa-mode-map))
 (cl-loop for k in
          '(
            ("RET" ladspa-instantiate)

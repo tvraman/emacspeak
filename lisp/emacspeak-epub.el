@@ -824,7 +824,7 @@ Letters do not insert themselves; instead, they are commands.
   (cd-absolute emacspeak-epub-library-directory)
   (emacspeak-epub-bookshelf-refresh))
 
-(declaim (special emacspeak-epub-mode-map))
+(cl-declaim (special emacspeak-epub-mode-map))
 (cl-loop for k in
          '(
            ("/" emacspeak-epub-calibre-results)
@@ -1116,7 +1116,7 @@ Letters do not insert themselves; instead, they are commands.
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(declaim (special emacspeak-calibre-mode-map))
+(cl-declaim (special emacspeak-calibre-mode-map))
 (define-key emacspeak-calibre-mode-map [Return] 'emacspeak-epub-calibre-dired-at-point)
 
 (defun emacspeak-epub-calibre-results ()

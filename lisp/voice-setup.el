@@ -514,7 +514,7 @@ command \\[customize-variable] on <personality>-settings. "
   :version "24.1")
 
 ;; Install ourselves:
-(declaim (special text-property-default-nonsticky))
+(cl-declaim (special text-property-default-nonsticky))
 (unless (assq 'personality text-property-default-nonsticky)
   (push  (cons 'personality t) text-property-default-nonsticky))
 

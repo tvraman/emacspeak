@@ -1101,7 +1101,7 @@ and provide a completion list of applicable  property values. Filter document by
 ;;}}}
 ;;{{{  xsl keymap
 
-(declaim (special emacspeak-we-xsl-map))
+(cl-declaim (special emacspeak-we-xsl-map))
 
 (cl-loop for binding in
          '(

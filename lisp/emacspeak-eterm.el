@@ -1290,7 +1290,7 @@ completions for filename at point")))
 host. Hosts are added whenever a new hostname is encountered, and the
 list of known hostnames is persisted in file named by
 emacspeak-eterm-remote-hostnames")
-(declaim (special emacspeak-resource-directory))
+(cl-declaim (special emacspeak-resource-directory))
 (defcustom emacspeak-eterm-remote-hosts-cache
   (expand-file-name ".hosts" emacspeak-resource-directory)
   "File where list of known remote hosts is cached"

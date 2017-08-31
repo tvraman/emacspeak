@@ -713,7 +713,7 @@ icon."
 (defvar emacspeak-speak-signals t
   "Specifies if signalled messages are cued.")
 
-(declaim (special command-error-function))
+(cl-declaim (special command-error-function))
 (when (boundp 'command-error-function)
   (setq command-error-function 'emacspeak-error-handler))
 
@@ -999,7 +999,7 @@ icon."
  '(
    (comint-highlight-prompt voice-monotone)
    (comint-highlight-input voice-bolden)))
-(declaim (special emacspeak-pronounce-sha-checksum-pattern))
+(cl-declaim (special emacspeak-pronounce-sha-checksum-pattern))
 
 (emacspeak-pronounce-add-dictionary-entry
  'comint-mode
@@ -1007,7 +1007,7 @@ icon."
  (cons 're-search-forward
        'emacspeak-pronounce-sha-checksum))
 
-(declaim (special emacspeak-pronounce-uuid-pattern))
+(cl-declaim (special emacspeak-pronounce-uuid-pattern))
 
 (emacspeak-pronounce-add-dictionary-entry
  'comint-mode
@@ -2176,7 +2176,7 @@ Produce an auditory icon if possible."
 
 ;;; Fix key bindings:
 
-(declaim (special isearch-mode-map
+(cl-declaim (special isearch-mode-map
                   minibuffer-local-isearch-map emacspeak-prefix))
 
 (define-key minibuffer-local-isearch-map

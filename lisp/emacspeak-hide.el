@@ -64,7 +64,7 @@
   :group 'emacspeak-hide)
 
 ;;; forcibly set this to t to avoid a possible Emacs bug:
-(declaim (special line-move-ignore-invisible))
+(cl-declaim (special line-move-ignore-invisible))
 (setq line-move-ignore-invisible t)
 
 ;;}}}

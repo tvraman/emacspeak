@@ -117,7 +117,7 @@
   (forward-line 2)
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'large-movement))
-(declaim (special eperiodic-mode-map))
+(cl-declaim (special eperiodic-mode-map))
 (when (boundp 'eperiodic-mode-map)
   (define-key eperiodic-mode-map " " 'emacspeak-eperiodic-speak-current-element)
   (define-key  eperiodic-mode-map "x" 'emacspeak-eperiodic-goto-property-section)

@@ -556,7 +556,7 @@ b Browse
     (setq header-line-format "Bookshare Library")
     (cd-absolute emacspeak-bookshare-directory)))
 
-(declaim (special emacspeak-bookshare-mode-map))
+(cl-declaim (special emacspeak-bookshare-mode-map))
 
 (cl-loop
  for a in

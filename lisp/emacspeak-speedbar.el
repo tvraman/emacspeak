@@ -235,7 +235,7 @@ An automatically updating speedbar consumes resources.")
 
 ;;}}}
 ;;{{{  hooks
-(declaim (special speedbar-mode-map))
+(cl-declaim (special speedbar-mode-map))
 (eval-when (load)
            )
 (defun emacspeak-speedbar-enter-hook ()
@@ -322,7 +322,7 @@ An automatically updating speedbar consumes resources.")
 
 ;;}}}
 ;;{{{ keys 
-(declaim (special emacspeak-keymap))
+(cl-declaim (special emacspeak-keymap))
 
                                         ;(define-key emacspeak-keymap '[insert] 'emacspeak-speedbar-goto-speedbar)
 

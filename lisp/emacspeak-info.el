@@ -244,7 +244,7 @@ node-spec."
 ;;}}}
 ;;{{{ keymaps
 
-(declaim (special Info-mode-map))
+(cl-declaim (special Info-mode-map))
 (define-key Info-mode-map "T" 'emacspeak-info-speak-header)
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 (define-key Info-mode-map "\M-n" 'emacspeak-info-next-section)

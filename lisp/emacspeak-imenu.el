@@ -203,7 +203,7 @@
 ;;}}}
 ;;{{{ customize settings
 
-(declaim (special imenu-space-replacement
+(cl-declaim (special imenu-space-replacement
                   imenu-max-items))
 (setq imenu-space-replacement "."
       imenu-max-items 200)

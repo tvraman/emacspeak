@@ -1040,7 +1040,7 @@ Signals beginning  of buffer."
   (expand-file-name  "etc/" emacspeak-directory)
   "Directory containing miscellaneous files  for Emacspeak.")
 
-(declaim (special emacspeak-etc-directory))
+(cl-declaim (special emacspeak-etc-directory))
 (defvar emacspeak-wizards-table-content-extractor
   (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
@@ -1888,7 +1888,7 @@ Ubuntu and Debian this is group `tty'."
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'open-object))
 
-(declaim (special emacspeak-wizards-vc-viewer-mode-map))
+(cl-declaim (special emacspeak-wizards-vc-viewer-mode-map))
 
 (define-key  emacspeak-wizards-vc-viewer-mode-map
   "\C-l" 'emacspeak-wizards-vc-viewer-refresh)

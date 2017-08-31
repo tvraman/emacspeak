@@ -233,7 +233,7 @@
         (define-key keymap (concat emacspeak-prefix "e") orig)
         (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig)))))
 
-(declaim (special
+(cl-declaim (special
           evil-normal-state-map evil-insert-state-map
           evil-visual-state-map evil-replace-state-map
           evil-operator-state-map evil-motion-state-map))

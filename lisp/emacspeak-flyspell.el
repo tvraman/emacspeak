@@ -80,7 +80,7 @@ fly spell checking."
 ;;}}}
 ;;{{{ advice
 
-(declaim (special flyspell-delayed-commands))
+(cl-declaim (special flyspell-delayed-commands))
 (when (fboundp 'emacspeak-self-insert-command)
   (push 'emacspeak-self-insert-command flyspell-delayed-commands))
 

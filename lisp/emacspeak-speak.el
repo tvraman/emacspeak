@@ -1729,12 +1729,12 @@ indicating the arrival  of new mail when displaying the mode line.")
         (+ 1 (count-lines start (point)))))))
 
 ;;; make line-number-mode buffer local
-(declaim (special line-number-mode))
+(cl-declaim (special line-number-mode))
 (make-variable-buffer-local 'line-number-mode)
 (setq-default line-number-mode nil)
 
 ;;; make column-number-mode buffer local
-(declaim (special column-number-mode))
+(cl-declaim (special column-number-mode))
 (make-variable-buffer-local 'column-number-mode)
 (setq-default column-number-mode nil)
 ;;{{{   mode line speaker
@@ -3340,7 +3340,7 @@ char, or dont move. "
 
 (add-hook 'completion-setup-hook 'emacspeak-completion-setup-hook)
 
-(declaim (special completion-list-mode-map))
+(cl-declaim (special completion-list-mode-map))
 (define-key completion-list-mode-map "\C-o" 'emacspeak-switch-to-reference-buffer)
 (define-key completion-list-mode-map " "'next-completion)
 (define-key completion-list-mode-map "\C-m"  'choose-completion)

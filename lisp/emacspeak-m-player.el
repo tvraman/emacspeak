@@ -1082,7 +1082,7 @@ arg `reset' starts with all filters set to 0."
 ;;}}}
 ;;{{{ Key Bindings:
 
-(declaim (special emacspeak-m-player-mode-map))
+(cl-declaim (special emacspeak-m-player-mode-map))
 
 (defvar emacspeak-m-player-bindings
   '(

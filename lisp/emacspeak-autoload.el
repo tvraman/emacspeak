@@ -50,7 +50,7 @@
 ;;}}}
 ;;{{{ Variables
 
-(declaim (special emacspeak-lisp-directory))
+(cl-declaim (special emacspeak-lisp-directory))
 (defvar emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory)
   "File that holds automatically generated autoloads for

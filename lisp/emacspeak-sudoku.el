@@ -413,7 +413,7 @@ See
 ;;}}}
 ;;{{{ setup keymap:
 
-(declaim (special sudoku-mode-map))
+(cl-declaim (special sudoku-mode-map))
 (cl-loop for k in
          '(
            ("u" emacspeak-sudoku-up-sub-square)

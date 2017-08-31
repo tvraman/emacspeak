@@ -380,7 +380,7 @@ Then speak the screenful. "
 ;;}}}
 ;;{{{  Keybindings:
 (when (boundp 'vm-mode-map)
-  (declaim  (special
+  (cl-declaim  (special
              vm-mode-map
              global-map emacspeak-prefix emacspeak-keymap))
   (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
@@ -481,7 +481,7 @@ Leave point at front of decoded attachment."
           #'(lambda nil
               (emacspeak-pronounce-refresh-pronunciations)))
 
-(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
+(cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (cl-loop
  for hook in
  '(mail-mode-hook vm-presentation-mode-hook)

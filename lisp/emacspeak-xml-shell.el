@@ -313,7 +313,7 @@ HTML head if none found."
 ;;}}}
 ;;{{{ keybindings
 
-(declaim (special emacspeak-xml-shell-mode-map))
+(cl-declaim (special emacspeak-xml-shell-mode-map))
 (define-key emacspeak-xml-shell-mode-map [left] 
   'emacspeak-xml-shell-goto-previous-child)
 (define-key emacspeak-xml-shell-mode-map [right] 

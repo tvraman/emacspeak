@@ -78,7 +78,7 @@
 ;;;###autoload
 (define-prefix-command 'emacspeak-web-prefix)
 
-(declaim (special emacspeak-web-prefix))
+(cl-declaim (special emacspeak-web-prefix))
 (cl-loop for k in
          '(
            ("R" emacspeak-xslt-view-region)

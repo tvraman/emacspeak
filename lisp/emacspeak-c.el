@@ -429,7 +429,7 @@ and their meanings. ")
 ;;}}}
 ;;{{{ Additional keybindings:
 
-(declaim (special c-mode-map
+(cl-declaim (special c-mode-map
                   c-mode-base-map))
 (add-hook 'c-mode-common-hook
           (function (lambda ()

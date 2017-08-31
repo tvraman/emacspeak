@@ -64,7 +64,7 @@ instead of the modeline."
 ;;{{{ keybindings
 (add-hook 'w3m-display-hook 'emacspeak-webutils-run-post-process-hook)
 (when (boundp 'w3m-mode-map)
-  (declaim (special w3m-mode-map
+  (cl-declaim (special w3m-mode-map
                     emacspeak-prefix))
   (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
   (define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)

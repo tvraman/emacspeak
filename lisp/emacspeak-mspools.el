@@ -67,7 +67,7 @@
   (emacspeak-speak-line))
 ;;}}}
 ;;{{{ keymaps
-(declaim (special mspools-mode-map))
+(cl-declaim (special mspools-mode-map))
 (eval-when (load)
            (require 'emacspeak-keymap)
            )

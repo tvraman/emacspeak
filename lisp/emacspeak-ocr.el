@@ -223,7 +223,7 @@ will be placed."
 
 ;;}}}
 ;;{{{  emacspeak-ocr mode
-(declaim (special emacspeak-ocr-mode-map))
+(cl-declaim (special emacspeak-ocr-mode-map))
 
 (define-derived-mode emacspeak-ocr-mode text-mode 
   "Major mode for document scanning and  OCR.\n"

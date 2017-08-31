@@ -49,7 +49,7 @@
 ;;{{{  Setup view mode to work with emacspeak
 
 ;;; restore emacspeak keybindings:
-(declaim (special emacspeak-prefix))
+(cl-declaim (special emacspeak-prefix))
 (add-hook 'view-mode-hook
           (function (lambda ()
                       (local-unset-key emacspeak-prefix)

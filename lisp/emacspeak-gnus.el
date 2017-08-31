@@ -123,9 +123,9 @@ instead you hear only the first screenful."
   "Article headers to ignore when only important article headers are to be
 spoken.
 See command \\[emacspeak-gnus-summary-show-some-headers].")
-(declaim (special gnus-ignored-headers))
+(cl-declaim (special gnus-ignored-headers))
 (setq gnus-ignored-headers "^.*:")
-(declaim (special gnus-visible-headers))
+(cl-declaim (special gnus-visible-headers))
 (setq gnus-visible-headers "^Subject:")
 
 (defun emacspeak-gnus-summary-show-some-headers ()

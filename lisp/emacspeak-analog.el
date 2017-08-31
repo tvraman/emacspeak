@@ -230,7 +230,7 @@ Speak field or char moved to."
 ;;}}}
 ;;{{{ key bindings
 (when (boundp 'analog-mode-map)
-  (declaim (special analog-mode-map))
+  (cl-declaim (special analog-mode-map))
   (define-key analog-mode-map '[left]
     'emacspeak-analog-backward-field-or-char)
   (define-key analog-mode-map '[right] 'emacspeak-analog-forward-field-or-char)

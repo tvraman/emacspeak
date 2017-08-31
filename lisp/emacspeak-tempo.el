@@ -53,7 +53,7 @@
 
 ;;; Prompting in the minibuffer is useful:
 
-(declaim  (special tempo-interactive))
+(cl-declaim  (special tempo-interactive))
 (setq tempo-interactive t)
 (add-hook 'tempo-insert-string-hook
           (function (lambda (string)

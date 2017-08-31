@@ -222,7 +222,7 @@
 
 ;;}}}
 ;;{{{  keys 
-(declaim (special calculator-mode-map))
+(cl-declaim (special calculator-mode-map))
 (when (boundp 'calculator-mode-map)
   (define-key calculator-mode-map "k" 'calculator-copy)
   (define-key calculator-mode-map "p" 'calculator-paste)

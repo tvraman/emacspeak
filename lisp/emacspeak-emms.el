@@ -114,7 +114,7 @@
 
 ;;}}}
 ;;{{{ Module emms-streaming:
-(declaim (special emms-stream-mode-map))
+(cl-declaim (special emms-stream-mode-map))
 (defadvice emms-stream-mode (after emacspeak pre act comp)
   "Update keymaps."
   (define-key emms-stream-mode-map "\C-e"

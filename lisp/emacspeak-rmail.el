@@ -51,7 +51,7 @@
 ;;}}}
 ;;{{{  customizations:
 
-(declaim (special rmail-ignored-headers))
+(cl-declaim (special rmail-ignored-headers))
 (setq rmail-ignored-headers
       (concat "^X-\\|"
               "^Content-\\|"
@@ -236,7 +236,7 @@
 ;;}}}
 ;;{{{  key bindings
 
-(declaim (special rmail-mode-map))
+(cl-declaim (special rmail-mode-map))
 (define-key rmail-mode-map "\C-m" 'emacspeak-rmail-summarize-current-message)
 (define-key rmail-mode-map "L" 'emacspeak-rmail-speak-current-message-labels)
 

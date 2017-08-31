@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{  variables
 
-(declaim (special emacspeak-sounds-directory))
+(cl-declaim (special emacspeak-sounds-directory))
 
 ;;}}}
 ;;{{{ personalities 
@@ -93,7 +93,7 @@ server."
 
 ;;}}}
 ;;{{{ advice interactive commands
-(declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
+(cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (emacspeak-pronounce-augment-pronunciations 'erc-mode
                                             emacspeak-pronounce-internet-smileys-pronunciations)
 
@@ -306,7 +306,7 @@ set the current local value to the result.")
 
 ;;}}}
 ;;{{{ define emacspeak keys
-(declaim (special erc-mode-map))
+(cl-declaim (special erc-mode-map))
 (define-key erc-mode-map "\C-c "
   'emacspeak-erc-toggle-speak-all-participants)
 (define-key erc-mode-map "\C-cm"

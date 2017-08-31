@@ -137,7 +137,7 @@ Summarize the form to welcome the user. "
 ;;}}}
 ;;{{{ bind additional commands 
 
-(declaim (special eudc-mode-map))
+(cl-declaim (special eudc-mode-map))
 (when (boundp 'eudc-mode-map)
   (define-key eudc-mode-map "m" 'emacspeak-eudc-send-mail)
   )

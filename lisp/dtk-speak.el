@@ -1143,7 +1143,7 @@ available TTS servers.")
 (defvar dtk-character-to-speech-table
   (make-vector 256 "")
   "Maps characters to pronunciation strings.")
-(declaim (special dtk-character-to-speech-table))
+(cl-declaim (special dtk-character-to-speech-table))
 
 ;;;  Assign entries in the table:
 (defun dtk-speak-setup-character-table ()

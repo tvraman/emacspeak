@@ -65,7 +65,7 @@
   "Major mode for Webspace interaction.\n\n
 \\{emacspeak-webspace-mode-map}")
 
-(declaim (special emacspeak-webspace-mode-map))
+(cl-declaim (special emacspeak-webspace-mode-map))
 (set-keymap-parent emacspeak-webspace-mode-map button-buffer-map)
 (cl-loop for k in
          '(
@@ -142,7 +142,7 @@ Generates auditory and visual display."
 ;;;###autoload
 (define-prefix-command 'emacspeak-webspace 'emacspeak-webspace-keymap)
 
-(declaim (special emacspeak-webspace-keymap))
+(cl-declaim (special emacspeak-webspace-keymap))
 
 (cl-loop for k in
          '(

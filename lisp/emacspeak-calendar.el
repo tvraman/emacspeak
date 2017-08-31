@@ -157,7 +157,7 @@
   '((:eval (calendar-date-string (calendar-cursor-to-date t))))
   "Header line used by Emacspeak in calendar.")
 
-(declaim (special calendar-mode-line-format))
+(cl-declaim (special calendar-mode-line-format))
 (setq calendar-mode-line-format
       emacspeak-calendar-mode-line-format)
 
@@ -392,7 +392,7 @@
 
 ;;; For the present, we just take over and speak the appointment.
 
-(declaim (special appt-display-duration))
+(cl-declaim (special appt-display-duration))
 (setq appt-display-duration 90)
 
 (defun emacspeak-appt-speak-appointment (minutes-left new-time message)
@@ -409,7 +409,7 @@
          (set-buffer appt-buffer-name)
          (erase-buffer))))
 
-(declaim (special appt-delete-window
+(cl-declaim (special appt-delete-window
                   appt-disp-window-function))
 
 (setq appt-disp-window-function 'emacspeak-appt-speak-appointment)
