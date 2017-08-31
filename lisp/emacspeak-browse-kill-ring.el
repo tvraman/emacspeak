@@ -46,7 +46,7 @@
 ;;{{{ required modules
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;}}}
