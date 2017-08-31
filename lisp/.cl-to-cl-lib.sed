@@ -7,5 +7,5 @@
 #s/(delete-if /(cl-delete-if /
 #s/(remprop /(cl-remprop /
 #s/(incf /(cl-incf /
-#s/(require 'cl)/(require 'cl-lib)/
-#s/cl-lib))/cl))/
+s/(require 'cl)/(require 'cl-lib)/
+s/cl-lib))/cl))/
