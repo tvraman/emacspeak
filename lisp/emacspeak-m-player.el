@@ -672,21 +672,21 @@ This affects pitch."
   (emacspeak-m-player-dispatch
    (format "seek %s" offset)))
 
-(defun emacspeak-m-player-seek-percentage (position)
-  "Seek  to absolute specified position in percent."
+(defun emacspeak-m-player-seek-percentage (pos)
+  "Seek  to absolute specified pos in percent."
   (interactive
    (list
     (read-from-minibuffer "Seek to percentage: ")))
   (emacspeak-m-player-dispatch
-   (format "seek %s 1" position)))
+   (format "seek %s 1" pos)))
 
-(defun emacspeak-m-player-seek-absolute (position)
-  "Seek  to absolute specified position in seconds."
+(defun emacspeak-m-player-seek-absolute (pos)
+  "Seek  to absolute specified pos in seconds."
   (interactive
    (list
-    (read-from-minibuffer "Seek to position in seconds: ")))
+    (read-from-minibuffer "Seek to pos in seconds: ")))
   (emacspeak-m-player-dispatch
-   (format "seek %s 2" position)))
+   (format "seek %s 2" pos)))
 
 (defun emacspeak-m-player-beginning-of-track()
   "Move to beginning of track."
@@ -1230,16 +1230,16 @@ emacspeak-silence-hook."
 Interactive prefix arg prompts for position.
 As the default, use current position."
   (interactive "sAMark Name:\nP")
-  (let* ((position (emacspeak-m-player-get-position))
-         (file-name (cl-second position)))
+  (let* ((pos (emacspeak-m-player-get-position))
+         (file-name (cl-second pos)))
     (when
         (and file-name  (not (zerop (length file-name))))
-      (setq position
+      (setq pos
             (cond
              (prompt-position (read-number "Position: "))
-             (t  (cl-first position))))
-      (emacspeak-amark-add file-name name position)
-      (message "Added Amark %s in %s at %s" name file-name position))))
+             (t  (cl-first pos))))
+      (emacspeak-amark-add file-name name pos)
+      (message "Added Amark %s in %s at %s" name file-name pos))))
 
 (defun ems-file-index (name file-list)
   "Return index of name in file-list."

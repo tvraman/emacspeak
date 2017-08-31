@@ -115,7 +115,7 @@
   (cl-declare (special emacspeak-imenu-flattened-index-alist
                     emacspeak-imenu-autospeak
                     imenu--index-alist))
-  (let ((position (point))
+  (let ((pos (point))
         (guess 0)
         (target (point-max)))
     (unless imenu--index-alist (imenu--make-index-alist 'no-error))
@@ -132,7 +132,7 @@
                     ((markerp (cdr item))
                      (marker-position (cdr item)))
                     (t (cdr item))))
-             (when (< position guess)
+             (when (< pos guess)
                (if (< guess target)
                    (setq target guess))))
     (goto-char target)
@@ -145,13 +145,13 @@
         (goto-char (overlay-end (car (overlays-at (point)))))))))
 
 ;;;###autoload
-(defun emacspeak-imenu-goto-previous-index-position ()
-  "Goto the previous index position in current buffer"
+(defun emacspeak-imenu-goto-previous-index-pos ()
+  "Goto the previous index pos in current buffer"
   (interactive)
   (cl-declare (special emacspeak-imenu-flattened-index-alist
                     emacspeak-imenu-autospeak
                     imenu--index-alist))
-  (let ((position (point))
+  (let ((pos (point))
         (guess 0)
         (target (point-min)))
     (unless imenu--index-alist (imenu--make-index-alist 'no-error))
@@ -168,7 +168,7 @@
                     ((markerp (cdr item))
                      (marker-position (cdr item)))
                     (t (cdr item))))
-             (when (> position guess)
+             (when (> pos guess)
                (if (> guess target)
                    (setq target guess))))
     (goto-char target)

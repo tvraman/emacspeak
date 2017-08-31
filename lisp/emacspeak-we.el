@@ -444,9 +444,9 @@ Empty value finishes the list."
     (emacspeak-we-xslt-filter filter url speak)))
 
 ;;;###autoload
-(defun emacspeak-we-extract-table-by-position (position   url
+(defun emacspeak-we-extract-table-by-position (pos   url
                                                           &optional speak)
-  "Extract table at specified position.
+  "Extract table at specified pos.
 Default is to extract from current page."
   (interactive
    (list
@@ -455,7 +455,7 @@ Default is to extract from current page."
     current-prefix-arg))
   (emacspeak-we-xslt-filter
    (format "/descendant::table[%s]"
-           position)
+           pos)
    url
    speak))
 
