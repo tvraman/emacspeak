@@ -19,3 +19,4 @@ js/node/auto
 *.boop
 servers/linux-outloud/atcleci.so
 servers/linux-espeak/tclespeak.so
+.build.log
