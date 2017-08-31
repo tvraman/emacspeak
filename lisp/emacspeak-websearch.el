@@ -45,6 +45,7 @@
 (require 'emacspeak-webutils)
 (require 'eww)
 (require 'emacspeak-eww)
+(require 'emacspeak-feeds)
 (require 'emacspeak-google)
 (require 'gweb)
 (require  'emacspeak-we)
