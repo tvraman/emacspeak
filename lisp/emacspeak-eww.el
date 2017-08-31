@@ -1851,9 +1851,12 @@ Warning, this is fragile, and depends on a stable id for the
 ;;; instead.
 (defadvice eww-browse-with-external-browser(around emacspeak pre act comp)
   "Use our m-player integration."
-  (let ((url (ad-get-arg 0))
+  (let* ((url (ad-get-arg 0))
         (media-p (string-match emacspeak-media-extensions url)))
-    (emacspeak-m-player url (not media-p))))
+    (cond
+     (media-p (emacspeak-m-player url))
+     (t ad-do-it))))
+
 
 ;;}}}
 ;;{{{ Set title:
