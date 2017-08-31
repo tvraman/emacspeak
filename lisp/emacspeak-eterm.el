@@ -702,17 +702,18 @@ as a cons cell (column .  row) to a buffer position in the eterm buffer"
 
 ;;; Translate buffer position to screen coordinates.
 ;;; returns a cons cell (column . row)
-(defun emacspeak-eterm-position-to-coordinates (position)
-  "Translate a buffer POSITION in the eterm buffer to screen coordinates."
+(defun emacspeak-eterm-position-to-coordinates (pos)
+  "Translate a buffer POS in the eterm buffer to screen coordinates."
   (cl-declare (special term-home-marker))
   (save-excursion
     (save-restriction
       (narrow-to-region term-home-marker (point-max))
-      (goto-char position)
+      (goto-char pos)
       (emacspeak-eterm-nuke-cached-info)
-      (let ((coordinates (cons
-                          (term-current-column)
-                          (term-current-row))))
+      (let ((coordinates
+             (cons
+              (term-current-column)
+              (term-current-row))))
         (emacspeak-eterm-nuke-cached-info)
         coordinates))))
 
