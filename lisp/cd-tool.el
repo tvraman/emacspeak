@@ -82,7 +82,7 @@ cap C   Save clip to disk
   (let ((command nil))
     (while (null command)
       (setq command
-            (case (read-char "CD Action? ")
+            (cl-case (read-char "CD Action? ")
                   (?+ (concat cd-tool-start-command " +"))
                   (?> (concat cd-tool-start-command " +"))
                   (?. (concat cd-tool-start-command " +"))
