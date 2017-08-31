@@ -10245,12 +10245,12 @@ Goto the next index position in current buffer
 @end format
 @end deffn
 
-@subsubsection emacspeak-imenu-goto-previous-index-position
-@deffn {Command} emacspeak-imenu-goto-previous-index-position   
-@findex emacspeak-imenu-goto-previous-index-position
+@subsubsection emacspeak-imenu-goto-previous-index-pos
+@deffn {Command} emacspeak-imenu-goto-previous-index-pos   
+@findex emacspeak-imenu-goto-previous-index-pos
 
 @format
-Goto the previous index position in current buffer
+Goto the previous index pos in current buffer
 @end format
 @end deffn
 
@@ -11784,24 +11784,24 @@ Scale speed by specified factor.
 @end deffn
 
 @subsubsection emacspeak-m-player-seek-absolute
-@deffn {Command} emacspeak-m-player-seek-absolute  (position)
+@deffn {Command} emacspeak-m-player-seek-absolute  (pos)
 @findex emacspeak-m-player-seek-absolute
 
 @format
-Seek  to absolute specified position in seconds.
+Seek  to absolute specified pos in seconds.
 
-(fn POSITION)
+(fn POS)
 @end format
 @end deffn
 
 @subsubsection emacspeak-m-player-seek-percentage
-@deffn {Command} emacspeak-m-player-seek-percentage  (position)
+@deffn {Command} emacspeak-m-player-seek-percentage  (pos)
 @findex emacspeak-m-player-seek-percentage
 
 @format
-Seek  to absolute specified position in percent.
+Seek  to absolute specified pos in percent.
 
-(fn POSITION)
+(fn POS)
 @end format
 @end deffn
 
@@ -21023,7 +21023,7 @@ Extract table containing  specified match.
 @end deffn
 
 @subsubsection emacspeak-we-extract-table-by-position
-@deffn {Command} emacspeak-we-extract-table-by-position  (position url &optional speak)
+@deffn {Command} emacspeak-we-extract-table-by-position  (pos url &optional speak)
 @table @kbd
 @item C-e x e t
 @kindex C-e x e t
@@ -21034,10 +21034,10 @@ Extract table containing  specified match.
 @findex emacspeak-we-extract-table-by-position
 
 @format
-Extract table at specified position.
+Extract table at specified pos.
 Default is to extract from current page.
 
-(fn POSITION URL &optional SPEAK)
+(fn POS URL &optional SPEAK)
 @end format
 @end deffn
 
