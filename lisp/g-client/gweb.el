@@ -58,7 +58,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'json)
 (require 'g-utils)
 
@@ -158,7 +158,7 @@ Uses corpus found in gweb-completion-corpus"
         (completion-ignore-case t)
         (word (thing-at-point 'word))
         (query nil))
-    (setq gweb-history (remove-duplicates gweb-history :test #'string-equal))
+    (setq gweb-history (cl-remove-duplicates gweb-history :test #'string-equal))
     (setq query
           (completing-read
            (or prompt "Google: ")

@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'autoload)
 (load-library "cus-dep")
 

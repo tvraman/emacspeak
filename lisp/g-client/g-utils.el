@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'json)
 
 ;;}}}
@@ -420,7 +420,7 @@ Note that in the Curl output, we see lf rather than crlf.")
                                 ": "))
             (when (= 2 (length fields))
               (push
-               (cons (first fields) (cl-second fields))
+               (cons (cl-first fields) (cl-second fields))
                headers))
             (forward-line 1))
           headers)))

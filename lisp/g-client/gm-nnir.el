@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 
 (require 'nnir)
 
@@ -137,7 +137,7 @@ Default is to search All Mail when not on a group."
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs (nnir-query-spec (query  ,q)))))
-     ((eq 'nnimap (first gnus-select-method)) ; "Search All Mail
+     ((eq 'nnimap (cl-first gnus-select-method)) ; "Search All Mail
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs 

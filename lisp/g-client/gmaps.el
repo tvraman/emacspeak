@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (require 'g-utils)
 (require 'pp)
 ;;}}}
@@ -97,8 +97,8 @@
                :alias address
                :address .formatted_address
                :zip (g-json-get 'short_name
-                                (find-if ; component whose type contains postal_code
-                                 #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=))
+                                (cl-find-if ; component whose type contains postal_code
+                                 #'(lambda (v) (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
                                  .address_components))
                :lat-lng .geometry.location)))
       (puthash  address result gmaps-location-table)
@@ -198,8 +198,8 @@ Optional argument `raw-p' returns raw JSON  object."
   (condition-case nil
       (g-json-get
        'short_name
-       (find-if  ; component whose type contains postal_code
-        #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=))
+       (cl-find-if  ; component whose type contains postal_code
+        #'(lambda (v) (cl-find "postal_code" (g-json-get 'types v) :test #'string=))
         (g-json-get ; from address_components at finest granularity
          'address_components
          (aref (gmaps-reverse-geocode location 'raw) 0))))
@@ -323,7 +323,7 @@ Parameter `key' is the API  key."
            ("]" forward-page)
            )
          do
-         (define-key  gmaps-mode-map (first k) (cl-second k)))
+         (define-key  gmaps-mode-map (cl-first k) (cl-second k)))
 
 (defvar gmaps-interaction-buffer "*Google Maps*"
   "Google Maps interaction buffer.")
@@ -602,7 +602,7 @@ origin/destination may be returned as a lat,long string."
   (setq gmaps-current-location (gmaps-address-location address))
   (message "Moved to %s" address))
 
-(defstruct gmaps-places-filter
+(cl-defstruct gmaps-places-filter
   type ; singleton as per new API
   types ; multiple types (until Feb 2017)
   keyword name)
@@ -640,7 +640,7 @@ origin/destination may be returned as a lat,long string."
   (let ((result nil)
         (type (completing-read "Type: Blank to quit " gmaps-place-types)))
     (while (not (= 0 (length type)))
-      (pushnew type result)
+      (cl-pushnew type result)
       (setq type (completing-read "Type: Blank to quit " gmaps-place-types)))
     result))
 
@@ -793,11 +793,11 @@ Optional  prefix arg clears any active filters."
           '["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"]
           day)))
     (setq open
-          (find-if
+          (cl-find-if
            #'(lambda (h)
                (= day (g-json-lookup "open.day" h))) hours)
           close
-          (find-if
+          (cl-find-if
            #'(lambda (h) (= day (g-json-lookup "close.day" h))) hours))
     (format "%s Open: %s, Close: %s"
             weekday
