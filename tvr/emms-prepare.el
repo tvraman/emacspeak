@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(augment-load-path "emms/lisp" "emms-autoloads")
+
 (eval-after-load "emms"
 `(progn
 (require 'emms-setup)
