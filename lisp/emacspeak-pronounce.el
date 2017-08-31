@@ -725,7 +725,7 @@ specified pronunciation dictionary key."
   (cl-declare (special emacspeak-pronounce-help))
   (message emacspeak-pronounce-help)
   (let ((event (read-char)))
-    (case event
+    (cl-case event
           (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
           (?d (call-interactively
                'emacspeak-pronounce-define-pronunciation t))

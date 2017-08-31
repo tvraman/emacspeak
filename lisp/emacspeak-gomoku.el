@@ -77,7 +77,7 @@
    (format "%s %s %s"
            (gomoku-point-y)
            (gomoku-point-x)
-           (case (char-after (point))
+           (cl-case (char-after (point))
                  (?X "x")
                  (?. "-")
                  (?O "0")))))
@@ -91,7 +91,7 @@
     (setq values
           (cl-loop for i from 1 to gomoku-board-width
                    collect 
-                   (case (emacspeak-gomoku-cell-value row i)
+                   (cl-case (emacspeak-gomoku-cell-value row i)
                          (0 "-")
                          (1  "x")
                          (6 "0"))))
@@ -107,7 +107,7 @@
     (setq values
           (cl-loop for i from 1 to gomoku-board-height
                    collect 
-                   (case (emacspeak-gomoku-cell-value i column)
+                   (cl-case (emacspeak-gomoku-cell-value i column)
                          (0 "-")
                          (1  "x")
                          (6 "0"))))
@@ -138,7 +138,7 @@
           (cl-loop for i from diag-start-y  to gomoku-board-height
                    and j from diag-start-x to gomoku-board-width 
                    collect
-                   (case (emacspeak-gomoku-cell-value i j)
+                   (cl-case (emacspeak-gomoku-cell-value i j)
                          (0 "-")
                          (1  "x")
                          (6 "0"))))
@@ -172,7 +172,7 @@
           (cl-loop for i from diag-start-y  to gomoku-board-height
                    and j downfrom   diag-start-x  to 1 
                    collect
-                   (case (emacspeak-gomoku-cell-value i j)
+                   (cl-case (emacspeak-gomoku-cell-value i j)
                          (0 "-")
                          (1  "x")
                          (6 "0"))))

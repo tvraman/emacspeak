@@ -67,7 +67,7 @@ s   Sub-square Distribution.
 "
   (interactive)
   (let ((c (read-char "Summary: ")))
-    (case c
+    (cl-case c
           (?d (call-interactively 'emacspeak-sudoku-board-distribution-summarize))
           (?r (call-interactively 'emacspeak-sudoku-board-rows-summarize))
           (?c (call-interactively

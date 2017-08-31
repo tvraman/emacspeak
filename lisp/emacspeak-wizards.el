@@ -1765,7 +1765,7 @@ Use with caution."
 
 ;;}}}
 ;;{{{ pod -- perl online docs
-
+(declare-function cperl-pod2man-build-command nil "cperl-mode")
 ;;;###autoload
 (defun emacspeak-wizards-display-pod-as-manpage (filename)
   "Create a virtual manpage in Emacs from the Perl Online Documentation."

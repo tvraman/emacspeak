@@ -228,7 +228,7 @@ An automatically updating speedbar consumes resources.")
                (setq action-char (following-char))
                (emacspeak-speedbar-speak-line)
                (emacspeak-auditory-icon
-                (case action-char
+                (cl-case action-char
                       (?+ 'open-object)
                       (?- 'close-object)
                       (t 'large-movement))))

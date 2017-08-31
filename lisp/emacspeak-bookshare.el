@@ -888,7 +888,7 @@ b Browse
   "Browse Bookshare."
   (interactive)
   (let ((action (read-char "p Popular, l Latest")))
-    (case action
+    (cl-case action
           (?p (call-interactively 'emacspeak-bookshare-action))
           (?l (call-interactively 'emacspeak-bookshare-action))
           (otherwise (error "Unrecognized browse action.")))))

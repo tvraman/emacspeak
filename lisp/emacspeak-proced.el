@@ -153,7 +153,7 @@
 (defun emacspeak-proced-speak-that-field ()
   "Speak desired field via single keystroke."
   (interactive)
-  (case (read-char "?")
+  (cl-case (read-char "?")
         (?u (emacspeak-proced-speak-field 'user))
         (?p (emacspeak-proced-speak-field 'pid))
         (?c (emacspeak-proced-speak-field 'pcpu))

@@ -720,7 +720,7 @@ browsing table elements"
   (message emacspeak-table-select-automatic-speaking-method-prompt)
   (let ((key (read-char)))
     (setq emacspeak-table-speak-element
-          (case  key
+          (cl-case  key
                  (?b 'emacspeak-table-speak-both-headers-and-element)
                  (?c 'emacspeak-table-speak-column-header-and-element)
                  (?r 'emacspeak-table-speak-row-header-and-element)
@@ -864,7 +864,7 @@ the matching cell current. When called from a program, `what' can
          (found nil)
          (slice
           (or what
-              (case (read-char)
+              (cl-case (read-char)
                     (?r 'row)
                     (?c 'column)
                     (otherwise (error "Can only search in either row or column")))))
@@ -916,7 +916,7 @@ match, makes the matching row or column current."
          (column (emacspeak-table-current-column emacspeak-table))
          (found nil)
          (slice
-          (case (read-char)
+          (cl-case (read-char)
                 (?r 'row)
                 (?c 'column)
                 (otherwise (error "Can only search in either row or column"))))

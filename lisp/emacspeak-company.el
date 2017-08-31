@@ -80,7 +80,7 @@
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
   (ems-with-messages-silenced
-   (case command
+   (cl-case command
          (pre-command nil)
          (post-command (emacspeak-play-auditory-icon 'help)
                        (emacspeak-company-speak-this))

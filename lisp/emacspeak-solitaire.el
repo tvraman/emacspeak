@@ -89,7 +89,7 @@
     (let ((row (emacspeak-solitaire-current-row))
           (count 1))
       (while (not (eolp))
-        (case (char-after (point))
+        (cl-case (char-after (point))
               (?o (emacspeak-solitaire-stone))
               (?. (emacspeak-solitaire-hole)))
         (cl-incf count)
@@ -110,7 +110,7 @@
       (cl-loop for i  from 1 to(- row 1)
                do
                (solitaire-up))
-      (case (char-after (point))
+      (cl-case (char-after (point))
             (?o (emacspeak-solitaire-stone))
             (?. (emacspeak-solitaire-hole)))
       (cond
@@ -121,13 +121,13 @@
                  (when  (= count 3) (dtk-silence 10))
                  (when (= count 6) (dtk-silence 10))
                  (solitaire-down)
-                 (case (char-after (point))
+                 (cl-case (char-after (point))
                        (?o (emacspeak-solitaire-stone))
                        (?. (emacspeak-solitaire-hole)))))
        (t (cl-loop for count from 2 to 3
                    do
                    (solitaire-down)
-                   (case (char-after (point))
+                   (cl-case (char-after (point))
                          (?o (emacspeak-solitaire-stone))
                          (?. (emacspeak-solitaire-hole)))))))
     (dtk-force)))

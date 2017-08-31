@@ -2238,7 +2238,7 @@ Argument STRING specifies the alphanumeric phone number."
     (cl-loop for character across string
              do
              (aset string i
-                   (case character
+                   (cl-case character
                          (?a  ?2)
                          (?b ?2)
                          (?c ?2)

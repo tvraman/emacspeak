@@ -248,7 +248,7 @@ When using supported browsers,  this interface attempts to speak the most releva
          (read-char
           "a Articles c Citations")))
     (setq options
-          (case type-char
+          (cl-case type-char
                 (?a
                  emacspeak-websearch-citeseer-article-options)
                 (?c emacspeak-websearch-citeseer-citation-options)))
@@ -335,7 +335,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
       (browse-url
        (concat emacspeak-websearch-company-news-uri
                (format "%s?"
-                       (case type-char
+                       (cl-case type-char
                              (?n "/h")
                              (?p "/pr")
                              (?r "/ae")
@@ -506,7 +506,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   (cl-declare (special emacspeak-websearch-software-sites))
   (let ((site
          (read-char emacspeak-websearch-software-sites)))
-    (case site
+    (cl-case site
           (?p (call-interactively 'emacspeak-websearch-cpan-search))
           (?s (call-interactively 'emacspeak-websearch-sourceforge-search))
           (?t (call-interactively 'emacspeak-websearch-ctan-search))
