@@ -107,21 +107,20 @@
   (cl-declare (special emacspeak-proced-fields))
   (cdr (assoc-string field emacspeak-proced-fields)))
 
-(defun emacspeak-proced-position-to-field (position)
+(defun emacspeak-proced-position-to-field (pos)
   "Return field  for this position."
   (cl-declare (special emacspeak-proced-fields))
   (let ((fields emacspeak-proced-fields)
         (field nil)
         (range nil)
         (found nil))
-    (while (and fields
-                (not found))
+    (while (and fields (not found))
       (setq field (car fields))
       (setq range (cdr field))
       (setq fields (cdr fields))
       (when (and
-             (<= (car range) position)
-             (<= position (cdr range)))
+             (<= (car range) pos)
+             (<= pos (cdr range)))
         (setq found t)))
     field))
 
