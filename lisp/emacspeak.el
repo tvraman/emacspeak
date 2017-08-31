@@ -367,7 +367,7 @@ that implements the speech-enabling extensions."
   "Export shell environment.
 This exports emacspeak's system variables to the environment
 so it can be passed to subprocesses."
-  (declare (special emacspeak-directory emacspeak-play-program
+  (cl-declare (special emacspeak-directory emacspeak-play-program
                     emacspeak-sounds-directory))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
@@ -385,7 +385,7 @@ so it can be passed to subprocesses."
 Turns on audio indentation and sets
 punctuation mode to all, activates the dictionary and turns on split
 caps."
-  (declare (special dtk-split-caps
+  (cl-declare (special dtk-split-caps
                     emacspeak-audio-indentation))
   (ems-with-messages-silenced
    (dtk-set-punctuations 'all)
@@ -434,7 +434,7 @@ caps."
   :group 'emacspeak)
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon if requested."
-  (declare (special emacspeak-play-emacspeak-startup-icon))
+  (cl-declare (special emacspeak-play-emacspeak-startup-icon))
   (let ((player  (or (executable-find "mplayer")
                      (executable-find "play"))))
     (when (and  emacspeak-play-emacspeak-startup-icon player)
@@ -483,7 +483,7 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
-  (declare (special
+  (cl-declare (special
             emacspeak-pronounce-load-pronunciations-on-startup
             emacspeak-info-directory
             use-dialog-box emacspeak-pronounce-dictionaries-file

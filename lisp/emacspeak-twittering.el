@@ -191,7 +191,7 @@
 (defun emacspeak-twittering-jump-to-following-url ()
   "Move to and open closest URI  following point."
   (interactive)
-  (declare (special emacspeak-twittering-protocol-identifier))
+  (cl-declare (special emacspeak-twittering-protocol-identifier))
   (let ((moved t))
     (while (and moved
                 (not (looking-at emacspeak-twittering-protocol-identifier)))

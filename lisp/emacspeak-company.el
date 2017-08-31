@@ -62,7 +62,7 @@
 ;;{{{ Helpers:
 (defun ems-company-current ()
   "Helper: Return current selection in company."
-  (declare (special  company-selection company-candidates))
+  (cl-declare (special  company-selection company-candidates))
   (nth company-selection company-candidates))
 
 (defun emacspeak-company-speak-this ()
@@ -110,7 +110,7 @@
 ;;{{{ Company Setup For Emacspeak:
 (defun emacspeak-company-setup ()
   "Set front-end to our  front-end action."
-  (declare (special company-frontends))
+  (cl-declare (special company-frontends))
   (when (boundp 'company-frontends)
     (cl-pushnew 'emacspeak-company-frontend company-frontends))
   (add-hook

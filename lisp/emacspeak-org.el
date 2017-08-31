@@ -304,7 +304,7 @@
 
 (defadvice org-eval-in-calendar (after emacspeak pre act comp)
   "Speak what is returned."
-  (declare (special org-ans2))
+  (cl-declare (special org-ans2))
   (dtk-speak org-ans2))
 
 ;;}}}
@@ -363,7 +363,7 @@
 
 (defadvice orgtbl-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (declare (special orgtbl-mode))
+  (cl-declare (special orgtbl-mode))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if orgtbl-mode 'on 'off))
     (message "Turned %s org table mode."
@@ -374,7 +374,7 @@
 
 (defun emacspeak-org-update-keys ()
   "Update keys in org mode."
-  (declare (special  org-mode-map))
+  (cl-declare (special  org-mode-map))
   (cl-loop for k in
            '(
              ("C-e" emacspeak-prefix-command)
@@ -440,7 +440,7 @@
 
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
-  (declare (special org-mode-map))
+  (cl-declare (special org-mode-map))
   (unless emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)))
@@ -498,7 +498,7 @@
 (defun emacspeak-org-bookmark (&optional goto)
   "Bookmark from org."
   (interactive "P")
-  (declare (special emacspeak-org-bookmark-key))
+  (cl-declare (special emacspeak-org-bookmark-key))
   (org-capture goto emacspeak-org-bookmark-key))
 
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
@@ -641,7 +641,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (add-hook
    'org-load-hook
    #'(lambda nil
-       (declare (special org-store-link-functions))
+       (cl-declare (special org-store-link-functions))
        (push #'org-eww-store-link org-store-link-functions))))
 
 ;;}}}

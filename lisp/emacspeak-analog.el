@@ -241,7 +241,7 @@ Speak field or char moved to."
 (defun emacspeak-analog-update-edit-keys ()
   "We define keys that invoke editing commands to invoke
 emacspeak-speak-and-skip-extent-upto-char "
-  (declare (special analog-mode-map))
+  (cl-declare (special analog-mode-map))
   (mapcar 
    #'(lambda (cmd)
        (cl-loop for k in

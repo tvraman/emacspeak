@@ -90,7 +90,7 @@ switch to a screen-saver soundscape."
 
 (defun emacspeak-screen-saver ()
   "Launch Emacspeak screen-saver."
-  (declare (special emacspeak-screen-saver-saved-configuration))
+  (cl-declare (special emacspeak-screen-saver-saved-configuration))
   (setq emacspeak-screen-saver-saved-configuration (current-window-configuration))"Initialize screen-saver buffer  if needed, and switch to  it."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
@@ -103,7 +103,7 @@ switch to a screen-saver soundscape."
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection.
 Startup  apps that need the network."
-  (declare (special emacspeak-speak-network-interfaces-list))
+  (cl-declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
   (run-at-time
@@ -119,7 +119,7 @@ Startup  apps that need the network."
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
 Stop apps that use the network."
-  (declare (special emacspeak-speak-network-interfaces-list))
+  (cl-declare (special emacspeak-speak-network-interfaces-list))
   (when (featurep 'jabber) (jabber-disconnect))
   (when (featurep 'twittering-mode) (twittering-stop))
   (setq emacspeak-speak-network-interfaces-list
@@ -178,7 +178,7 @@ signal registration objects."
 (defun emacspeak-dbus-sleep-enable()
   "Enable integration with Login1. Does nothing if already enabled."
   (interactive)
-  (declare (special emacspeak-dbus-sleep-registration))
+  (cl-declare (special emacspeak-dbus-sleep-registration))
   (when (not emacspeak-dbus-sleep-registration)
     (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register))
     (message "Enabled integration with login1 daemon.")))
@@ -188,7 +188,7 @@ signal registration objects."
   "Disable integration with login1 daemon. Does nothing if
 already disabled."
   (interactive)
-  (declare (special emacspeak-dbus-sleep-registration))
+  (cl-declare (special emacspeak-dbus-sleep-registration))
   (while emacspeak-dbus-sleep-registration
     (dbus-unregister-object (car emacspeak-dbus-sleep-registration))
     (setq emacspeak-dbus-sleep-registration
@@ -203,7 +203,7 @@ already disabled."
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
-  (declare (special amixer-alsactl-config-file))
+  (cl-declare (special amixer-alsactl-config-file))
   (amixer-restore amixer-alsactl-config-file )
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
@@ -229,7 +229,7 @@ already disabled."
 
 (defun emacspeak-dbus-watch-screen-lock ()
   "Register a handler to watch screen lock/unlock."
-  (declare (special emacspeak-dbus-screen-lock-handle
+  (cl-declare (special emacspeak-dbus-screen-lock-handle
                     emacspeak-screen-saver-saved-configuration))
   (setq emacspeak-dbus-screen-lock-handle
         (dbus-register-signal
@@ -251,7 +251,7 @@ already disabled."
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
   "De-Register a handler to watch screen lock/unlock."
-  (declare (special emacspeak-dbus-screen-lock-handle))
+  (cl-declare (special emacspeak-dbus-screen-lock-handle))
   (dbus-unregister-object emacspeak-dbus-screen-lock-handle)
   (setq emacspeak-dbus-screen-lock-handle nil)
   (message "Unregistered screen-lock signal handler"))

@@ -79,7 +79,7 @@
      for element across  elements do 
      (assert (vectorp element) t "Row %s is not a vector" index)
      (aset row-h index (aref element 0)) ; build column 0
-     (incf index))
+     (cl-incf index))
     (setf (emacspeak-table-row-header table) row-h)
     (setf (emacspeak-table-current-row table) 0)
     (setf (emacspeak-table-current-column table) 0)
@@ -108,7 +108,7 @@
     (cl-loop
      for row across elements do
      (aset result index (aref row column))
-     (incf index))
+     (cl-incf index))
     result))
 
 (defun emacspeak-table-num-rows (table)
@@ -159,7 +159,7 @@ Calls callback once per column."
         (found nil))
     (cl-loop
      for   i from 0   to count
-     and column = next then (% (incf column) count)
+     and column = next then (% (cl-incf column) count)
      if
      (funcall predicate  pattern
               (emacspeak-table-this-element table  index column))
@@ -178,7 +178,7 @@ Calls callback once per column."
         (count   (emacspeak-table-num-rows table))
         (found nil))
     (cl-loop for   i from 0   to count
-             and row = next then (% (incf row) count)
+             and row = next then (% (cl-incf row) count)
              if  (funcall predicate  pattern
                           (emacspeak-table-this-element table  row index))
              do (setq found t)

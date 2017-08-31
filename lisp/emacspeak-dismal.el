@@ -150,18 +150,18 @@
       (dismal-convert-cellexpr-to-string value)value)))
 
 (defun emacspeak-dismal-current-cell-value ()
-  (declare (special dismal-current-row dismal-current-col))
+  (cl-declare (special dismal-current-row dismal-current-col))
   (emacspeak-dismal-cell-value dismal-current-row dismal-current-col))
 
 ;;; return entry in col 0 of current row as a string:
 
 (defun emacspeak-dismal-current-row-header ()
-  (declare (special dismal-current-row))
+  (cl-declare (special dismal-current-row))
   (dismal-convert-cellexpr-to-string
    (dismal-get-exp dismal-current-row  0)))
 
 (defun emacspeak-dismal-current-col-header ()
-  (declare (special dismal-current-col))
+  (cl-declare (special dismal-current-col))
   (dismal-convert-cellexpr-to-string
    (dismal-get-exp 0  dismal-current-col)))
 
@@ -171,13 +171,13 @@
 (defun emacspeak-dismal-display-cell-expression ()
   "Display the expression in the message area"
   (interactive)
-  (declare (special dismal-current-row dismal-current-col))
+  (cl-declare (special dismal-current-row dismal-current-col))
   (dismal-display-current-cell-expr dismal-current-row dismal-current-col))
 
 (defun emacspeak-dismal-display-cell-value ()
   "Display the cell value in the message area"
   (interactive)
-  (declare (special dismal-current-cell))
+  (cl-declare (special dismal-current-cell))
   (message "%s = %s"
            dismal-current-cell
            (emacspeak-dismal-current-cell-value)))
@@ -186,7 +186,7 @@
   "Displays current cell along with its row header.
 The `row header' is the entry in column 0."
   (interactive)
-  (declare (special))
+  (cl-declare (special))
   (let ((row-head  (emacspeak-dismal-current-row-header))
         (value (emacspeak-dismal-current-cell-value)))
     (message "%s is %s"
@@ -259,7 +259,7 @@ The `column header' is the entry in row 0."
   "Summarizes a row using the specification in list
 emacspeak-dismal-row-summarizer-list"
   (interactive)
-  (declare (special emacspeak-dismal-row-summarizer-list
+  (cl-declare (special emacspeak-dismal-row-summarizer-list
                     emacspeak-dismal-value-personality
                     voice-lock-mode
                     dismal-current-row))
@@ -306,7 +306,7 @@ emacspeak-dismal-row-summarizer-list"
   "Summarizes a col using the specification in list
 emacspeak-dismal-col-summarizer-list"
   (interactive)
-  (declare (special emacspeak-dismal-col-summarizer-list
+  (cl-declare (special emacspeak-dismal-col-summarizer-list
                     emacspeak-dismal-value-personality voice-lock-mode
                     dismal-current-col))
   (unless  (and  emacspeak-dismal-col-summarizer-list
@@ -352,7 +352,7 @@ emacspeak-dismal-col-summarizer-list"
   "Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list"
   (interactive)
-  (declare (special emacspeak-dismal-row-summarizer-list))
+  (cl-declare (special emacspeak-dismal-row-summarizer-list))
   (when emacspeak-dismal-sheet-summarizer-list
     (let ((emacspeak-speak-messages nil))
       (dis-recalculate-matrix))
@@ -375,7 +375,7 @@ emacspeak-dismal-sheet-summarizer-list"
 (defun emacspeak-dismal-set-row-summarizer-list ()
   "Specify or reset row summarizer list."
   (interactive)
-  (declare (special emacspeak-dismal-col-summarizer-list))
+  (cl-declare (special emacspeak-dismal-col-summarizer-list))
   (setq emacspeak-dismal-row-summarizer-list
         (read-minibuffer
          "Specify summarizer as a list: "
@@ -385,7 +385,7 @@ emacspeak-dismal-sheet-summarizer-list"
 (defun emacspeak-dismal-set-col-summarizer-list ()
   "Specify or reset col summarizer list."
   (interactive)
-  (declare (special emacspeak-dismal-col-summarizer-list))
+  (cl-declare (special emacspeak-dismal-col-summarizer-list))
   (setq emacspeak-dismal-col-summarizer-list
         (read-minibuffer
          "Specify summarizer as a vector: "
@@ -395,7 +395,7 @@ emacspeak-dismal-sheet-summarizer-list"
 (defun emacspeak-dismal-set-sheet-summarizer-list ()
   "Specify or reset sheet summarizer list."
   (interactive)
-  (declare (special emacspeak-dismal-sheet-summarizer-list))
+  (cl-declare (special emacspeak-dismal-sheet-summarizer-list))
   (setq emacspeak-dismal-sheet-summarizer-list
         (read-minibuffer
          "Specify summarizer as a list: "
@@ -412,7 +412,7 @@ Checked by emacspeak specific dis-mode-hooks entry.")
 
 (add-hook 'dis-mode-hooks
           #'(lambda nil
-              (declare (special dismal-saved-variables dismal-map))
+              (cl-declare (special dismal-saved-variables dismal-map))
               (define-key dismal-map (concat emacspeak-prefix "e")
                 'dis-last-column)
               (define-key dismal-map emacspeak-prefix 'emacspeak-prefix-command)
@@ -428,7 +428,7 @@ Checked by emacspeak specific dis-mode-hooks entry.")
 (add-hook
  'dis-mode-hooks
  #'(lambda nil
-     (declare (special dismal-map emacspeak-prefix))
+     (cl-declare (special dismal-map emacspeak-prefix))
      (local-unset-key "\M-[")
      (local-unset-key emacspeak-prefix)
      (define-key dismal-map emacspeak-prefix 'emacspeak-prefix-command)

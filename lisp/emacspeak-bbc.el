@@ -84,7 +84,7 @@
 (defun emacspeak-bbc-read-schedules-url ()
   "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
-  (declare  (special emacspeak-bbc-json-schedules-template
+  (cl-declare  (special emacspeak-bbc-json-schedules-template
                      emacspeak-bbc-station-list))
   (let* ((fields (split-string
                   (completing-read "Station:Outlet:" emacspeak-bbc-station-list
@@ -104,7 +104,7 @@ Date defaults to today."
 
 (defun emacspeak-bbc-read-genre-url ()
   "Return URL for specified  genre."
-  (declare (special emacspeak-bbc-json-genre-template))
+  (cl-declare (special emacspeak-bbc-json-genre-template))
   (let ((genre (read-from-minibuffer "Genre/Genre/Genre:")))
     (format emacspeak-bbc-json-genre-template genre)))
 
@@ -208,7 +208,7 @@ Date defaults to today."
 
 (defun emacspeak-bbc-get-iplayer-action (button)
   "Stream using get_iplayer."
-  (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
+  (cl-declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
   (let
       ((command
         (format
@@ -225,7 +225,7 @@ Date defaults to today."
 (defun emacspeak-bbc-get-iplayer-stream-url (url)
   "Stream using get_iplayer."
   (interactive "sURL: ")
-  (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
+  (cl-declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
   (let
       ((command
         (format
@@ -242,7 +242,7 @@ Date defaults to today."
 (defun emacspeak-bbc-get-iplayer-stream-pid (pid)
   "Stream using get_iplayer."
   (interactive "sURL: ")
-  (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
+  (cl-declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
   (let
       ((command
         (format
@@ -278,7 +278,7 @@ chrome: Hand off URL to Chrome."
 (defun emacspeak-bbc-iplayer-button-action (button)
   "Generic button action that dispatches to get_iplayer or chrome based
 on user preference."
-  (declare (special emacspeak-bbc-button-action))
+  (cl-declare (special emacspeak-bbc-button-action))
   (ecase emacspeak-bbc-button-action
          ('chrome (funcall #'emacspeak-bbc-chrome-action button))
          ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
@@ -315,7 +315,7 @@ Interactive prefix arg filters  content by genre."
 
 (defun emacspeak-bbc-iplayer-create (json &optional genres)
   "Create iplayer buffer given JSON object."
-  (declare (special emacspeak-bbc-json))
+  (cl-declare (special emacspeak-bbc-json))
   (let* ((inhibit-read-only t)
          (title (or
                  (g-json-lookup "schedule.service.title" json)
@@ -354,7 +354,7 @@ Interactive prefix arg filters  content by genre."
 
 (defun   emacspeak-bbc-insert-show (show)
   "Insert a formatted button for this show."
-  (declare (special emacspeak-bbc-iplayer-uri-prefix))
+  (cl-declare (special emacspeak-bbc-iplayer-uri-prefix))
   (let ((title  (g-json-lookup-string "programme.display_titles.title" show))
         (pid (g-json-lookup-string "programme.pid" show))
         (short-title

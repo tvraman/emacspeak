@@ -167,7 +167,7 @@ nil)
 ;;;this is what I use as my jabber alert function:
 (defun emacspeak-jabber-message-default-message (from buffer text)
   "Speak the message."
-  (declare (special jabber-message-alert-same-buffer))
+  (cl-declare (special jabber-message-alert-same-buffer))
   (when (or jabber-message-alert-same-buffer
             (not (memq (selected-window) (get-buffer-window-list buffer))))
     (emacspeak-auditory-icon 'progress)
@@ -183,7 +183,7 @@ nil)
 (defun emacspeak-jabber-popup-roster ()
   "Pop to Jabber roster."
   (interactive)
-  (declare (special jabber-roster-buffer jabber-connections))
+  (cl-declare (special jabber-roster-buffer jabber-connections))
   (unless jabber-connections  (call-interactively 'jabber-connect))
   (unless (buffer-live-p jabber-roster-buffer) (call-interactively 'jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)

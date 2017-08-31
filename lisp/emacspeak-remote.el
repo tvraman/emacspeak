@@ -73,7 +73,7 @@ a local  Emacspeak terminal buffer.")
 
 (defun emacspeak-remote-default-hook ()
   "Function run by default  when we launch a remote session"
-  (declare (special emacspeak-remote-update-keymap
+  (cl-declare (special emacspeak-remote-update-keymap
                     emacspeak-auditory-icon-function))
   (when emacspeak-remote-update-keymap
     (emacspeak-keymap-choose-new-emacspeak-prefix
@@ -100,13 +100,13 @@ a local  Emacspeak terminal buffer.")
   "Interactively set up where we came from.
 Value is persisted for use with ssh servers."
   (interactive)
-  (declare (special emacspeak-remote-hostname))
+  (cl-declare (special emacspeak-remote-hostname))
   (when (file-exists-p   emacspeak-remote-hostname)
     (find-file emacspeak-remote-hostname)))
 ;;; Todo: parse out hostname if the file has user@host:port
 (defun emacspeak-remote-get-current-remote-hostname  ()
   "Return the name of the remote hostname from where we connected if known"
-  (declare (special emacspeak-remote-hostname))
+  (cl-declare (special emacspeak-remote-hostname))
   (when (file-exists-p   emacspeak-remote-hostname)
     (let ((buffer (find-file-noselect emacspeak-remote-hostname))
           (result nil))
@@ -158,7 +158,7 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
     (setq
      user  (cl-first fields)
      host (cl-second fields)
-     port (third fields))
+     port (cl-third fields))
     (ssh
      (format "%s -p %s -l %s"
              host port user)
@@ -196,7 +196,7 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
   "Connect via ssh to remote Emacspeak server.
 Server is specified via custom option `emacspeak-remote-default-ssh-server'."
   (interactive)
-  (declare (special emacspeak-remote-default-ssh-server))
+  (cl-declare (special emacspeak-remote-default-ssh-server))
   (when emacspeak-remote-default-ssh-server
     (setq dtk-program emacspeak-remote-default-ssh-server)
     (dtk-select-server emacspeak-remote-default-ssh-server)
@@ -217,7 +217,7 @@ port that that host is listening on for speech requests."
                      (emacspeak-remote-get-current-remote-hostname) ;initial input
                      )
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
-  (declare (special dtk-speaker-process dtk-program 
+  (cl-declare (special dtk-speaker-process dtk-program 
                     dtk-local-server-port
                     dtk-local-engine emacspeak-eterm-remote-hosts-table))
   (let* ((dtk-program dtk-local-engine)

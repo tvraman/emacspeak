@@ -74,7 +74,7 @@
 
 (defun emacspeak-dired-speak-line ()
   "Speak the dired line intelligently."
-  (declare (special emacspeak-speak-last-spoken-word-position))
+  (cl-declare (special emacspeak-speak-last-spoken-word-position))
   (let ((filename (dired-get-filename 'no-dir  t))
         (personality (dtk-get-style)))
     (cond
@@ -223,7 +223,7 @@ Assumes that `dired-listing-switches' contains  -l"
 Currently is a no-op  unless
 unless `dired-listing-switches' contains -l"
   (interactive)
-  (declare (special dired-listing-switches))
+  (cl-declare (special dired-listing-switches))
   (when
       (save-match-data
         (string-match  "l" dired-listing-switches))
@@ -254,7 +254,7 @@ unless `dired-listing-switches' contains -l"
 Like Emacs' built-in dired-show-file-type but allows user to customize
 options passed to command `file'."
   (interactive (list (dired-get-filename t) current-prefix-arg))
-  (declare (special emacspeak-dired-file-cmd-options))
+  (cl-declare (special emacspeak-dired-file-cmd-options))
   (with-temp-buffer
     (if deref-symlinks
         (call-process "file" nil t t  "-l"
@@ -351,7 +351,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (defun emacspeak-dired-setup-keys ()
   "Add emacspeak keys to dired."
-  (declare (special dired-mode-map))
+  (cl-declare (special dired-mode-map))
   (define-key dired-mode-map "E" 'emacspeak-dired-epub-eww)
   (define-key dired-mode-map (kbd "C-j") 'emacspeak-dired-open-this-file)
   (define-key dired-mode-map (kbd "C-RET") 'emacspeak-dired-open-this-file)

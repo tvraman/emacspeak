@@ -87,7 +87,7 @@
 
 (defun ladspa-libs (&optional refresh)
   "Return list of installed Ladspa libs."
-  (declare (special ladspa-libs ladspa-plugins))
+  (cl-declare (special ladspa-libs ladspa-plugins))
   (unless (file-exists-p ladspa-home)
     (error "Ladspa not installed or not configured."))
   (unless (getenv "LADSPA_PATH")(setenv "LADSPA_PATH" ladspa-home))
@@ -114,22 +114,22 @@
          (desc (string-trim (cl-first fields)))
          (range
           (when (>= (length fields) 3)
-            (split-string (third fields) " " 'omit)))
+            (split-string (cl-third fields) " " 'omit)))
          (default
            (when (>= (length fields) 4)
-             (split-string (fourth fields) " " 'omit)))
+             (split-string (cl-fourth fields) " " 'omit)))
          (result (make-ladspa-control)))
     (when (string-match "^Ports:" desc)
       (setq desc (string-trim (substring desc  7))))
     (setf (ladspa-control-desc result) desc
           (ladspa-control-min result) (cl-first range)
-          (ladspa-control-max result) (third range)
+          (ladspa-control-max result) (cl-third range)
           (ladspa-control-default result)(cl-second default))
     result))
 
 (defun ladspa-analyse-label (library summary)
   "Analyse Ladspa effect and return a parsed metadata structure."
-  (declare (special ladspa-analyse))
+  (cl-declare (special ladspa-analyse))
   (let* ((label  (substring  summary 0 (string-match " " summary)))
          (desc (string-trim (substring  summary (string-match " " summary))))
          (controls nil)
@@ -148,7 +148,7 @@
 (defun ladspa-analyse-library (library)
   "Analyse Ladspa library and return a
 list of parsed ladspa-plugin structures, one per label."
-  (declare (special ladspa-analyse))
+  (cl-declare (special ladspa-analyse))
   (let ((result nil)
         (labels
          (split-string
@@ -161,7 +161,7 @@ list of parsed ladspa-plugin structures, one per label."
 
 (defun ladspa-plugins (&optional refresh)
   "Return list of installed Ladspa plugins."
-  (declare (special ladspa-plugins))
+  (cl-declare (special ladspa-plugins))
   (cond
    ((and ladspa-plugins (null refresh)) ladspa-plugins)
    (t
@@ -181,7 +181,7 @@ list of parsed ladspa-plugin structures, one per label."
 
 (defun ladspa-table-init ()
   "Populate Ladspa hash-table."
-  (declare (special ladspa-table))
+  (cl-declare (special ladspa-table))
   (cl-loop for p in (ladspa-plugins) do
            (puthash (intern (ladspa-plugin-label p)) p ladspa-table)))
 
@@ -192,7 +192,7 @@ list of parsed ladspa-plugin structures, one per label."
 
 (defun ladspa-read (&optional prompt)
   "Return a plugin after reading its label."
-  (declare (special ladspa-table))
+  (cl-declare (special ladspa-table))
   (let ((label
          (intern
           (completing-read
@@ -249,7 +249,7 @@ list of parsed ladspa-plugin structures, one per label."
 (defun ladspa (&optional refresh)
   "Launch Ladspa workbench."
   (interactive "P")
-  (declare (special ladspa-libs ladspa-plugins))
+  (cl-declare (special ladspa-libs ladspa-plugins))
   (let ((buffer (get-buffer-create "*Ladspa*")))
     (save-current-buffer
       (set-buffer "*Ladspa*")
@@ -308,7 +308,7 @@ list of parsed ladspa-plugin structures, one per label."
 (defun ladspa-instantiate ()
   "Instantiate plugin at point by prompting for control values."
   (interactive)
-  (declare (special ladspa-edit-help))
+  (cl-declare (special ladspa-edit-help))
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (let ((plugin  (get-text-property (point) 'ladspa)))
     (cond

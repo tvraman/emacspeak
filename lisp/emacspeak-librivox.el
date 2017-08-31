@@ -104,7 +104,7 @@
 
 (defun emacspeak-librivox-audiobooks-uri (pattern  offset)
   "Search URI for audiobooks."
-  (declare (special emacspeak-librivox-api-base))
+  (cl-declare (special emacspeak-librivox-api-base))
   (concat
    emacspeak-librivox-api-base
    (format "audiobooks?offset=%s&limit=%s&format=json&"
@@ -118,7 +118,7 @@
 
 (defun emacspeak-librivox-audiotracks-base (pattern)
   "Base URI for audiotracks."
-  (declare (special emacspeak-librivox-api-base))
+  (cl-declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "audiotracks?format=json&" pattern))
 
 ;;; Simple Authors API:
@@ -128,7 +128,7 @@
 
 (defun emacspeak-librivox-authors-base ()
   "Base URI for authors."
-  (declare (special emacspeak-librivox-api-base))
+  (cl-declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "authors"))
 
 ;;}}}
@@ -180,7 +180,7 @@ Argument `pattern' is of the form:
 `title=pattern' Search by title.
 ^all Browse books.
 Optional arg `offset' (default 0) is used for getting more results."
-  (declare (special  emacspeak-librivox-results-limit))
+  (cl-declare (special  emacspeak-librivox-results-limit))
   (or offset (setq offset 0))
   (let* ((title
           (format
@@ -199,7 +199,7 @@ Optional arg `offset' (default 0) is used for getting more results."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
-           (declare (special emacspeak-we-url-executor))
+           (cl-declare (special emacspeak-we-url-executor))
            (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))
       (with-temp-buffer
         (insert "<title>" title "</title>\n")
@@ -280,7 +280,7 @@ Optional prefix arg `offset' prompts for offset."
     (let ((completion-ignore-case t))
       (completing-read "Genre: " emacspeak-librivox-genre-list))
     current-prefix-arg))
-  (declare (special emacspeak-librivox-genre-list))
+  (cl-declare (special emacspeak-librivox-genre-list))
   (when offset (setq offset (read-number "Offset: ")))
   (emacspeak-librivox-search
    (format "genre=%s"
@@ -337,7 +337,7 @@ more results."
 
 (defun emacspeak-librivox-ensure-cache ()
   "Create LIBRIVOX cache directory if needed."
-  (declare (special emacspeak-librivox-local-cache))
+  (cl-declare (special emacspeak-librivox-local-cache))
   (unless (file-exists-p emacspeak-librivox-local-cache)
     (make-directory  emacspeak-librivox-local-cache 'parents)))
 
@@ -366,7 +366,7 @@ more results."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (declare (special g-curl-program g-curl-common-options
+  (cl-declare (special g-curl-program g-curl-common-options
                     emacspeak-xslt-program))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
         (m3u-file nil))

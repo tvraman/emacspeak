@@ -135,7 +135,7 @@
   "Displays specified infolet.
 Infolets use the same structure as mode-line-format and header-line-format.
 Generates auditory and visual display."
-  (declare (special header-line-format))
+  (cl-declare (special header-line-format))
   (setq header-line-format infolet)
   (dtk-speak (format-mode-line header-line-format))
   (emacspeak-auditory-icon 'progress))
@@ -170,7 +170,7 @@ Generates auditory and visual display."
 (defun emacspeak-webspace-headlines-fetch (feed)
   "Add headlines from specified feed to our cache.
 Newly found headlines are inserted into the ring within our feedstore."
-  (declare (special emacspeak-webspace-headlines
+  (cl-declare (special emacspeak-webspace-headlines
                     emacspeak-webspace-headlines-period))
   (let* ((last-update (get-text-property 0 'last-update feed))
          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
@@ -197,13 +197,13 @@ Newly found headlines are inserted into the ring within our feedstore."
 
 (defun emacspeak-webspace-headlines-populate ()
   "populate fs with headlines from all feeds."
-  (declare (special emacspeak-webspace-headlines))
+  (cl-declare (special emacspeak-webspace-headlines))
   (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
     (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
 (defun emacspeak-webspace-headlines-refresh ()
   "Update headlines."
-  (declare (special emacspeak-webspace-headlines))
+  (cl-declare (special emacspeak-webspace-headlines))
   (with-local-quit
     (emacspeak-webspace-headlines-fetch
      (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
@@ -214,7 +214,7 @@ Newly found headlines are inserted into the ring within our feedstore."
   "Setup news updates.
 Updated headlines found in emacspeak-webspace-headlines."
   (interactive)
-  (declare (special emacspeak-webspace-headlines))
+  (cl-declare (special emacspeak-webspace-headlines))
   (let ((timer nil)
         (slow-timer nil))
     (setq timer
@@ -229,7 +229,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 
 (defun emacspeak-webspace-next-headline ()
   "Return next headline to display."
-  (declare (special emacspeak-webspace-headlines))
+  (cl-declare (special emacspeak-webspace-headlines))
   (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (cond
      ((ring-empty-p titles)
@@ -243,7 +243,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines ()
   "Startup Headlines ticker using RSS/Atom  feeds."
   (interactive)
-  (declare (special emacspeak-webspace-headlines emacspeak-feeds))
+  (cl-declare (special emacspeak-webspace-headlines emacspeak-feeds))
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
@@ -252,7 +252,7 @@ Updated headlines found in emacspeak-webspace-headlines."
             #'vector
             (delq nil
                   (mapcar
-                   #'(lambda (f) (unless (eq  'opml (third f)) (cl-second f)))
+                   #'(lambda (f) (unless (eq  'opml (cl-third f)) (cl-second f)))
                    emacspeak-feeds)))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
@@ -266,7 +266,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines-browse ()
   "Display buffer of browsable headlines."
   (interactive)
-  (declare (special emacspeak-webspace-headlines
+  (cl-declare (special emacspeak-webspace-headlines
                     emacspeak-webspace-headlines-buffer))
   (unless emacspeak-webspace-headlines
     (error "No cached headlines in this Emacs session."))
@@ -342,7 +342,7 @@ Updated headlines found in emacspeak-webspace-headlines."
   "Display Feed Reader Feed list in a WebSpace buffer.
 Optional interactive prefix arg forces a refresh."
   (interactive "P")
-  (declare (special emacspeak-webspace-reader-buffer))
+  (cl-declare (special emacspeak-webspace-reader-buffer))
   (when (or refresh
             (not (buffer-live-p (get-buffer emacspeak-webspace-reader-buffer))))
     (emacspeak-webspace-feed-reader-create))
@@ -352,7 +352,7 @@ Optional interactive prefix arg forces a refresh."
   (emacspeak-auditory-icon 'open-object))
 (defun emacspeak-webspace-feed-reader-create ()
   "Prepare Reader buffer."
-  (declare (special emacspeak-feeds emacspeak-webspace-reader-buffer))
+  (cl-declare (special emacspeak-feeds emacspeak-webspace-reader-buffer))
   (with-current-buffer (get-buffer-create emacspeak-webspace-reader-buffer)
     (let ((inhibit-read-only t))
       (erase-buffer)
@@ -387,7 +387,7 @@ Optional interactive prefix arg forces a refresh."
 
 (defun emacspeak-webspace-kg-id-uri (id)
   "Return URL for KG Search by id."
-  (declare (special emacspeak-webspace-kg-rest-end-point))
+  (cl-declare (special emacspeak-webspace-kg-rest-end-point))
   (format
    emacspeak-webspace-kg-rest-end-point
    "ids"
@@ -397,7 +397,7 @@ Optional interactive prefix arg forces a refresh."
 
 (defun emacspeak-webspace-kg-query-uri (query &optional limit)
   "Return URL for KG Search."
-  (declare (special emacspeak-webspace-kg-rest-end-point))
+  (cl-declare (special emacspeak-webspace-kg-rest-end-point))
   (or limit (setq limit 5))
   (format
    emacspeak-webspace-kg-rest-end-point

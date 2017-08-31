@@ -75,7 +75,7 @@
 
 (defadvice view-mode (after emacspeak pre act comp)
   "Announce what happened"
-  (declare (special view-mode-map))
+  (cl-declare (special view-mode-map))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-load-directory-settings)
@@ -298,7 +298,7 @@ keybindings for view mode")
 
 (defun emacspeak-view-optimize-view-keys()
   "optimize keybindings for emacspeak in view mode"
-  (declare (special emacspeak-view-edit-commands
+  (cl-declare (special emacspeak-view-edit-commands
                     emacspeak-view-keys-optimized
                     view-mode-map emacspeak-keymap))
   (unless emacspeak-view-keys-optimized
@@ -321,7 +321,7 @@ keybindings for view mode")
 
 (defun emacspeak-view-setup-keys()
   "Setup emacspeak convenience keys"
-  (declare (special view-mode-map))
+  (cl-declare (special view-mode-map))
   (cl-loop for i from 0 to 9
            do
            (define-key view-mode-map

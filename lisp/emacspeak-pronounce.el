@@ -89,13 +89,13 @@ Keys are either filenames, directory names, or major mode names.
 Values are alists containing string.pronunciation pairs.")
 
 (defun emacspeak-pronounce-set-dictionary (key pr-alist)
-  (declare (special emacspeak-pronounce-dictionaries))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
   (when (stringp key)
     (setq key (intern key)))
   (setf (gethash key emacspeak-pronounce-dictionaries) pr-alist))
 
 (defun emacspeak-pronounce-get-dictionary (key)
-  (declare (special emacspeak-pronounce-dictionaries
+  (cl-declare (special emacspeak-pronounce-dictionaries
                     minibuffer-history))
   (when (stringp key)
     (setq key (intern key)))
@@ -107,7 +107,7 @@ Values are alists containing string.pronunciation pairs.")
 This adds pronunciation pair
 STRING.PRONUNCIATION to the dictionary.
 Argument KEY specifies a dictionary key e.g. directory, mode etc."
-  (declare (special emacspeak-pronounce-dictionaries))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
   (let* ((dict (emacspeak-pronounce-get-dictionary key))
          (entry (and dict (assoc string dict))))
     (cond
@@ -130,7 +130,7 @@ Argument KEY specifies a dictionary key e.g. directory, mode etc."
 (defun emacspeak-pronounce-add-buffer-local-dictionary-entry (string pronunciation)
   "Add specified pronunciation for current buffer.
 Arguments STRING and PRONUNCIATION specify what is being defined."
-  (declare (special emacspeak-pronounce-pronunciation-table))
+  (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
@@ -279,7 +279,7 @@ applied."
 (defun emacspeak-pronounce-save-dictionaries ()
   "Writes out the persistent emacspeak pronunciation dictionaries."
   (interactive)
-  (declare (special emacspeak-pronounce-dictionaries))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
   (let* ((coding-system-for-write 'utf-8)
          (print-level nil)
          (print-length nil)
@@ -313,7 +313,7 @@ Optional argument FILENAME specifies the dictionary file."
           "Load pronunciation dictionaries from file: "
           emacspeak-resource-directory
           emacspeak-pronounce-dictionaries-file)))
-  (declare (special emacspeak-pronounce-dictionaries-loaded))
+  (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
     (condition-case nil
         (let ((coding-system-for-read  'utf-8))
@@ -329,7 +329,7 @@ Optional argument FILENAME specifies the dictionary file."
 (defun emacspeak-pronounce-clear-dictionaries ()
   "Clear all current pronunciation dictionaries."
   (interactive)
-  (declare (special emacspeak-pronounce-dictionaries))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
   (when (yes-or-no-p
          "Do you really want to nuke all currently defined dictionaries?")
     (setq emacspeak-pronounce-dictionaries (make-hash-table))
@@ -356,7 +356,7 @@ Optional argument FILENAME specifies the dictionary file."
 (defun emacspeak-pronounce-yank-word ()
   "Yank word at point into minibuffer."
   (interactive)
-  (declare (special emacspeak-pronounce-yank-word-point
+  (cl-declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
   (let ((string
          (save-current-buffer
@@ -371,7 +371,7 @@ Optional argument FILENAME specifies the dictionary file."
     (dtk-speak string)))
 
 (defun emacspeak-pronounce-read-term (key)
-  (declare (special emacspeak-pronounce-yank-word-point
+  (cl-declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
   (let ((default (and (mark)
                       (< (count-lines (region-beginning)
@@ -403,7 +403,7 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
 (defun emacspeak-pronounce-get-key ()
   "Collect key from user.
 Returns a pair of the form (key-type . key)."
-  (declare (special emacspeak-pronounce-pronunciation-keys))
+  (cl-declare (special emacspeak-pronounce-pronunciation-keys))
   (let ((key nil)
         (key-type
          (read
@@ -442,7 +442,7 @@ Returns a pair of the form (key-type . key)."
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded."
   (interactive)
-  (declare (special emacspeak-pronounce-dictionaries-loaded))
+  (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
   (let ((word nil)
         (pronunciation nil)
         (key-pair (emacspeak-pronounce-get-key)))
@@ -468,7 +468,7 @@ First loads any persistent dictionaries if not already loaded."
 Default term to define is delimited by region.
 First loads any persistent dictionaries if not already loaded."
   (interactive)
-  (declare (special emacspeak-pronounce-dictionaries-loaded))
+  (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
   (let ((word nil)
         (pronunciation nil)
         (key-pair(emacspeak-pronounce-get-key)))
@@ -512,7 +512,7 @@ buffer is spoken.
 Optional argument state can be used from Lisp programs to
 explicitly turn pronunciations on or off."
   (interactive "P")
-  (declare (special emacspeak-pronounce-pronunciation-table))
+  (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
    ((or (eq state 'on)
         (not (boundp 'emacspeak-pronounce-pronunciation-table)))
@@ -542,7 +542,7 @@ explicitly turn pronunciations on or off."
   "Refresh pronunciation table for current buffer.
 Activates pronunciation dictionaries if not already active."
   (interactive)
-  (declare (special emacspeak-pronounce-pronunciation-table))
+  (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
@@ -635,7 +635,7 @@ for the specified mode."
 (defun emacspeak-pronounce-edit-generate-pronunciation-editor (key)
   "Generate a widget-enabled edit buffer for editing the
 pronunciation dictionary for the specified key."
-  (declare (special emacspeak-pronounce-dictionaries))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
   (unless emacspeak-pronounce-pronunciation-table
     (emacspeak-pronounce-toggle-use-of-dictionaries))
   (let ((value (gethash key emacspeak-pronounce-dictionaries))
@@ -677,7 +677,7 @@ pronunciation dictionary for the specified key."
 (defun emacspeak-pronounce-edit-generate-callback (field-name)
   "Generate a callback for use in the pronunciation editor widget."
   `(lambda (widget &rest ignore)
-     (declare (special emacspeak-pronounce-dictionaries))
+     (cl-declare (special emacspeak-pronounce-dictionaries))
      (let ((value (widget-value widget)))
        (setf
         (gethash
@@ -706,7 +706,7 @@ specified pronunciation dictionary key."
                        nil
                        'keys
                        (car keys)))))
-  (declare (special emacspeak-pronounce-dictionaries))
+  (cl-declare (special emacspeak-pronounce-dictionaries))
   (emacspeak-pronounce-edit-generate-pronunciation-editor
    (intern key)))
 
@@ -721,7 +721,7 @@ specified pronunciation dictionary key."
 (defun emacspeak-pronounce-dispatch ()
   "Provides the user interface front-end to Emacspeak's pronunciation dictionaries."
   (interactive)
-  (declare (special emacspeak-pronounce-help))
+  (cl-declare (special emacspeak-pronounce-help))
   (message emacspeak-pronounce-help)
   (let ((event (read-char)))
     (case event
@@ -756,11 +756,11 @@ specified pronunciation dictionary key."
         (list (cl-second fields)
               (cl-first fields)
               (cond
-               ((< (third fields) 50)
-                (+ 2000 (third fields)))
-               ((< (third fields) 100)
-                (+ 1900 (third fields)))
-               (t (third fields)))))
+               ((< (cl-third fields) 50)
+                (+ 2000 (cl-third fields)))
+               ((< (cl-third fields) 100)
+                (+ 1900 (cl-third fields)))
+               (t (cl-third fields)))))
        'personality voice-punctuations-some))))
 
 (defvar emacspeak-pronounce-date-yyyymmdd-pattern
@@ -829,7 +829,7 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-uuid (uuid)
   "Return pronunciation for human-readable UUID."
-  (declare (special emacspeak-pronounce-uuid-pattern))
+  (cl-declare (special emacspeak-pronounce-uuid-pattern))
   (when (and (= 36 (length uuid))
              (string-match emacspeak-pronounce-uuid-pattern uuid))
     (format "uid: %s..%s "

@@ -82,7 +82,7 @@ See  command emacspeak-toggle-word-echo bound to
 \\[emacspeak-toggle-word-echo].
 Speech flushes as you type."
   (interactive "p")
-  (declare (special last-command-event buffer-undo-list  buffer-read-only
+  (cl-declare (special last-command-event buffer-undo-list  buffer-read-only
                     emacspeak-character-echo emacspeak-word-echo))
   (or arg (setq arg 1))
   (when buffer-read-only
@@ -115,7 +115,7 @@ Speech flushes as you type."
 See  command emacspeak-toggle-word-echo bound to
 \\[emacspeak-toggle-word-echo].
 Speech flushes as you type."
-  (declare (special last-command-event 
+  (cl-declare (special last-command-event 
                     emacspeak-character-echo emacspeak-word-echo))
   (when buffer-read-only (dtk-speak "Buffer is read-only. "))
   (when
@@ -149,7 +149,7 @@ Speech flushes as you type."
 (defun emacspeak-forward-char (&optional arg)
   "Forward-char redefined to speak char moved to. "
   (interactive "p")
-  (declare (special dtk-stop-immediately))
+  (cl-declare (special dtk-stop-immediately))
   (or arg (setq arg 1))
   (cond
    ((<= (+ arg (point)) (point-max))
@@ -164,7 +164,7 @@ Speech flushes as you type."
   "Backward-char redefined to speak char moved to. "
   (interactive "p")
   (or arg (setq arg 1))
-  (declare (special dtk-stop-immediately))
+  (cl-declare (special dtk-stop-immediately))
   (cond
    ((>= (- (point) arg) (point-min))
     (backward-char arg)

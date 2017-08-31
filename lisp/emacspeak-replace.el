@@ -112,7 +112,7 @@ that is being replaced."
 
 (defadvice replace-dehighlight (after emacspeak pre act)
   "Turn off the replacement highlight. "
-  (declare (special emacspeak-replace-highlight-on
+  (cl-declare (special emacspeak-replace-highlight-on
                     emacspeak-replace-saved-personality
                     emacspeak-replace-start emacspeak-replace-end))
   (save-match-data

@@ -56,7 +56,7 @@
 (defun tts-cmd-set-rate (rate    &optional prefix)
   "Set speech rate."
   (interactive "nRate:\nP")
-  (declare (special  dtk-speaker-process dtk-speak-server-initialized))
+  (cl-declare (special  dtk-speaker-process dtk-speak-server-initialized))
   (when prefix
     (setf (tts-state-rate tts-state-prototype) rate))
   (when dtk-speak-server-initialized

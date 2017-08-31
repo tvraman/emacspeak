@@ -244,7 +244,7 @@ in the white-space."
                      (+ left-edge (ems-interval-start (car separators))))
                (setq element (buffer-substring col-start col-end))
                (aset row-vector j element)
-               (incf j)
+               (cl-incf j)
                (while separators
                  (setq col-start
                        (+ left-edge (ems-interval-end (car separators))))
@@ -255,7 +255,7 @@ in the white-space."
                          (progn (end-of-line) (point))))
                  (setq element (buffer-substring col-start col-end))
                  (aset row-vector j element)
-                 (incf j))
+                 (cl-incf j))
                (setq j 0)
                (aset table i row-vector)
                (forward-line 1)))

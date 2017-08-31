@@ -87,12 +87,12 @@ The string can set any  parameter.")
   "Define a Plain voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS server."
-  (declare (special plain-voice-table))
+  (cl-declare (special plain-voice-table))
   (puthash  name command-string  plain-voice-table))
 
 (defun plain-get-voice-command (name)
   "Retrieve command string for  voice NAME."
-  (declare (special plain-voice-table))
+  (cl-declare (special plain-voice-table))
   (cond
    ((listp name)
     (mapconcat #'plain-get-voice-command name " "))
@@ -101,7 +101,7 @@ COMMAND-STRING to the TTS server."
 
 (defun plain-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special plain-voice-table))
+  (cl-declare (special plain-voice-table))
   (gethash name plain-voice-table))
 
 ;;}}}
@@ -135,7 +135,7 @@ COMMAND-STRING to the TTS server."
 
 (defun plain-set-family-code (name code)
   "Set control code for voice family NAME  to CODE."
-  (declare (special plain-family-table))
+  (cl-declare (special plain-family-table))
   (when (stringp name) (setq name (intern name)))
   (setq plain-family-table
         (cons (list name code)
@@ -143,7 +143,7 @@ COMMAND-STRING to the TTS server."
 
 (defun plain-get-family-code (name)
   "Get control code for voice family NAME."
-  (declare (special plain-family-table))
+  (cl-declare (special plain-family-table))
   (when (stringp name)
     (setq name (intern name)))
   (or (cadr (assq  name plain-family-table))
@@ -171,13 +171,13 @@ Values are vectors holding the control codes for the 10 settings.")
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-  (declare (special plain-css-code-tables))
+  (cl-declare (special plain-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash  key table plain-css-code-tables)))
 
 (defun plain-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
-  (declare (special plain-css-code-tables))
+  (cl-declare (special plain-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key plain-css-code-tables)))
 
@@ -591,7 +591,7 @@ and TABLE gives the values along that dimension."
 
 (defun plain-list-voices ()
   "List defined voices."
-  (declare (special plain-voice-table))
+  (cl-declare (special plain-voice-table))
   (cl-loop for k being the hash-keys of plain-voice-table
            collect   k))
 
@@ -600,7 +600,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun plain-configure-tts ()
   "Configures TTS environment to use Plain family of synthesizers."
-  (declare (special  plain-default-speech-rate
+  (cl-declare (special  plain-default-speech-rate
                      tts-default-speech-rate
                      tts-default-voice))
   (setq tts-default-voice 'paul)
@@ -617,7 +617,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun plain-make-tts-env  ()
   "Constructs a TTS environment for Plain."
-  (declare (special plain-default-speech-rate))
+  (cl-declare (special plain-default-speech-rate))
   (make-tts-env
    :name :plain :default-voice 'paul
    :default-speech-rate plain-default-speech-rate

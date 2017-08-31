@@ -67,13 +67,13 @@ speak the first field")
 (defun emacspeak-forms-summarize-current-record ()
   "Summarize current record"
   (interactive)
-  (declare (special emacspeak-forms-current-record-summarizer))
+  (cl-declare (special emacspeak-forms-current-record-summarizer))
   (funcall emacspeak-forms-current-record-summarizer))
 
 (defun emacspeak-forms-summarize-current-position ()
   "Summarize current position in list of records"
   (interactive)
-  (declare (special forms--current-record forms--total-records
+  (cl-declare (special forms--current-record forms--total-records
                     forms-file))
   (dtk-speak
    (format "Record %s of %s from %s"
@@ -218,7 +218,7 @@ Assumes that point is at the front of a field value."
 (defun emacspeak-forms-rerun-filter ()
   "Rerun  filter --allows us to nuke more matching records"
   (interactive)
-  (declare (special forms--file-buffer
+  (cl-declare (special forms--file-buffer
                     forms--total-records forms-read-only))
   (save-current-buffer
     (set-buffer forms--file-buffer)

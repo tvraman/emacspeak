@@ -175,12 +175,12 @@ will be placed."
 
 (defun emacspeak-ocr-get-text-name ()
   "Return name of current text document."
-  (declare (special emacspeak-ocr-document-name))
+  (cl-declare (special emacspeak-ocr-document-name))
   (format "%s.text" emacspeak-ocr-document-name))
 
 (defun emacspeak-ocr-get-image-name (extension)
   "Return name of current image."
-  (declare (special emacspeak-ocr-document-name
+  (cl-declare (special emacspeak-ocr-document-name
                     emacspeak-ocr-last-page-number))
   (format "%s-p%s%s"
           emacspeak-ocr-document-name
@@ -189,7 +189,7 @@ will be placed."
 
 (defun emacspeak-ocr-get-page-name ()
   "Return name of current page."
-  (declare (special emacspeak-ocr-document-name
+  (cl-declare (special emacspeak-ocr-document-name
                     emacspeak-ocr-current-page-number))
   (format "%s-p%s.txt"
           emacspeak-ocr-document-name
@@ -207,7 +207,7 @@ will be placed."
 
 (defun emacspeak-ocr-get-mode-line-format ()
   "Return string suitable for use as the mode line."
-  (declare (special major-mode
+  (cl-declare (special major-mode
                     emacspeak-ocr-current-page-number))
   (format "%s Page-%s/%s %s"
           (buffer-name)
@@ -217,7 +217,7 @@ will be placed."
 
 (defun emacspeak-ocr-update-mode-line()
   "Update mode line for OCR mode."
-  (declare (special mode-line-format))
+  (cl-declare (special mode-line-format))
   (setq mode-line-format
         (emacspeak-ocr-get-mode-line-format)))
 
@@ -342,7 +342,7 @@ For detailed help, invoke command emacspeak-ocr bound to
 \\[emacspeak-ocr] to launch emacspeak-ocr-mode, and press
 `?' to display mode-specific help for emacspeak-ocr-mode."
   (interactive)
-  (declare (special emacspeak-ocr-working-directory
+  (cl-declare (special emacspeak-ocr-working-directory
                     emacspeak-ocr-document-name
                     buffer-read-only))
   (let  ((buffer (emacspeak-ocr-get-buffer)))
@@ -370,7 +370,7 @@ Pick a short but meaningful name."
   (interactive
    (list
     (read-from-minibuffer "Document name: ")))
-  (declare (special emacspeak-ocr-document-name
+  (cl-declare (special emacspeak-ocr-document-name
                     mode-line-format))
   (setq emacspeak-ocr-document-name name)
   (rename-buffer
@@ -383,7 +383,7 @@ Pick a short but meaningful name."
 (defun emacspeak-ocr-scan-image ()
   "Acquire page image."
   (interactive)
-  (declare (special emacspeak-speak-messages
+  (cl-declare (special emacspeak-speak-messages
                     emacspeak-ocr-last-page-number
                     emacspeak-ocr-image-extension
                     emacspeak-ocr-keep-uncompressed-image
@@ -424,7 +424,7 @@ Pick a short but meaningful name."
   "Scan in a photograph.
 The scanned image is converted to JPEG."
   (interactive "P")
-  (declare (special emacspeak-speak-messages
+  (cl-declare (special emacspeak-speak-messages
                     emacspeak-ocr-jpeg-metadata-writer
                     emacspeak-ocr-photo-compress-options
                     emacspeak-ocr-scan-photo-options
@@ -483,7 +483,7 @@ The scanned image is converted to JPEG."
   "Writes out recognized text from current page
 to an appropriately named file."
   (interactive)
-  (declare (special emacspeak-ocr-current-page-number
+  (cl-declare (special emacspeak-ocr-current-page-number
                     emacspeak-ocr-page-positions))
   (cond
    ((= 0 emacspeak-ocr-current-page-number)
@@ -501,7 +501,7 @@ to an appropriately named file."
 
 (defun emacspeak-ocr-process-sentinel  (_process _state)
   "Alert user when OCR is complete."
-  (declare (special emacspeak-ocr-page-positions
+  (cl-declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-last-page-number
                     emacspeak-ocr-current-page-number))
   (setq emacspeak-ocr-current-page-number
@@ -518,7 +518,7 @@ to an appropriately named file."
 Prompts for image file if file corresponding to the expected
 `current page' is not found."
   (interactive)
-  (declare (special emacspeak-ocr-engine
+  (cl-declare (special emacspeak-ocr-engine
                     emacspeak-ocr-engine-options
                     emacspeak-ocr-process
                     emacspeak-ocr-last-page-number
@@ -562,7 +562,7 @@ You need the imagemagik family of tools --- we use mogrify to transform the imag
 Prompts for image file if file corresponding to the expected
 `current page' is not found."
   (interactive)
-  (declare (special emacspeak-ocr-engine
+  (cl-declare (special emacspeak-ocr-engine
                     emacspeak-ocr-image-flipflop
                     emacspeak-ocr-engine-options
                     emacspeak-ocr-process
@@ -613,7 +613,7 @@ correctly by themselves."
 (defun emacspeak-ocr-open-working-directory ()
   "Launch dired on OCR working directory."
   (interactive)
-  (declare (special emacspeak-ocr-working-directory))
+  (cl-declare (special emacspeak-ocr-working-directory))
   (switch-to-buffer
    (dired-noselect emacspeak-ocr-working-directory))
   (emacspeak-auditory-icon 'open-object)
@@ -622,7 +622,7 @@ correctly by themselves."
 (defun emacspeak-ocr-forward-page (&optional _count-ignored)
   "Like forward page, but tracks page number of current document."
   (interactive "p")
-  (declare (special emacspeak-ocr-page-positions
+  (cl-declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-last-page-number
                     emacspeak-ocr-current-page-number))
   (cond
@@ -645,7 +645,7 @@ correctly by themselves."
 (defun emacspeak-ocr-backward-page (&optional _count-ignored)
   "Like backward page, but tracks page number of current document."
   (interactive "p")
-  (declare (special emacspeak-ocr-page-positions
+  (cl-declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-current-page-number))
   (cond
    ((= 0 emacspeak-ocr-current-page-number)
@@ -667,7 +667,7 @@ correctly by themselves."
 
 (defun emacspeak-ocr-goto-page (page)
   "Move to specified page."
-  (declare (special emacspeak-ocr-page-positions))
+  (cl-declare (special emacspeak-ocr-page-positions))
   (goto-char
    (aref emacspeak-ocr-page-positions page))
   (emacspeak-ocr-update-mode-line)
@@ -698,7 +698,7 @@ correctly by themselves."
 (defun emacspeak-ocr-read-current-page ()
   "Speaks current page."
   (interactive)
-  (declare (special emacspeak-ocr-page-positions
+  (cl-declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-current-page-number
                     emacspeak-ocr-last-page-number))
   (cond
@@ -724,7 +724,7 @@ Setting persists for current Emacs session."
     (read-from-minibuffer
      "Scan image settings:"
      emacspeak-ocr-scan-image-options)))
-  (declare (special emacspeak-ocr-scan-image-options))
+  (cl-declare (special emacspeak-ocr-scan-image-options))
   (setq emacspeak-ocr-scan-image-options setting))
 
 ;;;###autoload
@@ -737,7 +737,7 @@ Setting persists for current Emacs session."
     (read-from-minibuffer
      "Image compression settings: "
      emacspeak-ocr-compress-image-options)))
-  (declare (special emacspeak-ocr-compress-image-options))
+  (cl-declare (special emacspeak-ocr-compress-image-options))
   (setq emacspeak-ocr-compress-image-options setting))
 
 ;;}}}

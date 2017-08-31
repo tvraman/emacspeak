@@ -98,7 +98,7 @@
 
 (defun emacspeak-webutils-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
-  (declare (special emacspeak-web-pre-process-hook))
+  (cl-declare (special emacspeak-web-pre-process-hook))
   (when     emacspeak-web-pre-process-hook
     (condition-case nil
         (let ((inhibit-read-only t))
@@ -117,7 +117,7 @@ Note that the Web browser should reset this hook after using it.")
 
 (defun emacspeak-webutils-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
-  (declare (special emacspeak-web-post-process-hook
+  (cl-declare (special emacspeak-web-post-process-hook
                     emacspeak-web-pre-process-hook))
   (setq emacspeak-web-pre-process-hook nil) ;clear  pre-process hook
   (when     emacspeak-web-post-process-hook
@@ -159,7 +159,7 @@ Note that the Web browser should reset this hook after using it.")
 
 (defun emacspeak-webutils-unescape-charent (start end)
   "Clean up charents in XML."
-  (declare (special emacspeak-webutils-charent-alist))
+  (cl-declare (special emacspeak-webutils-charent-alist))
   (cl-loop for entry in emacspeak-webutils-charent-alist
            do
            (let ((entity (car  entry))
@@ -183,7 +183,7 @@ Forward punctuation and rate  settings to resulting buffer."
    (add-hook
     'emacspeak-web-post-process-hook
     #'(lambda nil
-        (declare (special emacspeak-we-xpath-filter))
+        (cl-declare (special emacspeak-we-xpath-filter))
         (let ((inhibit-read-only t))
           (dtk-set-punctuations p)
           (dtk-set-rate r)
@@ -194,7 +194,7 @@ Forward punctuation and rate  settings to resulting buffer."
 
 (defun emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."
-  (declare (special emacspeak-google-query))
+  (cl-declare (special emacspeak-google-query))
   (let ((cache
          (eval `(function
                  (lambda nil
@@ -203,7 +203,7 @@ Forward punctuation and rate  settings to resulting buffer."
 
 (defun emacspeak-webutils-cache-google-toolbelt(belt)
   "Setup post process hook to cache google toolbelt when rendered."
-  (declare (special emacspeak-google-toolbelt))
+  (cl-declare (special emacspeak-google-toolbelt))
   (let ((cache
          (eval `(function
                  (lambda nil
@@ -212,7 +212,7 @@ Forward punctuation and rate  settings to resulting buffer."
 
 (defun emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
-  (declare (special major-mode))
+  (cl-declare (special major-mode))
   (unless (or (eq major-mode 'w3-mode)
               (eq major-mode 'w3m-mode)
               (eq major-mode 'eww-mode))
@@ -221,7 +221,7 @@ Forward punctuation and rate  settings to resulting buffer."
 (defun emacspeak-webutils-read-url ()
   "Return URL of current page,
 or URL read from minibuffer."
-  (declare (special emacspeak-webutils-current-url))
+  (cl-declare (special emacspeak-webutils-current-url))
   (if (functionp  emacspeak-webutils-current-url)
       (funcall emacspeak-webutils-current-url)
     (read-from-minibuffer "URL: "
@@ -231,7 +231,7 @@ or URL read from minibuffer."
 (defun emacspeak-webutils-read-this-url ()
   "Return URL under point
 or URL read from minibuffer."
-  (declare (special emacspeak-webutils-url-at-point))
+  (cl-declare (special emacspeak-webutils-url-at-point))
   (if (functionp  emacspeak-webutils-url-at-point)
       (funcall emacspeak-webutils-url-at-point)
     (car (browse-url-interactive-arg "URL: "))))
@@ -255,7 +255,7 @@ or URL read from minibuffer."
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
-  (declare (special emacspeak-web-post-process-hook))
+  (cl-declare (special emacspeak-web-post-process-hook))
   (when (emacspeak-webutils-supported-p)
     (add-hook
      'emacspeak-web-post-process-hook
@@ -280,12 +280,12 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defmacro emacspeak-webutils-without-xsl (&rest body)
   "Execute body with XSL turned off."
   `(progn
-     (declare (special emacspeak-we-xsl-p))
+     (cl-declare (special emacspeak-we-xsl-p))
      (when emacspeak-we-xsl-p
        (setq emacspeak-we-xsl-p nil)
        (add-hook 'emacspeak-web-post-process-hook
                  #'(lambda ()
-                     (declare (special emacspeak-we-xsl-p))
+                     (cl-declare (special emacspeak-we-xsl-p))
                      (setq emacspeak-we-xsl-p t))
                  'append))
      ,@body))
@@ -301,7 +301,7 @@ and xsl environment specified by style, params and options."
       'emacspeak-web-post-process-hook
       (eval
        `#'(lambda ()
-            (declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
+            (cl-declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
                               emacspeak-xslt-options emacspeak-we-xsl-params))
             (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
                   emacspeak-xslt-options ,emacspeak-xslt-options
@@ -399,7 +399,7 @@ With a prefix argument, extracts url under point."
    (list
     (read-from-minibuffer "URL:"
                           (funcall emacspeak-webutils-current-url))))
-  (declare (special emacspeak-w3-google-related-uri))
+  (cl-declare (special emacspeak-w3-google-related-uri))
   (emacspeak-we-extract-by-id
    "res"
    (format
@@ -422,7 +422,7 @@ With a prefix argument, extracts url under point."
 ;;;###autoload
 (defun emacspeak-webutils-transcode-this-url-via-google (url)
   "Transcode specified url via Google."
-  (declare (special emacspeak-webutils-google-transcoder-url))
+  (cl-declare (special emacspeak-webutils-google-transcoder-url))
   (browse-url
    (format emacspeak-webutils-google-transcoder-url
            (emacspeak-url-encode url))))
@@ -518,7 +518,7 @@ Useful in handling double-redirect from TuneIn."
 (defun emacspeak-webutils-open-in-other-browser ()
   "Opens link in alternate browser."
   (interactive)
-  (declare (special major-mode
+  (cl-declare (special major-mode
                     w3-mode
                     eww-mode))
   (emacspeak-webutils-browser-check)
@@ -531,7 +531,7 @@ Useful in handling double-redirect from TuneIn."
 
 (defun emacspeak-webutils-feed-titles (feed-url)
   "Return a list of the form `((title url)...) given an RSS/Atom  feed  URL."
-  (declare (special emacspeak-xslt-directory emacspeak-xslt-program))
+  (cl-declare (special emacspeak-xslt-directory emacspeak-xslt-program))
   (with-temp-buffer
     (shell-command
      (format "%s %s %s "

@@ -68,7 +68,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defun emacspeak-vm-mode-setup ()
   "Setup function placed on vm-mode-hook by Emacspeak."
-  (declare (special  dtk-punctuation-mode dtk-allcaps-beep))
+  (cl-declare (special  dtk-punctuation-mode dtk-allcaps-beep))
   (setq dtk-punctuation-mode 'all)
   (when dtk-allcaps-beep
     (dtk-toggle-allcaps-beep)))
@@ -122,7 +122,7 @@ Note that some badly formed mime messages  cause trouble."
 (defun emacspeak-vm-yank-header ()
    "Yank specified header into kill ring."
    (interactive)
-   (declare (special vm-message-pointer))
+   (cl-declare (special vm-message-pointer))
    (cond
     (vm-message-pointer
      (dtk-stop)
@@ -160,7 +160,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
-  (declare (special vm-message-pointer smtpmail-local-domain
+  (cl-declare (special vm-message-pointer smtpmail-local-domain
                     vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
     (let*  ((message (car vm-message-pointer))
@@ -204,7 +204,7 @@ Note that some badly formed mime messages  cause trouble."
 (defun emacspeak-vm-speak-labels ()
   "Speak a message's labels"
   (interactive)
-  (declare (special vm-message-pointer))
+  (cl-declare (special vm-message-pointer))
   (when vm-message-pointer
     (message "Labels: %s"
              (vm-labels-of (car vm-message-pointer)))))
@@ -212,7 +212,7 @@ Note that some badly formed mime messages  cause trouble."
 (defun emacspeak-vm-mode-line ()
   "VM mode line information. "
   (interactive)
-  (declare (special vm-ml-message-attributes-alist
+  (cl-declare (special vm-ml-message-attributes-alist
                     vm-ml-message-read vm-ml-message-unread
                     vm-virtual-folder-definition vm-ml-message-new
                     vm-ml-message-number vm-ml-highest-message-number))
@@ -370,7 +370,7 @@ Then speak the screenful. "
 (defun emacspeak-vm-catch-up-all-messages ()
   "Mark all messages in folder to be deleted. Use with caution."
   (interactive)
-  (declare (special vm-ml-highest-message-number))
+  (cl-declare (special vm-ml-highest-message-number))
   (vm-goto-message 1)
   (vm-delete-message
    (read vm-ml-highest-message-number))
@@ -403,7 +403,7 @@ Then speak the screenful. "
 ;;{{{ advise searching:
 (defadvice vm-isearch-forward (around emacspeak pre act comp)
   "Provide auditory feedback"
-  (declare (special vm-message-pointer))
+  (cl-declare (special vm-message-pointer))
   (cond
    ((ems-interactive-p)
     (let ((orig (point)))
@@ -418,7 +418,7 @@ Then speak the screenful. "
 
 (defadvice vm-isearch-backward (around emacspeak pre act comp)
   "Provide auditory feedback"
-  (declare (special vm-message-pointer))
+  (cl-declare (special vm-message-pointer))
   (cond
    ((ems-interactive-p)
     (let ((orig (point)))
@@ -553,7 +553,7 @@ If N is negative, move backward instead."
       (when
           (or (get-text-property (point) 'intangible)
               (get-text-property (point) 'cursorintangible))
-        (incf n))
+        (cl-incf n))
       (decf n))
     (unless (zerop n)
       (message  "No more buttons"))
@@ -614,7 +614,7 @@ If N is negative, move backward instead."
 (defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of
 Emacspeak."
-  (declare (special emacspeak-vm-demote-html-attachments
+  (cl-declare (special emacspeak-vm-demote-html-attachments
                     emacspeak-vm-promote-html-attachments
                     vm-mime-charset-converter-alist
                     vm-mime-default-face-charsets
@@ -665,7 +665,7 @@ Emacspeak."
 (defun emacspeak-vm-toggle-html-mime-demotion ()
   "Toggle state of HTML Mime Demotion."
   (interactive)
-  (declare (special emacspeak-vm-demote-html-attachments
+  (cl-declare (special emacspeak-vm-demote-html-attachments
                     emacspeak-vm-promote-html-attachments
                     vm-mime-alternative-select-method))
   (cond
@@ -726,7 +726,7 @@ text using wvText."
 
 (defun emacspeak-vm-add-mime-converter (converter)
   "Helper to add a converter specification."
-  (declare (special vm-mime-type-converter-alist))
+  (cl-declare (special vm-mime-type-converter-alist))
   (unless
       (cl-find-if
        #'(lambda  (i)
@@ -737,7 +737,7 @@ text using wvText."
 
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
-  (declare (special vm-preview-lines
+  (cl-declare (special vm-preview-lines
                     vm-infer-mime-types
                     vm-mime-decode-for-preview
                     vm-auto-decode-mime-messages

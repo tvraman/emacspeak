@@ -95,7 +95,7 @@ Fix the function definition of sym to make its interactive form
 speak its prompts. This function needs to do very little work as
 of Emacs 21 since all interactive forms except `c' and `k' now
 use the minibuffer."
-  (declare (special emacspeak-fix-interactive-problematic-functions))
+  (cl-declare (special emacspeak-fix-interactive-problematic-functions))
   (let* ((prompts
           (split-string
            (cl-second (interactive-form  sym))
@@ -175,7 +175,7 @@ emacspeak-fix-all-recent-commands to track load-history.")
 This command looks through `load-history' and fixes commands if necessary.
 Memoizes call in emacspeak-load-history-pointer to memoize this call. "
   (interactive)
-  (declare (special load-history emacspeak-load-history-pointer))
+  (cl-declare (special load-history emacspeak-load-history-pointer))
   (unless (eq emacspeak-load-history-pointer load-history)
     (lexical-let ((lh load-history)
                   (emacspeak-speak-messages nil))

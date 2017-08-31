@@ -125,7 +125,7 @@
 (defun emacspeak-arc-get-header-line-format ()
   "Return  header line format vector, after
 first initializing it if necessary."
-  (declare (special emacspeak-arc-header-list-format))
+  (cl-declare (special emacspeak-arc-header-list-format))
   (unless emacspeak-arc-header-list-format
     (let ((line nil)
           (fields nil))
@@ -215,7 +215,7 @@ first initializing it if necessary."
                 mode)))))
 (defun emacspeak-arc-setup-keys ()
   "Setup emacspeak keys for arc mode"
-  (declare (special archive-mode-map))
+  (cl-declare (special archive-mode-map))
   (define-key archive-mode-map "." 'emacspeak-arc-speak-file-name)
   (define-key archive-mode-map "c" 'emacspeak-arc-speak-file-modification-time)
   (define-key archive-mode-map "z" 'emacspeak-arc-speak-file-size)

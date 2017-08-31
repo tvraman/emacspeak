@@ -179,7 +179,7 @@ sections."
 (defun emacspeak-outline-speak-heading (what direction)
   "Function used by all interactive section speaking
 commands. "
-  (declare (special emacspeak-outline-query-before-speaking))
+  (cl-declare (special emacspeak-outline-query-before-speaking))
   (let ((start nil)
         (end nil))
     (funcall what  direction)
@@ -247,7 +247,7 @@ except that the outline section is  spoken"
 
 (defun emacspeak-outline-setup-keys ()
   "Bind keys in outline minor mode map"
-  (declare (special outline-mode-prefix-map))
+  (cl-declare (special outline-mode-prefix-map))
   (define-key outline-mode-prefix-map "p"
     'emacspeak-outline-speak-previous-heading)
   (define-key outline-mode-prefix-map "n"

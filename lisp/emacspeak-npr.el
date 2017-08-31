@@ -100,7 +100,7 @@
 ;;; beware: when using curl, npr.org wants apiKey first (WHY?)
 (defun emacspeak-npr-rest-endpoint (operation operand)
   "Return  URL  end point for specified operation."
-  (declare (special emacspeak-npr-api-base
+  (cl-declare (special emacspeak-npr-api-base
                     emacspeak-npr-api-key))
   (format "%s/%s?apiKey=%s&%s"
           emacspeak-npr-api-base operation emacspeak-npr-api-key operand))
@@ -110,7 +110,7 @@
 
 (defun emacspeak-npr-get-xml (command)
   "Run command and return its output."
-  (declare (special shell-file-name shell-command-switch))
+  (cl-declare (special shell-file-name shell-command-switch))
   (g-using-scratch
    (call-process shell-file-name nil t
                  nil shell-command-switch
@@ -190,7 +190,7 @@ Interactive prefix arg prompts for search."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
-           (declare (special emacspeak-we-url-executor))
+           (cl-declare (special emacspeak-we-url-executor))
            (setq emacspeak-we-url-executor
                  'emacspeak-npr-listing-url-executor)
            (emacspeak-speak-buffer)))
@@ -210,18 +210,18 @@ Interactive prefix arg prompts for search."
 
 (defun emacspeak-npr-ensure-cache ()
   "Create NPR cache directory if needed."
-  (declare (special emacspeak-npr-local-cache))
+  (cl-declare (special emacspeak-npr-local-cache))
   (unless (file-exists-p emacspeak-npr-local-cache)
     (make-directory  emacspeak-npr-local-cache 'parents)))
 (defun emacspeak-npr-pid-to-program (pid)
   "Return program name for pid."
-  (declare (special emacspeak-npr-program-table))
+  (cl-declare (special emacspeak-npr-program-table))
   (first
    (cl-find pid emacspeak-npr-program-table :key #'cl-second :test #'string-equal)))
 
 (defun emacspeak-npr-make-file-name (pid &optional date)
   "Return  filename used to cache playlist for specified program, date pair."
-  (declare (special  emacspeak-npr-local-cache))
+  (cl-declare (special  emacspeak-npr-local-cache))
   (emacspeak-npr-ensure-cache)
   (if date
       (setq date (replace-regexp-in-string "/" "-" date))
@@ -239,7 +239,7 @@ Interactive prefix arg prompts for search."
 (defun emacspeak-npr-refresh-program-table (&optional force)
   "Refresh program table cache if needed."
   (interactive "P")
-  (declare (special emacspeak-npr-program-table))
+  (cl-declare (special emacspeak-npr-program-table))
   (when (or (null emacspeak-npr-program-table) force)
     (let* ((url
             (emacspeak-npr-rest-endpoint
@@ -261,7 +261,7 @@ Interactive prefix arg prompts for search."
 
 (defun emacspeak-npr-read-program-id ()
   "Interactively read program id with completion."
-  (declare (special emacspeak-npr-program-table))
+  (cl-declare (special emacspeak-npr-program-table))
   (or emacspeak-npr-program-table (emacspeak-npr-refresh-program-table))
   (let ((completion-ignore-case t))
     (cadr

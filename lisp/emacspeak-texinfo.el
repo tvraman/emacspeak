@@ -55,7 +55,7 @@
 
 (defun emacspeak-texinfo-mode-hook ()
   "Setup Emacspeak extensions"
-  (declare (special dtk-split-caps))
+  (cl-declare (special dtk-split-caps))
   (dtk-set-punctuations 'all)
   (or dtk-split-caps
       (dtk-toggle-split-caps))

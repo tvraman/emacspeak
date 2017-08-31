@@ -83,7 +83,7 @@
     (apply 'concat
            (mapcar
             #'(lambda (c)
-                (declare (special toy-braille-map))
+                (cl-declare (special toy-braille-map))
                 (let ((tc (assoc c toy-braille-map)))
                   (if tc
                       (cdr tc)

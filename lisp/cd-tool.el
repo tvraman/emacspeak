@@ -123,7 +123,7 @@ cap C   Save clip to disk
 
 (defun cd-tool-get-clip-command (&optional save)
   "Query for and return an appropriate CD clip command"
-  (declare (special cd-tool-clipper cd-tool-clip-track-history
+  (cl-declare (special cd-tool-clipper cd-tool-clip-track-history
                     cd-tool-clip-skip-history cd-tool-clip-duration-history))
   (let ((filename (when save
                     (read-file-name

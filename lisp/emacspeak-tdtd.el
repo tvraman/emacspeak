@@ -62,7 +62,7 @@
 
 (defun emacspeak-tdtd-voice-lock-setup()
   "Setup voice locking for tdtd mode."
-  (declare (special 
+  (cl-declare (special 
             dtd-xml-flag 
             dtd-decl-flag dtd-sys-decl-flag))
   (cond

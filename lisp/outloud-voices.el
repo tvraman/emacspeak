@@ -104,12 +104,12 @@ The string can set any voice parameter.")
   "Define a Outloud  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
-  (declare (special outloud-voice-table))
+  (cl-declare (special outloud-voice-table))
   (puthash name command-string outloud-voice-table))
 
 (defun outloud-get-voice-command-internal  (name)
   "Retrieve command string for  voice NAME."
-  (declare (special outloud-voice-table))
+  (cl-declare (special outloud-voice-table))
   (cond
    ((listp name)
     (mapconcat #'outloud-get-voice-command name " "))
@@ -118,14 +118,14 @@ COMMAND-STRING to the TTS engine."
 
 (defun outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
-  (declare (special dtk-speech-rate))
+  (cl-declare (special dtk-speech-rate))
   (concat 
    (outloud-get-voice-command-internal name)
    (format "`vs%s" dtk-speech-rate)))
 
 (defun outloud-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special outloud-voice-table))
+  (cl-declare (special outloud-voice-table))
   (gethash name outloud-voice-table))
 
 ;;}}}
@@ -170,13 +170,13 @@ Values are vectors holding the control codes for the 10 settings.")
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-  (declare (special outloud-css-code-tables))
+  (cl-declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash key table outloud-css-code-tables)))
 
 (defun outloud-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
-  (declare (special outloud-css-code-tables))
+  (cl-declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key outloud-css-code-tables)))
 
@@ -206,7 +206,7 @@ and TABLE gives the values along that dimension."
              (cl-first setting)
              (format
               " `vb%s `vh%s "
-              (cl-second setting) (third setting))))
+              (cl-second setting) (cl-third setting))))
    '(
      (0 40 75) ; pitch, head-size
      (1 45 70)
@@ -232,7 +232,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " `vb%s `vh% s"
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 0 90)
      (1 10 85)
@@ -259,7 +259,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " `vb%s `vh% s"
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 5 70)
      (1 17 66)
@@ -419,7 +419,7 @@ and TABLE gives the values along that dimension."
              (cl-first setting)
              (format
               " `vy%s  `vv%s "
-              (cl-second setting) (third setting))))
+              (cl-second setting) (cl-third setting))))
    '(; whisper, volume 
      (0 0 60)
      (1 4 78)
@@ -473,7 +473,7 @@ and TABLE gives the values along that dimension."
 
 (defun outloud-list-voices ()
   "List defined voices."
-  (declare (special outloud-voice-table))
+  (cl-declare (special outloud-voice-table))
   (cl-loop for k being the hash-keys of outloud-voice-table collect   k))
 
 ;;}}}
@@ -481,7 +481,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun outloud-configure-tts ()
   "Configure TTS environment to use ViaVoice  family of synthesizers."
-  (declare (special tts-default-speech-rate tts-default-voice
+  (cl-declare (special tts-default-speech-rate tts-default-voice
                     outloud-default-speech-rate
                     dtk-speech-rate-step dtk-speech-rate-base))
   (fset 'tts-list-voices'outloud-list-voices)
@@ -505,7 +505,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun outloud-make-tts-env  ()
   "Constructs a TTS environment for Outloud."
-  (declare (special outloud-default-speech-rate))
+  (cl-declare (special outloud-default-speech-rate))
   (make-tts-env
    :name :outloud :default-voice 'paul
    :default-speech-rate outloud-default-speech-rate

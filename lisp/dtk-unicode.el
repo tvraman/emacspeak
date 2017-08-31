@@ -300,7 +300,7 @@ This is meant to be used in places where the user asks for a short description o
 This is the main entry point for this module.
 The argument MODE specifies the current punctuation mode.
 Does nothing for unibyte buffers."
-  (declare (special dtk-unicode-process-utf8))
+  (cl-declare (special dtk-unicode-process-utf8))
   (when  dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
       (goto-char (point-min))

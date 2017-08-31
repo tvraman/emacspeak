@@ -66,7 +66,7 @@
 (defun emacspeak-hydra-toggle-talkative ()
   "Toggle state of hydra-is-helpful"
   (interactive)
-  (declare (special hydra-is-helpful))
+  (cl-declare (special hydra-is-helpful))
   (setq hydra-is-helpful (not hydra-is-helpful))
   (emacspeak-auditory-icon (if hydra-is-helpful 'on 'off)))
 

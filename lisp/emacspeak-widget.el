@@ -98,7 +98,7 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-echo (w)
   "Return help-echo with appropriate personality."
-  (declare (special voice-animate))
+  (cl-declare (special voice-animate))
   (let ((inhibit-read-only t)
         (h (widget-get w :help-echo))
         (help nil))
@@ -570,7 +570,7 @@ Returns a string with appropriate personality."
 
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
-  (declare (special emacspeak-webutils-url-at-point
+  (cl-declare (special emacspeak-webutils-url-at-point
                     emacspeak-we-url-executor))
   (let ((inhibit-read-only t)
         (widget (widget-at (ad-get-arg 0))))
@@ -631,7 +631,7 @@ widget before summarizing."
        ((= key ?.) nil)
        ((= key ?u)
         (if (numberp level)
-            (incf level)
+            (cl-incf level)
           (setq level 1)))
        ((= key ?d)
         (if (> level  0)
@@ -661,7 +661,7 @@ widget before summarizing."
 
 (defadvice widget-setup (after emacspeak pre act comp)
   "Update widget keymaps."
-  (declare (special emacspeak-prefix
+  (cl-declare (special emacspeak-prefix
                     widget-field-keymap widget-text-keymap))
   (cl-loop
    for map in
@@ -713,7 +713,7 @@ widget before summarizing."
 
 (defun emacspeak-widget-create-voice-selector ()
   "Create a suitable voice selector widget."
-  (declare (special dectalk-voice-table))
+  (cl-declare (special dectalk-voice-table))
   (let ((w
          (widget-create 'voice
                         :tag "voices")))

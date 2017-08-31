@@ -148,17 +148,17 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
 
 (defun voice-setup-set-voice-for-face (face voice)
   "Map face --a symbol-- to relevant voice."
-  (declare (special  voice-setup-face-voice-table))
+  (cl-declare (special  voice-setup-face-voice-table))
   (setf (gethash face voice-setup-face-voice-table) voice))
 
 (defun voice-setup-get-voice-for-face (face)
   "Map face --a symbol-- to relevant voice."
-  (declare (special  voice-setup-face-voice-table))
+  (cl-declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
 
 (defun voice-setup-show-rogue-faces ()
   "Return list of voices that map to non-existent faces."
-  (declare (special voice-setup-face-voice-table))
+  (cl-declare (special voice-setup-face-voice-table))
   (cl-loop for f being the hash-keys of voice-setup-face-voice-table
            unless (facep f) collect f))
 
@@ -188,7 +188,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
                    (let ((observing  (get sym 'observing)))
                      (when (and (symbolp sym)
                                 (symbolp observing))
-                       (remprop observing sym))
+                       (cl-remprop observing sym))
                      (set-default sym val)))
            ,@args))
 ;;; other actions performed at define time
@@ -239,7 +239,7 @@ Keys are personality names.")
 
 (defun voice-setup-personality-from-style (style-list)
   "Define a personality given a list of speech style settings."
-  (declare (special voice-setup-personality-table))
+  (cl-declare (special voice-setup-personality-table))
   (let ((voice
          (acss-personality-from-speech-style
           (make-acss
@@ -536,7 +536,7 @@ Sample text to use comes from variable
   `voice-setup-sample-text'. "
   (interactive (list (and current-prefix-arg
                           (read-string "List faces matching regexp: "))))
-  (declare (special voice-setup-sample-text
+  (cl-declare (special voice-setup-sample-text
                     list-faces-sample-text))
   (let ((list-faces-sample-text voice-setup-sample-text))
     (list-faces-display pattern)
@@ -558,7 +558,7 @@ then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect."
   (interactive)
-  (declare (special voice-setup-buffer-face-voice-table))
+  (cl-declare (special voice-setup-buffer-face-voice-table))
   (let* ((personality  (dtk-get-style))
          (face (get-text-property (point) 'face))
          (orig (gethash face voice-setup-buffer-face-voice-table)))

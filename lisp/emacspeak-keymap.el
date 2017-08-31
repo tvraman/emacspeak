@@ -381,7 +381,7 @@ that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief."
   (interactive "kPress the key you would like to use as the emacspeak prefix")
-  (declare (special emacspeak-prefix))
+  (cl-declare (special emacspeak-prefix))
   (let ((current-use (lookup-key  global-map prefix-key)))
     (global-set-key prefix-key 'emacspeak-prefix-command)
     (unless (eq  current-use 'emacspeak-prefix-command)
@@ -781,7 +781,7 @@ interactive command that the key sequence executes."
 
 (defun emacspeak-keymap-recover-eol ()
   "Recover end-of-line."
-  (declare (special emacspeak-prefix))
+  (cl-declare (special emacspeak-prefix))
   (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
   (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
 

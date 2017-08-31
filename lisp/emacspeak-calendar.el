@@ -68,7 +68,7 @@
 ;;{{{  functions:
 (defun emacspeak-calendar-sort-diary-entries ()
   "Sort entries in diary entries list."
-  (declare (special diary-entries-list))
+  (cl-declare (special diary-entries-list))
   (when(and  (boundp 'diary-entries-list)
              diary-entries-list)
     (setq diary-entries-list
@@ -304,7 +304,7 @@
 
 (defadvice calendar-read (around emacspeak pre act comp)
   "Record what was read"
-  (declare (special emacspeak-calendar-user-input))
+  (cl-declare (special emacspeak-calendar-user-input))
   ad-do-it
   (setq emacspeak-calendar-user-input ad-return-value)
   ad-return-value)
@@ -369,7 +369,7 @@
 
 (defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"
-  (declare (special calendar-buffer calendar-mode-map emacspeak-prefix))
+  (cl-declare (special calendar-buffer calendar-mode-map emacspeak-prefix))
   (save-current-buffer
     (set-buffer calendar-buffer)
     (local-unset-key emacspeak-prefix)
@@ -418,7 +418,7 @@
 (defun emacspeak-appt-repeat-announcement ()
   "Speaks the most recently displayed appointment message if any."
   (interactive)
-  (declare (special appt-buffer-name))
+  (cl-declare (special appt-buffer-name))
   (let  ((appt-buffer (get-buffer appt-buffer-name)))
     (cond
      (appt-buffer
@@ -446,7 +446,7 @@
   "Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gweb-my-address via M-x customize-variable."
   (interactive)
-  (declare (special  gweb-my-address gweb-my-location
+  (cl-declare (special  gweb-my-address gweb-my-location
                      calendar-latitude calendar-longitude))
   (cond
    ((null gweb-my-location)
@@ -461,7 +461,7 @@ To use, configure variable gweb-my-address via M-x customize-variable."
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
   "Like calendar's sunrise-sunset, but speaks location intelligently."
-  (declare (special gweb-my-address))
+  (cl-declare (special gweb-my-address))
   (cond
    ((and (boundp 'gweb-my-address)
          gweb-my-address

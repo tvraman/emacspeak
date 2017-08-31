@@ -106,13 +106,13 @@
 
 (defun emacspeak-url-template-set (key ut)
   "Add specified template to key. "
-  (declare (special emacspeak-url-template-table))
+  (cl-declare (special emacspeak-url-template-table))
   (setf (gethash key emacspeak-url-template-table) ut))
 
 ;;;###autoload
 (defun emacspeak-url-template-get (key)
   "Lookup key and return corresponding template. "
-  (declare (special emacspeak-url-template-table))
+  (cl-declare (special emacspeak-url-template-table))
   (gethash key emacspeak-url-template-table))
 
 ;;}}}
@@ -138,7 +138,7 @@ fetcher Unless specified, browse-url retrieves URL.
  that is called with the URI to retrieve.
 documentation Documents this template resource.
 dont-url-encode if true then url arguments are not url-encoded "
-  (declare (special emacspeak-url-template-table))
+  (cl-declare (special emacspeak-url-template-table))
   (emacspeak-url-template-set
    name
    (emacspeak-url-template-constructor
@@ -169,7 +169,7 @@ dont-url-encode if true then url arguments are not url-encoded "
   (interactive
    (list
     (read-file-name "Save URL templates to: " emacspeak-resource-directory)))
-  (declare (special emacspeak-resource-directory))
+  (cl-declare (special emacspeak-resource-directory))
   (let ((print-level nil)
         (print-length nil)
         (buffer (find-file-noselect
@@ -246,7 +246,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (defun emacspeak-url-template-iplayer-player (cid)
   "Take a cid particle, and opens player page."
-  (declare (special emacspeak-url-template-iplayer-converter))
+  (cl-declare (special emacspeak-url-template-iplayer-converter))
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil
@@ -273,7 +273,7 @@ dont-url-encode if true then url arguments are not url-encoded "
          (t (concat outlet "/")))))
   'emacspeak-speak-read-date-year/month/date)
  #'(lambda ()
-     (declare (special emacspeak-we-url-executor))
+     (cl-declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor
            'emacspeak-url-template-iplayer-player))
  "BBC iPlayer"
@@ -288,7 +288,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "http://www.bbc.co.uk/radio/programmes/genres/%s/schedules.xml"
  (list "Genre/Genre/Genre: ")
  #'(lambda ()
-     (declare (special emacspeak-we-url-executor))
+     (cl-declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor 'emacspeak-url-template-iplayer-player))
  "BBC iPlayer Genre"
  #'(lambda (url)
@@ -382,7 +382,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (defun emacspeak-url-template-setup-content-filter ()
   "Set up content filter in displayed page."
-  (declare (special emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
+  (cl-declare (special emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
   (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
 
 ;;}}}
@@ -585,7 +585,7 @@ from English to German")
 
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
   "View Google Atom news feed pulled using Curl."
-  (declare (special g-atom-view-xsl
+  (cl-declare (special g-atom-view-xsl
                     g-curl-program g-curl-common-options))
   (emacspeak-webutils-autospeak)
   (g-display-result
@@ -873,7 +873,7 @@ name of the list.")
                "year_%s/month_%s/day_%s"
                (cl-first fields)
                (cl-second fields)
-               (third fields)))
+               (cl-third fields)))
         result))
   )
  'emacspeak-speak-buffer
@@ -909,7 +909,7 @@ name of the list.")
                "year_%s/month_%s/day_%s/"
                (cl-first fields)
                (cl-second fields)
-               (third fields)))
+               (cl-third fields)))
         result)))
  nil
  "Display baseball Play By Play."
@@ -932,10 +932,10 @@ name of the list.")
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
                (cl-first fields)
                (cl-second fields)
-               (third fields)
+               (cl-third fields)
                (cl-first fields)
                (cl-second fields)
-               (third fields)))
+               (cl-third fields)))
         result))
   "Visiting Team: "
   "Home Team: ")
@@ -963,10 +963,10 @@ name of the list.")
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
                (cl-first fields)
                (cl-second fields)
-               (third fields)
+               (cl-third fields)
                (cl-first fields)
                (cl-second fields)
-               (third fields)))
+               (cl-third fields)))
         result))
   "Visiting Team: "
   "Home Team: ")
@@ -1003,10 +1003,10 @@ JSON is retrieved from `url'."
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
                (cl-first fields)
                (cl-second fields)
-               (third fields)
+               (cl-third fields)
                (cl-first fields)
                (cl-second fields)
-               (third fields)))
+               (cl-third fields)))
         result))
   "Visiting Team: "
   "Home Team: ")
@@ -1031,10 +1031,10 @@ JSON is retrieved from `url'."
                "year_%s/month_%s/day_%s/gid_%s_%s_%s"
                (cl-first fields)
                (cl-second fields)
-               (third fields)
+               (cl-third fields)
                (cl-first fields)
                (cl-second fields)
-               (third fields)))
+               (cl-third fields)))
         result))
   "Visiting Team: "
   "Home Team: ")
@@ -1078,7 +1078,7 @@ JSON is retrieved from `url'."
  "http://www.timesofindia.com"
  nil
  #'(lambda ()
-     (declare (special emacspeak-we-url-rewrite-rule))
+     (cl-declare (special emacspeak-we-url-rewrite-rule))
      (setq emacspeak-we-url-rewrite-rule
            (list "$" "&prtPage=1")))
  "Retrieve Times Of India.
@@ -1327,7 +1327,7 @@ extension:<ext> Filter by file extension
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special emacspeak-web-post-process-hook))
+  (cl-declare (special emacspeak-web-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
         (action (emacspeak-url-template-post-action ut)))
@@ -1355,7 +1355,7 @@ extension:<ext> Filter by file extension
 to specified name for use as a callback."
   (eval
    `#'(lambda ()
-        (declare (special emacspeak-eww-url-template))
+        (cl-declare (special emacspeak-eww-url-template))
         (setq emacspeak-eww-url-template ',name))))
 
 ;;;###autoload
@@ -1386,7 +1386,7 @@ Optional interactive prefix arg displays documentation for specified resource."
 Use Emacs completion to obtain a list of available
 resources."
   (interactive)
-  (declare (special emacspeak-url-template-table))
+  (cl-declare (special emacspeak-url-template-table))
   (let ((completion-ignore-case t)
         (name nil))
     (setq name
@@ -1399,7 +1399,7 @@ resources."
 
 (defun emacspeak-url-template-generate-texinfo-documentation (buffer)
   "Generates texinfo section documenting all defined URL templates."
-  (declare (special emacspeak-url-template-table))
+  (cl-declare (special emacspeak-url-template-table))
   (with-current-buffer buffer
     (insert
      "@node URL Templates \n@section URL Templates\n\n")

@@ -76,7 +76,7 @@ useful in jumping directly to the printer friendly version of an
 article for example.  Optional interactive prefix arg prompts for
 a rewrite rule even if one is already defined."
   (interactive "P")
-  (declare (special emacspeak-we-url-rewrite-rule))
+  (cl-declare (special emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point))
         (redirect nil))
@@ -103,7 +103,7 @@ a rewrite rule even if one is already defined."
 (defun emacspeak-we-url-expand-and-execute (&optional prefix)
   "Applies buffer-specific URL expander/executor function."
   (interactive "P")
-  (declare (special emacspeak-we-url-executor))
+  (cl-declare (special emacspeak-we-url-executor))
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (unless url (error "Not on a link."))
@@ -186,7 +186,7 @@ Default is to apply sort-tables."
 (defun emacspeak-we-xslt-select (xsl)
   "Select XSL transformation applied to Web pages before they are displayed ."
   (interactive (list (emacspeak-xslt-read)))
-  (declare (special emacspeak-we-xsl-transform))
+  (cl-declare (special emacspeak-we-xsl-transform))
   (setq emacspeak-we-xsl-transform xsl)
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'select-object)
@@ -198,7 +198,7 @@ Default is to apply sort-tables."
 (defun emacspeak-we-xsl-toggle ()
   "Toggle  application of XSL transformations."
   (interactive)
-  (declare (special emacspeak-we-xsl-p))
+  (cl-declare (special emacspeak-we-xsl-p))
   (setq emacspeak-we-xsl-p (not emacspeak-we-xsl-p))
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon
@@ -240,7 +240,7 @@ Default is to apply sort-tables."
 (defun emacspeak-we-toggle-xsl-keep-result ()
   "Toggle xsl keep result flag."
   (interactive)
-  (declare (special emacspeak-we-xsl-keep-result))
+  (cl-declare (special emacspeak-we-xsl-keep-result))
   (setq emacspeak-we-xsl-keep-result
         (not emacspeak-we-xsl-keep-result))
   (when (called-interactively-p 'interactive)
@@ -262,7 +262,7 @@ from Web page -- default is the current page being viewed."
     (read-from-minibuffer "XPath: ")
     (emacspeak-webutils-read-url)
     current-prefix-arg))
-  (declare (special emacspeak-we-xsl-filter
+  (cl-declare (special emacspeak-we-xsl-filter
                     emacspeak-we-filters-rename-buffer))
   (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
@@ -280,7 +280,7 @@ from Web page -- default is the current page being viewed."
     (read-from-minibuffer "XPath: ")
     (emacspeak-webutils-read-url)
     (called-interactively-p 'interactive)))
-  (declare (special emacspeak-we-xsl-junk))
+  (cl-declare (special emacspeak-we-xsl-junk))
   (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
                (when speak (emacspeak-webutils-autospeak))
@@ -319,7 +319,7 @@ operate on current web page when in a browser buffer; otherwise
    (list
     (emacspeak-webutils-read-url)
     (called-interactively-p 'interactive)))
-  (declare (special emacspeak-we-media-stream-suffixes))
+  (cl-declare (special emacspeak-we-media-stream-suffixes))
   (let ((filter "//a[%s]")
         (predicate
          (mapconcat
@@ -543,7 +543,7 @@ Tables are specified by containing  match pattern
      'emacspeak-web-post-process-hook
      (eval
       `#'(lambda nil
-           (declare (special  emacspeak-we-buffer-class-cache))
+           (cl-declare (special  emacspeak-we-buffer-class-cache))
            (setq emacspeak-we-buffer-class-cache
                  ',(copy-sequence values)))))
     (kill-buffer content)))
@@ -568,7 +568,7 @@ Tables are specified by containing  match pattern
      'emacspeak-web-post-process-hook
      (eval
       `#'(lambda nil
-           (declare (special  emacspeak-we-buffer-id-cache))
+           (cl-declare (special  emacspeak-we-buffer-id-cache))
            (setq emacspeak-we-buffer-id-cache
                  ',(copy-sequence values)))))
     (kill-buffer content)))
@@ -593,7 +593,7 @@ Tables are specified by containing  match pattern
      'emacspeak-web-post-process-hook
      (eval
       `#'(lambda nil
-           (declare (special  emacspeak-we-buffer-role-cache))
+           (cl-declare (special  emacspeak-we-buffer-role-cache))
            (setq emacspeak-we-buffer-role-cache
                  ',(copy-sequence values)))))
     (kill-buffer content)))
@@ -838,7 +838,7 @@ used as well."
               (read-from-minibuffer "Class: "))))
     (emacspeak-webutils-read-this-url)
     current-prefix-arg))
-  (declare (special emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
+  (cl-declare (special emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
   (let ((redirect nil))
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
@@ -871,7 +871,7 @@ used as well."
       (setq emacspeak-we-id-filter
             (read-from-minibuffer "Id: "))))
     current-prefix-arg))
-  (declare (special emacspeak-we-id-filter
+  (cl-declare (special emacspeak-we-id-filter
                     emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point))
@@ -944,7 +944,7 @@ XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (declare (special emacspeak-we-xpath-filter
+  (cl-declare (special emacspeak-we-xpath-filter
                     emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter-history
                     emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
@@ -994,7 +994,7 @@ Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (declare (special emacspeak-we-class-filter
+  (cl-declare (special emacspeak-we-class-filter
                     emacspeak-we-recent-class-filter emacspeak-we-class-filter-history
                     emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
@@ -1038,7 +1038,7 @@ XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive "P")
-  (declare (special emacspeak-we-xpath-junk
+  (cl-declare (special emacspeak-we-xpath-junk
                     emacspeak-we-xsl-junk
                     emacspeak-we-recent-xpath-junk
                     emacspeak-we-url-rewrite-rule))

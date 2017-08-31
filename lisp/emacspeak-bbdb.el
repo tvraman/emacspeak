@@ -141,7 +141,7 @@
 
 (defadvice bbdb-complete-name (around emacspeak pre act)
   "Provide spoken feedback"
-  (declare (special completion-reference-buffer))
+  (cl-declare (special completion-reference-buffer))
   (cond
    ((ems-interactive-p)
     (let ((prior (point))

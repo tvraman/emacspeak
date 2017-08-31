@@ -63,11 +63,11 @@
   "Hash table holding mapping from  channel options to descriptions.")
 
 (defun emacspeak-aumix-set-channel  (channel description)
-  (declare (special emacspeak-aumix-channel-table))
+  (cl-declare (special emacspeak-aumix-channel-table))
   (setf (gethash channel emacspeak-aumix-channel-table) description))
 
 (defun emacspeak-aumix-get-channel (channel)
-  (declare (special emacspeak-aumix-channel-table))
+  (cl-declare (special emacspeak-aumix-channel-table))
   (gethash channel emacspeak-aumix-channel-table))
 (emacspeak-aumix-set-channel ?r "reset")
 (emacspeak-aumix-set-channel ?e "edit")
@@ -124,7 +124,7 @@ display."
 (defun emacspeak-aumix-reset ()
   "Reset to default audio settings."
   (interactive)
-  (declare (special emacspeak-aumix-program
+  (cl-declare (special emacspeak-aumix-program
                     emacspeak-alsactl-program
                     emacspeak-aumix-reset-options))
   (cond
@@ -145,7 +145,7 @@ display."
 Run command \\[emacspeak-aumix-reset]
 after saving the settings to have them take effect."
   (interactive)
-  (declare (special emacspeak-etc-directory))
+  (cl-declare (special emacspeak-etc-directory))
   (let ((emacspeak-speak-messages nil)
         (dtk-stop-immediately nil))
     (emacspeak-forms-find-file
@@ -160,7 +160,7 @@ multiple channels playing so you can
 adjust the settings to your preference.  Hit q to quit when
 you are done."
   (interactive)
-  (declare (special emacspeak-aumix-program))
+  (cl-declare (special emacspeak-aumix-program))
   (let ((channel nil)
         (description nil)
         (setting nil)

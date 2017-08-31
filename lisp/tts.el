@@ -82,7 +82,7 @@
 
 (defun tts-env-get (engine-name)
   "Return tts-env structure for specified engine."
-  (declare (special tts-env-table))
+  (cl-declare (special tts-env-table))
   (or (gethash  engine-name tts-env-table)
       (gethash  :plain tts-env-table)))
 
@@ -99,18 +99,18 @@
 
 (defun tts-env-set-process-env  (speaker env)
   "Setup speaker->env association."
-  (declare (special tts-env-process-table))
+  (cl-declare (special tts-env-process-table))
   (puthash speaker env tts-env-process-table))
 
 (cl-defun tts-env (&optional (speaker dtk-speaker-process))
   "Return tts-env for this speaker."
-  (declare (special tts-env-process-table dtk-speaker-process))
+  (cl-declare (special tts-env-process-table dtk-speaker-process))
   (or (gethash speaker tts-env-process-table)
       (plain-make-tts-env)))
 
 (defun tts-env-gc-process-env ()
   "Garbage collect tts-env for killed processes."
-  (declare (special tts-env-process-table))
+  (cl-declare (special tts-env-process-table))
   (cl-loop
    for key being the hash-keys of tts-env-process-table
    unless (process-live-p key) do
@@ -156,7 +156,7 @@
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
   "Return a default tts-state
 appropriately initialized for engine used in this speaker process."
-  (declare (special dtk-speaker-process tts-state tts-state-prototype))
+  (cl-declare (special dtk-speaker-process tts-state tts-state-prototype))
   (cond
    ((and (boundp 'tts-state) tts-state) tts-state)
    (t

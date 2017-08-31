@@ -63,7 +63,7 @@
   ;; name and a space concatenated to the names of the children.
   ;; Third argument PREFIX is for internal use only.
 
-  (declare (special imenu-level-separator))
+  (cl-declare (special imenu-level-separator))
   (mapcan
    (function
     (lambda (item)
@@ -84,7 +84,7 @@
 
 (defadvice imenu--make-index-alist (after emacspeak pre act comp)
   "Cache flattened index alist"
-  (declare (special emacspeak-imenu-flattened-index-alist))
+  (cl-declare (special emacspeak-imenu-flattened-index-alist))
   (setq emacspeak-imenu-flattened-index-alist
         (emacspeak-imenu-flatten-index-alist
          imenu--index-alist t)))
@@ -112,7 +112,7 @@
 (defun emacspeak-imenu-goto-next-index-position ()
   "Goto the next index position in current buffer"
   (interactive)
-  (declare (special emacspeak-imenu-flattened-index-alist
+  (cl-declare (special emacspeak-imenu-flattened-index-alist
                     emacspeak-imenu-autospeak
                     imenu--index-alist))
   (let ((position (point))
@@ -148,7 +148,7 @@
 (defun emacspeak-imenu-goto-previous-index-position ()
   "Goto the previous index position in current buffer"
   (interactive)
-  (declare (special emacspeak-imenu-flattened-index-alist
+  (cl-declare (special emacspeak-imenu-flattened-index-alist
                     emacspeak-imenu-autospeak
                     imenu--index-alist))
   (let ((position (point))

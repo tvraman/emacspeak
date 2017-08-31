@@ -82,12 +82,12 @@ The string can set any voice parameter.")
   "Define an Espeak  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
-  (declare (special espeak-voice-table))
+  (cl-declare (special espeak-voice-table))
   (puthash name command-string espeak-voice-table))
 
 (defun espeak-get-voice-command  (name)
   "Retrieve command string for  voice NAME."
-  (declare (special espeak-voice-table))
+  (cl-declare (special espeak-voice-table))
   (cond
    ((listp name)
     (mapconcat #'espeak-get-voice-command name " "))
@@ -96,7 +96,7 @@ COMMAND-STRING to the TTS engine."
 
 (defun espeak-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special espeak-voice-table))
+  (cl-declare (special espeak-voice-table))
   (gethash name espeak-voice-table))
 
 ;;}}}
@@ -142,13 +142,13 @@ Values are vectors holding the control codes for the 10 settings.")
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-  (declare (special espeak-css-code-tables))
+  (cl-declare (special espeak-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash key table espeak-css-code-tables)))
 
 (defun espeak-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
-  (declare (special espeak-css-code-tables))
+  (cl-declare (special espeak-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key espeak-css-code-tables)))
 
@@ -358,7 +358,7 @@ and TABLE gives the values along that dimension."
             (format "<prosody volume=\"%s\">"
                     (cl-second setting)))))
    ;;            (format " ri:%s sm:%s "
-   ;;                    (third setting)))))
+   ;;                    (cl-third setting)))))
    '(
      (0 10 100)
      (1 20 80)
@@ -384,7 +384,7 @@ and TABLE gives the values along that dimension."
                     (cl-second setting)))))
    ;;            (format " ri:%s sm:%s "
    ;;                     (cl-second setting)
-   ;;                     (third setting)))))
+   ;;                     (cl-third setting)))))
    '(
      (0 10 100)
      (1 20 80)
@@ -410,7 +410,7 @@ and TABLE gives the values along that dimension."
                     (cl-second setting)))))
    ;;            (format " ri:%s sm:%s "
    ;;                     (cl-second setting)
-   ;;                     (third setting)))))
+   ;;                     (cl-third setting)))))
    '(
      (0 10 100)
      (1 20 80)
@@ -466,7 +466,7 @@ and TABLE gives the values along that dimension."
 
 (defun espeak-list-voices ()
   "List defined voices."
-  (declare (special espeak-voice-table))
+  (cl-declare (special espeak-voice-table))
   (cl-loop for k being the hash-keys of espeak-voice-table 
            collect   k))
 
@@ -489,7 +489,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun espeak-configure-tts ()
   "Configure TTS environment to use eSpeak."
-  (declare (special tts-default-speech-rate
+  (cl-declare (special tts-default-speech-rate
                     espeak-default-speech-rate
                     dtk-speaker-process
                     emacspeak-unspeakable-rule))
@@ -508,7 +508,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun espeak-make-tts-env  ()
   "Constructs a TTS environment for Espeak."
-  (declare (special espeak-default-speech-rate))
+  (cl-declare (special espeak-default-speech-rate))
   (make-tts-env
    :name :espeak :default-voice 'paul
    :default-speech-rate espeak-default-speech-rate

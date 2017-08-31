@@ -215,7 +215,7 @@
 (defun emacspeak-custom-goto-group ()
   "Jump to custom group when in a customization buffer."
   (interactive)
-  (declare (special emacspeak-custom-group-regexp))
+  (cl-declare (special emacspeak-custom-group-regexp))
   (when (eq major-mode 'custom-mode)
     (goto-char (point-min))
     (re-search-forward emacspeak-custom-group-regexp
@@ -231,7 +231,7 @@
 (defun emacspeak-custom-goto-toolbar ()
   "Jump to custom toolbar when in a customization buffer."
   (interactive)
-  (declare (special emacspeak-custom-toolbar-regexp))
+  (cl-declare (special emacspeak-custom-toolbar-regexp))
   (when (eq major-mode 'custom-mode)
     (goto-char (point-min))
     (re-search-forward emacspeak-custom-toolbar-regexp nil

@@ -73,7 +73,7 @@
 (defun emacspeak-list-buffers-speak-buffer-line ()
   "Speak information about this buffer"
   (interactive)
-  (declare (special list-buffers-directory dtk-stop-immediately))
+  (cl-declare (special list-buffers-directory dtk-stop-immediately))
   (unless (eq major-mode 'Buffer-menu-mode)
     (error "This command can be used only in buffer menus"))
   (let((buffer (Buffer-menu-buffer t)))
@@ -129,7 +129,7 @@
 (defadvice list-buffers (after emacspeak pre act)
   "Select the window displaying buffer-menu,
 and set up additional Emacspeak bindings."
-  (declare (special Buffer-menu-mode-map))
+  (cl-declare (special Buffer-menu-mode-map))
   (when (ems-interactive-p)
     (select-window  ad-return-value)
     (goto-char (point-min))

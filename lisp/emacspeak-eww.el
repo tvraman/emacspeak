@@ -440,7 +440,7 @@
     `(defun
          ,(intern (format "emacspeak-eww-current-%s" name)) ()
        , (format "Return eww-current-%s." name)
-       (declare (special eww-data))
+       (cl-declare (special eww-data))
        (plist-get eww-data
                   ,(intern (format ":%s" name))))))
   (t
@@ -477,7 +477,7 @@
 
 (defun emacspeak-eww-prepare-eww ()
   "Ensure that we are in an EWW buffer that is well set up."
-  (declare (special major-mode  emacspeak-eww-cache-updated))
+  (cl-declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (emacspeak-eww-current-dom) (error "No DOM!"))
   (unless emacspeak-eww-cache-updated
@@ -550,7 +550,7 @@ are available are cued by an auditory icon on the header line."
 (defun emacspeak-eww-masquerade ()
   "Toggle masquerade state."
   (interactive)
-  (declare (special emacspeak-eww-masquerade))
+  (cl-declare (special emacspeak-eww-masquerade))
   (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
   (message "Turned %s masquerade"
            (if emacspeak-eww-masquerade "on" "off"))
@@ -578,7 +578,7 @@ are available are cued by an auditory icon on the header line."
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
-  (declare (special eww-mode-map eww-link-keymap
+  (cl-declare (special eww-mode-map eww-link-keymap
                     shr-inhibit-images
                     emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                     emacspeak-eww-masquerade
@@ -882,7 +882,7 @@ Retain previously set punctuations  mode."
 
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
-  (declare (special emacspeak-web-pre-process-hook))
+  (cl-declare (special emacspeak-web-pre-process-hook))
   (let ((orig (point)))
     (cond
      (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
@@ -993,7 +993,7 @@ Retain previously set punctuations  mode."
 
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
-  (declare (special eww-element-cache eww-id-cache
+  (cl-declare (special eww-element-cache eww-id-cache
                     eww-property-cache eww-itemprop-cache
                     eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
   (when (listp dom)                     ; build cache
@@ -1098,7 +1098,7 @@ for use as a DOM filter."
 
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
-  (declare (special emacspeak-eww-rename-result-buffer
+  (cl-declare (special emacspeak-eww-rename-result-buffer
                     emacspeak-eww-shr-render-functions))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (emacspeak-eww-current-url))
@@ -1134,7 +1134,7 @@ for use as a DOM filter."
 
 (defun emacspeak-eww-read-id ()
   "Return id value read from minibuffer."
-  (declare (special eww-id-cache))
+  (cl-declare (special eww-id-cache))
   (unless eww-id-cache (error "No id to filter."))
   (let ((value (completing-read "Value: " eww-id-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
@@ -1175,7 +1175,7 @@ Optional interactive arg `multi' prompts for multiple ids."
 
 (defun emacspeak-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
-  (declare (special eww-id-cache eww-class-cache eww-role-cache
+  (cl-declare (special eww-id-cache eww-class-cache eww-role-cache
                     eww-property-cache eww-itemprop-cache))
   (unless (or eww-role-cache eww-id-cache eww-class-cache
               eww-itemprop-cache eww-property-cache)
@@ -1235,7 +1235,7 @@ Optional interactive arg `multi' prompts for multiple classes."
 
 (defun emacspeak-eww-read-class ()
   "Return class value read from minibuffer."
-  (declare (special eww-class-cache))
+  (cl-declare (special eww-class-cache))
   (unless eww-class-cache (error "No class to filter."))
   (let ((value (completing-read "Value: " eww-class-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
@@ -1276,21 +1276,21 @@ Optional interactive arg `multi' prompts for multiple classes."
 
 (defun emacspeak-eww-read-role ()
   "Return role value read from minibuffer."
-  (declare (special eww-role-cache))
+  (cl-declare (special eww-role-cache))
   (unless eww-role-cache (error "No role to filter."))
   (let ((value (completing-read "Value: " eww-role-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
 (defun emacspeak-eww-read-property ()
   "Return property value read from minibuffer."
-  (declare (special eww-property-cache))
+  (cl-declare (special eww-property-cache))
   (unless eww-property-cache (error "No property to filter."))
   (let ((value (completing-read "Value: " eww-property-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
 (defun emacspeak-eww-read-itemprop ()
   "Return itemprop value read from minibuffer."
-  (declare (special eww-itemprop-cache))
+  (cl-declare (special eww-itemprop-cache))
   (unless eww-itemprop-cache (error "No itemprop to filter."))
   (let ((value (completing-read "Value: " eww-itemprop-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
@@ -1314,7 +1314,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  emacspeak-eww-shr-render-functions))
+  (cl-declare (special  emacspeak-eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1350,7 +1350,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   property=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  emacspeak-eww-shr-render-functions))
+  (cl-declare (special  emacspeak-eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1386,7 +1386,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   itemprop=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  emacspeak-eww-shr-render-functions))
+  (cl-declare (special  emacspeak-eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1403,7 +1403,7 @@ Optional interactive arg `multi' prompts for multiple classes."
         dom (emacspeak-eww-current-url))))))
 (defun emacspeak-eww-read-element ()
   "Return element  value read from minibuffer."
-  (declare (special eww-element-cache))
+  (cl-declare (special eww-element-cache))
   (let ((value (completing-read "Value: " eww-element-cache nil 'must-match)))
     (unless (zerop (length value)) (intern value))))
 
@@ -1444,7 +1444,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
   (interactive)
-  (declare (special eww-history eww-history-position))
+  (cl-declare (special eww-history eww-history-position))
   (eww-restore-history(elt eww-history eww-history-position))
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
@@ -1521,7 +1521,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
        (completing-read "Element: "
                         eww-element-cache nil 'must-match
                         nil 'emacspeak-eww-element-navigation-history)))))
-  (declare (special eww-element-cache emacspeak-eww-element-navigation-history))
+  (cl-declare (special eww-element-cache emacspeak-eww-element-navigation-history))
   (let*
       ((start
         (or
@@ -1550,7 +1550,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (intern
        (completing-read "Element: " eww-element-cache nil 'must-match
                         nil 'emacspeak-eww-element-navigation-history)))))
-  (declare (special eww-element-cache
+  (cl-declare (special eww-element-cache
                     emacspeak-eww-element-navigation-history))
   (let* ((start
           (or
@@ -1571,7 +1571,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (defun emacspeak-eww-next-element-from-history ()
   "Uses element navigation history to decide where we jump."
   (interactive)
-  (declare (special emacspeak-eww-element-navigation-history))
+  (cl-declare (special emacspeak-eww-element-navigation-history))
   (cond
    (emacspeak-eww-element-navigation-history
     (emacspeak-eww-next-element
@@ -1581,7 +1581,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (defun emacspeak-eww-previous-element-from-history ()
   "Uses element navigation history to decide where we jump."
   (interactive)
-  (declare (special emacspeak-eww-element-navigation-history))
+  (cl-declare (special emacspeak-eww-element-navigation-history))
   (cond
    (emacspeak-eww-element-navigation-history
     (emacspeak-eww-previous-element
@@ -1692,7 +1692,7 @@ Optional interactive prefix arg speaks the structural unit." f)
 Warning, this is fragile, and depends on a stable id for the
   knowledge card."
   (interactive)
-  (declare (special
+  (cl-declare (special
             emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Turn on  masquerade mode for knowledge cards."))
@@ -1774,7 +1774,7 @@ Warning, this is fragile, and depends on a stable id for the
 (defun emacspeak-eww-transcode ()
   "Apply appropriate transcoding rules to current DOM."
   (interactive)
-  (declare (special eww-element-cache eww-role-cache))
+  (cl-declare (special eww-element-cache eww-role-cache))
   (emacspeak-eww-prepare-eww)
   (let ((dom (emacspeak-eww-current-dom))
         (article-p (member "article" eww-element-cache))
@@ -1860,7 +1860,7 @@ Warning, this is fragile, and depends on a stable id for the
 (defun  emacspeak-eww-update-title  (title)
   "Interactively set title --- renames buffer, and sets header-line."
   (interactive "sTitle:")
-  (declare (special header-line-format))
+  (cl-declare (special header-line-format))
   (rename-buffer title  'unique)
   (setq header-line-format title)
   (plist-put eww-data :title title)
@@ -1891,7 +1891,7 @@ Warning, this is fragile, and depends on a stable id for the
      (let ((input (read-from-minibuffer "Mark: " nil nil nil nil "current")))
        (if (zerop (length input))
            "current" input)))))
-  (declare (special emacspeak-eww-marks
+  (cl-declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
          (make-emacspeak-eww-mark
@@ -1942,7 +1942,7 @@ Warning, this is fragile, and depends on a stable id for the
 (defun emacspeak-eww-delete-mark (name)
   "Interactively delete a mark with name `name' at current position."
   (interactive "sMark Name: ")
-  (declare (special emacspeak-eww-marks))
+  (cl-declare (special emacspeak-eww-marks))
   (remhash name emacspeak-eww-marks)
   (emacspeak-eww-marks-save)
   (emacspeak-auditory-icon 'delete-object)
@@ -1963,7 +1963,7 @@ interactive prefix arg `delete', delete that mark instead."
         (error "No Emacspeak EWW Marks found."))
       (completing-read "Mark: " emacspeak-eww-marks))
     current-prefix-arg))
-  (declare (special emacspeak-eww-marks))
+  (cl-declare (special emacspeak-eww-marks))
   (cond
    (delete (emacspeak-eww-delete-mark name)
            (emacspeak-auditory-icon 'delete-object))
@@ -2001,7 +2001,7 @@ interactive prefix arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
-  (declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
+  (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
   (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
         (print-length nil)
         (print-level nil))
@@ -2021,7 +2021,7 @@ interactive prefix arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-load ()
   "Load saved marks."
   (interactive)
-  (declare (special emacspeak-eww-marks-file emacspeak-eww-marks-loaded-p))
+  (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks-loaded-p))
   (when (file-exists-p emacspeak-eww-marks-file)
     (load-file emacspeak-eww-marks-file)
     (setq emacspeak-eww-marks-loaded-p t)))

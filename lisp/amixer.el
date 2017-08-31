@@ -73,7 +73,7 @@
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
-  (declare (special amixer-card amixer-device))
+  (cl-declare (special amixer-card amixer-device))
   (let ((fields nil)
         (emacspeak-speak-messages nil)
         (slots nil)
@@ -119,7 +119,7 @@
 
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
-  (declare (special amixer-db amixer-device amixer-program))
+  (cl-declare (special amixer-db amixer-device amixer-program))
   (unless amixer-program (error "You dont have a standard amixer."))
   (let (
         (message-log-max nil)
@@ -153,11 +153,11 @@
                        (cl-second (split-string f "="))))
         (push
          (cons
-          (third slots)
+          (cl-third slots)
           (make-amixer-control
            :numid (cl-first slots)
            :iface (cl-second slots)
-           :name (third slots)))
+           :name (cl-third slots)))
          controls)
         (forward-line 1))               ; done collecting controls
       (mapc #'amixer-populate-settings controls)
@@ -168,7 +168,7 @@
 
 (defun amixer-get-enumerated-values(control)
   "Return list of enumerated values."
-  (declare (special amixer-device))
+  (cl-declare (special amixer-device))
   (let ((values nil)
         (emacspeak-speak-messages nil))
     (with-temp-buffer
@@ -201,7 +201,7 @@ use."
 
 (defun amixer-alsactl-setup ()
   "Set up alsactl sound state."
-  (declare (special amixer-alsactl-config-file))
+  (cl-declare (special amixer-alsactl-config-file))
   (setq
    amixer-alsactl-config-file
    (let ((sys-alsa "/var/lib/alsa/asound.state")
@@ -213,7 +213,7 @@ use."
 ;;;###autoload
 (defun amixer-restore (&optional conf-file)
   "Restore alsa settings."
-  (declare (special alsactl-program))
+  (cl-declare (special alsactl-program))
   (if conf-file
       (start-process
        "AlsaCtl" nil alsactl-program
@@ -231,7 +231,7 @@ use."
   "Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache."
   (interactive "P")
-  (declare (special amixer-db amixer-alsactl-config-file amixer-program))
+  (cl-declare (special amixer-db amixer-alsactl-config-file amixer-program))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when (or refresh (null amixer-db))
     (amixer-build-db))
@@ -282,7 +282,7 @@ Interactive prefix arg refreshes cache."
 (defun amixer-equalize()
   "Set equalizer. Only affects device `equal'."
   (interactive)
-  (declare (special amixer-device))
+  (cl-declare (special amixer-device))
   (let ((amixer-device "equal")
         (emacspeak-speak-messages nil))
     (amixer 'refresh)
@@ -292,7 +292,7 @@ Interactive prefix arg refreshes cache."
 (defun amixer-reset-equalizer ()
   "Reset equalizer to default values -- 66% for all 10 bands."
   (interactive)
-  (declare (special amixer-program))
+  (cl-declare (special amixer-program))
   (cl-loop
    for  i from 1 to 10 do
    (start-process
@@ -307,7 +307,7 @@ Interactive prefix arg refreshes cache."
 (defun amixer-store()
   "Persist current amixer settings."
   (interactive)
-  (declare (special  amixer-alsactl-config-file alsactl-program))
+  (cl-declare (special  amixer-alsactl-config-file alsactl-program))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when amixer-alsactl-config-file
     (start-process

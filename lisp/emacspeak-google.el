@@ -126,7 +126,7 @@ This variable is buffer-local.")
 (make-variable-buffer-local 'emacspeak-google-toolbelt-names)
 (defun emacspeak-google-toolbelt ()
   "Returns buffer-local toolbelt or a a newly initialized toolbelt."
-  (declare (special emacspeak-google-toolbelt))
+  (cl-declare (special emacspeak-google-toolbelt))
   (or emacspeak-google-toolbelt
       (setq
        emacspeak-google-toolbelt
@@ -389,7 +389,7 @@ This variable is buffer-local.")
 
 (defun emacspeak-google-canonicalize-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
-  (declare (special emacspeak-websearch-google-use-https))
+  (cl-declare (special emacspeak-websearch-google-use-https))
   (url-unhex-string
    (substring url
               (if emacspeak-websearch-google-use-https 29 28)
@@ -397,7 +397,7 @@ This variable is buffer-local.")
 
 (defun emacspeak-google-result-url-prefix ()
   "Return prefix of result urls."
-  (declare (special emacspeak-websearch-google-use-https))
+  (cl-declare (special emacspeak-websearch-google-use-https))
   (format "%s://www.google.com/url?q="
           (if emacspeak-websearch-google-use-https "https" "http")))
 
@@ -457,7 +457,7 @@ This variable is buffer-local.")
 
 (defun emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."
-  (declare (special emacspeak-google-toolbelt-names))
+  (cl-declare (special emacspeak-google-toolbelt-names))
   (or emacspeak-google-toolbelt-names
       (setq emacspeak-google-toolbelt-names
             (cl-loop
@@ -484,7 +484,7 @@ This variable is buffer-local.")
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."
   (interactive)
-  (declare (special emacspeak-google-query))
+  (cl-declare (special emacspeak-google-query))
   (let ((emacspeak-websearch-google-options "&tbo=1"))
     (emacspeak-websearch-google emacspeak-google-query)))
 
@@ -502,13 +502,13 @@ This variable is buffer-local.")
 (defun emacspeak-google-sign-in ()
   "Sign in to Google."
   (interactive)
-  (declare (special emacspeak-google-sign-in-url))
+  (cl-declare (special emacspeak-google-sign-in-url))
   (browse-url emacspeak-google-sign-in-url))
 
 (defun emacspeak-google-sign-out ()
   "Sign out to Google."
   (interactive)
-  (declare (special emacspeak-google-sign-out-url))
+  (cl-declare (special emacspeak-google-sign-out-url))
   (browse-url emacspeak-google-sign-out-url))
 
 ;;}}}
@@ -593,7 +593,7 @@ Optional interactive prefix arg `lang' prompts for language identifier."
    (list
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
-  (declare (special emacspeak-google-tts-default-language
+  (cl-declare (special emacspeak-google-tts-default-language
                     emacspeak-google-tts-rest-uri emacspeak-m-player-program))
   (when lang
     (setq lang

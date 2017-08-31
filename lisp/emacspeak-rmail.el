@@ -224,7 +224,7 @@
 (defun emacspeak-rmail-summarize-current-message ()
   "Summarize current message"
   (interactive)
-  (declare (special rmail-current-message))
+  (cl-declare (special rmail-current-message))
   (emacspeak-rmail-summarize-message rmail-current-message))
 (defun  emacspeak-rmail-speak-current-message-labels ()
   "Speak labels of current message"

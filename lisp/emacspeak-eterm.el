@@ -72,7 +72,7 @@
 
 (defun emacspeak-eterm-setup-keys()
   "Make eterm usable with emacspeak"
-  (declare (special emacspeak-prefix emacspeak-eterm-prefix
+  (cl-declare (special emacspeak-prefix emacspeak-eterm-prefix
                     emacspeak-eterm-keymap  term-mode-map))
   (define-prefix-command 'emacspeak-eterm-prefix-command
     'emacspeak-eterm-keymap)
@@ -83,7 +83,7 @@
     (while (< i 10)
       (define-key emacspeak-eterm-keymap
         (format "%s" i) 'emacspeak-eterm-speak-predefined-window)
-      (incf i)))
+      (cl-incf i)))
   (define-key emacspeak-eterm-keymap "\C-i" 'emacspeak-eterm-speak-cursor)
   (define-key emacspeak-eterm-keymap "\C-q" 'emacspeak-toggle-eterm-autospeak)
   (define-key emacspeak-eterm-keymap " "  'emacspeak-eterm-speak-screen)
@@ -151,7 +151,7 @@ Useful when eterm is in review mode.")
 
 (defun emacspeak-eterm-setup-raw-keys ()
   "Setup emacspeak keys for raw terminal mode."
-  (declare (special term-raw-map
+  (cl-declare (special term-raw-map
                     emacspeak-prefix term-raw-escape-map
                     emacspeak-eterm-keymap
                     emacspeak-eterm-raw-prefix))
@@ -198,7 +198,7 @@ Useful when eterm is in review mode.")
 
 ;;; nuke term cache info 
 (defun emacspeak-eterm-nuke-cached-info ()
-  (declare (special term-current-row term-current-column))
+  (cl-declare (special term-current-row term-current-column))
   (setq term-current-row nil
         term-current-column nil))
 
@@ -210,7 +210,7 @@ Useful when eterm is in review mode.")
 Execute end of line if
 in a non eterm buffer if executed via C-e C-e"
   (interactive)
-  (declare (special last-input-event))
+  (cl-declare (special last-input-event))
   (cond
    ((or (eq major-mode 'term-mode)
         (eq major-mode 'tshell-mode))
@@ -229,7 +229,7 @@ in a non eterm buffer if executed via C-e C-e"
 (defun emacspeak-eterm-speak-pointer ()
   "Speak current pointer position."
   (interactive)
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (let ((coordinates (emacspeak-eterm-position-to-coordinates
                       (marker-position emacspeak-eterm-pointer))))
     (message 
@@ -241,7 +241,7 @@ in a non eterm buffer if executed via C-e C-e"
 Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken."
   (interactive "P")
-  (declare (special term-home-marker emacspeak-eterm-pointer))
+  (cl-declare (special term-home-marker emacspeak-eterm-pointer))
   (if flag
       (emacspeak-speak-region term-home-marker  emacspeak-eterm-pointer)
     (emacspeak-speak-region  emacspeak-eterm-pointer (point-max))))
@@ -257,7 +257,7 @@ the Emacspeak pointer to be spoken."
 (defun emacspeak-eterm-speak-pointer-line ()
   "Speak the line the pointer is on."
   (interactive)
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
     (emacspeak-speak-line)))
@@ -265,7 +265,7 @@ the Emacspeak pointer to be spoken."
 (defun emacspeak-eterm-speak-pointer-word ()
   "Speak the word  the pointer is on."
   (interactive)
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
     (emacspeak-speak-word nil)))
@@ -274,7 +274,7 @@ the Emacspeak pointer to be spoken."
   "Speak char under eterm pointer.
 Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
     (emacspeak-speak-char prefix)))
@@ -285,7 +285,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 (defun emacspeak-eterm-pointer-to-cursor ()
   "Move the pointer to the cursor."
   (interactive)
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (set-marker emacspeak-eterm-pointer (point))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
@@ -294,7 +294,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 (defun emacspeak-eterm-pointer-to-top () 
   "Move the pointer to the top of the screen."
   (interactive)
-  (declare (special term-home-marker emacspeak-eterm-pointer))
+  (cl-declare (special term-home-marker emacspeak-eterm-pointer))
   (save-excursion
     (goto-char term-home-marker)  
     (set-marker emacspeak-eterm-pointer (point))
@@ -305,7 +305,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
 (defun emacspeak-eterm-pointer-to-bottom  () 
   "Move the pointer to the bottom  of the screen."
   (interactive)
-  (declare (special  emacspeak-eterm-pointer))
+  (cl-declare (special  emacspeak-eterm-pointer))
   (save-excursion
     (goto-char (point-max))
     (set-marker emacspeak-eterm-pointer (point))
@@ -317,7 +317,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   "Move the pointer up a line.
 Argument COUNT .specifies number of lines by which to move."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer 
+  (cl-declare (special emacspeak-eterm-pointer 
                     term-home-marker))
   (setq count (or count 1))
   (save-excursion
@@ -334,7 +334,7 @@ Argument COUNT .specifies number of lines by which to move."
   "Move the pointer down a line.
 Argument COUNT specifies number of lines by which to move."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (setq count (or count 1))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
@@ -350,7 +350,7 @@ Argument COUNT specifies number of lines by which to move."
   "Move the pointer left.
 Argument COUNT specifies number of columns by which to move."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (setq count (or count 1))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
@@ -364,7 +364,7 @@ Argument COUNT specifies number of columns by which to move."
   "Move the pointer right.
 Argument COUNT specifies number of columns by which to move."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (setq count (or count 1))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
@@ -377,7 +377,7 @@ Argument COUNT specifies number of columns by which to move."
 (defun emacspeak-eterm-pointer-to-right-edge ()
   "Move the pointer to the right edge."
   (interactive)
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
     (end-of-line)
@@ -390,7 +390,7 @@ Argument COUNT specifies number of columns by which to move."
 (defun emacspeak-eterm-pointer-to-left-edge ()
   "Move the pointer to the right edge."
   (interactive)
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
     (forward-line 0)
@@ -405,7 +405,7 @@ Argument COUNT specifies number of columns by which to move."
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (setq count (or count 1))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
@@ -421,7 +421,7 @@ Argument COUNT specifies number of words by which to move."
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move."
   (interactive "P")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (setq count (or count 1))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
@@ -436,7 +436,7 @@ Argument COUNT specifies number of words by which to move."
 (defun emacspeak-eterm-goto-line (line)
   "Move emacspeak eterm pointer to a specified LINE."
   (interactive "nGo to line:")
-  (declare (special emacspeak-eterm-pointer
+  (cl-declare (special emacspeak-eterm-pointer
                     term-home-marker))
   (save-excursion 
     (goto-char term-home-marker)
@@ -461,7 +461,7 @@ Argument COUNT specifies number of words by which to move."
   "Prompt for a string,
 and try and locate it on the terminal.
 If found, the Emacspeak pointer is left at the hit. "
-  (declare (special emacspeak-eterm-pointer
+  (cl-declare (special emacspeak-eterm-pointer
                     term-home-marker))
   (let ((found nil)
         (start nil)
@@ -498,7 +498,7 @@ If found, the Emacspeak pointer is left at the hit. "
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip."
   (interactive "p")
-  (declare (special emacspeak-eterm-pointer))
+  (cl-declare (special emacspeak-eterm-pointer))
   (setq count (or count 1))
   (let ((current (dtk-get-style emacspeak-eterm-pointer))
         (found nil))
@@ -517,7 +517,7 @@ Optional argument COUNT specifies how many changes to skip."
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip."
   (interactive "p")
-  (declare (special emacspeak-eterm-pointer term-home-marker))
+  (cl-declare (special emacspeak-eterm-pointer term-home-marker))
   (setq count (or count 1))
   (let ((current (dtk-get-style emacspeak-eterm-pointer))
         (found nil))
@@ -549,7 +549,7 @@ Use command \\[emacspeak-eterm-toggle-review].")
 In review mode, you can move around the terminal and listen to the contents 
 without sending input to the terminal itself."
   (interactive)
-  (declare (special emacspeak-eterm-review-p 
+  (cl-declare (special emacspeak-eterm-review-p 
                     eterm-char-mode
                     buffer-read-only emacspeak-eterm-keymap term-raw-map))
   (emacspeak-eterm-nuke-cached-info)
@@ -580,7 +580,7 @@ without sending input to the terminal itself."
 This sets  the emacspeak eterm marker to the position pointed 
 to by the emacspeak eterm pointer."
   (interactive)
-  (declare (special emacspeak-eterm-pointer 
+  (cl-declare (special emacspeak-eterm-pointer 
                     emacspeak-eterm-marker))
   (let ((coordinates nil))
     (set-marker emacspeak-eterm-marker 
@@ -601,7 +601,7 @@ This copies  region delimited by the emacspeak eterm marker
 set by command \\[emacspeak-eterm-set-marker] and the 
 emacspeak eterm pointer."
   (interactive)
-  (declare (special emacspeak-eterm-marker 
+  (cl-declare (special emacspeak-eterm-marker 
                     emacspeak-eterm-pointer))
   (kill-ring-save (marker-position emacspeak-eterm-marker)
                   (marker-position emacspeak-eterm-pointer))
@@ -616,7 +616,7 @@ This copies  region delimited by the emacspeak eterm marker
 set by command \\[emacspeak-eterm-set-marker] and the 
 emacspeak eterm pointer to a register."
   (interactive "cCopy to register:")
-  (declare (special emacspeak-eterm-marker 
+  (cl-declare (special emacspeak-eterm-marker 
                     emacspeak-eterm-pointer))
   (copy-to-register register 
                     (marker-position emacspeak-eterm-marker)
@@ -689,7 +689,7 @@ Argument ID specifies the window."
   "Translate screen COORDINATES to buffer position.
 This translate  screen coordinates specified
 as a cons cell (column .  row) to a buffer position in the eterm buffer"
-  (declare (special term-home-marker))
+  (cl-declare (special term-home-marker))
   (let ((column (car coordinates))
         (row (cdr coordinates)))
     (save-excursion
@@ -704,7 +704,7 @@ as a cons cell (column .  row) to a buffer position in the eterm buffer"
 ;;; returns a cons cell (column . row)
 (defun emacspeak-eterm-position-to-coordinates (position)
   "Translate a buffer POSITION in the eterm buffer to screen coordinates."
-  (declare (special term-home-marker))
+  (cl-declare (special term-home-marker))
   (save-excursion
     (save-restriction
       (narrow-to-region term-home-marker (point-max))
@@ -720,7 +720,7 @@ as a cons cell (column .  row) to a buffer position in the eterm buffer"
 (defun emacspeak-eterm-return-window-contents (eterm-window)
   "Return  the contents of a window as a string.
 Argument ETERM-WINDOW specifies a predefined eterm window."
-  (declare (special term-home-marker))
+  (cl-declare (special term-home-marker))
   (let ((start nil)
         (end nil)
         (right-stretch (emacspeak-eterm-window-right-stretch eterm-window))
@@ -799,7 +799,7 @@ Argument TOP-LEFT  specifies top-left of window.
 Argument BOTTOM-RIGHT  specifies bottom right of window.
 Optional argument RIGHT-STRETCH  specifies if the window stretches to the right.
 Optional argument LEFT-STRETCH  specifies if the window stretches to the left."
-  (declare (special emacspeak-eterm-window-table
+  (cl-declare (special emacspeak-eterm-window-table
                     emacspeak-eterm-maximum-windows))
   (assert (< window-id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
@@ -811,7 +811,7 @@ Optional argument LEFT-STRETCH  specifies if the window stretches to the left."
 (defun emacspeak-eterm-get-window (id)
   "Retrieve a window.
 Argument ID specifies window whose definition is being requested."
-  (declare (special emacspeak-eterm-window-table
+  (cl-declare (special emacspeak-eterm-window-table
                     emacspeak-eterm-maximum-windows))
   (assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
@@ -827,7 +827,7 @@ be used when emacspeak is set to review mode inside an
 eterm."
 
   (interactive "nDefine window: ")
-  (declare (special emacspeak-eterm-marker emacspeak-eterm-pointer
+  (cl-declare (special emacspeak-eterm-marker emacspeak-eterm-pointer
                     emacspeak-eterm-maximum-windows))
   (assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
@@ -859,7 +859,7 @@ and bottom right at %s %s"
   "Speak an eterm window.
 Argument ID specifies the window."
   (interactive "nSpeak window")
-  (declare (special emacspeak-eterm-maximum-windows
+  (cl-declare (special emacspeak-eterm-maximum-windows
                     term-home-marker))
   (assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
@@ -874,7 +874,7 @@ Argument ID specifies the window."
 (defun emacspeak-eterm-yank-window (id)
   "Yank contents of  an eterm window at point."
   (interactive "nYank contents of window")
-  (declare (special emacspeak-eterm-maximum-windows
+  (cl-declare (special emacspeak-eterm-maximum-windows
                     term-home-marker))
   (assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
@@ -922,7 +922,7 @@ what eterm starts up with).
 Setting the focus window results in emacspeak  monitoring screen
 and speaking that window upon seeing screen activity."
   (interactive "P")
-  (declare (special emacspeak-eterm-focus-window))
+  (cl-declare (special emacspeak-eterm-focus-window))
   (let  ((window-id nil))
     (cond
      (flag (setq emacspeak-eterm-focus-window nil)
@@ -956,7 +956,7 @@ what eterm starts up with).
 Setting the filter window results in emacspeak  only monitoring screen
 activity within the filter window."
   (interactive "P")
-  (declare (special emacspeak-eterm-filter-window))
+  (cl-declare (special emacspeak-eterm-filter-window))
   (let  ((window-id nil))
     (cond
      (flag (setq emacspeak-eterm-filter-window nil)
@@ -977,7 +977,7 @@ activity within the filter window."
 (defun emacspeak-eterm-toggle-focus-window ()
   "Toggle active state of focus window."
   (interactive)
-  (declare (special emacspeak-eterm-focus-window))
+  (cl-declare (special emacspeak-eterm-focus-window))
   (if emacspeak-eterm-focus-window
       (setq emacspeak-eterm-focus-window nil)
     (setq emacspeak-eterm-focus-window 1))
@@ -988,7 +988,7 @@ activity within the filter window."
 (defun emacspeak-eterm-toggle-filter-window ()
   "Toggle active state of filter window."
   (interactive)
-  (declare (special emacspeak-eterm-filter-window))
+  (cl-declare (special emacspeak-eterm-filter-window))
   (if emacspeak-eterm-filter-window
       (setq emacspeak-eterm-filter-window nil)
     (setq emacspeak-eterm-filter-window 1))
@@ -1023,7 +1023,7 @@ activity within the filter window."
 Additional commands provided by emacspeak under eterm are
 available with the prefix emacspeak-eterm-prefix and are listed below:
 \\{emacspeak-eterm-keymap}"
-  (declare (special emacspeak-eterm-pointer emacspeak-eterm-marker))
+  (cl-declare (special emacspeak-eterm-pointer emacspeak-eterm-marker))
   (emacspeak-eterm-setup-keys)
   (emacspeak-eterm-setup-raw-keys)
   (make-local-variable 'eterm-current-personality)
@@ -1090,7 +1090,7 @@ mode; i.e. you hear the output if emacspeak-eterm-autospeak is t.
 Do not set this variable by hand: See command
 emacspeak-toggle-eterm-autospeak bound to
 \\[emacspeak-toggle-eterm-autospeak]"
-  (declare (special emacspeak-eterm-row emacspeak-eterm-column
+  (cl-declare (special emacspeak-eterm-row emacspeak-eterm-column
                     eterm-line-mode eterm-char-mode
                     emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
                     emacspeak-eterm-autospeak 
@@ -1168,7 +1168,7 @@ there is terminal activity.")
 
 (defadvice term-dynamic-complete (around emacspeak pre act)
   "Speak the completion. "
-  (declare (special emacspeak-eterm-row term-current-row))
+  (cl-declare (special emacspeak-eterm-row term-current-row))
   (let  ((saved-point (point)))
     ad-do-it
     (unless (= saved-point (point))
@@ -1299,7 +1299,7 @@ emacspeak-eterm-remote-hostnames")
 
 (defun emacspeak-eterm-load-remote-hosts-cache ()
   "Load cached remote hostnames"
-  (declare (special emacspeak-eterm-remote-hosts-table
+  (cl-declare (special emacspeak-eterm-remote-hosts-table
                     emacspeak-eterm-remote-hosts-cache))
   (when (file-exists-p emacspeak-eterm-remote-hosts-cache)
     (let ((host nil)
@@ -1320,7 +1320,7 @@ emacspeak-eterm-remote-hostnames")
 ;;;###autoload
 (defun emacspeak-eterm-cache-remote-host (host)
   "Add this hostname to cache of remote hostnames"
-  (declare (special emacspeak-eterm-remote-hosts-table
+  (cl-declare (special emacspeak-eterm-remote-hosts-table
                     emacspeak-eterm-remote-hosts-cache))
   (let ((buffer (find-file-noselect
                  emacspeak-eterm-remote-hosts-cache)))
@@ -1337,7 +1337,7 @@ emacspeak-eterm-remote-hostnames")
    (list
     (completing-read "Remote host: "
                      emacspeak-eterm-remote-hosts-table)))
-  (declare (special emacspeak-eterm-remote-hosts-table))
+  (cl-declare (special emacspeak-eterm-remote-hosts-table))
   (require 'term)
   (set-buffer (make-term (format "%s-terminal" host)
                          "rlogin"nil  host))

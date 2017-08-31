@@ -51,14 +51,14 @@
 ;;{{{  Communicate state
 
 (defun emacspeak-solitaire-current-row ()
-  (declare (special solitaire-start-y))
+  (cl-declare (special solitaire-start-y))
   (+ 1 (/ 
         (- (solitaire-current-line)
            solitaire-start-y)
         2)))
 
 (defun emacspeak-solitaire-current-column()
-  (declare (special solitaire-start-x))
+  (cl-declare (special solitaire-start-x))
   (let ((c (current-column)))
     (+ 1
        (/ (- c solitaire-start-x)
@@ -91,7 +91,7 @@
         (case (char-after (point))
               (?o (emacspeak-solitaire-stone))
               (?. (emacspeak-solitaire-hole)))
-        (incf count)
+        (cl-incf count)
         (when (and (>= row 3)
                    (<= row 5)
                    (= 0 (% count 3)))
@@ -220,7 +220,7 @@ Emacspeak specific commands:
 
 (defun emacspeak-solitaire-setup-keymap ()
   "Setup emacspeak keybindings for solitaire"
-  (declare (special solitaire-mode-map))
+  (cl-declare (special solitaire-mode-map))
   (define-key solitaire-mode-map "." 'emacspeak-solitaire-speak-coordinates)
   (define-key solitaire-mode-map "r" 'emacspeak-solitaire-show-row)
   (define-key solitaire-mode-map "c" 'emacspeak-solitaire-show-column)

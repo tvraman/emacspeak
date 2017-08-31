@@ -55,7 +55,7 @@
 Use interactive prefix arg to get coordinate positions of the
 displayed buffers."
   (interactive "P")
-  (declare (special voice-animate voice-bolden))
+  (cl-declare (special voice-animate voice-bolden))
   (let* ((buffer-map (tapestry-buffer-map))
          (count (length buffer-map))
          (window-list  (tapestry-window-list))
@@ -84,7 +84,7 @@ displayed buffers."
            'personality voice-animate w)
           (setq
            tl (format  " %d %d " (cl-first corners) (cl-second corners))
-           br  (format " %d %d " (third corners) (fourth corners)))
+           br  (format " %d %d " (cl-third corners) (cl-fourth corners)))
           (put-text-property 0 (length tl) 'personality voice-bolden tl)
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))

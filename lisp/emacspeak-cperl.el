@@ -93,7 +93,7 @@ Cue electric insertion with a tone."
   "Speak the previous line if line echo is on. 
   See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created. "
-  (declare (special emacspeak-line-echo))
+  (cl-declare (special emacspeak-line-echo))
   (cond
    ((ems-interactive-p)
     (cond

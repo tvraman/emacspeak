@@ -55,7 +55,7 @@
 ;;{{{ Update command remap list.
 (defadvice table--make-cell-map(after emacspeak pre act comp)
   "Set up emacspeak for table.el"
-  (declare (special table-cell-map))
+  (cl-declare (special table-cell-map))
   (when  table-cell-map
     (cl-loop for k in
              (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
@@ -116,7 +116,7 @@
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].  Otherwise cue the user to
 the newly created blank line."
-  (declare (special emacspeak-line-echo))
+  (cl-declare (special emacspeak-line-echo))
   (when (ems-interactive-p)
     (table--finish-delayed-tasks)
     (cond
@@ -128,7 +128,7 @@ the newly created blank line."
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created."
-  (declare (special emacspeak-line-echo))
+  (cl-declare (special emacspeak-line-echo))
   (cond
    ((ems-interactive-p)
     (cond

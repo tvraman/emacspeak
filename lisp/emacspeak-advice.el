@@ -631,7 +631,7 @@ icon."
 (defvar inhibit-message)
 (defadvice message (around emacspeak pre act comp)
   "Speak the message."
-  (declare (special emacspeak-last-message  inhibit-message
+  (cl-declare (special emacspeak-last-message  inhibit-message
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t)
         (m nil))
@@ -674,7 +674,7 @@ icon."
 (defun emacspeak-eldoc-speak-doc ()
   "Speak Eldoc documentation if available."
   (interactive)
-  (declare (special eldoc-documentation-function))
+  (cl-declare (special eldoc-documentation-function))
   (cond
    (eldoc-documentation-function
     (tts-with-punctuations
@@ -688,7 +688,7 @@ icon."
 
 (defadvice ange-ftp-process-handle-hash (around emacspeak pre act comp)
   "Jibber intelligently."
-  (declare (special emacspeak-ange-ftp-last-percent
+  (cl-declare (special emacspeak-ange-ftp-last-percent
                     ange-ftp-last-percent))
   (ems-with-messages-silenced
    ad-do-it
@@ -893,7 +893,7 @@ icon."
 
 (defadvice minibuffer-message (around emacspeak pre act comp)
   "Speak the message if appropriate."
-  (declare (special emacspeak-last-message
+  (cl-declare (special emacspeak-last-message
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((dtk-stop-immediately t))
     ad-do-it
@@ -1388,7 +1388,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 ;;; guess the vc version number from the variable used in minor mode alist
 (defun emacspeak-vc-get-version-id ()
   "Return VC version id."
-  (declare (special vc-mode))
+  (cl-declare (special vc-mode))
   (let ((id vc-mode))
     (cond
      ((and vc-mode
@@ -1814,7 +1814,7 @@ Auditory highlight indicates position of point."
      "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo]. Otherwise cue the user to
 the newly created blank line."
-     (declare (special emacspeak-line-echo))
+     (cl-declare (special emacspeak-line-echo))
      (when (ems-interactive-p)
        (cond
         (emacspeak-line-echo (emacspeak-speak-line))
@@ -2038,7 +2038,7 @@ Provide an auditory icon if possible."
 
 (defadvice help-form-show (after emacspeak pre act comp)
   "Speak displayed help form."
-  (declare (special emacspeak--help-char-helpbuf))
+  (cl-declare (special emacspeak--help-char-helpbuf))
   (when (buffer-live-p (get-buffer emacspeak--help-char-helpbuf))
     (with-current-buffer emacspeak--help-char-helpbuf
       (goto-char (point-min))
@@ -2431,7 +2431,7 @@ Produce auditory icons if possible."
 
 (defun emacspeak-speak-adjust-clause-boundaries ()
   "Adjust clause boundaries so that newlines dont delimit clauses."
-  (declare (special dtk-chunk-separator-syntax))
+  (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax ".)$\""))
 
 (add-hook 'help-mode-hook 'emacspeak-speak-adjust-clause-boundaries)
@@ -2442,7 +2442,7 @@ Produce auditory icons if possible."
 
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
-  (declare (special minibuffer-exit-hook minibuffer-default))
+  (cl-declare (special minibuffer-exit-hook minibuffer-default))
   (let ((inhibit-field-text-motion t))
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
       (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))

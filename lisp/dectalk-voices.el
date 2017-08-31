@@ -102,12 +102,12 @@ The string can set any Dectalk parameter.")
   "Define a Dectalk voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
-  (declare (special dectalk-voice-table))
+  (cl-declare (special dectalk-voice-table))
   (puthash  name command-string  dectalk-voice-table))
 
 (defun dectalk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
-  (declare (special dectalk-voice-table))
+  (cl-declare (special dectalk-voice-table))
   (cond
    ((listp name)
     (mapconcat #'dectalk-get-voice-command name " "))
@@ -116,7 +116,7 @@ COMMAND-STRING to the Dectalk."
 
 (defun dectalk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special dectalk-voice-table))
+  (cl-declare (special dectalk-voice-table))
   (gethash name dectalk-voice-table))
 
 ;;}}}
@@ -149,7 +149,7 @@ COMMAND-STRING to the Dectalk."
 
 (defun dectalk-set-family-code (name code)
   "Set control code for voice family NAME  to CODE."
-  (declare (special dectalk-family-table))
+  (cl-declare (special dectalk-family-table))
   (when (stringp name)
     (setq name (intern name)))
   (setq dectalk-family-table
@@ -158,7 +158,7 @@ COMMAND-STRING to the Dectalk."
 
 (defun dectalk-get-family-code (name)
   "Get control code for voice family NAME."
-  (declare (special dectalk-family-table))
+  (cl-declare (special dectalk-family-table))
   (when (stringp name)
     (setq name (intern name)))
   (or (cadr (assq  name dectalk-family-table))
@@ -186,13 +186,13 @@ Values are vectors holding the control codes for the 10 settings.")
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
-  (declare (special dectalk-css-code-tables))
+  (cl-declare (special dectalk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash  key table dectalk-css-code-tables)))
 
 (defun dectalk-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
-  (declare (special dectalk-css-code-tables))
+  (cl-declare (special dectalk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key dectalk-css-code-tables)))
 
@@ -223,7 +223,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " ap %s hs % s"
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 96 115)
      (1 101 112)
@@ -250,7 +250,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " ap %s hs % s"
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 50 125)
      (1 59 123)
@@ -276,7 +276,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " ap %s hs % s"
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 160 115)
      (1 170 112)
@@ -320,7 +320,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " pr %s as %s "
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 0 0)
      (1 20 10)
@@ -346,7 +346,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " pr %s as %s "
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 0 0)
      (1 16 20)
@@ -372,7 +372,7 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " pr %s as %s "
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 0 0)
      (1 50 10)
@@ -418,8 +418,8 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " hr %s sr %s qu %s bf %s "
                     (cl-second setting)
-                    (third setting)
-                    (fourth setting)
+                    (cl-third setting)
+                    (cl-fourth setting)
                     (fifth setting)))))
    '(
      (0  0 0 0 0)
@@ -446,8 +446,8 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " hr %s sr %s qu %s bf %s "
                     (cl-second setting)
-                    (third setting)
-                    (fourth setting)
+                    (cl-third setting)
+                    (cl-fourth setting)
                     (fifth setting)))))
    '(
      (0  0 0 0 0)
@@ -474,8 +474,8 @@ and TABLE gives the values along that dimension."
             (cl-first setting)
             (format " hr %s sr %s qu %s bf %s "
                     (cl-second setting)
-                    (third setting)
-                    (fourth setting)
+                    (cl-third setting)
+                    (cl-fourth setting)
                     (fifth setting)))))
    '(
      (0  1 1 0 0)
@@ -514,7 +514,7 @@ and TABLE gives the values along that dimension."
       (aset table (cl-first setting)
             (format " ri %s sm %s "
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 0 100)
      (1 14 80)
@@ -539,7 +539,7 @@ and TABLE gives the values along that dimension."
       (aset table (cl-first setting)
             (format " ri %s sm %s "
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 100 0)
      (1 96 3)
@@ -564,7 +564,7 @@ and TABLE gives the values along that dimension."
       (aset table (cl-first setting)
             (format " ri %s sm %s "
                     (cl-second setting)
-                    (third setting)))))
+                    (cl-third setting)))))
    '(
      (0 0 100)
      (1 8 76)
@@ -626,7 +626,7 @@ and TABLE gives the values along that dimension."
 
 (defun dectalk-list-voices ()
   "List defined voices."
-  (declare (special dectalk-voice-table))
+  (cl-declare (special dectalk-voice-table))
   (cl-loop for k being the hash-keys of dectalk-voice-table
            collect   k))
 
@@ -635,7 +635,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
-  (declare (special  dectalk-default-speech-rate
+  (cl-declare (special  dectalk-default-speech-rate
                      tts-default-speech-rate tts-default-voice))
   (setq tts-default-voice 'paul)
   (fset 'tts-list-voices 'dectalk-list-voices)
@@ -656,7 +656,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun dectalk-make-tts-env  ()
   "Constructs a TTS environment for Dectalk."
-  (declare (special dectalk-default-speech-rate))
+  (cl-declare (special dectalk-default-speech-rate))
   (make-tts-env
    :name :dectalk
    :default-voice 'paul

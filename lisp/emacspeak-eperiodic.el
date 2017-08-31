@@ -73,7 +73,7 @@
 
 (defun emacspeak-eperiodic-name-element-at-point ()
   "Returns name of current element."
-  (declare (special eperiodic-element-properties))
+  (cl-declare (special eperiodic-element-properties))
   (let ((name 
          (cdr
           (assoc 'name
@@ -137,7 +137,7 @@
 (defun emacspeak-eperiodic-play-description ()
   "Play audio description from WebElements."
   (interactive)
-  (declare (special emacspeak-eperiodic-media-location))
+  (cl-declare (special emacspeak-eperiodic-media-location))
   (let ((e (eperiodic-element-at)))
     (unless e  (error "No element under point."))
     (funcall emacspeak-media-player 

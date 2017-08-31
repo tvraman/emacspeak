@@ -140,7 +140,7 @@ such as pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
-  (declare (special dtk-program))
+  (cl-declare (special dtk-program))
   (tts-configure-synthesis-setup dtk-program))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
@@ -160,13 +160,13 @@ such as pronunciation dictionaries are stored. ")
 
 (defun emacspeak-tts-use-notify-stream-p ()
   "Predicate to check if we use a separate notify stream."
-  (declare (special emacspeak-tts-use-notify-stream))
+  (cl-declare (special emacspeak-tts-use-notify-stream))
   emacspeak-tts-use-notify-stream)
 
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.
 TTS engine should use ALSA for this to be usable."
-  (declare (special dtk-program dtk-notify-process
+  (cl-declare (special dtk-program dtk-notify-process
                     emacspeak-tts-use-notify-stream))
   (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
   (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
@@ -177,7 +177,7 @@ TTS engine should use ALSA for this to be usable."
 (defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to speak a default header line."
-  (declare (special emacspeak-use-header-line
+  (cl-declare (special emacspeak-use-header-line
                     header-line-format emacspeak-header-line-format))
   (when emacspeak-use-header-line
     (setq header-line-format emacspeak-header-line-format)))

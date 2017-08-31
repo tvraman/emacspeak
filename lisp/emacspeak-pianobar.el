@@ -89,7 +89,7 @@
 
 (defun emacspeak-pianobar-current-song  ()
   "Return current song."
-  (declare (special pianobar-current-song))
+  (cl-declare (special pianobar-current-song))
   (ansi-color-apply
    (substring pianobar-current-song
               (+ 2 (string-match "|>" pianobar-current-song)))))
@@ -190,7 +190,7 @@
   "Toggle electric mode in pianobar buffer.
 If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive)
-  (declare (special emacspeak-pianobar-electric-mode
+  (cl-declare (special emacspeak-pianobar-electric-mode
                     pianobar-key-map pianobar-buffer))
   (with-current-buffer pianobar-buffer
     (cond
@@ -209,7 +209,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
   (interactive)
-  (declare (special pianobar-buffer))
+  (cl-declare (special pianobar-buffer))
   (condition-case nil
       (unless (featurep 'pianobar) (require 'pianobar))
     (error "Pianobar not installed."))
@@ -236,7 +236,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar-command (key)
   "Invoke Pianobar  commands."
   (interactive (list (read-key-sequence "Pianobar Key: ")))
-  (declare (special pianobar-key-map))
+  (cl-declare (special pianobar-key-map))
   (cond
    ((and (stringp key)
          (string= "'" key))
@@ -259,7 +259,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar-switch-to-preset ()
   "Switch to one of the  presets."
   (interactive)
-  (declare (special last-input-event emacspeak-pianobar-current-preset))
+  (cl-declare (special last-input-event emacspeak-pianobar-current-preset))
   (let ((preset last-input-event))
     (setq emacspeak-pianobar-current-preset
           (cond
@@ -273,7 +273,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar-next-preset ()
   "Switch to next preset."
   (interactive)
-  (declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
+  (cl-declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
   (when (= emacspeak-pianobar-max-preset emacspeak-pianobar-current-preset)
     (setq emacspeak-pianobar-current-preset -1))
   (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-current-preset))
@@ -282,7 +282,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 (defun emacspeak-pianobar-previous-preset ()
   "Switch to previous preset."
   (interactive)
-  (declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
+  (cl-declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
   (when (zerop emacspeak-pianobar-current-preset)
     (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-max-preset)))
   (setq emacspeak-pianobar-current-preset (1- emacspeak-pianobar-current-preset))

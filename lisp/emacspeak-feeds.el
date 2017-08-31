@@ -89,7 +89,7 @@
 
 (defun emacspeak-feeds-cache-feeds ()
   "Cache feeds in emacspeak-feeds in a hash table."
-  (declare (special emacspeak-feeds))
+  (cl-declare (special emacspeak-feeds))
   (cl-loop
    for f in emacspeak-feeds
    do
@@ -126,7 +126,7 @@
 
 (defun emacspeak-feeds-added-p (feed-url)
   "Check if this feed has been added before."
-  (declare (special emacspeak-feeds-feeds-table))
+  (cl-declare (special emacspeak-feeds-feeds-table))
   (gethash feed-url emacspeak-feeds-feeds-table))
 
 (defun emacspeak-feeds-add-feed (title url type)
@@ -139,7 +139,7 @@
            (?a 'atom)
            (?o 'opml)
            (?r 'rss))))
-  (declare (special emacspeak-feeds))
+  (cl-declare (special emacspeak-feeds))
   (let ((found (emacspeak-feeds-added-p url)))
     (cond
      (found
@@ -158,7 +158,7 @@
   "Archive list of subscribed fees to personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)
-  (declare (special emacspeak-feeds-archive-file
+  (cl-declare (special emacspeak-feeds-archive-file
                     emacspeak-feeds))
   (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
         (print-level nil)
@@ -177,7 +177,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
   "Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)
-  (declare (special emacspeak-feeds-archive-file
+  (cl-declare (special emacspeak-feeds-archive-file
                     emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)
     (error "No archived feeds to restore. "))
@@ -202,7 +202,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
   "Fast load list of feeds from archive.
 This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds."
   (interactive)
-  (declare (special emacspeak-feeds-archive-file emacspeak-feeds))
+  (cl-declare (special emacspeak-feeds-archive-file emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)
     (error "No archived feeds to restore. "))
   (let ((buffer (find-file-noselect emacspeak-feeds-archive-file)))
@@ -219,7 +219,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed via Emacs and display using xsltproc."
-  (declare (special emacspeak-eww-buffer-hash))
+  (cl-declare (special emacspeak-eww-buffer-hash))
   (cond
    ((and (eq browse-url-browser-function 'eww-browse-url)
          (boundp 'emacspeak-eww-buffer-hash)
@@ -241,7 +241,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
         (add-hook
          'emacspeak-web-post-process-hook
          #'(lambda ()
-             (declare (special eww-current-url
+             (cl-declare (special eww-current-url
                                emacspeak-eww-feed
                                emacspeak-eww-style))
              (lexical-let ((u feed-url)
@@ -266,20 +266,20 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (declare (special emacspeak-rss-view-xsl))
+  (cl-declare (special emacspeak-rss-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
-  (declare (special emacspeak-opml-view-xsl))
+  (cl-declare (special emacspeak-opml-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
-  (declare (special emacspeak-atom-view-xsl))
+  (cl-declare (special emacspeak-atom-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
@@ -290,7 +290,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
   "Display specified feed.
 Argument `feed' is a feed structure (label url type)."
   (let ((uri (cl-second feed))
-        (type  (third feed))
+        (type  (cl-third feed))
         (style nil))
     (setq style
           (cond
