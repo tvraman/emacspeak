@@ -369,7 +369,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
             (b-i (elt b-beats i)))
         (list
          (/ (+ (cl-first a-i) (first b-i)) 2) ; carrier frequency
-         (list (cl-second a-i) (second b-i))))))))
+         (list (cl-second a-i) (cl-second b-i))))))))
 
 ;;}}}
 

@@ -427,7 +427,7 @@ Useful to do this before you listen to an entire buffer."
         (day   (read (substring iso 6 8)))
         (hour 0)
         (minute 0)
-        (second 0))
+        (cl-second 0))
     (when (> (length iso) 12) ;; hour/minute
       (setq hour (read (substring iso 9 11)))
       (setq minute (read (substring iso 11 13))))
@@ -480,7 +480,7 @@ Value returned is compatible with `encode-time'."
         (day   (read (substring rfc-3339 8 10)))
         (hour (read (substring rfc-3339 11 13)))
         (minute (read (substring rfc-3339 14 16)))
-        (second (read (substring rfc-3339 17 19)))
+        (cl-second (read (substring rfc-3339 17 19)))
         (tz (ems-speak-rfc-3339-tz-offset rfc-3339)))
     ;; create the decoded date-time
     (condition-case nil

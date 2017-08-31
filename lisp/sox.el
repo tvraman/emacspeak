@@ -250,7 +250,7 @@
        (push (sox-effect-name e) options)
        (cl-loop
         for  p in (sox-effect-params e) do
-        (when (cl-second p)(push (second p)  options))))))
+        (when (cl-second p)(push (cl-second p)  options))))))
     (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
     (apply #'start-process
