@@ -9,5 +9,3 @@
  'prog-mode-hook
  #'(lambda nil
      (yas-minor-mode 1)))
-;;; Silence yasnippet:
-
