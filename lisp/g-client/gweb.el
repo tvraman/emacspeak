@@ -149,6 +149,7 @@
         (complete-with-action action
                               (gweb-suggest string gweb-completion-corpus)
                               string predicate))))))
+(defvar ido-max-prospects)
 
 (defun gweb--autocomplete-helper (&optional prompt)
   "Helper: Read user input using Google Suggest for auto-completion.
