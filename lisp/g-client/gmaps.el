@@ -122,6 +122,7 @@
 (defvar gmaps-locations-file
   (expand-file-name "gmaps-locations" emacspeak-resource-directory)
   "File where we save Locations.")
+(declare-function emacspeak-auditory-icon (icon) "emacspeak-sounds")
 
 (defun gmaps-locations-save ()
   "Save GMaps Locations."
@@ -140,7 +141,8 @@
       (save-buffer))
     (when (called-interactively-p 'interactive)
       (message "Saved GMaps Locations."))
-    (emacspeak-auditory-icon 'save-object)))                                    
+    (when (featurep 'emacspeak)
+    (emacspeak-auditory-icon 'save-object)))                                    )
 
 ;;}}}
 
@@ -214,6 +216,8 @@ Optional argument `raw-p' returns raw JSON  object."
 (defvar gweb-my-zip
   nil
   "Postal Code --- automatically set by reverse geocoding gweb-my-address")
+
+(declare-function  emacspeak-calendar-setup-sunrise-sunset  nil "emacspeak-calendar")
 ;;;###autoload
 (defcustom gweb-my-address
   nil
