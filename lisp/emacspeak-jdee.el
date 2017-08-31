@@ -285,6 +285,7 @@
 (defadvice jdee-xref-next-caller(around emacspeak pre act comp)
   "Speak line we jumped to.
 If we are on the last call, do nothing."
+  (cl-declare (special jdee-xref-stack))
   (cond
    ((and (ems-interactive-p)
          (car jdee-xref-stack))
