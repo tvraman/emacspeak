@@ -110,7 +110,7 @@
 
 (defun ladspa-control (c-str)
   "Construct a ladspa control instance from c-str."
-  (assert (stringp c-str) nil "Error: c-str is not a string.")
+  (cl-assert (stringp c-str) nil "Error: c-str is not a string.")
   (let* ((fields (split-string c-str "," 'omit-null))
          (desc (string-trim (cl-first fields)))
          (range

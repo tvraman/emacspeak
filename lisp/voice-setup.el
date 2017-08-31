@@ -86,6 +86,7 @@
 ;;{{{ Required modules
 
 (require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'easy-mmode))
 (require 'custom)
 (require 'acss-structure)
