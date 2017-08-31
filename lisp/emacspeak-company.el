@@ -56,6 +56,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'company "company" 'no-error))
 ;;}}}

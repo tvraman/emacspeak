@@ -39,6 +39,7 @@
 
 ;;{{{ required modules
 
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'apt-sources nil 'no-error)
 ;;}}}
@@ -53,6 +54,7 @@
 
 ;;}}}
 ;;{{{  Required modules
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Advice interactive commands to speak.

@@ -94,6 +94,7 @@
 (require 'comint)
 (require 'derived)
 (require 'nvm "nvm" 'no-error )
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Customizations And Variables:

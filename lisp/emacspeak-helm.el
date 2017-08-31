@@ -52,6 +52,7 @@
 
 (require 'cl-lib)
 (require 'emacspeak-google)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
 ;;}}}

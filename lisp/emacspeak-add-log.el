@@ -49,6 +49,7 @@
 
 (require 'cl-lib)
 (require 'custom)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ define personalities

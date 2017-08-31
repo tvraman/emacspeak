@@ -52,6 +52,7 @@
 ;;{{{ required modules
 
 ;;; Code:
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ color to voice

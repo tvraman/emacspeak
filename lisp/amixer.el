@@ -100,7 +100,7 @@
                   (looking-at "^ *;"))
         (forward-line 1))
       (setq current
-            (second
+            (cl-second
              (split-string
               (buffer-substring-no-properties
                (line-beginning-position)
