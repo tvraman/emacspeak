@@ -268,8 +268,8 @@ Modifies text and point in buffer."
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
 
-(defun text-visible-p (position)
-  (not (invisible-p position)))
+(defun text-visible-p (pos)
+  (not (invisible-p pos)))
 (unless (fboundp 'invisible-p)
 ;;; defined in simple.el in Emacs 23.
   (defun invisible-p (pos)
@@ -674,23 +674,23 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; Similarly, property pause at the start of a clause specifies
 ;;; amount of pause to insert.
 
-(defun tts-get-overlay-auditory-icon (position)
-  "Return auditory icon  at the front of the overlay list at position."
+(defun tts-get-overlay-auditory-icon (pos)
+  "Return auditory icon  at the front of the overlay list at pos."
   (car
    (delete nil
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'auditory-icon))
-            (overlays-at position)))))
+            (overlays-at pos)))))
 
-(defun tts-get-overlay-personality (position)
-  "Return personality at the front of the overlay list at position."
+(defun tts-get-overlay-personality (pos)
+  "Return personality at the front of the overlay list at pos."
   (car
    (delete nil
            (mapcar
             #'(lambda (o)
                 (overlay-get o 'personality))
-            (overlays-at position)))))
+            (overlays-at pos)))))
 
 (defun next-true-single-property-change (start  prop object  limit)
   "Similar to next-single-property-change, but compares property values
