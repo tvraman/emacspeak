@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: nil; -*-
 
-(augment-load-path "dismal" "dismal")
+
 (load-library "dismal-mode-defaults")
 ;;{{{ fix for emacs 21.3.5 (CVS)
 ;;; Need the following wrapper advice to make dismal run under
