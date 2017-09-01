@@ -149,10 +149,7 @@ which defaults to emacs-personal-library."
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
-    (mapc #'load-library-if-available '("console" "screen"))
-
-    (when (eq window-system 'x) (load-library-if-available "x"))
-
+    
     (cl-loop
      for  key in
      '(
@@ -204,6 +201,7 @@ which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
+       "kbd-setup"
        "emacspeak-m-player"   "emacspeak-dbus"
        "emacspeak-muggles-autoloads"; "emacspeak-maths"
        "my-functions"
