@@ -102,6 +102,11 @@
 (require 'voice-setup)
 
 ;;}}}
+;;{{{ Forward decls:
+(declare-function eperiodic-get-element-property  (e prop) "eperiodic")
+(declare-function eperiodic-element-at (&optional pos) "eperiodic")
+
+;;}}}
 ;;{{{ cumulative personalities
 
 ;;;###autoload
