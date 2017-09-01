@@ -112,15 +112,16 @@ which defaults to emacs-personal-library."
         (tvr-start (current-time)))
     ;;{{{ Basic Look And Feel:
 
-    (setq inhibit-startup-echo-area-message user-login-name)
-    (setq initial-scratch-message ""
-          initial-buffer-choice t)
+    (setq inhibit-startup-echo-area-message user-login-name
+          initial-scratch-message ""
+          initial-buffer-choice t
+          text-quoting-style 'grave)
     (tooltip-mode -1)
     (menu-bar-mode -1)
     (tool-bar-mode -1)
     (scroll-bar-mode -1)
     (fringe-mode 0)
-    (setq text-quoting-style 'grave)
+    
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
