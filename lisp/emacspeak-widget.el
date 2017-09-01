@@ -581,7 +581,7 @@ Returns a string with appropriate personality."
             (old-position (point)))
         (cond
          ((and
-           (or (eq major-mode 'eww-mode)(eq major-mode 'w3-mode) (eq major-mode 'w3m-mode))
+           (or (eq major-mode 'eww-mode)(eq major-mode 'w3-mode) )
            emacspeak-webutils-url-at-point
            (funcall emacspeak-webutils-url-at-point)
            emacspeak-we-url-executor

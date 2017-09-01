@@ -315,7 +315,6 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "vm" 'emacspeak-vm)
 (emacspeak-do-package-setup "w3" 'emacspeak-w3)
 (emacspeak-do-package-setup "w3-display" 'emacspeak-w3)
-(emacspeak-do-package-setup "w3m" 'emacspeak-w3m)
 (emacspeak-do-package-setup "wdired" 'emacspeak-wdired)
 (emacspeak-do-package-setup "cus-edit" 'emacspeak-custom)
 (emacspeak-do-package-setup "wid-edit" 'emacspeak-widget)

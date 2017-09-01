@@ -42,8 +42,8 @@
 
 ;;; Commentary:
 ;;; This module provides common Web utilities for emacspeak.
-;;; This is to avoid duplication of code between emacspeak-w3.el
-;;;and emacspeak-w3m.el
+;;; This is to avoid duplication of code  in web support libraries
+
 
 ;;}}}
 ;;{{{ required modules
@@ -173,7 +173,7 @@ Note that the Web browser should reset this hook after using it.")
   "Check if this is a supported browser."
   (or   (eq browse-url-browser-function 'w3-fetch)
         (eq browse-url-browser-function 'browse-url-w3)
-        (eq browse-url-browser-function 'w3m-browse-url)))
+        (eq browse-url-browser-function 'eww-browse-url)))
 
 (defun emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
@@ -215,7 +215,6 @@ Forward punctuation and rate  settings to resulting buffer."
   "Check to see if functions are called from a browser buffer"
   (cl-declare (special major-mode))
   (unless (or (eq major-mode 'w3-mode)
-              (eq major-mode 'w3m-mode)
               (eq major-mode 'eww-mode))
     (error "This command cannot be used outside browser buffers.")))
 

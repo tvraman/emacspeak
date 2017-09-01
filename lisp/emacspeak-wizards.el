@@ -1589,8 +1589,7 @@ directory to where find is to be launched."
              (or (featurep 'w3) (locate-library "w3"))
            'browse-url-w3)
          (when (or (featurep 'eww)  (locate-library "eww"))'eww-browse-url)
-         (when
-             (or (featurep 'w3m)  (locate-library "w3m"))'w3m-browse-url)))
+         ))
   "List of available browsers to cycle through.")
 
 ;;;###autoload

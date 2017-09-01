@@ -73,3 +73,8 @@ using command ~emacspeak-speak-overlay-properties~.
 
 Module ~emacspeak-rg~ speech-enables package ~rg~, an Emacs front-end
 to RipGrep.
+
+** Obsolete W3m Support 
+
+W3M is no longer supported. Once Emacs 26 is released, W3 support will
+be removed as well.
