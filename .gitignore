@@ -20,3 +20,4 @@ js/node/auto
 servers/linux-outloud/atcleci.so
 servers/linux-espeak/tclespeak.so
 .build.log
+lisp/sudoku.el
