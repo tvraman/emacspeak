@@ -102,6 +102,7 @@
 
 (defadvice browse-url-default-browser (around emacspeak pre act comp)
   "Use Emacs browser --- rather than an external browser."
+  (when nil ad-do-it) ; to silence byte-compiler 
   (eww-browse-url (ad-get-arg 0)))
 
 ;;}}}
