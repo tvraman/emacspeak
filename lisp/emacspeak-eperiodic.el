@@ -52,6 +52,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 ;;}}}
+;;{{{ Forward decls:
+(declare-function eperiodic-get-element-property  (e prop) "eperiodic.el")
+(declare-function eperiodic-element-at (&optional pos) "eperiodic.el")
+
+
+;;}}}
 ;;{{{ faces and voices 
 (voice-setup-add-map
  '(
