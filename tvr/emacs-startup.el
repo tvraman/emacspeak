@@ -6,6 +6,8 @@
 
 ;;}}}
 ;;{{{ personal lib
+(require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (defvar emacspeak-speak-messages)
 (defvar emacs-private-library (expand-file-name "~/.elisp")
   "Private library directory. ")
@@ -27,7 +29,7 @@
   "add directory to load path. Path is resolved relative to `whence'
 which defaults to emacs-personal-library."
   (interactive "Denter directory name: ")
-  (declare (special emacs-personal-library))
+  (cl-declare (special emacs-personal-library))
   (unless (and library (locate-library library))
     (add-to-list
      'load-path
@@ -41,7 +43,7 @@ which defaults to emacs-personal-library."
 
 (defun augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
-  (declare (special auto-mode-alist))
+  (cl-declare (special auto-mode-alist))
   (setq auto-mode-alist
         (cons
          (cons ext mode)
@@ -93,7 +95,7 @@ which defaults to emacs-personal-library."
 
 (defun tvr-customize ()
   "Load my customizations from my custom-file."
-  (declare (special custom-file))
+  (cl-declare (special custom-file))
   (let ((file-name-handler-alist nil)
         (gc-cons-threshold  8000000)
         (inhibit-message t)
@@ -104,7 +106,7 @@ which defaults to emacs-personal-library."
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
-  (declare (special emacs-personal-library emacs-private-library))
+  (cl-declare (special emacs-personal-library emacs-private-library))
   (let ((gc-cons-threshold 8000000)
         (file-name-handler-alist nil) ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
@@ -144,13 +146,12 @@ which defaults to emacs-personal-library."
       (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
       (tvr-time-it e-start "emacspeak"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
-      (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
+      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
-    
     (cl-loop
      for  key in
      '(
@@ -194,6 +195,7 @@ which defaults to emacs-personal-library."
          (define-key outline-mode-prefix-map "o" 'open-line)
          (global-set-key "\C-o"outline-mode-prefix-map)
          ))
+
     ;;}}}
     ;;{{{ Prepare needed libraries
 
@@ -204,34 +206,22 @@ which defaults to emacs-personal-library."
      '(
        "kbd-setup"
        "emacspeak-m-player"   "emacspeak-dbus"
-       "emacspeak-muggles-autoloads"; "emacspeak-maths"
+       "emacspeak-muggles-autoloads"
        "my-functions"
 ;;; Mail:
-       "vm-prepare" "gnus-prepare" "bbdb-prepare"
-       "mspools-prepare"
-                                        ;"sigbegone"
-       "vdiff-prepare"
-;;; Web:
-                                        ; "w3-prepare"
-       "elfeed-prepare"
+       "vm-prepare" "gnus-prepare" "bbdb-prepare" "mspools-prepare"
+       "vdiff-prepare" "elfeed-prepare"
 ;;; Authoring:
        "auctex-prepare"  "folding-prepare"
        "calc-prepare"
        "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
-       "company-prepare" "python-mode-prepare"
-       "projectile-prepare"
-                                        ; jde and ecb will pull in cedet.
-                                        ;"jde-prepare" "ecb-prepare"
+       "company-prepare" "python-mode-prepare" "projectile-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
-                                        ;"tramp-prepare"
-                                        ;"fap-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-prepare"
        "color-theme-prepare"
-                                        ;"elscreen-prepare"
-       ; "local" ; use default.el instead
        ))
 
     ;;}}}
@@ -244,12 +234,6 @@ which defaults to emacs-personal-library."
     (server-start)
     (pinentry-start)
     (bbdb-insinuate-vm)
-    ;;}}}
-    ;;{{{ Save abbrevs On Quit:
-
-    ;(when (file-exists-p abbrev-file-name)
-      ;(read-abbrev-file) ; done by emacs automatically 
-      ;(add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
     (tvr-time-it tvr-start "start-up-my-emacs"))) ;end defun
@@ -258,6 +242,7 @@ which defaults to emacs-personal-library."
   "Actions to take after Emacs is up and ready."
   (let ((after-start (current-time))
         (gc-cons-threshold 8000000)
+        (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
     (tvr-customize)
@@ -268,21 +253,22 @@ which defaults to emacs-personal-library."
  (emacspeak-dbus-sleep-enable)
       (emacspeak-dbus-watch-screen-lock))
     (emacspeak-wizards-project-shells-initialize)
-;;;(calendar)
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
-    (tvr-time-it after-start "after-init")))
+    (tvr-time-it after-start "after-init")
+    (message "<Successfully initialized Emacs for %s in %s>"
+             user-login-name (emacs-init-time))))
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook 'emacs-startup-hook #'delete-other-windows)
 
 (start-up-my-emacs)
-(message "<Successfully initialized Emacs for %s in %s>"
-             user-login-name (emacs-init-time))
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
+
 ;;;local variables:
 ;;;folded-file: t
 ;;;end:
+
 ;;}}}
