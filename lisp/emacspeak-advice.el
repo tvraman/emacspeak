@@ -1144,6 +1144,7 @@ icon."
         (_common (ad-get-arg 1)))
     (with-output-to-temp-buffer "*Completions*"
       (display-completion-list completions))
+    (when nil ad-do-it) ; to silence byte-compiler 
     (with-current-buffer (get-buffer "*Completions*")
       (set (make-local-variable 'comint-displayed-dynamic-completions)
            completions))
