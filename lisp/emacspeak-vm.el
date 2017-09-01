@@ -51,6 +51,25 @@
 (require 'emacspeak-preamble)
 (require  'vm "vm" 'no-error)
 ;;}}}
+;;{{{ Forward Decls:
+
+(declare-function vm-from-of (msg) "vm-message")
+(declare-function  vm-subject-of (msg) "vm-message")
+(declare-function  vm-to-of (msg) "vm-message")
+(declare-function  vm-su-full-name (msg) "vm-summary")
+(declare-function  vm-su-from (msg) "vm-summary")
+(declare-function vm-su-subject (msg) "vm-summary")
+(declare-function  vm-su-to-names (msg) "vm-summary")
+(declare-function  vm-su-to (msg) "vm-summary")
+(declare-function  vm-su-line-count (msg) "vm-summary")
+(declare-function vm-decode-mime-encoded-words-in-string (s) "vm-mime")
+(declare-function  vm-labels-of (msg) "vm-message")
+(declare-function  vm-goto-message (msg) "vm-message")
+(declare-function vm-delete-message (msg) "vm-message")
+(declare-function  u-vm-color-fontify-buffer nil "u-vm-color")
+(declare-function  u-vm-color-summary-mode (&optional arg) "u-vm-color")
+
+;;}}}
 ;;{{{ voice locking:
 
 (defgroup emacspeak-vm nil
