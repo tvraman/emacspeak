@@ -73,7 +73,7 @@ which defaults to emacs-personal-library."
      ("C-c <" emacspeak-wizards-previous-shell)
      ("C-c >" emacspeak-wizards-next-shell))
    do
-   (global-set-key (kbd (first key)) (second key)))
+   (global-set-key (kbd (cl-first key)) (cl-second key)))
   (cl-loop ;;; shell mode bindings
    for b in
    '(
@@ -81,7 +81,7 @@ which defaults to emacs-personal-library."
      ("C-c k" comint-clear-buffer)
      ("C-c r" comint-redirect-send-command))
    do
-   (define-key shell-mode-map (kbd (first b)) (second b))))
+   (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
 ;;{{{ customize custom
@@ -160,7 +160,7 @@ which defaults to emacs-personal-library."
        ( "\M-\C-j"imenu)
        ( "\M-\C-c"calendar))
      do
-     (global-set-key (first key) (second key)))
+     (global-set-key (cl-first key) (cl-second key)))
 
     (global-set-key [S-return] 'other-window)
 
