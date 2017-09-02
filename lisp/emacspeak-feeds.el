@@ -331,7 +331,7 @@ Argument `feed' is a feed structure (label url type)."
            ((eq type 'opml) emacspeak-opml-view-xsl)
            ((eq type 'atom) emacspeak-atom-view-xsl)
            (t (error "Unknown feed type %s" type))))
-    (emacspeak-feeds-feed-display uri style speak)))
+    (emacspeak-feeds-async-feed-display uri style speak)))
 
 ;;;###autoload
 (defun emacspeak-feeds-browse (feed)
