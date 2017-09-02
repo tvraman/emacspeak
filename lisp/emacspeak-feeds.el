@@ -53,7 +53,7 @@
 (require 'emacspeak-xslt)
 (require 'emacspeak-webutils)
 (require 'url)
-
+(require 'eww)
 (require 'browse-url)
 
 ;;}}}
@@ -261,6 +261,37 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
             (list (cons "base" (format "\"'%s'\"" feed-url)))))
           (browse-url-of-buffer))))))))
 
+(defun emacspeak-feeds-async-feed-display(feed-url style &optional speak)
+  "Fetch feed asynchronously via Emacs and display using xsltproc."
+  (cl-declare (special eww-data))
+  (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak)))
+
+(defun emacspeak-feeds-render  (_status feed-url style   speak)
+  "Render the result of asynchronously retrieving feed-url."
+  (cl-declare (special  eww-data  eww-current-url
+                       emacspeak-eww-feed emacspeak-eww-style))
+  (let ((inhibit-read-only t)
+        (data-buffer (current-buffer))
+        (coding-system-for-read 'utf-8)
+        (coding-system-for-write 'utf-8)
+        (emacspeak-xslt-options nil)
+        (u feed-url)
+        (s style))
+    (with-current-buffer data-buffer
+      (when speak (emacspeak-webutils-autospeak))
+      (setq eww-current-url u
+            emacspeak-eww-feed t 
+            emacspeak-eww-style s)
+      (emacspeak-webutils-without-xsl
+       (goto-char (point-min))
+       (search-forward "\n\n")
+       (delete-region (point-min) (point))
+       (decode-coding-region (point-min) (point-max) 'utf-8)
+       (emacspeak-xslt-region
+        style (point-min) (point-max)
+        (list (cons "base" (format "\"'%s'\"" feed-url))))
+       (browse-url-of-buffer)))))
+
 ;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url)
   "Display RSS feed."
@@ -268,20 +299,21 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
    (list
     (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-rss-view-xsl))
-  (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
+  (emacspeak-feeds-async-feed-display feed-url emacspeak-rss-view-xsl 'speak))
+
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-opml-view-xsl))
-  (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
+  (emacspeak-feeds-async-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-atom-view-xsl))
-  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
+  (emacspeak-feeds-async-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
 ;;{{{  view feed
