@@ -92,7 +92,7 @@
 (defvar dtk-program "log-null")
 (defun self-document-load-modules ()
   "Load all modules"
-  (declare (special dtk-program
+  (cl-declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
   (let ((file-name-handler-alist nil))
     (package-initialize) ; bootstrap emacs package system
@@ -121,7 +121,7 @@
 
 (defsubst self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
-  (declare (special self-document-patterns))
+  (cl-declare (special self-document-patterns))
   (when (and (fboundp f) (commandp f)
              (string-match self-document-patterns (symbol-name f)) ; candidate
              (if  (string-match  "/" (symbol-name f)) ; filter repeat muggles
@@ -135,7 +135,7 @@
 
 (defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
-  (declare (special self-document-patterns))
+  (cl-declare (special self-document-patterns))
   (when (and
          (custom-variable-p o)
          (string-match self-document-patterns (symbol-name o)))
@@ -144,7 +144,7 @@
 
 (defun self-document-map-command (f)
   "Add this  this command symbol to our map."
-  (declare (special self-document-map))
+  (cl-declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
     (unless file (setq file "emacspeak")) ; capture orphans if any 
@@ -157,7 +157,7 @@
 
 (defun self-document-map-option (f)
   "Add this option symbol to our map."
-  (declare (special self-document-map))
+  (cl-declare (special self-document-map))
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
     (unless file (setq file "emacspeak")); capture orphans if any
@@ -169,7 +169,7 @@
 
 (defun self-document-map-symbol (f)
   "Map command and options to its defining module."
-  (declare (special self-document-map))
+  (cl-declare (special self-document-map))
   (when (self-document-command-p f) (self-document-map-command f))
   (when (self-document-option-p f) (self-document-map-option f)))
 
@@ -306,7 +306,7 @@
 ;;}}}
 ;;{{{ Iterate over all modules
 
-(declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
+(cl-declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
 (defun self-document-fix-quotes ()
   "Fix UTF8 curved quotes since makeinfo doesn't handle them well."
   (goto-char (point-min))
@@ -343,7 +343,7 @@
       (forward-line 1))))
 (defun self-document-all-modules()
   "Generate documentation for all modules."
-  (declare (special self-document-map))
+  (cl-declare (special self-document-map))
   (let ((file-name-handler-alist nil)
         (output (find-file-noselect "docs.texi"))
         (keys nil))
@@ -416,7 +416,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
 
 (defun self-document-all-keymaps()
   "Generate documentation for all Emacspeak keymaps."
-  (declare (special self-document-keymap-list))
+  (cl-declare (special self-document-keymap-list))
   (let ((output (find-file-noselect "keys.texi"))
         (title nil))
     (with-current-buffer output
@@ -473,7 +473,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
 
 (defun self-document-module-test ()
   "Test documentation generator."
-  (declare (special self-document-map))
+  (cl-declare (special self-document-map))
   (setq debug-on-error t)
   (let ((output (find-file-noselect (make-temp-file "doc" nil ".texi"))))
     (self-document-load-modules)
