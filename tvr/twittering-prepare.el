@@ -1,7 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-(augment-load-path "twittering-mode" "twittering-mode")
-(autoload 'twit "twittering-mode"  "twitter client"t)
 (setq twittering-use-master-password t)
 (setq epa-protocol 'OpenPGP)
 (eval-after-load "twittering-mode"
