@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1196 commands and 1169 options.
+This chapter documents a total of 1195 commands and 1140 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -52,7 +52,6 @@ This chapter documents a total of 1196 commands and 1169 options.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode -- A powerful File Manager.
-* emacspeak-dismal::Speech enable Dismal -- An Emacs Spreadsheet program.
 * emacspeak-dmacro::Speech enable DMacro -- Dynamic  Macros.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
@@ -200,7 +199,6 @@ This chapter documents a total of 1196 commands and 1169 options.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-w3::Speech enable W3 WWW browser -- includes ACSS Support.
-* emacspeak-w3m::speech-enables w3m-el.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.
@@ -3938,72 +3936,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -4169,108 +4101,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-voice-lock-warning-personality
 Personality used for font-lock-warning-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-anchor-voice
-Personality used for w3m-anchor
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
-Personality used for w3m-arrived-anchor
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-bold-voice
-Personality used for w3m-bold
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-current-anchor-voice
-Personality used for w3m-current-anchor
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
-Personality used for w3m-form-button-pressed
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-voice
-Personality used for w3m-form-button
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-voice
-Personality used for w3m-form
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
-Personality used for w3m-header-line-location-content
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
-Personality used for w3m-header-line-location-title
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-history-current-url-voice
-Personality used for w3m-history-current-url
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-image-voice
-Personality used for w3m-image
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-insert-voice
-Personality used for w3m-insert
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-italic-voice
-Personality used for w3m-italic
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-strike-through-voice
-Personality used for w3m-strike-through
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-selected-voice
-Personality used for w3m-tab-selected
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-unselected-voice
-Personality used for w3m-tab-unselected
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-underline-voice
-Personality used for w3m-underline
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -6255,163 +6085,6 @@ Speaks the target of the symlink on the current line.
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
 Options passed to Unix builtin ‘file’ command.
-
-@end defvar
-
-@node emacspeak-dismal
-@section emacspeak-dismal
-
-emacspeak extensions to the dismal spreadsheet. 
-
-@subsection emacspeak-dismal Commands
-
-@subsubsection emacspeak-dismal-backward-col-and-summarize
-@deffn {Command} emacspeak-dismal-backward-col-and-summarize  (cols)
-@findex emacspeak-dismal-backward-col-and-summarize
-
-@format
-Move backward by arg columns
- (the previous column by default)and summarize it.
-
-(fn COLS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-backward-row-and-summarize
-@deffn {Command} emacspeak-dismal-backward-row-and-summarize  (rows)
-@findex emacspeak-dismal-backward-row-and-summarize
-
-@format
-Move backward by arg rows
- (the previous row by default)and summarize it.
-
-(fn ROWS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-col-summarize
-@deffn {Command} emacspeak-dismal-col-summarize   
-@findex emacspeak-dismal-col-summarize
-
-@format
-Summarizes a col using the specification in list
-emacspeak-dismal-col-summarizer-list
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-display-cell-expression
-@deffn {Command} emacspeak-dismal-display-cell-expression   
-@findex emacspeak-dismal-display-cell-expression
-
-@format
-Display the expression in the message area
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-display-cell-value
-@deffn {Command} emacspeak-dismal-display-cell-value   
-@findex emacspeak-dismal-display-cell-value
-
-@format
-Display the cell value in the message area
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-display-cell-with-col-header
-@deffn {Command} emacspeak-dismal-display-cell-with-col-header   
-@findex emacspeak-dismal-display-cell-with-col-header
-
-@format
-Display current cell along with its column header.
-The ‘column header’ is the entry in row 0.
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-display-cell-with-row-header
-@deffn {Command} emacspeak-dismal-display-cell-with-row-header   
-@findex emacspeak-dismal-display-cell-with-row-header
-
-@format
-Displays current cell along with its row header.
-The ‘row header’ is the entry in column 0.
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-forward-col-and-summarize
-@deffn {Command} emacspeak-dismal-forward-col-and-summarize  (cols)
-@findex emacspeak-dismal-forward-col-and-summarize
-
-@format
-Move forward by arg columns
- (the next column by default)and summarize it.
-
-(fn COLS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-forward-row-and-summarize
-@deffn {Command} emacspeak-dismal-forward-row-and-summarize  (rows)
-@findex emacspeak-dismal-forward-row-and-summarize
-
-@format
-Move forward by arg rows
- (the next row by default)and summarize it.
-
-(fn ROWS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-row-summarize
-@deffn {Command} emacspeak-dismal-row-summarize   
-@findex emacspeak-dismal-row-summarize
-
-@format
-Summarizes a row using the specification in list
-emacspeak-dismal-row-summarizer-list
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-set-col-summarizer-list
-@deffn {Command} emacspeak-dismal-set-col-summarizer-list   
-@findex emacspeak-dismal-set-col-summarizer-list
-
-@format
-Specify or reset col summarizer list.
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-set-row-summarizer-list
-@deffn {Command} emacspeak-dismal-set-row-summarizer-list   
-@findex emacspeak-dismal-set-row-summarizer-list
-
-@format
-Specify or reset row summarizer list.
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-set-sheet-summarizer-list
-@deffn {Command} emacspeak-dismal-set-sheet-summarizer-list   
-@findex emacspeak-dismal-set-sheet-summarizer-list
-
-@format
-Specify or reset sheet summarizer list.
-@end format
-@end deffn
-
-@subsubsection emacspeak-dismal-sheet-summarize
-@deffn {Command} emacspeak-dismal-sheet-summarize   
-@findex emacspeak-dismal-sheet-summarize
-
-@format
-Summarizes a sheet using the specification in list
-emacspeak-dismal-sheet-summarizer-list
-@end format
-@end deffn
-
-@subsection emacspeak-dismal Options
-
-@defvar {User Option} emacspeak-dismal-value-personality
-Personality used for speaking cell values in summaries.
 
 @end defvar
 
@@ -20622,29 +20295,6 @@ Name of tidy executable
 
 @end defvar
 
-@node emacspeak-w3m
-@section emacspeak-w3m
-
-@subsection emacspeak-w3m Commands
-
-@subsubsection emacspeak-w3m-preview-this-buffer
-@deffn {Command} emacspeak-w3m-preview-this-buffer   
-@findex emacspeak-w3m-preview-this-buffer
-
-@format
-Preview this buffer in w3m.
-@end format
-@end deffn
-
-@subsection emacspeak-w3m Options
-
-@defvar {User Option} emacspeak-w3m-speak-titles-on-switch
-Speak the document title when switching between w3m buffers.
-If non-nil, switching between w3m buffers will speak the title
-instead of the modeline.
-
-@end defvar
-
 @node emacspeak-wdired
 @section emacspeak-wdired
 
@@ -21960,8 +21610,7 @@ API Key for Google Knowledge Graph.
 @section emacspeak-webutils
 
 This module provides common Web utilities for emacspeak.
-This is to avoid duplication of code between emacspeak-w3.el
-and emacspeak-w3m.el
+This is to avoid duplication of code  in web support libraries
 
 @subsection emacspeak-webutils Commands
 
