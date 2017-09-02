@@ -41,13 +41,6 @@ which defaults to emacs-personal-library."
      at-end))
   (when library (locate-library library)))
 
-(defun augment-auto-mode-alist (ext mode)
-  "Add to auto-mode-alist."
-  (cl-declare (special auto-mode-alist))
-  (setq auto-mode-alist
-        (cons
-         (cons ext mode)
-         auto-mode-alist)))
 (defsubst tvr-time-it (start what)
   "Emit timing information."
   (message
