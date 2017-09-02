@@ -153,6 +153,7 @@
            ("C-r" info-display-manual)
            ("SPC" customize-group)
            ("TAB" emacspeak-info-wizard)
+           ("C-<tab>" emacs-index-search)
            ("'" describe-text-properties)
            ("," emacspeak-wizards-color-at-point)
            ("/" describe-face)
