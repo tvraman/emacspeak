@@ -2,21 +2,6 @@
 ;;; Avoids accidental touches 
 (require 'cl-lib)
 ;(load-library "disable-mouse-autoloads")
-(cl-loop
- for  k in 
- '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]    
-   [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]  
-   [mouse-3] [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]  
-   [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]  
-   [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5])
- do
- (global-unset-key k))
-
-;; disable on modeline etc:
-(setq mode-line-coding-system-map nil    
-      mode-line-column-line-number-mode-map nil
-      mode-line-input-method-map nil)
-
 
 ;;; To disable touchpad in all apps:
 ;; but if you want to completely disable it, you can do the following
@@ -36,26 +21,23 @@ Set by locating it via xinput --list."
   :type 'string
   :group 'touchpad-unprepare)
 
-(defun turn-off-mouse (&optional frame)
+(defun turn-off-touchpad (&optional frame)
   (interactive)
   (declare (special touchpad-device))
-  (shell-command
-   (format
-    "xinput set-prop %s \"Device Enabled\" 0"
-    touchpad-device))
+  (start-process "xinput" nil 
+    "xinput" "set-prop" touchpad-device "Device Enabled" "0")
   (message "Disabled touchpad"))
 
-(defun turn-on-mouse (&optional frame)
+(defun turn-on-touchpad (&optional frame)
   (interactive)
   (declare (special touchpad-device))
-  (shell-command
-   (format
-    "xinput set-prop %s \"Device Enabled\" 1"
-    touchpad-device))
+  (start-process "xinput" nil 
+   (start-process "xinput" nil 
+    "xinput" "set-prop" touchpad-device "Device Enabled" "1"))
   (message "Enabled touchpad"))
 
-;(add-hook 'focus-in-hook #'turn-off-mouse)
-;(add-hook 'focus-out-hook #'turn-on-mouse)
-;(add-hook 'delete-frame-functions #'turn-on-mouse)
+;(add-hook 'focus-in-hook #'turn-off-touchpad)
+;(add-hook 'focus-out-hook #'turn-on-touchpad)
+;(add-hook 'delete-frame-functions #'turn-on-touchpad)
 (when (fboundp 'global-disable-mouse-mode) (global-disable-mouse-mode))
-;(turn-off-mouse)
+(turn-off-touchpad)
