@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-(load-library "python-mode-autoloads")
+;(load-library "python-mode-autoloads")
 (eval-after-load "python-mode"
   `(progn
      (add-hook

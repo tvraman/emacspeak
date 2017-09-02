@@ -1,5 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
-(load-library "projectile-autoloads")
+;(load-library "projectile-autoloads")
 ;(projectile-global-mode)
 (eval-after-load 'projectile
   `(progn 

@@ -1,6 +1,6 @@
 ;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: t; -*-
 
-(load-library "org-autoloads")
+;(load-library "org-autoloads")
 (eval-after-load "org"
   `(progn
      (define-key global-map "\C-cl" 'org-store-link)

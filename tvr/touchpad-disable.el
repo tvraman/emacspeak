@@ -1,7 +1,7 @@
 ;;; Disable mouse buttons and touchpad.
 ;;; Avoids accidental touches 
 (require 'cl-lib)
-(load-library "disable-mouse-autoloads")
+;(load-library "disable-mouse-autoloads")
 (cl-loop
  for  k in 
  '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]    
@@ -57,6 +57,5 @@ Set by locating it via xinput --list."
 ;(add-hook 'focus-in-hook #'turn-off-mouse)
 ;(add-hook 'focus-out-hook #'turn-on-mouse)
 ;(add-hook 'delete-frame-functions #'turn-on-mouse)
-(when (locate-library "disable-mouse")
-  (global-disable-mouse-mode))
-(turn-off-mouse)
+(when (fboundp 'global-disable-mouse-mode) (global-disable-mouse-mode))
+;(turn-off-mouse)

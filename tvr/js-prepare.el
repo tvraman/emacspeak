@@ -1,6 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-
-(load "js2-mode-autoloads")
 (eval-after-load "js2-mode"
   `(progn  
      (when (locate-library "tern")

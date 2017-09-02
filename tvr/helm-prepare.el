@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-(load-library "helm-autoloads")
+;(load-library "helm-autoloads")
 ;;; Taken from http://tuhdo.github.io/helm-intro.html
 (eval-after-load   "helm"
   `(progn

@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(load-library "iplayer-autoloads")
+;(load-library "iplayer-autoloads")
 (eval-after-load "iplayer"
   `(progn
 (push '("w" "BBC World Service") iplayer-presets)

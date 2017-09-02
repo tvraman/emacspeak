@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-(load-library "jabber-autoloads")
+;(load-library "jabber-autoloads")
 (setq fsm-debug nil)
 (add-hook 'jabber-roster-mode-hook
           #'(lambda nil

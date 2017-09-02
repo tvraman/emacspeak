@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(load-library "slime-autoloads")
+;(load-library "slime-autoloads")
 (eval-after-load "slime"
   `(progn
      (setq inferior-lisp-program (executable-find "clisp"))

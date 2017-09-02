@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 
-(load-library "bbdb-autoloads")
+;(load-library "bbdb-autoloads")
 (eval-after-load "bbdb"
   `(progn
      ;; Configuration for bbdb
