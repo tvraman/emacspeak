@@ -53,9 +53,11 @@
 
 ;;}}}
 ;;{{{ Required Modules
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+
 ;;}}}
 ;;{{{  Define locations
 
@@ -128,8 +130,8 @@ such as pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{ Hooks
 
-(add-to-list 'load-path emacspeak-lisp-directory)
-(add-to-list 'load-path (expand-file-name "g-client" emacspeak-lisp-directory))
+(push emacspeak-lisp-directory load-path)
+(push (expand-file-name "g-client" emacspeak-lisp-directory) load-path)
 
 (let ((file-name-handler-alist nil))
   (load (expand-file-name "emacspeak.elc" emacspeak-lisp-directory)))
