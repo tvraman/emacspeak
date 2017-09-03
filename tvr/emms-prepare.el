@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (global-set-key "\C-x@h." 'emms-prefix-command)
+(global-set-key (kbd "C-; .") 'emms-prefix-command)
 (eval-after-load "emms"
 `(progn
 (require 'emms-setup)
