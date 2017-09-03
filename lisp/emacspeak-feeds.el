@@ -217,7 +217,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 ;;}}}
 ;;{{{ display  feeds:
 
-(defun emacspeak-feeds-feed-feed-display(feed-url style &optional speak)
+(defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
   (cl-declare (special eww-data))
   (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak)))
@@ -255,21 +255,21 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
    (list
     (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-rss-view-xsl))
-  (emacspeak-feeds-feed-feed-display feed-url emacspeak-rss-view-xsl 'speak))
+  (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-opml-view-xsl))
-  (emacspeak-feeds-feed-feed-display feed-url emacspeak-opml-view-xsl 'speak))
+  (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-atom-view-xsl))
-  (emacspeak-feeds-feed-feed-display feed-url emacspeak-atom-view-xsl 'speak))
+  (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
 ;;{{{  view feed
@@ -287,7 +287,7 @@ Argument `feed' is a feed structure (label url type)."
            ((eq type 'opml) emacspeak-opml-view-xsl)
            ((eq type 'atom) emacspeak-atom-view-xsl)
            (t (error "Unknown feed type %s" type))))
-    (emacspeak-feeds-feed-feed-display uri style speak)))
+    (emacspeak-feeds-feed-display uri style speak)))
 
 ;;;###autoload
 (defun emacspeak-feeds-browse (feed)
