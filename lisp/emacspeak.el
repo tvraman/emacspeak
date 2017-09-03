@@ -124,8 +124,7 @@ This is a Lisp function that takes a resource locator.")
 ;;{{{ Package Setup Helper
 
 (defun emacspeak-do-package-setup (package module)
-  "Setup Emacspeak extension for a specific PACKAGE.
-This function adds
+  "Setup Emacspeak extension for a specific PACKAGE.  This function adds
 the appropriate form to `after-load-alist' to set up Emacspeak support
 for a given package.  Argument MODULE specifies the emacspeak module
 that implements the speech-enabling extensions."
