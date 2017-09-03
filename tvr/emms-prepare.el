@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-
+(global-set-key "\C-x@h." 'emms-prefix-command)
 (eval-after-load "emms"
 `(progn
 (require 'emms-setup)
@@ -38,4 +38,4 @@
 
 
 ))
-(global-set-key "\C-x@h." 'emms-prefix-command)
+
