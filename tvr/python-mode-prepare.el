@@ -6,6 +6,5 @@
      (add-hook
       'python-mode-hook
       #'(lambda ()
-          (when (locate-library "company") (company-mode  1))
-                                        ;(when (locate-library "elpy") (elpy-enable))
-          ))))
+           (company-mode  1)
+           (elpy-enable)))))
