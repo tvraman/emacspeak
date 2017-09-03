@@ -198,7 +198,6 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
 ;;;###autoload
-
 (defun emacspeak-feeds-fastload-feeds ()
   "Fast load list of feeds from archive.
 This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds."
