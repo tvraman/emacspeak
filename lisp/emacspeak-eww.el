@@ -736,7 +736,7 @@ Retain previously set punctuations  mode."
           (dtk-set-punctuations p)
           (dtk-set-rate r))
       'at-end)
-     (emacspeak-feeds-async-feed-display u s 'speak)))
+     (emacspeak-feeds-feed-feed-display u s 'speak)))
    ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
     (let

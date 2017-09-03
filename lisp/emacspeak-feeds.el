@@ -218,50 +218,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 ;;}}}
 ;;{{{ display  feeds:
 
-(defun emacspeak-feeds-feed-display(feed-url style &optional speak)
-  "Fetch feed via Emacs and display using xsltproc."
-  (cl-declare (special emacspeak-eww-buffer-hash))
-  (cond
-   ((and (eq browse-url-browser-function 'eww-browse-url)
-         (boundp 'emacspeak-eww-buffer-hash)
-         emacspeak-eww-buffer-hash
-         (gethash   feed-url emacspeak-eww-buffer-hash)
-         (buffer-live-p (gethash   feed-url emacspeak-eww-buffer-hash)))
-    (switch-to-buffer (gethash feed-url emacspeak-eww-buffer-hash))
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-rest-of-buffer))
-   (t
-    (let ((buffer (url-retrieve-synchronously feed-url))
-          (coding-system-for-read 'utf-8)
-          (coding-system-for-write 'utf-8)
-          (emacspeak-xslt-options nil))
-      (cond
-       ((null buffer) (message "Nothing to display."))
-       (t
-        (when speak (emacspeak-webutils-autospeak))
-        (add-hook
-         'emacspeak-web-post-process-hook
-         #'(lambda ()
-             (cl-declare (special eww-current-url
-                               emacspeak-eww-feed
-                               emacspeak-eww-style))
-             (let ((u feed-url)
-                           (s style))
-                          (setq eww-current-url u
-                                emacspeak-eww-feed t 
-                                emacspeak-eww-style s))))
-        (with-current-buffer buffer
-          (emacspeak-webutils-without-xsl
-           (goto-char (point-min))
-           (search-forward "\n\n")
-           (delete-region (point-min) (point))
-           (decode-coding-region (point-min) (point-max) 'utf-8)
-           (emacspeak-xslt-region
-            style (point-min) (point-max)
-            (list (cons "base" (format "\"'%s'\"" feed-url)))))
-          (browse-url-of-buffer))))))))
-
-(defun emacspeak-feeds-async-feed-display(feed-url style &optional speak)
+(defun emacspeak-feeds-feed-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
   (cl-declare (special eww-data))
   (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak)))
@@ -299,21 +256,21 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
    (list
     (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-rss-view-xsl))
-  (emacspeak-feeds-async-feed-display feed-url emacspeak-rss-view-xsl 'speak))
+  (emacspeak-feeds-feed-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-opml-view-xsl))
-  (emacspeak-feeds-async-feed-display feed-url emacspeak-opml-view-xsl 'speak))
+  (emacspeak-feeds-feed-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (cl-declare (special emacspeak-atom-view-xsl))
-  (emacspeak-feeds-async-feed-display feed-url emacspeak-atom-view-xsl 'speak))
+  (emacspeak-feeds-feed-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
 ;;{{{  view feed
@@ -331,7 +288,7 @@ Argument `feed' is a feed structure (label url type)."
            ((eq type 'opml) emacspeak-opml-view-xsl)
            ((eq type 'atom) emacspeak-atom-view-xsl)
            (t (error "Unknown feed type %s" type))))
-    (emacspeak-feeds-async-feed-display uri style speak)))
+    (emacspeak-feeds-feed-feed-display uri style speak)))
 
 ;;;###autoload
 (defun emacspeak-feeds-browse (feed)
