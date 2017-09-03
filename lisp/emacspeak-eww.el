@@ -725,8 +725,7 @@ Retain previously set punctuations  mode."
          emacspeak-eww-feed
          emacspeak-eww-style)
                                         ; this is a displayed feed
-    (let
-     ((p dtk-punctuation-mode)
+    (let ((p dtk-punctuation-mode)
       (r dtk-speech-rate)
       (u (emacspeak-eww-current-url))
       (s emacspeak-eww-style))
