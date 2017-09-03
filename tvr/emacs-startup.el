@@ -198,8 +198,7 @@ which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
        "kbd-setup"
-       "emacspeak-m-player"   "emacspeak-dbus"
-       "emacspeak-muggles-autoloads"
+       "emacspeak-m-player" "emacspeak-muggles-autoloads"
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare" "mspools-prepare"
@@ -241,6 +240,7 @@ which defaults to emacs-personal-library."
     (make-thread #'tvr-customize)
     (make-thread #'soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+    (require 'emacspeak-dbus)
     (when (dbus-list-known-names :session)
       (nm-enable)
  (emacspeak-dbus-sleep-enable)
