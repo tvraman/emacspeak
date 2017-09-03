@@ -219,25 +219,26 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
-  (cl-declare (special eww-data))
   (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak)))
 
 (defun emacspeak-feeds-render  (_status feed-url style   speak)
   "Render the result of asynchronously retrieving feed-url."
   (cl-declare (special  eww-data  eww-current-url
-                       emacspeak-eww-feed emacspeak-eww-style))
+                        emacspeak-eww-feed emacspeak-eww-style))
   (let ((inhibit-read-only t)
         (data-buffer (current-buffer))
         (coding-system-for-read 'utf-8)
         (coding-system-for-write 'utf-8)
-        (emacspeak-xslt-options nil)
-        (u feed-url)
-        (s style))
+        (emacspeak-xslt-options nil))
     (with-current-buffer data-buffer
       (when speak (emacspeak-webutils-autospeak))
-      (setq eww-current-url u
-            emacspeak-eww-feed t 
-            emacspeak-eww-style s)
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (setq eww-current-url feed-url
+                 emacspeak-eww-feed t 
+                 emacspeak-eww-style style)
+           (plist-put eww-data :url feed-url)))
       (emacspeak-webutils-without-xsl
        (goto-char (point-min))
        (search-forward "\n\n")
