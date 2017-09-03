@@ -152,7 +152,7 @@ use the minibuffer."
   "Fix all commands loaded from a specified module."
   (interactive
    (list
-    (completing-read "Load library: "
+    (completing-read "Fix library: "
                      'locate-file-completion
                      (cons load-path (get-load-suffixes)))))
   (dolist
