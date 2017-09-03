@@ -238,14 +238,14 @@ which defaults to emacs-personal-library."
         (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
-    (tvr-customize)
-    (soundscape-toggle)
+    (make-thread #'tvr-customize)
+    (make-thread #'soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
     (when (dbus-list-known-names :session)
       (nm-enable)
  (emacspeak-dbus-sleep-enable)
       (emacspeak-dbus-watch-screen-lock))
-    (emacspeak-wizards-project-shells-initialize)
+    (make-thread #'emacspeak-wizards-project-shells-initialize)
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
