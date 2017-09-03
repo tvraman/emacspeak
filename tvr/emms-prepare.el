@@ -1,13 +1,6 @@
 ;; -*- lexical-binding: t; -*-
+;(load-library "emms-autoloads")
 
-(global-set-key (kbd "C-; .") 'emms-prefix-command)
-(eval-after-load "emms"
-`(progn
-(require 'emms-setup)
-(setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
-(emms-all)
-(emms-default-players)
-(setq emms-source-file-default-directory "~/mp3")
 (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")
 (cl-loop for key in
       '(
@@ -36,5 +29,14 @@
         )
       do
     (emacspeak-keymap-update emms-prefix-map key))
-))
+(global-set-key (kbd "C-; .") 'emms-prefix-command)
 (global-set-key "\C-x@h." 'emms-prefix-command)
+(eval-after-load "emms"
+`(progn
+(require 'emms-setup)
+(setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
+(emms-all)
+(emms-default-players)
+(setq emms-source-file-default-directory "~/mp3")
+))
+
