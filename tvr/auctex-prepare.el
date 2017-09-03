@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(load-library "auctex")
+;(load-library "auctex")
 ;(load-library "auctex-autoloads")
 (eval-after-load "auctex"
 `(progn
