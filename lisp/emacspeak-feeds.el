@@ -239,18 +239,17 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
                  emacspeak-eww-feed t 
                  emacspeak-eww-style style)
            (plist-put eww-data :url feed-url)))
-      (emacspeak-webutils-without-xsl
-       (goto-char (point-min))
-       (search-forward "\n\n")
-       (delete-region (point-min) (point))
-       (decode-coding-region (point-min) (point-max) 'utf-8)
-       (emacspeak-xslt-region
-        style (point-min) (point-max)
-        (list (cons "base" (format "\"'%s'\"" feed-url))))
-       (setq eww-current-url feed-url
-             emacspeak-eww-feed t 
-             emacspeak-eww-style style)
-       (browse-url-of-buffer)))))
+      (goto-char (point-min))
+      (search-forward "\n\n")
+      (delete-region (point-min) (point))
+      (decode-coding-region (point-min) (point-max) 'utf-8)
+      (emacspeak-xslt-region
+       style (point-min) (point-max)
+       (list (cons "base" (format "\"'%s'\"" feed-url))))
+      (setq eww-current-url feed-url
+            emacspeak-eww-feed t 
+            emacspeak-eww-style style)
+      (emacspeak-webutils-without-xsl (browse-url-of-buffer)))))
 
 ;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url)
