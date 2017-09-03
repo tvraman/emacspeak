@@ -116,7 +116,7 @@ which defaults to emacs-personal-library."
     (tool-bar-mode -1)
     (scroll-bar-mode -1)
     (fringe-mode 0)
-    
+
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
@@ -208,12 +208,12 @@ which defaults to emacs-personal-library."
        "calc-prepare"
        "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
-        "python-mode-prepare" "projectile-prepare"
+       "python-mode-prepare" "projectile-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-prepare"
-       ;"color-theme-prepare"
+                                        ;"color-theme-prepare"
        ))
 
     ;;}}}
@@ -237,17 +237,15 @@ which defaults to emacs-personal-library."
         (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
-    (make-thread #'tvr-customize)
-    (make-thread #'soundscape-toggle)
+    (tvr-customize)
+    (soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-    (make-thread
-     #'(lambda ()
-         (require 'emacspeak-dbus)
-         (when (dbus-list-known-names :session)
-           (nm-enable)
-           (emacspeak-dbus-sleep-enable)
-           (emacspeak-dbus-watch-screen-lock))))
-     (emacspeak-wizards-project-shells-initialize)
+    (require 'emacspeak-dbus)
+    (when (dbus-list-known-names :session)
+      (nm-enable)
+      (emacspeak-dbus-sleep-enable)
+      (emacspeak-dbus-watch-screen-lock))
+    (emacspeak-wizards-project-shells-initialize)
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
