@@ -180,9 +180,9 @@ signal registration objects."
   "Enable integration with Login1. Does nothing if already enabled."
   (interactive)
   (cl-declare (special emacspeak-dbus-sleep-registration))
-  (when (not emacspeak-dbus-sleep-registration)
-    (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register))
-    (message "Enabled integration with login1 daemon.")))
+  (unless emacspeak-dbus-sleep-registration
+    (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register)))
+    (message "Enabled integration with login1 daemon."))
 
 ;;; Disable integration
 (defun emacspeak-dbus-sleep-disable()
