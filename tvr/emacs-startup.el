@@ -209,7 +209,7 @@ which defaults to emacs-personal-library."
        "calc-prepare"
        "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
-       "company-prepare" "python-mode-prepare" "projectile-prepare"
+        "python-mode-prepare" "projectile-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "emms-prepare" "iplayer-prepare"
@@ -219,7 +219,7 @@ which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ turn on modes:
-
+    (add-hook 'prog-mode-hook 'company-mode)
     (initialize-completions)
     (savehist-mode )
     (save-place-mode)
