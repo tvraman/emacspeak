@@ -265,7 +265,7 @@ from Web page -- default is the current page being viewed."
     current-prefix-arg))
   (cl-declare (special emacspeak-we-xsl-filter
                     emacspeak-we-filters-rename-buffer))
-  (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
+  (let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
                (when speak (emacspeak-webutils-autospeak))
                (add-to-list
@@ -282,7 +282,7 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-read-url)
     (called-interactively-p 'interactive)))
   (cl-declare (special emacspeak-we-xsl-junk))
-  (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
+  (let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
                (when speak (emacspeak-webutils-autospeak))
                (add-to-list
@@ -761,7 +761,7 @@ separate buffer. Interactive use provides list of id values as completion. "
     (emacspeak-we-get-id-list)
     (emacspeak-webutils-read-url)
     current-prefix-arg))
-  (lexical-let ((filter
+  (let ((filter
                  (mapconcat
                   #'(lambda  (c)
                       (format "(@id=\"%s\")" c))

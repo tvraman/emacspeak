@@ -245,7 +245,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
              (cl-declare (special eww-current-url
                                emacspeak-eww-feed
                                emacspeak-eww-style))
-             (lexical-let ((u feed-url)
+             (let ((u feed-url)
                            (s style))
                           (setq eww-current-url u
                                 emacspeak-eww-feed t 

@@ -178,7 +178,7 @@ Note that the Web browser should reset this hook after using it.")
 (defun emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
-  (lexical-let
+  (let
    ((p dtk-punctuation-mode)
     (r dtk-speech-rate))
    (add-hook

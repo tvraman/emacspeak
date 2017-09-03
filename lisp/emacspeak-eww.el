@@ -725,7 +725,7 @@ Retain previously set punctuations  mode."
          emacspeak-eww-feed
          emacspeak-eww-style)
                                         ; this is a displayed feed
-    (lexical-let
+    (let
      ((p dtk-punctuation-mode)
       (r dtk-speech-rate)
       (u (emacspeak-eww-current-url))
@@ -740,7 +740,7 @@ Retain previously set punctuations  mode."
      (emacspeak-feeds-async-feed-display u s 'speak)))
    ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
-    (lexical-let
+    (let
      ((n emacspeak-eww-url-template)
       (p dtk-punctuation-mode)
       (r dtk-speech-rate))
