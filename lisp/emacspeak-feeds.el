@@ -247,6 +247,9 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
        (emacspeak-xslt-region
         style (point-min) (point-max)
         (list (cons "base" (format "\"'%s'\"" feed-url))))
+       (setq eww-current-url feed-url
+             emacspeak-eww-feed t 
+             emacspeak-eww-style style)
        (browse-url-of-buffer)))))
 
 ;;;###autoload
