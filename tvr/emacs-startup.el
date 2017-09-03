@@ -240,11 +240,13 @@ which defaults to emacs-personal-library."
     (make-thread #'tvr-customize)
     (make-thread #'soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-    (require 'emacspeak-dbus)
-    (when (dbus-list-known-names :session)
-      (nm-enable)
- (emacspeak-dbus-sleep-enable)
-      (emacspeak-dbus-watch-screen-lock))
+    (make-thread
+     #'(lambda ()
+         (require 'emacspeak-dbus)
+         (when (dbus-list-known-names :session)
+           (nm-enable)
+           (emacspeak-dbus-sleep-enable)
+           (emacspeak-dbus-watch-screen-lock))))
     (make-thread #'emacspeak-wizards-project-shells-initialize)
     (start-process
      "play" nil "play"
