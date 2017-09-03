@@ -131,12 +131,8 @@ that implements the speech-enabling extensions."
   (eval-after-load package
     `(progn
        (require ',module)
-       (emacspeak-fix-commands-loaded-from
-        (locate-library
-         ,(format "%s" module)))
-       (emacspeak-fix-commands-loaded-from
-        (locate-library
-         ,(format "%s" package))))))
+       (emacspeak-fix-commands-loaded-from ,(format "%s" module))
+       (emacspeak-fix-commands-loaded-from ,(format "%s" package)))))
 
 ;;; DocView
 (declare-function doc-view-open-text "doc-view")

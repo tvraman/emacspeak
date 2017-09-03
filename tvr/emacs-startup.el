@@ -247,7 +247,7 @@ which defaults to emacs-personal-library."
            (nm-enable)
            (emacspeak-dbus-sleep-enable)
            (emacspeak-dbus-watch-screen-lock))))
-    (make-thread #'emacspeak-wizards-project-shells-initialize)
+    (emacspeak-wizards-project-shells-initialize)
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))

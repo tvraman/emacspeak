@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(global-set-key "\C-x@h." 'emms-prefix-command)
+
 (global-set-key (kbd "C-; .") 'emms-prefix-command)
 (eval-after-load "emms"
 `(progn
@@ -9,7 +9,7 @@
 (emms-default-players)
 (setq emms-source-file-default-directory "~/mp3")
 (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")
-(loop for key in
+(cl-loop for key in
       '(
 	("b" emms-browser)
         ("<left>" emms-seek-backward)
@@ -36,7 +36,5 @@
         )
       do
     (emacspeak-keymap-update emms-prefix-map key))
-
-
 ))
-
+(global-set-key "\C-x@h." 'emms-prefix-command)
