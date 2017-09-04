@@ -212,13 +212,14 @@ which defaults to emacs-personal-library."
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "iplayer-prepare"  
-       "auto-correct-prepare"
+       ;"auto-correct-prepare"
                                         ;"color-theme-prepare"
        ))
 
     ;;}}}
     ;;{{{ turn on modes:
     (add-hook 'prog-mode-hook 'company-mode)
+    (add-hook 'text-mode-hook 'auto-correct-mode)
     (initialize-completions)
     (savehist-mode )
     (save-place-mode)
