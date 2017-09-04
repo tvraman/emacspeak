@@ -16,7 +16,7 @@ jabber-prepare.elc twittering-prepare.elc \
 iplayer-prepare.elc \
 auto-correct-prepare.elc color-theme-prepare.elc \
 helm-prepare.elc vdiff-prepare.elc \
-projectile-prepare.elc  yasnippet-prepare.elc emms-prepare.elc 
+projectile-prepare.elc  yasnippet-prepare.elc 
 
 all: $(SETUP)
 
