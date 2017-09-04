@@ -211,7 +211,7 @@ which defaults to emacs-personal-library."
        "python-mode-prepare" "projectile-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
-       "iplayer-prepare"
+       "iplayer-prepare" "emms-prepare"
        "auto-correct-prepare"
                                         ;"color-theme-prepare"
        ))
