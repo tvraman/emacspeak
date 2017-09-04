@@ -11,7 +11,8 @@
   (emms-all)
   (emms-default-players)
   (setq emms-source-file-default-directory "~/mp3")
-  (cl-loop for key in
+  )
+(cl-loop for key in
       '(
 	("b" emms-browser)
         ("<left>" emms-seek-backward)
@@ -38,4 +39,3 @@
         )
       do
     (emacspeak-keymap-update emms-prefix-map key))
-  )
