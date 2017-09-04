@@ -165,6 +165,7 @@ Stop apps that use the network."
 signal registration objects."
   (cond
    ((emacspeak-dbus-login1-sleep-p)
+    (message "Registering sleep/resume handlers.")
     (list
      (dbus-register-signal
       :system "org.freedesktop.login1" "/org/freedesktop/login1"
