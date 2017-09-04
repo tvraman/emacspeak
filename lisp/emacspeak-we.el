@@ -1136,7 +1136,7 @@ and provide a completion list of applicable  property values. Filter document by
            ("t" emacspeak-we-extract-table-by-position)
            ("u" emacspeak-we-extract-matching-urls)
            ("v" emacspeak-we-class-filter-and-follow-link)
-           ("w" emacspeak-we-extract-by-property)
+           ;("w" emacspeak-we-extract-by-property)
            ("x" emacspeak-we-extract-nested-table)
            ("y" emacspeak-we-class-filter-and-follow)
            )
