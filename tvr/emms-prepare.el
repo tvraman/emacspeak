@@ -31,12 +31,12 @@
     (emacspeak-keymap-update emms-prefix-map key))
 (global-set-key (kbd "C-; .") 'emms-prefix-command)
 (global-set-key "\C-x@h." 'emms-prefix-command)
-(eval-after-load "emms"
-`(progn
+
+
 (require 'emms-setup)
 (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
 (emms-all)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/mp3")
-))
+
 
