@@ -1,12 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package emms
   :init   (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")
-  :config 
-  (require 'emms-setup)
-  (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
-  (emms-all)
-  (emms-default-players)
-  (setq emms-source-file-default-directory "~/mp3")
   :commands  (emms-browser)
   :bind (("C-; ." . emms-prefix-command)
          ("C-x @ h ." . emms-prefix-command)
@@ -32,4 +26,11 @@
          ("r" . emms-random)
          ("i" . emms-show)
          (";" . emms-streams)
-         ("a" . emms-add-find)))
+         ("a" . emms-add-find))
+  :config 
+  (require 'emms-setup)
+  (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
+  (emms-all)
+  (emms-default-players)
+  (setq emms-source-file-default-directory "~/mp3")
+  )
