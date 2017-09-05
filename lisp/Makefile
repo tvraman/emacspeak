@@ -124,7 +124,6 @@ emacspeak-desktop.elc \
 emacspeak-diff-mode.elc \
 emacspeak-dired.elc \
 emacspeak-dismal.elc \
-emacspeak-dmacro.elc \
 emacspeak-epub.elc \
 emacspeak-ecb.elc \
 emacspeak-ein.elc \
@@ -385,7 +384,6 @@ emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc voice-setup.elc
 emacspeak-diff-mode.elc: emacspeak-diff-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc voice-setup.elc
 emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc voice-setup.elc
-emacspeak-dmacro.elc: emacspeak-dmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc voice-setup.elc
 emacspeak-ein.elc: emacspeak-ein.el dtk-speak.elc voice-setup.elc
 emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc voice-setup.elc

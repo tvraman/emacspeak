@@ -180,7 +180,6 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "dired" 'emacspeak-dired)
 (emacspeak-do-package-setup "dismal" 'emacspeak-dismal)
 (emacspeak-do-package-setup "dictionary" 'emacspeak-dictionary)
-(emacspeak-do-package-setup "dmacro" 'emacspeak-dmacro)
 (emacspeak-do-package-setup "doctor" 'emacspeak-entertain)
 (emacspeak-do-package-setup "dunnet" 'emacspeak-entertain)
 (emacspeak-do-package-setup "ediary" 'emacspeak-ediary)
