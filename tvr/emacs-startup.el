@@ -201,7 +201,7 @@ which defaults to emacs-personal-library."
        "emacspeak-m-player" "emacspeak-muggles-autoloads"
        "my-functions"
 ;;; Mail:
-       "vm-prepare" "gnus-prepare" "bbdb-prepare" "mspools-prepare"
+       "bbdb-prepare" "vm-prepare" "gnus-prepare"   "mspools-prepare"
        "vdiff-prepare" "elfeed-prepare"
 ;;; Authoring:
        "auctex-prepare"  "folding-prepare"
