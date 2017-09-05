@@ -152,15 +152,12 @@ Do not set this by hand;
 
 (defun emacspeak-sounds-define-theme-if-necessary (theme-name)
   "Define selected theme if necessary."
-  (cond
-   ((emacspeak-sounds-theme-get-extension theme-name)
-    t)
-   ((file-exists-p (expand-file-name "define-theme.el"
-                                     theme-name))
-    (load-file (expand-file-name
-                "define-theme.el"
-                theme-name)))
-   (t (error "Theme %s is missing its configuration file. " theme-name))))
+  (let ((file-name-handler-alist nil))
+    (cond
+     ((emacspeak-sounds-theme-get-extension theme-name) t)
+     ((file-exists-p (expand-file-name "define-theme.el" theme-name))
+      (load-file (expand-file-name "define-theme.el" theme-name)))
+     (t (error "Theme %s is missing its configuration file. " theme-name)))))
 
 (defun emacspeak-sounds-theme-p  (theme)
   "Predicate to test if theme is available."
