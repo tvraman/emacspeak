@@ -493,7 +493,6 @@ commands and options for details."
     (tts-configure-synthesis-setup)
     (require 'emacspeak-keymap)
     (require 'emacspeak-redefine)
-    (require 'emacspeak-replace)
     (require 'emacspeak-advice)
     (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
     (when emacspeak-pronounce-load-pronunciations-on-startup

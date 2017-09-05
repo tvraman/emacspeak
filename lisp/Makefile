@@ -83,7 +83,6 @@ emacspeak-fix-interactive.elc\
 emacspeak-re-builder.elc \
 emacspeak-rg.elc \
 emacspeak-redefine.elc\
-emacspeak-replace.elc \
 emacspeak-table.elc \
 emacspeak-table-ui.elc \
 emacspeak-tabulate.elc \

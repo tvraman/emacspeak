@@ -316,7 +316,8 @@ Optional argument FILENAME specifies the dictionary file."
   (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
     (condition-case nil
-        (let ((coding-system-for-read  'utf-8))
+        (let ((coding-system-for-read  'utf-8)
+              (file-name-handler-alist  nil))
           (progn
             (load-file filename)
             (setq emacspeak-pronounce-dictionaries-loaded t)))
