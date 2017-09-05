@@ -2485,6 +2485,19 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ abbrev mode advice
 
+(defadvice abbrev-edit-save-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'save-object)
+    (dtk-speak "Saved Abbrevs")))
+
+(defadvice edit-abbrevs-redefine (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (dtk-speak "Redefined abbrevs")))
+
+
 (defadvice list-abbrevs (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
