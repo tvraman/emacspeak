@@ -1,7 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
 ;(load-library "jabber-autoloads")
-(global-set-key (kbd "C-x C-j C-c") 'jabber-connect-all)
 (setq fsm-debug nil)
 (add-hook 'jabber-roster-mode-hook
           #'(lambda nil
