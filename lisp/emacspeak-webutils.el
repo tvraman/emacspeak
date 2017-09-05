@@ -75,22 +75,6 @@
     ad-do-it))
 
 ;;}}}
-;;{{{ keymap: web-prefix
-;;;###autoload
-(define-prefix-command 'emacspeak-web-prefix)
-
-(cl-declaim (special emacspeak-web-prefix))
-(cl-loop for k in
-         '(
-           ("R" emacspeak-xslt-view-region)
-           ("b" browse-url-of-buffer)
-           ("m" emacspeak-wizards-eww-buffer-list)
-           ("r" browse-url-of-region)
-           )
-         do
-         (emacspeak-keymap-update  emacspeak-web-prefix k))
-(define-key emacspeak-hyper-keymap "w" 'emacspeak-web-prefix)
-;;}}}
 ;;{{{ web-pre-process
 
 ;;;###autoload
