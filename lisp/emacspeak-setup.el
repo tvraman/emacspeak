@@ -173,8 +173,12 @@ TTS engine should use ALSA for this to be usable."
     (dtk-notify-initialize)))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end)
+;;;###autoload
+(defcustom emacspeak-startup-hook nil
+  "Hook run after Emacspeak is started."
+  :type 'hook
+  :group 'emacspeak)
 
-(defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to speak a default header line."
   (cl-declare (special emacspeak-use-header-line
@@ -183,7 +187,9 @@ TTS engine should use ALSA for this to be usable."
     (setq header-line-format emacspeak-header-line-format)))
 
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
-
+(add-hook
+ 'emacspeak-startup-hook
+ #'(lambda () (global-visual-line-mode -1)))
 (defvar emacspeak-info-already-loaded nil
   "Track info support load.")
 
