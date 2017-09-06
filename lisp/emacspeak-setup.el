@@ -138,7 +138,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defcustom dtk-startup-hook
-  '(emacspeak-tts-startup-hook)
+  '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
   "List of hooks to be run after starting up the speech server.
 Set things like speech rate, punctuation mode etc in this
 hook."
@@ -180,7 +180,6 @@ TTS engine should use ALSA for this to be usable."
   (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
     (dtk-notify-initialize)))
 
-(add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end)
 ;;;###autoload
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to speak a default header line."
