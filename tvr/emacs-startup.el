@@ -25,6 +25,7 @@
   "Exactly like setq, but handles custom."
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 
+
 (defun augment-load-path (path &optional library whence at-end)
   "add directory to load path. Path is resolved relative to `whence'
 which defaults to emacs-personal-library."
@@ -95,6 +96,12 @@ which defaults to emacs-personal-library."
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (when (file-exists-p custom-file) (load custom-file))))
+
+(defun tvr-defer-muggles ()
+"Defered muggles loader."
+(unless (featurep 'emacspeak-muggles)
+  (let ((file-name-handler-alist nil))
+    (make-thread #'(lambda () (load-library-if-available "emacspeak-muggles"))))))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -238,6 +245,7 @@ which defaults to emacs-personal-library."
         (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
+    (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
     (tvr-customize)
     (soundscape-toggle)
     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
