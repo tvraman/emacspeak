@@ -110,12 +110,6 @@ the Emacspeak desktop.")
   :group 'accessibility)
 
 ;;;###autoload
-(defcustom emacspeak-startup-hook nil
-  "Hook to run after starting emacspeak."
-  :type 'hook
-  :group 'emacspeak)
-
-;;;###autoload
 (defvar emacspeak-media-player 'emacspeak-m-player
   "Default media player to use.
 This is a Lisp function that takes a resource locator.")
