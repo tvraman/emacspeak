@@ -119,14 +119,7 @@ This determines step size used when setting speech rate via command
 dtk-speech-rate-base  +  dtk-speech-rate-step*level."
   :type 'integer
   :group 'tts)
-;;;###autoload
-(defcustom dtk-startup-hook nil
-  "List of hooks to be run after starting up the speech server.
-Set things like speech rate, punctuation mode etc in this
-hook."
-  :type 'hook
-  :group 'tts)
-
+(defvar dtk-startup-hook)
 (defvar dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
 Do not set this variable by hand.

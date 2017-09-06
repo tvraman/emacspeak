@@ -136,14 +136,22 @@ such as pronunciation dictionaries are stored. ")
 (let ((file-name-handler-alist nil))
   (load (expand-file-name "emacspeak.elc" emacspeak-lisp-directory)))
 
-(defvar dtk-startup-hook nil)
+;;;###autoload
+(defcustom dtk-startup-hook
+  '(emacspeak-tts-startup-hook)
+  "List of hooks to be run after starting up the speech server.
+Set things like speech rate, punctuation mode etc in this
+hook."
+  :type 'hook
+  :group 'tts)
+
 ;;;###autoload
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
   (cl-declare (special dtk-program))
   (tts-configure-synthesis-setup dtk-program))
 
-(add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
+
 
 ;;;###autoload
 (defun emacspeak-tts-multistream-p (tts-engine)
@@ -190,7 +198,6 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
   '(emacspeak-setup-header-line emacspeak-turn-off-visual-line-mode)
   "Hook run after Emacspeak is started."
   :type 'hook
-  :initialize  'custom-initialize-reset
   :group 'emacspeak)
 
 (defvar emacspeak-info-already-loaded nil
