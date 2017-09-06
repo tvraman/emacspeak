@@ -205,7 +205,7 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
        (setq emacspeak-info-already-loaded t))))
 
 ;;}}}
-(custom-reevaluate-setting 'emacspeak-startup-hook)
+
 (emacspeak)
 
 (provide 'emacspeak-setup)
