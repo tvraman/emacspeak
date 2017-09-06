@@ -91,7 +91,7 @@ which defaults to emacs-personal-library."
   "Load my customizations from my custom-file."
   (cl-declare (special custom-file))
   (let ((file-name-handler-alist nil)
-        (gc-cons-threshold  16000000)
+        (gc-cons-threshold  128000000)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
@@ -109,7 +109,7 @@ which defaults to emacs-personal-library."
   (cl-declare (special emacs-personal-library emacs-private-library
                        emacspeak-directory
                        enable-completion outline-mode-prefix-map))
-  (let ((gc-cons-threshold 16000000)
+  (let ((gc-cons-threshold 128000000)
         (file-name-handler-alist nil) ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
         (inhibit-message t)
@@ -244,7 +244,7 @@ which defaults to emacs-personal-library."
   "Actions to take after Emacs is up and ready."
   (cl-declare (special emacspeak-sounds-directory))
   (let ((after-start (current-time))
-        (gc-cons-threshold 16000000)
+        (gc-cons-threshold 128000000)
         (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
