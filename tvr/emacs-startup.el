@@ -25,7 +25,6 @@
   "Exactly like setq, but handles custom."
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 
-
 (defun augment-load-path (path &optional library whence at-end)
   "add directory to load path. Path is resolved relative to `whence'
 which defaults to emacs-personal-library."
@@ -65,6 +64,7 @@ which defaults to emacs-personal-library."
 
 (defun tvr-shell-bind-keys ()
   "Set up additional shell mode keys."
+  (cl-declare (special shell-mode-map))
   (cl-loop ;;; global keys
    for i from 0 to 9 do
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
@@ -98,15 +98,17 @@ which defaults to emacs-personal-library."
     (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
-"Defered muggles loader."
-(unless (featurep 'emacspeak-muggles)
-  (let ((file-name-handler-alist nil))
-    (make-thread #'(lambda () (load-library-if-available "emacspeak-muggles"))))))
+  "Defered muggles loader."
+  (unless (featurep 'emacspeak-muggles)
+    (let ((file-name-handler-alist nil))
+      (make-thread #'(lambda () (load-library-if-available "emacspeak-muggles"))))))
 
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
-  (cl-declare (special emacs-personal-library emacs-private-library))
+  (cl-declare (special emacs-personal-library emacs-private-library
+                       emacspeak-directory
+                       enable-completion outline-mode-prefix-map))
   (let ((gc-cons-threshold 16000000)
         (file-name-handler-alist nil) ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
@@ -218,8 +220,8 @@ which defaults to emacs-personal-library."
        "python-mode-prepare" "projectile-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
-       "iplayer-prepare"  
-       ;"auto-correct-prepare"
+       "iplayer-prepare"
+                                        ;"auto-correct-prepare"
                                         ;"color-theme-prepare"
        ))
 
@@ -240,6 +242,7 @@ which defaults to emacs-personal-library."
 ;;{{{  start it up
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
+  (cl-declare (special emacspeak-sounds-directory))
   (let ((after-start (current-time))
         (gc-cons-threshold 16000000)
         (file-name-handler-alist nil)
