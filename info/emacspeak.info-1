@@ -3800,10 +3800,6 @@ Defines the TTS interface.
  -- Variable: User Option dtk-speech-server-program
      Local speech server script.
 
- -- Variable: User Option dtk-startup-hook
-     List of hooks to be run after starting up the speech server.  Set
-     things like speech rate, punctuation mode etc in this hook.
-
  -- Variable: User Option dtk-use-tones
      Allow tones to be turned off.
 

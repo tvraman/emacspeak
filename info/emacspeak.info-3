@@ -12,86 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
-
-12.144 emacspeak-pydoc
-======================
-
-PYDOC == Python Documentation Viewer
-
-12.144.1 emacspeak-pydoc Options
---------------------------------
-
- -- Variable: User Option emacspeak-pydoc-button-personality
-     Personality used for pydoc-button-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-name-personality
-     Personality used for pydoc-callable-name-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-param-personality
-     Personality used for pydoc-callable-param-face This personality
-     uses emacspeak-voice-lock-variable-name-personality whose effect
-     can be changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-class-name-link-personality
-     Personality used for pydoc-class-name-link-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-data-personality
-     Personality used for pydoc-data-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-pydoc-envvars-personality
-     Personality used for pydoc-envvars-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-package-link-personality
-     Personality used for pydoc-package-link-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-source-file-link-personality
-     Personality used for pydoc-source-file-link-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
-     Personality used for pydoc-sphinx-directive-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
-     Personality used for pydoc-sphinx-param-name-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
-     Personality used for pydoc-sphinx-param-type-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-string-personality
-     Personality used for pydoc-string-face This personality uses
-     emacspeak-voice-lock-string-personality whose effect can be changed
-     globally by customizing
-     emacspeak-voice-lock-string-personality-settings.
-
- -- Variable: User Option
-          emacspeak-pydoc-superclass-name-link-personality
-     Personality used for pydoc-superclass-name-link-face This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
-
-
 File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
 
 12.145 emacspeak-python
@@ -610,6 +530,10 @@ repository for my setup.
 
 12.159.1 emacspeak-setup Options
 --------------------------------
+
+ -- Variable: User Option dtk-startup-hook
+     List of hooks to be run after starting up the speech server.  Set
+     things like speech rate, punctuation mode etc in this hook.
 
  -- Variable: User Option emacspeak-startup-hook
      Hook run after Emacspeak is started.

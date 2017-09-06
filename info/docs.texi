@@ -1099,13 +1099,6 @@ Local speech server script.
 
 @end defvar
 
-@defvar {User Option} dtk-startup-hook
-List of hooks to be run after starting up the speech server.
-Set things like speech rate, punctuation mode etc in this
-hook.
-
-@end defvar
-
 @defvar {User Option} dtk-use-tones
 Allow tones to be turned off.
 
@@ -15747,6 +15740,13 @@ To your .emacs file.
 See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
 
 @subsection emacspeak-setup Options
+
+@defvar {User Option} dtk-startup-hook
+List of hooks to be run after starting up the speech server.
+Set things like speech rate, punctuation mode etc in this
+hook.
+
+@end defvar
 
 @defvar {User Option} emacspeak-startup-hook
 Hook run after Emacspeak is started.
