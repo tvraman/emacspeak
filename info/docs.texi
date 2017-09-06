@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1195 commands and 1140 options.
+This chapter documents a total of 1195 commands and 1151 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -52,7 +52,6 @@ This chapter documents a total of 1195 commands and 1140 options.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode -- A powerful File Manager.
-* emacspeak-dmacro::Speech enable DMacro -- Dynamic  Macros.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
 * emacspeak-ediary::Speech-enable ediary.
@@ -157,7 +156,6 @@ This chapter documents a total of 1195 commands and 1140 options.
 * emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
-* emacspeak-replace::Speech enable interactive search and replace.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail -- Emacs' default mail agent.
 * emacspeak-rpm::speech-enable RPM.
@@ -1480,7 +1478,6 @@ x e s		emacspeak-we-xslt-select
 x e t		emacspeak-we-extract-table-by-position
 x e u		emacspeak-we-extract-matching-urls
 x e v		emacspeak-we-class-filter-and-follow-link
-x e w		emacspeak-we-extract-by-property
 x e x		emacspeak-we-extract-nested-table
 x e y		emacspeak-we-class-filter-and-follow
 
@@ -1529,15 +1526,10 @@ s		emacspeak-wizards-shell
 t		twit
 u		browse-url
 v		emacspeak-evil-toggle-evil
-w		emacspeak-web-prefix
+w		emacspeak-wizards-quick-weather
 
 SPC SPC		emacspeak-webspace-headlines-browse
 SPC h		emacspeak-webspace-headlines
-
-w R		emacspeak-xslt-view-region
-w b		browse-url-of-buffer
-w m		emacspeak-wizards-eww-buffer-list
-w r		browse-url-of-region
 
 .
 
@@ -1546,7 +1538,6 @@ key             binding
 ---             -------
 
 SPC		emacspeak-wizards-scratch
-.		auto-correct-update
 R		emacspeak-webspace-feed-reader
 S		soundscape-stop
 b		emacspeak-bbc
@@ -3907,11 +3898,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
-@defvar {User Option} emacspeak-startup-hook
-Hook to run after starting emacspeak.
-
-@end defvar
-
 @defvar {User Option} emacspeak-success-voice
 Personality used for success
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
@@ -3933,6 +3919,72 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -4407,6 +4459,12 @@ icon.
 
 @defvar {User Option} emacspeak-eldoc-speak-explicitly
 Set to T if not using a separate TTS notification stream.
+
+@end defvar
+
+@defvar {User Option} emacspeak-replace-personality
+Personality used in search and replace to indicate word
+that is being replaced.
 
 @end defvar
 
@@ -6088,12 +6146,6 @@ Options passed to Unix builtin ‘file’ command.
 
 @end defvar
 
-@node emacspeak-dmacro
-@section emacspeak-dmacro
-
-Provide additional advice to dmacro.
-dmacro is used to write code rapidly and consistently. 
-
 @node emacspeak-ecb
 @section emacspeak-ecb
 
@@ -7198,8 +7250,6 @@ To move around the terminal and have different parts spoken.
 @findex emacspeak-eterm-copy-region-to-register
 
 @format
-:around advice: ‘ad-Advice-emacspeak-eterm-copy-region-to-register’
-
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
@@ -7275,8 +7325,6 @@ in a non eterm buffer if executed via C-e C-e
 @findex emacspeak-eterm-paste-register
 
 @format
-:around advice: ‘ad-Advice-emacspeak-eterm-paste-register’
-
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
@@ -13360,7 +13408,6 @@ Create a hydra with no body and the heads:
 "y":    ‘(funcall-interactively (function yank-pop) 1)’,
 "Y":    ‘(funcall-interactively (function yank-pop) -1)’,
 "i":    ‘emacspeak-muggles-ido-yank’,
-"s":    ‘emacspeak-muggles-ido-yank’,
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
@@ -15391,19 +15438,6 @@ mode.
 
 @end defvar
 
-@node emacspeak-replace
-@section emacspeak-replace
-
-This module causes emacs' replacement functions to use voice locking
-
-@subsection emacspeak-replace Options
-
-@defvar {User Option} emacspeak-replace-personality
-Personality used in search and replace to indicate word
-that is being replaced.
-
-@end defvar
-
 @node emacspeak-rg
 @section emacspeak-rg
 
@@ -15713,6 +15747,11 @@ To your .emacs file.
 See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
 
 @subsection emacspeak-setup Options
+
+@defvar {User Option} emacspeak-startup-hook
+Hook run after Emacspeak is started.
+
+@end defvar
 
 @defvar {User Option} emacspeak-tts-use-notify-stream
 Set to true to use a separate TTS stream for notifications.
@@ -20495,13 +20534,6 @@ separate buffer. Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-by-property
 @deffn {Command} emacspeak-we-extract-by-property  (url &optional speak)
-@table @kbd
-@item C-e x e w
-@kindex C-e x e w
-@item <fn> x e w
-@kindex <fn> x e w
-@end table
-
 @findex emacspeak-we-extract-by-property
 
 @format
@@ -22708,13 +22740,6 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
 
 @subsubsection emacspeak-wizards-eww-buffer-list
 @deffn {Command} emacspeak-wizards-eww-buffer-list   
-@table @kbd
-@item C-; w m
-@kindex C-; w m
-@item C-x @@ h w m
-@kindex C-x @@ h w m
-@end table
-
 @findex emacspeak-wizards-eww-buffer-list
 
 @format
@@ -23167,6 +23192,13 @@ Switch to previous shell.
 
 @subsubsection emacspeak-wizards-quick-weather
 @deffn {Command} emacspeak-wizards-quick-weather   
+@table @kbd
+@item C-; w
+@kindex C-; w
+@item C-x @@ h w
+@kindex C-x @@ h w
+@end table
+
 @findex emacspeak-wizards-quick-weather
 
 @format
@@ -24148,13 +24180,6 @@ Transform ‘file’ using ‘style’ and preview via browse-url.
 
 @subsubsection emacspeak-xslt-view-region
 @deffn {Command} emacspeak-xslt-view-region  (style start end &optional unescape-charent)
-@table @kbd
-@item C-; w R
-@kindex C-; w R
-@item C-x @@ h w R
-@kindex C-x @@ h w R
-@end table
-
 @findex emacspeak-xslt-view-region
 
 @format

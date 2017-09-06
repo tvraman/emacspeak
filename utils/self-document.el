@@ -306,7 +306,7 @@
 ;;}}}
 ;;{{{ Iterate over all modules
 
-(cl-declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
+(declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
 (defun self-document-fix-quotes ()
   "Fix UTF8 curved quotes since makeinfo doesn't handle them well."
   (goto-char (point-min))

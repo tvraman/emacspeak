@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 1, 2017.
+last updated on September 6, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1195 commands and 1140 options.
+This chapter documents a total of 1195 commands and 1151 options.
 
 * Menu:
 
@@ -2998,7 +2998,6 @@ This chapter documents a total of 1195 commands and 1140 options.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode – A powerful File Manager.
-* emacspeak-dmacro::Speech enable DMacro – Dynamic  Macros.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
 * emacspeak-ediary::Speech-enable ediary.
@@ -3103,7 +3102,6 @@ This chapter documents a total of 1195 commands and 1140 options.
 * emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
-* emacspeak-replace::Speech enable interactive search and replace.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail – Emacs’ default mail agent.
 * emacspeak-rpm::speech-enable RPM.
@@ -4169,7 +4167,6 @@ system.
      x e t		emacspeak-we-extract-table-by-position
      x e u		emacspeak-we-extract-matching-urls
      x e v		emacspeak-we-class-filter-and-follow-link
-     x e w		emacspeak-we-extract-by-property
      x e x		emacspeak-we-extract-nested-table
      x e y		emacspeak-we-class-filter-and-follow
 
@@ -4218,15 +4215,10 @@ system.
      t		twit
      u		browse-url
      v		emacspeak-evil-toggle-evil
-     w		emacspeak-web-prefix
+     w		emacspeak-wizards-quick-weather
 
      SPC SPC		emacspeak-webspace-headlines-browse
      SPC h		emacspeak-webspace-headlines
-
-     w R		emacspeak-xslt-view-region
-     w b		browse-url-of-buffer
-     w m		emacspeak-wizards-eww-buffer-list
-     w r		browse-url-of-region
 
      .
 
@@ -4235,7 +4227,6 @@ system.
      —             ——-
 
      SPC		emacspeak-wizards-scratch
-     .		auto-correct-update
      R		emacspeak-webspace-feed-reader
      S		soundscape-stop
      b		emacspeak-bbc
@@ -6201,9 +6192,6 @@ system.
      whose effect can be changed globally by customizing
      voice-bolden-settings.
 
- -- Variable: User Option emacspeak-startup-hook
-     Hook to run after starting emacspeak.
-
  -- Variable: User Option emacspeak-success-voice
      Personality used for success This personality uses
      voice-brighten-extra whose effect can be changed globally by
@@ -6223,6 +6211,61 @@ system.
      Personality used for twittering-username-face This personality uses
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-author-personality
+     Personality used for u-vm-color-author-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
+     Personality used for u-vm-color-citation-1-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
+     Personality used for u-vm-color-citation-2-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-date-personality
+     Personality used for u-vm-color-date-face This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-header-personality
+     Personality used for u-vm-color-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-recipient-personality
+     Personality used for u-vm-color-recipient-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-signature-personality
+     Personality used for u-vm-color-signature-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
+     Personality used for u-vm-color-spamassassin-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-subject-personality
+     Personality used for u-vm-color-subject-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-time-personality
+     Personality used for u-vm-color-time-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-user-personality
+     Personality used for u-vm-color-user-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
@@ -6627,6 +6670,10 @@ versions of Emacs older than Emacs 21, And preferably only run on Emacs
 
  -- Variable: User Option emacspeak-eldoc-speak-explicitly
      Set to T if not using a separate TTS notification stream.
+
+ -- Variable: User Option emacspeak-replace-personality
+     Personality used in search and replace to indicate word that is
+     being replaced.
 
  -- Variable: User Option emacspeak-speak-errors
      Specifies if error messages are cued.
