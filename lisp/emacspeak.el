@@ -472,10 +472,10 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
   (cl-declare (special
-            emacspeak-pronounce-load-pronunciations-on-startup
-            emacspeak-info-directory
-            use-dialog-box emacspeak-pronounce-dictionaries-file
-            emacspeak-play-program emacspeak-sounds-directory))
+               emacspeak-pronounce-load-pronunciations-on-startup
+               emacspeak-info-directory
+               use-dialog-box emacspeak-pronounce-dictionaries-file
+               emacspeak-play-program emacspeak-sounds-directory))
   (let ((file-name-handler-alist nil))
     (emacspeak-export-environment)
     (setq use-dialog-box nil)
@@ -493,6 +493,7 @@ commands and options for details."
        emacspeak-pronounce-dictionaries-file))
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
+    (emacspeak-fix-commands-that-use-interactive)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations
      'some
