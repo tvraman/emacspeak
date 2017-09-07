@@ -95,6 +95,7 @@ which defaults to emacs-personal-library."
         (inhibit-message t)
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
+    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
     (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
@@ -149,7 +150,6 @@ which defaults to emacs-personal-library."
       (tvr-time-it e-start "emacspeak"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
     ;;}}}
     ;;{{{  set up terminal codes and global keys
 
