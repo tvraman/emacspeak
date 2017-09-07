@@ -410,7 +410,7 @@ caps."
 ;;{{{ set up after-init-hook to fix interactive functions
 
 (add-hook 'after-init-hook 'emacspeak-fix-commands-that-use-interactive)
-
+(run-at-time 240 nil #'emacspeak-fix-commands-that-use-interactive)
 ;;}}}
 ;;{{{ set up after-init-hook to fix interactive functions
 
