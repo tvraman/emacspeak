@@ -113,8 +113,8 @@
   (let ((fade "fade h .1 .5 .4 gain -8 "))
     (cond
      ((= 1 number) (sox-sin .5 "%-2:%-1"fade))
-     ((= 2 number) (sox-sin .5 "%1:%2" fade))
-     ((= 3 number) (sox-sin .5 "%4:%5"fade)))))
+     ((= 2 number) (sox-sin .5 "%1:%3" fade))
+     ((= 3 number) (sox-sin .5 "%4:%6"fade)))))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
