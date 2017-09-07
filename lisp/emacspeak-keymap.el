@@ -382,7 +382,7 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief."
-  (interactive "kPress the key you would like to use as the emacspeak prefix")
+  (interactive (list (read-key-sequence "Emacspeak Prefix: ")))
   (cl-declare (special emacspeak-prefix))
   (let ((current-use (lookup-key  global-map prefix-key)))
     (global-set-key prefix-key 'emacspeak-prefix-command)

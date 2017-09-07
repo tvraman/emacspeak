@@ -616,9 +616,9 @@ emacspeak eterm pointer."
 This copies  region delimited by the emacspeak eterm marker 
 set by command \\[emacspeak-eterm-set-marker] and the 
 emacspeak eterm pointer to a register."
-  (interactive "cCopy to register:")
+  (interactive (list (register-read-with-preview "Copy to register: ")))
   (cl-declare (special emacspeak-eterm-marker 
-                    emacspeak-eterm-pointer))
+                       emacspeak-eterm-pointer))
   (copy-to-register register 
                     (marker-position emacspeak-eterm-marker)
                     (marker-position emacspeak-eterm-pointer)
@@ -633,7 +633,7 @@ emacspeak eterm pointer to a register."
   "Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user."
-  (interactive "*cRegister to paste: ")
+  (interactive (list (register-read-with-preview "Copy to register: ")))
   (let ((contents (get-register register)))
     (cond
      ((stringp contents)

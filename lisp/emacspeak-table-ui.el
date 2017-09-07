@@ -959,7 +959,7 @@ match, makes the matching row or column current."
     (message "Copied element to kill ring")))
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."
-  (interactive "cCopy to register: ")
+  (interactive (list (register-read-with-preview "Copy to register: "))
   (cl-declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
   (set-register register (emacspeak-table-current-element
