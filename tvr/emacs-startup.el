@@ -149,7 +149,7 @@ which defaults to emacs-personal-library."
       (tvr-time-it e-start "emacspeak"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-
+(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
     ;;}}}
     ;;{{{  set up terminal codes and global keys
 
