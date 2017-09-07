@@ -3392,7 +3392,7 @@ char, or dont move. "
 (defun emacspeak-speak-and-skip-extent-upto-char (char)
   "Search forward from point until we hit char.
 Speak text between point and the char we hit."
-  (interactive "c")
+  (interactive (list (read-char "Char: ")))
   (let ((start (point))
         (goal nil))
     (save-excursion
