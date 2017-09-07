@@ -130,8 +130,18 @@ that implements the speech-enabling extensions for `package' (a string)."
 
 ;;; DocView
 (declare-function doc-view-open-text "doc-view")
-(eval-after-load 'doc-view
+(eval-after-load "doc-view"
   `(add-hook 'doc-view-mode-hook #'doc-view-open-text))
+
+;;; find-func:
+(eval-after-load  "find-func"
+  `(progn
+     (emacspeak-fix-commands-loaded-from "find-func")))
+
+;;; subr.el
+(eval-after-load  "subr"
+  `(progn
+     (emacspeak-fix-commands-loaded-from "find-func")))
 
 ;;}}}
 ;;{{{ Setup package extensions
