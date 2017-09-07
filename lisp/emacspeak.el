@@ -120,13 +120,13 @@ This is a Lisp function that takes a resource locator.")
 (defun emacspeak-do-package-setup (package module)
   "Setup Emacspeak extension for a specific PACKAGE.  This function adds
 the appropriate form to `after-load-alist' to set up Emacspeak support
-for a given package.  Argument MODULE specifies the emacspeak module
-that implements the speech-enabling extensions."
+for a given package.  Argument MODULE (a symbol)specifies the emacspeak module
+that implements the speech-enabling extensions for `package' (a string)."
   (eval-after-load package
     `(progn
        (require ',module)
        (emacspeak-fix-commands-loaded-from ,(format "%s" module))
-       (emacspeak-fix-commands-loaded-from ,(format "%s" package)))))
+       (emacspeak-fix-commands-loaded-from ,package))))
 
 ;;; DocView
 (declare-function doc-view-open-text "doc-view")
