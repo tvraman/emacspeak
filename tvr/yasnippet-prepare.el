@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 ;(load-library "yasnippet-autoloads")
 (eval-after-load 'yasnippet

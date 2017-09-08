@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (setq pre-redisplay-function nil)
 
 (load-library "touchpad-disable")

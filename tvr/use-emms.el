@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 (require 'use-package)
 ;;; Autoload emms with one entry proint  ---emms-browser --- bound to C-; .
 ;;; After emms is used the first time, the C-; .  becomes a prefix command.

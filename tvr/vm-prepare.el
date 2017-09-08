@@ -1,4 +1,4 @@
-;;; vm-prepare.l :  -*- lexical-binding: t; -*-
+;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
 (push (expand-file-name "vm/lisp/" emacs-personal-library) load-path)
 ;(load-library "vm-autoloads")
 (autoload 'vm "vm" "vm" t)

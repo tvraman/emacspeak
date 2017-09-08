@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 ;(load-library "reftex")
 (eval-after-load "reftex"
 `(progn

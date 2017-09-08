@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 ;(load-library "auctex")
 ;(load-library "auctex-autoloads")
 (eval-after-load "auctex"

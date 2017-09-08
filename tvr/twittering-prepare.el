@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 (setq twittering-use-master-password t)
 (setq epa-protocol 'OpenPGP)

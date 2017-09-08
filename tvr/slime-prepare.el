@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 ;(load-library "slime-autoloads")
 (eval-after-load "slime"
   `(progn

@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t; -*-
+;;; -*- lexical-binding: nil; -*-
 ;(load-library "projectile-autoloads")
 (add-hook 'prog-mode-hook 'projectile-mode)
 ;(projectile-global-mode)

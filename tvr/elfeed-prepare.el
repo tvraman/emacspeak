@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+;; -*- lexical-binding: nil; -*-
 
 ;(load-library "elfeed-autoloads")
 (eval-after-load "elfeed"
