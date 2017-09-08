@@ -102,7 +102,8 @@ which defaults to emacs-personal-library."
   (unless (featurep 'emacspeak-muggles)
     (make-thread
      #'(lambda ()
-         (let ((file-name-handler-alist nil))
+         (let ((file-name-handler-alist nil)
+               (gc-cons-threshold 128000000))
            (load-library-if-available "emacspeak-muggles"))))))
 
 ;;}}}
