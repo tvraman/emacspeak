@@ -100,8 +100,10 @@ which defaults to emacs-personal-library."
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
   (unless (featurep 'emacspeak-muggles)
-    (let ((file-name-handler-alist nil))
-      (make-thread #'(lambda () (load-library-if-available "emacspeak-muggles"))))))
+    (make-thread
+     #'(lambda ()
+         (let ((file-name-handler-alist nil))
+           (load-library-if-available "emacspeak-muggles"))))))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -143,10 +145,8 @@ which defaults to emacs-personal-library."
     (package-initialize)
     ;;}}}
     ;;{{{ Load and customize emacspeak
-
-    (let ((e-start (current-time)))
-      (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-      (tvr-time-it e-start "emacspeak"))
+    
+    (load-library-if-available (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
     ;;}}}
