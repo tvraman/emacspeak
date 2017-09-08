@@ -43,9 +43,9 @@ which defaults to emacs-personal-library."
 
 (defsubst tvr-time-it (start what)
   "Emit timing information."
-  (message
-   "<%s %.4f>"
-   what (float-time (time-subtract (current-time) start))))
+  (message "<%s %.4f %d gcs %.4f>"
+           what (float-time (time-subtract (current-time) start))
+           gcs-done gc-elapsed))
 
 (defsubst load-library-if-available (lib)
   "Safe load library."
@@ -62,7 +62,7 @@ which defaults to emacs-personal-library."
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
 
-(defun tvr-shell-bind-keys ()
+(defsubst tvr-shell-bind-keys ()
   "Set up additional shell mode keys."
   (cl-declare (special shell-mode-map))
   (cl-loop ;;; global keys
