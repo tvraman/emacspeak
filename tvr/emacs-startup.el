@@ -8,7 +8,6 @@
 ;;{{{ personal lib
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(defvar emacspeak-speak-messages)
 (defvar emacs-private-library (expand-file-name "~/.elisp")
   "Private library directory. ")
 
