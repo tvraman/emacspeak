@@ -12,59 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Up: Emacspeak At Twenty
-
-15.13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
-=======================================================================================
-
-The ability to process large amounts of email and electronic news has
-always been a feature of Emacs.  I started using package *vm* for email
-in 1990, along with *gnus* for Usenet access many years before
-developing Emacspeak.  So these were the first major packages that
-Emacspeak speech-enabled.  Being able to access the underlying data
-structures used to visually render email messages and Usenet articles
-enabled Emacspeak to produce rich, succinct auditory output — this
-vastly increased my ability to consume and organize large amounts of
-information.  Toward the turn of the century, instant messaging arrived
-in the mainstream — package *tnt* provided an Emacs implementation of a
-chat client that could communicate with users on the then popular AOL
-Instant Messenger platform.  At the time, I worked at IBM Research, and
-inspired by package *tnt*, I created an Emacs client called *ChatterBox*
-using the Lotus Sametime API — this enabled me to communicate with
-colleagues at work from the comfort of Emacs.  Packages like *vm*,
-*gnus*, *tnt* and *ChatterBox* provide an interesting example of how
-availability of a clean underlying API to a specific service or content
-stream can encourage the creation of efficient (and different) user
-interfaces.  The touchstone of such successful implementations is a
-simple test — can the user of a specific interface tell if the person
-whom he is communicating with is also using the same interface?  In each
-of the examples enumerated above, a user at one end of the communication
-chain cannot tell, and in fact shouldn’t be able to tell what client the
-user at the other end is using.  Contrast this with closed services that
-have an inherent _lock-in_ model e.g., proprietary word processors that
-use undocumented serialization formats — for a fun read, see this
-write-up on Universe Of Fancy Colored Paper
-(http://emacspeak.sourceforge.net/publications/colored-paper.html).
-
-   Today, my personal choice for instant messaging is the open Jabber
-platform.  I connect to Jabber via Emacs package *emacs-jabber* and with
-Emacspeak providing a light-weight wrapper for generating the eyes-free
-interface, I can communicate seamlessly with colleagues and friends
-around the world.
-
-   As the Web evolved to encompass ever-increasing swathes of
-communication functionality that had already been available on the
-Internet, we saw the world move from Usenet groups to *Blogs* — I
-remember initially dismissing the blogging phenomenon as just a
-re-invention of Usenet in the early days.  However, mainstream users
-flocked to Blogging, and I later realized that blogging as a publishing
-platform brought along interesting features that made communicating and
-publishing information *much* easier.  In 2005, I joined Google; during
-the winter holidays that year, I implemented a light-weight client for
-Blogger that became the start of Emacs package *g-client* — this package
-provides Emacs wrappers for Google services that provide a RESTful API.
-
-
 File: emacspeak.info,  Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up --- Leveraging Evolving Web APIs,  Prev: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Up: Emacspeak At Twenty
 
 15.14 The RESTful Web — Web Wizards And URL Templates For Faster Access
@@ -375,47 +322,47 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-q:                              emacspeak-speak.    (line 1223)
 * <fn> C-s:                              dtk-speak.          (line  393)
 * <fn> C-SPC:                            emacspeak-speak.    (line  398)
-* <fn> C-t #:                            emacspeak-table-ui. (line  273)
-* <fn> C-t ,:                            emacspeak-table-ui. (line   68)
-* <fn> C-t .:                            emacspeak-table-ui. (line  312)
-* <fn> C-t <:                            emacspeak-table-ui. (line  120)
-* <fn> C-t <down>:                       emacspeak-table-ui. (line  170)
-* <fn> C-t <left>:                       emacspeak-table-ui. (line  193)
-* <fn> C-t <right>:                      emacspeak-table-ui. (line  155)
-* <fn> C-t <S-tab>:                      emacspeak-table-ui. (line  194)
-* <fn> C-t <up>:                         emacspeak-table-ui. (line  209)
-* <fn> C-t =:                            emacspeak-table-ui. (line  330)
-* <fn> C-t >:                            emacspeak-table-ui. (line  131)
-* <fn> C-t A:                            emacspeak-table-ui. (line  119)
-* <fn> C-t a:                            emacspeak-table-ui. (line  263)
-* <fn> C-t B:                            emacspeak-table-ui. (line  107)
-* <fn> C-t b:                            emacspeak-table-ui. (line  282)
-* <fn> C-t C:                            emacspeak-table-ui. (line  234)
-* <fn> C-t c:                            emacspeak-table-ui. (line  303)
-* <fn> C-t C-b:                          emacspeak-table-ui. (line  192)
-* <fn> C-t C-f:                          emacspeak-table-ui. (line  154)
-* <fn> C-t C-n:                          emacspeak-table-ui. (line  169)
-* <fn> C-t C-p:                          emacspeak-table-ui. (line  208)
-* <fn> C-t E:                            emacspeak-table-ui. (line  130)
-* <fn> C-t f:                            emacspeak-table-ui. (line  339)
-* <fn> C-t g:                            emacspeak-table-ui. (line  291)
-* <fn> C-t h:                            emacspeak-table-ui. (line  243)
-* <fn> C-t j:                            emacspeak-table-ui. (line   96)
-* <fn> C-t k:                            emacspeak-table-ui. (line   39)
-* <fn> C-t M-<:                          emacspeak-table-ui. (line  142)
-* <fn> C-t M->:                          emacspeak-table-ui. (line  109)
-* <fn> C-t M-l:                          emacspeak-table-ui. (line  360)
-* <fn> C-t M-s:                          emacspeak-table-ui. (line  371)
-* <fn> C-t n:                            emacspeak-table-ui. (line  168)
-* <fn> C-t p:                            emacspeak-table-ui. (line  207)
+* <fn> C-t #:                            emacspeak-table-ui. (line  271)
+* <fn> C-t ,:                            emacspeak-table-ui. (line   66)
+* <fn> C-t .:                            emacspeak-table-ui. (line  310)
+* <fn> C-t <:                            emacspeak-table-ui. (line  118)
+* <fn> C-t <down>:                       emacspeak-table-ui. (line  168)
+* <fn> C-t <left>:                       emacspeak-table-ui. (line  191)
+* <fn> C-t <right>:                      emacspeak-table-ui. (line  153)
+* <fn> C-t <S-tab>:                      emacspeak-table-ui. (line  192)
+* <fn> C-t <up>:                         emacspeak-table-ui. (line  207)
+* <fn> C-t =:                            emacspeak-table-ui. (line  328)
+* <fn> C-t >:                            emacspeak-table-ui. (line  129)
+* <fn> C-t A:                            emacspeak-table-ui. (line  117)
+* <fn> C-t a:                            emacspeak-table-ui. (line  261)
+* <fn> C-t B:                            emacspeak-table-ui. (line  105)
+* <fn> C-t b:                            emacspeak-table-ui. (line  280)
+* <fn> C-t C:                            emacspeak-table-ui. (line  232)
+* <fn> C-t c:                            emacspeak-table-ui. (line  301)
+* <fn> C-t C-b:                          emacspeak-table-ui. (line  190)
+* <fn> C-t C-f:                          emacspeak-table-ui. (line  152)
+* <fn> C-t C-n:                          emacspeak-table-ui. (line  167)
+* <fn> C-t C-p:                          emacspeak-table-ui. (line  206)
+* <fn> C-t E:                            emacspeak-table-ui. (line  128)
+* <fn> C-t f:                            emacspeak-table-ui. (line  337)
+* <fn> C-t g:                            emacspeak-table-ui. (line  289)
+* <fn> C-t h:                            emacspeak-table-ui. (line  241)
+* <fn> C-t j:                            emacspeak-table-ui. (line   94)
+* <fn> C-t k:                            emacspeak-table-ui. (line   37)
+* <fn> C-t M-<:                          emacspeak-table-ui. (line  140)
+* <fn> C-t M->:                          emacspeak-table-ui. (line  107)
+* <fn> C-t M-l:                          emacspeak-table-ui. (line  358)
+* <fn> C-t M-s:                          emacspeak-table-ui. (line  369)
+* <fn> C-t n:                            emacspeak-table-ui. (line  166)
+* <fn> C-t p:                            emacspeak-table-ui. (line  205)
 * <fn> C-t Q:                            emacspeak-wizards.  (line  127)
-* <fn> C-t R:                            emacspeak-table-ui. (line  254)
-* <fn> C-t r:                            emacspeak-table-ui. (line  351)
-* <fn> C-t s:                            emacspeak-table-ui. (line  220)
-* <fn> C-t SPC:                          emacspeak-table-ui. (line  321)
-* <fn> C-t T:                            emacspeak-table-ui. (line  140)
-* <fn> C-t TAB:                          emacspeak-table-ui. (line  153)
-* <fn> C-t v:                            emacspeak-table-ui. (line  382)
+* <fn> C-t R:                            emacspeak-table-ui. (line  252)
+* <fn> C-t r:                            emacspeak-table-ui. (line  349)
+* <fn> C-t s:                            emacspeak-table-ui. (line  218)
+* <fn> C-t SPC:                          emacspeak-table-ui. (line  319)
+* <fn> C-t T:                            emacspeak-table-ui. (line  138)
+* <fn> C-t TAB:                          emacspeak-table-ui. (line  151)
+* <fn> C-t v:                            emacspeak-table-ui. (line  380)
 * <fn> C-t w:                            emacspeak-table-ui. (line   17)
 * <fn> C-t x:                            emacspeak-table-ui. (line   26)
 * <fn> C-u:                              emacspeak-feeds.    (line   47)
@@ -484,7 +431,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   65)
 * <fn> M-f:                              emacspeak-wizards.  (line  115)
 * <fn> M-h:                              emacspeak-speak.    (line  503)
-* <fn> M-i:                              emacspeak-table-ui. (line   49)
+* <fn> M-i:                              emacspeak-table-ui. (line   47)
 * <fn> M-l:                              emacspeak-wizards.  (line  149)
 * <fn> M-m:                              emacspeak-speak.    (line 1245)
 * <fn> M-p:                              emacspeak-wizards.  (line  257)
@@ -744,47 +691,47 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-q:                               emacspeak-speak.    (line 1222)
 * C-e C-s:                               dtk-speak.          (line  392)
 * C-e C-SPC:                             emacspeak-speak.    (line  396)
-* C-e C-t #:                             emacspeak-table-ui. (line  272)
-* C-e C-t ,:                             emacspeak-table-ui. (line   67)
-* C-e C-t .:                             emacspeak-table-ui. (line  311)
-* C-e C-t <:                             emacspeak-table-ui. (line  118)
-* C-e C-t <down>:                        emacspeak-table-ui. (line  167)
-* C-e C-t <left>:                        emacspeak-table-ui. (line  190)
-* C-e C-t <right>:                       emacspeak-table-ui. (line  152)
-* C-e C-t <S-tab>:                       emacspeak-table-ui. (line  191)
-* C-e C-t <up>:                          emacspeak-table-ui. (line  206)
-* C-e C-t =:                             emacspeak-table-ui. (line  329)
-* C-e C-t >:                             emacspeak-table-ui. (line  129)
-* C-e C-t A:                             emacspeak-table-ui. (line  117)
-* C-e C-t a:                             emacspeak-table-ui. (line  262)
-* C-e C-t B:                             emacspeak-table-ui. (line  106)
-* C-e C-t b:                             emacspeak-table-ui. (line  281)
-* C-e C-t C:                             emacspeak-table-ui. (line  233)
-* C-e C-t c:                             emacspeak-table-ui. (line  302)
-* C-e C-t C-b:                           emacspeak-table-ui. (line  189)
-* C-e C-t C-f:                           emacspeak-table-ui. (line  151)
-* C-e C-t C-n:                           emacspeak-table-ui. (line  166)
-* C-e C-t C-p:                           emacspeak-table-ui. (line  205)
-* C-e C-t E:                             emacspeak-table-ui. (line  128)
-* C-e C-t f:                             emacspeak-table-ui. (line  338)
-* C-e C-t g:                             emacspeak-table-ui. (line  290)
-* C-e C-t h:                             emacspeak-table-ui. (line  242)
-* C-e C-t j:                             emacspeak-table-ui. (line   95)
-* C-e C-t k:                             emacspeak-table-ui. (line   38)
-* C-e C-t M-<:                           emacspeak-table-ui. (line  141)
-* C-e C-t M->:                           emacspeak-table-ui. (line  108)
-* C-e C-t M-l:                           emacspeak-table-ui. (line  359)
-* C-e C-t M-s:                           emacspeak-table-ui. (line  370)
-* C-e C-t n:                             emacspeak-table-ui. (line  165)
-* C-e C-t p:                             emacspeak-table-ui. (line  204)
+* C-e C-t #:                             emacspeak-table-ui. (line  270)
+* C-e C-t ,:                             emacspeak-table-ui. (line   65)
+* C-e C-t .:                             emacspeak-table-ui. (line  309)
+* C-e C-t <:                             emacspeak-table-ui. (line  116)
+* C-e C-t <down>:                        emacspeak-table-ui. (line  165)
+* C-e C-t <left>:                        emacspeak-table-ui. (line  188)
+* C-e C-t <right>:                       emacspeak-table-ui. (line  150)
+* C-e C-t <S-tab>:                       emacspeak-table-ui. (line  189)
+* C-e C-t <up>:                          emacspeak-table-ui. (line  204)
+* C-e C-t =:                             emacspeak-table-ui. (line  327)
+* C-e C-t >:                             emacspeak-table-ui. (line  127)
+* C-e C-t A:                             emacspeak-table-ui. (line  115)
+* C-e C-t a:                             emacspeak-table-ui. (line  260)
+* C-e C-t B:                             emacspeak-table-ui. (line  104)
+* C-e C-t b:                             emacspeak-table-ui. (line  279)
+* C-e C-t C:                             emacspeak-table-ui. (line  231)
+* C-e C-t c:                             emacspeak-table-ui. (line  300)
+* C-e C-t C-b:                           emacspeak-table-ui. (line  187)
+* C-e C-t C-f:                           emacspeak-table-ui. (line  149)
+* C-e C-t C-n:                           emacspeak-table-ui. (line  164)
+* C-e C-t C-p:                           emacspeak-table-ui. (line  203)
+* C-e C-t E:                             emacspeak-table-ui. (line  126)
+* C-e C-t f:                             emacspeak-table-ui. (line  336)
+* C-e C-t g:                             emacspeak-table-ui. (line  288)
+* C-e C-t h:                             emacspeak-table-ui. (line  240)
+* C-e C-t j:                             emacspeak-table-ui. (line   93)
+* C-e C-t k:                             emacspeak-table-ui. (line   36)
+* C-e C-t M-<:                           emacspeak-table-ui. (line  139)
+* C-e C-t M->:                           emacspeak-table-ui. (line  106)
+* C-e C-t M-l:                           emacspeak-table-ui. (line  357)
+* C-e C-t M-s:                           emacspeak-table-ui. (line  368)
+* C-e C-t n:                             emacspeak-table-ui. (line  163)
+* C-e C-t p:                             emacspeak-table-ui. (line  202)
 * C-e C-t Q:                             emacspeak-wizards.  (line  126)
-* C-e C-t R:                             emacspeak-table-ui. (line  253)
-* C-e C-t r:                             emacspeak-table-ui. (line  350)
-* C-e C-t s:                             emacspeak-table-ui. (line  219)
-* C-e C-t SPC:                           emacspeak-table-ui. (line  320)
-* C-e C-t T:                             emacspeak-table-ui. (line  139)
-* C-e C-t TAB:                           emacspeak-table-ui. (line  150)
-* C-e C-t v:                             emacspeak-table-ui. (line  381)
+* C-e C-t R:                             emacspeak-table-ui. (line  251)
+* C-e C-t r:                             emacspeak-table-ui. (line  348)
+* C-e C-t s:                             emacspeak-table-ui. (line  217)
+* C-e C-t SPC:                           emacspeak-table-ui. (line  318)
+* C-e C-t T:                             emacspeak-table-ui. (line  137)
+* C-e C-t TAB:                           emacspeak-table-ui. (line  148)
+* C-e C-t v:                             emacspeak-table-ui. (line  379)
 * C-e C-t w:                             emacspeak-table-ui. (line   16)
 * C-e C-t x:                             emacspeak-table-ui. (line   25)
 * C-e C-u:                               emacspeak-feeds.    (line   46)
@@ -853,7 +800,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   64)
 * C-e M-f:                               emacspeak-wizards.  (line  114)
 * C-e M-h:                               emacspeak-speak.    (line  502)
-* C-e M-i:                               emacspeak-table-ui. (line   48)
+* C-e M-i:                               emacspeak-table-ui. (line   46)
 * C-e M-l:                               emacspeak-wizards.  (line  148)
 * C-e M-m:                               emacspeak-speak.    (line 1244)
 * C-e M-p:                               emacspeak-wizards.  (line  256)
