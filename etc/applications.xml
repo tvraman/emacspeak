@@ -392,6 +392,9 @@ type="text/xsl"?>
     <application name="enriched">
       Rich-text authoring to provide a simple word
     processor.</application>
+<application name="evil">
+EVIL == Emacs VI Emulation Layer.
+module emacspeak-evil speech-enables EVIL.</application>
     <application name="rdf-edit">
       Speech-enabled editing of RDF/DAML ontologies using DAMLITE.
     </application>
@@ -514,6 +517,9 @@ type="text/xsl"?>
     <application name="dictionary">
       Access dictionary servers.
     </application>
+<application name="vdiff">
+Package VDiff implements visual diff --- and is speech-enabled by
+module emacspeak-vdiff.</application>
     <application name="ediff">
       Interface for browsing diff output;
       enables easy merging of different file versions, applying
