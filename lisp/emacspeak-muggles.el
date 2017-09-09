@@ -249,8 +249,8 @@ Argument `k-map' is a symbol  that names a keymap."
     "Org Mode Navigate "
     ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
-    ("n" outline-next-visible-heading "next heading")
-    ("p" outline-previous-visible-heading "prev heading")
+    ("n" emacspeak-outline-speak-next-heading  "next heading")
+    ("p" emacspeak-outline-speak-previous-heading "prev heading")
     ("N" org-forward-heading-same-level "next heading at same level")
     ("P" org-backward-heading-same-level "prev heading at same level")
     ("u" outline-up-heading "up heading")
