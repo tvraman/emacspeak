@@ -1128,7 +1128,7 @@ for use as a DOM filter."
      do
      (setq value (funcall reader))
      (cond
-      (value (cl-pushnew   value value-list))
+      (value (cl-pushnew   value value-list :test #'string=))
       (t (setq done t))))
     value-list))
 
