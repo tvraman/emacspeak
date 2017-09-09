@@ -8,8 +8,7 @@
 ;;{{{ personal lib
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(defvar emacs-private-library (expand-file-name "~/.elisp")
-  "Private library directory. ")
+
 
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
@@ -109,14 +108,19 @@ which defaults to emacs-personal-library."
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
-  (cl-declare (special emacs-personal-library emacs-private-library
-                       emacspeak-directory
+  (cl-declare (special emacs-personal-library emacspeak-directory
                        enable-completion outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
         (file-name-handler-alist nil) ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
         (inhibit-message t)
         (tvr-start (current-time)))
+    ;;{{{ Load and customize emacspeak
+    
+    (load-library-if-available (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
+      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
+    ;;}}}
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
@@ -137,19 +141,10 @@ which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Augment Load Path:
-
-    (when (file-exists-p  emacs-private-library)
-      (push emacs-private-library load-path))
-
+    
     (when (file-exists-p  emacs-personal-library)
       (push emacs-personal-library load-path))
     (package-initialize)
-    ;;}}}
-    ;;{{{ Load and customize emacspeak
-    
-    (load-library-if-available (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
-      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
     ;;}}}
     ;;{{{  set up terminal codes and global keys
 
