@@ -222,7 +222,6 @@ which defaults to emacs-personal-library."
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "iplayer-prepare"
                                         ;"auto-correct-prepare"
-                                        ;"color-theme-prepare"
        ))
 
     ;;}}}
