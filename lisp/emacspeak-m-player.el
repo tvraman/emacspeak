@@ -773,7 +773,7 @@ This affects pitch."
   "Change volume to specified absolute value."
   (interactive"sChange Volume to:")
   (cl-declare (special emacspeak-m-player-active-filters))
-  (cl-pushnew "volume" emacspeak-m-player-active-filters)
+  (cl-pushnew "volume" emacspeak-m-player-active-filters :test #'string=)
   (emacspeak-m-player-dispatch
    (format "volume %s, 1" value)))
 
