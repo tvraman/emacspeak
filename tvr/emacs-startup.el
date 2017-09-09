@@ -115,12 +115,6 @@ which defaults to emacs-personal-library."
         (emacspeak-speak-messages nil)
         (inhibit-message t)
         (tvr-start (current-time)))
-    ;;{{{ Load and customize emacspeak
-    
-    (load-library-if-available (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
-      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-    ;;}}}
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
@@ -175,6 +169,12 @@ which defaults to emacs-personal-library."
 ;;; Shell navigation:
     (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
+    ;;}}}
+    ;;{{{ Load and customize emacspeak
+    
+    (load-library-if-available (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
+      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
     ;;}}}
     ;;{{{  Basic Support Libraries
 
