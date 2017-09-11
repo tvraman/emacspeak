@@ -536,6 +536,7 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("SPC"  emacspeak-wizards-scratch)
+    ("." emacspeak-wizards-shell-directory-reset)
     ("f" flyspell-mode)
     ("g" emacspeak-google-tts-region)
     ("j" ido-imenu-anywhere)
