@@ -89,13 +89,13 @@
 
 ;;}}}
 ;;{{{  Required modules
-
+(cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
 (require 'cl-lib)
 (require 'comint)
 (require 'derived)
 (require 'nvm "nvm" 'no-error )
-(cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble)
+
 ;;}}}
 ;;{{{ Customizations And Variables:
 
@@ -378,6 +378,7 @@ left for next run."
 
 ;;}}}
 ;;{{{ Navigators:
+(declare-function calc-kill "calc-yank" (flag no-delete))
 ;;; Guess expression from Calc:
 (defun emacspeak-maths-guess-calc ()
   "Guess expression to speak in calc buffers.
