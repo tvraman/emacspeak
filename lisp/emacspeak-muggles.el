@@ -236,6 +236,9 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
 (declare-function emacspeak-outline-speak-this-heading "emacspeak-outline")
+(declare-function emacspeak-outline-speak-previous-heading "emacspeak-outline" )
+(declare-function emacspeak-outline-speak-next-heading "emacspeak-outline")
+
 (define-key org-mode-map
   (kbd "C-c C-SPC")
   (defhydra emacspeak-muggles-org-nav
