@@ -190,6 +190,7 @@ emacspeak-m-player.elc \
 emacspeak-make-mode.elc \
 emacspeak-markdown.elc \
 emacspeak-man.elc \
+emacspeak-maths.elc \
 emacspeak-message.elc \
 emacspeak-metapost.elc \
 emacspeak-midge.elc \
