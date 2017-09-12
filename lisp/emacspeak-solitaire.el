@@ -184,11 +184,7 @@
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-solitaire-speak-coordinates))
 
-(defadvice solitaire-do-check (after emacspeak pre act comp)
-  "Provide enhanced feedback"
-  (dtk-speak
-   (format "%s stones left: %s"
-           solitaire-stones ad-return-value)))
+
 
 (defadvice solitaire (after emacspeak pre act comp)
   "Emacspeak provides an auditory interface to the solitaire game.
