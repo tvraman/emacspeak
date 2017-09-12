@@ -152,6 +152,12 @@ hook."
   (tts-configure-synthesis-setup dtk-program))
 
 
+;;;###autoload
+(defcustom tts-notification-device
+  (cl-first (split-string (shell-command-to-string  "aplay -L | grep mono")))
+  "Virtual ALSA device to use for notifications stream."
+  :type 'string
+  :group 'tts)
 
 ;;;###autoload
 (defun emacspeak-tts-multistream-p (tts-engine)

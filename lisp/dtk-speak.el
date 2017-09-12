@@ -2016,14 +2016,14 @@ Fall back to dtk-speak if notification stream not available."
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-letter letter))
    (t (dtk-letter letter))))
+;;; Forward Declaration 
+(defvar tts-notification-device)
 
 (defun dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
-  (cond
-   ((string-match "tts_mono_right"
-                  (shell-command-to-string  "aplay -L | grep tts_mono_right"))
-    "tts_mono_right")
-   (t (getenv "ALSA_DEFAULT"))))
+  (cl-declare (special tts-notification-device))
+  (or tts-notification-device
+    (getenv "ALSA_DEFAULT")))
 
 ;;;###autoload
 (defun  dtk-notify-initialize ()
