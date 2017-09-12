@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1195 commands and 1140 options.
+This chapter documents a total of 1195 commands and 1141 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1531,6 +1531,7 @@ key             binding
 ---             -------
 
 SPC		emacspeak-wizards-scratch
+.		emacspeak-wizards-shell-directory-reset
 R		emacspeak-webspace-feed-reader
 S		soundscape-stop
 b		emacspeak-bbc
@@ -13167,8 +13168,8 @@ Create a hydra with no body and the heads:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-nav")’,
 "SPC":    ‘emacspeak-outline-speak-this-heading’,
-"n":    ‘outline-next-visible-heading’,
-"p":    ‘outline-previous-visible-heading’,
+"n":    ‘emacspeak-outline-speak-next-heading’,
+"p":    ‘emacspeak-outline-speak-previous-heading’,
 "N":    ‘org-forward-heading-same-level’,
 "P":    ‘org-backward-heading-same-level’,
 "u":    ‘outline-up-heading’,
@@ -15689,6 +15690,11 @@ Hook run after Emacspeak is started.
 
 @defvar {User Option} emacspeak-tts-use-notify-stream
 Set to true to use a separate TTS stream for notifications.
+
+@end defvar
+
+@defvar {User Option} tts-notification-device
+Virtual ALSA device to use for notifications stream.
 
 @end defvar
 
@@ -23284,10 +23290,14 @@ Prompts for and runs shell command on current file.
 @subsubsection emacspeak-wizards-shell-directory-reset
 @deffn {Command} emacspeak-wizards-shell-directory-reset   
 @table @kbd
+@item C-' .
+@kindex C-' .
 @item C-e x .
 @kindex C-e x .
 @item <fn> x .
 @kindex <fn> x .
+@item C-x @@ s .
+@kindex C-x @@ s .
 @end table
 
 @findex emacspeak-wizards-shell-directory-reset
