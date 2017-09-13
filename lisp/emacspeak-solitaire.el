@@ -76,6 +76,11 @@
            (emacspeak-solitaire-current-row)
            (emacspeak-solitaire-current-column))))
 
+(defun emacspeak-solitaire-speak-stones ()
+  "Speak number of stones remaining."
+  (cl-declare (special solitaire-stones))
+  (dtk-speak (format "%d stones" solitaire-stones)))
+
 (defun emacspeak-solitaire-stone  () (dtk-tone 400 150))
 
 (defun emacspeak-solitaire-hole () (dtk-tone 800 100))
@@ -216,6 +221,7 @@ Emacspeak specific commands:
 (defun emacspeak-solitaire-setup-keymap ()
   "Setup emacspeak keybindings for solitaire"
   (cl-declare (special solitaire-mode-map))
+  (define-key solitaire-mode-map "/" 'emacspeak-solitaire-speak-stones)
   (define-key solitaire-mode-map "." 'emacspeak-solitaire-speak-coordinates)
   (define-key solitaire-mode-map "r" 'emacspeak-solitaire-show-row)
   (define-key solitaire-mode-map "c" 'emacspeak-solitaire-show-column)
