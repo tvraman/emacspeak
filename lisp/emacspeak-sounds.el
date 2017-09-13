@@ -229,6 +229,7 @@ Do not set this by hand;
 
 ;;}}}
 ;;{{{  Play an icon
+
 ;;;###autoload
 (defcustom emacspeak-play-args "-q"
   "Set this to nil if using paplay from pulseaudio."
@@ -266,6 +267,19 @@ This uses SoX play and is specifically for use with headphones."
   (let ((icon (emacspeak-get-sound-filename sound-name)))
     (call-process shell-file-name nil nil nil shell-command-switch
                   (format emacspeak-soxplay-command icon))))
+
+;;}}}
+;;{{{ Play icon list:
+
+;;; For now this is like emacspeak-play-auditory-icon,
+;;; i.e. wont work via the speech server,
+;;; and consequently not for Emacspeak  on a remote machine.
+
+(defun emacspeak-play-auditory-icon-list (icon-list)
+  "Play list of icons."
+  (cl-declare (special emacspeak-play-program))
+  (apply #'start-process "APlay" nil emacspeak-play-program
+         (mapcar #'emacspeak-get-sound-filename icon-list)))
 
 ;;}}}
 ;;{{{  setup play function
