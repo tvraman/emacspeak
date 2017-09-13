@@ -90,26 +90,19 @@
   (interactive)
   (emacspeak-speak-line))
 
+(defun emacspeak-solitaire-cell-to-icon (cell)
+  "Map Solitaire cell to auditory icon."
+  (cond
+   ((string= cell ".") 'close-object)
+   ((string= cell "o") 'item)))
+
 (defun emacspeak-solitaire-show-row ()
   "Audio format current row."
   (interactive)
-  (save-excursion
-    (beginning-of-line)
-    (skip-syntax-forward " ")
-    (let ((row (emacspeak-solitaire-current-row))
-          (count 1))
-      (while (not (eolp))
-        (cl-case (char-after (point))
-              (?o (emacspeak-solitaire-stone))
-              (?. (emacspeak-solitaire-hole)))
-        (cl-incf count)
-        (when (and (>= row 3)
-                   (<= row 5)
-                   (= 0 (% count 3)))
-          (dtk-silence 1))
-        (forward-char 1))
-      (skip-syntax-forward " "))
-    (dtk-force)))
+  (let ((cells
+         (split-string
+          (buffer-substring (line-beginning-position) (line-end-position)))))
+    (emacspeak-play-auditory-icon-list (mapcar #'emacspeak-solitaire-cell-to-icon cells))))
 
 (defun emacspeak-solitaire-show-column ()
   "Audio format current column."
@@ -232,8 +225,8 @@ Emacspeak specific commands:
   (cl-declare (special solitaire-mode-map))
   (define-key solitaire-mode-map "/" 'emacspeak-solitaire-speak-stones)
   (define-key solitaire-mode-map "." 'emacspeak-solitaire-speak-coordinates)
-  (define-key solitaire-mode-map "R" 'emacspeak-solitaire-show-row)
-  (define-key solitaire-mode-map "r" 'emacspeak-solitaire-speak-row)
+  (define-key solitaire-mode-map "R" 'emacspeak-solitaire-speak-row)
+  (define-key solitaire-mode-map "r" 'emacspeak-solitaire-show-row)
   (define-key solitaire-mode-map "c" 'emacspeak-solitaire-show-column)
   (define-key solitaire-mode-map "f" 'solitaire-move-right)
   (define-key solitaire-mode-map "b" 'solitaire-move-left)
