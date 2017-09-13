@@ -206,7 +206,7 @@ Emacspeak specific commands:
   (delete-other-windows)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-solitaire-setup-keymap)
-    (emacspeak-solitaire-speak-coordinates))
+    (message "Welcome to Solitaire"))
 
 (add-hook
  'solitaire-mode-hook
