@@ -85,6 +85,10 @@
 (defun emacspeak-solitaire-stone  () (dtk-tone 400 150))
 
 (defun emacspeak-solitaire-hole () (dtk-tone 800 100))
+(defun emacspeak-solitaire-speak-row ()
+  "Speak current row."
+  (interactive)
+  (emacspeak-speak-line))
 
 (defun emacspeak-solitaire-show-row ()
   "Audio format current row."
@@ -138,6 +142,8 @@
                          (?. (emacspeak-solitaire-hole)))))))
     (dtk-force)))
 
+
+
 ;;}}}
 ;;{{{ advice commands
 
@@ -190,7 +196,7 @@
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-solitaire-speak-coordinates))
 
-(defadvice solitaire (after emacspeak pre act comp)
+(defun emacspeak-solitaire-setup()
   "Emacspeak provides an auditory interface to the solitaire game.
 As you move you hear the coordinates and state of the current cell.
 Moving a stone produces an auditory icon.
@@ -204,12 +210,14 @@ Emacspeak specific commands:
                \\[emacspeak-solitaire-show-column] emacspeak-solitaire-show-column
 \\[emacspeak-solitaire-show-row]                emacspeak-solitaire-show-row
                \\[emacspeak-solitaire-speak-coordinates]  emacspeak-solitaire-speak-coordinates"
-  (when (ems-interactive-p)
-    (delete-other-windows)
-    (emacspeak-auditory-icon 'alarm)
+  (delete-other-windows)
+    (emacspeak-auditory-icon 'open-object)
     (emacspeak-solitaire-setup-keymap)
-    (emacspeak-solitaire-speak-coordinates)))
+    (emacspeak-solitaire-speak-coordinates))
 
+(add-hook
+ 'solitaire-mode-hook
+ #'emacspeak-solitaire-setup)
 (defadvice solitaire-quit (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
@@ -224,7 +232,8 @@ Emacspeak specific commands:
   (cl-declare (special solitaire-mode-map))
   (define-key solitaire-mode-map "/" 'emacspeak-solitaire-speak-stones)
   (define-key solitaire-mode-map "." 'emacspeak-solitaire-speak-coordinates)
-  (define-key solitaire-mode-map "r" 'emacspeak-solitaire-show-row)
+  (define-key solitaire-mode-map "R" 'emacspeak-solitaire-show-row)
+  (define-key solitaire-mode-map "r" 'emacspeak-solitaire-speak-row)
   (define-key solitaire-mode-map "c" 'emacspeak-solitaire-show-column)
   (define-key solitaire-mode-map "f" 'solitaire-move-right)
   (define-key solitaire-mode-map "b" 'solitaire-move-left)
