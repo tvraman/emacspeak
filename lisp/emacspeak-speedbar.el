@@ -134,9 +134,9 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice speedbar-tag-find (after emacspeak pre act comp)
-  "Speak the line you jumped to"
-  (emacspeak-speedbar-speak-line))
+;(defadvice speedbar-tag-find (after emacspeak pre act comp)
+  ;"Speak the line you jumped to"
+  ;(emacspeak-speedbar-speak-line))
 
 (defadvice speedbar-find-file (after emacspeak pre act comp)
   "Speak modeline of buffer we switched to"
