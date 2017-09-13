@@ -78,6 +78,7 @@
 
 (defun emacspeak-solitaire-speak-stones ()
   "Speak number of stones remaining."
+  (interactive)
   (cl-declare (special solitaire-stones))
   (dtk-speak (format "%d stones" solitaire-stones)))
 
