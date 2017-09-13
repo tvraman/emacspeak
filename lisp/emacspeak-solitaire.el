@@ -109,31 +109,31 @@
   (interactive)
   (save-excursion
     (let ((row (emacspeak-solitaire-current-row))
-          (column (emacspeak-solitaire-current-column)))
-      (cl-loop for i  from 1 to(- row 1)
-               do
-               (solitaire-up))
+          (column (emacspeak-solitaire-current-column))
+          (cells nil))
+;;; move to top row 
+      (cl-loop for i  from 1 to(- row 1) do (solitaire-up))
       (cl-case (char-after (point))
-            (?o (emacspeak-solitaire-stone))
-            (?. (emacspeak-solitaire-hole)))
+        (?o (push "o" cells))
+        (?. (push "." cells)))
       (cond
-       ((and (>= column 3)
-             (<= column 5))
-        (cl-loop for count from 2 to 7 
-                 do
-                 (when  (= count 3) (dtk-silence 10))
-                 (when (= count 6) (dtk-silence 10))
-                 (solitaire-down)
-                 (cl-case (char-after (point))
-                       (?o (emacspeak-solitaire-stone))
-                       (?. (emacspeak-solitaire-hole)))))
-       (t (cl-loop for count from 2 to 3
-                   do
-                   (solitaire-down)
-                   (cl-case (char-after (point))
-                         (?o (emacspeak-solitaire-stone))
-                         (?. (emacspeak-solitaire-hole)))))))
-    (dtk-force)))
+       ((and (>= column 3) (<= column 5))
+        (cl-loop
+         for count from 2 to 7 do
+         (solitaire-down)
+         (cl-case (char-after (point))
+           (?o (push "o" cells))
+           (?. (push "." cells)))))
+       (t
+        (cl-loop
+         for count from 2 to 3 do
+         (solitaire-down)
+         (cl-case (char-after (point))
+           (?o (push "o" cells))
+           (?. (push "." cells))))))
+      (setq cells (nreverse cells))
+      (emacspeak-play-auditory-icon-list (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
+      
 
 
 
