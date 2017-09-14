@@ -69,12 +69,15 @@
   "Speak coordinates of current position"
   (interactive)
   (dtk-speak
-   (format "%s at %s %s "
-           (case(char-after (point))
-                (?o "stone")
-                (?. "hole"))
-           (emacspeak-solitaire-current-row)
-           (emacspeak-solitaire-current-column))))
+         (format "%s at %s %s "
+                 (case(char-after (point))
+                   (?o "stone")
+                   (?. "hole"))
+                 (emacspeak-solitaire-current-row)
+                 (emacspeak-solitaire-current-column)))
+        (emacspeak-auditory-icon
+         (emacspeak-solitaire-cell-to-icon (format "%c" (following-char)))))
+    
 
 (defun emacspeak-solitaire-speak-stones ()
   "Speak number of stones remaining."
@@ -186,7 +189,7 @@
 
 (defadvice solitaire-move (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (emacspeak-auditory-icon 'close-object)
+  (emacspeak-auditory-icon 'item)
   (emacspeak-solitaire-speak-coordinates))
 
 (defun emacspeak-solitaire-setup()
