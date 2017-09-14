@@ -1,0 +1,2 @@
+   . /etc/bash_completion
+ 
