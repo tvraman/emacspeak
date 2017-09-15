@@ -1,14 +1,9 @@
 (defun erc-w3 ()
   "Join W3C IRC server."
   (interactive)
-  (erc  :server "irc.w3.org"
-        :port 6665
-        :nick "raman"
-        ))
+  (erc  :server "irc.w3.org" :port 6665 :nick "raman"))
 
 (defun erc-cricket ()
   "Join cricinfo IRC server."
   (interactive)
-  (erc  :server "irc.cricket.org"
-        :port 6667
-        :nick "raman"))
+  (erc  :server "irc.cricket.org" :port 6667 :nick "raman"))
