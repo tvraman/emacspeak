@@ -201,8 +201,7 @@ which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
-       "kbd-setup"
-       "emacspeak-m-player" "emacspeak-muggles-autoloads"
+       "kbd-setup" "emacspeak-muggles-autoloads"
 ;;; Mail:
        "vm-prepare" "gnus-prepare"  "bbdb-prepare"  "mspools-prepare"
        "vdiff-prepare" "elfeed-prepare"
