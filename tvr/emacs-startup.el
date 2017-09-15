@@ -154,7 +154,7 @@ which defaults to emacs-personal-library."
        ([f12]vm)
        ( "\C-xc"compile)
        ( "\M-r"replace-string)
-       ( "\M-e"end-of-word)
+       ( "\M-e"emacspeak-wizards-end-of-word)
        ( "\M-\C-j"imenu)
        ( "\M-\C-c"calendar))
      do
