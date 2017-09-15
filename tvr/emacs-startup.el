@@ -23,22 +23,6 @@
   "Exactly like setq, but handles custom."
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 
-(defun augment-load-path (path &optional library whence at-end)
-  "add directory to load path. Path is resolved relative to `whence'
-which defaults to emacs-personal-library."
-  (interactive "Denter directory name: ")
-  (cl-declare (special emacs-personal-library))
-  (unless (and library (locate-library library))
-    (add-to-list
-     'load-path
-     (expand-file-name
-      path
-      (or
-       whence
-       (and (boundp 'emacs-personal-library) emacs-personal-library)))
-     at-end))
-  (when library (locate-library library)))
-
 (defsubst tvr-time-it (start what)
   "Emit timing information."
   (message "<%s %.4f %d gcs %.4f>"
@@ -50,12 +34,13 @@ which defaults to emacs-personal-library."
   (let ((start (current-time))
         (file-name-handler-alist nil)
         (inhibit-message t)
+        (gc-cons-threshold 64000000)
         (emacspeak-speak-messages nil))
-    (condition-case nil
+    (condition-case err
         (progn
           (load-library lib)
           (tvr-time-it start lib))
-      (error (message "Error loading %s" lib)))))
+      (error (message "Error loading %s: %s" lib (error-message-string err))))))
 
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
@@ -102,7 +87,7 @@ which defaults to emacs-personal-library."
     (make-thread
      #'(lambda ()
          (let ((file-name-handler-alist nil)
-               (gc-cons-threshold 128000000))
+               (gc-cons-threshold 64000000))
            (load-library-if-available "emacspeak-muggles"))))))
 
 ;;}}}
@@ -236,7 +221,7 @@ which defaults to emacs-personal-library."
   "Actions to take after Emacs is up and ready."
   (cl-declare (special emacspeak-sounds-directory))
   (let ((after-start (current-time))
-        (gc-cons-threshold 128000000)
+        (gc-cons-threshold 64000000)
         (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
