@@ -10,7 +10,7 @@ laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
  folding.elc folding-prepare.elc \
 auctex-prepare.elc reftex-prepare.elc \
 calc-prepare.elc js-prepare.elc tcl-prepare.elc \
-slime-prepare.elc company-prepare.elc python-mode-prepare.elc \
+slime-prepare.elc  python-mode-prepare.elc \
  org-prepare.elc erc-prepare.elc \
 jabber-prepare.elc twittering-prepare.elc \
 iplayer-prepare.elc \
