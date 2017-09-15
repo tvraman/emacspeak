@@ -568,7 +568,7 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{  activating widgets:
 ;;; forward declaration:
-
+(defvar emacspeak-we-url-executor)
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cl-declare (special emacspeak-webutils-url-at-point
