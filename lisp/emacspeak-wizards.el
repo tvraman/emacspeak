@@ -343,8 +343,7 @@ previous window configuration."
   "Move to the end of current word and add a comma."
   (interactive)
   (forward-word 1)
-  (insert-char
-   (string-to-char ",") 1))
+  (insert-char ?,))
 
 ;;;###autoload
 (defun emacspeak-wizards-lacheck-buffer-file()
