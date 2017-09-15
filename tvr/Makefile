@@ -4,7 +4,7 @@ EMACS=emacs
 BATCH = -batch -q -no-site-file    
 COMPILE =  -f batch-byte-compile
 
-SETUP = emacs-startup.elc kbd-setup.elc my-functions.elc \
+SETUP = emacs-startup.elc kbd-setup.elc  \
  vm-prepare.elc gnus-prepare.elc bbdb-prepare.elc mspools-prepare.elc \
 laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
  folding.elc folding-prepare.elc \
