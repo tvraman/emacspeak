@@ -203,7 +203,7 @@ which defaults to emacs-personal-library."
      '(
        "kbd-setup" "emacspeak-muggles-autoloads"
 ;;; Mail:
-       "vm-prepare" "gnus-prepare"  "bbdb-prepare"  "mspools-prepare"
+       "vm-prepare" "gnus-prepare"  "bbdb-prepare"  
        "vdiff-prepare" "elfeed-prepare"
 ;;; Authoring:
        "auctex-prepare"  "folding-prepare"

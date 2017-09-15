@@ -65,3 +65,18 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 
 (define-key vm-mode-map "C" 'vm-chromium)
 ))
+
+(define-key vm-mode-map "o" 'mspools-show)
+
+(eval-after-load "mspools"
+  `(progn
+(defun mspools-compute-size (file)
+  (with-temp-buffer
+    (shell-command (format "grep '^From ' %s" file) (current-buffer))
+    (count-lines (point-min) (point-max))))
+
+(defun mspools-size-folder (spool)
+  "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
+  (cons
+   spool
+   (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))))
