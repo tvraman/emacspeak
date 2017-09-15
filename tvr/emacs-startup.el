@@ -119,7 +119,7 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
-    ;;{{{ Augment Load Path:
+    ;;{{{ Extend  Load Path:
     
     (when (file-exists-p  emacs-personal-library)
       (push emacs-personal-library load-path))
@@ -133,20 +133,16 @@
      '(
        ([f3] bury-buffer)
        ([f4] emacspeak-kill-buffer-quietly)
-       ([pause] dtk-stop)
        ("\M--" undo)
        ([f11]shell)
        ([f12]vm)
-       ( "\C-xc"compile)
        ( "\M-r"replace-string)
        ( "\M-e"emacspeak-wizards-end-of-word)
        ( "\M-\C-j"imenu)
        ( "\M-\C-c"calendar))
      do
      (global-set-key (cl-first key) (cl-second key)))
-
-    (global-set-key [S-return] 'other-window)
-
+    
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
@@ -163,8 +159,8 @@
     ;;}}}
     ;;{{{  Basic Support Libraries
 
-    (require 'dired-x)
-    (require 'dired-aux)
+    ;(require 'dired-x)
+    ;(require 'dired-aux)
     (dynamic-completion-mode)
     (unless enable-completion (completion-mode ))
 
@@ -188,18 +184,16 @@
      '(
        "kbd-setup" "emacspeak-muggles-autoloads"
 ;;; Mail:
-       "vm-prepare" "gnus-prepare"  "bbdb-prepare"  
-       "vdiff-prepare" "elfeed-prepare"
+       "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
+       "vdiff-prepare" 
 ;;; Authoring:
-       "auctex-prepare"  "folding-prepare"
+       "auctex-prepare"  "folding-prepare" "org-prepare"
        "calc-prepare"
        "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
        "python-mode-prepare" "projectile-prepare"
-       "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "iplayer-prepare"
-                                        ;"auto-correct-prepare"
        ))
 
     ;;}}}
