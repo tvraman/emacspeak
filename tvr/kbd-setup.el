@@ -4,7 +4,7 @@
 ;;; Function keymap for linux console:
 ;;;Following lines taken from lk20.el
 ;;; Fix some keypad keys:
-(global-unset-key "\e\e")
+;(global-unset-key "\e\e")
 (define-key function-key-map "\e[1~" [home])
 (define-key function-key-map "\e[2~" [insert])
 (define-key function-key-map "\e[3~" [delete])
