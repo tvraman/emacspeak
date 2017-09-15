@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1195 commands and 1141 options.
+This chapter documents a total of 1197 commands and 1141 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12586,6 +12586,8 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
+
+(fn LATEX)
 @end format
 @end deffn
 
@@ -15977,6 +15979,24 @@ Audio format current row.
 
 @format
 Speak coordinates of current position
+@end format
+@end deffn
+
+@subsubsection emacspeak-solitaire-speak-row
+@deffn {Command} emacspeak-solitaire-speak-row   
+@findex emacspeak-solitaire-speak-row
+
+@format
+Speak current row.
+@end format
+@end deffn
+
+@subsubsection emacspeak-solitaire-speak-stones
+@deffn {Command} emacspeak-solitaire-speak-stones   
+@findex emacspeak-solitaire-speak-stones
+
+@format
+Speak number of stones remaining.
 @end format
 @end deffn
 

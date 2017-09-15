@@ -253,11 +253,15 @@ which defaults to emacs-personal-library."
     (start-process
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
-    (tvr-time-it after-start "after-init")
-    (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.4fs)>"
-             user-login-name (emacs-init-time) gcs-done gc-elapsed)))
+    (tvr-time-it after-start "after-init")))
 (add-hook 'after-init-hook #'tvr-after-init)
-(add-hook 'emacs-startup-hook #'delete-other-windows)
+(add-hook
+ 'emacs-startup-hook
+ #'(lambda ()
+     (delete-other-windows)
+     (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.4fs)>"
+              user-login-name (emacs-init-time) gcs-done gc-elapsed)))
+
 
 (start-up-my-emacs)
 ;;}}}

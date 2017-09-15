@@ -813,6 +813,20 @@ Auditory interface to solitaire
 
      Speak coordinates of current position
 
+12.166.1.4 emacspeak-solitaire-speak-row
+........................................
+
+ -- Command: emacspeak-solitaire-speak-row
+
+     Speak current row.
+
+12.166.1.5 emacspeak-solitaire-speak-stones
+...........................................
+
+ -- Command: emacspeak-solitaire-speak-stones
+
+     Speak number of stones remaining.
+
 
 File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: emacspeak-solitaire,  Up: Emacspeak Commands And Options
 
