@@ -1,8 +1,6 @@
 ;; -*- lexical-binding: nil; -*-
+(and (featurep 'vm) (define-key vm-mode-map "o" 'mspools-show))
 
-(autoload 'mspools-show "mspools" "Mail Spools" t)
-(and (featurep 'vm)
-     (define-key vm-mode-map "o" 'mspools-show))
 (eval-after-load "mspools"
   `(progn
 (defun mspools-compute-size (file)
@@ -12,13 +10,6 @@
 
 (defun mspools-size-folder (spool)
   "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
-  (let* ((file (concat mspools-folder-directory spool))
-         (size (mspools-compute-size file )))
-    (setq file (or (file-symlink-p file) file))
-                                        ;size could be nil if the sym-link points to a non-existent file
-                                        ;so check this first.
-    (if (and size  (> size 0))
- 	      (cons spool  size)
-                                        ;else SPOOL is empty
-      nil)))
-))
+  (cons
+   spool
+   (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))))
