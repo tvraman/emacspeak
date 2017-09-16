@@ -78,6 +78,9 @@ to RipGrep.
 
 W3M is no longer supported. Once Emacs 26 is released, W3 support will
 be removed as well.
+** Added SmartParen Support
+
+Module ~emacspeak-smartparens~ speech-enables package ~smartparens~.
 
 ** DMacro Support Is Obsolete 
 
