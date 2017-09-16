@@ -98,7 +98,7 @@
    sp-absorb-sexp sp-emit-sexp
    sp-add-to-next-sexp sp-add-to-previous-sexp
    sp-backward-barf-sexp sp-forward-barf-sexp
-   sp-backward-sexp sp-down-sexp
+   sp-backward-sexp sp-down-sexp sp-clone-sexp
    sp-backward-up-sexp sp-select-next-thing sp-backward-symbol
    sp-beginning-of-previous-sexp sp-beginning-of-next-sexp
    sp-beginning-of-sexp sp-backward-slurp-sexp
