@@ -938,8 +938,11 @@ Helps to prevent words from being spelled instead of spoken."
 (defun emacspeak-gnus-async ()
   "Run gnus on a separate thread."
   (interactive)
-  (make-thread #'gnus))
-
+  (make-thread
+   #'(lambda ()
+       (condition-case err
+           (gnus)
+         (err (message (error-message-string err)))))))
 ;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
