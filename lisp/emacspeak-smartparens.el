@@ -94,16 +94,17 @@
 
 (cl-loop
  for f in 
- '(sp-select-next-thing-exchange sp-end-of-sexp
-   sp-beginning-of-sexp sp-backward-slurp-sexp
-   sp-backward-barf-sexp sp-forward-barf-sexp
-   sp-forward-slurp-sexp sp-backward-unwrap-sexp
-   sp-unwrap-sexp sp-backward-down-sexp
-   sp-backward-sexp sp-down-sexp
-   sp-up-sexp sp-forward-sexp
-   sp-next-sexp sp-previous-sexp
-   sp-backward-up-sexp sp-select-next-thing sp-backward-symbol 
-   sp-forward-symbol sp-mark-sexp)
+ '(sp-absorb-sexp sp-emit-sexp
+                  sp-select-next-thing-exchange sp-end-of-sexp
+                  sp-beginning-of-sexp sp-backward-slurp-sexp
+                  sp-backward-barf-sexp sp-forward-barf-sexp
+                  sp-forward-slurp-sexp sp-backward-unwrap-sexp
+                  sp-unwrap-sexp sp-backward-down-sexp
+                  sp-backward-sexp sp-down-sexp
+                  sp-up-sexp sp-forward-sexp
+                  sp-next-sexp sp-previous-sexp
+                  sp-backward-up-sexp sp-select-next-thing sp-backward-symbol 
+                  sp-forward-symbol sp-mark-sexp)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
