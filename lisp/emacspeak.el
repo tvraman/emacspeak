@@ -281,6 +281,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "shx" 'emacspeak-shx)
 (emacspeak-do-package-setup "slime" 'emacspeak-slime)
 (emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)
+(emacspeak-do-package-setup "smartparens" 'emacspeak-smartparens)
 (emacspeak-do-package-setup "smart-window" 'emacspeak-smart-window)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
