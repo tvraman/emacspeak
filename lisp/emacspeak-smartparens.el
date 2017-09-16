@@ -39,11 +39,13 @@
 
 ;;{{{  introduction
 
-;;; Commentary: SMARTPARENS == Automatic insertion, wrapping and
-;;; paredit-like navigation with user defined pairs this module
-;;; speech-enables smartparens.  Insertion of a matching delimiter is
-;;; indicated by a short auditory icon.  Structured navigation speaks
-;;; the current line with the position of point aurally highlighted.
+;;; Commentary: 
+
+;;; SMARTPARENS == Automatic insertion, wrapping and paredit-like
+;;; navigation with user defined pairs this module speech-enables
+;;; smartparens.  Insertion of a matching delimiter is indicated by a
+;;; short auditory icon.  Structured navigation speaks the current
+;;; line with the position of point aurally highlighted.
 
 ;;; Code:
 
