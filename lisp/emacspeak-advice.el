@@ -979,17 +979,22 @@ icon."
   "Speak the message if appropriate."
   (cl-declare (special emacspeak-last-message
                     emacspeak-speak-messages emacspeak-lazy-message-time))
-  (let ((dtk-stop-immediately t))
+  (let ((inhibit-read-only t)
+        (m nil))
     ad-do-it
-    (setq emacspeak-last-message ad-return-value)
-    (when (and emacspeak-speak-messages ; speaking messages
-               ad-return-value ;we really do have a message
-               (/= emacspeak-lazy-message-time ;; previous message not recent
-                   (setq emacspeak-lazy-message-time
-                         (nth 1 (current-time)))))
+    (setq m (current-message))
+    (when
+        (and
+         (null inhibit-message)
+         m emacspeak-speak-messages     ; speaking messages
+         (not (string= m emacspeak-last-message))
+         (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
+      (setq emacspeak-lazy-message-time (current-time)
+            emacspeak-last-message (ansi-color-apply m))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                             (dtk-speak ad-return-value)))))
+                             (dtk-notify-speak  m 'dont-log)))
+    ad-return-value))
 
 ;;}}}
 ;;{{{ tmm support
