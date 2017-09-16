@@ -89,7 +89,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-speak-current-kill 0)
+       (emacspeak-speak-current-kill)
        (emacspeak-auditory-icon 'delete-object)))))
 
 (cl-loop
