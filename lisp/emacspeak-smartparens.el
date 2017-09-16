@@ -75,14 +75,15 @@
   (emacspeak-auditory-icon 'item))
 
 ;;}}}
-;;{{{ Navigators And Killers bound in smartparens:
+;;{{{ Navigators And Modifiers:
 
 (cl-loop
  for f in
  '(
+   sp-kill-whole-line sp-kill-region sp-backward-kill-sexp
    sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
-                                 sp-splice-sexp-killing-forward sp-kill-sexp
-                                 sp-copy-sexp sp--kill-or-copy-region)
+   sp-splice-sexp-killing-forward sp-kill-sexp
+   sp-copy-sexp sp--kill-or-copy-region)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
