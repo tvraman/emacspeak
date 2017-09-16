@@ -3116,6 +3116,7 @@ This chapter documents a total of 1197 commands and 1149 options.
 * emacspeak-sigbegone::Speech-enable sigbegone.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
 * emacspeak-smart-window::Speech-enable SMART-WINDOW.
+* emacspeak-smartparens::Speech-enable SMARTPARENS.
 * emacspeak-solitaire::Speech enable Solitaire game.
 * emacspeak-sounds::Defines Emacspeak auditory icons.
 * emacspeak-speak::Implements Emacspeak’s core speech services.

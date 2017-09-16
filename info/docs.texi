@@ -170,6 +170,7 @@ This chapter documents a total of 1197 commands and 1149 options.
 * emacspeak-sigbegone::Speech-enable sigbegone.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
 * emacspeak-smart-window::Speech-enable SMART-WINDOW.
+* emacspeak-smartparens::Speech-enable SMARTPARENS.
 * emacspeak-solitaire::Speech enable Solitaire game.
 * emacspeak-sounds::Defines Emacspeak auditory icons.
 * emacspeak-speak::Implements Emacspeak's core speech services.
@@ -15947,6 +15948,65 @@ This personality uses  voice-animate-medium whose  effect can be changed globall
 @section emacspeak-smart-window
 
 SMART-WINDOW ==  Smart Window switching for Emacs
+
+@node emacspeak-smartparens
+@section emacspeak-smartparens
+
+SMARTPARENS == Automatic insertion, wrapping and paredit-like
+navigation with user defined pairs this module speech-enables
+smartparens.  Insertion of a matching delimiter is indicated by a
+short auditory icon.  Structured navigation speaks the current
+line with the position of point aurally highlighted.
+
+@subsection emacspeak-smartparens Options
+
+@defvar {User Option} emacspeak-sp-pair-overlay-personality
+Personality used for sp-pair-overlay-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-show-pair-enclosing-voice
+Personality used for sp-show-pair-enclosing
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-show-pair-match-personality
+Personality used for sp-show-pair-match-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-show-pair-mismatch-personality
+Personality used for sp-show-pair-mismatch-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-overlay-closing-pair-voice
+Personality used for sp-wrap-overlay-closing-pair
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-overlay-opening-pair-voice
+Personality used for sp-wrap-overlay-opening-pair
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-overlay-personality
+Personality used for sp-wrap-overlay-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-tag-overlay-personality
+Personality used for sp-wrap-tag-overlay-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
 
 @node emacspeak-solitaire
 @section emacspeak-solitaire
