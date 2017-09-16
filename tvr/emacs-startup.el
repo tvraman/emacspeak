@@ -185,7 +185,7 @@
        "kbd-setup" "emacspeak-muggles-autoloads"
 ;;; Mail:
        "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
-       "vdiff-prepare" 
+       "vdiff-prepare"  "sp-prepare"
 ;;; Authoring:
        "auctex-prepare"  "folding-prepare" "org-prepare"
        "calc-prepare"
