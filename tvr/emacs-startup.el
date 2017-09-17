@@ -94,9 +94,9 @@
 (defun start-up-my-emacs()
   "Start up emacs for me. "
   (cl-declare (special emacs-personal-library emacspeak-directory
-                       enable-completion outline-mode-prefix-map))
+                       outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
-        (file-name-handler-alist nil) ; to speed up, avoid tramp etc
+        (file-name-handler-alist nil)   ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
         (inhibit-message t)
         (tvr-start (current-time)))
@@ -157,12 +157,10 @@
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
     ;;}}}
-    ;;{{{  Basic Support Libraries
+    ;;{{{  Completion:
 
-    ;(require 'dired-x)
-    ;(require 'dired-aux)
+    (completion-initialize)
     (dynamic-completion-mode)
-    (unless enable-completion (completion-mode ))
 
     ;;}}}
     ;;{{{ outline mode setup:
@@ -177,7 +175,7 @@
     ;;}}}
     ;;{{{ Prepare needed libraries
 
-    ;;; mail-abbrevs-setup added to mail-mode hooks in custom.
+;;; mail-abbrevs-setup added to mail-mode hooks in custom.
 
     (mapc
      #'load-library-if-available
@@ -189,7 +187,7 @@
 ;;; Authoring:
        "auctex-prepare"  "folding-prepare" "org-prepare"
        "calc-prepare"
-       "helm-prepare"   ;helm not activated
+       "helm-prepare"                   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
        "python-mode-prepare" "projectile-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
@@ -200,16 +198,15 @@
     ;;{{{ turn on modes:
     (add-hook 'prog-mode-hook 'company-mode)
     (add-hook 'text-mode-hook 'auto-correct-mode)
-    (initialize-completions)
     (savehist-mode )
     (save-place-mode)
     (midnight-mode)
     (server-start)
     (pinentry-start)
-    (bbdb-insinuate-vm)
+    (bbdb-insinuate-vm))
 
-    ;;}}}
-    (tvr-time-it tvr-start "start-up-my-emacs"))) ;end defun
+  ;;}}}
+  (tvr-time-it tvr-start "start-up-my-emacs")) ;end defun
 ;;{{{  start it up
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
