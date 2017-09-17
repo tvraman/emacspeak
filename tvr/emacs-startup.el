@@ -5,18 +5,18 @@
 ;;; August 12, 2007: Cleaned up for Emacs 22
 
 ;;}}}
-;;{{{ personal lib
+;;{{{  lib
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-
+(defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
 
 (defvar tvr-libs
   '(
-    "kbd-setup"; "emacspeak-muggles-autoloads"
+    "kbd-setup"
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
     "vdiff-prepare"  "sp-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
@@ -57,30 +57,22 @@
   (cl-loop ;;; global keys
    for i from 0 to 9 do
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-  (cl-loop ;;; global  keys
-   for  key in
-   '(
-     ("C-c <" emacspeak-wizards-previous-shell)
-     ("C-c >" emacspeak-wizards-next-shell))
-   do
-   (global-set-key (kbd (cl-first key)) (cl-second key)))
   (cl-loop ;;; shell mode bindings
    for b in
    '(
      ("SPC" comint-magic-space)
-     ("C-c k" comint-clear-buffer)
-     ("C-c r" comint-redirect-send-command))
+     ("C-c k" comint-clear-buffer))
    do
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
-;;{{{ customize custom
+;;{{{ Handlers: Custom, after-init-hook 
 
 (defun tvr-customize ()
   "Load my customizations."
   (cl-declare (special custom-file))
   (let ((file-name-handler-alist nil)
-        (gc-cons-threshold  32000000)
+        (gc-cons-threshold  64000000)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
@@ -95,6 +87,49 @@
          (let ((file-name-handler-alist nil)
                (gc-cons-threshold 64000000))
            (load "emacspeak-muggles"))))))
+
+(defun tvr-after-init ()
+  "Actions to take after Emacs is up and ready."
+  (cl-declare (special emacspeak-sounds-directory tvr-libs))
+  (let ((after-start (current-time))
+        (gc-cons-threshold 64000000)
+        (file-name-handler-alist nil)
+        (inhibit-message t)
+        (emacspeak-speak-messages nil))
+    (dynamic-completion-mode 1)
+    (completion-initialize)
+    (mapc #'load tvr-libs)
+    (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
+    (tvr-customize)
+    (soundscape-toggle)
+    (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+    (require 'emacspeak-dbus)
+    (when (dbus-list-known-names :session)
+      (nm-enable)
+      (emacspeak-dbus-sleep-enable)
+      (emacspeak-dbus-watch-screen-lock))
+    (emacspeak-wizards-project-shells-initialize)
+    (start-process
+     "play" nil "play"
+     (expand-file-name "highbells.au" emacspeak-sounds-directory))
+    (tvr-time-it after-start "after-init")))
+(add-hook 'after-init-hook #'tvr-after-init)
+(add-hook
+ 'emacs-startup-hook
+ #'(lambda ()
+     (delete-other-windows)
+     (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.4fs)>"
+              user-login-name (emacs-init-time) gcs-done gc-elapsed)))
+
+(defun tvr-text-mode-hook ()
+  "TVR:text-mode"
+  (auto-correct-mode 1)
+  (abbrev-mode 1))
+
+(defun tvr-prog-mode-hook ()
+  "TVR:prog-mode"
+  (company-mode 1)
+  (abbrev-mode 1))
 
 ;;}}}
 (defun tvr-emacs()
@@ -177,8 +212,8 @@
 
     ;;}}}
     ;;{{{ turn on modes:
-    (add-hook 'prog-mode-hook 'company-mode)
-    (add-hook 'text-mode-hook 'auto-correct-mode)
+    (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
+    (add-hook 'text-mode-hook 'tvr-text-mode-hook)
     (savehist-mode )
     (save-place-mode)
     (midnight-mode)
@@ -190,38 +225,6 @@
   ) ;end defun
 ;;{{{  start it up
 
-(defun tvr-after-init ()
-  "Actions to take after Emacs is up and ready."
-  (cl-declare (special emacspeak-sounds-directory tvr-libs))
-  (let ((after-start (current-time))
-        (gc-cons-threshold 64000000)
-        (file-name-handler-alist nil)
-        (inhibit-message t)
-        (emacspeak-speak-messages nil))
-    (dynamic-completion-mode 1)
-    (completion-initialize)
-    (mapc #'load tvr-libs)
-    (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
-    (tvr-customize)
-    (soundscape-toggle)
-    (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-    (require 'emacspeak-dbus)
-    (when (dbus-list-known-names :session)
-      (nm-enable)
-      (emacspeak-dbus-sleep-enable)
-      (emacspeak-dbus-watch-screen-lock))
-    (emacspeak-wizards-project-shells-initialize)
-    (start-process
-     "play" nil "play"
-     (expand-file-name "highbells.au" emacspeak-sounds-directory))
-    (tvr-time-it after-start "after-init")))
-(add-hook 'after-init-hook #'tvr-after-init)
-(add-hook
- 'emacs-startup-hook
- #'(lambda ()
-     (delete-other-windows)
-     (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.4fs)>"
-              user-login-name (emacs-init-time) gcs-done gc-elapsed)))
 
 
 (tvr-emacs)
