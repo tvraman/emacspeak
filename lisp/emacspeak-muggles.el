@@ -92,6 +92,7 @@
   (require 'hideshow)
   (require 'emacspeak-maths)
   (require 'origami "origami" 'no-error)
+  (require 'smartparens "smartparens" 'no-error)
   (require 'browse-kill-ring "browse-kill-ring" 'no-error)
   (require 'hydra "hydra" 'no-error)
   (require 'xbacklight)
