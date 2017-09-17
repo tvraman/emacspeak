@@ -1,6 +1,5 @@
 ;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
 (push (expand-file-name "vm/lisp/" emacs-personal-library) load-path)
-;(load-library "vm-autoloads")
 (autoload 'vm "vm" "vm" t)
 (autoload 'vm-visit-folder "vm" "vm" t)
 (global-set-key "\M-\C-v" 'vm-visit-folder)
@@ -37,7 +36,6 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
   `(progn
 (add-hook 'vm-quit-hook #'vm-expunge-folder)
 ;(global-set-key "\C-xm" 'vm-mail)
-
 
 (setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
 
