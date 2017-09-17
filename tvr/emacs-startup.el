@@ -17,11 +17,9 @@
 ;;}}}
 ;;{{{ helper functions:
 
-;;; This is for setting variables customized via custom.
 
-(defmacro csetq (variable value)
-  "Exactly like setq, but handles custom."
-  `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
+
+
 
 (defsubst tvr-time-it (start what)
   "Emit timing information."
