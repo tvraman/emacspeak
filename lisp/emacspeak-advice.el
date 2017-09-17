@@ -743,7 +743,7 @@ icon."
   (not (emacspeak-tts-use-notify-stream-p))
   "Set to T if not using a separate TTS notification stream."
   :type 'boolean
-  :group 'emacspeak-eldoc))
+  :group 'emacspeak-eldoc)
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
