@@ -16,7 +16,7 @@
 
 (defvar tvr-libs
   '(
-    "kbd-setup" "emacspeak-muggles-autoloads"
+    "kbd-setup"; "emacspeak-muggles-autoloads"
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
     "vdiff-prepare"  "sp-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
