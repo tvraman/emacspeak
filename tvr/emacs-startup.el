@@ -54,9 +54,6 @@
 (defsubst tvr-shell-bind-keys ()
   "Set up  shell mode keys."
   (cl-declare (special shell-mode-map))
-  (cl-loop ;;; global keys
-   for i from 0 to 9 do
-   (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
   (cl-loop ;;; shell mode bindings
    for b in
    '(
@@ -67,7 +64,7 @@
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
-;;{{{ Handlers: Custom, after-init-hook 
+;;{{{ Handlers: Custom, after-init-hook
 
 (defun tvr-customize ()
   "Load my customizations."
@@ -186,7 +183,9 @@
        ("C-RET" hippie-expand))
      do
      (global-set-key (kbd (cl-first key)) (cl-second key)))
-    
+    (cl-loop ; shell wizard
+     for i from 0 to 9 do
+     (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
@@ -196,9 +195,9 @@
 
     ;;}}}
     ;;{{{ Load  emacspeak
-(setq outloud-default-speech-rate 100
-      dectalk-default-speech-rate 485)
-(load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+    (setq outloud-default-speech-rate 100
+          dectalk-default-speech-rate 485)
+    (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
@@ -226,8 +225,6 @@
   ;;}}}
   ) ;end defun
 ;;{{{  start it up
-
-
 
 (tvr-emacs)
 
