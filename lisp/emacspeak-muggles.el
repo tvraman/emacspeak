@@ -663,35 +663,31 @@ Info-mode:
     :pre emacspeak-hydra-pre
     :post emacspeak-hydra-post)
    "Smart Parens"
-   ("q" nil)  
    ;; Wrapping  
    ("(" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
    ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))  
    ("'" (lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
    ("\"" (lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
-   ;; Navigation  
+   ;; Navigation
+   ("a" beginning-of-defun)
+   ("e" end-of-defun)
    ("f" sp-forward-sexp )  
    ("b" sp-backward-sexp)  
    ("u" sp-backward-up-sexp)  
    ("d" sp-down-sexp)  
-   ("p" sp-backward-down-sexp)  
-   ("n" sp-up-sexp)  
-   ;; Kill/copy  
+   ("p" sp-previous-sexp)  
+   ("n" sp-next-sexp)  
    ("w" sp-copy-sexp)  
    ("k" sp-kill-sexp)  
-
-   ;; Misc  
    ("t" sp-transpose-sexp)  
    ("j" sp-join-sexp)  
    ("s" sp-split-sexp)  
    ("c" sp-convolute-sexp)  
    ("i" sp-indent-defun)  
-   ;; Depth changing  
    ("R" sp-splice-sexp)  
    ("r" sp-splice-sexp-killing-around)  
    ("<up>" sp-splice-sexp-killing-backward)  
    ("<down>" sp-splice-sexp-killing-forward)  
-   ;; Barfing/slurping  
    ("<right>" sp-forward-slurp-sexp)  
    ("<left>" sp-forward-barf-sexp)  
    ("C-<left>" sp-backward-barf-sexp)  
