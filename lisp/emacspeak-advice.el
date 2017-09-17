@@ -713,26 +713,29 @@ icon."
     (emacspeak-auditory-icon 'progress)))
 
 (defvar inhibit-message)
-(defadvice message (around emacspeak pre act comp)
-  "Speak the message."
-  (cl-declare (special emacspeak-last-message  inhibit-message
-                    emacspeak-speak-messages emacspeak-lazy-message-time))
-  (let ((inhibit-read-only t)
-        (m nil))
-    ad-do-it
-    (setq m (current-message))
-    (when
-        (and
-         (null inhibit-message)
-         m emacspeak-speak-messages     ; speaking messages
-         (not (string= m emacspeak-last-message))
-         (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
-      (setq emacspeak-lazy-message-time (current-time)
-            emacspeak-last-message (ansi-color-apply m))
-      ;; so we really need to speak it
-      (tts-with-punctuations 'all
-                             (dtk-notify-speak  m 'dont-log)))
-    ad-return-value))
+(cl-loop
+ for f in '(minibuffer-message message) do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Speak the message."
+     (cl-declare (special emacspeak-last-message  inhibit-message
+                          emacspeak-speak-messages emacspeak-lazy-message-time))
+     (let ((inhibit-read-only t)
+           (m nil))
+       ad-do-it
+       (setq m (current-message))
+       (when
+           (and
+            (null inhibit-message)
+            m emacspeak-speak-messages  ; speaking messages
+            (not (string= m emacspeak-last-message))
+            (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
+         (setq emacspeak-lazy-message-time (current-time)
+               emacspeak-last-message (ansi-color-apply m))
+         ;; so we really need to speak it
+         (tts-with-punctuations 'all
+                                (dtk-notify-speak  m 'dont-log)))
+       ad-return-value))))
 
 (declare-function  emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
 
@@ -740,7 +743,7 @@ icon."
   (not (emacspeak-tts-use-notify-stream-p))
   "Set to T if not using a separate TTS notification stream."
   :type 'boolean
-  :group 'emacspeak-eldoc)
+  :group 'emacspeak-eldoc))
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
@@ -974,27 +977,6 @@ icon."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
-
-(defadvice minibuffer-message (around emacspeak pre act comp)
-  "Speak the message if appropriate."
-  (cl-declare (special emacspeak-last-message
-                    emacspeak-speak-messages emacspeak-lazy-message-time))
-  (let ((inhibit-read-only t)
-        (m nil))
-    ad-do-it
-    (setq m (current-message))
-    (when
-        (and
-         (null inhibit-message)
-         m emacspeak-speak-messages     ; speaking messages
-         (not (string= m emacspeak-last-message))
-         (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
-      (setq emacspeak-lazy-message-time (current-time)
-            emacspeak-last-message (ansi-color-apply m))
-      ;; so we really need to speak it
-      (tts-with-punctuations 'all
-                             (dtk-notify-speak  m 'dont-log)))
-    ad-return-value))
 
 ;;}}}
 ;;{{{ tmm support
