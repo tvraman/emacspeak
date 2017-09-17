@@ -3517,6 +3517,31 @@ weather for `gweb-my-address'.  "
     (emacspeak-speak-buffer)))
 
 ;;}}}
+;;{{{ Enabe/Disable bash-completion in shells:
+
+;;; Completion from bash completion:
+;;; Wins for completing command options. (gdbus)
+;;; Loses for dirname completions.
+;;; This wizard helps quickly turn bash-completion on/off
+;;; I bind it to C-c TAB
+
+;;;###autoload
+(defun emacspeak-wizards-bash-completion-toggle ()
+  "Toggle bash completion from package bash-completion in this shell."
+  (interactive)
+  (cl-declare (special comint-dynamic-complete-functions
+                       shell-dynamic-complete-functions))
+  (cond
+   ((memq 'bash-completion-dynamic-complete comint-dynamic-complete-functions)
+    (pop comint-dynamic-complete-functions)
+    (emacspeak-auditory-icon 'off)
+    (message "Disabled bash completion."))
+   (t
+    (setq comint-dynamic-complete-functions shell-dynamic-complete-functions)
+    (emacspeak-auditory-icon 'on)
+   (message "Enabled bash completion."))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

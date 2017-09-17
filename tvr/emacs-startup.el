@@ -60,6 +60,7 @@
   (cl-loop ;;; shell mode bindings
    for b in
    '(
+     ("C-c TAB" emacspeak-wizards-bash-completion-toggle)
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
