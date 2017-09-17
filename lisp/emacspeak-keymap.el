@@ -365,6 +365,7 @@
 ;;; Get hyper, alt and super like on the console:
 (global-set-key (kbd "C-,") 'emacspeak-alt-keymap)
 (global-set-key  (kbd "C-'") 'emacspeak-super-keymap)
+(global-set-key  (kbd "C-.") 'emacspeak-super-keymap)
 (global-set-key  (kbd "C-;") 'emacspeak-hyper-keymap)
 ;;; Our very own silence key on the console
 ;;; I use the Windows key.
