@@ -146,6 +146,8 @@
     <li>Info-Summary: &lt;?&gt; in Info Info Summary Muggle</li>
 
     <li>Repeatable-Yank: &lt;C-y&gt; Smart yank</li>
+
+    <li>SmartParens: &lt;C-c ,&gt; Smart Parens</li>
   </ul>
 
   <p>Emacspeak automatically speaks Hydra hints when displayed. To
@@ -649,11 +651,69 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dmuggles_002dsmartparens_002fbody" id=
+  "emacspeak_002dmuggles_002dsmartparens_002fbody"></a>
+
+  <h4 class="subsubsection">12.123.2.12
+  emacspeak-muggles-smartparens/body</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dmuggles_002dsmartparens_002fbody" id=
+    "index-emacspeak_002dmuggles_002dsmartparens_002fbody"></a>Command:
+    <strong>emacspeak-muggles-smartparens/body</strong></dt>
+
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-c ,</kbd></dt>
+
+        <dd><a name="index-C_002dc-_002c" id=
+        "index-C_002dc-_002c"></a></dd>
+      </dl><a name=
+      "index-emacspeak_002dmuggles_002dsmartparens_002fbody-1" id=
+      "index-emacspeak_002dmuggles_002dsmartparens_002fbody-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Create a hydra with no body and the heads:
+
+"q":    ‘nil’,
+"(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
+"{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’,
+"’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
+""":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
+"f":    ‘sp-forward-sexp’,
+"b":    ‘sp-backward-sexp’,
+"u":    ‘sp-backward-up-sexp’,
+"d":    ‘sp-down-sexp’,
+"p":    ‘sp-backward-down-sexp’,
+"n":    ‘sp-up-sexp’,
+"w":    ‘sp-copy-sexp’,
+"k":    ‘sp-kill-sexp’,
+"t":    ‘sp-transpose-sexp’,
+"j":    ‘sp-join-sexp’,
+"s":    ‘sp-split-sexp’,
+"c":    ‘sp-convolute-sexp’,
+"i":    ‘sp-indent-defun’,
+"R":    ‘sp-splice-sexp’,
+"r":    ‘sp-splice-sexp-killing-around’,
+"&lt;up&gt;":    ‘sp-splice-sexp-killing-backward’,
+"&lt;down&gt;":    ‘sp-splice-sexp-killing-forward’,
+"&lt;right&gt;":    ‘sp-forward-slurp-sexp’,
+"&lt;left&gt;":    ‘sp-forward-barf-sexp’,
+"C-&lt;left&gt;":    ‘sp-backward-barf-sexp’,
+"C-&lt;right&gt;":    ‘sp-backward-slurp-sexp’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-smartparens")’
+
+The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
+</pre>
+      </div>
+    </dd>
   </dl><a name=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody" id=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></a>
 
-  <h4 class="subsubsection">12.123.2.12
+  <h4 class="subsubsection">12.123.2.13
   emacspeak-muggles-toggle-option/body</h4>
 
   <dl>
@@ -698,7 +758,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
   </dl><a name="emacspeak_002dmuggles_002dview_002fbody" id=
   "emacspeak_002dmuggles_002dview_002fbody"></a>
 
-  <h4 class="subsubsection">12.123.2.13
+  <h4 class="subsubsection">12.123.2.14
   emacspeak-muggles-view/body</h4>
 
   <dl>
@@ -774,7 +834,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
   </dl><a name="emacspeak_002dmuggles_002dyank_002dpop_002fbody"
   id="emacspeak_002dmuggles_002dyank_002dpop_002fbody"></a>
 
-  <h4 class="subsubsection">12.123.2.14
+  <h4 class="subsubsection">12.123.2.15
   emacspeak-muggles-yank-pop/body</h4>
 
   <dl>
@@ -807,7 +867,7 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
   </dl><a name="emacspeak_002dorigami_002fbody" id=
   "emacspeak_002dorigami_002fbody"></a>
 
-  <h4 class="subsubsection">12.123.2.15 emacspeak-origami/body</h4>
+  <h4 class="subsubsection">12.123.2.16 emacspeak-origami/body</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dorigami_002fbody" id=
