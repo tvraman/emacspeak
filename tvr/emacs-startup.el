@@ -6,9 +6,9 @@
 
 ;;}}}
 ;;{{{ personal lib
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-
 
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
@@ -28,10 +28,6 @@
 
 ;;}}}
 ;;{{{ helper functions:
-
-
-
-
 
 (defsubst tvr-time-it (start what)
   "Emit timing information."
@@ -108,8 +104,7 @@
   (let ((gc-cons-threshold 64000000)
         (file-name-handler-alist nil)   ; to speed up, avoid tramp etc
         (emacspeak-speak-messages nil)
-        (inhibit-message t)
-        (tvr-start (current-time)))
+        (inhibit-message t))
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
@@ -129,11 +124,12 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
-    ;;{{{ Extend  Load Path:
-    
+    ;;{{{ package setup:
+
     (when (file-exists-p  emacs-personal-library)
       (push emacs-personal-library load-path))
     (package-initialize)
+
     ;;}}}
     ;;{{{  set up terminal codes and global keys
 
@@ -162,10 +158,11 @@
 
     ;;}}}
     ;;{{{ Load and customize emacspeak
-    
-    (load-library-if-available (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+
+(load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
+
     ;;}}}
     ;;{{{ outline mode setup:
 
@@ -175,11 +172,6 @@
          (define-key outline-mode-prefix-map "o" 'open-line)
          (global-set-key "\C-o"outline-mode-prefix-map)
          ))
-
-    ;;}}}
-    ;;{{{ Prepare needed libraries
-
-;;; mail-abbrevs-setup added to mail-mode hooks in custom.
 
     ;;}}}
     ;;{{{ turn on modes:
@@ -195,6 +187,7 @@
   ;;}}}
   ) ;end defun
 ;;{{{  start it up
+
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
   (cl-declare (special emacspeak-sounds-directory tvr-libs))
@@ -230,6 +223,7 @@
 
 
 (start-up-my-emacs)
+
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
