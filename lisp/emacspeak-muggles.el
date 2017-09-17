@@ -160,7 +160,7 @@ Argument `k-map' is a symbol  that names a keymap."
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
    (:body-pre (emacspeak-hydra-body-pre "Brightness")
-              :timeout 0.3
+              :timeout 0.5
               :pre emacspeak-hydra-pre
               :post emacspeak-hydra-post)
    "Brightness "
