@@ -717,7 +717,7 @@ Info-mode:
 ;;{{{ Muggles Autoload Wizard:
 
 (defvar emacspeak-muggles-pattern
-  "emacspeak-muggles-.*"
+  "emacspeak-muggles-.*/body$"
   "Pattern matching muggles we are interested in.")
 
 (defun emacspeak-muggles-enumerate ()
