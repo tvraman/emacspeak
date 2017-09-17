@@ -14,6 +14,18 @@
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Directory where we keep site libraries. Mostly superceded by elpa.")
 
+(defvar tvr-libs
+  '(
+    "kbd-setup" "emacspeak-muggles-autoloads"
+    "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
+    "vdiff-prepare"  "sp-prepare"
+    "auctex-prepare"  "folding-prepare" "org-prepare"
+    "calc-prepare" "helm-prepare"                      ;helm not activated
+    "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
+    "python-mode-prepare" "projectile-prepare" "iplayer-prepare"
+    "erc-prepare" "jabber-prepare" "twittering-prepare")
+  "Libraries we load.")
+
 ;;}}}
 ;;{{{ helper functions:
 
@@ -169,23 +181,6 @@
 
 ;;; mail-abbrevs-setup added to mail-mode hooks in custom.
 
-    (mapc
-     #'load-library-if-available
-     '(
-       "kbd-setup" "emacspeak-muggles-autoloads"
-;;; Mail:
-       "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
-       "vdiff-prepare"  "sp-prepare"
-;;; Authoring:
-       "auctex-prepare"  "folding-prepare" "org-prepare"
-       "calc-prepare"
-       "helm-prepare"                   ;helm not activated
-       "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
-       "python-mode-prepare" "projectile-prepare"
-       "erc-prepare" "jabber-prepare" "twittering-prepare"
-       "iplayer-prepare"
-       ))
-
     ;;}}}
     ;;{{{ turn on modes:
     (add-hook 'prog-mode-hook 'company-mode)
@@ -198,11 +193,11 @@
     (bbdb-insinuate-vm))
 
   ;;}}}
-  (tvr-time-it tvr-start "start-up-my-emacs")) ;end defun
+  ) ;end defun
 ;;{{{  start it up
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
-  (cl-declare (special emacspeak-sounds-directory))
+  (cl-declare (special emacspeak-sounds-directory tvr-libs))
   (let ((after-start (current-time))
         (gc-cons-threshold 64000000)
         (file-name-handler-alist nil)
@@ -210,6 +205,7 @@
         (emacspeak-speak-messages nil))
     (dynamic-completion-mode 1)
     (completion-initialize)
+    (mapc #'load-library-if-available tvr-libs)
     (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
     (tvr-customize)
     (soundscape-toggle)
