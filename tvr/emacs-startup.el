@@ -12,7 +12,7 @@
 
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
-  "Directory where we keep site libraries. Mostly superceded by elpa.")
+  "Site libs.")
 
 (defvar tvr-libs
   '(
@@ -24,19 +24,19 @@
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "projectile-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare")
-  "Libraries we load.")
+  "Libraries to load.")
 
 ;;}}}
 ;;{{{ helper functions:
 
 (defsubst tvr-time-it (start what)
-  "Emit timing information."
+  "Time code."
   (message "<%s %.4f %d gcs %.4f>"
            what (float-time (time-subtract (current-time) start))
            gcs-done gc-elapsed))
 
 (defsubst load-library-if-available (lib)
-  "Safe load library."
+  "Safe load lib."
   (let ((start (current-time))
         (file-name-handler-alist nil)
         (inhibit-message t)
@@ -52,7 +52,7 @@
 ;;{{{ tvr-shell-bind-keys:
 
 (defsubst tvr-shell-bind-keys ()
-  "Set up additional shell mode keys."
+  "Set up  shell mode keys."
   (cl-declare (special shell-mode-map))
   (cl-loop ;;; global keys
    for i from 0 to 9 do
@@ -77,7 +77,7 @@
 ;;{{{ customize custom
 
 (defun tvr-customize ()
-  "Load my customizations from my custom-file."
+  "Load my customizations."
   (cl-declare (special custom-file))
   (let ((file-name-handler-alist nil)
         (gc-cons-threshold  32000000)
@@ -98,7 +98,7 @@
 
 ;;}}}
 (defun start-up-my-emacs()
-  "Start up emacs for me. "
+  "Start up emacs."
   (cl-declare (special emacs-personal-library emacspeak-directory
                        outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
