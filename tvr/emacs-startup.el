@@ -3,7 +3,7 @@
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
-
+;;; September 2017: Optimized and Cleaned Up
 ;;}}}
 ;;{{{  lib
 
@@ -54,7 +54,7 @@
 (defsubst tvr-shell-bind-keys ()
   "Set up  shell mode keys."
   (cl-declare (special shell-mode-map))
-  (cl-loop ;;; shell mode bindings
+  (cl-loop 
    for b in
    '(
      ("C-c TAB" emacspeak-wizards-bash-completion-toggle)
@@ -111,6 +111,7 @@
      "play" nil "play"
      (expand-file-name "highbells.au" emacspeak-sounds-directory))
     (tvr-time-it after-start "after-init")))
+
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
  'emacs-startup-hook
@@ -190,12 +191,12 @@
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
 
-;;; Shell navigation:
+;;; Shell mode bindings:
     (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
     ;;}}}
     ;;{{{ Load  emacspeak
-    (setq outloud-default-speech-rate 100
+    (setq outloud-default-speech-rate 125 ; because we load custom at the end
           dectalk-default-speech-rate 485)
     (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
@@ -224,11 +225,8 @@
 
   ;;}}}
   ) ;end defun
-;;{{{  start it up
-
 (tvr-emacs)
 
-;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 
