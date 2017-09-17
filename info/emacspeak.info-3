@@ -12,6 +12,86 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
+
+12.144 emacspeak-pydoc
+======================
+
+PYDOC == Python Documentation Viewer
+
+12.144.1 emacspeak-pydoc Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-pydoc-button-personality
+     Personality used for pydoc-button-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-name-personality
+     Personality used for pydoc-callable-name-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-param-personality
+     Personality used for pydoc-callable-param-face This personality
+     uses emacspeak-voice-lock-variable-name-personality whose effect
+     can be changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-class-name-link-personality
+     Personality used for pydoc-class-name-link-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-data-personality
+     Personality used for pydoc-data-face This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-pydoc-envvars-personality
+     Personality used for pydoc-envvars-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-package-link-personality
+     Personality used for pydoc-package-link-face This personality uses
+     emacspeak-voice-lock-variable-name-personality whose effect can be
+     changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-source-file-link-personality
+     Personality used for pydoc-source-file-link-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
+     Personality used for pydoc-sphinx-directive-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
+     Personality used for pydoc-sphinx-param-name-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
+     Personality used for pydoc-sphinx-param-type-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-string-personality
+     Personality used for pydoc-string-face This personality uses
+     emacspeak-voice-lock-string-personality whose effect can be changed
+     globally by customizing
+     emacspeak-voice-lock-string-personality-settings.
+
+ -- Variable: User Option
+          emacspeak-pydoc-superclass-name-link-personality
+     Personality used for pydoc-superclass-name-link-face This
+     personality uses voice-bolden-extra whose effect can be changed
+     globally by customizing voice-bolden-extra-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
 
 12.145 emacspeak-python
@@ -792,49 +872,6 @@ with user defined pairs this module speech-enables smartparens.
 Insertion of a matching delimiter is indicated by a short auditory icon.
 Structured navigation speaks the current line with the position of point
 aurally highlighted.
-
-12.166.1 emacspeak-smartparens Options
---------------------------------------
-
- -- Variable: User Option emacspeak-sp-pair-overlay-personality
-     Personality used for sp-pair-overlay-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-sp-show-pair-enclosing-voice
-     Personality used for sp-show-pair-enclosing This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-sp-show-pair-match-personality
-     Personality used for sp-show-pair-match-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-sp-show-pair-mismatch-personality
-     Personality used for sp-show-pair-mismatch-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-sp-wrap-overlay-closing-pair-voice
-     Personality used for sp-wrap-overlay-closing-pair This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-sp-wrap-overlay-opening-pair-voice
-     Personality used for sp-wrap-overlay-opening-pair This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-sp-wrap-overlay-personality
-     Personality used for sp-wrap-overlay-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-sp-wrap-tag-overlay-personality
-     Personality used for sp-wrap-tag-overlay-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-smartparens,  Up: Emacspeak Commands And Options
@@ -4878,6 +4915,7 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 .........................................
 
  -- Command: emacspeak-webspace-feed-reader (&optional refresh)
+     ‘C-. R’
      ‘C-' R’
      ‘C-x @ s R’
 
@@ -6200,6 +6238,7 @@ Contains various wizards for the Emacspeak desktop.
 .....................................
 
  -- Command: emacspeak-wizards-scratch
+     ‘C-. SPC’
      ‘C-' SPC’
      ‘C-x @ s SPC’
 
@@ -6272,6 +6311,7 @@ Contains various wizards for the Emacspeak desktop.
 ...................................................
 
  -- Command: emacspeak-wizards-shell-directory-reset
+     ‘C-. .’
      ‘C-' .’
      ‘C-e x .’
      ‘<fn> x .’
@@ -6563,6 +6603,7 @@ Contains various wizards for the Emacspeak desktop.
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
+     ‘C-. m’
      ‘C-' m’
      ‘C-, c’
      ‘C-x @ a c’
@@ -7444,6 +7485,7 @@ email, IM, ...  map to the same _mood_.
 .....................
 
  -- Command: soundscape (scape)
+     ‘C-. s’
      ‘C-' s’
      ‘C-x @ s s’
 
@@ -7489,6 +7531,7 @@ email, IM, ...  map to the same _mood_.
 .............................
 
  -- Command: soundscape-restart (&optional device)
+     ‘C-. r’
      ‘C-' r’
      ‘C-x @ s r’
 
@@ -7502,6 +7545,7 @@ email, IM, ...  map to the same _mood_.
 ..........................
 
  -- Command: soundscape-stop (scape)
+     ‘C-. S’
      ‘C-' S’
      ‘C-x @ s S’
 
@@ -7520,6 +7564,7 @@ email, IM, ...  map to the same _mood_.
 ............................
 
  -- Command: soundscape-toggle
+     ‘C-. t’
      ‘C-' t’
      ‘C-x @ s t’
 
@@ -7531,6 +7576,7 @@ email, IM, ...  map to the same _mood_.
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
+     ‘C-. u’
      ‘C-' u’
      ‘C-x @ s u’
 

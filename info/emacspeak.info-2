@@ -3734,6 +3734,7 @@ e.g.  blog search are tbm=
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
+     ‘C-. g’
      ‘C-' g’
      ‘C-x @ s g’
 
@@ -5104,6 +5105,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ...........................................
 
  -- Command: emacspeak-m-player-locate-media (pattern)
+     ‘C-. l’
      ‘C-' l’
      ‘C-x @ s l’
 
@@ -6572,6 +6574,7 @@ attempt to automatically install package hydra if it is not found.
    • outliner: <C-c .> Bindings from outline-minor-mode.
    • Info-Summary: <?> in Info Info Summary Muggle
    • Repeatable-Yank: <C-y> Smart yank
+   • SmartParens: <C-c ,> Smart Parens
 
    Emacspeak automatically speaks Hydra hints when displayed.  To
 silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
@@ -6862,7 +6865,45 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.123.2.12 emacspeak-muggles-toggle-option/body
+12.123.2.12 emacspeak-muggles-smartparens/body
+..............................................
+
+ -- Command: emacspeak-muggles-smartparens/body
+     ‘C-c ,’
+
+     Create a hydra with no body and the heads:
+
+     "q":    ‘nil’,
+     "(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
+     "{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’,
+     "’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
+     """:    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
+     "f":    ‘sp-forward-sexp’,
+     "b":    ‘sp-backward-sexp’,
+     "u":    ‘sp-backward-up-sexp’,
+     "d":    ‘sp-down-sexp’,
+     "p":    ‘sp-backward-down-sexp’,
+     "n":    ‘sp-up-sexp’,
+     "w":    ‘sp-copy-sexp’,
+     "k":    ‘sp-kill-sexp’,
+     "t":    ‘sp-transpose-sexp’,
+     "j":    ‘sp-join-sexp’,
+     "s":    ‘sp-split-sexp’,
+     "c":    ‘sp-convolute-sexp’,
+     "i":    ‘sp-indent-defun’,
+     "R":    ‘sp-splice-sexp’,
+     "r":    ‘sp-splice-sexp-killing-around’,
+     "<up>":    ‘sp-splice-sexp-killing-backward’,
+     "<down>":    ‘sp-splice-sexp-killing-forward’,
+     "<right>":    ‘sp-forward-slurp-sexp’,
+     "<left>":    ‘sp-forward-barf-sexp’,
+     "C-<left>":    ‘sp-backward-barf-sexp’,
+     "C-<right>":    ‘sp-backward-slurp-sexp’,
+     "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-smartparens")’
+
+     The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
+
+12.123.2.13 emacspeak-muggles-toggle-option/body
 ................................................
 
  -- Command: emacspeak-muggles-toggle-option/body
@@ -6885,7 +6926,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.123.2.13 emacspeak-muggles-view/body
+12.123.2.14 emacspeak-muggles-view/body
 .......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -6942,7 +6983,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.123.2.14 emacspeak-muggles-yank-pop/body
+12.123.2.15 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -6959,7 +7000,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
-12.123.2.15 emacspeak-origami/body
+12.123.2.16 emacspeak-origami/body
 ..................................
 
  -- Command: emacspeak-origami/body
@@ -8423,84 +8464,4 @@ This speech-enables python-mode available on sourceforge and ELPA
      Personality used for py-variable-name-face This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
-
-12.144 emacspeak-pydoc
-======================
-
-PYDOC == Python Documentation Viewer
-
-12.144.1 emacspeak-pydoc Options
---------------------------------
-
- -- Variable: User Option emacspeak-pydoc-button-personality
-     Personality used for pydoc-button-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-name-personality
-     Personality used for pydoc-callable-name-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-param-personality
-     Personality used for pydoc-callable-param-face This personality
-     uses emacspeak-voice-lock-variable-name-personality whose effect
-     can be changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-class-name-link-personality
-     Personality used for pydoc-class-name-link-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-data-personality
-     Personality used for pydoc-data-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-pydoc-envvars-personality
-     Personality used for pydoc-envvars-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-package-link-personality
-     Personality used for pydoc-package-link-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-source-file-link-personality
-     Personality used for pydoc-source-file-link-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
-     Personality used for pydoc-sphinx-directive-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
-     Personality used for pydoc-sphinx-param-name-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
-     Personality used for pydoc-sphinx-param-type-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-string-personality
-     Personality used for pydoc-string-face This personality uses
-     emacspeak-voice-lock-string-personality whose effect can be changed
-     globally by customizing
-     emacspeak-voice-lock-string-personality-settings.
-
- -- Variable: User Option
-          emacspeak-pydoc-superclass-name-link-personality
-     Personality used for pydoc-superclass-name-link-face This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
 

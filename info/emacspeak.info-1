@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1197 commands and 1149 options.
+This chapter documents a total of 1198 commands and 1149 options.
 
 * Menu:
 
@@ -6190,6 +6190,46 @@ system.
      whose effect can be changed globally by customizing
      voice-bolden-settings.
 
+ -- Variable: User Option emacspeak-sp-pair-overlay-personality
+     Personality used for sp-pair-overlay-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-sp-show-pair-enclosing-voice
+     Personality used for sp-show-pair-enclosing This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-sp-show-pair-match-personality
+     Personality used for sp-show-pair-match-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-sp-show-pair-mismatch-personality
+     Personality used for sp-show-pair-mismatch-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-sp-wrap-overlay-closing-pair-voice
+     Personality used for sp-wrap-overlay-closing-pair This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-sp-wrap-overlay-opening-pair-voice
+     Personality used for sp-wrap-overlay-opening-pair This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-sp-wrap-overlay-personality
+     Personality used for sp-wrap-overlay-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-sp-wrap-tag-overlay-personality
+     Personality used for sp-wrap-tag-overlay-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
  -- Variable: User Option emacspeak-success-voice
      Personality used for success This personality uses
      voice-brighten-extra whose effect can be changed globally by
@@ -6917,6 +6957,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 .......................
 
  -- Command: emacspeak-bbc (&optional genre)
+     ‘C-. b’
      ‘C-' b’
      ‘C-x @ s b’
 

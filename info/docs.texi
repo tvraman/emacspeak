@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1197 commands and 1149 options.
+This chapter documents a total of 1198 commands and 1149 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -3893,6 +3893,54 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
+@defvar {User Option} emacspeak-sp-pair-overlay-personality
+Personality used for sp-pair-overlay-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-show-pair-enclosing-voice
+Personality used for sp-show-pair-enclosing
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-show-pair-match-personality
+Personality used for sp-show-pair-match-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-show-pair-mismatch-personality
+Personality used for sp-show-pair-mismatch-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-overlay-closing-pair-voice
+Personality used for sp-wrap-overlay-closing-pair
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-overlay-opening-pair-voice
+Personality used for sp-wrap-overlay-opening-pair
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-overlay-personality
+Personality used for sp-wrap-overlay-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-sp-wrap-tag-overlay-personality
+Personality used for sp-wrap-tag-overlay-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-success-voice
 Personality used for success
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
@@ -4725,6 +4773,8 @@ For downloading a program etc., use Emacs package iplayer.
 @subsubsection emacspeak-bbc
 @deffn {Command} emacspeak-bbc  (&optional genre)
 @table @kbd
+@item C-. b
+@kindex C-. b
 @item C-' b
 @kindex C-' b
 @item C-x @@ s b
@@ -9622,6 +9672,8 @@ Optional interactive prefix arg ‘lang’ prompts for language identifier.
 @subsubsection emacspeak-google-tts-region
 @deffn {Command} emacspeak-google-tts-region  (start end &optional ask-lang)
 @table @kbd
+@item C-. g
+@kindex C-. g
 @item C-' g
 @kindex C-' g
 @item C-x @@ s g
@@ -11183,6 +11235,8 @@ Load specified playlist file.
 @subsubsection emacspeak-m-player-locate-media
 @deffn {Command} emacspeak-m-player-locate-media  (pattern)
 @table @kbd
+@item C-. l
+@kindex C-. l
 @item C-' l
 @kindex C-' l
 @item C-x @@ s l
@@ -12894,6 +12948,7 @@ attempt to automatically install package hydra if it is not found.
 @item outliner: <C-c .> Bindings from outline-minor-mode.
 @item Info-Summary: <?> in Info Info Summary Muggle
 @item Repeatable-Yank: <C-y> Smart yank
+@item SmartParens: <C-c ,> Smart Parens 
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
@@ -13231,6 +13286,50 @@ Create a hydra with no body and the heads:
 "z":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-outliner/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-smartparens/body
+@deffn {Command} emacspeak-muggles-smartparens/body   
+@table @kbd
+@item C-c ,
+@kindex C-c ,
+@end table
+
+@findex emacspeak-muggles-smartparens/body
+
+@format
+Create a hydra with no body and the heads:
+
+"q":    ‘nil’,
+"(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
+"@{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "@{"))’,
+"’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
+""":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
+"f":    ‘sp-forward-sexp’,
+"b":    ‘sp-backward-sexp’,
+"u":    ‘sp-backward-up-sexp’,
+"d":    ‘sp-down-sexp’,
+"p":    ‘sp-backward-down-sexp’,
+"n":    ‘sp-up-sexp’,
+"w":    ‘sp-copy-sexp’,
+"k":    ‘sp-kill-sexp’,
+"t":    ‘sp-transpose-sexp’,
+"j":    ‘sp-join-sexp’,
+"s":    ‘sp-split-sexp’,
+"c":    ‘sp-convolute-sexp’,
+"i":    ‘sp-indent-defun’,
+"R":    ‘sp-splice-sexp’,
+"r":    ‘sp-splice-sexp-killing-around’,
+"<up>":    ‘sp-splice-sexp-killing-backward’,
+"<down>":    ‘sp-splice-sexp-killing-forward’,
+"<right>":    ‘sp-forward-slurp-sexp’,
+"<left>":    ‘sp-forward-barf-sexp’,
+"C-<left>":    ‘sp-backward-barf-sexp’,
+"C-<right>":    ‘sp-backward-slurp-sexp’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-smartparens")’
+
+The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 @end format
 @end deffn
 
@@ -15957,56 +16056,6 @@ navigation with user defined pairs this module speech-enables
 smartparens.  Insertion of a matching delimiter is indicated by a
 short auditory icon.  Structured navigation speaks the current
 line with the position of point aurally highlighted.
-
-@subsection emacspeak-smartparens Options
-
-@defvar {User Option} emacspeak-sp-pair-overlay-personality
-Personality used for sp-pair-overlay-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-show-pair-enclosing-voice
-Personality used for sp-show-pair-enclosing
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-show-pair-match-personality
-Personality used for sp-show-pair-match-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-show-pair-mismatch-personality
-Personality used for sp-show-pair-mismatch-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-wrap-overlay-closing-pair-voice
-Personality used for sp-wrap-overlay-closing-pair
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-wrap-overlay-opening-pair-voice
-Personality used for sp-wrap-overlay-opening-pair
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-wrap-overlay-personality
-Personality used for sp-wrap-overlay-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-sp-wrap-tag-overlay-personality
-Personality used for sp-wrap-tag-overlay-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
 
 @node emacspeak-solitaire
 @section emacspeak-solitaire
@@ -21502,6 +21551,8 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 @subsubsection emacspeak-webspace-feed-reader
 @deffn {Command} emacspeak-webspace-feed-reader  (&optional refresh)
 @table @kbd
+@item C-. R
+@kindex C-. R
 @item C-' R
 @kindex C-' R
 @item C-x @@ s R
@@ -23252,6 +23303,8 @@ Run rpm -qi on current dired entry.
 @subsubsection emacspeak-wizards-scratch
 @deffn {Command} emacspeak-wizards-scratch   
 @table @kbd
+@item C-. SPC
+@kindex C-. SPC
 @item C-' SPC
 @kindex C-' SPC
 @item C-x @@ s SPC
@@ -23370,6 +23423,8 @@ Prompts for and runs shell command on current file.
 @subsubsection emacspeak-wizards-shell-directory-reset
 @deffn {Command} emacspeak-wizards-shell-directory-reset   
 @table @kbd
+@item C-. .
+@kindex C-. .
 @item C-' .
 @kindex C-' .
 @item C-e x .
@@ -23781,6 +23836,8 @@ Display list of buffers filtered by specified mode.
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-this-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-this-mode   
 @table @kbd
+@item C-. m
+@kindex C-. m
 @item C-' m
 @kindex C-' m
 @item C-, c
@@ -24824,6 +24881,8 @@ communication == email, IM, ... map to  the same @emph{mood}.
 @subsubsection soundscape
 @deffn {Command} soundscape  (scape)
 @table @kbd
+@item C-. s
+@kindex C-. s
 @item C-' s
 @kindex C-' s
 @item C-x @@ s s
@@ -24884,6 +24943,8 @@ Activate scapes named names.
 @subsubsection soundscape-restart
 @deffn {Command} soundscape-restart  (&optional device)
 @table @kbd
+@item C-. r
+@kindex C-. r
 @item C-' r
 @kindex C-' r
 @item C-x @@ s r
@@ -24904,6 +24965,8 @@ This is then saved to soundscape-device for future use.
 @subsubsection soundscape-stop
 @deffn {Command} soundscape-stop  (scape)
 @table @kbd
+@item C-. S
+@kindex C-. S
 @item C-' S
 @kindex C-' S
 @item C-x @@ s S
@@ -24931,6 +24994,8 @@ Shows default theme in a special buffer.
 @subsubsection soundscape-toggle
 @deffn {Command} soundscape-toggle   
 @table @kbd
+@item C-. t
+@kindex C-. t
 @item C-' t
 @kindex C-' t
 @item C-x @@ s t
@@ -24949,6 +25014,8 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 @subsubsection soundscape-update-mood
 @deffn {Command} soundscape-update-mood  (&optional prompt-mode)
 @table @kbd
+@item C-. u
+@kindex C-. u
 @item C-' u
 @kindex C-' u
 @item C-x @@ s u
