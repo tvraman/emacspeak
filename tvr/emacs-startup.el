@@ -173,17 +173,18 @@
     (cl-loop
      for  key in
      '(
-       ([f3] bury-buffer)
-       ([f4] emacspeak-kill-buffer-quietly)
-       ("\M--" undo)
-       ([f11]shell)
-       ([f12]vm)
-       ( "\M-r"replace-string)
-       ( "\M-e"emacspeak-wizards-end-of-word)
-       ( "\M-\C-j"imenu)
-       ( "\M-\C-c"calendar))
+       ("<f3>" bury-buffer)
+       ("<f4>" emacspeak-kill-buffer-quietly)
+       ("M--" undo)
+       ("<f11> "shell)
+       ("<f12>" vm)
+       ( "M-r"replace-string)
+       ("M-e"emacspeak-wizards-end-of-word)
+       ( "M-C-j"imenu)
+       ("M-C-c"calendar)
+       ("C-RET" hippie-expand))
      do
-     (global-set-key (cl-first key) (cl-second key)))
+     (global-set-key (kbd (cl-first key)) (cl-second key)))
     
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
