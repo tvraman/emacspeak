@@ -1408,9 +1408,11 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
   (add-hook 'shell-mode-hook 'dirtrack-procfs-mode))
 
 ;;; Silence Bash completions chatter:
-(defadvice bash-completion-dynamic-complete-0 (around emacspeak pre act comp)
+(defadvice bash-completion-dynamic-complete (around emacspeak pre act comp)
   "Silence chatter."
-  (ems-with-messages-silenced ad-do-it))
+  (ems-with-messages-silenced
+   (emacspeak-auditory-icon 'complete)
+   ad-do-it))
 
 ;;}}}
 ;;{{{ Advice centering and filling commands:
