@@ -492,7 +492,7 @@ and TABLE gives the values along that dimension."
   (setq tts-default-voice 'paul)
   (setq tts-default-speech-rate outloud-default-speech-rate)
   (set-default 'tts-default-speech-rate outloud-default-speech-rate)
-  (setq dtk-speech-rate-step 8
+  (setq dtk-speech-rate-step 10
         dtk-speech-rate-base 50
         dtk-speech-rate outloud-default-speech-rate)
   (setq-default dtk-speech-rate-step 8
