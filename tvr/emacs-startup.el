@@ -94,12 +94,13 @@
      #'(lambda ()
          (let ((file-name-handler-alist nil)
                (gc-cons-threshold 64000000))
-           (load-library-if-available "emacspeak-muggles"))))))
+           (load "emacspeak-muggles"))))))
 
 ;;}}}
-(defun start-up-my-emacs()
+(defun tvr-emacs()
   "Start up emacs."
   (cl-declare (special emacs-personal-library emacspeak-directory
+                       outloud-default-speech-rate dectalk-default-speech-rate
                        outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
         (file-name-handler-alist nil)   ; to speed up, avoid tramp etc
@@ -157,8 +158,9 @@
     (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
     ;;}}}
-    ;;{{{ Load and customize emacspeak
-
+    ;;{{{ Load  emacspeak
+(setq outloud-default-speech-rate 100
+      dectalk-default-speech-rate 485)
 (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
@@ -198,7 +200,7 @@
         (emacspeak-speak-messages nil))
     (dynamic-completion-mode 1)
     (completion-initialize)
-    (mapc #'load-library-if-available tvr-libs)
+    (mapc #'load tvr-libs)
     (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
     (tvr-customize)
     (soundscape-toggle)
@@ -222,7 +224,7 @@
               user-login-name (emacs-init-time) gcs-done gc-elapsed)))
 
 
-(start-up-my-emacs)
+(tvr-emacs)
 
 ;;}}}
 (provide 'emacs-startup)
