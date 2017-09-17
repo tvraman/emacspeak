@@ -68,6 +68,7 @@
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
 ;;; @item Repeatable-Yank: <C-y> Smart yank
+;;; @item SmartParens: <C-c ,> Smart Parens 
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
