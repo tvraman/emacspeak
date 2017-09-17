@@ -410,11 +410,12 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 (global-set-key
  (kbd "C-c .")
  (defhydra emacspeak-muggles-outliner
-   (:body-pre (progn
-                (outline-minor-mode 1)
-                (emacspeak-hydra-body-pre "Outline Navigation"))
-              :pre emacspeak-hydra-pre :post emacspeak-hydra-post
-              :color pink :hint nil)
+   (:body-pre
+    (progn
+      (outline-minor-mode 1)
+      (emacspeak-hydra-body-pre "Outline Navigation"))
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post
+    :color pink :hint nil)
    "
 ^Hide^             ^Show^           ^Move
 ^^^^^^------------------------------------------------------
@@ -657,28 +658,10 @@ Info-mode:
    (:body-pre
     (progn
       (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "Smart Parens"))
+      (emacspeak-hydra-body-pre "SmartParens"))
     :pre emacspeak-hydra-pre
     :post emacspeak-hydra-post)
-   "  
-   Sexps (quit with _q_)  
-     
-   ^Nav^ ^Barf/Slurp^ ^Depth^  
-   ^---^------------^----------^-----------------^-----^-----------------  
-   _f_: forward _→_: slurp forward _R_: splice  
-   _b_: backward _←_: barf forward _r_: raise  
-   _u_: backward ↑ _C-<right>_: slurp backward _↑_: raise backward  
-   _d_: forward ↓ _C-<left>_: barf backward _↓_: raise forward  
-   _p_: backward ↓  
-   _n_: forward ↑  
-     
-   ^Kill^ ^Misc^ ^Wrap^  
-   ^----^-----------^----^-----------------------^----^------------------  
-   _w_: copy _j_: join _(_: wrap with ( )  
-   _k_: kill _s_: split _{_: wrap with { }  
-   ^^ _t_: transpose _'_: wrap with ' '  
-   ^^ _c_: convolute _\"_: wrap with \" \"  
-   ^^ _i_: indent defun"  
+   "Smart Parens"
    ("q" nil)  
    ;; Wrapping  
    ("(" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
@@ -711,7 +694,8 @@ Info-mode:
    ("<right>" sp-forward-slurp-sexp)  
    ("<left>" sp-forward-barf-sexp)  
    ("C-<left>" sp-backward-barf-sexp)  
-   ("C-<right>" sp-backward-slurp-sexp)))
+   ("C-<right>" sp-backward-slurp-sexp)
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-smartparens"))))
 
 ;;}}}
 ;;{{{ Muggles Autoload Wizard:
