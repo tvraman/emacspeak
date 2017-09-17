@@ -157,12 +157,6 @@
     (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
     ;;}}}
-    ;;{{{  Completion:
-
-    (completion-initialize)
-    (dynamic-completion-mode)
-
-    ;;}}}
     ;;{{{ outline mode setup:
 
     (eval-after-load 'outline
@@ -216,6 +210,8 @@
         (file-name-handler-alist nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
+    (dynamic-completion-mode 1)
+    (completion-initialize)
     (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
     (tvr-customize)
     (soundscape-toggle)

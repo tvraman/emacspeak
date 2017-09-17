@@ -64,9 +64,10 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (message "Opening %s with Chrome" url)))
 
 (define-key vm-mode-map "C" 'vm-chromium)
+(define-key vm-mode-map "o" 'mspools-show)
 ))
 
-(define-key vm-mode-map "o" 'mspools-show)
+
 
 (eval-after-load "mspools"
   `(progn
