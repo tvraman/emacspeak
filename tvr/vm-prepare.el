@@ -33,7 +33,9 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (set hook (list t)))
   hook)
 (eval-after-load "vm"
+
   `(progn
+     (load "vm-autoloads")
 (add-hook 'vm-quit-hook #'vm-expunge-folder)
 ;(global-set-key "\C-xm" 'vm-mail)
 
@@ -63,6 +65,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 
 (define-key vm-mode-map "C" 'vm-chromium)
 (define-key vm-mode-map "o" 'mspools-show)
+(load-library "mspools")
 ))
 
 
