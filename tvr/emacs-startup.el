@@ -78,6 +78,7 @@
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+    (global-set-key (kbd "C-RET") 'hippie-expand)
     (package-initialize)
     (when (file-exists-p custom-file) (load custom-file))))
 
@@ -177,8 +178,7 @@
        ( "M-r"replace-string)
        ("M-e"emacspeak-wizards-end-of-word)
        ( "M-C-j"imenu)
-       ("M-C-c"calendar)
-       ("C-RET" hippie-expand))
+       ("M-C-c"calendar))
      do
      (global-set-key (kbd (cl-first key)) (cl-second key)))
     (cl-loop ; shell wizard
