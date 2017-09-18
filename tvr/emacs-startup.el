@@ -14,6 +14,9 @@
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
 
+(when (file-exists-p  emacs-personal-library)
+  (push emacs-personal-library load-path))
+
 (defvar tvr-libs
   '(
     "kbd-setup"
@@ -75,6 +78,7 @@
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+    (package-initialize)
     (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
@@ -157,13 +161,6 @@
     (put 'narrow-to-region 'disabled nil)
     (put 'eval-expression 'disabled nil)
     (put 'timer-list 'disabled nil)
-
-    ;;}}}
-    ;;{{{ package setup:
-
-    (when (file-exists-p  emacs-personal-library)
-      (push emacs-personal-library load-path))
-    (package-initialize)
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
