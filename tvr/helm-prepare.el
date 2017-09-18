@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: nil; -*-
-
+(require 'cl-lib)
 ;(load-library "helm-autoloads")
 ;;; Taken from http://tuhdo.github.io/helm-intro.html
 (eval-after-load   "helm"
@@ -18,14 +18,14 @@
 ;;; Insert on desktop 
      (global-set-key (kbd "<insert>") 'helm-command-prefix)
      (global-unset-key (kbd "C-x c"))
-     (loop
+     (cl-loop
       for b in
       '(
         ("," helm-mode)
         ("g" helm-google-suggest)
         ("o" helm-mini))
       do
-      (define-key helm-command-map (first b) (second b)))
+      (define-key helm-command-map (cl-first b) (cl-second b)))
 
      (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
                                         ;(helm-mode 1)
