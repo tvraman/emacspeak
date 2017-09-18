@@ -1,8 +1,8 @@
 ;; -*- lexical-binding: nil; -*-
 (require 'cl-lib)
-;(load-library "helm-autoloads")
 ;;; Taken from http://tuhdo.github.io/helm-intro.html
-(eval-after-load   "helm"
+(eval-after-load
+    "helm"
   `(progn
      (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
            helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
@@ -18,6 +18,7 @@
 ;;; Insert on desktop 
      (global-set-key (kbd "<insert>") 'helm-command-prefix)
      (global-unset-key (kbd "C-x c"))
+     (require 'helm-config)
      (cl-loop
       for b in
       '(
