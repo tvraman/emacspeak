@@ -79,6 +79,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 
 (defun mspools-size-folder (spool)
   "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
-  (cons
-   spool
-   (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))))
+  (let ((size (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))
+    (unless (zerop size)
+  (cons spool size))))
+))
