@@ -23,7 +23,7 @@
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
     "vdiff-prepare"  "sp-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
-    "calc-prepare" "helm-prepare"                      ;helm not activated
+    "use-emms" "calc-prepare" "helm-prepare"                      ;helm not activated
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "projectile-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare")
@@ -79,7 +79,7 @@
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
     (global-set-key (kbd "C-RET") 'hippie-expand)
-    (package-initialize)
+    (bbdb-insinuate-vm)
     (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
@@ -138,7 +138,7 @@
 ;;}}}
 (defun tvr-emacs()
   "Start up emacs."
-  (cl-declare (special emacs-personal-library emacspeak-directory
+  (cl-declare (special  emacspeak-directory
                        outloud-default-speech-rate dectalk-default-speech-rate
                        outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
@@ -164,6 +164,10 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
+    ;;{{{ package setup:
+    (package-initialize)
+
+    ;;}}}
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
@@ -178,7 +182,8 @@
        ( "M-r"replace-string)
        ("M-e"emacspeak-wizards-end-of-word)
        ( "M-C-j"imenu)
-       ("M-C-c"calendar))
+       ("M-C-c"calendar)
+       ("C-RET" hippie-expand))
      do
      (global-set-key (kbd (cl-first key)) (cl-second key)))
     (cl-loop ; shell wizard
