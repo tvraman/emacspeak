@@ -86,6 +86,7 @@ Then speak the folded line."
 (defadvice fold-hide (after emacspeak pre act)
   "Provide auditory feedback"
   (when (ems-interactive-p)
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid current fold")))
 
