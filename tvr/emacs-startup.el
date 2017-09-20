@@ -164,10 +164,7 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
-    ;;{{{ package setup:
     (package-initialize)
-
-    ;;}}}
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
