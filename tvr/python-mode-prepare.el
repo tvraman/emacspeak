@@ -7,4 +7,5 @@
       'python-mode-hook
       #'(lambda ()
            (company-mode  1)
-           (elpy-enable)))))
+           ;(elpy-enable)
+           ))))
