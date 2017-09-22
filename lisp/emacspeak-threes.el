@@ -130,7 +130,7 @@
      cells
      (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
     (tts-with-punctuations 'some (dtk-speak-list   cells))
-    (emacspeak-auditory-icon 'complete)
+    (emacspeak-auditory-icon 'select-object)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
       (emacspeak-auditory-icon 'item))))
 
