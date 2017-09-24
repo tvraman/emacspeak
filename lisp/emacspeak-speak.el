@@ -1890,9 +1890,12 @@ Interactive prefix arg speaks buffer info."
 ;;}}}
 ;;;Helper --return string describing coding system info
 
-(defvar emacspeak-speak-default-os-coding-system
+(defcustom emacspeak-speak-default-os-coding-system
   `(prefer-utf-8-unix undecided-unix  ,(default-value 'buffer-file-coding-system))
-  "List of coding systems on this platform.")
+  "List of coding systems on this platform."
+  :type '(repeat
+          (symbol :tag "Coding system"))
+  :group 'emacspeak-speak)
 
 (defun ems-get-buffer-coding-system ()
   "Return buffer coding system info if relevant.
