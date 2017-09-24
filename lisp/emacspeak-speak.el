@@ -1891,10 +1891,8 @@ Interactive prefix arg speaks buffer info."
 ;;;Helper --return string describing coding system info
 
 (defvar emacspeak-speak-default-os-coding-system
-  (default-value 'buffer-file-coding-system)
-  "Default coding system used for text files.
-This should eventually be initialized based on the OS we are
-running under.")
+  `(prefer-utf-8-unix undecided-unix  ,(default-value 'buffer-file-coding-system))
+  "List of coding systems on this platform.")
 
 (defun ems-get-buffer-coding-system ()
   "Return buffer coding system info if relevant.
@@ -1906,7 +1904,7 @@ current coding system, then we return an empty string."
    ((and (boundp 'buffer-file-coding-system)
          buffer-file-coding-system
          emacspeak-speak-default-os-coding-system
-         (not (eq buffer-file-coding-system emacspeak-speak-default-os-coding-system)))
+         (not (memq buffer-file-coding-system emacspeak-speak-default-os-coding-system)))
     (let ((value (format "%s" buffer-file-coding-system)))
       (put-text-property 0  (length value)
                          'personality
