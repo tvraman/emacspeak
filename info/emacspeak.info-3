@@ -2442,6 +2442,9 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-silence-hook
      Functions run after emacspeak-silence is called.
 
+ -- Variable: User Option emacspeak-speak-default-os-coding-system
+     List of coding systems on this platform.
+
  -- Variable: User Option emacspeak-speak-directory-settings
      *Name of file that holds directory specific settings.
 

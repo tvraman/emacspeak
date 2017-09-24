@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1199 commands and 1149 options.
+This chapter documents a total of 1199 commands and 1150 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -18310,6 +18310,11 @@ Default search engine.
 
 @defvar {User Option} emacspeak-silence-hook
 Functions run after emacspeak-silence is called.
+
+@end defvar
+
+@defvar {User Option} emacspeak-speak-default-os-coding-system
+List of coding systems on this platform.
 
 @end defvar
 
