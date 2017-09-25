@@ -1917,7 +1917,8 @@ current coding system, then we return an empty string."
    (t "")))
 
 (defvar emacspeak-minor-mode-prefix
-  (propertize "Active: " 'personality voice-annotate)
+  ""
+  ;(propertize "Active: " 'personality voice-annotate)
   "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
 
 ;;;###autoload
@@ -1927,7 +1928,7 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
   (interactive "P")
   (cl-declare (special minor-mode-alist emacspeak-minor-mode-prefix))
   (force-mode-line-update)
-  (let ((info
+  (let ((coding (ems-get-buffer-coding-system))(info
          (mapconcat
           #'(lambda(item)
               (let ((var (car item))
@@ -1939,10 +1940,7 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
           " ")))
     (when copy-as-kill (kill-new info))
     (dtk-speak
-     (concat
-      emacspeak-minor-mode-prefix
-      info
-      (ems-get-buffer-coding-system)))))
+     (concat emacspeak-minor-mode-prefix info coding))))
 
 (defalias 'emacspeak-speak-line-number 'what-line)
 
