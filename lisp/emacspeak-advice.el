@@ -1394,7 +1394,7 @@ only works on systems that have a /proc filesystem that looks
 like Linux's; specifically, /proc/PID/cwd should be a symlink to
 process PID's current working directory.
 
-Turning on Ditrack-Procfs mode automatically turns off
+Turning on Dirtrack-Procfs mode automatically turns off
 Shell-Dirtrack mode; turning it off does not re-enable it."
   nil "Dir" nil
   (if (not dirtrack-procfs-mode)
