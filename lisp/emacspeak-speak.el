@@ -1899,7 +1899,7 @@ Interactive prefix arg speaks buffer info."
 
 (defun ems-get-buffer-coding-system ()
   "Return buffer coding system info if relevant.
-If emacspeak-speak-default-os-coding-system is set and matches the
+If emacspeak-speak-default-os-coding-system is set and contains  the
 current coding system, then we return an empty string."
   (cl-declare (special buffer-file-coding-system voice-lighten
                     emacspeak-speak-default-os-coding-system))
