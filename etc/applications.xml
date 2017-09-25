@@ -728,6 +728,10 @@ module emacspeak-vdiff.</application>
     </application>
     <application name="ein">
     IPython Notebook interaction from Emacs.</application>
+<application name="smartparens">
+Speech-enable package smartparens for intelligently managing matching
+delimiters.
+</application>
   </category>
   <category name="Distractions">
     <application name="entertain">
