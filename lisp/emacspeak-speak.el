@@ -1902,19 +1902,10 @@ Interactive prefix arg speaks buffer info."
 If emacspeak-speak-default-os-coding-system is set and contains  the
 current coding system, then we return an empty string."
   (cl-declare (special buffer-file-coding-system voice-lighten
-                    emacspeak-speak-default-os-coding-system))
-  (cond
-   ((and (boundp 'buffer-file-coding-system)
-         buffer-file-coding-system
-         emacspeak-speak-default-os-coding-system
-         (not (memq buffer-file-coding-system emacspeak-speak-default-os-coding-system)))
-    (let ((value (format "%s" buffer-file-coding-system)))
-      (put-text-property 0  (length value)
-                         'personality
-                         voice-lighten
-                         value)
-      value))
-   (t "")))
+                       emacspeak-speak-default-os-coding-system))
+  (if  (memq buffer-file-coding-system emacspeak-speak-default-os-coding-system)
+      ""
+    (propertize (format "%s" buffer-file-coding-system)  'personality voice-lighten)))
 
 ;;;###autoload
 (defun emacspeak-speak-minor-mode-line (&optional copy-as-kill)
