@@ -60,7 +60,7 @@
   (cl-loop 
    for b in
    '(
-     ("C-c TAB" emacspeak-wizards-bash-completion-toggle)
+     ;("C-c TAB" emacspeak-wizards-bash-completion-toggle)
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
