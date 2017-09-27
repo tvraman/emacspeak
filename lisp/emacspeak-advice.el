@@ -2781,6 +2781,11 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ advice Finder:
+(defadvice finder-commentary (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-buffer)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice finder-mode (after emacspeak pre act comp)
   "Provide auditory feedback"
