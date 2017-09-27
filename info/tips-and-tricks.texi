@@ -1,0 +1,825 @@
+\input texinfo
+@setfilename tips_and_tricks_for_the_emacspeak_audio_desktop ____.info
+@documentencoding us-ascii
+@settitle Tips And Tricks For The Emacspeak Audio Desktop  
+@direntry
+* Tips And Tricks For The Emacspeak Audio Desktop : (tips_and_tricks_for_the_emacspeak_audio_desktop ____).
+                                                  [MISSING TEXT]
+@end direntry
+
+@node Top
+@top Tips And Tricks For The Emacspeak Audio Desktop  
+
+@strong{Online Help}
+
+@noindent
+@anchor{Online Help}
+
+@table @asis
+
+Tips on using Emacs online help facilities.
+
+@item @ @ Q:
+Interactive help.
+
+@item @ @ A:
+Online documentation is accessed using commands available on key
+@code{@key{C-h}}. The
+type of help obtained is determined by the
+keypress following @code{@key{C-h}}.
+
+@multitable @columnfractions 1
+@item
+@code{@key{c}}
+looks up  command run by a given key.
+@item
+@code{@key{k}}
+looks up documentation for a given key.
+@item
+@code{@key{w}}
+looks up key that invokes specified command.
+@end multitable
+
+@item @ @ Q:
+Online hypertext help.
+
+@item @ @ A:
+Invoke the online hypertext help system
+(@code{info}) by pressing
+@code{@key{C-h i}}.
+Press @code{@key{h}} when
+using  Info to
+obtain a primer for first time users.
+
+@item @ @ Q:
+Emacspeak Hypertext Reference
+
+@item @ @ A:
+You can open the online Emacspeak hypertext reference using
+key @code{@key{C-e TAB}}.
+
+@item @ @ Q:
+Opening info page that documents  a given key.
+
+@item @ @ A:
+Press @code{@key{ C-h C-k }}followed
+by the key whose documentation you wish to
+locate.
+
+@item @ @ Q:
+Opening info page that documents a given command. 
+
+@item @ @ A:
+Press @code{@key{C-h
+C-f}}
+and specify the command name when prompted.
+
+@item @ @ Q:
+Picking from available choices.
+
+@item @ @ A:
+Hitting  @code{@key{tab}}
+causes Emacs to complete the currently typed input as far as
+possible.
+If there is more than one choice available, Emacspeak plays
+auditory icon @emph{help}
+and speaks the available choices.  At this point, you can
+input more characters to unambiguously specify the
+choice. Alternatively, you can browse the
+completion list which is typically displayed in
+another window in a buffer called 
+@samp{*Completions*}.
+
+@item @ @ Q:
+Minibuffer prompting and completion.
+
+@item @ @ A:
+Emacs uses the @emph{minibuffer} when
+prompting  for user input.
+When using completion in the minibuffer by
+hitting @code{@key{tab}},
+you can switch to the 
+@samp{*Completions*}
+buffer by pressing command @code{@key{C-o}}.
+
+@item @ @ Q:
+Customizing Emacs And Emacspeak
+
+@item @ @ A:
+Emacspeak can now be customized using
+custom and this is
+the recommended way for users new to Emacs to
+customize Emacs and Emacspeak.  Command
+@code{emacspeak-customize} invokes
+Emacs' customize interface for customizing
+Emacspeak.  Use
+custom to customize
+Emacs packages that support this feature.  Note
+that not all Emacs packages are fully
+customizable via
+custom.
+
+@item @ @ Q:
+Browsing UNIX Man Pages
+
+@item @ @ A:
+Use Emacs  command @code{man}
+to view UNIX manual pages using a speech-enabled
+interface. This interface provides structured
+browsing which is something missing when viewing
+UNIX man pages inside a traditional pager program.
+@end table
+
+@strong{Files And Folders}
+
+@noindent
+@anchor{Files And Folders}
+
+@table @asis
+
+This section  contains tips  on working efficiently
+with files and folders, both local and remote.
+
+@item @ @ Q:
+Working on files and folders.
+
+@item @ @ A:
+Use command @code{
+dired}
+(directory editor) normally bound to
+@code{@key{
+C-x d              }}
+to operate on files and folders.
+
+@item @ @ Q:
+Working with remote directories.
+
+@item @ @ A:
+Built-in Emacs package
+tramp
+provides seamless access to remote files and folders by
+using UNIX @code{ssh}
+behind the scenes.
+To open a remote directory, specify the directory location  as 
+@code{/username@@host:/path}
+when prompted by command @code{dired}.
+Note that in the above,
+@emph{username}
+defaults to @emph{anonymous}.
+
+@item @ @ Q:
+Locating files.
+
+@item @ @ A:
+Use @code{locate}
+and @code{
+locate-with-filter} to
+find files and folders on your hard drive.
+Matching files and folders are displayed using
+the same interface as provided by command
+@code{dired}.  These
+commands use the 
+locate database that
+is typically rebuilt nightly on standard Linux
+systems.
+
+@item @ @ Q:
+Using UNIX @code{find} from within Emacs.
+
+@item @ @ A:
+Use commands @code{
+find-name-dired}, @code{find-grep-dired} and
+@code{find-dired} to use UNIX
+find to locate files
+and folders on your hard drive.
+
+@item @ @ Q:
+Searching all files in a directory hierarchy. 
+
+@item @ @ A:
+Install and use Emacs package
+igrep
+---an extended Emacs interface to UNIX
+grep
+to search all files in a directory.
+For simpler tasks use command 
+@code{grep-dired} and command @code{find-grep-dired}.
+
+@item @ @ Q:
+Search and replace across a collection of files. 
+
+@item @ @ A:
+When working on a project consisting of many files, 
+build a tags table using UNIX command
+@code{etags}
+and use it to advantage from within Emacs with commands such
+as 
+
+@multitable @columnfractions 1
+@item
+@code{find-tag}
+@item
+@code{tags-search}
+@item
+@code{tags-query-replace}
+@end multitable
+@end table
+
+@strong{Reading, Browsing And Skimming}
+
+@noindent
+@anchor{Reading; Browsing And Skimming}
+
+@table @asis
+
+This section contains tips for efficiently working with
+large amounts of content using speech output.
+
+@item @ @ Q:
+Hiding and exposing text blocks. 
+
+@item @ @ A:
+You can hide @emph{blocks of text}
+when skimming a file.
+A @emph{block of text}
+is defined as a sequence of contiguous lines starting with
+a common prefix e.g., cited lines in an email message or blocks of
+comments in programming languages.
+See commands 
+
+@multitable @columnfractions 1
+@item
+@code{@key{C-e j}}@code{ emacspeak-hide-or-expose-block}
+@item
+@code{@key{C-e C-j}}@code{ emacspeak-hide-speak-block-sans-prefix}
+@end multitable
+
+@noindent
+to use these features.
+
+@item @ @ Q:
+use Emacs'  @code{set-selective-display} to
+advantage when working with indented text.
+
+@item @ @ A:
+When working with content that uses indentation to reflect structure,
+you can use Emacs' built-in @code{set-selective-display}
+to advantage and selectively collapse/expand contents. Emacs comes
+with additional package that enable such structured traversal, as an
+example, see hideshow.
+
+@item @ @ Q:
+Skipping  across blank lines
+
+@item @ @ A:
+Use commands
+
+@multitable @columnfractions 1
+@item
+@code{emacspeak-skip-blank-lines-backward}
+@item
+@code{emacspeak-skip-blank-lines-forward}
+@end multitable
+
+@noindent
+to move across contiguous blank lines.
+
+@item @ @ Q:
+Browsing structured text using Emacs outline mode
+
+@item @ @ A:
+Emacs outline facility provides a powerful tool for browsing textual
+material based on its implicit structure.
+By default, command @code{outline-minor-mode}
+sets up Emacs to recognize lines beginning with
+@samp{***}
+as header lines. This can be changed on a per buffer basis by setting
+up Emacs variable @code{outline-regexp}
+to a regular expression that matches header lines.
+When using Emacs @code{view-mode}
+to read text, this feature is especially useful when combined with
+Emacspeak built-in feature that loads a directory specific
+file to customize  Emacspeak on a per-directory basis.
+Thus, one can organize electronic texts by placing  files for a given
+book  in a specific directory, and then creating a file
+called @samp{.espeak.el}
+in that directory that sets up things like Emacs variable
+@code{outline-regexp}.
+
+@item @ @ Q:
+@emph{Everything} is
+searchable.
+
+@item @ @ A:
+Everything
+is @emph{searchable}
+in Emacs. Use this to advantage when working with all forms
+of content, since it is often more efficient to
+use Emacs commands 
+@code{@key{C-s}}
+and  @code{@key{C-r}}
+to perform forward or backward incremental search to locate
+relevant information  than to listen to  the  content.
+
+@item @ @ Q:
+Saving positions in a file.
+
+@item @ @ A:
+Use Emacs @emph{mark} to save temporary
+positions in a file.
+Use built-in Emacs bookmark
+to save the position across Emacs sessions. Use built-in
+Emacs package desktop
+to have Emacs automatically recreate the state of the audio
+desktop on restart.
+
+@item @ @ Q:
+Working with  different portions of
+a file at the same time.
+
+@item @ @ A:
+Display the file in different Emacs
+@emph{windows} 
+or @emph{frames};
+Emacs allows you to display different portions 
+of the file in each window or frame. Use Emacspeak commands 
+
+@multitable @columnfractions 1
+@item
+@code{emacspeak-speak-predefined-window}
+@item
+@code{emacspeak-speak-this-buffer-other-window-display}
+@item
+@code{emacspeak-speak-this-buffer-previous-display}
+@item
+@code{emacspeak-speak-this-buffer-next-display}
+@end multitable
+
+@noindent
+to listen to a given  portion of a file whilst working on a
+different portion of the same file.
+
+@item @ @ Q:
+Accumulating Annotations  While Reading
+
+@item @ @ A:
+It is often useful to be able to  jot down comments or notes
+while reading a large document.
+Rather than switching back and forth between the document
+you are reading and the document where the
+comments are being jotted down, you can use
+Emacspeak utility 
+@code{emacspeak-annotate-add-annotation} --see
+that command's online documentation for details on
+its use.
+@end table
+
+@strong{State Of The Emacspeak Audio Desktop}
+
+@noindent
+@anchor{State Of The Emacspeak Audio Desktop}
+
+@table @asis
+
+This section contains tips on querying and updating
+the status of the Emacspeak audio desktop.
+See section 
+@uref{http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20,  status commands}
+in the Emacspeak online manual for additional details.
+
+@item @ @ Q:
+Hearing The Current Context
+
+@item @ @ A:
+@emph{Emacs buffers} are the building bloks of the
+Emacspeak audio desktop.  Current context is
+thus determined by the @emph{current
+buffer} ---i.e., the buffer with which the
+user is presently interacting.  The state of the
+@emph{current buffer} is continuously
+updated visually by Emacs on the
+@emph{modeline} (see the Emacs online
+tutorial for details on the visual display)---
+the status is  spoken by Emacspeak whenever
+there is a context change. You can explicitly
+request this context information using command
+@code{emacspeak-speak-mode-line};
+additional details are provided by command
+@code{emacspeak-speak-minor-mode-line}.
+
+@item @ @ Q:
+Information conveyed by 
+command @code{emacspeak-speak-mode-line}
+
+@item @ @ A:
+Command
+@code{emacspeak-speak-mode-line} is
+optimized to convey the most relevant
+information first. Different user options
+control additional status information that may
+be spoken by this command.  When possible, this
+command uses tones  and auditory
+icons to make the spoken feedback more succinct.
+Here is a brief summary listing the various
+items of status information conveyed by command
+@code{emacspeak-speak-mode-line}:
+
+@multitable @columnfractions 1
+@item
+Shell-mode The working directory is
+spoken for shell-mode buffers.
+@item
+which-function
+When @code{which-function-mode} is
+activated using command
+@code{emacspeak-toggle-which-function},
+the name of the function containing the cursor
+is spoken. This is useful in programming modes.
+@item
+mail-alert Produces an
+auditory icon indicating newly arrived mail and
+is controlled via command
+@code{emacspeak-toggle-mail-alert}.
+@item
+buffer-modified An auditory tone when the
+contents of the @emph{current}
+buffer has been modified since it was last
+saved.  
+@item
+buffer-read-only An
+auditory tone when the
+@emph{current} buffer is
+@emph{read-only}.
+@item
+buffer-name The @emph{name} of the
+current buffer.
+@item
+line-number
+Current @emph{line number} when
+@code{line-number-mode} is
+active.
+@item
+column-number Current
+@emph{column number} when
+@code{column-number-mode} is active.
+@item
+mode-name Name of the buffer's
+@emph{major mode} ---this is what
+determines @emph{specialized
+behavior} within Emacs
+buffers.
+@item
+percentage
+@emph{Percentage} of point into
+the current buffer.
+@item
+frame-info
+If more than one @emph{Emacs
+frame} is active, then the title of
+the current frame is spoken. Emacs typically
+uses multiple frames when running in a graphical
+environment.
+@item
+recursion-info
+Current recursion level when @emph{recursive
+edit} is in progress; note that you
+enter @emph{recursive edit} in
+Emacs in very few specialized
+cases.
+@end multitable
+
+@noindent
+Finally, note that
+the feedback is designed using the principle
+@emph{no news is good news}, thus,
+in many cases the absence of a cue is itself a
+cue.  As an example, Emacspeak produces an
+auditory tone only if a buffer is
+@emph{read-only} --the absence of
+the tone indicates the buffer can be editted
+which is usually the case.  Similarly, no tone
+is produced when a buffer does not need saving.
+
+@item @ @ Q:
+Information conveyed by command @code{emacspeak-speak-minor-mode-line}
+
+@item @ @ A:
+Command
+@code{emacspeak-speak-minor-mode-line}
+typically conveys additional information
+including:
+
+@multitable @columnfractions 1
+@item
+Minor modes that are active e.g.,
+@emph{voice-lock}
+@item
+Version number of files under revision control.
+@item
+Current encoding system in use.
+@end multitable
+@end table
+
+@strong{Multimedia On The Emacspeak Audio
+Desktop}
+
+@noindent
+@anchor{Multimedia On The Emacspeak Audio Desktop}
+
+@table @asis
+
+This section contains tips on using the various
+multimedia features of the Emacspeak audio
+desktop.
+
+@item @ @ Q:
+Setting State Of The Auditory Display Using AMixer
+
+@item @ @ A:
+The state of the auditory display can be set and
+updated using command
+@code{emacspeak-audio-setup}.  The
+available settings depend on the sound card in
+use. 
+
+@item @ @ Q:
+Playing audio CDs
+
+@item @ @ A:
+Emacspeak built-in command
+@code{cd-tool}
+uses the command-line tools provided by RPM package 
+cdp.
+This is convenient for  playing tracks from a CD.
+Use cdcd from within an Emacs
+shell for more complex tasks such as querying a
+CDDB database.
+
+@item @ @ Q:
+Setting up music playlists
+
+@item @ @ A:
+Application
+mplayer can play music
+listed 
+in a playlist file --typically
+such files are given the extension 
+@samp{.m3u}.
+A playlist file contains names of MP3 files, one per line.
+To create  a playlist file for use with
+mplayer,
+you might execute the following command from
+within a shell
+buffer:  
+
+@quotation
+
+
+@example
+
+            cd $HOME/music
+            find . -name '*.mp3'  > playlist.m3u
+          
+@end example
+@end quotation
+
+@item @ @ Q:
+Playing Media Streams
+
+@item @ @ A:
+Install mplayer
+-- this is an open source media player.
+Once you have this installed and configured, you can use
+Emacspeak's built-in 
+Media Player  front-end provided by module
+emacspeak-m-player.el
+to conveniently play streaming media from anywhere on the
+audio desktop --see command
+@code{emacspeak-multimedia}.
+Note that when playing a stream, you can use all the
+single-keystroke navigation commands provided by
+emacspeak-m-player
+by prefixing them with @key{C-e ;}
+from anywhere on the audio desktop; alternatively,
+you can use @key{C-e ;;} to switch to a special
+Emacs buffer that contains
+mplayer
+and then execute mplayer
+commands directly.
+
+@item @ @ Q:
+Streaming media presets
+
+@item @ @ A:
+Streaming media on the WWW is often
+well-hidden behind several mouse clicks.
+Emacspeak allows you to configure your favorite
+streams as an organized hierarchy.  The Emacspeak
+distribution comes with such a collection of
+streams I listen to on a frequent basis.  You can
+access these by using standard Emacs completion
+when prompted for a @samp{media
+Resource} by command
+@code{emacspeak-m-player}. 
+
+@item @ @ Q:
+Manipulating Digital Images        
+
+@item @ @ A:
+The ImageMagick  package provides a powerful set of image
+manipulation tools --for an excellent  overview see 
+the online article 
+@uref{http://www.ibm.com/developerworks/linux/library/l-graf/?ca=dgr-lnxw02ImageMagick,command-line graphics}
+@end table
+
+@strong{Authoring Tools}
+
+@noindent
+@anchor{Authoring Tools}
+
+This section contains tips on authoring
+structured documents for online and print
+publishing.  See the relevant section of the online
+Emacspeak manual
+for further details on 
+@uref{http://emacspeak.sourceforge.net/info/emacspeak.html#SEC31,  document authoring on the Emacspeak desktop.}
+
+@strong{Electronic Messaging}
+
+@noindent
+@anchor{Electronic Messaging}
+
+This section contains tips about electronic messaging  on
+the Emacspeak desktop.
+For further details, see the relevant section 
+of the online Emacspeak manual on 
+@uref{http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40,  electronic messaging.}
+
+@strong{Web Browsing}
+
+@noindent
+@anchor{Web Browsing}
+
+@table @asis
+
+@item @ @ Q:
+What Web Browsers Can I Use?
+
+@item @ @ A:
+There are a number of available options, none of which are completely
+satisfactory.
+Here is a summary of what is available.
+
+@enumerate 
+
+@item
+@code{eww}.
+EWW is built-in with Emacs 24.4 and later.
+Emacspeak's web-specific wizards 
+make up for many of the short-comings encountered when navigating
+complex web sites.
+
+@item
+@code{W3}.
+This is still my web browser of choice though it has sadly fallen by
+the way-side in the last few years.
+W3 lacks the features you need to interact with many commerce sites,
+but is a very flexsible and powerful solution for
+efficiently browsing content.
+Emacspeak's web-specific wizards 
+make up for many of the short-comings encountered when navigating
+complex web sites and these wizards work best with
+the W3 browser.
+Emacs command: @code{w3}.
+
+@item
+@code{Emacs W3M}
+This is a light-weight browser compared to W3 and provides an Emacs
+interface to  the  underlying
+W3M browser.
+It is a good solution for browsing content --especially on slow
+machines.
+Emacs command: @code{w3m}.
+
+@item
+@code{Lynx}.
+The oldest terminal based browser of them all.
+It's still a good solution for some interactive sites, but its lack of
+support for tables can make some sites very confusing.
+Emacspeak command: @code{emacspeak-lynx}.
+
+@item
+@code{Links}.
+This is @emph{Links} with an @emph{i} and
+not to be confused with the older Lynx browser.
+It has rudimentary Javascript support and is under active development.
+Emacspeak command: @code{emacspeak-links}.
+@end enumerate
+@end table
+
+@strong{System Management And System
+Administration}
+
+@noindent
+@anchor{System Management And System Administration}
+
+This section contains tips on managing your system.
+
+@strong{Emacspeak Utilities}
+
+@noindent
+@anchor{Emacspeak Utilities}
+
+@table @asis
+
+This section gives tips on using some of the built-in
+productivity tools bundled with Emacspeak.
+Most of these are implemented in module
+emacspeak-wizards.
+
+@item @ @ Q:
+Launch a @code{root} shell.
+
+@item @ @ A:
+@emph{Never} run Emacspeak as the
+@code{root} user.
+Instead use Emacspeak command 
+@code{emacspeak-root}
+to create a @code{root shell} after starting Emacspeak.
+
+@item @ @ Q:
+Setting shell's working directory to buffer's
+current directory
+
+@item @ @ A:
+You often find yourself switching to the shell
+buffer and then executing @code{cd} to
+switch to the directory containing the file you
+were working on.  Emacspeak wizard
+@code{emacspeak-wizards-shell-toggle}
+switches to a running shell buffer and
+automatically executes command
+@code{cd} so you are in the right
+working directory.
+
+@item @ @ Q:
+Emacspeak Clipboard
+
+@item @ @ A:
+Emacspeak provides a clipboard facility to enabling cut and
+paste across different emacspeak sessions,
+see commands
+
+@multitable @columnfractions 1
+@item
+@code{emacspeak-clipboard-copy}
+@item
+@code{emacspeak-clipboard-paste}
+@end multitable
+
+@item @ @ Q:
+Copying current file.
+
+@item @ @ A:
+Emacspeak command
+@code{emacspeak-copy-current-file}
+lets you copy the file being visited to a
+different location ---this is a convenient way of
+publishing to a  WWW server.
+
+@item @ @ Q:
+Personal telephone directory.
+
+@item @ @ A:
+Emacspeak command
+@code{emacspeak-speak-telephone-directory}
+lets you maintain a telephone directory as a simple text file.
+
+@item @ @ Q:
+Tabbulating shell command output.
+
+@item @ @ A:
+Many UNIX commands produce tabulated output,
+e.g., command @code{df} for displaying
+a disk usage summary.
+You can use Emacspeak command
+@code{emacspeak-speak-run-shell-command}
+to run such commands and have the tabular output available
+for browsing using Emacspeak's table browsing facilities.
+
+@item @ @ Q:
+Filtering  specific columns of all lines.
+
+@item @ @ A:
+This is most useful when working with log files.  Command
+@code{ emacspeak-speak-line-set-column-filter}
+enables you to filter out uninteresting columns of each
+line as it is spoken.  Note that columns are filtered out
+by making them @emph{inaudible} ---in order
+for this to take effect, @code{voice-lock}
+needs to be active in the current buffer.  You can invert
+the sense of the filter by invoking command @code{
+emacspeak-toggle-speak-line-invert-filter}.
+@end table
+
+@bye
