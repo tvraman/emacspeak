@@ -133,6 +133,7 @@
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (company-mode 1)
+  (smartparens-mode 1)
   (abbrev-mode 1))
 
 ;;}}}

@@ -1,4 +1,4 @@
-(add-hook 'prog-mode-hook #'smartparens-mode)
+
 (eval-after-load "smartparens"
   `(progn
      (require 'smartparens-config)
