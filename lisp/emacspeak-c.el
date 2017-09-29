@@ -310,8 +310,8 @@ and their meanings. ")
          (description ""))
     (setq description
           (mapconcat
-           (function (lambda (sem)
-                       (cdr (assq  sem emacspeak-c-syntactic-table))))
+           #'(lambda (sem)
+                       (cdr (assq  sem emacspeak-c-syntactic-table)))
            semantics
            " "))
     (condition-case nil
