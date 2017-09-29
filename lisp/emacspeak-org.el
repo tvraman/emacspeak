@@ -401,7 +401,7 @@
            do
            (emacspeak-keymap-update  org-mode-map k)))
 
-(add-hook 'org-mode-hook 'emacspeak-org-update-keys)
+(add-hook 'org-mode-hook #'emacspeak-org-update-keys)
 
 ;;}}}
 ;;{{{ deleting chars:
@@ -442,12 +442,10 @@
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
   (cl-declare (special org-mode-map))
-  (unless emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)))
-
-(add-hook 'org-mode-hook 'emacspeak-org-mode-setup)
-(add-hook 'orgstruct-mode-hook 'emacspeak-org-mode-setup)
+(add-hook 'org-mode-hook #'emacspeak-org-mode-setup)
+(add-hook 'orgstruct-mode-hook #'emacspeak-org-mode-setup)
 ;;; advice end-of-line here to call org specific action
 (defadvice end-of-line (after emacspeak-org pre act comp)
   "Call org specific actions in org mode."
