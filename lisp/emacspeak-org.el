@@ -443,7 +443,9 @@
   "Placed on org-mode-hook to do Emacspeak setup."
   (cl-declare (special org-mode-map))
   (when (fboundp 'org-end-of-line)
-    (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)))
+    (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)
+    (emacspeak-setup-programming-mode)))
+
 (add-hook 'org-mode-hook #'emacspeak-org-mode-setup)
 (add-hook 'orgstruct-mode-hook #'emacspeak-org-mode-setup)
 ;;; advice end-of-line here to call org specific action
