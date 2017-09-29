@@ -138,10 +138,9 @@
   (define-key emacspeak-eterm-keymap "q" 'emacspeak-eterm-toggle-review)
   (and term-raw-escape-map
        (mapcar
-        (function 
-         (lambda (key)
+        #'(lambda (key)
            (define-key term-raw-escape-map key 
-             (lookup-key (current-global-map) key))))
+             (lookup-key (current-global-map) key)))
         '("\M-x" "\C-h")))
   t)
 
