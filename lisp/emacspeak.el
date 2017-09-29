@@ -348,10 +348,9 @@ that implements the speech-enabling extensions for `package' (a string)."
                   emacspeak-use-auditory-icons
                   emacspeak-audio-indentation)))
       (mapcar
-       (function
-        (lambda (x)
+        #'(lambda (x)
           (if (not (and (boundp x) (symbol-value x)))
-              (setq vars (delq x vars))))) vars)
+              (setq vars (delq x vars))))vars)
       (reporter-submit-bug-report
        emacspeak-bug-address
        (concat "Emacspeak Version: " emacspeak-version)
