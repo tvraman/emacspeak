@@ -378,11 +378,7 @@
     (define-key calendar-mode-map "\M-s" 'emacspeak-wizards-sunrise-sunset)
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
-      'calendar-end-of-week)
-    )
-  (add-hook 'initial-calendar-window-hook
-            (function (lambda ()
-                        ))))
+      'calendar-end-of-week)))
 
                                         ;(add-hook 'calendar-initial-window-hook 'emacspeak-calendar-setup t)
 
