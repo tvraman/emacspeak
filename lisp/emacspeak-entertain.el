@@ -57,8 +57,8 @@
 (defadvice doctor-txtype (after emacspeak pre act)
   (dtk-speak
    (mapconcat
-    (function (lambda (s)
-                (format "%s" s)))
+    #'(lambda (s)
+                (format "%s" s))
     (ad-get-arg 0)
     " ")))
 
