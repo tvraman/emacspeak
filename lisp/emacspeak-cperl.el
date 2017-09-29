@@ -205,12 +205,12 @@ Otherwise cue user to the line just created. "
 ;;{{{ set up hooks 
 
 (add-hook 'cperl-mode-hook
-          (function (lambda ()
+          #'(lambda ()
                       (dtk-set-punctuations 'all)
                       (or dtk-split-caps
                           (dtk-toggle-split-caps))
                       (or emacspeak-audio-indentation
-                          (emacspeak-toggle-audio-indentation)))))
+                          (emacspeak-toggle-audio-indentation))))
 
 ;;}}}
 (provide  'emacspeak-cperl)
