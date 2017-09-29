@@ -1,4 +1,4 @@
-;;; espeak-voices.el --- Define various device independent voices in terms of Espeak tags  -*- lexical-binding: t; -*-
+;;; espeak-voices.el --- Define  Espeak tags  -*- lexical-binding: t; -*-
 ;;; Description:  Module to set up Espeak voices and personalities
 ;;; Keywords: Voice, Personality, Espeak
 ;;{{{  LCD Archive entry:
@@ -31,7 +31,10 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; This module defines the various voices used in voice-lock mode by the ESpeak TTS engine.
+
+;;; This module defines the various voices used in voice-lock mode by
+;;; the ESpeak TTS engine.
+
 
 ;;; Code:
 ;;}}}
@@ -169,13 +172,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody pitch=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -193,13 +195,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody pitch=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 26)
      (1 32.5)
@@ -217,13 +218,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody pitch=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 40)
      (1 48)
@@ -255,13 +255,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody range=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -279,13 +278,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody range=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -303,13 +301,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody range=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -351,13 +348,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "<prosody volume=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    ;;            (format " ri:%s sm:%s "
    ;;                    (cl-third setting)))))
    '(
@@ -377,12 +373,11 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table (cl-first setting)
             (format "<prosody volume=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    ;;            (format " ri:%s sm:%s "
    ;;                     (cl-second setting)
    ;;                     (cl-third setting)))))
@@ -403,12 +398,11 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table (cl-first setting)
             (format "<prosody volume=\"%s\">"
-                    (cl-second setting)))))
+                    (cl-second setting))))
    ;;            (format " ri:%s sm:%s "
    ;;                     (cl-second setting)
    ;;                     (cl-third setting)))))
@@ -497,7 +491,8 @@ and TABLE gives the values along that dimension."
   (fset 'tts-list-voices'espeak-list-voices)
   (fset 'tts-voice-defined-p 'espeak-voice-defined-p)
   (fset 'tts-get-voice-command 'espeak-get-voice-command)
-  (fset 'tts-define-voice-from-speech-style 'espeak-define-voice-from-speech-style)
+  (fset
+   'tts-define-voice-from-speech-style 'espeak-define-voice-from-speech-style)
   (setq tts-default-voice nil)
   (setq tts-default-speech-rate espeak-default-speech-rate)
   (set-default 'tts-default-speech-rate espeak-default-speech-rate)

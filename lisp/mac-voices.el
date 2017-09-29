@@ -1,4 +1,4 @@
-;;; mac-voices.el --- Define various device independent voices in terms of Mac tags  -*- lexical-binding: t; -*-
+;;; mac-voices.el --- Define  Mac tags  -*- lexical-binding: t; -*-
 ;;; $Id: mac-voices.el 6342 2009-10-20 19:12:40Z tv.raman.tv $
 ;;; $Author: Dave $
 ;;; Description:  Module to set up Mac voices and personalities
@@ -105,7 +105,9 @@ COMMAND-STRING to the TTS engine."
 ;;}}}
 ;;{{{ voice definitions
 
-;;; the nine predefined voices: TODO: figure out if embedding is possible (and update voice names).
+;;; the nine predefined voices: TODO: figure out if embedding is
+;;; possible (and update voice names).
+
 (mac-define-voice 'paul  " [{voice systemDefault}] ")
 (mac-define-voice 'harry " [{voice alex}] ")
 (mac-define-voice 'dennis " [{voice bruce}] ")
@@ -174,13 +176,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " [[pbas %s]] "
-                    (cl-second setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " [[pbas %s]] "
+                     (cl-second setting))))
    '(
      (0 1)
      (1 10)
@@ -198,13 +199,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " [[pbas %s]]"
-                    (cl-second setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " [[pbas %s]]"
+                     (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -224,13 +224,12 @@ and TABLE gives the values along that dimension."
 ;;;defalt baseline is average pitch of 81 
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format " [[pbas %s]] "
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 5)
      (1 17)
@@ -265,13 +264,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format " [[pmod %s]] "
-                    (cl-second setting)))))
+                    (cl-second setting))))
    '(
      (0 0)
      (1 14.1)
@@ -304,9 +302,8 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul stress TODO
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+   #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format " [{echo %s %s %s %s}] "
@@ -314,7 +311,7 @@ and TABLE gives the values along that dimension."
                     (cl-third setting)
                     (cl-fourth setting)
                     (cl-fifth setting)
-                    ))))
+                    )))
    '(
      (0 1 1 0.1 0.1)
      (1 1 1 10 .1)
