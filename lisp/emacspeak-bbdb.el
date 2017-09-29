@@ -57,12 +57,13 @@
 (setq bbdb-electric-p nil)
 (cl-declaim (special bbdb-mode-map))
 
-(add-hook 'bbdb-mode-hook
-          (function (lambda ()
-                      (define-key  bbdb-mode-map "b" 'bbdb)
-                      (define-key bbdb-mode-map "N" 'bbdb-name)
-                      (define-key bbdb-mode-map "c" 'bbdb-create)
-                      )))
+(add-hook
+ 'bbdb-mode-hook
+ #'(lambda ()
+     (define-key  bbdb-mode-map "b" 'bbdb)
+     (define-key bbdb-mode-map "N" 'bbdb-name)
+     (define-key bbdb-mode-map "c" 'bbdb-create)
+     ))
 
 ;;}}}
 
