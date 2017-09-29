@@ -1,4 +1,4 @@
-;;; dectalk-voices.el --- Define various device independent voices in terms of Dectalk codes  -*- lexical-binding: t; -*-
+;;; dectalk-voices.el --- Define  Dectalk codes  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module to set up Dectalk voices and personalities
@@ -217,14 +217,13 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " ap %s hs % s"
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " ap %s hs % s"
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 96 115)
      (1 101 112)
@@ -244,14 +243,13 @@ and TABLE gives the values along that dimension."
 ;;; Harry  has a big head --and a lower pitch for the middle setting
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " ap %s hs % s"
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " ap %s hs % s"
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 50 125)
      (1 59 123)
@@ -270,14 +268,13 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " ap %s hs % s"
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " ap %s hs % s"
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 160 115)
      (1 170 112)
@@ -314,14 +311,13 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " pr %s as %s "
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " pr %s as %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 0)
      (1 20 10)
@@ -340,14 +336,13 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " pr %s as %s "
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " pr %s as %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 0)
      (1 16 20)
@@ -366,26 +361,25 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " pr %s as %s "
-                    (cl-second setting)
-                    (cl-third setting)))))
-   '(
-     (0 0 0)
-     (1 50 10)
-     (2 80 20)
-     (3 100 25)
-     (4 110 30)
-     (5 140 35)
-     (6 165 57)
-     (7 190 75)
-     (8 220 87)
-     (9 250 100)
-     ))
+  (mapc
+   #'(fun
+      (lambda (setting)
+        (aset table
+              (cl-first setting)
+              (format " pr %s as %s "
+                      (cl-second setting)
+                      (cl-third setting)))))   '(
+      (0 0 0)
+      (1 50 10)
+      (2 80 20)
+      (3 100 25)
+      (4 110 30)
+      (5 140 35)
+      (6 165 57)
+      (7 190 75)
+      (8 220 87)
+      (9 250 100)
+      ))
   (dectalk-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
@@ -412,16 +406,15 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " hr %s sr %s qu %s bf %s "
-                    (cl-second setting)
-                    (cl-third setting)
-                    (cl-fourth setting)
-                    (cl-fifth setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " hr %s sr %s qu %s bf %s "
+                     (cl-second setting)
+                     (cl-third setting)
+                     (cl-fourth setting)
+                     (cl-fifth setting))))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -440,16 +433,15 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry stress
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " hr %s sr %s qu %s bf %s "
-                    (cl-second setting)
-                    (cl-third setting)
-                    (cl-fourth setting)
-                    (cl-fifth setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " hr %s sr %s qu %s bf %s "
+                     (cl-second setting)
+                     (cl-third setting)
+                     (cl-fourth setting)
+                     (cl-fifth setting))))
    '(
      (0  0 0 0 0)
      (1 4 6 2 2)
@@ -468,16 +460,15 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty stress
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " hr %s sr %s qu %s bf %s "
-                    (cl-second setting)
-                    (cl-third setting)
-                    (cl-fourth setting)
-                    (cl-fifth setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table
+             (cl-first setting)
+             (format " hr %s sr %s qu %s bf %s "
+                     (cl-second setting)
+                     (cl-third setting)
+                     (cl-fourth setting)
+                     (cl-fifth setting))))
    '(
      (0  1 1 0 0)
      (1 3 4 11 0)
@@ -509,13 +500,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table (cl-first setting)
-            (format " ri %s sm %s "
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table (cl-first setting)
+             (format " ri %s sm %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 100)
      (1 14 80)
@@ -534,13 +524,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table (cl-first setting)
-            (format " ri %s sm %s "
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table (cl-first setting)
+             (format " ri %s sm %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 100 0)
      (1 96 3)
@@ -559,13 +548,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
-      (aset table (cl-first setting)
-            (format " ri %s sm %s "
-                    (cl-second setting)
-                    (cl-third setting)))))
+  (mapc
+   #'(lambda (setting)
+       (aset table (cl-first setting)
+             (format " ri %s sm %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 100)
      (1 8 76)
@@ -637,7 +625,7 @@ and TABLE gives the values along that dimension."
 (defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (cl-declare (special  dectalk-default-speech-rate
-                     tts-default-speech-rate tts-default-voice))
+                        tts-default-speech-rate tts-default-voice))
   (setq tts-default-voice 'paul)
   (fset 'tts-list-voices 'dectalk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
