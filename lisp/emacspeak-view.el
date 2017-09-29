@@ -51,10 +51,11 @@
 
 ;;; restore emacspeak keybindings:
 (cl-declaim (special emacspeak-prefix))
-(add-hook 'view-mode-hook
-          (function (lambda ()
-                      (local-unset-key emacspeak-prefix)
-                      (emacspeak-view-setup-keys))))
+(add-hook
+ 'view-mode-hook
+ #'(lambda ()
+     (local-unset-key emacspeak-prefix)
+     (emacspeak-view-setup-keys)))
 ;;; Generate automatic advise:
 
 ;;}}}
