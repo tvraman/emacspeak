@@ -432,27 +432,27 @@ and their meanings. ")
 
 (cl-declaim (special c-mode-map
                   c-mode-base-map))
-(add-hook 'c-mode-common-hook
-          (function (lambda ()
-                      (cl-declare (special c-mode-map
-                                        c-mode-base-map))
-                      (define-key c-mode-map "\C-cs" 'emacspeak-c-speak-semantics)
-                      (define-key c-mode-map "\M-n" 'c-next-statement)
-                      (define-key c-mode-map "\M-p" 'c-previous-statement)
-                      (when (and  (boundp 'c-mode-base-map)
-                                  c-mode-base-map)
-                        (define-key c-mode-base-map
-                          "\M-\C-a" 'c-beginning-of-defun)
-                        (define-key c-mode-base-map "\M-\C-e" 'c-end-of-defun)
-                        (define-key c-mode-base-map "\C-cs" 'emacspeak-c-speak-semantics)
-                        (define-key c-mode-base-map "\M-n" 'c-next-statement)
-                        (define-key c-mode-base-map "\M-p"
-                          'c-previous-statement))
-                      (emacspeak-pronounce-toggle-use-of-dictionaries 'on)
-                      (or dtk-split-caps
-                          (dtk-toggle-split-caps))
-                      (or dtk-allcaps-beep
-                          (dtk-toggle-allcaps-beep)))))
+(add-hook
+ 'c-mode-common-hook
+ #'(lambda ()
+     (cl-declare (special c-mode-map c-mode-base-map))
+     (define-key c-mode-map "\C-cs" 'emacspeak-c-speak-semantics)
+     (define-key c-mode-map "\M-n" 'c-next-statement)
+     (define-key c-mode-map "\M-p" 'c-previous-statement)
+     (when (and  (boundp 'c-mode-base-map)
+                 c-mode-base-map)
+       (define-key c-mode-base-map
+         "\M-\C-a" 'c-beginning-of-defun)
+       (define-key c-mode-base-map "\M-\C-e" 'c-end-of-defun)
+       (define-key c-mode-base-map "\C-cs" 'emacspeak-c-speak-semantics)
+       (define-key c-mode-base-map "\M-n" 'c-next-statement)
+       (define-key c-mode-base-map "\M-p"
+         'c-previous-statement))
+     (emacspeak-pronounce-toggle-use-of-dictionaries 'on)
+     (or dtk-split-caps
+         (dtk-toggle-split-caps))
+     (or dtk-allcaps-beep
+         (dtk-toggle-allcaps-beep))))
 
 ;;}}}
 ;;{{{ personalities
