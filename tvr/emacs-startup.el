@@ -26,7 +26,8 @@
     "use-emms" "calc-prepare" "helm-prepare"                      ;helm not activated
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "projectile-prepare" "iplayer-prepare"
-    "erc-prepare" "jabber-prepare" "twittering-prepare")
+    "erc-prepare" "jabber-prepare" "twittering-prepare"
+    "default")
   "Libraries to load.")
 
 ;;}}}
