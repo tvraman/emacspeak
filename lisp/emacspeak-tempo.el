@@ -56,10 +56,11 @@
 
 (cl-declaim  (special tempo-interactive))
 (setq tempo-interactive t)
-(add-hook 'tempo-insert-string-hook
-          (function (lambda (string)
-                      (dtk-speak string)
-                      string)))
+(add-hook
+ 'tempo-insert-string-hook
+ #'(lambda (string)
+     (dtk-speak string)
+     string))
 
 ;;}}}
 ;;{{{  Advice: 
