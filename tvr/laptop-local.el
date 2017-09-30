@@ -3,4 +3,4 @@
 
 (load-library "touchpad-disable")
 (load-library "xbacklight")
-(provide 'tvr-laptop)
+(provide 'laptop-local)
