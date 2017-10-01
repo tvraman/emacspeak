@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1199 commands and 1150 options.
+This chapter documents a total of 1200 commands and 1150 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -213,14 +213,14 @@ This chapter documents a total of 1199 commands and 1150 options.
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
-* espeak-voices::Define various device independent voices in terms of Espeak tags.
+* espeak-voices::Define  Espeak tags.
 * g::Google Client.
 * g-utils::Google Client Utilities.
 * gm-nnir::
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
-* mac-voices::Define various device independent voices in terms of Mac tags.
-* outloud-voices::Define various device independent voices in terms of OutLoud tags.
+* mac-voices::Define  Mac tags.
+* outloud-voices::Define  OutLoud tags.
 * plain-voices::Define various device independent voices in terms of Plain codes.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
@@ -1495,7 +1495,6 @@ SPC		emacspeak-webspace
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 ;		emacspeak-m-player-using-openal
 B		eww-list-bookmarks
-C		apu-chars
 F		rg-dwim
 N		emacspeak-npr-listing
 a		emacspeak-wizards-term
@@ -1539,6 +1538,7 @@ b		emacspeak-bbc
 e		elfeed
 f		flyspell-mode
 g		emacspeak-google-tts-region
+h		emacspeak-m-player-from-media-history
 j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -11168,6 +11168,27 @@ Move forward by 10 seconds.
 
 @format
 Move forward by 1 minute.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-from-media-history
+@deffn {Command} emacspeak-m-player-from-media-history  (posn)
+@table @kbd
+@item C-. h
+@kindex C-. h
+@item C-' h
+@kindex C-' h
+@item C-x @@ s h
+@kindex C-x @@ s h
+@end table
+
+@findex emacspeak-m-player-from-media-history
+
+@format
+Play media from media-history.
+Numeric arg ‘posn’ specifies position in history.
+
+(fn POSN)
 @end format
 @end deffn
 
@@ -24333,7 +24354,8 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node espeak-voices
 @section espeak-voices
 
-This module defines the various voices used in voice-lock mode by the ESpeak TTS engine.
+This module defines the various voices used in voice-lock mode by
+the ESpeak TTS engine.
 
 @subsection espeak-voices Commands
 

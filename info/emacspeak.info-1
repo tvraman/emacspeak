@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 24, 2017.
+last updated on October 1, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1199 commands and 1150 options.
+This chapter documents a total of 1200 commands and 1150 options.
 
 * Menu:
 
@@ -3159,14 +3159,14 @@ This chapter documents a total of 1199 commands and 1150 options.
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
-* espeak-voices::Define various device independent voices in terms of Espeak tags.
+* espeak-voices::Define  Espeak tags.
 * g::Google Client.
 * g-utils::Google Client Utilities.
 * gm-nnir::
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
-* mac-voices::Define various device independent voices in terms of Mac tags.
-* outloud-voices::Define various device independent voices in terms of OutLoud tags.
+* mac-voices::Define  Mac tags.
+* outloud-voices::Define  OutLoud tags.
 * plain-voices::Define various device independent voices in terms of Plain codes.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
@@ -4187,7 +4187,6 @@ system.
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      ;		emacspeak-m-player-using-openal
      B		eww-list-bookmarks
-     C		apu-chars
      F		rg-dwim
      N		emacspeak-npr-listing
      a		emacspeak-wizards-term
@@ -4231,6 +4230,7 @@ system.
      e		elfeed
      f		flyspell-mode
      g		emacspeak-google-tts-region
+     h		emacspeak-m-player-from-media-history
      j		ido-imenu-anywhere
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode
