@@ -466,6 +466,8 @@ instances."
           (emacspeak-speak-line)
           (emacspeak-auditory-icon 'large-movement))
       (error "Title not found in body."))))
+(defvar emacspeak-webutils-media-history nil
+  "Store media links played from the web.")
 
 ;;;###autoload
 (defun emacspeak-webutils-play-media-at-point (&optional  playlist-p)
@@ -473,12 +475,14 @@ instances."
 Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P")
+  (cl-declare (special emacspeak-webutils-media-history))
   (let ((url
          (if emacspeak-webutils-url-at-point
              (funcall emacspeak-webutils-url-at-point)
            (browse-url-url-at-point))))
     (message "Playing media  URL under point")
     (kill-new url)
+    (push (list url (if playlist-p t nil)) emacspeak-webutils-media-history)
     (funcall  emacspeak-media-player  url  playlist-p)))
 
 (defun emacspeak-webutils-curl-play-media-at-point ()

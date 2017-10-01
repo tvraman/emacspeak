@@ -343,7 +343,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 
 (defun emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special ido-work-directory-list))
+  (cl-declare (special ido-work-directory-list ))
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
@@ -982,6 +982,22 @@ selected filter before it is applied."
   (goto-char (point-min))
   (search-forward "INS"))
 
+;;}}}
+;;{{{ Media History:
+
+;;; from emacspeak-webutils:
+
+(defvar emacspeak-webutils-media-history nil)
+
+
+(defun emacspeak-m-player-from-media-history (posn)
+  "Play media from media-history.
+Numeric arg `posn' specifies position in history."
+  (interactive "p")
+  (cl-declare (special emacspeak-webutils-media-history ))
+  (cl-assert (and emacspeak-webutils-media-history (> (length emacspeak-webutils-media-history)  posn)) nil "Not that many elements in media history")
+  (apply #'emacspeak-m-player (elt emacspeak-webutils-media-history posn)))
+  
 ;;}}}
 ;;{{{ Reset Options:
 
