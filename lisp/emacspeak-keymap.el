@@ -550,7 +550,7 @@ interactive command that the key sequence executes."
     ("S" soundscape-stop)
     ("b" emacspeak-bbc)
     ("e" elfeed)
-                                        ;("h" emacspeak-webspace-headlines-browse)
+    ("h" emacspeak-m-player-from-media-history)
     ("l" emacspeak-m-player-locate-media)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("p" proced)
