@@ -12,315 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
-
-12.144 emacspeak-pydoc
-======================
-
-PYDOC == Python Documentation Viewer
-
-12.144.1 emacspeak-pydoc Options
---------------------------------
-
- -- Variable: User Option emacspeak-pydoc-button-personality
-     Personality used for pydoc-button-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-name-personality
-     Personality used for pydoc-callable-name-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-param-personality
-     Personality used for pydoc-callable-param-face This personality
-     uses emacspeak-voice-lock-variable-name-personality whose effect
-     can be changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-class-name-link-personality
-     Personality used for pydoc-class-name-link-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-data-personality
-     Personality used for pydoc-data-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-pydoc-envvars-personality
-     Personality used for pydoc-envvars-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-package-link-personality
-     Personality used for pydoc-package-link-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-source-file-link-personality
-     Personality used for pydoc-source-file-link-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
-     Personality used for pydoc-sphinx-directive-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
-     Personality used for pydoc-sphinx-param-name-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
-     Personality used for pydoc-sphinx-param-type-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-string-personality
-     Personality used for pydoc-string-face This personality uses
-     emacspeak-voice-lock-string-personality whose effect can be changed
-     globally by customizing
-     emacspeak-voice-lock-string-personality-settings.
-
- -- Variable: User Option
-          emacspeak-pydoc-superclass-name-link-personality
-     Personality used for pydoc-superclass-name-link-face This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
-
-12.145 emacspeak-python
-=======================
-
-This speech-enables python-mode bundled with Emacs
-
-
-File: emacspeak.info,  Node: emacspeak-racket,  Next: emacspeak-re-builder,  Prev: emacspeak-python,  Up: Emacspeak Commands And Options
-
-12.146 emacspeak-racket
-=======================
-
-racket-mode implements an IDE for racket, a dialect of scheme.
-
-12.146.1 emacspeak-racket Options
----------------------------------
-
- -- Variable: User Option emacspeak-racket-check-syntax-def-personality
-     Personality used for racket-check-syntax-def-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-racket-check-syntax-use-personality
-     Personality used for racket-check-syntax-use-face This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option emacspeak-racket-here-string-personality
-     Personality used for racket-here-string-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-racket-keyword-argument-personality
-     Personality used for racket-keyword-argument-face This personality
-     uses voice-animate whose effect can be changed globally by
-     customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-racket-paren-personality
-     Personality used for racket-paren-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-racket-selfeval-personality
-     Personality used for racket-selfeval-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-redefine,  Prev: emacspeak-racket,  Up: Emacspeak Commands And Options
-
-12.147 emacspeak-re-builder
-===========================
-
-Speech-enable re-builder.  Will be used to advantage in efficiently
-setting up outline regexp wizards
-
-12.147.1 emacspeak-re-builder Options
--------------------------------------
-
- -- Variable: User Option emacspeak-reb-match-0-voice
-     Personality used for reb-match-0 This personality uses
-     voice-lock-overlay-0 whose effect can be changed globally by
-     customizing voice-lock-overlay-0-settings.
-
- -- Variable: User Option emacspeak-reb-match-1-voice
-     Personality used for reb-match-1 This personality uses
-     voice-lock-overlay-1 whose effect can be changed globally by
-     customizing voice-lock-overlay-1-settings.
-
- -- Variable: User Option emacspeak-reb-match-2-voice
-     Personality used for reb-match-2 This personality uses
-     voice-lock-overlay-2 whose effect can be changed globally by
-     customizing voice-lock-overlay-2-settings.
-
- -- Variable: User Option emacspeak-reb-match-3-voice
-     Personality used for reb-match-3 This personality uses
-     voice-lock-overlay-3 whose effect can be changed globally by
-     customizing voice-lock-overlay-3-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-reftex,  Prev: emacspeak-re-builder,  Up: Emacspeak Commands And Options
-
-12.148 emacspeak-redefine
-=========================
-
-This module redefines a few vital functions, since advising them won’t
-help.  Convention used: To redefine function fn: The original function
-will be renamed to Orig-fn.  A new function called emacspeak-fn will be
-defined.  Finally, we will fset fn to emacspeak-fn In the case of
-backward-char, forward-char, and self-insert-command mere redefinition
-of the function will not do: We will need to bind the new functions
-explicitly to the keys.
-
-12.148.1 emacspeak-redefine Commands
-------------------------------------
-
-12.148.1.1 emacspeak-backward-char
-..................................
-
- -- Command: emacspeak-backward-char (&optional arg)
-
-     Backward-char redefined to speak char moved to.
-
-     (fn &optional ARG)
-
-12.148.1.2 emacspeak-forward-char
-.................................
-
- -- Command: emacspeak-forward-char (&optional arg)
-
-     Forward-char redefined to speak char moved to.
-
-     (fn &optional ARG)
-
-12.148.1.3 emacspeak-self-insert-command
-........................................
-
- -- Command: emacspeak-self-insert-command (&optional arg)
-
-     Insert a character.
-     Speaks the character if emacspeak-character-echo is true.
-     See  command emacspeak-toggle-word-echo bound to
-     C-e d w.
-     Speech flushes as you type.
-
-     (fn &optional ARG)
-
-
-File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-redefine,  Up: Emacspeak Commands And Options
-
-12.149 emacspeak-reftex
-=======================
-
-This module speech-enables refteex – reftex is a minor mode that makes
-navigation of TeX documents possible via a table of contents buffer.
-
-
-File: emacspeak.info,  Node: emacspeak-related,  Next: emacspeak-remote,  Prev: emacspeak-reftex,  Up: Emacspeak Commands And Options
-
-12.150 emacspeak-related
-========================
-
-RELATED == Switch among related buffers (melpa).  Speech-enable
-interactive commands.
-
-
-File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rg,  Prev: emacspeak-related,  Up: Emacspeak Commands And Options
-
-12.151 emacspeak-remote
-=======================
-
-In a running emacspeak session, nuke the running server and start
-talking to a remote speech server, after prompting for host and port
-
-12.151.1 emacspeak-remote Commands
-----------------------------------
-
-12.151.1.1 emacspeak-remote-connect-to-server
-.............................................
-
- -- Command: emacspeak-remote-connect-to-server (host port)
-     ‘C-e M-r’
-     ‘<fn> M-r’
-
-     Connect to and start using remote speech server running on
-     host host and listening on port port. Host is the hostname of the
-     remote server, typically the desktop machine. Port is the tcp
-     port that that host is listening on for speech requests.
-
-     (fn HOST PORT)
-
-12.151.1.2 emacspeak-remote-edit-current-remote-hostname
-........................................................
-
- -- Command: emacspeak-remote-edit-current-remote-hostname
-
-     Interactively set up where we came from.
-     Value is persisted for use with ssh servers.
-
-12.151.1.3 emacspeak-remote-home
-................................
-
- -- Command: emacspeak-remote-home
-
-     Open ssh session to where we came from.
-     Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
-
-12.151.1.4 emacspeak-remote-quick-connect-to-server
-...................................................
-
- -- Command: emacspeak-remote-quick-connect-to-server
-     ‘C-; q’
-     ‘C-x @ h q’
-
-     Connect to remote server.
-     Does not prompt for host or port, but quietly uses the guesses
-     that appear as defaults when prompting. Use this once you are
-     sure the guesses are usually correct.
-
-12.151.1.5 emacspeak-remote-quick-connect-via-ssh
-.................................................
-
- -- Command: emacspeak-remote-quick-connect-via-ssh
-
-     Connect via ssh to remote Emacspeak server.
-     Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
-
-12.151.1.6 emacspeak-remote-ssh-to-server
-.........................................
-
- -- Command: emacspeak-remote-ssh-to-server (login host port)
-
-     Open ssh session to where we came from.
-
-     (fn LOGIN HOST PORT)
-
-12.151.2 emacspeak-remote Options
----------------------------------
-
- -- Variable: User Option emacspeak-remote-default-ssh-server
-     Default ssh server to use for remote speech server.
-
- -- Variable: User Option emacspeak-remote-hooks
-     List of hook functions that are run after emacspeak is set to run
-     as a remote application.  Use this to add actions you typically
-     perform after you enter remote mode.
-
-
 File: emacspeak.info,  Node: emacspeak-rg,  Next: emacspeak-rmail,  Prev: emacspeak-remote,  Up: Emacspeak Commands And Options
 
 12.152 emacspeak-rg
@@ -9488,4 +9179,199 @@ quickly launching everything from streaming radio stations to audio
 books.  And even better — as the Emacs community develops better and
 smarter ways of navigating the filesystem using completions, e.g.,
 package *ido*, these types of actions become even more efficient!
+
+
+File: emacspeak.info,  Node: EBooks --- Ubiquitous Access To Books,  Next: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Emacspeak At Twenty
+
+15.11 EBooks — Ubiquitous Access To Books
+=========================================
+
+AsTeR — was motivated by the increasing availability of technical
+material as online electronic documents.  While AsTeR processed the TeX
+family of markup languages, more general ebooks came in a wide range of
+formats, ranging from plain text generated from various underlying file
+formats to structured EBooks, with Project Gutenberg
+(http://www.gutenberg.org/) leading the way.  During the mid-90’s, I had
+access to a wide range of electronic materials from sources such as
+O’Reilly Publishing and various electronic journals — The Perl Journal
+(TPJ) is one that I still remember fondly.
+
+   Emacspeak provided fairly light-weight but efficient access to all of
+the electronic books I had on my local disk — Emacs’ strengths with
+respect to browsing textual documents meant that I needed to build
+little that was specific to Emacspeak.  The late 90’s saw the arrival of
+Daisy as an XML-based format for accessible electronic books.  The last
+decade has seen the rapid convergence to *epub* as a distribution format
+of choice for electronic books.  Emacspeak provides interaction modes
+that make organizing, searching and reading these materials on the
+Emacspeak Audio Desktop a pleasant experience.  Emacspeak also provides
+an OCR-Mode — this enables one to call out to an external OCR program
+and read the content efficiently.
+
+   The somewhat informal process used by publishers like O’Reilly to
+make technical material available to users with print impairments was
+later formalized by BookShare (https://www.bookshare.org/) — today,
+qualified users can obtain a large number of books and periodicals
+initially as Daisy-3 and increasingly as *EPub*.  BookShare provides a
+RESTful API for searching and downloading books; Emacspeak module
+*emacspeak-bookshare* implements this API to create a client for
+browsing the BookShare library, downloading and organizing books
+locally, and an integrated ebook reading mode to round off the
+experience.
+
+   A useful complement to this suite of tools is the Calibre package for
+organizing ones ebook collection; Emacspeak now implements an *EPub
+Interaction* mode that leverages Calibre (actually sqlite3) to search
+and browse books, along with an integrated *EPub mode* for reading
+books.
+
+
+File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
+
+15.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
+==========================================================================
+
+The ability to invoke external processes and interface with them via a
+simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
+extension points.  This means that a wide variety of computational tools
+become immediately available for embedding within the Emacs environment
+— a facility that has been widely exploited by the Emacs community.
+Over the years, Emacspeak has leveraged many of these facilities to
+provide a well-integrated auditory interface.
+
+   Starting from a tight code, eval, test form of iterative programming
+as encouraged by Lisp.  Applied to languages like Python and Ruby to
+exploratory computational tools such as R for data analysis and SQL for
+database interaction, the Emacspeak Audio Desktop has come to encompass
+a collection of rich computational tools that provide an efficient
+eyes-free experience.
+
+   In this context, module *ein* — Emacs IPython Notebooks — provides
+another excellent example of an Emacs tool that helps interface
+seamlessly with others in the technical domain.  IPython Notebooks
+provide an easy means of reaching a large audience when publishing
+technical material with interactive computational content; module *ein*
+brings the power and convenience of Emacs ’ editting facilities when
+developing the content.  Speech-enabling package *ein* is a major win
+since editting program source code in an eyes-free environment is far
+smoother in Emacs than in a browser-based editor.
+
+
+File: emacspeak.info,  Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Up: Emacspeak At Twenty
+
+15.13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
+=======================================================================================
+
+The ability to process large amounts of email and electronic news has
+always been a feature of Emacs.  I started using package *vm* for email
+in 1990, along with *gnus* for Usenet access many years before
+developing Emacspeak.  So these were the first major packages that
+Emacspeak speech-enabled.  Being able to access the underlying data
+structures used to visually render email messages and Usenet articles
+enabled Emacspeak to produce rich, succinct auditory output — this
+vastly increased my ability to consume and organize large amounts of
+information.  Toward the turn of the century, instant messaging arrived
+in the mainstream — package *tnt* provided an Emacs implementation of a
+chat client that could communicate with users on the then popular AOL
+Instant Messenger platform.  At the time, I worked at IBM Research, and
+inspired by package *tnt*, I created an Emacs client called *ChatterBox*
+using the Lotus Sametime API — this enabled me to communicate with
+colleagues at work from the comfort of Emacs.  Packages like *vm*,
+*gnus*, *tnt* and *ChatterBox* provide an interesting example of how
+availability of a clean underlying API to a specific service or content
+stream can encourage the creation of efficient (and different) user
+interfaces.  The touchstone of such successful implementations is a
+simple test — can the user of a specific interface tell if the person
+whom he is communicating with is also using the same interface?  In each
+of the examples enumerated above, a user at one end of the communication
+chain cannot tell, and in fact shouldn’t be able to tell what client the
+user at the other end is using.  Contrast this with closed services that
+have an inherent _lock-in_ model e.g., proprietary word processors that
+use undocumented serialization formats — for a fun read, see this
+write-up on Universe Of Fancy Colored Paper
+(http://emacspeak.sourceforge.net/publications/colored-paper.html).
+
+   Today, my personal choice for instant messaging is the open Jabber
+platform.  I connect to Jabber via Emacs package *emacs-jabber* and with
+Emacspeak providing a light-weight wrapper for generating the eyes-free
+interface, I can communicate seamlessly with colleagues and friends
+around the world.
+
+   As the Web evolved to encompass ever-increasing swathes of
+communication functionality that had already been available on the
+Internet, we saw the world move from Usenet groups to *Blogs* — I
+remember initially dismissing the blogging phenomenon as just a
+re-invention of Usenet in the early days.  However, mainstream users
+flocked to Blogging, and I later realized that blogging as a publishing
+platform brought along interesting features that made communicating and
+publishing information *much* easier.  In 2005, I joined Google; during
+the winter holidays that year, I implemented a light-weight client for
+Blogger that became the start of Emacs package *g-client* — this package
+provides Emacs wrappers for Google services that provide a RESTful API.
+
+
+File: emacspeak.info,  Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up --- Leveraging Evolving Web APIs,  Prev: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Up: Emacspeak At Twenty
+
+15.14 The RESTful Web — Web Wizards And URL Templates For Faster Access
+=======================================================================
+
+Today, the Web, based on URLs and HTTP-style protocols is widely
+recognized as a platform in its own right.  This platform emerged over
+time — to me, Web APIs arrived in the late 90’s when I observed the
+following with respect to my own behavior on many popular sites:
+
+  1. I opened a Web page that took a while to load (remember, I was
+     still using Emacs-W3),
+  2. I then searched through the page to find a form-field that I filled
+     out, e.g., start and end destinations on Yahoo Maps,
+  3. I hit *submit*, and once again waited for a heavy-weight HTML page
+     to load,
+  4. And finally, I hunted through the rendered content to find what I
+     was looking for.
+
+   This pattern repeated across a wide-range of interactive Web sites
+ranging from AltaVista for search (this was pre-Google), Yahoo Maps for
+directions, and Amazon for product searches to name but a few.  So I
+decided to automate away the pain by creating Emacspeak module
+*emacspeak-websearch* that did the following:
+
+  1. Prompt via the minibuffer for the requisite fields,
+  2. Consed up an HTTP GET URL,
+  3. Retrieved this URL,
+  4. And filtered out the specific portion of the HTML DOM that held the
+     generated response.
+
+   Notice that the above implementation hard-wires the CGI parameter
+names used by a given Web application into the code implemented in
+module *emacspeak-websearch*.  REST as a design pattern had not yet been
+recognized, leave alone formalized, and module *emacspeak-websearch* was
+initially criticized as being fragile.
+
+   However, over time, the CGI parameter names remained fixed — the only
+things that have required updating in the Emacspeak code-base are the
+content filtering rules that extract the response — for popular
+services, this has averaged about one to two times a year.
+
+   I later codified these filtering rules in terms of XPath, and also
+integrated XSLT-based pre-processing of incoming HTML content before it
+got handed off to Emacs-W3 — and yes, Emacs/Advice once again came in
+handy with respect to injecting XSLT pre-processing into Emacs-W3!
+
+   Later, in early 2000, I created companion module
+*emacspeak-url-templates* — partially inspired by Emacs’ *webjump*
+module.  URL templates in Emacspeak leveraged the recognized REST
+interaction pattern to provide a large collection of Web widgets that
+could be quickly invoked to provide rapid access to the right pieces of
+information on the Web.
+
+   The final icing on the cake was the arrival of RSS and Atom feeds and
+the consequent deep-linking into content-rich sites — this meant that
+Emacspeak could provide audio renderings of useful content without
+having to deal with complex visual navigation!  While Google Reader
+existed, Emacspeak provided a light-weight *greader* client for managing
+ones feed subscriptions; with the demise of Google Reader, I implemented
+module *emacspeak-feeds* for organizing feeds on the Emacspeak desktop.
+A companion package *emacspeak-webspace* implements additional goodies
+including a continuously updating ticker of headlines taken from the
+user’s collection of subscribed feeds.
 
