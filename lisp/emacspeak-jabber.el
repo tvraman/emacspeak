@@ -161,8 +161,8 @@
   "Default presence alert used by Emacspeak.
 Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
 nil)
-(add-hook
- 'jabber-alert-presence-message-function
+(setq
+ jabber-alert-presence-message-function
  #'emacspeak-jabber-presence-default-message)
 
 ;;;this is what I use as my jabber alert function:
