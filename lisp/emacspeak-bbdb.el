@@ -50,6 +50,15 @@
 ;;}}}
 ;;{{{ personalities 
 
+
+(voice-setup-add-map
+ '(
+   ( bbdb-field-name voice-monotone)
+   (bbdb-name voice-bolden)
+   (bbdb-organization voice-lighten)))
+
+
+;;}}}
 ;;{{{  Variable settings:
 
 ;;; Emacspeak will not work if bbdb is in electric mode
@@ -64,8 +73,6 @@
      (define-key bbdb-mode-map "N" 'bbdb-name)
      (define-key bbdb-mode-map "c" 'bbdb-create)
      ))
-
-;;}}}
 
 ;;}}}
 ;;{{{ Advice:
