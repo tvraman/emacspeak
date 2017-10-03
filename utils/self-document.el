@@ -336,7 +336,7 @@
     (while (not (looking-at "^@end menu"))
       (goto-char (line-beginning-position))
       (forward-char 2)
-      (when-let ((module (sexp-at-point))
+      (when-let* ((module (sexp-at-point))
                  (summary (lm-summary (locate-library (format "%s.el" module)))))
         (goto-char (line-end-position))
         (insert (format "%s." summary)))
