@@ -61,8 +61,7 @@
    (compilation-warning voice-animate)
    (compilation-mode-line-exit voice-animate)
    (compilation-mode-line-fail voice-brighten)
-   (compilation-mode-line-run voice-annotate)
-   )
+   (compilation-mode-line-run voice-annotate)))
 
  ;;}}}
  ;;{{{  functions
