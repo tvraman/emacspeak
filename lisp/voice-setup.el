@@ -460,6 +460,7 @@ command \\[customize-variable] on <personality>-settings. "
    (query-replace voice-bolden)
    (match voice-lighten)
    (isearch voice-bolden)
+(isearch-fail voice-monotone)
    (highlight voice-animate)
    (italic voice-animate)
    (match voice-animate)
