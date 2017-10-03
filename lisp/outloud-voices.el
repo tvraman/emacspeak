@@ -113,7 +113,7 @@ COMMAND-STRING to the TTS engine."
   (cl-declare (special outloud-voice-table))
   (cond
    ((listp name)
-    (mapconcat #'outloud-get-voice-command name " "))
+    (mapconcat #'outloud-get-voice-command-internal name " "))
    (t (or  (gethash name outloud-voice-table)
            outloud-default-voice-string))))
 
