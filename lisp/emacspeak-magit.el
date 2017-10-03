@@ -360,10 +360,6 @@
         (buffer-substring (line-beginning-position) (line-end-position))
         (overlay-get o 'before-string))))))
 
-
-
-
-
 (cl-loop
  for f in
  '(
@@ -376,7 +372,6 @@
      (when (ems-interactive-p)
        (emacspeak-magit-blame-speak)
        (emacspeak-auditory-icon 'large-movement)))))
-
 
 (defadvice magit-blame-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -393,8 +388,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (message "Entering Magit Blame")
-    (emacspeak-auditory-icon 'button)))
-
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice magit-diff-show-or-scroll-up (around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -410,7 +404,6 @@
           (emacspeak-speak-line)))))
    (t ad-do-it))
   ad-return-value)
-
 
 ;;}}}
 (provide 'emacspeak-magit)
