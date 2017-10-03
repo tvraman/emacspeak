@@ -995,6 +995,7 @@ selected filter before it is applied."
 Numeric arg `posn' specifies position in history."
   (interactive "p")
   (cl-declare (special emacspeak-webutils-media-history ))
+  (setq posn (1- posn))
   (cl-assert (and emacspeak-webutils-media-history (> (length emacspeak-webutils-media-history)  posn)) t "Not that many elements in media history")
   (apply #'emacspeak-m-player (elt emacspeak-webutils-media-history posn)))
   
