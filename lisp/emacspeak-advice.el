@@ -1460,19 +1460,24 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 
 ;;}}}
 ;;{{{ vc:
+(voice-setup-add-map
+ '(
+   (log-edit-header voice-bolden)
+   (log-edit-summary voice-lighten)
+   (log-edit-unknown-header voice-monotone)))
 
 ;;; helper function: find out vc version:
 
 ;;; guess the vc version number from the variable used in minor mode alist
-(defun emacspeak-vc-get-version-id ()
-  "Return VC version id."
-  (cl-declare (special vc-mode))
-  (let ((id vc-mode))
-    (cond
-     ((and vc-mode
-           (stringp vc-mode))
-      (substring id 5 nil))
-     (t " "))))
+ (defun emacspeak-vc-get-version-id ()
+   "Return VC version id."
+   (cl-declare (special vc-mode))
+   (let ((id vc-mode))
+     (cond
+      ((and vc-mode
+            (stringp vc-mode))
+       (substring id 5 nil))
+      (t " ")))))
 
 (defadvice vc-toggle-read-only (around emacspeak pre act comp)
   "Provide auditory feedback."
