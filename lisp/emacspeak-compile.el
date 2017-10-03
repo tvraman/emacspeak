@@ -63,15 +63,15 @@
    (compilation-mode-line-fail voice-brighten)
    (compilation-mode-line-run voice-annotate)))
 
- ;;}}}
- ;;{{{  functions
+;;}}}
+;;{{{  functions
 
- (defun emacspeak-compilation-speak-error ()
-   "Speech feedback about the compilation error. "
-   (interactive)
-   (let ((dtk-stop-immediately nil)
-         (emacspeak-show-point t))
-     (emacspeak-speak-line))))
+(defun emacspeak-compilation-speak-error ()
+  "Speech feedback about the compilation error. "
+  (interactive)
+  (let ((dtk-stop-immediately nil)
+        (emacspeak-show-point t))
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{  advice  interactive commands
