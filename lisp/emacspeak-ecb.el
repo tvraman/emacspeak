@@ -44,7 +44,8 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile
-  (require 'ecb "ecb" 'no-error)
+  (let ((inhibit-message  t))
+  (require 'ecb "ecb" 'no-error))
   (require 'tree-buffer "tree-buffer" 'no-error))
 ;;}}}
 ;;{{{  Introduction:
