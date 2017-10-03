@@ -537,8 +537,7 @@ Sample text to use comes from variable
   `voice-setup-sample-text'. "
   (interactive (list (and current-prefix-arg
                           (read-string "List faces matching regexp: "))))
-  (cl-declare (special voice-setup-sample-text
-                    list-faces-sample-text))
+  (cl-declare (special voice-setup-sample-text))
   (let ((list-faces-sample-text voice-setup-sample-text))
     (list-faces-display pattern)
     (message "Displayed voice-face mappings in other window.")))
