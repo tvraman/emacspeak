@@ -1469,7 +1469,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 ;;; helper function: find out vc version:
 
 ;;; guess the vc version number from the variable used in minor mode alist
- (defun emacspeak-vc-get-version-id ()
+(defun emacspeak-vc-get-version-id ()
    "Return VC version id."
    (cl-declare (special vc-mode))
    (let ((id vc-mode))
@@ -1477,7 +1477,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
       ((and vc-mode
             (stringp vc-mode))
        (substring id 5 nil))
-      (t " ")))))
+      (t " "))))
 
 (defadvice vc-toggle-read-only (around emacspeak pre act comp)
   "Provide auditory feedback."
