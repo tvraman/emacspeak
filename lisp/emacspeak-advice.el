@@ -745,6 +745,9 @@ icon."
   :type 'boolean
   :group 'emacspeak-eldoc)
 
+
+(voice-setup-map-face 'eldoc-highlight-function-argument 'voice-bolden)
+
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
  ;;; eldoc flashes message temporarily, we speak from cache."
