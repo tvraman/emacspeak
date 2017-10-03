@@ -7,6 +7,7 @@
 SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs/info
 #https://tvraman.github.io/emacspeak/manual
 GH_PAGES=../../gh-pages-emacspeak/manual
+BATCH = -batch -q -no-site-file     --eval '(setq file-name-handler-alist nil)'
 FILES=*.texi
 
 TEXINDEX=texindex
@@ -30,7 +31,7 @@ turning-twenty.info: turning-twenty.texi
 	$(MAKEINFO) turning-twenty.texi
 
 docs.texi: ../lisp/*.el
-	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
+	$(EMACS) $(BATCH) -l ../utils/self-document.el -f self-document-all-modules
 emacspeak.dvi:		emacspeak.texi
 	$(TEX) emacspeak.texi
 	$(TEX) emacspeak.texi

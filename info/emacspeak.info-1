@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 1, 2017.
+last updated on October 3, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1200 commands and 1150 options.
+This chapter documents a total of 1200 commands and 1179 options.
 
 * Menu:
 
@@ -4076,11 +4076,6 @@ system.
 12.9.2 emacspeak Options
 ------------------------
 
- -- Variable: User Option emacspeak-Buffer-menu-buffer-voice
-     Personality used for Buffer-menu-buffer This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
  -- Variable: User Option emacspeak-Info-quoted-voice
      Personality used for Info-quoted This personality uses
      voice-lighten whose effect can be changed globally by customizing
@@ -4109,6 +4104,11 @@ system.
  -- Variable: User Option emacspeak-bold-voice
      Personality used for bold This personality uses voice-bolden whose
      effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-buffer-menu-buffer-voice
+     Personality used for buffer-menu-buffer This personality uses
+     voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
 
  -- Variable: User Option emacspeak-button-voice
@@ -4465,6 +4465,12 @@ system.
      Personality used for ediff-odd-diff-C This personality uses
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
+
+ -- Variable: User Option
+          emacspeak-eldoc-highlight-function-argument-voice
+     Personality used for eldoc-highlight-function-argument This
+     personality uses voice-bolden whose effect can be changed globally
+     by customizing voice-bolden-settings.
 
  -- Variable: User Option emacspeak-elfeed-search-date-personality
      Personality used for elfeed-search-date-face This personality uses
@@ -5158,6 +5164,11 @@ system.
      whose effect can be changed globally by customizing
      voice-lighten-settings.
 
+ -- Variable: User Option emacspeak-ido-virtual-voice
+     Personality used for ido-virtual This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
  -- Variable: User Option emacspeak-info-header-node-voice
      Personality used for info-header-node This personality uses
      voice-smoothen whose effect can be changed globally by customizing
@@ -5217,6 +5228,11 @@ system.
      Personality used for info-xref This personality uses
      voice-animate-extra whose effect can be changed globally by
      customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-isearch-fail-voice
+     Personality used for isearch-fail This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
 
  -- Variable: User Option emacspeak-isearch-voice
      Personality used for isearch This personality uses voice-bolden
@@ -5392,6 +5408,21 @@ system.
      Personality used for link This personality uses voice-bolden whose
      effect can be changed globally by customizing
      voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-log-edit-header-voice
+     Personality used for log-edit-header This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-log-edit-summary-voice
+     Personality used for log-edit-summary This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-log-edit-unknown-header-voice
+     Personality used for log-edit-unknown-header This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
 
  -- Variable: User Option emacspeak-match-voice
      Personality used for match This personality uses voice-lighten
@@ -6026,6 +6057,61 @@ system.
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
 
+ -- Variable: User Option emacspeak-u-vm-color-author-personality
+     Personality used for u-vm-color-author-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
+     Personality used for u-vm-color-citation-1-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
+     Personality used for u-vm-color-citation-2-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-date-personality
+     Personality used for u-vm-color-date-face This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-header-personality
+     Personality used for u-vm-color-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-recipient-personality
+     Personality used for u-vm-color-recipient-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-signature-personality
+     Personality used for u-vm-color-signature-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
+     Personality used for u-vm-color-spamassassin-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-subject-personality
+     Personality used for u-vm-color-subject-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-time-personality
+     Personality used for u-vm-color-time-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-user-personality
+     Personality used for u-vm-color-user-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -6357,8 +6443,8 @@ Speech-enable Changelog mode
 12.12.1 emacspeak-add-log Options
 ---------------------------------
 
- -- Variable: User Option emacspeak-change-log-acknowledgement-voice
-     Personality used for change-log-acknowledgement This personality
+ -- Variable: User Option emacspeak-change-log-acknowledgment-voice
+     Personality used for change-log-acknowledgment This personality
      uses voice-smoothen whose effect can be changed globally by
      customizing voice-smoothen-settings.
 
@@ -6366,6 +6452,11 @@ Speech-enable Changelog mode
      Personality used for change-log-conditionals This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
+
+ -- Variable: User Option emacspeak-change-log-date-voice
+     Personality used for change-log-date This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
 
  -- Variable: User Option emacspeak-change-log-email-voice
      Personality used for change-log-email This personality uses
@@ -6787,6 +6878,24 @@ File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: ema
 
 Speech-enables BBDB. I have used BBDB to manage email address and
 contact information since 1991.
+
+12.22.1 emacspeak-bbdb Options
+------------------------------
+
+ -- Variable: User Option emacspeak-bbdb-field-name-voice
+     Personality used for bbdb-field-name This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-bbdb-name-voice
+     Personality used for bbdb-name This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-bbdb-organization-voice
+     Personality used for bbdb-organization This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
@@ -7264,74 +7373,4 @@ higher.
 
  -- Variable: User Option emacspeak-bookshare-xslt
      Name of bookshare XSL transform.
-
-
-File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
-
-12.26 emacspeak-browse-kill-ring
-================================
-
-Browse the kill ring using browse-kill-ring.el - interactively insert
-items from kill-ring (by Colin Walters)
-
-
-File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options
-
-12.27 emacspeak-bs
-==================
-
-speech-enable bs.el – an alternative to Emacs’ default list-buffers
-
-12.27.1 emacspeak-bs Commands
------------------------------
-
-12.27.1.1 emacspeak-bs-speak-buffer-line
-........................................
-
- -- Command: emacspeak-bs-speak-buffer-line
-
-     Speak information about this buffer
-
-
-File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: emacspeak-bs,  Up: Emacspeak Commands And Options
-
-12.28 emacspeak-buff-menu
-=========================
-
-Speech-enable buffer-menus.
-
-12.28.1 emacspeak-buff-menu Commands
-------------------------------------
-
-12.28.1.1 emacspeak-list-buffers-next-line
-..........................................
-
- -- Command: emacspeak-list-buffers-next-line (count)
-
-     Speech enabled buffer menu navigation
-
-     (fn COUNT)
-
-12.28.1.2 emacspeak-list-buffers-previous-line
-..............................................
-
- -- Command: emacspeak-list-buffers-previous-line (count)
-
-     Speech enabled buffer menu navigation
-
-     (fn COUNT)
-
-12.28.1.3 emacspeak-list-buffers-speak-buffer-line
-..................................................
-
- -- Command: emacspeak-list-buffers-speak-buffer-line
-
-     Speak information about this buffer
-
-12.28.1.4 emacspeak-list-buffers-speak-buffer-name
-..................................................
-
- -- Command: emacspeak-list-buffers-speak-buffer-name
-
-     Speak the name of the buffer on this line
 
