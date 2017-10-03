@@ -59,14 +59,17 @@
 
 (voice-setup-add-map
  '(
-   
    (paradox-name-face voice-bolden)
    (paradox-description-face voice-monotone)
    (paradox-description-face-multiline voice-monotone)
    (paradox-comment-face voice-monotone)
    (paradox-star-face voice-animate)
    (paradox-starred-face voice-bolden-and-animate)
-   ))
+   (paradox-archive-face voice-lighten)
+   (paradox-commit-tag-face voice-brighten)
+   (paradox-download- voice-smoothen)
+   (paradox-highlight-face voice-bolden)
+   ( paradox-homepage-button-face voice-bolden-medium)))
 
 ;;}}}
 ;;{{{ Additional Commands
