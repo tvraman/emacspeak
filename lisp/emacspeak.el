@@ -476,12 +476,13 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
   (cl-declare (special
-               emacspeak-pronounce-load-pronunciations-on-startup
+               emacspeak-pronounce-load-pronunciations-on-startup line-move-visual
                emacspeak-info-directory
                use-dialog-box emacspeak-pronounce-dictionaries-file
                emacspeak-play-program emacspeak-sounds-directory))
   (let ((file-name-handler-alist nil))
     (emacspeak-export-environment)
+    (setq-default line-move-visual nil)
     (setq use-dialog-box nil)
     (when (boundp 'Info-directory-list)
       (push emacspeak-info-directory Info-directory-list))
