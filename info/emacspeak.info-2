@@ -412,6 +412,39 @@ settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
 
+12.39.1 emacspeak-company Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-company-echo-common-voice
+     Personality used for company-echo-common This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-company-echo-voice
+     Personality used for company-echo This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-company-preview-common-voice
+     Personality used for company-preview-common This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option emacspeak-company-preview-search-voice
+     Personality used for company-preview-search This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-company-preview-voice
+     Personality used for company-preview This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-company-template-field-voice
+     Personality used for company-template-field This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
 
@@ -8598,53 +8631,4 @@ PYDOC == Python Documentation Viewer
      Personality used for pydoc-superclass-name-link-face This
      personality uses voice-bolden-extra whose effect can be changed
      globally by customizing voice-bolden-extra-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
-
-12.145 emacspeak-python
-=======================
-
-This speech-enables python-mode bundled with Emacs
-
-
-File: emacspeak.info,  Node: emacspeak-racket,  Next: emacspeak-re-builder,  Prev: emacspeak-python,  Up: Emacspeak Commands And Options
-
-12.146 emacspeak-racket
-=======================
-
-racket-mode implements an IDE for racket, a dialect of scheme.
-
-12.146.1 emacspeak-racket Options
----------------------------------
-
- -- Variable: User Option emacspeak-racket-check-syntax-def-personality
-     Personality used for racket-check-syntax-def-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-racket-check-syntax-use-personality
-     Personality used for racket-check-syntax-use-face This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option emacspeak-racket-here-string-personality
-     Personality used for racket-here-string-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-racket-keyword-argument-personality
-     Personality used for racket-keyword-argument-face This personality
-     uses voice-animate whose effect can be changed globally by
-     customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-racket-paren-personality
-     Personality used for racket-paren-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-racket-selfeval-personality
-     Personality used for racket-selfeval-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
 

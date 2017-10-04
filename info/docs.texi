@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1200 commands and 1168 options.
+This chapter documents a total of 1200 commands and 1187 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1776,6 +1776,12 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-custom-group-subtitle-voice
+Personality used for custom-group-subtitle
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-custom-group-tag-1-voice
 Personality used for custom-group-tag-1
 This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
@@ -1830,6 +1836,12 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-custom-themed-voice
+Personality used for custom-themed
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-custom-variable-button-voice
 Personality used for custom-variable-button
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
@@ -1839,6 +1851,12 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-custom-variable-tag-voice
 Personality used for custom-variable-tag
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-custom-visibility-voice
+Personality used for custom-visibility
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
@@ -4001,6 +4019,72 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -4124,12 +4208,6 @@ This personality uses  voice-brighten-extra whose  effect can be changed globall
 @defvar {User Option} emacspeak-voice-lock-preprocessor-personality
 Personality used for font-lock-preprocessor-face
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-lock-reference-personality
-Personality used for font-lock-reference-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -5882,6 +5960,44 @@ along with other custom settings. Function
 @code{emacspeak-company-frontend} handles providing spoken
 feedback, and leaves it to other frontends on
 @var{company-frontends}   to generate their own feedback.
+
+@subsection emacspeak-company Options
+
+@defvar {User Option} emacspeak-company-echo-common-voice
+Personality used for company-echo-common
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-company-echo-voice
+Personality used for company-echo
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-company-preview-common-voice
+Personality used for company-preview-common
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-company-preview-search-voice
+Personality used for company-preview-search
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-company-preview-voice
+Personality used for company-preview
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-company-template-field-voice
+Personality used for company-template-field
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
 
 @node emacspeak-compile
 @section emacspeak-compile

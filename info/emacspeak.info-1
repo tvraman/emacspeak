@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 3, 2017.
+last updated on October 4, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1200 commands and 1168 options.
+This chapter documents a total of 1200 commands and 1187 options.
 
 * Menu:
 
@@ -4201,6 +4201,11 @@ system.
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
 
+ -- Variable: User Option emacspeak-custom-group-subtitle-voice
+     Personality used for custom-group-subtitle This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
  -- Variable: User Option emacspeak-custom-group-tag-1-voice
      Personality used for custom-group-tag-1 This personality uses
      voice-lighten-medium whose effect can be changed globally by
@@ -4246,6 +4251,11 @@ system.
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
 
+ -- Variable: User Option emacspeak-custom-themed-voice
+     Personality used for custom-themed This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
  -- Variable: User Option emacspeak-custom-variable-button-voice
      Personality used for custom-variable-button This personality uses
      voice-animate whose effect can be changed globally by customizing
@@ -4255,6 +4265,11 @@ system.
      Personality used for custom-variable-tag This personality uses
      voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-custom-visibility-voice
+     Personality used for custom-visibility This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
 
  -- Variable: User Option emacspeak-diary-voice
      Personality used for diary This personality uses voice-bolden whose
@@ -6057,6 +6072,61 @@ system.
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
 
+ -- Variable: User Option emacspeak-u-vm-color-author-personality
+     Personality used for u-vm-color-author-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
+     Personality used for u-vm-color-citation-1-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
+     Personality used for u-vm-color-citation-2-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-date-personality
+     Personality used for u-vm-color-date-face This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-header-personality
+     Personality used for u-vm-color-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-recipient-personality
+     Personality used for u-vm-color-recipient-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-signature-personality
+     Personality used for u-vm-color-signature-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
+     Personality used for u-vm-color-spamassassin-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-subject-personality
+     Personality used for u-vm-color-subject-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-time-personality
+     Personality used for u-vm-color-time-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-user-personality
+     Personality used for u-vm-color-user-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -6164,11 +6234,6 @@ system.
      Personality used for font-lock-preprocessor-face This personality
      uses voice-monotone-medium whose effect can be changed globally by
      customizing voice-monotone-medium-settings.
-
- -- Variable: User Option emacspeak-voice-lock-reference-personality
-     Personality used for font-lock-reference-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-voice-lock-regexp-grouping-backslash
      Personality used for font-lock-regexp-grouping-backslash This

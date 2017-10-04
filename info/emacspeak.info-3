@@ -12,6 +12,55 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
+
+12.145 emacspeak-python
+=======================
+
+This speech-enables python-mode bundled with Emacs
+
+
+File: emacspeak.info,  Node: emacspeak-racket,  Next: emacspeak-re-builder,  Prev: emacspeak-python,  Up: Emacspeak Commands And Options
+
+12.146 emacspeak-racket
+=======================
+
+racket-mode implements an IDE for racket, a dialect of scheme.
+
+12.146.1 emacspeak-racket Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-racket-check-syntax-def-personality
+     Personality used for racket-check-syntax-def-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-racket-check-syntax-use-personality
+     Personality used for racket-check-syntax-use-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-racket-here-string-personality
+     Personality used for racket-here-string-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-racket-keyword-argument-personality
+     Personality used for racket-keyword-argument-face This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
+
+ -- Variable: User Option emacspeak-racket-paren-personality
+     Personality used for racket-paren-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-racket-selfeval-personality
+     Personality used for racket-selfeval-face This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-redefine,  Prev: emacspeak-racket,  Up: Emacspeak Commands And Options
 
 12.147 emacspeak-re-builder
@@ -9404,88 +9453,4 @@ organizing ones ebook collection; Emacspeak now implements an *EPub
 Interaction* mode that leverages Calibre (actually sqlite3) to search
 and browse books, along with an integrated *EPub mode* for reading
 books.
-
-
-File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
-
-15.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
-==========================================================================
-
-The ability to invoke external processes and interface with them via a
-simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
-extension points.  This means that a wide variety of computational tools
-become immediately available for embedding within the Emacs environment
-— a facility that has been widely exploited by the Emacs community.
-Over the years, Emacspeak has leveraged many of these facilities to
-provide a well-integrated auditory interface.
-
-   Starting from a tight code, eval, test form of iterative programming
-as encouraged by Lisp.  Applied to languages like Python and Ruby to
-exploratory computational tools such as R for data analysis and SQL for
-database interaction, the Emacspeak Audio Desktop has come to encompass
-a collection of rich computational tools that provide an efficient
-eyes-free experience.
-
-   In this context, module *ein* — Emacs IPython Notebooks — provides
-another excellent example of an Emacs tool that helps interface
-seamlessly with others in the technical domain.  IPython Notebooks
-provide an easy means of reaching a large audience when publishing
-technical material with interactive computational content; module *ein*
-brings the power and convenience of Emacs ’ editting facilities when
-developing the content.  Speech-enabling package *ein* is a major win
-since editting program source code in an eyes-free environment is far
-smoother in Emacs than in a browser-based editor.
-
-
-File: emacspeak.info,  Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Up: Emacspeak At Twenty
-
-15.13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
-=======================================================================================
-
-The ability to process large amounts of email and electronic news has
-always been a feature of Emacs.  I started using package *vm* for email
-in 1990, along with *gnus* for Usenet access many years before
-developing Emacspeak.  So these were the first major packages that
-Emacspeak speech-enabled.  Being able to access the underlying data
-structures used to visually render email messages and Usenet articles
-enabled Emacspeak to produce rich, succinct auditory output — this
-vastly increased my ability to consume and organize large amounts of
-information.  Toward the turn of the century, instant messaging arrived
-in the mainstream — package *tnt* provided an Emacs implementation of a
-chat client that could communicate with users on the then popular AOL
-Instant Messenger platform.  At the time, I worked at IBM Research, and
-inspired by package *tnt*, I created an Emacs client called *ChatterBox*
-using the Lotus Sametime API — this enabled me to communicate with
-colleagues at work from the comfort of Emacs.  Packages like *vm*,
-*gnus*, *tnt* and *ChatterBox* provide an interesting example of how
-availability of a clean underlying API to a specific service or content
-stream can encourage the creation of efficient (and different) user
-interfaces.  The touchstone of such successful implementations is a
-simple test — can the user of a specific interface tell if the person
-whom he is communicating with is also using the same interface?  In each
-of the examples enumerated above, a user at one end of the communication
-chain cannot tell, and in fact shouldn’t be able to tell what client the
-user at the other end is using.  Contrast this with closed services that
-have an inherent _lock-in_ model e.g., proprietary word processors that
-use undocumented serialization formats — for a fun read, see this
-write-up on Universe Of Fancy Colored Paper
-(http://emacspeak.sourceforge.net/publications/colored-paper.html).
-
-   Today, my personal choice for instant messaging is the open Jabber
-platform.  I connect to Jabber via Emacs package *emacs-jabber* and with
-Emacspeak providing a light-weight wrapper for generating the eyes-free
-interface, I can communicate seamlessly with colleagues and friends
-around the world.
-
-   As the Web evolved to encompass ever-increasing swathes of
-communication functionality that had already been available on the
-Internet, we saw the world move from Usenet groups to *Blogs* — I
-remember initially dismissing the blogging phenomenon as just a
-re-invention of Usenet in the early days.  However, mainstream users
-flocked to Blogging, and I later realized that blogging as a publishing
-platform brought along interesting features that made communicating and
-publishing information *much* easier.  In 2005, I joined Google; during
-the winter holidays that year, I implemented a light-weight client for
-Blogger that became the start of Emacs package *g-client* — this package
-provides Emacs wrappers for Google services that provide a RESTful API.
 
