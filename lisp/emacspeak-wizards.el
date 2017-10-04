@@ -3360,8 +3360,12 @@ Optional interactive prefix arg shows  unprocessed results."
 (defun emacspeak-wizards-color-at-point()
   "Echo foreground/background color at point."
   (interactive)
-  (message "%s on %s"
-           (foreground-color-at-point) (background-color-at-point)))
+  (let ((weight (faces--attribute-at-point :weight))
+        (slant (faces--attribute-at-point :slant)))
+  (message "%s %s %s on %s"
+           (if (eq 'normal weight) "" weight)
+           (if (eq 'normal slant) "" slant)
+           (foreground-color-at-point) (background-color-at-point))))
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
