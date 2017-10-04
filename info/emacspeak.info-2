@@ -8599,3 +8599,52 @@ PYDOC == Python Documentation Viewer
      personality uses voice-bolden-extra whose effect can be changed
      globally by customizing voice-bolden-extra-settings.
 
+
+File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
+
+12.145 emacspeak-python
+=======================
+
+This speech-enables python-mode bundled with Emacs
+
+
+File: emacspeak.info,  Node: emacspeak-racket,  Next: emacspeak-re-builder,  Prev: emacspeak-python,  Up: Emacspeak Commands And Options
+
+12.146 emacspeak-racket
+=======================
+
+racket-mode implements an IDE for racket, a dialect of scheme.
+
+12.146.1 emacspeak-racket Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-racket-check-syntax-def-personality
+     Personality used for racket-check-syntax-def-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-racket-check-syntax-use-personality
+     Personality used for racket-check-syntax-use-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-racket-here-string-personality
+     Personality used for racket-here-string-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-racket-keyword-argument-personality
+     Personality used for racket-keyword-argument-face This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
+
+ -- Variable: User Option emacspeak-racket-paren-personality
+     Personality used for racket-paren-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-racket-selfeval-personality
+     Personality used for racket-selfeval-face This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
