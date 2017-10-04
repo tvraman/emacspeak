@@ -60,6 +60,18 @@
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'company "company" 'no-error))
 ;;}}}
+;;{{{ map faces:
+(voice-setup-add-map
+ '(
+   (company-echo voice-bolden)
+   (company-echo-common voice-bolden-medium)
+   (company-preview voice-lighten)
+   (company-preview-common voice-lighten-medium)
+   (company-preview-search voice-brighten)
+   (company-template-field voice-smoothen)))
+   
+
+;;}}}
 ;;{{{ Helpers:
 (defun ems-company-current ()
   "Helper: Return current selection in company."
