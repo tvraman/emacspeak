@@ -364,6 +364,7 @@ Argument `k-map' is a symbol  that names a keymap."
    ("s" hs-show-block)
    ("H" hs-hide-all)
    ("S" hs-show-all)
+   ("l" hs-hide-level)
    ("i" hs-hide-initial-comment-block)))
 
 ;;}}}
