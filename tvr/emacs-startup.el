@@ -134,6 +134,7 @@
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (company-mode 1)
+(hs-minor-mode 1)
   (smartparens-mode 1)
   (abbrev-mode 1))
 
@@ -188,6 +189,7 @@
     (cl-loop ; shell wizard
      for i from 0 to 9 do
      (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
+    (global-set-key  (kbd "C-c <tab>") 'hs-toggle-hiding)
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
