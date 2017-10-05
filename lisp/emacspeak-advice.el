@@ -2267,6 +2267,7 @@ Produce an auditory icon if possible."
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map "\M-m" 'isearch-exit)
 (define-key isearch-mode-map "\C-f" 'isearch-forward-symbol-at-point)
+(define-key isearch-mode-map (kbd "C-.") 'isearch-occur)
 ;;; ISearch setup/teardown
 
 ;;; Produce auditory icon
@@ -2351,6 +2352,12 @@ Produce auditory icons if possible."
   (emacspeak-auditory-icon (if isearch-regexp 'on 'off))
   (dtk-speak
    (if isearch-regexp "Regexp search" "text search")))
+
+(defadvice isearch-occur (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Opened occur results")))
 
 ;;}}}
 ;;{{{ marking objects produces auditory icons
