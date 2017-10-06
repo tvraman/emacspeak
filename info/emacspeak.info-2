@@ -6687,6 +6687,7 @@ binds ‘s’ to this command.
      "s":    ‘hs-show-block’,
      "H":    ‘hs-hide-all’,
      "S":    ‘hs-show-all’,
+     "l":    ‘hs-hide-level’,
      "i":    ‘hs-hide-initial-comment-block’
 
      The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
