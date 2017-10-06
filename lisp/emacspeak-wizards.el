@@ -830,8 +830,13 @@ at point."
      "%s from Personality %s ;  Face %s %s"
      (if (listp s)
          (mapconcat
-          #'(lambda (s) (format "%s" (symbol-value s))) s " ")
-       (symbol-value s))
+          #'(lambda (s) (format "%s"
+                                (if (bound-and-true-p s)
+ (symbol-value s)
+ )"")) s " ")
+       (if (bound-and-true-p s)
+(symbol-value s)
+""))
      s
      f
      (if o
