@@ -826,15 +826,17 @@ at point."
                     (or (overlay-get overlay 'font-lock-face)
                         (overlay-get overlay 'face)))
                 (overlays-at (point))))))
-    (message "Personality %s with value %s;  Face %s %s"
-             s
-             (if (listp s)
-                 (mapconcat #'symbol-value s " ")
-               (symbol-value s))
-             f
-             (if o
-                 (format "Overlay Face: %s" o)
-               " "))))
+    (message
+     "%s from Personality %s ;  Face %s %s"
+     (if (listp s)
+         (mapconcat
+          #'(lambda (s) (format "%s" (symbol-value s))) s " ")
+       (symbol-value s))
+     s
+     f
+     (if o
+         (format "Overlay Face: %s" o)
+       " "))))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property)
