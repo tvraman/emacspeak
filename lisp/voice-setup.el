@@ -337,10 +337,10 @@ command \\[customize-variable] on <personality>-settings. "
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
   "Turns current voice into a monotone and speaks all punctuations.")
 
-(defvoice  voice-monotone-medium (list nil nil 1  1  nil 'all)
+(defvoice  voice-monotone-medium (list nil nil 2 2  nil 'all)
   "Turns current voice into a medium monotone.")
 
-(defvoice  voice-monotone-light (list nil nil 2 2  nil 'all)
+(defvoice  voice-monotone-light (list nil nil 4 4   nil 'all)
   "Turns current voice into a light monotone.")
 
 (defvoice voice-animate-extra (list nil 8 8 6)
@@ -370,10 +370,10 @@ command \\[customize-variable] on <personality>-settings. "
 (defvoice voice-brighten-extra (list nil nil nil 7 8)
   "Extra brighten current voice.")
 
-(defvoice voice-bolden (list nil 3 6 6  nil)
+(defvoice voice-bolden (list nil 3 6 6  6)
   "Bolden current voice.")
 
-(defvoice voice-bolden-medium (list nil 2 6 7  nil)
+(defvoice voice-bolden-medium (list nil 2 6 7  7)
   "Add medium bolden current voice.")
 
 (defvoice voice-bolden-extra (list nil 1 6 7 8)
@@ -430,11 +430,10 @@ command \\[customize-variable] on <personality>-settings. "
  '(
    (shr-link voice-bolden)
    (bold voice-bolden)
-                                        ;(variable-pitch voice-animate) ; this is often the default
    (bold-italic voice-bolden-and-animate)
-   (button voice-bolden)
-   (link voice-bolden)
-   (link-visited voice-bolden-medium)
+   (button voice-bolden-medium)
+   (link voice-bolden-medium)
+   (link-visited voice-bolden)
    (success voice-brighten-extra)
    (error voice-animate)
    (warning voice-smoothen)
@@ -448,18 +447,19 @@ command \\[customize-variable] on <personality>-settings. "
    (font-lock-constant-face voice-lighten)
    (font-lock-doc-face voice-monotone-medium)
    (font-lock-function-name-face voice-bolden-medium)
-   (font-lock-keyword-face voice-animate)
+   (font-lock-keyword-face voice-animate-extra)
    (font-lock-preprocessor-face voice-monotone-medium)
    (shadow voice-monotone-medium)
+   (file-name-shadow voice-monotone-medium)
    (font-lock-string-face voice-lighten-extra)
    (font-lock-type-face voice-smoothen)
-   (font-lock-variable-name-face voice-bolden)
+   (font-lock-variable-name-face voice-bolden-extra)
    (font-lock-warning-face voice-bolden-and-animate)
    (help-argument-name voice-smoothen)
    (query-replace voice-bolden)
    (match voice-lighten)
    (isearch voice-bolden)
-(isearch-fail voice-monotone)
+   (isearch-fail voice-monotone)
    (highlight voice-animate)
    (italic voice-animate)
    (match voice-animate)
