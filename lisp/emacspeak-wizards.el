@@ -825,8 +825,9 @@ at point."
                     (or (overlay-get overlay 'font-lock-face)
                         (overlay-get overlay 'face)))
                 (overlays-at (point))))))
-    (message "Personality %s Face %s %s"
-             (dtk-get-style)f
+    (message "Personality %s with value %s;  Face %s %s"
+             (dtk-get-style) (symbol-value (dtk-get-style))
+             f
              (if o
                  (format "Overlay Face: %s" o)
                " "))))
