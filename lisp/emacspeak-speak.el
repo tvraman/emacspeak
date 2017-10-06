@@ -935,7 +935,7 @@ with a long string of gibberish."
 ;;; Forward Declaration:
 (defvar linum-mode nil)
 
-;;;###autoload                          ;
+;;;###autoload                          
 (defun emacspeak-speak-line (&optional arg)
   "Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
