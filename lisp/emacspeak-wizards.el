@@ -818,6 +818,7 @@ at point."
   (interactive)
   (let ((f (or (get-text-property (point) 'font-lock-face)
                (get-text-property (point) 'face)))
+        (s (dtk-get-style))
         (o
          (delq nil
                (mapcar
@@ -826,7 +827,10 @@ at point."
                         (overlay-get overlay 'face)))
                 (overlays-at (point))))))
     (message "Personality %s with value %s;  Face %s %s"
-             (dtk-get-style) (symbol-value (dtk-get-style))
+             s
+             (if (listp s)
+                 (mapconcat #'symbol-value s " ")
+               (symbol-value s))
              f
              (if o
                  (format "Overlay Face: %s" o)
