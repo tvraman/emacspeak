@@ -91,8 +91,13 @@
 (defadvice hs-toggle-hiding (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (message "Toggled HideShow.")))
+    (cond
+     ((hs-already-hidden-p)
+      (emacspeak-auditory-icon 'close-object)
+      (message "Hid block"))
+     (t
+      (emacspeak-auditory-icon 'open-object)
+      (message "Exposed block")))))
 
 (defadvice hs-hide-initial-comment-block (after emacspeak pre act comp)
   "Provide auditory feedback."
