@@ -816,8 +816,9 @@ emacspeak-emergency-tts-server."
   "Show value of property personality (and possibly face)
 at point."
   (interactive)
-  (let ((f (or (get-text-property (point) 'font-lock-face)
-               (get-text-property (point) 'face)))
+  (let ((f
+         (or (get-text-property (point) 'font-lock-face)
+             (get-text-property (point) 'face)))
         (s (dtk-get-style))
         (o
          (delq nil
@@ -827,21 +828,18 @@ at point."
                         (overlay-get overlay 'face)))
                 (overlays-at (point))))))
     (message
-     "%s from Personality %s ;  Face %s %s"
-     (if (listp s)
-         (mapconcat
-          #'(lambda (s) (format "%s"
-                                (if (bound-and-true-p s)
- (symbol-value s)
- )"")) s " ")
-       (if (bound-and-true-p s)
-(symbol-value s)
-""))
-     s
+     "%s  %s   Face %s %s"
+     (cond
+      ((null s) "")
+      ((listp s)
+       (mapconcat
+        #'(lambda (s)
+            (format "%s" (if (bound-and-true-p s) (symbol-value s) "")))
+        s " "))
+      ((bound-and-true-p s) (symbol-value s)))
+     (or s "")
      f
-     (if o
-         (format "Overlay Face: %s" o)
-       " "))))
+     (if o (format "Overlay Face: %s" o) " "))))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property)
