@@ -818,8 +818,8 @@ at point."
   (interactive)
   (let ((f
          (or (get-text-property (point) 'font-lock-face)
-             (get-text-property (point) 'face)))
-        (s (dtk-get-style))
+             (get-text-property (point) 'face)))        
+        (style (dtk-get-style))
         (o
          (delq nil
                (mapcar
@@ -830,14 +830,14 @@ at point."
     (message
      "%s  %s   Face %s %s"
      (cond
-      ((null s) "")
-      ((listp s)
+      ((null style) "")
+      ((listp style)
        (mapconcat
         #'(lambda (s)
             (format "%s" (if (bound-and-true-p s) (symbol-value s) "")))
-        s " "))
-      ((bound-and-true-p s) (symbol-value s)))
-     (or s "")
+        style " "))
+      ((bound-and-true-p style) (symbol-value style)))
+     (or style "")
      f
      (if o (format "Overlay Face: %s" o) " "))))
 
