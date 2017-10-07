@@ -1616,7 +1616,8 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
     (emacspeak-auditory-icon 'help)))
 (cl-loop
  for f in
- '(describe-bindings describe-prefix-bindings isearch-describe-bindings)
+ '(
+   describe-bindings describe-prefix-bindings isearch-describe-bindings)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -1808,7 +1809,7 @@ Indicate change of selection with an auditory icon
 (cl-loop
  for f in
  '(
-   describe-function describe-variable
+   describe-function describe-variable describe-symbol
    describe-face describe-font
    describe-text-properties describe-syntax
    describe-package)
