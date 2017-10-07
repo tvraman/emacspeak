@@ -811,6 +811,7 @@ emacspeak-emergency-tts-server."
     ("auditory-icon" . "auditory-icon")
     ("action" . "action"))
   "Properties emacspeak is interested in.")
+
 ;;;###autoload
 (defun emacspeak-show-personality-at-point ()
   "Show value of property personality (and possibly face)
@@ -834,9 +835,9 @@ at point."
       ((listp style)
        (mapconcat
         #'(lambda (s)
-            (format "%s" (if (bound-and-true-p s) (symbol-value s) "")))
+            (format "%s" (if (boundp s) (symbol-value s) "")))
         style " "))
-      ((bound-and-true-p style) (symbol-value style)))
+      ((boundp style) (symbol-value style)))
      (or style "")
      f
      (if o (format "Overlay Face: %s" o) " "))))
