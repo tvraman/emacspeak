@@ -1812,7 +1812,21 @@ Indicate change of selection with an auditory icon
    describe-function describe-variable describe-symbol
    describe-face describe-font
    describe-text-properties describe-syntax
-   describe-package)
+   describe-package
+   
+   describe-char describe-char-after
+   describe-character-set
+   describe-chars-in-region
+   describe-coding-system describe-current-coding-system
+   describe-current-coding-system-briefly
+   describe-current-display-table
+   describe-distribution describe-fontset
+                            
+   describe-help-keys describe-input-method describe-language-environment
+   describe-minor-mode describe-minor-mode-from-indicator describe-minor-mode-from-symbol
+   describe-personal-keybindings
+   describe-specified-language-support
+   describe-theme)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
