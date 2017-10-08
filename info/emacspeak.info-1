@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 5, 2017.
+last updated on October 7, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1200 commands and 1176 options.
+This chapter documents a total of 1200 commands and 1177 options.
 
 * Menu:
 
@@ -4112,9 +4112,9 @@ system.
      voice-bolden-settings.
 
  -- Variable: User Option emacspeak-button-voice
-     Personality used for button This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
+     Personality used for button This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
 
  -- Variable: User Option emacspeak-c-annotation-personality
      Personality used for c-annotation-face This personality uses
@@ -4768,6 +4768,11 @@ system.
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
 
+ -- Variable: User Option emacspeak-file-name-shadow-voice
+     Personality used for file-name-shadow This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
  -- Variable: User Option emacspeak-fixed-pitch-voice
      Personality used for fixed-pitch This personality uses
      voice-monotone whose effect can be changed globally by customizing
@@ -5416,13 +5421,13 @@ system.
 
  -- Variable: User Option emacspeak-link-visited-voice
      Personality used for link-visited This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
 
  -- Variable: User Option emacspeak-link-voice
-     Personality used for link This personality uses voice-bolden whose
-     effect can be changed globally by customizing
-     voice-bolden-settings.
+     Personality used for link This personality uses voice-bolden-medium
+     whose effect can be changed globally by customizing
+     voice-bolden-medium-settings.
 
  -- Variable: User Option emacspeak-log-edit-header-voice
      Personality used for log-edit-header This personality uses
@@ -6167,8 +6172,8 @@ system.
 
  -- Variable: User Option emacspeak-voice-lock-keyword-personality
      Personality used for font-lock-keyword-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
 
  -- Variable: User Option emacspeak-voice-lock-negation-char-personality
      Personality used for font-lock-negation-char-face This personality
@@ -6202,8 +6207,8 @@ system.
 
  -- Variable: User Option emacspeak-voice-lock-variable-name-personality
      Personality used for font-lock-variable-name-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
+     uses voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
 
  -- Variable: User Option emacspeak-voice-lock-warning-personality
      Personality used for font-lock-warning-face This personality uses

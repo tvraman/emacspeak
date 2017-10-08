@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1200 commands and 1176 options.
+This chapter documents a total of 1200 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1670,7 +1670,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @defvar {User Option} emacspeak-button-voice
 Personality used for button
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 
 @end defvar
 
@@ -2454,6 +2454,12 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
+@defvar {User Option} emacspeak-file-name-shadow-voice
+Personality used for file-name-shadow
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-fixed-pitch-voice
 Personality used for fixed-pitch
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
@@ -3230,13 +3236,13 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 
 @defvar {User Option} emacspeak-link-visited-voice
 Personality used for link-visited
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
 @defvar {User Option} emacspeak-link-voice
 Personality used for link
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 
 @end defvar
 
@@ -4129,7 +4135,7 @@ This personality uses  voice-bolden-medium whose  effect can be changed globally
 
 @defvar {User Option} emacspeak-voice-lock-keyword-personality
 Personality used for font-lock-keyword-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
 
 @end defvar
 
@@ -4171,7 +4177,7 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @defvar {User Option} emacspeak-voice-lock-variable-name-personality
 Personality used for font-lock-variable-name-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 
 @end defvar
 
@@ -22514,15 +22520,6 @@ Signals end of buffer.
 
 @subsubsection emacspeak-speak-popup-messages
 @deffn {Command} emacspeak-speak-popup-messages   
-@table @kbd
-@item C-h M
-@kindex C-h M
-@item <f1> M
-@kindex <f1> M
-@item <help> M
-@kindex <help> M
-@end table
-
 @findex emacspeak-speak-popup-messages
 
 @format
