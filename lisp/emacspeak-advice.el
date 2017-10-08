@@ -1820,9 +1820,7 @@ Indicate change of selection with an auditory icon
    describe-current-display-table describe-fontset
    describe-help-keys describe-input-method describe-language-environment
    describe-minor-mode describe-minor-mode-from-indicator describe-minor-mode-from-symbol
-   describe-personal-keybindings
-   describe-specified-language-support
-   describe-theme)
+   describe-personal-keybindings describe-theme)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
