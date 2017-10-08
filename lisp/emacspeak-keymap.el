@@ -137,7 +137,7 @@
            (":" describe-help-keys)
            ("B" customize-browse)
            ("G" customize-group)
-           ("M" emacspeak-speak-popup-messages)
+           ("M" describe-minor-mode)
            ("T" emacspeak-view-notifications)
            ("M-F" find-function-at-point)
            ("M-V" find-variable-at-point)
