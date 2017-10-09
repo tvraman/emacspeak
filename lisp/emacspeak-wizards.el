@@ -3559,6 +3559,23 @@ weather for `gweb-my-address'.  "
    (message "Enabled bash completion."))))
 
 ;;}}}
+;;{{{ colors:
+
+(defun emacspeak-wizards--set-color (color)
+  "Set color as foreground or background."
+  (let ((choice (read-char "f:foreground, b:background")))
+         (cl-case choice
+           (?b (set-background-color color))
+           (?f (set-foreground-color color)))))
+
+;;;###autoload
+(defun emacspeak-wizards-colors ()
+  "Display list of colors and setup a callback to activate color
+under point as either the foreground or background color."
+  (interactive )
+  (list-colors-display nil nil '#'emacspeak-wizards--set-color))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

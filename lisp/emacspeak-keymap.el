@@ -437,6 +437,7 @@ relief."
     ("," emacspeak-wizards-shell-directory-set)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("b" battery)
+    ("c" emacspeak-wizards-colors)
     ("e" emacspeak-we-xsl-map)
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
@@ -478,10 +479,11 @@ interactive command that the key sequence executes."
            (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
            (emacspeak-keymap-bindings-update emacspeak-personal-keymap val)
-           (set-default sym
-                        (sort
-                         val
-                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
+           (set-default
+            sym
+            (sort
+             val
+             #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
 
