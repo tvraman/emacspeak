@@ -8,7 +8,7 @@ This manual documents @strong{Emacspeak, The Complete Audio Desktop}
 and  was last updated on @today{}.
 
 @ifinfo 
-The manual is divided into the following chapters. 
+The manual is divided into the following chapters:
 @end ifinfo
 
 @menu
