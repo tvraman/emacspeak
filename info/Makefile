@@ -37,6 +37,10 @@ docs.texi: ../lisp/*.el
 
 emacspeak.pdf: emacspeak.texi docs.texi
 	makeinfo --pdf emacspeak.texi
+	\rm emacspeak.aux emacspeak.cp emacspeak.cps emacspeak.fn \
+emacspeak.fns emacspeak.ky emacspeak.kys emacspeak.log \
+emacspeak.pg emacspeak.toc emacspeak.tp emacspeak.vr emacspeak.vrs
+
 man: emacspeak.texi 
 	makeinfo -o ${GH_PAGES}  --html  ${CSS} emacspeak.texi
 	tidy -q -utf8 -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
