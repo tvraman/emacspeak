@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1200 commands and 1177 options.
+This chapter documents a total of 1201 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1319,6 +1319,7 @@ x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
 x Q		emacspeak-wizards-yql-lookup
 x b		battery
+x c		emacspeak-wizards-colors
 x e		emacspeak-we-xsl-map
 x h		emacspeak-wizards-how-many-matches
 x i		ibuffer
@@ -22778,6 +22779,23 @@ Cleans up duplicates in shell path env variable.
 
 @format
 Echo foreground/background color at point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-colors
+@deffn {Command} emacspeak-wizards-colors   
+@table @kbd
+@item C-e x c
+@kindex C-e x c
+@item <fn> x c
+@kindex <fn> x c
+@end table
+
+@findex emacspeak-wizards-colors
+
+@format
+Display list of colors and setup a callback to activate color
+under point as either the foreground or background color.
 @end format
 @end deffn
 
