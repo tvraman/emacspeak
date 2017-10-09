@@ -1,4 +1,3 @@
-acknowledgement
 acss
 ACSS
 addons
@@ -119,7 +118,6 @@ cmuscheme
 CNet
 CNET
 CNNPodCasts
-codecs
 comint
 cp
 cpan
@@ -160,7 +158,6 @@ DIRNAME
 dl
 dmacro
 Dmacro
-DMacro
 dnd
 docbook
 DocBook
@@ -191,7 +188,6 @@ ediary
 ediff
 Ediff
 editting
-Editting
 edmacro
 eflite
 ein
@@ -353,7 +349,6 @@ JS
 jsdoc
 jss
 JSS
-ju
 kbd
 kcbsFM
 keybinding
@@ -379,7 +374,6 @@ libxml
 libxsl
 libxslt
 linearize
-linearized
 Linearizing
 liquidsoap
 litable
@@ -409,13 +403,11 @@ metadata
 metapost
 minibuffer
 Minibuffer
-misconfiguration
 mistyped
 mlb
 MLB
 mml
 modality
-modeline
 mouseover
 mplayer
 MPlayer
@@ -461,7 +453,6 @@ opml
 OPML
 OReilly
 O'Reilly
-OrigamiProvide
 OSS
 outliner
 outloud
@@ -472,7 +463,9 @@ owindow
 paplay
 param
 parametrized
+paredit
 paren
+Parens
 pathname
 pdf
 PDF
@@ -492,6 +485,7 @@ playlists
 popup
 POPUP
 pos
+posn
 ppt
 PPT
 ppthtml
@@ -586,6 +580,9 @@ sigbegone
 sigs
 situationally
 sldb
+smartparens
+SmartParens
+SMARTPARENS
 smil
 smoothen
 Smoothen
@@ -682,9 +679,7 @@ unescape
 unhex
 unifont
 unmapped
-unnests
 unraised
-unselected
 untabify
 untranscode
 untrusted

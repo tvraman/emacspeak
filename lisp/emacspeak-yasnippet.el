@@ -40,7 +40,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; YASNIPPET ==  Template based editting using snippets.
+;;; YASNIPPET ==  Template based editing using snippets.
 
 ;;; Code:
 
