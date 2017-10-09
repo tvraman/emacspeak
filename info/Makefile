@@ -33,29 +33,10 @@ turning-twenty.info: turning-twenty.texi
 
 docs.texi: ../lisp/*.el
 	$(EMACS) $(BATCH) -l ../utils/self-document.el -f self-document-all-modules
-emacspeak.dvi:		emacspeak.texi
-	$(TEX) emacspeak.texi
-	$(TEX) emacspeak.texi
-	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr
-	$(TEX) emacspeak.texi
-	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
-		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
-		emacspeak.log emacspeak.toc emacspeak.aux
-pdf: emacspeak.pdf
 
-emacspeak.pdf:		emacspeak.texi docs.texi
-	$(PDFTEX) emacspeak.texi
-	$(PDFTEX) emacspeak.texi	
-	$(TEXINDEX) emacspeak.cp  emacspeak.fn  emacspeak.ky emacspeak.pg  emacspeak.tp  emacspeak.vr
-	$(PDFTEX) emacspeak.texi
-	$(PDFTEX) emacspeak.texi
-	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
-		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
-		emacspeak.log emacspeak.toc emacspeak.aux
 
-print: emacspeak.dvi
-	dvips emacspeak.dvi
-
+emacspeak.pdf: emacspeak.texi docs.texi
+	makeinfo --pdf emacspeak.texi
 man: emacspeak.texi 
 	makeinfo -o ${GH_PAGES}  --html  ${CSS} emacspeak.texi
 	tidy -q -utf8 -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
@@ -74,12 +55,8 @@ pub:  html/index.html introducing-emacspeak.html
 
 %.pdf: %.ps
 	ps2pdf    $<
-
-%.ps: %.dvi
-	@dvips -q   -Pwww  $< 2>&1  > /dev/null 
-
 clean: 
-	\rm *.info || echo "all clean"
+	\rm *.info *.pdf || echo "all clean"
 
 spell:
 	@mv .spell.words .spell.tex
