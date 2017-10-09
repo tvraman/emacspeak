@@ -11,11 +11,9 @@ BATCH = -batch -q -no-site-file     \
 --eval '(setq file-name-handler-alist nil gc-cons-threshold 128000000)'
 FILES=*.texi
 
-TEXINDEX=texindex
+
 MAKEINFO = makeinfo 
 CSS=--css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
-TEX=tex
-PDFTEX=pdftex
 EMACS=emacs
 
 all: info  introducing-emacspeak.info turning-twenty.info emacspeak.pdf
@@ -33,7 +31,6 @@ turning-twenty.info: turning-twenty.texi
 
 docs.texi: ../lisp/*.el
 	$(EMACS) $(BATCH) -l ../utils/self-document.el -f self-document-all-modules
-
 
 emacspeak.pdf: emacspeak.texi docs.texi
 	makeinfo --pdf emacspeak.texi
@@ -57,8 +54,7 @@ pub:  html/index.html introducing-emacspeak.html
 	rsync introducing-emacspeak.html ${SF_HOME}
 	rsync -avz  html ${SF_HOME}/info/
 
-%.pdf: %.ps
-	ps2pdf    $<
+
 clean: 
 	\rm *.info *.pdf || echo "all clean"
 
