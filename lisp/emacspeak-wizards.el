@@ -3566,7 +3566,9 @@ weather for `gweb-my-address'.  "
   (let ((choice (read-char "f:foreground, b:background")))
          (cl-case choice
            (?b (set-background-color color))
-           (?f (set-foreground-color color)))))
+           (?f (set-foreground-color color)))
+         (call-interactively #'emacspeak-wizards-color-at-point)))
+
 
 ;;;###autoload
 (defun emacspeak-wizards-colors ()
