@@ -3567,6 +3567,7 @@ weather for `gweb-my-address'.  "
          (cl-case choice
            (?b (set-background-color color))
            (?f (set-foreground-color color)))
+         (emacspeak-auditory-icon 'select-object)
          (call-interactively #'emacspeak-wizards-color-at-point)))
 
 
