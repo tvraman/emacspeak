@@ -429,25 +429,25 @@ specifies the current pronunciation mode --- See
            ((= 10  (char-after (match-beginning 0))) ; newline
             (replace-match " "))
            ((= ?| (char-after (match-beginning 0)))
-            (replace-match " pipe "))
+            (replace-match " pipe " nil t))
            ((= ?< (char-after (match-beginning 0)))
-            (replace-match " less than "))
+            (replace-match " less than " nil t))
            ((= ?> (char-after (match-beginning 0)))
-            (replace-match " greater than "))
+            (replace-match " greater than " nil t))
            ((= ?{ (char-after (match-beginning 0)))
-            (replace-match " left brace "))
+            (replace-match " left brace " nil t))
            ((= ?} (char-after (match-beginning 0)))
-            (replace-match " right brace "))
+            (replace-match " right brace " nil t))
            ((=  ?\] (char-after (match-beginning 0)))
-            (replace-match " right bracket "))
+            (replace-match " right bracket " nil t))
            ((= ?\[ (char-after  (match-beginning 0)))
-            (replace-match " left bracket "))
+            (replace-match " left bracket " nil t))
            ((= ?\\ (char-after (match-beginning 0)))
-            (replace-match " backslash "))
+            (replace-match " backslash " nil t))
            ((= ?# (char-after (match-beginning 0)))
-            (replace-match " pound "))
+            (replace-match " pound " nil t))
            ((= ?` (char-after (match-beginning 0)))
-            (replace-match " backquote ")))
+            (replace-match " backquote " nil t)))
           (when personality
             (put-text-property start (point)
                                'personality personality)))))
@@ -486,8 +486,8 @@ Set this once per emacspeak session for efficiency.")
       (while (re-search-forward dtk-octal-chars nil t)
         (setq char (char-after (match-beginning 0)))
         (replace-match
-         (format " %s " (aref  dtk-character-to-speech-table
-                               char))))))))
+         (format " %s " (aref  dtk-character-to-speech-table char))
+         nil t))))))
 
 ;;; Takes a string, and replaces occurences of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -540,7 +540,7 @@ Argument MODE  specifies the current pronunciation mode."
   (goto-char (point-min))
   (cond
    ((eq mode 'all)
-    (while (search-forward  dtk-null-char nil t) (replace-match " control at ")))
+    (while (search-forward  dtk-null-char nil t) (replace-match " control at " nil t)))
    (t (while (search-forward  dtk-null-char nil t) (replace-match "")))))
 
 (defun  dtk-quote(mode)
@@ -555,7 +555,7 @@ Argument MODE  specifies the current pronunciation mode."
   "Quote backslash characters as appropriate."
   (goto-char (point-min))
   (while (search-forward "\\" nil t)
-    (replace-match " backslash ")))
+    (replace-match " backslash " nil t)))
 
 ;;; Moving  across a chunk of text.
 ;;; A chunk  is specified by a punctuation followed by whitespace

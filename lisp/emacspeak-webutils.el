@@ -151,7 +151,7 @@ Note that the Web browser should reset this hook after using it.")
                  (replacement (cdr entry)))
              (goto-char start)
              (while (search-forward entity end t)
-               (replace-match replacement)))))
+               (replace-match replacement nil t)))))
 
 (defun emacspeak-webutils-supported-p ()
   "Check if this is a supported browser."

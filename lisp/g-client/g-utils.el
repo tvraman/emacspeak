@@ -229,7 +229,7 @@ Customize this to live on your local disk."
                    (replacement (cdr entry)))
                (goto-char start)
                (while (search-forward entity end t)
-                 (replace-match replacement))))))
+                 (replace-match replacement nil t))))))
 
 (defun g-html-escape-region (start end)
   "Escape HTML entities."
@@ -241,7 +241,7 @@ Customize this to live on your local disk."
                    (replacement (car entry)))
                (goto-char start)
                (while (search-forward entity end t)
-                 (replace-match replacement))))))
+                 (replace-match replacement nil t))))))
 
 ;;}}}
 ;;{{{ json conveniences:

@@ -2490,7 +2490,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
     (delete-blank-lines)
     (goto-char (point-min))
     (while (re-search-forward "^;+ ?" nil t)
-      (replace-match "" nil nil))
+      (replace-match "" nil t))
     (buffer-string)))
 
 ;;;###autoload
