@@ -517,7 +517,7 @@ Argument MODE  specifies the current pronunciation mode."
                         (if (string-equal " " pattern)
                             " space " string))
               ""))
-      (replace-match replacement)
+      (replace-match replacement nil t)
       (setq start (- (point) (length replacement)))
       (when personality
         (put-text-property start (point)
