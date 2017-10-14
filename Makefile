@@ -89,11 +89,12 @@ config:
 
 all: emacspeak
 
-#clean, config and build
+#clean, config and build (development)
 q:
 	make clean
 	make config 
-	make 
+	make
+	cd lisp && make muggles 
 
 # }}}
 # {{{  user level target-- clean
