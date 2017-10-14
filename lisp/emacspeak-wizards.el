@@ -3367,6 +3367,33 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;}}}
 ;;{{{ Color at point:
+
+(defun emacspeak-wizards-frame-colors ()
+  "Display frame's foreground/background color seetting."
+  (interactive)
+  (message "%s on %s"
+(frame-parameter (selected-frame) 'foreground-color)
+(frame-parameter (selected-frame) 'background-color)))
+
+
+
+(defun emacspeak-wizards--set-color (color)
+  "Set color as foreground or background."
+  (let ((choice (read-char "f:foreground, b:background")))
+         (cl-case choice
+           (?b (set-background-color color))
+           (?f (set-foreground-color color)))
+         (emacspeak-auditory-icon 'select-object)
+         (call-interactively #'emacspeak-wizards-frame-colors)))
+
+
+;;;###autoload
+(defun emacspeak-wizards-colors ()
+  "Display list of colors and setup a callback to activate color
+under point as either the foreground or background color."
+  (interactive )
+  (list-colors-display nil nil '#'emacspeak-wizards--set-color))
+
 ;;;###autoload
 (defun emacspeak-wizards-color-at-point()
   "Echo foreground/background color at point."
@@ -3560,23 +3587,6 @@ weather for `gweb-my-address'.  "
 
 ;;}}}
 ;;{{{ colors:
-
-(defun emacspeak-wizards--set-color (color)
-  "Set color as foreground or background."
-  (let ((choice (read-char "f:foreground, b:background")))
-         (cl-case choice
-           (?b (set-background-color color))
-           (?f (set-foreground-color color)))
-         (emacspeak-auditory-icon 'select-object)
-         (call-interactively #'emacspeak-wizards-color-at-point)))
-
-
-;;;###autoload
-(defun emacspeak-wizards-colors ()
-  "Display list of colors and setup a callback to activate color
-under point as either the foreground or background color."
-  (interactive )
-  (list-colors-display nil nil '#'emacspeak-wizards--set-color))
 
 ;;}}}
 (provide 'emacspeak-wizards)
