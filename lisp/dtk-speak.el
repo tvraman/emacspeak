@@ -513,8 +513,7 @@ Argument MODE  specifies the current pronunciation mode."
       (setq replacement
             (if  (eq 'all  mode)
                 (format " aw %s %s"
-                        (/ (- (match-end 0) (match-beginning 0))
-                           len)
+                        (/ (- (match-end 0) (match-beginning 0)) len)
                         (if (string-equal " " pattern)
                             " space " string))
               ""))
