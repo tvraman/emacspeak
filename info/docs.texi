@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1201 commands and 1177 options.
+This chapter documents a total of 1202 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -23152,6 +23152,15 @@ for ‘word’ and replace it with correction.
 Use with caution.
 
 (fn EXT WORD CORRECTION)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-frame-colors
+@deffn {Command} emacspeak-wizards-frame-colors   
+@findex emacspeak-wizards-frame-colors
+
+@format
+Display frame’s foreground/background color seetting.
 @end format
 @end deffn
 
