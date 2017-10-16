@@ -64,13 +64,15 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
+(require 'name-this-color  "name-this-color" 'no-error)
 (eval-when-compile
   (require 'gweb)
   (require 'shell)
   (require 'calendar)
   (require 'cus-edit)
   (require 'org)
-  (require 'solar))
+  (require 'solar)
+  )
 ;;}}}
 ;;{{{ custom
 
@@ -3368,14 +3370,24 @@ Optional interactive prefix arg shows  unprocessed results."
 ;;}}}
 ;;{{{ Color at point:
 
+(defun ems--hex-color (color)
+  "Return Hex value for color."
+  (apply #'color-rgb-to-hex (append (color-name-to-rgb color) '(2))))
+
+(defun ems--name-color (color)
+  "Return a meaningful color-name using name-this-color if available.
+Otherwise just return  `color'."
+  (interactive "P")
+  (cond
+   ((fboundp 'ntc-name-this-color)(ntc-name-this-color color))
+   (t color)))
+
 (defun emacspeak-wizards-frame-colors ()
   "Display frame's foreground/background color seetting."
   (interactive)
   (message "%s on %s"
-(frame-parameter (selected-frame) 'foreground-color)
-(frame-parameter (selected-frame) 'background-color)))
-
-
+           (ems--name-color (frame-parameter (selected-frame) 'foreground-color))
+           (ems--name-color (frame-parameter (selected-frame) 'background-color))))
 
 (defun emacspeak-wizards--set-color (color)
   "Set color as foreground or background."
@@ -3385,7 +3397,6 @@ Optional interactive prefix arg shows  unprocessed results."
            (?f (set-foreground-color color)))
          (emacspeak-auditory-icon 'select-object)
          (call-interactively #'emacspeak-wizards-frame-colors)))
-
 
 ;;;###autoload
 (defun emacspeak-wizards-colors ()
@@ -3405,7 +3416,8 @@ under point as either the foreground or background color."
              (if family family "")
              (if (eq 'normal weight) "" weight)
              (if (eq 'normal slant) "" slant)
-             (foreground-color-at-point) (background-color-at-point))))
+             (ems--name-color (foreground-color-at-point))
+             (ems--name-color (background-color-at-point)))))
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
@@ -3584,9 +3596,6 @@ weather for `gweb-my-address'.  "
     (setq comint-dynamic-complete-functions shell-dynamic-complete-functions)
     (emacspeak-auditory-icon 'on)
    (message "Enabled bash completion."))))
-
-;;}}}
-;;{{{ colors:
 
 ;;}}}
 (provide 'emacspeak-wizards)
