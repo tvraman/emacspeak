@@ -154,7 +154,7 @@ hook."
 
 ;;;###autoload
 (defcustom tts-notification-device
-  (cl-first (split-string (shell-command-to-string  "aplay -L | grep mono")))
+  (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))
   "Virtual ALSA device to use for notifications stream."
   :type 'string
   :group 'tts)
