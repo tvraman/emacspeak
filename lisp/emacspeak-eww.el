@@ -611,6 +611,7 @@ are available are cued by an auditory icon on the header line."
    for binding  in
    '(
      (":" emacspeak-eww-tags-at-point)
+     ("\"" emacspeak-eww-reading-settings) 
      ("V" eww-view-source)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
@@ -2029,6 +2030,18 @@ interactive prefix arg `delete', delete that mark instead."
   (when (file-exists-p emacspeak-eww-marks-file)
     (load-file emacspeak-eww-marks-file)
     (setq emacspeak-eww-marks-loaded-p t)))
+
+;;}}}
+;;{{{ quick setup for reading:
+
+(defun emacspeak-eww-reading-settings  ()
+  "Setup speech-rate, punctuation and split-caps for reading prose."
+  (interactive)
+  (cl-declare (special dtk-speech-rate-base dtk-speech-rate-step))
+  (dtk-set-rate (+ dtk-speech-rate-base (* dtk-speech-rate-step  3)))
+  (dtk-set-punctuations 'some)
+  (when dtk-split-caps(dtk-toggle-split-caps))
+  (message "Activated reading settings"))
 
 ;;}}}
 (provide 'emacspeak-eww)
