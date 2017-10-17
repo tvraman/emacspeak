@@ -3369,6 +3369,11 @@ Optional interactive prefix arg shows  unprocessed results."
 
 ;;}}}
 ;;{{{ Color at point:
+(defun ems--color-diff (c1 c2)
+  "Color difference"
+  (color-cie-de2000
+   (apply #'color-srgb-to-lab (color-name-to-rgb c1))
+   (apply #'color-srgb-to-lab (color-name-to-rgb c2))))
 
 (defun ems--hex-color (color)
   "Return Hex value for color."
