@@ -3374,7 +3374,16 @@ Optional interactive prefix arg shows  unprocessed results."
   (color-cie-de2000
    (apply #'color-srgb-to-lab (color-name-to-rgb c1))
    (apply #'color-srgb-to-lab (color-name-to-rgb c2))))
-
+;;;###autoload
+(defun emacspeak-wizards-color-diff-at-point ()
+  "Meaningfully speak difference between background and foreground color at point."
+  (interactive)
+  (let* ((fg (foreground-color-at-point))
+        (bg (background-color-at-point))
+        (diff (ems--color-diff fg bg)))
+    (message "Color distance is %.2f between %s and %s" diff fg bg)))
+  
+  )
 (defun ems--hex-color (color)
   "Return Hex value for color."
   (apply #'color-rgb-to-hex (append (color-name-to-rgb color) '(2))))
