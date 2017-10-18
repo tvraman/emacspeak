@@ -553,8 +553,11 @@ Optional second arg as-html processes the results as HTML rather than data."
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?g 'google)
 (emacspeak-websearch-set-key ?i 'google-with-toolbelt)
+(emacspeak-websearch-set-key ?g 'google)
 (emacspeak-websearch-set-searcher 'google-with-toolbelt
                                   'emacspeak-websearch-google-with-toolbelt)
+(emacspeak-websearch-set-key ?m 'google-mobile)
+(emacspeak-websearch-set-searcher 'google-mobile 'emacspeak-websearch-google-mobile)
 ;;;###autoload
 (defcustom emacspeak-websearch-google-number-of-results 25
   "Number of results to return from google search."
@@ -623,6 +626,44 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
       (emacspeak-we-extract-by-id-list
        '("center_col" "nav" "rhs_block")
        search-url 'speak)))))
+
+;;;###autoload
+(defun emacspeak-websearch-google-mobile (query &optional flag)
+  "Perform a Google Mobile search.  First optional interactive prefix arg
+`flag' prompts for additional search options. Second interactive
+prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
+  (interactive (list (gweb-google-autocomplete) current-prefix-arg))
+  (cl-declare (special emacspeak-google-query emacspeak-google-toolbelt
+                    emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
+  (setq emacspeak-google-toolbelt nil)
+  (let ((toolbelt (emacspeak-google-toolbelt))
+        (emacspeak-websearch-google-options "&deb=0mobile")
+        (search-url nil)
+        (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
+        (lucky (and flag  (consp flag) (= 16 (car flag)))))
+    (emacspeak-webutils-cache-google-query query)
+    (emacspeak-webutils-cache-google-toolbelt toolbelt)
+    (if lucky
+        (emacspeak-webutils-autospeak)
+      (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
+    (setq search-url
+          (concat
+           (emacspeak-websearch-google-uri)
+           query
+           (format "&num=%s%s"          ; acumulate options
+                   emacspeak-websearch-google-number-of-results
+                   (or emacspeak-websearch-google-options ""))
+           (when lucky
+             (concat
+              "&btnI="
+              (emacspeak-url-encode "I'm Feeling Lucky")))))
+    (cond
+     (add-toolbelt (emacspeak-google-toolbelt-change))
+     (lucky (browse-url search-url))
+     (t                                 ; always just show results
+      (emacspeak-we-extract-by-id-list
+       '("center_col" "nav" "rhs_block")
+       search-url 'speak))))) 
 
 ;;{{{ IMFA
 
