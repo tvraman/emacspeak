@@ -633,37 +633,10 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
 `flag' prompts for additional search options. Second interactive
 prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   (interactive (list (gweb-google-autocomplete) current-prefix-arg))
-  (cl-declare (special emacspeak-google-query emacspeak-google-toolbelt
-                    emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
-  (setq emacspeak-google-toolbelt nil)
-  (let ((toolbelt (emacspeak-google-toolbelt))
-        (emacspeak-websearch-google-options "&deb=0mobile")
-        (search-url nil)
-        (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
-        (lucky (and flag  (consp flag) (= 16 (car flag)))))
-    (emacspeak-webutils-cache-google-query query)
-    (emacspeak-webutils-cache-google-toolbelt toolbelt)
-    (if lucky
-        (emacspeak-webutils-autospeak)
-      (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
-    (setq search-url
-          (concat
-           (emacspeak-websearch-google-uri)
-           query
-           (format "&num=%s%s"          ; acumulate options
-                   emacspeak-websearch-google-number-of-results
-                   (or emacspeak-websearch-google-options ""))
-           (when lucky
-             (concat
-              "&btnI="
-              (emacspeak-url-encode "I'm Feeling Lucky")))))
-    (cond
-     (add-toolbelt (emacspeak-google-toolbelt-change))
-     (lucky (browse-url search-url))
-     (t                                 ; always just show results
-      (emacspeak-we-extract-by-id-list
-       '("center_col" "nav" "rhs_block")
-       search-url 'speak))))) 
+  (cl-declare (special emacspeak-websearch-google-options))
+  (let ((emacspeak-websearch-google-options "&deb=0mobile"))
+    (funcall-interactively #'emacspeak-websearch-google query flag )))
+    
 
 ;;{{{ IMFA
 
