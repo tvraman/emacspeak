@@ -155,6 +155,7 @@
            ("TAB" emacspeak-info-wizard)
            ("C-<tab>" emacs-index-search)
            ("'" describe-text-properties)
+           ("\"" voice-setup-list-voices)
            ("," emacspeak-wizards-color-at-point)
            ("\\" emacspeak-wizards-color-diff-at-point)
            ("/" describe-face)
