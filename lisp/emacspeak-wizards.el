@@ -3383,11 +3383,11 @@ Optional interactive prefix arg shows  unprocessed results."
         (diff (ems--color-diff fg bg)))
     (message "Color distance is %.2f between %s and %s" diff fg bg)))
   
-(defun ems--hex-color (color)
+(defun ems--color-hex (color)
   "Return Hex value for color."
   (apply #'color-rgb-to-hex (append (color-name-to-rgb color) '(2))))
 
-(defun ems--name-color (color)
+(defun ems--color-name (color)
   "Return a meaningful color-name using name-this-color if available.
 Otherwise just return  `color'."
   (interactive "P")
@@ -3399,8 +3399,8 @@ Otherwise just return  `color'."
   "Display frame's foreground/background color seetting."
   (interactive)
   (message "%s on %s"
-           (ems--name-color (frame-parameter (selected-frame) 'foreground-color))
-           (ems--name-color (frame-parameter (selected-frame) 'background-color))))
+           (ems--color-name (frame-parameter (selected-frame) 'foreground-color))
+           (ems--color-name (frame-parameter (selected-frame) 'background-color))))
 
 (defun emacspeak-wizards--set-color (color)
   "Set color as foreground or background."
@@ -3429,8 +3429,8 @@ under point as either the foreground or background color."
              (if family family "")
              (if (eq 'normal weight) "" weight)
              (if (eq 'normal slant) "" slant)
-             (ems--name-color (foreground-color-at-point))
-             (ems--name-color (background-color-at-point)))))
+             (ems--color-name (foreground-color-at-point))
+             (ems--color-name (background-color-at-point)))))
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
