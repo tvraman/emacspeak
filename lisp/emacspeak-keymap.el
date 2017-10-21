@@ -155,6 +155,7 @@
            ("TAB" emacspeak-info-wizard)
            ("C-<tab>" emacs-index-search)
            ("M-m" emacspeak-speak-popup-messages)
+           ("E" emacspeak-speak-popup-messages)
            ("'" describe-text-properties)
            ("\"" voice-setup-list-voices)
            ("," emacspeak-wizards-color-at-point)
