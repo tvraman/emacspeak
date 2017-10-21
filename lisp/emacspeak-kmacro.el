@@ -106,20 +106,17 @@
 
 (defadvice kmacro-call-macro (around emacspeak pre act comp)
   "Speech-enabled by emacspeak."
-  (cond
-   ((ems-interactive-p)
-    (ems-with-messages-silenced ad-do-it))
-   (t ad-do-it))
-  ad-return-value)
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+  ad-return-value))
 
 
 (defadvice call-last-kbd-macro (around emacspeak pre act comp)
   "Speech-enabled by emacspeak."
-  (cond
-   ((ems-interactive-p)
-    (let ((emacspeak-speak-messages t)) ad-do-it))
-   (t ad-do-it))
-  ad-return-value)
+  (let ((emacspeak-speak-messages t))
+    ad-do-it
+    ad-return-value))
+
 ;;}}}
 (provide 'emacspeak-kmacro)
 ;;{{{ end of file
