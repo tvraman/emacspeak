@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1202 commands and 1177 options.
+This chapter documents a total of 1205 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -8682,6 +8682,15 @@ Optional interactive prefix arg speaks the structural unit.
 @format
 Move backward to the next ul.
 Optional interactive prefix arg speaks the structural unit.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-reading-settings
+@deffn {Command} emacspeak-eww-reading-settings   
+@findex emacspeak-eww-reading-settings
+
+@format
+Setup speech-rate, punctuation and split-caps for reading prose.
 @end format
 @end deffn
 
@@ -21527,6 +21536,19 @@ Do a I’m Feeling Lucky Google search.
 @end format
 @end deffn
 
+@subsubsection emacspeak-websearch-google-mobile
+@deffn {Command} emacspeak-websearch-google-mobile  (query &optional flag)
+@findex emacspeak-websearch-google-mobile
+
+@format
+Perform a Google Mobile search.  First optional interactive prefix arg
+‘flag’ prompts for additional search options. Second interactive
+prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google. 
+
+(fn QUERY &optional FLAG)
+@end format
+@end deffn
+
 @subsubsection emacspeak-websearch-google-news
 @deffn {Command} emacspeak-websearch-google-news   
 @findex emacspeak-websearch-google-news
@@ -22521,6 +22543,15 @@ Signals end of buffer.
 
 @subsubsection emacspeak-speak-popup-messages
 @deffn {Command} emacspeak-speak-popup-messages   
+@table @kbd
+@item C-h M-m
+@kindex C-h M-m
+@item <f1> M-m
+@kindex <f1> M-m
+@item <help> M-m
+@kindex <help> M-m
+@end table
+
 @findex emacspeak-speak-popup-messages
 
 @format
@@ -22779,6 +22810,24 @@ Cleans up duplicates in shell path env variable.
 
 @format
 Echo foreground/background color at point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-color-diff-at-point
+@deffn {Command} emacspeak-wizards-color-diff-at-point   
+@table @kbd
+@item C-h \
+@kindex C-h \
+@item <f1> \
+@kindex <f1> \
+@item <help> \
+@kindex <help> \
+@end table
+
+@findex emacspeak-wizards-color-diff-at-point
+
+@format
+Meaningfully speak difference between background and foreground color at point.
 @end format
 @end deffn
 
@@ -25923,6 +25972,15 @@ these are available via minibuffer history.
 
 @subsubsection voice-setup-list-voices
 @deffn {Command} voice-setup-list-voices  (pattern)
+@table @kbd
+@item C-h "
+@kindex C-h "
+@item <f1> "
+@kindex <f1> "
+@item <help> "
+@kindex <help> "
+@end table
+
 @findex voice-setup-list-voices
 
 @format

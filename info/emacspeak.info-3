@@ -4653,28 +4653,39 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.15 emacspeak-websearch-google-news
+12.196.1.15 emacspeak-websearch-google-mobile
+.............................................
+
+ -- Command: emacspeak-websearch-google-mobile (query &optional flag)
+
+     Perform a Google Mobile search.  First optional interactive prefix arg
+     ‘flag’ prompts for additional search options. Second interactive
+     prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google.
+
+     (fn QUERY &optional FLAG)
+
+12.196.1.16 emacspeak-websearch-google-news
 ...........................................
 
  -- Command: emacspeak-websearch-google-news
 
      Invoke Google News url template.
 
-12.196.1.16 emacspeak-websearch-google-regional-news
+12.196.1.17 emacspeak-websearch-google-regional-news
 ....................................................
 
  -- Command: emacspeak-websearch-google-regional-news
 
      Browse Google News by region.
 
-12.196.1.17 emacspeak-websearch-google-search-in-date-range
+12.196.1.18 emacspeak-websearch-google-search-in-date-range
 ...........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.196.1.18 emacspeak-websearch-google-specialize
+12.196.1.19 emacspeak-websearch-google-specialize
 .................................................
 
  -- Command: emacspeak-websearch-google-specialize (specialize query)
@@ -4685,7 +4696,7 @@ This module provides utility functions for searching the WWW
 
      (fn SPECIALIZE QUERY)
 
-12.196.1.19 emacspeak-websearch-google-with-toolbelt
+12.196.1.20 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
@@ -4694,7 +4705,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.20 emacspeak-websearch-gutenberg
+12.196.1.21 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
@@ -4703,14 +4714,14 @@ This module provides utility functions for searching the WWW
 
      (fn TYPE QUERY)
 
-12.196.1.21 emacspeak-websearch-help
+12.196.1.22 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.196.1.22 emacspeak-websearch-merriam-webster-search
+12.196.1.23 emacspeak-websearch-merriam-webster-search
 ......................................................
 
  -- Command: emacspeak-websearch-merriam-webster-search (query)
@@ -4719,7 +4730,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.23 emacspeak-websearch-news-yahoo
+12.196.1.24 emacspeak-websearch-news-yahoo
 ..........................................
 
  -- Command: emacspeak-websearch-news-yahoo (query &optional rss)
@@ -4729,7 +4740,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional RSS)
 
-12.196.1.24 emacspeak-websearch-open-directory-search
+12.196.1.25 emacspeak-websearch-open-directory-search
 .....................................................
 
  -- Command: emacspeak-websearch-open-directory-search (query)
@@ -4738,14 +4749,14 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.25 emacspeak-websearch-software-search
+12.196.1.26 emacspeak-websearch-software-search
 ...............................................
 
  -- Command: emacspeak-websearch-software-search
 
      Search SourceForge, Freshmeat and other sites.
 
-12.196.1.26 emacspeak-websearch-sourceforge-search
+12.196.1.27 emacspeak-websearch-sourceforge-search
 ..................................................
 
  -- Command: emacspeak-websearch-sourceforge-search (query)
@@ -4754,7 +4765,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.27 emacspeak-websearch-weather
+12.196.1.28 emacspeak-websearch-weather
 .......................................
 
  -- Command: emacspeak-websearch-weather (query)
@@ -4763,7 +4774,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.28 emacspeak-websearch-wikipedia-search
+12.196.1.29 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -4772,7 +4783,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.29 emacspeak-websearch-yahoo
+12.196.1.30 emacspeak-websearch-yahoo
 .....................................
 
  -- Command: emacspeak-websearch-yahoo (query)
@@ -4781,7 +4792,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.196.1.30 emacspeak-websearch-yahoo-exchange-rate-converter
+12.196.1.31 emacspeak-websearch-yahoo-exchange-rate-converter
 .............................................................
 
  -- Command: emacspeak-websearch-yahoo-exchange-rate-converter
@@ -4791,7 +4802,7 @@ This module provides utility functions for searching the WWW
 
      (fn CONVERSION-SPEC)
 
-12.196.1.31 emacspeak-websearch-yahoo-historical-chart
+12.196.1.32 emacspeak-websearch-yahoo-historical-chart
 ......................................................
 
  -- Command: emacspeak-websearch-yahoo-historical-chart (ticker
@@ -4802,7 +4813,7 @@ This module provides utility functions for searching the WWW
 
      (fn TICKER &optional AS-HTML)
 
-12.196.1.32 emacspeak-websearch-youtube-search
+12.196.1.33 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
@@ -5429,6 +5440,9 @@ Contains various wizards for the Emacspeak desktop.
 ..........................................
 
  -- Command: emacspeak-speak-popup-messages
+     ‘C-h M-m’
+     ‘<f1> M-m’
+     ‘<help> M-m’
 
      Pop up messages buffer.
      If it is already selected then hide it and try to restore
@@ -5605,7 +5619,17 @@ Contains various wizards for the Emacspeak desktop.
 
      Echo foreground/background color at point.
 
-12.202.1.39 emacspeak-wizards-colors
+12.202.1.39 emacspeak-wizards-color-diff-at-point
+.................................................
+
+ -- Command: emacspeak-wizards-color-diff-at-point
+     ‘C-h \’
+     ‘<f1> \’
+     ‘<help> \’
+
+     Meaningfully speak difference between background and foreground color at point.
+
+12.202.1.40 emacspeak-wizards-colors
 ....................................
 
  -- Command: emacspeak-wizards-colors
@@ -5615,14 +5639,14 @@ Contains various wizards for the Emacspeak desktop.
      Display list of colors and setup a callback to activate color
      under point as either the foreground or background color.
 
-12.202.1.40 emacspeak-wizards-comma-at-end-of-word
+12.202.1.41 emacspeak-wizards-comma-at-end-of-word
 ..................................................
 
  -- Command: emacspeak-wizards-comma-at-end-of-word
 
      Move to the end of current word and add a comma.
 
-12.202.1.41 emacspeak-wizards-count-slides-in-region
+12.202.1.42 emacspeak-wizards-count-slides-in-region
 ....................................................
 
  -- Command: emacspeak-wizards-count-slides-in-region (start end)
@@ -5631,7 +5655,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.42 emacspeak-wizards-customize-saved
+12.202.1.43 emacspeak-wizards-customize-saved
 .............................................
 
  -- Command: emacspeak-wizards-customize-saved (pattern)
@@ -5644,14 +5668,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.202.1.43 emacspeak-wizards-cycle-browser
+12.202.1.44 emacspeak-wizards-cycle-browser
 ...........................................
 
  -- Command: emacspeak-wizards-cycle-browser
 
      Cycles through available browsers.
 
-12.202.1.44 emacspeak-wizards-cycle-to-next-buffer
+12.202.1.45 emacspeak-wizards-cycle-to-next-buffer
 ..................................................
 
  -- Command: emacspeak-wizards-cycle-to-next-buffer
@@ -5660,7 +5684,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Cycles to next buffer having same mode.
 
-12.202.1.45 emacspeak-wizards-cycle-to-previous-buffer
+12.202.1.46 emacspeak-wizards-cycle-to-previous-buffer
 ......................................................
 
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
@@ -5669,7 +5693,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Cycles to previous buffer having same mode.
 
-12.202.1.46 emacspeak-wizards-display-pod-as-manpage
+12.202.1.47 emacspeak-wizards-display-pod-as-manpage
 ....................................................
 
  -- Command: emacspeak-wizards-display-pod-as-manpage (filename)
@@ -5678,7 +5702,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILENAME)
 
-12.202.1.47 emacspeak-wizards-dvi-display
+12.202.1.48 emacspeak-wizards-dvi-display
 .........................................
 
  -- Command: emacspeak-wizards-dvi-display
@@ -5688,7 +5712,7 @@ Contains various wizards for the Emacspeak desktop.
      Previews those contents as text and nukes the buffer
      visiting the DVI file.
 
-12.202.1.48 emacspeak-wizards-dvi-mode
+12.202.1.49 emacspeak-wizards-dvi-mode
 ......................................
 
  -- Command: emacspeak-wizards-dvi-mode
@@ -5704,7 +5728,7 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.202.1.49 emacspeak-wizards-end-of-word
+12.202.1.50 emacspeak-wizards-end-of-word
 .........................................
 
  -- Command: emacspeak-wizards-end-of-word (arg)
@@ -5713,7 +5737,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ARG)
 
-12.202.1.50 emacspeak-wizards-enumerate-matching-commands
+12.202.1.51 emacspeak-wizards-enumerate-matching-commands
 .........................................................
 
  -- Command: emacspeak-wizards-enumerate-matching-commands (pattern)
@@ -5722,7 +5746,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.202.1.51 emacspeak-wizards-enumerate-matching-faces
+12.202.1.52 emacspeak-wizards-enumerate-matching-faces
 ......................................................
 
  -- Command: emacspeak-wizards-enumerate-matching-faces (pattern)
@@ -5731,7 +5755,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.202.1.52 emacspeak-wizards-enumerate-obsolete-faces
+12.202.1.53 emacspeak-wizards-enumerate-obsolete-faces
 ......................................................
 
  -- Command: emacspeak-wizards-enumerate-obsolete-faces
@@ -5739,7 +5763,7 @@ Contains various wizards for the Emacspeak desktop.
      utility function to enumerate old, obsolete maps that we have still
      mapped to voices.
 
-12.202.1.53 emacspeak-wizards-enumerate-uncovered-commands
+12.202.1.54 emacspeak-wizards-enumerate-uncovered-commands
 ..........................................................
 
  -- Command: emacspeak-wizards-enumerate-uncovered-commands (pattern)
@@ -5748,7 +5772,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.202.1.54 emacspeak-wizards-enumerate-unmapped-faces
+12.202.1.55 emacspeak-wizards-enumerate-unmapped-faces
 ......................................................
 
  -- Command: emacspeak-wizards-enumerate-unmapped-faces (&optional
@@ -5758,14 +5782,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PATTERN)
 
-12.202.1.55 emacspeak-wizards-espeak-line
+12.202.1.56 emacspeak-wizards-espeak-line
 .........................................
 
  -- Command: emacspeak-wizards-espeak-line
 
      Speak line using espeak polyglot wizard.
 
-12.202.1.56 emacspeak-wizards-espeak-region
+12.202.1.57 emacspeak-wizards-espeak-region
 ...........................................
 
  -- Command: emacspeak-wizards-espeak-region (start end)
@@ -5774,7 +5798,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.57 emacspeak-wizards-espeak-string
+12.202.1.58 emacspeak-wizards-espeak-string
 ...........................................
 
  -- Command: emacspeak-wizards-espeak-string (string)
@@ -5784,21 +5808,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn STRING)
 
-12.202.1.58 emacspeak-wizards-eww-buffer-list
+12.202.1.59 emacspeak-wizards-eww-buffer-list
 .............................................
 
  -- Command: emacspeak-wizards-eww-buffer-list
 
      Display list of open EWW buffers.
 
-12.202.1.59 emacspeak-wizards-find-emacspeak-source
+12.202.1.60 emacspeak-wizards-find-emacspeak-source
 ...................................................
 
  -- Command: emacspeak-wizards-find-emacspeak-source
 
      Like find-file, but binds default-directory to emacspeak-directory.
 
-12.202.1.60 emacspeak-wizards-find-file-as-root
+12.202.1.61 emacspeak-wizards-find-file-as-root
 ...............................................
 
  -- Command: emacspeak-wizards-find-file-as-root
@@ -5807,7 +5831,7 @@ Contains various wizards for the Emacspeak desktop.
      root-privileges (using tramp/sudo), if the file is not writable by
      user.
 
-12.202.1.61 emacspeak-wizards-find-grep
+12.202.1.62 emacspeak-wizards-find-grep
 .......................................
 
  -- Command: emacspeak-wizards-find-grep (glob pattern)
@@ -5817,7 +5841,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn GLOB PATTERN)
 
-12.202.1.62 emacspeak-wizards-find-longest-line-in-region
+12.202.1.63 emacspeak-wizards-find-longest-line-in-region
 .........................................................
 
  -- Command: emacspeak-wizards-find-longest-line-in-region (start end)
@@ -5829,7 +5853,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.63 emacspeak-wizards-find-longest-paragraph-in-region
+12.202.1.64 emacspeak-wizards-find-longest-paragraph-in-region
 ..............................................................
 
  -- Command: emacspeak-wizards-find-longest-paragraph-in-region (start
@@ -5840,7 +5864,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.64 emacspeak-wizards-find-shortest-line-in-region
+12.202.1.65 emacspeak-wizards-find-shortest-line-in-region
 ..........................................................
 
  -- Command: emacspeak-wizards-find-shortest-line-in-region (start end)
@@ -5850,7 +5874,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.65 emacspeak-wizards-finder-find
+12.202.1.66 emacspeak-wizards-finder-find
 .........................................
 
  -- Command: emacspeak-wizards-finder-find (directory)
@@ -5860,7 +5884,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn DIRECTORY)
 
-12.202.1.66 emacspeak-wizards-finder-mode
+12.202.1.67 emacspeak-wizards-finder-mode
 .........................................
 
  -- Command: emacspeak-wizards-finder-mode
@@ -5874,7 +5898,7 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.202.1.67 emacspeak-wizards-fix-read-only-text
+12.202.1.68 emacspeak-wizards-fix-read-only-text
 ................................................
 
  -- Command: emacspeak-wizards-fix-read-only-text (start end)
@@ -5883,7 +5907,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.68 emacspeak-wizards-fix-typo
+12.202.1.69 emacspeak-wizards-fix-typo
 ......................................
 
  -- Command: emacspeak-wizards-fix-typo (ext word correction)
@@ -5894,21 +5918,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn EXT WORD CORRECTION)
 
-12.202.1.69 emacspeak-wizards-frame-colors
+12.202.1.70 emacspeak-wizards-frame-colors
 ..........................................
 
  -- Command: emacspeak-wizards-frame-colors
 
      Display frame’s foreground/background color seetting.
 
-12.202.1.70 emacspeak-wizards-generate-finder
+12.202.1.71 emacspeak-wizards-generate-finder
 .............................................
 
  -- Command: emacspeak-wizards-generate-finder
 
      Generate a widget-enabled finder wizard.
 
-12.202.1.71 emacspeak-wizards-generate-voice-sampler
+12.202.1.72 emacspeak-wizards-generate-voice-sampler
 ....................................................
 
  -- Command: emacspeak-wizards-generate-voice-sampler (step)
@@ -5918,7 +5942,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn STEP)
 
-12.202.1.72 emacspeak-wizards-get-table-content-from-file
+12.202.1.73 emacspeak-wizards-get-table-content-from-file
 .........................................................
 
  -- Command: emacspeak-wizards-get-table-content-from-file (file depth
@@ -5930,7 +5954,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILE DEPTH COUNT)
 
-12.202.1.73 emacspeak-wizards-get-table-content-from-url
+12.202.1.74 emacspeak-wizards-get-table-content-from-url
 ........................................................
 
  -- Command: emacspeak-wizards-get-table-content-from-url (url depth
@@ -5942,14 +5966,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn URL DEPTH COUNT)
 
-12.202.1.74 emacspeak-wizards-google-transcode
+12.202.1.75 emacspeak-wizards-google-transcode
 ..............................................
 
  -- Command: emacspeak-wizards-google-transcode
 
      View Web through Google Transcoder.
 
-12.202.1.75 emacspeak-wizards-how-many-matches
+12.202.1.76 emacspeak-wizards-how-many-matches
 ..............................................
 
  -- Command: emacspeak-wizards-how-many-matches (start end &optional
@@ -5965,7 +5989,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END &optional PREFIX)
 
-12.202.1.76 emacspeak-wizards-iheart
+12.202.1.77 emacspeak-wizards-iheart
 ....................................
 
  -- Command: emacspeak-wizards-iheart (q)
@@ -5976,7 +6000,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn Q)
 
-12.202.1.77 emacspeak-wizards-iheart-radio-play
+12.202.1.78 emacspeak-wizards-iheart-radio-play
 ...............................................
 
  -- Command: emacspeak-wizards-iheart-radio-play (id)
@@ -5985,21 +6009,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ID)
 
-12.202.1.78 emacspeak-wizards-lacheck-buffer-file
+12.202.1.79 emacspeak-wizards-lacheck-buffer-file
 .................................................
 
  -- Command: emacspeak-wizards-lacheck-buffer-file
 
      Run Lacheck on current buffer.
 
-12.202.1.79 emacspeak-wizards-load-current-file
+12.202.1.80 emacspeak-wizards-load-current-file
 ...............................................
 
  -- Command: emacspeak-wizards-load-current-file
 
      load file into emacs
 
-12.202.1.80 emacspeak-wizards-mlb-standings
+12.202.1.81 emacspeak-wizards-mlb-standings
 ...........................................
 
  -- Command: emacspeak-wizards-mlb-standings (&optional raw)
@@ -6009,7 +6033,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.202.1.81 emacspeak-wizards-move-and-speak
+12.202.1.82 emacspeak-wizards-move-and-speak
 ............................................
 
  -- Command: emacspeak-wizards-move-and-speak (command count)
@@ -6023,7 +6047,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND COUNT)
 
-12.202.1.82 emacspeak-wizards-nba-standings
+12.202.1.83 emacspeak-wizards-nba-standings
 ...........................................
 
  -- Command: emacspeak-wizards-nba-standings (&optional raw)
@@ -6033,28 +6057,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.202.1.83 emacspeak-wizards-next-bullet
+12.202.1.84 emacspeak-wizards-next-bullet
 .........................................
 
  -- Command: emacspeak-wizards-next-bullet
 
      Navigate to and speak next ‘bullet’.
 
-12.202.1.84 emacspeak-wizards-next-interactive-defun
+12.202.1.85 emacspeak-wizards-next-interactive-defun
 ....................................................
 
  -- Command: emacspeak-wizards-next-interactive-defun
 
      Move point to the next interactive defun
 
-12.202.1.85 emacspeak-wizards-next-shell
+12.202.1.86 emacspeak-wizards-next-shell
 ........................................
 
  -- Command: emacspeak-wizards-next-shell
 
      Switch to next shell.
 
-12.202.1.86 emacspeak-wizards-noaa-weather
+12.202.1.87 emacspeak-wizards-noaa-weather
 ..........................................
 
  -- Command: emacspeak-wizards-noaa-weather (&optional ask)
@@ -6070,7 +6094,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional ASK)
 
-12.202.1.87 emacspeak-wizards-occur-header-lines
+12.202.1.88 emacspeak-wizards-occur-header-lines
 ................................................
 
  -- Command: emacspeak-wizards-occur-header-lines (&optional prefix)
@@ -6085,7 +6109,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.202.1.88 emacspeak-wizards-pdf-open
+12.202.1.89 emacspeak-wizards-pdf-open
 ......................................
 
  -- Command: emacspeak-wizards-pdf-open (filename &optional ask-pwd)
@@ -6097,7 +6121,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILENAME &optional ASK-PWD)
 
-12.202.1.89 emacspeak-wizards-popup-input-buffer
+12.202.1.90 emacspeak-wizards-popup-input-buffer
 ................................................
 
  -- Command: emacspeak-wizards-popup-input-buffer (mode)
@@ -6106,7 +6130,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn MODE)
 
-12.202.1.90 emacspeak-wizards-ppt-display
+12.202.1.91 emacspeak-wizards-ppt-display
 .........................................
 
  -- Command: emacspeak-wizards-ppt-display
@@ -6116,7 +6140,7 @@ Contains various wizards for the Emacspeak desktop.
      Previews those contents as HTML and nukes the buffer
      visiting the ppt file.
 
-12.202.1.91 emacspeak-wizards-ppt-mode
+12.202.1.92 emacspeak-wizards-ppt-mode
 ......................................
 
  -- Command: emacspeak-wizards-ppt-mode
@@ -6133,21 +6157,21 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.202.1.92 emacspeak-wizards-previous-bullet
+12.202.1.93 emacspeak-wizards-previous-bullet
 .............................................
 
  -- Command: emacspeak-wizards-previous-bullet
 
      Navigate to and speak previous ‘bullet’.
 
-12.202.1.93 emacspeak-wizards-previous-shell
+12.202.1.94 emacspeak-wizards-previous-shell
 ............................................
 
  -- Command: emacspeak-wizards-previous-shell
 
      Switch to previous shell.
 
-12.202.1.94 emacspeak-wizards-quick-weather
+12.202.1.95 emacspeak-wizards-quick-weather
 ...........................................
 
  -- Command: emacspeak-wizards-quick-weather
@@ -6156,7 +6180,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Bring up weather forecast for current location.
 
-12.202.1.95 emacspeak-wizards-rivo
+12.202.1.96 emacspeak-wizards-rivo
 ..................................
 
  -- Command: emacspeak-wizards-rivo (when channel stop-time output
@@ -6171,14 +6195,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn WHEN CHANNEL STOP-TIME OUTPUT DIRECTORY)
 
-12.202.1.96 emacspeak-wizards-rpm-query-in-dired
+12.202.1.97 emacspeak-wizards-rpm-query-in-dired
 ................................................
 
  -- Command: emacspeak-wizards-rpm-query-in-dired
 
      Run rpm -qi on current dired entry.
 
-12.202.1.97 emacspeak-wizards-scratch
+12.202.1.98 emacspeak-wizards-scratch
 .....................................
 
  -- Command: emacspeak-wizards-scratch
@@ -6188,7 +6212,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Switch to *scratch* buffer, creating it if necessary.
 
-12.202.1.98 emacspeak-wizards-shell
+12.202.1.99 emacspeak-wizards-shell
 ...................................
 
  -- Command: emacspeak-wizards-shell (&optional prefix)
@@ -6204,8 +6228,8 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.202.1.99 emacspeak-wizards-shell-by-key
-..........................................
+12.202.1.100 emacspeak-wizards-shell-by-key
+...........................................
 
  -- Command: emacspeak-wizards-shell-by-key (&optional prefix)
      ‘C-e x 9’
@@ -6240,7 +6264,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.202.1.100 emacspeak-wizards-shell-command-on-current-file
+12.202.1.101 emacspeak-wizards-shell-command-on-current-file
 ............................................................
 
  -- Command: emacspeak-wizards-shell-command-on-current-file (command)
@@ -6251,7 +6275,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND)
 
-12.202.1.101 emacspeak-wizards-shell-directory-reset
+12.202.1.102 emacspeak-wizards-shell-directory-reset
 ....................................................
 
  -- Command: emacspeak-wizards-shell-directory-reset
@@ -6263,7 +6287,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Set current directory to this shell’s initial directory if one was defined.
 
-12.202.1.102 emacspeak-wizards-shell-directory-set
+12.202.1.103 emacspeak-wizards-shell-directory-set
 ..................................................
 
  -- Command: emacspeak-wizards-shell-directory-set
@@ -6272,7 +6296,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Define current directory as this shell’s project directory.
 
-12.202.1.103 emacspeak-wizards-shell-toggle
+12.202.1.104 emacspeak-wizards-shell-toggle
 ...........................................
 
  -- Command: emacspeak-wizards-shell-toggle
@@ -6284,7 +6308,7 @@ Contains various wizards for the Emacspeak desktop.
      Switch to the shell buffer and cd to
       the directory of the current buffer.
 
-12.202.1.104 emacspeak-wizards-show-commentary
+12.202.1.105 emacspeak-wizards-show-commentary
 ..............................................
 
  -- Command: emacspeak-wizards-show-commentary (&optional file)
@@ -6293,14 +6317,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional FILE)
 
-12.202.1.105 emacspeak-wizards-show-defined-voices
+12.202.1.106 emacspeak-wizards-show-defined-voices
 ..................................................
 
  -- Command: emacspeak-wizards-show-defined-voices
 
      Display a buffer with sample text in the defined voices.
 
-12.202.1.106 emacspeak-wizards-show-environment-variable
+12.202.1.107 emacspeak-wizards-show-environment-variable
 ........................................................
 
  -- Command: emacspeak-wizards-show-environment-variable (v)
@@ -6309,7 +6333,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn V)
 
-12.202.1.107 emacspeak-wizards-show-eval-result
+12.202.1.108 emacspeak-wizards-show-eval-result
 ...............................................
 
  -- Command: emacspeak-wizards-show-eval-result (form)
@@ -6319,7 +6343,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FORM)
 
-12.202.1.108 emacspeak-wizards-show-face
+12.202.1.109 emacspeak-wizards-show-face
 ........................................
 
  -- Command: emacspeak-wizards-show-face (face)
@@ -6328,14 +6352,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FACE)
 
-12.202.1.109 emacspeak-wizards-show-memory-used
+12.202.1.110 emacspeak-wizards-show-memory-used
 ...............................................
 
  -- Command: emacspeak-wizards-show-memory-used
 
      Convenience command to view state of memory used in this session so far.
 
-12.202.1.110 emacspeak-wizards-speak-iso-datetime
+12.202.1.111 emacspeak-wizards-speak-iso-datetime
 .................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -6344,7 +6368,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.202.1.111 emacspeak-wizards-spot-words
+12.202.1.112 emacspeak-wizards-spot-words
 .........................................
 
  -- Command: emacspeak-wizards-spot-words (ext word)
@@ -6354,7 +6378,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn EXT WORD)
 
-12.202.1.112 emacspeak-wizards-squeeze-blanks
+12.202.1.113 emacspeak-wizards-squeeze-blanks
 .............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -6365,7 +6389,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.202.1.113 emacspeak-wizards-sunrise-sunset
+12.202.1.114 emacspeak-wizards-sunrise-sunset
 .............................................
 
  -- Command: emacspeak-wizards-sunrise-sunset (address &optional arg)
@@ -6374,7 +6398,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ADDRESS &optional ARG)
 
-12.202.1.114 emacspeak-wizards-term
+12.202.1.115 emacspeak-wizards-term
 ...................................
 
  -- Command: emacspeak-wizards-term (create)
@@ -6388,7 +6412,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.202.1.115 emacspeak-wizards-terminal
+12.202.1.116 emacspeak-wizards-terminal
 .......................................
 
  -- Command: emacspeak-wizards-terminal (program)
@@ -6397,7 +6421,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PROGRAM)
 
-12.202.1.116 emacspeak-wizards-tex-tie-current-word
+12.202.1.117 emacspeak-wizards-tex-tie-current-word
 ...................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
@@ -6406,28 +6430,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.202.1.117 emacspeak-wizards-thanks-mail-signature
+12.202.1.118 emacspeak-wizards-thanks-mail-signature
 ....................................................
 
  -- Command: emacspeak-wizards-thanks-mail-signature
 
      insert thanks , –Raman at the end of mail message
 
-12.202.1.118 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.202.1.119 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.202.1.119 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.202.1.120 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.202.1.120 emacspeak-wizards-tramp-open-location
+12.202.1.121 emacspeak-wizards-tramp-open-location
 ..................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
@@ -6437,7 +6461,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn NAME)
 
-12.202.1.121 emacspeak-wizards-tune-in-radio-browse
+12.202.1.122 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -6449,7 +6473,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.202.1.122 emacspeak-wizards-tune-in-radio-search
+12.202.1.123 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -6458,7 +6482,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.202.1.123 emacspeak-wizards-unhex-uri
+12.202.1.124 emacspeak-wizards-unhex-uri
 ........................................
 
  -- Command: emacspeak-wizards-unhex-uri (uri)
@@ -6467,7 +6491,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn URI)
 
-12.202.1.124 emacspeak-wizards-units
+12.202.1.125 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -6476,14 +6500,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units in a comint sub-process.
 
-12.202.1.125 emacspeak-wizards-vc-n
+12.202.1.126 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.202.1.126 emacspeak-wizards-vc-viewer
+12.202.1.127 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -6494,7 +6518,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.202.1.127 emacspeak-wizards-vc-viewer-mode
+12.202.1.128 emacspeak-wizards-vc-viewer-mode
 .............................................
 
  -- Command: emacspeak-wizards-vc-viewer-mode
@@ -6509,14 +6533,14 @@ Contains various wizards for the Emacspeak desktop.
      This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.202.1.128 emacspeak-wizards-vc-viewer-refresh
+12.202.1.129 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.202.1.129 emacspeak-wizards-vi-as-su-file
+12.202.1.130 emacspeak-wizards-vi-as-su-file
 ............................................
 
  -- Command: emacspeak-wizards-vi-as-su-file (file)
@@ -6525,7 +6549,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILE)
 
-12.202.1.130 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.202.1.131 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -6534,7 +6558,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  m-player mode.
 
-12.202.1.131 emacspeak-wizards-view-buffers-filtered-by-mode
+12.202.1.132 emacspeak-wizards-view-buffers-filtered-by-mode
 ............................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-mode (mode)
@@ -6543,7 +6567,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn MODE)
 
-12.202.1.132 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.202.1.133 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -6555,7 +6579,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  mode of current-buffer.
 
-12.202.1.133 emacspeak-wizards-voice-sampler
+12.202.1.134 emacspeak-wizards-voice-sampler
 ............................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)
@@ -6564,7 +6588,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PERSONALITY)
 
-12.202.1.134 emacspeak-wizards-xl-display
+12.202.1.135 emacspeak-wizards-xl-display
 .........................................
 
  -- Command: emacspeak-wizards-xl-display
@@ -6574,7 +6598,7 @@ Contains various wizards for the Emacspeak desktop.
      Previews those contents as HTML and nukes the buffer
      visiting the xls file.
 
-12.202.1.135 emacspeak-wizards-xl-mode
+12.202.1.136 emacspeak-wizards-xl-mode
 ......................................
 
  -- Command: emacspeak-wizards-xl-mode
@@ -6591,7 +6615,7 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.202.1.136 emacspeak-wizards-yql-lookup
+12.202.1.137 emacspeak-wizards-yql-lookup
 .........................................
 
  -- Command: emacspeak-wizards-yql-lookup (symbols)
@@ -6603,7 +6627,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn SYMBOLS)
 
-12.202.1.137 emacspeak-wizards-yql-quotes
+12.202.1.138 emacspeak-wizards-yql-quotes
 .........................................
 
  -- Command: emacspeak-wizards-yql-quotes
@@ -8122,6 +8146,9 @@ be customized via custom see the documentation for defvoice.
 ..................................
 
  -- Command: voice-setup-list-voices (pattern)
+     ‘C-h "’
+     ‘<f1> "’
+     ‘<help> "’
 
      Show all defined voice-face mappings  in a help buffer.
      Sample text to use comes from variable

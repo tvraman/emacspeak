@@ -2827,14 +2827,21 @@ prefix arg to delete a previously created eww-mark.
      Move backward to the next ul.
      Optional interactive prefix arg speaks the structural unit.
 
-12.70.7.40 emacspeak-eww-restore
+12.70.7.40 emacspeak-eww-reading-settings
+.........................................
+
+ -- Command: emacspeak-eww-reading-settings
+
+     Setup speech-rate, punctuation and split-caps for reading prose.
+
+12.70.7.41 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.70.7.41 emacspeak-eww-speak-this-element
+12.70.7.42 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -2845,21 +2852,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.70.7.42 emacspeak-eww-tags-at-point
+12.70.7.43 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.70.7.43 emacspeak-eww-transcode
+12.70.7.44 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.70.7.44 emacspeak-eww-update-title
+12.70.7.45 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
