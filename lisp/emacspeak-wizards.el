@@ -3379,9 +3379,10 @@ Optional interactive prefix arg shows  unprocessed results."
   "Meaningfully speak difference between background and foreground color at point."
   (interactive)
   (let* ((fg (foreground-color-at-point))
-        (bg (background-color-at-point))
-        (diff (ems--color-diff fg bg)))
-    (message "Color distance is %.2f between %s and %s" diff fg bg)))
+         (bg (background-color-at-point))
+         (diff (ems--color-diff fg bg)))
+    (message "Color distance is %.2f between %s and %s" diff
+             (ems--color-name fg) (ems--color-name bg))))
   
 (defun ems--color-hex (color)
   "Return Hex value for color."
