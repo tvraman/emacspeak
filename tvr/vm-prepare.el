@@ -70,16 +70,18 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 
 
 
-(eval-after-load "mspools"
+(eval-after-load
+    "mspools"
   `(progn
-(defun mspools-compute-size (file)
-  (with-temp-buffer
-    (shell-command (format "grep '^From ' %s" file) (current-buffer))
-    (count-lines (point-min) (point-max))))
-
-(defun mspools-size-folder (spool)
-  "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
-  (let ((size (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))
-    (unless (zerop size)
-  (cons spool size))))
-))
+     (defun mspools-compute-size (file)
+       (let ((message-log-max nil)
+             (inhibit-message t)
+             (emacspeak-speak-messages nil)))
+       (with-temp-buffer
+         (shell-command (format "grep '^From ' %s" file) (current-buffer))
+         (count-lines (point-min) (point-max))))
+     (defun mspools-size-folder (spool)
+    "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
+    (let ((size (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))
+      (unless (zerop size)
+        (cons spool size))))))
