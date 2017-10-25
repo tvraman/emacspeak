@@ -77,9 +77,8 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
        (let ((message-log-max nil)
              (inhibit-message t)
              (emacspeak-speak-messages nil)))
-       (with-temp-buffer
-         (shell-command (format "grep '^From ' %s" file) (current-buffer))
-         (count-lines (point-min) (point-max))))
+         (read (shell-command-to-string (format "grep '^From ' %s | wc -l" file))))
+
      (defun mspools-size-folder (spool)
     "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
     (let ((size (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))
