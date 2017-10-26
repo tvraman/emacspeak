@@ -229,7 +229,18 @@
   ;;}}}
   ) ;end defun
 (tvr-emacs)
+;;{{{ Additional Interactive Commands:
 
+(defun tvr-set-colors ()
+  "Interactively prompt for foreground and background colors."
+  (interactive)
+  (let ((bg (read-color "Background: "))
+        (fg (read-color "Foreground: ")))
+    (set-background-color bg)
+    (set-foreground-color fg)
+    (call-interactively #'emacspeak-wizards-color-diff-at-point)))
+
+;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 
