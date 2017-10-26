@@ -3374,10 +3374,23 @@ Optional interactive prefix arg shows  unprocessed results."
   (color-cie-de2000
    (apply #'color-srgb-to-lab (color-name-to-rgb c1))
    (apply #'color-srgb-to-lab (color-name-to-rgb c2))))
+
 ;;;###autoload
-(defun emacspeak-wizards-color-diff-at-point ()
-  "Meaningfully speak difference between background and foreground color at point."
+(defun emacspeak-wizards-set-colors ()
+  "Interactively prompt for foreground and background colors."
   (interactive)
+  (let ((bg (read-color "Background: "))
+        (fg (read-color "Foreground: ")))
+    (set-background-color bg)
+    (set-foreground-color fg)
+    (emacspeak-wizards-color-diff-at-point)))
+
+;;;###autoload
+(defun emacspeak-wizards-color-diff-at-point (&optional set)
+  "Meaningfully speak difference between background and foreground color at point.
+With interactive prefix arg, set foreground and background color first."
+  (interactive "P")
+  (when set (call-interactively #'emacspeak-wizards-set-colors))
   (let* ((fg (foreground-color-at-point))
          (bg (background-color-at-point))
          (diff (ems--color-diff fg bg)))
