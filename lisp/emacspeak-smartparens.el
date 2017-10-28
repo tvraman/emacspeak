@@ -77,6 +77,11 @@
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'item))
 
+
+(defadvice sp-wrap--initialize (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'item))
+
 ;;}}}
 ;;{{{ Navigators And Modifiers:
 
