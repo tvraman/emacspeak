@@ -1466,6 +1466,20 @@ prompts for a location and speaks the forecast. \n\n"
  #'emacspeak-speak-mode-line
  "Search NLS Bard Catalog. Login once before using this template.")
 
+(emacspeak-url-template-define
+ "NLS Bard Popular"
+"https://nlsbard.loc.gov:443/nlsbardprod/search/most_popular/page/1/sort/s/srch/most_popular/local/0"
+ nil
+ #'emacspeak-speak-mode-line
+ "NLS Bard Catalog: Most Popular. Login once before using this template.")
+
+(emacspeak-url-template-define
+ "NLS Bard Recent"
+ "https://nlsbard.loc.gov/mainpage/srch_recentlyadded"
+ nil
+ #'emacspeak-speak-mode-line
+ "NLS Bard Catalog: Recently Added. Login once before using this template.")
+
 ;;}}}
 ;;{{{ Bloomberg:
 (emacspeak-url-template-define
