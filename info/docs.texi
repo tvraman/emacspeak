@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1205 commands and 1177 options.
+This chapter documents a total of 1206 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -22544,12 +22544,12 @@ Signals end of buffer.
 @subsubsection emacspeak-speak-popup-messages
 @deffn {Command} emacspeak-speak-popup-messages   
 @table @kbd
-@item C-h M-m
-@kindex C-h M-m
-@item <f1> M-m
-@kindex <f1> M-m
-@item <help> M-m
-@kindex <help> M-m
+@item C-h M
+@kindex C-h M
+@item <f1> M
+@kindex <f1> M
+@item <help> M
+@kindex <help> M
 @end table
 
 @findex emacspeak-speak-popup-messages
@@ -22814,7 +22814,7 @@ Echo foreground/background color at point.
 @end deffn
 
 @subsubsection emacspeak-wizards-color-diff-at-point
-@deffn {Command} emacspeak-wizards-color-diff-at-point   
+@deffn {Command} emacspeak-wizards-color-diff-at-point  (&optional set)
 @table @kbd
 @item C-h \
 @kindex C-h \
@@ -22828,6 +22828,9 @@ Echo foreground/background color at point.
 
 @format
 Meaningfully speak difference between background and foreground color at point.
+With interactive prefix arg, set foreground and background color first.
+
+(fn &optional SET)
 @end format
 @end deffn
 
@@ -23585,6 +23588,15 @@ Run rpm -qi on current dired entry.
 
 @format
 Switch to *scratch* buffer, creating it if necessary.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-set-colors
+@deffn {Command} emacspeak-wizards-set-colors   
+@findex emacspeak-wizards-set-colors
+
+@format
+Interactively prompt for foreground and background colors.
 @end format
 @end deffn
 
@@ -26260,7 +26272,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 88 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -26493,6 +26505,14 @@ from English to German
 @b{NBA  standings}
 
 Display NBA standings.
+
+@b{NLS Bard Popular}
+
+NLS Bard Catalog: Most Popular. Login once before using this template.
+
+@b{NLS Bard Recent}
+
+NLS Bard Catalog: Recently Added. Login once before using this template.
 
 @b{NLS Bard Search}
 
