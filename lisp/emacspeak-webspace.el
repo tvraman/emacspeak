@@ -208,8 +208,7 @@ Newly found headlines are inserted into the ring within our feedstore."
   "Update headlines."
   (cl-declare (special emacspeak-webspace-headlines))
   (with-local-quit
-    (emacspeak-webspace-headlines-fetch
-     (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
+    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
   (emacspeak-auditory-icon 'progress)
   t)
 
