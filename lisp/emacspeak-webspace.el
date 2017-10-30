@@ -200,7 +200,10 @@ Newly found headlines are inserted into the ring within our feedstore."
   "populate fs with headlines from all feeds."
   (cl-declare (special emacspeak-webspace-headlines))
   (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
+
+    (condition-case nil
+(emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
+(error nil))))
 
 (defun emacspeak-webspace-headlines-refresh ()
   "Update headlines."
