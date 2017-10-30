@@ -275,6 +275,15 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 
 ;;}}}
+;;{{{ Validate Feed:
+
+(defun emacspeak-feeds-validate-feed (feed-url)
+  "Validate feed by attempting to fetch titles."
+  (unless (eq 'error (emacspeak-webutils-feed-titles feed-url))
+    (message "%s is valid" feed-url)
+    t))
+
+;;}}}
 ;;{{{  view feed
 
 ;;; Helper:
