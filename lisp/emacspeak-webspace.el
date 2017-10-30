@@ -174,16 +174,19 @@ Newly found headlines are inserted into the ring within our feedstore."
   (cl-declare (special emacspeak-webspace-headlines
                     emacspeak-webspace-headlines-period))
   (let* ((last-update (get-text-property 0 'last-update feed))
-         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines))
+         (new-titles nil))
     (when                     ; check if we need to add from this feed
         (or (null last-update)          ;  at most every half hour
             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
-      (mapc
-       #'(lambda (h)
-           (unless (ring-member titles h)
-             (ring-insert titles h)))
-       (emacspeak-webutils-feed-titles feed)))))
+      (setq new-titles (emacspeak-webutils-feed-titles feed))
+      (when (listp new-titles)
+        (mapc
+         #'(lambda (h)
+             (unless (ring-member titles h)
+               (ring-insert titles h)))
+         new-titles)))))
 
 (defun emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
