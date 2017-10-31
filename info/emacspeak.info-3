@@ -8360,7 +8360,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.228 URL Templates
 ====================
 
-This section documents a total of 88 URL Templates.
+This section documents a total of 89 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -8401,6 +8401,10 @@ location and speaks the forecast.
    BBC Program Guide
 
    Display interactive BBC Program Guide.
+
+   BBC World News Summary
+
+   BBC World News Summary
 
    BBC iPlayer
 
@@ -9469,49 +9473,4 @@ quickly launching everything from streaming radio stations to audio
 books.  And even better — as the Emacs community develops better and
 smarter ways of navigating the filesystem using completions, e.g.,
 package *ido*, these types of actions become even more efficient!
-
-
-File: emacspeak.info,  Node: EBooks --- Ubiquitous Access To Books,  Next: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Emacspeak At Twenty
-
-15.11 EBooks — Ubiquitous Access To Books
-=========================================
-
-AsTeR — was motivated by the increasing availability of technical
-material as online electronic documents.  While AsTeR processed the TeX
-family of markup languages, more general ebooks came in a wide range of
-formats, ranging from plain text generated from various underlying file
-formats to structured EBooks, with Project Gutenberg
-(http://www.gutenberg.org/) leading the way.  During the mid-90’s, I had
-access to a wide range of electronic materials from sources such as
-O’Reilly Publishing and various electronic journals — The Perl Journal
-(TPJ) is one that I still remember fondly.
-
-   Emacspeak provided fairly light-weight but efficient access to all of
-the electronic books I had on my local disk — Emacs’ strengths with
-respect to browsing textual documents meant that I needed to build
-little that was specific to Emacspeak.  The late 90’s saw the arrival of
-Daisy as an XML-based format for accessible electronic books.  The last
-decade has seen the rapid convergence to *epub* as a distribution format
-of choice for electronic books.  Emacspeak provides interaction modes
-that make organizing, searching and reading these materials on the
-Emacspeak Audio Desktop a pleasant experience.  Emacspeak also provides
-an OCR-Mode — this enables one to call out to an external OCR program
-and read the content efficiently.
-
-   The somewhat informal process used by publishers like O’Reilly to
-make technical material available to users with print impairments was
-later formalized by BookShare (https://www.bookshare.org/) — today,
-qualified users can obtain a large number of books and periodicals
-initially as Daisy-3 and increasingly as *EPub*.  BookShare provides a
-RESTful API for searching and downloading books; Emacspeak module
-*emacspeak-bookshare* implements this API to create a client for
-browsing the BookShare library, downloading and organizing books
-locally, and an integrated ebook reading mode to round off the
-experience.
-
-   A useful complement to this suite of tools is the Calibre package for
-organizing ones ebook collection; Emacspeak now implements an *EPub
-Interaction* mode that leverages Calibre (actually sqlite3) to search
-and browse books, along with an integrated *EPub mode* for reading
-books.
 
