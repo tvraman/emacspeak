@@ -311,6 +311,13 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ bbc
 
 (emacspeak-url-template-define
+ "BBC World News Summary"
+ "http://opml.radiotime.com/Tune.ashx?c=pbrowse&id=p193595"
+ nil nil
+ "BBC World News Summary"
+ #'emacspeak-feeds-opml-display)
+
+(emacspeak-url-template-define
  "BBC Program Guide"
  "http://downloads.bbc.co.uk/podcasts/ppg.xml"
  nil nil
