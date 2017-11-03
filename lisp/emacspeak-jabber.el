@@ -231,35 +231,39 @@ nil)
 (defun emacspeak-jabber-chat-speak-this-message ()
   "Speaks message starting on current line.
 Assumes point is at the front of the message.
-Returns a cons (start . end) that delimits the message."
+Returns a cons (start . end) that delimits the message.
+Return nil if no message at point."
   (interactive)
   (unless (eq major-mode 'jabber-chat-mode)
     (error "Not in a Jabber chat buffer."))
   (let ((start nil)
         (end nil))
     (save-excursion
-      (when (ems-interactive-p)
-        (unless (looking-at "^\\[")
-          (re-search-backward "^\\[" nil t)))
+      (unless (looking-at "^\\[")
+        (re-search-backward "^\\[" nil t))
       (setq start
             (goto-char
              (next-single-property-change (point) 'face)))
       (setq end
             (goto-char
              (next-single-property-change (point) 'face)))
-      (emacspeak-speak-region start end))
-    (cons start end)))
+      (cond
+       ((and start end)
+        (emacspeak-speak-region start end)
+        (cons start end))
+       (t (message "No more messages to speak")
+          nil)))))
 
 (defun emacspeak-jabber-chat-next-message ()
-  "Move forward to and speak the next message in this chat
-session."
+  "Move forward to and speak the next message in this chat session."
   (interactive)
   (unless (eq major-mode 'jabber-chat-mode)
     (error "Not in a Jabber chat buffer."))
   (re-search-forward "^\\["nil t)
   (let ((extent (emacspeak-jabber-chat-speak-this-message)))
     (emacspeak-auditory-icon 'large-movement)
-    (goto-char (cdr extent))))
+    (when extent
+      (goto-char (cdr extent)))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat
