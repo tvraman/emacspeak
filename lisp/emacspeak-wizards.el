@@ -3448,6 +3448,80 @@ under point as either the foreground or background color."
              (ems--color-name (background-color-at-point)))))
 
 ;;}}}
+;;{{{ Color Wheel:
+(cl-defstruct ems--color-wheel
+  "Color wheel holds RGB balues and step-size."
+  red green blue step )
+
+(defvar ems--color-wheel
+  (make-ems--color-wheel :red 0 :green 0 :blue 0 :step 16 )
+  "Current state of color wheel.")
+
+(defun ems--color-wheel-name  (wheel)
+  "Name of color  the wheel is set to currently."
+  (ntc-name-this-color
+   (format "#%02X%02X%02X"
+           (ems--color-wheel-red wheel)
+           (ems--color-wheel-green wheel)
+           (ems--color-wheel-blue wheel))))
+  
+
+
+(defun ems--color-wheel-shade  (wheel)
+  "Shade of color  the wheel is set to currently."
+  (ntc-shade-this-color
+   (format "#%02X%02X%02X"
+           (ems--color-wheel-red wheel)
+           (ems--color-wheel-green wheel)
+           (ems--color-wheel-blue wheel))))
+
+(defun emacspeak-wizards-color-wheel ()
+  "Interactively manipulate a simple color wheel and display the
+  name and shade of the resulting color."
+  (interactive)
+  (cl-declare (special ems--color-wheel))
+  (let ((colors '(:red :green :blue))
+        (color :red)
+        (this 0)
+        (event nil)
+        (w ems--color-wheel))
+    (while  t
+      (setq event (read-event
+                   (message "%s is a %s shade"
+                            (ems--color-wheel-name w) (ems--color-wheel-shade w))))
+      (cond
+       ((eq event ?s)
+        (setf (ems--color-wheel-step w) (read-number "Step size: ")))
+       ((eq event 'left)
+        (setq this (% (+ this 2) 3))
+        (setq color (elt   colors this)))
+       ((eq event 'right)
+        (setq this (% (+ this 1) 3))
+        (setq color (elt   colors this)))
+       ((eq event 'up)
+        (cond
+         ((eq color :red)
+          (incf (ems--color-wheel-red w) (ems--color-wheel-step w)))
+         ((eq color :green)
+          (incf (ems--color-wheel-green w) (ems--color-wheel-step w)))
+         ((eq color :blue)
+          (incf (ems--color-wheel-blue w) (ems--color-wheel-step w)))
+         (t (error "Unknown color %s" color))))
+       ((eq event 'down)
+        (cond
+         ((eq color :red)
+          (decf (ems--color-wheel-red w) (ems--color-wheel-step w)))
+         ((eq color :green)
+          (decf (ems--color-wheel-green w) (ems--color-wheel-step w)))
+         ((eq color :blue)
+          (decf (ems--color-wheel-blue w) (ems--color-wheel-step w)))
+         (t (error "Unknown color %s" color))))
+       (t (message Left/Right Switches primary color, Up/Down increases/decrements. C-g to quit))))))
+    
+    
+
+
+;;}}}
 ;;{{{ Utility: Read from a pipe helper:
 
 ;;; For use from etc/emacs-pipe.pl
