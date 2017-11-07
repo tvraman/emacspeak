@@ -3453,9 +3453,7 @@ under point as either the foreground or background color."
   "Color wheel holds RGB balues and step-size."
   red green blue step )
 
-(defvar ems--color-wheel
-  (make-ems--color-wheel :red 0 :green 0 :blue 0 :step 16 )
-  "Current state of color wheel.")
+
 
 (defun ems--color-wheel-name  (wheel)
   "Name of color  the wheel is set to currently."
@@ -3497,7 +3495,7 @@ This makes for a fun color exploration tool with verbal descriptions of the colo
         (color :red)
         (this 0)
         (event nil)
-        (w ems--color-wheel))
+        (w (make-ems--color-wheel :red 0 :green 0 :blue 0 :step 16 )))
     (while  t
       (setq event (read-event (ems--color-wheel-describe w)))
       (cond
