@@ -3474,30 +3474,43 @@ under point as either the foreground or background color."
            (ems--color-wheel-red wheel)
            (ems--color-wheel-green wheel)
            (ems--color-wheel-blue wheel))))
+
+(defsubst ems--color-wheel-describe (w)
+  "Describe the current state of this color wheel."
+  (message "%s is a %s shade: %02X%02X%02X"
+           (ems--color-wheel-name w) (ems--color-wheel-shade w)
+           (ems--color-wheel-red w)
+           (ems--color-wheel-green w)
+           (ems--color-wheel-blue w)))
+
 ;;;### autoload
 (defun emacspeak-wizards-color-wheel ()
   "Interactively manipulate a simple color wheel and display the
-  name and shade of the resulting color."
+  name and shade of the resulting color.
+This makes for a fun color exploration tool with verbal descriptions of the colors from package name-this-color."
   (interactive)
   (cl-declare (special ems--color-wheel))
-  (let ((colors '(:red :green :blue))
+  (unless (featurep 'name-this-color)
+    (error "This tool requires package name-this-color."))
+  (let ((dtk-stop-immediately  nil)
+        (colors '(:red :green :blue))
         (color :red)
         (this 0)
         (event nil)
         (w ems--color-wheel))
     (while  t
-      (setq event (read-event
-                   (message "%s is a %s shade"
-                            (ems--color-wheel-name w) (ems--color-wheel-shade w))))
+      (setq event (read-event (ems--color-wheel-describe w)))
       (cond
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
        ((eq event 'left)
         (setq this (% (+ this 2) 3))
-        (setq color (elt   colors this)))
+        (setq color (elt   colors this))
+        (dtk-speak (format "Color %s" color)))
        ((eq event 'right)
         (setq this (% (+ this 1) 3))
-        (setq color (elt   colors this)))
+        (setq color (elt   colors this))
+        (dtk-speak (format "Color %s" color)))
        ((eq event 'up)
         (cond
          ((eq color :red)
@@ -3529,9 +3542,6 @@ under point as either the foreground or background color."
                 (max 0 (ems--color-wheel-blue w))))
          (t (error "Unknown color %s" color))))
        (t (message "Left/Right Switches primary color, Up/Down increases/decrements. C-g to quit."))))))
-    
-    
-
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
