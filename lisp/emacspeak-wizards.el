@@ -3479,9 +3479,10 @@ under point as either the foreground or background color."
 
 ;;;### autoload
 (defun emacspeak-wizards-color-wheel ()
-  "Interactively manipulate a simple color wheel and display the
-  name and shade of the resulting color.
-This makes for a fun color exploration tool with verbal descriptions of the colors from package name-this-color."
+  "Interactively manipulate a simple color wheel and display the name
+  and shade of the resulting color.  This makes for a fun color
+  exploration tool with verbal descriptions of the colors from package
+  name-this-color."
   (interactive)
   (cl-declare (special ems--color-wheel))
   (unless (featurep 'name-this-color)
