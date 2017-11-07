@@ -3186,6 +3186,7 @@ sorted in lexical order with duplicates removed when saving."
   "Get results from json response.
 Returns a list of lists, one list per ticker."
   (let ((results (emacspeak-wizards-yq-get-quotes symbols)))
+    (unless results (error "API Call returned null."))
     ;;; keep fields we care about for each result
     (cond
      ((= 1 (length symbols)) ;wrap singleton in a list
