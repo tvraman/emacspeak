@@ -3478,21 +3478,26 @@ under point as either the foreground or background color."
            (ems--color-wheel-blue w)))
 
 ;;;### autoload
-(defun emacspeak-wizards-color-wheel ()
+(defun emacspeak-wizards-color-wheel (start)
   "Interactively manipulate a simple color wheel and display the name
   and shade of the resulting color.  This makes for a fun color
   exploration tool with verbal descriptions of the colors from package
-  name-this-color."
-  (interactive)
+  name-this-color. Prompts for a color from which to start exploration."
+  (interactive (list (color-name-to-rgb(read-color "Start Color: "))))
   (cl-declare (special ems--color-wheel))
   (unless (featurep 'name-this-color)
     (error "This tool requires package name-this-color."))
+  (setq start (mapcar #'(lambda (c) (round (* 255 c))) start))
   (let ((dtk-stop-immediately  nil)
         (colors '(:red :green :blue))
         (color :red)
         (this 0)
         (event nil)
-        (w (make-ems--color-wheel :red 0 :green 0 :blue 0 :step 16 )))
+        (w (make-ems--color-wheel
+            :red (cl-first start)
+            :green (cl-second start)
+            :blue (cl-third start)
+            :step 16 )))
     (while  t
       (setq event (read-event (ems--color-wheel-describe w)))
       (cond
