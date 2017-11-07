@@ -133,7 +133,7 @@ Prompts for the new location and preserves modification time
   existing file being overwritten."
   (interactive)
   (cl-declare (special emacspeak-copy-file-location-history
-                    emacspeak-copy-associated-location))
+                       emacspeak-copy-associated-location))
   (let ((file (or (buffer-file-name)
                   (error "Current buffer is not visiting any file")))
         (location (read-file-name
@@ -170,7 +170,7 @@ Prompts for the new location and preserves modification time
   used.  Signals an error if target already exists."
   (interactive)
   (cl-declare (special emacspeak-copy-file-location-history
-                    emacspeak-copy-associated-location))
+                       emacspeak-copy-associated-location))
   (let ((file (or (buffer-file-name)
                   (error "Current buffer is not visiting any file")))
         (location (read-file-name
@@ -203,7 +203,7 @@ Prompts for the new location and preserves modification time
   used.  Signals an error if target already exists."
   (interactive)
   (cl-declare (special emacspeak-copy-file-location-history
-                    emacspeak-copy-associated-location))
+                       emacspeak-copy-associated-location))
   (let ((file (or (buffer-file-name)
                   (error "Current buffer is not visiting any file")))
         (location (read-file-name
@@ -641,11 +641,11 @@ meaning of `next'."
 ;;{{{ emacspeak clipboard
 
 (cl-eval-when (load)
-           (condition-case nil
-               (unless (file-exists-p emacspeak-resource-directory)
-                 (make-directory emacspeak-resource-directory))
-             (error (message "Make sure you have an Emacspeak resource directory %s"
-                             emacspeak-resource-directory))))
+  (condition-case nil
+      (unless (file-exists-p emacspeak-resource-directory)
+        (make-directory emacspeak-resource-directory))
+    (error (message "Make sure you have an Emacspeak resource directory %s"
+                    emacspeak-resource-directory))))
 
 (defcustom emacspeak-clipboard-file
   (concat emacspeak-resource-directory "/" "clipboard")
@@ -821,7 +821,7 @@ at point."
   (interactive)
   (let ((f
          (or (get-text-property (point) 'font-lock-face)
-             (get-text-property (point) 'face)))        
+             (get-text-property (point) 'face)))
         (style (dtk-get-style))
         (o
          (delq nil
@@ -987,7 +987,7 @@ Signals beginning  of buffer."
     (read-from-minibuffer "URL: "
                           (browse-url-url-at-point))))
   (cl-declare (special emacspeak-wizards-lynx-program
-                    term-height term-width))
+                       term-height term-width))
   (require 'term)
   (delete-other-windows)
   (switch-to-buffer
@@ -1259,7 +1259,7 @@ Previews those contents as HTML and nukes the buffer
 visiting the xls file."
   (interactive)
   (cl-declare (special emacspeak-wizards-xlhtml-program
-                    emacspeak-wizards-xl-preview-buffer))
+                       emacspeak-wizards-xl-preview-buffer))
   (cond
    ((null emacspeak-wizards-xlhtml-program)
     (message "Not using Emacspeak XLHTML wizard."))
@@ -1316,7 +1316,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
                            (string-match ".pdf$" name)))))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-pdf-to-text-options
-                    emacspeak-wizards-pdf-to-text-program))
+                       emacspeak-wizards-pdf-to-text-program))
   (let ((passwd (when ask-pwd (read-passwd "User Password:")))
         (output-buffer
          (format "%s"
@@ -1365,7 +1365,7 @@ Previews those contents as HTML and nukes the buffer
 visiting the ppt file."
   (interactive)
   (cl-declare (special emacspeak-wizards-ppthtml-program
-                    emacspeak-wizards-ppt-preview-buffer))
+                       emacspeak-wizards-ppt-preview-buffer))
   (emacspeak-webutils-without-xsl
    (cond
     ((null emacspeak-wizards-ppthtml-program)
@@ -1420,7 +1420,7 @@ Previews those contents as text and nukes the buffer
 visiting the DVI file."
   (interactive)
   (cl-declare (special emacspeak-wizards-dvi2txt-program
-                    emacspeak-wizards-dvi-preview-buffer))
+                       emacspeak-wizards-dvi-preview-buffer))
   (cond
    ((null emacspeak-wizards-dvi2txt-program)
     (message "Not using Emacspeak DVI wizard."))
@@ -1521,7 +1521,7 @@ visiting the DVI file."
   "Generate a widget-enabled finder wizard."
   (interactive)
   (cl-declare (special default-directory
-                    emacspeak-wizards-find-switches-widget))
+                       emacspeak-wizards-find-switches-widget))
   (require 'cus-edit)
   (let ((value nil)
         (notify (emacspeak-wizards-generate-finder-callback))
@@ -1609,11 +1609,11 @@ directory to where find is to be launched."
   "Cycles through available browsers."
   (interactive)
   (cl-declare (special browse-url-browser-function
-                    emacspeak-wizards-available-browsers))
+                       emacspeak-wizards-available-browsers))
   (let* ((count (length emacspeak-wizards-available-browsers))
          (current
           (cl-position browse-url-browser-function
-                    emacspeak-wizards-available-browsers))
+                       emacspeak-wizards-available-browsers))
          (next  (% (1+ current) count)))
     (setq browse-url-browser-function
           (nth  next emacspeak-wizards-available-browsers))
@@ -1834,8 +1834,8 @@ Ubuntu and Debian this is group `tty'."
   "View contents of specified virtual console."
   (interactive "nConsole:")
   (cl-declare (special emacspeak-wizards-vc-viewer-command
-                    emacspeak-wizards-vc-console
-                    temporary-file-directory))
+                       emacspeak-wizards-vc-console
+                       temporary-file-directory))
   (ems-with-messages-silenced
    (let ((command
           (format emacspeak-wizards-vc-viewer-command
@@ -2165,7 +2165,7 @@ dates.")
   "Toggle pronunciation of mm-dd-yyyy dates."
   (interactive)
   (cl-declare (special emacspeak-wizards-mm-dd-yyyy-date-pronounce
-                    emacspeak-pronounce-date-mm-dd-yyyy-pattern))
+                       emacspeak-pronounce-date-mm-dd-yyyy-pattern))
   (cond
    (emacspeak-wizards-mm-dd-yyyy-date-pronounce
     (setq emacspeak-wizards-mm-dd-yyyy-date-pronounce nil)
@@ -2189,7 +2189,7 @@ dates.")
   "Toggle pronunciation of yyyymmdd  dates."
   (interactive)
   (cl-declare (special emacspeak-wizards-yyyymmdd-date-pronounce
-                    emacspeak-pronounce-date-yyyymmdd-pattern))
+                       emacspeak-pronounce-date-yyyymmdd-pattern))
   (cond
    (emacspeak-wizards-yyyymmdd-date-pronounce
     (setq emacspeak-wizards-yyyymmdd-date-pronounce nil)
@@ -2253,7 +2253,7 @@ RIVO is implemented by rivo.pl ---
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
   (cl-declare (special emacspeak-media-last-url emacspeak-media-shortcuts-directory
-                    emacspeak-media-history))
+                       emacspeak-media-history))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program
@@ -2390,7 +2390,7 @@ of the source buffer."
   explanation of how re-keying works."
   (interactive "P")
   (cl-declare (special last-input-event emacspeak-wizards--shells-table
-                    major-mode default-directory))
+                       major-mode default-directory))
   (unless (emacspeak-wizards-get-shells) (shell))
   (emacspeak-wizards--build-shells-table)
   (cond
@@ -2457,7 +2457,7 @@ of the source buffer."
   "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
 buffer keyed by `key'gets the key of buffer `buffer'."
   (cl-declare (special emacspeak-wizards--shells-table
-                    emacspeak-wizards--project-shell-directory))
+                       emacspeak-wizards--project-shell-directory))
   (cond
    ((eq buffer (gethash key emacspeak-wizards--shells-table))
     (message "Rekey: Nothing to do"))
@@ -2764,7 +2764,6 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
       (emacspeak-wizards-espeak-string (buffer-substring start (point)))
       (skip-syntax-forward " ")
       (setq start (point)))))
-
 
 ;;;###autoload
 (defun emacspeak-wizards-espeak-line ()
@@ -3213,7 +3212,7 @@ per headers."
 (defun emacspeak-wizards-yq-table (symbols)
   "Turn result list from YQL into an Emacspeak  table."
   (cl-declare (special emacspeak-wizards-yq-headers
-                    emacspeak-wizards-yq-headers-row))
+                       emacspeak-wizards-yq-headers-row))
   (let ((table (make-vector (1+ (length symbols)) nil))
         (results (emacspeak-wizards-yq-results symbols)))
     (aset table 0 emacspeak-wizards-yq-headers-row)
@@ -3397,7 +3396,7 @@ With interactive prefix arg, set foreground and background color first."
          (diff (ems--color-diff fg bg)))
     (message "Color distance is %.2f between %s and %s" diff
              (ems--color-name fg) (ems--color-name bg))))
-  
+
 (defun ems--color-hex (color)
   "Return Hex value for color."
   (apply #'color-rgb-to-hex (append (color-name-to-rgb color) '(2))))
@@ -3420,11 +3419,11 @@ Otherwise just return  `color'."
 (defun emacspeak-wizards--set-color (color)
   "Set color as foreground or background."
   (let ((choice (read-char "f:foreground, b:background")))
-         (cl-case choice
-           (?b (set-background-color color))
-           (?f (set-foreground-color color)))
-         (emacspeak-auditory-icon 'select-object)
-         (call-interactively #'emacspeak-wizards-frame-colors)))
+    (cl-case choice
+      (?b (set-background-color color))
+      (?f (set-foreground-color color)))
+    (emacspeak-auditory-icon 'select-object)
+    (call-interactively #'emacspeak-wizards-frame-colors)))
 
 ;;;###autoload
 (defun emacspeak-wizards-colors ()
@@ -3453,8 +3452,6 @@ under point as either the foreground or background color."
   "Color wheel holds RGB balues and step-size."
   red green blue step )
 
-
-
 (defun ems--color-wheel-name  (wheel)
   "Name of color  the wheel is set to currently."
   (ntc-name-this-color
@@ -3462,7 +3459,6 @@ under point as either the foreground or background color."
            (ems--color-wheel-red wheel)
            (ems--color-wheel-green wheel)
            (ems--color-wheel-blue wheel))))
-  
 
 
 (defun ems--color-wheel-shade  (wheel)
@@ -3678,7 +3674,7 @@ Location is a Lat/Lng pair retrieved from Googke Maps API."
     buffer))
 ;;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
-  "Display weather information using NOAA Weather API.  
+  "Display weather information using NOAA Weather API.
 Data is retrieved only once, subsequent calls switch to previously
 displayed results. Kill that buffer or use an interactive prefix
 arg (C-u) to get new data.  Optional second interactive prefix
@@ -3717,7 +3713,7 @@ weather for `gweb-my-address'.  "
    (t
     (setq comint-dynamic-complete-functions shell-dynamic-complete-functions)
     (emacspeak-auditory-icon 'on)
-   (message "Enabled bash completion."))))
+    (message "Enabled bash completion."))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
