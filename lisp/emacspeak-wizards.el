@@ -3474,7 +3474,7 @@ under point as either the foreground or background color."
            (ems--color-wheel-red wheel)
            (ems--color-wheel-green wheel)
            (ems--color-wheel-blue wheel))))
-
+;;;### autoload
 (defun emacspeak-wizards-color-wheel ()
   "Interactively manipulate a simple color wheel and display the
   name and shade of the resulting color."
@@ -3516,7 +3516,7 @@ under point as either the foreground or background color."
          ((eq color :blue)
           (decf (ems--color-wheel-blue w) (ems--color-wheel-step w)))
          (t (error "Unknown color %s" color))))
-       (t (message Left/Right Switches primary color, Up/Down increases/decrements. C-g to quit))))))
+       (t (message "Left/Right Switches primary color, Up/Down increases/decrements. C-g to quit."))))))
     
     
 
@@ -3675,7 +3675,7 @@ weather for `gweb-my-address'.  "
     (emacspeak-speak-buffer)))
 
 ;;}}}
-;;{{{ Enabe/Disable bash-completion in shells:
+;;{{{ enable/Disable bash-completion in shells:
 
 ;;; Completion from bash completion:
 ;;; Wins for completing command options. (gdbus)

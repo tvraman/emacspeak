@@ -440,6 +440,7 @@ relief."
     ("," emacspeak-wizards-shell-directory-set)
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("b" battery)
+    ("C" emacspeak-wizards-color-wheel)
     ("c" emacspeak-wizards-colors)
     ("e" emacspeak-we-xsl-map)
     ("h" emacspeak-wizards-how-many-matches)
