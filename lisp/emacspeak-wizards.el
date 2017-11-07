@@ -3452,6 +3452,13 @@ under point as either the foreground or background color."
   "Color wheel holds RGB balues and step-size."
   red green blue step )
 
+(defun ems--color-wheel-hex (w)
+  "Return color value as hex."
+  (format "#%02X%02X%02X"
+                (ems--color-wheel-red w)
+                (ems--color-wheel-green w)
+                (ems--color-wheel-blue w)))
+
 (defun ems--color-wheel-name  (wheel)
   "Name of color  the wheel is set to currently."
   (ntc-name-this-color
@@ -3469,16 +3476,16 @@ under point as either the foreground or background color."
            (ems--color-wheel-green wheel)
            (ems--color-wheel-blue wheel))))
 
-(defsubst ems--color-wheel-describe (w fg)
+(defun ems--color-wheel-describe (w fg)
   "Describe the current state of this color wheel."
   (let* ((name (ems--color-wheel-name w))
-         (msg (format "%s is a %s shade: %02X%02X%02X"
-                      name  (ems--color-wheel-shade w)
-                      (ems--color-wheel-red w)
-                      (ems--color-wheel-green w)
-                      (ems--color-wheel-blue w))))
-    (setq msg (propertize msg  'face `(:foreground ,fg :background ,name)))
-    msg))
+         (hex (ems--color-wheel-hex w) )
+         (msg (format "%s is a %s shade: %s"
+                      name  (ems--color-wheel-shade w) hex)))
+    (setq fg (format "%s" fg))
+    (setq msg
+          (propertize msg  'face `(:foreground ,fg :background ,hex)))
+    (message msg)))
 
 ;;;### autoload
 (defun emacspeak-wizards-color-wheel (start)
@@ -3492,8 +3499,9 @@ under point as either the foreground or background color."
     (error "This tool requires package name-this-color."))
   (setq start (mapcar #'(lambda (c) (round (* 255 c))) start))
   (let ((dtk-stop-immediately  nil)
-        (colors '(:red :green :blue))
-        (color :red)
+        (continue t)
+        (colors '("red" "green" "blue"))
+        (color "red")
         (this 0)
         (event nil)
         (w (make-ems--color-wheel
@@ -3501,9 +3509,12 @@ under point as either the foreground or background color."
             :green (cl-second start)
             :blue (cl-third start)
             :step 16 )))
-    (while  t
+    (while  continue
       (setq event (read-event (ems--color-wheel-describe w color)))
       (cond
+       ((eq event ?q)
+        (setq continue nil)
+        (ems--color-wheel-hex w))
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
        ((eq event 'left)
@@ -3516,35 +3527,35 @@ under point as either the foreground or background color."
         (dtk-speak (format "%s Axis" color)))
        ((eq event 'up)
         (cond
-         ((eq color :red)
+         ((string= color "red")
           (incf (ems--color-wheel-red w) (ems--color-wheel-step w))
           (setf (ems--color-wheel-red w)
                 (min 255 (ems--color-wheel-red w))))
-         ((eq color :green)
+         ((string= color "green")
           (incf (ems--color-wheel-green w) (ems--color-wheel-step w))
           (setf (ems--color-wheel-green w)
                 (min 255 (ems--color-wheel-green w))))
-         ((eq color :blue)
+         ((string= color "blue")
           (incf (ems--color-wheel-blue w) (ems--color-wheel-step w))
           (setf (ems--color-wheel-blue w)
                 (min 255 (ems--color-wheel-blue w))))
          (t (error "Unknown color %s" color))))
        ((eq event 'down)
         (cond
-         ((eq color :red)
+         ((string= color "red")
           (decf (ems--color-wheel-red w) (ems--color-wheel-step w))
           (setf (ems--color-wheel-red w)
                 (max 0 (ems--color-wheel-red w))))
-         ((eq color :green)
+         ((string= color "green")
           (decf (ems--color-wheel-green w) (ems--color-wheel-step w))
           (setf (ems--color-wheel-green w)
                 (max 0 (ems--color-wheel-green w))))
-         ((eq color :blue)
+         ((string= color "blue")
           (decf (ems--color-wheel-blue w) (ems--color-wheel-step w))
           (setf (ems--color-wheel-blue w)
                 (max 0 (ems--color-wheel-blue w))))
          (t (error "Unknown color %s" color))))
-       (t (message "Left/Right Switches primary color, Up/Down increases/decrements. C-g to quit."))))))
+       (t (message "Left/Right Switches primary color, Up/Down increases/decrements. q to quit."))))))
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
