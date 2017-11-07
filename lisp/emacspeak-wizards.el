@@ -3469,13 +3469,16 @@ under point as either the foreground or background color."
            (ems--color-wheel-green wheel)
            (ems--color-wheel-blue wheel))))
 
-(defsubst ems--color-wheel-describe (w)
+(defsubst ems--color-wheel-describe (w fg)
   "Describe the current state of this color wheel."
-  (message "%s is a %s shade: %02X%02X%02X"
-           (ems--color-wheel-name w) (ems--color-wheel-shade w)
-           (ems--color-wheel-red w)
-           (ems--color-wheel-green w)
-           (ems--color-wheel-blue w)))
+  (let* ((name (ems--color-wheel-name w))
+         (msg (format "%s is a %s shade: %02X%02X%02X"
+                      name  (ems--color-wheel-shade w)
+                      (ems--color-wheel-red w)
+                      (ems--color-wheel-green w)
+                      (ems--color-wheel-blue w))))
+    (setq msg (propertize msg  'face `(:foreground ,fg :background ,name)))
+    msg))
 
 ;;;### autoload
 (defun emacspeak-wizards-color-wheel (start)
@@ -3499,7 +3502,7 @@ under point as either the foreground or background color."
             :blue (cl-third start)
             :step 16 )))
     (while  t
-      (setq event (read-event (ems--color-wheel-describe w)))
+      (setq event (read-event (ems--color-wheel-describe w color)))
       (cond
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
