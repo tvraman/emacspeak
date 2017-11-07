@@ -3501,11 +3501,11 @@ under point as either the foreground or background color."
        ((eq event 'left)
         (setq this (% (+ this 2) 3))
         (setq color (elt   colors this))
-        (dtk-speak (format "Color %s" color)))
+        (dtk-speak (format "%s Axis" color)))
        ((eq event 'right)
         (setq this (% (+ this 1) 3))
         (setq color (elt   colors this))
-        (dtk-speak (format "Color %s" color)))
+        (dtk-speak (format "%s Axis" color)))
        ((eq event 'up)
         (cond
          ((eq color :red)
