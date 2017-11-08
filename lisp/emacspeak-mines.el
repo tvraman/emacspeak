@@ -110,6 +110,12 @@ mines-go-up)
       (emacspeak-auditory-icon 'mark-object))
     (emacspeak-mines-speak-cell)))
 
+(defadvice mines-game-over (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'shutdown)))
+
+
 ;;}}}
 (provide 'emacspeak-mines)
 ;;{{{ end of file
