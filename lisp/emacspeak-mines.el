@@ -53,18 +53,41 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+;;; Helper:
+(defun emacspeak-mines-speak-cell ()
+  "Speak current cell."
+  (let ((pos (mines-index-2-matrix (mines-current-pos))))
+    (dtk-speak (format "%c in row %s column  %s"
+                       (following-char) (cl-first pos) (cl-second pos)))))
 
-'(
-  mines
-mines-dig
-mines-flag-cell
-mines-go-down
+
+
+(cl-loop
+ for f in 
+ '(mines-go-down
 mines-go-left
 mines-go-right
-mines-go-up
-mines-list-game-conditions
-mines-mode
-)
+mines-go-up)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'item)
+       (emacspeak-mines-speak-cell)))))
+
+(defadvice mines-dig (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (unless mines-game-over (emacspeak-mines-speak-cell))))
+
+
+(defadvice mines-flag-cell (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-mines-speak-cell)))
 
 ;;}}}
 (provide 'emacspeak-mines)
