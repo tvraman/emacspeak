@@ -61,6 +61,7 @@
   (cl-loop
    for b in
    '(
+     ("." emacspeak-mines-speak-neighbors)
      ("SPC" emacspeak-mines-speak-cell))
    do
    (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
@@ -74,6 +75,27 @@
     (dtk-speak (format "%c in row %s column  %s"
                        (following-char) (cl-first pos) (cl-second pos)))))
 
+
+(defun emacspeak-mines-speak-neighbors ()
+  "Speak neighboring cells in sorted order."
+  (interactive )
+  (cl-declare (special mines-state mines-grid))
+  (let* ((cells (sort (mines-get-neighbours (mines-current-pos)) #'<))
+         (values (mapcar #'(lambda (c) (aref mines-state c)) cells))
+         (numbers (mapcar #'(lambda (c) (aref mines-grid c)) cells))
+         (result nil))
+    (cl-loop
+     for v in values
+     and n in numbers do
+     (cond
+      ((null v) (push "." result))
+      ((and v (numberp n) ) (push (format "%d" n) result))
+      ((eq '@ v) (push "@" result))
+      (t (message "Should not  get here"))))
+    (dtk-speak-list (nreverse result))))
+              
+;;}}}
+;;{{{ Advice Interactive Commands 
 (defadvice mines (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
