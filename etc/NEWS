@@ -82,6 +82,12 @@ be removed as well.
 
 Module ~emacspeak-smartparens~ speech-enables package ~smartparens~.
 
+** Playing Minesweeper In Emacspeak
+
+Package ~mines~ from ELPA implements the Minesweeper game for Emacs
+--- module ~emacspeak-mines~ speech-enables this game.
+
+
 ** DMacro Support Is Obsolete 
 
 This used to be my favorite template filling package in the 90's but
