@@ -248,6 +248,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "mpg123" 'emacspeak-mpg123)
 (emacspeak-do-package-setup "muse-mode" 'emacspeak-muse)
 (emacspeak-do-package-setup "midge-mode" 'emacspeak-midge)
+(emacspeak-do-package-setup "mines" 'emacspeak-mines)
 (emacspeak-do-package-setup "mpuz" 'emacspeak-entertain)
 (emacspeak-do-package-setup "mspools" 'emacspeak-mspools)
 (emacspeak-do-package-setup "nero" 'emacspeak-nero)

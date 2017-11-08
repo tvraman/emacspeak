@@ -195,6 +195,7 @@ emacspeak-maths.elc \
 emacspeak-message.elc \
 emacspeak-metapost.elc \
 emacspeak-midge.elc \
+emacspeak-mines.elc \
 emacspeak-mpg123.elc \
 emacspeak-muse.elc \
 emacspeak-mspools.elc \
@@ -460,6 +461,7 @@ emacspeak-man.elc: emacspeak-man.el dtk-speak.elc voice-setup.elc
 emacspeak-message.elc: emacspeak-message.el dtk-speak.elc voice-setup.elc
 emacspeak-metapost.elc: emacspeak-metapost.el dtk-speak.elc voice-setup.elc
 emacspeak-midge.elc: emacspeak-midge.el dtk-speak.elc voice-setup.elc
+emacspeak-mines.elc: emacspeak-mines.el dtk-speak.elc
 emacspeak-mpg123.elc: emacspeak-mpg123.el dtk-speak.elc voice-setup.elc
 emacspeak-muse.elc: emacspeak-muse.el dtk-speak.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
