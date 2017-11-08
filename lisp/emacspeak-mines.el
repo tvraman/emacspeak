@@ -127,7 +127,7 @@ mines-go-up)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     
-    (if (aref mines-grid (mines-current-pos))
+    (if (eq t (aref mines-grid (mines-current-pos)))
         (emacspeak-auditory-icon 'close-object)
       (emacspeak-auditory-icon 'mark-object))
     (emacspeak-mines-speak-cell)))
