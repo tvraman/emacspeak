@@ -53,14 +53,32 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
-;;; Helper:
+
+
+(defun emacspeak-mines-init ()
+  "Setup additional keys for playing minesweeper."
+  (cl-declaim (special mines-mode-map))
+  (cl-loop
+   for b in
+   '(
+     ("SPC" emacspeak-mines-speak-cell))
+   do
+   (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
+(eval-after-load  "mines"
+`(progn (emacspeak-mines-init)))
+
 (defun emacspeak-mines-speak-cell ()
   "Speak current cell."
+  (interactive)
   (let ((pos (mines-index-2-matrix (mines-current-pos))))
     (dtk-speak (format "%c in row %s column  %s"
                        (following-char) (cl-first pos) (cl-second pos)))))
 
-
+(defadvice mines (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-speak "Welcome to a new game.")))
 
 (cl-loop
  for f in 
@@ -86,7 +104,10 @@ mines-go-up)
 (defadvice mines-flag-cell (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
+    
+    (if (aref mines-grid (mines-current-pos))
+        (emacspeak-auditory-icon 'close-object)
+      (emacspeak-auditory-icon 'mark-object))
     (emacspeak-mines-speak-cell)))
 
 ;;}}}
