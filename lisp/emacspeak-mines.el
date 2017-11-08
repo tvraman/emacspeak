@@ -54,7 +54,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
 (defun emacspeak-mines-init ()
   "Setup additional keys for playing minesweeper."
   (cl-declaim (special mines-mode-map))
@@ -66,7 +65,7 @@
    do
    (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
 (eval-after-load  "mines"
-`(progn (emacspeak-mines-init)))
+  `(progn (emacspeak-mines-init)))
 
 (defun emacspeak-mines-speak-cell ()
   "Speak current cell."
@@ -74,7 +73,6 @@
   (let ((pos (mines-index-2-matrix (mines-current-pos))))
     (dtk-speak (format "%c in row %s column  %s"
                        (following-char) (cl-first pos) (cl-second pos)))))
-
 
 (defun emacspeak-mines-speak-neighbors ()
   "Speak neighboring cells in sorted order."
@@ -93,9 +91,9 @@
       ((eq '@ v) (push "@" result))
       (t (message "Should not  get here"))))
     (dtk-speak-list (nreverse result))))
-              
+
 ;;}}}
-;;{{{ Advice Interactive Commands 
+;;{{{ Advice Interactive Commands
 (defadvice mines (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -103,11 +101,11 @@
     (dtk-speak "Welcome to a new game.")))
 
 (cl-loop
- for f in 
+ for f in
  '(mines-go-down
-mines-go-left
-mines-go-right
-mines-go-up)
+   mines-go-left
+   mines-go-right
+   mines-go-up)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -122,11 +120,10 @@ mines-go-up)
     (emacspeak-auditory-icon 'open-object)
     (unless mines-game-over (emacspeak-mines-speak-cell))))
 
-
 (defadvice mines-flag-cell (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    
+
     (if (eq t (aref mines-grid (mines-current-pos)))
         (emacspeak-auditory-icon 'close-object)
       (emacspeak-auditory-icon 'mark-object))
@@ -137,8 +134,12 @@ mines-go-up)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'shutdown)))
 
+(defadvice mines-game-completed(after emacspeak pre act comp)
+  "Provide an auditory icon."
+  (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
+
 (provide 'emacspeak-mines)
 ;;{{{ end of file
 
