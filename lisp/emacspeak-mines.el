@@ -106,8 +106,7 @@
 (defadvice mines (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (call-interactively #'mines-list-game-conditions)))
+    (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop
  for f in
