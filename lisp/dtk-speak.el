@@ -1912,21 +1912,22 @@ Optional argument group-count specifies grouping for intonation."
       (set-buffer dtk-scratch-buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (cl-loop  for element in text
-                do
-                (insert
-                 (format "%s%s "
-                         element
-                         (cond
-                          ((null group-count) "")
-                          ((= len counter) ". ")
-                          ((and group-count
-                                (zerop (% counter group-count)))
-                           ", ")
-                          (t ""))))
-                (cl-incf counter))
+      (cl-loop
+       for element in text do
+       (insert
+        (format
+         "%s%s "
+         element
+         (cond
+          ((null group-count) "")
+          ((= len counter) ". ")
+          ((and group-count
+                (zerop (% counter group-count)))
+           ", ")
+          (t ""))))
+       (cl-incf counter))
       (setq contents (buffer-string)))
-    (dtk-speak contents)))
+    (tts-with-punctuations 'some(dtk-speak contents))))
 
 (defun dtk-letter (letter)
   "Speak a LETTER."
