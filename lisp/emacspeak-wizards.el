@@ -3485,7 +3485,7 @@ under point as either the foreground or background color."
     (setq fg (format "%s" fg))
     (setq msg
           (propertize msg  'face `(:foreground ,fg :background ,hex)))
-    (message msg)))
+    msg))
 
 ;;;### autoload
 (defun emacspeak-wizards-color-wheel (start)
