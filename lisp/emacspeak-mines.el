@@ -107,7 +107,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (dtk-speak "Welcome to a new game.")))
+    (call-interactively #'mines-list-game-conditions)))
 
 (cl-loop
  for f in
