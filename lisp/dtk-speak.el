@@ -1905,7 +1905,6 @@ Optional argument group-count specifies grouping for intonation."
   (cl-declare (special dtk-speaker-process))
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
-        (counter 1)
         (len (length text))
         (inhibit-read-only t))
     (save-current-buffer
@@ -1913,19 +1912,19 @@ Optional argument group-count specifies grouping for intonation."
       (setq buffer-undo-list t)
       (erase-buffer)
       (cl-loop
-       for element in text do
+       for element in text
+       and i from 0 do
        (insert
         (format
          "%s%s "
          element
          (cond
           ((null group-count) "")
-          ((= len counter) ". ")
+          ((= len i) ". ")
           ((and group-count
-                (zerop (% counter group-count)))
+                (zerop (%  (1+ i) group-count)))
            ", ")
-          (t ""))))
-       (cl-incf counter))
+          (t "")))))
       (setq contents (buffer-string)))
     (tts-with-punctuations 'some(dtk-speak contents))))
 
