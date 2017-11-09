@@ -73,6 +73,11 @@
   (let ((pos (mines-index-2-matrix (mines-current-pos))))
     (dtk-speak (format "%c in row %s column  %s"
                        (following-char) (cl-first pos) (cl-second pos)))))
+(defun emacspeak-mines-cell-flagged-p (c)
+"Predicate to check if cell at index c is flagged."
+(save-excursion
+  (mines-goto c)
+  (get-text-property (point) 'flag)))
 
 (defun emacspeak-mines-speak-neighbors ()
   "Speak neighboring cells in sorted order."
@@ -83,14 +88,18 @@
          (numbers (mapcar #'(lambda (c) (aref mines-grid c)) cells))
          (result nil))
     (cl-loop
+     for c in cells
      for v in values
      and n in numbers do
      (cond
-      ((null v) (push "." result))
+      ((and (null v) (emacspeak-mines-cell-flagged-p c))
+       (push "mark" result))
+      ((null v) (push "dot" result))
       ((and v (numberp n) ) (push (format "%d" n) result))
-      ((eq '@ v) (push "@" result))
+      ((eq '@ v) (push "at" result))
       (t (message "Should not  get here"))))
-    (dtk-speak-list (nreverse result))))
+    (tts-with-punctuations 'some
+    (dtk-speak-list (nreverse result) 3))))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands
