@@ -3514,7 +3514,7 @@ under point as either the foreground or background color."
       (cond
        ((eq event ?q)
         (setq continue nil)
-        (ems--color-wheel-hex w))
+        (kill-new (ems--color-wheel-hex w)))
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
        ((eq event 'left)
