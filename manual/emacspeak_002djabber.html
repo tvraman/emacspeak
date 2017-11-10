@@ -123,8 +123,7 @@
 
       <div class="format">
         <pre class="format">
-Move forward to and speak the next message in this chat
-session.
+Move forward to and speak the next message in this chat session.
 </pre>
       </div>
     </dd>
@@ -183,6 +182,7 @@ session.
 Speaks message starting on current line.
 Assumes point is at the front of the message.
 Returns a cons (start . end) that delimits the message.
+Return nil if no message at point.
 </pre>
       </div>
     </dd>
@@ -225,8 +225,8 @@ Pop to Jabber roster.
   <h4 class="subsection">12.103.2 emacspeak-jabber Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-645" id=
-    "index-User-Option-645"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-656" id=
+    "index-User-Option-656"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-jabber-speak-presence-alerts</em></dt>
 
