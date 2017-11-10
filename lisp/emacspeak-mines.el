@@ -40,7 +40,16 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; MINES ==  Minesweeper game in emacs.
+;;; MINES == Minesweeper game in emacs. The game itself provides a
+;;; fully keyboard driven interface. In addition, Emacspeak provides
+;;; these additional interactive commands:
+;;; @itemize @bullet
+;;; @item @kbd{SPC} Speak current cell.
+;;; @item @kbd{.} Speak neighbours of current cell.
+;;; @end itemize
+;;;
+;;; Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
+;;; Moving to the left/right edge of the board produces an appropriate auditory icon.
 
 ;;; Code:
 
