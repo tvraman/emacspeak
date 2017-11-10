@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1206 commands and 1177 options.
+This chapter documents a total of 1209 commands and 1188 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -125,6 +125,7 @@ This chapter documents a total of 1206 commands and 1177 options.
 * emacspeak-message::Speech enable Message -- Used to compose news postings and replies.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
+* emacspeak-mines::Speech-enable MINES.
 * emacspeak-mpg123::Speech enable MP3 Player.
 * emacspeak-mspools::Speech enable MSpools -- Monitor multiple mail drops.
 * emacspeak-muggles::Convenience Hydras For The Emacspeak Desktop.
@@ -1317,6 +1318,7 @@ x ,		emacspeak-wizards-shell-directory-set
 x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
+x C		emacspeak-wizards-color-wheel
 x Q		emacspeak-wizards-yql-lookup
 x b		battery
 x c		emacspeak-wizards-colors
@@ -4023,6 +4025,72 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -10376,8 +10444,7 @@ I use emacs-jabber with my gmail.com account
 @findex emacspeak-jabber-chat-next-message
 
 @format
-Move forward to and speak the next message in this chat
-session.
+Move forward to and speak the next message in this chat session.
 @end format
 @end deffn
 
@@ -10399,6 +10466,7 @@ session.
 Speaks message starting on current line.
 Assumes point is at the front of the message.
 Returns a cons (start . end) that delimits the message.
+Return nil if no message at point.
 @end format
 @end deffn
 
@@ -12978,6 +13046,40 @@ The package also provides a convenient emacs mode for
 editing and playing  midge files.
 Midge's homepage is at:
 http://www.dmriley.demon.co.uk/code/midge/ 
+
+@node emacspeak-mines
+@section emacspeak-mines
+
+MINES == Minesweeper game in emacs. The game itself provides a
+fully keyboard driven interface. In addition, Emacspeak provides
+these additional interactive commands:
+@itemize @bullet
+@item @kbd{SPC} Speak current cell.
+@item @kbd{.} Speak neighbours of current cell.
+@end itemize
+
+Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
+Moving to the left/right edge of the board produces an appropriate auditory icon.
+
+@subsection emacspeak-mines Commands
+
+@subsubsection emacspeak-mines-speak-cell
+@deffn {Command} emacspeak-mines-speak-cell   
+@findex emacspeak-mines-speak-cell
+
+@format
+Speak current cell.
+@end format
+@end deffn
+
+@subsubsection emacspeak-mines-speak-neighbors
+@deffn {Command} emacspeak-mines-speak-neighbors   
+@findex emacspeak-mines-speak-neighbors
+
+@format
+Speak neighboring cells in sorted order.
+@end format
+@end deffn
 
 @node emacspeak-mpg123
 @section emacspeak-mpg123
@@ -17736,9 +17838,8 @@ Speak the previous window.
 
 @format
 Speak a rectangle of text.
-Rectangle is delimited by point and mark.
-When call from a program,
-arguments specify the START and END of the rectangle.
+Rectangle is delimited by point and mark.  When call from a
+program, arguments specify the START and END of the rectangle.
 
 (fn START END)
 @end format
@@ -22834,6 +22935,27 @@ With interactive prefix arg, set foreground and background color first.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-color-wheel
+@deffn {Command} emacspeak-wizards-color-wheel  (start)
+@table @kbd
+@item C-e x C
+@kindex C-e x C
+@item <fn> x C
+@kindex <fn> x C
+@end table
+
+@findex emacspeak-wizards-color-wheel
+
+@format
+Interactively manipulate a simple color wheel and display the name
+  and shade of the resulting color.  This makes for a fun color
+  exploration tool with verbal descriptions of the colors from package
+  name-this-color. Prompts for a color from which to start exploration.
+
+(fn START)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-colors
 @deffn {Command} emacspeak-wizards-colors   
 @table @kbd
@@ -23420,7 +23542,7 @@ Switch to next shell.
 @findex emacspeak-wizards-noaa-weather
 
 @format
-Display weather information using NOAA Weather API.  
+Display weather information using NOAA Weather API.
 Data is retrieved only once, subsequent calls switch to previously
 displayed results. Kill that buffer or use an interactive prefix
 arg (C-u) to get new data.  Optional second interactive prefix
@@ -26272,7 +26394,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 89 URL Templates.
+This section documents a total of 90 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -26596,6 +26718,10 @@ Display package tracking information from UPS.
 @b{Washington Post}
 
 Washington Post Contents
+
+@b{Weather Light From Wunderground}
+
+Light weight weather forecast
 
 @b{Weather forecast from Weather Underground}
 
