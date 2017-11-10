@@ -141,6 +141,7 @@
 (defadvice mines (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
+    (dtk-speak "New Minesweeper game")
     (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop
