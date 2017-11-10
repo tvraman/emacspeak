@@ -3514,6 +3514,7 @@ under point as either the foreground or background color."
       (cond
        ((eq event ?q)
         (setq continue nil)
+        (emacspeak-auditory-icon 'close-object)
         (kill-new (ems--color-wheel-hex w)))
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
