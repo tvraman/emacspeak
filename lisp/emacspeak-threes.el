@@ -129,7 +129,7 @@
     (nconc
      cells
      (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
-    (tts-with-punctuations 'some (dtk-speak-list   cells))
+     (dtk-speak-list   cells)
     (emacspeak-auditory-icon 'select-object)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
       (emacspeak-auditory-icon 'item))))
@@ -144,9 +144,7 @@
   "Speak the board by columns."
   (interactive)
   (cl-declare (special threes-cells))
-  (tts-with-punctuations
-   'some
-   (dtk-speak-list   (threes-cells-transpose threes-cells) 4))
+   (dtk-speak-list   (threes-cells-transpose threes-cells) 4)
   (emacspeak-auditory-icon 'progress))
 
 (defun emacspeak-threes-setup ()

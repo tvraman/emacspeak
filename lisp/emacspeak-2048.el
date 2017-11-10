@@ -239,7 +239,7 @@ Optional interactive prefix arg prompts for a filename."
   "Speak board."
   (interactive)
   (cl-declare (special *2048-board* *2048-columns*))
-  (dtk-speak-list (append *2048-board* nil) *2048-columns*))
+  (dtk-speak-list (append *2048-board* nil) *2048-columns*) 4)
 
 (defun emacspeak-2048-speak-transposed-board ()
   "Speak board column-wise."
@@ -250,8 +250,8 @@ Optional interactive prefix arg prompts for a filename."
             collect
             (cl-loop for row from 0 to (- *2048-rows*  1)
                      collect
-                     (aref  *2048-board*  (+ col (* 4 row)))))
-   *2048-rows*))
+                     (aref  *2048-board*  (+ col (* 4 row))))) 
+   *2048-rows* 4))
 
 (cl-loop
  for f in

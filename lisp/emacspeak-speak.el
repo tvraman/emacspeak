@@ -2970,9 +2970,8 @@ any other key to speak entire sexp."
 ;;;###autoload
 (defun emacspeak-speak-rectangle (start end)
   "Speak a rectangle of text.
-Rectangle is delimited by point and mark.
-When call from a program,
-arguments specify the START and END of the rectangle."
+Rectangle is delimited by point and mark.  When call from a
+program, arguments specify the START and END of the rectangle."
   (interactive  "r")
   (require 'rect)
   (dtk-speak-list (extract-rectangle start end)))

@@ -1898,34 +1898,45 @@ only speak upto the first ctrl-m."
    (dtk-speak message)
    (message "%s" message)))
 
-(defun dtk-speak-list (text &optional group-count)
+(defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
-Argument TEXT  is the list of strings to speak.
-Optional argument group-count specifies grouping for intonation."
+Argument TEXT is the list of strings to speak.  Optional argument
+group specifies grouping for intonation.  If `group' is a list,
+it should specify split points where clause boundaries are
+inserted.  Otherwise it is a number that specifies grouping"
   (cl-declare (special dtk-speaker-process))
+  (unless group (setq group 3))
+  (when (numberp group)
+;;; Create split list 
+    (setq group
+          (let ((q (/ (length text) group))
+                (r (% (length text) group))
+                (splits nil))
+            (cl-loop for i from 0 to (1- q)do  (push group splits))
+            (if (zerop r)
+                splits
+            `(,@splits ,r)))))
+  (cl-assert (= (length text) (apply #'+ group)) group "Argument mismatch:" text group)
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
         (len (length text))
+        (count 1)
         (inhibit-read-only t))
     (save-current-buffer
       (set-buffer dtk-scratch-buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
       (cl-loop
-       for element in text
-       and i from 0 do
-       (insert
-        (format
-         "%s%s "
-         element
-         (cond
-          ((null group-count) "")
-          ((= len i) ". ")
-          ((and group-count
-                (zerop (%  (1+ i) group-count)))
-           ", ")
-          (t "")))))
-      (setq contents (buffer-string)))
+       for element in text do
+       (insert (format " %s" element))
+       (cond
+        ((= count (car group))
+         (setq count 1)
+         (pop group)
+         (insert ","))
+        (t (incf count)
+           (insert " "))))
+    (setq contents (buffer-string)))
     (tts-with-punctuations 'some(dtk-speak contents))))
 
 (defun dtk-letter (letter)
