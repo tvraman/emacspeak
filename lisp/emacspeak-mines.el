@@ -70,10 +70,14 @@
 (defun emacspeak-mines-speak-cell ()
   "Speak current cell."
   (interactive)
-  (let ((pos (mines-index-2-matrix (mines-current-pos))))
+  (let* ((pos (mines-index-2-matrix (mines-current-pos)))
+         (row (cl-first pos))
+         (column (cl-second pos)))
+    (when (= 0 column) (emacspeak-auditory-icon 'left))
+    (when (= 7 column) (emacspeak-auditory-icon 'right))
+    (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
     (dtk-speak
-     (format "%c in row %s column  %s"
-             (following-char) (cl-first pos) (cl-second pos)))))
+     (format "%c in row %s column  %s" (following-char) row column))))
 
 (defun emacspeak-mines-cell-flagged-p (c)
   "Predicate to check if cell at index c is flagged."
@@ -118,6 +122,8 @@
        '(2 3))
       ((and (= 5 count) (= 7 row)) ;;; bottom
        '(3 2))
+      ((= 5 count) ;;; left/right edge
+       '(2 1 2))
       (t '(3 2 3))))
     (dtk-speak-list (nreverse result) group)))
 
