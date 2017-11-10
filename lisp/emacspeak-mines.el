@@ -71,35 +71,55 @@
   "Speak current cell."
   (interactive)
   (let ((pos (mines-index-2-matrix (mines-current-pos))))
-    (dtk-speak (format "%c in row %s column  %s"
-                       (following-char) (cl-first pos) (cl-second pos)))))
+    (dtk-speak
+     (format "%c in row %s column  %s"
+             (following-char) (cl-first pos) (cl-second pos)))))
+
 (defun emacspeak-mines-cell-flagged-p (c)
-"Predicate to check if cell at index c is flagged."
-(save-excursion
-  (mines-goto c)
-  (get-text-property (point) 'flag)))
+  "Predicate to check if cell at index c is flagged."
+  (save-excursion
+    (mines-goto c)
+    (get-text-property (point) 'flag)))
 
 (defun emacspeak-mines-speak-neighbors ()
   "Speak neighboring cells in sorted order."
   (interactive )
   (cl-declare (special mines-state mines-grid))
-  (let* ((cells (sort (mines-get-neighbours (mines-current-pos)) #'<))
+  (let* ((current (mines-current-pos))
+         (cells (sort (mines-get-neighbours current) #'<))
+         (pos (mines-index-2-matrix current))
+         (row (cl-first pos))
+         (column (cl-second pos))
          (count (length cells))
          (values (mapcar #'(lambda (c) (aref mines-state c)) cells))
          (numbers (mapcar #'(lambda (c) (aref mines-grid c)) cells))
-         (result nil))
+         (result nil)
+         (group nil))
     (cl-loop
      for c in cells
      for v in values
      and n in numbers do
      (cond
       ((and (null v) (emacspeak-mines-cell-flagged-p c))
-       (push "mark" result))
+       (push "m" result))
       ((null v) (push "dot" result))
       ((and v (numberp n) ) (push (format "%d" n) result))
       ((eq '@ v) (push "at" result))
       (t (message "Should not  get here"))))
-    (dtk-speak-list (nreverse result) 3)))
+
+    (setq
+     group
+     (cond
+      ((and (= 3 count) (= 0 row)) ;;; top corners
+       '(1 2))
+      ((and (= 3 count) (= 7 row)) ;;; bottom corners
+       '(2 1))
+      ((and (= 5 count) (= 0 row)) ;;; top
+       '(2 3))
+      ((and (= 5 count) (= 7 row)) ;;; bottom
+       '(3 2))
+      (t '(3 2 3))))
+    (dtk-speak-list (nreverse result) group)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands
