@@ -1928,14 +1928,17 @@ inserted.  Otherwise it is a number that specifies grouping"
       (erase-buffer)
       (cl-loop
        for element in text do
+       (let ((p (get-text-property element 0 'personality)))
        (insert (format " %s" element))
        (cond
         ((= count (car group))
          (setq count 1)
          (pop group)
+         (if p 
+         (insert (propertize "," 'personality voice-bolden))
          (insert ","))
         (t (incf count)
-           (insert " "))))
+           (insert " ")))))
     (setq contents (buffer-string)))
     (tts-with-punctuations 'some(dtk-speak contents))))
 
