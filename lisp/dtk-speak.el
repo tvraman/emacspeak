@@ -1939,7 +1939,7 @@ inserted.  Otherwise it is a number that specifies grouping"
            (pop group)
            (if p 
                (insert (propertize "," 'personality p))
-             (insert ",")))
+             (insert ", ")))
            (t (cl-incf count)
               (insert " ")))))
        (setq contents (buffer-string)))
