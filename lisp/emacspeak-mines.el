@@ -84,6 +84,7 @@
   (interactive )
   (cl-declare (special mines-state mines-grid))
   (let* ((cells (sort (mines-get-neighbours (mines-current-pos)) #'<))
+         (count (length cells))
          (values (mapcar #'(lambda (c) (aref mines-state c)) cells))
          (numbers (mapcar #'(lambda (c) (aref mines-grid c)) cells))
          (result nil))
@@ -98,8 +99,7 @@
       ((and v (numberp n) ) (push (format "%d" n) result))
       ((eq '@ v) (push "at" result))
       (t (message "Should not  get here"))))
-    (tts-with-punctuations 'some
-    (dtk-speak-list (nreverse result) 3))))
+    (dtk-speak-list (nreverse result) 3)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands
