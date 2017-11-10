@@ -1912,7 +1912,7 @@ inserted.  Otherwise it is a number that specifies grouping"
           (let ((q (/ (length text) group))
                 (r (% (length text) group))
                 (splits nil))
-            (cl-loop for i from 0 to (1- q)do  (push group splits))
+            ( setq splits (cl-loop for i from 0 to (1- q)collect    group ))
             (if (zerop r)
                 splits
             `(,@splits ,r)))))
@@ -1929,7 +1929,9 @@ inserted.  Otherwise it is a number that specifies grouping"
       (cl-loop
        for element in text do
        (let ((p (get-text-property element 0 'personality)))
-       (insert (format " %s" element))
+         (if (stringp element)
+             (insert element)
+       (insert (format " %s" element)))
        (cond
         ((= count (car group))
          (setq count 1)
@@ -1940,7 +1942,7 @@ inserted.  Otherwise it is a number that specifies grouping"
         (t (incf count)
            (insert " ")))))
     (setq contents (buffer-string)))
-    (tts-with-punctuations 'some(dtk-speak contents))))
+    (tts-with-punctuations 'some(dtk-speak contents)))))
 
 (defun dtk-letter (letter)
   "Speak a LETTER."
