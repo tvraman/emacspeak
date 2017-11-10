@@ -1915,11 +1915,10 @@ inserted.  Otherwise it is a number that specifies grouping"
             ( setq splits (cl-loop for i from 0 to (1- q)collect    group ))
             (if (zerop r)
                 splits
-            `(,@splits ,r)))))
+              `(,@splits ,r)))))
   (cl-assert (= (length text) (apply #'+ group)) group "Argument mismatch:" text group)
   (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (contents nil)
-        (len (length text))
         (count 1)
         (inhibit-read-only t))
     (save-current-buffer
@@ -1931,18 +1930,18 @@ inserted.  Otherwise it is a number that specifies grouping"
        (let ((p (get-text-property element 0 'personality)))
          (if (stringp element)
              (insert element)
-       (insert (format " %s" element)))
-       (cond
-        ((= count (car group))
-         (setq count 1)
-         (pop group)
-         (if p 
-         (insert (propertize "," 'personality voice-bolden))
-         (insert ","))
-        (t (incf count)
-           (insert " ")))))
-    (setq contents (buffer-string)))
-    (tts-with-punctuations 'some(dtk-speak contents)))))
+           (insert (format " %s" element)))
+         (cond
+          ((= count (car group))
+           (setq count 1)
+           (pop group)
+           (if p 
+               (insert (propertize "," 'personality p))
+             (insert ",")))
+           (t (cl-incf count)
+              (insert " ")))))
+       (setq contents (buffer-string)))
+      (tts-with-punctuations 'some(dtk-speak contents))))
 
 (defun dtk-letter (letter)
   "Speak a LETTER."
