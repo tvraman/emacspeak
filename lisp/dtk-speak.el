@@ -1927,7 +1927,9 @@ inserted.  Otherwise it is a number that specifies grouping"
       (erase-buffer)
       (cl-loop
        for element in text do
-       (let ((p (get-text-property element 0 'personality)))
+       (let
+           ((p (and (stringp element)
+                    (get-text-property  0 'personality element))))
          (if (stringp element)
              (insert element)
            (insert (format " %s" element)))
