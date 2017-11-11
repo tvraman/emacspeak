@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1210 commands and 1177 options.
+This chapter documents a total of 1212 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12990,13 +12990,33 @@ these additional interactive commands:
 @itemize @bullet
 @item @kbd{SPC} Speak current cell.
 @item @kbd{.} Speak neighbours of current cell.
-@item @kbd{,} Speak number of marks 
+@item @kbd{,} Speak number of marks
+@item @kbd{a} Move to beginning of row.
+@item @kbd{e} Move to end of row.
 @end itemize
 
 Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
 Moving to the left/right edge of the board produces an appropriate auditory icon.
 
 @subsection emacspeak-mines Commands
+
+@subsubsection emacspeak-mines-beginning-of-row
+@deffn {Command} emacspeak-mines-beginning-of-row   
+@findex emacspeak-mines-beginning-of-row
+
+@format
+Move to beginning of row
+@end format
+@end deffn
+
+@subsubsection emacspeak-mines-end-of-row
+@deffn {Command} emacspeak-mines-end-of-row   
+@findex emacspeak-mines-end-of-row
+
+@format
+Move to end of row
+@end format
+@end deffn
 
 @subsubsection emacspeak-mines-speak-cell
 @deffn {Command} emacspeak-mines-speak-cell   

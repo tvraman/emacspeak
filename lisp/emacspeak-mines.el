@@ -46,7 +46,9 @@
 ;;; @itemize @bullet
 ;;; @item @kbd{SPC} Speak current cell.
 ;;; @item @kbd{.} Speak neighbours of current cell.
-;;; @item @kbd{,} Speak number of marks 
+;;; @item @kbd{,} Speak number of marks
+;;; @item @kbd{a} Move to beginning of row.
+;;; @item @kbd{e} Move to end of row.
 ;;; @end itemize
 ;;;
 ;;; Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
@@ -63,11 +65,12 @@
 (eval-when-compile (require 'mines "mines" 'no-error))
 ;;}}}
 ;;{{{ Interactive Commands:
+
 (defun emacspeak-mines-speak-mark-count  ()
   "Count and speak number of marks."
   (interactive )
   (cl-declare (special mines-flagged-cell-char))
-  (let ((count 0)
+  (let ((count -1) ;;; fix over-counting 
         (mark (format "%c" mines-flagged-cell-char)))
     (mines-goto 0)
     (backward-char 1)
@@ -82,7 +85,9 @@
    '(
      ("." emacspeak-mines-speak-neighbors)
      ("," emacspeak-mines-speak-mark-count)
-     ("SPC" emacspeak-mines-speak-cell))
+     ("SPC" emacspeak-mines-speak-cell)
+     ("a" emacspeak-mines-beginning-of-row)
+     ("e" emacspeak-mines-end-of-row))
    do
    (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
 
@@ -148,6 +153,20 @@
        '(2 1 2))
       (t '(3 2 3))))
     (dtk-speak-list (nreverse result) group)))
+(defun emacspeak-mines-beginning-of-row  ()
+  "Move to beginning of row"
+  (interactive )
+  (let ((row (cl-first (mines-index-2-matrix (mines-current-pos)))))
+    (mines-goto (* row mines-number-cols))
+    (emacspeak-mines-speak-cell)))
+
+
+(defun emacspeak-mines-end-of-row  ()
+  "Move to end of row"
+  (interactive )
+  (let ((row (cl-first (mines-index-2-matrix (mines-current-pos)))))
+    (mines-goto (+ (1- mines-number-cols)(* row mines-number-cols)))
+    (emacspeak-mines-speak-cell)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands

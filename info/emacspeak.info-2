@@ -6527,6 +6527,8 @@ additional interactive commands:
    • ‘SPC’ Speak current cell.
    • ‘.’ Speak neighbours of current cell.
    • ‘,’ Speak number of marks
+   • ‘a’ Move to beginning of row.
+   • ‘e’ Move to end of row.
 
    Speaking cell neighbours uses appropriate clause boundaries to group
 related cells — neighbours are read left-to-right, top-to-bottom.
@@ -6536,21 +6538,35 @@ auditory icon.
 12.121.1 emacspeak-mines Commands
 ---------------------------------
 
-12.121.1.1 emacspeak-mines-speak-cell
+12.121.1.1 emacspeak-mines-beginning-of-row
+...........................................
+
+ -- Command: emacspeak-mines-beginning-of-row
+
+     Move to beginning of row
+
+12.121.1.2 emacspeak-mines-end-of-row
+.....................................
+
+ -- Command: emacspeak-mines-end-of-row
+
+     Move to end of row
+
+12.121.1.3 emacspeak-mines-speak-cell
 .....................................
 
  -- Command: emacspeak-mines-speak-cell
 
      Speak current cell.
 
-12.121.1.2 emacspeak-mines-speak-mark-count
+12.121.1.4 emacspeak-mines-speak-mark-count
 ...........................................
 
  -- Command: emacspeak-mines-speak-mark-count
 
      Count and speak number of marks.
 
-12.121.1.3 emacspeak-mines-speak-neighbors
+12.121.1.5 emacspeak-mines-speak-neighbors
 ..........................................
 
  -- Command: emacspeak-mines-speak-neighbors
