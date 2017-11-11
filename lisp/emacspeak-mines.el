@@ -114,7 +114,7 @@
      and n in numbers do
      (cond
       ((and (null v) (emacspeak-mines-cell-flagged-p c))
-       (push " m" result))
+       (push "M" result))
       ((null v) (push "dot" result))
       ((and v (numberp n) ) (push (format "%d" n) result))
       ((eq '@ v) (push "at" result))
