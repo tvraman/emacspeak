@@ -46,6 +46,7 @@
 ;;; @itemize @bullet
 ;;; @item @kbd{SPC} Speak current cell.
 ;;; @item @kbd{.} Speak neighbours of current cell.
+;;; @item @kbd{,} Speak number of marks 
 ;;; @end itemize
 ;;;
 ;;; Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
