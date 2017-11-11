@@ -168,7 +168,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'item)
+       (emacspeak-auditory-icon 'select-object)
        (emacspeak-mines-speak-cell)))))
 
 (defadvice mines-dig (after emacspeak pre act comp)
