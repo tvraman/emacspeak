@@ -62,6 +62,16 @@
 (eval-when-compile (require 'mines "mines" 'no-error))
 ;;}}}
 ;;{{{ Interactive Commands:
+(defun emacspeak-mines-speak-mark-count  ()
+  "Count and speak number of marks."
+  (interactive )
+  (cl-declare (special mines-flagged-cell-char))
+  (let ((count 0)
+        (mark (format "%c" mines-flagged-cell-char)))
+    (mines-goto 0)
+    (backward-char 1)
+    (while (search-forward  mark (point-max) t) (incf count) (forward-char 1))
+    (message "%d marks" count)))
 
 (defun emacspeak-mines-init ()
   "Setup additional keys for playing minesweeper."
@@ -70,9 +80,11 @@
    for b in
    '(
      ("." emacspeak-mines-speak-neighbors)
+     ("," emacspeak-mines-speak-mark-count)
      ("SPC" emacspeak-mines-speak-cell))
    do
    (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
+
 (eval-after-load  "mines"
   `(progn (emacspeak-mines-init)))
 
