@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1212 commands and 1177 options.
+This chapter documents a total of 1214 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12993,6 +12993,8 @@ these additional interactive commands:
 @item @kbd{,} Speak number of marks
 @item @kbd{a} Move to beginning of row.
 @item @kbd{e} Move to end of row.
+@item @kbd{g} Move to specified cell 
+@item @kbd{s} Move to next uncovered cell.
 @end itemize
 
 Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
@@ -13015,6 +13017,29 @@ Move to beginning of row
 
 @format
 Move to end of row
+@end format
+@end deffn
+
+@subsubsection emacspeak-mines-goto
+@deffn {Command} emacspeak-mines-goto  (index)
+@findex emacspeak-mines-goto
+
+@format
+Move to specified cell.
+
+(fn INDEX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-mines-jump-to-uncovered-cell
+@deffn {Command} emacspeak-mines-jump-to-uncovered-cell  (from-beginning)
+@findex emacspeak-mines-jump-to-uncovered-cell
+
+@format
+Jump to next uncovered cell. With interactive prefix-arg, jump
+to beginning of board before searching.
+
+(fn FROM-BEGINNING)
 @end format
 @end deffn
 

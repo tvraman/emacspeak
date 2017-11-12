@@ -6529,6 +6529,8 @@ additional interactive commands:
    • ‘,’ Speak number of marks
    • ‘a’ Move to beginning of row.
    • ‘e’ Move to end of row.
+   • ‘g’ Move to specified cell
+   • ‘s’ Move to next uncovered cell.
 
    Speaking cell neighbours uses appropriate clause boundaries to group
 related cells — neighbours are read left-to-right, top-to-bottom.
@@ -6552,21 +6554,40 @@ auditory icon.
 
      Move to end of row
 
-12.121.1.3 emacspeak-mines-speak-cell
+12.121.1.3 emacspeak-mines-goto
+...............................
+
+ -- Command: emacspeak-mines-goto (index)
+
+     Move to specified cell.
+
+     (fn INDEX)
+
+12.121.1.4 emacspeak-mines-jump-to-uncovered-cell
+.................................................
+
+ -- Command: emacspeak-mines-jump-to-uncovered-cell (from-beginning)
+
+     Jump to next uncovered cell. With interactive prefix-arg, jump
+     to beginning of board before searching.
+
+     (fn FROM-BEGINNING)
+
+12.121.1.5 emacspeak-mines-speak-cell
 .....................................
 
  -- Command: emacspeak-mines-speak-cell
 
      Speak current cell.
 
-12.121.1.4 emacspeak-mines-speak-mark-count
+12.121.1.6 emacspeak-mines-speak-mark-count
 ...........................................
 
  -- Command: emacspeak-mines-speak-mark-count
 
      Count and speak number of marks.
 
-12.121.1.5 emacspeak-mines-speak-neighbors
+12.121.1.7 emacspeak-mines-speak-neighbors
 ..........................................
 
  -- Command: emacspeak-mines-speak-neighbors
