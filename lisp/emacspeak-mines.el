@@ -65,6 +65,37 @@
 (eval-when-compile (require 'mines "mines" 'no-error))
 ;;}}}
 ;;{{{ Interactive Commands:
+(defun emacspeak-mines-speak-cell ()
+  "Speak current cell."
+  (interactive)
+  (let* ((pos (mines-index-2-matrix (mines-current-pos)))
+         (row (cl-first pos))
+         (column (cl-second pos)))
+    (when (= 0 column) (emacspeak-auditory-icon 'left))
+    (when (= 7 column) (emacspeak-auditory-icon 'right))
+    (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
+    (dtk-speak
+     (format "%s in row %s column %s"
+             (if (= ?.  (following-char))
+"dot" (format "%c" (following-char)))
+             row column))))
+
+(defun emacspeak-mines-jump-to-uncovered-cell (from-beginning)
+  "Jump to next uncovered cell. With interactive prefix-arg, jump
+to beginning of board before searching."
+  (interactive "P")
+  (when from-beginning (mines-goto 0))
+  (let ((found (search-forward "."nil t)))
+    (if found
+        (emacspeak-mines-speak-cell)
+      (message "No uncovered cell here. "))))
+
+(defun emacspeak-mines-goto (index)
+  "Move to specified cell."
+  (interactive "nCell: ")
+  (mines-goto index)
+  (emacspeak-mines-speak-cell))
+
 
 (defun emacspeak-mines-speak-mark-count  ()
   "Count and speak number of marks."
@@ -82,28 +113,20 @@
   (cl-declaim (special mines-mode-map))
   (cl-loop
    for b in
-   '(
-     ("." emacspeak-mines-speak-neighbors)
+   '(("." emacspeak-mines-speak-neighbors)
      ("," emacspeak-mines-speak-mark-count)
      ("SPC" emacspeak-mines-speak-cell)
      ("a" emacspeak-mines-beginning-of-row)
-     ("e" emacspeak-mines-end-of-row))
+     ("e" emacspeak-mines-end-of-row)
+     ("g" emacspeak-mines-goto)
+     ("s" emacspeak-mines-jump-to-uncovered-cell))
    do
    (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
 
 (eval-after-load  "mines"
   `(progn (emacspeak-mines-init)))
 
-(defun emacspeak-mines-speak-cell ()
-  "Speak current cell."
-  (interactive)
-  (let* ((pos (mines-index-2-matrix (mines-current-pos)))
-         (row (cl-first pos))
-         (column (cl-second pos)))
-    (when (= 0 column) (emacspeak-auditory-icon 'left))
-    (when (= 7 column) (emacspeak-auditory-icon 'right))
-    (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
-    (dtk-speak (format "%c in row %s column %s" (following-char) row column))))
+
 
 (defun emacspeak-mines-cell-flagged-p (c)
   "Predicate to check if cell at index c is flagged."
@@ -119,7 +142,6 @@
          (cells (sort (mines-get-neighbours current) #'<))
          (pos (mines-index-2-matrix current))
          (row (cl-first pos))
-         (column (cl-second pos))
          (count (length cells))
          (values (mapcar #'(lambda (c) (aref mines-state c)) cells))
          (numbers (mapcar #'(lambda (c) (aref mines-grid c)) cells))
@@ -136,7 +158,6 @@
       ((and v (numberp n) ) (push (format "%d" n) result))
       ((eq '@ v) (push "at" result))
       (t (message "Should not  get here"))))
-
     (setq
      group
      (cond
