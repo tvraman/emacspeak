@@ -75,17 +75,16 @@
     (when (= 7 column) (emacspeak-auditory-icon 'right))
     (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
     (dtk-speak
-     (format "%s in row %s column %s"
-             (if (= ?.  (following-char))
-"dot" (format "%c" (following-char)))
-             row column))))
+     (format "%c in row %s column %s" (following-char) row column))))
 
 (defun emacspeak-mines-jump-to-uncovered-cell (from-beginning)
   "Jump to next uncovered cell. With interactive prefix-arg, jump
 to beginning of board before searching."
   (interactive "P")
   (when from-beginning (mines-goto 0))
+  (forward-char 1)
   (let ((found (search-forward "."nil t)))
+    (when found (backward-char 1))
     (if found
         (emacspeak-mines-speak-cell)
       (message "No uncovered cell here. "))))
