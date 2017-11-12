@@ -103,8 +103,7 @@
     (when (= 0 column) (emacspeak-auditory-icon 'left))
     (when (= 7 column) (emacspeak-auditory-icon 'right))
     (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
-    (dtk-speak
-     (format "%c in row %s column  %s" (following-char) row column))))
+    (dtk-speak (format "%c in row %s column %s" (following-char) row column))))
 
 (defun emacspeak-mines-cell-flagged-p (c)
   "Predicate to check if cell at index c is flagged."
@@ -187,7 +186,6 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
        (emacspeak-mines-speak-cell)))))
 
 (defadvice mines-dig (after emacspeak pre act comp)
