@@ -49,6 +49,8 @@
 ;;; @item @kbd{,} Speak number of marks
 ;;; @item @kbd{a} Move to beginning of row.
 ;;; @item @kbd{e} Move to end of row.
+;;; @item @kbd{g} Move to specified cell 
+;;; @item @kbd{s} Move to next uncovered cell.
 ;;; @end itemize
 ;;;
 ;;; Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
