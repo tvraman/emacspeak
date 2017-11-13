@@ -85,7 +85,9 @@
   "Speak number of uncovered cells."
   (interactive )
   (cl-declare (special mines-state))
-  (dtk-speak (message "%d uncovered cells remain." (count-if #'null mines-state))))
+  (dtk-speak
+   (format "%d mines with %d uncovered cells remaining."
+           (count-if #'null mines-state) mines-number-mines)))
 
 
 (defun emacspeak-mines-jump-to-uncovered-cell (from-beginning)
