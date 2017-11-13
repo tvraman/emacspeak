@@ -51,6 +51,7 @@
 ;;; @item @kbd{e} Move to end of row.
 ;;; @item @kbd{g} Move to specified cell 
 ;;; @item @kbd{s} Move to next uncovered cell.
+;;; @item @kbd{/} Speak number of remaining uncovered cells.
 ;;; @end itemize
 ;;;
 ;;; Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
@@ -67,6 +68,7 @@
 (eval-when-compile (require 'mines "mines" 'no-error))
 ;;}}}
 ;;{{{ Interactive Commands:
+
 (defun emacspeak-mines-speak-cell ()
   "Speak current cell."
   (interactive)
@@ -78,6 +80,13 @@
     (when (or (= row 0) (= row 7)) (emacspeak-auditory-icon 'large-movement))
     (dtk-speak
      (format "%c in row %s column %s" (following-char) row column))))
+
+(defun emacspeak-mines-speak-uncovered-count ()
+  "Speak number of uncovered cells."
+  (interactive )
+  (cl-declare (special mines-state))
+  (dtk-speak (message "%d uncovered cells remain." (count-if #'null mines-state))))
+
 
 (defun emacspeak-mines-jump-to-uncovered-cell (from-beginning)
   "Jump to next uncovered cell. With interactive prefix-arg, jump
@@ -102,11 +111,11 @@ to beginning of board before searching."
   "Count and speak number of marks."
   (interactive )
   (cl-declare (special mines-flagged-cell-char))
-  (let ((count -1) ;;; fix over-counting 
-        (mark (format "%c" mines-flagged-cell-char)))
-    (mines-goto 0)
-    (backward-char 1)
-    (while (search-forward  mark (point-max) t) (incf count) (forward-char 1))
+  (let ((count 0) ;;; fix over-counting 
+        (m (format "%c" mines-flagged-cell-char)))
+    (save-excursion
+    (goto-char (point-min))
+    (while (search-forward  m nil t) (incf count) (forward-char 1)))
     (message "%d marks" count)))
 
 (defun emacspeak-mines-init ()
@@ -117,6 +126,7 @@ to beginning of board before searching."
    '(("." emacspeak-mines-speak-neighbors)
      ("," emacspeak-mines-speak-mark-count)
      ("SPC" emacspeak-mines-speak-cell)
+     ("/" emacspeak-mines-speak-uncovered-count)
      ("a" emacspeak-mines-beginning-of-row)
      ("e" emacspeak-mines-end-of-row)
      ("g" emacspeak-mines-goto)
