@@ -6531,6 +6531,7 @@ additional interactive commands:
    • ‘e’ Move to end of row.
    • ‘g’ Move to specified cell
    • ‘s’ Move to next uncovered cell.
+   • ‘/’ Speak number of remaining uncovered cells.
 
    Speaking cell neighbours uses appropriate clause boundaries to group
 related cells — neighbours are read left-to-right, top-to-bottom.
@@ -6593,6 +6594,13 @@ auditory icon.
  -- Command: emacspeak-mines-speak-neighbors
 
      Speak neighboring cells in sorted order.
+
+12.121.1.8 emacspeak-mines-speak-uncovered-count
+................................................
+
+ -- Command: emacspeak-mines-speak-uncovered-count
+
+     Speak number of uncovered cells.
 
 
 File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-mspools,  Prev: emacspeak-mines,  Up: Emacspeak Commands And Options
