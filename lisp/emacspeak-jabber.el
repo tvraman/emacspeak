@@ -241,29 +241,28 @@ Return nil if no message at point."
     (save-excursion
       (unless (looking-at "^\\[")
         (re-search-backward "^\\[" nil t))
-      (setq start
-            (goto-char
-             (next-single-property-change (point) 'face)))
-      (setq end
-            (goto-char
-             (next-single-property-change (point) 'face)))
+      (setq start (next-single-property-change (point) 'face))
+      (setq end (next-single-property-change start 'face))
+      (unless end
+        (search-forward "\n---\n")
+        (setq end (match-beginning 0)))
       (cond
        ((and start end)
         (emacspeak-speak-region start end)
         (cons start end))
-       (t (message "No more messages to speak")
-          nil)))))
+       (t nil)))))
 
 (defun emacspeak-jabber-chat-next-message ()
   "Move forward to and speak the next message in this chat session."
   (interactive)
   (unless (eq major-mode 'jabber-chat-mode)
     (error "Not in a Jabber chat buffer."))
-  (re-search-forward "^\\["nil t)
-  (let ((extent (emacspeak-jabber-chat-speak-this-message)))
-    (emacspeak-auditory-icon 'large-movement)
-    (when extent
-      (goto-char (cdr extent)))))
+  (let (extent)
+    (if (re-search-forward "^\\["nil t)
+        (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-auditory-icon 'warn-user))
+    (setq extent (emacspeak-jabber-chat-speak-this-message))
+    (when extent (goto-char (car extent)))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat
@@ -271,20 +270,23 @@ session."
   (interactive)
   (unless (eq major-mode 'jabber-chat-mode)
     (error "Not in a Jabber chat buffer."))
-  (forward-line 0)
-  (re-search-backward "^\\["nil t)
-  (let ((extent (emacspeak-jabber-chat-speak-this-message)))
-    (emacspeak-auditory-icon 'large-movement)
-    (goto-char (car extent))))
+  (let (extent)
+    (forward-line 0)
+    (if (re-search-backward "^\\["nil t)
+        (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-auditory-icon 'warn-user))
+    (setq extent (emacspeak-jabber-chat-speak-this-message))
+    (when extent (goto-char (car extent)))))
 
 (when (boundp 'jabber-chat-mode-map)
-  (cl-loop for k in
-           '(
-             ("M-n" emacspeak-jabber-chat-next-message)
-             ("M-p" emacspeak-jabber-chat-previous-message)
-             ("M-SPC " emacspeak-jabber-chat-speak-this-message))
-           do
-           (emacspeak-keymap-update  jabber-chat-mode-map k)))
+  (cl-loop
+   for k in
+   '(
+     ("M-n" emacspeak-jabber-chat-next-message)
+     ("M-p" emacspeak-jabber-chat-previous-message)
+     ("M-SPC " emacspeak-jabber-chat-speak-this-message))
+   do
+   (emacspeak-keymap-update  jabber-chat-mode-map k)))
 
 ;;}}}
 (provide 'emacspeak-jabber)
