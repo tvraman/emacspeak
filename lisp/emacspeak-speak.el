@@ -327,10 +327,8 @@ Argument BODY specifies forms to execute."
 (defun emacspeak-speak-get-text-range (property)
   "Return text range  around   point and having the same value as  specified by argument PROPERTY."
   (buffer-substring
-   (previous-single-property-change
-    (point) property nil (point-min))
-   (next-single-property-change
-    (point) property nil (point-max))))
+   (previous-single-property-change (point) property nil (point-min))
+   (next-single-property-change (point) property nil (point-max))))
 
 (defun emacspeak-speak-text-range (property)
   "Speak text range identified by this PROPERTY."
