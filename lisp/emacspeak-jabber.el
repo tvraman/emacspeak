@@ -224,13 +224,6 @@ nil)
 ;;}}}
 ;;{{{ Browse chat buffers:
 
-(defun emacspeak-jabber-chat-speak-this-message ()
-  "Speaks message starting on current line.
-Assumes point is at the front of the message."
-  (interactive)
-  (cl-assert  (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
-  (emacspeak-speak-text-range  'face))
-
 (defun emacspeak-jabber-chat-next-chunk ()
   "Move forward to and speak the next chunk in this chat session."
   (interactive)
