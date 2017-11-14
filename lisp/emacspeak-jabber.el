@@ -224,66 +224,37 @@ nil)
 ;;}}}
 ;;{{{ Browse chat buffers:
 
-;;; Relies on jabber prompt pattern.
-;;; Search forward/back for "^[", 
-
-
 (defun emacspeak-jabber-chat-speak-this-message ()
   "Speaks message starting on current line.
-Assumes point is at the front of the message.
-Returns a cons (start . end) that delimits the message.
-Return nil if no message at point."
+Assumes point is at the front of the message."
   (interactive)
-  (unless (eq major-mode 'jabber-chat-mode)
-    (error "Not in a Jabber chat buffer."))
-  (let ((start nil)
-        (end nil))
-    (save-excursion
-      (unless (looking-at "^\\[")
-        (re-search-backward "^\\[" nil t))
-      (setq start (next-single-property-change (point) 'face))
-      (setq end (next-single-property-change start 'face))
-      (unless end
-        (search-forward "\n---\n")
-        (setq end (match-beginning 0)))
-      (cond
-       ((and start end)
-        (emacspeak-speak-region start end)
-        (cons start end))
-       (t nil)))))
+  (cl-assert  (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
+  (emacspeak-speak-text-range  'face))
 
-(defun emacspeak-jabber-chat-next-message ()
+(defun emacspeak-jabber-chat-next-chunk ()
   "Move forward to and speak the next message in this chat session."
   (interactive)
-  (unless (eq major-mode 'jabber-chat-mode)
-    (error "Not in a Jabber chat buffer."))
-  (let (extent)
-    (if (re-search-forward "^\\["nil t)
-        (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-auditory-icon 'warn-user))
-    (setq extent (emacspeak-jabber-chat-speak-this-message))
-    (when extent (goto-char (cdr  extent)))))
+  (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
+  (goto-char (next-single-property-change (point) 'face (current-buffer)(point-max)))
+  (when (null (get-text-property (point) 'face))
+    (goto-char (next-single-property-change (point) 'face  (current-buffer)(point-max))))
+  (skip-syntax-forward " ")
+  (forward-char 1)
+  (emacspeak-speak-text-range 'face))
 
-(defun emacspeak-jabber-chat-previous-message ()
-  "Move backward to and speak the previous message in this chat
-session."
+(defun emacspeak-jabber-chat-previous-chunk ()
+  "Move backward to and speak the previous message in this chat session."
   (interactive)
-  (unless (eq major-mode 'jabber-chat-mode)
-    (error "Not in a Jabber chat buffer."))
-  (let (extent)
-    (forward-line 0)
-    (if (re-search-backward "^\\["nil t)
-        (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-auditory-icon 'warn-user))
-    (setq extent (emacspeak-jabber-chat-speak-this-message))
-    (when extent (goto-char (car extent)))))
+  (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
+  (goto-char (previous-single-property-change (point) 'face (current-buffer)  (point-min)))
+  (emacspeak-speak-text-range 'face))
 
 (when (boundp 'jabber-chat-mode-map)
   (cl-loop
    for k in
    '(
-     ("M-n" emacspeak-jabber-chat-next-message)
-     ("M-p" emacspeak-jabber-chat-previous-message)
+     ("M-n" emacspeak-jabber-chat-next-chunk)
+     ("M-p" emacspeak-jabber-chat-previous-chunk)
      ("M-SPC " emacspeak-jabber-chat-speak-this-message))
    do
    (emacspeak-keymap-update  jabber-chat-mode-map k)))
