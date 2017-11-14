@@ -122,7 +122,8 @@ to beginning of board before searching."
 
 (defun emacspeak-mines-init ()
   "Setup additional keys for playing minesweeper."
-  (cl-declaim (special mines-mode-map))
+  (cl-declare (special mines-mode-map mines-flagged-cell-char))
+  (setq mines-flagged-cell-char ?M)
   (cl-loop
    for b in
    '(("." emacspeak-mines-speak-neighbors)
