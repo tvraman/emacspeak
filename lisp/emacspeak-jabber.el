@@ -235,9 +235,9 @@ Assumes point is at the front of the message."
   "Move forward to and speak the next message in this chat session."
   (interactive)
   (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
-  (goto-char (next-single-property-change (point) 'face (current-buffer)(point-max)))
+  (goto-char (next-single-property-change (point) 'face nil(point-max)))
   (when (null (get-text-property (point) 'face))
-    (goto-char (next-single-property-change (point) 'face  (current-buffer)(point-max))))
+    (goto-char (next-single-property-change (point) 'face  nil  (point-max))))
   (forward-char 1)
   (emacspeak-speak-text-range 'face))
 
@@ -245,7 +245,9 @@ Assumes point is at the front of the message."
   "Move backward to and speak the previous message in this chat session."
   (interactive)
   (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
-  (goto-char (previous-single-property-change (point) 'face (current-buffer)  (point-min)))
+  (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
+  (when (null (get-text-property (point) 'face))
+    (goto-char (previous-single-property-change (point) 'face  nil  (point-min))))
   (backward-char 1)
   (emacspeak-speak-text-range 'face))
 
