@@ -63,7 +63,7 @@
    (jabber-chat-prompt-foreign  voice-brighten-medium)
    (jabber-chat-prompt-local    voice-smoothen-medium)
    (jabber-chat-prompt-system   voice-brighten-extra)
-   (jabber-chat-text-foreign    voice-brighten)
+   ;;;(jabber-chat-text-foreign    voice-lighten) we use default here 
    (jabber-chat-text-local      voice-smoothen)
    (jabber-rare-time-face       voice-animate-extra)
    (jabber-roster-user-away     voice-smoothen-extra)
