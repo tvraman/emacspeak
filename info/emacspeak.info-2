@@ -3826,7 +3826,8 @@ region of text to turn it into a table for tabular browsing.  For now,
 elements of the grid are "one line" high –but that may change in the
 future if necessary.  This module is useful for browsing structured text
 files and the output from programs that tabulate their output.  It’s
-also useful for handling multicolumn text.
+also useful for handling multicolumn text.  The "grid" is specified as a
+list of (start end) tuples..
 
 12.89.1 emacspeak-gridtext Commands
 -----------------------------------
@@ -4279,20 +4280,19 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 12.103.1 emacspeak-jabber Commands
 ----------------------------------
 
-12.103.1.1 emacspeak-jabber-chat-next-message
-.............................................
+12.103.1.1 emacspeak-jabber-chat-next-chunk
+...........................................
 
- -- Command: emacspeak-jabber-chat-next-message
+ -- Command: emacspeak-jabber-chat-next-chunk
 
-     Move forward to and speak the next message in this chat session.
+     Move forward to and speak the next chunk in this chat session.
 
-12.103.1.2 emacspeak-jabber-chat-previous-message
-.................................................
+12.103.1.2 emacspeak-jabber-chat-previous-chunk
+...............................................
 
- -- Command: emacspeak-jabber-chat-previous-message
+ -- Command: emacspeak-jabber-chat-previous-chunk
 
-     Move backward to and speak the previous message in this chat
-     session.
+     Move backward to and speak the previous chunk in this chat session.
 
 12.103.1.3 emacspeak-jabber-chat-speak-this-message
 ...................................................
@@ -4301,8 +4301,6 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 
      Speaks message starting on current line.
      Assumes point is at the front of the message.
-     Returns a cons (start . end) that delimits the message.
-     Return nil if no message at point.
 
 12.103.1.4 emacspeak-jabber-popup-roster
 ........................................
