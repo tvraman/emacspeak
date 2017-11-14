@@ -58,6 +58,7 @@
 ;;; structured text files and the output from programs that
 ;;; tabulate their output.
 ;;; It's also useful for handling multicolumn text.
+;;; The "grid" is specified as a list of (start end) tuples..
 ;;; Code:
 
 ;;}}}
@@ -196,17 +197,13 @@ end   as specified by grid."
   "Apply grid to region."
   (interactive
    (list
-    (point)
-    (mark)
-    (read-minibuffer "Specify grid as a list: "
+    (point) (mark)
+    (read-minibuffer "Specify grid as a list of tuples: "
                      (format "%s" (emacspeak-gridtext-get (emacspeak-gridtext-generate-key))))))
-  (let ((grid-table (emacspeak-table-make-table
-                     (emacspeak-gridtext-vector-region start
-                                                       end
-                                                       grid)))
-        (buffer (get-buffer-create
-                 (format "*%s-grid*"
-                         (buffer-name)))))
+  (let ((grid-table
+         (emacspeak-table-make-table
+          (emacspeak-gridtext-vector-region start end grid)))
+        (buffer (get-buffer-create (format "*%s-grid*" (buffer-name)))))
     (emacspeak-gridtext-set
      (emacspeak-gridtext-generate-key) grid)
     (emacspeak-table-prepare-table-buffer grid-table buffer)))
