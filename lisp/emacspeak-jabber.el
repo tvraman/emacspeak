@@ -232,21 +232,19 @@ Assumes point is at the front of the message."
   (emacspeak-speak-text-range  'face))
 
 (defun emacspeak-jabber-chat-next-chunk ()
-  "Move forward to and speak the next message in this chat session."
+  "Move forward to and speak the next chunk in this chat session."
   (interactive)
   (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
   (goto-char (next-single-property-change (point) 'face nil(point-max)))
   (when (null (get-text-property (point) 'face))
     (goto-char (next-single-property-change (point) 'face  nil  (point-max))))
-  (forward-char 1)
   (emacspeak-speak-text-range 'face))
 
 (defun emacspeak-jabber-chat-previous-chunk ()
-  "Move backward to and speak the previous message in this chat session."
+  "Move backward to and speak the previous chunk in this chat session."
   (interactive)
   (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
   (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
-  (backward-char 1)
   (emacspeak-speak-text-range 'face))
 
 (when (boundp 'jabber-chat-mode-map)
