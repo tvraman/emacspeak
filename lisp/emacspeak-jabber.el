@@ -223,6 +223,10 @@ nil)
 
 ;;}}}
 ;;{{{ Browse chat buffers:
+(defun emacspeak-jabber-chat-speak-this-message()
+  "Speak this message."
+  (interactive)
+  (emacspeak-speak-text-range 'face))
 
 (defun emacspeak-jabber-chat-next-chunk ()
   "Move forward to and speak the next chunk in this chat session."
