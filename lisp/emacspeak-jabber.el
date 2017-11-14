@@ -225,8 +225,8 @@ nil)
 ;;{{{ Browse chat buffers:
 
 ;;; Relies on jabber prompt pattern.
-;;; Search forward/back for "^[", check prompt face to determine
-;;; local/foreign, then speak  text in appropriate face.
+;;; Search forward/back for "^[", 
+
 
 (defun emacspeak-jabber-chat-speak-this-message ()
   "Speaks message starting on current line.
