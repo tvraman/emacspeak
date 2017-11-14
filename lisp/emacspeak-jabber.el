@@ -262,7 +262,7 @@ Return nil if no message at point."
         (emacspeak-auditory-icon 'large-movement)
       (emacspeak-auditory-icon 'warn-user))
     (setq extent (emacspeak-jabber-chat-speak-this-message))
-    (when extent (goto-char (car extent)))))
+    (when extent (goto-char (cdr  extent)))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat
