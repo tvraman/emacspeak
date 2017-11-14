@@ -242,6 +242,8 @@ nil)
   (interactive)
   (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
   (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
+  (when (null (get-text-property (point) 'face))
+    (goto-char (previous-single-property-change (point) 'face  nil  (point-min))))
   (emacspeak-speak-text-range 'face))
 
 (when (boundp 'jabber-chat-mode-map)
