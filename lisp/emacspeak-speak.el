@@ -324,11 +324,11 @@ Argument BODY specifies forms to execute."
 ;;}}}
 ;;{{{ getting and speaking text ranges
 
-(defun emacspeak-speak-get-text-range (property)
-  "Return text range  around   point and having the same value as  specified by argument PROPERTY."
-  (buffer-substring
-   (previous-single-property-change (point) property nil (point-min))
-   (next-single-property-change (point) property nil (point-max))))
+(defun emacspeak-speak-get-text-range (prop)
+  "Return text range  around   point  as determined by property `prop'."
+  (let* ((end (next-single-property-change (point) prop nil (point-max)))
+         (start (previous-single-property-change end prop nil (point-min))))
+    (buffer-substring start end)))
 
 (defun emacspeak-speak-text-range (property)
   "Speak text range identified by this PROPERTY."
