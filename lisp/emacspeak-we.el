@@ -271,6 +271,10 @@ from Web page -- default is the current page being viewed."
                (add-to-list
                 'emacspeak-web-pre-process-hook
                 (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
+               (when (eq browse-url-browser-function 'eww-browse-url)
+               (add-hook
+             'emacspeak-web-post-process-hook
+             #'emacspeak-eww-reading-settings))
                (browse-url url)))
 
 ;;;###autoload
