@@ -239,9 +239,11 @@ nil)
                 (or (null (get-text-property (point) 'face))
                  (get-text-property (point) 'field)))
       (goto-char (next-single-property-change (point) 'face  nil  (point-max))))
-    (if (eobp)
+    (cond
+     ((eobp)
         (message "On last message")
-      (emacspeak-speak-text-range 'face)))
+        (emacspeak-auditory-icon 'warn-user))
+      (t (emacspeak-speak-text-range 'face))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat session."
@@ -249,12 +251,14 @@ nil)
   (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
   (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
   (while  (and (not (bobp))
-(or (null (get-text-property (point) 'face))
-               (get-text-property (point) 'field)))
+               (or (null (get-text-property (point) 'face))
+                   (get-text-property (point) 'field)))
     (goto-char (previous-single-property-change (point) 'face  nil  (point-min))))
-  (if (bobp)
-      (message "On first message")
-  (emacspeak-speak-text-range 'face)))
+  (cond
+   ((bobp)
+    (message "On first message")
+    (emacspeak-auditory-icon 'warn-user))
+   (t (emacspeak-speak-text-range 'face))))
 
 (when (boundp 'jabber-chat-mode-map)
   (cl-loop
