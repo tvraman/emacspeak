@@ -161,6 +161,9 @@
          (link(elfeed-entry-link entry)))
     (cond
      (entry (elfeed-untag  entry 'unread)
+            (add-hook
+             'emacspeak-web-post-process-hook
+             #'emacspeak-eww-reading-settings 'at-end)
             (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
      (t (message "No link under point.")))))
 
