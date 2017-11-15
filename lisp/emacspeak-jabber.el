@@ -228,21 +228,23 @@ nil)
   (interactive)
   (emacspeak-speak-text-range 'face))
 
-(defun emacspeak-jabber-chat-next-chunk ()
-  "Move forward to and speak the next chunk in this chat session."
+(defun emacspeak-jabber-chat-next-message ()
+  "Move forward to and speak the next message in this chat session."
   (interactive)
   (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
   (goto-char (next-single-property-change (point) 'face nil(point-max)))
-  (when (null (get-text-property (point) 'face))
+  (while (or (get-text-property (point) 'field)
+          (null (get-text-property (point) 'face)))
     (goto-char (next-single-property-change (point) 'face  nil  (point-max))))
   (emacspeak-speak-text-range 'face))
 
-(defun emacspeak-jabber-chat-previous-chunk ()
-  "Move backward to and speak the previous chunk in this chat session."
+(defun emacspeak-jabber-chat-previous-message ()
+  "Move backward to and speak the previous message in this chat session."
   (interactive)
   (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
   (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
-  (when (null (get-text-property (point) 'face))
+  (while  (or (get-text-property (point) 'field)
+            (null (get-text-property (point) 'face)))
     (goto-char (previous-single-property-change (point) 'face  nil  (point-min))))
   (emacspeak-speak-text-range 'face))
 
@@ -250,8 +252,8 @@ nil)
   (cl-loop
    for k in
    '(
-     ("M-n" emacspeak-jabber-chat-next-chunk)
-     ("M-p" emacspeak-jabber-chat-previous-chunk)
+     ("M-n" emacspeak-jabber-chat-next-message)
+     ("M-p" emacspeak-jabber-chat-previous-message)
      ("M-SPC " emacspeak-jabber-chat-speak-this-message))
    do
    (emacspeak-keymap-update  jabber-chat-mode-map k)))
