@@ -226,7 +226,7 @@ nil)
 ;;}}}
 ;;{{{ Browse chat buffers:
 (defun emacspeak-jabber-chat-speak-this-message()
-  "Speak this message."
+  "Speak chat message under point\"Speak this message.\""
   (interactive)
   (emacspeak-speak-text-range 'face))
 
