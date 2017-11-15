@@ -122,6 +122,7 @@
 
 ;;}}}
 ;;{{{ alerts
+
 (defcustom emacspeak-jabber-speak-presence-alerts nil
   "Set to T if you want to hear presence alerts."
   :type  'boolean
@@ -213,6 +214,7 @@ nil)
   (emacspeak-auditory-icon 'task-done)
   (dtk-notify-say "Connected to jabber."))
 (add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
+
 ;;}}}
 ;;{{{ Pronunciations
 (cl-declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
