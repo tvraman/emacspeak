@@ -225,10 +225,14 @@ nil)
 
 ;;}}}
 ;;{{{ Browse chat buffers:
-(defun emacspeak-jabber-chat-speak-this-message()
-  "Speak chat message under point\"Speak this message.\""
-  (interactive)
-  (emacspeak-speak-text-range 'face))
+(defun emacspeak-jabber-chat-speak-this-message(&optional copy-as-kill )
+  "Speak chat message under point.
+With optional interactive prefix arg `copy-as-kill', copy it to
+the kill ring as well."
+  (interactive "P")
+  (let ((range (emacspeak-speak-get-text-range 'face)))
+    (when copy-as-kill (kill-new range))
+    (dtk-speak range)))
 
 (defun emacspeak-jabber-chat-next-message ()
   "Move forward to and speak the next message in this chat session."
@@ -243,7 +247,8 @@ nil)
      ((eobp)
         (message "On last message")
         (emacspeak-auditory-icon 'warn-user))
-      (t (emacspeak-speak-text-range 'face))))
+      (t(emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-text-range 'face))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat session."
@@ -258,7 +263,8 @@ nil)
    ((bobp)
     (message "On first message")
     (emacspeak-auditory-icon 'warn-user))
-   (t (emacspeak-speak-text-range 'face))))
+   (t(emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-text-range 'face))))
 
 (when (boundp 'jabber-chat-mode-map)
   (cl-loop
