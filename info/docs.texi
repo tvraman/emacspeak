@@ -10368,21 +10368,21 @@ I use emacs-jabber with my gmail.com account
 
 @subsection emacspeak-jabber Commands
 
-@subsubsection emacspeak-jabber-chat-next-chunk
-@deffn {Command} emacspeak-jabber-chat-next-chunk   
-@findex emacspeak-jabber-chat-next-chunk
+@subsubsection emacspeak-jabber-chat-next-message
+@deffn {Command} emacspeak-jabber-chat-next-message   
+@findex emacspeak-jabber-chat-next-message
 
 @format
-Move forward to and speak the next chunk in this chat session.
+Move forward to and speak the next message in this chat session.
 @end format
 @end deffn
 
-@subsubsection emacspeak-jabber-chat-previous-chunk
-@deffn {Command} emacspeak-jabber-chat-previous-chunk   
-@findex emacspeak-jabber-chat-previous-chunk
+@subsubsection emacspeak-jabber-chat-previous-message
+@deffn {Command} emacspeak-jabber-chat-previous-message   
+@findex emacspeak-jabber-chat-previous-message
 
 @format
-Move backward to and speak the previous chunk in this chat session.
+Move backward to and speak the previous message in this chat session.
 @end format
 @end deffn
 
@@ -10391,8 +10391,7 @@ Move backward to and speak the previous chunk in this chat session.
 @findex emacspeak-jabber-chat-speak-this-message
 
 @format
-Speaks message starting on current line.
-Assumes point is at the front of the message.
+Speak chat message under point"Speak this message."
 @end format
 @end deffn
 

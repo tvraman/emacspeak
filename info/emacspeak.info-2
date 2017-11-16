@@ -4280,27 +4280,26 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 12.103.1 emacspeak-jabber Commands
 ----------------------------------
 
-12.103.1.1 emacspeak-jabber-chat-next-chunk
-...........................................
+12.103.1.1 emacspeak-jabber-chat-next-message
+.............................................
 
- -- Command: emacspeak-jabber-chat-next-chunk
+ -- Command: emacspeak-jabber-chat-next-message
 
-     Move forward to and speak the next chunk in this chat session.
+     Move forward to and speak the next message in this chat session.
 
-12.103.1.2 emacspeak-jabber-chat-previous-chunk
-...............................................
+12.103.1.2 emacspeak-jabber-chat-previous-message
+.................................................
 
- -- Command: emacspeak-jabber-chat-previous-chunk
+ -- Command: emacspeak-jabber-chat-previous-message
 
-     Move backward to and speak the previous chunk in this chat session.
+     Move backward to and speak the previous message in this chat session.
 
 12.103.1.3 emacspeak-jabber-chat-speak-this-message
 ...................................................
 
  -- Command: emacspeak-jabber-chat-speak-this-message
 
-     Speaks message starting on current line.
-     Assumes point is at the front of the message.
+     Speak chat message under point"Speak this message."
 
 12.103.1.4 emacspeak-jabber-popup-roster
 ........................................
