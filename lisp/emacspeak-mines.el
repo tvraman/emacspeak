@@ -135,8 +135,8 @@ to beginning of board before searching."
                (let ((v (aref mines-state i))
                      (n (aref mines-grid i)))
                  (cond
-                  ((and (null v) (emacspeak-mines-cell-flagged-p c))
-                   "M")
+                  ((and (null v)(get-text-property (point) 'flag))
+                   " M")
                   ((null v) "dot")
                   ((and v (numberp n) )  (format "%d" n))
                   ((eq '@ v)  "at" )
@@ -187,7 +187,7 @@ to beginning of board before searching."
          (group nil))
     (cl-loop
      for c in cells
-     for v in values
+     and v in values
      and n in numbers do
      (cond
       ((and (null v) (emacspeak-mines-cell-flagged-p c))
