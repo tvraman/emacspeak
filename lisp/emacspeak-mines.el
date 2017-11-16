@@ -119,6 +119,17 @@ to beginning of board before searching."
     (goto-char (point-min))
     (while (search-forward  m nil t) (incf count) (forward-char 1)))
     (message "%d marks" count)))
+(defun emacspeak-mines-speak-board ()
+  "Speak the board."
+  (interactive)
+  (cl-declare (special  mines-number-cols))
+  (let ((cells nil))
+    (save-excursion
+      (cl-loop
+     for i from 0 to (1- (length mines-state)) do
+     (mines-goto i)
+     (push (format "%c" (following-char)) cells)))
+    (dtk-speak-list (nreverse cells) mines-number-cols)))
 
 (defun emacspeak-mines-init ()
   "Setup additional keys for playing minesweeper."
@@ -130,6 +141,7 @@ to beginning of board before searching."
      ("," emacspeak-mines-speak-mark-count)
      ("SPC" emacspeak-mines-speak-cell)
      ("/" emacspeak-mines-speak-uncovered-count)
+     ("'" emacspeak-mines-speak-board)
      ("a" emacspeak-mines-beginning-of-row)
      ("e" emacspeak-mines-end-of-row)
      ("g" emacspeak-mines-goto)
