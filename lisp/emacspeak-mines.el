@@ -125,11 +125,12 @@ to beginning of board before searching."
   (cl-declare (special  mines-number-cols))
   (let ((cells nil))
     (save-excursion
-      (cl-loop
-     for i from 0 to (1- (length mines-state)) do
-     (mines-goto i)
-     (push (format "%c" (following-char)) cells)))
-    (dtk-speak-list (nreverse cells) mines-number-cols)))
+      (setq cells
+            (cl-loop
+     for i from 0 to (1- (length mines-state)) collect 
+ (progn (mines-goto i)
+      (format "%c" (following-char)))))
+    (dtk-speak-list cells mines-number-cols))))
 
 (defun emacspeak-mines-init ()
   "Setup additional keys for playing minesweeper."
