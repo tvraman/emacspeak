@@ -150,8 +150,7 @@ Move forward to and speak the next message in this chat session.
 
       <div class="format">
         <pre class="format">
-Move backward to and speak the previous message in this chat
-session.
+Move backward to and speak the previous message in this chat session.
 </pre>
       </div>
     </dd>
@@ -168,7 +167,8 @@ session.
     id=
     "index-emacspeak_002djabber_002dchat_002dspeak_002dthis_002dmessage">
     </a>Command:
-    <strong>emacspeak-jabber-chat-speak-this-message</strong></dt>
+    <strong>emacspeak-jabber-chat-speak-this-message</strong>
+    <em>(&amp;optional copy-as-kill)</em></dt>
 
     <dd>
       <a name=
@@ -179,10 +179,11 @@ session.
 
       <div class="format">
         <pre class="format">
-Speaks message starting on current line.
-Assumes point is at the front of the message.
-Returns a cons (start . end) that delimits the message.
-Return nil if no message at point.
+Speak chat message under point.
+With optional interactive prefix arg ‘copy-as-kill’, copy it to
+the kill ring as well.
+
+(fn &amp;optional COPY-AS-KILL)
 </pre>
       </div>
     </dd>
@@ -225,8 +226,8 @@ Pop to Jabber roster.
   <h4 class="subsection">12.103.2 emacspeak-jabber Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-645" id=
-    "index-User-Option-645"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-644" id=
+    "index-User-Option-644"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-jabber-speak-presence-alerts</em></dt>
 
