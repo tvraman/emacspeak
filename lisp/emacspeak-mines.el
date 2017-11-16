@@ -52,6 +52,7 @@
 ;;; @item @kbd{g} Move to specified cell 
 ;;; @item @kbd{s} Move to next uncovered cell.
 ;;; @item @kbd{/} Speak number of remaining uncovered cells.
+;;; @item @kbd{'} Speaks entire board.
 ;;; @end itemize
 ;;;
 ;;; Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
