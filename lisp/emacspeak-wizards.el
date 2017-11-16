@@ -3515,6 +3515,9 @@ under point as either the foreground or background color."
        ((eq event ?q)
         (setq continue nil)
         (emacspeak-auditory-icon 'close-object)
+        (message "Copied color %s %s to kill ring"
+                 (ems--color-wheel-hex w)
+                 (ems--color-wheel-name w))
         (kill-new (ems--color-wheel-hex w)))
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
