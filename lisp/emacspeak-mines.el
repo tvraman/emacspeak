@@ -127,10 +127,20 @@ to beginning of board before searching."
     (save-excursion
       (setq cells
             (cl-loop
-     for i from 0 to (1- (length mines-state)) collect 
- (progn (mines-goto i)
-      (format "%c" (following-char)))))
-    (dtk-speak-list cells mines-number-cols))))
+             for i from 0 to (1- (length mines-state))
+             and c across mines-state collect
+             (progn
+               (mines-goto i)
+               (let ((v (aref mines-state i))
+                     (n (aref mines-grid i)))
+                 (cond
+                  ((and (null v) (emacspeak-mines-cell-flagged-p c))
+                   "M")
+                  ((null v) "dot")
+                  ((and v (numberp n) )  (format "%d" n))
+                  ((eq '@ v)  "at" )
+                  (t (message "Should not  get here"))))))))
+    (dtk-speak-list cells mines-number-cols)))
 
 (defun emacspeak-mines-init ()
   "Setup additional keys for playing minesweeper."
