@@ -127,7 +127,9 @@ class ServerDelegate(NSObject):
 
   # NSSpeechSynthesizerDelegate implementation.
   def speechSynthesizer_didFinishSpeaking_(self, synthesizer, success):
-    processSpeechQueue()
+    global speechSynthesizer
+    if speechSynthesizer == synthesizer:
+      processSpeechQueue()
 
   def speechSynthesizer_didEncounterErrorAtIndex_ofString_message_(self, synthesizer, index, text, message):
     #writeDebugLog(2, "error encountered in synth: " + message + " at index " + str(index) + " of string '" + text + "'\n")
@@ -300,7 +302,15 @@ class _ProtocolHandler:
     parseContent(args)
 
   def handleStopSpeaking(self, args):
+    global speechSynthesizer
+    global speechDelegate
+
+    # Stop all speech on previous synth.
     speechSynthesizer.stopSpeaking()
+
+    speechSynthesizer = NSSpeechSynthesizer.alloc().init()
+    speechSynthesizer.setDelegate_(speechDelegate)
+
     textClipPlayer.stop()
     del(speechQueue[:])
 
