@@ -128,8 +128,7 @@ to beginning of board before searching."
     (save-excursion
       (setq cells
             (cl-loop
-             for i from 0 to (1- (length mines-state))
-             and c across mines-state collect
+             for i from 0 to (1- (length mines-state)) collect
              (progn
                (mines-goto i)
                (let ((v (aref mines-state i))
