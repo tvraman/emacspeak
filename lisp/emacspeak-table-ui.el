@@ -624,6 +624,22 @@ The processed  data is  presented using emacspeak table navigation. "
     (emacspeak-table-prepare-table-buffer table buffer)
     (emacspeak-auditory-icon 'open-object)))
 
+(defun emacspeak-table-view-csv-url  (url)
+  "Process a csv (comma separated values) data at  `URL'.
+The processed  data is  presented using emacspeak table navigation. "
+  (interactive "sURL:")
+  (cl-declare (special g-curl-program g-curl-common-options))
+  (let ((data (get-buffer-create " *csv-data*")))
+    (with-current-buffer data
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (shell-command
+       (format "%s %s '%s'"
+               g-curl-program g-curl-common-options url)
+       (current-buffer))
+      (emacspeak-table-view-csv-buffer "CSV Table"))))
+    
+  
 ;;}}}
 ;;{{{ Processing a region of tabular data
 ;;;###autoload
