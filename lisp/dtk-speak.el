@@ -72,9 +72,8 @@ Possible choices at present:
 dtk-exp     For the Dectalk Express.
 dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
-espeak      For eSpeak
-mac for MAC TTS
-The default is espeak.")
+espeak      For eSpeak (default on Linux)
+mac for MAC TTS (default on Mac)")
 
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
