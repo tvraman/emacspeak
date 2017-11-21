@@ -742,7 +742,8 @@ icon."
 (eval-after-load "eldoc"
   `(progn
      (global-eldoc-mode -1)
-     (setq eldoc-idle-delay 3)))
+     (setq eldoc-idle-delay 3)
+     (message "Turning off global-eldoc-mode")))
 
 (defcustom emacspeak-eldoc-speak-explicitly
   (not (emacspeak-tts-use-notify-stream-p))
