@@ -3270,6 +3270,45 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
 ;;;###autoload
 
 ;;}}}
+;;{{{ alpha-vantage: Stock Quotes
+
+;;;alpha-vantage:
+;;; API Key: https://www.alphavantage.co/support/#api-key
+;;; API Documentation: https://www.alphavantage.co/documentation/
+
+(defcustom emacspeak-wizards-alpha-vantage-api-key nil
+  "API Key  used to retrieve stock data from alpha-vantage.
+Visit https://www.alphavantage.co/support/#api-key to get your key."
+  :type
+  '(choice :tag "Key: "
+           (const :tag "Unspecified" nil)
+           (string :tag "API Key"))
+  :group 'emacspeak-wizards)
+
+
+(defvar emacspeak-wizards-alpha-vantage-base
+  "https://www.alphavantage.co/query?function=%s&symbol=%s&apikey=%s&datatype=csv"
+"Rest End-Point For Alpha-Vantage Stock API.")
+
+(defun emacspeak-wizards-alpha-vantage-uri (func ticker)
+  "Return URL for calling Alpha-Vantage API."
+  (cl-declare (special emacspeak-wizards-alpha-vantage-base
+                       emacspeak-wizards-alpha-vantage-api-key))
+  (format
+   emacspeak-wizards-alpha-vantage-base
+   func ticker emacspeak-wizards-alpha-vantage-api-key ))
+
+;;;###autoload
+(defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
+  "Retrieve stock quote data from Alpha Vantage.
+Prompts for `ticker' --- a stock symbol.
+Optional interactive prefix arg `custom' provides access to the various functions provided by alpha-vantage."
+  (interactive "sSymbol\nP")
+  (emacspeak-table-view-csv-url
+   (emacspeak-wizards-alpha-vantage-uri
+    "TIME_SERIES_DAILY" (upcase ticker))))
+
+;;}}}
 ;;{{{ Sports API:
 
 (defvar emacspeak-wizards--xmlstats-standings-uri
