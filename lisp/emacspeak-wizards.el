@@ -3304,9 +3304,16 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
 Prompts for `ticker' --- a stock symbol.
 Optional interactive prefix arg `custom' provides access to the various functions provided by alpha-vantage."
   (interactive "sSymbol\nP")
-  (emacspeak-table-view-csv-url
-   (emacspeak-wizards-alpha-vantage-uri
-    "TIME_SERIES_DAILY" (upcase ticker))))
+  (let* ((completion-ignore-case t)
+         (choices
+         '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
+           "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")))
+    (emacspeak-table-view-csv-url
+     (emacspeak-wizards-alpha-vantage-uri
+      (if custom
+          (upcase (ido-completing-read "Choose: " choices))
+        "TIME_SERIES_DAILY")
+      (upcase ticker)))))
 
 ;;}}}
 ;;{{{ Sports API:
