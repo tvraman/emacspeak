@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1216 commands and 1176 options.
+This chapter documents a total of 1218 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1319,7 +1319,6 @@ x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
 x C		emacspeak-wizards-color-wheel
-x Q		emacspeak-wizards-yql-lookup
 x b		battery
 x c		emacspeak-wizards-colors
 x e		emacspeak-we-xsl-map
@@ -1329,7 +1328,7 @@ x j		emacspeak-jabber-popup-roster
 x m		mspools-show
 x o		emacspeak-wizards-occur-header-lines
 x p		paradox-list-packages
-x q		emacspeak-wizards-yql-quotes
+x q		emacspeak-wizards-alpha-vantage-quotes
 x r		jabber-activity-switch-to
 x s		emacspeak-emergency-tts-restart
 x t		emacspeak-speak-telephone-directory
@@ -19676,6 +19675,18 @@ The processed  data is  presented using emacspeak table navigation.
 @end format
 @end deffn
 
+@subsubsection emacspeak-table-view-csv-url
+@deffn {Command} emacspeak-table-view-csv-url  (url)
+@findex emacspeak-table-view-csv-url
+
+@format
+Process a csv (comma separated values) data at  ‘URL’.
+The processed  data is  presented using emacspeak table navigation. 
+
+(fn URL)
+@end format
+@end deffn
+
 @node emacspeak-tabulate
 @section emacspeak-tabulate
 
@@ -22862,6 +22873,26 @@ Default is to add autoload cookies to current file.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-alpha-vantage-quotes
+@deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
+@table @kbd
+@item C-e x q
+@kindex C-e x q
+@item <fn> x q
+@kindex <fn> x q
+@end table
+
+@findex emacspeak-wizards-alpha-vantage-quotes
+
+@format
+Retrieve stock quote data from Alpha Vantage.
+Prompts for ‘ticker’ --- a stock symbol.
+Optional interactive prefix arg ‘custom’ provides access to the various functions provided by alpha-vantage.
+
+(fn TICKER &optional CUSTOM)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-bash-completion-toggle
 @deffn {Command} emacspeak-wizards-bash-completion-toggle   
 @findex emacspeak-wizards-bash-completion-toggle
@@ -24307,13 +24338,6 @@ key             binding
 
 @subsubsection emacspeak-wizards-yql-lookup
 @deffn {Command} emacspeak-wizards-yql-lookup  (symbols)
-@table @kbd
-@item C-e x Q
-@kindex C-e x Q
-@item <fn> x Q
-@kindex <fn> x Q
-@end table
-
 @findex emacspeak-wizards-yql-lookup
 
 @format
@@ -24326,13 +24350,6 @@ Symbols are separated by whitespace.
 
 @subsubsection emacspeak-wizards-yql-quotes
 @deffn {Command} emacspeak-wizards-yql-quotes   
-@table @kbd
-@item C-e x q
-@kindex C-e x q
-@item <fn> x q
-@kindex <fn> x q
-@end table
-
 @findex emacspeak-wizards-yql-quotes
 
 @format
@@ -24380,6 +24397,12 @@ directory.
 
 @defvar {User Option} emacspeak-ssh-tts-server
 SSH TTS server to use by default.
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-alpha-vantage-api-key
+API Key  used to retrieve stock data from alpha-vantage.
+Visit https://www.alphavantage.co/support/#api-key to get your key.
 
 @end defvar
 

@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 15, 2017.
+last updated on November 20, 2017.
 
    The manual is divided into the following chapters:
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1216 commands and 1176 options.
+This chapter documents a total of 1218 commands and 1177 options.
 
 * Menu:
 
@@ -3787,7 +3787,6 @@ system.
      x 0 .. x 9	emacspeak-wizards-shell-by-key
      x =		emacspeak-wizards-find-longest-line-in-region
      x C		emacspeak-wizards-color-wheel
-     x Q		emacspeak-wizards-yql-lookup
      x b		battery
      x c		emacspeak-wizards-colors
      x e		emacspeak-we-xsl-map
@@ -3797,7 +3796,7 @@ system.
      x m		mspools-show
      x o		emacspeak-wizards-occur-header-lines
      x p		paradox-list-packages
-     x q		emacspeak-wizards-yql-quotes
+     x q		emacspeak-wizards-alpha-vantage-quotes
      x r		jabber-activity-switch-to
      x s		emacspeak-emergency-tts-restart
      x t		emacspeak-speak-telephone-directory
