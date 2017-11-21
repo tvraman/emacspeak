@@ -3313,13 +3313,15 @@ Optional interactive prefix arg `custom' provides access to the various function
   (let* ((completion-ignore-case t)
          (choices
           '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
-            "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")))
-    (emacspeak-table-view-csv-url
-     (emacspeak-wizards-alpha-vantage-uri
+            "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED"))
+         (url
+          (emacspeak-wizards-alpha-vantage-uri
       (if custom
           (upcase (ido-completing-read "Choose: " choices))
         "TIME_SERIES_DAILY")
-      ticker))))
+      ticker)))
+    (kill-new url)
+    (emacspeak-table-view-csv-url url)))
 
 ;;}}}
 ;;{{{ Sports API:
