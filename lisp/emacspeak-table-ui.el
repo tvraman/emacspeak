@@ -636,7 +636,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (insert
        (shell-command-to-string
        (format "%s %s '%s'"
-               g-curl-program "--silent" url)))
+               g-curl-program g-curl-common-options url)))
       (goto-char (point-min))
       (emacspeak-table-view-csv-buffer))))
     
