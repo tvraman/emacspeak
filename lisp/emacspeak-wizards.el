@@ -3299,6 +3299,12 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
    func ticker emacspeak-wizards-alpha-vantage-api-key ))
 
 ;;;###autoload
+
+(defconst  ems--alpha-vantage-funcs
+  '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
+            "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")
+"Alpha-Vantage query types.")
+
 (defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
   "Retrieve stock quote data from Alpha Vantage.
 Prompts for `ticker' --- a stock symbol.
@@ -3309,15 +3315,13 @@ Optional interactive prefix arg `custom' provides access to the various function
      (completing-read "Stock Symbol: "
                       (split-string emacspeak-wizards-personal-portfolio)))
     current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-personal-portfolio))
+  (cl-declare (special emacspeak-wizards-personal-portfolio
+                       ems--alpha-vantage-funcs))
   (let* ((completion-ignore-case t)
-         (choices
-          '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
-            "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED"))
          (url
           (emacspeak-wizards-alpha-vantage-uri
       (if custom
-          (upcase (ido-completing-read "Choose: " choices))
+          (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
         "TIME_SERIES_DAILY")
       ticker)))
     (kill-new url)
