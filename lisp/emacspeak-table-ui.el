@@ -633,11 +633,12 @@ The processed  data is  presented using emacspeak table navigation. "
     (with-current-buffer data
       (erase-buffer)
       (setq buffer-undo-list t)
-      (shell-command
+      (insert
+       (shell-command-to-string
        (format "%s %s '%s'"
-               g-curl-program g-curl-common-options url)
-       (current-buffer))
-      (emacspeak-table-view-csv-buffer "CSV Table"))))
+               g-curl-program "--silent" url)))
+      (goto-char (point-min))
+      (emacspeak-table-view-csv-buffer))))
     
   
 ;;}}}
