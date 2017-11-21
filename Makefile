@@ -109,7 +109,7 @@ clean:
 LABEL=#version number
 MSG="Releasing ${LABEL}"
 release: #supply LABEL=NN.NN
-	git tag -a -s ${LABEL} -m "Tagging release with ${LABEL}"
+	git tag -f -a -s ${LABEL} -m "Tagging release with ${LABEL}"
 	git push --tags
 	$(MAKE) dist
 	mkdir emacspeak-${LABEL}; \
