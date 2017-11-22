@@ -3318,14 +3318,15 @@ Optional interactive prefix arg `custom' provides access to the various function
   (cl-declare (special emacspeak-wizards-personal-portfolio
                        ems--alpha-vantage-funcs))
   (let* ((completion-ignore-case t)
+         (method (if custom
+                     (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
+                   "TIME_SERIES_DAILY"))
          (url
           (emacspeak-wizards-alpha-vantage-uri
-      (if custom
-          (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
-        "TIME_SERIES_DAILY")
-      ticker)))
+           method
+           ticker)))
     (kill-new url)
-    (emacspeak-table-view-csv-url url (format "Data For %s" ticker ))))
+    (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker ))))
 
 ;;}}}
 ;;{{{ Sports API:
