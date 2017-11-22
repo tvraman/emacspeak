@@ -8,8 +8,8 @@ San Jose, Calif., (November 22, 2017)
     --Zero cost of Ownership  makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
---- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/44.0/emacspeak-45.0.tar.bz2][Emacspeak 46.0]]
-(HelpfulDog) --- a powerful audio desktop for leveraging today's
+--- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/44.0/emacspeak-45.0.tar.bz2][Emacspeak 47.0]]
+(GentleDog) --- a powerful audio desktop for leveraging today's
 evolving Data, Social and Assistant-Oriented Internet cloud.
 
 * Investors Note:
