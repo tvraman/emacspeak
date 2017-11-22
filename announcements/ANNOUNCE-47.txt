@@ -51,7 +51,7 @@ This version *requires* emacs-25.1 or later.
 12. Added SmartParen Support:  〙
 13. Speech-enabled Minesweeper game: 🤯
 
-     - And a lot more than wil fit this margin. … 🗞
+     - And a lot more than will fit this margin. … 🗞
 
 
 * Establishing Liberty, Equality And Freedom:
