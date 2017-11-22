@@ -3325,7 +3325,7 @@ Optional interactive prefix arg `custom' provides access to the various function
         "TIME_SERIES_DAILY")
       ticker)))
     (kill-new url)
-    (emacspeak-table-view-csv-url url)))
+    (emacspeak-table-view-csv-url url (format "Data For %s" ticker ))))
 
 ;;}}}
 ;;{{{ Sports API:
