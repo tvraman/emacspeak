@@ -3567,7 +3567,7 @@ under point as either the foreground or background color."
             :red (cl-first start)
             :green (cl-second start)
             :blue (cl-third start)
-            :step 16 )))
+            :step 8 )))
     (while  continue
       (setq event (read-event (ems--color-wheel-describe w color)))
       (cond
