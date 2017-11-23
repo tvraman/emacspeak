@@ -3538,7 +3538,11 @@ under point as either the foreground or background color."
 (defun ems--color-wheel-describe (w fg)
   "Describe the current state of this color wheel."
   (let* ((name (ems--color-wheel-name w))
-         (hex (ems--color-wheel-hex w) )
+         (hex
+          (format "#%02X %02X %02X"
+                  (ems--color-wheel-red w)
+                  (ems--color-wheel-green w)
+                  (ems--color-wheel-blue w)))
          (msg (format "%s is a %s shade: %s"
                       name  (ems--color-wheel-shade w) hex)))
     (setq fg (format "%s" fg))
