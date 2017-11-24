@@ -3539,18 +3539,18 @@ under point as either the foreground or background color."
   "Describe the current state of this color wheel."
   (let ((name (ems--color-wheel-name w))
         (hex
-         (format "#%02X %02X %02X"
+         (format "%02X %02X %02X"
                  (ems--color-wheel-red w)
                  (ems--color-wheel-green w)
                  (ems--color-wheel-blue w)))
         (msg nil))
     (cond
      ((string= fg "red")
-      (put-text-property 1 3 'personality voice-bolden hex))
+      (put-text-property 0 2 'personality voice-bolden hex))
      ((string= fg "green")
-      (put-text-property 4 6 'personality voice-bolden hex))
+      (put-text-property 3 5 'personality voice-bolden hex))
      ((string= fg "blue")
-      (put-text-property 7 9 'personality voice-bolden hex)))
+      (put-text-property 6 8 'personality voice-bolden hex)))
     (setq msg (format "%s is a %s shade: %s"
                       name  (ems--color-wheel-shade w) hex))
     (setq msg
