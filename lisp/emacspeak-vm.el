@@ -406,7 +406,6 @@ Then speak the screenful. "
              global-map emacspeak-prefix emacspeak-keymap))
   (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
   (define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
-  (define-key vm-mode-map "\M-\t" 'emacspeak-vm-next-button)
   (define-key vm-mode-map  "j" 'emacspeak-hide-or-expose-all-blocks)
   (define-key vm-mode-map  "\M-g" 'vm-goto-message)
   (define-key vm-mode-map "J" 'vm-discard-cached-data)
@@ -533,11 +532,7 @@ Leave point at front of decoded attachment."
 
 ;;}}}
 ;;{{{ advice button motion
-(defadvice vm-next-button (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-text-range  'w3-hyperlink-info)))
+
 
 ;;}}}
 ;;{{{  misc
@@ -548,37 +543,6 @@ Leave point at front of decoded attachment."
 
 ;;}}}
 ;;{{{  button motion in vm
-
-(defun emacspeak-vm-next-button (n)
-  "Move point to N buttons forward.
-If N is negative, move backward instead."
-  (interactive "p")
-  (let ((function (if (< n 0) 'previous-single-property-change
-                    'next-single-property-change))
-        (inhibit-point-motion-hooks t)
-        (inhibit-modification-hooks t)
-        (backward (< n 0))
-        (limit (if (< n 0) (point-min) (point-max))))
-    (setq n (abs n))
-    (while (and (not (= limit (point)))
-                (> n 0))
-      ;; Skip past the current button.
-      (when (get-text-property (point) 'w3-hyperlink-info)
-        (goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
-      ;; Go to the next (or previous) button.
-      (goto-char (funcall function (point) 'w3-hyperlink-info nil limit))
-      ;; Put point at the start of the button.
-      (when (and backward (not (get-text-property (point) 'w3-hyperlink-info)))
-        (goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
-      ;; Skip past intangible buttons.
-      (when
-          (or (get-text-property (point) 'intangible)
-              (get-text-property (point) 'cursorintangible))
-        (cl-incf n))
-      (decf n))
-    (unless (zerop n)
-      (message  "No more buttons"))
-    n))
 
 ;;}}}
 ;;{{{ saving mime attachment under point
