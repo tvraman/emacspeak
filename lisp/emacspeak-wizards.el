@@ -1592,34 +1592,6 @@ directory to where find is to be launched."
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ Cycle among available browsers
-
-(defvar emacspeak-wizards-available-browsers
-  (delq nil
-        (list
-         (when
-             (or (featurep 'w3) (locate-library "w3"))
-           'browse-url-w3)
-         (when (or (featurep 'eww)  (locate-library "eww"))'eww-browse-url)
-         ))
-  "List of available browsers to cycle through.")
-
-;;;###autoload
-(defun emacspeak-wizards-cycle-browser  ()
-  "Cycles through available browsers."
-  (interactive)
-  (cl-declare (special browse-url-browser-function
-                       emacspeak-wizards-available-browsers))
-  (let* ((count (length emacspeak-wizards-available-browsers))
-         (current
-          (cl-position browse-url-browser-function
-                       emacspeak-wizards-available-browsers))
-         (next  (% (1+ current) count)))
-    (setq browse-url-browser-function
-          (nth  next emacspeak-wizards-available-browsers))
-    (message "Browser set to %s" browse-url-browser-function)))
-
-;;}}}
 ;;{{{ customize emacspeak
 
 ;;;###autoload
