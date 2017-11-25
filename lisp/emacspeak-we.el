@@ -253,7 +253,7 @@ Default is to apply sort-tables."
   "Set to T  if you want the buffer name to contain the applied filter."
   :type  'boolean
   :group 'emacspeak-we)
-
+(declare-function emacspeak-eww-reading-settings "emacspeak-eww")
 ;;;###autoload
 (defun emacspeak-we-xslt-filter (path    url  &optional speak)
   "Extract elements matching specified XPath path locator
