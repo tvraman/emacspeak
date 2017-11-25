@@ -219,8 +219,6 @@
   "EPub associated with current buffer.")
 
 (make-variable-buffer-local 'emacspeak-epub-this-epub)
-(declare-function w3-fetch  "w3" (url))
-(declare-function w3-download-url  "w3" (url &optional file-name))
 
 (defun emacspeak-epub-browse-content (epub element fragment &optional style)
   "Browse content in specified element of EPub."
@@ -238,9 +236,6 @@
          (cl-declare (special emacspeak-we-url-executor emacspeak-epub-this-epub))
          (setq emacspeak-epub-this-epub epub
                emacspeak-we-url-executor 'emacspeak-epub-url-executor)
-         (when
-             (and fragment (eq browse-url-browser-function 'browse-url-w3))
-           (w3-fetch fragment))
          (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
@@ -296,7 +291,7 @@ Useful if table of contents in toc.ncx is empty."
   (let ((toc (emacspeak-epub-toc epub)))
     (emacspeak-epub-browse-content epub toc nil epub-toc-xsl)))
 
-;;; Fragment identifiers handled only in W3
+
 
 (defun emacspeak-epub-url-executor (url)
   "Custom URL executor for use in EPub Mode."
