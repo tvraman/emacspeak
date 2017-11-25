@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 21, 2017.
+last updated on November 25, 2017.
 
    The manual is divided into the following chapters:
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1218 commands and 1188 options.
+This chapter documents a total of 1197 commands and 1170 options.
 
 * Menu:
 
@@ -2902,7 +2902,7 @@ This chapter documents a total of 1218 commands and 1188 options.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
 * emacspeak-table::Implements data model for table browsing.
-* emacspeak-table-ui::Emacspeak’s current notion of an ideal table UI.
+* emacspeak-table-ui::
 * emacspeak-tabulate::Interpret tabulated information as a table.
 * emacspeak-tapestry::Speak information about current layout of windows.
 * emacspeak-tar::Speech enable Tar Mode – Manipulate tar archives from Emacs.
@@ -2920,7 +2920,6 @@ This chapter documents a total of 1218 commands and 1188 options.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.
 * emacspeak-vm::Speech enable VMMail.
-* emacspeak-w3::Speech enable W3 WWW browser – includes ACSS Support.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.
@@ -2969,14 +2968,14 @@ speech specification can be represented in elisp as a structure.
 
    We will refer to this structure as a "speech style".  This structure
 needs to be mapped to device dependent codes to produce the desired
-effect.  This module forms a bridge between User Agents e.g.  Emacs-w3
-that wish to implement a speech style sheet and Emacspeak’s
-dectalk-voices module.  Emacspeak produces voice change effects by
-examining the value of text-property ’personality.
+effect.  This module forms a bridge between emacs packages that wish to
+implement audio formatting and Emacspeak’s TTS module.  Emacspeak
+produces voice change effects by examining the value of text-property
+’personality.
 
    Think of a buffer of formatted text along with the text-property
 ’personality appropriately set as a "aural display list".  Applications
-like W3 that produce such formatted buffers call function
+like EWW that produce such formatted buffers call function
 acss-personality-from-speech-style with a "speech-style" –a structure as
 defined in this module and get back a symbol that they then assign to
 the value of property ’personality.  Emacspeak’s rendering engine then
@@ -6074,61 +6073,6 @@ system.
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
 
- -- Variable: User Option emacspeak-u-vm-color-author-personality
-     Personality used for u-vm-color-author-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
-     Personality used for u-vm-color-citation-1-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
-     Personality used for u-vm-color-citation-2-face This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-date-personality
-     Personality used for u-vm-color-date-face This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-header-personality
-     Personality used for u-vm-color-header-face This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-recipient-personality
-     Personality used for u-vm-color-recipient-face This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-signature-personality
-     Personality used for u-vm-color-signature-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
-     Personality used for u-vm-color-spamassassin-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-subject-personality
-     Personality used for u-vm-color-subject-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-time-personality
-     Personality used for u-vm-color-time-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-user-personality
-     Personality used for u-vm-color-user-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -7372,7 +7316,7 @@ higher.
  -- Variable: User Option emacspeak-bookshare-browser-function
      Function to display Bookshare Book content in a WWW browser.  This
      is used by the various Bookshare view commands to display content
-     from Daisy books.
+     from Bookshare books.
 
  -- Variable: User Option emacspeak-bookshare-directory
      Customize this to the root of where books are organized.

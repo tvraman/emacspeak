@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1218 commands and 1188 options.
+This chapter documents a total of 1197 commands and 1170 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -180,7 +180,7 @@ This chapter documents a total of 1218 commands and 1188 options.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
 * emacspeak-table::Implements data model for table browsing.
-* emacspeak-table-ui::Emacspeak's current notion of an ideal table UI.
+* emacspeak-table-ui::
 * emacspeak-tabulate::Interpret tabulated information as a table.
 * emacspeak-tapestry::Speak information about current layout of windows.
 * emacspeak-tar::Speech enable Tar Mode -- Manipulate tar archives from Emacs.
@@ -198,7 +198,6 @@ This chapter documents a total of 1218 commands and 1188 options.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
 * emacspeak-vm::Speech enable VMMail.
-* emacspeak-w3::Speech enable W3 WWW browser -- includes ACSS Support.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.
@@ -244,18 +243,17 @@ abstract device independent voice properties.
 A setting conforming to the CSS speech specification can be
 represented in elisp as a structure.
 
-We will refer to this structure as a "speech style".
-This structure needs to be mapped to device dependent codes to
-produce the desired effect.
-This module forms a bridge between User Agents e.g. Emacs-w3 that
-wish to implement a speech style sheet
-and Emacspeak's dectalk-voices module.
-Emacspeak produces voice change effects by examining the value of
-text-property 'personality.
+We will refer to this structure as a "speech style".  This
+structure needs to be mapped to device dependent codes to produce
+the desired effect.  This module forms a bridge between emacs
+packages    that wish to implement audio formatting 
+and Emacspeak's TTS module.  Emacspeak produces voice
+change effects by examining the value of text-property
+'personality.
 
 Think of a buffer of formatted text along with the text-property
 'personality appropriately set as a "aural display list".
-Applications like W3 that produce such formatted buffers  call function
+Applications like EWW that produce such formatted buffers  call function
 acss-personality-from-speech-style  with a  "speech-style"
 --a structure as defined in this module and get back a symbol that
 they then assign to the value of property 'personality.
@@ -4021,72 +4019,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -5529,7 +5461,7 @@ See http://developer.bookshare.org/docs for details on how to get
 @defvar {User Option} emacspeak-bookshare-browser-function
 Function to display Bookshare Book content in a WWW browser.
 This is used by the various Bookshare view commands to display
-  content from Daisy books.
+  content from Bookshare books.
 
 @end defvar
 
@@ -6542,25 +6474,6 @@ Move to previous entry and speak it.
 
 @format
 Speak entry at point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-elfeed-w3-entry-at-point
-@deffn {Command} emacspeak-elfeed-w3-entry-at-point   
-@findex emacspeak-elfeed-w3-entry-at-point
-
-@format
-Display current article in W3.
-@end format
-@end deffn
-
-@subsubsection emacspeak-elfeed-w3-filter-entry-at-point
-@deffn {Command} emacspeak-elfeed-w3-filter-entry-at-point   
-@findex emacspeak-elfeed-w3-filter-entry-at-point
-
-@format
-Display current article after filtering using W3.
-Work-around for async fetch bug in EWW.
 @end format
 @end deffn
 
@@ -19150,8 +19063,6 @@ Copy current table element to kill ring.
 
 @format
 Copy current table element to specified register.
-
-(fn REGISTER)
 @end format
 @end deffn
 
@@ -19193,8 +19104,6 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
-
-(fn START END)
 @end format
 @end deffn
 
@@ -19212,8 +19121,6 @@ the documentation on the table browser.
 @format
 Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. 
-
-(fn FILENAME)
 @end format
 @end deffn
 
@@ -19230,8 +19137,6 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
-
-(fn FILENAME)
 @end format
 @end deffn
 
@@ -19248,8 +19153,6 @@ the documentation on the table browser.
 
 @format
 Prompt for a table cell coordinates and jump to it.
-
-(fn ROW COLUMN)
 @end format
 @end deffn
 
@@ -19354,8 +19257,6 @@ Goes to the top of the current column.
 
 @format
 Move to the next column if possible
-
-(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19380,8 +19281,6 @@ Move to the next column if possible
 
 @format
 Move to the next row if possible
-
-(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19417,8 +19316,6 @@ markup to use.
 
 @format
 Move to the previous column  if possible
-
-(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19443,8 +19340,6 @@ Move to the previous column  if possible
 
 @format
 Move to the previous row if possible
-
-(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19464,8 +19359,6 @@ Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current. When called from a program, ‘what’ can
   be either ‘row’ or ‘column’.
-
-(fn &optional WHAT)
 @end format
 @end deffn
 
@@ -19582,8 +19475,6 @@ Speak  both row and column header and table element
 @format
 Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
-
-(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -19665,8 +19556,6 @@ Speak current table dimensions.
 @format
 Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
-
-(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -19699,8 +19588,6 @@ Speak  row header and table element
 
 @format
 Load saved filter settings.
-
-(fn FILE)
 @end format
 @end deffn
 
@@ -19717,8 +19604,6 @@ Load saved filter settings.
 
 @format
 Save out filter settings.
-
-(fn FILE)
 @end format
 @end deffn
 
@@ -19736,20 +19621,16 @@ Save out filter settings.
 @format
 Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. 
-
-(fn &optional BUFFER-NAME)
 @end format
 @end deffn
 
 @subsubsection emacspeak-table-view-csv-url
-@deffn {Command} emacspeak-table-view-csv-url  (url)
+@deffn {Command} emacspeak-table-view-csv-url  (url &optional buffer-name)
 @findex emacspeak-table-view-csv-url
 
 @format
 Process a csv (comma separated values) data at  ‘URL’.
 The processed  data is  presented using emacspeak table navigation. 
-
-(fn URL)
 @end format
 @end deffn
 
@@ -20582,211 +20463,6 @@ Executable that converts MSXL documents on standard input to HTML
 
 @end defvar
 
-@node emacspeak-w3
-@section emacspeak-w3
-
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-
-@subsection emacspeak-w3 Commands
-
-@subsubsection emacspeak-w3-curl-url-under-point
-@deffn {Command} emacspeak-w3-curl-url-under-point   
-@findex emacspeak-w3-curl-url-under-point
-
-@format
-Display contents of URL under point using Curl and W3.  The
-document is displayed in a separate buffer. 
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-customize-base-uri-pronunciation
-@deffn {Command} emacspeak-w3-customize-base-uri-pronunciation   
-@findex emacspeak-w3-customize-base-uri-pronunciation
-
-@format
-Defines custom buffer local pronunciation for base URI.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-do-onclick
-@deffn {Command} emacspeak-w3-do-onclick   
-@findex emacspeak-w3-do-onclick
-
-@format
-Do  onclick action.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-javascript-follow-link
-@deffn {Command} emacspeak-w3-javascript-follow-link   
-@findex emacspeak-w3-javascript-follow-link
-
-@format
-Follow URL hidden inside a javascript link
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-jump-to-submit
-@deffn {Command} emacspeak-w3-jump-to-submit   
-@findex emacspeak-w3-jump-to-submit
-
-@format
-Jump to next available submit button.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-lynx-url-under-point
-@deffn {Command} emacspeak-w3-lynx-url-under-point   
-@findex emacspeak-w3-lynx-url-under-point
-
-@format
-Display contents of URL under point using LYNX.  The
-document is displayed in a separate buffer. Note that the
-hyperlinks in that display are not active-- this facility is
-present only to help me iron out the remaining problems with
-the table structure extraction code in W3.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-next-block
-@deffn {Command} emacspeak-w3-next-block   
-@findex emacspeak-w3-next-block
-
-@format
-Move by block level displays.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-next-doc-element
-@deffn {Command} emacspeak-w3-next-doc-element  (&optional count)
-@findex emacspeak-w3-next-doc-element
-
-@format
-Move forward  to the next document element.
-Optional interactive prefix argument COUNT
-specifies by how many elements to move.
-
-(fn &optional COUNT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-next-parsed-item
-@deffn {Command} emacspeak-w3-next-parsed-item   
-@findex emacspeak-w3-next-parsed-item
-
-@format
-Move to and speak next parsed item.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-previous-doc-element
-@deffn {Command} emacspeak-w3-previous-doc-element  (&optional count)
-@findex emacspeak-w3-previous-doc-element
-
-@format
-Move back  to the previous document element.
-Optional interactive prefix argument COUNT
-specifies by how many elements to move.
-
-(fn &optional COUNT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-show-anchor-class
-@deffn {Command} emacspeak-w3-show-anchor-class   
-@findex emacspeak-w3-show-anchor-class
-
-@format
-Display any class attributes set on corresponding anchor
-element. 
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-show-http-headers
-@deffn {Command} emacspeak-w3-show-http-headers   
-@findex emacspeak-w3-show-http-headers
-
-@format
-Show HTTP headers using lwp-request
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-speak-next-block
-@deffn {Command} emacspeak-w3-speak-next-block   
-@findex emacspeak-w3-speak-next-block
-
-@format
-Move to next block and speak it.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-speak-next-element
-@deffn {Command} emacspeak-w3-speak-next-element   
-@findex emacspeak-w3-speak-next-element
-
-@format
-Speak next document element.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-speak-this-element
-@deffn {Command} emacspeak-w3-speak-this-element   
-@findex emacspeak-w3-speak-this-element
-
-@format
-Speak document element under point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-w3-toggle-table-borders
-@deffn {Command} emacspeak-w3-toggle-table-borders   
-@findex emacspeak-w3-toggle-table-borders
-
-@format
-Toggle drawing of W3 table borders
-@end format
-@end deffn
-
-@subsection emacspeak-w3 Options
-
-@defvar {User Option} emacspeak-w3-base-uri-pronunciation
-Custom pronunciation for base URIs in w3 buffers.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3-create-imenu-index
-Create IMenu index by default.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3-lwp-request
-LWP Request command from perl LWP.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3-lynx-program
-Name of lynx executable
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3-tidy-html
-Tidy HTML before rendering.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3-tidy-options
-Options to pass to tidy program
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3-tidy-program
-Name of tidy executable
-
-@end defvar
-
 @node emacspeak-wdired
 @section emacspeak-wdired
 
@@ -20799,7 +20475,7 @@ we is for webedit
 Invoke XSLT to edit/transform Web pages before they get
 rendered.
 we makes emacspeak's webedit layer independent of a given
-Emacs web browser like W3 or W3M
+Emacs web browser  EWW
 This module will use the abstraction provided by browse-url
 to handle Web pages.
 Module emacspeak-webutils provides the needed additional
@@ -20982,18 +20658,6 @@ Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 
 (fn IDS URL &optional SPEAK)
-@end format
-@end deffn
-
-@subsubsection emacspeak-we-extract-by-property
-@deffn {Command} emacspeak-we-extract-by-property  (url &optional speak)
-@findex emacspeak-we-extract-by-property
-
-@format
-Interactively prompt for an HTML property, e.g. id or class,
-and provide a completion list of applicable  property values. Filter document by property that is specified.
-
-(fn URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -22179,15 +21843,6 @@ instances.
 @end format
 @end deffn
 
-@subsubsection emacspeak-webutils-open-in-other-browser
-@deffn {Command} emacspeak-webutils-open-in-other-browser   
-@findex emacspeak-webutils-open-in-other-browser
-
-@format
-Opens link in alternate browser.
-@end format
-@end deffn
-
 @subsubsection emacspeak-webutils-play-media-at-point
 @deffn {Command} emacspeak-webutils-play-media-at-point  (&optional playlist-p)
 @table @kbd
@@ -23112,15 +22767,6 @@ Customize saved options matching ‘pattern’.  This command enables
 updating custom settings for a specific package or group of packages.
 
 (fn PATTERN)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-cycle-browser
-@deffn {Command} emacspeak-wizards-cycle-browser   
-@findex emacspeak-wizards-cycle-browser
-
-@format
-Cycles through available browsers.
 @end format
 @end deffn
 
@@ -24622,7 +24268,7 @@ Display current node.
 @findex emacspeak-xml-shell-browse-result
 
 @format
-Display XPath  and display its result using W3.
+Display XPath  and display its result using EWW.
 
 (fn XPATH)
 @end format
