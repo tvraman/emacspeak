@@ -263,9 +263,7 @@ Default is to return NullAgent if name not found."
 ;;}}}
 ;;{{{ Default mapping:
 
-(defconst soundscape-web-modes
-  '(w3-mode eww-mode)
-  "List of mode-names that get the Web  mood.")
+
 (defconst soundscape-vc-modes
   '(magit-mode vc-mode)
   "Version control modes.")
@@ -324,7 +322,7 @@ See  \\{soundscape-default-theme} for details."
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
     ("Still" (text-mode view-mode))
-    ("SurfWaves"  ,soundscape-web-modes)
+    ("SurfWaves"  (eww-mode))
     ("TonkSpace" (tabulated-list-mode))
     ("WaterFlow"  (dired-mode))
     )
