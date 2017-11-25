@@ -57,7 +57,7 @@
 ;;; User of a table can:
 ;;; Ask to enumerate any row or column slice 
 ;;; While enumerating a slice ask for row/column header information.
-;;; While enumerating a slice, ask for information about neighbours:
+;;; While enumerating a slice, ask for information about neighbors:
 ;;;
 
 (cl-defstruct (emacspeak-table
