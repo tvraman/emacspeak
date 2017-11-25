@@ -1081,9 +1081,6 @@ Results"
 
 ;;; Load site-specific searchers
 
-(when (locate-library "emacspeak-w3search")
-  (load-library "emacspeak-w3search"))
-
 ;;}}}
 ;;}}}
 (provide 'emacspeak-websearch)
