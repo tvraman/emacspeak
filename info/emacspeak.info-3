@@ -3721,38 +3721,28 @@ headers and cited messages
 
      VM mode line information.
 
-12.193.1.5 emacspeak-vm-next-button
-...................................
-
- -- Command: emacspeak-vm-next-button (n)
-
-     Move point to N buttons forward.
-     If N is negative, move backward instead.
-
-     (fn N)
-
-12.193.1.6 emacspeak-vm-speak-labels
+12.193.1.5 emacspeak-vm-speak-labels
 ....................................
 
  -- Command: emacspeak-vm-speak-labels
 
      Speak a message’s labels
 
-12.193.1.7 emacspeak-vm-speak-message
+12.193.1.6 emacspeak-vm-speak-message
 .....................................
 
  -- Command: emacspeak-vm-speak-message
 
      Move point to the message body.
 
-12.193.1.8 emacspeak-vm-toggle-html-mime-demotion
+12.193.1.7 emacspeak-vm-toggle-html-mime-demotion
 .................................................
 
  -- Command: emacspeak-vm-toggle-html-mime-demotion
 
      Toggle state of HTML Mime Demotion.
 
-12.193.1.9 emacspeak-vm-yank-header
+12.193.1.8 emacspeak-vm-yank-header
 ...................................
 
  -- Command: emacspeak-vm-yank-header

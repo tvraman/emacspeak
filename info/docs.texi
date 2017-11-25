@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1197 commands and 1170 options.
+This chapter documents a total of 1196 commands and 1170 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12962,7 +12962,7 @@ fully keyboard driven interface. In addition, Emacspeak provides
 these additional interactive commands:
 @itemize @bullet
 @item @kbd{SPC} Speak current cell.
-@item @kbd{.} Speak neighbours of current cell.
+@item @kbd{.} Speak neighbors of current cell.
 @item @kbd{,} Speak number of marks
 @item @kbd{a} Move to beginning of row.
 @item @kbd{e} Move to end of row.
@@ -12972,7 +12972,7 @@ these additional interactive commands:
 @item @kbd{'} Speaks entire board.
 @end itemize
 
-Speaking cell neighbours uses appropriate clause boundaries to group  related cells --- neighbours are read left-to-right, top-to-bottom.
+Speaking cell neighbors uses appropriate clause boundaries to group  related cells --- neighbors are read left-to-right, top-to-bottom.
 Moving to the left/right edge of the board produces an appropriate auditory icon.
 
 @subsection emacspeak-mines Commands
@@ -20357,18 +20357,6 @@ that has been forwarded multiple times.
 
 @format
 VM mode line information. 
-@end format
-@end deffn
-
-@subsubsection emacspeak-vm-next-button
-@deffn {Command} emacspeak-vm-next-button  (n)
-@findex emacspeak-vm-next-button
-
-@format
-Move point to N buttons forward.
-If N is negative, move backward instead.
-
-(fn N)
 @end format
 @end deffn
 

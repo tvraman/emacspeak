@@ -6512,7 +6512,7 @@ MINES == Minesweeper game in emacs.  The game itself provides a fully
 keyboard driven interface.  In addition, Emacspeak provides these
 additional interactive commands:
    • ‘SPC’ Speak current cell.
-   • ‘.’ Speak neighbours of current cell.
+   • ‘.’ Speak neighbors of current cell.
    • ‘,’ Speak number of marks
    • ‘a’ Move to beginning of row.
    • ‘e’ Move to end of row.
@@ -6521,10 +6521,10 @@ additional interactive commands:
    • ‘/’ Speak number of remaining uncovered cells.
    • ‘'’ Speaks entire board.
 
-   Speaking cell neighbours uses appropriate clause boundaries to group
-related cells — neighbours are read left-to-right, top-to-bottom.
-Moving to the left/right edge of the board produces an appropriate
-auditory icon.
+   Speaking cell neighbors uses appropriate clause boundaries to group
+related cells — neighbors are read left-to-right, top-to-bottom.  Moving
+to the left/right edge of the board produces an appropriate auditory
+icon.
 
 12.121.1 emacspeak-mines Commands
 ---------------------------------
