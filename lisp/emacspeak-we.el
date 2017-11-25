@@ -45,7 +45,7 @@
 ;;; Invoke XSLT to edit/transform Web pages before they get
 ;;; rendered.
 ;;; we makes emacspeak's webedit layer independent of a given
-;;; Emacs web browser like W3 or W3M
+;;; Emacs web browser  EWW
 ;;; This module will use the abstraction provided by browse-url
 ;;; to handle Web pages.
 ;;; Module emacspeak-webutils provides the needed additional
@@ -1072,36 +1072,7 @@ used as well."
 
 ;;}}}
 ;;{{{ Property filter
-(declare-function emacspeak-w3-html-stack "emacspeak-w3" nil)
 ;;;###autoload
-(defun emacspeak-we-extract-by-property (url &optional speak)
-  "Interactively prompt for an HTML property, e.g. id or class,
-and provide a completion list of applicable  property values. Filter document by property that is specified."
-  (interactive
-   (list
-    (emacspeak-webutils-read-url)
-    current-prefix-arg))
-  (let* ((completion-ignore-case t)
-         (choices
-          (mapcar 'symbol-name (cl-intersection
-                                '(id class style role)
-                                (emacspeak-webutils-property-names-from-html-stack (emacspeak-w3-html-stack)))))
-         (property
-          (read
-           (completing-read "Property: "
-                            choices)))
-         (values (emacspeak-webutils-get-property-from-html-stack
-                  (emacspeak-w3-html-stack)
-                  property))
-         (v (completing-read "Having value: " values))
-         (filter
-          (if (eq property 'class)
-              (format "//*[contains(@%s, \"%s\")]"
-                      property v)
-            (format "//*[@%s=\"%s\"]"
-                    property v))))
-    (emacspeak-we-xslt-filter filter url
-                              (or (called-interactively-p 'interactive) speak))))
 
 ;;}}}
 ;;{{{  xsl keymap
