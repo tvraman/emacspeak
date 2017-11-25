@@ -305,7 +305,7 @@ HTML head if none found."
   (switch-to-buffer emacspeak-xml-shell-display-buffer))
 
 (defun emacspeak-xml-shell-browse-result (xpath)
-  "Display XPath  and display its result using W3."
+  "Display XPath  and display its result using EWW."
   (interactive "sXPath:")
   (cl-declare (special emacspeak-xml-shell-display-buffer))
   (emacspeak-xml-shell-process-node xpath 
