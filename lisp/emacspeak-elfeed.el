@@ -197,7 +197,8 @@
   (define-key elfeed-search-mode-map "p" 'emacspeak-elfeed-previous-entry)
   (define-key elfeed-search-mode-map "." 'emacspeak-elfeed-filter-entry-at-point)
   (define-key elfeed-search-mode-map "e" 'emacspeak-elfeed-eww-entry-at-point)
-  (define-key elfeed-search-mode-map " "'emacspeak-elfeed-speak-entry-at-point)
+  (define-key elfeed-search-mode-map " "'emacspeak-elfeed-speak-entry-at-point))
+
 ;;}}}
 (provide 'emacspeak-elfeed)
 ;;{{{ end of file
