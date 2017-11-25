@@ -164,34 +164,10 @@
             (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
      (t (message "No link under point.")))))
 
-(defun emacspeak-elfeed-w3-filter-entry-at-point ()
-  "Display current article after filtering using W3.
-Work-around for async fetch bug in EWW."
-  (interactive)
-  (cl-declare (special emacspeak-we-recent-xpath-filter))
-  (let* ((browse-url-browser-function 'browse-url-w3)
-         (entry (emacspeak-elfeed-entry-at-point))
-         (link(elfeed-entry-link entry)))
-    (cond
-     (entry (elfeed-untag  entry 'unread)
-            (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
-     (t (message "No link under point.")))))
-
 (defun emacspeak-elfeed-eww-entry-at-point ()
   "Display current article in EWW."
   (interactive)
   (let* ((entry (emacspeak-elfeed-entry-at-point))
-         (link(elfeed-entry-link entry)))
-    (cond
-     (entry (elfeed-untag  entry 'unread)
-            (eww link))
-     (t (message "No link under point.")))))
-
-(defun emacspeak-elfeed-w3-entry-at-point ()
-  "Display current article in W3."
-  (interactive)
-  (let* ((browse-url-browser-function #'browse-url-w3)
-         (entry (emacspeak-elfeed-entry-at-point))
          (link(elfeed-entry-link entry)))
     (cond
      (entry (elfeed-untag  entry 'unread)
@@ -222,9 +198,6 @@ Work-around for async fetch bug in EWW."
   (define-key elfeed-search-mode-map "." 'emacspeak-elfeed-filter-entry-at-point)
   (define-key elfeed-search-mode-map "e" 'emacspeak-elfeed-eww-entry-at-point)
   (define-key elfeed-search-mode-map " "'emacspeak-elfeed-speak-entry-at-point)
-  (define-key elfeed-search-mode-map "W" 'emacspeak-elfeed-w3-entry-at-point)
-  (define-key elfeed-search-mode-map "w" 'emacspeak-elfeed-w3-filter-entry-at-point))
-
 ;;}}}
 (provide 'emacspeak-elfeed)
 ;;{{{ end of file
