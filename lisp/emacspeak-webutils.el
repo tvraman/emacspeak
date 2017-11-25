@@ -155,9 +155,7 @@ Note that the Web browser should reset this hook after using it.")
 
 (defun emacspeak-webutils-supported-p ()
   "Check if this is a supported browser."
-  (or   (eq browse-url-browser-function 'w3-fetch)
-        (eq browse-url-browser-function 'browse-url-w3)
-        (eq browse-url-browser-function 'eww-browse-url)))
+        (eq browse-url-browser-function 'eww-browse-url))
 
 (defun emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
@@ -198,8 +196,7 @@ Forward punctuation and rate  settings to resulting buffer."
 (defun emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (cl-declare (special major-mode))
-  (unless (or (eq major-mode 'w3-mode)
-              (eq major-mode 'eww-mode))
+  (unless (eq major-mode 'eww-mode)
     (error "This command cannot be used outside browser buffers.")))
 
 (defun emacspeak-webutils-read-url ()
@@ -259,8 +256,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ helper macros:
 
-;;; tVR: moving these from emacspeak-w3 to this module.
-
 (defmacro emacspeak-webutils-without-xsl (&rest body)
   "Execute body with XSL turned off."
   `(progn
@@ -319,23 +314,6 @@ and xsl environment specified by style, params and options."
 ;;}}}
 ;;{{{ Properties from HTML stack:
 
-(defun emacspeak-webutils-property-names-from-html-stack (html-stack)
-  "Returns list of attributes from HTML stack."
-  (delete nil
-          (cl-loop for e in html-stack
-                   append
-                   (mapcar 'car (rest e)))))
-
-(defun emacspeak-webutils-get-property-from-html-stack (html-stack prop)
-  "Extract and return list of prop values from HTML  stack.
-Stack is a list of the form ((element-name (attribute-alist)))."
-  (let ((props nil))
-    (cl-loop for element in html-stack
-             do
-             (push (cdr (assoc prop (rest element)))
-                   props))
-    (nreverse (delq nil props))))
-
 ;;}}}
 ;;{{{  google tools
 
@@ -383,7 +361,7 @@ With a prefix argument, extracts url under point."
    (list
     (read-from-minibuffer "URL:"
                           (funcall emacspeak-webutils-current-url))))
-  (cl-declare (special emacspeak-w3-google-related-uri))
+  (cl-declare (special emacspeak-web-google-related-uri))
   (emacspeak-we-extract-by-id
    "res"
    (format
@@ -503,16 +481,7 @@ Useful in handling double-redirect from TuneIn."
     (funcall  emacspeak-media-player  url t)))
 
 ;;;###autoload
-(defun emacspeak-webutils-open-in-other-browser ()
-  "Opens link in alternate browser."
-  (interactive)
-  (cl-declare (special major-mode
-                    w3-mode
-                    eww-mode))
-  (emacspeak-webutils-browser-check)
-  (if (eq major-mode 'w3-mode)
-      (eww-browse-url  (funcall emacspeak-webutils-url-at-point))
-    (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
+
 
 ;;}}}
 ;;{{{ utility: Get Feed Titles With Links
