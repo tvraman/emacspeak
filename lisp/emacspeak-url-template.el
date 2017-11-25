@@ -373,7 +373,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ market summary from google finance
 ;;; Forward Declaration:
 
-(defvar w3-auto-image-alt)
+
 (emacspeak-url-template-define
  "Market summary from Google"
  "https://finance.google.com/finance"
@@ -381,9 +381,8 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display financial market summary."
  #'(lambda (url)
-     (let ((w3-auto-image-alt " "))
        (emacspeak-we-extract-by-class
-        "id-summary-chart" url 'speak))))
+        "id-summary-chart" url 'speak)))
 
 ;;}}}
 ;;{{{ utils:
