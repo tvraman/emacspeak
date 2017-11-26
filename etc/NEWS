@@ -5,90 +5,10 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 47 -- Emacspeak 47 User Visible Changes
+* Emacspeak 48 -- Emacspeak 48 User Visible Changes
 This version requires Emacs-25.1 or later.
+* Removing W3 Support 
 
-** speech-Enable Extensible VI Layer --- EVIL
-
-Module ~emacspeak-evil~ speech-enables Emacs' Extensible VI Layer.
-
-** Bookshare: Support Additional Download Types
-Module ~emacspeak-bookshare~ has been updated to support new download
-types from Bookshare such as DTB Audio and Epub3.
-
-** Emacspeak EWW Marks:
-
-Module ~emacspeak-eww~ implements ~emacspeak-eww-marks~ --- persistent
-bookmarks for use when reding  Daisy (Bookshare) and Epub2 ebooks.
-
-**  Speech-Enable VDiff --- A Diff tool.
-
-Module ~emacspeak-vdiff~ speech-enables package ~vdiff~ --- a
-diff-tool with some advantages over  ~ediff~.
-** voice-setup.el
-
-New interactive command ~voice-setup-describe-personality~ (bound to
-_C-h C-v_) is the voice equivalent of Emacs' built-in 
-~describe-face~.  Emacspeak binds ~describe-face~ to _C-h /_.
-** Speech-enable Package shx ---Shell Extras For Emacs
-
-Module ~emacspeak-shx~ speech-enables package ~shx~ from melpa.
-This provides useful extensions in shell buffers that mirror
-functionality present in eshell.
-** IDO Support 
-Module ~emacspeak-ido~ has been updated to improve and simplify ~ido~
-support.
-
-** New Command To Toggle Autospeak Or Inaudible 
-
-New command _emacspeak-toggle-inaudible-or-comint-autospeak_ bound to
-_C-e C-q_
-toggles comint autospeak in comint buffers; otherwise calls
-_voice-setup-toggle-silence-personality_ --- command
-_voice-setup-toggle-silence-personality_
-is still available on _C-e M-q_ in all buffers.
-** Implemented NOAA Weather API
-
-Command _emacspeak-wizards-noaa-weather_ implements a light-weight
-client for the NOAA Weather API.
-** Speech-Enable Typographic Editting Support
-
-Module ~emacspeak-typo~ speech-enables package ~typo~.
-** Speech-Enable Package Origami 
-
-Module ~emacspeak-origami~ speech-enables package ~origami~.
-** Magit  Enhancements 
-
-Module ~emacspeak-magit~ speech-enables ~magit-blame~.
-
-** Overlay Displays 
-
-Emacs modules can annotate the visual display with overlay properties
-display, before-string and/or after-string.
-Command ~emacspeak-speak-line~ (C-e l) indicates the presence of these
-properties with auditory icon “more” — these properties can  be spoken
-using command ~emacspeak-speak-overlay-properties~.
-
-** Speech-Enable RipGrep Front-End:
-
-Module ~emacspeak-rg~ speech-enables package ~rg~, an Emacs front-end
-to RipGrep.
-
-** Obsolete W3m Support 
-
-W3M is no longer supported. Once Emacs 26 is released, W3 support will
-be removed as well.
-** Added SmartParen Support
-
-Module ~emacspeak-smartparens~ speech-enables package ~smartparens~.
-
-** Playing Minesweeper In Emacspeak
-
-Package ~mines~ from ELPA implements the Minesweeper game for Emacs
---- module ~emacspeak-mines~ speech-enables this game.
-
-
-** DMacro Support Is Obsolete 
-
-This used to be my favorite template filling package in the 90's but
-I've not used  it in over 15 years. 
+Browser emacs-w3 no longer works with Emacs 26, and consequently,
+module ~emacspeak-w3~ has been obsoleted, and all references to
+emacs-w3 removed from the Emacspeak codebase.
