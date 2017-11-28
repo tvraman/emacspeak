@@ -112,7 +112,6 @@ Receives buffer containing HTML as its argument."
   "Function used to get URL from current context."
   :type '(choice
           (function-item browse-url-url-at-point)
-          (function-item w3-view-this-url)
           (function :format "%t %v" :tag "Custom:"))
   :group 'g)
 
