@@ -3535,7 +3535,13 @@ under point as either the foreground or background color."
   "Interactively manipulate a simple color wheel and display the name
   and shade of the resulting color.  This makes for a fun color
   exploration tool with verbal descriptions of the colors from package
-  name-this-color. Prompts for a color from which to start exploration."
+  name-this-color. Prompts for a color from which to start exploration.
+
+Keyboard Commands During Interaction:
+Up/Down: Increase/Decrement along current axis using specified step-size.
+Left/Right: Switch color axis along which to move.
+b/f: Quit  wheel after setting background/foreground color to current value.
+q: Quit color wheel, after copying current hex value to kill-ring."
   (interactive (list (color-name-to-rgb(read-color "Start Color: "))))
   (cl-declare (special ems--color-wheel))
   (unless (featurep 'name-this-color)
