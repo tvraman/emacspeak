@@ -3561,6 +3561,22 @@ under point as either the foreground or background color."
                  (ems--color-wheel-hex w)
                  (ems--color-wheel-name w))
         (kill-new (ems--color-wheel-hex w)))
+       ((eq event ?f)
+        (setq continue nil)
+        (emacspeak-auditory-icon 'close-object)
+        (set-foreground-color (ems--color-wheel-hex w))
+        (message "Setting foreground  color  to %s %s"
+                 (ems--color-wheel-hex w)
+                 (ems--color-wheel-name w))
+        (kill-new (ems--color-wheel-hex w)))
+       ((eq event ?b)
+        (setq continue nil)
+        (emacspeak-auditory-icon 'close-object)
+        (set-background-color (ems--color-wheel-hex w))
+        (message "Setting background color  to %s %s"
+                 (ems--color-wheel-hex w)
+                 (ems--color-wheel-name w))
+        (kill-new (ems--color-wheel-hex w)))
        ((eq event ?s)
         (setf (ems--color-wheel-step w) (read-number "Step size: ")))
        ((eq event 'left)
@@ -3602,7 +3618,6 @@ under point as either the foreground or background color."
                 (max 0 (ems--color-wheel-blue w))))
          (t (error "Unknown color %s" color))))
        (t (message "Left/Right Switches primary color, Up/Down increases/decrements. q to quit."))))))
-
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
 
