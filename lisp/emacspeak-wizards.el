@@ -3425,8 +3425,9 @@ With interactive prefix arg, set foreground and background color first."
   (let* ((fg (foreground-color-at-point))
          (bg (background-color-at-point))
          (diff (ems--color-diff fg bg)))
-    (message "Color distance is %.2f between %s and %s" diff
-             (ems--color-name fg) (ems--color-name bg))))
+    (message "Color distance is %.2f between %s and %s which is %s" diff
+             (ems--color-name fg) (ems--color-name bg)
+             (cdr (assq 'background-mode (frame-parameters))))))
 
 (defun ems--color-hex (color)
   "Return Hex value for color."
