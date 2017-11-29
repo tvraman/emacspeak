@@ -238,6 +238,7 @@ the kill ring as well."
   "Move forward to and speak the next message in this chat session."
   (interactive)
   (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
+  (end-of-line)
     (goto-char (next-single-property-change (point) 'face nil(point-max)))
     (while (and (not (eobp))
                 (or (null (get-text-property (point) 'face))
@@ -254,6 +255,7 @@ the kill ring as well."
   "Move backward to and speak the previous message in this chat session."
   (interactive)
   (cl-assert (eq major-mode 'jabber-chat-mode) nil "Not in a Jabber chat buffer.")
+  (beginning-of-line)
   (goto-char (previous-single-property-change (point) 'face nil  (point-min)))
   (while  (and (not (bobp))
                (or (null (get-text-property (point) 'face))
