@@ -223,7 +223,7 @@
     (save-place-mode)
     (midnight-mode)
     (server-start)
-    (pinentry-start)
+    ;(pinentry-start)
     (bbdb-insinuate-vm))
 
   ;;}}}
