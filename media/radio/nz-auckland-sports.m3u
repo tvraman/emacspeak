@@ -1,6 +1,7 @@
 [playlist]
-File1=http://radionetwork-iheart-ice.streamguys1.com/rsihr.aac
+;File1=http://radionetwork-iheart-ice.streamguys1.com/rsihr.aac
+File1=https://ihrcast1.radiomyway.co.nz/rsihr.aac
 NumberOfEntries=1
 Version=2
 Title=Radio Sport
-;;; Found through iheart radio --- station id 6184
+;;; Found through iheart radio --- station id 6194
