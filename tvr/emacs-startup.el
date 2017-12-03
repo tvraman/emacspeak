@@ -242,3 +242,4 @@
 ;;;end:
 
 ;;}}}
+(put 'list-timers 'disabled nil)

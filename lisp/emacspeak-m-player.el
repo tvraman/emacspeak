@@ -340,10 +340,12 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    ((fboundp 'directory-files-recursively)
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
+(defvar-local emacspeak-m-player-url-p nil
+  "Flag that records if we are playing a stream URL")
 
 (defun emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special ido-work-directory-list ))
+  (cl-declare (special ido-work-directory-list emacspeak-m-player-url-p))
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
@@ -363,6 +365,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
            "Media Resource: "
            (emacspeak-m-player-guess-directory)
            default 'must-match default))
+    (when (string-match "^http" result)
+      (setq emacspeak-m-player-url-p t))
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
@@ -738,13 +742,14 @@ This affects pitch."
   "Quit media player."
   (interactive)
   (cl-declare (special emacspeak-amark-list emacspeak-m-player-recent-amark-name
-                    emacspeak-m-player-process))
+                    emacspeak-m-player-url-p emacspeak-m-player-process))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
-        (unless (string-equal emacspeak-media-shortcuts-directory
-;;;dont amark streams
-                              (substring default-directory 0 -1))
+        (unless (or ;;;dont amark streams
+                 (null emacspeak-m-player-url-p)
+                    (string-equal emacspeak-media-shortcuts-directory
+                                  (substring default-directory 0 -1)))
           (emacspeak-m-player-amark-add emacspeak-m-player-recent-amark-name)
           (emacspeak-amark-save))
         (emacspeak-m-player-dispatch "quit")
