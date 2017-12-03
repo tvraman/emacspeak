@@ -340,7 +340,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    ((fboundp 'directory-files-recursively)
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
-(defvar-local emacspeak-m-player-url-p nil
+(defvar emacspeak-m-player-url-p nil
   "Flag that records if we are playing a stream URL")
 
 (defun emacspeak-m-player-read-resource ()
@@ -365,8 +365,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
            "Media Resource: "
            (emacspeak-m-player-guess-directory)
            default 'must-match default))
-    (when (string-match "^http" result)
-      (setq emacspeak-m-player-url-p t))
+    (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
