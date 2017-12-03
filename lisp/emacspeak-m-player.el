@@ -742,26 +742,24 @@ This affects pitch."
   "Quit media player."
   (interactive)
   (cl-declare (special emacspeak-amark-list emacspeak-m-player-recent-amark-name
-                    emacspeak-m-player-url-p emacspeak-m-player-process))
+                       emacspeak-m-player-url-p emacspeak-m-player-process))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
-        (unless (or ;;;dont amark streams
-                 (null emacspeak-m-player-url-p)
-                    (string-equal emacspeak-media-shortcuts-directory
-                                  (substring default-directory 0 -1)))
-          (emacspeak-m-player-amark-add emacspeak-m-player-recent-amark-name)
-          (emacspeak-amark-save))
-        (emacspeak-m-player-dispatch "quit")
-        (emacspeak-auditory-icon 'close-object)
-        (and (buffer-live-p buffer)
-             (kill-buffer buffer))))
-    (unless (eq (process-status emacspeak-m-player-process) 'exit)
-      (delete-process  emacspeak-m-player-process))
-    (setq emacspeak-m-player-process nil)
-    (with-current-buffer  (window-buffer (selected-window))
+        (with-current-buffer buffer
+          (unless (or ;;;dont amark streams
+                   (null emacspeak-m-player-url-p)
+                   (string-equal emacspeak-media-shortcuts-directory
+                                 (substring default-directory 0 -1)))
+            (emacspeak-m-player-amark-add emacspeak-m-player-recent-amark-name)
+            (emacspeak-amark-save))
+          (emacspeak-m-player-dispatch "quit")
+          (emacspeak-auditory-icon 'close-object)
+          (and (buffer-live-p buffer) (kill-buffer buffer))))
+      (unless (eq (process-status emacspeak-m-player-process) 'exit)
+        (delete-process  emacspeak-m-player-process))
+      (setq emacspeak-m-player-process nil)
       (emacspeak-speak-mode-line))))
-
 ;;;###autoload
 (defun emacspeak-m-player-volume-up ()
   "Increase volume."
