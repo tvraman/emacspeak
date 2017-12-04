@@ -219,7 +219,9 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 
 (defun emacspeak-feeds-feed-display(feed-url style &optional speak)
   "Fetch feed asynchronously via Emacs and display using xsltproc."
-  (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak)))
+  (url-retrieve feed-url #'emacspeak-feeds-render (list feed-url  style  speak))
+  (message "pulling feed.")
+  (emacspeak-auditory-icon 'item))
 
 (defun emacspeak-feeds-render  (_status feed-url style   speak)
   "Render the result of asynchronously retrieving feed-url."
