@@ -23,7 +23,8 @@
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
     "vdiff-prepare"  "sp-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
-    "use-emms" "calc-prepare" "helm-prepare"                      ;helm not activated
+    ;"use-emms"
+ "calc-prepare" "helm-prepare"                      ;helm not activated
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "projectile-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare"
