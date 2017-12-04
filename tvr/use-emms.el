@@ -38,9 +38,3 @@
         (";" . emms-streams)
         ("a" . emms-add-find))
   )
-
-      
-	
-        
-      
-    
