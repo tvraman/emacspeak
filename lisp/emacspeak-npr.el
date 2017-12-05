@@ -80,9 +80,9 @@
 (defcustom emacspeak-npr-api-key nil
   "Web API  key for this application."
   :type
-  '(choice :tag "Key: "
+  '(choice :tag "Key"
            (const :tag "Unspecified" nil)
-           (string :tag "API Key: "))
+           (string :tag "API Key"))
   :group 'emacspeak-npr)
 
 (defvar emacspeak-npr-user-id nil

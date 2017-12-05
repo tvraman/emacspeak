@@ -1644,7 +1644,7 @@ Optional interactive prefix arg restarts current TTS server."
 ;;;###autoload
 (defcustom dtk-speech-server-program "speech-server"
   "Local speech server script."
-  :type '(choice :tag "Local Server: "
+  :type '(choice :tag "Local Server"
                  (const :tag "32 Bit" "32-speech-server")
                  (const :tag "Default" "speech-server"))
   :group 'dtk)

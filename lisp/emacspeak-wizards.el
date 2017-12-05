@@ -3204,7 +3204,7 @@ per headers."
   :type '(repeat
           (choice :tag "Entry"
                   (integer :tag "Column Number:")
-                  (string :tag "Text: ")))
+                  (string :tag "Text")))
   :group 'emacspeak-wizards)
 ;;;###autoload
 (defun emacspeak-wizards-yql-lookup (symbols)
@@ -3252,7 +3252,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   "API Key  used to retrieve stock data from alpha-vantage.
 Visit https://www.alphavantage.co/support/#api-key to get your key."
   :type
-  '(choice :tag "Key: "
+  '(choice :tag "Key"
            (const :tag "Unspecified" nil)
            (string :tag "API Key"))
   :group 'emacspeak-wizards)

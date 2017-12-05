@@ -390,7 +390,7 @@ audio player."
 (defcustom emacspeak-sounds-reset-snd-module-command nil
   "Command to reset sound module."
   :type '(choice
-          :tag "Command to reset sound modules: "
+          :tag "Command to reset sound modules"
           (const nil :tag "None")
           (string :tag "Command "))
   :group 'emacspeak-sounds)

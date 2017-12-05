@@ -78,9 +78,9 @@
 See http://developer.bookshare.org/docs for details on how to get
   an API key. "
   :type
-  '(choice :tag "Key: "
+  '(choice :tag "Key"
            (const :tag "Unspecified" nil)
-           (string :tag "API Key: "))
+           (string :tag "API Key"))
   :group 'emacspeak-bookshare)
 
 (defcustom emacspeak-bookshare-user-id nil
@@ -1060,7 +1060,7 @@ Target location is generated from author and title."
   "daisyTransform.xsl"
   "Name of bookshare  XSL transform."
   :type
-  '(choice :tag "Key: "
+  '(choice :tag "Key"
            (const :tag "Daisy transform from Bookshare"  "daisyTransform.xsl")
            (const :tag "Default HTML View" "default.xsl"))
   :group 'emacspeak-bookshare)
