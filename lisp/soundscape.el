@@ -133,7 +133,7 @@
 Defaults specify alsa as the output and set master volume to 0.5"
   :group 'soundscape
   :type '(repeat
-          (string :tag "Option: ")))
+          (string :tag "Option")))
 
 ;;}}}
 ;;{{{ Catalog:
