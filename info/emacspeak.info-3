@@ -12,86 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
-
-12.145 emacspeak-pydoc
-======================
-
-PYDOC == Python Documentation Viewer
-
-12.145.1 emacspeak-pydoc Options
---------------------------------
-
- -- Variable: User Option emacspeak-pydoc-button-personality
-     Personality used for pydoc-button-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-name-personality
-     Personality used for pydoc-callable-name-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-param-personality
-     Personality used for pydoc-callable-param-face This personality
-     uses emacspeak-voice-lock-variable-name-personality whose effect
-     can be changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-class-name-link-personality
-     Personality used for pydoc-class-name-link-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-data-personality
-     Personality used for pydoc-data-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-pydoc-envvars-personality
-     Personality used for pydoc-envvars-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-package-link-personality
-     Personality used for pydoc-package-link-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-source-file-link-personality
-     Personality used for pydoc-source-file-link-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
-     Personality used for pydoc-sphinx-directive-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
-     Personality used for pydoc-sphinx-param-name-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
-     Personality used for pydoc-sphinx-param-type-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-string-personality
-     Personality used for pydoc-string-face This personality uses
-     emacspeak-voice-lock-string-personality whose effect can be changed
-     globally by customizing
-     emacspeak-voice-lock-string-personality-settings.
-
- -- Variable: User Option
-          emacspeak-pydoc-superclass-name-link-personality
-     Personality used for pydoc-superclass-name-link-face This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
-
-
 File: emacspeak.info,  Node: emacspeak-python,  Next: emacspeak-racket,  Prev: emacspeak-pydoc,  Up: Emacspeak Commands And Options
 
 12.146 emacspeak-python
@@ -5527,8 +5447,10 @@ Contains various wizards for the Emacspeak desktop.
 
      Keyboard Commands During Interaction:
      Up/Down: Increase/Decrement along current axis using specified step-size.
+     =: Set value on current axis to number read from minibuffer.
      Left/Right: Switch color axis along which to move.
      b/f: Quit  wheel after setting background/foreground color to current value.
+     s: Set stepsize to number read from minibuffer.
      q: Quit color wheel, after copying current hex value to kill-ring.
 
      (fn START)
@@ -9416,4 +9338,35 @@ organizing ones ebook collection; Emacspeak now implements an *EPub
 Interaction* mode that leverages Calibre (actually sqlite3) to search
 and browse books, along with an integrated *EPub mode* for reading
 books.
+
+
+File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
+
+15.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
+==========================================================================
+
+The ability to invoke external processes and interface with them via a
+simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
+extension points.  This means that a wide variety of computational tools
+become immediately available for embedding within the Emacs environment
+— a facility that has been widely exploited by the Emacs community.
+Over the years, Emacspeak has leveraged many of these facilities to
+provide a well-integrated auditory interface.
+
+   Starting from a tight code, eval, test form of iterative programming
+as encouraged by Lisp.  Applied to languages like Python and Ruby to
+exploratory computational tools such as R for data analysis and SQL for
+database interaction, the Emacspeak Audio Desktop has come to encompass
+a collection of rich computational tools that provide an efficient
+eyes-free experience.
+
+   In this context, module *ein* — Emacs IPython Notebooks — provides
+another excellent example of an Emacs tool that helps interface
+seamlessly with others in the technical domain.  IPython Notebooks
+provide an easy means of reaching a large audience when publishing
+technical material with interactive computational content; module *ein*
+brings the power and convenience of Emacs ’ editting facilities when
+developing the content.  Speech-enabling package *ein* is a major win
+since editting program source code in an eyes-free environment is far
+smoother in Emacs than in a browser-based editor.
 
