@@ -3539,8 +3539,10 @@ under point as either the foreground or background color."
 
 Keyboard Commands During Interaction:
 Up/Down: Increase/Decrement along current axis using specified step-size.
+=: Set value on current axis to number read from minibuffer.
 Left/Right: Switch color axis along which to move.
 b/f: Quit  wheel after setting background/foreground color to current value.
+s: Set stepsize to number read from minibuffer.
 q: Quit color wheel, after copying current hex value to kill-ring."
   (interactive (list (color-name-to-rgb(read-color "Start Color: "))))
   (cl-declare (special ems--color-wheel))
@@ -3593,6 +3595,21 @@ q: Quit color wheel, after copying current hex value to kill-ring."
         (setq this (% (+ this 1) 3))
         (setq color (elt   colors this))
         (dtk-speak (format "%s Axis" color)))
+       ((eq event ?=)
+        (cond
+         ((string= color "red")
+          (setf (ems--color-wheel-red w) (read-number "Red:"))
+          (setf (ems--color-wheel-red w)
+                (min 255 (ems--color-wheel-red w))))
+         ((string= color "green")
+          (setf (ems--color-wheel-green w) (read-number "Green:"))
+          (setf (ems--color-wheel-green w)
+                (min 255 (ems--color-wheel-green w))))
+         ((string= color "blue")
+          (setf (ems--color-wheel-blue w) (read-number "Blue:"))
+          (setf (ems--color-wheel-blue w)
+                (min 255 (ems--color-wheel-blue w))))
+         (t (error "Unknown color %s" color))))
        ((eq event 'up)
         (cond
          ((string= color "red")
@@ -3624,6 +3641,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
                 (max 0 (ems--color-wheel-blue w))))
          (t (error "Unknown color %s" color))))
        (t (message "Left/Right Switches primary color, Up/Down increases/decrements. q to quit."))))))
+
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
 
