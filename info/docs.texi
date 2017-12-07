@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1196 commands and 1170 options.
+This chapter documents a total of 1197 commands and 1170 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -23742,6 +23742,24 @@ Squeeze multiple blank lines in current buffer.
 Display sunrise/sunset for specified address.
 
 (fn ADDRESS &optional ARG)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-swap-fg-and-bg
+@deffn {Command} emacspeak-wizards-swap-fg-and-bg   
+@table @kbd
+@item C-h =
+@kindex C-h =
+@item <f1> =
+@kindex <f1> =
+@item <help> =
+@kindex <help> =
+@end table
+
+@findex emacspeak-wizards-swap-fg-and-bg
+
+@format
+Swap foreground and background.
 @end format
 @end deffn
 
