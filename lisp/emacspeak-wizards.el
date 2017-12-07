@@ -3643,6 +3643,17 @@ q: Quit color wheel, after copying current hex value to kill-ring."
        (t (message "Left/Right Switches primary color, Up/Down increases/decrements. q to quit."))))))
 
 ;;}}}
+;;{{{ Swap Foreground And Background:
+;;;###autoload 
+(defun emacspeak-wizards-swap-fg-and-bg ()
+"Swap foreground and background."
+(interactive)
+(let ((fg (foreground-color-at-point))
+(bg (background-color-at-point)))
+(set-foreground-color bg)
+(set-background-color fg)))
+
+;;}}}
 ;;{{{ Utility: Read from a pipe helper:
 
 ;;; For use from etc/emacs-pipe.pl

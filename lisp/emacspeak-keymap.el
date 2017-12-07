@@ -158,6 +158,7 @@
            ("'" describe-text-properties)
            ("\"" voice-setup-list-voices)
            ("," emacspeak-wizards-color-at-point)
+           ("=" emacspeak-wizards-swap-fg-and-bg)
            ("\\" emacspeak-wizards-color-diff-at-point)
            ("/" describe-face)
            ("u" apu-chars)
