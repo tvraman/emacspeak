@@ -3651,7 +3651,8 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 (let ((fg (foreground-color-at-point))
 (bg (background-color-at-point)))
 (set-foreground-color bg)
-(set-background-color fg)))
+(set-background-color fg)
+(call-interactively #'emacspeak-wizards-color-diff-at-point)))
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
