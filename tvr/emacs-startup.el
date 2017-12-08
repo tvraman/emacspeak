@@ -69,6 +69,7 @@
 
 (defun tvr-set-color-for-today ()
   "Return color pair for today."
+  (interactive)
   (cl-declare (special tvr-weekday-to-color-alist))
   (let ((pair
          (elt  tvr-weekday-to-color-alist (read (format-time-string "%w")))))
