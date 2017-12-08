@@ -124,7 +124,7 @@
  'emacs-startup-hook
  #'(lambda ()
      (delete-other-windows)
-     (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.4fs)>"
+     (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.2fs)>"
               user-login-name (emacs-init-time) gcs-done gc-elapsed)))
 
 (defun tvr-text-mode-hook ()
