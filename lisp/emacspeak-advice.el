@@ -82,6 +82,13 @@
 (defvar emacspeak-prefix)
 
 ;;}}}
+;;{{{ Silence advice chatter:
+
+(defadvice ad--defalias-fset (around emacspeak pre act comp)
+  "Silence chatter."
+  (ems-with-messages-silenced ad-do-it))
+
+;;}}}
 ;;{{{ Advice ding
 
 (defadvice ding (before emacspeak pre act comp)
