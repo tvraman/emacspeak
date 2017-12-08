@@ -54,6 +54,29 @@
       (error (message "Error loading %s: %s" lib (error-message-string err))))))
 
 ;;}}}
+;;{{{ Weekday Colors:
+
+(defconst tvr-weekday-to-color-alist
+  '(("snow" "dark blue")
+    ("light pink" "gold")
+    ("light coral" "sea green")
+    ("light goldenrod yellow" "dark blue")
+    ("mint cream" "dark blue")
+    ("light sky blue" "gold")
+    ("lilac" "gold")
+    )
+  "Alist of color pairs for days of the week")
+
+(defun tvr-set-color-for-today ()
+  "Return color pair for today."
+  (cl-declare (special tvr-weekday-to-color-alist))
+  (let ((pair
+         (elt  tvr-weekday-to-color-alist (read (format-time-string "%w")))))
+    (set-background-color (cl-first pair))
+    (set-foreground-color (cl-second pair)))
+  (call-interactively #'emacspeak-wizards-color-diff-at-point))
+
+;;}}}
 ;;{{{ tvr-shell-bind-keys:
 
 (defsubst tvr-shell-bind-keys ()
@@ -81,6 +104,7 @@
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
     (global-set-key (kbd "C-RET") 'hippie-expand)
+    (tvr-set-color-for-today)
     (bbdb-insinuate-vm)
     (when (file-exists-p custom-file) (load custom-file))))
 
