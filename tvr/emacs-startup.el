@@ -63,8 +63,7 @@
     ("light goldenrod yellow" "dark blue")
     ("mint cream" "dark blue")
     ("light sky blue" "gold")
-    ("lilac" "gold")
-    )
+    ("lavender" "gold"))
   "Alist of color pairs for days of the week")
 
 (defun tvr-set-color-for-today ()
