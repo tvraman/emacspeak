@@ -57,7 +57,7 @@
 ;;{{{ Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
-  '(("snow" "dark blue")
+  '(("AliceBlue" "dark blue")
     ("light pink" "gold")
     ("light coral" "sea green")
     ("light goldenrod yellow" "dark blue")
