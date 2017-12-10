@@ -161,7 +161,6 @@
            ("=" emacspeak-wizards-swap-fg-and-bg)
            ("\\" emacspeak-wizards-color-diff-at-point)
            ("/" describe-face)
-           ("u" apu-chars)
            ("C-v" voice-setup-describe-personality)
            ("\;" describe-font)
            ("p" list-packages)
