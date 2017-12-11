@@ -399,7 +399,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("f" (call-interactively #'auto-fill-mode))
    ("g"  (call-interactively #'toggle-debug-on-quit))
    ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
-   ("i" (call-interactively #'ido-mode))
+   ("i" (call-interactively #'ido-everywhere))
    ("I" (call-interactively #'flx-ido-mode))
    ("t" (call-interactively #'toggle-truncate-lines))
    ("u" (call-interactively #'ido-ubiquitous-mode))
