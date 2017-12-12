@@ -726,7 +726,8 @@ the documentation on the table browser."
      (format "%sX%s-%s"
              (emacspeak-table-num-rows emacspeak-table)
              (emacspeak-table-num-columns emacspeak-table)
-             (buffer-name buffer)))))
+             (buffer-name buffer))
+     'unique)))
 
 ;;}}}
 ;;{{{ select default speaking action
