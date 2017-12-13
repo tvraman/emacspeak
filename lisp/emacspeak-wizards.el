@@ -3542,6 +3542,7 @@ Up/Down: Increase/Decrement along current axis using specified step-size.
 =: Set value on current axis to number read from minibuffer.
 Left/Right: Switch color axis along which to move.
 b/f: Quit  wheel after setting background/foreground color to current value.
+n: Read color name from minibuffer.
 c: Complement  current color.
 s: Set stepsize to number read from minibuffer.
 q: Quit color wheel, after copying current hex value to kill-ring."
@@ -3565,9 +3566,9 @@ q: Quit color wheel, after copying current hex value to kill-ring."
       (cond
        ((eq event ?c)
         (emacspeak-auditory-icon 'button)
-         (setf (ems--color-wheel-red w) (- 255  (ems--color-wheel-red w)))
-         (setf (ems--color-wheel-green w) (- 255  (ems--color-wheel-green w)))
-         (setf (ems--color-wheel-blue w) (- 255  (ems--color-wheel-blue w))))
+        (setf (ems--color-wheel-red w) (- 255  (ems--color-wheel-red w)))
+        (setf (ems--color-wheel-green w) (- 255  (ems--color-wheel-green w)))
+        (setf (ems--color-wheel-blue w) (- 255  (ems--color-wheel-blue w))))
        ((eq event ?q)
         (setq continue nil)
         (emacspeak-auditory-icon 'close-object)
@@ -3601,6 +3602,13 @@ q: Quit color wheel, after copying current hex value to kill-ring."
         (setq this (% (+ this 1) 3))
         (setq color (elt   colors this))
         (dtk-speak (format "%s Axis" color)))
+       ((eq event ?n)
+        (setq start
+              (mapcar #'(lambda (c) (round (* 255 c)))
+                      (color-name-to-rgb(read-color "Start Color: "))))
+        (setf (ems--color-wheel-red w) (cl-first start))
+        (setf (ems--color-wheel-green w) (cl-second start))
+        (setf (ems--color-wheel-blue w) (cl-third start)))
        ((eq event ?=)
         (cond
          ((string= color "red")
