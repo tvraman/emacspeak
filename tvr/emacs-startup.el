@@ -60,7 +60,7 @@
   '(("AliceBlue" "dark blue")
     ("light pink" "gold")
     ("#FF8A8F" "sea green")
-    ("light goldenrod yellow" "dark blue")
+    ("#FFFFDA" "dark blue")
     ("mint cream" "dark blue")
     ("light sky blue" "gold")
     ("lavender" "gold"))
