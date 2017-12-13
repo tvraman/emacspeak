@@ -3542,6 +3542,7 @@ Up/Down: Increase/Decrement along current axis using specified step-size.
 =: Set value on current axis to number read from minibuffer.
 Left/Right: Switch color axis along which to move.
 b/f: Quit  wheel after setting background/foreground color to current value.
+c: Complement  current color.
 s: Set stepsize to number read from minibuffer.
 q: Quit color wheel, after copying current hex value to kill-ring."
   (interactive (list (color-name-to-rgb(read-color "Start Color: "))))
@@ -3562,6 +3563,10 @@ q: Quit color wheel, after copying current hex value to kill-ring."
     (while  continue
       (setq event (read-event (ems--color-wheel-describe w color)))
       (cond
+       ((eq event ?c)
+         (setf (ems--color-wheel-red w) (- 255  (ems--color-wheel-red w)))
+         (setf (ems--color-wheel-green w) (- 255  (ems--color-wheel-green w)))
+         (setf (ems--color-wheel-blue w) (- 255  (ems--color-wheel-blue w))))
        ((eq event ?q)
         (setq continue nil)
         (emacspeak-auditory-icon 'close-object)
