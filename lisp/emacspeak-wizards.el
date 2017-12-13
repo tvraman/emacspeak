@@ -3564,6 +3564,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
       (setq event (read-event (ems--color-wheel-describe w color)))
       (cond
        ((eq event ?c)
+        (emacspeak-auditory-icon 'button)
          (setf (ems--color-wheel-red w) (- 255  (ems--color-wheel-red w)))
          (setf (ems--color-wheel-green w) (- 255  (ems--color-wheel-green w)))
          (setf (ems--color-wheel-blue w) (- 255  (ems--color-wheel-blue w))))
