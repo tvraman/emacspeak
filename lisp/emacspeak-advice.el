@@ -670,8 +670,10 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 (defadvice read-event (before emacspeak pre act comp)
   "Speak the prompt."
   (when (and emacspeak-speak-read-events (ad-get-arg 0))
+    (ems-with-messages-silenced (message (ad-get-arg 0)))
     (tts-with-punctuations 'all
                            (dtk-speak (ad-get-arg 0)))))
+
 (cl-loop
  for f in
  '(
