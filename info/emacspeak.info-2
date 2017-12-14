@@ -7070,7 +7070,7 @@ binds ‘s’ to this command.
      "f":    ‘(call-interactively (function auto-fill-mode))’,
      "g":    ‘(call-interactively (function toggle-debug-on-quit))’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-     "i":    ‘(call-interactively (function ido-mode))’,
+     "i":    ‘(call-interactively (function ido-everywhere))’,
      "I":    ‘(call-interactively (function flx-ido-mode))’,
      "t":    ‘(call-interactively (function toggle-truncate-lines))’,
      "u":    ‘(call-interactively (function ido-ubiquitous-mode))’,

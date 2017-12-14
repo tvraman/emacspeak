@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 7, 2017.
+last updated on December 13, 2017.
 
    The manual is divided into the following chapters:
 
@@ -3785,9 +3785,9 @@ system.
      x .		emacspeak-wizards-shell-directory-reset
      x 0 .. x 9	emacspeak-wizards-shell-by-key
      x =		emacspeak-wizards-find-longest-line-in-region
-     x C		emacspeak-wizards-color-wheel
+     x C		emacspeak-wizards-colors
      x b		battery
-     x c		emacspeak-wizards-colors
+     x c		emacspeak-wizards-color-wheel
      x e		emacspeak-we-xsl-map
      x h		emacspeak-wizards-how-many-matches
      x i		ibuffer

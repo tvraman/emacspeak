@@ -5437,8 +5437,8 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-wizards-color-wheel (start)
-     ‘C-e x C’
-     ‘<fn> x C’
+     ‘C-e x c’
+     ‘<fn> x c’
 
      Interactively manipulate a simple color wheel and display the name
        and shade of the resulting color.  This makes for a fun color
@@ -5450,6 +5450,8 @@ Contains various wizards for the Emacspeak desktop.
      =: Set value on current axis to number read from minibuffer.
      Left/Right: Switch color axis along which to move.
      b/f: Quit  wheel after setting background/foreground color to current value.
+     n: Read color name from minibuffer.
+     c: Complement  current color.
      s: Set stepsize to number read from minibuffer.
      q: Quit color wheel, after copying current hex value to kill-ring.
 
@@ -5459,8 +5461,8 @@ Contains various wizards for the Emacspeak desktop.
 ....................................
 
  -- Command: emacspeak-wizards-colors
-     ‘C-e x c’
-     ‘<fn> x c’
+     ‘C-e x C’
+     ‘<fn> x C’
 
      Display list of colors and setup a callback to activate color
      under point as either the foreground or background color.

@@ -1316,9 +1316,9 @@ x ,		emacspeak-wizards-shell-directory-set
 x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
-x C		emacspeak-wizards-color-wheel
+x C		emacspeak-wizards-colors
 x b		battery
-x c		emacspeak-wizards-colors
+x c		emacspeak-wizards-color-wheel
 x e		emacspeak-we-xsl-map
 x h		emacspeak-wizards-how-many-matches
 x i		ibuffer
@@ -13605,7 +13605,7 @@ Create a hydra with no body and the heads:
 "f":    ‘(call-interactively (function auto-fill-mode))’,
 "g":    ‘(call-interactively (function toggle-debug-on-quit))’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-"i":    ‘(call-interactively (function ido-mode))’,
+"i":    ‘(call-interactively (function ido-everywhere))’,
 "I":    ‘(call-interactively (function flx-ido-mode))’,
 "t":    ‘(call-interactively (function toggle-truncate-lines))’,
 "u":    ‘(call-interactively (function ido-ubiquitous-mode))’,
@@ -22682,10 +22682,10 @@ With interactive prefix arg, set foreground and background color first.
 @subsubsection emacspeak-wizards-color-wheel
 @deffn {Command} emacspeak-wizards-color-wheel  (start)
 @table @kbd
-@item C-e x C
-@kindex C-e x C
-@item <fn> x C
-@kindex <fn> x C
+@item C-e x c
+@kindex C-e x c
+@item <fn> x c
+@kindex <fn> x c
 @end table
 
 @findex emacspeak-wizards-color-wheel
@@ -22701,6 +22701,8 @@ Up/Down: Increase/Decrement along current axis using specified step-size.
 =: Set value on current axis to number read from minibuffer.
 Left/Right: Switch color axis along which to move.
 b/f: Quit  wheel after setting background/foreground color to current value.
+n: Read color name from minibuffer.
+c: Complement  current color.
 s: Set stepsize to number read from minibuffer.
 q: Quit color wheel, after copying current hex value to kill-ring.
 
@@ -22711,10 +22713,10 @@ q: Quit color wheel, after copying current hex value to kill-ring.
 @subsubsection emacspeak-wizards-colors
 @deffn {Command} emacspeak-wizards-colors   
 @table @kbd
-@item C-e x c
-@kindex C-e x c
-@item <fn> x c
-@kindex <fn> x c
+@item C-e x C
+@kindex C-e x C
+@item <fn> x C
+@kindex <fn> x C
 @end table
 
 @findex emacspeak-wizards-colors
