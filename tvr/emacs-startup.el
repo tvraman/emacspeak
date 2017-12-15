@@ -62,7 +62,7 @@
     ("#FF8A8F" "sea green")
     ("#FFFFDA" "dark blue")
     ("mint cream" "dark blue")
-    ("light sky blue" "gold")
+    ("#9BD2FA" "gold")
     ("lavender" "gold"))
   "Alist of color pairs for days of the week")
 
