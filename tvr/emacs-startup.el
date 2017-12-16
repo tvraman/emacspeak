@@ -63,7 +63,7 @@
     ("#FFFFDA" "dark blue")
     ("mint cream" "dark blue")
     ("#9BD2FA" "gold")
-    ("lavender" "gold"))
+    ("#FFF3FF" "gold")) ; lavender blush 
   "Alist of color pairs for days of the week")
 
 (defun tvr-set-color-for-today ()
