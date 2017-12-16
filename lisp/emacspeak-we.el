@@ -274,7 +274,7 @@ from Web page -- default is the current page being viewed."
                (when (eq browse-url-browser-function 'eww-browse-url)
                (add-hook
              'emacspeak-web-post-process-hook
-             #'emacspeak-eww-reading-settings))
+             #'emacspeak-eww-reading-settings 'at-end))
                (browse-url url)))
 
 ;;;###autoload
