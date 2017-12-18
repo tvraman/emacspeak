@@ -629,7 +629,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (delete-region (point-min) (point))
       (decode-coding-region (point-min) (point-max) 'utf-8)
       (emacspeak-table-view-csv-buffer)
-      (rename-buffer result-buffer)
+      (rename-buffer result-buffer 'unique)
       (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object))))
 
@@ -726,8 +726,7 @@ the documentation on the table browser."
      (format "%sX%s-%s"
              (emacspeak-table-num-rows emacspeak-table)
              (emacspeak-table-num-columns emacspeak-table)
-             (buffer-name buffer))
-     'unique)))
+             (buffer-name buffer)))))
 
 ;;}}}
 ;;{{{ select default speaking action
