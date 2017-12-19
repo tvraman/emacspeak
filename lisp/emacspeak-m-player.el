@@ -233,8 +233,7 @@ Controls media playback when already playing a stream.
 
 \\{emacspeak-m-player-mode-map}."
   (interactive)
-  (cl-declare (special emacspeak-media-shortcuts-directory
-                    emacspeak-m-player-process))
+  (cl-declare (special emacspeak-m-player-process))
   (cond
    ((and emacspeak-m-player-process
          (eq 'run (process-status emacspeak-m-player-process))
