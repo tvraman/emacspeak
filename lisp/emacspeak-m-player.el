@@ -240,9 +240,9 @@ Controls media playback when already playing a stream.
          (eq 'run (process-status emacspeak-m-player-process))
          (buffer-live-p (process-buffer emacspeak-m-player-process)))
     (with-current-buffer (process-buffer emacspeak-m-player-process)
-      (call-interactively 'emacspeak-m-player-command)))
+      (call-interactively #'emacspeak-m-player-command)))
    (t
-    (call-interactively 'emacspeak-m-player))))
+    (call-interactively #'emacspeak-m-player))))
 
 ;;;###autoload
 (defun emacspeak-m-player-pop-to-player ()
