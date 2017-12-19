@@ -387,8 +387,10 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   "Set to T if  ICY info cued automatically.")
 
 (defun emacspeak-m-player-process-filter (process output)
-  "Filter function that captures metadata."
-  (cl-declare (special emacspeak-m-player-cue-info))
+  "Filter function that captures metadata.
+Also cleanup ANSI escape sequences."
+  (cl-declare (special emacspeak-m-player-cue-info
+                       ansi-color-control-seq-regexp))
   (when (process-live-p process)
     (with-current-buffer (process-buffer process)
       (when (and emacspeak-m-player-metadata
@@ -400,7 +402,12 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
         (emacspeak-auditory-icon 'progress)
         (when emacspeak-m-player-cue-info (emacspeak-m-player-stream-info)))
       (goto-char (process-mark process))
-      (insert output))))
+      (let ((start (point)))
+        (insert output)
+        (save-excursion
+          (goto-char start)
+          (while (re-search-forward ansi-color-control-seq-regexp  (point-max) 'no-error)
+            (delete-region (match-beginning 0) (match-end 0))))))))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
