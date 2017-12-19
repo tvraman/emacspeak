@@ -260,6 +260,7 @@ Controls media playback when already playing a stream.
     (emacspeak-multimedia))
   (call-interactively
    (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
+
 ;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
@@ -301,7 +302,7 @@ etc to be ignored when guessing directory.")
   (let ((ido-case-fold t)
         (emacspeak-m-player-accelerator-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
-    (call-interactively 'emacspeak-multimedia)
+    (call-interactively #'emacspeak-multimedia)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
@@ -516,7 +517,7 @@ This will work if the soundcard is set to 48000."
     (let ((emacspeak-m-player-options
            (append emacspeak-m-player-hrtf-options
                    emacspeak-m-player-options)))
-      (call-interactively 'emacspeak-m-player))))
+      (call-interactively #'emacspeak-m-player))))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
@@ -525,7 +526,7 @@ This will work if the soundcard is set to 48000."
   (cl-declare (special emacspeak-m-player-options))
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-options (list "-shuffle"))))
-    (call-interactively 'emacspeak-m-player)))
+    (call-interactively #'emacspeak-m-player)))
 
 ;;;###autoload
 
@@ -1280,7 +1281,7 @@ As the default, use current position."
   (interactive)
   (cl-declare (special emacspeak-m-player-file-list))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (let* ((amark (call-interactively 'emacspeak-amark-find))
+    (let* ((amark (call-interactively #'emacspeak-amark-find))
            (files emacspeak-m-player-file-list)
            (current
             (ems-file-index (cl-second (emacspeak-m-player-get-position)) files))
