@@ -2055,8 +2055,7 @@ interactive prefix arg `delete', delete that mark instead."
   (dtk-set-rate (+ dtk-speech-rate-base (* dtk-speech-rate-step  3)))
   (dtk-set-punctuations 'some)
   (when dtk-split-caps(dtk-toggle-split-caps))
-  (when (called-interactively-p 'interactive)
-    (message "Activated reading settings")))
+  (emacspeak-speak-rest-of-buffer))
 
 ;;}}}
 (provide 'emacspeak-eww)

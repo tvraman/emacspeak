@@ -267,7 +267,6 @@ from Web page -- default is the current page being viewed."
                     emacspeak-we-filters-rename-buffer))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
-               (when speak (emacspeak-webutils-autospeak))
                (add-to-list
                 'emacspeak-web-pre-process-hook
                 (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
