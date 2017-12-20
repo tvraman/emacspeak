@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 5.2 from
+This is emacspeak.info, produced by makeinfo version 6.3 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 13, 2017.
+last updated on December 20, 2017.
 
    The manual is divided into the following chapters:
 
@@ -514,7 +514,7 @@ can be classified into types:
      names of these commands all start with the common prefix
      ‘emacspeak-speak-’.  All Emacspeak commands are bound to the keymap
      EMACSPEAK-KEYMAP and are accessed with the key ‘Control e’(1).
-     Thus, the Emacspeak command "emacspeak-speak-line" is bound to ‘l’
+     Thus, the Emacspeak command “emacspeak-speak-line” is bound to ‘l’
      in keymap EMACSPEAK-KEYMAP and can be accessed with the keystroke
      ‘Control-e l’.  If for some reason you wish to use some key other
      than ‘control-e’ as the common keyboard prefix for all Emacspeak
@@ -524,11 +524,11 @@ can be classified into types:
      the state of the speech device.  The names of these commands start
      with the common prefix ‘dtk-’ and are bound in keymap
      EMACSPEAK-DTK-SUBMAP.  You can access these commands via the prefix
-     ‘Control-e d’(2).  Thus, the command "dtk-set-rate" is bound to ‘r’
+     ‘Control-e d’(2).  Thus, the command “dtk-set-rate” is bound to ‘r’
      in keymap EMACSPEAK-DTK-SUBMAP and can be executed by pressing
      ‘Control e d r’.
 
-   Emacs has extensive online help; so does emacspeak. Please use it.
+   Emacs has extensive online help; so does emacspeak.  Please use it.
 
    This info manual is only to get you started.  You can get a summary
 of Emacspeak’s features by pressing ‘Control-h Control-e’
@@ -593,8 +593,8 @@ terminology for the editing cursor).
      then it will use any defined personality.
 
 ‘control e r’
-     emacspeak-speak-region Speak current region delimited by "point"
-     and "mark".  When called from a program, argument START and END
+     emacspeak-speak-region Speak current region delimited by “point”
+     and “mark”.  When called from a program, argument START and END
      specify region to speak.
 
 ‘control e cap R’
@@ -1145,8 +1145,8 @@ feature.
 
    An example of content-sensitive navigation is provided by the imenu
 package which dynamically creates a "table of contents" based on the
-content that is being displayed in a given buffer.  Emacs "Selective
-Display" lets one easily hide and expose portions of a buffer based on
+content that is being displayed in a given buffer.  Emacs “Selective
+Display” lets one easily hide and expose portions of a buffer based on
 indentation — this feature can be used to advantage when working with
 program source code.
 
@@ -2429,7 +2429,7 @@ default this front-end assumes that OCR is available as ‘/usr/bin/ocr’.
 work independently of Emacs, you can use this Emacspeak front-end to
 enable easy OCR access from within Emacspeak.
 
-   The Emacspeak OCR front-end is launched by command "emacspeak-ocr"
+   The Emacspeak OCR front-end is launched by command “emacspeak-ocr”
 bound to ‘C-e C-o’.
 
    This command switches to a special buffer that has OCR commands
@@ -2437,79 +2437,79 @@ bounds to single keystrokes — see the key-binding list at the end of
 this description.  Use Emacs online help facility to look up help on
 these commands.
 
-   Mode "emacspeak-ocr-mode" provides the necessary functionality to
+   Mode “emacspeak-ocr-mode” provides the necessary functionality to
 scan, OCR, read and save documents.  By default, scanned images and the
 resulting text are saved under directory ‘~/ocr’; see variable
 EMACSPEAK-OCR-WORKING-DIRECTORY.  Invoking command
-"emacspeak-ocr-open-working-directory" bound to ‘d’ will open this
+“emacspeak-ocr-open-working-directory” bound to ‘d’ will open this
 directory.
 
    By default, the document being scanned is named ‘untitled’.  You can
-name the document by using command "emacspeak-ocr-name-document" bound
+name the document by using command “emacspeak-ocr-name-document” bound
 to ‘n’.  The document name is used in constructing the name of the image
 and text files.
 
    Here is a list of all emacspeak OCR commands along with their
 key-bindings and a brief description:
 ‘digit’
-     "emacspeak-ocr-page" Jumps to specified page in the OCR output.
+     “emacspeak-ocr-page” Jumps to specified page in the OCR output.
 
 ‘c’
-     "emacspeak-ocr-set-compress-image-options"
+     “emacspeak-ocr-set-compress-image-options”
 
      Interactively update image compression options.  Prompts with
      current setting in the minibuffer.  Setting persists for current
      Emacs session.
 
 ‘i’
-     "emacspeak-ocr-set-scan-image-options" Interactively update scan
+     “emacspeak-ocr-set-scan-image-options” Interactively update scan
      image options.  Prompts with current setting in the minibuffer.
      Setting persists for current Emacs session.
 
 ‘spc’
-     "emacspeak-ocr-read-current-page" Speaks current page.
+     “emacspeak-ocr-read-current-page” Speaks current page.
 ‘s’
-     "emacspeak-ocr-save-current-page" Saves current page as a text
+     “emacspeak-ocr-save-current-page” Saves current page as a text
      file.
 
 ‘p’
-     "emacspeak-ocr-page" Prompts for a page number and moves to the
+     “emacspeak-ocr-page” Prompts for a page number and moves to the
      specified page.
 
 ‘]’
-     "emacspeak-ocr-forward-page" Move forward to the next page.
+     “emacspeak-ocr-forward-page” Move forward to the next page.
 
 ‘[’
-     "emacspeak-ocr-backward-page" Move back to the previous page.
+     “emacspeak-ocr-backward-page” Move back to the previous page.
 
 ‘d’
-     "emacspeak-ocr-open-working-directory" Open directory containing
+     “emacspeak-ocr-open-working-directory” Open directory containing
      the results of OCR.
 
 ‘n’
-     "emacspeak-ocr-name-document" Name current document.
+     “emacspeak-ocr-name-document” Name current document.
 
 ‘o’
-     "emacspeak-ocr-recognize-image" Launch OCR engine on a scanned
+     “emacspeak-ocr-recognize-image” Launch OCR engine on a scanned
      image.
 
 ‘i’
-     "emacspeak-ocr-scan-image" Acquire an image using ‘scanimage’.
+     “emacspeak-ocr-scan-image” Acquire an image using ‘scanimage’.
 
 ‘RET’
-     "emacspeak-ocr-scan-and-recognize" Scan and recognize a page.
+     “emacspeak-ocr-scan-and-recognize” Scan and recognize a page.
 
 ‘w’
-     "emacspeak-ocr-write-document" Write all pages of current document
+     “emacspeak-ocr-write-document” Write all pages of current document
      to a text file.
 
 ‘q’
-     "bury-buffer" Bury the OCR buffer.
+     “bury-buffer” Bury the OCR buffer.
 ‘c’
-     "emacspeak-ocr-customize" Customize Emacspeak OCR settings.
+     “emacspeak-ocr-customize” Customize Emacspeak OCR settings.
 
 ‘?’
-     "describe-mode" Describe OCR mode.
+     “describe-mode” Describe OCR mode.
 
 
 File: emacspeak.info,  Node: Running Terminal Based Applications,  Next: Emacspeak Commands And Options,  Prev: Emacs Packages,  Up: Top
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1197 commands and 1170 options.
+This chapter documents a total of 1198 commands and 1181 options.
 
 * Menu:
 
@@ -3961,6 +3961,7 @@ system.
      C-s		flx-isearch-forward
      SPC		emacspeak-webspace
      ’		emacspeak-m-player-using-hrtf
+     /		emacspeak-wizards-web-clean-up-processes
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      ;		emacspeak-m-player-using-openal
      B		eww-list-bookmarks
@@ -6072,6 +6073,61 @@ system.
      Personality used for twittering-username-face This personality uses
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-author-personality
+     Personality used for u-vm-color-author-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
+     Personality used for u-vm-color-citation-1-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
+     Personality used for u-vm-color-citation-2-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-date-personality
+     Personality used for u-vm-color-date-face This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-header-personality
+     Personality used for u-vm-color-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-recipient-personality
+     Personality used for u-vm-color-recipient-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-signature-personality
+     Personality used for u-vm-color-signature-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
+     Personality used for u-vm-color-spamassassin-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-subject-personality
+     Personality used for u-vm-color-subject-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-time-personality
+     Personality used for u-vm-color-time-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-user-personality
+     Personality used for u-vm-color-user-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
