@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.: Leveraging
   Computational Tools --- From SQL And R To IPython
   Notebooks</title>
@@ -35,19 +32,19 @@
   "EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books.html#EBooks-_002d_002d_002d-Ubiquitous-Access-To-Books"
   rel="prev" title="EBooks --- Ubiquitous Access To Books" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -56,36 +53,22 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name=
   "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks"
   id=
   "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks">
   </a>
-
   <div class="header">
     <p>Next: <a href=
     "Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols.html#Social-Web-_002d_002d_002d-EMail-Instant-Messaging-Blogging-And-Tweeting-Using-Open-Protocols"
@@ -107,10 +90,8 @@
   "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks-1"
   id=
   "Leveraging-Computational-Tools-_002d_002d_002d-From-SQL-And-R-To-IPython-Notebooks-1"></a>
-
   <h3 class="section">15.12 Leveraging Computational Tools — From
   SQL And R To IPython Notebooks</h3>
-
   <p>The ability to invoke external processes and interface with
   them via a simple read-eval-loop (REPL) is perhaps one of Emacs’
   strongest extension points. This means that a wide variety of
@@ -119,7 +100,6 @@
   exploited by the Emacs community. Over the years, Emacspeak has
   leveraged many of these facilities to provide a well-integrated
   auditory interface.</p>
-
   <p>Starting from a tight code, eval, test form of iterative
   programming as encouraged by Lisp. Applied to languages like
   Python and Ruby to exploratory computational tools such as R for
@@ -127,7 +107,6 @@
   Audio Desktop has come to encompass a collection of rich
   computational tools that provide an efficient eyes-free
   experience.</p>
-
   <p>In this context, module <strong>ein</strong> — Emacs IPython
   Notebooks — provides another excellent example of an Emacs tool
   that helps interface seamlessly with others in the technical

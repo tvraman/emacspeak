@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-google</title>
   <meta name="description" content=
@@ -32,19 +29,19 @@
   <link href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" rel=
   "prev" title="emacspeak-gomoku" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -53,32 +50,18 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dgoogle" id="emacspeak_002dgoogle"></a>
-
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dgridtext.html#emacspeak_002dgridtext" accesskey=
@@ -94,9 +77,7 @@
   </div>
   <hr />
   <a name="emacspeak_002dgoogle-1" id="emacspeak_002dgoogle-1"></a>
-
   <h3 class="section">12.88 emacspeak-google</h3>
-
   <p>There are a number of search tools that can be implemented on
   the Google search page — in a JS-powered browser, these show up
   as the Google tool-belt. This module implements a minor mode for
@@ -105,101 +86,80 @@
   tbs=p:v Now, some specialized searches, e.g. blog search are
   tbm=</p><a name="emacspeak_002dgoogle-Commands" id=
   "emacspeak_002dgoogle-Commands"></a>
-
   <h4 class="subsection">12.88.1 emacspeak-google
   Commands</h4><a name="emacspeak_002dgoogle_002dshow_002dtoolbelt"
   id="emacspeak_002dgoogle_002dshow_002dtoolbelt"></a>
-
   <h4 class="subsubsection">12.88.1.1
   emacspeak-google-show-toolbelt</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dgoogle_002dshow_002dtoolbelt"
     id=
     "index-emacspeak_002dgoogle_002dshow_002dtoolbelt"></a>Command:
     <strong>emacspeak-google-show-toolbelt</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dgoogle_002dshow_002dtoolbelt-1"
       id="index-emacspeak_002dgoogle_002dshow_002dtoolbelt-1"></a>
-
       <div class="format">
         <pre class="format">
-Reload search page with toolbelt showing.
+        Reload search page with toolbelt showing.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dgoogle_002dsign_002din" id=
   "emacspeak_002dgoogle_002dsign_002din"></a>
-
   <h4 class="subsubsection">12.88.1.2 emacspeak-google-sign-in</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dgoogle_002dsign_002din" id=
     "index-emacspeak_002dgoogle_002dsign_002din"></a>Command:
     <strong>emacspeak-google-sign-in</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dgoogle_002dsign_002din-1" id=
       "index-emacspeak_002dgoogle_002dsign_002din-1"></a>
-
       <div class="format">
-        <pre class="format">
-Sign in to Google.
+        <pre class="format">Sign in to Google.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dgoogle_002dsign_002dout" id=
   "emacspeak_002dgoogle_002dsign_002dout"></a>
-
   <h4 class="subsubsection">12.88.1.3
   emacspeak-google-sign-out</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dgoogle_002dsign_002dout" id=
     "index-emacspeak_002dgoogle_002dsign_002dout"></a>Command:
     <strong>emacspeak-google-sign-out</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dgoogle_002dsign_002dout-1" id=
       "index-emacspeak_002dgoogle_002dsign_002dout-1"></a>
-
       <div class="format">
-        <pre class="format">
-Sign out to Google.
+        <pre class="format">Sign out to Google.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dgoogle_002dtoolbelt_002dchange" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange"></a>
-
   <h4 class="subsubsection">12.88.1.4
   emacspeak-google-toolbelt-change</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange" id=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange"></a>Command:
     <strong>emacspeak-google-toolbelt-change</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange-1" id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange-1"></a>
-
       <div class="format">
         <pre class="format">
-Command to change values in the toolbelt and execute the query.
+        Command to change values in the toolbelt and execute the query.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping"></a>
-
   <h4 class="subsubsection">12.88.1.5
   emacspeak-google-toolbelt-change-Shopping</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping"
@@ -207,71 +167,61 @@ Command to change values in the toolbelt and execute the query.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-Shopping</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  Shopping in the currently active toolbelt.
+        Change  Shopping in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"></a>
-
   <h4 class="subsubsection">12.88.1.6
   emacspeak-google-toolbelt-change-blog</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"
     id=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"></a>Command:
     <strong>emacspeak-google-toolbelt-change-blog</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  blog in the currently active toolbelt.
+        Change  blog in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"></a>
-
   <h4 class="subsubsection">12.88.1.7
   emacspeak-google-toolbelt-change-books</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"
     id=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"></a>Command:
     <strong>emacspeak-google-toolbelt-change-books</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  books in the currently active toolbelt.
+        Change  books in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -279,10 +229,8 @@ Change  books in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat"></a>
-
   <h4 class="subsubsection">12.88.1.8
   emacspeak-google-toolbelt-change-books-format</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat"
@@ -290,17 +238,15 @@ Change  books in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-books-format</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  books-format in the currently active toolbelt.
+        Change  books-format in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -308,10 +254,8 @@ Change  books-format in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype"></a>
-
   <h4 class="subsubsection">12.88.1.9
   emacspeak-google-toolbelt-change-books-type</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype"
@@ -319,17 +263,15 @@ Change  books-format in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-books-type</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  books-type in the currently active toolbelt.
+        Change  books-type in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -337,10 +279,8 @@ Change  books-type in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability"></a>
-
   <h4 class="subsubsection">12.88.1.10
   emacspeak-google-toolbelt-change-books-viewability</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability"
@@ -348,27 +288,23 @@ Change  books-type in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-books-viewability</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  books-viewability in the currently active toolbelt.
+        Change  books-viewability in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial"></a>
-
   <h4 class="subsubsection">12.88.1.11
   emacspeak-google-toolbelt-change-commercial</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial"
@@ -376,17 +312,15 @@ Change  books-viewability in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-commercial</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  commercial in the currently active toolbelt.
+        Change  commercial in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -394,10 +328,8 @@ Change  commercial in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices"></a>
-
   <h4 class="subsubsection">12.88.1.12
   emacspeak-google-toolbelt-change-commercial-prices</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices"
@@ -405,17 +337,15 @@ Change  commercial in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-commercial-prices</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  commercial-prices in the currently active toolbelt.
+        Change  commercial-prices in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -423,10 +353,8 @@ Change  commercial-prices in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter"></a>
-
   <h4 class="subsubsection">12.88.1.13
   emacspeak-google-toolbelt-change-date-filter</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter"
@@ -434,27 +362,23 @@ Change  commercial-prices in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-date-filter</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  date-filter in the currently active toolbelt.
+        Change  date-filter in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums"></a>
-
   <h4 class="subsubsection">12.88.1.14
   emacspeak-google-toolbelt-change-forums</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums"
@@ -462,17 +386,15 @@ Change  date-filter in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-forums</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  forums in the currently active toolbelt.
+        Change  forums in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -480,10 +402,8 @@ Change  forums in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions"></a>
-
   <h4 class="subsubsection">12.88.1.15
   emacspeak-google-toolbelt-change-group-discussions</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions"
@@ -491,27 +411,23 @@ Change  forums in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-group-discussions</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  group-discussions in the currently active toolbelt.
+        Change  group-discussions in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages"></a>
-
   <h4 class="subsubsection">12.88.1.16
   emacspeak-google-toolbelt-change-images</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages"
@@ -519,17 +435,15 @@ Change  group-discussions in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-images</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  images in the currently active toolbelt.
+        Change  images in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -537,10 +451,8 @@ Change  images in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth"></a>
-
   <h4 class="subsubsection">12.88.1.17
   emacspeak-google-toolbelt-change-in-depth</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth"
@@ -548,27 +460,23 @@ Change  images in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-in-depth</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  in-depth in the currently active toolbelt.
+        Change  in-depth in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral"></a>
-
   <h4 class="subsubsection">12.88.1.18
   emacspeak-google-toolbelt-change-literal</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral"
@@ -576,44 +484,38 @@ Change  in-depth in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-literal</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  literal in the currently active toolbelt.
+        Change  literal in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"></a>
-
   <h4 class="subsubsection">12.88.1.19
   emacspeak-google-toolbelt-change-news</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"
     id=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"></a>Command:
     <strong>emacspeak-google-toolbelt-change-news</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  news in the currently active toolbelt.
+        Change  news in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -621,10 +523,8 @@ Change  news in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial"></a>
-
   <h4 class="subsubsection">12.88.1.20
   emacspeak-google-toolbelt-change-non-commercial</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial"
@@ -632,27 +532,23 @@ Change  news in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-non-commercial</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  non-commercial in the currently active toolbelt.
+        Change  non-commercial in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents"></a>
-
   <h4 class="subsubsection">12.88.1.21
   emacspeak-google-toolbelt-change-patents</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents"
@@ -660,27 +556,23 @@ Change  non-commercial in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-patents</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  patents in the currently active toolbelt.
+        Change  patents in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces"></a>
-
   <h4 class="subsubsection">12.88.1.22
   emacspeak-google-toolbelt-change-places</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces"
@@ -688,27 +580,23 @@ Change  patents in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-places</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  places in the currently active toolbelt.
+        Change  places in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent"></a>
-
   <h4 class="subsubsection">12.88.1.23
   emacspeak-google-toolbelt-change-recent</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent"
@@ -716,27 +604,23 @@ Change  places in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-recent</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  recent in the currently active toolbelt.
+        Change  recent in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes"></a>
-
   <h4 class="subsubsection">12.88.1.24
   emacspeak-google-toolbelt-change-recipes</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes"
@@ -744,27 +628,23 @@ Change  recent in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-recipes</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  recipes in the currently active toolbelt.
+        Change  recipes in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews"></a>
-
   <h4 class="subsubsection">12.88.1.25
   emacspeak-google-toolbelt-change-reviews</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews"
@@ -772,27 +652,23 @@ Change  recipes in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-reviews</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  reviews in the currently active toolbelt.
+        Change  reviews in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial"></a>
-
   <h4 class="subsubsection">12.88.1.26
   emacspeak-google-toolbelt-change-social</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial"
@@ -800,17 +676,15 @@ Change  reviews in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-social</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  social in the currently active toolbelt.
+        Change  social in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -818,10 +692,8 @@ Change  social in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate"></a>
-
   <h4 class="subsubsection">12.88.1.27
   emacspeak-google-toolbelt-change-sort-by-date</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate"
@@ -829,17 +701,15 @@ Change  social in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-sort-by-date</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  sort-by-date in the currently active toolbelt.
+        Change  sort-by-date in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -847,10 +717,8 @@ Change  sort-by-date in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets"></a>
-
   <h4 class="subsubsection">12.88.1.28
   emacspeak-google-toolbelt-change-structured-snippets</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets"
@@ -858,27 +726,23 @@ Change  sort-by-date in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-structured-snippets</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  structured-snippets in the currently active toolbelt.
+        Change  structured-snippets in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline"></a>
-
   <h4 class="subsubsection">12.88.1.29
   emacspeak-google-toolbelt-change-timeline</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline"
@@ -886,17 +750,15 @@ Change  structured-snippets in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-timeline</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  timeline in the currently active toolbelt.
+        Change  timeline in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -904,10 +766,8 @@ Change  timeline in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh"></a>
-
   <h4 class="subsubsection">12.88.1.30
   emacspeak-google-toolbelt-change-timeline-high</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh"
@@ -915,17 +775,15 @@ Change  timeline in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-timeline-high</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  timeline-high in the currently active toolbelt.
+        Change  timeline-high in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -933,10 +791,8 @@ Change  timeline-high in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow"></a>
-
   <h4 class="subsubsection">12.88.1.31
   emacspeak-google-toolbelt-change-timeline-low</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow"
@@ -944,44 +800,38 @@ Change  timeline-high in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-timeline-low</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  timeline-low in the currently active toolbelt.
+        Change  timeline-low in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo" id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"></a>
-
   <h4 class="subsubsection">12.88.1.32
   emacspeak-google-toolbelt-change-video</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"
     id=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"></a>Command:
     <strong>emacspeak-google-toolbelt-change-video</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  video in the currently active toolbelt.
+        Change  video in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -989,10 +839,8 @@ Change  video in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration"></a>
-
   <h4 class="subsubsection">12.88.1.33
   emacspeak-google-toolbelt-change-video-duration</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration"
@@ -1000,17 +848,15 @@ Change  video in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-video-duration</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  video-duration in the currently active toolbelt.
+        Change  video-duration in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -1018,10 +864,8 @@ Change  video-duration in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited"></a>
-
   <h4 class="subsubsection">12.88.1.34
   emacspeak-google-toolbelt-change-web-history-not-visited</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited"
@@ -1029,17 +873,15 @@ Change  video-duration in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-web-history-not-visited</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  web-history-not-visited in the currently active toolbelt.
+        Change  web-history-not-visited in the currently active toolbelt.
 </pre>
       </div>
     </dd>
@@ -1047,10 +889,8 @@ Change  web-history-not-visited in the currently active toolbelt.
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited"
   id=
   "emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited"></a>
-
   <h4 class="subsubsection">12.88.1.35
   emacspeak-google-toolbelt-change-web-history-visited</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited"
@@ -1058,38 +898,31 @@ Change  web-history-not-visited in the currently active toolbelt.
     "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited">
     </a>Command:
     <strong>emacspeak-google-toolbelt-change-web-history-visited</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited-1"
       id=
       "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change  web-history-visited in the currently active toolbelt.
+        Change  web-history-visited in the currently active toolbelt.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dgoogle_002dtts" id=
   "emacspeak_002dgoogle_002dtts"></a>
-
   <h4 class="subsubsection">12.88.1.36 emacspeak-google-tts</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dgoogle_002dtts" id=
     "index-emacspeak_002dgoogle_002dtts"></a>Command:
     <strong>emacspeak-google-tts</strong> <em>(text &amp;optional
     lang)</em></dt>
-
     <dd>
       <a name="index-emacspeak_002dgoogle_002dtts-1" id=
       "index-emacspeak_002dgoogle_002dtts-1"></a>
-
       <div class="format">
-        <pre class="format">
-Speak text using Google Network TTS.
+        <pre class="format">Speak text using Google Network TTS.
 Optional interactive prefix arg ‘lang’ prompts for language identifier.
 
 (fn TEXT &amp;optional LANG)
@@ -1098,39 +931,29 @@ Optional interactive prefix arg ‘lang’ prompts for language identifier.
     </dd>
   </dl><a name="emacspeak_002dgoogle_002dtts_002dregion" id=
   "emacspeak_002dgoogle_002dtts_002dregion"></a>
-
   <h4 class="subsubsection">12.88.1.37
   emacspeak-google-tts-region</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dgoogle_002dtts_002dregion" id=
     "index-emacspeak_002dgoogle_002dtts_002dregion"></a>Command:
     <strong>emacspeak-google-tts-region</strong> <em>(start end
     &amp;optional ask-lang)</em></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-. g</kbd></dt>
-
         <dd><a name="index-C_002d_002e-g" id=
         "index-C_002d_002e-g"></a></dd>
-
         <dt><kbd>C-' g</kbd></dt>
-
         <dd><a name="index-C_002d_0027-g" id=
         "index-C_002d_0027-g"></a></dd>
-
         <dt><kbd>C-x @ s g</kbd></dt>
-
         <dd><a name="index-C_002dx-_0040-s-g" id=
         "index-C_002dx-_0040-s-g"></a></dd>
       </dl><a name=
       "index-emacspeak_002dgoogle_002dtts_002dregion-1" id=
       "index-emacspeak_002dgoogle_002dtts_002dregion-1"></a>
-
       <div class="format">
-        <pre class="format">
-Speak region using Google Network TTS.
+        <pre class="format">Speak region using Google Network TTS.
 
 (fn START END &amp;optional ASK-LANG)
 </pre>
@@ -1138,45 +961,36 @@ Speak region using Google Network TTS.
     </dd>
   </dl><a name="emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip"
   id="emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip"></a>
-
   <h4 class="subsubsection">12.88.1.38
   emacspeak-google-what-is-my-ip</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip" id=
     "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip"></a>Command:
     <strong>emacspeak-google-what-is-my-ip</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip-1"
       id=
       "index-emacspeak_002dgoogle_002dwhat_002dis_002dmy_002dip-1"></a>
-
       <div class="format">
-        <pre class="format">
-Show my public IP
+        <pre class="format">Show my public IP
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dgoogle-Options" id=
   "emacspeak_002dgoogle-Options"></a>
-
   <h4 class="subsection">12.88.2 emacspeak-google Options</h4>
-
   <dl>
-    <dt><a name="index-User-Option-615" id=
-    "index-User-Option-615"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-626" id=
+    "index-User-Option-626"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-google-tts-default-language</em></dt>
-
     <dd>
       <p>Default language used for Google TTS.</p>
     </dd>
   </dl>
   <hr />
-
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dgridtext.html#emacspeak_002dgridtext" accesskey=

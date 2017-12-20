@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.: Maintaining
   Structured Data</title>
   <meta name="description" content=
@@ -32,19 +29,19 @@
   "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
   rel="prev" title="Template-based Authoring" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -53,33 +50,19 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name="Maintaining-Structured-Data" id=
   "Maintaining-Structured-Data"></a>
-
   <div class="header">
     <p>Previous: <a href=
     "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
@@ -94,25 +77,20 @@
   <hr />
   <a name="Maintaining-Structured-Data-1" id=
   "Maintaining-Structured-Data-1"></a>
-
   <h4 class="subsection">10.2.3 Maintaining Structured Data</h4>
-
   <p>Consider the following entry from file
   <code>/etc/passwd</code> on my laptop.</p>
-
   <p>‘<samp>aster:KoUxwQ2:501:100:Aster
   Labrador:/home/aster:/bin/bash</samp>’</p>
-
   <p>File <code>/etc/passwd</code> is a simple instance of a text
   file that stores structured data records as a series of fields
   delimited by a special character. Each item in the file acquires
   <em>meaning</em> from the <em>position</em> in which it occurs
-  for example, the fifth field contains the <b>user name</b>, Aster
-  Labrador. More generally, structured data where each field in a
-  record has <em>meaning</em> is found throughout the desktop in
-  applications ranging from entries in a rolodex to rows in a
-  spreadsheet.</p>
-
+  for example, the fifth field contains the <strong>user
+  name</strong>, Aster Labrador. More generally, structured data
+  where each field in a record has <em>meaning</em> is found
+  throughout the desktop in applications ranging from entries in a
+  rolodex to rows in a spreadsheet.</p>
   <p>Typically, users do not directly edit the stored
   representation of the data. Instead, application front-ends
   provide a more human-centric (and hopefully less error prone)

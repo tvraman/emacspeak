@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-pydoc</title>
   <meta name="description" content=
@@ -32,19 +29,19 @@
   <link href="emacspeak_002dpy.html#emacspeak_002dpy" rel="prev"
   title="emacspeak-py" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -53,32 +50,18 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dpydoc" id="emacspeak_002dpydoc"></a>
-
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dpython.html#emacspeak_002dpython" accesskey="n"
@@ -94,47 +77,38 @@
   </div>
   <hr />
   <a name="emacspeak_002dpydoc-1" id="emacspeak_002dpydoc-1"></a>
-
   <h3 class="section">12.145 emacspeak-pydoc</h3>
-
   <p>PYDOC == Python Documentation Viewer</p><a name=
   "emacspeak_002dpydoc-Options" id=
   "emacspeak_002dpydoc-Options"></a>
-
   <h4 class="subsection">12.145.1 emacspeak-pydoc Options</h4>
-
   <dl>
-    <dt><a name="index-User-Option-911" id=
-    "index-User-Option-911"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-922" id=
+    "index-User-Option-922"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-button-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-button-face This personality
       uses voice-bolden whose effect can be changed globally by
       customizing voice-bolden-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-912" id=
-    "index-User-Option-912"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-923" id=
+    "index-User-Option-923"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-callable-name-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-callable-name-face This
       personality uses voice-animate whose effect can be changed
       globally by customizing voice-animate-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-913" id=
-    "index-User-Option-913"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-924" id=
+    "index-User-Option-924"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-callable-param-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-callable-param-face This
       personality uses
@@ -143,51 +117,43 @@
       emacspeak-voice-lock-variable-name-personality-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-914" id=
-    "index-User-Option-914"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-925" id=
+    "index-User-Option-925"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-class-name-link-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-class-name-link-face This
       personality uses voice-bolden whose effect can be changed
       globally by customizing voice-bolden-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-915" id=
-    "index-User-Option-915"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-926" id=
+    "index-User-Option-926"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-pydoc-data-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-data-face This personality uses
       voice-lighten-extra whose effect can be changed globally by
       customizing voice-lighten-extra-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-916" id=
-    "index-User-Option-916"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-927" id=
+    "index-User-Option-927"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-envvars-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-envvars-face This personality
       uses voice-monotone whose effect can be changed globally by
       customizing voice-monotone-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-917" id=
-    "index-User-Option-917"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-928" id=
+    "index-User-Option-928"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-package-link-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-package-link-face This
       personality uses
@@ -196,65 +162,55 @@
       emacspeak-voice-lock-variable-name-personality-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-918" id=
-    "index-User-Option-918"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-929" id=
+    "index-User-Option-929"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-source-file-link-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-source-file-link-face This
       personality uses voice-monotone whose effect can be changed
       globally by customizing voice-monotone-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-919" id=
-    "index-User-Option-919"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-930" id=
+    "index-User-Option-930"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-sphinx-directive-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-sphinx-directive-face This
       personality uses voice-monotone whose effect can be changed
       globally by customizing voice-monotone-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-920" id=
-    "index-User-Option-920"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-931" id=
+    "index-User-Option-931"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-sphinx-param-name-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-sphinx-param-name-face This
       personality uses voice-monotone whose effect can be changed
       globally by customizing voice-monotone-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-921" id=
-    "index-User-Option-921"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-932" id=
+    "index-User-Option-932"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-sphinx-param-type-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-sphinx-param-type-face This
       personality uses voice-monotone whose effect can be changed
       globally by customizing voice-monotone-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-922" id=
-    "index-User-Option-922"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-933" id=
+    "index-User-Option-933"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-string-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-string-face This personality
       uses emacspeak-voice-lock-string-personality whose effect can
@@ -262,13 +218,11 @@
       emacspeak-voice-lock-string-personality-settings.</p>
     </dd>
   </dl>
-
   <dl>
-    <dt><a name="index-User-Option-923" id=
-    "index-User-Option-923"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-934" id=
+    "index-User-Option-934"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-pydoc-superclass-name-link-personality</em></dt>
-
     <dd>
       <p>Personality used for pydoc-superclass-name-link-face This
       personality uses voice-bolden-extra whose effect can be
@@ -277,7 +231,6 @@
     </dd>
   </dl>
   <hr />
-
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dpython.html#emacspeak_002dpython" accesskey="n"
