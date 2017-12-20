@@ -3852,6 +3852,17 @@ weather for `gweb-my-address'.  "
     (message "Enabled bash completion."))))
 
 ;;}}}
+;;{{{ Cleanup Hanging Web connections:
+
+(defun emacspeak-wizards-web-clean-up-processes ()
+  "Delete stale Web connections."
+  (interactive)
+  (cl-loop 
+   for p in (process-list)
+   when (string-match "www" (process-name p))
+   collect (delete-process p)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
