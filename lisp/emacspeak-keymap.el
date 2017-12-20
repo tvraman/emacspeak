@@ -677,6 +677,7 @@ command that the key sequence executes."
     ("C-s" flx-isearch-forward)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
+    ("/" emacspeak-wizards-web-clean-up-processes)
     ("'" emacspeak-m-player-using-hrtf)
     ("B" eww-list-bookmarks)
     ("N" emacspeak-npr-listing)
