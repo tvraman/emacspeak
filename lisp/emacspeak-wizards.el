@@ -3857,12 +3857,13 @@ weather for `gweb-my-address'.  "
 (defun emacspeak-wizards-web-clean-up-processes ()
   "Delete stale Web connections."
   (interactive)
+  (cl-declare (special url-http-open-connections))
   (let ((count 0))
     (cl-loop 
-     for p in (process-list)
-     when (string-match "www" (process-name p)) do
+     for p being the hash-values of url-http-open-connections
+     when p do
      (incf count)
-     (delete-process p))
+     (delete-process (car p)))
     (message "Deleted %d web  connections" count)))
 
 ;;}}}
