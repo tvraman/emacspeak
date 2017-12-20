@@ -71,6 +71,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'ansi-color)
 (require 'ladspa)
 (require 'ido)
 (require 'emacspeak-amark)
@@ -158,7 +159,7 @@ This is set to nil when playing Internet  streams.")
 \\{emacspeak-m-player-mode-map}"
   (progn
     (setq buffer-undo-list t)
-    (ansi-color-for-comint-mode-on)
+    ;(ansi-color-for-comint-mode-on)
     (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
