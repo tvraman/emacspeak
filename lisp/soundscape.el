@@ -509,8 +509,7 @@ Optional interactive prefix arg `force' skips optimization checks."
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
-(defun
-    soundscape-quiet ()
+(defun soundscape-quiet ()
   "Activate NullAgent."
   (when (process-live-p soundscape-remote-control)
     (process-send-string soundscape-remote-control "soundscape 0\n")))
