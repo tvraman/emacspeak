@@ -57,7 +57,7 @@
 ;;{{{ Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
-  '(("AliceBlue" "dark blue")
+  '(("AliceBlue" "#FFD724")
     ("#FFBCC9" "#FFD724") ;gold on pink
     ("#FF8A8F" "sea green")
     ("#FFFFDA" "dark blue")
