@@ -2,7 +2,7 @@
 
 In 2007, I wrote a [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] for the book [[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code
 from OReilly]]. About a year later, I wrote an article called [[http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/][Thinking
-Of Mathematics]]. This article is being written almost 10 years later as
+Of Mathematics]]. This article is being written over 10 years later as
 a consolidated follow-up to the afore-mentioned publications. The goal
 is to further crystalize some of the lessons learnt over the duration
 of project Emacspeak, while stepping back to think more broadly about
