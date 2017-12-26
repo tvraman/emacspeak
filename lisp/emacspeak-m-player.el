@@ -1546,11 +1546,17 @@ tap-reverb already installed."
 
 ;;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
-  "Locate media matching specified pattern.
-Results are placed in a Locate buffer and can be played using M-Player."
+  "Locate media matching specified pattern.  Pattern is first converted
+to a regexp that accepts common punctuation separators (-,._\'\") in place
+of white-space.  Results are placed in a Locate buffer and can be
+played using M-Player."
   (interactive "sSearch Pattern: ")
   (cl-declare  (special emacspeak-media-extensions))
-  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
+  (setq pattern
+        (mapconcat #'identity
+                   (split-string pattern)
+                   "[ '\"_.,-]"))
+  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
     (locate-with-filter pattern emacspeak-media-extensions)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
