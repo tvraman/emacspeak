@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 6.3 from
+This is emacspeak.info, produced by makeinfo version 5.2 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -10,37 +10,6 @@ INFO-DIR-SECTION Emacs
 START-INFO-DIR-ENTRY
 * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 END-INFO-DIR-ENTRY
-
-
-File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
-
-15.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
-==========================================================================
-
-The ability to invoke external processes and interface with them via a
-simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
-extension points.  This means that a wide variety of computational tools
-become immediately available for embedding within the Emacs environment
-— a facility that has been widely exploited by the Emacs community.
-Over the years, Emacspeak has leveraged many of these facilities to
-provide a well-integrated auditory interface.
-
-   Starting from a tight code, eval, test form of iterative programming
-as encouraged by Lisp.  Applied to languages like Python and Ruby to
-exploratory computational tools such as R for data analysis and SQL for
-database interaction, the Emacspeak Audio Desktop has come to encompass
-a collection of rich computational tools that provide an efficient
-eyes-free experience.
-
-   In this context, module *ein* — Emacs IPython Notebooks — provides
-another excellent example of an Emacs tool that helps interface
-seamlessly with others in the technical domain.  IPython Notebooks
-provide an easy means of reaching a large audience when publishing
-technical material with interactive computational content; module *ein*
-brings the power and convenience of Emacs ’ editting facilities when
-developing the content.  Speech-enabling package *ein* is a major win
-since editting program source code in an eyes-free environment is far
-smoother in Emacs than in a browser-based editor.
 
 
 File: emacspeak.info,  Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Up: Emacspeak At Twenty
@@ -365,8 +334,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> 7:                                emacspeak-speak.    (line  812)
 * <fn> 8:                                emacspeak-speak.    (line  811)
 * <fn> 9:                                emacspeak-speak.    (line  810)
-* <fn> ::                                emacspeak-m-player. (line  606)
-* <fn> ;:                                emacspeak-m-player. (line  733)
+* <fn> ::                                emacspeak-m-player. (line  608)
+* <fn> ;:                                emacspeak-m-player. (line  735)
 * <fn> <:                                emacspeak-speak.    (line  844)
 * <fn> <(deletechar>:                    emacspeak-wizards.  (line  383)
 * <fn> <C-<left>:                        emacspeak-wizards.  (line  235)
@@ -654,7 +623,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, r:                                 emacspeak-feeds.    (line   84)
 * C-, s:                                 emacspeak-wizards.  (line 1378)
 * C-, t:                                 emacspeak-wizards.  (line 1366)
-* C-, u:                                 emacspeak-m-player. (line  648)
+* C-, u:                                 emacspeak-m-player. (line  650)
 * C-. .:                                 emacspeak-wizards.  (line 1170)
 * C-. b:                                 emacspeak-bbc.      (line   27)
 * C-. g:                                 emacspeak-google.   (line  276)
@@ -668,10 +637,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. SPC:                               emacspeak-wizards.  (line 1090)
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
-* C-; ':                                 emacspeak-m-player. (line  659)
+* C-; ':                                 emacspeak-m-player. (line  661)
 * C-; /:                                 emacspeak-wizards.  (line 1493)
 * C-; ::                                 emacspeak-wizards.  (line 1454)
-* C-; ;:                                 emacspeak-m-player. (line  670)
+* C-; ;:                                 emacspeak-m-player. (line  672)
 * C-; a:                                 emacspeak-wizards.  (line 1303)
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-org.      (line   27)
@@ -755,8 +724,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e 7:                                 emacspeak-speak.    (line  802)
 * C-e 8:                                 emacspeak-speak.    (line  801)
 * C-e 9:                                 emacspeak-speak.    (line  800)
-* C-e ::                                 emacspeak-m-player. (line  605)
-* C-e ;:                                 emacspeak-m-player. (line  732)
+* C-e ::                                 emacspeak-m-player. (line  607)
+* C-e ;:                                 emacspeak-m-player. (line  734)
 * C-e <:                                 emacspeak-speak.    (line  843)
 * C-e <(deletechar>:                     emacspeak-wizards.  (line  381)
 * C-e <C-<left>:                         emacspeak-wizards.  (line  234)
@@ -1026,11 +995,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a r:                             emacspeak-feeds.    (line   85)
 * C-x @ a s:                             emacspeak-wizards.  (line 1379)
 * C-x @ a t:                             emacspeak-wizards.  (line 1367)
-* C-x @ a u:                             emacspeak-m-player. (line  649)
-* C-x @ h ':                             emacspeak-m-player. (line  660)
+* C-x @ a u:                             emacspeak-m-player. (line  651)
+* C-x @ h ':                             emacspeak-m-player. (line  662)
 * C-x @ h /:                             emacspeak-wizards.  (line 1494)
 * C-x @ h ::                             emacspeak-wizards.  (line 1455)
-* C-x @ h ;:                             emacspeak-m-player. (line  671)
+* C-x @ h ;:                             emacspeak-m-player. (line  673)
 * C-x @ h a:                             emacspeak-wizards.  (line 1304)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-org.      (line   28)
