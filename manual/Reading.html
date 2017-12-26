@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.: Reading</title>
   <meta name="description" content=
   "Emacspeak User’s Manual — 2nd Edition.: Reading" />
@@ -26,19 +29,19 @@
   "Speech System" />
   <link href="Working.html#Working" rel="prev" title="Working" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -47,18 +50,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="Reading" id="Reading"></a>
+
   <div class="header">
     <p>Next: <a href="Speech-System.html#Speech-System" accesskey=
     "n" rel="next">Speech System</a>, Previous: <a href=
@@ -72,7 +89,9 @@
   <hr />
   <a name="Reading-Without-Moving-The-Cursor_002e" id=
   "Reading-Without-Moving-The-Cursor_002e"></a>
+
   <h3 class="section">6.3 Reading Without Moving The Cursor.</h3>
+
   <p>Emacspeak speaks information as you move around within a
   buffer. How much text is spoken depends on how you move, thus,
   when you move by words, you hear the current word; when you move
@@ -80,12 +99,16 @@
   addition, the following commands allow you to listen to
   information without moving point (point is emacs terminology for
   the editing cursor).</p>
+
   <p>Reading without moving point:</p>
+
   <dl compact="compact">
     <dd><a name="index-emacspeak_002dspeak_002dchar" id=
     "index-emacspeak_002dspeak_002dchar"></a> <a name=
     "index-control-e-c" id="index-control-e-c"></a></dd>
+
     <dt><kbd>control e c</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-char Speak character under point.
       Pronounces character phonetically unless called with a PREFIX
@@ -93,7 +116,9 @@
       "index-emacspeak_002dspeak_002dword"></a> <a name=
       "index-control-e-w" id="index-control-e-w"></a>
     </dd>
+
     <dt><kbd>control e w</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-word Speak current word. With prefix ARG,
       speaks the rest of the word from point. Negative prefix arg
@@ -103,7 +128,9 @@
       id="index-emacspeak_002dspeak_002dline"></a> <a name=
       "index-control-e-l" id="index-control-e-l"></a>
     </dd>
+
     <dt><kbd>control e l</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-line Speaks current line. With prefix ARG,
       speaks the rest of the line from point. Negative prefix
@@ -121,7 +148,9 @@
       "index-emacspeak_002dread_002dprevious_002dline"></a>
       <a name="index-control-e-up" id="index-control-e-up"></a>
     </dd>
+
     <dt><kbd>control e up</kbd></dt>
+
     <dd>
       <p>emacspeak-read-previous-line Read previous line, specified
       by an offset, without moving. Default is to read the previous
@@ -129,7 +158,9 @@
       id="index-emacspeak_002dread_002dnext_002dline"></a> <a name=
       "index-control-e-down" id="index-control-e-down"></a>
     </dd>
+
     <dt><kbd>control e down</kbd></dt>
+
     <dd>
       <p>emacspeak-read-next-line Read next line, specified by an
       offset, without moving. Default is to read the next
@@ -137,7 +168,9 @@
       id="index-emacspeak_002dspeak_002dparagraph"></a> <a name=
       "index-control-e-_007b" id="index-control-e-_007b"></a>
     </dd>
+
     <dt><kbd>control e @</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-paragraph Speak paragraph. With prefix
       arg, speaks rest of current paragraph. Negative prefix arg
@@ -148,7 +181,9 @@
       "index-emacspeak_002dspeak_002dregion"></a> <a name=
       "index-control-e-r" id="index-control-e-r"></a>
     </dd>
+
     <dt><kbd>control e r</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-region Speak current region delimited by
       <em>point</em> and <em>mark</em>. When called from a program,
@@ -157,7 +192,9 @@
       "index-emacspeak_002dspeak_002drectangle"></a> <a name=
       "index-control-e-cap-R" id="index-control-e-cap-R"></a>
     </dd>
+
     <dt><kbd>control e cap R</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-rectangle Speak a rectangle of text.
       Rectangle is delimited by point and mark. When call from a
@@ -166,7 +203,9 @@
       id="index-emacspeak_002dspeak_002dbuffer"></a> <a name=
       "index-control-e-b" id="index-control-e-b"></a>
     </dd>
+
     <dt><kbd>control e b</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-buffer Speak current buffer contents. With
       prefix ARG, speaks the rest of the buffer from point.
@@ -180,7 +219,9 @@
       "index-emacspeak_002dspeak_002drest_002dof_002dbuffer"></a>
       <a name="index-control-e-n" id="index-control-e-n"></a>
     </dd>
+
     <dt><kbd>control e n</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-rest-of-buffer Speak remainder of the
       buffer starting at point</p><a name=
@@ -190,7 +231,9 @@
       <a name="index-control-e-_002f" id=
       "index-control-e-_002f"></a>
     </dd>
+
     <dt><kbd>control e /</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-this-buffer-other-window-display Speak
       this buffer as displayed in a different frame. Emacs allows
@@ -209,7 +252,9 @@
       "index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay"></a>
       <a name="index-control-e-left" id="index-control-e-left"></a>
     </dd>
+
     <dt><kbd>control e left</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-this-buffer-previous-display Speak this
       buffer as displayed in a ‘previous’ window. See documentation
@@ -222,7 +267,9 @@
       <a name="index-control-e-right" id=
       "index-control-e-right"></a>
     </dd>
+
     <dt><kbd>control e right</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-this-buffer-next-display Speak this buffer
       as displayed in a ‘previous’ window. See documentation for
@@ -238,14 +285,18 @@
       "index-emacspeak_002dspeak_002dpage"></a> <a name=
       "index-control-e-_005b" id="index-control-e-_005b"></a>
     </dd>
+
     <dt><kbd>control e [</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-page Speak a page. With prefix ARG, speaks
       rest of current page. Negative prefix arg will read from
       start of current page to point. If option ‘voice-lock-mode’
       is on, then it will use any defined personality.</p>
     </dd>
+
     <dt><kbd>control e [0..9]</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-predefined-window Speak one of the first
       10 windows on the screen. In general, you’ll never have Emacs
@@ -258,7 +309,9 @@
       "index-control-e-control-n" id=
       "index-control-e-control-n"></a>
     </dd>
+
     <dt><kbd>control e control n</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-next-window Speak the next
       window.</p><a name=
@@ -267,14 +320,18 @@
       <a name="index-control-e-control-p" id=
       "index-control-e-control-p"></a>
     </dd>
+
     <dt><kbd>control e control p</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-previous-window Speak the previous
       window.</p><a name=
       "index-emacspeak_002dspeak_002dother_002dwindow" id=
       "index-emacspeak_002dspeak_002dother_002dwindow"></a>
     </dd>
+
     <dt><kbd>emacspeak-speak-other-window</kbd></dt>
+
     <dd>
       <p>Speak contents of ‘other’ window. Speaks entire window
       irrespective of point. Semantics of ‘other’ is the same as
@@ -284,7 +341,9 @@
       "index-emacspeak_002dowindow_002dprevious_002dline"></a>
       <a name="index-ESCAPE-up" id="index-ESCAPE-up"></a>
     </dd>
+
     <dt><kbd>ESCAPE up</kbd></dt>
+
     <dd>
       <p>emacspeak-owindow-previous-line Move to the next line in
       the other window and speak it. Numeric prefix arg COUNT
@@ -293,7 +352,9 @@
       "index-emacspeak_002dowindow_002dnext_002dline"></a> <a name=
       "index-ESCAPE-down" id="index-ESCAPE-down"></a>
     </dd>
+
     <dt><kbd>ESCAPE down</kbd></dt>
+
     <dd>
       <p>emacspeak-owindow-next-line Move to the next line in the
       other window and speak it. Numeric prefix arg COUNT can
@@ -302,7 +363,9 @@
       "index-emacspeak_002dowindow_002dscroll_002dup"></a> <a name=
       "index-ESCAPE-next" id="index-ESCAPE-next"></a>
     </dd>
+
     <dt><kbd>ESCAPE next</kbd></dt>
+
     <dd>
       <p>emacspeak-owindow-scroll-up Scroll up the window that
       command ‘other-window’ would move to. Speak the window
@@ -311,7 +374,9 @@
       "index-emacspeak_002dowindow_002dscroll_002ddown"></a>
       <a name="index-ESCAPE-prior" id="index-ESCAPE-prior"></a>
     </dd>
+
     <dt><kbd>ESCAPE prior</kbd></dt>
+
     <dd>
       <p>emacspeak-owindow-scroll-down Scroll down the window that
       command ‘other-window’ would move to. Speak the window
@@ -319,7 +384,9 @@
       "index-emacspeak_002dspeak_002dsexp" id=
       "index-emacspeak_002dspeak_002dsexp"></a>
     </dd>
+
     <dt><kbd>emacspeak-speak-sexp</kbd></dt>
+
     <dd>
       <p>Speak current sexp. With prefix ARG, speaks the rest of
       the sexp from point. Negative prefix arg speaks from start of
@@ -329,13 +396,16 @@
       <a name="index-control-e-meta-control-_0040" id=
       "index-control-e-meta-control-_0040"></a>
     </dd>
+
     <dt><kbd>control e meta control @</kbd></dt>
+
     <dd>
       <p>emacspeak-speak-spaces-at-point Speak the white space at
       point.</p>
     </dd>
   </dl>
   <hr />
+
   <div class="header">
     <p>Next: <a href="Speech-System.html#Speech-System" accesskey=
     "n" rel="next">Speech System</a>, Previous: <a href=

@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-dbus</title>
   <meta name="description" content=
@@ -29,19 +32,19 @@
   <link href="emacspeak_002dcustom.html#emacspeak_002dcustom" rel=
   "prev" title="emacspeak-custom" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -50,18 +53,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002ddbus" id="emacspeak_002ddbus"></a>
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002ddesktop.html#emacspeak_002ddesktop" accesskey=
@@ -77,73 +94,94 @@
   </div>
   <hr />
   <a name="emacspeak_002ddbus-1" id="emacspeak_002ddbus-1"></a>
+
   <h3 class="section">12.43 emacspeak-dbus</h3>
+
   <p>Set up Emacspeak to respond to DBus notifications</p><a name=
   "Overview-1" id="Overview-1"></a>
+
   <h4 class="subsection">12.43.1 Overview</h4>
+
   <p>This module provides integration via DBus for the
   following:</p>
+
   <ul>
     <li>Respond to network coming up or going down.</li>
+
     <li>Respond to screen getting locked/unlocked by
     gnome-screen-saver</li>
+
     <li>Respond to laptop going to sleep or waking up.</li>
   </ul>
+
   <p>See relevant hooks for customizing behavior. Note that each of
   the sleep/wake-up and network/up-down can be separately
   enabled/disabled, and the actions customized via appropriately
   named hook functions.</p><a name="emacspeak_002ddbus-Commands"
   id="emacspeak_002ddbus-Commands"></a>
+
   <h4 class="subsection">12.43.2 emacspeak-dbus
   Commands</h4><a name="emacspeak_002ddbus_002dsleep_002ddisable"
   id="emacspeak_002ddbus_002dsleep_002ddisable"></a>
+
   <h4 class="subsubsection">12.43.2.1
   emacspeak-dbus-sleep-disable</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002ddbus_002dsleep_002ddisable"
     id="index-emacspeak_002ddbus_002dsleep_002ddisable"></a>Command:
     <strong>emacspeak-dbus-sleep-disable</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002ddbus_002dsleep_002ddisable-1"
       id="index-emacspeak_002ddbus_002dsleep_002ddisable-1"></a>
+
       <div class="format">
         <pre class="format">
-        Disable integration with login1 daemon. Does nothing if
+Disable integration with login1 daemon. Does nothing if
 already disabled.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002ddbus_002dsleep_002denable" id=
   "emacspeak_002ddbus_002dsleep_002denable"></a>
+
   <h4 class="subsubsection">12.43.2.2
   emacspeak-dbus-sleep-enable</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002ddbus_002dsleep_002denable" id=
     "index-emacspeak_002ddbus_002dsleep_002denable"></a>Command:
     <strong>emacspeak-dbus-sleep-enable</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002ddbus_002dsleep_002denable-1" id=
       "index-emacspeak_002ddbus_002dsleep_002denable-1"></a>
+
       <div class="format">
         <pre class="format">
-        Enable integration with Login1. Does nothing if already enabled.
+Enable integration with Login1. Does nothing if already enabled.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dscreen_002dsaver_002dmode" id=
   "emacspeak_002dscreen_002dsaver_002dmode"></a>
+
   <h4 class="subsubsection">12.43.2.3
   emacspeak-screen-saver-mode</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dscreen_002dsaver_002dmode" id=
     "index-emacspeak_002dscreen_002dsaver_002dmode"></a>Command:
     <strong>emacspeak-screen-saver-mode</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dscreen_002dsaver_002dmode-1" id=
       "index-emacspeak_002dscreen_002dsaver_002dmode-1"></a>
+
       <div class="format">
         <pre class="format">
-        A light-weight mode for the ‘*Emacspeak Screen Saver *’ buffer.
+A light-weight mode for the ‘*Emacspeak Screen Saver *’ buffer.
 This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape.
 

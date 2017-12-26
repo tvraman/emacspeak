@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-maths</title>
   <meta name="description" content=
@@ -29,19 +32,19 @@
   <link href="emacspeak_002dmarkdown.html#emacspeak_002dmarkdown"
   rel="prev" title="emacspeak-markdown" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -50,18 +53,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dmaths" id="emacspeak_002dmaths"></a>
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dmessage.html#emacspeak_002dmessage" accesskey=
@@ -77,14 +94,19 @@
   </div>
   <hr />
   <a name="emacspeak_002dmaths-1" id="emacspeak_002dmaths-1"></a>
+
   <h3 class="section">12.117 emacspeak-maths</h3><a name="Setup"
   id="Setup"></a>
+
   <h4 class="subsection">12.117.1 Setup</h4>
+
   <p>Do not try what follows until you have read js/node/README.org
   and successfully set up nvm (Node Version Manager) as described
   there.</p><a name="Technical-Overview" id=
   "Technical-Overview"></a>
+
   <h4 class="subsection">12.117.2 Technical Overview</h4>
+
   <p>Spoken mathematics on the emacspeak audio desktop. Use a
   NodeJS based speech-rule-engine for Mathematics as the backend
   for processing mathematical markup. The result of this processing
@@ -93,7 +115,9 @@
   Emacspeak, This allows us to map these expressions to aural
   properties supported by specific TTS engines.</p><a name=
   "Basic-Usage_003a" id="Basic-Usage_003a"></a>
+
   <h4 class="subsection">12.117.3 Basic Usage:</h4>
+
   <p>Start the server/client: M-x emacspeak-maths-start. Once the
   server and client are started, you can browse any number of math
   expressions using the emacspeak-maths-navigator described below.
@@ -101,20 +125,30 @@
   the maths navigator automatically starts the server and client.
   Invoke the Navigator using s-spc — this is the &lt;windows&gt;
   key on Linux. Now you can use these keys:</p>
+
   <ul>
     <li>Show Output &lt;o&gt; Switch to output buffer and quit
     Maths Navigator</li>
+
     <li>Enter: &lt;SPC&gt; Enter a LaTeX expression.</li>
+
     <li>Smart-Enter: &lt;enter&gt; Enter the guessed expression
     with no prompting.</li>
+
     <li>Alt-Text &lt;a&gt; Process alt-text under point as
     LaTeX.</li>
+
     <li>Down &lt;down&gt; Move down a level.</li>
+
     <li>Up &lt;up&gt; Move up a level.</li>
+
     <li>Left &lt;left&gt; Move left.</li>
+
     <li>Right &lt;right&gt; Move right.</li>
+
     <li>Exit &lt;any other key&gt; Exit navigator.</li>
   </ul>
+
   <p>The current expression is spoken after each of the above
   commands. It is also displayed in a special buffer *Spoken Math*.
   That buffer holds all previously generated output, And Emacs
@@ -122,50 +156,65 @@
   through each chunk of output.</p><a name=
   "emacspeak_002dmaths-Commands" id=
   "emacspeak_002dmaths-Commands"></a>
+
   <h4 class="subsection">12.117.4 emacspeak-maths
   Commands</h4><a name="emacspeak_002dmaths_002ddepth" id=
   "emacspeak_002dmaths_002ddepth"></a>
+
   <h4 class="subsubsection">12.117.4.1 emacspeak-maths-depth</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002ddepth" id=
     "index-emacspeak_002dmaths_002ddepth"></a>Command:
     <strong>emacspeak-maths-depth</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002ddepth-1" id=
       "index-emacspeak_002dmaths_002ddepth-1"></a>
+
       <div class="format">
-        <pre class="format">Move depth in current Math expression.
+        <pre class="format">
+Move depth in current Math expression.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002ddown" id=
   "emacspeak_002dmaths_002ddown"></a>
+
   <h4 class="subsubsection">12.117.4.2 emacspeak-maths-down</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002ddown" id=
     "index-emacspeak_002dmaths_002ddown"></a>Command:
     <strong>emacspeak-maths-down</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002ddown-1" id=
       "index-emacspeak_002dmaths_002ddown-1"></a>
+
       <div class="format">
-        <pre class="format">Move down in current Math expression.
+        <pre class="format">
+Move down in current Math expression.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002denter" id=
   "emacspeak_002dmaths_002denter"></a>
+
   <h4 class="subsubsection">12.117.4.3 emacspeak-maths-enter</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002denter" id=
     "index-emacspeak_002dmaths_002denter"></a>Command:
     <strong>emacspeak-maths-enter</strong> <em>(latex)</em></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002denter-1" id=
       "index-emacspeak_002dmaths_002denter-1"></a>
+
       <div class="format">
         <pre class="format">
-        Send a LaTeX expression to Maths server.
+Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
 
@@ -175,130 +224,167 @@ Uses guessed default if user enters an empty string.
     </dd>
   </dl><a name="emacspeak_002dmaths_002denter_002dguess" id=
   "emacspeak_002dmaths_002denter_002dguess"></a>
+
   <h4 class="subsubsection">12.117.4.4
   emacspeak-maths-enter-guess</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002denter_002dguess" id=
     "index-emacspeak_002dmaths_002denter_002dguess"></a>Command:
     <strong>emacspeak-maths-enter-guess</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002denter_002dguess-1" id=
       "index-emacspeak_002dmaths_002denter_002dguess-1"></a>
+
       <div class="format">
         <pre class="format">
-        Send the guessed  LaTeX expression to Maths server.
+Send the guessed  LaTeX expression to Maths server.
 Guess is based on context.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dleft" id=
   "emacspeak_002dmaths_002dleft"></a>
+
   <h4 class="subsubsection">12.117.4.5 emacspeak-maths-left</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dleft" id=
     "index-emacspeak_002dmaths_002dleft"></a>Command:
     <strong>emacspeak-maths-left</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dleft-1" id=
       "index-emacspeak_002dmaths_002dleft-1"></a>
+
       <div class="format">
-        <pre class="format">Move left in current Math expression.
+        <pre class="format">
+Move left in current Math expression.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002drestart" id=
   "emacspeak_002dmaths_002drestart"></a>
+
   <h4 class="subsubsection">12.117.4.6 emacspeak-maths-restart</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002drestart" id=
     "index-emacspeak_002dmaths_002drestart"></a>Command:
     <strong>emacspeak-maths-restart</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002drestart-1" id=
       "index-emacspeak_002dmaths_002drestart-1"></a>
+
       <div class="format">
         <pre class="format">
-        Restart Node math-server if running. Otherwise starts a new one.
+Restart Node math-server if running. Otherwise starts a new one.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dright" id=
   "emacspeak_002dmaths_002dright"></a>
+
   <h4 class="subsubsection">12.117.4.7 emacspeak-maths-right</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dright" id=
     "index-emacspeak_002dmaths_002dright"></a>Command:
     <strong>emacspeak-maths-right</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dright-1" id=
       "index-emacspeak_002dmaths_002dright-1"></a>
+
       <div class="format">
-        <pre class="format">Move right in current Math expression.
+        <pre class="format">
+Move right in current Math expression.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002droot" id=
   "emacspeak_002dmaths_002droot"></a>
+
   <h4 class="subsubsection">12.117.4.8 emacspeak-maths-root</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002droot" id=
     "index-emacspeak_002dmaths_002droot"></a>Command:
     <strong>emacspeak-maths-root</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002droot-1" id=
       "index-emacspeak_002dmaths_002droot-1"></a>
+
       <div class="format">
-        <pre class="format">Move root in current Math expression.
+        <pre class="format">
+Move root in current Math expression.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dshutdown" id=
   "emacspeak_002dmaths_002dshutdown"></a>
+
   <h4 class="subsubsection">12.117.4.9
   emacspeak-maths-shutdown</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dshutdown" id=
     "index-emacspeak_002dmaths_002dshutdown"></a>Command:
     <strong>emacspeak-maths-shutdown</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dshutdown-1" id=
       "index-emacspeak_002dmaths_002dshutdown-1"></a>
+
       <div class="format">
-        <pre class="format">Shutdown client and server processes.
+        <pre class="format">
+Shutdown client and server processes.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dspeak_002dalt" id=
   "emacspeak_002dmaths_002dspeak_002dalt"></a>
+
   <h4 class="subsubsection">12.117.4.10
   emacspeak-maths-speak-alt</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dspeak_002dalt" id=
     "index-emacspeak_002dmaths_002dspeak_002dalt"></a>Command:
     <strong>emacspeak-maths-speak-alt</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dspeak_002dalt-1" id=
       "index-emacspeak_002dmaths_002dspeak_002dalt-1"></a>
+
       <div class="format">
-        <pre class="format">Speak alt text as Maths.
+        <pre class="format">
+Speak alt text as Maths.
 For use on Wikipedia pages  for example.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dspoken_002dmode" id=
   "emacspeak_002dmaths_002dspoken_002dmode"></a>
+
   <h4 class="subsubsection">12.117.4.11
   emacspeak-maths-spoken-mode</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dspoken_002dmode" id=
     "index-emacspeak_002dmaths_002dspoken_002dmode"></a>Command:
     <strong>emacspeak-maths-spoken-mode</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dspoken_002dmode-1" id=
       "index-emacspeak_002dmaths_002dspoken_002dmode-1"></a>
+
       <div class="format">
         <pre class="format">
-        Special mode for interacting with Spoken Math.
+Special mode for interacting with Spoken Math.
 
 This mode is used by the special buffer that displays spoken math
 returned from the Node server.
@@ -324,60 +410,78 @@ during initialization.
     </dd>
   </dl><a name="emacspeak_002dmaths_002dstart" id=
   "emacspeak_002dmaths_002dstart"></a>
+
   <h4 class="subsubsection">12.117.4.12 emacspeak-maths-start</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dstart" id=
     "index-emacspeak_002dmaths_002dstart"></a>Command:
     <strong>emacspeak-maths-start</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dstart-1" id=
       "index-emacspeak_002dmaths_002dstart-1"></a>
+
       <div class="format">
-        <pre class="format">Start Maths server bridge.
+        <pre class="format">
+Start Maths server bridge.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dswitch_002dto_002doutput"
   id="emacspeak_002dmaths_002dswitch_002dto_002doutput"></a>
+
   <h4 class="subsubsection">12.117.4.13
   emacspeak-maths-switch-to-output</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dmaths_002dswitch_002dto_002doutput" id=
     "index-emacspeak_002dmaths_002dswitch_002dto_002doutput"></a>Command:
     <strong>emacspeak-maths-switch-to-output</strong></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dmaths_002dswitch_002dto_002doutput-1"
       id="index-emacspeak_002dmaths_002dswitch_002dto_002doutput-1">
       </a>
+
       <div class="format">
-        <pre class="format">Switch to output buffer.
+        <pre class="format">
+Switch to output buffer.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths_002dup" id=
   "emacspeak_002dmaths_002dup"></a>
+
   <h4 class="subsubsection">12.117.4.14 emacspeak-maths-up</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dup" id=
     "index-emacspeak_002dmaths_002dup"></a>Command:
     <strong>emacspeak-maths-up</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmaths_002dup-1" id=
       "index-emacspeak_002dmaths_002dup-1"></a>
+
       <div class="format">
-        <pre class="format">Move up in current Math expression.
+        <pre class="format">
+Move up in current Math expression.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmaths-Options" id=
   "emacspeak_002dmaths-Options"></a>
+
   <h4 class="subsection">12.117.5 emacspeak-maths Options</h4>
+
   <dl>
-    <dt><a name="index-User-Option-821" id=
-    "index-User-Option-821"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-810" id=
+    "index-User-Option-810"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-maths-inferior-program</em></dt>
+
     <dd>
       <p>Location of ‘node’ executable. Make sure the environment
       in which Emacs is launched finds the right installation of
@@ -386,6 +490,7 @@ during initialization.
     </dd>
   </dl>
   <hr />
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dmessage.html#emacspeak_002dmessage" accesskey=

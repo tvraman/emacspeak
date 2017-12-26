@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.: Creating
   Well-formatted Documents</title>
   <meta name="description" content=
@@ -29,19 +32,19 @@
   <link href="Document-Authoring.html#Document-Authoring" rel=
   "prev" title="Document Authoring" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -50,19 +53,33 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="Creating-Well_002dformatted-Documents" id=
   "Creating-Well_002dformatted-Documents"></a>
+
   <div class="header">
     <p>Next: <a href=
     "Search-replace-and-spell-check.html#Search-replace-and-spell-check"
@@ -77,9 +94,11 @@
   <hr />
   <a name="Creating-Well_002dformatted-Documents-1" id=
   "Creating-Well_002dformatted-Documents-1"></a>
+
   <h4 class="subsection">10.1.1 Creating Well-formatted
   Documents</h4><a name="index-Document-Creation" id=
   "index-Document-Creation"></a>
+
   <p>Before authoring a document, decide its primary audience if
   the document contains relatively simple content e.g., no
   mathematical equations etc. and is primarily targeted at the WWW,
@@ -89,20 +108,24 @@
   is to use <code>org-mode</code> to create a Wiki-like text
   document that can be easily published to multiple output formats
   including HTML.</p>
+
   <p>Packages <code>org-mode</code> and <code>nxml-mode</code> are
   speech-enabled by Emacspeak to provide auditory icons, structured
   navigation and outlines, as well as voice locking for audio
   formatted feedback as you work.</p>
+
   <p>If the document being authored is more complex, you are
   usually better off creating it in LaTeX. Note that LaTeX
   documents can be converted to HTML either via package
   <code>tex4ht</code> — available on the WWW.</p>
+
   <p>The TeX family of typesetting languages is suitable for
   producing well-formatted documents in an eyes-free environment.
   Unlike WYSIWYG environments, the author of a TeX or LaTeX
   document works with the content of the document, leaving it to
   the formatting system (TeX) to format the document for good
   visual presentation.</p>
+
   <p>The <code>auctex</code> package is an Emacs extension that
   facilitates authoring and maintaining structured documents in TeX
   and LaTeX. Package <code>bibtex</code> facilitates maintenance
@@ -114,11 +137,13 @@
   convenient spoken feedback as you create documents. For details
   on using these packages, see their accompanying online info
   documentation.</p>
+
   <p>As the document preparation system of choice, Emacspeak
   supports a fluent speech-enabled interface to editing and
   formatting LaTeX documents. This interface is provided by
   speech-enabling <em>auctex</em> mode.</p><a name="index-Auctex"
   id="index-Auctex"></a>
+
   <p>Mode <em>auctex</em> provides efficient keyboard shortcuts for
   inserting and maintaining LaTeX markup as a document is being
   authored. All of these editing commands provide succinct auditory
@@ -126,6 +151,7 @@
   by this mode is extended to provide <em>voice locking</em> —
   consequently, Emacspeak uses different voices to speak the
   embedded markup to set it apart from the content.</p>
+
   <p>Mode <em>auctex</em> can be used to create empty document
   templates and to insert document content at the appropriate
   places in the template. The mode also enables structured
@@ -140,6 +166,7 @@
   select logical parts of the document without having to point at
   portions of a visual display.</p>
   <hr />
+
   <div class="header">
     <p>Next: <a href=
     "Search-replace-and-spell-check.html#Search-replace-and-spell-check"

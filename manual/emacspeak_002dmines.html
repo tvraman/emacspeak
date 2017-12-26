@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-mines</title>
   <meta name="description" content=
@@ -29,19 +32,19 @@
   <link href="emacspeak_002dmidge.html#emacspeak_002dmidge" rel=
   "prev" title="emacspeak-midge" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -50,18 +53,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dmines" id="emacspeak_002dmines"></a>
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dmpg123.html#emacspeak_002dmpg123" accesskey="n"
@@ -77,78 +94,106 @@
   </div>
   <hr />
   <a name="emacspeak_002dmines-1" id="emacspeak_002dmines-1"></a>
+
   <h3 class="section">12.121 emacspeak-mines</h3>
+
   <p>MINES == Minesweeper game in emacs. The game itself provides a
   fully keyboard driven interface. In addition, Emacspeak provides
   these additional interactive commands:</p>
+
   <ul>
     <li><kbd>SPC</kbd> Speak current cell.</li>
+
     <li><kbd>.</kbd> Speak neighbors of current cell.</li>
+
     <li><kbd>,</kbd> Speak number of marks</li>
+
     <li><kbd>a</kbd> Move to beginning of row.</li>
+
     <li><kbd>e</kbd> Move to end of row.</li>
+
     <li><kbd>g</kbd> Move to specified cell</li>
+
     <li><kbd>s</kbd> Move to next uncovered cell.</li>
+
     <li><kbd>/</kbd> Speak number of remaining uncovered
     cells.</li>
+
     <li><kbd>'</kbd> Speaks entire board.</li>
   </ul>
+
   <p>Speaking cell neighbors uses appropriate clause boundaries to
   group related cells — neighbors are read left-to-right,
   top-to-bottom. Moving to the left/right edge of the board
   produces an appropriate auditory icon.</p><a name=
   "emacspeak_002dmines-Commands" id=
   "emacspeak_002dmines-Commands"></a>
+
   <h4 class="subsection">12.121.1 emacspeak-mines
   Commands</h4><a name=
   "emacspeak_002dmines_002dbeginning_002dof_002drow" id=
   "emacspeak_002dmines_002dbeginning_002dof_002drow"></a>
+
   <h4 class="subsubsection">12.121.1.1
   emacspeak-mines-beginning-of-row</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dmines_002dbeginning_002dof_002drow" id=
     "index-emacspeak_002dmines_002dbeginning_002dof_002drow"></a>Command:
     <strong>emacspeak-mines-beginning-of-row</strong></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dmines_002dbeginning_002dof_002drow-1"
       id="index-emacspeak_002dmines_002dbeginning_002dof_002drow-1">
       </a>
+
       <div class="format">
-        <pre class="format">Move to beginning of row
+        <pre class="format">
+Move to beginning of row
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmines_002dend_002dof_002drow" id=
   "emacspeak_002dmines_002dend_002dof_002drow"></a>
+
   <h4 class="subsubsection">12.121.1.2
   emacspeak-mines-end-of-row</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmines_002dend_002dof_002drow"
     id=
     "index-emacspeak_002dmines_002dend_002dof_002drow"></a>Command:
     <strong>emacspeak-mines-end-of-row</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmines_002dend_002dof_002drow-1"
       id="index-emacspeak_002dmines_002dend_002dof_002drow-1"></a>
+
       <div class="format">
-        <pre class="format">Move to end of row
+        <pre class="format">
+Move to end of row
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmines_002dgoto" id=
   "emacspeak_002dmines_002dgoto"></a>
+
   <h4 class="subsubsection">12.121.1.3 emacspeak-mines-goto</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmines_002dgoto" id=
     "index-emacspeak_002dmines_002dgoto"></a>Command:
     <strong>emacspeak-mines-goto</strong> <em>(index)</em></dt>
+
     <dd>
       <a name="index-emacspeak_002dmines_002dgoto-1" id=
       "index-emacspeak_002dmines_002dgoto-1"></a>
+
       <div class="format">
-        <pre class="format">Move to specified cell.
+        <pre class="format">
+Move to specified cell.
 
 (fn INDEX)
 </pre>
@@ -157,8 +202,10 @@
   </dl><a name=
   "emacspeak_002dmines_002djump_002dto_002duncovered_002dcell" id=
   "emacspeak_002dmines_002djump_002dto_002duncovered_002dcell"></a>
+
   <h4 class="subsubsection">12.121.1.4
   emacspeak-mines-jump-to-uncovered-cell</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dmines_002djump_002dto_002duncovered_002dcell"
@@ -167,15 +214,17 @@
     </a>Command:
     <strong>emacspeak-mines-jump-to-uncovered-cell</strong>
     <em>(from-beginning)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dmines_002djump_002dto_002duncovered_002dcell-1"
       id=
       "index-emacspeak_002dmines_002djump_002dto_002duncovered_002dcell-1">
       </a>
+
       <div class="format">
         <pre class="format">
-        Jump to next uncovered cell. With interactive prefix-arg, jump
+Jump to next uncovered cell. With interactive prefix-arg, jump
 to beginning of board before searching.
 
 (fn FROM-BEGINNING)
@@ -184,97 +233,122 @@ to beginning of board before searching.
     </dd>
   </dl><a name="emacspeak_002dmines_002dspeak_002dboard" id=
   "emacspeak_002dmines_002dspeak_002dboard"></a>
+
   <h4 class="subsubsection">12.121.1.5
   emacspeak-mines-speak-board</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmines_002dspeak_002dboard" id=
     "index-emacspeak_002dmines_002dspeak_002dboard"></a>Command:
     <strong>emacspeak-mines-speak-board</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmines_002dspeak_002dboard-1" id=
       "index-emacspeak_002dmines_002dspeak_002dboard-1"></a>
+
       <div class="format">
-        <pre class="format">Speak the board.
+        <pre class="format">
+Speak the board.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmines_002dspeak_002dcell" id=
   "emacspeak_002dmines_002dspeak_002dcell"></a>
+
   <h4 class="subsubsection">12.121.1.6
   emacspeak-mines-speak-cell</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmines_002dspeak_002dcell" id=
     "index-emacspeak_002dmines_002dspeak_002dcell"></a>Command:
     <strong>emacspeak-mines-speak-cell</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmines_002dspeak_002dcell-1" id=
       "index-emacspeak_002dmines_002dspeak_002dcell-1"></a>
+
       <div class="format">
-        <pre class="format">Speak current cell.
+        <pre class="format">
+Speak current cell.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmines_002dspeak_002dmark_002dcount"
   id="emacspeak_002dmines_002dspeak_002dmark_002dcount"></a>
+
   <h4 class="subsubsection">12.121.1.7
   emacspeak-mines-speak-mark-count</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dmines_002dspeak_002dmark_002dcount" id=
     "index-emacspeak_002dmines_002dspeak_002dmark_002dcount"></a>Command:
     <strong>emacspeak-mines-speak-mark-count</strong></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dmines_002dspeak_002dmark_002dcount-1"
       id="index-emacspeak_002dmines_002dspeak_002dmark_002dcount-1">
       </a>
+
       <div class="format">
-        <pre class="format">Count and speak number of marks.
+        <pre class="format">
+Count and speak number of marks.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmines_002dspeak_002dneighbors" id=
   "emacspeak_002dmines_002dspeak_002dneighbors"></a>
+
   <h4 class="subsubsection">12.121.1.8
   emacspeak-mines-speak-neighbors</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dmines_002dspeak_002dneighbors"
     id=
     "index-emacspeak_002dmines_002dspeak_002dneighbors"></a>Command:
     <strong>emacspeak-mines-speak-neighbors</strong></dt>
+
     <dd>
       <a name="index-emacspeak_002dmines_002dspeak_002dneighbors-1"
       id="index-emacspeak_002dmines_002dspeak_002dneighbors-1"></a>
+
       <div class="format">
         <pre class="format">
-        Speak neighboring cells in sorted order.
+Speak neighboring cells in sorted order.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dmines_002dspeak_002duncovered_002dcount" id=
   "emacspeak_002dmines_002dspeak_002duncovered_002dcount"></a>
+
   <h4 class="subsubsection">12.121.1.9
   emacspeak-mines-speak-uncovered-count</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dmines_002dspeak_002duncovered_002dcount"
     id=
     "index-emacspeak_002dmines_002dspeak_002duncovered_002dcount"></a>Command:
     <strong>emacspeak-mines-speak-uncovered-count</strong></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dmines_002dspeak_002duncovered_002dcount-1"
       id=
       "index-emacspeak_002dmines_002dspeak_002duncovered_002dcount-1">
       </a>
+
       <div class="format">
-        <pre class="format">Speak number of uncovered cells.
+        <pre class="format">
+Speak number of uncovered cells.
 </pre>
       </div>
     </dd>
   </dl>
   <hr />
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dmpg123.html#emacspeak_002dmpg123" accesskey="n"

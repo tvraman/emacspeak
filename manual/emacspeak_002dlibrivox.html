@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-librivox</title>
   <meta name="description" content=
@@ -29,19 +32,19 @@
   <link href="emacspeak_002dkmacro.html#emacspeak_002dkmacro" rel=
   "prev" title="emacspeak-kmacro" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -50,18 +53,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dlibrivox" id="emacspeak_002dlibrivox"></a>
+
   <div class="header">
     <p>Next: <a href="emacspeak_002dlua.html#emacspeak_002dlua"
     accesskey="n" rel="next">emacspeak-lua</a>, Previous: <a href=
@@ -77,47 +94,66 @@
   <hr />
   <a name="emacspeak_002dlibrivox-1" id=
   "emacspeak_002dlibrivox-1"></a>
+
   <h3 class="section">12.110 emacspeak-librivox</h3>
+
   <p>LIBRIVOX == http://www.librivox.org Free Audio Books API Info:
   https://librivox.org/api/info It provides a simple Web API This
   module implements an Emacspeak Librivox client.</p><a name=
   "Usage" id="Usage"></a>
+
   <h4 class="subsection">12.110.1 Usage</h4>
+
   <p>main entry point is command <code>emacspeak-librivox</code>
   bound to <kbd>C-; l</kbd>. This prompts with the following
   choices:</p>
+
   <ul>
     <li><kbd>a</kbd> Author — Search by Author.</li>
+
     <li><kbd>t</kbd> Title — Search by Title.</li>
+
     <li><kbd>g</kbd> Genre — Search by Genre — with minibuffer
     completion.</li>
+
     <li><kbd>p</kbd> Play — Play a book.</li>
+
     <li><kbd>d</kbd> Directory — Browse local cache.</li>
   </ul>
+
   <p>Search results are displayed in a Web page that provides
   controls for accessing the book.</p><a name=
   "emacspeak_002dlibrivox-Commands" id=
   "emacspeak_002dlibrivox-Commands"></a>
+
   <h4 class="subsection">12.110.2 emacspeak-librivox
   Commands</h4><a name="emacspeak_002dlibrivox-2" id=
   "emacspeak_002dlibrivox-2"></a>
+
   <h4 class="subsubsection">12.110.2.1 emacspeak-librivox</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dlibrivox" id=
     "index-emacspeak_002dlibrivox"></a>Command:
     <strong>emacspeak-librivox</strong> <em>(search-type)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-; l</kbd></dt>
+
         <dd><a name="index-C_002d_003b-l" id=
         "index-C_002d_003b-l"></a></dd>
+
         <dt><kbd>C-x @ h l</kbd></dt>
+
         <dd><a name="index-C_002dx-_0040-h-l" id=
         "index-C_002dx-_0040-h-l"></a></dd>
       </dl><a name="index-emacspeak_002dlibrivox-1" id=
       "index-emacspeak_002dlibrivox-1"></a>
+
       <div class="format">
-        <pre class="format">Launch a Librivox Search.
+        <pre class="format">
+Launch a Librivox Search.
 
 (fn SEARCH-TYPE)
 </pre>
@@ -125,17 +161,22 @@
     </dd>
   </dl><a name="emacspeak_002dlibrivox_002dplay" id=
   "emacspeak_002dlibrivox_002dplay"></a>
+
   <h4 class="subsubsection">12.110.2.2 emacspeak-librivox-play</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dlibrivox_002dplay" id=
     "index-emacspeak_002dlibrivox_002dplay"></a>Command:
     <strong>emacspeak-librivox-play</strong>
     <em>(rss-url)</em></dt>
+
     <dd>
       <a name="index-emacspeak_002dlibrivox_002dplay-1" id=
       "index-emacspeak_002dlibrivox_002dplay-1"></a>
+
       <div class="format">
-        <pre class="format">Play book stream
+        <pre class="format">
+Play book stream
 
 (fn RSS-URL)
 </pre>
@@ -144,23 +185,27 @@
   </dl><a name=
   "emacspeak_002dlibrivox_002dsearch_002dby_002dauthor" id=
   "emacspeak_002dlibrivox_002dsearch_002dby_002dauthor"></a>
+
   <h4 class="subsubsection">12.110.2.3
   emacspeak-librivox-search-by-author</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor" id=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor"></a>Command:
     <strong>emacspeak-librivox-search-by-author</strong>
     <em>(author &amp;optional offset)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor-1"
       id=
       "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor-1">
       </a>
+
       <div class="format">
         <pre class="format">
-        Search by author. Both exact and partial matches for
+Search by author. Both exact and partial matches for
 ‘author’. Optional interactive prefix arg ‘offset’ prompts for offset
 — use this for retrieving next set of results.
 
@@ -170,21 +215,26 @@
     </dd>
   </dl><a name="emacspeak_002dlibrivox_002dsearch_002dby_002dgenre"
   id="emacspeak_002dlibrivox_002dsearch_002dby_002dgenre"></a>
+
   <h4 class="subsubsection">12.110.2.4
   emacspeak-librivox-search-by-genre</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre" id=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre"></a>Command:
     <strong>emacspeak-librivox-search-by-genre</strong> <em>(genre
     &amp;optional offset)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre-1"
       id=
       "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre-1"></a>
+
       <div class="format">
-        <pre class="format">Search by genre.
+        <pre class="format">
+Search by genre.
 Optional prefix arg ‘offset’ prompts for offset.
 
 (fn GENRE &amp;optional OFFSET)
@@ -193,22 +243,26 @@ Optional prefix arg ‘offset’ prompts for offset.
     </dd>
   </dl><a name="emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"
   id="emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"></a>
+
   <h4 class="subsubsection">12.110.2.5
   emacspeak-librivox-search-by-title</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle" id=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"></a>Command:
     <strong>emacspeak-librivox-search-by-title</strong> <em>(title
     &amp;optional offset)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle-1"
       id=
       "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle-1"></a>
+
       <div class="format">
         <pre class="format">
-        Search by title. Both exact and partial matches for ‘title’. Optional
+Search by title. Both exact and partial matches for ‘title’. Optional
 prefix arg ‘offset’ prompts for offset — use this for retrieving
 more results.
 
@@ -218,16 +272,20 @@ more results.
     </dd>
   </dl><a name="emacspeak_002dlibrivox-Options" id=
   "emacspeak_002dlibrivox-Options"></a>
+
   <h4 class="subsection">12.110.3 emacspeak-librivox Options</h4>
+
   <dl>
-    <dt><a name="index-User-Option-701" id=
-    "index-User-Option-701"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-690" id=
+    "index-User-Option-690"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-librivox-local-cache</em></dt>
+
     <dd>
       <p>Location where we cache LIBRIVOX playlists.</p>
     </dd>
   </dl>
   <hr />
+
   <div class="header">
     <p>Next: <a href="emacspeak_002dlua.html#emacspeak_002dlua"
     accesskey="n" rel="next">emacspeak-lua</a>, Previous: <a href=

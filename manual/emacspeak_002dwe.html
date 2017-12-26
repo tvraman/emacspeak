@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-we</title>
   <meta name="description" content=
@@ -29,19 +32,19 @@
   <link href="emacspeak_002dwdired.html#emacspeak_002dwdired" rel=
   "prev" title="emacspeak-wdired" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -50,18 +53,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dwe" id="emacspeak_002dwe"></a>
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dwebsearch.html#emacspeak_002dwebsearch"
@@ -77,7 +94,9 @@
   </div>
   <hr />
   <a name="emacspeak_002dwe-1" id="emacspeak_002dwe-1"></a>
+
   <h3 class="section">12.195 emacspeak-we</h3>
+
   <p>we is for webedit Invoke XSLT to edit/transform Web pages
   before they get rendered. we makes emacspeak’s webedit layer
   independent of a given Emacs web browser EWW This module will use
@@ -85,12 +104,15 @@
   Module emacspeak-webutils provides the needed additional
   abstractions not already covered by browse-url</p><a name=
   "emacspeak_002dwe-Commands" id="emacspeak_002dwe-Commands"></a>
+
   <h4 class="subsection">12.195.1 emacspeak-we
   Commands</h4><a name="emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow"
   id=
   "emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow"></a>
+
   <h4 class="subsubsection">12.195.1.1
   emacspeak-we-class-filter-and-follow</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow"
@@ -99,21 +121,26 @@
     </a>Command:
     <strong>emacspeak-we-class-filter-and-follow</strong>
     <em>(class url &amp;optional prompt)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e y</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-y" id=
         "index-C_002de-x-e-y"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e y</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-y" id=
         "index-_003cfn_003e-x-e-y"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow-1"
       id=
       "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow-1"></a>
+
       <div class="format">
         <pre class="format">
-        Follow url and point, and filter the result by specified class.
+Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
@@ -126,8 +153,10 @@ used as well.
   "emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink"
   id=
   "emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink"></a>
+
   <h4 class="subsubsection">12.195.1.2
   emacspeak-we-class-filter-and-follow-link</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink"
@@ -136,21 +165,26 @@ used as well.
     </a>Command:
     <strong>emacspeak-we-class-filter-and-follow-link</strong>
     <em>(&amp;optional prompt)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e v</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-v" id=
         "index-C_002de-x-e-v"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e v</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-v" id=
         "index-_003cfn_003e-x-e-v"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink-1"
       id=
       "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink-1"></a>
+
       <div class="format">
         <pre class="format">
-        Follow url and point, and filter the result by specified class.
+Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
@@ -161,25 +195,33 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002dcount_002dmatches" id=
   "emacspeak_002dwe_002dcount_002dmatches"></a>
+
   <h4 class="subsubsection">12.195.1.3
   emacspeak-we-count-matches</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dcount_002dmatches" id=
     "index-emacspeak_002dwe_002dcount_002dmatches"></a>Command:
     <strong>emacspeak-we-count-matches</strong> <em>(url
     locator)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e C-f</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-C_002df" id=
         "index-C_002de-x-e-C_002df"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e C-f</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-C_002df" id=
         "index-_003cfn_003e-x-e-C_002df"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dcount_002dmatches-1"
       id="index-emacspeak_002dwe_002dcount_002dmatches-1"></a>
+
       <div class="format">
-        <pre class="format">Count matches for locator  in Web page.
+        <pre class="format">
+Count matches for locator  in Web page.
 
 (fn URL LOCATOR)
 </pre>
@@ -187,27 +229,35 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002dcount_002dnested_002dtables"
   id="emacspeak_002dwe_002dcount_002dnested_002dtables"></a>
+
   <h4 class="subsubsection">12.195.1.4
   emacspeak-we-count-nested-tables</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dcount_002dnested_002dtables" id=
     "index-emacspeak_002dwe_002dcount_002dnested_002dtables"></a>Command:
     <strong>emacspeak-we-count-nested-tables</strong>
     <em>(url)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e C-x</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-C_002dx" id=
         "index-C_002de-x-e-C_002dx"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e C-x</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-C_002dx" id=
         "index-_003cfn_003e-x-e-C_002dx"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dcount_002dnested_002dtables-1"
       id="index-emacspeak_002dwe_002dcount_002dnested_002dtables-1"></a>
+
       <div class="format">
-        <pre class="format">Count nested tables in Web page.
+        <pre class="format">
+Count nested tables in Web page.
 
 (fn URL)
 </pre>
@@ -215,24 +265,32 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002dcount_002dtables" id=
   "emacspeak_002dwe_002dcount_002dtables"></a>
+
   <h4 class="subsubsection">12.195.1.5
   emacspeak-we-count-tables</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dcount_002dtables" id=
     "index-emacspeak_002dwe_002dcount_002dtables"></a>Command:
     <strong>emacspeak-we-count-tables</strong> <em>(url)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e C-t</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-C_002dt" id=
         "index-C_002de-x-e-C_002dt"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e C-t</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-C_002dt" id=
         "index-_003cfn_003e-x-e-C_002dt"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dcount_002dtables-1"
       id="index-emacspeak_002dwe_002dcount_002dtables-1"></a>
+
       <div class="format">
-        <pre class="format">Count  tables in Web page.
+        <pre class="format">
+Count  tables in Web page.
 
 (fn URL)
 </pre>
@@ -240,28 +298,35 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dby_002dclass" id=
   "emacspeak_002dwe_002dextract_002dby_002dclass"></a>
+
   <h4 class="subsubsection">12.195.1.6
   emacspeak-we-extract-by-class</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dby_002dclass" id=
     "index-emacspeak_002dwe_002dextract_002dby_002dclass"></a>Command:
     <strong>emacspeak-we-extract-by-class</strong> <em>(class url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e c</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-c" id=
         "index-C_002de-x-e-c"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e c</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-c" id=
         "index-_003cfn_003e-x-e-c"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dby_002dclass-1" id=
       "index-emacspeak_002dwe_002dextract_002dby_002dclass-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements having specified class attribute from HTML. Extracts
+Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
 
@@ -272,8 +337,10 @@ buffer. Interactive use provides list of class values as completion.
   </dl><a name=
   "emacspeak_002dwe_002dextract_002dby_002dclass_002dlist" id=
   "emacspeak_002dwe_002dextract_002dby_002dclass_002dlist"></a>
+
   <h4 class="subsubsection">12.195.1.7
   emacspeak-we-extract-by-class-list</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist"
@@ -281,21 +348,26 @@ buffer. Interactive use provides list of class values as completion.
     "index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist"></a>Command:
     <strong>emacspeak-we-extract-by-class-list</strong>
     <em>(classes url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e C</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-C" id=
         "index-C_002de-x-e-C"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e C</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-C" id=
         "index-_003cfn_003e-x-e-C"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements having class specified in list ‘classes’ from HTML.
+Extract elements having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
@@ -306,28 +378,35 @@ values as completion.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dby_002did" id=
   "emacspeak_002dwe_002dextract_002dby_002did"></a>
+
   <h4 class="subsubsection">12.195.1.8
   emacspeak-we-extract-by-id</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dextract_002dby_002did"
     id=
     "index-emacspeak_002dwe_002dextract_002dby_002did"></a>Command:
     <strong>emacspeak-we-extract-by-id</strong> <em>(id url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e i</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-i" id=
         "index-C_002de-x-e-i"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e i</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-i" id=
         "index-_003cfn_003e-x-e-i"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dby_002did-1" id=
       "index-emacspeak_002dwe_002dextract_002dby_002did-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements having specified id attribute from HTML. Extracts
+Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion.
@@ -339,29 +418,36 @@ Interactive use provides list of id values as completion.
   </dl><a name=
   "emacspeak_002dwe_002dextract_002dby_002did_002dlist" id=
   "emacspeak_002dwe_002dextract_002dby_002did_002dlist"></a>
+
   <h4 class="subsubsection">12.195.1.9
   emacspeak-we-extract-by-id-list</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dby_002did_002dlist" id=
     "index-emacspeak_002dwe_002dextract_002dby_002did_002dlist"></a>Command:
     <strong>emacspeak-we-extract-by-id-list</strong> <em>(ids url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e I</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-I" id=
         "index-C_002de-x-e-I"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e I</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-I" id=
         "index-_003cfn_003e-x-e-I"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dby_002did_002dlist-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dby_002did_002dlist-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements having id specified in list ‘ids’ from HTML.
+Extract elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 
@@ -371,28 +457,35 @@ separate buffer. Interactive use provides list of id values as completion.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dby_002drole" id=
   "emacspeak_002dwe_002dextract_002dby_002drole"></a>
+
   <h4 class="subsubsection">12.195.1.10
   emacspeak-we-extract-by-role</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dby_002drole" id=
     "index-emacspeak_002dwe_002dextract_002dby_002drole"></a>Command:
     <strong>emacspeak-we-extract-by-role</strong> <em>(role url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e r</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-r" id=
         "index-C_002de-x-e-r"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e r</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-r" id=
         "index-_003cfn_003e-x-e-r"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dby_002drole-1" id=
       "index-emacspeak_002dwe_002dextract_002dby_002drole-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements having specified role attribute from HTML. Extracts
+Extract elements having specified role attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of role values as completion.
 
@@ -403,8 +496,10 @@ buffer. Interactive use provides list of role values as completion.
   </dl><a name=
   "emacspeak_002dwe_002dextract_002did_002dlist_002dtext" id=
   "emacspeak_002dwe_002dextract_002did_002dlist_002dtext"></a>
+
   <h4 class="subsubsection">12.195.1.11
   emacspeak-we-extract-id-list-text</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext"
@@ -412,15 +507,17 @@ buffer. Interactive use provides list of role values as completion.
     "index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext"></a>Command:
     <strong>emacspeak-we-extract-id-list-text</strong> <em>(ids url
     &amp;optional speak)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext-1"
       id=
       "index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext-1">
       </a>
+
       <div class="format">
         <pre class="format">
-        Extract text nodes from elements having id specified in list ‘ids’ from HTML.
+Extract text nodes from elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 
@@ -430,21 +527,25 @@ separate buffer. Interactive use provides list of id values as completion.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002did_002dtext" id=
   "emacspeak_002dwe_002dextract_002did_002dtext"></a>
+
   <h4 class="subsubsection">12.195.1.12
   emacspeak-we-extract-id-text</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002did_002dtext" id=
     "index-emacspeak_002dwe_002dextract_002did_002dtext"></a>Command:
     <strong>emacspeak-we-extract-id-text</strong> <em>(id url
     &amp;optional speak)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dwe_002dextract_002did_002dtext-1" id=
       "index-emacspeak_002dwe_002dextract_002did_002dtext-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract text nodes from elements having specified id attribute from HTML. Extracts
+Extract text nodes from elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion.
@@ -455,29 +556,36 @@ Interactive use provides list of id values as completion.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dmatching_002durls"
   id="emacspeak_002dwe_002dextract_002dmatching_002durls"></a>
+
   <h4 class="subsubsection">12.195.1.13
   emacspeak-we-extract-matching-urls</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dmatching_002durls" id=
     "index-emacspeak_002dwe_002dextract_002dmatching_002durls"></a>Command:
     <strong>emacspeak-we-extract-matching-urls</strong>
     <em>(pattern url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e u</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-u" id=
         "index-C_002de-x-e-u"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e u</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-u" id=
         "index-_003cfn_003e-x-e-u"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dmatching_002durls-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dmatching_002durls-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extracts links whose URL matches pattern.
+Extracts links whose URL matches pattern.
 
 (fn PATTERN URL &amp;optional SPEAK)
 </pre>
@@ -485,21 +593,26 @@ Interactive use provides list of id values as completion.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dmedia_002dstreams"
   id="emacspeak_002dwe_002dextract_002dmedia_002dstreams"></a>
+
   <h4 class="subsubsection">12.195.1.14
   emacspeak-we-extract-media-streams</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams" id=
     "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams"></a>Command:
     <strong>emacspeak-we-extract-media-streams</strong> <em>(url
     &amp;optional speak)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams-1"></a>
+
       <div class="format">
-        <pre class="format">Extract links to media streams.
+        <pre class="format">
+Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
@@ -512,8 +625,10 @@ operate on current web page when in a browser buffer; otherwise
   "emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint"
   id=
   "emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint"></a>
+
   <h4 class="subsubsection">12.195.1.15
   emacspeak-we-extract-media-streams-under-point</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint"
@@ -521,43 +636,52 @@ operate on current web page when in a browser buffer; otherwise
     "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint">
     </a>Command:
     <strong>emacspeak-we-extract-media-streams-under-point</strong></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint-1">
       </a>
+
       <div class="format">
         <pre class="format">
-        In browser buffers, extract media streams from url under point.
+In browser buffers, extract media streams from url under point.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dnested_002dtable"
   id="emacspeak_002dwe_002dextract_002dnested_002dtable"></a>
+
   <h4 class="subsubsection">12.195.1.16
   emacspeak-we-extract-nested-table</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dnested_002dtable" id=
     "index-emacspeak_002dwe_002dextract_002dnested_002dtable"></a>Command:
     <strong>emacspeak-we-extract-nested-table</strong> <em>(index
     url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e x</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-x" id=
         "index-C_002de-x-e-x"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e x</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-x" id=
         "index-_003cfn_003e-x-e-x"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dnested_002dtable-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dnested_002dtable-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract nested table specified by ‘table-index’. Default is to
+Extract nested table specified by ‘table-index’. Default is to
 operate on current web page when in a browser buffer; otherwise
 prompt for URL. Optional arg ‘speak’ specifies if the result should be
 spoken automatically.
@@ -569,8 +693,10 @@ spoken automatically.
   </dl><a name=
   "emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist" id=
   "emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist"></a>
+
   <h4 class="subsubsection">12.195.1.17
   emacspeak-we-extract-nested-table-list</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist"
@@ -579,21 +705,26 @@ spoken automatically.
     </a>Command:
     <strong>emacspeak-we-extract-nested-table-list</strong>
     <em>(tables url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e X</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-X" id=
         "index-C_002de-x-e-X"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e X</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-X" id=
         "index-_003cfn_003e-x-e-X"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract specified list of tables from a Web page.
+Extract specified list of tables from a Web page.
 
 (fn TABLES URL &amp;optional SPEAK)
 </pre>
@@ -601,21 +732,26 @@ spoken automatically.
     </dd>
   </dl><a name="emacspeak_002dwe_002dextract_002dprint_002dstreams"
   id="emacspeak_002dwe_002dextract_002dprint_002dstreams"></a>
+
   <h4 class="subsubsection">12.195.1.18
   emacspeak-we-extract-print-streams</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dprint_002dstreams" id=
     "index-emacspeak_002dwe_002dextract_002dprint_002dstreams"></a>Command:
     <strong>emacspeak-we-extract-print-streams</strong> <em>(url
     &amp;optional speak)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dwe_002dextract_002dprint_002dstreams-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dprint_002dstreams-1"></a>
+
       <div class="format">
-        <pre class="format">Extract links to printable  streams.
+        <pre class="format">
+Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
@@ -627,8 +763,10 @@ operate on current web page when in a browser buffer; otherwise
   </dl><a name=
   "emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch" id=
   "emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch"></a>
+
   <h4 class="subsubsection">12.195.1.19
   emacspeak-we-extract-table-by-match</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch"
@@ -637,21 +775,26 @@ operate on current web page when in a browser buffer; otherwise
     </a>Command:
     <strong>emacspeak-we-extract-table-by-match</strong> <em>(match
     url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e m</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-m" id=
         "index-C_002de-x-e-m"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e m</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-m" id=
         "index-_003cfn_003e-x-e-m"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract table containing  specified match.
+Extract table containing  specified match.
  Optional arg url specifies the page to extract content from.
 
 (fn MATCH URL &amp;optional SPEAK)
@@ -661,8 +804,10 @@ operate on current web page when in a browser buffer; otherwise
   </dl><a name=
   "emacspeak_002dwe_002dextract_002dtable_002dby_002dposition" id=
   "emacspeak_002dwe_002dextract_002dtable_002dby_002dposition"></a>
+
   <h4 class="subsubsection">12.195.1.20
   emacspeak-we-extract-table-by-position</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dposition"
@@ -671,20 +816,26 @@ operate on current web page when in a browser buffer; otherwise
     </a>Command:
     <strong>emacspeak-we-extract-table-by-position</strong>
     <em>(pos url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e t</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-t" id=
         "index-C_002de-x-e-t"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e t</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-t" id=
         "index-_003cfn_003e-x-e-t"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dposition-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dposition-1"></a>
+
       <div class="format">
-        <pre class="format">Extract table at specified pos.
+        <pre class="format">
+Extract table at specified pos.
 Default is to extract from current page.
 
 (fn POS URL &amp;optional SPEAK)
@@ -695,8 +846,10 @@ Default is to extract from current page.
   "emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist"
   id=
   "emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist"></a>
+
   <h4 class="subsubsection">12.195.1.21
   emacspeak-we-extract-tables-by-match-list</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist"
@@ -705,21 +858,26 @@ Default is to extract from current page.
     </a>Command:
     <strong>emacspeak-we-extract-tables-by-match-list</strong>
     <em>(match-list url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e M</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-M" id=
         "index-C_002de-x-e-M"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e M</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-M" id=
         "index-_003cfn_003e-x-e-M"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract specified  tables from a WWW page.
+Extract specified  tables from a WWW page.
 Tables are specified by containing  match pattern
  found in the match list.
 
@@ -731,8 +889,10 @@ Tables are specified by containing  match pattern
   "emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist"
   id=
   "emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist"></a>
+
   <h4 class="subsubsection">12.195.1.22
   emacspeak-we-extract-tables-by-position-list</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist"
@@ -741,21 +901,26 @@ Tables are specified by containing  match pattern
     </a>Command:
     <strong>emacspeak-we-extract-tables-by-position-list</strong>
     <em>(positions url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e T</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-T" id=
         "index-C_002de-x-e-T"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e T</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-T" id=
         "index-_003cfn_003e-x-e-T"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist-1"
       id=
       "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract specified list of nested tables from a WWW page.
+Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
  of nested tables found in the page.
 
@@ -766,8 +931,10 @@ Tables are specified by their position in the list
   </dl><a name=
   "emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain" id=
   "emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain"></a>
+
   <h4 class="subsubsection">12.195.1.23
   emacspeak-we-follow-and-extract-main</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain"
@@ -776,20 +943,26 @@ Tables are specified by their position in the list
     </a>Command:
     <strong>emacspeak-we-follow-and-extract-main</strong>
     <em>(&amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e P</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-P" id=
         "index-C_002de-x-e-P"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e P</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-P" id=
         "index-_003cfn_003e-x-e-P"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain-1"
       id=
       "index-emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain-1"></a>
+
       <div class="format">
-        <pre class="format">Follow URL, then extract role=main.
+        <pre class="format">
+Follow URL, then extract role=main.
 
 (fn &amp;optional SPEAK)
 </pre>
@@ -798,8 +971,10 @@ Tables are specified by their position in the list
   </dl><a name=
   "emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did"
   id="emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did"></a>
+
   <h4 class="subsubsection">12.195.1.24
   emacspeak-we-follow-and-filter-by-id</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did"
@@ -808,21 +983,26 @@ Tables are specified by their position in the list
     </a>Command:
     <strong>emacspeak-we-follow-and-filter-by-id</strong> <em>(id
     prompt)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e b</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-b" id=
         "index-C_002de-x-e-b"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e b</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-b" id=
         "index-_003cfn_003e-x-e-b"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did-1"
       id=
       "index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did-1"></a>
+
       <div class="format">
         <pre class="format">
-        Follow url and point, and filter the result by specified id.
+Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
@@ -833,28 +1013,35 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002djunk_002dby_002dclass" id=
   "emacspeak_002dwe_002djunk_002dby_002dclass"></a>
+
   <h4 class="subsubsection">12.195.1.25
   emacspeak-we-junk-by-class</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002djunk_002dby_002dclass"
     id=
     "index-emacspeak_002dwe_002djunk_002dby_002dclass"></a>Command:
     <strong>emacspeak-we-junk-by-class</strong> <em>(class url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e d</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-d" id=
         "index-C_002de-x-e-d"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e d</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-d" id=
         "index-_003cfn_003e-x-e-d"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002djunk_002dby_002dclass-1" id=
       "index-emacspeak_002dwe_002djunk_002dby_002dclass-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements not having specified class attribute from HTML. Extracts
+Extract elements not having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
 
@@ -865,35 +1052,46 @@ buffer. Interactive use provides list of class values as completion.
   </dl><a name=
   "emacspeak_002dwe_002djunk_002dby_002dclass_002dlist" id=
   "emacspeak_002dwe_002djunk_002dby_002dclass_002dlist"></a>
+
   <h4 class="subsubsection">12.195.1.26
   emacspeak-we-junk-by-class-list</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist" id=
     "index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist"></a>Command:
     <strong>emacspeak-we-junk-by-class-list</strong> <em>(classes
     url &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e D</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-D" id=
         "index-C_002de-x-e-D"></a></dd>
+
         <dt><kbd>C-e x e C-c</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-C_002dc" id=
         "index-C_002de-x-e-C_002dc"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e D</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-D" id=
         "index-_003cfn_003e-x-e-D"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e C-c</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-C_002dc" id=
         "index-_003cfn_003e-x-e-C_002dc"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist-1"
       id=
       "index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements not having class specified in list ‘classes’ from HTML.
+Extract elements not having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
@@ -904,26 +1102,33 @@ values as completion.
     </dd>
   </dl><a name="emacspeak_002dwe_002dstyle_002dfilter" id=
   "emacspeak_002dwe_002dstyle_002dfilter"></a>
+
   <h4 class="subsubsection">12.195.1.27
   emacspeak-we-style-filter</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dstyle_002dfilter" id=
     "index-emacspeak_002dwe_002dstyle_002dfilter"></a>Command:
     <strong>emacspeak-we-style-filter</strong> <em>(style url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e S</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-S" id=
         "index-C_002de-x-e-S"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e S</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-S" id=
         "index-_003cfn_003e-x-e-S"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dstyle_002dfilter-1"
       id="index-emacspeak_002dwe_002dstyle_002dfilter-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements matching specified style
+Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
 specifies the page to extract contents  from.
@@ -935,8 +1140,10 @@ specifies the page to extract contents  from.
   </dl><a name=
   "emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult" id=
   "emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult"></a>
+
   <h4 class="subsubsection">12.195.1.28
   emacspeak-we-toggle-xsl-keep-result</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult"
@@ -944,28 +1151,36 @@ specifies the page to extract contents  from.
     "index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult">
     </a>Command:
     <strong>emacspeak-we-toggle-xsl-keep-result</strong></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e k</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-k" id=
         "index-C_002de-x-e-k"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e k</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-k" id=
         "index-_003cfn_003e-x-e-k"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult-1"
       id=
       "index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult-1"></a>
+
       <div class="format">
-        <pre class="format">Toggle xsl keep result flag.
+        <pre class="format">
+Toggle xsl keep result flag.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute" id=
   "emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute"></a>
+
   <h4 class="subsubsection">12.195.1.29
   emacspeak-we-url-expand-and-execute</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute"
@@ -974,21 +1189,26 @@ specifies the page to extract contents  from.
     </a>Command:
     <strong>emacspeak-we-url-expand-and-execute</strong>
     <em>(&amp;optional prefix)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e e</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-e" id=
         "index-C_002de-x-e-e"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e e</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-e" id=
         "index-_003cfn_003e-x-e-e"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute-1"
       id=
       "index-emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute-1"></a>
+
       <div class="format">
         <pre class="format">
-        Applies buffer-specific URL expander/executor function.
+Applies buffer-specific URL expander/executor function.
 
 (fn &amp;optional PREFIX)
 </pre>
@@ -997,8 +1217,10 @@ specifies the page to extract contents  from.
   </dl><a name=
   "emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow" id=
   "emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow"></a>
+
   <h4 class="subsubsection">12.195.1.30
   emacspeak-we-url-rewrite-and-follow</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow"
@@ -1007,15 +1229,17 @@ specifies the page to extract contents  from.
     </a>Command:
     <strong>emacspeak-we-url-rewrite-and-follow</strong>
     <em>(&amp;optional prompt)</em></dt>
+
     <dd>
       <a name=
       "index-emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow-1"
       id=
       "index-emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow-1">
       </a>
+
       <div class="format">
         <pre class="format">
-        Apply a url rewrite rule as specified in the current buffer
+Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
 form ‘(from to)’ where from and to are strings.  Typically, the
@@ -1032,8 +1256,10 @@ a rewrite rule even if one is already defined.
   </dl><a name=
   "emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow" id=
   "emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow"></a>
+
   <h4 class="subsubsection">12.195.1.31
   emacspeak-we-xpath-filter-and-follow</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow"
@@ -1042,21 +1268,26 @@ a rewrite rule even if one is already defined.
     </a>Command:
     <strong>emacspeak-we-xpath-filter-and-follow</strong>
     <em>(&amp;optional prompt)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e p</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-p" id=
         "index-C_002de-x-e-p"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e p</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-p" id=
         "index-_003cfn_003e-x-e-p"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow-1"
       id=
       "index-emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow-1"></a>
+
       <div class="format">
         <pre class="format">
-        Follow url and point, and filter the result by specified xpath.
+Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
@@ -1068,8 +1299,10 @@ used as well.
   </dl><a name=
   "emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow" id=
   "emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow"></a>
+
   <h4 class="subsubsection">12.195.1.32
   emacspeak-we-xpath-junk-and-follow</h4>
+
   <dl>
     <dt><a name=
     "index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow"
@@ -1077,21 +1310,26 @@ used as well.
     "index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow"></a>Command:
     <strong>emacspeak-we-xpath-junk-and-follow</strong>
     <em>(&amp;optional prompt)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e C-p</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-C_002dp" id=
         "index-C_002de-x-e-C_002dp"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e C-p</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-C_002dp" id=
         "index-_003cfn_003e-x-e-C_002dp"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow-1"
       id=
       "index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow-1"></a>
+
       <div class="format">
         <pre class="format">
-        Follow url and point, and filter the result by junking
+Follow url and point, and filter the result by junking
 elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -1103,49 +1341,63 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002dxsl_002dtoggle" id=
   "emacspeak_002dwe_002dxsl_002dtoggle"></a>
+
   <h4 class="subsubsection">12.195.1.33
   emacspeak-we-xsl-toggle</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dxsl_002dtoggle" id=
     "index-emacspeak_002dwe_002dxsl_002dtoggle"></a>Command:
     <strong>emacspeak-we-xsl-toggle</strong></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e o</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-o" id=
         "index-C_002de-x-e-o"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e o</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-o" id=
         "index-_003cfn_003e-x-e-o"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dxsl_002dtoggle-1"
       id="index-emacspeak_002dwe_002dxsl_002dtoggle-1"></a>
+
       <div class="format">
         <pre class="format">
-        Toggle  application of XSL transformations.
+Toggle  application of XSL transformations.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dwe_002dxslt_002dapply" id=
   "emacspeak_002dwe_002dxslt_002dapply"></a>
+
   <h4 class="subsubsection">12.195.1.34
   emacspeak-we-xslt-apply</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dxslt_002dapply" id=
     "index-emacspeak_002dwe_002dxslt_002dapply"></a>Command:
     <strong>emacspeak-we-xslt-apply</strong> <em>(xsl)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e a</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-a" id=
         "index-C_002de-x-e-a"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e a</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-a" id=
         "index-_003cfn_003e-x-e-a"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dxslt_002dapply-1"
       id="index-emacspeak_002dwe_002dxslt_002dapply-1"></a>
+
       <div class="format">
         <pre class="format">
-        Apply specified transformation to current Web page.
+Apply specified transformation to current Web page.
 
 (fn XSL)
 </pre>
@@ -1153,26 +1405,33 @@ used as well.
     </dd>
   </dl><a name="emacspeak_002dwe_002dxslt_002dfilter" id=
   "emacspeak_002dwe_002dxslt_002dfilter"></a>
+
   <h4 class="subsubsection">12.195.1.35
   emacspeak-we-xslt-filter</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dxslt_002dfilter" id=
     "index-emacspeak_002dwe_002dxslt_002dfilter"></a>Command:
     <strong>emacspeak-we-xslt-filter</strong> <em>(path url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e f</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-f" id=
         "index-C_002de-x-e-f"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e f</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-f" id=
         "index-_003cfn_003e-x-e-f"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dxslt_002dfilter-1"
       id="index-emacspeak_002dwe_002dxslt_002dfilter-1"></a>
+
       <div class="format">
         <pre class="format">
-        Extract elements matching specified XPath path locator
+Extract elements matching specified XPath path locator
 from Web page – default is the current page being viewed.
 
 (fn PATH URL &amp;optional SPEAK)
@@ -1181,25 +1440,32 @@ from Web page – default is the current page being viewed.
     </dd>
   </dl><a name="emacspeak_002dwe_002dxslt_002djunk" id=
   "emacspeak_002dwe_002dxslt_002djunk"></a>
+
   <h4 class="subsubsection">12.195.1.36 emacspeak-we-xslt-junk</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dxslt_002djunk" id=
     "index-emacspeak_002dwe_002dxslt_002djunk"></a>Command:
     <strong>emacspeak-we-xslt-junk</strong> <em>(path url
     &amp;optional speak)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e j</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-j" id=
         "index-C_002de-x-e-j"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e j</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-j" id=
         "index-_003cfn_003e-x-e-j"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dxslt_002djunk-1" id=
       "index-emacspeak_002dwe_002dxslt_002djunk-1"></a>
+
       <div class="format">
         <pre class="format">
-        Junk elements matching specified locator.
+Junk elements matching specified locator.
 
 (fn PATH URL &amp;optional SPEAK)
 </pre>
@@ -1207,25 +1473,32 @@ from Web page – default is the current page being viewed.
     </dd>
   </dl><a name="emacspeak_002dwe_002dxslt_002dselect" id=
   "emacspeak_002dwe_002dxslt_002dselect"></a>
+
   <h4 class="subsubsection">12.195.1.37
   emacspeak-we-xslt-select</h4>
+
   <dl>
     <dt><a name="index-emacspeak_002dwe_002dxslt_002dselect" id=
     "index-emacspeak_002dwe_002dxslt_002dselect"></a>Command:
     <strong>emacspeak-we-xslt-select</strong> <em>(xsl)</em></dt>
+
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e x e s</kbd></dt>
+
         <dd><a name="index-C_002de-x-e-s" id=
         "index-C_002de-x-e-s"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x e s</kbd></dt>
+
         <dd><a name="index-_003cfn_003e-x-e-s" id=
         "index-_003cfn_003e-x-e-s"></a></dd>
       </dl><a name="index-emacspeak_002dwe_002dxslt_002dselect-1"
       id="index-emacspeak_002dwe_002dxslt_002dselect-1"></a>
+
       <div class="format">
         <pre class="format">
-        Select XSL transformation applied to Web pages before they are displayed .
+Select XSL transformation applied to Web pages before they are displayed .
 
 (fn XSL)
 </pre>
@@ -1233,79 +1506,97 @@ from Web page – default is the current page being viewed.
     </dd>
   </dl><a name="emacspeak_002dwe-Options" id=
   "emacspeak_002dwe-Options"></a>
+
   <h4 class="subsection">12.195.2 emacspeak-we Options</h4>
+
   <dl>
-    <dt><a name="index-User-Option-1079" id=
-    "index-User-Option-1079"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1068" id=
+    "index-User-Option-1068"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-we-cleanup-bogus-quotes</em></dt>
+
     <dd>
       <p>Clean up bogus Unicode chars for magic quotes.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1080" id=
-    "index-User-Option-1080"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1069" id=
+    "index-User-Option-1069"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-we-filters-rename-buffer</em></dt>
+
     <dd>
       <p>Set to T if you want the buffer name to contain the
       applied filter.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1081" id=
-    "index-User-Option-1081"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1070" id=
+    "index-User-Option-1070"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-we-media-stream-suffixes</em></dt>
+
     <dd>
       <p>Suffixes that identify URLs to media streams.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1082" id=
-    "index-User-Option-1082"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1071" id=
+    "index-User-Option-1071"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-we-paragraphs-xpath-filter</em></dt>
+
     <dd>
       <p>Filter paragraphs.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1083" id=
-    "index-User-Option-1083"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1072" id=
+    "index-User-Option-1072"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-we-recent-class-filter</em></dt>
+
     <dd>
       <p>Caches most recently used class filter. Can be customized
       to set up initial default.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1084" id=
-    "index-User-Option-1084"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1073" id=
+    "index-User-Option-1073"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-we-recent-xpath-filter</em></dt>
+
     <dd>
       <p>Caches most recently used xpath filter. Can be customized
       to set up initial default.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1085" id=
-    "index-User-Option-1085"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1074" id=
+    "index-User-Option-1074"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-we-xsl-p</em></dt>
+
     <dd>
       <p>T means we apply XSL before displaying HTML.</p>
     </dd>
   </dl>
+
   <dl>
-    <dt><a name="index-User-Option-1086" id=
-    "index-User-Option-1086"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-1075" id=
+    "index-User-Option-1075"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-we-xsl-transform</em></dt>
+
     <dd>
       <p>Specifies transform to use before displaying a page.
       Default is to apply sort-tables.</p>
     </dd>
   </dl>
   <hr />
+
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dwebsearch.html#emacspeak_002dwebsearch"

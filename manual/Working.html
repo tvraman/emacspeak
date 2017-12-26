@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.: Working</title>
   <meta name="description" content=
   "Emacspeak User’s Manual — 2nd Edition.: Working" />
@@ -26,19 +29,19 @@
   <link href="Overview.html#Overview" rel="prev" title=
   "Overview" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -47,18 +50,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="Working" id="Working"></a>
+
   <div class="header">
     <p>Next: <a href="Reading.html#Reading" accesskey="n" rel=
     "next">Reading</a>, Previous: <a href="Overview.html#Overview"
@@ -72,21 +89,27 @@
   <hr />
   <a name="Working-In-Emacs-Buffers_002e" id=
   "Working-In-Emacs-Buffers_002e"></a>
+
   <h3 class="section">6.2 Working In Emacs Buffers.</h3>
+
   <p>While typing in an Emacs buffer, hitting space speaks the
   recently typed word. I use completion all the time; so Emacspeak
   will speak the completion just inserted as well as the next
   possible completion. In Emacs, use <code>load-library ret
   completion ret</code> for loading the completion package.</p>
+
   <p>The standard Emacs prompting functions have also been
   speech-enabled. Emacs prompts with available lists of completions
   in response to partial input wherever appropriate — all forms of
   completion provide speech feedback.</p>
+
   <p>In addition, Emacspeak provides a number of commands for
   reading portions of the current buffer, getting status
   information, and modifying Emacspeak’s state.</p>
+
   <p>All of the commands are documented in the subsequent sections.
   They can be classified into types:</p>
+
   <ul>
     <li>Emacspeak commands for listening to chunks of information.
     The names of these commands all start with the common prefix
@@ -100,6 +123,7 @@
     to use some key other than <kbd>control-e</kbd> as the common
     keyboard prefix for all Emacspeak commands, set the variable
     <var>emacspeak-prefix</var>.</li>
+
     <li>The second category of commands provided by Emacspeak
     manipulate the state of the speech device. The names of these
     commands start with the common prefix <code>dtk-</code> and are
@@ -110,21 +134,30 @@
     keymap <var>emacspeak-dtk-submap</var> and can be executed by
     pressing <kbd>Control e d r</kbd>.</li>
   </ul>
+
   <p>Emacs has extensive online help; so does emacspeak. Please use
   it.</p>
+
   <p>This info manual is only to get you started. You can get a
   summary of Emacspeak’s features by pressing <kbd>Control-h
   Control-e</kbd></p>
+
   <div class="footnote">
     <hr />
+
     <h4 class="footnotes-heading">Footnotes</h4>
+
     <h3><a name="FOOT2" href="#DOCF2" id="FOOT2">(2)</a></h3>
+
     <p>Control e is mnemonic for Emacspeak.</p>
+
     <h3><a name="FOOT3" href="#DOCF3" id="FOOT3">(3)</a></h3>
+
     <p>Historically, d was mnemonic for Dectalk; note that nothing
     in Emacspeak is DECTalk specific.</p>
   </div>
   <hr />
+
   <div class="header">
     <p>Next: <a href="Reading.html#Reading" accesskey="n" rel=
     "next">Reading</a>, Previous: <a href="Overview.html#Overview"

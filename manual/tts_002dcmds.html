@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
   <title>Emacspeak User’s Manual — 2nd Edition.: tts-cmds</title>
   <meta name="description" content=
   "Emacspeak User’s Manual — 2nd Edition.: tts-cmds" />
@@ -27,19 +30,19 @@
   title="voice-setup" />
   <link href="tts.html#tts" rel="prev" title="tts" />
   <style type="text/css">
-  /*<![CDATA[*/
+/*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
-  blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style: oblique}
+  kbd {font-style:oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -48,18 +51,32 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nolinebreak {white-space: nowrap}
-  span.roman {font-family: initial; font-weight: normal}
-  span.sansserif {font-family: sans-serif; font-weight: normal}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
+
 <body lang="en" xml:lang="en">
   <a name="tts_002dcmds" id="tts_002dcmds"></a>
+
   <div class="header">
     <p>Next: <a href="voice_002dsetup.html#voice_002dsetup"
     accesskey="n" rel="next">voice-setup</a>, Previous: <a href=
@@ -73,25 +90,33 @@
   </div>
   <hr />
   <a name="tts_002dcmds-1" id="tts_002dcmds-1"></a>
+
   <h3 class="section">12.225 tts-cmds</h3>
+
   <p>End-user TTS Commands implemented using tts-state. If this
   works out, these will eventually replace the commands implemented
   in dtk-speak.el</p><a name="tts_002dcmds-Commands" id=
   "tts_002dcmds-Commands"></a>
+
   <h4 class="subsection">12.225.1 tts-cmds Commands</h4><a name=
   "tts_002dcmd_002dset_002drate" id=
   "tts_002dcmd_002dset_002drate"></a>
+
   <h4 class="subsubsection">12.225.1.1 tts-cmd-set-rate</h4>
+
   <dl>
     <dt><a name="index-tts_002dcmd_002dset_002drate" id=
     "index-tts_002dcmd_002dset_002drate"></a>Command:
     <strong>tts-cmd-set-rate</strong> <em>(rate &amp;optional
     prefix)</em></dt>
+
     <dd>
       <a name="index-tts_002dcmd_002dset_002drate-1" id=
       "index-tts_002dcmd_002dset_002drate-1"></a>
+
       <div class="format">
-        <pre class="format">Set speech rate.
+        <pre class="format">
+Set speech rate.
 
 (fn RATE &amp;optional PREFIX)
 </pre>
