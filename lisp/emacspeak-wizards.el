@@ -3278,9 +3278,9 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
 "Alpha-Vantage query types.")
 
 (defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
-  "Retrieve stock quote data from Alpha Vantage.
-Prompts for `ticker' --- a stock symbol.
-Optional interactive prefix arg `custom' provides access to the various functions provided by alpha-vantage."
+  "Retrieve stock quote data from Alpha Vantage. Prompts for `ticker'
+--- a stock symbol. Optional interactive prefix arg `custom' provides
+access to the various functions provided by alpha-vantage."
   (interactive
    (list
     (upcase
@@ -3290,8 +3290,9 @@ Optional interactive prefix arg `custom' provides access to the various function
   (cl-declare (special emacspeak-wizards-personal-portfolio
                        ems--alpha-vantage-funcs))
   (let* ((completion-ignore-case t)
-         (method (if custom
-                     (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
+         (method
+          (if custom
+              (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
                    "TIME_SERIES_DAILY"))
          (url
           (emacspeak-wizards-alpha-vantage-uri
@@ -3659,7 +3660,9 @@ q: Quit color wheel, after copying current hex value to kill-ring."
           (setf (ems--color-wheel-blue w)
                 (max 0 (ems--color-wheel-blue w))))
          (t (error "Unknown color %s" color))))
-       (t (message "Left/Right Switches primary color, Up/Down increases/decrements. q to quit."))))))
+       (t
+        (message
+         "Left/Right Switches primary, Up/Down increases/decrements.."))))))
 
 ;;}}}
 ;;{{{ Swap Foreground And Background:
