@@ -281,7 +281,8 @@ part of the libxslt package."
     (read-file-name "File:" default-directory)))
   (cl-declare (special emacspeak-xslt-directory))
   (with-temp-buffer
-    (let ((coding-system-for-read 'utf-8)
+    (let ((browse-url-browser-function  'eww-browse-url)
+          (coding-system-for-read 'utf-8)
           (coding-system-for-write 'utf-8)
           (buffer-file-coding-system 'utf-8))
       (insert-file file)
@@ -317,7 +318,8 @@ part of the libxslt package."
     (emacspeak-xslt-read)
     (emacspeak-webutils-read-this-url)
     current-prefix-arg))
-  (let ((src-buffer
+  (let ((browse-url-browser-function  'eww-browse-url)
+        (src-buffer
          (emacspeak-xslt-xml-url
           style
           url
@@ -343,7 +345,8 @@ part of the libxslt package."
     (point)
     (mark)
     current-prefix-arg))
-  (let ((src-buffer
+  (let ((browse-url-browser-function  'eww-browse-url)
+        (src-buffer
          (with-silent-modifications
            (emacspeak-xslt-region style start end))))
     (save-current-buffer

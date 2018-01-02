@@ -1277,7 +1277,7 @@ visiting the xls file."
                  emacspeak-wizards-xlhtml-program filename)
          'replace
          (current-buffer))
-        (browse-url-of-buffer))
+        (call-interactively #'browse-url-of-buffer))
       (kill-buffer buffer)
       (kill-buffer xl-buffer)))))
 
@@ -1384,7 +1384,7 @@ visiting the ppt file."
                   emacspeak-wizards-ppthtml-program filename)
           'replace
           (current-buffer))
-         (call-interactively 'browse-url-of-buffer))
+         (call-interactively #'browse-url-of-buffer))
        (kill-buffer buffer)
        (kill-buffer ppt-buffer))))))
 

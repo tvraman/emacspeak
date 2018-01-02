@@ -228,6 +228,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
   (cl-declare (special  eww-data  eww-current-url
                         emacspeak-eww-feed emacspeak-eww-style))
   (let ((inhibit-read-only t)
+        (browse-url-browser-function  'eww-browse-url)
         (data-buffer (current-buffer))
         (coding-system-for-read 'utf-8)
         (coding-system-for-write 'utf-8)
@@ -324,7 +325,8 @@ Argument `feed' is a feed structure (label url type)."
 
 (defun emacspeak-feeds-feed-button-action (button)
   "Open feed associated with this button."
-  (let ((url (button-get button 'url))
+  (let ((browse-url-browser-function  'eww-browse-url)
+        (url (button-get button 'url))
         (link (button-get button 'link)))
     (cond
      ((zerop (length url)) ; missing feed url 
