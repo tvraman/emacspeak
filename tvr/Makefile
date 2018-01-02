@@ -5,7 +5,7 @@ BATCH = -batch -q -no-site-file
 COMPILE =  -f batch-byte-compile
 
 SETUP = emacs-startup.elc kbd-setup.elc  \
-gm-smtp.elc
+ gm-smtp.elc \
  vm-prepare.elc gnus-prepare.elc bbdb-prepare.elc \
 laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
  folding.elc folding-prepare.elc \
