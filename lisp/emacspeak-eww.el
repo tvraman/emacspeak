@@ -2052,6 +2052,7 @@ interactive prefix arg `delete', delete that mark instead."
   "Setup speech-rate, punctuation and split-caps for reading prose."
   (interactive)
   (cl-declare (special dtk-speech-rate-base dtk-speech-rate-step))
+  (emacspeak-pronounce-toggle-use-of-dictionaries t)
   (dtk-set-rate (+ dtk-speech-rate-base (* dtk-speech-rate-step  3)))
   (dtk-set-punctuations 'some)
   (when dtk-split-caps(dtk-toggle-split-caps))
