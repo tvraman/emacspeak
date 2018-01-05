@@ -84,8 +84,8 @@
     (?‘ . " backquote  ")           ; LEFT SINGLE QUOTATION MARK
     (?’ . "'")                      ; right SINGLE QUOTATION MARK
     (?‐ . "hyphen")                      ; hyphenm
-    (?– . "--")                     ; n-dash
-    (?— . "---")                    ; m-dash
+    (?– . " -- ")                     ; n-dash
+    (?— . " --- ")                    ; m-dash
     (?  . " ") ; hair space 
     (?― . "----")                   ; horizontal bar 
     (?‖ . "||")                     ; vertical bar
