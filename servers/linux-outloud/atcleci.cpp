@@ -84,7 +84,7 @@
 /*
  * globals
  */
-
+static int monotonic = 0;
 static snd_pcm_t *AHandle = NULL;
 static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
@@ -173,6 +173,7 @@ static size_t alsa_configure(void) {
   unsigned int rate = DEFAULT_SPEED;
   int err;
   snd_pcm_hw_params_alloca(&params);
+  monotonic = snd_pcm_hw_params_is_monotonic(params);
   //>
   //<defaults:
 
