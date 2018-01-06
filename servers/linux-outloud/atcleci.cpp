@@ -277,8 +277,9 @@ static void xrun(void) {
              // again
   }
 
-  fprintf(stderr, "read/write error, state = %s",
+  fprintf(stderr, "read/write error, state = %s\n",
           snd_pcm_state_name(snd_pcm_status_get_state(status)));
+  snd_pcm_dump(AHandle, Log);
   exit(EXIT_FAILURE);
 }
 
