@@ -206,7 +206,9 @@ use."
    amixer-alsactl-config-file
    (let ((sys-alsa "/var/lib/alsa/asound.state")
          (f (expand-file-name "asound.state" user-emacs-directory)))
-     (unless (file-exists-p sys-alsa) (error "Alsa not setup correctly."))
+     (unless (file-exists-p sys-alsa)
+       (error "Alsa not setup correctly.")
+       (message "Perhaps run \"sudo alsactl store the first time.\""))
      (unless  (file-exists-p f) (copy-file sys-alsa user-emacs-directory))
      f)))
 
