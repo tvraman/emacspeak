@@ -496,8 +496,8 @@ the words that were capitalized."
      "Speak character you're deleting."
      (cond
       ((ems-interactive-p)
-       (dtk-tone-deletion)
        (emacspeak-speak-this-char (preceding-char))
+       (dtk-tone-deletion)
        ad-do-it)
       (t ad-do-it))
      ad-return-value)))
