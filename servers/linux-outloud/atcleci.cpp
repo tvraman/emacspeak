@@ -160,6 +160,7 @@ int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int SetLanguage(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int alsa_close();
+int alsa_retry();
 int eciCallback(void *, int, long, void *);
 
 //>
@@ -282,8 +283,8 @@ static void xrun(void) {
   fprintf(stderr, "read/write error, state = %s\n",
           snd_pcm_state_name(snd_pcm_status_get_state(status)));
   snd_pcm_dump(AHandle, Log);
-  alsa_close();
-  exit(EXIT_FAILURE);
+  alsa_retry();
+  // exit(EXIT_FAILURE);
 }
 
 static void suspend(void) {
@@ -371,6 +372,14 @@ int alsa_close() {
   // shut down alsa
   snd_pcm_close(AHandle);
   free(waveBuffer);
+  return TCL_OK;
+}
+
+
+int alsa_retry() {
+  // shutdown, then reopen
+  snd_pcm_close(AHandle);
+  alsa_init();
   return TCL_OK;
 }
 
