@@ -84,7 +84,6 @@
 /*
  * globals
  */
-static int monotonic = 0;
 static snd_pcm_t *AHandle = NULL;
 static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
@@ -174,7 +173,6 @@ static size_t alsa_configure(void) {
   unsigned int rate = DEFAULT_SPEED;
   int err;
   snd_pcm_hw_params_alloca(&params);
-  monotonic = snd_pcm_hw_params_is_monotonic(params);
   //>
   //<defaults:
 
@@ -282,7 +280,6 @@ static void xrun(void) {
 
   fprintf(stderr, "read/write error, state = %s\n",
           snd_pcm_state_name(snd_pcm_status_get_state(status)));
-  snd_pcm_dump(AHandle, Log);
   alsa_retry();
   // exit(EXIT_FAILURE);
 }
@@ -378,6 +375,7 @@ int alsa_close() {
 }
 
 int alsa_retry() {
+  fprintf(stderr, "re-initializing ALSA\n");
   // shutdown, then reopen
   if (AHandle) {
   snd_pcm_close(AHandle);
