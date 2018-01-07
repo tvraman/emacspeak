@@ -271,17 +271,15 @@ static void xrun(void) {
             diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
     if ((res = snd_pcm_prepare(AHandle)) < 0) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
-      exit(EXIT_FAILURE);
       alsa_close();
+      exit(EXIT_FAILURE);
     }
-    return;  // ok, data should be accepted
-             // again
+    return;  // ok, data should be accepted again
   }
-
   fprintf(stderr, "read/write error, state = %s\n",
           snd_pcm_state_name(snd_pcm_status_get_state(status)));
+  // DMIX leaves device in a strange state, so retry.
   alsa_retry();
-  // exit(EXIT_FAILURE);
 }
 
 static void suspend(void) {
