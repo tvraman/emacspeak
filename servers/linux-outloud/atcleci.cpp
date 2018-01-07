@@ -376,11 +376,12 @@ int alsa_close() {
 
 int alsa_retry() {
   fprintf(stderr, "re-initializing ALSA\n");
-  // shutdown, then reopen
-  if (AHandle) {
-  snd_pcm_close(AHandle);
+  int res;
+  if ((res = snd_pcm_prepare(AHandle)) < 0) {
+    fprintf(stderr, "Retry: prepare error: %s", snd_strerror(res));
+    alsa_close();
+    exit(EXIT_FAILURE);
   }
-  alsa_init();
   return TCL_OK;
 }
 
