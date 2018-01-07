@@ -317,7 +317,7 @@ static ssize_t pcm_write(short *data, size_t count) {
   while (count > 0) {
     r = snd_pcm_writei(AHandle, data, count);
     if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
-      snd_pcm_wait(AHandle, 1000);
+      snd_pcm_wait(AHandle, 100);
     } else if (r == -EPIPE) {
       xrun();
     } else if (r == -ESTRPIPE) {
