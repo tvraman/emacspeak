@@ -260,6 +260,7 @@ static void xrun(void) {
   snd_pcm_status_alloca(&status);
   if ((res = snd_pcm_status(AHandle, status)) < 0) {
     fprintf(stderr, "status error: %s", snd_strerror(res));
+    alsa_close();
     exit(EXIT_FAILURE);
   }
   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
@@ -272,6 +273,7 @@ static void xrun(void) {
     if ((res = snd_pcm_prepare(AHandle)) < 0) {
       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
       exit(EXIT_FAILURE);
+      alsa_close();
     }
     return;  // ok, data should be accepted
              // again
@@ -280,6 +282,7 @@ static void xrun(void) {
   fprintf(stderr, "read/write error, state = %s\n",
           snd_pcm_state_name(snd_pcm_status_get_state(status)));
   snd_pcm_dump(AHandle, Log);
+  alsa_close();
   exit(EXIT_FAILURE);
 }
 
@@ -296,6 +299,7 @@ static void suspend(void) {
     fflush(stderr);
     if ((res = snd_pcm_prepare(AHandle)) < 0) {
       fprintf(stderr, "suspend: prepare error: %s", snd_strerror(res));
+      alsa_close();
       exit(EXIT_FAILURE);
     }
   }
@@ -319,6 +323,7 @@ static ssize_t pcm_write(short *data, size_t count) {
       suspend();
     } else if (r < 0) {
       fprintf(stderr, "write error: %s", snd_strerror(r));
+      alsa_close();
       exit(EXIT_FAILURE);
     }
     if (r > 0) {
