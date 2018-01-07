@@ -370,15 +370,18 @@ static size_t alsa_init() {
 
 int alsa_close() {
   // shut down alsa
-  snd_pcm_close(AHandle);
+  if (AHandle) {
+                snd_pcm_close(AHandle);
+                }
   free(waveBuffer);
   return TCL_OK;
 }
 
-
 int alsa_retry() {
   // shutdown, then reopen
+  if (AHandle) {
   snd_pcm_close(AHandle);
+  }
   alsa_init();
   return TCL_OK;
 }
