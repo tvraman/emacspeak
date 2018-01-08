@@ -262,6 +262,14 @@ static void xrun(void) {
     alsa_close();
     exit(EXIT_FAILURE);
   }
+  if (snd_pcm_status_get_state(status) == SND_PCM_STATE_RUNNING) { // confused dmix state
+    if ((res = snd_pcm_prepare(AHandle)) < 0) {
+    fprintf(stderr, "XRUN: prepare error: %s", snd_strerror(res));
+    alsa_close();
+    exit(EXIT_FAILURE);
+    }
+    return; // ready to continue 
+    }
   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
     struct timeval now, diff, tstamp;
     gettimeofday(&now, 0);
