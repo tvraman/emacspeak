@@ -1,0 +1,58 @@
+* Summary 
+
+I recently updated to a new Linux laptop running the latest Debian
+(Rodete).  The upgrade went smoothly, but when I started using the
+machine, I found that the Emacspeak TTS server for Voxin (Outloud)
+crashed consistently; here, consistently equated to crashing on short
+utterances which made typing or navigating by character an extremely
+frustrating experience.
+
+I fixed the issue by creating a work-around in the TTS server 
+[[https://github.com/tvraman/emacspeak/blob/master/servers/linux-outloud/atcleci.cpp#255][atcleci.cpp::xrun]]
+--- if you run into this issue, make sure to update and rebuild
+atcleci.so from GitHub; alternatively, you'll find an updated
+~atcleci.so~ in the ~servers/linux-outloud/lib/~ directory after a
+_git update_ that you can copy over to your ~servers/linux-outloud~
+directory.
+
+* What Was Crashing 
+
+I use a DMIX plugin as the default device --- and have many ALSA
+virtual devices  that are defined in terms of this device --- see my 
+[[https://github.com/tvraman/emacspeak/blob/master/servers/linux-outloud/asoundrc][asoundrc]]. With this configuration, writing to the ALSA device  was
+raising an _EPIPE_ error  --- normally this error indicates a buffer
+underrun --- that's when ALSA is starved of audio data.   But in many
+of these cases, the ALSA device was still in a _RUNNING_ rather than
+an _XRUN_ state --- this caused the Emacspeak server to
+abort. Curiously, this happened only sporadically --- and from my
+experimentation only happened when there were multiple streams of
+audio active on the machine.
+A few Google searches showed threads on the alsa/kernel devel lists
+that indicated that this bug was present  in the case of DMIX devices
+--- it was hard to tell if the patch that was submitted on the
+alsa-devel list had made it into my installation of Debian.
+
+* Fixing The Problem 
+
+My original implementation of function _xrun_  had been cloned from
+_aplay.c_ about 15+ years ago --- looking at  the newest _aplay_
+implementation, little to nothing had changed there.  I finally worked
+around  the issue  by adding a call to 
+: snd_pcm_prepare(AHandle) 
+whenever ALSA raised an _EPIPE_ error during write --- with the ALSA
+device state in a _RUNNING_ rather than an _XRUN_ state. This
+appears to fix the issue.
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Updating Voxin TTS Server To  Avoid A Possible ALSA Bug 
+#+DATE: <2018-01-08 Mon>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 27.0.50 (Org mode 9.1.6)
