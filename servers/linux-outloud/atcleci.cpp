@@ -319,12 +319,17 @@ static void suspend(void) {
 static ssize_t pcm_write(short *data, size_t count) {
   ssize_t r;
   ssize_t result = 0;
+  int res;
   while (count > 0) {
     r = snd_pcm_writei(AHandle, data, count);
     if (r == -EAGAIN || (r >= 0 && (size_t)r < count)) {
       snd_pcm_wait(AHandle, 100);
     } else if (r == -EPIPE) {
-      xrun();
+      if ((res = snd_pcm_prepare(AHandle)) < 0) {
+    fprintf(stderr, "Write/Retry: prepare error: %s", snd_strerror(res));
+    alsa_close();
+    exit(EXIT_FAILURE);
+  }
     } else if (r == -ESTRPIPE) {
       suspend();
     } else if (r < 0) {
