@@ -326,10 +326,10 @@ static ssize_t pcm_write(short *data, size_t count) {
       snd_pcm_wait(AHandle, 100);
     } else if (r == -EPIPE) {
       if ((res = snd_pcm_prepare(AHandle)) < 0) {
-    fprintf(stderr, "Write/Retry: prepare error: %s", snd_strerror(res));
-    alsa_close();
-    exit(EXIT_FAILURE);
-  }
+        fprintf(stderr, "Write/Retry: prepare error: %s", snd_strerror(res));
+        alsa_close();
+        exit(EXIT_FAILURE);
+      }
     } else if (r == -ESTRPIPE) {
       suspend();
     } else if (r < 0) {
