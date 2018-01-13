@@ -350,8 +350,8 @@ static ssize_t pcm_write(short *data, size_t count) {
 //<alsa_reset
 
 void alsa_reset() {
-  snd_pcm_drop(AHandle);
-  snd_pcm_prepare(AHandle);
+  snd_pcm_drop(AHandle); // flush all frames
+  snd_pcm_prepare(AHandle); 
 }
 
 //>
