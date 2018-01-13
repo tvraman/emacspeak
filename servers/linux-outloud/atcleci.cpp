@@ -298,8 +298,7 @@ static void suspend(void) {
   fprintf(stderr, "Suspended. Trying resume. ");
   fflush(stderr);
   while ((res = snd_pcm_resume(AHandle)) == -EAGAIN)
-    sleep(1); /* wait until suspend flag is * * released
-               */
+    sleep(1); /* wait until suspend flag is  released */
   if (res < 0) {
     fprintf(stderr, "Failed. Restarting stream. ");
     fflush(stderr);
