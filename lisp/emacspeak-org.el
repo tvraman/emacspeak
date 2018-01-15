@@ -710,6 +710,8 @@ fillers:
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'fill-object)
        (message "Filled current paragraph")))
+
+(provide 'emacspeak-org)
 ;;{{{ end of file
 
 ;;; local variables:
