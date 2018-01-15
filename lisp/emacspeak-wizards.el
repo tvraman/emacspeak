@@ -3060,7 +3060,7 @@ sorted in lexical order with duplicates removed when saving."
        sym
        (mapconcat
         #'identity
-        (remove-duplicates
+        (cl-remove-duplicates
          (sort (split-string val)#'string-lessp) :test #'string=)
         "\n"))))
 

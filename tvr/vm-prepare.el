@@ -36,6 +36,8 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 
   `(progn
      (load "vm-autoloads")
+(when (require 'bbdb)
+(bbdb-insinuate-vm))
 (add-hook 'vm-quit-hook #'vm-expunge-folder)
 ;(global-set-key "\C-xm" 'vm-mail)
 

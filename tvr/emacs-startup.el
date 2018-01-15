@@ -15,7 +15,7 @@
   "Site libs.")
 
 (when (file-exists-p  emacs-personal-library)
-  (push emacs-personal-library load-path))
+  (cl-pushnew emacs-personal-library load-path))
 
 (defvar tvr-libs
   '(
@@ -105,7 +105,6 @@
     (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
     (global-set-key (kbd "C-RET") 'hippie-expand)
     (tvr-set-color-for-today)
-    (bbdb-insinuate-vm)
     (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
@@ -119,7 +118,10 @@
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
-  (cl-declare (special emacspeak-sounds-directory tvr-libs))
+  (cl-declare (special emacspeak-sounds-directory tvr-libs
+                       emacs-personal-library))
+  (when (file-exists-p  emacs-personal-library)
+    (cl-pushnew emacs-personal-library load-path))
   (let ((after-start (current-time))
         (gc-cons-threshold 64000000)
         (file-name-handler-alist nil)
@@ -248,8 +250,7 @@
     (save-place-mode)
     (midnight-mode)
     (server-start)
-    (and (fboundp 'pinentry-start)(pinentry-start))
-    (bbdb-insinuate-vm))
+    (and (fboundp 'pinentry-start)(pinentry-start)))
 
   ;;}}}
   ) ;end defun
