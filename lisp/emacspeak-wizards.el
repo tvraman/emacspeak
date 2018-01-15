@@ -3865,7 +3865,7 @@ weather for `gweb-my-address'.  "
     (cl-loop 
      for p being the hash-values of url-http-open-connections
      when p do
-     (incf count)
+     (cl-incf count)
      (delete-process (car p)))
     (message "Deleted %d web  connections" count)))
 
