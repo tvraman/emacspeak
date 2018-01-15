@@ -118,10 +118,7 @@
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
-  (cl-declare (special emacspeak-sounds-directory tvr-libs
-                       emacs-personal-library))
-  (when (file-exists-p  emacs-personal-library)
-    (cl-pushnew emacs-personal-library load-path))
+  (cl-declare (special emacspeak-sounds-directory tvr-libs))
   (let ((after-start (current-time))
         (gc-cons-threshold 64000000)
         (file-name-handler-alist nil)
