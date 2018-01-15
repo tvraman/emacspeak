@@ -688,7 +688,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 (cl-loop
  for f in
- '(org-edit-src-code org-edit-special) do
+ '(org-edit-src-code org-edit-special org-switchb) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
@@ -697,8 +697,19 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
+ 
+fillers:
 
-(provide 'emacspeak-org)
+
+ 
+ 
+ 
+ 
+(defadvice org-fill-paragraph (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'fill-object)
+       (message "Filled current paragraph")))
 ;;{{{ end of file
 
 ;;; local variables:
