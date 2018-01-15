@@ -154,8 +154,8 @@ Stop apps that use the network."
   (run-hooks 'emacspeak-dbus-sleep-hook))
 
 (defun emacspeak-dbus-resume-signal-handler()
-  (message "Waking Up")
   (sox-chime)
+  (message "Waking Up")
   (run-hooks 'emacspeak-dbus-resume-hook))
 
 (defvar emacspeak-dbus-sleep-registration nil
