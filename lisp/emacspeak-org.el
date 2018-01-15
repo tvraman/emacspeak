@@ -698,18 +698,17 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 ;;}}}
  
-fillers:
-
 
  
- 
- 
- 
+;;{{{ Fillers:
+
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'fill-object)
        (message "Filled current paragraph")))
+
+;;}}}
 
 (provide 'emacspeak-org)
 ;;{{{ end of file
