@@ -502,9 +502,16 @@ Optional interactive prefix arg `force' skips optimization checks."
     (setq soundscape--last-mode major-mode)
     (soundscape-sync major-mode 'force)))
 
+
+(defun soundscape-tickle ()
+  "Function to unconditionally update Soundscape automatically."
+  (cl-declare (special  soundscape--last-mode))
+  (setq soundscape--last-mode major-mode)
+    (soundscape-sync major-mode 'force))
+
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
-;;; Running on an idle timer can
+;;; Running on an idle timer 
 ;;;  soundscape-delay (default is 0.1)
 ;;;   triggers fewer spurious changes than running on advice.
 
@@ -576,7 +583,7 @@ This is then saved to soundscape-device for future use."
       (soundscape-listener-shutdown))
     (soundscape-toggle)
     (sit-for 0.1)
-    (soundscape-sync major-mode 'force))
+    (soundscape-tickle))
 
 ;;}}}
 ;;{{{ Display Theme:
