@@ -1,3 +1,4 @@
+
 ;;; soundscape.el -- Soundscapes for The Emacspeak Desktop  -*- lexical-binding: t; -*-
 ;;; Description:  Soundscapes Using Boodler
 ;;; Keywords: Emacspeak,  Audio Desktop Soundscapes
@@ -493,7 +494,6 @@ Optional interactive prefix arg `force' skips optimization checks."
   (cl-declare (special  soundscape--last-mode))
   (unless
       (or
-       ;(eq major-mode soundscape--last-mode)
        (eq 'minibuffer-inactive-mode major-mode)
        (string-prefix-p " " (buffer-name))
        (string-prefix-p " *Minibuf-" (buffer-name))
