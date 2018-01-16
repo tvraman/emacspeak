@@ -493,13 +493,13 @@ Optional interactive prefix arg `force' skips optimization checks."
   (cl-declare (special  soundscape--last-mode))
   (unless
       (or
-       (eq major-mode soundscape--last-mode)
+       ;(eq major-mode soundscape--last-mode)
        (eq 'minibuffer-inactive-mode major-mode)
        (string-prefix-p " " (buffer-name))
        (string-prefix-p " *Minibuf-" (buffer-name))
        (string-match "temp" (buffer-name)))
     (setq soundscape--last-mode major-mode)
-    (soundscape-sync major-mode)))
+    (soundscape-sync major-mode 'force)))
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
