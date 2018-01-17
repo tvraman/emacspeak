@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-webutils</title>
   <meta name="description" content=
@@ -32,19 +29,19 @@
   <link href="emacspeak_002dwebspace.html#emacspeak_002dwebspace"
   rel="prev" title="emacspeak-webspace" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -53,32 +50,18 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dwebutils" id="emacspeak_002dwebutils"></a>
-
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dwidget.html#emacspeak_002dwidget" accesskey="n"
@@ -95,23 +78,18 @@
   <hr />
   <a name="emacspeak_002dwebutils-1" id=
   "emacspeak_002dwebutils-1"></a>
-
   <h3 class="section">12.198 emacspeak-webutils</h3>
-
   <p>This module provides common Web utilities for emacspeak. This
   is to avoid duplication of code in web support
   libraries</p><a name="emacspeak_002dwebutils-Commands" id=
   "emacspeak_002dwebutils-Commands"></a>
-
   <h4 class="subsection">12.198.1 emacspeak-webutils
   Commands</h4><a name=
   "emacspeak_002dwebutils_002dcurl_002dplay_002dmedia_002dat_002dpoint"
   id=
   "emacspeak_002dwebutils_002dcurl_002dplay_002dmedia_002dat_002dpoint"></a>
-
   <h4 class="subsubsection">12.198.1.1
   emacspeak-webutils-curl-play-media-at-point</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dcurl_002dplay_002dmedia_002dat_002dpoint"
@@ -119,17 +97,14 @@
     "index-emacspeak_002dwebutils_002dcurl_002dplay_002dmedia_002dat_002dpoint">
     </a>Command:
     <strong>emacspeak-webutils-curl-play-media-at-point</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dcurl_002dplay_002dmedia_002dat_002dpoint-1"
       id=
       "index-emacspeak_002dwebutils_002dcurl_002dplay_002dmedia_002dat_002dpoint-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Use Curl to pull a URL, then pass
+        <pre class="format">Use Curl to pull a URL, then pass
 the first line to MPlayer as a playlist.
 Useful in handling double-redirect from TuneIn.
 </pre>
@@ -139,10 +114,8 @@ Useful in handling double-redirect from TuneIn.
   "emacspeak_002dwebutils_002dgoogle_002dextract_002dfrom_002dcache"
   id=
   "emacspeak_002dwebutils_002dgoogle_002dextract_002dfrom_002dcache"></a>
-
   <h4 class="subsubsection">12.198.1.2
   emacspeak-webutils-google-extract-from-cache</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dgoogle_002dextract_002dfrom_002dcache"
@@ -151,17 +124,15 @@ Useful in handling double-redirect from TuneIn.
     </a>Command:
     <strong>emacspeak-webutils-google-extract-from-cache</strong>
     <em>(&amp;optional prefix)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dgoogle_002dextract_002dfrom_002dcache-1"
       id=
       "index-emacspeak_002dwebutils_002dgoogle_002dextract_002dfrom_002dcache-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Extract current  page from the Google cache.
+        Extract current  page from the Google cache.
 With a prefix argument, extracts url under point.
 
 (fn &amp;optional PREFIX)
@@ -171,10 +142,8 @@ With a prefix argument, extracts url under point.
   </dl><a name=
   "emacspeak_002dwebutils_002dgoogle_002don_002dthis_002dsite" id=
   "emacspeak_002dwebutils_002dgoogle_002don_002dthis_002dsite"></a>
-
   <h4 class="subsubsection">12.198.1.3
   emacspeak-webutils-google-on-this-site</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dgoogle_002don_002dthis_002dsite"
@@ -182,17 +151,15 @@ With a prefix argument, extracts url under point.
     "index-emacspeak_002dwebutils_002dgoogle_002don_002dthis_002dsite">
     </a>Command:
     <strong>emacspeak-webutils-google-on-this-site</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dgoogle_002don_002dthis_002dsite-1"
       id=
       "index-emacspeak_002dwebutils_002dgoogle_002don_002dthis_002dsite-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Perform a google search restricted to the current WWW site.
+        Perform a google search restricted to the current WWW site.
 </pre>
       </div>
     </dd>
@@ -200,10 +167,8 @@ Perform a google search restricted to the current WWW site.
   "emacspeak_002dwebutils_002dgoogle_002dsimilar_002dto_002dthis_002dpage"
   id=
   "emacspeak_002dwebutils_002dgoogle_002dsimilar_002dto_002dthis_002dpage"></a>
-
   <h4 class="subsubsection">12.198.1.4
   emacspeak-webutils-google-similar-to-this-page</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dgoogle_002dsimilar_002dto_002dthis_002dpage"
@@ -212,17 +177,15 @@ Perform a google search restricted to the current WWW site.
     </a>Command:
     <strong>emacspeak-webutils-google-similar-to-this-page</strong>
     <em>(url)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dgoogle_002dsimilar_002dto_002dthis_002dpage-1"
       id=
       "index-emacspeak_002dwebutils_002dgoogle_002dsimilar_002dto_002dthis_002dpage-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Ask Google to find documents similar to this one.
+        Ask Google to find documents similar to this one.
 
 (fn URL)
 </pre>
@@ -232,10 +195,8 @@ Ask Google to find documents similar to this one.
   "emacspeak_002dwebutils_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage"
   id=
   "emacspeak_002dwebutils_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage"></a>
-
   <h4 class="subsubsection">12.198.1.5
   emacspeak-webutils-google-who-links-to-this-page</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage"
@@ -243,17 +204,15 @@ Ask Google to find documents similar to this one.
     "index-emacspeak_002dwebutils_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage">
     </a>Command:
     <strong>emacspeak-webutils-google-who-links-to-this-page</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage-1"
       id=
       "index-emacspeak_002dwebutils_002dgoogle_002dwho_002dlinks_002dto_002dthis_002dpage-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Perform a google search to locate documents that link to the
+        Perform a google search to locate documents that link to the
 current page.
 </pre>
       </div>
@@ -262,10 +221,8 @@ current page.
   "emacspeak_002dwebutils_002djump_002dto_002dtitle_002din_002dcontent"
   id=
   "emacspeak_002dwebutils_002djump_002dto_002dtitle_002din_002dcontent"></a>
-
   <h4 class="subsubsection">12.198.1.6
   emacspeak-webutils-jump-to-title-in-content</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002djump_002dto_002dtitle_002din_002dcontent"
@@ -273,17 +230,14 @@ current page.
     "index-emacspeak_002dwebutils_002djump_002dto_002dtitle_002din_002dcontent">
     </a>Command:
     <strong>emacspeak-webutils-jump-to-title-in-content</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002djump_002dto_002dtitle_002din_002dcontent-1"
       id=
       "index-emacspeak_002dwebutils_002djump_002dto_002dtitle_002din_002dcontent-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Jumps to the title in web document.
+        <pre class="format">Jumps to the title in web document.
 The first time it is called, it jumps to the first
 instance  of the title.  Repeated calls jump to further
 instances.
@@ -293,10 +247,8 @@ instances.
   </dl><a name=
   "emacspeak_002dwebutils_002dplay_002dmedia_002dat_002dpoint" id=
   "emacspeak_002dwebutils_002dplay_002dmedia_002dat_002dpoint"></a>
-
   <h4 class="subsubsection">12.198.1.7
   emacspeak-webutils-play-media-at-point</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dplay_002dmedia_002dat_002dpoint"
@@ -305,26 +257,20 @@ instances.
     </a>Command:
     <strong>emacspeak-webutils-play-media-at-point</strong>
     <em>(&amp;optional playlist-p)</em></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e M-;</kbd></dt>
-
         <dd><a name="index-C_002de-M_002d_003b" id=
         "index-C_002de-M_002d_003b"></a></dd>
-
         <dt><kbd>&lt;fn&gt; M-;</kbd></dt>
-
         <dd><a name="index-_003cfn_003e-M_002d_003b" id=
         "index-_003cfn_003e-M_002d_003b"></a></dd>
       </dl><a name=
       "index-emacspeak_002dwebutils_002dplay_002dmedia_002dat_002dpoint-1"
       id=
       "index-emacspeak_002dwebutils_002dplay_002dmedia_002dat_002dpoint-1"></a>
-
       <div class="format">
-        <pre class="format">
-Play media url under point.
+        <pre class="format">Play media url under point.
 Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
 
@@ -336,10 +282,8 @@ Optional interactive prefix arg ‘playlist-p’ says to treat the link as a pla
   "emacspeak_002dwebutils_002dtranscode_002dcurrent_002durl_002dvia_002dgoogle"
   id=
   "emacspeak_002dwebutils_002dtranscode_002dcurrent_002durl_002dvia_002dgoogle"></a>
-
   <h4 class="subsubsection">12.198.1.8
   emacspeak-webutils-transcode-current-url-via-google</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dtranscode_002dcurrent_002durl_002dvia_002dgoogle"
@@ -348,17 +292,14 @@ Optional interactive prefix arg ‘playlist-p’ says to treat the link as a pla
     </a>Command:
     <strong>emacspeak-webutils-transcode-current-url-via-google</strong>
     <em>(&amp;optional untranscode)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dtranscode_002dcurrent_002durl_002dvia_002dgoogle-1"
       id=
       "index-emacspeak_002dwebutils_002dtranscode_002dcurrent_002durl_002dvia_002dgoogle-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Transcode current URL via Google.
+        <pre class="format">Transcode current URL via Google.
   Reverse effect with prefix arg.
 
 (fn &amp;optional UNTRANSCODE)
@@ -368,10 +309,8 @@ Transcode current URL via Google.
   </dl><a name=
   "emacspeak_002dwebutils_002dtranscode_002dvia_002dgoogle" id=
   "emacspeak_002dwebutils_002dtranscode_002dvia_002dgoogle"></a>
-
   <h4 class="subsubsection">12.198.1.9
   emacspeak-webutils-transcode-via-google</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dwebutils_002dtranscode_002dvia_002dgoogle"
@@ -380,17 +319,14 @@ Transcode current URL via Google.
     </a>Command:
     <strong>emacspeak-webutils-transcode-via-google</strong>
     <em>(&amp;optional untranscode)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dwebutils_002dtranscode_002dvia_002dgoogle-1"
       id=
       "index-emacspeak_002dwebutils_002dtranscode_002dvia_002dgoogle-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Transcode URL under point via Google.
+        <pre class="format">Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page.
 
 (fn &amp;optional UNTRANSCODE)
@@ -399,20 +335,16 @@ Transcode URL under point via Google.
     </dd>
   </dl><a name="emacspeak_002dwebutils-Options" id=
   "emacspeak_002dwebutils-Options"></a>
-
   <h4 class="subsection">12.198.2 emacspeak-webutils Options</h4>
-
   <dl>
     <dt><a name="index-User-Option-1080" id=
     "index-User-Option-1080"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-webutils-charent-alist</em></dt>
-
     <dd>
       <p>Entities to unescape when treating badly escaped XML.</p>
     </dd>
   </dl>
   <hr />
-
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dwidget.html#emacspeak_002dwidget" accesskey="n"

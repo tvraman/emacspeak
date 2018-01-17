@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.:
   emacspeak-m-player</title>
   <meta name="description" content=
@@ -32,19 +29,19 @@
   <link href="emacspeak_002dlua.html#emacspeak_002dlua" rel="prev"
   title="emacspeak-lua" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -53,33 +50,19 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name="emacspeak_002dm_002dplayer" id=
   "emacspeak_002dm_002dplayer"></a>
-
   <div class="header">
     <p>Next: <a href="emacspeak_002dmagit.html#emacspeak_002dmagit"
     accesskey="n" rel="next">emacspeak-magit</a>, Previous:
@@ -95,18 +78,14 @@
   <hr />
   <a name="emacspeak_002dm_002dplayer-1" id=
   "emacspeak_002dm_002dplayer-1"></a>
-
   <h3 class="section">12.112 emacspeak-m-player</h3>
-
   <p>Defines an Emacspeak front-end for interacting with
   <code>mplayer</code>. Program <code>mplayer</code> is a versatile
   media player capable of playing many streaming media formats.
   This module provides complete access to all <code>mplayer</code>
   functionality from a convenient Emacs interface.</p><a name=
   "Usage-1" id="Usage-1"></a>
-
   <h4 class="subsection">12.112.1 Usage</h4>
-
   <p>The main entry-point is command
   <code>emacspeak-multimedia</code> bound to <kbd>C-e ;</kbd>. This
   prompts for and launches the desired media stream. Once a stream
@@ -122,26 +101,21 @@
   <code>m-player</code> keybindings.</p><a name=
   "emacspeak_002dm_002dplayer-Commands" id=
   "emacspeak_002dm_002dplayer-Commands"></a>
-
   <h4 class="subsection">12.112.2 emacspeak-m-player
   Commands</h4><a name="emacspeak_002dm_002dplayer-2" id=
   "emacspeak_002dm_002dplayer-2"></a>
-
   <h4 class="subsubsection">12.112.2.1 emacspeak-m-player</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer" id=
     "index-emacspeak_002dm_002dplayer"></a>Command:
     <strong>emacspeak-m-player</strong> <em>(resource &amp;optional
     play-list)</em></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer-1" id=
       "index-emacspeak_002dm_002dplayer-1"></a>
-
       <div class="format">
         <pre class="format">
-Play specified resource using m-player.  Optional prefix argument
+        Play specified resource using m-player.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 Resource is a media resource or playlist containing media resources.
@@ -153,49 +127,40 @@ The player is placed in a buffer in emacspeak-m-player-mode.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dadd_002dautopan" id=
   "emacspeak_002dm_002dplayer_002dadd_002dautopan"></a>
-
   <h4 class="subsubsection">12.112.2.2
   emacspeak-m-player-add-autopan</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dadd_002dautopan" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dautopan"></a>Command:
     <strong>emacspeak-m-player-add-autopan</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dadd_002dautopan-1" id=
       "index-emacspeak_002dm_002dplayer_002dadd_002dautopan-1"></a>
-
       <div class="format">
-        <pre class="format">
-Add predefined autopan effect.
+        <pre class="format">Add predefined autopan effect.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dadd_002dequalizer"
   id="emacspeak_002dm_002dplayer_002dadd_002dequalizer"></a>
-
   <h4 class="subsubsection">12.112.2.3
   emacspeak-m-player-add-equalizer</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer"></a>Command:
     <strong>emacspeak-m-player-add-equalizer</strong>
     <em>(&amp;optional reset)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer-1"
       id="index-emacspeak_002dm_002dplayer_002dadd_002dequalizer-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Add equalizer to playing stream.  Equalizer is updated as each change
+        Add equalizer to playing stream.  Equalizer is updated as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg ‘reset’ starts with all filters set to 0.
 
@@ -205,25 +170,21 @@ arg ‘reset’ starts with all filters set to 0.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dadd_002dfilter" id=
   "emacspeak_002dm_002dplayer_002dadd_002dfilter"></a>
-
   <h4 class="subsubsection">12.112.2.4
   emacspeak-m-player-add-filter</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dadd_002dfilter" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dfilter"></a>Command:
     <strong>emacspeak-m-player-add-filter</strong> <em>(filter-name
     &amp;optional edit)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dadd_002dfilter-1" id=
       "index-emacspeak_002dm_002dplayer_002dadd_002dfilter-1"></a>
-
       <div class="format">
         <pre class="format">
-Adds specified filter. Prompts with one of several pre-defined
+        Adds specified filter. Prompts with one of several pre-defined
 filters. Optional interactive prefix arg ‘edit’ enables editing the
 selected filter before it is applied.
 
@@ -233,51 +194,41 @@ selected filter before it is applied.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dadd_002dladspa" id=
   "emacspeak_002dm_002dplayer_002dadd_002dladspa"></a>
-
   <h4 class="subsubsection">12.112.2.5
   emacspeak-m-player-add-ladspa</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dadd_002dladspa" id=
     "index-emacspeak_002dm_002dplayer_002dadd_002dladspa"></a>Command:
     <strong>emacspeak-m-player-add-ladspa</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dadd_002dladspa-1" id=
       "index-emacspeak_002dm_002dplayer_002dadd_002dladspa-1"></a>
-
       <div class="format">
-        <pre class="format">
-Apply plugin to running MPlayer.
+        <pre class="format">Apply plugin to running MPlayer.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep" id=
   "emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"></a>
-
   <h4 class="subsubsection">12.112.2.6
   emacspeak-m-player-alt-src-step</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep" id=
     "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"></a>Command:
     <strong>emacspeak-m-player-alt-src-step</strong>
     <em>(step)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move within an ASF playlist.
+        <pre class="format">Move within an ASF playlist.
 
 (fn STEP)
 </pre>
@@ -285,25 +236,21 @@ Move within an ASF playlist.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002damark_002dadd" id=
   "emacspeak_002dm_002dplayer_002damark_002dadd"></a>
-
   <h4 class="subsubsection">12.112.2.7
   emacspeak-m-player-amark-add</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002damark_002dadd" id=
     "index-emacspeak_002dm_002dplayer_002damark_002dadd"></a>Command:
     <strong>emacspeak-m-player-amark-add</strong> <em>(name
     &amp;optional prompt-position)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002damark_002dadd-1" id=
       "index-emacspeak_002dm_002dplayer_002damark_002dadd-1"></a>
-
       <div class="format">
         <pre class="format">
-Set AMark ‘name’ at current position in current audio stream.
+        Set AMark ‘name’ at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 
@@ -313,34 +260,27 @@ As the default, use current position.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002damark_002djump" id=
   "emacspeak_002dm_002dplayer_002damark_002djump"></a>
-
   <h4 class="subsubsection">12.112.2.8
   emacspeak-m-player-amark-jump</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002damark_002djump" id=
     "index-emacspeak_002dm_002dplayer_002damark_002djump"></a>Command:
     <strong>emacspeak-m-player-amark-jump</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002damark_002djump-1" id=
       "index-emacspeak_002dm_002dplayer_002damark_002djump-1"></a>
-
       <div class="format">
-        <pre class="format">
-Jump to specified AMark.
+        <pre class="format">Jump to specified AMark.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset" id=
   "emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset"></a>
-
   <h4 class="subsubsection">12.112.2.9
   emacspeak-m-player-apply-reverb-preset</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset"
@@ -349,17 +289,15 @@ Jump to specified AMark.
     </a>Command:
     <strong>emacspeak-m-player-apply-reverb-preset</strong>
     <em>(preset)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Prompt for a predefined reverb preset and apply it.
+        Prompt for a predefined reverb preset and apply it.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
 
@@ -369,103 +307,81 @@ tap-reverb already installed.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dbackward_002d10min"
   id="emacspeak_002dm_002dplayer_002dbackward_002d10min"></a>
-
   <h4 class="subsubsection">12.112.2.10
   emacspeak-m-player-backward-10min</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dbackward_002d10min" id=
     "index-emacspeak_002dm_002dplayer_002dbackward_002d10min"></a>Command:
     <strong>emacspeak-m-player-backward-10min</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dbackward_002d10min-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dbackward_002d10min-1"></a>
-
       <div class="format">
-        <pre class="format">
-Move backward by ten minutes.
+        <pre class="format">Move backward by ten minutes.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dbackward_002d10s"
   id="emacspeak_002dm_002dplayer_002dbackward_002d10s"></a>
-
   <h4 class="subsubsection">12.112.2.11
   emacspeak-m-player-backward-10s</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dbackward_002d10s" id=
     "index-emacspeak_002dm_002dplayer_002dbackward_002d10s"></a>Command:
     <strong>emacspeak-m-player-backward-10s</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dbackward_002d10s-1" id=
       "index-emacspeak_002dm_002dplayer_002dbackward_002d10s-1"></a>
-
       <div class="format">
-        <pre class="format">
-Move back by 10 seconds.
+        <pre class="format">Move back by 10 seconds.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dbackward_002d1min"
   id="emacspeak_002dm_002dplayer_002dbackward_002d1min"></a>
-
   <h4 class="subsubsection">12.112.2.12
   emacspeak-m-player-backward-1min</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dbackward_002d1min" id=
     "index-emacspeak_002dm_002dplayer_002dbackward_002d1min"></a>Command:
     <strong>emacspeak-m-player-backward-1min</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dbackward_002d1min-1"
       id="index-emacspeak_002dm_002dplayer_002dbackward_002d1min-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move back by 1 minute.
+        <pre class="format">Move back by 1 minute.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dbalance" id=
   "emacspeak_002dm_002dplayer_002dbalance"></a>
-
   <h4 class="subsubsection">12.112.2.13
   emacspeak-m-player-balance</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dbalance" id=
     "index-emacspeak_002dm_002dplayer_002dbalance"></a>Command:
     <strong>emacspeak-m-player-balance</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dbalance-1" id=
       "index-emacspeak_002dm_002dplayer_002dbalance-1"></a>
-
       <div class="format">
-        <pre class="format">
-Set left/right balance.
+        <pre class="format">Set left/right balance.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack" id=
   "emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack"></a>
-
   <h4 class="subsubsection">12.112.2.14
   emacspeak-m-player-beginning-of-track</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack"
@@ -473,44 +389,37 @@ Set left/right balance.
     "index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack">
     </a>Command:
     <strong>emacspeak-m-player-beginning-of-track</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move to beginning of track.
+        <pre class="format">Move to beginning of track.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dbind_002daccelerator" id=
   "emacspeak_002dm_002dplayer_002dbind_002daccelerator"></a>
-
   <h4 class="subsubsection">12.112.2.15
   emacspeak-m-player-bind-accelerator</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dbind_002daccelerator" id=
     "index-emacspeak_002dm_002dplayer_002dbind_002daccelerator"></a>Command:
     <strong>emacspeak-m-player-bind-accelerator</strong>
     <em>(directory key)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dbind_002daccelerator-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dbind_002daccelerator-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Binds key to invoke m-player  on specified directory.
+        Binds key to invoke m-player  on specified directory.
 
 (fn DIRECTORY KEY)
 </pre>
@@ -518,46 +427,36 @@ Binds key to invoke m-player  on specified directory.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dclear_002dfilters"
   id="emacspeak_002dm_002dplayer_002dclear_002dfilters"></a>
-
   <h4 class="subsubsection">12.112.2.16
   emacspeak-m-player-clear-filters</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dclear_002dfilters" id=
     "index-emacspeak_002dm_002dplayer_002dclear_002dfilters"></a>Command:
     <strong>emacspeak-m-player-clear-filters</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dclear_002dfilters-1"
       id="index-emacspeak_002dm_002dplayer_002dclear_002dfilters-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Clear all active filters
+        <pre class="format">Clear all active filters
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dcommand" id=
   "emacspeak_002dm_002dplayer_002dcommand"></a>
-
   <h4 class="subsubsection">12.112.2.17
   emacspeak-m-player-command</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dcommand" id=
     "index-emacspeak_002dm_002dplayer_002dcommand"></a>Command:
     <strong>emacspeak-m-player-command</strong> <em>(key)</em></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dcommand-1" id=
       "index-emacspeak_002dm_002dplayer_002dcommand-1"></a>
-
       <div class="format">
-        <pre class="format">
-Invoke MPlayer commands.
+        <pre class="format">Invoke MPlayer commands.
 
 (fn KEY)
 </pre>
@@ -566,52 +465,43 @@ Invoke MPlayer commands.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dcustomize_002doptions" id=
   "emacspeak_002dm_002dplayer_002dcustomize_002doptions"></a>
-
   <h4 class="subsubsection">12.112.2.18
   emacspeak-m-player-customize-options</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dcustomize_002doptions"
     id="index-emacspeak_002dm_002dplayer_002dcustomize_002doptions">
     </a>Command:
     <strong>emacspeak-m-player-customize-options</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dcustomize_002doptions-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dcustomize_002doptions-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Use Customize to manipulate MPlayer options.
+        Use Customize to manipulate MPlayer options.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002ddelete_002dfilter"
   id="emacspeak_002dm_002dplayer_002ddelete_002dfilter"></a>
-
   <h4 class="subsubsection">12.112.2.19
   emacspeak-m-player-delete-filter</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002ddelete_002dfilter" id=
     "index-emacspeak_002dm_002dplayer_002ddelete_002dfilter"></a>Command:
     <strong>emacspeak-m-player-delete-filter</strong>
     <em>(filter)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002ddelete_002dfilter-1"
       id="index-emacspeak_002dm_002dplayer_002ddelete_002dfilter-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Delete filter.
+        <pre class="format">Delete filter.
 
 (fn FILTER)
 </pre>
@@ -619,147 +509,119 @@ Delete filter.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002ddelete_002dladspa"
   id="emacspeak_002dm_002dplayer_002ddelete_002dladspa"></a>
-
   <h4 class="subsubsection">12.112.2.20
   emacspeak-m-player-delete-ladspa</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002ddelete_002dladspa" id=
     "index-emacspeak_002dm_002dplayer_002ddelete_002dladspa"></a>Command:
     <strong>emacspeak-m-player-delete-ladspa</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002ddelete_002dladspa-1"
       id="index-emacspeak_002dm_002dplayer_002ddelete_002dladspa-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Delete plugin from  running MPlayer.
+        <pre class="format">Delete plugin from  running MPlayer.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002ddisplay_002dmetadata" id=
   "emacspeak_002dm_002dplayer_002ddisplay_002dmetadata"></a>
-
   <h4 class="subsubsection">12.112.2.21
   emacspeak-m-player-display-metadata</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002ddisplay_002dmetadata" id=
     "index-emacspeak_002dm_002dplayer_002ddisplay_002dmetadata"></a>Command:
     <strong>emacspeak-m-player-display-metadata</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002ddisplay_002dmetadata-1"
       id=
       "index-emacspeak_002dm_002dplayer_002ddisplay_002dmetadata-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Display metadata after refreshing it if needed.
+        Display metadata after refreshing it if needed.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002ddisplay_002dpercent"
   id="emacspeak_002dm_002dplayer_002ddisplay_002dpercent"></a>
-
   <h4 class="subsubsection">12.112.2.22
   emacspeak-m-player-display-percent</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent" id=
     "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent"></a>Command:
     <strong>emacspeak-m-player-display-percent</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent-1"
       id=
       "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent-1"></a>
-
       <div class="format">
-        <pre class="format">
-Display current percentage.
+        <pre class="format">Display current percentage.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002ddisplay_002dposition" id=
   "emacspeak_002dm_002dplayer_002ddisplay_002dposition"></a>
-
   <h4 class="subsubsection">12.112.2.23
   emacspeak-m-player-display-position</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002ddisplay_002dposition" id=
     "index-emacspeak_002dm_002dplayer_002ddisplay_002dposition"></a>Command:
     <strong>emacspeak-m-player-display-position</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002ddisplay_002dposition-1"
       id=
       "index-emacspeak_002dm_002dplayer_002ddisplay_002dposition-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Display current position in track and its length.
+        Display current position in track and its length.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002ddouble_002dspeed"
   id="emacspeak_002dm_002dplayer_002ddouble_002dspeed"></a>
-
   <h4 class="subsubsection">12.112.2.24
   emacspeak-m-player-double-speed</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed" id=
     "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed"></a>Command:
     <strong>emacspeak-m-player-double-speed</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed-1" id=
       "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed-1"></a>
-
       <div class="format">
-        <pre class="format">
-Scale speed by 2.0
+        <pre class="format">Scale speed by 2.0
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dedit_002dreverb" id=
   "emacspeak_002dm_002dplayer_002dedit_002dreverb"></a>
-
   <h4 class="subsubsection">12.112.2.25
   emacspeak-m-player-edit-reverb</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dedit_002dreverb" id=
     "index-emacspeak_002dm_002dplayer_002dedit_002dreverb"></a>Command:
     <strong>emacspeak-m-player-edit-reverb</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dedit_002dreverb-1" id=
       "index-emacspeak_002dm_002dplayer_002dedit_002dreverb-1"></a>
-
       <div class="format">
-        <pre class="format">
-Edit  current ladspa reverb filter.
+        <pre class="format">Edit  current ladspa reverb filter.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
@@ -769,36 +631,29 @@ tap-reverb already installed.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dend_002dof_002dtrack" id=
   "emacspeak_002dm_002dplayer_002dend_002dof_002dtrack"></a>
-
   <h4 class="subsubsection">12.112.2.26
   emacspeak-m-player-end-of-track</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack" id=
     "index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack"></a>Command:
     <strong>emacspeak-m-player-end-of-track</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move to beginning of track.
+        <pre class="format">Move to beginning of track.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dequalizer_002dcontrol" id=
   "emacspeak_002dm_002dplayer_002dequalizer_002dcontrol"></a>
-
   <h4 class="subsubsection">12.112.2.27
   emacspeak-m-player-equalizer-control</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dequalizer_002dcontrol"
@@ -806,17 +661,15 @@ Move to beginning of track.
     </a>Command:
     <strong>emacspeak-m-player-equalizer-control</strong>
     <em>(v)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dequalizer_002dcontrol-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dequalizer_002dcontrol-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Manipulate values in specified vector using minibuffer.
+        Manipulate values in specified vector using minibuffer.
 Applies  the resulting value at each step.
 
 (fn V)
@@ -825,103 +678,81 @@ Applies  the resulting value at each step.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dfaster" id=
   "emacspeak_002dm_002dplayer_002dfaster"></a>
-
   <h4 class="subsubsection">12.112.2.28
   emacspeak-m-player-faster</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dfaster" id=
     "index-emacspeak_002dm_002dplayer_002dfaster"></a>Command:
     <strong>emacspeak-m-player-faster</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dfaster-1" id=
       "index-emacspeak_002dm_002dplayer_002dfaster-1"></a>
-
       <div class="format">
-        <pre class="format">
-Speed up  playback.
+        <pre class="format">Speed up  playback.
 This affects pitch.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dforward_002d10min"
   id="emacspeak_002dm_002dplayer_002dforward_002d10min"></a>
-
   <h4 class="subsubsection">12.112.2.29
   emacspeak-m-player-forward-10min</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dforward_002d10min" id=
     "index-emacspeak_002dm_002dplayer_002dforward_002d10min"></a>Command:
     <strong>emacspeak-m-player-forward-10min</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dforward_002d10min-1"
       id="index-emacspeak_002dm_002dplayer_002dforward_002d10min-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move forward by ten minutes.
+        <pre class="format">Move forward by ten minutes.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dforward_002d10s" id=
   "emacspeak_002dm_002dplayer_002dforward_002d10s"></a>
-
   <h4 class="subsubsection">12.112.2.30
   emacspeak-m-player-forward-10s</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dforward_002d10s" id=
     "index-emacspeak_002dm_002dplayer_002dforward_002d10s"></a>Command:
     <strong>emacspeak-m-player-forward-10s</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dforward_002d10s-1" id=
       "index-emacspeak_002dm_002dplayer_002dforward_002d10s-1"></a>
-
       <div class="format">
-        <pre class="format">
-Move forward by 10 seconds.
+        <pre class="format">Move forward by 10 seconds.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dforward_002d1min"
   id="emacspeak_002dm_002dplayer_002dforward_002d1min"></a>
-
   <h4 class="subsubsection">12.112.2.31
   emacspeak-m-player-forward-1min</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dforward_002d1min" id=
     "index-emacspeak_002dm_002dplayer_002dforward_002d1min"></a>Command:
     <strong>emacspeak-m-player-forward-1min</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dforward_002d1min-1" id=
       "index-emacspeak_002dm_002dplayer_002dforward_002d1min-1"></a>
-
       <div class="format">
-        <pre class="format">
-Move forward by 1 minute.
+        <pre class="format">Move forward by 1 minute.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dfrom_002dmedia_002dhistory" id=
   "emacspeak_002dm_002dplayer_002dfrom_002dmedia_002dhistory"></a>
-
   <h4 class="subsubsection">12.112.2.32
   emacspeak-m-player-from-media-history</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dfrom_002dmedia_002dhistory"
@@ -930,31 +761,23 @@ Move forward by 1 minute.
     </a>Command:
     <strong>emacspeak-m-player-from-media-history</strong>
     <em>(posn)</em></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-. h</kbd></dt>
-
         <dd><a name="index-C_002d_002e-h" id=
         "index-C_002d_002e-h"></a></dd>
-
         <dt><kbd>C-' h</kbd></dt>
-
         <dd><a name="index-C_002d_0027-h" id=
         "index-C_002d_0027-h"></a></dd>
-
         <dt><kbd>C-x @ s h</kbd></dt>
-
         <dd><a name="index-C_002dx-_0040-s-h" id=
         "index-C_002dx-_0040-s-h"></a></dd>
       </dl><a name=
       "index-emacspeak_002dm_002dplayer_002dfrom_002dmedia_002dhistory-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dfrom_002dmedia_002dhistory-1"></a>
-
       <div class="format">
-        <pre class="format">
-Play media from media-history.
+        <pre class="format">Play media from media-history.
 Numeric arg ‘posn’ specifies position in history.
 
 (fn POSN)
@@ -963,92 +786,73 @@ Numeric arg ‘posn’ specifies position in history.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dget_002dlength" id=
   "emacspeak_002dm_002dplayer_002dget_002dlength"></a>
-
   <h4 class="subsubsection">12.112.2.33
   emacspeak-m-player-get-length</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dget_002dlength" id=
     "index-emacspeak_002dm_002dplayer_002dget_002dlength"></a>Command:
     <strong>emacspeak-m-player-get-length</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dget_002dlength-1" id=
       "index-emacspeak_002dm_002dplayer_002dget_002dlength-1"></a>
-
       <div class="format">
-        <pre class="format">
-Display length of track in seconds.
+        <pre class="format">Display length of track in seconds.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dhalf_002dspeed" id=
   "emacspeak_002dm_002dplayer_002dhalf_002dspeed"></a>
-
   <h4 class="subsubsection">12.112.2.34
   emacspeak-m-player-half-speed</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed" id=
     "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed"></a>Command:
     <strong>emacspeak-m-player-half-speed</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed-1" id=
       "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed-1"></a>
-
       <div class="format">
-        <pre class="format">
-Scale speed by 0.5.
+        <pre class="format">Scale speed by 0.5.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dleft_002dchannel"
   id="emacspeak_002dm_002dplayer_002dleft_002dchannel"></a>
-
   <h4 class="subsubsection">12.112.2.35
   emacspeak-m-player-left-channel</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dleft_002dchannel" id=
     "index-emacspeak_002dm_002dplayer_002dleft_002dchannel"></a>Command:
     <strong>emacspeak-m-player-left-channel</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dleft_002dchannel-1" id=
       "index-emacspeak_002dm_002dplayer_002dleft_002dchannel-1"></a>
-
       <div class="format">
-        <pre class="format">
-Play both channels on left channel.
+        <pre class="format">Play both channels on left channel.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dload" id=
   "emacspeak_002dm_002dplayer_002dload"></a>
-
   <h4 class="subsubsection">12.112.2.36
   emacspeak-m-player-load</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dload" id=
     "index-emacspeak_002dm_002dplayer_002dload"></a>Command:
     <strong>emacspeak-m-player-load</strong> <em>(resource
     &amp;optional append)</em></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dload-1" id=
       "index-emacspeak_002dm_002dplayer_002dload-1"></a>
-
       <div class="format">
         <pre class="format">
-Load specified resource into a running  m-player.
+        Load specified resource into a running  m-player.
 Interactive prefix arg appends the new resource to what is playing.
 
 (fn RESOURCE &amp;optional APPEND)
@@ -1057,24 +861,19 @@ Interactive prefix arg appends the new resource to what is playing.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dload_002dfile" id=
   "emacspeak_002dm_002dplayer_002dload_002dfile"></a>
-
   <h4 class="subsubsection">12.112.2.37
   emacspeak-m-player-load-file</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dload_002dfile" id=
     "index-emacspeak_002dm_002dplayer_002dload_002dfile"></a>Command:
     <strong>emacspeak-m-player-load-file</strong> <em>(f)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dload_002dfile-1" id=
       "index-emacspeak_002dm_002dplayer_002dload_002dfile-1"></a>
-
       <div class="format">
-        <pre class="format">
-Load specified file.
+        <pre class="format">Load specified file.
 
 (fn F)
 </pre>
@@ -1082,26 +881,21 @@ Load specified file.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dload_002dplaylist"
   id="emacspeak_002dm_002dplayer_002dload_002dplaylist"></a>
-
   <h4 class="subsubsection">12.112.2.38
   emacspeak-m-player-load-playlist</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dload_002dplaylist" id=
     "index-emacspeak_002dm_002dplayer_002dload_002dplaylist"></a>Command:
     <strong>emacspeak-m-player-load-playlist</strong>
     <em>(f)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dload_002dplaylist-1"
       id="index-emacspeak_002dm_002dplayer_002dload_002dplaylist-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Load specified playlist file.
+        <pre class="format">Load specified playlist file.
 
 (fn F)
 </pre>
@@ -1109,40 +903,31 @@ Load specified playlist file.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dlocate_002dmedia"
   id="emacspeak_002dm_002dplayer_002dlocate_002dmedia"></a>
-
   <h4 class="subsubsection">12.112.2.39
   emacspeak-m-player-locate-media</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia" id=
     "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia"></a>Command:
     <strong>emacspeak-m-player-locate-media</strong>
     <em>(pattern)</em></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-. l</kbd></dt>
-
         <dd><a name="index-C_002d_002e-l" id=
         "index-C_002d_002e-l"></a></dd>
-
         <dt><kbd>C-' l</kbd></dt>
-
         <dd><a name="index-C_002d_0027-l" id=
         "index-C_002d_0027-l"></a></dd>
-
         <dt><kbd>C-x @ s l</kbd></dt>
-
         <dd><a name="index-C_002dx-_0040-s-l" id=
         "index-C_002dx-_0040-s-l"></a></dd>
       </dl><a name=
       "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia-1" id=
       "index-emacspeak_002dm_002dplayer_002dlocate_002dmedia-1"></a>
-
       <div class="format">
         <pre class="format">
-Locate media matching specified pattern.  Pattern is first converted
+        Locate media matching specified pattern.  Pattern is first converted
 to a regexp that accepts common punctuation separators (-,._’") in place
 of white-space.  Results are placed in a Locate buffer and can be
 played using M-Player.
@@ -1153,22 +938,17 @@ played using M-Player.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dmode" id=
   "emacspeak_002dm_002dplayer_002dmode"></a>
-
   <h4 class="subsubsection">12.112.2.40
   emacspeak-m-player-mode</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dmode" id=
     "index-emacspeak_002dm_002dplayer_002dmode"></a>Command:
     <strong>emacspeak-m-player-mode</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dmode-1" id=
       "index-emacspeak_002dm_002dplayer_002dmode-1"></a>
-
       <div class="format">
-        <pre class="format">
-Major mode for m-player interaction. 
+        <pre class="format">Major mode for m-player interaction. 
 
 key             binding
 —             ——-
@@ -1252,90 +1032,72 @@ during initialization.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dnext_002dtrack" id=
   "emacspeak_002dm_002dplayer_002dnext_002dtrack"></a>
-
   <h4 class="subsubsection">12.112.2.41
   emacspeak-m-player-next-track</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dnext_002dtrack" id=
     "index-emacspeak_002dm_002dplayer_002dnext_002dtrack"></a>Command:
     <strong>emacspeak-m-player-next-track</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dnext_002dtrack-1" id=
       "index-emacspeak_002dm_002dplayer_002dnext_002dtrack-1"></a>
-
       <div class="format">
-        <pre class="format">
-Move to next track.
+        <pre class="format">Move to next track.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dpan" id=
   "emacspeak_002dm_002dplayer_002dpan"></a>
-
   <h4 class="subsubsection">12.112.2.42 emacspeak-m-player-pan</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dpan" id=
     "index-emacspeak_002dm_002dplayer_002dpan"></a>Command:
     <strong>emacspeak-m-player-pan</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dpan-1" id=
       "index-emacspeak_002dm_002dplayer_002dpan-1"></a>
-
       <div class="format">
         <pre class="format">
-Pan from left to right   and back from right to left one step at a time.
+        Pan from left to right   and back from right to left one step at a time.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dpause" id=
   "emacspeak_002dm_002dplayer_002dpause"></a>
-
   <h4 class="subsubsection">12.112.2.43
   emacspeak-m-player-pause</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dpause" id=
     "index-emacspeak_002dm_002dplayer_002dpause"></a>Command:
     <strong>emacspeak-m-player-pause</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dpause-1" id=
       "index-emacspeak_002dm_002dplayer_002dpause-1"></a>
-
       <div class="format">
-        <pre class="format">
-Pause or unpause media player.
+        <pre class="format">Pause or unpause media player.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dpersist_002dprocess"
   id="emacspeak_002dm_002dplayer_002dpersist_002dprocess"></a>
-
   <h4 class="subsubsection">12.112.2.44
   emacspeak-m-player-persist-process</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess" id=
     "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess"></a>Command:
     <strong>emacspeak-m-player-persist-process</strong>
     <em>(&amp;optional name)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess-1"></a>
-
       <div class="format">
         <pre class="format">
-Persists current m-player process instance by renaming its buffer.
+        Persists current m-player process instance by renaming its buffer.
 Optional interactive prefix arg prompts for name to use for  player.
 
 (fn &amp;optional NAME)
@@ -1344,24 +1106,20 @@ Optional interactive prefix arg prompts for name to use for  player.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dplay_002drss" id=
   "emacspeak_002dm_002dplayer_002dplay_002drss"></a>
-
   <h4 class="subsubsection">12.112.2.45
   emacspeak-m-player-play-rss</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dplay_002drss"
     id=
     "index-emacspeak_002dm_002dplayer_002dplay_002drss"></a>Command:
     <strong>emacspeak-m-player-play-rss</strong>
     <em>(rss-url)</em></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dplay_002drss-1"
       id="index-emacspeak_002dm_002dplayer_002dplay_002drss-1"></a>
-
       <div class="format">
         <pre class="format">
-Play an RSS stream by converting to  an M3U playlist.
+        Play an RSS stream by converting to  an M3U playlist.
 
 (fn RSS-URL)
 </pre>
@@ -1370,10 +1128,8 @@ Play an RSS stream by converting to  an M3U playlist.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump" id=
   "emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump"></a>
-
   <h4 class="subsubsection">12.112.2.46
   emacspeak-m-player-play-tracks-jump</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump"
@@ -1382,17 +1138,14 @@ Play an RSS stream by converting to  an M3U playlist.
     </a>Command:
     <strong>emacspeak-m-player-play-tracks-jump</strong>
     <em>(step)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move within the play tree.
+        <pre class="format">Move within the play tree.
 
 (fn STEP)
 </pre>
@@ -1401,27 +1154,22 @@ Move within the play tree.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dplay_002dtree_002dup" id=
   "emacspeak_002dm_002dplayer_002dplay_002dtree_002dup"></a>
-
   <h4 class="subsubsection">12.112.2.47
   emacspeak-m-player-play-tree-up</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup" id=
     "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup"></a>Command:
     <strong>emacspeak-m-player-play-tree-up</strong>
     <em>(step)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Move within the play tree.
+        <pre class="format">Move within the play tree.
 
 (fn STEP)
 </pre>
@@ -1430,192 +1178,154 @@ Move within the play tree.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer" id=
   "emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer"></a>
-
   <h4 class="subsubsection">12.112.2.48
   emacspeak-m-player-pop-to-player</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer"
     id="index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer">
     </a>Command:
     <strong>emacspeak-m-player-pop-to-player</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Pop to m-player buffer.
+        <pre class="format">Pop to m-player buffer.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dprevious_002dtrack"
   id="emacspeak_002dm_002dplayer_002dprevious_002dtrack"></a>
-
   <h4 class="subsubsection">12.112.2.49
   emacspeak-m-player-previous-track</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack" id=
     "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack"></a>Command:
     <strong>emacspeak-m-player-previous-track</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack-1"></a>
-
       <div class="format">
-        <pre class="format">
-Move to previous track.
+        <pre class="format">Move to previous track.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dquit" id=
   "emacspeak_002dm_002dplayer_002dquit"></a>
-
   <h4 class="subsubsection">12.112.2.50
   emacspeak-m-player-quit</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dquit" id=
     "index-emacspeak_002dm_002dplayer_002dquit"></a>Command:
     <strong>emacspeak-m-player-quit</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dquit-1" id=
       "index-emacspeak_002dm_002dplayer_002dquit-1"></a>
-
       <div class="format">
-        <pre class="format">
-Quit media player.
+        <pre class="format">Quit media player.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dreset_002doptions"
   id="emacspeak_002dm_002dplayer_002dreset_002doptions"></a>
-
   <h4 class="subsubsection">12.112.2.51
   emacspeak-m-player-reset-options</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dreset_002doptions" id=
     "index-emacspeak_002dm_002dplayer_002dreset_002doptions"></a>Command:
     <strong>emacspeak-m-player-reset-options</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dreset_002doptions-1"
       id="index-emacspeak_002dm_002dplayer_002dreset_002doptions-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Reset MPlayer options to initial defaults.
+        Reset MPlayer options to initial defaults.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dreset_002dspeed" id=
   "emacspeak_002dm_002dplayer_002dreset_002dspeed"></a>
-
   <h4 class="subsubsection">12.112.2.52
   emacspeak-m-player-reset-speed</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dreset_002dspeed" id=
     "index-emacspeak_002dm_002dplayer_002dreset_002dspeed"></a>Command:
     <strong>emacspeak-m-player-reset-speed</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dreset_002dspeed-1" id=
       "index-emacspeak_002dm_002dplayer_002dreset_002dspeed-1"></a>
-
       <div class="format">
-        <pre class="format">
-Reset playing speed to normal.
+        <pre class="format">Reset playing speed to normal.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002drestore_002dprocess"
   id="emacspeak_002dm_002dplayer_002drestore_002dprocess"></a>
-
   <h4 class="subsubsection">12.112.2.53
   emacspeak-m-player-restore-process</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002drestore_002dprocess" id=
     "index-emacspeak_002dm_002dplayer_002drestore_002dprocess"></a>Command:
     <strong>emacspeak-m-player-restore-process</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002drestore_002dprocess-1"
       id=
       "index-emacspeak_002dm_002dplayer_002drestore_002dprocess-1"></a>
-
       <div class="format">
         <pre class="format">
-Restore emacspeak-m-player-process from current buffer.
+        Restore emacspeak-m-player-process from current buffer.
 Check first if current buffer is in emacspeak-m-player-mode.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dright_002dchannel"
   id="emacspeak_002dm_002dplayer_002dright_002dchannel"></a>
-
   <h4 class="subsubsection">12.112.2.54
   emacspeak-m-player-right-channel</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dright_002dchannel" id=
     "index-emacspeak_002dm_002dplayer_002dright_002dchannel"></a>Command:
     <strong>emacspeak-m-player-right-channel</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dright_002dchannel-1"
       id="index-emacspeak_002dm_002dplayer_002dright_002dchannel-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Play on right channel.
+        <pre class="format">Play on right channel.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dscale_002dspeed" id=
   "emacspeak_002dm_002dplayer_002dscale_002dspeed"></a>
-
   <h4 class="subsubsection">12.112.2.55
   emacspeak-m-player-scale-speed</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dscale_002dspeed" id=
     "index-emacspeak_002dm_002dplayer_002dscale_002dspeed"></a>Command:
     <strong>emacspeak-m-player-scale-speed</strong>
     <em>(factor)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dscale_002dspeed-1" id=
       "index-emacspeak_002dm_002dplayer_002dscale_002dspeed-1"></a>
-
       <div class="format">
-        <pre class="format">
-Scale speed by specified factor.
+        <pre class="format">Scale speed by specified factor.
 
 (fn FACTOR)
 </pre>
@@ -1623,26 +1333,22 @@ Scale speed by specified factor.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dseek_002dabsolute"
   id="emacspeak_002dm_002dplayer_002dseek_002dabsolute"></a>
-
   <h4 class="subsubsection">12.112.2.56
   emacspeak-m-player-seek-absolute</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute" id=
     "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute"></a>Command:
     <strong>emacspeak-m-player-seek-absolute</strong>
     <em>(pos)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute-1"
       id="index-emacspeak_002dm_002dplayer_002dseek_002dabsolute-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Seek  to absolute specified pos in seconds.
+        Seek  to absolute specified pos in seconds.
 
 (fn POS)
 </pre>
@@ -1650,26 +1356,22 @@ Seek  to absolute specified pos in seconds.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dseek_002dpercentage"
   id="emacspeak_002dm_002dplayer_002dseek_002dpercentage"></a>
-
   <h4 class="subsubsection">12.112.2.57
   emacspeak-m-player-seek-percentage</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage" id=
     "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage"></a>Command:
     <strong>emacspeak-m-player-seek-percentage</strong>
     <em>(pos)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage-1"></a>
-
       <div class="format">
         <pre class="format">
-Seek  to absolute specified pos in percent.
+        Seek  to absolute specified pos in percent.
 
 (fn POS)
 </pre>
@@ -1677,26 +1379,22 @@ Seek  to absolute specified pos in percent.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dseek_002drelative"
   id="emacspeak_002dm_002dplayer_002dseek_002drelative"></a>
-
   <h4 class="subsubsection">12.112.2.58
   emacspeak-m-player-seek-relative</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dseek_002drelative" id=
     "index-emacspeak_002dm_002dplayer_002dseek_002drelative"></a>Command:
     <strong>emacspeak-m-player-seek-relative</strong>
     <em>(offset)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dseek_002drelative-1"
       id="index-emacspeak_002dm_002dplayer_002dseek_002drelative-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Seek  by offset into stream from current position.
+        Seek  by offset into stream from current position.
 
 (fn OFFSET)
 </pre>
@@ -1705,109 +1403,87 @@ Seek  by offset into stream from current position.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dset_002dclip_002dend" id=
   "emacspeak_002dm_002dplayer_002dset_002dclip_002dend"></a>
-
   <h4 class="subsubsection">12.112.2.59
   emacspeak-m-player-set-clip-end</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend" id=
     "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend"></a>Command:
     <strong>emacspeak-m-player-set-clip-end</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dend-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Set end of clip marker.
+        <pre class="format">Set end of clip marker.
 </pre>
       </div>
     </dd>
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dset_002dclip_002dstart" id=
   "emacspeak_002dm_002dplayer_002dset_002dclip_002dstart"></a>
-
   <h4 class="subsubsection">12.112.2.60
   emacspeak-m-player-set-clip-start</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart"
     id=
     "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart"></a>Command:
     <strong>emacspeak-m-player-set-clip-start</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dset_002dclip_002dstart-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Set start of clip marker.
+        <pre class="format">Set start of clip marker.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dshuffle" id=
   "emacspeak_002dm_002dplayer_002dshuffle"></a>
-
   <h4 class="subsubsection">12.112.2.61
   emacspeak-m-player-shuffle</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dshuffle" id=
     "index-emacspeak_002dm_002dplayer_002dshuffle"></a>Command:
     <strong>emacspeak-m-player-shuffle</strong></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e :</kbd></dt>
-
         <dd><a name="index-C_002de-_003a" id=
         "index-C_002de-_003a"></a></dd>
-
         <dt><kbd>&lt;fn&gt; :</kbd></dt>
-
         <dd><a name="index-_003cfn_003e-_003a" id=
         "index-_003cfn_003e-_003a"></a></dd>
       </dl><a name="index-emacspeak_002dm_002dplayer_002dshuffle-1"
       id="index-emacspeak_002dm_002dplayer_002dshuffle-1"></a>
-
       <div class="format">
-        <pre class="format">
-Launch M-Player with shuffle turned on.
+        <pre class="format">Launch M-Player with shuffle turned on.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dslave_002dcommand"
   id="emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>
-
   <h4 class="subsubsection">12.112.2.62
   emacspeak-m-player-slave-command</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dslave_002dcommand" id=
     "index-emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>Command:
     <strong>emacspeak-m-player-slave-command</strong>
     <em>(command)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dslave_002dcommand-1"
       id="index-emacspeak_002dm_002dplayer_002dslave_002dcommand-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Dispatch slave command read from minibuffer.
+        Dispatch slave command read from minibuffer.
 
 (fn COMMAND)
 </pre>
@@ -1815,22 +1491,17 @@ Dispatch slave command read from minibuffer.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dslower" id=
   "emacspeak_002dm_002dplayer_002dslower"></a>
-
   <h4 class="subsubsection">12.112.2.63
   emacspeak-m-player-slower</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dslower" id=
     "index-emacspeak_002dm_002dplayer_002dslower"></a>Command:
     <strong>emacspeak-m-player-slower</strong></dt>
-
     <dd>
       <a name="index-emacspeak_002dm_002dplayer_002dslower-1" id=
       "index-emacspeak_002dm_002dplayer_002dslower-1"></a>
-
       <div class="format">
-        <pre class="format">
-Slow down playback.
+        <pre class="format">Slow down playback.
 This affects pitch.
 </pre>
       </div>
@@ -1838,51 +1509,42 @@ This affects pitch.
   </dl><a name=
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline" id=
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>
-
   <h4 class="subsubsection">12.112.2.64
   emacspeak-m-player-speak-mode-line</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"
     id=
     "index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>Command:
     <strong>emacspeak-m-player-speak-mode-line</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline-1">
       </a>
-
       <div class="format">
-        <pre class="format">
-Speak mode line
+        <pre class="format">Speak mode line
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dstream_002dinfo" id=
   "emacspeak_002dm_002dplayer_002dstream_002dinfo"></a>
-
   <h4 class="subsubsection">12.112.2.65
   emacspeak-m-player-stream-info</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dstream_002dinfo" id=
     "index-emacspeak_002dm_002dplayer_002dstream_002dinfo"></a>Command:
     <strong>emacspeak-m-player-stream-info</strong>
     <em>(&amp;optional toggle-cue)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dstream_002dinfo-1" id=
       "index-emacspeak_002dm_002dplayer_002dstream_002dinfo-1"></a>
-
       <div class="format">
         <pre class="format">
-Speak and display metadata if available.
+        Speak and display metadata if available.
 Interactive prefix arg toggles automatic cueing of ICY info updates.
 
 (fn &amp;optional TOGGLE-CUE)
@@ -1891,32 +1553,25 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002durl" id=
   "emacspeak_002dm_002dplayer_002durl"></a>
-
   <h4 class="subsubsection">12.112.2.66 emacspeak-m-player-url</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002durl" id=
     "index-emacspeak_002dm_002dplayer_002durl"></a>Command:
     <strong>emacspeak-m-player-url</strong> <em>(url &amp;optional
     playlist-p)</em></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-, u</kbd></dt>
-
         <dd><a name="index-C_002d_002c-u" id=
         "index-C_002d_002c-u"></a></dd>
-
         <dt><kbd>C-x @ a u</kbd></dt>
-
         <dd><a name="index-C_002dx-_0040-a-u" id=
         "index-C_002dx-_0040-a-u"></a></dd>
       </dl><a name="index-emacspeak_002dm_002dplayer_002durl-1" id=
       "index-emacspeak_002dm_002dplayer_002durl-1"></a>
-
       <div class="format">
         <pre class="format">
-Call emacspeak-m-player with specified URL.
+        Call emacspeak-m-player with specified URL.
 
 (fn URL &amp;optional PLAYLIST-P)
 </pre>
@@ -1924,69 +1579,55 @@ Call emacspeak-m-player with specified URL.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dhrtf" id=
   "emacspeak_002dm_002dplayer_002dusing_002dhrtf"></a>
-
   <h4 class="subsubsection">12.112.2.67
   emacspeak-m-player-using-hrtf</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf" id=
     "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf"></a>Command:
     <strong>emacspeak-m-player-using-hrtf</strong></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-; '</kbd></dt>
-
         <dd><a name="index-C_002d_003b-_0027" id=
         "index-C_002d_003b-_0027"></a></dd>
-
         <dt><kbd>C-x @ h '</kbd></dt>
-
         <dd><a name="index-C_002dx-_0040-h-_0027" id=
         "index-C_002dx-_0040-h-_0027"></a></dd>
       </dl><a name=
       "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf-1" id=
       "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf-1"></a>
-
       <div class="format">
         <pre class="format">
-Add af resample=48000,hrtf to startup options.
+        Add af resample=48000,hrtf to startup options.
 This will work if the soundcard is set to 48000.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dopenal"
   id="emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>
-
   <h4 class="subsubsection">12.112.2.68
   emacspeak-m-player-using-openal</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dusing_002dopenal" id=
     "index-emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>Command:
     <strong>emacspeak-m-player-using-openal</strong> <em>(resource
     &amp;optional play-list)</em></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-; ;</kbd></dt>
-
         <dd><a name="index-C_002d_003b-_003b" id=
         "index-C_002d_003b-_003b"></a></dd>
-
         <dt><kbd>C-x @ h ;</kbd></dt>
-
         <dd><a name="index-C_002dx-_0040-h-_003b" id=
         "index-C_002dx-_0040-h-_003b"></a></dd>
       </dl><a name=
       "index-emacspeak_002dm_002dplayer_002dusing_002dopenal-1" id=
       "index-emacspeak_002dm_002dplayer_002dusing_002dopenal-1"></a>
-
       <div class="format">
         <pre class="format">
-Use openal as the audio output driver. Adding hrtf=true to
+        Use openal as the audio output driver. Adding hrtf=true to
 ~/.alsoftrc gives HRTF. You need to have openal installed and have an
 mplayer that has been compiled with openal support to use this
 feature. Calling spec is like ‘emacspeak-m-player’.
@@ -1997,26 +1638,22 @@ feature. Calling spec is like ‘emacspeak-m-player’.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dchange"
   id="emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>
-
   <h4 class="subsubsection">12.112.2.69
   emacspeak-m-player-volume-change</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dvolume_002dchange" id=
     "index-emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>Command:
     <strong>emacspeak-m-player-volume-change</strong>
     <em>(value)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dvolume_002dchange-1"
       id="index-emacspeak_002dm_002dplayer_002dvolume_002dchange-1">
       </a>
-
       <div class="format">
         <pre class="format">
-Change volume to specified absolute value.
+        Change volume to specified absolute value.
 
 (fn VALUE)
 </pre>
@@ -2024,48 +1661,38 @@ Change volume to specified absolute value.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
   "emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>
-
   <h4 class="subsubsection">12.112.2.70
   emacspeak-m-player-volume-down</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
     "index-emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>Command:
     <strong>emacspeak-m-player-volume-down</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dvolume_002ddown-1" id=
       "index-emacspeak_002dm_002dplayer_002dvolume_002ddown-1"></a>
-
       <div class="format">
-        <pre class="format">
-Decrease volume.
+        <pre class="format">Decrease volume.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dset" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dset"></a>
-
   <h4 class="subsubsection">12.112.2.71
   emacspeak-m-player-volume-set</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dvolume_002dset" id=
     "index-emacspeak_002dm_002dplayer_002dvolume_002dset"></a>Command:
     <strong>emacspeak-m-player-volume-set</strong>
     <em>(&amp;optional arg)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dvolume_002dset-1" id=
       "index-emacspeak_002dm_002dplayer_002dvolume_002dset-1"></a>
-
       <div class="format">
-        <pre class="format">
-Set Volume in steps from 1 to 9.
+        <pre class="format">Set Volume in steps from 1 to 9.
 
 (fn &amp;optional ARG)
 </pre>
@@ -2073,72 +1700,59 @@ Set Volume in steps from 1 to 9.
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dup" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dup"></a>
-
   <h4 class="subsubsection">12.112.2.72
   emacspeak-m-player-volume-up</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dvolume_002dup" id=
     "index-emacspeak_002dm_002dplayer_002dvolume_002dup"></a>Command:
     <strong>emacspeak-m-player-volume-up</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dvolume_002dup-1" id=
       "index-emacspeak_002dm_002dplayer_002dvolume_002dup-1"></a>
-
       <div class="format">
-        <pre class="format">
-Increase volume.
+        <pre class="format">Increase volume.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dwrite_002dclip" id=
   "emacspeak_002dm_002dplayer_002dwrite_002dclip"></a>
-
   <h4 class="subsubsection">12.112.2.73
   emacspeak-m-player-write-clip</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dwrite_002dclip" id=
     "index-emacspeak_002dm_002dplayer_002dwrite_002dclip"></a>Command:
     <strong>emacspeak-m-player-write-clip</strong></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dwrite_002dclip-1" id=
       "index-emacspeak_002dm_002dplayer_002dwrite_002dclip-1"></a>
-
       <div class="format">
         <pre class="format">
-Invoke mp3splt to clip selected range in current file.
+        Invoke mp3splt to clip selected range in current file.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"
   id="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>
-
   <h4 class="subsubsection">12.112.2.74
   emacspeak-m-player-youtube-player</h4>
-
   <dl>
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer" id=
     "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>Command:
     <strong>emacspeak-m-player-youtube-player</strong>
     <em>(url)</em></dt>
-
     <dd>
       <a name=
       "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer-1"
       id=
       "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer-1"></a>
-
       <div class="format">
         <pre class="format">
-Use youtube-dl and mplayer to stream YouTube content.
+        Use youtube-dl and mplayer to stream YouTube content.
 
 (fn URL)
 </pre>
@@ -2146,31 +1760,24 @@ Use youtube-dl and mplayer to stream YouTube content.
     </dd>
   </dl><a name="emacspeak_002dmultimedia" id=
   "emacspeak_002dmultimedia"></a>
-
   <h4 class="subsubsection">12.112.2.75 emacspeak-multimedia</h4>
-
   <dl>
     <dt><a name="index-emacspeak_002dmultimedia" id=
     "index-emacspeak_002dmultimedia"></a>Command:
     <strong>emacspeak-multimedia</strong></dt>
-
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e ;</kbd></dt>
-
         <dd><a name="index-C_002de-_003b" id=
         "index-C_002de-_003b"></a></dd>
-
         <dt><kbd>&lt;fn&gt; ;</kbd></dt>
-
         <dd><a name="index-_003cfn_003e-_003b" id=
         "index-_003cfn_003e-_003b"></a></dd>
       </dl><a name="index-emacspeak_002dmultimedia-1" id=
       "index-emacspeak_002dmultimedia-1"></a>
-
       <div class="format">
         <pre class="format">
-Start or control Emacspeak multimedia player.
+        Start or control Emacspeak multimedia player.
 
 Uses current context to prompt for media to play.
 Controls media playback when already playing a stream.
@@ -2255,72 +1862,58 @@ M-l             emacspeak-m-player-load-playlist
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer-Options" id=
   "emacspeak_002dm_002dplayer-Options"></a>
-
   <h4 class="subsection">12.112.3 emacspeak-m-player Options</h4>
-
   <dl>
     <dt><a name="index-User-Option-691" id=
     "index-User-Option-691"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-options</em></dt>
-
     <dd>
       <p>Options passed to mplayer.</p>
     </dd>
   </dl>
-
   <dl>
     <dt><a name="index-User-Option-692" id=
     "index-User-Option-692"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-program</em></dt>
-
     <dd>
       <p>Media player program.</p>
     </dd>
   </dl>
-
   <dl>
     <dt><a name="index-User-Option-693" id=
     "index-User-Option-693"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-m-player-recent-amark-name</em></dt>
-
     <dd>
       <p>Name used to mark position where we quit a stream.</p>
     </dd>
   </dl>
-
   <dl>
     <dt><a name="index-User-Option-694" id=
     "index-User-Option-694"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-reverb-filter</em></dt>
-
     <dd>
       <p>Tap Reverb Settings.</p>
     </dd>
   </dl>
-
   <dl>
     <dt><a name="index-User-Option-695" id=
     "index-User-Option-695"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-youtube-dl</em></dt>
-
     <dd>
       <p>YouTube download tool</p>
     </dd>
   </dl>
-
   <dl>
     <dt><a name="index-User-Option-696" id=
     "index-User-Option-696"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-media-location-bindings</em></dt>
-
     <dd>
       <p>*Map specific key sequences to launching MPlayer
       accelerators on a specific directory.</p>
     </dd>
   </dl>
   <hr />
-
   <div class="header">
     <p>Next: <a href="emacspeak_002dmagit.html#emacspeak_002dmagit"
     accesskey="n" rel="next">emacspeak-magit</a>, Previous:

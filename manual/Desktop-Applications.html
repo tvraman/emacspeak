@@ -1,13 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
   <title>Emacspeak User’s Manual — 2nd Edition.: Desktop
   Applications</title>
   <meta name="description" content=
@@ -33,19 +30,19 @@
   "Personal-Information-Management.html#Personal-Information-Management"
   rel="prev" title="Personal Information Management" />
   <style type="text/css">
-/*<![CDATA[*/
+  /*<![CDATA[*/
   <!--
   a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
   blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
   div.smalldisplay {margin-left: 3.2em}
   div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
   div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
+  kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
@@ -54,32 +51,18 @@
   pre.smallexample {font-size: smaller}
   pre.smallformat {font-family: inherit; font-size: smaller}
   pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
   ul.no-bullet {list-style: none}
   -->
   /*]]>*/
   </style>
   <link rel="stylesheet" type="text/css" href=
   "http://www.w3.org/StyleSheets/Core/Modernist" />
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
 </head>
-
 <body lang="en" xml:lang="en">
   <a name="Desktop-Applications" id="Desktop-Applications"></a>
-
   <div class="header">
     <p>Previous: <a href=
     "Personal-Information-Management.html#Personal-Information-Management"
@@ -93,13 +76,10 @@
   </div>
   <hr />
   <a name="Desktop-Applications-1" id="Desktop-Applications-1"></a>
-
   <h3 class="section">10.10 Desktop Applications</h3><a name=
   "index-Desktop-Applications" id="index-Desktop-Applications"></a>
   <a name="Spread-Sheets" id="Spread-Sheets"></a>
-
   <h4 class="subsection">10.10.1 Spread Sheets</h4>
-
   <p>Spreadsheet applications present a two dimensional view of
   structured data where the field values are (possibly) mutually
   dependent. On the Emacspeak desktop, a speech-enabled spreadsheet
@@ -127,9 +107,7 @@
   spread-sheet package <code>dismal</code> can be retrieved from
   <code>ftp://cs.nyu.edu/pub/local/fox/dismal</code>.</p><a name=
   "Forms-Mode" id="Forms-Mode"></a>
-
   <h4 class="subsection">10.10.2 Forms Mode</h4>
-
   <p><em>Forms</em> mode an Emacs mode designed to edit structured
   data records like the line shown from file
   <code>/etc/passwd</code> presents a user-friendly visual
@@ -143,12 +121,9 @@
   documentation.</p><a name=
   "OCR-_002d_002d_002d-Reading-Print-Documents" id=
   "OCR-_002d_002d_002d-Reading-Print-Documents"></a>
-
   <h4 class="subsection">10.10.3 OCR — Reading Print Documents</h4>
-
   <p>Module <code>emacspeak-ocr</code> implements an OCR front-end
   for the Emacspeak desktop.</p>
-
   <p>Page image is acquired using tools from package
   <code>SANE</code> (Scanner Access Now Easy). The acquired image
   is run through the OCR engine if one is available, and the
@@ -157,49 +132,37 @@
   <code>emacspeak-ocr-mode</code> a specialized mode for reading
   and scanning documents.</p><a name="Emacspeak-OCR-Mode" id=
   "Emacspeak-OCR-Mode"></a>
-
   <h4 class="subsubsection">10.10.3.1 Emacspeak OCR Mode</h4>
-
   <p>Emacspeak OCR mode is a special major mode for document
   scanning and OCR.</p>
-
   <p>Pre-requisites:</p>
-
   <ul>
     <li>A working scanner back-end like SANE on Linux.</li>
-
     <li>An OCR engine.</li>
   </ul>
-
   <p>Make sure your scanner back-end works, and that you have the
   utilities to scan a document and acquire an image as a tiff file.
   Then set variable <var>emacspeak-ocr-scan-image-program</var> to
   point at this utility. By default, this is set to ‘scanimage’
   which is the image scanning utility provided by SANE.</p>
-
   <p>By default, this front-end attempts to compress the acquired
   tiff image; make sure you have a utility like
   <code>tiffcp</code>. Variable
   <var>emacspeak-ocr-compress-image</var> is set to ‘tiffcp’ by
   default; if you use something else, you should customize this
   variable.</p>
-
   <p>Next, make sure you have an OCR engine installed and working.
   By default this front-end assumes that OCR is available as
   <code>/usr/bin/ocr</code>.</p>
-
   <p>Once you have ensured that acquiring an image and applying OCR
   to it work independently of Emacs, you can use this Emacspeak
   front-end to enable easy OCR access from within Emacspeak.</p>
-
   <p>The Emacspeak OCR front-end is launched by command
   <em>emacspeak-ocr</em> bound to <kbd>C-e C-o</kbd>.</p>
-
   <p>This command switches to a special buffer that has OCR
   commands bounds to single keystrokes — see the key-binding list
   at the end of this description. Use Emacs online help facility to
   look up help on these commands.</p>
-
   <p>Mode <em>emacspeak-ocr-mode</em> provides the necessary
   functionality to scan, OCR, read and save documents. By default,
   scanned images and the resulting text are saved under directory
@@ -207,141 +170,103 @@
   <var>emacspeak-ocr-working-directory</var>. Invoking command
   <em>emacspeak-ocr-open-working-directory</em> bound to
   <kbd>d</kbd> will open this directory.</p>
-
   <p>By default, the document being scanned is named ‘untitled’.
   You can name the document by using command
   <em>emacspeak-ocr-name-document</em> bound to <kbd>n</kbd>. The
   document name is used in constructing the name of the image and
   text files.</p>
-
   <p>Here is a list of all emacspeak OCR commands along with their
   key-bindings and a brief description:</p>
-
   <dl compact="compact">
     <dt><kbd>digit</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-page</em> Jumps to specified page in the
       OCR output.</p>
     </dd>
-
     <dt><kbd>c</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-set-compress-image-options</em></p>
-
       <p>Interactively update image compression options. Prompts
       with current setting in the minibuffer. Setting persists for
       current Emacs session.</p>
     </dd>
-
     <dt><kbd>i</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-set-scan-image-options</em>
       Interactively update scan image options. Prompts with current
       setting in the minibuffer. Setting persists for current Emacs
       session.</p>
     </dd>
-
     <dt><kbd>spc</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-read-current-page</em> Speaks current
       page.</p>
     </dd>
-
     <dt><kbd>s</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-save-current-page</em> Saves current
       page as a text file.</p>
     </dd>
-
     <dt><kbd>p</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-page</em> Prompts for a page number and
       moves to the specified page.</p>
     </dd>
-
     <dt><kbd>]</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-forward-page</em> Move forward to the
       next page.</p>
     </dd>
-
     <dt><kbd>[</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-backward-page</em> Move back to the
       previous page.</p>
     </dd>
-
     <dt><kbd>d</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-open-working-directory</em> Open
       directory containing the results of OCR.</p>
     </dd>
-
     <dt><kbd>n</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-name-document</em> Name current
       document.</p>
     </dd>
-
     <dt><kbd>o</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-recognize-image</em> Launch OCR engine
       on a scanned image.</p>
     </dd>
-
     <dt><kbd>i</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-scan-image</em> Acquire an image using
       <code>scanimage</code>.</p>
     </dd>
-
     <dt><kbd>RET</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-scan-and-recognize</em> Scan and
       recognize a page.</p>
     </dd>
-
     <dt><kbd>w</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-write-document</em> Write all pages of
       current document to a text file.</p>
     </dd>
-
     <dt><kbd>q</kbd></dt>
-
     <dd>
       <p><em>bury-buffer</em> Bury the OCR buffer.</p>
     </dd>
-
     <dt><kbd>c</kbd></dt>
-
     <dd>
       <p><em>emacspeak-ocr-customize</em> Customize Emacspeak OCR
       settings.</p>
     </dd>
-
     <dt><kbd>?</kbd></dt>
-
     <dd>
       <p><em>describe-mode</em> Describe OCR mode.</p>
     </dd>
   </dl>
   <hr />
-
   <div class="header">
     <p>Previous: <a href=
     "Personal-Information-Management.html#Personal-Information-Management"
