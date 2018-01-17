@@ -222,7 +222,7 @@ This chapter documents a total of 1198 commands and 1170 options.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::Define various device independent voices in terms of Plain codes.
-* soundscape::Soundscapes for The Emacspeak Desktop.
+* soundscape::
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
 * stack-f::
@@ -22597,9 +22597,9 @@ Default is to add autoload cookies to current file.
 @findex emacspeak-wizards-alpha-vantage-quotes
 
 @format
-Retrieve stock quote data from Alpha Vantage.
-Prompts for ‘ticker’ --- a stock symbol.
-Optional interactive prefix arg ‘custom’ provides access to the various functions provided by alpha-vantage.
+Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
+--- a stock symbol. Optional interactive prefix arg ‘custom’ provides
+access to the various functions provided by alpha-vantage.
 
 (fn TICKER &optional CUSTOM)
 @end format
@@ -25072,8 +25072,6 @@ communication == email, IM, ... map to  the same @emph{mood}.
 
 @format
 Play soundscape.
-
-(fn SCAPE)
 @end format
 @end deffn
 
@@ -25094,8 +25092,6 @@ Stop all running soundscapes.
 Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
 Optional interactive prefix arg restarts the listener if already running.
-
-(fn &optional RESTART)
 @end format
 @end deffn
 
@@ -25114,8 +25110,6 @@ Shutdown listener.
 
 @format
 Activate scapes named names.
-
-(fn NAMES)
 @end format
 @end deffn
 
@@ -25136,8 +25130,6 @@ Activate scapes named names.
 Restart Soundscape  environment.
 With prefix arg ‘device’, prompt for a alsa/ladspa device.
 This is then saved to soundscape-device for future use.
-
-(fn &optional DEVICE)
 @end format
 @end deffn
 
@@ -25156,8 +25148,6 @@ This is then saved to soundscape-device for future use.
 
 @format
 Stop running Soundscape.
-
-(fn SCAPE)
 @end format
 @end deffn
 
@@ -25207,8 +25197,6 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 Update mood/scape mapping for current  mode.
 The  updated mapping is not persisted.
 Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
-
-(fn &optional PROMPT-MODE)
 @end format
 @end deffn
 

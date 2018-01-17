@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 5.2 from
+This is emacspeak.info, produced by makeinfo version 6.3 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -5374,9 +5374,9 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-e x q’
      ‘<fn> x q’
 
-     Retrieve stock quote data from Alpha Vantage.
-     Prompts for ‘ticker’ — a stock symbol.
-     Optional interactive prefix arg ‘custom’ provides access to the various functions provided by alpha-vantage.
+     Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
+     — a stock symbol. Optional interactive prefix arg ‘custom’ provides
+     access to the various functions provided by alpha-vantage.
 
      (fn TICKER &optional CUSTOM)
 
@@ -7306,8 +7306,6 @@ email, IM, ...  map to the same _mood_.
 
      Play soundscape.
 
-     (fn SCAPE)
-
 12.218.1.2 soundscape-kill
 ..........................
 
@@ -7324,8 +7322,6 @@ email, IM, ...  map to the same _mood_.
      Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
      Optional interactive prefix arg restarts the listener if already running.
 
-     (fn &optional RESTART)
-
 12.218.1.4 soundscape-listener-shutdown
 .......................................
 
@@ -7340,8 +7336,6 @@ email, IM, ...  map to the same _mood_.
 
      Activate scapes named names.
 
-     (fn NAMES)
-
 12.218.1.6 soundscape-restart
 .............................
 
@@ -7354,8 +7348,6 @@ email, IM, ...  map to the same _mood_.
      With prefix arg ‘device’, prompt for a alsa/ladspa device.
      This is then saved to soundscape-device for future use.
 
-     (fn &optional DEVICE)
-
 12.218.1.7 soundscape-stop
 ..........................
 
@@ -7365,8 +7357,6 @@ email, IM, ...  map to the same _mood_.
      ‘C-x @ s S’
 
      Stop running Soundscape.
-
-     (fn SCAPE)
 
 12.218.1.8 soundscape-theme
 ...........................
@@ -7398,8 +7388,6 @@ email, IM, ...  map to the same _mood_.
      Update mood/scape mapping for current  mode.
      The  updated mapping is not persisted.
      Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
-
-     (fn &optional PROMPT-MODE)
 
 12.218.2 soundscape Options
 ---------------------------
@@ -8760,7 +8748,7 @@ _dispatch_ request is received via execution of command _d_.
              c codes
         
 
-   Queues synthesis codes to be sent to the TTS engine. Codes are sent
+   Queues synthesis codes to be sent to the TTS engine.  Codes are sent
 to the engine with no further transformation or processing.  The codes
 are inserted into the output queue and will be dispatched to the TTS
 engine at the appropriate point in the output stream.
