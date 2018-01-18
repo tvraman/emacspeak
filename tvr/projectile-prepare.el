@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: nil; -*-
-;(load-library "projectile-autoloads")
-(add-hook 'prog-mode-hook 'projectile-mode)
+
+(when (locate-library "projectile")
+  (add-hook 'prog-mode-hook 'projectile-mode))
 ;(projectile-global-mode)
 (eval-after-load 'projectile
   `(progn 
