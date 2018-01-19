@@ -71,7 +71,8 @@
 ;;}}}
 ;;{{{ Forward Declarations:
 
-(declare-function soundscape-restart "soundscape" (&optional device))
+
+(declare-function soundscape-tickle "soundscape" nil)
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
 (declare-function twittering-start "twittering-mode" nil)
@@ -208,7 +209,7 @@ already disabled."
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
   (amixer-restore amixer-alsactl-config-file )
-  (when (featurep 'soundscape) (soundscape-restart))
+  (when (featurep 'soundscape) (soundscape-tickle))
   (when (featurep 'xbacklight) (xbacklight-black))
   (run-at-time  30 nil
                 #'(lambda ()
