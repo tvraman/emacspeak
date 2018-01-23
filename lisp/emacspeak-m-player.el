@@ -1233,7 +1233,7 @@ arg `reset' starts with all filters set to 0."
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (setq u (substring u 0 -1))
     (kill-new u)
-    (emacspeak-m-player-url u)))
+    (emacspeak-m-player u)))
 
 ;;}}}
 ;;{{{ pause/resume
