@@ -73,6 +73,7 @@
 
 
 (declare-function soundscape-restart "soundscape" (&optional device))
+(declare-function soundscape-tickle "soundscape" nil)
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
 (declare-function twittering-start "twittering-mode" nil)
@@ -221,6 +222,7 @@ already disabled."
        "org.gnome.ScreenSaver" "GetActive")
     (dtk-say "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help))
+  (soundscape-tickle)
   (message "Successfully ran resume hook."))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
