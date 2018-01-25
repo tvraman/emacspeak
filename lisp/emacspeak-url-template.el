@@ -1079,20 +1079,15 @@ JSON is retrieved from `url'."
 ;;}}}
 ;;{{{ times of india
 
-;;; create url rewrite url to get print page
+
 (emacspeak-url-template-define
  "Times Of India"
  "http://www.timesofindia.com"
  nil
- #'(lambda ()
-     (cl-declare (special emacspeak-we-url-rewrite-rule))
-     (setq emacspeak-we-url-rewrite-rule
-           (list "$" "&prtPage=1")))
- "Retrieve Times Of India.
-Set up URL rewrite rule to get print page."
+ nil
+ "Retrieve Times Of India."
  #'(lambda (url)
-     (emacspeak-we-extract-by-id "content" url 'speak))
- )
+     (emacspeak-we-extract-by-id "content" url 'speak)))
 
 ;;}}}
 ;;{{{ weather underground
@@ -1476,25 +1471,47 @@ prompts for a location and speaks the forecast. \n\n"
 
 ;;}}}
 ;;{{{ Search NLS Bard:
+
+
+(defun emacspeak-url-template-nls-add-to-wishlist  (book)
+  "Add book under point to wishlist."
+  (interactive (list  (emacspeak-webutils-read-this-url)))
+  (let  ((add nil))
+    (unless book (error "No Book URL specified"))
+    (setq add
+          (replace-regexp-in-string "download/detail" "wishlist/add" book))
+    (message "Adding book to wishlist.")
+    (emacspeak-auditory-icon 'progress)
+    (eww add)))
+
 (emacspeak-url-template-define
  "NLS Bard Search"
  "https://nlsbard.loc.gov:443/nlsbardprod/search_collection/collection/page/1/sort/s/srch/%s/local/0"
  (list "Search For: ")
- #'emacspeak-speak-mode-line
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
+     (emacspeak-speak-mode-line))
  "Search NLS Bard Catalog. Login once before using this template.")
 
 (emacspeak-url-template-define
  "NLS Bard Popular"
 "https://nlsbard.loc.gov:443/nlsbardprod/search/most_popular/page/1/sort/s/srch/most_popular/local/0"
  nil
- #'emacspeak-speak-mode-line
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
+     (emacspeak-speak-mode-line))
  "NLS Bard Catalog: Most Popular. Login once before using this template.")
 
 (emacspeak-url-template-define
  "NLS Bard Recent"
  "https://nlsbard.loc.gov/mainpage/srch_recentlyadded"
  nil
- #'emacspeak-speak-mode-line
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
+     (emacspeak-speak-mode-line))
  "NLS Bard Catalog: Recently Added. Login once before using this template.")
 
 ;;}}}
