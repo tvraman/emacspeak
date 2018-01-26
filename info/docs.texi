@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1198 commands and 1170 options.
+This chapter documents a total of 1199 commands and 1181 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -2247,7 +2247,7 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @defvar {User Option} emacspeak-erc-notice-personality
 Personality used for erc-notice-face
-This personality uses  (quote inaudible) whose  effect can be changed globally by customizing (quote inaudible)-settings.
+This personality uses  ’inaudible whose  effect can be changed globally by customizing ’inaudible-settings.
 
 @end defvar
 
@@ -2973,7 +2973,7 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 
 @defvar {User Option} emacspeak-info-index-match-voice
 Personality used for info-index-match
-This personality uses  (quote voice-bolden-medium) whose  effect can be changed globally by customizing (quote voice-bolden-medium)-settings.
+This personality uses  ’voice-bolden-medium whose  effect can be changed globally by customizing ’voice-bolden-medium-settings.
 
 @end defvar
 
@@ -4017,6 +4017,72 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -20189,6 +20255,17 @@ Load URL template resources from specified location.
 @end format
 @end deffn
 
+@subsubsection emacspeak-url-template-nls-add-to-wishlist
+@deffn {Command} emacspeak-url-template-nls-add-to-wishlist  (book)
+@findex emacspeak-url-template-nls-add-to-wishlist
+
+@format
+Add book under point to wishlist.
+
+(fn BOOK)
+@end format
+@end deffn
+
 @subsubsection emacspeak-url-template-save
 @deffn {Command} emacspeak-url-template-save  (file)
 @findex emacspeak-url-template-save
@@ -26467,7 +26544,6 @@ Display tech news from CNET
 @b{Times Of India}
 
 Retrieve Times Of India.
-Set up URL rewrite rule to get print page.
 
 @b{TuneIn Radio}
 
