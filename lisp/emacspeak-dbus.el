@@ -115,9 +115,9 @@ Startup  apps that need the network."
        (when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
   (emacspeak-play-auditory-icon 'network-up)
+  (soundscape-tickle)
   (dtk-notify-speak
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
-
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
@@ -222,7 +222,6 @@ already disabled."
        "org.gnome.ScreenSaver" "GetActive")
     (dtk-say "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help))
-  (soundscape-tickle)
   (message "Successfully ran resume hook."))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
