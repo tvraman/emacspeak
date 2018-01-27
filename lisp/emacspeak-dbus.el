@@ -235,7 +235,7 @@ already disabled."
 (defun emacspeak-dbus-watch-screen-lock ()
   "Register a handler to watch screen lock/unlock."
   (cl-declare (special emacspeak-dbus-screen-lock-handle
-                    emacspeak-screen-saver-saved-configuration))
+                       emacspeak-screen-saver-saved-configuration))
   (setq emacspeak-dbus-screen-lock-handle
         (dbus-register-signal
          :session
@@ -244,14 +244,13 @@ already disabled."
          #'(lambda(lock)
              (if lock
                  (progn
-                   (sox-tones 1.5 1.5)
                    (emacspeak-screen-saver))
                (progn
                  (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
-                 (sox-tones)
                  (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
                    (set-window-configuration emacspeak-screen-saver-saved-configuration))
                  (dtk-notify-say "Unlocking screen")
+                 (sox-tones)
                  (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
