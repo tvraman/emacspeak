@@ -110,7 +110,7 @@ Startup  apps that need the network."
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
   (run-at-time
-   30 nil
+   60 nil
    #'(lambda ()
        (when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
