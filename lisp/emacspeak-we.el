@@ -255,7 +255,7 @@ Default is to apply sort-tables."
   :group 'emacspeak-we)
 (declare-function emacspeak-eww-reading-settings "emacspeak-eww")
 ;;;###autoload
-(defun emacspeak-we-xslt-filter (path    url  &optional speak)
+(defun emacspeak-we-xslt-filter (path    url  &optional _speak)
   "Extract elements matching specified XPath path locator
 from Web page -- default is the current page being viewed."
   (interactive
