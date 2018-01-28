@@ -479,7 +479,7 @@ Value returned is compatible with `encode-time'."
         (day   (read (substring rfc-3339 8 10)))
         (hour (read (substring rfc-3339 11 13)))
         (minute (read (substring rfc-3339 14 16)))
-        (cl-second (read (substring rfc-3339 17 19)))
+        (second (read (substring rfc-3339 17 19)))
         (tz (ems-speak-rfc-3339-tz-offset rfc-3339)))
     ;; create the decoded date-time
     (condition-case nil
