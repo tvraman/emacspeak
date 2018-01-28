@@ -50,6 +50,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require  'vm "vm" 'no-error)
+(require 'browse-url)
 ;;}}}
 ;;{{{ Forward Decls:
 
@@ -154,7 +155,7 @@ Note that some badly formed mime messages  cause trouble."
             (header nil))
       (while (not header)
         (setq header
-              (case (read-char "f From s Subject t To u URL")
+              (cl-case (read-char "f From s Subject t To u URL")
                 (?s subject)
                 (?f from)
                 (?u url)
