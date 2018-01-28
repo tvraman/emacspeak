@@ -420,7 +420,7 @@ Optional interactive prefix arg forces a refresh."
 (defun emacspeak-webspace-kg-results (query &optional limit)
   "Return list of results."
   (or limit (setq limit 5))
-  (map  'list
+  (cl-map  'list
         #'(lambda (r) (g-json-get 'result r))
         (g-json-get 'itemListElement
                     (emacspeak-webspace-kg-json-ld query limit))))
