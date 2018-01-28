@@ -70,7 +70,7 @@
   (interactive)
   (dtk-speak
          (format "%s at %s %s "
-                 (case(cl-char-after (point))
+                 (cl-case(char-after (point))
                    (?o "stone")
                    (?. "hole"))
                  (emacspeak-solitaire-current-row)

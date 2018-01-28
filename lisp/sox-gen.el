@@ -305,9 +305,9 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   :gain -10))
 ;; }}}
 
-(defun sox--format-seconds (seconds)
+(defun sox--format-seconds (secs)
   "Audio-format seconds."
-  (format-seconds "%H %M and%z %S" seconds))
+  (format-seconds "%H %M and%z %S" secs))
 
 ;;;###autoload
 (defun sox-binaural (name duration)
@@ -369,7 +369,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
       (let ((a-i (elt a-beats i))
             (b-i (elt b-beats i)))
         (list
-         (/ (+ (cl-first a-i) (first b-i)) 2) ; carrier frequency
+         (/ (+ (cl-first a-i) (cl-first b-i)) 2) ; carrier frequency
          (list (cl-second a-i) (cl-second b-i))))))))
 
 ;;}}}
