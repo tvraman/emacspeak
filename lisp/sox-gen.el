@@ -417,7 +417,7 @@ binaural beat to another."
     sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (cl-declare (special sox-binaural-slider-scale))
-  (let ((steps (mapcar #'second theme)))
+  (let ((steps (mapcar #'cl-second theme)))
     (/
      (timer-duration duration)
      (+ (apply #'+ steps)
