@@ -89,7 +89,7 @@ displayed buffers."
           (put-text-property 0 (length tl) 'personality voice-bolden tl)
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
-      (t (mapcar #'second buffer-map))))
+      (t (mapcar #'cl-second buffer-map))))
     (tts-with-punctuations
      'all
      (dtk-speak (concat description (mapconcat #'identity windows " "))))))
