@@ -116,8 +116,7 @@ Startup  apps that need the network."
        (when (featurep 'twittering-mode) (twittering-start))))
   (emacspeak-play-auditory-icon 'network-up)
   (soundscape-tickle)
-  (dtk-notify-speak
-   (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
+  (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
@@ -125,8 +124,7 @@ Stop apps that use the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
   (when (featurep 'jabber) (jabber-disconnect))
   (when (featurep 'twittering-mode) (twittering-stop))
-  (setq emacspeak-speak-network-interfaces-list
-        (mapcar #'car (network-interface-list)))
+  (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
