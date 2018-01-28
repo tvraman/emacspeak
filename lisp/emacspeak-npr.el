@@ -217,7 +217,7 @@ Interactive prefix arg prompts for search."
 (defun emacspeak-npr-pid-to-program (pid)
   "Return program name for pid."
   (cl-declare (special emacspeak-npr-program-table))
-  (first
+  (cl-first
    (cl-find pid emacspeak-npr-program-table :key #'cl-second :test #'string-equal)))
 
 (defun emacspeak-npr-make-file-name (pid &optional date)

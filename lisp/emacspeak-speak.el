@@ -838,7 +838,7 @@ the sense of the filter. "
                  ""))))))
   (cond
    ((and (listp filter)
-         (every
+         (cl-every
           #'(lambda (l)
               (and (listp l)
                    (= 2 (length l))))
@@ -3446,7 +3446,7 @@ from DIR. Returns nil if it cannot find a settings file in DIR
 or an ascendant directory."
   (cl-declare (special emacspeak-speak-directory-settings
                     default-directory))
-  (let ((file (find emacspeak-speak-directory-settings
+  (let ((file (cl-find emacspeak-speak-directory-settings
                     (directory-files dir)
                     :test 'string-equal)))
     (cond

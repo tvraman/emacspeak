@@ -802,7 +802,7 @@ Optional argument RIGHT-STRETCH  specifies if the window stretches to the right.
 Optional argument LEFT-STRETCH  specifies if the window stretches to the left."
   (cl-declare (special emacspeak-eterm-window-table
                     emacspeak-eterm-maximum-windows))
-  (assert (< window-id emacspeak-eterm-maximum-windows)  t
+  (cl-assert (< window-id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
           emacspeak-eterm-maximum-windows)
   (aset emacspeak-eterm-window-table window-id 
@@ -814,7 +814,7 @@ Optional argument LEFT-STRETCH  specifies if the window stretches to the left."
 Argument ID specifies window whose definition is being requested."
   (cl-declare (special emacspeak-eterm-window-table
                     emacspeak-eterm-maximum-windows))
-  (assert (<  id emacspeak-eterm-maximum-windows)  t
+  (cl-assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
           emacspeak-eterm-maximum-windows)
   (or (aref emacspeak-eterm-window-table  id)
@@ -830,7 +830,7 @@ eterm."
   (interactive "nDefine window: ")
   (cl-declare (special emacspeak-eterm-marker emacspeak-eterm-pointer
                     emacspeak-eterm-maximum-windows))
-  (assert (<  id emacspeak-eterm-maximum-windows)  t
+  (cl-assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
           emacspeak-eterm-maximum-windows)
   (let  ((top-left
@@ -862,7 +862,7 @@ Argument ID specifies the window."
   (interactive "nSpeak window")
   (cl-declare (special emacspeak-eterm-maximum-windows
                     term-home-marker))
-  (assert (<  id emacspeak-eterm-maximum-windows)  t
+  (cl-assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
           emacspeak-eterm-maximum-windows)
   (save-excursion
@@ -877,7 +877,7 @@ Argument ID specifies the window."
   (interactive "nYank contents of window")
   (cl-declare (special emacspeak-eterm-maximum-windows
                     term-home-marker))
-  (assert (<  id emacspeak-eterm-maximum-windows)  t
+  (cl-assert (<  id emacspeak-eterm-maximum-windows)  t
           "Your installation of Emacspeak only supports %d windows"
           emacspeak-eterm-maximum-windows)
   (insert 
@@ -931,7 +931,7 @@ and speaking that window upon seeing screen activity."
      (t
       (setq window-id
             (read-minibuffer  "Specify eterm window to focus on "))
-      (assert (numberp window-id) t
+      (cl-assert (numberp window-id) t
               "Please specify a valid window id, a
 non-negative integer ")
       (cond
@@ -965,7 +965,7 @@ activity within the filter window."
      (t
       (setq window-id
             (read-minibuffer  "Specify eterm window to filter on "))
-      (assert (numberp window-id) t
+      (cl-assert (numberp window-id) t
               "Please specify a valid window id, a non-negative integer ")
       (cond
        ((= 0 window-id)

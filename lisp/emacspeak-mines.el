@@ -88,7 +88,7 @@
   (cl-declare (special mines-state))
   (dtk-speak
    (format "%d mines with %d uncovered cells remaining."
-           mines-number-mines (count-if #'null mines-state))))
+           mines-number-mines (cl-count-if #'null mines-state))))
 
 
 (defun emacspeak-mines-jump-to-uncovered-cell (from-beginning)
@@ -118,7 +118,7 @@ to beginning of board before searching."
         (m (format "%c" mines-flagged-cell-char)))
     (save-excursion
     (goto-char (point-min))
-    (while (search-forward  m nil t) (incf count) (forward-char 1)))
+    (while (search-forward  m nil t) (cl-incf count) (forward-char 1)))
     (message "%d marks" count)))
 (defun emacspeak-mines-speak-board ()
   "Speak the board."

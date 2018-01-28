@@ -533,7 +533,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   (cl-declare (special emacspeak-websearch-gutenberg-uri))
   (browse-url
    (concat emacspeak-websearch-gutenberg-uri
-           (ecase type
+           (cl-ecase type
                   (?a "author=")
                   (?t "title="))
            (emacspeak-url-encode query)))

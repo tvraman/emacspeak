@@ -71,14 +71,14 @@
 ;;;###autoload
 (defun emacspeak-table-make-table (elements)
   "Construct a table object from elements."
-  (assert (vectorp elements) t "Elements should be a vector of vectors")
+  (cl-assert (vectorp elements) t "Elements should be a vector of vectors")
   (let ((table (cons-emacspeak-table :elements elements))
         (row-h (make-vector (length  elements) nil))
         (index 0))
     (setf (emacspeak-table-column-header table) (aref elements 0)) ;first row
     (cl-loop
      for element across  elements do 
-     (assert (vectorp element) t "Row %s is not a vector" index)
+     (cl-assert (vectorp element) t "Row %s is not a vector" index)
      (aset row-h index (aref element 0)) ; build column 0
      (cl-incf index))
     (setf (emacspeak-table-row-header table) row-h)

@@ -98,7 +98,7 @@
     (with-output-to-temp-buffer "M Player Metadata"
       (cl-loop
        for f in
-       (rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
+       (cl-rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
        do
        (when (cl-struct-slot-value 'emacspeak-m-player-metadata f data)
          (princ
@@ -1644,7 +1644,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
         (plugin (get-text-property (point) 'ladspa))
         (args nil))
     (when
-        (some
+        (cl-some
          #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
       (ladspa-instantiate))
     (setq args (emacspeak-m-player-ladspa-cmd plugin))

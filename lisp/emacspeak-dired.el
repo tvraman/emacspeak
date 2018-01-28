@@ -415,8 +415,8 @@ On a directory line, run du -s on the directory to speak its size."
     (unless f (error "No file here."))
     (unless ext (error "This entry has no extension."))
     (setq handler
-          (second
-           (find
+          (cl-second
+           (cl-find
             (format ".%s" ext)
             emacspeak-dired-opener-table
             :key #'car                  ; extract pattern from entry 

@@ -321,7 +321,7 @@ more results."
   (interactive
    (list
     (read-char "a: Author, t: Title,  p:Play, g:Genre, d: Browse Local")))
-  (ecase search-type
+  (cl-ecase search-type
          (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
          (?a (call-interactively 'emacspeak-librivox-search-by-author))
          (?p (call-interactively 'emacspeak-librivox-play))
@@ -345,7 +345,7 @@ more results."
 (defun emacspeak-librivox-get-m3u-name (rss)
   "Parse RSS from temporary location to create a real file name."
   (emacspeak-librivox-ensure-cache)
-  (assert  (file-exists-p rss) nil "RSS file not found.")
+  (cl-assert  (file-exists-p rss) nil "RSS file not found.")
   (with-current-buffer (find-file rss)
     (let* ((title
             (dom-by-tag

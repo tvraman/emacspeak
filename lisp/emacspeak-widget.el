@@ -635,7 +635,7 @@ widget before summarizing."
           (setq level 1)))
        ((= key ?d)
         (if (> level  0)
-            (decf level)
+            (cl-decf level)
           (message "Leaf widget")))
        (t (read-key-sequence "Press any key to continue")))
       (emacspeak-widget-summarize-widget-under-point level))))

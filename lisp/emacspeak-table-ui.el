@@ -220,7 +220,7 @@ Full List Of Keybindings:
   "Speak current table coordinates."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (message "Row %s Column %s"
            (emacspeak-table-current-row emacspeak-table)
            (emacspeak-table-current-column emacspeak-table)))
@@ -229,7 +229,7 @@ Full List Of Keybindings:
   "Speak current table dimensions."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (message "%s by %s table"
            (emacspeak-table-num-rows emacspeak-table)
            (emacspeak-table-num-columns emacspeak-table)))
@@ -238,7 +238,7 @@ Full List Of Keybindings:
   "Speak current table element"
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (dtk-speak-and-echo
    (format "%s" (emacspeak-table-current-element emacspeak-table))))
 
@@ -246,7 +246,7 @@ Full List Of Keybindings:
   "Speak  row header and table element"
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((element (emacspeak-table-current-element emacspeak-table))
         (head
          (format
@@ -263,7 +263,7 @@ Full List Of Keybindings:
   "Speak  column header and table element"
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((head
          (format
           "%s"
@@ -280,7 +280,7 @@ Full List Of Keybindings:
   "Speak  both row and column header and table element"
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((element (emacspeak-table-current-element emacspeak-table))
         (col-head
          (format
@@ -305,7 +305,7 @@ Full List Of Keybindings:
 (defun emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
   "Return table element. Optional args specify  if we return any headers."
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((col-head nil)
         (row-head nil))
     (when row-head-p
@@ -350,7 +350,7 @@ Full List Of Keybindings:
              (cl-first token) (cl-second token)))
       (put-text-property 0 (length value) 'face 'bold value)
       value)
-     ((and (symbolp (cl-first token)) (fboundp  (first token)))
+     ((and (symbolp (cl-first token)) (fboundp  (cl-first token)))
 ;;; applying a function:
       (setq value
             (funcall
@@ -415,7 +415,7 @@ Optional prefix arg prompts for a new filter."
            (numberp (cl-first token))
            (numberp (cl-second token)))
       (emacspeak-table-get-entry-with-headers (cl-first token) (cl-second token)))
-     ((and (symbolp (cl-first token)) (fboundp  (first token)))
+     ((and (symbolp (cl-first token)) (fboundp  (cl-first token)))
 ;;; applying a function:
       (setq value
             (funcall
@@ -770,7 +770,7 @@ browsing table elements"
   "Move to the next row if possible"
   (interactive "p")
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (setq count (or count 1))
   (emacspeak-table-move-down emacspeak-table count)
   (emacspeak-table-synchronize-display)
@@ -781,7 +781,7 @@ browsing table elements"
   "Move to the previous row if possible"
   (interactive "p")
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (setq count (or count 1))
   (emacspeak-table-move-up emacspeak-table count)
   (emacspeak-table-synchronize-display)
@@ -792,7 +792,7 @@ browsing table elements"
   "Move to the next column if possible"
   (interactive "p")
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (setq count (or count 1))
   (emacspeak-table-move-right emacspeak-table count)
   (emacspeak-table-synchronize-display)
@@ -803,7 +803,7 @@ browsing table elements"
   "Move to the previous column  if possible"
   (interactive "p")
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (setq count (or count 1))
   (emacspeak-table-move-left emacspeak-table count)
   (emacspeak-table-synchronize-display)
@@ -813,7 +813,7 @@ browsing table elements"
   "Prompt for a table cell coordinates and jump to it."
   (interactive "nRow:\nNColumn:")
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (emacspeak-table-goto-cell emacspeak-table row column)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
@@ -823,7 +823,7 @@ browsing table elements"
   "Goes to the top of the current column."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (emacspeak-table-goto-cell
    emacspeak-table
    0 (emacspeak-table-current-column emacspeak-table))
@@ -835,7 +835,7 @@ browsing table elements"
   "Goes to the bottom of the current column."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (emacspeak-table-goto-cell
    emacspeak-table
 
@@ -850,7 +850,7 @@ browsing table elements"
   "Goes to the left of the current row."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (emacspeak-table-goto-cell
    emacspeak-table
    (emacspeak-table-current-row emacspeak-table) 0)
@@ -862,7 +862,7 @@ browsing table elements"
   "Goes to the right of the current row."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (emacspeak-table-goto-cell
    emacspeak-table
    (emacspeak-table-current-row emacspeak-table)
@@ -881,7 +881,7 @@ the matching cell current. When called from a program, `what' can
   be either `row' or `column'."
   (interactive "P")
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (message "Search   in: r row c column")
   (let* ((row (emacspeak-table-current-row emacspeak-table))
          (column (emacspeak-table-current-column emacspeak-table))
@@ -933,7 +933,7 @@ row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (message
    "Search headers : r row c column")
   (let* ((row (emacspeak-table-current-row emacspeak-table))
@@ -976,7 +976,7 @@ match, makes the matching row or column current."
   "Copy current table element to kill ring."
   (interactive)
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (kill-new  (emacspeak-table-current-element emacspeak-table))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
@@ -985,7 +985,7 @@ match, makes the matching row or column current."
   "Copy current table element to specified register."
   (interactive (list (register-read-with-preview "Copy to register: ")))
   (cl-declare (special emacspeak-table))
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (set-register register (emacspeak-table-current-element
                           emacspeak-table))
   (when (ems-interactive-p)
@@ -1115,8 +1115,8 @@ table markup.")
 Current buffer must be in emacspeak-table mode."
   (interactive)
   (cl-declare (special emacspeak-table-clipboard emacspeak-table))
-  (assert (eq   major-mode 'emacspeak-table-mode)  nil "Not in table mode.")
-  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (cl-assert (eq   major-mode 'emacspeak-table-mode)  nil "Not in table mode.")
+  (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (setq emacspeak-table-clipboard emacspeak-table)
   (message "Copied current table to emacspeak table clipboard."))
 
@@ -1174,7 +1174,7 @@ markup to use."
   (interactive)
   (cl-declare (special major-mode emacspeak-table
                        emacspeak-table-speak-row-filter))
-  (assert (eq major-mode  'emacspeak-table-mode) nil "Not in table mode.")
+  (cl-assert (eq major-mode  'emacspeak-table-mode) nil "Not in table mode.")
   (let* ((column  (emacspeak-table-current-column emacspeak-table))
          (row-head   nil)
          (row-filter emacspeak-table-speak-row-filter)

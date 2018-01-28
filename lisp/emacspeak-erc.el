@@ -216,7 +216,7 @@ display. String is the original message."
      ((and
        (not (string-match "^\\*\\*\\*" who-from))
        emacspeak-erc-people-to-monitor
-       (find
+       (cl-find
         who-from
         emacspeak-erc-people-to-monitor
         :test #'string-equal))

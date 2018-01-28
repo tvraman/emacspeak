@@ -136,7 +136,7 @@
    (list
     (read-from-minibuffer "Title: ")
     (read-from-minibuffer "URL: ")
-    (ecase (read-char-exclusive "a Atom, o OPML, r RSS: ")
+    (cl-ecase (read-char-exclusive "a Atom, o OPML, r RSS: ")
            (?a 'atom)
            (?o 'opml)
            (?r 'rss))))

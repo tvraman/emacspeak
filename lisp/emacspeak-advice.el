@@ -405,7 +405,7 @@ that were upper cased."
     (dtk-tone-upcase)
     (cond
      ((and (numberp current-prefix-arg)
-           (minusp current-prefix-arg))
+           (cl-minusp current-prefix-arg))
       ad-do-it
       (let ((start (point)))
         (save-excursion
@@ -431,7 +431,7 @@ the words that were down cased."
     (dtk-tone-downcase)
     (cond
      ((and (numberp current-prefix-arg)
-           (minusp current-prefix-arg))
+           (cl-minusp current-prefix-arg))
       ad-do-it
       (let ((start (point)))
         (save-excursion
@@ -457,7 +457,7 @@ the words that were capitalized."
     (dtk-tone-upcase)
     (cond
      ((and (numberp current-prefix-arg)
-           (minusp current-prefix-arg))
+           (cl-minusp current-prefix-arg))
       ad-do-it
       (let ((start (point)))
         (save-excursion

@@ -280,7 +280,7 @@ chrome: Hand off URL to Chrome."
   "Generic button action that dispatches to get_iplayer or chrome based
 on user preference."
   (cl-declare (special emacspeak-bbc-button-action))
-  (ecase emacspeak-bbc-button-action
+  (cl-ecase emacspeak-bbc-button-action
          ('chrome (funcall #'emacspeak-bbc-chrome-action button))
          ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
 

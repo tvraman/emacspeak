@@ -1098,7 +1098,7 @@ Make sure it's downloaded and unpacked first."
       (error "First unpack this content."))
     (emacspeak-xslt-view-file
      xsl
-     (first
+     (cl-first
       (directory-files directory
                        'full
                        ".xml")))))
@@ -1137,7 +1137,7 @@ Make sure it's downloaded and unpacked first."
       (emacspeak-xslt-view-file
        xsl
        (shell-quote-argument
-        (first
+        (cl-first
          (directory-files directory 'full ".xml"))))))))
 
 (defun emacspeak-bookshare-extract-xml (url)
@@ -1204,7 +1204,7 @@ Make sure it's downloaded and unpacked first."
   (let* ((xsl (emacspeak-bookshare-xslt directory)))
     (emacspeak-xslt-view-file
      xsl
-     (first
+     (cl-first
       (directory-files directory 'full ".xml")))))
 
 (defun emacspeak-bookshare-toc (directory)

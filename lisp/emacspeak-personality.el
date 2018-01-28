@@ -114,7 +114,7 @@
            (not (= start end)))
     (let ((v
            (if (listp personality)
-               (delete-duplicates personality :test #'eq)
+               (cl-delete-duplicates personality :test #'eq)
              personality)))
       (with-silent-modifications
         (put-text-property start end 'personality v object)))))
@@ -131,7 +131,7 @@ Existing personality properties on the text range are preserved."
     (with-silent-modifications
       (let ((inhibit-read-only t)
             (v (if (listp personality)
-                   (delete-duplicates personality :test #'eq)
+                   (cl-delete-duplicates personality :test #'eq)
                  personality))
             (orig (get-text-property start 'personality object))
             (new nil)
@@ -148,7 +148,7 @@ Existing personality properties on the text range are preserved."
                       (listp orig)
                       (and (listp orig)(memq v orig)))
             (setq new
-                  (delete-duplicates
+                  (cl-delete-duplicates
                    (nconc
                     (if (listp orig) orig (list orig))
                     (if (listp v) v (list v)))))
@@ -168,7 +168,7 @@ Existing personality properties on the text range are preserved."
            (not (= start end)))
     (with-silent-modifications
       (let ((v (if (listp personality)
-                   (delete-duplicates personality :test #'eq)
+                   (cl-delete-duplicates personality :test #'eq)
                  personality))
             (orig (get-text-property start 'personality object))
             (new nil)
@@ -185,7 +185,7 @@ Existing personality properties on the text range are preserved."
                       (listp orig)
                       (and (listp orig) (memq v orig)))
             (setq new
-                  (delete-duplicates
+                  (cl-delete-duplicates
                    (nconc
                     (if (listp v) v (list v))
                     (if (listp orig) orig (list orig)))))

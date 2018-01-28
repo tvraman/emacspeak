@@ -473,7 +473,7 @@ Useful in handling double-redirect from TuneIn."
              (funcall emacspeak-webutils-url-at-point)
            (browse-url-url-at-point))))
     (setq url
-          (first
+          (cl-first
            (split-string
             (shell-command-to-string (format "curl --silent '%s'" url))
             "\n")))

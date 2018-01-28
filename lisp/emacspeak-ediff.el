@@ -99,7 +99,7 @@
 (defun emacspeak-ediff-difference-a-overlay (n)
   (cl-declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
-  (assert (< n ediff-number-of-differences) t
+  (cl-assert (< n ediff-number-of-differences) t
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-A n) 0))
@@ -107,7 +107,7 @@
 (defun emacspeak-ediff-difference-b-overlay (n)
   (cl-declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
-  (assert (< n ediff-number-of-differences) t
+  (cl-assert (< n ediff-number-of-differences) t
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-B n) 0))
@@ -116,7 +116,7 @@
   (cl-declare (special ediff-difference-vector-B
                     ediff-difference-vector-C
                     ediff-number-of-differences))
-  (assert (< n ediff-number-of-differences) t
+  (cl-assert (< n ediff-number-of-differences) t
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-C n) 0))
@@ -124,7 +124,7 @@
 (defun emacspeak-ediff-fine-difference-a-overlays (n)
   (cl-declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
-  (assert (< n ediff-number-of-differences) t
+  (cl-assert (< n ediff-number-of-differences) t
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-A n) 1))
@@ -132,7 +132,7 @@
 (defun emacspeak-ediff-fine-difference-b-overlays (n)
   (cl-declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
-  (assert (< n ediff-number-of-differences) t
+  (cl-assert (< n ediff-number-of-differences) t
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-B n) 1))
@@ -141,7 +141,7 @@
   (cl-declare (special ediff-difference-vector-B
                     ediff-difference-vector-C
                     ediff-number-of-differences))
-  (assert (< n ediff-number-of-differences) t
+  (cl-assert (< n ediff-number-of-differences) t
           "There are only %s differences"
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-C n) 1))
@@ -205,7 +205,7 @@
                     ediff-number-of-differences))
   (emacspeak-ediff-speak-difference
    (cond
-    ((minusp ediff-current-difference) 0)
+    ((cl-minusp ediff-current-difference) 0)
     ((>= ediff-current-difference ediff-number-of-differences)
      (1- ediff-number-of-differences))
     (t ediff-current-difference))))

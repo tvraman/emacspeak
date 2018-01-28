@@ -99,7 +99,7 @@ Useful in voiceifying rich text."
           (when (listp face)
             (setq face 
                   (cl-loop for f in emacspeak-enriched-font-faces-to-voiceify
-                           thereis (find f face))))
+                           thereis (cl-find f face))))
           (when face 
             (put-text-property start  (point)
                                'personality

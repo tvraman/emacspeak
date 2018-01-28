@@ -462,7 +462,7 @@
     `(defun
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
-       (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+       (cl-assert (boundp 'eww-data) nil "Not a EWW rendered page.")
        (plist-put eww-data
                   ,(intern (format ":%s" name))
                   value))))
@@ -1747,7 +1747,7 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defun emacspeak-eww-speak-buffer-line ()
   "Speak EWW buffer line."
-  (assert (eq major-mode 'eww-buffers-mode) nil "Not in an EWW buffer listing.")
+  (cl-assert (eq major-mode 'eww-buffers-mode) nil "Not in an EWW buffer listing.")
   (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))
     (if buffer
         (dtk-speak (buffer-name buffer))
@@ -1842,8 +1842,8 @@ Warning, this is fragile, and depends on a stable id for the
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (assert emacspeak-eww-phantom-js  nil "Please install phantomjs first.")
-  (assert emacspeak-eww-phantom-get nil "PhantomJS script not found.")
+  (cl-assert emacspeak-eww-phantom-js  nil "Please install phantomjs first.")
+  (cl-assert emacspeak-eww-phantom-get nil "PhantomJS script not found.")
   (with-temp-buffer
     (shell-command
      (format "%s %s '%s' 2> /dev/null "
