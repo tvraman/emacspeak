@@ -44,6 +44,7 @@
   "Safe load lib."
   (let ((start (current-time))
         (file-name-handler-alist nil)
+        (load-source-file-function  nil)
         (inhibit-message t)
         (gc-cons-threshold 64000000)
         (emacspeak-speak-messages nil))
@@ -98,6 +99,7 @@
   "Load my customizations."
   (cl-declare (special custom-file))
   (let ((file-name-handler-alist nil)
+        (load-source-file-function  nil)
         (gc-cons-threshold  64000000)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
@@ -113,6 +115,7 @@
     (make-thread
      #'(lambda ()
          (let ((file-name-handler-alist nil)
+               (load-source-file-function  nil)
                (gc-cons-threshold 64000000))
            (load "emacspeak-muggles"))))))
 
@@ -122,6 +125,7 @@
   (let ((after-start (current-time))
         (gc-cons-threshold 64000000)
         (file-name-handler-alist nil)
+(load-source-file-function  nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
     (dynamic-completion-mode 1)
@@ -170,6 +174,7 @@
                        outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
         (file-name-handler-alist nil)   ; to speed up, avoid tramp etc
+(load-source-file-function  nil)
         (emacspeak-speak-messages nil)
         (inhibit-message t))
     ;;{{{ Basic Look And Feel:
