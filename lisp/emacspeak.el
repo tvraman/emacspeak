@@ -479,7 +479,8 @@ commands and options for details."
                emacspeak-info-directory
                use-dialog-box emacspeak-pronounce-dictionaries-file
                emacspeak-play-program emacspeak-sounds-directory))
-  (let ((file-name-handler-alist nil))
+  (let ((file-name-handler-alist nil)
+        (load-source-file-function  nil))
     (emacspeak-export-environment)
     (setq-default line-move-visual nil)
     (setq use-dialog-box nil)

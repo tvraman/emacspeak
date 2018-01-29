@@ -133,7 +133,8 @@ such as pronunciation dictionaries are stored. ")
 (push emacspeak-lisp-directory load-path)
 (push (expand-file-name "g-client" emacspeak-lisp-directory) load-path)
 
-(let ((file-name-handler-alist nil))
+(let ((file-name-handler-alist nil)
+      (load-source-file-function  nil))
   (load (expand-file-name "emacspeak.elc" emacspeak-lisp-directory)))
 
 ;;;###autoload
@@ -211,7 +212,8 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
 (add-hook
  'Info-mode-hook
  #'(lambda ()
-     (let ((file-name-handler-alist nil))
+     (let ((file-name-handler-alist nil)
+           (load-source-file-function  nil))
        (unless emacspeak-info-already-loaded
          (load-library "emacspeak-info"))
        (setq emacspeak-info-already-loaded t))))
