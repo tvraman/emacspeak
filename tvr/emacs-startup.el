@@ -191,7 +191,7 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
-    (package-initialize)
+    (make-thread #'package-initialize)
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
