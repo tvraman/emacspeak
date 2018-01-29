@@ -72,7 +72,7 @@
   (let  ((file (expand-file-name (format "%s.mp3" name)
                                  emacspeak-prompts-directory)))
     (cl-assert (file-exists-p file) t  "File does not exist")
-    (start-process "prompt" nil  emacspeak-prompts-player file)))
+    (call-process emacspeak-prompts-player nil  0 nil  file)))
 
 ;;}}}
 
