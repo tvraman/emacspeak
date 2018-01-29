@@ -218,7 +218,7 @@ already disabled."
        :session
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
-    (emacspeak-wizards-espeak-string  "Enter password to unlock screen. ")
+    (emacspeak-prompt "pwd")
     (emacspeak-auditory-icon 'help))
   (message "Successfully ran resume hook."))
 
