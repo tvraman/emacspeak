@@ -247,7 +247,7 @@ already disabled."
                  (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
                  (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
                    (set-window-configuration emacspeak-screen-saver-saved-configuration))
-                 (emacspeak-wizards-espeak-string "Unlocking screen")
+                 (emacspeak-prompt "unlocked")
                  (sox-tones)
                  (emacspeak-speak-mode-line)))))))
 
