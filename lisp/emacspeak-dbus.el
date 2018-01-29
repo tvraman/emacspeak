@@ -218,7 +218,7 @@ already disabled."
        :session
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
-    (dtk-say "Enter password to unlock screen. ")
+    (emacspeak-wizards-espeak-string  "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help))
   (message "Successfully ran resume hook."))
 
@@ -247,7 +247,7 @@ already disabled."
                  (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
                  (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
                    (set-window-configuration emacspeak-screen-saver-saved-configuration))
-                 (dtk-notify-say "Unlocking screen")
+                 (emacspeak-wizards-espeak-string "Unlocking screen")
                  (sox-tones)
                  (emacspeak-speak-mode-line)))))))
 
