@@ -67,6 +67,7 @@ dtk-interp.elc dtk-unicode.elc
 
 SPEAK_OBJECTS =   \
 emacspeak-speak.elc  \
+emacspeak-prompts.elc \
 emacspeak-actions.elc \
 voice-setup.elc \
 emacspeak-personality.elc \
@@ -510,6 +511,7 @@ emacspeak-smartparens.elc: emacspeak-smartparens.el dtk-speak.elc voice-setup.el
 emacspeak-smart-window.elc: emacspeak-smart-window.el dtk-speak.elc
 emacspeak-solitaire.elc: emacspeak-solitaire.el dtk-speak.elc voice-setup.elc
 emacspeak-sounds.elc: emacspeak-sounds.el
+emacspeak-prompts.elc: emacspeak-prompts.el 
 emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-setup.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc voice-setup.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
