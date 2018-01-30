@@ -876,6 +876,9 @@ icon."
 
 ;;}}}
 ;;{{{ advice various input functions to speak:
+(defadvice read-passwd (before emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-prompt "pwd"))
 
 (defvar emacspeak-read-char-prompt-cache nil
   "Cache prompt from read-char and friends here for later introspection.")
