@@ -353,6 +353,7 @@ On a directory line, run du -s on the directory to speak its size."
 (defun emacspeak-dired-setup-keys ()
   "Add emacspeak keys to dired."
   (cl-declare (special dired-mode-map))
+  (define-key dired-mode-map "F" 'emacspeak-wizards-find-file-as-root)
   (define-key dired-mode-map "E" 'emacspeak-dired-epub-eww)
   (define-key dired-mode-map (kbd "C-j") 'emacspeak-dired-open-this-file)
   (define-key dired-mode-map (kbd "C-RET") 'emacspeak-dired-open-this-file)
