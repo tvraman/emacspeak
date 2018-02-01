@@ -410,15 +410,21 @@ With prefix arg, opens the phone book for editing."
 ;;; 2013/03/editing-with-root-privileges-once-more.html
 ;;;###autoload
 
-(defun emacspeak-wizards-find-file-as-root ()
+(defun emacspeak-wizards-find-file-as-root (file)
   "Like `ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
 user."
-  (interactive)
-  (let ((file (ido-read-file-name "Edit as root: ")))
-    (unless (file-writable-p file)
-      (setq file (concat "/sudo:root@localhost:" file)))
-    (find-file file)))
+  (interactive
+   (list
+    (cond
+     ((eq major-mode 'dired-mode) (dired-file-name-at-point))
+     (t (ido-read-file-name "Edit as root: ")))))
+  (unless (file-writable-p file)
+    (setq file (concat "/sudo:root@localhost:" file)))
+  (find-file file)
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ edit file as root using sudo vi
