@@ -12,3 +12,15 @@ This version requires Emacs-25.1 or later.
 Browser emacs-w3 no longer works with Emacs 26, and consequently,
 module ~emacspeak-w3~ has been obsoleted, and all references to
 emacs-w3 removed from the Emacspeak codebase.
+
+* Espeak-NG And Emacspeak
+
+On newer Debian systems, espeak users are recommended to move to
+espeak-ng by installing the corresponding espeak-ng and espeak
+compatibility packages. This avoids portaudio issues, and also brings
+all of the power of alsa --- including applying ladspa effects to TTS.
+
+* Emacspeak Prompts 
+
+Emacspeak now includes an ~emacspeak-prompts~ module that provides
+high-quality spoken prompts as MP3 files.
