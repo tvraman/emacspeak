@@ -245,7 +245,7 @@ already disabled."
                  (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
                    (set-window-configuration emacspeak-screen-saver-saved-configuration))
                  (emacspeak-prompt "unlocked")
-                 (sox-tone)
+                 (sox-tones)
                  (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
