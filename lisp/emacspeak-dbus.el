@@ -241,10 +241,11 @@ already disabled."
              (if lock
                  (progn (emacspeak-screen-saver))
                (progn
+                 (sit-for 0.1)
+                 (emacspeak-prompt "unlocked")
                  (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
                  (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
                    (set-window-configuration emacspeak-screen-saver-saved-configuration))
-                 (emacspeak-prompt "unlocked")
                  (sox-tones)
                  (emacspeak-speak-mode-line)))))))
 
