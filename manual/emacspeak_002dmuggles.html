@@ -640,16 +640,16 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
         Create a hydra with no body and the heads:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-"F":    ‘(call-interactively (function flyspell-mode))’,
-"a":    ‘(call-interactively (function abbrev-mode))’,
-"d":    ‘(call-interactively (function toggle-debug-on-error))’,
-"f":    ‘(call-interactively (function auto-fill-mode))’,
-"g":    ‘(call-interactively (function toggle-debug-on-quit))’,
+"F":    ‘(call-interactively #’flyspell-mode)’,
+"a":    ‘(call-interactively #’abbrev-mode)’,
+"d":    ‘(call-interactively #’toggle-debug-on-error)’,
+"f":    ‘(call-interactively #’auto-fill-mode)’,
+"g":    ‘(call-interactively #’toggle-debug-on-quit)’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-"i":    ‘(call-interactively (function ido-everywhere))’,
-"I":    ‘(call-interactively (function flx-ido-mode))’,
-"t":    ‘(call-interactively (function toggle-truncate-lines))’,
-"u":    ‘(call-interactively (function ido-ubiquitous-mode))’,
+"i":    ‘(call-interactively #’ido-everywhere)’,
+"I":    ‘(call-interactively #’flx-ido-mode)’,
+"t":    ‘(call-interactively #’toggle-truncate-lines)’,
+"u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
 "q":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
@@ -692,7 +692,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 "A":    ‘beginning-of-defun’,
 "DEL":    ‘View-scroll-page-backward’,
 "E":    ‘end-of-defun’,
-"J":    ‘(emacspeak-hide-or-expose-block (quote all))’,
+"J":    ‘(emacspeak-hide-or-expose-block ’all)’,
 "SPC":    ‘View-scroll-page-forward’,
 "[":    ‘backward-page’,
 "\":    ‘View-search-regexp-backward’,
@@ -747,8 +747,8 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-yank-pop")’,
 "C-y":    ‘yank’,
 "M-y":    ‘yank-pop’,
-"y":    ‘(funcall-interactively (function yank-pop) 1)’,
-"Y":    ‘(funcall-interactively (function yank-pop) -1)’,
+"y":    ‘(funcall-interactively #’yank-pop 1)’,
+"Y":    ‘(funcall-interactively #’yank-pop -1)’,
 "i":    ‘emacspeak-muggles-ido-yank’,
 "l":    ‘browse-kill-ring’
 
