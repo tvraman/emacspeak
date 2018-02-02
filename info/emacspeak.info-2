@@ -7066,16 +7066,16 @@ binds ‘s’ to this command.
      Create a hydra with no body and the heads:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-     "F":    ‘(call-interactively (function flyspell-mode))’,
-     "a":    ‘(call-interactively (function abbrev-mode))’,
-     "d":    ‘(call-interactively (function toggle-debug-on-error))’,
-     "f":    ‘(call-interactively (function auto-fill-mode))’,
-     "g":    ‘(call-interactively (function toggle-debug-on-quit))’,
+     "F":    ‘(call-interactively #’flyspell-mode)’,
+     "a":    ‘(call-interactively #’abbrev-mode)’,
+     "d":    ‘(call-interactively #’toggle-debug-on-error)’,
+     "f":    ‘(call-interactively #’auto-fill-mode)’,
+     "g":    ‘(call-interactively #’toggle-debug-on-quit)’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-     "i":    ‘(call-interactively (function ido-everywhere))’,
-     "I":    ‘(call-interactively (function flx-ido-mode))’,
-     "t":    ‘(call-interactively (function toggle-truncate-lines))’,
-     "u":    ‘(call-interactively (function ido-ubiquitous-mode))’,
+     "i":    ‘(call-interactively #’ido-everywhere)’,
+     "I":    ‘(call-interactively #’flx-ido-mode)’,
+     "t":    ‘(call-interactively #’toggle-truncate-lines)’,
+     "u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
      "q":    ‘nil’
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
@@ -7104,7 +7104,7 @@ binds ‘s’ to this command.
      "A":    ‘beginning-of-defun’,
      "DEL":    ‘View-scroll-page-backward’,
      "E":    ‘end-of-defun’,
-     "J":    ‘(emacspeak-hide-or-expose-block (quote all))’,
+     "J":    ‘(emacspeak-hide-or-expose-block ’all)’,
      "SPC":    ‘View-scroll-page-forward’,
      "[":    ‘backward-page’,
      "\":    ‘View-search-regexp-backward’,
@@ -7147,8 +7147,8 @@ binds ‘s’ to this command.
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-yank-pop")’,
      "C-y":    ‘yank’,
      "M-y":    ‘yank-pop’,
-     "y":    ‘(funcall-interactively (function yank-pop) 1)’,
-     "Y":    ‘(funcall-interactively (function yank-pop) -1)’,
+     "y":    ‘(funcall-interactively #’yank-pop 1)’,
+     "Y":    ‘(funcall-interactively #’yank-pop -1)’,
      "i":    ‘emacspeak-muggles-ido-yank’,
      "l":    ‘browse-kill-ring’
 
@@ -8411,7 +8411,7 @@ of emacs 23.
      (fn &optional POSITION)
 
 
-File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-pronounce,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-prompts,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
 
 12.142 emacspeak-projectile
 ===========================
@@ -8420,9 +8420,24 @@ PROJECTILE == ‘M-x package-install projectile’.  Project management in
 Emacs.
 
 
-File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-py,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-prompts,  Next: emacspeak-pronounce,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
 
-12.143 emacspeak-pronounce
+12.143 emacspeak-prompts
+========================
+
+This module provides a set of pre-defined speech prompts, And a
+light-weight player for generating these prompts.
+
+12.143.1 emacspeak-prompts Options
+----------------------------------
+
+ -- Variable: User Option emacspeak-prompts-player
+     Player used to play pre-defined prompts.
+
+
+File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-py,  Prev: emacspeak-prompts,  Up: Emacspeak Commands And Options
+
+12.144 emacspeak-pronounce
 ==========================
 
 This module implements user customizable pronunciation dictionaries for
@@ -8439,17 +8454,17 @@ association lists defining the dictionary.  Users of this module can
 retrieve a dictionary made up of all applicable association lists for a
 given file.
 
-12.143.1 emacspeak-pronounce Commands
+12.144.1 emacspeak-pronounce Commands
 -------------------------------------
 
-12.143.1.1 emacspeak-pronounce-clear-dictionaries
+12.144.1.1 emacspeak-pronounce-clear-dictionaries
 .................................................
 
  -- Command: emacspeak-pronounce-clear-dictionaries
 
      Clear all current pronunciation dictionaries.
 
-12.143.1.2 emacspeak-pronounce-define-local-pronunciation
+12.144.1.2 emacspeak-pronounce-define-local-pronunciation
 .........................................................
 
  -- Command: emacspeak-pronounce-define-local-pronunciation (word
@@ -8460,7 +8475,7 @@ given file.
 
      (fn WORD PRONUNCIATION)
 
-12.143.1.3 emacspeak-pronounce-define-pronunciation
+12.144.1.3 emacspeak-pronounce-define-pronunciation
 ...................................................
 
  -- Command: emacspeak-pronounce-define-pronunciation
@@ -8469,7 +8484,7 @@ given file.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.143.1.4 emacspeak-pronounce-define-template-pronunciation
+12.144.1.4 emacspeak-pronounce-define-template-pronunciation
 ............................................................
 
  -- Command: emacspeak-pronounce-define-template-pronunciation
@@ -8478,7 +8493,7 @@ given file.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.143.1.5 emacspeak-pronounce-dispatch
+12.144.1.5 emacspeak-pronounce-dispatch
 .......................................
 
  -- Command: emacspeak-pronounce-dispatch
@@ -8487,7 +8502,7 @@ given file.
 
      Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
 
-12.143.1.6 emacspeak-pronounce-edit-pronunciations
+12.144.1.6 emacspeak-pronounce-edit-pronunciations
 ..................................................
 
  -- Command: emacspeak-pronounce-edit-pronunciations (key)
@@ -8497,7 +8512,7 @@ given file.
 
      (fn KEY)
 
-12.143.1.7 emacspeak-pronounce-load-dictionaries
+12.144.1.7 emacspeak-pronounce-load-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-load-dictionaries (&optional filename)
@@ -8507,7 +8522,7 @@ given file.
 
      (fn &optional FILENAME)
 
-12.143.1.8 emacspeak-pronounce-refresh-pronunciations
+12.144.1.8 emacspeak-pronounce-refresh-pronunciations
 .....................................................
 
  -- Command: emacspeak-pronounce-refresh-pronunciations
@@ -8515,14 +8530,14 @@ given file.
      Refresh pronunciation table for current buffer.
      Activates pronunciation dictionaries if not already active.
 
-12.143.1.9 emacspeak-pronounce-save-dictionaries
+12.144.1.9 emacspeak-pronounce-save-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-save-dictionaries
 
      Writes out the persistent emacspeak pronunciation dictionaries.
 
-12.143.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
+12.144.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
 ..........................................................
 
  -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
@@ -8542,14 +8557,14 @@ given file.
 
      (fn &optional STATE)
 
-12.143.1.11 emacspeak-pronounce-yank-word
+12.144.1.11 emacspeak-pronounce-yank-word
 .........................................
 
  -- Command: emacspeak-pronounce-yank-word
 
      Yank word at point into minibuffer.
 
-12.143.2 emacspeak-pronounce Options
+12.144.2 emacspeak-pronounce Options
 ------------------------------------
 
  -- Variable: User Option
@@ -8576,12 +8591,12 @@ given file.
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
 
-12.144 emacspeak-py
+12.145 emacspeak-py
 ===================
 
 This speech-enables python-mode available on sourceforge and ELPA
 
-12.144.1 emacspeak-py Options
+12.145.1 emacspeak-py Options
 -----------------------------
 
  -- Variable: User Option emacspeak-py-XXX-tag-personality
@@ -8643,4 +8658,84 @@ This speech-enables python-mode available on sourceforge and ELPA
      Personality used for py-variable-name-face This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
+
+12.146 emacspeak-pydoc
+======================
+
+PYDOC == Python Documentation Viewer
+
+12.146.1 emacspeak-pydoc Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-pydoc-button-personality
+     Personality used for pydoc-button-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-name-personality
+     Personality used for pydoc-callable-name-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-param-personality
+     Personality used for pydoc-callable-param-face This personality
+     uses emacspeak-voice-lock-variable-name-personality whose effect
+     can be changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-class-name-link-personality
+     Personality used for pydoc-class-name-link-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-data-personality
+     Personality used for pydoc-data-face This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-pydoc-envvars-personality
+     Personality used for pydoc-envvars-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-package-link-personality
+     Personality used for pydoc-package-link-face This personality uses
+     emacspeak-voice-lock-variable-name-personality whose effect can be
+     changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-source-file-link-personality
+     Personality used for pydoc-source-file-link-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
+     Personality used for pydoc-sphinx-directive-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
+     Personality used for pydoc-sphinx-param-name-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
+     Personality used for pydoc-sphinx-param-type-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-string-personality
+     Personality used for pydoc-string-face This personality uses
+     emacspeak-voice-lock-string-personality whose effect can be changed
+     globally by customizing
+     emacspeak-voice-lock-string-personality-settings.
+
+ -- Variable: User Option
+          emacspeak-pydoc-superclass-name-link-personality
+     Personality used for pydoc-superclass-name-link-face This
+     personality uses voice-bolden-extra whose effect can be changed
+     globally by customizing voice-bolden-extra-settings.
 

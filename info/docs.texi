@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1199 commands and 1181 options.
+This chapter documents a total of 1199 commands and 1171 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -147,6 +147,7 @@ This chapter documents a total of 1199 commands and 1181 options.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
 * emacspeak-projectile::Speech-enable PROJECTILE.
+* emacspeak-prompts::Pre-Defined Speech  PROMPTS.
 * emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.
 * emacspeak-py::Speech enable Python development environment.
 * emacspeak-pydoc::Speech-enable PYDOC.
@@ -4017,72 +4018,6 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -13668,16 +13603,16 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 Create a hydra with no body and the heads:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-"F":    ‘(call-interactively (function flyspell-mode))’,
-"a":    ‘(call-interactively (function abbrev-mode))’,
-"d":    ‘(call-interactively (function toggle-debug-on-error))’,
-"f":    ‘(call-interactively (function auto-fill-mode))’,
-"g":    ‘(call-interactively (function toggle-debug-on-quit))’,
+"F":    ‘(call-interactively #’flyspell-mode)’,
+"a":    ‘(call-interactively #’abbrev-mode)’,
+"d":    ‘(call-interactively #’toggle-debug-on-error)’,
+"f":    ‘(call-interactively #’auto-fill-mode)’,
+"g":    ‘(call-interactively #’toggle-debug-on-quit)’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
-"i":    ‘(call-interactively (function ido-everywhere))’,
-"I":    ‘(call-interactively (function flx-ido-mode))’,
-"t":    ‘(call-interactively (function toggle-truncate-lines))’,
-"u":    ‘(call-interactively (function ido-ubiquitous-mode))’,
+"i":    ‘(call-interactively #’ido-everywhere)’,
+"I":    ‘(call-interactively #’flx-ido-mode)’,
+"t":    ‘(call-interactively #’toggle-truncate-lines)’,
+"u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
 "q":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
@@ -13712,7 +13647,7 @@ Create a hydra with no body and the heads:
 "A":    ‘beginning-of-defun’,
 "DEL":    ‘View-scroll-page-backward’,
 "E":    ‘end-of-defun’,
-"J":    ‘(emacspeak-hide-or-expose-block (quote all))’,
+"J":    ‘(emacspeak-hide-or-expose-block ’all)’,
 "SPC":    ‘View-scroll-page-forward’,
 "[":    ‘backward-page’,
 "\":    ‘View-search-regexp-backward’,
@@ -13757,8 +13692,8 @@ Create a hydra with no body and the heads:
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-yank-pop")’,
 "C-y":    ‘yank’,
 "M-y":    ‘yank-pop’,
-"y":    ‘(funcall-interactively (function yank-pop) 1)’,
-"Y":    ‘(funcall-interactively (function yank-pop) -1)’,
+"y":    ‘(funcall-interactively #’yank-pop 1)’,
+"Y":    ‘(funcall-interactively #’yank-pop -1)’,
 "i":    ‘emacspeak-muggles-ido-yank’,
 "l":    ‘browse-kill-ring’
 
@@ -15218,6 +15153,19 @@ Speak field at specified column --- defaults to current column.
 
 PROJECTILE ==  @samp{M-x package-install projectile}.
 Project management in Emacs.
+
+@node emacspeak-prompts
+@section emacspeak-prompts
+
+This module provides a set of pre-defined speech prompts,
+And a light-weight player for generating these prompts.
+
+@subsection emacspeak-prompts Options
+
+@defvar {User Option} emacspeak-prompts-player
+Player used to play pre-defined prompts.
+
+@end defvar
 
 @node emacspeak-pronounce
 @section emacspeak-pronounce
@@ -23037,13 +22985,15 @@ Like find-file, but binds default-directory to emacspeak-directory.
 @end deffn
 
 @subsubsection emacspeak-wizards-find-file-as-root
-@deffn {Command} emacspeak-wizards-find-file-as-root   
+@deffn {Command} emacspeak-wizards-find-file-as-root  (file)
 @findex emacspeak-wizards-find-file-as-root
 
 @format
 Like ‘ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
 user.
+
+(fn FILE)
 @end format
 @end deffn
 
