@@ -154,6 +154,7 @@ Stop apps that use the network."
   (run-hooks 'emacspeak-dbus-sleep-hook))
 
 (defun emacspeak-dbus-resume-signal-handler()
+  "Resume handler"
   (sox-chime)
   (message "Waking Up")
   (run-hooks 'emacspeak-dbus-resume-hook))
@@ -210,9 +211,6 @@ already disabled."
   (amixer-restore amixer-alsactl-config-file )
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
-  (run-at-time  30 nil
-                #'(lambda ()
-                    (when (nm-connected-p) (emacspeak-dbus-nm-connected))))
   (when
       (dbus-call-method
        :session
@@ -241,14 +239,13 @@ already disabled."
          "org.gnome.ScreenSaver" "ActiveChanged"
          #'(lambda(lock)
              (if lock
-                 (progn
-                   (emacspeak-screen-saver))
+                 (progn (emacspeak-screen-saver))
                (progn
                  (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
                  (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
                    (set-window-configuration emacspeak-screen-saver-saved-configuration))
                  (emacspeak-prompt "unlocked")
-                 (sox-tones)
+                 (sox-tone)
                  (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
