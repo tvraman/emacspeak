@@ -2260,6 +2260,22 @@ Argument STRING specifies the alphanumeric phone number."
     (sit-for 4)))
 
 ;;}}}
+;;{{{ Ordinal Numbers:
+(defun emacspeak-speak-ordinal (n)  
+  "Return ordinal number for n"  
+  (format  
+   (concat  
+    "%d"  
+    (if (memq n '(11 12 13)) "th"  
+      (let ((last-digit (% n 10)))  
+        (cl-case last-digit  
+          (1 "st")  
+          (2 "nd")  
+          (3 "rd")  
+          (otherwise "th")))))
+   n))
+
+;;}}}
 ;;{{{ speaking marks
 
 ;;; Intelligent mark feedback for emacspeak:
