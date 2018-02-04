@@ -32,8 +32,7 @@ Set by locating it via xinput --list."
   (interactive)
   (declare (special touchpad-device))
   (start-process "xinput" nil 
-   (start-process "xinput" nil 
-    "xinput" "set-prop" touchpad-device "Device Enabled" "1"))
+    "xinput" "set-prop" touchpad-device "Device Enabled" "1")
   (message "Enabled touchpad"))
 
 ;(add-hook 'focus-in-hook #'turn-off-touchpad)
