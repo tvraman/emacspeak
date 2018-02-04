@@ -6743,7 +6743,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-brightness/body
      ‘<print>’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-brightness" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
      "s":    ‘xbacklight-set’,
@@ -6771,7 +6773,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-hideshow/body
      ‘C-c h’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-hideshow" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-hideshow")’,
      "h":    ‘hs-hide-block’,
@@ -6796,7 +6800,9 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-info-summary/body
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-info-summary" hydra.
+
+     The heads for the associated hydra are:
 
      "]":    ‘Info-forward-node’,
      "[":    ‘Info-backward-node’,
@@ -6847,7 +6853,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-m-player/body
      ‘s-;’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-m-player" hydra.
+
+     The heads for the associated hydra are:
 
      ";":    ‘emacspeak-m-player’,
      "+":    ‘emacspeak-m-player-volume-up’,
@@ -6912,7 +6920,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-maths-navigator/body
      ‘s-SPC’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-maths-navigator" hydra.
+
+     The heads for the associated hydra are:
 
      "o":    ‘emacspeak-maths-switch-to-output’,
      "RET":    ‘emacspeak-maths-enter-guess’,
@@ -6932,7 +6942,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-navigate/body
      ‘s-n’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-navigate" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-navigate")’,
      "s":    ‘emacspeak-hydra-toggle-talkative’,
@@ -6957,7 +6969,9 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-org-nav/body
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-org-nav" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-nav")’,
      "SPC":    ‘emacspeak-outline-speak-this-heading’,
@@ -6975,7 +6989,9 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-org-table/body
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-org-table" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-table")’,
      "j":    ‘org-table-next-row’,
@@ -6995,7 +7011,9 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-outliner/body
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-outliner" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
      "q":    ‘outline-hide-sublevels’,
@@ -7024,7 +7042,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-smartparens/body
      ‘C-c ,’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-smartparens" hydra.
+
+     The heads for the associated hydra are:
 
      "’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
      "(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
@@ -7063,7 +7083,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-toggle-option/body
      ‘C-c o’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-toggle-option" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
      "F":    ‘(call-interactively #’flyspell-mode)’,
@@ -7086,7 +7108,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-muggles-view/body
      ‘C-c v’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-view" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-view")’,
      "$":    ‘set-selective-display’,
@@ -7142,7 +7166,9 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-yank-pop/body
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-muggles-yank-pop" hydra.
+
+     The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-yank-pop")’,
      "C-y":    ‘yank’,
@@ -7160,7 +7186,9 @@ binds ‘s’ to this command.
  -- Command: emacspeak-origami/body
      ‘C-c /’
 
-     Create a hydra with no body and the heads:
+     Call the body in the "emacspeak-origami" hydra.
+
+     The heads for the associated hydra are:
 
      "o":    ‘origami-open-node’,
      "c":    ‘origami-close-node’,
@@ -8658,84 +8686,4 @@ This speech-enables python-mode available on sourceforge and ELPA
      Personality used for py-variable-name-face This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
-
-12.146 emacspeak-pydoc
-======================
-
-PYDOC == Python Documentation Viewer
-
-12.146.1 emacspeak-pydoc Options
---------------------------------
-
- -- Variable: User Option emacspeak-pydoc-button-personality
-     Personality used for pydoc-button-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-name-personality
-     Personality used for pydoc-callable-name-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-pydoc-callable-param-personality
-     Personality used for pydoc-callable-param-face This personality
-     uses emacspeak-voice-lock-variable-name-personality whose effect
-     can be changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-class-name-link-personality
-     Personality used for pydoc-class-name-link-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-pydoc-data-personality
-     Personality used for pydoc-data-face This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-pydoc-envvars-personality
-     Personality used for pydoc-envvars-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-package-link-personality
-     Personality used for pydoc-package-link-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
-
- -- Variable: User Option emacspeak-pydoc-source-file-link-personality
-     Personality used for pydoc-source-file-link-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
-     Personality used for pydoc-sphinx-directive-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
-     Personality used for pydoc-sphinx-param-name-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
-     Personality used for pydoc-sphinx-param-type-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-pydoc-string-personality
-     Personality used for pydoc-string-face This personality uses
-     emacspeak-voice-lock-string-personality whose effect can be changed
-     globally by customizing
-     emacspeak-voice-lock-string-personality-settings.
-
- -- Variable: User Option
-          emacspeak-pydoc-superclass-name-link-personality
-     Personality used for pydoc-superclass-name-link-face This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
 

@@ -13224,7 +13224,9 @@ example, Muggle @samp{ViewMode} binds @code{s} to this command.
 @findex emacspeak-muggles-brightness/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-brightness" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
 "s":    ‘xbacklight-set’,
@@ -13264,7 +13266,9 @@ Temporarily use keymap emacspeak-m-player-mode-map
 @findex emacspeak-muggles-hideshow/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-hideshow" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-hideshow")’,
 "h":    ‘hs-hide-block’,
@@ -13297,7 +13301,9 @@ Pick what to yank using ido completion.
 @findex emacspeak-muggles-info-summary/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-info-summary" hydra.
+
+The heads for the associated hydra are:
 
 "]":    ‘Info-forward-node’,
 "[":    ‘Info-backward-node’,
@@ -13354,7 +13360,9 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 @findex emacspeak-muggles-m-player/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-m-player" hydra.
+
+The heads for the associated hydra are:
 
 ";":    ‘emacspeak-m-player’,
 "+":    ‘emacspeak-m-player-volume-up’,
@@ -13425,7 +13433,9 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 @findex emacspeak-muggles-maths-navigator/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-maths-navigator" hydra.
+
+The heads for the associated hydra are:
 
 "o":    ‘emacspeak-maths-switch-to-output’,
 "RET":    ‘emacspeak-maths-enter-guess’,
@@ -13451,7 +13461,9 @@ The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 @findex emacspeak-muggles-navigate/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-navigate" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-navigate")’,
 "s":    ‘emacspeak-hydra-toggle-talkative’,
@@ -13478,7 +13490,9 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 @findex emacspeak-muggles-org-nav/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-org-nav" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-nav")’,
 "SPC":    ‘emacspeak-outline-speak-this-heading’,
@@ -13498,7 +13512,9 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 @findex emacspeak-muggles-org-table/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-org-table" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-table")’,
 "j":    ‘org-table-next-row’,
@@ -13520,7 +13536,9 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 @findex emacspeak-muggles-outliner/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-outliner" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
 "q":    ‘outline-hide-sublevels’,
@@ -13555,7 +13573,9 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 @findex emacspeak-muggles-smartparens/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-smartparens" hydra.
+
+The heads for the associated hydra are:
 
 "’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
 "(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
@@ -13600,7 +13620,9 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 @findex emacspeak-muggles-toggle-option/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-toggle-option" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
 "F":    ‘(call-interactively #’flyspell-mode)’,
@@ -13629,7 +13651,9 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 @findex emacspeak-muggles-view/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-view" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-view")’,
 "$":    ‘set-selective-display’,
@@ -13687,7 +13711,9 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 @findex emacspeak-muggles-yank-pop/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-muggles-yank-pop" hydra.
+
+The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-yank-pop")’,
 "C-y":    ‘yank’,
@@ -13711,7 +13737,9 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 @findex emacspeak-origami/body
 
 @format
-Create a hydra with no body and the heads:
+Call the body in the "emacspeak-origami" hydra.
+
+The heads for the associated hydra are:
 
 "o":    ‘origami-open-node’,
 "c":    ‘origami-close-node’,
@@ -26183,7 +26211,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 90 URL Templates.
+This section documents a total of 91 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -26216,6 +26244,10 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 @b{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
+
+@b{ArchWiki Search}
+
+Search Linux ArchWiki
 
 @b{BBC Genre Using IPlayer}
 
