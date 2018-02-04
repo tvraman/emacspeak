@@ -194,7 +194,8 @@ Do not set this by hand;
     (cond
      ((file-exists-p f) f)
      (t
-      (message "Icon %s not defined." sound-name)
+      (let ((emacspeak-use-auditory-icons nil))
+        (message "Icon %s not defined." sound-name))
       emacspeak-default-sound))))
 
 ;;}}}
