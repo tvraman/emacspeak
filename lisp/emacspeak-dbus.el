@@ -112,7 +112,8 @@ Startup  apps that need the network."
   (run-at-time
    60 nil
    #'(lambda ()
-       (when (featurep 'jabber) (jabber-connect-all))
+       (when (featurep 'xbacklight) (xbacklight-black))
+       ;(when (featurep 'jabber) (jabber-connect-all))
        (when (featurep 'twittering-mode) (twittering-start))))
   (emacspeak-play-auditory-icon 'network-up)
   (soundscape-tickle)
@@ -223,7 +224,6 @@ already disabled."
   (emacspeak-dbus-screensaver-check)
   (amixer-restore amixer-alsactl-config-file )
   (when (featurep 'soundscape) (soundscape-restart))
-  (when (featurep 'xbacklight) (xbacklight-black))
   (when
       (dbus-call-method
        :session
@@ -231,6 +231,7 @@ already disabled."
        "org.gnome.ScreenSaver" "GetActive")
     (emacspeak-prompt "pwd")
     (emacspeak-auditory-icon 'help))
+  (when (featurep 'xbacklight) (xbacklight-black))
   (message "Successfully ran resume hook."))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
