@@ -2645,6 +2645,16 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ advice where-is and friends
 
+(defadvice describe-key-briefly (around  emacspeak pre act comp)
+  "Speak what you displayed"
+  (cond
+   ((ems-interactive-p)
+    
+    (let ((emacspeak-speak-messages nil))
+      ad-do-it
+      (dtk-speak (ems-canonicalize-key-description ad-return-value))))
+   (t ad-do-it)))
+
 (defadvice where-is (after emacspeak pre act comp)
   "Provide spoken feedback"
   (when (ems-interactive-p)
