@@ -1562,6 +1562,18 @@ url
 'speak)))
 
 ;;}}}
+;;{{{ ArchWiki 
+
+(emacspeak-url-template-define
+ "ArchWiki Search"
+ "https://wiki.archlinux.org/index.php/%s"
+ (list "Search: ")
+ #'(lambda ()
+     (emacspeak-eww-next-h)
+     (emacspeak-speak-rest-of-buffer))
+ "Search Linux ArchWiki")
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
