@@ -2648,7 +2648,8 @@ Produce auditory icons if possible."
 (defadvice describe-key-briefly (after  emacspeak pre act comp)
   "Speak what you displayed"
   (when (ems-interactive-p)
-    (dtk-speak (ems-canonicalize-key-description ad-return-value))))
+    (let ((emacspeak-speak-messages nil))
+    (dtk-speak (ems-canonicalize-key-description ad-return-value)))))
 
 (defadvice where-is (after emacspeak pre act comp)
   "Provide spoken feedback"
