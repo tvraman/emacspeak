@@ -733,7 +733,6 @@ icon."
            (m nil))
        ad-do-it
        (setq m (current-message))
-       (emacspeak-auditory-icon 'progress)
        (when
            (and
             (null inhibit-message)
