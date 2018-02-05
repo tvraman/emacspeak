@@ -158,7 +158,7 @@ Stop apps that use the network."
 (defun emacspeak-dbus-resume-signal-handler()
   "Resume handler"
   (sox-chime)
-  (message "Waking Up")
+  (tts-restart)
   (run-hooks 'emacspeak-dbus-resume-hook))
 
 (defvar emacspeak-dbus-sleep-registration nil
@@ -224,7 +224,6 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
-  (tts-restart)
   (emacspeak-dbus-screensaver-check)
   (when (featurep 'xbacklight) (xbacklight-black))
   (amixer-restore amixer-alsactl-config-file )
