@@ -167,6 +167,7 @@ signal registration objects."
   (cond
    ((emacspeak-dbus-login1-sleep-p)
     (message "Registering sleep/resume handlers.")
+    (emacspeak-dbus-screensaver-check)
     (list
      (dbus-register-signal
       :system "org.freedesktop.login1" "/org/freedesktop/login1"
@@ -202,7 +203,6 @@ already disabled."
   "Emacspeak  hook for -sleep signal from Login1."
   (soundscape-listener-shutdown)
   (save-some-buffers t)
-  (emacspeak-dbus-screensaver-check)
   (tts-shutdown))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
