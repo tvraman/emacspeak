@@ -1728,8 +1728,8 @@ program. Port defaults to dtk-local-server-port"
     (delete-process dtk-speaker-process))
   (when (processp dtk-notify-process)
     (delete-process dtk-notify-process)))
+
   
-  )
 ;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
