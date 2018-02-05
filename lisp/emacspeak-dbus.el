@@ -64,6 +64,7 @@
 (eval-when-compile
   (require 'amixer)
 (require 'sox-gen)
+(require 'soundscape)
 (require 'derived)
 (require 'dbus))
 (require 'nm "nm" 'no-error)
@@ -71,9 +72,6 @@
 ;;}}}
 ;;{{{ Forward Declarations:
 
-
-(declare-function soundscape-restart "soundscape" (&optional device))
-(declare-function soundscape-tickle "soundscape" nil)
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
 (declare-function twittering-start "twittering-mode" nil)
@@ -205,7 +203,8 @@ already disabled."
   "Emacspeak  hook for -sleep signal from Login1."
   (soundscape-listener-shutdown)
   (save-some-buffers t)
-  (delete-process dtk-speaker-process))
+  (tts-shutdown)
+  (emacspeak-dbus-screensaver-check))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 (defun emacspeak-dbus-screensaver-check ()
@@ -224,7 +223,6 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
-  (emacspeak-dbus-screensaver-check)
   (when (featurep 'xbacklight) (xbacklight-black))
   (amixer-restore amixer-alsactl-config-file )
   (when (featurep 'soundscape) (soundscape-restart))
