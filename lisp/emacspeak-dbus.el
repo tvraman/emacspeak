@@ -222,10 +222,10 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
-  (amixer-restore amixer-alsactl-config-file )
-  (when (featurep 'soundscape) (soundscape-restart))
   (emacspeak-dbus-screensaver-check)
   (when (featurep 'xbacklight) (xbacklight-black))
+  (amixer-restore amixer-alsactl-config-file )
+  (when (featurep 'soundscape) (soundscape-restart))
   (when
       (dbus-call-method
        :session
@@ -247,22 +247,22 @@ already disabled."
   "Register a handler to watch screen lock/unlock."
   (cl-declare (special emacspeak-dbus-screen-lock-handle
                        emacspeak-screen-saver-saved-configuration))
-  (setq emacspeak-dbus-screen-lock-handle
-        (dbus-register-signal
-         :session
-         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-         "org.gnome.ScreenSaver" "ActiveChanged"
-         #'(lambda(lock)
-             (if lock
-                 (progn (emacspeak-screen-saver))
-               (progn
-                 (sit-for 0.1)
-                 (emacspeak-prompt "unlocked")
-                 (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
-                 (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
-                   (set-window-configuration emacspeak-screen-saver-saved-configuration))
-                 (sox-tones)
-                 (emacspeak-speak-mode-line)))))))
+  (setq
+   emacspeak-dbus-screen-lock-handle
+   (dbus-register-signal
+    :session
+    "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+    "org.gnome.ScreenSaver" "ActiveChanged"
+    #'(lambda(lock)
+        (if lock
+            (progn (emacspeak-screen-saver))
+          (progn
+            (emacspeak-prompt "unlocked")
+            (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
+            (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
+              (set-window-configuration emacspeak-screen-saver-saved-configuration))
+            (sox-tones)
+            (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
   "De-Register a handler to watch screen lock/unlock."
