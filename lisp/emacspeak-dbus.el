@@ -210,14 +210,17 @@ already disabled."
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (ems-with-messages-silenced
   (condition-case nil
-  (dbus-call-method
-       :session
-       "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-       "org.gnome.ScreenSaver" "GetActive")
+      (message
+       "gnome-screensaver: %s"
+       (dbus-call-method
+        :session
+        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+        "org.gnome.ScreenSaver" "GetActive"))
   (error
    (progn
    (shell-command "kill -9 `pidof gnome-screensaver' 2>&1 > /dev/null")
-   (start-process "screen-saver" nil "gnome-screensaver"))))))
+   (start-process "screen-saver" nil "gnome-screensaver")
+   (message "restarted screensaver"))))))
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
