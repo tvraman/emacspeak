@@ -203,24 +203,23 @@ already disabled."
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
-  (save-some-buffers t))
+  (soundscape-listener-shutdown)
+  (save-some-buffers t)
+  (delete-process dtk-speaker-process))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (ems-with-messages-silenced
   (condition-case nil
-      (message
-       "gnome-screensaver: %s"
        (dbus-call-method
         :session
         "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive"))
+        "org.gnome.ScreenSaver" "GetActive")
   (error
    (progn
    (shell-command "kill -9 `pidof gnome-screensaver' 2>&1 > /dev/null")
-   (start-process "screen-saver" nil "gnome-screensaver")
-   (message "restarted screensaver"))))))
+   (start-process "screen-saver" nil "gnome-screensaver"))))))
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
