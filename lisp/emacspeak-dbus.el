@@ -150,7 +150,6 @@ Stop apps that use the network."
   "Functions called when machine is resumed (from suspend or hibernate).")
 
 (defun emacspeak-dbus-sleep-signal-handler()
-  (message "Sleeping")
   (run-hooks 'emacspeak-dbus-sleep-hook))
 
 (defun emacspeak-dbus-resume-signal-handler()
@@ -203,10 +202,11 @@ already disabled."
   "Emacspeak  hook for -sleep signal from Login1."
   (soundscape-listener-shutdown)
   (save-some-buffers t)
-  (tts-shutdown)
-  (emacspeak-dbus-screensaver-check))
+  (emacspeak-dbus-screensaver-check)
+  (tts-shutdown))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
+
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (ems-with-messages-silenced
@@ -232,8 +232,7 @@ already disabled."
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
     (emacspeak-prompt "pwd")
-    (emacspeak-auditory-icon 'help))
-  (message "Successfully ran resume hook."))
+    (emacspeak-auditory-icon 'help)))
 
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
@@ -261,7 +260,6 @@ already disabled."
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
             (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
               (set-window-configuration emacspeak-screen-saver-saved-configuration))
-            (sox-tones)
             (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
