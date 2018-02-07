@@ -60,14 +60,14 @@ Only supports RSS 1.0
 <br/><em><xsl:value-of select="pubDate|rss:pubDate"/></em><br/>
 -->
       <xsl:apply-templates
-          select="enclosure|rss:enclosure"/>
+          select="enclosure|rss:enclosure|media:content"/>
     </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|title|description">
     <xsl:value-of select="." disable-output-escaping="yes"/>
   </xsl:template>
   
-  <xsl:template match="enclosure|rss:enclosure">
+  <xsl:template match="enclosure|rss:enclosure|media:content">
     <xsl:element name="a">
       <xsl:choose>
         <xsl:when test="string-length(@url) != 0">
