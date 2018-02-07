@@ -11,3 +11,5 @@ This directory contains useful Bash functions and Bash scripts.
   - emstop :: Silence Emacspeak from outside Emacs.
   - prompt  :: Useful bash functions for  smart prompts.
   - remote  :: Useful Bash functions for  setting up a remote session.
+  - audio-effects :: Bash functions to apply audio effects to sound files. 
+
