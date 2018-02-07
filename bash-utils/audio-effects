@@ -1,0 +1,64 @@
+# Bash Functions  To  Add Audio Effects:  -*- mode: sh -*-
+# {{{ 3d using HRTF:
+
+# Usage:  3d filename azimuth elevation
+
+function 3d () {
+    mplayer -af ladspa=ZamHeadX2-ladspa:ZamHeadX2:$2:$3:2.5  -ao pcm:file=tmp.wav $1
+    sox tmp.wav -b 16 -r 44100  $1
+    \rm  tmp.wav
+}
+
+# }}}
+# {{{bs2b: 
+
+# Usage: bs2b filename 
+
+function bs2b () {
+mplayer -af bs2b -ao pcm:file=tmp.wav $1
+/bin/mv tmp.wav $1
+}
+
+# }}}
+# {{{Pan:
+
+# Usage: pan filename frequency 
+# For generating one full sweep,
+# use pan frequency of 1/duration-of-icon.
+
+function pan () {
+    mplayer -af ladspa=tap_autopan:tap_autopan:$2:100:0  -ao pcm:file=tmp.wav $1
+    sox tmp.wav -b 16 -r 44100  $1
+    \rm  tmp.wav
+}
+
+# }}}
+# {{{pan_depth:
+
+ # Usage: pan_depth filename   frequency depth 
+
+function pan_depth () {
+    mplayer -af ladspa=tap_autopan:tap_autopan:$2:$3:0  -ao pcm:file=tmp.wav $1
+    sox tmp.wav -b 16 -r 44100  $1
+    \rm  tmp.wav
+}
+
+# }}}
+# {{{Swap Channels: 
+
+#Usage swapchan filename 
+
+function swapchan () {
+    mv $1 tmp.wav
+    sox  tmp.wav $1 remix 2 1
+    \rm tmp.wav
+}
+
+# }}}
+# {{{End Of File 
+
+# local variables:
+# folded-file: t
+# end: 
+
+# }}}
