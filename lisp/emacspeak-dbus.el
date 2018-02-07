@@ -222,6 +222,7 @@ already disabled."
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
+  (emacspeak-prompt "waking-up")
   (when (featurep 'xbacklight) (xbacklight-black))
   (amixer-restore amixer-alsactl-config-file )
   (when (featurep 'soundscape) (soundscape-restart))
