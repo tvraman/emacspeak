@@ -154,7 +154,6 @@ Stop apps that use the network."
 
 (defun emacspeak-dbus-resume-signal-handler()
   "Resume handler"
-  (sox-chime)
   (tts-restart)
   (run-hooks 'emacspeak-dbus-resume-hook))
 
