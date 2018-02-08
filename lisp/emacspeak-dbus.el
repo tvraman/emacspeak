@@ -74,7 +74,7 @@
 
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
-(declare-function twittering-start "twittering-mode" nil)
+(declare-function twittering-start "ext:twittering-mode" nil)
 (declare-function twittering-stop "twittering-mode" nil)
 
 ;;}}}

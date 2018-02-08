@@ -101,8 +101,8 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-(declare-function pianobar "Launch pianobar.")
-(declare-function pianobar-send-string  "Send command to pianobar." (cmd))
+(declare-function pianobar "ext:pianobar" nil)
+(declare-function pianobar-send-string  "ext:pianobar" (cmd))
 (defun emacspeak-pianobar-volume-down ()
   "Decrease volume"
   (interactive)

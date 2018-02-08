@@ -414,7 +414,6 @@
 
 (declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
 (declare-function emacspeak-eww-current-url "emacspeak-eww" nil)
-(declare-function  "emacspeak-eww" nil)
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 (declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
 (declare-function emacspeak-eww-set-url "emacspeak-eww" (url))

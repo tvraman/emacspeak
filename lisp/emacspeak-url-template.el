@@ -859,7 +859,7 @@ name of the list.")
 
 ;;}}}
 ;;{{{ MLB scores
-(declare-function emacspeak-wizards-mlb-standings  nil "emacspeak-wizards")
+(declare-function emacspeak-wizards-mlb-standings  "emacspeak-wizards" nil)
 ;;; standings:
 
 (emacspeak-url-template-define
@@ -1051,7 +1051,7 @@ JSON is retrieved from `url'."
 
 ;;}}}
 ;;{{{ NBA Standings:
-(declare-function emacspeak-wizards-nba-standings  nil "emacspeak-wizards")
+(declare-function emacspeak-wizards-nba-standings  "emacspeak-wizards" nil)
 (emacspeak-url-template-define
  "NBA  standings"
  "http://www.nba.com/NASApp/nba/nba/standings/index.jsp" ;;; dummy
@@ -1231,7 +1231,7 @@ Query can include filters such as:
 <term>: Query Term.
 extension:<ext> Filter by file extension
 -filename:<pattern> Filter out files matching pattern.")
-(declare-function emacspeak-eww-next-h (&optional speak) "emacspeak-eww")
+(declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 (emacspeak-url-template-define
  "GitHub Search"
  "https://github.com/search?q=%s"

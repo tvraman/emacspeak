@@ -54,21 +54,21 @@
 ;;}}}
 ;;{{{ Forward Decls:
 
-(declare-function vm-from-of (msg) "vm-message")
-(declare-function  vm-subject-of (msg) "vm-message")
-(declare-function  vm-to-of (msg) "vm-message")
-(declare-function  vm-su-full-name (msg) "vm-summary")
-(declare-function  vm-su-from (msg) "vm-summary")
-(declare-function vm-su-subject (msg) "vm-summary")
-(declare-function  vm-su-to-names (msg) "vm-summary")
-(declare-function  vm-su-to (msg) "vm-summary")
-(declare-function  vm-su-line-count (msg) "vm-summary")
-(declare-function vm-decode-mime-encoded-words-in-string (s) "vm-mime")
-(declare-function  vm-labels-of (msg) "vm-message")
-(declare-function  vm-goto-message (msg) "vm-message")
-(declare-function vm-delete-message (msg) "vm-message")
-(declare-function  u-vm-color-fontify-buffer nil "u-vm-color")
-(declare-function  u-vm-color-summary-mode (&optional arg) "u-vm-color")
+(declare-function vm-from-of "vm-message" (msg))
+(declare-function  vm-subject-of "vm-message" (msg))
+(declare-function  vm-to-of "vm-message" (msg))
+(declare-function  vm-su-full-name "vm-summary" (msg))
+(declare-function  vm-su-from "vm-summary" (msg))
+(declare-function vm-su-subject "vm-summary" (msg))
+(declare-function  vm-su-to-names "vm-summary" (msg))
+(declare-function  vm-su-to "vm-summary" (msg))
+(declare-function  vm-su-line-count "vm-summary" (msg))
+(declare-function vm-decode-mime-encoded-words-in-string "vm-mime" (s))
+(declare-function  vm-labels-of "vm-message" (msg))
+(declare-function  vm-goto-message "vm-message" (msg))
+(declare-function vm-delete-message "vm-message" (msg))
+(declare-function  u-vm-color-fontify-buffer "u-vm-color" nil)
+(declare-function  u-vm-color-summary-mode "u-vm-color" (&optional arg))
 
 ;;}}}
 ;;{{{ voice locking:

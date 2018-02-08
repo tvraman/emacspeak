@@ -68,9 +68,8 @@
 
 (defvar emacspeak-wizards-personal-portfolio)
 
-(declare-function gweb-google-autocomplete (&optional prompt))
-(declare-function gtu(tag &optional page count))
-(declare-function calendar-astro-date-string (&optional date))
+(declare-function gweb-google-autocomplete "gweb" (&optional prompt))
+(declare-function calendar-astro-date-string "cal-julian" (&optional date))
 ;;}}}
 ;;{{{ searcher table
 ;;;###autoload
