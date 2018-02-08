@@ -64,7 +64,7 @@
 (eval-when-compile
   (require 'amixer)
 (require 'sox-gen)
-(require 'soundscape)
+(require 'soundscape "soundscape" 'no-error)
 (require 'derived)
 (require 'dbus))
 (require 'nm "nm" 'no-error)
