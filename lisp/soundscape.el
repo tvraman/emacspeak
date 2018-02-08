@@ -160,7 +160,7 @@ Defaults specify alsa as the output and set master volume to 0.5"
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
   (cl-declare (special soundscape--catalog soundscape-list))
-  (when (null (file-exists-p soundscape-list)) (error "Catalog missing."))
+  (when (null (file-exists-p soundscape-list)) (error "Soundscape Catalog missing."))
   (cond
    ((and soundscape--catalog (null refresh)) soundscape--catalog)
    (t
