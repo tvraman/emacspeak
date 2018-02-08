@@ -410,17 +410,6 @@
 (require 'emacspeak-google)
 
 ;;}}}
-;;{{{ Declare generated functions:
-
-(declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
-(declare-function emacspeak-eww-current-url "emacspeak-eww" nil)
-(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
-(declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
-(declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
-(declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
-
-;;}}}
-
 ;;{{{ Compatibility Helpers:
 
 ;;; For compatibility between Emacs 24 and Emacs 25
@@ -471,6 +460,16 @@
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
        (setq ,(intern (format "eww-current-%s" name)) value))))))
+
+;;}}}
+;;{{{ Declare generated functions:
+
+(declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
+(declare-function emacspeak-eww-current-url "emacspeak-eww" nil)
+(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
+(declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
+(declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
+(declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
 
 ;;}}}
 ;;{{{ Inline Helpers:
