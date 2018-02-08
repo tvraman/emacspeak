@@ -4,11 +4,15 @@
 ;;; Keywords: StumpWM, Emacspeak, Audio Desktop
 (in-package :stumpwm)
 ;;; {Variables:
+
 ;;; Avoid focus getting stolen due to activity.
 
 (setq *deny-raise-request* t)
-(defvar *emacspeak-dir* "/usr/share/emacs/site-lisp/emacspeak"
+
+(defvar *emacspeak-dir*
+  "/home/raman/emacs/lisp/emacspeak"
   "Root directory of Emacspeak installation.")
+
 (defvar *tts-window-icon*
   (concatenate 'string
                *emacspeak-dir*
@@ -121,8 +125,13 @@
 (define-key *root-map* (kbd "g") "chrome")
 
 (sb-ext:run-program
-         "/usr/local/bin/play" 
-'("/home/raman/emacs/lisp/emacspeak/sounds/prompts/launch-wm.mp3"))
+        "/usr/local/bin/play" 
+        (list
+         (concatenate
+          'string
+          *emacspeak-dir*
+          "/sounds/prompts/launch-wm.mp3")))
+
 ;;; }
 ;;; {Emacs local variables
 
@@ -130,6 +139,7 @@
 ;;; mode: stumpwm
 ;;; mode: folding
 ;;; folded-file: t
+;;; stumpwm-mode: t
 ;;; end:
 
 ;;; }
