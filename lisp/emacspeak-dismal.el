@@ -49,14 +49,14 @@
 ;;{{{ Forward Decls:
 
 
-(declare-function dismal-get-val "ext:dismal" nil)
-(declare-function  dismal-convert-cellexpr-to-string "dismal" nil)
-(declare-function dismal-get-exp "dismal" nil)
-(declare-function  dismal-display-current-cell-expr "dismal" nil)
-(declare-function  dis-forward-row "dismal" nil)
-(declare-function dis-backward-row "dismal" nil)
-(declare-function  dis-forward-column "dismal" nil)
-(declare-function  dis-backward-column "dismal" nil)
+(declare-function dismal-get-val "ext:dismal" (r c))
+(declare-function  dismal-convert-cellexpr-to-string "dismal" (sexp))
+(declare-function dismal-get-exp "dismal" (r c))
+(declare-function  dismal-display-current-cell-expr "dismal" (r c))
+(declare-function  dis-forward-row "dismal" (rows))
+(declare-function dis-backward-row "dismal" (rows))
+(declare-function  dis-forward-column "dismal" (cols))
+(declare-function  dis-backward-column "dismal" (cols))
 (declare-function dis-recalculate-matrix "dismal" nil)
 
 ;;}}}
