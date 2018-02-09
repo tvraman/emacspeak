@@ -1,4 +1,3 @@
-
 ;;; soundscape.el -- Soundscapes for The Emacspeak Desktop  -*- lexical-binding: t; -*-
 ;;; Description:  Soundscapes Using Boodler
 ;;; Keywords: Emacspeak,  Audio Desktop Soundscapes
@@ -83,6 +82,19 @@
 ;;; Emacs modes that provide similar functionality e.g.,
 ;;; communication == email, IM, ... map to  the same @emph{mood}.
 ;;; Code:
+
+;;; Automatic switching of soundscapes happens by sending a message to a UNIX domain socket in /tmp.
+;;; This socket is created by Boodler on startup 
+;;; ls /tmp/soundscape* to find the named pipe.
+;;; To make sure the listener works correctly in your environment, 
+;;;  try this in a shell:
+;;; nc -U <name-of-socket>
+;;; soundscape 1
+;;; Above will switch to the first scape.
+;;; soundscape 1 2 3 
+;;; Will turn   on first three scapes.
+;;; soundscape 0
+;;;  Turns on null soundscape to give silence.
 
 ;;}}}
 ;;{{{  Required modules
