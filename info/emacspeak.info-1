@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 6.3 from
+This is emacspeak.info, produced by makeinfo version 6.4 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 4, 2018.
+last updated on February 9, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1199 commands and 1171 options.
+This chapter documents a total of 1198 commands and 1171 options.
 
 * Menu:
 
@@ -2945,7 +2945,7 @@ This chapter documents a total of 1199 commands and 1171 options.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::Define various device independent voices in terms of Plain codes.
-* soundscape::
+* soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
 * stack-f::

@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 6.3 from
+This is emacspeak.info, produced by makeinfo version 6.4 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -7397,6 +7397,8 @@ email, IM, ...  map to the same _mood_.
 
      Play soundscape.
 
+     (fn SCAPE)
+
 12.219.1.2 soundscape-kill
 ..........................
 
@@ -7413,6 +7415,8 @@ email, IM, ...  map to the same _mood_.
      Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
      Optional interactive prefix arg restarts the listener if already running.
 
+     (fn &optional RESTART)
+
 12.219.1.4 soundscape-listener-shutdown
 .......................................
 
@@ -7427,6 +7431,8 @@ email, IM, ...  map to the same _mood_.
 
      Activate scapes named names.
 
+     (fn NAMES)
+
 12.219.1.6 soundscape-restart
 .............................
 
@@ -7439,6 +7445,8 @@ email, IM, ...  map to the same _mood_.
      With prefix arg ‘device’, prompt for a alsa/ladspa device.
      This is then saved to soundscape-device for future use.
 
+     (fn &optional DEVICE)
+
 12.219.1.7 soundscape-stop
 ..........................
 
@@ -7448,6 +7456,8 @@ email, IM, ...  map to the same _mood_.
      ‘C-x @ s S’
 
      Stop running Soundscape.
+
+     (fn SCAPE)
 
 12.219.1.8 soundscape-theme
 ...........................
@@ -7479,6 +7489,8 @@ email, IM, ...  map to the same _mood_.
      Update mood/scape mapping for current  mode.
      The  updated mapping is not persisted.
      Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+     (fn &optional PROMPT-MODE)
 
 12.219.2 soundscape Options
 ---------------------------
@@ -7738,14 +7750,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.221.2.4 sox-gen-kill-process
-...............................
-
- -- Command: sox-gen-kill-process
-
-     Delete SoX process at the front of the sox-gen-processes list.
-
-12.221.2.5 sox-relax
+12.221.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -7755,7 +7760,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.2.6 sox-rev-up
+12.221.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -7765,7 +7770,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.2.7 sox-slide-binaural
+12.221.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -7774,7 +7779,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.221.2.8 sox-tone-binaural
+12.221.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -7784,7 +7789,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.221.2.9 sox-tone-slide-binaural
+12.221.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -7795,8 +7800,8 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.221.2.10 sox-turn-down
-.........................
+12.221.2.9 sox-turn-down
+........................
 
  -- Command: sox-turn-down (length)
 
@@ -7805,7 +7810,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.2.11 sox-wind-down
+12.221.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -8750,7 +8755,6 @@ become available.  Requests can be classified as follows:
 
    All commands are of the form
              commandWord {arguments}
-        
    The braces are optional if the command argument contains no white
 space.  The speech server maintains a _current state_ that determines
 various characteristics of spoken output such as speech rate,
@@ -8780,12 +8784,10 @@ queue output to be produced on demand.  Commands that place the request
 on the queue are clearly marked.
 
              version
-        
 
    Speaks the _version_ of the TTS engine.  Produces output immediately.
 
              tts_say text
-        
 
    Speaks the specified _text_ immediately.  The text is not
 pre-processed in any way, contrast this with the primary way of speaking
@@ -8808,7 +8810,6 @@ applications wishing to produce character-at-a-time output, e.g., when
 providing character echo during keyboard input should use this command.
 
              d
-        
 
    This command is used to _dispatch_ all queued requests.  It was
 renamed to a single character command (like many of the commonly used
@@ -8817,31 +8818,26 @@ lines.  The effect of calling this command is for the TTS server to
 start processing items that have been queued via earlier requests.
 
              tts_pause
-        
 
    This pauses speech _immediately_.  It does not affect queued
 requests; when command _tts_resume_ is called, the output resumes at the
 point where it was paused.  Not all TTS engines provide this capability.
 
              tts_resume
-        
 
    Resume spoken output if it has been paused earlier.
 
              s
-        
 
    Stop speech _immediately_.  Spoken output is interrupted, and all
 pending requests are flushed from the queue.
 
              q text
-        
 
    Queues text to be spoken.  No spoken output is produced until a
 _dispatch_ request is received via execution of command _d_.
 
              c codes
-        
 
    Queues synthesis codes to be sent to the TTS engine.  Codes are sent
 to the engine with no further transformation or processing.  The codes
@@ -8849,19 +8845,16 @@ are inserted into the output queue and will be dispatched to the TTS
 engine at the appropriate point in the output stream.
 
              a filename
-        
 
    Cues the audio file identified by filename for playing.
 
              t freq length
-        
 
    Queues a tone to be played at the specified frequency and having the
 specified length.  Frequency is specified in hertz and length is
 specified in milliseconds.
 
              sh duration
-        
 
    Queues the specified duration of silence.  Silence is specified in
 milliseconds.
@@ -8870,12 +8863,10 @@ milliseconds.
 ------------------------------
 
              tts_reset
-        
 
    Reset TTS engine to default settings.
 
              tts_set_punctuations mode
-        
 
    Sets TTS engine to the specified punctuation mode.  Typically, TTS
 servers provide at least three modes:
@@ -8885,31 +8876,26 @@ servers provide at least three modes:
      modes.
 
              tts_set_speech_rate rate
-        
 
    Sets speech rate.  The interpretation of this value is typically
 engine specific.
 
              tts_set_character_scale factor
-        
 
    Scale factor applied to speech rate when speaking individual
 characters.Thus, setting speech rate to 500 and character scale to 1.2
 will cause command _l_ to use a speech rate of _500 * 1.2 = 600_.
 
              tts_split_caps flag
-        
 
    Set state of _split caps_ processing.  Turn this on to speak
 mixed-case (AKA Camel Case) identifiers.
 
              tts_capitalize flag
-        
 
    Indicate capitalization via a beep tone or voice pitch.
 
              tts_allcaps_beep flag
-        
 
    Setting this flag produces a high-pitched beep when speaking words
 that are in all-caps, e.g.  abbreviations.
@@ -8928,20 +8914,20 @@ emacspeak distribution.
 * Menu:
 
 * Turning Twenty::
-* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994. 
+* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
 * Key Enabler  ---  Emacs And Lisp Advice::
-* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS). 
+* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
 * Emacspeak And Software Development::
 * Emacspeak And Authoring Documents::
 * Emacspeak And The Early Days Of The Web::
-* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS. 
+* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
 * Conversational Gestures For The Audio Desktop::
 * Accessing Media Streams::
-* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books. 
-* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks. 
-* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols. 
-* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access. 
-* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs. 
+* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
+* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
+* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
+* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
 * Conclusion --- Turning Twenty::
 * References::
 

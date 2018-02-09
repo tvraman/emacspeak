@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1199 commands and 1171 options.
+This chapter documents a total of 1198 commands and 1171 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -223,7 +223,7 @@ This chapter documents a total of 1199 commands and 1171 options.
 * mac-voices::Define  Mac tags.
 * outloud-voices::Define  OutLoud tags.
 * plain-voices::Define various device independent voices in terms of Plain codes.
-* soundscape::
+* soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
 * stack-f::
@@ -25127,6 +25127,8 @@ communication == email, IM, ... map to  the same @emph{mood}.
 
 @format
 Play soundscape.
+
+(fn SCAPE)
 @end format
 @end deffn
 
@@ -25147,6 +25149,8 @@ Stop all running soundscapes.
 Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
 Optional interactive prefix arg restarts the listener if already running.
+
+(fn &optional RESTART)
 @end format
 @end deffn
 
@@ -25165,6 +25169,8 @@ Shutdown listener.
 
 @format
 Activate scapes named names.
+
+(fn NAMES)
 @end format
 @end deffn
 
@@ -25185,6 +25191,8 @@ Activate scapes named names.
 Restart Soundscape  environment.
 With prefix arg ‘device’, prompt for a alsa/ladspa device.
 This is then saved to soundscape-device for future use.
+
+(fn &optional DEVICE)
 @end format
 @end deffn
 
@@ -25203,6 +25211,8 @@ This is then saved to soundscape-device for future use.
 
 @format
 Stop running Soundscape.
+
+(fn SCAPE)
 @end format
 @end deffn
 
@@ -25252,6 +25262,8 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 Update mood/scape mapping for current  mode.
 The  updated mapping is not persisted.
 Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+(fn &optional PROMPT-MODE)
 @end format
 @end deffn
 
@@ -25548,15 +25560,6 @@ Play each chakra for specified duration.
 Parameter ‘theme’ specifies variant.
 
 (fn THEME DURATION)
-@end format
-@end deffn
-
-@subsubsection sox-gen-kill-process
-@deffn {Command} sox-gen-kill-process   
-@findex sox-gen-kill-process
-
-@format
-Delete SoX process at the front of the sox-gen-processes list.
 @end format
 @end deffn
 
