@@ -422,31 +422,20 @@
  for name in
  '(title url source dom)
  do
- (cond
-  ((or  (= emacs-major-version 25)
-        (boundp 'eww-data))
-   (eval
+ (eval
     `(defun
          ,(intern (format "emacspeak-eww-current-%s" name)) ()
        , (format "Return eww-current-%s." name)
        (cl-declare (special eww-data))
        (plist-get eww-data
                   ,(intern (format ":%s" name))))))
-  (t
-   (eval
-    `(defun
-         ,(intern (format "emacspeak-eww-current-%s" name))
-         ()
-       , (format "Return eww-current-%s." name)
-       ,(intern (format "eww-current-%s" name)))))))
+  
 
 (cl-loop
  for name in
  '(title url source dom)
  do
- (cond
-  ((boundp 'eww-data)
-   (eval
+ (eval
     `(defun
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
@@ -454,13 +443,7 @@
        (plist-put eww-data
                   ,(intern (format ":%s" name))
                   value))))
-  (t ;;; emacs 24
-   (eval
-    `(defun
-         ,(intern (format "emacspeak-eww-set-%s" name)) (value)
-       , (format "Set eww-current-%s." name)
-       (setq ,(intern (format "eww-current-%s" name)) value))))))
-
+  
 ;;}}}
 ;;{{{ Declare generated functions:
 
@@ -778,14 +761,8 @@ Retain previously set punctuations  mode."
       (emacspeak-webutils-run-post-process-hook))
      (t (emacspeak-speak-mode-line)))))
 
-(cond
- ((or (= emacs-major-version 25)
-      (boundp  'eww-after-render-hook))      ; emacs 25
-  (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook))
- (t
-  (defadvice eww-render (after emacspeak pre act comp)
-    "Setup Emacspeak for rendered buffer."
-    (emacspeak-eww-after-render-hook))))
+(add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
+ 
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
