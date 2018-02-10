@@ -3876,6 +3876,25 @@ weather for `gweb-my-address'.  "
     (message "Deleted %d web  connections" count)))
 
 ;;}}}
+;;{{{ generate declare-function statements:
+(defun emacspeak-wizards-gen-fn-decl (f &optional ext)
+  "Generate declare-function call for function `f'.
+Optional interactive prefix arg ext says this comes from an
+external package."
+  (interactive "SFunction:")
+  (cl-assert (functionp f) t "Not a valid function")
+  (let ((file (symbol-file f 'defun))
+        (arglist (help-function-arglist f 'preserve)))
+    (cl-assert file t "Function definition not found")
+    (setq file (file-name-base file))
+    (insert
+     (format
+      "(declare-function %s \"%s\" %s)\n"
+      f
+      (if ext (format "ext:%s" file) file)
+      arglist ))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
