@@ -1,0 +1,13 @@
+# Bash Functions  To  use nmcli:  -*- mode: sh -*-
+
+# Usage: nm_add ssid passwd name
+# Add a new wifi network
+
+function nm_add () {
+    nmcli dev wifi con $1 password $2  name $3
+}
+
+function nm_up () {
+    nmcli conn up id $1
+}
+
