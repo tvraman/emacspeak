@@ -37,13 +37,6 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;{{{ required modules
-(require 'cl-lib)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble)
-(require 'mpg123 "mpg123" 'no-error)
-;;}}}
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -52,6 +45,18 @@
 ;;; MPG123 is an MP3 player.
 
 ;;; Code:
+
+;;}}}
+;;{{{ required modules
+(require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+(require 'mpg123 "mpg123" 'no-error)
+;;}}}
+;;{{{ Forwrad Declarations:
+
+(declare-function mpg123:in-music-list-p "ext:mpg123" nil)
+(declare-function mpg123-forward "ext:mpg123" (arg))
 
 ;;}}}
 ;;{{{ helpers 
