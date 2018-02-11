@@ -127,6 +127,7 @@
 (load-source-file-function  nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
+    (package-initialize)
     (dynamic-completion-mode 1)
     (completion-initialize)
     (mapc #'load tvr-libs)
@@ -195,16 +196,6 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
-    ;;{{{ package initialize:
-
-    (make-thread
-     #'(lambda ()
-         (let ((file-name-handler-alist nil)
-               (load-source-file-function nil))
-           (package-initialize))))
-
-;;}}}
-     
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
