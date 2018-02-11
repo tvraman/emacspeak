@@ -589,18 +589,14 @@ This variable is buffer-local.")
 ;;;###autoload
 (defun emacspeak-google-tts (text &optional lang)
   "Speak text using Google Network TTS.
-Optional interactive prefix arg `lang' prompts for language identifier."
+Optional interactive prefix arg `lang' specifies  language identifier."
   (interactive
    (list
     (read-from-minibuffer "Text: ")
-    current-prefix-arg))
+    lang))
   (cl-declare (special emacspeak-google-tts-default-language
-                    emacspeak-google-tts-rest-uri emacspeak-m-player-program))
-  (when lang
-    (setq lang
-          (read-from-minibuffer
-           "Language: " nil nil t nil
-           emacspeak-google-tts-default-language)))
+                       emacspeak-google-tts-rest-uri emacspeak-m-player-program))
+  (or lang (setq lang "en-us"))
   (let ((url (format emacspeak-google-tts-rest-uri
                      (or lang emacspeak-google-tts-default-language)
                      (url-hexify-string  text))))
