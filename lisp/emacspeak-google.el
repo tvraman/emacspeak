@@ -593,10 +593,11 @@ Optional interactive prefix arg `lang' specifies  language identifier."
   (interactive
    (list
     (read-from-minibuffer "Text: ")
-    lang))
+    current-prefix-arg))
   (cl-declare (special emacspeak-google-tts-default-language
                        emacspeak-google-tts-rest-uri emacspeak-m-player-program))
   (or lang (setq lang "en-us"))
+  (unless (stringp lang) (setq lang (read-string  "Lang:")))
   (let ((url (format emacspeak-google-tts-rest-uri
                      (or lang emacspeak-google-tts-default-language)
                      (url-hexify-string  text))))
