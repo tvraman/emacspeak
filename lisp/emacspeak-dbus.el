@@ -215,7 +215,9 @@ already disabled."
         "org.gnome.ScreenSaver" "GetActive")
   (error
    (progn
-   (shell-command "kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
+   (shell-command
+    "pidof gnome-screensaver \
+ && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
    (start-process "screen-saver" nil "gnome-screensaver"))))))
 
 (defun emacspeak-dbus-resume ()
