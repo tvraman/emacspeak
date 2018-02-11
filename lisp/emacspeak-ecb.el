@@ -38,7 +38,14 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;{{{  Introduction:
+
+;;; Commentary:
+;;; The ECB is an Emacs Class Browser.
+;;; This module speech-enables ECB
+;;; Code:
+
+;;}}}
 ;;{{{ required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -48,11 +55,15 @@
   (require 'ecb "ecb" 'no-error))
   (require 'tree-buffer "tree-buffer" 'no-error))
 ;;}}}
-;;{{{  Introduction:
-;;; Commentary:
-;;; The ECB is an Emacs Class Browser.
-;;; This module speech-enables ECB
-;;; Code:
+;;{{{ Forward Declarations:
+
+(declare-function tree-node->expandable "tree-buffer" (cl-x))
+(declare-function tree-node->expanded "tree-buffer" (cl-x))
+(declare-function ecb-goto-window-methods "ecb-method-browser" nil)
+(declare-function ecb-goto-window-directories "ecb-file-browser" nil)
+(declare-function ecb-goto-window-history "ecb-file-browser" nil)
+(declare-function ecb-goto-window-sources "ecb-file-browser" nil)
+
 ;;}}}
 ;;{{{  advice interactive commands
 
