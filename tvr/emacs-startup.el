@@ -6,7 +6,7 @@
 ;;; September 2017: Optimized and Cleaned Up
 ;;}}}
 ;;{{{  lib
-(package-initialize)
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (defvar emacspeak-speak-messages)
@@ -195,6 +195,12 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
+    (make-thread
+     #'(lambda ()
+         (let ((file-name-handler-alist nil)
+               (load-source-file-function nil))
+           (package-initialize))))
+     
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
