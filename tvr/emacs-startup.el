@@ -6,7 +6,7 @@
 ;;; September 2017: Optimized and Cleaned Up
 ;;}}}
 ;;{{{  lib
-
+(package-initialize)
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (defvar emacspeak-speak-messages)
@@ -127,7 +127,6 @@
 (load-source-file-function  nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
-    (package-initialize)
     (dynamic-completion-mode 1)
     (completion-initialize)
     (mapc #'load tvr-libs)
