@@ -5,6 +5,21 @@
 ;;; August 12, 2007: Cleaned up for Emacs 22
 ;;; September 2017: Optimized and Cleaned Up
 ;;}}}
+;;{{{ Forward Function Declarations:
+
+(declare-function emacspeak-wizards-color-diff-at-point "emacspeak-wizards" (&optional set))
+(declare-function completion-initialize "completion" nil)
+(declare-function soundscape-toggle "soundscape" nil)
+(declare-function dbus-list-known-names "dbus" (bus))
+(declare-function nm-enable "nm" nil)
+(declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-watch-screen-lock "emacspeak-dbus" nil)
+(declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
+(declare-function auto-correct-mode "auto-correct" [Arg list not available until function definition is loaded.])
+(declare-function company-mode "company" (&optional arg))
+(declare-function smartparens-mode "smartparens" (&optional arg))
+
+;;}}}
 ;;{{{  lib
 
 (require 'cl-lib)
