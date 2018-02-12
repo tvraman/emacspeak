@@ -24,3 +24,8 @@ all of the power of alsa --- including applying ladspa effects to TTS.
 
 Emacspeak now includes an ~emacspeak-prompts~ module that provides
 high-quality spoken prompts as MP3 files.
+
+* DBus Integration
+
+Module ~emacspeak-dbus~ now provides auditory feedback when waking up
+and unlocking ~gnome-screensaver~ via DBus integration.
