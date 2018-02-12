@@ -64,7 +64,6 @@
 (eval-when-compile
   (require 'amixer)
 (require 'sox-gen)
-(require 'soundscape "soundscape" 'no-error)
 (require 'derived)
 (require 'dbus))
 (require 'nm "nm" 'no-error)
@@ -72,6 +71,9 @@
 ;;}}}
 ;;{{{ Forward Declarations:
 
+(declare-function soundscape-restart "soundscape" (&optional device))
+(declare-function soundscape-tickle "soundscape" nil)
+(declare-function soundscape-listener-shutdown "soundscape" nil)
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
 (declare-function twittering-start "ext:twittering-mode" nil)
