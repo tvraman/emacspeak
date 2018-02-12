@@ -99,12 +99,16 @@
   "Emacspeak setup."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
-
-(defadvice elfeed-kill-buffer (after emacspeak pre act  comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+(cl-loop
+ for f in
+ '(elfeed-kill-buffer  elfeed-search-quit-window )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act  comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
 
 (defadvice elfeed-search-yank (after emacspeak pre act  comp)
   "Provide auditory feedback."
