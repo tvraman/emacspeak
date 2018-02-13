@@ -2747,7 +2747,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-espeak-line ()
   "Speak line using espeak polyglot wizard."
   (interactive)
-  (emacspeak-wizards-espeak-region  (line-beginning-position ) (line-end-position)))
+  (ems-with-messages-silenced
+  (emacspeak-wizards-espeak-region  (line-beginning-position ) (line-end-position))))
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
