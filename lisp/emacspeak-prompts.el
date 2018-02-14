@@ -59,12 +59,10 @@
   (expand-file-name "prompts" emacspeak-sounds-directory)
   "Where pre-defined prompt files are located.")
 
-(defcustom emacspeak-prompts-player "play"
-  "Player used to play pre-defined prompts."
-  :type `(string :tag "Player"
-                 (const :tag "Play" ,(executable-find "play"))
-                 (const :tag "MPlayer" ,(executable-find "mplayer")))
-  :group 'emacspeak-prompts)
+(defvar emacspeak-prompts-player
+  (or (executable-find "play")
+      (executable-find "mplayer"))
+  "Player used to play pre-defined prompts.")
 ;;;###autoload 
 (defun emacspeak-prompt (name)
   "Play  prompt for specified name."
