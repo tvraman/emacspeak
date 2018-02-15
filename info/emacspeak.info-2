@@ -567,7 +567,14 @@ and the actions customized via appropriately named hook functions.
 12.43.2 emacspeak-dbus Commands
 -------------------------------
 
-12.43.2.1 emacspeak-dbus-sleep-disable
+12.43.2.1 emacspeak-dbus-lock-screen
+....................................
+
+ -- Command: emacspeak-dbus-lock-screen
+
+     Lock screen using DBus.
+
+12.43.2.2 emacspeak-dbus-sleep-disable
 ......................................
 
  -- Command: emacspeak-dbus-sleep-disable
@@ -575,14 +582,14 @@ and the actions customized via appropriately named hook functions.
      Disable integration with login1 daemon. Does nothing if
      already disabled.
 
-12.43.2.2 emacspeak-dbus-sleep-enable
+12.43.2.3 emacspeak-dbus-sleep-enable
 .....................................
 
  -- Command: emacspeak-dbus-sleep-enable
 
      Enable integration with Login1. Does nothing if already enabled.
 
-12.43.2.3 emacspeak-screen-saver-mode
+12.43.2.4 emacspeak-screen-saver-mode
 .....................................
 
  -- Command: emacspeak-screen-saver-mode

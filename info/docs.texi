@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1197 commands and 1170 options.
+This chapter documents a total of 1198 commands and 1170 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6123,6 +6123,15 @@ can be separately enabled/disabled, and the actions customized
 via appropriately named hook functions.
 
 @subsection emacspeak-dbus Commands
+
+@subsubsection emacspeak-dbus-lock-screen
+@deffn {Command} emacspeak-dbus-lock-screen   
+@findex emacspeak-dbus-lock-screen
+
+@format
+Lock screen using DBus.
+@end format
+@end deffn
 
 @subsubsection emacspeak-dbus-sleep-disable
 @deffn {Command} emacspeak-dbus-sleep-disable   
