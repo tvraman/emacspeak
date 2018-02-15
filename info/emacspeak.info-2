@@ -6515,7 +6515,7 @@ convenient emacs mode for editing and playing midge files.  Midge’s
 homepage is at: http://www.dmriley.demon.co.uk/code/midge/
 
 
-File: emacspeak.info,  Node: emacspeak-mines,  Next: emacspeak-mpg123,  Prev: emacspeak-midge,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-mines,  Next: emacspeak-mspools,  Prev: emacspeak-midge,  Up: Emacspeak Commands And Options
 
 12.121 emacspeak-mines
 ======================
@@ -6610,17 +6610,9 @@ icon.
      Speak number of uncovered cells.
 
 
-File: emacspeak.info,  Node: emacspeak-mpg123,  Next: emacspeak-mspools,  Prev: emacspeak-mines,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev: emacspeak-mines,  Up: Emacspeak Commands And Options
 
-12.122 emacspeak-mpg123
-=======================
-
-This module speech-enables MPG123 MPG123 is an MP3 player.
-
-
-File: emacspeak.info,  Node: emacspeak-mspools,  Next: emacspeak-muggles,  Prev: emacspeak-mpg123,  Up: Emacspeak Commands And Options
-
-12.123 emacspeak-mspools
+12.122 emacspeak-mspools
 ========================
 
 Speech-enable mspools –a package that lets you monitor multiple
@@ -6629,7 +6621,7 @@ maildrops
 
 File: emacspeak.info,  Node: emacspeak-muggles,  Next: emacspeak-muse,  Prev: emacspeak-mspools,  Up: Emacspeak Commands And Options
 
-12.124 emacspeak-muggles
+12.123 emacspeak-muggles
 ========================
 
 MUGGLES == Emacspeak spells for power-users.
@@ -6642,7 +6634,7 @@ You need to install package Hydra first: ‘M-x package-install hydra’.
    Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.
 
-12.124.1 Implemented Muggles
+12.123.1 Implemented Muggles
 ----------------------------
 
    • Brightness: <print> Control display brightness using xbacklight.
@@ -6668,10 +6660,10 @@ silence speaking of Hydra hints, Muggles can bind command
 ‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
 binds ‘s’ to this command.
 
-12.124.2 emacspeak-muggles Commands
+12.123.2 emacspeak-muggles Commands
 -----------------------------------
 
-12.124.2.1 emacspeak-muggles-brightness/body
+12.123.2.1 emacspeak-muggles-brightness/body
 ............................................
 
  -- Command: emacspeak-muggles-brightness/body
@@ -6693,7 +6685,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
-12.124.2.2 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+12.123.2.2 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
 ............................................................
 
  -- Command: emacspeak-muggles-emacspeak-m-player-mode-map-cmd
@@ -6701,7 +6693,7 @@ binds ‘s’ to this command.
 
      Temporarily use keymap emacspeak-m-player-mode-map
 
-12.124.2.3 emacspeak-muggles-hideshow/body
+12.123.2.3 emacspeak-muggles-hideshow/body
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
@@ -6721,7 +6713,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
-12.124.2.4 emacspeak-muggles-ido-yank
+12.123.2.4 emacspeak-muggles-ido-yank
 .....................................
 
  -- Command: emacspeak-muggles-ido-yank
@@ -6729,7 +6721,7 @@ binds ‘s’ to this command.
 
      Pick what to yank using ido completion.
 
-12.124.2.5 emacspeak-muggles-info-summary/body
+12.123.2.5 emacspeak-muggles-info-summary/body
 ..............................................
 
  -- Command: emacspeak-muggles-info-summary/body
@@ -6781,7 +6773,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
-12.124.2.6 emacspeak-muggles-m-player/body
+12.123.2.6 emacspeak-muggles-m-player/body
 ..........................................
 
  -- Command: emacspeak-muggles-m-player/body
@@ -6848,7 +6840,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
-12.124.2.7 emacspeak-muggles-maths-navigator/body
+12.123.2.7 emacspeak-muggles-maths-navigator/body
 .................................................
 
  -- Command: emacspeak-muggles-maths-navigator/body
@@ -6870,7 +6862,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 
-12.124.2.8 emacspeak-muggles-navigate/body
+12.123.2.8 emacspeak-muggles-navigate/body
 ..........................................
 
  -- Command: emacspeak-muggles-navigate/body
@@ -6898,7 +6890,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 
-12.124.2.9 emacspeak-muggles-org-nav/body
+12.123.2.9 emacspeak-muggles-org-nav/body
 .........................................
 
  -- Command: emacspeak-muggles-org-nav/body
@@ -6918,7 +6910,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 
-12.124.2.10 emacspeak-muggles-org-table/body
+12.123.2.10 emacspeak-muggles-org-table/body
 ............................................
 
  -- Command: emacspeak-muggles-org-table/body
@@ -6940,7 +6932,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
-12.124.2.11 emacspeak-muggles-outliner/body
+12.123.2.11 emacspeak-muggles-outliner/body
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
@@ -6970,7 +6962,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.124.2.12 emacspeak-muggles-smartparens/body
+12.123.2.12 emacspeak-muggles-smartparens/body
 ..............................................
 
  -- Command: emacspeak-muggles-smartparens/body
@@ -7011,7 +7003,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.124.2.13 emacspeak-muggles-toggle-option/body
+12.123.2.13 emacspeak-muggles-toggle-option/body
 ................................................
 
  -- Command: emacspeak-muggles-toggle-option/body
@@ -7036,7 +7028,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.124.2.14 emacspeak-muggles-view/body
+12.123.2.14 emacspeak-muggles-view/body
 .......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -7095,7 +7087,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.124.2.15 emacspeak-muggles-yank-pop/body
+12.123.2.15 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -7114,7 +7106,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
-12.124.2.16 emacspeak-origami/body
+12.123.2.16 emacspeak-origami/body
 ..................................
 
  -- Command: emacspeak-origami/body
@@ -7136,12 +7128,12 @@ binds ‘s’ to this command.
 
 File: emacspeak.info,  Node: emacspeak-muse,  Next: emacspeak-net-utils,  Prev: emacspeak-muggles,  Up: Emacspeak Commands And Options
 
-12.125 emacspeak-muse
+12.124 emacspeak-muse
 =====================
 
 Speech enable Muse
 
-12.125.1 emacspeak-muse Options
+12.124.1 emacspeak-muse Options
 -------------------------------
 
  -- Variable: User Option emacspeak-muse-bad-link-personality
@@ -7202,7 +7194,7 @@ Speech enable Muse
 
 File: emacspeak.info,  Node: emacspeak-net-utils,  Next: emacspeak-newsticker,  Prev: emacspeak-muse,  Up: Emacspeak Commands And Options
 
-12.126 emacspeak-net-utils
+12.125 emacspeak-net-utils
 ==========================
 
 This module speech enables net-utils
@@ -7210,13 +7202,13 @@ This module speech enables net-utils
 
 File: emacspeak.info,  Node: emacspeak-newsticker,  Next: emacspeak-npr,  Prev: emacspeak-net-utils,  Up: Emacspeak Commands And Options
 
-12.127 emacspeak-newsticker
+12.126 emacspeak-newsticker
 ===========================
 
 Newsticker provides a continuously updating newsticker using RSS
 Provides functionality similar to amphetadesk –but in pure elisp
 
-12.127.1 emacspeak-newsticker Options
+12.126.1 emacspeak-newsticker Options
 -------------------------------------
 
  -- Variable: User Option emacspeak-newsticker-feed-personality
@@ -7237,7 +7229,7 @@ Provides functionality similar to amphetadesk –but in pure elisp
 
 File: emacspeak.info,  Node: emacspeak-npr,  Next: emacspeak-nxml,  Prev: emacspeak-newsticker,  Up: Emacspeak Commands And Options
 
-12.128 emacspeak-npr
+12.127 emacspeak-npr
 ====================
 
 NPR == http://www.npr.org National Public Radio in the US. It provides a
@@ -7245,7 +7237,7 @@ simple Web API documented at http://www.npr.org/api/index.  This module
 implements an Emacspeak Npr client.  Users will need to get their own
 API key.
 
-12.128.1 Usage
+12.127.1 Usage
 --------------
 
 Command: ‘emacspeak-npr-play-program’ ‘C-; n’ — Play current or past
@@ -7256,10 +7248,10 @@ completion.  Streams can be played from within the displayed listing.
 
    In all cases, streams are played using module ‘emacspeak-m-player’.
 
-12.128.2 emacspeak-npr Commands
+12.127.2 emacspeak-npr Commands
 -------------------------------
 
-12.128.2.1 emacspeak-npr-listing
+12.127.2.1 emacspeak-npr-listing
 ................................
 
  -- Command: emacspeak-npr-listing (&optional search)
@@ -7271,7 +7263,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn &optional SEARCH)
 
-12.128.2.2 emacspeak-npr-listing-url-executor
+12.127.2.2 emacspeak-npr-listing-url-executor
 .............................................
 
  -- Command: emacspeak-npr-listing-url-executor (url &optional get-date)
@@ -7281,7 +7273,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn URL &optional GET-DATE)
 
-12.128.2.3 emacspeak-npr-play-program
+12.127.2.3 emacspeak-npr-play-program
 .....................................
 
  -- Command: emacspeak-npr-play-program (pid &optional get-date)
@@ -7293,7 +7285,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn PID &optional GET-DATE)
 
-12.128.2.4 emacspeak-npr-refresh-program-table
+12.127.2.4 emacspeak-npr-refresh-program-table
 ..............................................
 
  -- Command: emacspeak-npr-refresh-program-table (&optional force)
@@ -7302,7 +7294,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn &optional FORCE)
 
-12.128.2.5 emacspeak-npr-search
+12.127.2.5 emacspeak-npr-search
 ...............................
 
  -- Command: emacspeak-npr-search (query)
@@ -7311,7 +7303,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn QUERY)
 
-12.128.3 emacspeak-npr Options
+12.127.3 emacspeak-npr Options
 ------------------------------
 
  -- Variable: User Option emacspeak-npr-api-key
@@ -7323,23 +7315,23 @@ completion.  Streams can be played from within the displayed listing.
 
 File: emacspeak.info,  Node: emacspeak-nxml,  Next: emacspeak-ocr,  Prev: emacspeak-npr,  Up: Emacspeak Commands And Options
 
-12.129 emacspeak-nxml
+12.128 emacspeak-nxml
 =====================
 
 nxml-mode is a new XML mode for emacs by James Clark.
 http://www.thaiopensource.com/download/
 
-12.129.1 emacspeak-nxml Commands
+12.128.1 emacspeak-nxml Commands
 --------------------------------
 
-12.129.1.1 emacspeak-nxml-summarize-outline
+12.128.1.1 emacspeak-nxml-summarize-outline
 ...........................................
 
  -- Command: emacspeak-nxml-summarize-outline
 
      Intelligent spoken display of current outline entry.
 
-12.129.2 emacspeak-nxml Options
+12.128.2 emacspeak-nxml Options
 -------------------------------
 
  -- Variable: User Option emacspeak-nxml-attribute-colon-voice
@@ -7536,7 +7528,7 @@ http://www.thaiopensource.com/download/
 
 File: emacspeak.info,  Node: emacspeak-ocr,  Next: emacspeak-org,  Prev: emacspeak-nxml,  Up: Emacspeak Commands And Options
 
-12.130 emacspeak-ocr
+12.129 emacspeak-ocr
 ====================
 
 This module defines Emacspeak front-end to OCR. This module assumes that
@@ -7547,10 +7539,10 @@ files from scanner.  tiffcp to compress the tiff file.  working ocr
 executable by default this module assumes that the OCR executable is
 named "ocr"
 
-12.130.1 emacspeak-ocr Commands
+12.129.1 emacspeak-ocr Commands
 -------------------------------
 
-12.130.1.1 emacspeak-ocr
+12.129.1.1 emacspeak-ocr
 ........................
 
  -- Command: emacspeak-ocr
@@ -7568,7 +7560,7 @@ named "ocr"
      C-e C-o to launch emacspeak-ocr-mode, and press
      ‘?’ to display mode-specific help for emacspeak-ocr-mode.
 
-12.130.1.2 emacspeak-ocr-backward-page
+12.129.1.2 emacspeak-ocr-backward-page
 ......................................
 
  -- Command: emacspeak-ocr-backward-page (&optional count-ignored)
@@ -7577,14 +7569,14 @@ named "ocr"
 
      (fn &optional COUNT-IGNORED)
 
-12.130.1.3 emacspeak-ocr-customize
+12.129.1.3 emacspeak-ocr-customize
 ..................................
 
  -- Command: emacspeak-ocr-customize
 
      Customize OCR settings.
 
-12.130.1.4 emacspeak-ocr-flipflop-and-recognize-image
+12.129.1.4 emacspeak-ocr-flipflop-and-recognize-image
 .....................................................
 
  -- Command: emacspeak-ocr-flipflop-and-recognize-image
@@ -7595,7 +7587,7 @@ named "ocr"
      Prompts for image file if file corresponding to the expected
      ‘current page’ is not found.
 
-12.130.1.5 emacspeak-ocr-forward-page
+12.129.1.5 emacspeak-ocr-forward-page
 .....................................
 
  -- Command: emacspeak-ocr-forward-page (&optional count-ignored)
@@ -7604,7 +7596,7 @@ named "ocr"
 
      (fn &optional COUNT-IGNORED)
 
-12.130.1.6 emacspeak-ocr-mode
+12.129.1.6 emacspeak-ocr-mode
 .............................
 
  -- Command: emacspeak-ocr-mode
@@ -7691,7 +7683,7 @@ named "ocr"
      this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.130.1.7 emacspeak-ocr-name-document
+12.129.1.7 emacspeak-ocr-name-document
 ......................................
 
  -- Command: emacspeak-ocr-name-document (name)
@@ -7701,28 +7693,28 @@ named "ocr"
 
      (fn NAME)
 
-12.130.1.8 emacspeak-ocr-open-working-directory
+12.129.1.8 emacspeak-ocr-open-working-directory
 ...............................................
 
  -- Command: emacspeak-ocr-open-working-directory
 
      Launch dired on OCR working directory.
 
-12.130.1.9 emacspeak-ocr-page
+12.129.1.9 emacspeak-ocr-page
 .............................
 
  -- Command: emacspeak-ocr-page
 
      Move to specified page.
 
-12.130.1.10 emacspeak-ocr-read-current-page
+12.129.1.10 emacspeak-ocr-read-current-page
 ...........................................
 
  -- Command: emacspeak-ocr-read-current-page
 
      Speaks current page.
 
-12.130.1.11 emacspeak-ocr-recognize-image
+12.129.1.11 emacspeak-ocr-recognize-image
 .........................................
 
  -- Command: emacspeak-ocr-recognize-image
@@ -7731,7 +7723,7 @@ named "ocr"
      Prompts for image file if file corresponding to the expected
      ‘current page’ is not found.
 
-12.130.1.12 emacspeak-ocr-save-current-page
+12.129.1.12 emacspeak-ocr-save-current-page
 ...........................................
 
  -- Command: emacspeak-ocr-save-current-page
@@ -7739,7 +7731,7 @@ named "ocr"
      Writes out recognized text from current page
      to an appropriately named file.
 
-12.130.1.13 emacspeak-ocr-scan-and-recognize
+12.129.1.13 emacspeak-ocr-scan-and-recognize
 ............................................
 
  -- Command: emacspeak-ocr-scan-and-recognize
@@ -7749,14 +7741,14 @@ named "ocr"
      steps of acquiring an image and running the OCR engine work
      correctly by themselves.
 
-12.130.1.14 emacspeak-ocr-scan-image
+12.129.1.14 emacspeak-ocr-scan-image
 ....................................
 
  -- Command: emacspeak-ocr-scan-image
 
      Acquire page image.
 
-12.130.1.15 emacspeak-ocr-scan-photo
+12.129.1.15 emacspeak-ocr-scan-photo
 ....................................
 
  -- Command: emacspeak-ocr-scan-photo (&optional metadata)
@@ -7766,7 +7758,7 @@ named "ocr"
 
      (fn &optional METADATA)
 
-12.130.1.16 emacspeak-ocr-set-compress-image-options
+12.129.1.16 emacspeak-ocr-set-compress-image-options
 ....................................................
 
  -- Command: emacspeak-ocr-set-compress-image-options (setting)
@@ -7777,7 +7769,7 @@ named "ocr"
 
      (fn SETTING)
 
-12.130.1.17 emacspeak-ocr-set-scan-image-options
+12.129.1.17 emacspeak-ocr-set-scan-image-options
 ................................................
 
  -- Command: emacspeak-ocr-set-scan-image-options (setting)
@@ -7788,14 +7780,14 @@ named "ocr"
 
      (fn SETTING)
 
-12.130.1.18 emacspeak-ocr-write-document
+12.129.1.18 emacspeak-ocr-write-document
 ........................................
 
  -- Command: emacspeak-ocr-write-document
 
      Writes out recognized text from all pages in current document.
 
-12.130.2 emacspeak-ocr Options
+12.129.2 emacspeak-ocr Options
 ------------------------------
 
  -- Variable: User Option emacspeak-ocr-compress-image
@@ -7840,17 +7832,17 @@ named "ocr"
 
 File: emacspeak.info,  Node: emacspeak-org,  Next: emacspeak-origami,  Prev: emacspeak-ocr,  Up: Emacspeak Commands And Options
 
-12.131 emacspeak-org
+12.130 emacspeak-org
 ====================
 
 Speech-enable org — Org allows you to keep organized notes and todo
 lists.  Homepage: http://www.astro.uva.nl/~dominik/Tools/org/ or
 http://orgmode.org/
 
-12.131.1 emacspeak-org Commands
+12.130.1 emacspeak-org Commands
 -------------------------------
 
-12.131.1.1 emacspeak-org-bookmark
+12.130.1.1 emacspeak-org-bookmark
 .................................
 
  -- Command: emacspeak-org-bookmark (&optional goto)
@@ -7859,7 +7851,7 @@ http://orgmode.org/
 
      (fn &optional GOTO)
 
-12.131.1.2 emacspeak-org-capture-link
+12.130.1.2 emacspeak-org-capture-link
 .....................................
 
  -- Command: emacspeak-org-capture-link
@@ -7870,63 +7862,63 @@ http://orgmode.org/
      To use this command, first  do ‘customize-variable’ ‘org-capture-template’
      and assign  letter ‘h’ to a template that creates the hyperlink on capture.
 
-12.131.1.3 emacspeak-org-popup-input
+12.130.1.3 emacspeak-org-popup-input
 ....................................
 
  -- Command: emacspeak-org-popup-input
 
      Pops up an org input area.
 
-12.131.1.4 emacspeak-org-table-speak-both-headers-and-element
+12.130.1.4 emacspeak-org-table-speak-both-headers-and-element
 .............................................................
 
  -- Command: emacspeak-org-table-speak-both-headers-and-element
 
      echoes both row and col headers.
 
-12.131.1.5 emacspeak-org-table-speak-column-header
+12.130.1.5 emacspeak-org-table-speak-column-header
 ..................................................
 
  -- Command: emacspeak-org-table-speak-column-header
 
      echoes column header
 
-12.131.1.6 emacspeak-org-table-speak-column-header-and-element
+12.130.1.6 emacspeak-org-table-speak-column-header-and-element
 ..............................................................
 
  -- Command: emacspeak-org-table-speak-column-header-and-element
 
      echoes col header and element
 
-12.131.1.7 emacspeak-org-table-speak-coordinates
+12.130.1.7 emacspeak-org-table-speak-coordinates
 ................................................
 
  -- Command: emacspeak-org-table-speak-coordinates
 
      echoes coordinates
 
-12.131.1.8 emacspeak-org-table-speak-current-element
+12.130.1.8 emacspeak-org-table-speak-current-element
 ....................................................
 
  -- Command: emacspeak-org-table-speak-current-element
 
      echoes current table element
 
-12.131.1.9 emacspeak-org-table-speak-row-header
+12.130.1.9 emacspeak-org-table-speak-row-header
 ...............................................
 
  -- Command: emacspeak-org-table-speak-row-header
 
      echoes row header
 
-12.131.1.10 emacspeak-org-table-speak-row-header-and-element
+12.130.1.10 emacspeak-org-table-speak-row-header-and-element
 ............................................................
 
  -- Command: emacspeak-org-table-speak-row-header-and-element
 
      echoes row header and element
 
-12.131.2 emacspeak-org Options
+12.130.2 emacspeak-org Options
 ------------------------------
 
  -- Variable: User Option emacspeak-org-bookmark-key
@@ -7935,7 +7927,7 @@ http://orgmode.org/
 
 File: emacspeak.info,  Node: emacspeak-origami,  Next: emacspeak-outline,  Prev: emacspeak-org,  Up: Emacspeak Commands And Options
 
-12.132 emacspeak-origami
+12.131 emacspeak-origami
 ========================
 
 ORIGAMI == One More Flexible Folding Mechanism This module
@@ -7944,15 +7936,15 @@ speech-enables origami-mode.
 
 File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-package,  Prev: emacspeak-origami,  Up: Emacspeak Commands And Options
 
-12.133 emacspeak-outline
+12.132 emacspeak-outline
 ========================
 
 Provide additional advice to outline-mode
 
-12.133.1 emacspeak-outline Commands
+12.132.1 emacspeak-outline Commands
 -----------------------------------
 
-12.133.1.1 emacspeak-outline-speak-backward-heading
+12.132.1.1 emacspeak-outline-speak-backward-heading
 ...................................................
 
  -- Command: emacspeak-outline-speak-backward-heading
@@ -7960,7 +7952,7 @@ Provide additional advice to outline-mode
      Analogous to outline-backward-same-level
      except that the outline section is  spoken
 
-12.133.1.2 emacspeak-outline-speak-forward-heading
+12.132.1.2 emacspeak-outline-speak-forward-heading
 ..................................................
 
  -- Command: emacspeak-outline-speak-forward-heading
@@ -7968,7 +7960,7 @@ Provide additional advice to outline-mode
      Analogous to outline-forward-same-level,
      except that the outline section is  spoken
 
-12.133.1.3 emacspeak-outline-speak-next-heading
+12.132.1.3 emacspeak-outline-speak-next-heading
 ...............................................
 
  -- Command: emacspeak-outline-speak-next-heading
@@ -7976,7 +7968,7 @@ Provide additional advice to outline-mode
      Analogous to outline-next-visible-heading,
      except that the outline section is  spoken
 
-12.133.1.4 emacspeak-outline-speak-previous-heading
+12.132.1.4 emacspeak-outline-speak-previous-heading
 ...................................................
 
  -- Command: emacspeak-outline-speak-previous-heading
@@ -7984,14 +7976,14 @@ Provide additional advice to outline-mode
      Analogous to outline-previous-visible-heading,
      except that the outline section is  spoken
 
-12.133.1.5 emacspeak-outline-speak-this-heading
+12.132.1.5 emacspeak-outline-speak-this-heading
 ...............................................
 
  -- Command: emacspeak-outline-speak-this-heading
 
      Speak current outline section starting from point
 
-12.133.2 emacspeak-outline Options
+12.132.2 emacspeak-outline Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-outline-dont-query-before-speaking
@@ -8000,30 +7992,30 @@ Provide additional advice to outline-mode
 
 File: emacspeak.info,  Node: emacspeak-package,  Next: emacspeak-paradox,  Prev: emacspeak-outline,  Up: Emacspeak Commands And Options
 
-12.134 emacspeak-package
+12.133 emacspeak-package
 ========================
 
 PACKAGE == package.el Manage Emacs packages.  This module speech-enables
 package.el with a few convenience commands.
 
-12.134.1 emacspeak-package Commands
+12.133.1 emacspeak-package Commands
 -----------------------------------
 
-12.134.1.1 emacspeak-package-next-line
+12.133.1.1 emacspeak-package-next-line
 ......................................
 
  -- Command: emacspeak-package-next-line
 
      Move to next line and speak it.
 
-12.134.1.2 emacspeak-package-previous-line
+12.133.1.2 emacspeak-package-previous-line
 ..........................................
 
  -- Command: emacspeak-package-previous-line
 
      Move to next line and speak it.
 
-12.134.1.3 emacspeak-package-summarize-line
+12.133.1.3 emacspeak-package-summarize-line
 ...........................................
 
  -- Command: emacspeak-package-summarize-line
@@ -8033,24 +8025,24 @@ package.el with a few convenience commands.
 
 File: emacspeak.info,  Node: emacspeak-paradox,  Next: emacspeak-perl,  Prev: emacspeak-package,  Up: Emacspeak Commands And Options
 
-12.135 emacspeak-paradox
+12.134 emacspeak-paradox
 ========================
 
 PARADOX == paradox.el Improved package management interface Manage Emacs
 packages.  This module speech-enables paradox.el with a few convenience
 commands.
 
-12.135.1 emacspeak-paradox Commands
+12.134.1 emacspeak-paradox Commands
 -----------------------------------
 
-12.135.1.1 emacspeak-paradox-summarize-line
+12.134.1.1 emacspeak-paradox-summarize-line
 ...........................................
 
  -- Command: emacspeak-paradox-summarize-line
 
      Succinct Summary.
 
-12.135.2 emacspeak-paradox Options
+12.134.2 emacspeak-paradox Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-paradox-archive-personality
@@ -8112,7 +8104,7 @@ commands.
 
 File: emacspeak.info,  Node: emacspeak-perl,  Next: emacspeak-personality,  Prev: emacspeak-paradox,  Up: Emacspeak Commands And Options
 
-12.136 emacspeak-perl
+12.135 emacspeak-perl
 =====================
 
 Provide additional advice to perl-mode
@@ -8120,7 +8112,7 @@ Provide additional advice to perl-mode
 
 File: emacspeak.info,  Node: emacspeak-personality,  Next: emacspeak-php-mode,  Prev: emacspeak-perl,  Up: Emacspeak Commands And Options
 
-12.137 emacspeak-personality
+12.136 emacspeak-personality
 ============================
 
 Implementation Notes From 2015:
@@ -8144,7 +8136,7 @@ voice-locking.
    This module defines a personality interface for implementing voice
 lock via font lock.
 
-12.137.1 emacspeak-personality Options
+12.136.1 emacspeak-personality Options
 --------------------------------------
 
  -- Variable: User Option emacspeak-personality-voiceify-faces
@@ -8171,7 +8163,7 @@ lock via font lock.
 
 File: emacspeak.info,  Node: emacspeak-php-mode,  Next: emacspeak-pianobar,  Prev: emacspeak-personality,  Up: Emacspeak Commands And Options
 
-12.138 emacspeak-php-mode
+12.137 emacspeak-php-mode
 =========================
 
 speech-enable php-mode.el (available from sourceforge project php-mode)
@@ -8179,10 +8171,10 @@ speech-enable php-mode.el (available from sourceforge project php-mode)
 
 File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: emacspeak-php-mode,  Up: Emacspeak Commands And Options
 
-12.139 emacspeak-pianobar
+12.138 emacspeak-pianobar
 =========================
 
-12.139.1 PIANOBAR == Pandora Client for Emacs
+12.138.1 PIANOBAR == Pandora Client for Emacs
 ---------------------------------------------
 
 pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian: sudo
@@ -8194,7 +8186,7 @@ http://www.emacswiki.org/emacs/pianobar.el Provides access to Pandora
 Radio via pianobar from the comfort of Emacs.  This module
 speech-enables Pianobar and enhances it for the Complete Audio Desktop.
 
-12.139.2 Emacspeak Usage:
+12.138.2 Emacspeak Usage:
 -------------------------
 
 Emacspeak implements command emacspeak-pianobar, a light-weight wrapper
@@ -8213,10 +8205,10 @@ buffer.  The most useful keys are ‘right’ for skipping tracks, ‘up’ and
 be controlled by pressing the Pianobar prefix key (‘C-e '’) followed by
 keys from ‘pianobar-key-map’.
 
-12.139.3 emacspeak-pianobar Commands
+12.138.3 emacspeak-pianobar Commands
 ------------------------------------
 
-12.139.3.1 emacspeak-pianobar
+12.138.3.1 emacspeak-pianobar
 .............................
 
  -- Command: emacspeak-pianobar
@@ -8225,7 +8217,7 @@ keys from ‘pianobar-key-map’.
 
      Start or control Emacspeak Pianobar player.
 
-12.139.3.2 emacspeak-pianobar-command
+12.138.3.2 emacspeak-pianobar-command
 .....................................
 
  -- Command: emacspeak-pianobar-command (key)
@@ -8234,7 +8226,7 @@ keys from ‘pianobar-key-map’.
 
      (fn KEY)
 
-12.139.3.3 emacspeak-pianobar-electric-mode-toggle
+12.138.3.3 emacspeak-pianobar-electric-mode-toggle
 ..................................................
 
  -- Command: emacspeak-pianobar-electric-mode-toggle
@@ -8242,42 +8234,42 @@ keys from ‘pianobar-key-map’.
      Toggle electric mode in pianobar buffer.
      If electric mode is on, keystrokes invoke pianobar commands directly.
 
-12.139.3.4 emacspeak-pianobar-next-preset
+12.138.3.4 emacspeak-pianobar-next-preset
 .........................................
 
  -- Command: emacspeak-pianobar-next-preset
 
      Switch to next preset.
 
-12.139.3.5 emacspeak-pianobar-previous-preset
+12.138.3.5 emacspeak-pianobar-previous-preset
 .............................................
 
  -- Command: emacspeak-pianobar-previous-preset
 
      Switch to previous preset.
 
-12.139.3.6 emacspeak-pianobar-switch-to-preset
+12.138.3.6 emacspeak-pianobar-switch-to-preset
 ..............................................
 
  -- Command: emacspeak-pianobar-switch-to-preset
 
      Switch to one of the  presets.
 
-12.139.3.7 emacspeak-pianobar-volume-down
+12.138.3.7 emacspeak-pianobar-volume-down
 .........................................
 
  -- Command: emacspeak-pianobar-volume-down
 
      Decrease volume
 
-12.139.3.8 emacspeak-pianobar-volume-up
+12.138.3.8 emacspeak-pianobar-volume-up
 .......................................
 
  -- Command: emacspeak-pianobar-volume-up
 
      Increase volume
 
-12.139.4 emacspeak-pianobar Options
+12.138.4 emacspeak-pianobar Options
 -----------------------------------
 
  -- Variable: User Option emacspeak-pianobar-max-preset
@@ -8286,7 +8278,7 @@ keys from ‘pianobar-key-map’.
 
 File: emacspeak.info,  Node: emacspeak-popup,  Next: emacspeak-proced,  Prev: emacspeak-pianobar,  Up: Emacspeak Commands And Options
 
-12.140 emacspeak-popup
+12.139 emacspeak-popup
 ======================
 
 POPUP == popup.el from MELPA
@@ -8294,16 +8286,16 @@ POPUP == popup.el from MELPA
 
 File: emacspeak.info,  Node: emacspeak-proced,  Next: emacspeak-projectile,  Prev: emacspeak-popup,  Up: Emacspeak Commands And Options
 
-12.141 emacspeak-proced
+12.140 emacspeak-proced
 =======================
 
 PROCED == Process Editor A new Task Manager for Emacs.  Proced is part
 of emacs 23.
 
-12.141.1 emacspeak-proced Commands
+12.140.1 emacspeak-proced Commands
 ----------------------------------
 
-12.141.1.1 emacspeak-proced-jump-to-process
+12.140.1.1 emacspeak-proced-jump-to-process
 ...........................................
 
  -- Command: emacspeak-proced-jump-to-process (name)
@@ -8312,42 +8304,42 @@ of emacs 23.
 
      (fn NAME)
 
-12.141.1.2 emacspeak-proced-next-field
+12.140.1.2 emacspeak-proced-next-field
 ......................................
 
  -- Command: emacspeak-proced-next-field
 
      Navigate to next field.
 
-12.141.1.3 emacspeak-proced-next-line
+12.140.1.3 emacspeak-proced-next-line
 .....................................
 
  -- Command: emacspeak-proced-next-line
 
      Move to next line and speak a summary.
 
-12.141.1.4 emacspeak-proced-previous-field
+12.140.1.4 emacspeak-proced-previous-field
 ..........................................
 
  -- Command: emacspeak-proced-previous-field
 
      Navigate to previous field.
 
-12.141.1.5 emacspeak-proced-previous-line
+12.140.1.5 emacspeak-proced-previous-line
 .........................................
 
  -- Command: emacspeak-proced-previous-line
 
      Move to next line and speak a summary.
 
-12.141.1.6 emacspeak-proced-speak-args
+12.140.1.6 emacspeak-proced-speak-args
 ......................................
 
  -- Command: emacspeak-proced-speak-args
 
      Speak command  invocation  for this process.
 
-12.141.1.7 emacspeak-proced-speak-field
+12.140.1.7 emacspeak-proced-speak-field
 .......................................
 
  -- Command: emacspeak-proced-speak-field (field-name)
@@ -8356,14 +8348,14 @@ of emacs 23.
 
      (fn FIELD-NAME)
 
-12.141.1.8 emacspeak-proced-speak-that-field
+12.140.1.8 emacspeak-proced-speak-that-field
 ............................................
 
  -- Command: emacspeak-proced-speak-that-field
 
      Speak desired field via single keystroke.
 
-12.141.1.9 emacspeak-proced-speak-this-field
+12.140.1.9 emacspeak-proced-speak-this-field
 ............................................
 
  -- Command: emacspeak-proced-speak-this-field (&optional position)
@@ -8375,7 +8367,7 @@ of emacs 23.
 
 File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-prompts,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
 
-12.142 emacspeak-projectile
+12.141 emacspeak-projectile
 ===========================
 
 PROJECTILE == ‘M-x package-install projectile’.  Project management in
@@ -8384,7 +8376,7 @@ Emacs.
 
 File: emacspeak.info,  Node: emacspeak-prompts,  Next: emacspeak-pronounce,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
 
-12.143 emacspeak-prompts
+12.142 emacspeak-prompts
 ========================
 
 This module provides a set of pre-defined speech prompts, And a
@@ -8393,7 +8385,7 @@ light-weight player for generating these prompts.
 
 File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-py,  Prev: emacspeak-prompts,  Up: Emacspeak Commands And Options
 
-12.144 emacspeak-pronounce
+12.143 emacspeak-pronounce
 ==========================
 
 This module implements user customizable pronunciation dictionaries for
@@ -8410,17 +8402,17 @@ association lists defining the dictionary.  Users of this module can
 retrieve a dictionary made up of all applicable association lists for a
 given file.
 
-12.144.1 emacspeak-pronounce Commands
+12.143.1 emacspeak-pronounce Commands
 -------------------------------------
 
-12.144.1.1 emacspeak-pronounce-clear-dictionaries
+12.143.1.1 emacspeak-pronounce-clear-dictionaries
 .................................................
 
  -- Command: emacspeak-pronounce-clear-dictionaries
 
      Clear all current pronunciation dictionaries.
 
-12.144.1.2 emacspeak-pronounce-define-local-pronunciation
+12.143.1.2 emacspeak-pronounce-define-local-pronunciation
 .........................................................
 
  -- Command: emacspeak-pronounce-define-local-pronunciation (word
@@ -8431,7 +8423,7 @@ given file.
 
      (fn WORD PRONUNCIATION)
 
-12.144.1.3 emacspeak-pronounce-define-pronunciation
+12.143.1.3 emacspeak-pronounce-define-pronunciation
 ...................................................
 
  -- Command: emacspeak-pronounce-define-pronunciation
@@ -8440,7 +8432,7 @@ given file.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.144.1.4 emacspeak-pronounce-define-template-pronunciation
+12.143.1.4 emacspeak-pronounce-define-template-pronunciation
 ............................................................
 
  -- Command: emacspeak-pronounce-define-template-pronunciation
@@ -8449,7 +8441,7 @@ given file.
      Default term to define is delimited by region.
      First loads any persistent dictionaries if not already loaded.
 
-12.144.1.5 emacspeak-pronounce-dispatch
+12.143.1.5 emacspeak-pronounce-dispatch
 .......................................
 
  -- Command: emacspeak-pronounce-dispatch
@@ -8458,7 +8450,7 @@ given file.
 
      Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
 
-12.144.1.6 emacspeak-pronounce-edit-pronunciations
+12.143.1.6 emacspeak-pronounce-edit-pronunciations
 ..................................................
 
  -- Command: emacspeak-pronounce-edit-pronunciations (key)
@@ -8468,7 +8460,7 @@ given file.
 
      (fn KEY)
 
-12.144.1.7 emacspeak-pronounce-load-dictionaries
+12.143.1.7 emacspeak-pronounce-load-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-load-dictionaries (&optional filename)
@@ -8478,7 +8470,7 @@ given file.
 
      (fn &optional FILENAME)
 
-12.144.1.8 emacspeak-pronounce-refresh-pronunciations
+12.143.1.8 emacspeak-pronounce-refresh-pronunciations
 .....................................................
 
  -- Command: emacspeak-pronounce-refresh-pronunciations
@@ -8486,14 +8478,14 @@ given file.
      Refresh pronunciation table for current buffer.
      Activates pronunciation dictionaries if not already active.
 
-12.144.1.9 emacspeak-pronounce-save-dictionaries
+12.143.1.9 emacspeak-pronounce-save-dictionaries
 ................................................
 
  -- Command: emacspeak-pronounce-save-dictionaries
 
      Writes out the persistent emacspeak pronunciation dictionaries.
 
-12.144.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
+12.143.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
 ..........................................................
 
  -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
@@ -8513,14 +8505,14 @@ given file.
 
      (fn &optional STATE)
 
-12.144.1.11 emacspeak-pronounce-yank-word
+12.143.1.11 emacspeak-pronounce-yank-word
 .........................................
 
  -- Command: emacspeak-pronounce-yank-word
 
      Yank word at point into minibuffer.
 
-12.144.2 emacspeak-pronounce Options
+12.143.2 emacspeak-pronounce Options
 ------------------------------------
 
  -- Variable: User Option
@@ -8547,12 +8539,12 @@ given file.
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options
 
-12.145 emacspeak-py
+12.144 emacspeak-py
 ===================
 
 This speech-enables python-mode available on sourceforge and ELPA
 
-12.145.1 emacspeak-py Options
+12.144.1 emacspeak-py Options
 -----------------------------
 
  -- Variable: User Option emacspeak-py-XXX-tag-personality

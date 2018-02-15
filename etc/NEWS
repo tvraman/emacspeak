@@ -29,3 +29,5 @@ high-quality spoken prompts as MP3 files.
 
 Module ~emacspeak-dbus~ now provides auditory feedback when waking up
 and unlocking ~gnome-screensaver~ via DBus integration.
+It also provides  interactive command  ~emacspeak-dbus-lock-screen~
+for locking the screen.
