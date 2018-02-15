@@ -49,6 +49,9 @@
 ;;; @item Respond to network coming up or going down.
 ;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver
 ;;; @item Respond to laptop  going to sleep or waking up.
+;;; @item An interactive command  @command{emacspeak-dbus-lock-screen} 
+;;; bound to @kbd{C-, C-d} to lock the screen using DBus.
+;;; Note: this key-binding is available only if this module is loaded.
 ;;; @end itemize
 ;;; See relevant hooks for customizing behavior.
 ;;; Note that each of the  sleep/wake-up and network/up-down
@@ -92,9 +95,10 @@ switch to a screen-saver soundscape."
   "Record window configuration when screen-saver was launched.")
 
 (defun emacspeak-screen-saver ()
-  "Launch Emacspeak screen-saver."
+  "Launch Emacspeak screen-saver.
+Initialize screen-saver buffer  if needed, and switch to  it."
   (cl-declare (special emacspeak-screen-saver-saved-configuration))
-  (setq emacspeak-screen-saver-saved-configuration (current-window-configuration))"Initialize screen-saver buffer  if needed, and switch to  it."
+  (setq emacspeak-screen-saver-saved-configuration (current-window-configuration))
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)
@@ -126,7 +130,8 @@ Stop apps that use the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
   (when (featurep 'jabber) (jabber-disconnect))
   (when (featurep 'twittering-mode) (twittering-stop))
-  (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
+  (setq emacspeak-speak-network-interfaces-list
+        (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
@@ -240,6 +245,21 @@ already disabled."
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
 ;;}}}
+;;{{{ Interactive Command: Lock Screen
+(defun emacspeak-dbus-lock-screen ()
+  "Lock screen using DBus."
+  (interactive)
+  (emacspeak-auditory-icon 'close-object)
+  (emacspeak-prompt "locking-up")
+  (dbus-call-method 
+:session 
+"org.gnome.ScreenSaver"
+"/"
+"org.gnome.ScreenSaver"
+"Lock"))
+
+(global-set-key (kbd "C-, C-d") 'emacspeak-dbus-lock-screen)
+;;}}}
 ;;{{{ Watch Screensaver:
 
 (defvar emacspeak-dbus-screen-lock-handle nil
@@ -255,13 +275,14 @@ already disabled."
     :session
     "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
     "org.gnome.ScreenSaver" "ActiveChanged"
-    #'(lambda(lock)
+    #'(lambda (lock)
         (if lock
             (progn (emacspeak-screen-saver))
           (progn
             (emacspeak-prompt "success")
             (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
-            (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
+            (when
+                (window-configuration-p emacspeak-screen-saver-saved-configuration)
               (set-window-configuration emacspeak-screen-saver-saved-configuration))
             (emacspeak-speak-mode-line)))))))
 
