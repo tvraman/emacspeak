@@ -1,4 +1,4 @@
-This is turning-twenty.info, produced by makeinfo version 6.3 from
+This is turning-twenty.info, produced by makeinfo version 6.4.90 from
 turning-twenty.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -15,20 +15,20 @@ Turning-20: Emacspeak At Twenty — Looking Back, Looking Forward
 * Menu:
 
 * Introduction::
-* Using UNIX With Speech Output —  1994: Using UNIX With Speech Output — 1994. 
+* Using UNIX With Speech Output —  1994: Using UNIX With Speech Output — 1994.
 * Key Enabler — Emacs And Lisp Advice::
-* Key Component —  Text To Speech (TTS): Key Component — Text To Speech (TTS). 
+* Key Component —  Text To Speech (TTS): Key Component — Text To Speech (TTS).
 * Emacspeak And Software Development::
 * Emacspeak And Authoring Documents::
 * Emacspeak And The Early Days Of The Web::
-* Audio Formatting —  Generalizing Aural CSS: Audio Formatting — Generalizing Aural CSS. 
+* Audio Formatting —  Generalizing Aural CSS: Audio Formatting — Generalizing Aural CSS.
 * Conversational Gestures For The Audio Desktop::
 * Accessing Media Streams::
-* EBooks—   Ubiquitous Access To Books: EBooks— Ubiquitous Access To Books. 
-* Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks. 
-* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols. 
-* The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access. 
-* Mashing It Up —  Leveraging Evolving Web APIs: Mashing It Up — Leveraging Evolving Web APIs. 
+* EBooks—   Ubiquitous Access To Books: EBooks— Ubiquitous Access To Books.
+* Leveraging Computational Tools —  From SQL And R To IPython Notebooks: Leveraging Computational Tools — From SQL And R To IPython Notebooks.
+* Social Web  — EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web —  Web Wizards And URL Templates For Faster Access: The RESTful Web — Web Wizards And URL Templates For Faster Access.
+* Mashing It Up —  Leveraging Evolving Web APIs: Mashing It Up — Leveraging Evolving Web APIs.
 * Conclusion::
 * References::
 
@@ -783,26 +783,26 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 
 Tag Table:
-Node: Top253
-Node: Introduction1848
-Node: Using UNIX With Speech Output — 19942525
-Node: Key Enabler — Emacs And Lisp Advice4347
-Node: Key Component — Text To Speech (TTS)5375
-Node: Emacspeak And Software Development7902
-Node: Programming Defensively10500
-Node: Emacspeak And Authoring Documents11758
-Node: Emacspeak And The Early Days Of The Web13316
-Node: Audio Formatting — Generalizing Aural CSS16747
-Node: Conversational Gestures For The Audio Desktop19798
-Node: Speech-Enabling Interactive Games23135
-Node: Accessing Media Streams24911
-Node: EBooks— Ubiquitous Access To Books27000
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29528
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31376
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access34841
-Node: Mashing It Up — Leveraging Evolving Web APIs38368
-Node: Conclusion40837
-Node: References42147
+Node: Top256
+Node: Introduction1843
+Node: Using UNIX With Speech Output — 19942520
+Node: Key Enabler — Emacs And Lisp Advice4342
+Node: Key Component — Text To Speech (TTS)5370
+Node: Emacspeak And Software Development7897
+Node: Programming Defensively10495
+Node: Emacspeak And Authoring Documents11753
+Node: Emacspeak And The Early Days Of The Web13311
+Node: Audio Formatting — Generalizing Aural CSS16742
+Node: Conversational Gestures For The Audio Desktop19793
+Node: Speech-Enabling Interactive Games23130
+Node: Accessing Media Streams24906
+Node: EBooks— Ubiquitous Access To Books26995
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29523
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31371
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access34836
+Node: Mashing It Up — Leveraging Evolving Web APIs38363
+Node: Conclusion40832
+Node: References42142
 
 End Tag Table
 

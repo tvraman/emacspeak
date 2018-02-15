@@ -104,7 +104,9 @@
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
-       (load-library f)))))
+(condition-case nil
+       (load-library f)
+  (error nil))))))
 
 (defconst self-document-patterns
   (concat "^"
