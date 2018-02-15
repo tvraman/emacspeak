@@ -182,8 +182,9 @@
     (insert
      "<p> Press <code>e e </code> on a <em>listen</em> link to play the
 book.</p>")
+    (setq books (append books nil))
     (cl-loop
-     for b across books
+     for b in  books
      and i from (1+ offset)
      do
      (emacspeak-librivox-display-book b i))
