@@ -174,6 +174,27 @@
     (emacspeak-librivox-display-authors (g-json-get 'authors book))
     (when desc (insert "<p>" desc "</p>\n\n"))))
 
+(defun emacspeak-librivox--render (title books offset)
+  "render results page. "
+  (with-temp-buffer
+    (insert "<title>" title "</title>\n")
+    (insert "<h1>" title "</h1>\n")
+    (insert
+     "<p> Press <code>e e </code> on a <em>listen</em> link to play the
+book.</p>")
+    (cl-loop
+     for b across books
+     and i from (1+ offset)
+     do
+     (emacspeak-librivox-display-book b i))
+    (when (= emacspeak-librivox-results-limit (length books))
+      (insert
+       (format
+        "Re-execute this command with an interactive prefix argument and
+specify offset %s to get more results."
+        (+ offset emacspeak-librivox-results-limit))))
+    (browse-url-of-buffer)))
+
 (defun emacspeak-librivox-search (pattern &optional  offset)
   "Search for books.
 Argument `pattern' is of the form:
@@ -202,24 +223,7 @@ Optional arg `offset' (default 0) is used for getting more results."
        #'(lambda ()
            (cl-declare (special emacspeak-we-url-executor))
            (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))
-      (with-temp-buffer
-        (insert "<title>" title "</title>\n")
-        (insert "<h1>" title "</h1>\n")
-        (insert
-         "<p> Press <code>e e </code> on a <em>listen</em> link to play the
-book.</p>")
-        (cl-loop
-         for b across books
-         and i from (1+ offset)
-         do
-         (emacspeak-librivox-display-book b i))
-        (when (= emacspeak-librivox-results-limit (length books))
-          (insert
-           (format
-            "Re-execute this command with an interactive prefix argument and
-specify offset %s to get more results."
-            (+ offset emacspeak-librivox-results-limit))))
-        (browse-url-of-buffer)))))
+      (emacspeak-librivox--render title books offset))))
 
 (defvar emacspeak-librivox-genre-list
   '(
