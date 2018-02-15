@@ -182,6 +182,7 @@
     (insert
      "<p> Press <code>e e </code> on a <em>listen</em> link to play the
 book.</p>")
+    ;;; convert to list to avoid strange binding  error  when using a vector
     (setq books (append books nil))
     (cl-loop
      for b in  books
