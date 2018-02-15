@@ -106,7 +106,7 @@
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
 (condition-case nil
        (load-library f)
-  (error nil))))))
+  (error "check %s" f))))))
 
 (defconst self-document-patterns
   (concat "^"
