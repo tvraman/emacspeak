@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.4, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.4.90, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.2.0" />
@@ -88,6 +88,10 @@
     <li>Respond to screen getting locked/unlocked by
     gnome-screen-saver</li>
     <li>Respond to laptop going to sleep or waking up.</li>
+    <li>An interactive command
+    <code>emacspeak-dbus-lock-screen</code> bound to <kbd>C-,
+    C-d</kbd> to lock the screen using DBus. Note: this key-binding
+    is available only if this module is loaded.</li>
   </ul>
   <p>See relevant hooks for customizing behavior. Note that each of
   the sleep/wake-up and network/up-down can be separately
@@ -95,9 +99,25 @@
   named hook functions.</p><a name="emacspeak_002ddbus-Commands"
   id="emacspeak_002ddbus-Commands"></a>
   <h4 class="subsection">12.43.2 emacspeak-dbus
-  Commands</h4><a name="emacspeak_002ddbus_002dsleep_002ddisable"
-  id="emacspeak_002ddbus_002dsleep_002ddisable"></a>
+  Commands</h4><a name="emacspeak_002ddbus_002dlock_002dscreen" id=
+  "emacspeak_002ddbus_002dlock_002dscreen"></a>
   <h4 class="subsubsection">12.43.2.1
+  emacspeak-dbus-lock-screen</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002ddbus_002dlock_002dscreen" id=
+    "index-emacspeak_002ddbus_002dlock_002dscreen"></a>Command:
+    <strong>emacspeak-dbus-lock-screen</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002ddbus_002dlock_002dscreen-1" id=
+      "index-emacspeak_002ddbus_002dlock_002dscreen-1"></a>
+      <div class="format">
+        <pre class="format">Lock screen using DBus.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002ddbus_002dsleep_002ddisable" id=
+  "emacspeak_002ddbus_002dsleep_002ddisable"></a>
+  <h4 class="subsubsection">12.43.2.2
   emacspeak-dbus-sleep-disable</h4>
   <dl>
     <dt><a name="index-emacspeak_002ddbus_002dsleep_002ddisable"
@@ -115,7 +135,7 @@ already disabled.
     </dd>
   </dl><a name="emacspeak_002ddbus_002dsleep_002denable" id=
   "emacspeak_002ddbus_002dsleep_002denable"></a>
-  <h4 class="subsubsection">12.43.2.2
+  <h4 class="subsubsection">12.43.2.3
   emacspeak-dbus-sleep-enable</h4>
   <dl>
     <dt><a name="index-emacspeak_002ddbus_002dsleep_002denable" id=
@@ -132,7 +152,7 @@ already disabled.
     </dd>
   </dl><a name="emacspeak_002dscreen_002dsaver_002dmode" id=
   "emacspeak_002dscreen_002dsaver_002dmode"></a>
-  <h4 class="subsubsection">12.43.2.3
+  <h4 class="subsubsection">12.43.2.4
   emacspeak-screen-saver-mode</h4>
   <dl>
     <dt><a name="index-emacspeak_002dscreen_002dsaver_002dmode" id=
