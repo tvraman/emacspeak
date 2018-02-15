@@ -251,6 +251,7 @@ already disabled."
   (interactive)
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-prompt "locking-up")
+  (when (featurep 'xbacklight) (xbacklight-black))
   (dbus-call-method 
 :session 
 "org.gnome.ScreenSaver"
