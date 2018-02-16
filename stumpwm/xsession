@@ -7,7 +7,7 @@ setxkbmap -option ctrl:nocaps
 xmodmap $HOME/.xmodmap 
 #xcape  # -t 125 #-e 'Control_L=Escape'
 pidof ibus && ibus exit
-xset b 100
+xset b 100 800
 xset dpms
 xset dpms 1 2 5
 xrdb -merge $HOME/.Xresources &
@@ -16,6 +16,6 @@ xterm  -title Retriever &
 export LISP=sbcl
 ${HOME}/bin/export_x_info &
 espeak "Launching Window Manager" &
-dbus-launch --exit-with-session /usr/local/bin/stumpwm
+dbus-launch --exit-with-session /usr/bin/stumpwm
 #dbus-launch --exit-with-session emacs 
  #exec gnome-session
