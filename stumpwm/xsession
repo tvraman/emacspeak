@@ -8,7 +8,6 @@ xmodmap $HOME/.xmodmap
 #xcape  # -t 125 #-e 'Control_L=Escape'
 pidof ibus && ibus exit
 xset b 100
-xset c 100
 xset dpms
 xset dpms 1 2 5
 xrdb -merge $HOME/.Xresources &
