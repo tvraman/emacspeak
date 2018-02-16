@@ -251,6 +251,7 @@ already disabled."
 (defun emacspeak-dbus-lock-screen ()
   "Lock screen using DBus."
   (interactive)
+  (emacspeak-dbus-screensaver-check)
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-prompt "locking-up")
   (when (featurep 'xbacklight) (xbacklight-black))
