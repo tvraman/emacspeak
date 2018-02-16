@@ -4,9 +4,8 @@
     'yasnippet
   `(progn 
      (yas-reload-all)
-     (setq yas-verbosity 0)))
- (add-hook
-    'prog-mode-hook
-  #'(lambda nil
-      (yas-minor-mode 1)))
+     (setq yas-verbosity 0)
+     (run-with-idle-timer
+      5 nil
+      #'yas-global-mode 1)))
 
