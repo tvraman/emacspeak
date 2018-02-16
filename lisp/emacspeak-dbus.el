@@ -90,7 +90,7 @@
   "A light-weight mode for the `*Emacspeak Screen Saver *' buffer.
 This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape."
-  (setq header-line-format "Screen Saver")
+  (setq header-line-format "")
   t)
 
 (defvar emacspeak-screen-saver-saved-configuration  nil
