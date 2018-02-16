@@ -100,7 +100,7 @@
 
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
-      (setq *message-hook* (list 'speak-messages))
+      ;(setq *message-hook* (list 'speak-messages))
 
 ;;; }
 ;;; {Lock screen C-t D
