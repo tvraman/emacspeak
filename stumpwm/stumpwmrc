@@ -93,7 +93,8 @@
   "Speak messages, a list of lines."
   (declare (special *tts-speak-messages*))
   (when *tts-speak-messages*
-    (tts-speak-list messages)))
+    (tts-speak-list (mapcar #'stumpwm::uncolorify messages))))
+
 ;;; }
 ;;; {Attach Handlers:
 
