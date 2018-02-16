@@ -105,7 +105,7 @@
 ;;; {Lock screen C-t D
 
 (defparameter *my-lock-command*
-  "exec ~/bin/xlock")
+  "exec emlock")
 
 (defcommand lock-screen ()
   ()
