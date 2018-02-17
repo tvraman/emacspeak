@@ -1,2 +1,4 @@
 #!/bin/sh
+export ALSA_DEFAULT=default
 ogg123 -q /usr/share/sounds/ubuntu/stereo/system-ready.ogg  &
+espeak "Light DM Login" &

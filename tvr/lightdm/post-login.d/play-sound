@@ -1,2 +1,4 @@
 #!/bin/sh
-ogg123 -q /usr/share/sounds/ubuntu/stereo/desktop-login.ogg  &
+export ALSA_DEFAULT=default
+ogg123 -q /usr/share/sounds/ubuntu/stereo/service-login.ogg  &
+espeak "Light DM: Login Successful" &
