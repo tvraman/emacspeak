@@ -73,8 +73,10 @@
 
 
 
-(defvar *tts-speak-messages* t
-  "Switch messages on and off.")
+(defvar *tts-speak-messages* nil
+  "Switch messages on and off.
+Off by default to avoid a stumpwm crash on startup.
+Use C-\ t to turn it on.")
 
 (defcommand  tts-toggle-speak-messages ()
   ()
@@ -100,7 +102,7 @@
 
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
-      ;(setq *message-hook* (list 'speak-messages))
+                        (setq *message-hook* (list 'speak-messages))
 
 ;;; }
 ;;; {Lock screen C-t D
