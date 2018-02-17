@@ -49,12 +49,13 @@
 ;;; @item Respond to network coming up or going down.
 ;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver
 ;;; @item Respond to laptop  going to sleep or waking up.
+;;; @item Respond to insertion/ejection of removable storage.
 ;;; @item An interactive command  @command{emacspeak-dbus-lock-screen} 
 ;;; bound to @kbd{C-, C-d} to lock the screen using DBus.
 ;;; Note: this key-binding is available only if this module is loaded.
 ;;; @end itemize
 ;;; See relevant hooks for customizing behavior.
-;;; Note that each of the  sleep/wake-up and network/up-down
+;;; Note that each of the  sleep/wake-up UDisks2  storage and network/up-down
 ;;; can be separately enabled/disabled, and the actions customized
 ;;; via appropriately named hook functions.
 ;;;
