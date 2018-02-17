@@ -139,6 +139,7 @@
     (when (dbus-list-known-names :session)
       (nm-enable)
       (emacspeak-dbus-sleep-enable)
+      (emacspeak-dbus-udisks-enable)
       (emacspeak-dbus-watch-screen-lock))
     (emacspeak-wizards-project-shells-initialize)
     (start-process

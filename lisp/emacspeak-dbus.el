@@ -249,38 +249,46 @@ already disabled."
 ;;}}}
 ;;{{{ UDisks2:
 
-(defvar emacspeak-dbus-udisks2-registration nil
+(defvar emacspeak-dbus-udisks-registration nil
   "List holding storage (UDisks2) registration.")
 
-(defun emacspeak-dbus-udisks2-register()
+(defun emacspeak-dbus-udisks-register()
   "Register signal handlers for UDisks2  InterfacesAdded signal."
   (message "Registering UDisks2 signal handler.")
+  (list
    (dbus-register-signal
     :system 
-    "org.freedesktop.UDisks2"
-    "/org/freedesktop/UDisks2"
+    "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
     "org.freedesktop.DBus.ObjectManager" "InterfacesAdded"
-    #'(lambda(&rest args)
-        (message "Added storage")
-        (message "Removed Storage"))))
+    #'(lambda(path _props)
+        (emacspeak-play-auditory-icon 'open-object)
+        (message "Added storage %s" path)))
+   (dbus-register-signal
+    :system 
+    "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
+    "org.freedesktop.DBus.ObjectManager" "InterfacesRemoved"
+    #'(lambda(path _props )
+        (message "Removed storage %s" path)
+        (emacspeak-play-auditory-icon 'close-object)))))
 
-(defun emacspeak-dbus-udisks2-enable()
+(defun emacspeak-dbus-udisks-enable()
   "Enable integration with UDisks2. Does nothing if already enabled."
   (interactive)
-  (cl-declare (special emacspeak-dbus-udisks2-registration))
-  (unless emacspeak-dbus-udisks2-registration
-    (setq emacspeak-dbus-udisks2-registration (emacspeak-dbus-udisks2-register)))
+  (cl-declare (special emacspeak-dbus-udisks-registration))
+  (unless emacspeak-dbus-udisks-registration
+    (setq emacspeak-dbus-udisks-registration (emacspeak-dbus-udisks-register)))
     (message "Enabled integration with UDisks2."))
 
 ;;; Disable integration
-(defun emacspeak-dbus-udisks2-disable()
+(defun emacspeak-dbus-udisks-disable()
   "Disable integration with UDisks2 daemon. Does nothing if
 already disabled."
   (interactive)
-  (cl-declare (special emacspeak-dbus-udisks2-registration))
-  
-  (when emacspeak-dbus-udisks2-registration
-    (dbus-unregister-object  emacspeak-dbus-sleep-registration))
+  (cl-declare (special emacspeak-dbus-udisks-registration))
+  (while emacspeak-dbus-udisks-registration
+    (dbus-unregister-object (car emacspeak-dbus-udisks-registration))
+    (setq emacspeak-dbus-udisks-registration
+          (cdr emacspeak-dbus-udisks-registration)))
   (message "Disabled integration with UDisks2."))
 
 ;;}}}
