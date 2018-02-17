@@ -557,12 +557,14 @@ This module provides integration via DBus for the following:
    • Respond to network coming up or going down.
    • Respond to screen getting locked/unlocked by gnome-screen-saver
    • Respond to laptop going to sleep or waking up.
+   • Respond to insertion/ejection of removable storage.
    • An interactive command ‘emacspeak-dbus-lock-screen’ bound to ‘C-,
      C-d’ to lock the screen using DBus.  Note: this key-binding is
      available only if this module is loaded.
    See relevant hooks for customizing behavior.  Note that each of the
-sleep/wake-up and network/up-down can be separately enabled/disabled,
-and the actions customized via appropriately named hook functions.
+sleep/wake-up UDisks2 storage and network/up-down can be separately
+enabled/disabled, and the actions customized via appropriately named
+hook functions.
 
 12.43.2 emacspeak-dbus Commands
 -------------------------------
@@ -589,7 +591,22 @@ and the actions customized via appropriately named hook functions.
 
      Enable integration with Login1. Does nothing if already enabled.
 
-12.43.2.4 emacspeak-screen-saver-mode
+12.43.2.4 emacspeak-dbus-udisks-disable
+.......................................
+
+ -- Command: emacspeak-dbus-udisks-disable
+
+     Disable integration with UDisks2 daemon. Does nothing if
+     already disabled.
+
+12.43.2.5 emacspeak-dbus-udisks-enable
+......................................
+
+ -- Command: emacspeak-dbus-udisks-enable
+
+     Enable integration with UDisks2. Does nothing if already enabled.
+
+12.43.2.6 emacspeak-screen-saver-mode
 .....................................
 
  -- Command: emacspeak-screen-saver-mode
@@ -8606,4 +8623,84 @@ This speech-enables python-mode available on sourceforge and ELPA
      Personality used for py-variable-name-face This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
+
+12.145 emacspeak-pydoc
+======================
+
+PYDOC == Python Documentation Viewer
+
+12.145.1 emacspeak-pydoc Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-pydoc-button-personality
+     Personality used for pydoc-button-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-name-personality
+     Personality used for pydoc-callable-name-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-pydoc-callable-param-personality
+     Personality used for pydoc-callable-param-face This personality
+     uses emacspeak-voice-lock-variable-name-personality whose effect
+     can be changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-class-name-link-personality
+     Personality used for pydoc-class-name-link-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-pydoc-data-personality
+     Personality used for pydoc-data-face This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-pydoc-envvars-personality
+     Personality used for pydoc-envvars-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-package-link-personality
+     Personality used for pydoc-package-link-face This personality uses
+     emacspeak-voice-lock-variable-name-personality whose effect can be
+     changed globally by customizing
+     emacspeak-voice-lock-variable-name-personality-settings.
+
+ -- Variable: User Option emacspeak-pydoc-source-file-link-personality
+     Personality used for pydoc-source-file-link-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-directive-personality
+     Personality used for pydoc-sphinx-directive-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-name-personality
+     Personality used for pydoc-sphinx-param-name-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-sphinx-param-type-personality
+     Personality used for pydoc-sphinx-param-type-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-pydoc-string-personality
+     Personality used for pydoc-string-face This personality uses
+     emacspeak-voice-lock-string-personality whose effect can be changed
+     globally by customizing
+     emacspeak-voice-lock-string-personality-settings.
+
+ -- Variable: User Option
+          emacspeak-pydoc-superclass-name-link-personality
+     Personality used for pydoc-superclass-name-link-face This
+     personality uses voice-bolden-extra whose effect can be changed
+     globally by customizing voice-bolden-extra-settings.
 
