@@ -247,6 +247,43 @@ already disabled."
 (add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
 ;;}}}
+;;{{{ UDisks2:
+
+(defvar emacspeak-dbus-udisks2-registration nil
+  "List holding storage (UDisks2) registration.")
+
+(defun emacspeak-dbus-udisks2-register()
+  "Register signal handlers for UDisks2  InterfacesAdded signal."
+  (message "Registering UDisks2 signal handler.")
+   (dbus-register-signal
+    :system 
+    "org.freedesktop.UDisks2"
+    "/org/freedesktop/UDisks2"
+    "org.freedesktop.DBus.ObjectManager" "InterfacesAdded"
+    #'(lambda(&rest args)
+        (message "Added storage")
+        (message "Removed Storage"))))
+
+(defun emacspeak-dbus-udisks2-enable()
+  "Enable integration with UDisks2. Does nothing if already enabled."
+  (interactive)
+  (cl-declare (special emacspeak-dbus-udisks2-registration))
+  (unless emacspeak-dbus-udisks2-registration
+    (setq emacspeak-dbus-udisks2-registration (emacspeak-dbus-udisks2-register)))
+    (message "Enabled integration with UDisks2."))
+
+;;; Disable integration
+(defun emacspeak-dbus-udisks2-disable()
+  "Disable integration with UDisks2 daemon. Does nothing if
+already disabled."
+  (interactive)
+  (cl-declare (special emacspeak-dbus-udisks2-registration))
+  
+  (when emacspeak-dbus-udisks2-registration
+    (dbus-unregister-object  emacspeak-dbus-sleep-registration))
+  (message "Disabled integration with UDisks2."))
+
+;;}}}
 ;;{{{ Interactive Command: Lock Screen
 (defun emacspeak-dbus-lock-screen ()
   "Lock screen using DBus."
