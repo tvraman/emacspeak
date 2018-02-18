@@ -320,15 +320,15 @@ already disabled."
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceAdded"
     #'(lambda(device)
-        (emacspeak-play-auditory-icon 'open-object)
+        (emacspeak-play-auditory-icon 'on)
         (message "Added device %s" device)))
    (dbus-register-signal
     :system 
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceRemoved"
     #'(lambda(device )
-        (message "Removed storage %s" device)
-        (emacspeak-play-auditory-icon 'close-object)))))
+        (message "Removed device  %s" device)
+        (emacspeak-play-auditory-icon 'off)))))
 
 (defun emacspeak-dbus-upower-enable()
   "Enable integration with UPower. Does nothing if already enabled."
