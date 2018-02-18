@@ -278,10 +278,13 @@
 (declare-function nm-enable "nm" nil)
 (declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-dbus-watch-screen-lock "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-udisks-enable "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-upower-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
 (declare-function auto-correct-mode "auto-correct" [Arg list not available until function definition is loaded.])
 (declare-function company-mode "company" (&optional arg))
 (declare-function smartparens-mode "smartparens" (&optional arg))
+  
 
 ;;}}}
 (provide 'emacs-startup)
