@@ -59,9 +59,9 @@
 ;;; Note: this key-binding is available only if this module is loaded.
 ;;; @end itemize
 ;;; Add calls to the desired functions from the above list 
-once this module has been loaded.
+;;; to the emacs startup file after  this module has been loaded.
 ;;; See relevant hooks for customizing behavior.
-;;; Note that each of the  sleep/wake-up UDisks2  storage and network/up-down
+;;; Note that each of the  sleep/wake-up, UDisks2   and network/up-down
 ;;; can be separately enabled/disabled, and the actions customized
 ;;; via appropriately named hook functions.
 ;;;

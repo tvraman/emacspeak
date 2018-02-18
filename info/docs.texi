@@ -6053,6 +6053,11 @@ bound to @kbd{C-, C-d} to lock the screen using DBus.
 Note: this key-binding is available only if this module is loaded.
 @end itemize
 Add calls to the desired functions from the above list 
+to the emacs startup file after  this module has been loaded.
+See relevant hooks for customizing behavior.
+Note that each of the  sleep/wake-up, UDisks2   and network/up-down
+can be separately enabled/disabled, and the actions customized
+via appropriately named hook functions.
 
 @subsection emacspeak-dbus Commands
 

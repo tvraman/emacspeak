@@ -566,7 +566,11 @@ This module provides integration via DBus for the following:
    • An interactive command ‘emacspeak-dbus-lock-screen’ bound to ‘C-,
      C-d’ to lock the screen using DBus.  Note: this key-binding is
      available only if this module is loaded.
-   Add calls to the desired functions from the above list
+   Add calls to the desired functions from the above list to the emacs
+startup file after this module has been loaded.  See relevant hooks for
+customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
+network/up-down can be separately enabled/disabled, and the actions
+customized via appropriately named hook functions.
 
 12.43.2 emacspeak-dbus Commands
 -------------------------------
