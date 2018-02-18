@@ -548,23 +548,25 @@ File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-desktop,  Prev: em
 12.43 emacspeak-dbus
 ====================
 
-Set up Emacspeak to respond to DBus notifications
+Loading this module sets up Emacspeak to respond to DBus notifications.
+This module needs to be loaded explicitly from the user’s init file
+after emacspeak has been started.
 
 12.43.1 Overview
 ----------------
 
 This module provides integration via DBus for the following:
-   • Respond to network coming up or going down.
-   • Respond to screen getting locked/unlocked by gnome-screen-saver
-   • Respond to laptop going to sleep or waking up.
-   • Respond to insertion/ejection of removable storage.
+   • Respond to network coming up or going down — ‘(nm-enable)’.
+   • Respond to screen getting locked/unlocked by gnome-screen-saver —
+     ‘(emacspeak-dbus-watch-screen-lock)’.
+   • Respond to laptop going to sleep or waking up —
+     ‘(emacspeak-dbus-sleep-enable)’.
+   • Respond to insertion/ejection of removable storage —
+     ‘(emacspeak-dbus-udisks-enable)’.
    • An interactive command ‘emacspeak-dbus-lock-screen’ bound to ‘C-,
      C-d’ to lock the screen using DBus.  Note: this key-binding is
      available only if this module is loaded.
-   See relevant hooks for customizing behavior.  Note that each of the
-sleep/wake-up UDisks2 storage and network/up-down can be separately
-enabled/disabled, and the actions customized via appropriately named
-hook functions.
+   Add calls to the desired functions from the above list
 
 12.43.2 emacspeak-dbus Commands
 -------------------------------

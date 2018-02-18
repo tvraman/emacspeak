@@ -50,10 +50,10 @@
 ;;;
 ;;; This module provides integration via DBus  for the following:
 ;;; @itemize @bullet
-;;; @item Respond to network coming up or going down --- @function{nm-enable}.
-;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver --- @function{emacspeak-dbus-watch-screen-lock}.
-;;; @item Respond to laptop  going to sleep or waking up ---  @function{emacspeak-dbus-sleep-enable}.
-;;; @item Respond to insertion/ejection of removable storage --- @function{emacspeak-dbus-udisks-enable}.
+;;; @item Respond to network coming up or going down --- @code{(nm-enable)}.
+;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver --- @code{(emacspeak-dbus-watch-screen-lock)}.
+;;; @item Respond to laptop  going to sleep or waking up ---  @code{(emacspeak-dbus-sleep-enable)}.
+;;; @item Respond to insertion/ejection of removable storage --- @code{(emacspeak-dbus-udisks-enable)}.
 ;;; @item An interactive command  @command{emacspeak-dbus-lock-screen} 
 ;;; bound to @kbd{C-, C-d} to lock the screen using DBus.
 ;;; Note: this key-binding is available only if this module is loaded.
@@ -65,6 +65,7 @@ once this module has been loaded.
 ;;; can be separately enabled/disabled, and the actions customized
 ;;; via appropriately named hook functions.
 ;;;
+
 ;;}}}
 ;;{{{  Required modules
 
