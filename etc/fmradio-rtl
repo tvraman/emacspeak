@@ -1,4 +1,4 @@
 #!/bin/sh
 
-rtl_fm -M wbfm -f $1 | play -t raw -r 32k -es -b 16 -c 0 -V1 -
+rtl_fm -M wbfm -f $1 | play -t raw -r 32k -es -b 16 -c 1 -V1 -
          
