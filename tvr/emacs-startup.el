@@ -140,6 +140,7 @@
       (nm-enable)
       (emacspeak-dbus-sleep-enable)
       (emacspeak-dbus-udisks-enable)
+      (emacspeak-dbus-upower-enable)
       (emacspeak-dbus-watch-screen-lock))
     (emacspeak-wizards-project-shells-initialize)
     (start-process

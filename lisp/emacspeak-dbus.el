@@ -50,10 +50,16 @@
 ;;;
 ;;; This module provides integration via DBus  for the following:
 ;;; @itemize @bullet
-;;; @item Respond to network coming up or going down --- @code{(nm-enable)}.
-;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver --- @code{(emacspeak-dbus-watch-screen-lock)}.
-;;; @item Respond to laptop  going to sleep or waking up ---  @code{(emacspeak-dbus-sleep-enable)}.
-;;; @item Respond to insertion/ejection of removable storage --- @code{(emacspeak-dbus-udisks-enable)}.
+;;; @item Respond to network coming up or going down 
+;;; --- @code{(nm-enable)}.
+;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver 
+;;; --- @code{(emacspeak-dbus-watch-screen-lock)}.
+;;; @item Respond to laptop  going to sleep or waking up 
+;;; ---  @code{(emacspeak-dbus-sleep-enable)}.
+;;; @item Respond to insertion/ejection of removable storage 
+;;; --- @code{(emacspeak-dbus-udisks-enable)}.
+;;; @item Watch for power devices 
+;;; --- @code{(emacspeak-dbus-upower-enable)}.
 ;;; @item An interactive command  @command{emacspeak-dbus-lock-screen} 
 ;;; bound to @kbd{C-, C-d} to lock the screen using DBus.
 ;;; Note: this key-binding is available only if this module is loaded.
@@ -298,6 +304,51 @@ already disabled."
     (setq emacspeak-dbus-udisks-registration
           (cdr emacspeak-dbus-udisks-registration)))
   (message "Disabled integration with UDisks2."))
+
+;;}}}
+;;{{{ UPower:
+
+(defvar emacspeak-dbus-upower-registration nil
+  "List holding storage (UPower) registration.")
+
+(defun emacspeak-dbus-upower-register()
+  "Register signal handlers for UPower  InterfacesAdded signal."
+  (message "Registering UPower signal handler.")
+  (list
+   (dbus-register-signal
+    :system 
+    "org.freedesktop.UPower" "/org/freedesktop/UPower"
+    "org.freedesktop.UPower" "DeviceAdded"
+    #'(lambda(device)
+        (emacspeak-play-auditory-icon 'open-object)
+        (message "Added device %s" device)))
+   (dbus-register-signal
+    :system 
+    "org.freedesktop.UPower" "/org/freedesktop/UPower"
+    "org.freedesktop.UPower" "DeviceRemoved"
+    #'(lambda(device )
+        (message "Removed storage %s" device)
+        (emacspeak-play-auditory-icon 'close-object)))))
+
+(defun emacspeak-dbus-upower-enable()
+  "Enable integration with UPower. Does nothing if already enabled."
+  (interactive)
+  (cl-declare (special emacspeak-dbus-upower-registration))
+  (unless emacspeak-dbus-upower-registration
+    (setq emacspeak-dbus-upower-registration (emacspeak-dbus-upower-register)))
+    (message "Enabled integration with UPower."))
+
+;;; Disable integration
+(defun emacspeak-dbus-upower-disable()
+  "Disable integration with UPower daemon. Does nothing if
+already disabled."
+  (interactive)
+  (cl-declare (special emacspeak-dbus-upower-registration))
+  (while emacspeak-dbus-upower-registration
+    (dbus-unregister-object (car emacspeak-dbus-upower-registration))
+    (setq emacspeak-dbus-upower-registration
+          (cdr emacspeak-dbus-upower-registration)))
+  (message "Disabled integration with UPower."))
 
 ;;}}}
 ;;{{{ Interactive Command: Lock Screen

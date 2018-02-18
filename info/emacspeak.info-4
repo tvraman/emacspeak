@@ -12,6 +12,37 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
+
+15.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
+==========================================================================
+
+The ability to invoke external processes and interface with them via a
+simple read-eval-loop (REPL) is perhaps one of Emacs’ strongest
+extension points.  This means that a wide variety of computational tools
+become immediately available for embedding within the Emacs environment
+— a facility that has been widely exploited by the Emacs community.
+Over the years, Emacspeak has leveraged many of these facilities to
+provide a well-integrated auditory interface.
+
+   Starting from a tight code, eval, test form of iterative programming
+as encouraged by Lisp.  Applied to languages like Python and Ruby to
+exploratory computational tools such as R for data analysis and SQL for
+database interaction, the Emacspeak Audio Desktop has come to encompass
+a collection of rich computational tools that provide an efficient
+eyes-free experience.
+
+   In this context, module *ein* — Emacs IPython Notebooks — provides
+another excellent example of an Emacs tool that helps interface
+seamlessly with others in the technical domain.  IPython Notebooks
+provide an easy means of reaching a large audience when publishing
+technical material with interactive computational content; module *ein*
+brings the power and convenience of Emacs ’ editting facilities when
+developing the content.  Speech-enabling package *ein* is a major win
+since editting program source code in an eyes-free environment is far
+smoother in Emacs than in a browser-based editor.
+
+
 File: emacspeak.info,  Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web --- Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Up: Emacspeak At Twenty
 
 15.13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols

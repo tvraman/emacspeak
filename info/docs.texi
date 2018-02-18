@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1193 commands and 1170 options.
+This chapter documents a total of 1195 commands and 1170 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6044,10 +6044,16 @@ after emacspeak has been started.
 
 This module provides integration via DBus  for the following:
 @itemize @bullet
-@item Respond to network coming up or going down --- @code{(nm-enable)}.
-@item Respond to screen getting locked/unlocked by gnome-screen-saver --- @code{(emacspeak-dbus-watch-screen-lock)}.
-@item Respond to laptop  going to sleep or waking up ---  @code{(emacspeak-dbus-sleep-enable)}.
-@item Respond to insertion/ejection of removable storage --- @code{(emacspeak-dbus-udisks-enable)}.
+@item Respond to network coming up or going down 
+--- @code{(nm-enable)}.
+@item Respond to screen getting locked/unlocked by gnome-screen-saver 
+--- @code{(emacspeak-dbus-watch-screen-lock)}.
+@item Respond to laptop  going to sleep or waking up 
+---  @code{(emacspeak-dbus-sleep-enable)}.
+@item Respond to insertion/ejection of removable storage 
+--- @code{(emacspeak-dbus-udisks-enable)}.
+@item Watch for power devices 
+--- @code{(emacspeak-dbus-upower-enable)}.
 @item An interactive command  @command{emacspeak-dbus-lock-screen} 
 bound to @kbd{C-, C-d} to lock the screen using DBus.
 Note: this key-binding is available only if this module is loaded.
@@ -6105,6 +6111,25 @@ already disabled.
 
 @format
 Enable integration with UDisks2. Does nothing if already enabled.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dbus-upower-disable
+@deffn {Command} emacspeak-dbus-upower-disable   
+@findex emacspeak-dbus-upower-disable
+
+@format
+Disable integration with UPower daemon. Does nothing if
+already disabled.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dbus-upower-enable
+@deffn {Command} emacspeak-dbus-upower-enable   
+@findex emacspeak-dbus-upower-enable
+
+@format
+Enable integration with UPower. Does nothing if already enabled.
 @end format
 @end deffn
 
