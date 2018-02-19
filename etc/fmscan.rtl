@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#rtl_fm -M wbfm -f $1 | play -t raw -r 32k -es -b 16 -c 1 -V1 -
+rtl_fm -g 50 -l 2 -f $1 -M wfm -s 180k -E deemp\
+ | play -r 180k -t raw -e s -b 16 -c 1 -V1 - lowpass 16k         
