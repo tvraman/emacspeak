@@ -25,7 +25,7 @@
     "vdiff-prepare"  "sp-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
     "use-emms"
- "calc-prepare" "helm-prepare"                      ;helm not activated
+    "calc-prepare" "helm-prepare"                      ;helm not activated
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare")
@@ -124,7 +124,7 @@
   (let ((after-start (current-time))
         (gc-cons-threshold 64000000)
         (file-name-handler-alist nil)
-(load-source-file-function  nil)
+        (load-source-file-function  nil)
         (inhibit-message t)
         (emacspeak-speak-messages nil))
     (dynamic-completion-mode 1)
@@ -163,7 +163,7 @@
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (company-mode 1)
-(hs-minor-mode 1)
+  (hs-minor-mode 1)
   (smartparens-mode 1)
   (abbrev-mode 1))
 
@@ -171,13 +171,21 @@
 (defun tvr-emacs()
   "Start up emacs."
   (cl-declare (special  emacspeak-directory
-                       outloud-default-speech-rate dectalk-default-speech-rate
-                       outline-mode-prefix-map))
+                        outloud-default-speech-rate dectalk-default-speech-rate
+                        outline-mode-prefix-map))
   (let ((gc-cons-threshold 64000000)
         (file-name-handler-alist nil)   ; to speed up, avoid tramp etc
-(load-source-file-function  nil)
+        (load-source-file-function  nil)
         (emacspeak-speak-messages nil)
         (inhibit-message t))
+    ;;{{{ Load  emacspeak
+    (setq outloud-default-speech-rate 125 ; because we load custom at the end
+          dectalk-default-speech-rate 485)
+    (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
+      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
+
+    ;;}}}
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
@@ -189,7 +197,7 @@
     (tool-bar-mode -1)
     (scroll-bar-mode -1)
     (fringe-mode 0)
-(put 'list-timers 'disabled nil)
+    (put 'list-timers 'disabled nil)
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
@@ -225,14 +233,6 @@
 
 ;;; Shell mode bindings:
     (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
-
-    ;;}}}
-    ;;{{{ Load  emacspeak
-    (setq outloud-default-speech-rate 125 ; because we load custom at the end
-          dectalk-default-speech-rate 485)
-    (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
-      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
     ;;}}}
     ;;{{{ outline mode setup:
@@ -274,10 +274,10 @@
 (declare-function emacspeak-dbus-udisks-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-dbus-upower-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
-(declare-function auto-correct-mode "auto-correct" [Arg list not available until function definition is loaded.])
+(declare-function auto-correct-mode "auto-correct" (&optional arg))
 (declare-function company-mode "company" (&optional arg))
 (declare-function smartparens-mode "smartparens" (&optional arg))
-  
+
 
 ;;}}}
 (provide 'emacs-startup)
