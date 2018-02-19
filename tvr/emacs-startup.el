@@ -86,7 +86,6 @@
   (cl-loop 
    for b in
    '(
-     ;("C-c TAB" emacspeak-wizards-bash-completion-toggle)
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
@@ -198,12 +197,6 @@
     (put 'timer-list 'disabled nil)
 
     ;;}}}
-    (make-thread
-     #'(lambda ()
-         (let ((file-name-handler-alist nil)
-               (load-source-file-function nil))
-           (package-initialize))))
-     
     ;;{{{  set up terminal codes and global keys
 
     (prefer-coding-system 'utf-8-emacs)
