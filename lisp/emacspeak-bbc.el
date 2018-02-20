@@ -318,6 +318,7 @@ Interactive prefix arg filters  content by genre."
 (defun emacspeak-bbc-iplayer-create (json &optional genres)
   "Create iplayer buffer given JSON object."
   (cl-declare (special emacspeak-bbc-json))
+  (setq emacspeak-bbc-json json)
   (let* ((inhibit-read-only t)
          (title (or
                  (g-json-lookup "schedule.service.title" json)
@@ -338,8 +339,7 @@ Interactive prefix arg filters  content by genre."
        (emacspeak-bbc-insert-show show)
        (insert "\n\n"))
       (goto-char (point-min))
-      (emacspeak-webspace-mode)
-      (setq emacspeak-bbc-json json))
+      (emacspeak-webspace-mode))
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
