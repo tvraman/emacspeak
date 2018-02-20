@@ -306,6 +306,7 @@ Interactive prefix arg filters  content by genre."
 
 (defun emacspeak-bbc-iplayer (url &optional genres)
   "Generate BBC IPlayer interface  from JSON."
+  (cl-declare (special g-curl-program g-curl-common-options))
   (message url)
   (emacspeak-bbc-iplayer-create
    (g-json-get-result
