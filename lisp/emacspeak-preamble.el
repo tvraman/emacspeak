@@ -46,6 +46,7 @@
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
+(require 'emacspeak-sounds)
 (require 'emacspeak-keymap)
 (eval-when-compile
   (condition-case nil
