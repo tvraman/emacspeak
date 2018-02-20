@@ -6,6 +6,7 @@
 (push default-directory load-path)
 (push (expand-file-name "g-client" default-directory) load-path)
 (require 'emacspeak-load-path)
+(require 'emacspeak-preamble)
 (load-library "g-loaddefs")
 (require 'elint)
 (defun batch-elint-files ()
