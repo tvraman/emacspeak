@@ -315,13 +315,13 @@ Interactive prefix arg filters  content by genre."
             url))
    genres))
 
-(defun emacspeak-bbc-iplayer-create (json &optional genres)
-  "Create iplayer buffer given JSON object."
+(defun emacspeak-bbc-iplayer-create (json-data &optional genres)
+  "Create iplayer buffer given JSON-DATA object."
   (cl-declare (special emacspeak-bbc-json))
-  (setq emacspeak-bbc-json json)
+  (setq emacspeak-bbc-json json-data)
   (let* ((inhibit-read-only t)
          (title (or
-                 (g-json-lookup "schedule.service.title" json)
+                 (g-json-lookup "schedule.service.title" json-data)
                  "BBC IPlayer"))
          (buffer (get-buffer-create title)))
     (with-current-buffer buffer
@@ -331,8 +331,8 @@ Interactive prefix arg filters  content by genre."
       (cl-loop
        for show across
        (if genres
-           (g-json-get 'broadcasts json)
-         (g-json-lookup  "schedule.day.broadcasts" json))
+           (g-json-get 'broadcasts json-data)
+         (g-json-lookup  "schedule.day.broadcasts" json-data))
        and position  from 1
        do
        (insert (format "%d\t" position))
