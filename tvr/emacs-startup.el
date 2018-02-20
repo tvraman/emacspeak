@@ -257,6 +257,7 @@
   ;;}}}
   ) ;end defun
 (tvr-emacs)
+(setq gc-cons-threshold 800000)
 ;;{{{ Additional Interactive Commands:
 
 
