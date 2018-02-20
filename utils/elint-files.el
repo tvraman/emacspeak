@@ -6,17 +6,19 @@
 (push default-directory load-path)
 (push (expand-file-name "g-client" default-directory) load-path)
 (require 'emacspeak-load-path)
-(require 'emacspeak-preamble)
+(require 'emacspeak-sounds)
 (load-library "g-loaddefs")
 (require 'elint)
+(require 'emacspeak-preamble)
+(package-initialize)
 (defun batch-elint-files ()
   "Batch elint  elisp files in directory."
   (let ((file-list (directory-files default-directory nil "\\.el\\'")))
-    (loop for f in file-list
-          do
-          (unless
-              (or (string-match  "emacspeak-loaddefs.el" file)
-                  (string-match "emacspeak-autoload.el" file))
-            (elint-file f)))))
+    (cl-loop
+     for f in file-list do
+     (unless
+         (or (string-match  "emacspeak-loaddefs.el" file)
+             (string-match "emacspeak-autoload.el" file))
+       (elint-file f)))))
 
 (batch-elint-files)
