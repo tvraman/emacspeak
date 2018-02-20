@@ -99,6 +99,7 @@
   (require 'xbacklight)
   (require 'view)
   (require 'emacspeak-m-player))
+(declare-function ido-ubiquitous-mode "ext:ido-completing-read+" (&optional arg))
 
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
