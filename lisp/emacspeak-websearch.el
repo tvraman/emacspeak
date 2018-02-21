@@ -322,6 +322,8 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
      "Enter stock ticker of company to lookup: ")
     current-prefix-arg))
   (cl-declare (special emacspeak-websearch-company-news-uri))
+  ;;; invert sense of prefix --- since Yahoo APIs are gone:
+(setq prefix (not prefix))
   (let ((type-char
          (read-char
           "b basic, c Upgrades, h history, i insider, n news, o options, r Research, p profile, q Quotes, t technical")))
