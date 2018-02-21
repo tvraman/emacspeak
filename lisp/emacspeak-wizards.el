@@ -3034,8 +3034,9 @@ Optional interactive prefix arg `category' prompts for a category."
   "Takes a list corresponding to a result, and returns a vector sorted
 per headers."
   (let ((row (make-vector (length result-row) nil)))
+    (setq headers (append headers nil))
     (cl-loop
-     for h across headers
+     for h in headers
      and index from 0 do
      (aset row index (cdr (assoc h result-row))))
     row))
