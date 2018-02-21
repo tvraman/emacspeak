@@ -1,6 +1,2 @@
 (setq gc-cons-threshold 64000000)
-     
-(let ((file-name-handler-alist nil)
-               (gc-cons-threshold 64000000)
-               (load-source-file-function nil))
-           (package-initialize))
+(setq package-enable-at-startup nil)
