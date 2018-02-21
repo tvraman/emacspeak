@@ -186,6 +186,11 @@
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
     ;;}}}
+    (make-thread
+     #'(lambda ()
+         (let ((file-name-handler-alist nil)
+               (load-source-file-function nil))
+           (package-initialize))))
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
