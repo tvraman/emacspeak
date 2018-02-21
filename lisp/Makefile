@@ -306,7 +306,9 @@ config: emacspeak-loaddefs.el emacspeak-cus-load.el
 lint:
 	echo "." |\
 emacs -batch -q \
+-f package-initialize \
 -l advice.el -l emacspeak-load-path.el  -l emacspeak-loaddefs.el \
+-l ./g-utils/g-loaddefs.el \
 -f elint-directory 
 
 # }}}
