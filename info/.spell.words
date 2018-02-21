@@ -24,6 +24,7 @@ APIs
 Applicationss
 appt
 APT's
+ArchWiki
 arg
 ARG
 args
@@ -125,6 +126,7 @@ customizations
 datetime
 dbus
 DBus
+decl
 decrementing
 dectalk
 Dectalk
@@ -305,6 +307,7 @@ Imenu
 incompat
 incrementing
 infromation
+init
 inlined
 inlinetask
 inputed
@@ -392,6 +395,7 @@ NCSA
 NDash
 newsticker
 Newsticker
+nls
 NLS
 nnir
 noaa
@@ -538,7 +542,6 @@ sox
 Sox
 SoX
 soxplay
-spamassassin
 spc
 SPC
 speedbar
@@ -598,14 +601,14 @@ transcoder
 Transcoder
 Treese
 trplayer
-tts
-TTS
 tty
 TuneIn
 tvr
 txicodequotebacktick
 txicodequoteundirected
 txt
+udisks
+UDisks
 ui
 UI
 uncustomize
@@ -618,6 +621,7 @@ unraised
 untabify
 untranscode
 untrusted
+upower
 upto
 uri
 URI
@@ -666,6 +670,7 @@ windmove
 winring
 WinRing
 wip
+wishlist
 WordNet
 wunderground
 Wunderground
