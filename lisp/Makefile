@@ -309,6 +309,7 @@ emacs -batch -q \
 -f package-initialize \
 -l advice.el -l emacspeak-load-path.el  -l emacspeak-loaddefs.el \
 -l ./g-client/g-loaddefs.el \
+-l ./g-client/g-utils.el \
 -f elint-directory 
 
 # }}}
