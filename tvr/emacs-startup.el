@@ -22,10 +22,10 @@
   '(
     "kbd-setup"
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
-    "vdiff-prepare"  "sp-prepare"
+    "sp-prepare" ;"vdiff-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
-    "use-emms"
-    "calc-prepare" "helm-prepare"                      ;helm not activated
+    ;"use-emms"
+    "calc-prepare"; "helm-prepare"                      ;helm not activated
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare")
