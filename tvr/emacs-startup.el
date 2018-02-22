@@ -52,19 +52,15 @@
            what (float-time (time-subtract (current-time) start))
            gcs-done gc-elapsed))
 
-(defsubst load-library-if-available (lib)
+(defun load-library-if-available (lib)
   "Safe load lib."
-  (let ((start (current-time))
-        (file-name-handler-alist nil)
-        (load-source-file-function  nil)
-        (inhibit-message nil)
-        (gc-cons-threshold 64000000)
-        (emacspeak-speak-messages nil))
-    (condition-case err
-        (progn
-          (load-library lib)
-          (tvr-time-it start lib))
-      (error (message "Error loading %s: %s" lib (error-message-string err))))))
+  (let ((start (current-time)))
+    (tvr-fastload
+     (condition-case err
+         (progn
+           (load-library lib)
+           (tvr-time-it start lib))
+       (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
 ;;}}}
 ;;{{{ Weekday Colors:
@@ -109,55 +105,45 @@
 (defun tvr-customize ()
   "Load my customizations."
   (cl-declare (special custom-file))
-  (let ((file-name-handler-alist nil)
-        (load-source-file-function  nil)
-        (gc-cons-threshold  64000000)
-        (inhibit-message nil)
-        (emacspeak-speak-messages nil))
-    (setq-default custom-file (expand-file-name "~/.customize-emacs"))
-    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
-    (global-set-key (kbd "C-RET") 'hippie-expand)
-    (tvr-set-color-for-today)
-    (when (file-exists-p custom-file) (load custom-file))))
+  (tvr-fastload 
+   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
+   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+   (global-set-key (kbd "C-RET") 'hippie-expand)
+   (tvr-set-color-for-today)
+   (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
   (unless (featurep 'emacspeak-muggles)
     (make-thread
      #'(lambda ()
-         (let ((file-name-handler-alist nil)
-               (load-source-file-function  nil)
-               (gc-cons-threshold 64000000))
-           (load "emacspeak-muggles"))))))
+         (tvr-fastload
+          (load "emacspeak-muggles"))))))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
   (cl-declare (special emacspeak-sounds-directory tvr-libs))
-  (let ((after-start (current-time))
-        (gc-cons-threshold 64000000)
-        (file-name-handler-alist nil)
-        (load-source-file-function  nil)
-        (inhibit-message t)
-        (emacspeak-speak-messages nil))
-    (dynamic-completion-mode 1)
-    (completion-initialize)
-    (mapc #'load tvr-libs)
-    (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
-    (tvr-customize)
-    (soundscape-toggle)
-    (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-    (require 'emacspeak-dbus)
-    (when (dbus-list-known-names :session)
-      (nm-enable)
-      (emacspeak-dbus-sleep-enable)
-      (emacspeak-dbus-udisks-enable)
-      (emacspeak-dbus-upower-enable)
-      (emacspeak-dbus-watch-screen-lock))
-    (emacspeak-wizards-project-shells-initialize)
-    (start-process
-     "play" nil "play"
-     (expand-file-name "highbells.au" emacspeak-sounds-directory))
-    (tvr-time-it after-start "after-init")))
+  (tvr-fastload
+   (let ((after-start (current-time)))
+     (dynamic-completion-mode 1)
+     (completion-initialize)
+     (mapc #'load tvr-libs)
+     (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
+     (tvr-customize)
+     (soundscape-toggle)
+     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+     (require 'emacspeak-dbus)
+     (when (dbus-list-known-names :session)
+       (nm-enable)
+       (emacspeak-dbus-sleep-enable)
+       (emacspeak-dbus-udisks-enable)
+       (emacspeak-dbus-upower-enable)
+       (emacspeak-dbus-watch-screen-lock))
+     (emacspeak-wizards-project-shells-initialize)
+     (start-process
+      "play" nil "play"
+      (expand-file-name "highbells.au" emacspeak-sounds-directory))
+     (tvr-time-it after-start "after-init"))))
 
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
@@ -185,11 +171,7 @@
   (cl-declare (special  emacspeak-directory
                         outloud-default-speech-rate dectalk-default-speech-rate
                         outline-mode-prefix-map))
-  (let ((gc-cons-threshold 64000000)
-        (file-name-handler-alist nil)   ; to speed up, avoid tramp etc
-        (load-source-file-function  nil)
-        (emacspeak-speak-messages nil)
-        (inhibit-message t))
+  (tvr-fastload
     ;;{{{ Load  emacspeak
     (setq outloud-default-speech-rate 125 ; because we load custom at the end
           dectalk-default-speech-rate 485)
@@ -200,9 +182,7 @@
     ;;}}}
     (make-thread
      #'(lambda ()
-         (let ((file-name-handler-alist nil)
-               (load-source-file-function nil))
-           (package-initialize))))
+         (tvr-fastload (package-initialize))))
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
