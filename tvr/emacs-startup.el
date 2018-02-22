@@ -127,7 +127,7 @@
    (let ((after-start (current-time)))
      (dynamic-completion-mode 1)
      (completion-initialize)
-     (mapc #'load tvr-libs)
+     (mapc #'load-library-if-available tvr-libs)
      (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
      (tvr-customize)
      (soundscape-toggle)
