@@ -38,6 +38,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (setq byte-compile-warnings t)
+(setq ad-redefinition-action 'accept)
 
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
