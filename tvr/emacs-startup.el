@@ -32,6 +32,19 @@
   "Libraries to load.")
 
 ;;}}}
+;;{{{ Macro: tvr-fastload:
+
+(defmacro tvr-fastload (&rest body)
+  "Execute body with  an environment condusive to fast-loading files."
+  (let ((start (current-time))
+        (file-name-handler-alist nil)
+        (load-source-file-function  nil)
+        (inhibit-message t)
+        (gc-cons-threshold 64000000)
+        (emacspeak-speak-messages nil))
+    ,@body)
+
+;;}}}
 ;;{{{ helper functions:
 
 (defsubst tvr-time-it (start what)
@@ -45,7 +58,7 @@
   (let ((start (current-time))
         (file-name-handler-alist nil)
         (load-source-file-function  nil)
-        (inhibit-message t)
+        (inhibit-message nil)
         (gc-cons-threshold 64000000)
         (emacspeak-speak-messages nil))
     (condition-case err
@@ -100,7 +113,7 @@
   (let ((file-name-handler-alist nil)
         (load-source-file-function  nil)
         (gc-cons-threshold  64000000)
-        (inhibit-message t)
+        (inhibit-message nil)
         (emacspeak-speak-messages nil))
     (setq-default custom-file (expand-file-name "~/.customize-emacs"))
     (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
