@@ -257,12 +257,6 @@
   ;;}}}
   ) ;end defun
 (tvr-emacs)
-
-;;{{{ Additional Interactive Commands:
-
-
-
-;;}}}
 ;;{{{ Forward Function Declarations:
 
 (declare-function emacspeak-wizards-color-diff-at-point "emacspeak-wizards" (&optional set))
