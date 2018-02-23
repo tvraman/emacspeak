@@ -43,7 +43,8 @@ EMACS = emacs
 SRC=".."
 # How to run in batch mode
 BATCH = -batch -q -no-site-file     \
---eval '(setq file-name-handler-alist nil gc-cons-threshold 64000000)' 
+--eval '(setq file-name-handler-alist nil gc-cons-threshold 64000000 \
+load-source-file-function  nil)' 
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
 -l $(SRC)/lisp/emacspeak-loaddefs.el \
 -l $(SRC)/lisp/emacspeak-cus-load.el \
