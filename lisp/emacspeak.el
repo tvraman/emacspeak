@@ -64,7 +64,8 @@
 (unless noninteractive
   (mapc
    #'(lambda (f)
-       (let ((file-name-handler-alist nil))
+       (let ((file-name-handler-alist nil)
+             (load-source-file-function  nil))
          (load (expand-file-name f emacspeak-lisp-directory))))
    '("emacspeak-loaddefs.el" "emacspeak-cus-load.el"
      "g-client/g-loaddefs" "g-client/g-cus-load")))
