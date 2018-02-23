@@ -381,7 +381,8 @@ On a directory line, run du -s on the directory to speak its size."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
-(load-library "locate")
+(load "locate" t t)
+
 (cl-declaim (special locate-mode-map))
 (define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
 ;;}}}
