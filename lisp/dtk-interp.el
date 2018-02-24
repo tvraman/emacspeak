@@ -70,6 +70,7 @@
 ;;{{{ macros
 (defmacro tts-with-voice (voice &rest body)
   "Set voice temporarily and execute body."
+  (declare (indent 1) (debug t))
   `(progn
      (dtk-interp-queue-code (tts-voice-reset-code))
      (dtk-interp-queue-code
@@ -93,6 +94,7 @@
 
 (defmacro tts-with-punctuations (setting &rest body)
   "Safely set punctuation mode for duration of body form."
+  (declare (indent 1) (debug t))
   `(let    ((save-punctuation-mode dtk-punctuation-mode))
      (unwind-protect
          (unless (eq ,setting save-punctuation-mode)

@@ -224,6 +224,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 
 (defmacro emacspeak-bookshare-using-scratch(&rest body)
   "Evaluate forms in a  ready to use temporary buffer."
+  (declare (indent 1) (debug t))
   `(let ((buffer (get-buffer-create emacspeak-bookshare-scratch-buffer))
          (default-process-coding-system (cons 'utf-8 'utf-8))
          (buffer-undo-list t))

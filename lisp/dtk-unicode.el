@@ -182,6 +182,7 @@ A handler returns a non-nil value if the   replacement was successful, nil other
 CHARSETS is a list of charsets.  See
 `set-charset-priority'.  This affects the implicit sorting of lists of
 charsets returned by operations such as `find-charset-region'."
+    (declare (indent 1) (debug t))
     (let ((current (make-symbol "current")))
       `(let ((,current (charset-priority-list)))
          (apply #'set-charset-priority ,charsets)

@@ -172,6 +172,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
   "Define personality and map it to specified face."
+  (declare (indent 1) (debug t))
   (let ((documentation
          (concat
           doc
@@ -278,6 +279,7 @@ VOICE-NAME are  changed."
 that speaks `all' punctuations.  Once
 defined, the newly declared personality can be customized by calling
 command \\[customize-variable] on <personality>-settings. "
+  (declare (indent 1) (debug t))
   `(progn
      (defvar  ,personality
        (voice-setup-personality-from-style ,settings)

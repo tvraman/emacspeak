@@ -258,6 +258,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defmacro emacspeak-webutils-without-xsl (&rest body)
   "Execute body with XSL turned off."
+  (declare (indent 1) (debug t))
   `(progn
      (cl-declare (special emacspeak-we-xsl-p))
      (when emacspeak-we-xsl-p
@@ -275,6 +276,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style, params and options."
+  (declare (indent 1) (debug t))
   `(progn
      (add-hook
       'emacspeak-web-post-process-hook

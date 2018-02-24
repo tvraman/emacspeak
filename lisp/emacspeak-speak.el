@@ -301,6 +301,7 @@ Argument START   specifies the start of the region to operate on.
 Argument END specifies the end of the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
+  (declare (indent 1) (debug t))
   `(let ((saved-personality (get-text-property ,start 'personality)))
      (with-silent-modifications
        (unwind-protect
@@ -316,6 +317,7 @@ Argument BODY specifies forms to execute."
 
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
+  (declare (indent 1) (debug t))
   `(let ((emacspeak-speak-errors nil)
          (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil))
