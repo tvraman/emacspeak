@@ -78,23 +78,34 @@
   <hr />
   <a name="emacspeak_002ddbus-1" id="emacspeak_002ddbus-1"></a>
   <h3 class="section">12.43 emacspeak-dbus</h3>
-  <p>Set up Emacspeak to respond to DBus notifications</p><a name=
+  <p>Loading this module sets up Emacspeak to respond to DBus
+  notifications. This module needs to be loaded explicitly from the
+  user’s init file after emacspeak has been started.</p><a name=
   "Overview-1" id="Overview-1"></a>
   <h4 class="subsection">12.43.1 Overview</h4>
   <p>This module provides integration via DBus for the
   following:</p>
   <ul>
-    <li>Respond to network coming up or going down.</li>
+    <li>Respond to network coming up or going down —
+    <code>(nm-enable)</code>.</li>
     <li>Respond to screen getting locked/unlocked by
-    gnome-screen-saver</li>
-    <li>Respond to laptop going to sleep or waking up.</li>
+    gnome-screen-saver —
+    <code>(emacspeak-dbus-watch-screen-lock)</code>.</li>
+    <li>Respond to laptop going to sleep or waking up —
+    <code>(emacspeak-dbus-sleep-enable)</code>.</li>
+    <li>Respond to insertion/ejection of removable storage —
+    <code>(emacspeak-dbus-udisks-enable)</code>.</li>
+    <li>Watch for power devices —
+    <code>(emacspeak-dbus-upower-enable)</code>.</li>
     <li>An interactive command
     <code>emacspeak-dbus-lock-screen</code> bound to <kbd>C-,
     C-d</kbd> to lock the screen using DBus. Note: this key-binding
     is available only if this module is loaded.</li>
   </ul>
-  <p>See relevant hooks for customizing behavior. Note that each of
-  the sleep/wake-up and network/up-down can be separately
+  <p>Add calls to the desired functions from the above list to the
+  emacs startup file after this module has been loaded. See
+  relevant hooks for customizing behavior. Note that each of the
+  sleep/wake-up, UDisks2 and network/up-down can be separately
   enabled/disabled, and the actions customized via appropriately
   named hook functions.</p><a name="emacspeak_002ddbus-Commands"
   id="emacspeak_002ddbus-Commands"></a>
@@ -150,9 +161,81 @@ already disabled.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002ddbus_002dudisks_002ddisable" id=
+  "emacspeak_002ddbus_002dudisks_002ddisable"></a>
+  <h4 class="subsubsection">12.43.2.4
+  emacspeak-dbus-udisks-disable</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002ddbus_002dudisks_002ddisable"
+    id=
+    "index-emacspeak_002ddbus_002dudisks_002ddisable"></a>Command:
+    <strong>emacspeak-dbus-udisks-disable</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002ddbus_002dudisks_002ddisable-1"
+      id="index-emacspeak_002ddbus_002dudisks_002ddisable-1"></a>
+      <div class="format">
+        <pre class="format">
+        Disable integration with UDisks2 daemon. Does nothing if
+already disabled.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002ddbus_002dudisks_002denable" id=
+  "emacspeak_002ddbus_002dudisks_002denable"></a>
+  <h4 class="subsubsection">12.43.2.5
+  emacspeak-dbus-udisks-enable</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002ddbus_002dudisks_002denable"
+    id="index-emacspeak_002ddbus_002dudisks_002denable"></a>Command:
+    <strong>emacspeak-dbus-udisks-enable</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002ddbus_002dudisks_002denable-1"
+      id="index-emacspeak_002ddbus_002dudisks_002denable-1"></a>
+      <div class="format">
+        <pre class="format">
+        Enable integration with UDisks2. Does nothing if already enabled.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002ddbus_002dupower_002ddisable" id=
+  "emacspeak_002ddbus_002dupower_002ddisable"></a>
+  <h4 class="subsubsection">12.43.2.6
+  emacspeak-dbus-upower-disable</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002ddbus_002dupower_002ddisable"
+    id=
+    "index-emacspeak_002ddbus_002dupower_002ddisable"></a>Command:
+    <strong>emacspeak-dbus-upower-disable</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002ddbus_002dupower_002ddisable-1"
+      id="index-emacspeak_002ddbus_002dupower_002ddisable-1"></a>
+      <div class="format">
+        <pre class="format">
+        Disable integration with UPower daemon. Does nothing if
+already disabled.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002ddbus_002dupower_002denable" id=
+  "emacspeak_002ddbus_002dupower_002denable"></a>
+  <h4 class="subsubsection">12.43.2.7
+  emacspeak-dbus-upower-enable</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002ddbus_002dupower_002denable"
+    id="index-emacspeak_002ddbus_002dupower_002denable"></a>Command:
+    <strong>emacspeak-dbus-upower-enable</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002ddbus_002dupower_002denable-1"
+      id="index-emacspeak_002ddbus_002dupower_002denable-1"></a>
+      <div class="format">
+        <pre class="format">
+        Enable integration with UPower. Does nothing if already enabled.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dscreen_002dsaver_002dmode" id=
   "emacspeak_002dscreen_002dsaver_002dmode"></a>
-  <h4 class="subsubsection">12.43.2.4
+  <h4 class="subsubsection">12.43.2.8
   emacspeak-screen-saver-mode</h4>
   <dl>
     <dt><a name="index-emacspeak_002dscreen_002dsaver_002dmode" id=
@@ -178,5 +261,19 @@ key             binding
       </div>
     </dd>
   </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002ddesktop.html#emacspeak_002ddesktop" accesskey=
+    "n" rel="next">emacspeak-desktop</a>, Previous: <a href=
+    "emacspeak_002dcustom.html#emacspeak_002dcustom" accesskey="p"
+    rel="prev">emacspeak-custom</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
