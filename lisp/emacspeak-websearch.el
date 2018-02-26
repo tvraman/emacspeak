@@ -997,8 +997,8 @@ Results"
           (format emacspeak-websearch-exchange-rate-converter-uri
                   (upcase (cl-first fields))
                   (upcase (cl-second fields))))
-    (emacspeak-we-extract-table-by-match
-     "↔"
+    (emacspeak-we-extract-by-id
+     "xRate"
      url 'speak)))
 
 ;;}}}
