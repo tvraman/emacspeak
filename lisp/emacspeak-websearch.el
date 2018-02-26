@@ -998,7 +998,7 @@ Results"
                   (upcase (cl-first fields))
                   (upcase (cl-second fields))))
     (emacspeak-we-extract-by-id
-     "xRate"
+     "xRates"
      url 'speak)))
 
 ;;}}}
