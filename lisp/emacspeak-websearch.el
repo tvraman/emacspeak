@@ -972,7 +972,7 @@ Results"
 (emacspeak-websearch-set-searcher 'exchange-rate-converter
                                   'emacspeak-websearch-exchange-rate-converter)
 
-(emacspeak-websearch-set-key ?X 'exchange-rate-converter)
+(emacspeak-websearch-set-key ?x 'exchange-rate-converter)
 
 (defvar emacspeak-websearch-exchange-rate-form
   (expand-file-name "xml-forms/exchange-rate-converter.xml"
@@ -1007,12 +1007,14 @@ Results"
 (emacspeak-websearch-set-searcher 'y-exchange-rate-converter
                                   'emacspeak-websearch-yahoo-exchange-rate-converter)
 
-(emacspeak-websearch-set-key ?x 'y-exchange-rate-converter)
+
+
+
+;(emacspeak-websearch-set-key ?x 'y-exchange-rate-converter)
 
 (defvar emacspeak-websearch-yahoo-exchange-rate-converter-uri
   "http://download.finance.yahoo.com/d/quotes.csv?s=%s=X&f=sl1d1t1ba&e=.csv"
   "URI template  for currency conversion.")
-
 ;;;###autoload
 (defun emacspeak-websearch-yahoo-exchange-rate-converter (conversion-spec)
   "Currency converter."
