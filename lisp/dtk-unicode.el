@@ -177,7 +177,7 @@ A handler returns a non-nil value if the   replacement was successful, nil other
   (setq dtk-unicode-charset-filter-regexp (dtk-unicode-build-skip-regexp dtk-unicode-untouched-charsets)))
 
 (eval-and-compile
-  (defmacro with-charset-priority (charsets &rest body)
+  (defmacro dtk--with-charset-priority (charsets &rest body)
     "Execute BODY like `progn' with CHARSETS at the front of priority list.
 CHARSETS is a list of charsets.  See
 `set-charset-priority'.  This affects the implicit sorting of lists of
@@ -189,11 +189,10 @@ charsets returned by operations such as `find-charset-region'."
          (unwind-protect
              (progn ,@body)
            (apply #'set-charset-priority ,current)))))
-
+  ;;; Now use it:
   (defun dtk-unicode-char-in-charsets-p  (char charsets)
     "Return t if CHAR is a member of one in the charsets in CHARSETS."
-    (with-charset-priority charsets
-                           (memq (char-charset char) charsets)))
+    (dtk--with-charset-priority charsets (memq (char-charset char) charsets)))
   )
 
 (defun dtk-unicode-char-untouched-p (char)
