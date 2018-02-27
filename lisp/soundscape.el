@@ -593,9 +593,7 @@ This is then saved to soundscape-device for future use."
     (when soundscape--auto
       (soundscape-toggle)
       (soundscape-listener-shutdown))
-    (soundscape-toggle)
-    (sit-for 0.1)
-    (soundscape-tickle))
+    (soundscape-toggle))
 
 ;;}}}
 ;;{{{ Display Theme:
