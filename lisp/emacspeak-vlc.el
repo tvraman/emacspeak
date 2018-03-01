@@ -136,7 +136,7 @@ Controls media playback when already playing a stream.
   (interactive)
   (cl-declare (special emacspeak-vlc-process))
   (unless (process-live-p emacspeak-vlc-process)
-    (emacspeak-vlc-player))
+    (emacspeak-vlc))
   (pop-to-buffer (process-buffer emacspeak-vlc-process))
   (emacspeak-speak-mode-line))
 
@@ -144,7 +144,7 @@ Controls media playback when already playing a stream.
   "Invoke VLC commands."
   (interactive (list (read-key-sequence "MPlayer Key: ")))
   (unless (eq 'run (process-status emacspeak-vlc-process))
-    (emacspeak-vlc-player))
+    (emacspeak-vlc))
   (call-interactively
    (or (lookup-key emacspeak-vlc-mode-map key) 'undefined)))
 ;;;###autoload
@@ -152,7 +152,7 @@ Controls media playback when already playing a stream.
   "Call emacspeak-vlc with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (ems-with-messages-silenced
-   (emacspeak-vlc url )))
+   (emacspeak-vlc-player url )))
 
 
 
