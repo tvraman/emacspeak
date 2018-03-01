@@ -60,17 +60,20 @@
 ;;{{{ define a derived mode for VLC interaction
 
 (defvar emacspeak-vlc-process nil
-  "Process handle to vlc.")
+  "Process handle to VLC process.")
 
 (defun emacspeak-vlc-dispatch (command)
   "Dispatch command to vlc."
   (cl-declare (special emacspeak-vlc-process))
-  (with-current-buffer (process-buffer emacspeak-vlc-process)
-    (erase-buffer)
-    (process-send-string
-     emacspeak-vlc-process
-     (format "%s\n" command))
-    (accept-process-output emacspeak-vlc-process 0.1)))
+  (when (and (bound-and-true-p emacspeak-vlc-process)
+             (processp emacspeak-vlc-process)
+             (process-live-p emacspeak-vlc-process))
+    (with-current-buffer (process-buffer emacspeak-vlc-process)
+      (erase-buffer)
+      (process-send-string
+       emacspeak-vlc-process
+       (format "%s\n" command))
+      (accept-process-output emacspeak-vlc-process 0.1))))
 
 (defvar emacspeak-vlc-current-directory nil
   "Records current directory of media being played.
@@ -126,7 +129,7 @@ Controls media playback when already playing a stream.
   (interactive)
   (cl-declare (special emacspeak-vlc-process))
   (cond
-   ((and emacspeak-vlc-process
+   ((and (bound-and-true-p emacspeak-vlc-process)
          (eq 'run (process-status emacspeak-vlc-process))
          (buffer-live-p (process-buffer emacspeak-vlc-process)))
     (with-current-buffer (process-buffer emacspeak-vlc-process)
@@ -222,7 +225,7 @@ The player is placed in a buffer in emacspeak-vlc-mode."
             ido-work-directory-list emacspeak-media-directory-regexp
             emacspeak-media-shortcuts-directory emacspeak-vlc-process
             emacspeak-vlc-program emacspeak-vlc-options))
-  (when (and emacspeak-vlc-process
+  (when (and (bound-and-true-p emacspeak-vlc-process)
              (eq 'run (process-status emacspeak-vlc-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-vlc-quit)
