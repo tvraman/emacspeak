@@ -52,6 +52,10 @@
 (require 'emacspeak-preamble)
 (require 'derived)
 
+(declare-function comint-mode "comint" nil)
+(declare-function browse-url-interactive-arg "browse-url" (prompt))
+(declare-function dired-get-filename "dired" (&optional localp no-error-if-not-filep))
+
 ;;}}}
 ;;{{{ define a derived mode for VLC interaction
 
@@ -171,7 +175,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 
 (defun emacspeak-vlc-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special ido-work-directory-list ))
+  (cl-declare (special ido-work-directory-list
+                       emacspeak-media-directory-regexp))
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
@@ -196,6 +201,12 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 
 
 
+
+
+(defun emacspeak-vlc-quit ()
+"Quit VLC"
+(interactive)
+(emacspeak-vlc-dispatch "quit"))
 
 
 ;;;###autoload
