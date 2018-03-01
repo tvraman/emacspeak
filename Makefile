@@ -128,6 +128,8 @@ cd .. ;\
 install:
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
+	@echo "If using espeak or outloud for TTS, "
+	@echo "type make <engine> to build the speech-server."
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 # }}}
