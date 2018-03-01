@@ -95,8 +95,7 @@ This is set to nil when playing Internet  streams.")
   :group 'emacspeak)
 
 (defcustom emacspeak-vlc-program
-  (or (executable-find "cvlc")
-      (executable-find "vlc"))
+      (executable-find "vlc")
   "VLC player program."
   :type 'string
   :group 'emacspeak-vlc)
@@ -104,7 +103,7 @@ This is set to nil when playing Internet  streams.")
 
 
 (defvar emacspeak-vlc-default-options
-  (list "-I" "rc")
+  (list "-I" "dummy""-I" "rc")
   "Default options for VLC.")
 
 (defcustom emacspeak-vlc-options
