@@ -258,6 +258,53 @@ The player is placed in a buffer in emacspeak-vlc-mode."
                (abbreviate-file-name resource)))))
 
 ;;}}}
+;;{{{ key-bindings:
+
+(cl-declaim (special emacspeak-vlc-mode-map))
+
+(defvar emacspeak-vlc-bindings
+  '(
+    (";" emacspeak-vlc-pop-to-player)
+    ("+" emacspeak-vlc-volume-up)
+    ("," emacspeak-vlc-backward-10s)
+    ("-" emacspeak-vlc-volume-down)
+    ("." emacspeak-vlc-forward-10s)
+    ("<" emacspeak-vlc-backward-1min)
+    ("<down>" emacspeak-vlc-forward-1min)
+    ("<end>" emacspeak-vlc-end-of-track)
+    ("<home>" emacspeak-vlc-beginning-of-track)
+    ("<left>" emacspeak-vlc-backward-10s)
+    ("<next>" emacspeak-vlc-forward-10min)
+    ("<prior>" emacspeak-vlc-backward-10min)
+    ("<right>" emacspeak-vlc-forward-10s)
+    ("<up>" emacspeak-vlc-backward-1min)
+    ("=" emacspeak-vlc-volume-up)
+    (">" emacspeak-vlc-forward-1min)
+    ("DEL" emacspeak-vlc-reset-speed)
+    
+    ("Q" emacspeak-vlc-quit)
+    ("SPC" emacspeak-vlc-pause)
+    ("[" emacspeak-vlc-slower)
+    ("]" emacspeak-vlc-faster)
+    ("G" emacspeak-vlc-seek-percentage)
+    ("g" emacspeak-vlc-seek-absolute)
+    ("k" emacspeak-vlc-quit)
+    ("n" emacspeak-vlc-next-track)
+    ("p" emacspeak-vlc-previous-track)
+    ("q" bury-buffer)
+    ("r" emacspeak-vlc-seek-relative)
+    ("s" emacspeak-vlc-scale-speed)
+    ("t" emacspeak-vlc-play-tracks-jump)
+    ("v" emacspeak-vlc-volume-change)
+    ("{" emacspeak-vlc-half-speed)
+    ("}" emacspeak-vlc-double-speed)
+    )
+  "Key bindings used by Emacspeak Vlc.")
+
+(cl-loop for k in emacspeak-vlc-bindings do
+         (emacspeak-keymap-update  emacspeak-vlc-mode-map k))
+
+;;}}}
 ;;{{{ Interactive Commands:
 
 ;;}}}
