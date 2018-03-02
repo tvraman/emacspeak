@@ -173,38 +173,6 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
 
-
-
-(defun emacspeak-vlc-read-resource ()
-  "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special ido-work-directory-list
-                       emacspeak-media-directory-regexp))
-  (let ((completion-ignore-case t)
-        (read-file-name-function
-         (if (eq major-mode 'locate-mode)
-             #'read-file-name-default
-           #'ido-read-file-name))
-        (read-file-name-completion-ignore-case t)
-        (default
-          (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
-            (dired-get-filename nil 'no-error)))
-        (ido-work-directory-list
-         (cl-loop
-          for d in ido-work-directory-list
-          when (string-match  emacspeak-media-directory-regexp  d) collect d))
-        (result nil))
-    (setq result
-          (read-file-name
-           "Media Resource: "
-           default-directory
-           default 'must-match default))
-    result))
-
-
-
-
-
-
 (defun emacspeak-vlc-quit ()
 "Quit VLC"
 (interactive)
@@ -219,7 +187,7 @@ Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-vlc-mode."
   (interactive
    (list
-    (emacspeak-vlc-read-resource)))
+    (emacspeak-media-read-resource)))
   (cl-declare (special
             emacspeak-vlc-file-list emacspeak-vlc-current-directory
             ido-work-directory-list emacspeak-media-directory-regexp

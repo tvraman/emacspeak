@@ -343,8 +343,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    (t (directory-files  directory 'full emacspeak-media-extensions))))
 (defvar emacspeak-m-player-url-p nil
   "Flag that records if we are playing a stream URL")
-
-(defun emacspeak-m-player-read-resource ()
+;;;###autoload
+(defun emacspeak-media-read-resource ()
   "Read resource from minibuffer with contextual smarts."
   (cl-declare (special ido-work-directory-list emacspeak-m-player-url-p))
   (let ((completion-ignore-case t)
@@ -419,7 +419,7 @@ Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode."
   (interactive
    (list
-    (emacspeak-m-player-read-resource)
+    (emacspeak-media-read-resource)
     current-prefix-arg))
   (cl-declare (special
             emacspeak-m-player-file-list emacspeak-m-player-current-directory
@@ -484,7 +484,7 @@ mplayer that has been compiled with openal support to use this
 feature. Calling spec is like `emacspeak-m-player'."
   (interactive
    (list
-    (emacspeak-m-player-read-resource)
+    (emacspeak-media-read-resource)
     current-prefix-arg))
   (cl-declare (special emacspeak-m-player-options
                     emacspeak-m-player-openal-options
