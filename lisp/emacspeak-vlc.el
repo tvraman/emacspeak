@@ -95,12 +95,10 @@ This is set to nil when playing Internet  streams.")
   :group 'emacspeak)
 
 (defcustom emacspeak-vlc-program
-      (executable-find "vlc")
+  (executable-find "vlc")
   "VLC player program."
   :type 'string
   :group 'emacspeak-vlc)
-
-
 
 (defvar emacspeak-vlc-default-options
   (list "-I" "dummy""-I" "rc")
@@ -112,10 +110,6 @@ This is set to nil when playing Internet  streams.")
   :type  '(repeat
            (string :tag "option"))
   :group 'emacspeak-vlc)
-
-
-
-
 
 ;;;###autoload
 (defun emacspeak-vlc  ()
@@ -158,11 +152,7 @@ Controls media playback when already playing a stream.
   "Call emacspeak-vlc with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (ems-with-messages-silenced
-   (emacspeak-vlc-player url )))
-
-
-
-
+      (emacspeak-vlc-player url )))
 
 (defun emacspeak-vlc-directory-files (directory)
   "Return media files in directory.
@@ -174,11 +164,10 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    (t (directory-files  directory 'full emacspeak-media-extensions))))
 
 (defun emacspeak-vlc-quit ()
-"Quit VLC"
-(interactive)
-(emacspeak-vlc-dispatch "quit")
-(emacspeak-auditory-icon 'close-object))
-
+  "Quit VLC"
+  (interactive)
+  (emacspeak-vlc-dispatch "quit")
+  (emacspeak-auditory-icon 'close-object))
 
 ;;;###autoload
 (defun emacspeak-vlc-player (resource)
@@ -189,10 +178,10 @@ The player is placed in a buffer in emacspeak-vlc-mode."
    (list
     (emacspeak-media-read-resource)))
   (cl-declare (special
-            emacspeak-vlc-file-list emacspeak-vlc-current-directory
-            ido-work-directory-list emacspeak-media-directory-regexp
-            emacspeak-media-shortcuts-directory emacspeak-vlc-process
-            emacspeak-vlc-program emacspeak-vlc-options))
+               emacspeak-vlc-file-list emacspeak-vlc-current-directory
+               ido-work-directory-list emacspeak-media-directory-regexp
+               emacspeak-media-shortcuts-directory emacspeak-vlc-process
+               emacspeak-vlc-program emacspeak-vlc-options))
   (when (and (bound-and-true-p emacspeak-vlc-process)
              (eq 'run (process-status emacspeak-vlc-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -250,7 +239,7 @@ The player is placed in a buffer in emacspeak-vlc-mode."
     ("=" emacspeak-vlc-volume-up)
     (">" emacspeak-vlc-forward-1min)
     ("DEL" emacspeak-vlc-reset-speed)
-    
+
     ("Q" emacspeak-vlc-quit)
     ("SPC" emacspeak-vlc-pause)
     ("[" emacspeak-vlc-slower)
