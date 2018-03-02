@@ -12,6 +12,51 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: EBooks --- Ubiquitous Access To Books,  Next: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Emacspeak At Twenty
+
+15.11 EBooks — Ubiquitous Access To Books
+=========================================
+
+AsTeR — was motivated by the increasing availability of technical
+material as online electronic documents.  While AsTeR processed the TeX
+family of markup languages, more general ebooks came in a wide range of
+formats, ranging from plain text generated from various underlying file
+formats to structured EBooks, with Project Gutenberg
+(http://www.gutenberg.org/) leading the way.  During the mid-90’s, I had
+access to a wide range of electronic materials from sources such as
+O’Reilly Publishing and various electronic journals — The Perl Journal
+(TPJ) is one that I still remember fondly.
+
+   Emacspeak provided fairly light-weight but efficient access to all of
+the electronic books I had on my local disk — Emacs’ strengths with
+respect to browsing textual documents meant that I needed to build
+little that was specific to Emacspeak.  The late 90’s saw the arrival of
+Daisy as an XML-based format for accessible electronic books.  The last
+decade has seen the rapid convergence to *epub* as a distribution format
+of choice for electronic books.  Emacspeak provides interaction modes
+that make organizing, searching and reading these materials on the
+Emacspeak Audio Desktop a pleasant experience.  Emacspeak also provides
+an OCR-Mode — this enables one to call out to an external OCR program
+and read the content efficiently.
+
+   The somewhat informal process used by publishers like O’Reilly to
+make technical material available to users with print impairments was
+later formalized by BookShare (https://www.bookshare.org/) — today,
+qualified users can obtain a large number of books and periodicals
+initially as Daisy-3 and increasingly as *EPub*.  BookShare provides a
+RESTful API for searching and downloading books; Emacspeak module
+*emacspeak-bookshare* implements this API to create a client for
+browsing the BookShare library, downloading and organizing books
+locally, and an integrated ebook reading mode to round off the
+experience.
+
+   A useful complement to this suite of tools is the Calibre package for
+organizing ones ebook collection; Emacspeak now implements an *EPub
+Interaction* mode that leverages Calibre (actually sqlite3) to search
+and browse books, along with an integrated *EPub mode* for reading
+books.
+
+
 File: emacspeak.info,  Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks,  Next: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks --- Ubiquitous Access To Books,  Up: Emacspeak At Twenty
 
 15.12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
@@ -334,7 +379,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> ":                                voice-setup.        (line   85)
 * <f1> ,:                                emacspeak-wizards.  (line  478)
 * <f1> =:                                emacspeak-wizards.  (line 1307)
-* <f1> C-e:                              emacspeak.          (line  418)
+* <f1> C-e:                              emacspeak.          (line  419)
 * <f1> C-l:                              emacspeak-wizards.  (line  138)
 * <f1> C-s:                              emacspeak-wizards.  (line  551)
 * <f1> C-v:                              voice-setup.        (line   70)
@@ -400,7 +445,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  549)
 * <fn> C-M-@:                            emacspeak-speak.    (line 1011)
-* <fn> C-M-b:                            emacspeak.          (line  435)
+* <fn> C-M-b:                            emacspeak.          (line  436)
 * <fn> C-M-l:                            emacspeak-speak.    (line  731)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line 1010)
 * <fn> C-n:                              emacspeak-speak.    (line  697)
@@ -615,7 +660,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> ":                              voice-setup.        (line   86)
 * <help> ,:                              emacspeak-wizards.  (line  479)
 * <help> =:                              emacspeak-wizards.  (line 1308)
-* <help> C-e:                            emacspeak.          (line  419)
+* <help> C-e:                            emacspeak.          (line  420)
 * <help> C-l:                            emacspeak-wizards.  (line  139)
 * <help> C-s:                            emacspeak-wizards.  (line  552)
 * <help> C-v:                            voice-setup.        (line   71)
@@ -669,6 +714,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
 * C-; ':                                 emacspeak-m-player. (line  661)
+* C-; ,:                                 emacspeak-vlc.      (line   16)
 * C-; /:                                 emacspeak-wizards.  (line 1506)
 * C-; ::                                 emacspeak-wizards.  (line 1467)
 * C-; ;:                                 emacspeak-m-player. (line  672)
@@ -790,7 +836,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  548)
 * C-e C-M-@:                             emacspeak-speak.    (line 1009)
-* C-e C-M-b:                             emacspeak.          (line  434)
+* C-e C-M-b:                             emacspeak.          (line  435)
 * C-e C-M-l:                             emacspeak-speak.    (line  730)
 * C-e C-M-SPC:                           emacspeak-speak.    (line 1008)
 * C-e C-n:                               emacspeak-speak.    (line  696)
@@ -1005,7 +1051,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h ":                                 voice-setup.        (line   84)
 * C-h ,:                                 emacspeak-wizards.  (line  477)
 * C-h =:                                 emacspeak-wizards.  (line 1306)
-* C-h C-e:                               emacspeak.          (line  417)
+* C-h C-e:                               emacspeak.          (line  418)
 * C-h C-l:                               emacspeak-wizards.  (line  136)
 * C-h C-s:                               emacspeak-wizards.  (line  550)
 * C-h C-v:                               voice-setup.        (line   69)
@@ -1028,6 +1074,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a t:                             emacspeak-wizards.  (line 1380)
 * C-x @ a u:                             emacspeak-m-player. (line  651)
 * C-x @ h ':                             emacspeak-m-player. (line  662)
+* C-x @ h ,:                             emacspeak-vlc.      (line   17)
 * C-x @ h /:                             emacspeak-wizards.  (line 1507)
 * C-x @ h ::                             emacspeak-wizards.  (line 1468)
 * C-x @ h ;:                             emacspeak-m-player. (line  673)

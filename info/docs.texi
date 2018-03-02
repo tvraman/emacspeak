@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1195 commands and 1170 options.
+This chapter documents a total of 1202 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -197,6 +197,7 @@ This chapter documents a total of 1195 commands and 1170 options.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
+* emacspeak-vlc::Speech-enable VLC.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
@@ -1492,6 +1493,7 @@ C-r		flx-isearch-backward
 C-s		flx-isearch-forward
 SPC		emacspeak-webspace
 '		emacspeak-m-player-using-hrtf
+,		emacspeak-vlc
 /		emacspeak-wizards-web-clean-up-processes
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 ;		emacspeak-m-player-using-openal
@@ -20325,6 +20327,186 @@ Provide additional advice to view-mode
 Moves current line to top of window
 @end format
 @end deffn
+
+@node emacspeak-vlc
+@section emacspeak-vlc
+
+An Emacspeak Front-End For VLC Interaction.
+
+@subsection emacspeak-vlc Commands
+
+@subsubsection emacspeak-vlc
+@deffn {Command} emacspeak-vlc   
+@table @kbd
+@item C-; ,
+@kindex C-; ,
+@item C-x @@ h ,
+@kindex C-x @@ h ,
+@end table
+
+@findex emacspeak-vlc
+
+@format
+Start or control Emacspeak VLC player.
+
+Uses current context to prompt for media to play.
+Controls media playback when already playing a stream.
+
+key             binding
+---             -------
+
+SPC		emacspeak-vlc-pause
++		emacspeak-vlc-volume-up
+,		emacspeak-vlc-backward-10s
+-		emacspeak-vlc-volume-down
+.		emacspeak-vlc-forward-10s
+;		emacspeak-vlc-pop-to-player
+<		emacspeak-vlc-backward-1min
+=		emacspeak-vlc-volume-up
+>		emacspeak-vlc-forward-1min
+G		emacspeak-vlc-seek-percentage
+Q		emacspeak-vlc-quit
+[		emacspeak-vlc-slower
+]		emacspeak-vlc-faster
+g		emacspeak-vlc-seek-absolute
+k		emacspeak-vlc-quit
+n		emacspeak-vlc-next-track
+p		emacspeak-vlc-previous-track
+q		bury-buffer
+r		emacspeak-vlc-seek-relative
+s		emacspeak-vlc-scale-speed
+t		emacspeak-vlc-play-tracks-jump
+v		emacspeak-vlc-volume-change
+@{		emacspeak-vlc-half-speed
+@}		emacspeak-vlc-double-speed
+DEL		emacspeak-vlc-reset-speed
+<down>		emacspeak-vlc-forward-1min
+<end>		emacspeak-vlc-end-of-track
+<home>		emacspeak-vlc-beginning-of-track
+<left>		emacspeak-vlc-backward-10s
+<next>		emacspeak-vlc-forward-10min
+<prior>		emacspeak-vlc-backward-10min
+<right>		emacspeak-vlc-forward-10s
+<up>		emacspeak-vlc-backward-1min
+
+.
+@end format
+@end deffn
+
+@subsubsection emacspeak-vlc-command
+@deffn {Command} emacspeak-vlc-command  (key)
+@findex emacspeak-vlc-command
+
+@format
+Invoke VLC commands.
+
+(fn KEY)
+@end format
+@end deffn
+
+@subsubsection emacspeak-vlc-mode
+@deffn {Command} emacspeak-vlc-mode   
+@findex emacspeak-vlc-mode
+
+@format
+Major mode for vlc interaction. 
+
+key             binding
+---             -------
+
+SPC		emacspeak-vlc-pause
++		emacspeak-vlc-volume-up
+,		emacspeak-vlc-backward-10s
+-		emacspeak-vlc-volume-down
+.		emacspeak-vlc-forward-10s
+;		emacspeak-vlc-pop-to-player
+<		emacspeak-vlc-backward-1min
+=		emacspeak-vlc-volume-up
+>		emacspeak-vlc-forward-1min
+G		emacspeak-vlc-seek-percentage
+Q		emacspeak-vlc-quit
+[		emacspeak-vlc-slower
+]		emacspeak-vlc-faster
+g		emacspeak-vlc-seek-absolute
+k		emacspeak-vlc-quit
+n		emacspeak-vlc-next-track
+p		emacspeak-vlc-previous-track
+q		bury-buffer
+r		emacspeak-vlc-seek-relative
+s		emacspeak-vlc-scale-speed
+t		emacspeak-vlc-play-tracks-jump
+v		emacspeak-vlc-volume-change
+@{		emacspeak-vlc-half-speed
+@}		emacspeak-vlc-double-speed
+DEL		emacspeak-vlc-reset-speed
+<down>		emacspeak-vlc-forward-1min
+<end>		emacspeak-vlc-end-of-track
+<home>		emacspeak-vlc-beginning-of-track
+<left>		emacspeak-vlc-backward-10s
+<next>		emacspeak-vlc-forward-10min
+<prior>		emacspeak-vlc-backward-10min
+<right>		emacspeak-vlc-forward-10s
+<up>		emacspeak-vlc-backward-1min
+
+In addition to any hooks its parent mode ‘comint-mode’ might have run,
+this mode runs the hook ‘emacspeak-vlc-mode-hook’, as the final or penultimate step
+during initialization.
+@end format
+@end deffn
+
+@subsubsection emacspeak-vlc-player
+@deffn {Command} emacspeak-vlc-player  (resource)
+@findex emacspeak-vlc-player
+
+@format
+Play specified resource using vlc.
+Resource is a media resource or playlist containing media resources.
+The player is placed in a buffer in emacspeak-vlc-mode.
+
+(fn RESOURCE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-vlc-pop-to-player
+@deffn {Command} emacspeak-vlc-pop-to-player   
+@findex emacspeak-vlc-pop-to-player
+
+@format
+Pop to vlc buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-vlc-quit
+@deffn {Command} emacspeak-vlc-quit   
+@findex emacspeak-vlc-quit
+
+@format
+Quit VLC
+@end format
+@end deffn
+
+@subsubsection emacspeak-vlc-url
+@deffn {Command} emacspeak-vlc-url  (url)
+@findex emacspeak-vlc-url
+
+@format
+Call emacspeak-vlc with specified URL.
+
+(fn URL)
+@end format
+@end deffn
+
+@subsection emacspeak-vlc Options
+
+@defvar {User Option} emacspeak-vlc-options
+Options passed to VLC.
+
+@end defvar
+
+@defvar {User Option} emacspeak-vlc-program
+VLC player program.
+
+@end defvar
 
 @node emacspeak-vm
 @section emacspeak-vm

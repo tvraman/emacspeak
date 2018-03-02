@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 24, 2018.
+last updated on March 1, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2723,7 +2723,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1195 commands and 1170 options.
+This chapter documents a total of 1202 commands and 1172 options.
 
 * Menu:
 
@@ -2919,6 +2919,7 @@ This chapter documents a total of 1195 commands and 1170 options.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.
+* emacspeak-vlc::Speech-enable VLC.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
@@ -3961,6 +3962,7 @@ system.
      C-s		flx-isearch-forward
      SPC		emacspeak-webspace
      ’		emacspeak-m-player-using-hrtf
+     ,		emacspeak-vlc
      /		emacspeak-wizards-web-clean-up-processes
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      ;		emacspeak-m-player-using-openal
