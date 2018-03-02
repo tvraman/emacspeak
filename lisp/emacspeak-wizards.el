@@ -2957,6 +2957,7 @@ Optional interactive prefix arg `category' prompts for a category."
     (define-key map (kbd "RET") 'ems--iheart-at-point)
     map)
   "Keymap used in IHeart Radio Results buffer.")
+(declare-function emacspeak-vlc-player "emacspeak-vlc" (resource))
 
 (defun emacspeak-wizards-iheart-radio-play (id)
   "Play specified   station from IHeart Radio."
@@ -2964,7 +2965,7 @@ Optional interactive prefix arg `category' prompts for a category."
   (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git "))
     (unless (executable-find "iheart-url")
       (error "First install iheart-url from %s" ih-url))
-    (emacspeak-m-player-url
+    (emacspeak-vlc-player
      (string-trim
       (shell-command-to-string
        (format "iheart-url %s" id))))))
