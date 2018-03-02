@@ -148,7 +148,7 @@ Controls media playback when already playing a stream.
 
 (defun emacspeak-vlc-command (key)
   "Invoke VLC commands."
-  (interactive (list (read-key-sequence "MPlayer Key: ")))
+  (interactive (list (read-key-sequence "VLC Key: ")))
   (unless (eq 'run (process-status emacspeak-vlc-process))
     (emacspeak-vlc))
   (call-interactively
@@ -208,7 +208,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 (defun emacspeak-vlc-quit ()
 "Quit VLC"
 (interactive)
-(emacspeak-vlc-dispatch "quit"))
+(emacspeak-vlc-dispatch "quit")
+(emacspeak-auditory-icon 'close-object))
 
 
 ;;;###autoload
