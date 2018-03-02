@@ -306,8 +306,8 @@ etc to be ignored when guessing directory.")
     (call-interactively #'emacspeak-multimedia)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
-
-(defun emacspeak-m-player-guess-directory ()
+;;;###autoload
+(defun emacspeak-media-guess-directory ()
   "Guess default directory."
   (cl-declare (special emacspeak-media-directory-regexp
                     emacspeak-m-player-accelerator-p))
@@ -364,7 +364,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (setq result
           (read-file-name
            "Media Resource: "
-           (emacspeak-m-player-guess-directory)
+           (emacspeak-media-guess-directory)
            default 'must-match default))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
