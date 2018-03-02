@@ -186,7 +186,6 @@
    ("/" emacspeak-speak-this-buffer-other-window-display)
    (":" emacspeak-m-player-shuffle)
    (";" emacspeak-multimedia)
-   ("," emacspeak-vlc)
    ("<" emacspeak-speak-previous-field)
    ("<(deletechar>" emacspeak-ssh-tts-restart)
    ("<C-<left>" emacspeak-select-this-buffer-previous-display)
