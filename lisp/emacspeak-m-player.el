@@ -1024,6 +1024,33 @@ Numeric arg `posn' specifies position in history."
 ;;}}}
 ;;{{{ equalizer
 
+
+;;; Equalizer presets:
+;;; Cloned from VLC and munged for m-player.
+
+(defvar emacspeak-m-player-equalizer-presets 
+  '
+  (("flat" . [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0])
+   ("classical" . [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0])
+   ("club" . [0.0 0.0 0.0 0.0 0.0 -4.4 -4.4 -4.4 -5.8])
+   ("dance" . [0.0 0.0 4.8 3.3 3.3 3.3 1.9 0.0 0.0])
+   ("full-bass" . [5.7 4.3 1.4 0.0 0.0 -3.4 -4.4 -4.3 0.0 0.0])
+   ("full-bass-and-treble" . [-4.8 5.7 5.7 3.3 1.0 -2.4 -4.8 -6.3 -6.7 -6.7])
+   ("full-treble" . [4.3 3.3 0.0 -4.4 -2.9 1.0 4.8 6.7 7.2 7.2])
+   ("headphones" . [-5.8 -5.8 -5.8 -2.4 1.4 6.7 9.6 9.6 9.6 10.1])
+   ("large-hall" . [2.8 6.7 3.3 -2.0 -1.4 1.0 2.8 5.7 7.7 8.6])
+   ("live" . [6.2 6.2 3.3 3.3 0.0 -2.9 -2.9 -2.9 0.0 0.0])
+   ("party" . [-2.9 0.0 2.4 3.3 3.3 3.3 2.4 1.4 1.4 1.4])
+   ("pop" . [4.3 4.3 0.0 0.0 0.0 0.0 0.0 0.0 4.3 4.3])
+   ("reggae" . [-1.0 2.8 4.3 4.8 3.3 0.0 -1.4 -1.4 -1.0 -1.0])
+   ("rock" . [0.0 0.0 0.0 -3.4 0.0 3.8 3.8 0.0 0.0 0.0])
+   ("ska" . [4.8 2.8 -3.4 -4.8 -2.0 2.4 5.3 6.7 6.7 6.7])
+   ("soft" . [-1.4 -2.9 -2.4 0.0 2.4 3.3 5.3 5.7 6.7 5.8])
+   ("soft-rock" . [2.8 1.0 0.0 -1.4 0.0 2.4 4.8 5.7 6.7 7.2])
+   ("techno" . [2.4 2.4 1.4 0.0 -2.4 -3.4 -2.0 0.0 1.4 5.3]))
+  "MPlayer equalizer presets."
+  )
+
 (defconst emacspeak-m-player-equalizer (make-vector 10 0)
   "Vector holding equalizer settings.")
 
