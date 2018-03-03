@@ -542,6 +542,7 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-super-keys 
   '(
+    ("'" emacspeak-vlc)
     ("SPC"  emacspeak-wizards-scratch)
     ("." emacspeak-wizards-shell-directory-reset)
     ("f" flyspell-mode)
@@ -677,7 +678,6 @@ command that the key sequence executes."
     ("C-s" flx-isearch-forward)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
-    ("," emacspeak-vlc)
     ("/" emacspeak-wizards-web-clean-up-processes)
     ("'" emacspeak-m-player-using-hrtf)
     ("B" eww-list-bookmarks)
@@ -743,8 +743,8 @@ interactive command that the key sequence executes."
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
-;;{{{ Wizard bindings:
-;;}}}
+
+
 ;;{{{ Keymaps <-> Org (text) Files :
 
 ;;; This makes it easy to consolidate personal bindings across machines.
