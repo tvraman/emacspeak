@@ -1083,7 +1083,7 @@ Applies  the resulting value at each step."
         (continue t))
 ;;; First, clear any equalizers in effect:
     (emacspeak-m-player-dispatch "af_del equalizer")
-    ;;; Apply specified vector:
+;;; Apply specified vector:
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
       (setq key
@@ -1123,7 +1123,8 @@ Applies  the resulting value at each step."
         (setq continue nil))
        (t (message "Invalid key")))
       (setq result (mapconcat #'number-to-string v  ":"))
-      (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result)))
+      (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result))
+      (emacspeak-auditory-icon 'close-object))
     result))
 
 (defun emacspeak-m-player-add-equalizer (&optional reset)
