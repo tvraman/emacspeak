@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1202 commands and 1172 options.
+This chapter documents a total of 1203 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -11320,6 +11320,17 @@ Applies  the resulting value at each step.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-equalizer-preset
+@deffn {Command} emacspeak-m-player-equalizer-preset  (name)
+@findex emacspeak-m-player-equalizer-preset
+
+@format
+Prompts for  equalizer preset and applies it to current stream.
+
+(fn NAME)
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-faster
 @deffn {Command} emacspeak-m-player-faster   
 @findex emacspeak-m-player-faster
@@ -11492,7 +11503,7 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
-E		amixer-equalize
+E		emacspeak-m-player-equalizer-preset
 G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata
@@ -11961,7 +11972,7 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
-E		amixer-equalize
+E		emacspeak-m-player-equalizer-preset
 G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata
