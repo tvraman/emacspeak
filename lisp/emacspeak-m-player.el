@@ -1027,6 +1027,7 @@ Numeric arg `posn' specifies position in history."
 ;;; Equalizer presets:
 ;;; Cloned from VLC and munged for m-player.
 ;;; VLC uses -20db .. 20db; mplayer uses -12db .. 12db
+;;; See http://advantage-bash.blogspot.com/2013/05/mplayer-presets.html
 
 (defvar emacspeak-m-player-equalizer-presets 
   '
