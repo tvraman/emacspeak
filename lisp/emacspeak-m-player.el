@@ -1024,9 +1024,9 @@ Numeric arg `posn' specifies position in history."
 ;;}}}
 ;;{{{ equalizer
 
-
 ;;; Equalizer presets:
 ;;; Cloned from VLC and munged for m-player.
+;;; VLC uses -20db .. 20db; mplayer uses -12db .. 12db
 
 (defvar emacspeak-m-player-equalizer-presets 
   '
@@ -1050,6 +1050,11 @@ Numeric arg `posn' specifies position in history."
    ("techno" . [2.4 2.4 1.4 0.0 -2.4 -3.4 -2.0 0.0 1.4 5.3]))
   "MPlayer equalizer presets."
   )
+
+(defsubst ems--equalizer-preset-get (name)
+  "Return vector of numbers for specified preset."
+  (cl-declare (special  emacspeak-m-player-equalizer-presets))
+  (cdr (assoc name emacspeak-m-player-equalizer-presets)))
 
 (defconst emacspeak-m-player-equalizer (make-vector 10 0)
   "Vector holding equalizer settings.")
@@ -1076,8 +1081,9 @@ Applies  the resulting value at each step."
         (key nil)
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
-;;; First, apply the default
+;;; First, clear any equalizers in effect:
     (emacspeak-m-player-dispatch "af_del equalizer")
+    ;;; Apply specified vector:
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
       (setq key
@@ -1126,16 +1132,30 @@ is made, and the final effect set by pressing RET.  Interactive prefix
 arg `reset' starts with all filters set to 0."
   (interactive "P")
   (cl-declare (special emacspeak-m-player-process emacspeak-m-player-equalizer
-                    emacspeak-m-player-active-filters))
+                       emacspeak-m-player-active-filters))
   (cond
    ((eq 'run  (process-status emacspeak-m-player-process))
-    (emacspeak-m-player-dispatch
-     (format "af_add equalizer=%s"
-             (emacspeak-m-player-equalizer-control
-              (if reset  (make-vector 10 0)
-                emacspeak-m-player-equalizer))))
+    (emacspeak-m-player-equalizer-control
+     (if reset  (make-vector 10 0)
+       emacspeak-m-player-equalizer))
     (push "equalizer" emacspeak-m-player-active-filters))
    (t (message "No stream playing at present."))))
+
+
+(defun emacspeak-m-player-equalizer-preset  (name)
+  "Prompts for  equalizer preset and applies it to current stream."
+  (interactive
+   (list
+    (completing-read
+     "MPlayer Equalizer Preset:"
+     emacspeak-m-player-equalizer-presets)))
+  (cl-declare (special emacspeak-m-player-equalizer-presets  emacspeak-m-player-equalizer))
+  (let ((result nil)
+        (p (ems--equalizer-preset-get name)))
+    (setq emacspeak-m-player-equalizer p)
+    (setq result  (mapconcat #'number-to-string p  ":"))
+    (emacspeak-m-player-dispatch "af_del equalizer")
+    (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))))
 
 ;;}}}
 ;;{{{ Key Bindings:
@@ -1169,7 +1189,7 @@ arg `reset' starts with all filters set to 0."
     ("\\" emacspeak-m-player-persist-process)
     ("/" emacspeak-m-player-restore-process)
     ("C" emacspeak-m-player-clear-filters)
-    ("E" amixer-equalize)
+    ("E" emacspeak-m-player-equalizer-preset)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
     ("L" emacspeak-m-player-locate-media)
