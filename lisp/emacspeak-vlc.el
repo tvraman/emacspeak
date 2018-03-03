@@ -222,7 +222,7 @@ The player is placed in a buffer in emacspeak-vlc-mode."
 
 (defvar emacspeak-vlc-bindings
   '(
-    (";" emacspeak-vlc-pop-to-player)
+    ("'" emacspeak-vlc-pop-to-player)
     ("+" emacspeak-vlc-volume-up)
     ("," emacspeak-vlc-backward-10s)
     ("-" emacspeak-vlc-volume-down)
