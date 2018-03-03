@@ -11327,6 +11327,12 @@ Applies  the resulting value at each step.
 @format
 Prompts for  equalizer preset and applies it to current stream.
 
+The following presets are available:
+ 
+flat classical club dance full-bass full-bass-and-treble
+ full-treble headphones large-hall live party pop reggae rock
+ ska soft soft-rock techno 
+
 (fn NAME)
 @end format
 @end deffn
