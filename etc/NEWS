@@ -35,3 +35,8 @@ for locking the screen.
 * Obsolete: emacspeak-mpg123.el
 
 Support for package ~mpg123.el~ has been removed.
+
+** MPlayer And Equalizer Presets 
+
+Module ~emacspeak-m-player~ now implements a  set of equalizer presets
+that can be selected via _E_ in MPlayer interaction.
