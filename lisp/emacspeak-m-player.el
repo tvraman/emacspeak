@@ -1143,7 +1143,13 @@ arg `reset' starts with all filters set to 0."
 
 
 (defun emacspeak-m-player-equalizer-preset  (name)
-  "Prompts for  equalizer preset and applies it to current stream."
+  "Prompts for  equalizer preset and applies it to current stream.
+
+The following presets are available:
+ 
+flat classical club dance full-bass full-bass-and-treble
+ full-treble headphones large-hall live party pop reggae rock
+ ska soft soft-rock techno "
   (interactive
    (list
     (completing-read
