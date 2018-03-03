@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#taken from 
+#http://advantage-bash.blogspot.com/2013/05/mplayer-presets.html
 #for changing equalizer preset in mplayer 
 echo -e "1. flat\n2. classical\n3. club\n4. dance\n5. full-bass\n6. full-bass-and-treble\n7. full-treble\n8. headphones\n9.
 large-hall\n10.live\n11.party\n12.pop\n13.reggae\n14.rock\n15.ska\n16.soft\n17.soft-rock\n18.techno\n"
