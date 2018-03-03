@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 1, 2018.
+last updated on March 2, 2018.
 
    The manual is divided into the following chapters:
 
@@ -3962,7 +3962,6 @@ system.
      C-s		flx-isearch-forward
      SPC		emacspeak-webspace
      ’		emacspeak-m-player-using-hrtf
-     ,		emacspeak-vlc
      /		emacspeak-wizards-web-clean-up-processes
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      ;		emacspeak-m-player-using-openal
@@ -4003,6 +4002,7 @@ system.
      —             ——-
 
      SPC		emacspeak-wizards-scratch
+     ’		emacspeak-vlc
      .		emacspeak-wizards-shell-directory-reset
      R		emacspeak-webspace-feed-reader
      S		soundscape-stop

@@ -1493,7 +1493,6 @@ C-r		flx-isearch-backward
 C-s		flx-isearch-forward
 SPC		emacspeak-webspace
 '		emacspeak-m-player-using-hrtf
-,		emacspeak-vlc
 /		emacspeak-wizards-web-clean-up-processes
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 ;		emacspeak-m-player-using-openal
@@ -1534,6 +1533,7 @@ key             binding
 ---             -------
 
 SPC		emacspeak-wizards-scratch
+'		emacspeak-vlc
 .		emacspeak-wizards-shell-directory-reset
 R		emacspeak-webspace-feed-reader
 S		soundscape-stop
@@ -20338,10 +20338,12 @@ An Emacspeak Front-End For VLC Interaction.
 @subsubsection emacspeak-vlc
 @deffn {Command} emacspeak-vlc   
 @table @kbd
-@item C-; ,
-@kindex C-; ,
-@item C-x @@ h ,
-@kindex C-x @@ h ,
+@item C-. '
+@kindex C-. '
+@item C-' '
+@kindex C-' '
+@item C-x @@ s '
+@kindex C-x @@ s '
 @end table
 
 @findex emacspeak-vlc
@@ -20356,11 +20358,11 @@ key             binding
 ---             -------
 
 SPC		emacspeak-vlc-pause
+'		emacspeak-vlc-pop-to-player
 +		emacspeak-vlc-volume-up
 ,		emacspeak-vlc-backward-10s
 -		emacspeak-vlc-volume-down
 .		emacspeak-vlc-forward-10s
-;		emacspeak-vlc-pop-to-player
 <		emacspeak-vlc-backward-1min
 =		emacspeak-vlc-volume-up
 >		emacspeak-vlc-forward-1min
@@ -20415,11 +20417,11 @@ key             binding
 ---             -------
 
 SPC		emacspeak-vlc-pause
+'		emacspeak-vlc-pop-to-player
 +		emacspeak-vlc-volume-up
 ,		emacspeak-vlc-backward-10s
 -		emacspeak-vlc-volume-down
 .		emacspeak-vlc-forward-10s
-;		emacspeak-vlc-pop-to-player
 <		emacspeak-vlc-backward-1min
 =		emacspeak-vlc-volume-up
 >		emacspeak-vlc-forward-1min

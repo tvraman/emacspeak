@@ -3703,8 +3703,9 @@ An Emacspeak Front-End For VLC Interaction.
 ........................
 
  -- Command: emacspeak-vlc
-     ‘C-; ,’
-     ‘C-x @ h ,’
+     ‘C-. '’
+     ‘C-' '’
+     ‘C-x @ s '’
 
      Start or control Emacspeak VLC player.
 
@@ -3715,11 +3716,11 @@ An Emacspeak Front-End For VLC Interaction.
      —             ——-
 
      SPC		emacspeak-vlc-pause
+     ’		emacspeak-vlc-pop-to-player
      +		emacspeak-vlc-volume-up
      ,		emacspeak-vlc-backward-10s
      -		emacspeak-vlc-volume-down
      .		emacspeak-vlc-forward-10s
-     ;		emacspeak-vlc-pop-to-player
      <		emacspeak-vlc-backward-1min
      =		emacspeak-vlc-volume-up
      >		emacspeak-vlc-forward-1min
@@ -3770,11 +3771,11 @@ An Emacspeak Front-End For VLC Interaction.
      —             ——-
 
      SPC		emacspeak-vlc-pause
+     ’		emacspeak-vlc-pop-to-player
      +		emacspeak-vlc-volume-up
      ,		emacspeak-vlc-backward-10s
      -		emacspeak-vlc-volume-down
      .		emacspeak-vlc-forward-10s
-     ;		emacspeak-vlc-pop-to-player
      <		emacspeak-vlc-backward-1min
      =		emacspeak-vlc-volume-up
      >		emacspeak-vlc-forward-1min
