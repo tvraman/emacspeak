@@ -1123,8 +1123,7 @@ Applies  the resulting value at each step."
         (setq continue nil))
        (t (message "Invalid key")))
       (setq result (mapconcat #'number-to-string v  ":"))
-      (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result))
-      (emacspeak-auditory-icon 'close-object))
+      (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result)))
     result))
 
 (defun emacspeak-m-player-add-equalizer (&optional reset)
@@ -1139,6 +1138,7 @@ arg `reset' starts with all filters set to 0."
     (emacspeak-m-player-equalizer-control
      (if reset  (make-vector 10 0)
        emacspeak-m-player-equalizer))
+    (emacspeak-auditory-icon 'close-object)
     (push "equalizer" emacspeak-m-player-active-filters))
    (t (message "No stream playing at present."))))
 
