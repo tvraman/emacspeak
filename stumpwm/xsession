@@ -1,4 +1,5 @@
 #!/bin/sh
+export ALSA_DEFAULT=default
 . ${HOME}/.bash_profile
 export SSH_ASKPASS=/usr/local/bin/e-askpass.sh
 export XLIB_SKIP_ARGB_VISUALS=1
@@ -7,15 +8,16 @@ setxkbmap -option ctrl:nocaps
 xmodmap $HOME/.xmodmap 
 #xcape  # -t 125 #-e 'Control_L=Escape'
 pidof ibus && ibus exit
-xset b 100 800
+xset b 100 440
 xset dpms
-xset dpms 1 2 5
+xset dpms 30 60 180
 xrdb -merge $HOME/.Xresources &
-xautolock -detectsleep -time 60  -locker  "$HOME/bin/xlock" &
+xautolock -detectsleep -time 60  -locker  "/usr/local/bin/emslock" &
 xterm  -title Retriever &
 export LISP=sbcl
 ${HOME}/bin/export_x_info &
 espeak "Launching Window Manager" &
-dbus-launch --exit-with-session /usr/bin/stumpwm
+#dbus-launch --exit-with-session /usr/bin/stumpwm
+exec /usr/local/bin/stumpwm 
 #dbus-launch --exit-with-session emacs 
  #exec gnome-session
