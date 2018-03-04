@@ -1157,12 +1157,14 @@ flat classical club dance full-bass full-bass-and-treble
      "MPlayer Equalizer Preset:"
      emacspeak-m-player-equalizer-presets
      nil 'must-match)))
+  (cl-declare (special emacspeak-m-player-active-filters))
   (cl-declare (special emacspeak-m-player-equalizer-presets  emacspeak-m-player-equalizer))
   (let ((result nil)
         (p (ems--equalizer-preset-get name)))
     (setq emacspeak-m-player-equalizer p)
     (setq result  (mapconcat #'number-to-string p  ":"))
     (emacspeak-m-player-dispatch "af_del equalizer")
+    (cl-pushnew "equalizer" emacspeak-m-player-active-filters :test #'string=)
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))))
 
 ;;}}}
