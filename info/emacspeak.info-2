@@ -5265,7 +5265,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ?		emacspeak-m-player-display-position
      A		emacspeak-m-player-amark-add
      C		emacspeak-m-player-clear-filters
-     E		emacspeak-m-player-equalizer-preset
+     E		emacspeak-m-player-add-equalizer
      G		emacspeak-m-player-seek-percentage
      L		emacspeak-m-player-locate-media
      M		emacspeak-m-player-display-metadata
@@ -5281,7 +5281,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
-     e		emacspeak-m-player-add-equalizer
+     e		emacspeak-m-player-equalizer-preset
      f		emacspeak-m-player-add-filter
      g		emacspeak-m-player-seek-absolute
      i		emacspeak-m-player-stream-info
@@ -5640,7 +5640,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ?		emacspeak-m-player-display-position
      A		emacspeak-m-player-amark-add
      C		emacspeak-m-player-clear-filters
-     E		emacspeak-m-player-equalizer-preset
+     E		emacspeak-m-player-add-equalizer
      G		emacspeak-m-player-seek-percentage
      L		emacspeak-m-player-locate-media
      M		emacspeak-m-player-display-metadata
@@ -5656,7 +5656,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      c		emacspeak-m-player-slave-command
      d		emacspeak-m-player-delete-filter
-     e		emacspeak-m-player-add-equalizer
+     e		emacspeak-m-player-equalizer-preset
      f		emacspeak-m-player-add-filter
      g		emacspeak-m-player-seek-absolute
      i		emacspeak-m-player-stream-info
