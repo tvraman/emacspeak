@@ -1616,7 +1616,7 @@ played as a play-list by pressing [RET] on the first line.
 Pattern is first converted to a regexp that accepts common
 punctuation separators (-,._\'\") in place of white-space.
 Results are placed in a Locate buffer and can be played using
-M-Player --- use \\[emacspeak-dired-open-this-file]
+M-Player --- use \\[emacspeak-dired-open-this-file] locally bound to C-RET 
 to play individual tracks."
   (interactive "sSearch Pattern: ")
   (cl-declare  (special emacspeak-media-extensions
