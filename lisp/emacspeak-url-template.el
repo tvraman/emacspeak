@@ -1524,28 +1524,6 @@ prompts for a location and speaks the forecast. \n\n"
  "Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us")
 
 ;;}}}
-;;{{{ Flight Status
-
-(emacspeak-url-template-define
- "Flight Status"
- "http://www.flightstats.com/go/FlightStatus/flightStatusByFlight.do?airline=%s"
- (list "Flight: ")
- nil
- "Show Flight Status.")
-
-(emacspeak-url-template-define
- "Flight Tracker"
- "http://www.flightstats.com/go/FlightTracker/flightTracker.do?%s"
- (list
-  #'(lambda ()
-      (let* ((code (read-from-minibuffer "Flight Number: "))
-             (fields (split-string code)))
-        (format "airline=%s&flightNumber=%s"
-                (cl-first fields) (cl-second fields)))))
- nil
- "Flight Tracker")
-
-;;}}}
 ;;{{{ Washington Post
 
 (emacspeak-url-template-define
