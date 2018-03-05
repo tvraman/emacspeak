@@ -39,4 +39,4 @@ Support for package ~mpg123.el~ has been removed.
 ** MPlayer And Equalizer Presets 
 
 Module ~emacspeak-m-player~ now implements a  set of equalizer presets
-that can be selected via _E_ in MPlayer interaction.
+that can be selected via _e_ in MPlayer interaction.
