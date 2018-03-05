@@ -789,6 +789,13 @@ buffer Voicification is used to indicate directories, marked files etc.
 
      Speaks the target of the symlink on the current line.
 
+12.47.1.15 emacspeak-locate-play-results-as-playlist
+....................................................
+
+ -- Command: emacspeak-locate-play-results-as-playlist
+
+     Treat locate results as a play-list
+
 12.47.2 emacspeak-dired Options
 -------------------------------
 
@@ -5228,10 +5235,13 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ‘C-' l’
      ‘C-x @ s l’
 
-     Locate media matching specified pattern.  Pattern is first converted
-     to a regexp that accepts common punctuation separators (-,._’") in place
-     of white-space.  Results are placed in a Locate buffer and can be
-     played using M-Player.
+     Locate media matching specified pattern.  The results can be
+     played as a play-list by pressing [RET] on the first line.
+     Pattern is first converted to a regexp that accepts common
+     punctuation separators (-,._’") in place of white-space.
+     Results are placed in a Locate buffer and can be played using
+     M-Player — use M-x emacspeak-dired-open-this-file
+     to play individual tracks.
 
      (fn PATTERN)
 

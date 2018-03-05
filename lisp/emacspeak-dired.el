@@ -464,6 +464,7 @@ On a directory line, run du -s on the directory to speak its size."
 (defun emacspeak-locate-play-results-as-playlist ()
   "Treat locate results as a play-list"
   (interactive )
+  (cl-declare (special emacspeak-locate-media-pattern))
   (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")
   (goto-char (point-min))
   (dired-next-line 3)
@@ -476,7 +477,8 @@ On a directory line, run du -s on the directory to speak its size."
       (dired-next-line 1)
       (setq file  (dired-file-name-at-point)))
     (setq results (nreverse results))
-    (message "results: %s" (length results))
+    (message "%s tracks matching %s"
+             (length results) emacspeak-locate-media-pattern)
     (with-current-buffer buff
       (cl-loop
        for f in results do

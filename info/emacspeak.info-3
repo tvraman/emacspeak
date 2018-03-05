@@ -8455,7 +8455,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.229 URL Templates
 ====================
 
-This section documents a total of 91 URL Templates.
+This section documents a total of 89 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -8577,14 +8577,6 @@ goog:us
    Finance Google news
 
    Display content from Google Finance.
-
-   Flight Status
-
-   Show Flight Status.
-
-   Flight Tracker
-
-   Flight Tracker
 
    FreeSound
 

@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1203 commands and 1172 options.
+This chapter documents a total of 1204 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6313,6 +6313,15 @@ Speaks the target of the symlink on the current line.
 @end format
 @end deffn
 
+@subsubsection emacspeak-locate-play-results-as-playlist
+@deffn {Command} emacspeak-locate-play-results-as-playlist   
+@findex emacspeak-locate-play-results-as-playlist
+
+@format
+Treat locate results as a play-list
+@end format
+@end deffn
+
 @subsection emacspeak-dired Options
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
@@ -11470,10 +11479,13 @@ Load specified playlist file.
 @findex emacspeak-m-player-locate-media
 
 @format
-Locate media matching specified pattern.  Pattern is first converted
-to a regexp that accepts common punctuation separators (-,._’") in place
-of white-space.  Results are placed in a Locate buffer and can be
-played using M-Player.
+Locate media matching specified pattern.  The results can be
+played as a play-list by pressing [RET] on the first line.
+Pattern is first converted to a regexp that accepts common
+punctuation separators (-,._’") in place of white-space.
+Results are placed in a Locate buffer and can be played using
+M-Player --- use M-x emacspeak-dired-open-this-file
+to play individual tracks.
 
 (fn PATTERN)
 @end format
@@ -26384,7 +26396,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 91 URL Templates.
+This section documents a total of 89 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -26509,14 +26521,6 @@ Display content from Google Finance.
 @b{Finance Google news}
 
 Display content from Google Finance.
-
-@b{Flight Status}
-
-Show Flight Status.
-
-@b{Flight Tracker}
-
-Flight Tracker
 
 @b{FreeSound}
 
