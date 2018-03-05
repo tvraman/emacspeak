@@ -476,10 +476,12 @@ On a directory line, run du -s on the directory to speak its size."
       (dired-next-line 1)
       (setq file  (dired-file-name-at-point)))
     (setq results (nreverse results))
+    (message "results: %s" (length results))
     (with-current-buffer buff
-        (cl-loop
-         for f in results do
-         (insert (format "%s\n" (expand-file-name f)))))
+      (cl-loop
+       for f in results do
+       (insert (format "%s\n" (expand-file-name f))))
+      (save-buffer))
     (emacspeak-m-player  m3u 'play-list)))
 ;;}}}
 
