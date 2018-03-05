@@ -460,8 +460,8 @@ On a directory line, run du -s on the directory to speak its size."
 ;;}}}
 ;;{{{ Locate results as a play-list:
 
-
-(defun emacspeak-locate-results-as-playlist ()
+;;;###autoload
+(defun emacspeak-locate-play-results-as-playlist ()
   "Treat locate results as a play-list"
   (interactive )
   (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")

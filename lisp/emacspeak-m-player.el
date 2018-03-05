@@ -1601,21 +1601,38 @@ tap-reverb already installed."
     (emacspeak-m-player file 'playlist)))
 ;;}}}
 ;;{{{ Use locate to construct media playlist:
+(defvar-local emacspeak-locate-media-pattern nil)
+
+(defvar emacspeak-locate-media-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map "\C-m" 'emacspeak-locate-play-results-as-playlist)
+    map)
+  "Keymap used to play locate results.")
 
 ;;;###autoload
 (defun emacspeak-m-player-locate-media (pattern)
-  "Locate media matching specified pattern.  Pattern is first converted
-to a regexp that accepts common punctuation separators (-,._\'\") in place
-of white-space.  Results are placed in a Locate buffer and can be
-played using M-Player."
+  "Locate media matching specified pattern.  The results can be
+played as a play-list by pressing [RET] on the first line.
+Pattern is first converted to a regexp that accepts common
+punctuation separators (-,._\'\") in place of white-space.
+Results are placed in a Locate buffer and can be played using
+M-Player."
   (interactive "sSearch Pattern: ")
-  (cl-declare  (special emacspeak-media-extensions))
-  (setq pattern
-        (mapconcat #'identity
-                   (split-string pattern)
-                   "[ '\"_.,-]"))
-  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
-    (locate-with-filter pattern emacspeak-media-extensions)
+  (cl-declare  (special emacspeak-media-extensions
+                        emacspeak-locate-media-pattern))
+  (let ((inhibit-read-only t)
+        (locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
+    (locate-with-filter
+     (mapconcat #'identity
+                (split-string pattern)
+                "[ '\"_.,-]")
+     emacspeak-media-extensions)
+    (setq emacspeak-locate-media-pattern pattern)
+    (goto-char (point-min))
+    (message "Buffer: %s" (current-buffer))
+    (put-text-property
+     (line-beginning-position) (line-end-position)
+     'keymap  emacspeak-locate-media-map)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
