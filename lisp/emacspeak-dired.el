@@ -458,6 +458,24 @@ On a directory line, run du -s on the directory to speak its size."
   (emacspeak-table-find-csv-file (dired-get-filename current-prefix-arg)))
 
 ;;}}}
+;;{{{ Locate results as a play-list:
+
+
+(defun emacspeak-locate-results-as-playlist ()
+  "Treat locate results as a play-list"
+  (interactive )
+  (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")
+  (goto-char (point-min))
+  (dired-next-line 3)
+  (let ((play-list nil)
+      (file (dired-file-name-at-point)))
+    (while file
+      (push file play-list)
+      (setq file (dired-file-name-at-point))
+      (dired-next-line 1))
+        play-list))
+
+  ;;}}}
 
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
