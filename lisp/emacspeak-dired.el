@@ -467,15 +467,21 @@ On a directory line, run du -s on the directory to speak its size."
   (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")
   (goto-char (point-min))
   (dired-next-line 3)
-  (let ((play-list nil)
-      (file (dired-file-name-at-point)))
+  (let* ((m3u (make-temp-file "locate-playlist" nil ".m3u"))
+         (buff (find-file-noselect m3u))
+         (results nil)
+         (file (dired-file-name-at-point)))
     (while file
-      (push file play-list)
-      (setq file (dired-file-name-at-point))
-      (dired-next-line 1))
-        play-list))
-
-  ;;}}}
+      (push file results)
+      (dired-next-line 1)
+      (setq file  (dired-file-name-at-point)))
+    (setq results (nreverse results))
+    (with-current-buffer buff
+        (cl-loop
+         for f in results do
+         (insert (format "%s\n" (expand-file-name f)))))
+    (emacspeak-m-player  m3u 'play-list)))
+;;}}}
 
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
