@@ -1,0 +1,24 @@
+*.elc
+*.pyc
+*.el~
+*.o
+# ignore generated files:
+README
+etc/emacspeak.sh
+lisp/emacspeak-cus-load.el
+lisp/emacspeak-finder-inf.el
+lisp/emacspeak-loaddefs.el
+lisp/TAGS
+info/TAGS
+lisp/g-client/g-cus-load.el
+lisp/g-client/g-loaddefs.el
+js/node/node_modules
+js/node/auto
+.tern-port
+.amarks.el
+*.boop
+servers/linux-outloud/atcleci.so
+servers/linux-espeak/tclespeak.so
+.build.log
+lisp/sudoku.el
+obsolete/
