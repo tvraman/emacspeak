@@ -94,20 +94,6 @@
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
-(cl-loop
- for f in
- '(
-   sp-kill-whole-line sp-kill-region sp-backward-kill-sexp
-                      sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
-                      sp-splice-sexp-killing-forward sp-kill-sexp
-                      sp-copy-sexp sp--kill-or-copy-region)
- do
- (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (emacspeak-speak-current-kill)
-       (emacspeak-auditory-icon 'delete-object)))))
 
 (defadvice sp-forward-delete-char (around emacspeak pre act comp)
   "Speak character you're deleting."
@@ -132,11 +118,44 @@
 
 (cl-loop
  for f in
+ '(sp-forward-sexp sp-backward-sexp)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Speak sexp after moving."
+     (if (ems-interactive-p)
+         (let ((start (point))
+               (end (line-end-position)))
+           ad-do-it
+           (emacspeak-auditory-icon 'paragraph)
+           (cond
+            ((>= end (point))
+             (emacspeak-speak-region start (point)))
+            (t (emacspeak-speak-line))))
+       ad-do-it)
+     ad-return-value)))
+
+(cl-loop
+ for f in
+ '(
+   sp-kill-whole-line sp-kill-region sp-backward-kill-sexp
+                      sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
+                      sp-splice-sexp-killing-forward sp-kill-sexp
+                      sp-copy-sexp sp--kill-or-copy-region)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-current-kill)
+       (emacspeak-auditory-icon 'delete-object)))))
+
+(cl-loop
+ for f in
  '(
    sp-absorb-sexp sp-emit-sexp
                   sp-add-to-next-sexp sp-add-to-previous-sexp
-                  sp-backward-barf-sexp sp-forward-barf-sexp
-                  sp-backward-sexp sp-down-sexp sp-clone-sexp
+                  sp-backward-barf-sexp sp-forward-barf-sexp sp-down-sexp sp-clone-sexp
                   sp-backward-up-sexp sp-select-next-thing sp-backward-symbol
                   sp-beginning-of-previous-sexp sp-beginning-of-next-sexp
                   sp-beginning-of-sexp sp-backward-slurp-sexp
@@ -156,7 +175,7 @@
                   sp-split-sexp sp-join-sexp
                   sp-transpose-sexp
                   sp-unwrap-sexp sp-backward-down-sexp
-                  sp-up-sexp sp-forward-sexp)
+                  sp-up-sexp)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
