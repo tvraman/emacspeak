@@ -39,7 +39,7 @@
 
 ;;{{{  introduction
 
-;;; Commentary: 
+;;; Commentary:
 
 ;;; SMARTPARENS == Automatic insertion, wrapping and paredit-like
 ;;; navigation with user defined pairs this module speech-enables
@@ -85,13 +85,22 @@
 ;;}}}
 ;;{{{ Navigators And Modifiers:
 
+(defadvice sp-backward-delete-char (around emacspeak pre act comp)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p)
+    (dtk-tone 500 30 'force)
+    (emacspeak-speak-this-char (preceding-char))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
 (cl-loop
  for f in
  '(
    sp-kill-whole-line sp-kill-region sp-backward-kill-sexp
-   sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
-   sp-splice-sexp-killing-forward sp-kill-sexp
-   sp-copy-sexp sp--kill-or-copy-region)
+                      sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
+                      sp-splice-sexp-killing-forward sp-kill-sexp
+                      sp-copy-sexp sp--kill-or-copy-region)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -100,33 +109,54 @@
        (emacspeak-speak-current-kill)
        (emacspeak-auditory-icon 'delete-object)))))
 
+(defadvice sp-forward-delete-char (around emacspeak pre act comp)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p)
+    (dtk-tone 500 30 'force)
+    (emacspeak-speak-char t)
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice sp-backward-kill-word (before emacspeak pre act comp)
+  "Speak word before killing it."
+  (when (ems-interactive-p)
+    (when dtk-stop-immediately (dtk-stop))
+    (let ((start (point))
+          (dtk-stop-immediately nil))
+      (save-excursion
+        (forward-word -1)
+        (dtk-tone-deletion)
+        (emacspeak-speak-region (point) start)))))
+
 (cl-loop
  for f in
  '(
    sp-absorb-sexp sp-emit-sexp
-   sp-add-to-next-sexp sp-add-to-previous-sexp
-   sp-backward-barf-sexp sp-forward-barf-sexp
-   sp-backward-sexp sp-down-sexp sp-clone-sexp
-   sp-backward-up-sexp sp-select-next-thing sp-backward-symbol
-   sp-beginning-of-previous-sexp sp-beginning-of-next-sexp
-   sp-beginning-of-sexp sp-backward-slurp-sexp
-   sp-convolute-sexp sp-comment
-   sp-end-of-next-sexp sp-end-of-previous-sexp
-   sp-extract-before-sexp sp-extract-after-sexp
-   sp-forward-parallel-sexp sp-backward-parallel-sexp
-   sp-forward-slurp-sexp sp-backward-unwrap-sexp
-   sp-forward-symbol sp-mark-sexp
-   sp-highlight-current-sexp sp-forward-whitespace
-   sp-html-previous-tag sp-html-next-tag
-   sp-next-sexp sp-previous-sexp
-   sp-rewrap-sexp sp-swap-enclosing-sexp
-   sp-ruby-forward-sexp sp-ruby-backward-sexp
-   sp-select-next-thing sp-select-previous-thing
-   sp-select-next-thing-exchange sp-end-of-sexp
-   sp-split-sexp sp-join-sexp
-   sp-transpose-sexp
-   sp-unwrap-sexp sp-backward-down-sexp
-   sp-up-sexp sp-forward-sexp)
+                  sp-add-to-next-sexp sp-add-to-previous-sexp
+                  sp-backward-barf-sexp sp-forward-barf-sexp
+                  sp-backward-sexp sp-down-sexp sp-clone-sexp
+                  sp-backward-up-sexp sp-select-next-thing sp-backward-symbol
+                  sp-beginning-of-previous-sexp sp-beginning-of-next-sexp
+                  sp-beginning-of-sexp sp-backward-slurp-sexp
+                  sp-convolute-sexp sp-comment
+                  sp-end-of-next-sexp sp-end-of-previous-sexp
+                  sp-extract-before-sexp sp-extract-after-sexp
+                  sp-forward-parallel-sexp sp-backward-parallel-sexp
+                  sp-forward-slurp-sexp sp-backward-unwrap-sexp
+                  sp-forward-symbol sp-mark-sexp
+                  sp-highlight-current-sexp sp-forward-whitespace
+                  sp-html-previous-tag sp-html-next-tag
+                  sp-next-sexp sp-previous-sexp
+                  sp-rewrap-sexp sp-swap-enclosing-sexp
+                  sp-ruby-forward-sexp sp-ruby-backward-sexp
+                  sp-select-next-thing sp-select-previous-thing
+                  sp-select-next-thing-exchange sp-end-of-sexp
+                  sp-split-sexp sp-join-sexp
+                  sp-transpose-sexp
+                  sp-unwrap-sexp sp-backward-down-sexp
+                  sp-up-sexp sp-forward-sexp)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
