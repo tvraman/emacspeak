@@ -140,7 +140,7 @@
  '(
    sp-kill-whole-line sp-kill-region sp-backward-kill-sexp
                       sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
-                      sp-splice-sexp-killing-forward sp-kill-sexp
+                      sp-splice-sexp-killing-forward sp-kill-sexp sp-kill-hybrid-sexp
                       sp-copy-sexp sp--kill-or-copy-region)
  do
  (eval
