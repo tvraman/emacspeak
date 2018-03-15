@@ -39,7 +39,7 @@
 
 ;;{{{  introduction
 
-;;; Commentary: 
+;;; Commentary:
 
 ;;; SMARTPARENS == Automatic insertion, wrapping and paredit-like
 ;;; navigation with user defined pairs this module speech-enables
@@ -85,12 +85,62 @@
 ;;}}}
 ;;{{{ Navigators And Modifiers:
 
+(defadvice sp-backward-delete-char (around emacspeak pre act comp)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-this-char (preceding-char))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice sp-forward-delete-char (around emacspeak pre act comp)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-char t)
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice sp-backward-kill-word (before emacspeak pre act comp)
+  "Speak word before killing it."
+  (when (ems-interactive-p)
+    (when dtk-stop-immediately (dtk-stop))
+    (let ((start (point))
+          (dtk-stop-immediately nil))
+      (save-excursion
+        (forward-word -1)
+        (emacspeak-auditory-icon 'delete-object)
+        (emacspeak-speak-region (point) start)))))
+
+(cl-loop
+ for f in
+ '(sp-forward-sexp sp-backward-sexp)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Speak sexp after moving."
+     (when (ems-interactive-p)
+       (let ((start (point))
+             (end (line-end-position)))
+         ad-do-it
+         (emacspeak-auditory-icon 'paragraph)
+         (cond
+          ((>= end (point))
+           (emacspeak-speak-region start (point)))
+          (t (emacspeak-speak-line))))
+       ad-do-it)
+     ad-return-value)))
+
 (cl-loop
  for f in
  '(
    sp-kill-whole-line sp-kill-region sp-backward-kill-sexp
    sp-splice-sexp-killing-around sp-splice-sexp-killing-backward
-   sp-splice-sexp-killing-forward sp-kill-sexp
+   sp-splice-sexp-killing-forward sp-kill-sexp sp-kill-hybrid-sexp
    sp-copy-sexp sp--kill-or-copy-region)
  do
  (eval
@@ -105,8 +155,7 @@
  '(
    sp-absorb-sexp sp-emit-sexp
    sp-add-to-next-sexp sp-add-to-previous-sexp
-   sp-backward-barf-sexp sp-forward-barf-sexp
-   sp-backward-sexp sp-down-sexp sp-clone-sexp
+   sp-backward-barf-sexp sp-forward-barf-sexp sp-down-sexp sp-clone-sexp
    sp-backward-up-sexp sp-select-next-thing sp-backward-symbol
    sp-beginning-of-previous-sexp sp-beginning-of-next-sexp
    sp-beginning-of-sexp sp-backward-slurp-sexp
@@ -126,13 +175,13 @@
    sp-split-sexp sp-join-sexp
    sp-transpose-sexp
    sp-unwrap-sexp sp-backward-down-sexp
-   sp-up-sexp sp-forward-sexp)
+   sp-up-sexp)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (let ((emacspeak-show-point 'large-movement))
+       (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
 
