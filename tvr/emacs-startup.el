@@ -163,6 +163,7 @@
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
+  (local-set-key "\C-m" 'newline-and-indent)
   (company-mode 1)
   (hs-minor-mode 1)
   (smartparens-mode 1)
