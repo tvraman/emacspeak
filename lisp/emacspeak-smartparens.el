@@ -125,9 +125,10 @@
      "Speak sexp after moving."
      (when (ems-interactive-p)
        (let ((start (point))
-             (end (line-end-position)))
+             (end (line-end-position))
+             (emacspeak-show-point t))
          ad-do-it
-         (emacspeak-auditory-icon 'paragraph)
+         (emacspeak-auditory-icon 'large-movement)
          (cond
           ((>= end (point))
            (emacspeak-speak-region start (point)))
