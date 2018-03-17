@@ -90,6 +90,7 @@ displayed buffers."
           (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
       (t (mapcar #'cl-second buffer-map))))
+    (emacspeak--sox-multiwindow (window-edges))
     (tts-with-punctuations
      'all
      (dtk-speak (concat description (mapconcat #'identity windows " "))))))
