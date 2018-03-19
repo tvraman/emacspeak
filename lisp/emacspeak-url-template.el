@@ -436,7 +436,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-by-id "center_col" url 'speak)))
 
 ;;}}}
-;;{{{ google finance
 ;;{{{ seeking alpha stock search
 
 (emacspeak-url-template-define
@@ -451,15 +450,18 @@ dont-url-encode if true then url arguments are not url-encoded "
  )
 
 ;;}}}
-;;; pull google finance search results via the transcoder
+;;{{{ google finance
+
+
 
 (emacspeak-url-template-define
  "Finance Google Search"
  "https://finance.google.com/finance?q=%s"
  (list "Finance Search: ")
- 'emacspeak-speak-buffer
+ nil
  "Display content from Google Finance."
- )
+ #'(lambda (url)
+(emacspeak-we-extract-by-id "res" url 'speak)))
 
 (defun emacspeak-finance-google-up-or-down (value)
   "Return up/down by value."
