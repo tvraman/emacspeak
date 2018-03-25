@@ -82,6 +82,8 @@
                    "http://emacspeak.sf.net/publications"
                    :help-echo "Read papers describing Emacspeak
 design and implementation.")
+  :link '(url-link :tag "Gist" "https://gist.github.com/tvraman"
+                   :help-echo "Useful Code Fragments")
   :link '(url-link :tag "Emacs Tour" "http://www.gnu.org/s/emacs/tour/"
                    :help-echo "A guided Tour Of Emacs")
   :link '(url-link :tag "Search"
