@@ -80,7 +80,7 @@
                    :help-echo "Read Emacspeak Blog")
   :link '(url-link :tag "Papers"
                    "http://emacspeak.sf.net/publications"
-                   :help-echo "Read papers describing Emacspeak
+                   :help-echo "Papers describing Emacspeak
 design and implementation.")
   :link '(url-link :tag "Gist" "https://gist.github.com/tvraman"
                    :help-echo "Useful Code Fragments")
