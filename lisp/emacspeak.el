@@ -94,7 +94,7 @@ design and implementation.")
                    :help-echo "Browse available  applications on
 the Emacspeak desktop.")
   :link '(url-link :tag "Guide"
-                   "https://tvraman.github.io/emacspeak/user-guide"
+                   "https://tvraman.github.io/emacspeak/manual"
                    :help-echo "Read online user guide.")
   :link '(url-link :tag "Tips"
                    "https://tvraman.github.io/emacspeak/tips.html"
