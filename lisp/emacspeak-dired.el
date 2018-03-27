@@ -461,10 +461,12 @@ On a directory line, run du -s on the directory to speak its size."
 ;;{{{ Locate results as a play-list:
 
 ;;;###autoload
-(defun emacspeak-locate-play-results-as-playlist ()
-  "Treat locate results as a play-list"
-  (interactive )
-  (cl-declare (special emacspeak-locate-media-pattern))
+(defun emacspeak-locate-play-results-as-playlist (&optional shuffle)
+  "Treat locate results as a play-list.
+Optional interactive prefix arg shuffles playlist."
+  (interactive "P" )
+  (cl-declare (special emacspeak-locate-media-pattern
+                       emacspeak-m-player-options))
   (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")
   (save-excursion
     (goto-char (point-min))
@@ -485,9 +487,13 @@ On a directory line, run du -s on the directory to speak its size."
          for f in results do
          (insert (format "%s\n" (expand-file-name f))))
         (save-buffer))
-      (emacspeak-m-player  m3u 'play-list))))
+      (let ((emacspeak-m-player-options
+             (if shuffle
+                 (append emacspeak-m-player-options (list "-shuffle"))
+               emacspeak-m-player-options)))
+        (emacspeak-m-player  m3u 'play-list)))))
 
-;;}}}
+    ;;}}}
 
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
