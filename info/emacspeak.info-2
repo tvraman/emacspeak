@@ -792,9 +792,13 @@ buffer Voicification is used to indicate directories, marked files etc.
 12.47.1.15 emacspeak-locate-play-results-as-playlist
 ....................................................
 
- -- Command: emacspeak-locate-play-results-as-playlist
+ -- Command: emacspeak-locate-play-results-as-playlist (&optional
+          shuffle)
 
-     Treat locate results as a play-list
+     Treat locate results as a play-list.
+     Optional interactive prefix arg shuffles playlist.
+
+     (fn &optional SHUFFLE)
 
 12.47.2 emacspeak-dired Options
 -------------------------------

@@ -6314,11 +6314,14 @@ Speaks the target of the symlink on the current line.
 @end deffn
 
 @subsubsection emacspeak-locate-play-results-as-playlist
-@deffn {Command} emacspeak-locate-play-results-as-playlist   
+@deffn {Command} emacspeak-locate-play-results-as-playlist  (&optional shuffle)
 @findex emacspeak-locate-play-results-as-playlist
 
 @format
-Treat locate results as a play-list
+Treat locate results as a play-list.
+Optional interactive prefix arg shuffles playlist.
+
+(fn &optional SHUFFLE)
 @end format
 @end deffn
 
