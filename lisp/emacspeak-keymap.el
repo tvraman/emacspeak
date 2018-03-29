@@ -612,7 +612,7 @@ interactive command that the key sequence executes."
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
-    ("f" emacspeak-feeds-find-feeds)
+    ("f" emacspeak-wizards-finance-google-search)
     ("g" emacspeak-gnus-async)
     ("i" emacspeak-wizards-iheart)
     ("l" eww-open-file)

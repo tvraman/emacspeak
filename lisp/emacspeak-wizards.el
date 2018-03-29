@@ -3054,6 +3054,17 @@ per headers."
     (emacspeak-table-make-table table)))
 
 ;;}}}
+;;{{{ google Finance  Search Wizard
+
+
+(defun emacspeak-wizards-finance-google-search  ()
+  "Google Finance Search"
+  (interactive)
+  (require 'emacspeak-url-template)
+  (let ((name "Finance Google Search"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
+;;}}}
 ;;{{{ YQL: Stock Quotes
 
 (defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
