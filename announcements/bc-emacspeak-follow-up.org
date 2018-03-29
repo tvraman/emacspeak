@@ -21,7 +21,9 @@ Software Engineering.
 
 * Defensive Coding To Maintain Long-Term Sanity 
 
+* References 
 
+  1. [[https://www.johndcook.com/blog/2015/06/18/most-important-skill-in-software/][Organisational Skills When Developing Software]]
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
