@@ -173,7 +173,7 @@
 ;;}}}
 ;;{{{ custom hook
 
-(add-hook 'custom-mode-hook
+(add-hook 'Custom-mode-hook
           (function
            (lambda nil
              (emacspeak-pronounce-refresh-pronunciations))))
