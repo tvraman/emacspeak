@@ -140,10 +140,11 @@ This is set to nil when playing Internet  streams.")
   (cond
    ((eq 'run (process-status emacspeak-m-player-process))
     (let ((info (emacspeak-m-player-get-position)))
-      (put-text-property 0 (length (cl-first info))
-                         'personality 'voice-smoothen (cl-first info))
-      (dtk-speak-and-echo
-       (concat (cl-first info) ":" (cl-second info)))))
+      (when info 
+        (put-text-property 0 (length (cl-first info))
+                           'personality 'voice-smoothen (cl-first info))
+        (dtk-speak-and-echo
+         (concat (cl-first info) ":" (cl-second info))))))
    (t (message "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
