@@ -10,4 +10,5 @@
               ;" "
               ;'jabber-mode-line-contacts
               ))
+              (defalias 'assoc-ignore-case 'assoc)
               (setq buffer-undo-list t)))
