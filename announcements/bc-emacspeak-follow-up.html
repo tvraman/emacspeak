@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-03 Tue 17:43 -->
+<!-- 2018-04-03 Tue 17:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thinking Of Software Engineering: A Follow-Up To Beautiful Code.</title>
@@ -234,19 +234,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5acee3f">1. Background</a></li>
-<li><a href="#orgdb48818">2. Emacspeak High-Level Goals</a></li>
-<li><a href="#org352f2ca">3. Developing Robust Software Over  Time</a></li>
-<li><a href="#orgd7dd093">4. Leverage Structure To Create And Organize Information</a></li>
-<li><a href="#orgdf2ac3e">5. Bushy Vs Deep Trees In Source Code</a></li>
-<li><a href="#org8d84683">6. Avoiding The Least Common Denominator Effect</a></li>
-<li><a href="#orgd90acac">7. Defensive Coding To Maintain Long-Term Sanity</a></li>
-<li><a href="#org87fe864">8. References</a></li>
+<li><a href="#org1869bd3">1. Background</a></li>
+<li><a href="#orga45d3eb">2. Emacspeak High-Level Goals</a></li>
+<li><a href="#org27027d8">3. Developing Robust Software Over  Time</a></li>
+<li><a href="#org1e4be67">4. Leverage Structure To Create And Organize Information</a></li>
+<li><a href="#orge8d14b4">5. Bushy Vs Deep Trees In Source Code</a></li>
+<li><a href="#org0ac21ee">6. Avoiding The Least Common Denominator Effect</a></li>
+<li><a href="#org7179d3e">7. Defensive Coding To Maintain Long-Term Sanity</a></li>
+<li><a href="#org22abef3">8. References</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5acee3f" class="outline-2">
-<h2 id="org5acee3f"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-org1869bd3" class="outline-2">
+<h2 id="org1869bd3"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In 2007, I wrote a <a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a> for the book <a href="http://shop.oreilly.com/product/9780596510046.do">Beautiful Code
@@ -260,8 +260,8 @@ Software Engineering.
 </div>
 </div>
 
-<div id="outline-container-orgdb48818" class="outline-2">
-<h2 id="orgdb48818"><span class="section-number-2">2</span> Emacspeak High-Level Goals</h2>
+<div id="outline-container-orga45d3eb" class="outline-2">
+<h2 id="orga45d3eb"><span class="section-number-2">2</span> Emacspeak High-Level Goals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 This section enumerates the high-level goals that motivated Emacspeak
@@ -280,45 +280,45 @@ structured information objects along with the surrounding context.</li>
 <li>Leverage all aspects of the auditory display to efficiently and
 effectively communicate information along with its underlying
 structure and semantics.</li>
-<li>As a follow-on to (5), all content being authored/browsed needs
-to be accessible via a consistent UI that facilitates information
+<li>As a follow-on to (5), all content being authored/browsed shall
+ be accessible via a consistent UI that facilitates information
 interchange across different activities; e.g., email a code
-fragment, cut-and-paste a code fragment  from an e-book to
+fragment; cut-and-paste a code fragment  from an e-book to
 a source file.</li>
 <li>Writing prose <code>= communicating with humans; Writing code =</code>
 communicating with machines. Design a user interface that treats
 these consistently.</li>
 <li>Editing and browsing content (prose and code)shall use structure-based navigation using a
 consistent set of key-bindings.</li>
-<li>The auditory interface needs to enable hierarchical views of all
+<li>The auditory interface shall  enable hierarchical views of all
 forms of content.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org352f2ca" class="outline-2">
-<h2 id="org352f2ca"><span class="section-number-2">3</span> Developing Robust Software Over  Time</h2>
+<div id="outline-container-org27027d8" class="outline-2">
+<h2 id="org27027d8"><span class="section-number-2">3</span> Developing Robust Software Over  Time</h2>
 </div>
 
-<div id="outline-container-orgd7dd093" class="outline-2">
-<h2 id="orgd7dd093"><span class="section-number-2">4</span> Leverage Structure To Create And Organize Information</h2>
+<div id="outline-container-org1e4be67" class="outline-2">
+<h2 id="org1e4be67"><span class="section-number-2">4</span> Leverage Structure To Create And Organize Information</h2>
 </div>
 
-<div id="outline-container-orgdf2ac3e" class="outline-2">
-<h2 id="orgdf2ac3e"><span class="section-number-2">5</span> Bushy Vs Deep Trees In Source Code</h2>
+<div id="outline-container-orge8d14b4" class="outline-2">
+<h2 id="orge8d14b4"><span class="section-number-2">5</span> Bushy Vs Deep Trees In Source Code</h2>
 </div>
 
-<div id="outline-container-org8d84683" class="outline-2">
-<h2 id="org8d84683"><span class="section-number-2">6</span> Avoiding The Least Common Denominator Effect</h2>
+<div id="outline-container-org0ac21ee" class="outline-2">
+<h2 id="org0ac21ee"><span class="section-number-2">6</span> Avoiding The Least Common Denominator Effect</h2>
 </div>
 
 
-<div id="outline-container-orgd90acac" class="outline-2">
-<h2 id="orgd90acac"><span class="section-number-2">7</span> Defensive Coding To Maintain Long-Term Sanity</h2>
+<div id="outline-container-org7179d3e" class="outline-2">
+<h2 id="org7179d3e"><span class="section-number-2">7</span> Defensive Coding To Maintain Long-Term Sanity</h2>
 </div>
 
-<div id="outline-container-org87fe864" class="outline-2">
-<h2 id="org87fe864"><span class="section-number-2">8</span> References</h2>
+<div id="outline-container-org22abef3" class="outline-2">
+<h2 id="org22abef3"><span class="section-number-2">8</span> References</h2>
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li><a href="https://www.johndcook.com/blog/2015/06/18/most-important-skill-in-software/">Organisational Skills When Developing Software</a></li>
@@ -330,7 +330,7 @@ forms of content.</li>
 <p class="date">Date: 2017-01-03 Tue 00:00</p>
 <p class="author">Author: T.V Raman</p>
 <p class="email">Email: <a href="mailto:raman@google.com">raman@google.com</a></p>
-<p class="date">Created: 2018-04-03 Tue 17:43</p>
+<p class="date">Created: 2018-04-03 Tue 17:49</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
