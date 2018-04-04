@@ -27,7 +27,7 @@ the project, with very few additional goals creeping in over time.
   6. As a follow-on to (5), all content being authored/browsed shall
       be accessible via a consistent UI that facilitates information
      interchange across different activities; e.g., email a code
-     fragment, cut-and-paste a code fragment  from an e-book to
+     fragment; cut-and-paste a code fragment  from an e-book to
      a source file.
   7. Writing prose == communicating with humans; Writing code ==
      communicating with machines. Design a user interface that treats
