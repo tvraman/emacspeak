@@ -241,7 +241,8 @@ already disabled."
    (shell-command
     "pidof gnome-screensaver \
  && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
-   (start-process "screen-saver" nil "gnome-screensaver"))))))
+   (start-process "screen-saver" nil "gnome-screensaver"))))
+  t))
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
