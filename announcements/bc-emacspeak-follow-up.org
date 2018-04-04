@@ -8,7 +8,7 @@ is to further crystalize some of the lessons learnt over the duration
 of project Emacspeak, while stepping back to think more broadly about
 Software Engineering.
 
-* Emacspeak High-Level Goals 
+* Emacspeak: High-Level Goals 
 
 This section enumerates the high-level goals that motivated Emacspeak
 at its inception.  These goals derived from my use of screen-readers
