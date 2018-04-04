@@ -24,8 +24,8 @@ the project, with very few additional goals creeping in over time.
   5. Leverage all aspects of the auditory display to efficiently and
      effectively communicate information along with its underlying
      structure and semantics.
-  6. As a follow-on to (5), all content being authored/browsed needs
-     to be accessible via a consistent UI that facilitates information
+  6. As a follow-on to (5), all content being authored/browsed shall
+      be accessible via a consistent UI that facilitates information
      interchange across different activities; e.g., email a code
      fragment, cut-and-paste a code fragment  from an e-book to
      a source file.
@@ -34,7 +34,7 @@ the project, with very few additional goals creeping in over time.
      these consistently.
   8. Editing and browsing content (prose and code)shall use structure-based navigation using a
      consistent set of key-bindings.
-  9. The auditory interface needs to enable hierarchical views of all
+  9. The auditory interface shall  enable hierarchical views of all
      forms of content.
   
 * Developing Robust Software Over  Time 
