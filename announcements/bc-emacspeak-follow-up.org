@@ -32,6 +32,10 @@ the project, with very few additional goals creeping in over time.
   7. Writing prose == communicating with humans; Writing code ==
      communicating with machines. Design a user interface that treats
      these consistently.
+  8. Editing and browsing content (prose and code)shall use structure-based navigation using a
+     consistent set of key-bindings.
+  9. The auditory interface needs to enable hierarchical views of all
+     forms of content.
   
 * Developing Robust Software Over  Time 
 
