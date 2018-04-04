@@ -6,14 +6,14 @@ Of Mathematics]]. This article is being written over 10 years later as
 a consolidated follow-up to the afore-mentioned publications. The goal
 is to further crystalize some of the lessons learnt over the duration
 of project Emacspeak, while stepping back to think more broadly about
-Software Engineering.
+Software Engineering in the context of eyes-free interaction.
 
 * Emacspeak: High-Level Goals 
 
 This section enumerates the high-level goals that motivated Emacspeak
 at its inception.  These goals derived from my use of screen-readers
 during my time as a graduate student at Cornell and the insights
-gleened from developing Audio System For Technical Readings (AsTeR).
+gleened from developing [[http://emacspeak.sourceforge.net/raman/aster/aster-toplevel.html][Audio System For Technical Readings (AsTeR)]].
 These goals have remained constant over the duration of the project, with
 very few additional requirements  creeping in over time.
 
@@ -35,17 +35,16 @@ very few additional requirements  creeping in over time.
      a source file.
   7. Writing prose ↔  communicating with humans; 
      Writing code  ↔ communicating with machines. 
-     Design a user interface that treats
-     these consistently.
+     Design a user interface that treats these consistently.
   8. Editing and browsing content (prose and code)shall use structure-based navigation using a
      consistent set of key-bindings.
   9. The auditory interface shall  enable hierarchical views of all
      forms of content.
   
-  
-* Developing Robust Software Over  Time 
 
 * Leverage Structure To Create And Organize Information
+  
+* Developing Robust Software Over  Time 
 
 * Bushy Vs Deep Trees In Source Code 
 

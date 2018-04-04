@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-03 Tue 19:57 -->
+<!-- 2018-04-04 Wed 13:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thinking Of Software Engineering: A Follow-Up To Beautiful Code.</title>
@@ -180,52 +180,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="content">
@@ -234,19 +188,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9720171">1. Background</a></li>
-<li><a href="#orge6907e5">2. Emacspeak: High-Level Goals</a></li>
-<li><a href="#org6687897">3. Developing Robust Software Over  Time</a></li>
-<li><a href="#orgbf359b4">4. Leverage Structure To Create And Organize Information</a></li>
-<li><a href="#orgc52fd73">5. Bushy Vs Deep Trees In Source Code</a></li>
-<li><a href="#org70d3b49">6. Avoiding The Least Common Denominator Effect</a></li>
-<li><a href="#org2eb52b7">7. Defensive Coding To Maintain Long-Term Sanity</a></li>
-<li><a href="#org5f46ed9">8. References</a></li>
+<li><a href="#orgec6295b">1. Background</a></li>
+<li><a href="#org24897d4">2. Emacspeak: High-Level Goals</a></li>
+<li><a href="#org4b8afa2">3. Leverage Structure To Create And Organize Information</a></li>
+<li><a href="#org9e8291b">4. Developing Robust Software Over  Time</a></li>
+<li><a href="#orgc30263b">5. Bushy Vs Deep Trees In Source Code</a></li>
+<li><a href="#orgb19bbc1">6. Avoiding The Least Common Denominator Effect</a></li>
+<li><a href="#org1efc249">7. Defensive Coding To Maintain Long-Term Sanity</a></li>
+<li><a href="#org7e5d182">8. References</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9720171" class="outline-2">
-<h2 id="org9720171"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-orgec6295b" class="outline-2">
+<h2 id="orgec6295b"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In 2007, I wrote a <a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a> for the book <a href="http://shop.oreilly.com/product/9780596510046.do">Beautiful Code
@@ -255,19 +209,19 @@ Of Mathematics</a>. This article is being written over 10 years later as
 a consolidated follow-up to the afore-mentioned publications. The goal
 is to further crystalize some of the lessons learnt over the duration
 of project Emacspeak, while stepping back to think more broadly about
-Software Engineering.
+Software Engineering in the context of eyes-free interaction.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge6907e5" class="outline-2">
-<h2 id="orge6907e5"><span class="section-number-2">2</span> Emacspeak: High-Level Goals</h2>
+<div id="outline-container-org24897d4" class="outline-2">
+<h2 id="org24897d4"><span class="section-number-2">2</span> Emacspeak: High-Level Goals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 This section enumerates the high-level goals that motivated Emacspeak
 at its inception.  These goals derived from my use of screen-readers
 during my time as a graduate student at Cornell and the insights
-gleened from developing Audio System For Technical Readings (AsTeR).
+gleened from developing <a href="http://emacspeak.sourceforge.net/raman/aster/aster-toplevel.html">Audio System For Technical Readings (AsTeR)</a>.
 These goals have remained constant over the duration of the project, with
 very few additional requirements  creeping in over time.
 </p>
@@ -291,8 +245,7 @@ fragment; cut-and-paste a code fragment  from an e-book to
 a source file.</li>
 <li>Writing prose ↔  communicating with humans; 
 Writing code  ↔ communicating with machines. 
-Design a user interface that treats
-these consistently.</li>
+Design a user interface that treats these consistently.</li>
 <li>Editing and browsing content (prose and code)shall use structure-based navigation using a
 consistent set of key-bindings.</li>
 <li>The auditory interface shall  enable hierarchical views of all
@@ -302,29 +255,29 @@ forms of content.</li>
 </div>
 
 
-<div id="outline-container-org6687897" class="outline-2">
-<h2 id="org6687897"><span class="section-number-2">3</span> Developing Robust Software Over  Time</h2>
+<div id="outline-container-org4b8afa2" class="outline-2">
+<h2 id="org4b8afa2"><span class="section-number-2">3</span> Leverage Structure To Create And Organize Information</h2>
 </div>
 
-<div id="outline-container-orgbf359b4" class="outline-2">
-<h2 id="orgbf359b4"><span class="section-number-2">4</span> Leverage Structure To Create And Organize Information</h2>
+<div id="outline-container-org9e8291b" class="outline-2">
+<h2 id="org9e8291b"><span class="section-number-2">4</span> Developing Robust Software Over  Time</h2>
 </div>
 
-<div id="outline-container-orgc52fd73" class="outline-2">
-<h2 id="orgc52fd73"><span class="section-number-2">5</span> Bushy Vs Deep Trees In Source Code</h2>
+<div id="outline-container-orgc30263b" class="outline-2">
+<h2 id="orgc30263b"><span class="section-number-2">5</span> Bushy Vs Deep Trees In Source Code</h2>
 </div>
 
-<div id="outline-container-org70d3b49" class="outline-2">
-<h2 id="org70d3b49"><span class="section-number-2">6</span> Avoiding The Least Common Denominator Effect</h2>
+<div id="outline-container-orgb19bbc1" class="outline-2">
+<h2 id="orgb19bbc1"><span class="section-number-2">6</span> Avoiding The Least Common Denominator Effect</h2>
 </div>
 
 
-<div id="outline-container-org2eb52b7" class="outline-2">
-<h2 id="org2eb52b7"><span class="section-number-2">7</span> Defensive Coding To Maintain Long-Term Sanity</h2>
+<div id="outline-container-org1efc249" class="outline-2">
+<h2 id="org1efc249"><span class="section-number-2">7</span> Defensive Coding To Maintain Long-Term Sanity</h2>
 </div>
 
-<div id="outline-container-org5f46ed9" class="outline-2">
-<h2 id="org5f46ed9"><span class="section-number-2">8</span> References</h2>
+<div id="outline-container-org7e5d182" class="outline-2">
+<h2 id="org7e5d182"><span class="section-number-2">8</span> References</h2>
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li><a href="https://www.johndcook.com/blog/2015/06/18/most-important-skill-in-software/">Organisational Skills When Developing Software</a></li>
@@ -336,7 +289,7 @@ forms of content.</li>
 <p class="date">Date: 2017-01-03 Tue 00:00</p>
 <p class="author">Author: T.V Raman</p>
 <p class="email">Email: <a href="mailto:raman@google.com">raman@google.com</a></p>
-<p class="date">Created: 2018-04-03 Tue 19:57</p>
+<p class="date">Created: 2018-04-04 Wed 13:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
