@@ -249,8 +249,7 @@ Interactive prefix arg refreshes cache."
         (choices nil))
     (cond
      ((null control)
-      (amixer-restore  amixer-alsactl-config-file)
-      (amixer-reset-equalizer))
+      (amixer-restore  amixer-alsactl-config-file))
      (t
       (when (string=
              "ENUMERATED"
