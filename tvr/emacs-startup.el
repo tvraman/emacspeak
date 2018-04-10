@@ -68,7 +68,7 @@
 (defconst tvr-weekday-to-color-alist
   '(("AliceBlue" "#FFD724")
     ("#FFBCC9" "#FFD724") ;gold on pink
-    ("#FF8A8F" "sea green")
+    ("#F4C430" "sea green") ; saffron 
     ("#FFFFDA" "dark blue")
     ("mint cream" "dark blue")
     ("#9BD2FA" "gold")
