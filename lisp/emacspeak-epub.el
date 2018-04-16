@@ -821,7 +821,8 @@ Letters do not insert themselves; instead, they are commands.
   (emacspeak-epub-bookshelf-refresh))
 
 (cl-declaim (special emacspeak-epub-mode-map))
-(cl-loop for k in
+(cl-loop
+ for k in
          '(
            ("/" emacspeak-epub-calibre-results)
            ("A" emacspeak-epub-bookshelf-calibre-author)
@@ -851,7 +852,7 @@ Letters do not insert themselves; instead, they are commands.
            ("p" previous-line)
            ("r" emacspeak-epub-bookshelf-rename)
            ("t" emacspeak-epub-fulltext)
-           ("RET" emacspeak-epub-open)
+           ("RET" emacspeak-epub-eww)
            )
          do
          (emacspeak-keymap-update emacspeak-epub-mode-map k))
