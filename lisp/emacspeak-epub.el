@@ -833,7 +833,7 @@ Letters do not insert themselves; instead, they are commands.
            ("\C-d" emacspeak-epub-bookshelf-remove-directory)
            ("\C-k" emacspeak-epub-delete)
            ("C-l" emacspeak-epub-bookshelf-redraw)
-           ("\C-m" emacspeak-epub-open)
+           ("\C-m" emacspeak-epub-eww)
            ("\C-o" emacspeak-epub-bookshelf-open-epub)
            ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
            ("\C-x\C-s" emacspeak-epub-bookshelf-save)
