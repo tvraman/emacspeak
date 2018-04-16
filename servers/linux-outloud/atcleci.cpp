@@ -565,7 +565,8 @@ int Atcleci_Init(Tcl_Interp *interp) {
 
   fprintf(stderr, "allocating %d 16 bit samples, %f seconds of audio.\n",
           (int)chunk_bytes, (chunk_bytes / (float)DEFAULT_SPEED));
-  waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
+  //waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
+  waveBuffer = (short *)calloc(chunk_bytes, sizeof(short));
   waveBufferSize = (chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
