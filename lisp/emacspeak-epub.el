@@ -885,19 +885,36 @@ Letters do not insert themselves; instead, they are commands.
           book-id
           emacspeak-epub-gutenberg-suffix))
 
+
+(defun emacspeak-epub-gutenberg-browse-uri (book-id)
+  "Return URL  for browsing Gutenberg EBook."
+  (cl-declare ( emacspeak-epub-gutenberg-suffix emacspeak-epub-gutenberg-mirror))
+  (format "%s%s"
+          emacspeak-epub-gutenberg-mirror book-id))
+
 ;;;###autoload
-(defun emacspeak-epub-gutenberg-download (book-id)
-  "Download specified EBook to local cache"
+(defun emacspeak-epub-gutenberg-download (book-id &optional download)
+  "Open web page for specified book.
+Place download url for epub in kill ring.
+With interactive prefix arg `download', download the epub."
   (interactive "sBook-Id: ")
   (let ((file
          (expand-file-name
           (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
           emacspeak-epub-library-directory))
+        (browse (emacspeak-epub-gutenberg-browse-uri book-id))
         (url (emacspeak-epub-gutenberg-download-uri book-id)))
     (cond
      ((file-exists-p file)
+      (browse-url browse)
       (message "Book available locally as %s" file))
-     (t (kill-new (message "%s" url))))))
+     (t (kill-new   url)
+        (browse-url browse)
+     (when download
+      (shell-command
+       (format"%s -O %s '%s'"
+              emacspeak-epub-wget file url))
+      (message "Downloaded content to %s" file))))))
 
 (defvar emacspeak-epub-gutenberg-catalog-url
   "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
