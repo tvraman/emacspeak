@@ -106,7 +106,7 @@ Letters do not insert themselves; instead, they are commands.
 key             binding
 —             ——-
 
-&lt;Return&gt;  emacspeak-epub-calibre-dired-at-point
+RET             emacspeak-epub-calibre-dired-at-point
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
 this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
@@ -638,16 +638,18 @@ Fetch if needed, or if refresh is T.
     <dt><a name=
     "index-emacspeak_002depub_002dgutenberg_002ddownload" id=
     "index-emacspeak_002depub_002dgutenberg_002ddownload"></a>Command:
-    <strong>emacspeak-epub-gutenberg-download</strong>
-    <em>(book-id)</em></dt>
+    <strong>emacspeak-epub-gutenberg-download</strong> <em>(book-id
+    &amp;optional download)</em></dt>
     <dd>
       <a name=
       "index-emacspeak_002depub_002dgutenberg_002ddownload-1" id=
       "index-emacspeak_002depub_002dgutenberg_002ddownload-1"></a>
       <div class="format">
-        <pre class="format">Download specified EBook to local cache
+        <pre class="format">Open web page for specified book.
+Place download url for epub in kill ring.
+With interactive prefix arg ‘download’, download the epub.
 
-(fn BOOK-ID)
+(fn BOOK-ID &amp;optional DOWNLOAD)
 </pre>
       </div>
     </dd>
@@ -698,7 +700,7 @@ ESC             Prefix Command
 /               emacspeak-epub-calibre-results
 A               emacspeak-epub-bookshelf-calibre-author
 C               emacspeak-epub-gutenberg-catalog
-G               emacspeak-epub-gutenberg-download
+G               emacspeak-epub-google
 S               emacspeak-epub-bookshelf-calibre-search
 T               emacspeak-epub-bookshelf-calibre-title
 a               emacspeak-epub-bookshelf-add-epub
@@ -707,7 +709,7 @@ c               emacspeak-epub-bookshelf-clear
 d               emacspeak-epub-bookshelf-remove-this-book
 e               emacspeak-epub-eww
 f               emacspeak-epub-browse-files
-g               emacspeak-epub-google
+g               emacspeak-epub-gutenberg-download
 l               emacspeak-epub-locate-epubs
 n               next-line
 o               emacspeak-epub-open
@@ -798,8 +800,8 @@ Filename may need to  be shell-quoted when called from Lisp.
   "emacspeak_002depub-Options"></a>
   <h4 class="subsection">12.62.2 emacspeak-epub Options</h4>
   <dl>
-    <dt><a name="index-User-Option-560" id=
-    "index-User-Option-560"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-571" id=
+    "index-User-Option-571"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-epub-bookshelf-directory</em></dt>
     <dd>
@@ -808,40 +810,40 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-561" id=
-    "index-User-Option-561"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-572" id=
+    "index-User-Option-572"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-calibre-root-dir</em></dt>
     <dd>
       <p>Root of Calibre library.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-562" id=
-    "index-User-Option-562"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-573" id=
+    "index-User-Option-573"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-calibre-sqlite</em></dt>
     <dd>
       <p>Path to sqlite3.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-563" id=
-    "index-User-Option-563"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-574" id=
+    "index-User-Option-574"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-gutenberg-mirror</em></dt>
     <dd>
       <p>Base URL for Gutenberg mirror.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-564" id=
-    "index-User-Option-564"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-575" id=
+    "index-User-Option-575"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-gutenberg-suffix</em></dt>
     <dd>
       <p>Suffix of book type we retrieve.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-565" id=
-    "index-User-Option-565"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-576" id=
+    "index-User-Option-576"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-epub-html-to-text-command</em></dt>
     <dd>
@@ -849,8 +851,8 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-566" id=
-    "index-User-Option-566"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-577" id=
+    "index-User-Option-577"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-library-directory</em></dt>
     <dd>
       <p>Directory under which we store Epubs.</p>
