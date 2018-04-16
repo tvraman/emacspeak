@@ -813,7 +813,7 @@ b Browse
   (cl-declare (special emacspeak-bookshare-mode-map))
   (cl-loop for k in
            '(
-             ("e" emacspeak-epub)
+             ("e" emacspeak-bookshare-eww)
              ("q" bury-buffer)
              ("f" emacspeak-bookshare-flush-lines)
              ("v" emacspeak-bookshare-view)
