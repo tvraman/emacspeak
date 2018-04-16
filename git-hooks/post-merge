@@ -4,3 +4,4 @@
 make -s config
 make  -s
 make outloud 
+cd tvr && make
