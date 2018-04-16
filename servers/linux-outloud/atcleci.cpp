@@ -87,7 +87,7 @@
 static snd_pcm_t *AHandle = NULL;
 static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
-int waveBufferSize = 0;
+int waveBufferBytes = 0;
 
 //>
 //<decls and function prototypes
@@ -567,7 +567,7 @@ int Atcleci_Init(Tcl_Interp *interp) {
           (int)chunk_bytes, (chunk_bytes / (float)DEFAULT_SPEED));
   //waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
   waveBuffer = (short *)calloc(chunk_bytes, sizeof(short));
-  waveBufferSize = (chunk_bytes * sizeof(short));
+  waveBufferBytes = (chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
     alsa_close();
@@ -776,7 +776,7 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
   if (_eciStop(eciHandle)) {
     alsa_reset();
     usleep(10);
-    bzero(waveBuffer, waveBufferSize);
+    memset(waveBuffer, 0,waveBufferBytes);
     return TCL_OK;
   }
   Tcl_SetResult(interp, const_cast<char *>("Could not stop synthesis"),
