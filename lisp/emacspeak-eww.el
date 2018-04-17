@@ -410,7 +410,7 @@
 (require 'emacspeak-google)
 
 ;;}}}
-;;{{{Helpers:
+;;{{{ Helpers:
 ;;; Generate functions emacspeak-eww-current-title and friends:
 
 (cl-loop
