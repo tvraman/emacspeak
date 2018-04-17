@@ -58,6 +58,40 @@
 ;;; books, as well as for opening the selected book using Emacs'
 ;;; built-in Web browser (@command{eww}).
 
+;;; @subsection Organizing EBooks On The Emacspeak Desktop
+;;;
+;;; In the simplest case, EBooks can be placed under a specific
+;;; directory (with sub-directories as needed).
+;;; Customize   user option @code{emacspeak-epub-library-directory}     to point to this location.
+;;; Here is  a quick summary of commands for organizing, saving and opening  a bookshelf:
+;;;
+;;; @table @kbd
+;;; @item a               
+;;; emacspeak-epub-bookshelf-add-epub
+;;; @item b               
+;;; emacspeak-epub-bookshelf-open
+;;; @item c               
+;;; emacspeak-epub-bookshelf-clear
+;;; @item d               
+;;; emacspeak-epub-bookshelf-remove-this-book
+;;; @item r               
+;;; emacspeak-epub-bookshelf-rename
+;;; @item C-a             
+;;; emacspeak-epub-bookshelf-add-directory
+;;; @item C-d             
+;;; emacspeak-epub-bookshelf-remove-directory
+;;; @item C-l             
+;;; emacspeak-epub-bookshelf-redraw
+;;; @item C-o             
+;;; emacspeak-epub-bookshelf-open-epub
+;;; @item M-s             
+;;; emacspeak-epub-bookshelf-save
+;;; @item C-x C-q         
+;;; emacspeak-epub-bookshelf-refresh
+;;; @item C-x C-s         
+;;; emacspeak-epub-bookshelf-save
+;;; @end table
+
 ;;}}}
 ;;{{{ Required Modules:
 

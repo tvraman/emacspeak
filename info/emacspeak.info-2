@@ -1289,10 +1289,44 @@ The bookshelf buffer is in a special mode that provides single-key
 commands for adding, removing and finding books, as well as for opening
 the selected book using Emacs’ built-in Web browser (‘eww’).
 
-12.62.2 emacspeak-epub Commands
+12.62.2 Organizing EBooks On The Emacspeak Desktop
+--------------------------------------------------
+
+In the simplest case, EBooks can be placed under a specific directory
+(with sub-directories as needed).  Customize user option
+‘emacspeak-epub-library-directory’ to point to this location.  Here is a
+quick summary of commands for organizing, saving and opening a
+bookshelf:
+
+‘a’
+     emacspeak-epub-bookshelf-add-epub
+‘b’
+     emacspeak-epub-bookshelf-open
+‘c’
+     emacspeak-epub-bookshelf-clear
+‘d’
+     emacspeak-epub-bookshelf-remove-this-book
+‘r’
+     emacspeak-epub-bookshelf-rename
+‘C-a’
+     emacspeak-epub-bookshelf-add-directory
+‘C-d’
+     emacspeak-epub-bookshelf-remove-directory
+‘C-l’
+     emacspeak-epub-bookshelf-redraw
+‘C-o’
+     emacspeak-epub-bookshelf-open-epub
+‘M-s’
+     emacspeak-epub-bookshelf-save
+‘C-x C-q’
+     emacspeak-epub-bookshelf-refresh
+‘C-x C-s’
+     emacspeak-epub-bookshelf-save
+
+12.62.3 emacspeak-epub Commands
 -------------------------------
 
-12.62.2.1 emacspeak-calibre-mode
+12.62.3.1 emacspeak-calibre-mode
 ................................
 
  -- Command: emacspeak-calibre-mode
@@ -1309,7 +1343,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
      this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.2.2 emacspeak-epub
+12.62.3.2 emacspeak-epub
 ........................
 
  -- Command: emacspeak-epub
@@ -1319,7 +1353,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
      EPub  Interaction.
      For detailed documentation, see M-x emacspeak-epub-mode
 
-12.62.2.3 emacspeak-epub-bookshelf-add-directory
+12.62.3.3 emacspeak-epub-bookshelf-add-directory
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-add-directory (directory &optional
@@ -1330,7 +1364,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.62.2.4 emacspeak-epub-bookshelf-add-epub
+12.62.3.4 emacspeak-epub-bookshelf-add-epub
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-add-epub (epub-file)
@@ -1339,7 +1373,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn EPUB-FILE)
 
-12.62.2.5 emacspeak-epub-bookshelf-calibre-author
+12.62.3.5 emacspeak-epub-bookshelf-calibre-author
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-author (pattern)
@@ -1348,7 +1382,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn PATTERN)
 
-12.62.2.6 emacspeak-epub-bookshelf-calibre-search
+12.62.3.6 emacspeak-epub-bookshelf-calibre-search
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-search (pattern)
@@ -1357,7 +1391,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn PATTERN)
 
-12.62.2.7 emacspeak-epub-bookshelf-calibre-title
+12.62.3.7 emacspeak-epub-bookshelf-calibre-title
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-title (pattern)
@@ -1366,21 +1400,21 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn PATTERN)
 
-12.62.2.8 emacspeak-epub-bookshelf-clear
+12.62.3.8 emacspeak-epub-bookshelf-clear
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-clear
 
      Clear all books from bookshelf.
 
-12.62.2.9 emacspeak-epub-bookshelf-load
+12.62.3.9 emacspeak-epub-bookshelf-load
 .......................................
 
  -- Command: emacspeak-epub-bookshelf-load
 
      Load bookshelf metadata from disk.
 
-12.62.2.10 emacspeak-epub-bookshelf-open
+12.62.3.10 emacspeak-epub-bookshelf-open
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-open (bookshelf)
@@ -1389,7 +1423,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn BOOKSHELF)
 
-12.62.2.11 emacspeak-epub-bookshelf-open-epub
+12.62.3.11 emacspeak-epub-bookshelf-open-epub
 .............................................
 
  -- Command: emacspeak-epub-bookshelf-open-epub (epub-file)
@@ -1398,7 +1432,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn EPUB-FILE)
 
-12.62.2.12 emacspeak-epub-bookshelf-redraw
+12.62.3.12 emacspeak-epub-bookshelf-redraw
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-redraw (&optional author-first)
@@ -1409,14 +1443,14 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn &optional AUTHOR-FIRST)
 
-12.62.2.13 emacspeak-epub-bookshelf-refresh
+12.62.3.13 emacspeak-epub-bookshelf-refresh
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-refresh
 
      Refresh and redraw bookshelf.
 
-12.62.2.14 emacspeak-epub-bookshelf-remove-directory
+12.62.3.14 emacspeak-epub-bookshelf-remove-directory
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-directory (directory
@@ -1427,7 +1461,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.62.2.15 emacspeak-epub-bookshelf-remove-this-book
+12.62.3.15 emacspeak-epub-bookshelf-remove-this-book
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-this-book
@@ -1435,7 +1469,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
      Remove the book on current line from this bookshelf.
      No book files are deleted.
 
-12.62.2.16 emacspeak-epub-bookshelf-rename
+12.62.3.16 emacspeak-epub-bookshelf-rename
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-rename (name &optional overwrite)
@@ -1445,14 +1479,14 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn NAME &optional OVERWRITE)
 
-12.62.2.17 emacspeak-epub-bookshelf-save
+12.62.3.17 emacspeak-epub-bookshelf-save
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-save
 
      Save bookshelf metadata.
 
-12.62.2.18 emacspeak-epub-browse-files
+12.62.3.18 emacspeak-epub-browse-files
 ......................................
 
  -- Command: emacspeak-epub-browse-files (epub)
@@ -1462,28 +1496,28 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn EPUB)
 
-12.62.2.19 emacspeak-epub-calibre-dired-at-point
+12.62.3.19 emacspeak-epub-calibre-dired-at-point
 ................................................
 
  -- Command: emacspeak-epub-calibre-dired-at-point
 
      Open directory containing current result.
 
-12.62.2.20 emacspeak-epub-calibre-results
+12.62.3.20 emacspeak-epub-calibre-results
 .........................................
 
  -- Command: emacspeak-epub-calibre-results
 
      Show most recent Calibre search results.
 
-12.62.2.21 emacspeak-epub-delete
+12.62.3.21 emacspeak-epub-delete
 ................................
 
  -- Command: emacspeak-epub-delete
 
      Delete EPub under point.
 
-12.62.2.22 emacspeak-epub-eww
+12.62.3.22 emacspeak-epub-eww
 .............................
 
  -- Command: emacspeak-epub-eww (epub-file)
@@ -1492,7 +1526,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn EPUB-FILE)
 
-12.62.2.23 emacspeak-epub-fulltext
+12.62.3.23 emacspeak-epub-fulltext
 ..................................
 
  -- Command: emacspeak-epub-fulltext (epub-file)
@@ -1502,7 +1536,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn EPUB-FILE)
 
-12.62.2.24 emacspeak-epub-google
+12.62.3.24 emacspeak-epub-google
 ................................
 
  -- Command: emacspeak-epub-google (query)
@@ -1511,7 +1545,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn QUERY)
 
-12.62.2.25 emacspeak-epub-gutenberg-catalog
+12.62.3.25 emacspeak-epub-gutenberg-catalog
 ...........................................
 
  -- Command: emacspeak-epub-gutenberg-catalog (&optional refresh)
@@ -1521,7 +1555,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn &optional REFRESH)
 
-12.62.2.26 emacspeak-epub-gutenberg-download
+12.62.3.26 emacspeak-epub-gutenberg-download
 ............................................
 
  -- Command: emacspeak-epub-gutenberg-download (book-id &optional
@@ -1533,7 +1567,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn BOOK-ID &optional DOWNLOAD)
 
-12.62.2.27 emacspeak-epub-locate-epubs
+12.62.3.27 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
@@ -1542,7 +1576,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn PATTERN)
 
-12.62.2.28 emacspeak-epub-mode
+12.62.3.28 emacspeak-epub-mode
 ..............................
 
  -- Command: emacspeak-epub-mode
@@ -1590,14 +1624,14 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
      this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.2.29 emacspeak-epub-next
+12.62.3.29 emacspeak-epub-next
 ..............................
 
  -- Command: emacspeak-epub-next
 
      Move to next book.
 
-12.62.2.30 emacspeak-epub-open
+12.62.3.30 emacspeak-epub-open
 ..............................
 
  -- Command: emacspeak-epub-open (epub-file)
@@ -1607,14 +1641,14 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn EPUB-FILE)
 
-12.62.2.31 emacspeak-epub-previous
+12.62.3.31 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.62.2.32 emacspeak-epub-url-executor
+12.62.3.32 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)
@@ -1623,7 +1657,7 @@ the selected book using Emacs’ built-in Web browser (‘eww’).
 
      (fn URL)
 
-12.62.3 emacspeak-epub Options
+12.62.4 emacspeak-epub Options
 ------------------------------
 
  -- Variable: User Option emacspeak-epub-bookshelf-directory
