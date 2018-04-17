@@ -41,17 +41,21 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; In celebration of a million books and more to read from
-;;; Google Books
-;;; The EPubs format is slightly simpler than full Daisy ---
-;;; (see) emacspeak-daisy.el
-;;; Since it only needs one level of indirection (no audio,
-;;; therefore no smil). This module is consequently simpler than
-;;; emacspeak-daisy.el.
-;;; This module will eventually  implement the Google Books  API
-;;; --- probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
-;;; As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
-;;; Code:
+;;; @section Introduction 
+;;; This module implements the Emacspeak EPub Bookshelf --- a unified
+;;; interface for organizing, locating and reading EPub EBooks on the
+;;; emacspeak Audio Desktop. For now it supports epub2 --- it will
+;;; support epub3 some time in the future.
+
+;;; The main entry point is command @command{emacspeak-epub} bound to
+;;; @kbd{C-e g}. This command opens a new bookshelf buffer unless the
+;;; user has previously opened a specific bookshelf. A
+;;; @emph{bookshelf} is a buffer that lists books placed on a given
+;;; bookshelf --- these are listed by @emph{title} and
+;;; @emph{author}. The bookshelf buffer is in a special mode that
+;;; provides single-key commands for adding, removing and finding
+;;; books, as well as for opening the selected book using Emacs'
+;;; built-in Web browser (@command{eww}).
 
 ;;}}}
 ;;{{{ Required Modules:
