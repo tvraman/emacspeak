@@ -1273,19 +1273,26 @@ File: emacspeak.info,  Node: emacspeak-epub,  Next: emacspeak-erc,  Prev: emacsp
 12.62 emacspeak-epub
 ====================
 
-In celebration of a million books and more to read from Google Books The
-EPubs format is slightly simpler than full Daisy — (see)
-emacspeak-daisy.el Since it only needs one level of indirection (no
-audio, therefore no smil).  This module is consequently simpler than
-emacspeak-daisy.el.  This module will eventually implement the Google
-Books API — probably by invoking the yet-to-be-written gbooks.el in
-emacs-g-client As we move to epub-3, this module will bring back audio
-layers etc., perhaps via a simplified smil implementation.
+12.62.1 Introduction
+--------------------
 
-12.62.1 emacspeak-epub Commands
+This module implements the Emacspeak EPub Bookshelf — a unified
+interface for organizing, locating and reading EPub EBooks on the
+emacspeak Audio Desktop.  For now it supports epub2 — it will support
+epub3 some time in the future.
+
+   The main entry point is command ‘emacspeak-epub’ bound to ‘C-e g’.
+This command opens a new bookshelf buffer unless the user has previously
+opened a specific bookshelf.  A _bookshelf_ is a buffer that lists books
+placed on a given bookshelf — these are listed by _title_ and _author_.
+The bookshelf buffer is in a special mode that provides single-key
+commands for adding, removing and finding books, as well as for opening
+the selected book using Emacs’ built-in Web browser (‘eww’).
+
+12.62.2 emacspeak-epub Commands
 -------------------------------
 
-12.62.1.1 emacspeak-calibre-mode
+12.62.2.1 emacspeak-calibre-mode
 ................................
 
  -- Command: emacspeak-calibre-mode
@@ -1302,7 +1309,7 @@ layers etc., perhaps via a simplified smil implementation.
      this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.1.2 emacspeak-epub
+12.62.2.2 emacspeak-epub
 ........................
 
  -- Command: emacspeak-epub
@@ -1312,7 +1319,7 @@ layers etc., perhaps via a simplified smil implementation.
      EPub  Interaction.
      For detailed documentation, see M-x emacspeak-epub-mode
 
-12.62.1.3 emacspeak-epub-bookshelf-add-directory
+12.62.2.3 emacspeak-epub-bookshelf-add-directory
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-add-directory (directory &optional
@@ -1323,7 +1330,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.62.1.4 emacspeak-epub-bookshelf-add-epub
+12.62.2.4 emacspeak-epub-bookshelf-add-epub
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-add-epub (epub-file)
@@ -1332,7 +1339,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn EPUB-FILE)
 
-12.62.1.5 emacspeak-epub-bookshelf-calibre-author
+12.62.2.5 emacspeak-epub-bookshelf-calibre-author
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-author (pattern)
@@ -1341,7 +1348,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn PATTERN)
 
-12.62.1.6 emacspeak-epub-bookshelf-calibre-search
+12.62.2.6 emacspeak-epub-bookshelf-calibre-search
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-search (pattern)
@@ -1350,7 +1357,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn PATTERN)
 
-12.62.1.7 emacspeak-epub-bookshelf-calibre-title
+12.62.2.7 emacspeak-epub-bookshelf-calibre-title
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-title (pattern)
@@ -1359,21 +1366,21 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn PATTERN)
 
-12.62.1.8 emacspeak-epub-bookshelf-clear
+12.62.2.8 emacspeak-epub-bookshelf-clear
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-clear
 
      Clear all books from bookshelf.
 
-12.62.1.9 emacspeak-epub-bookshelf-load
+12.62.2.9 emacspeak-epub-bookshelf-load
 .......................................
 
  -- Command: emacspeak-epub-bookshelf-load
 
      Load bookshelf metadata from disk.
 
-12.62.1.10 emacspeak-epub-bookshelf-open
+12.62.2.10 emacspeak-epub-bookshelf-open
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-open (bookshelf)
@@ -1382,7 +1389,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn BOOKSHELF)
 
-12.62.1.11 emacspeak-epub-bookshelf-open-epub
+12.62.2.11 emacspeak-epub-bookshelf-open-epub
 .............................................
 
  -- Command: emacspeak-epub-bookshelf-open-epub (epub-file)
@@ -1391,7 +1398,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn EPUB-FILE)
 
-12.62.1.12 emacspeak-epub-bookshelf-redraw
+12.62.2.12 emacspeak-epub-bookshelf-redraw
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-redraw (&optional author-first)
@@ -1402,14 +1409,14 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn &optional AUTHOR-FIRST)
 
-12.62.1.13 emacspeak-epub-bookshelf-refresh
+12.62.2.13 emacspeak-epub-bookshelf-refresh
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-refresh
 
      Refresh and redraw bookshelf.
 
-12.62.1.14 emacspeak-epub-bookshelf-remove-directory
+12.62.2.14 emacspeak-epub-bookshelf-remove-directory
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-directory (directory
@@ -1420,7 +1427,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.62.1.15 emacspeak-epub-bookshelf-remove-this-book
+12.62.2.15 emacspeak-epub-bookshelf-remove-this-book
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-this-book
@@ -1428,7 +1435,7 @@ layers etc., perhaps via a simplified smil implementation.
      Remove the book on current line from this bookshelf.
      No book files are deleted.
 
-12.62.1.16 emacspeak-epub-bookshelf-rename
+12.62.2.16 emacspeak-epub-bookshelf-rename
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-rename (name &optional overwrite)
@@ -1438,14 +1445,14 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn NAME &optional OVERWRITE)
 
-12.62.1.17 emacspeak-epub-bookshelf-save
+12.62.2.17 emacspeak-epub-bookshelf-save
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-save
 
      Save bookshelf metadata.
 
-12.62.1.18 emacspeak-epub-browse-files
+12.62.2.18 emacspeak-epub-browse-files
 ......................................
 
  -- Command: emacspeak-epub-browse-files (epub)
@@ -1455,28 +1462,28 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn EPUB)
 
-12.62.1.19 emacspeak-epub-calibre-dired-at-point
+12.62.2.19 emacspeak-epub-calibre-dired-at-point
 ................................................
 
  -- Command: emacspeak-epub-calibre-dired-at-point
 
      Open directory containing current result.
 
-12.62.1.20 emacspeak-epub-calibre-results
+12.62.2.20 emacspeak-epub-calibre-results
 .........................................
 
  -- Command: emacspeak-epub-calibre-results
 
      Show most recent Calibre search results.
 
-12.62.1.21 emacspeak-epub-delete
+12.62.2.21 emacspeak-epub-delete
 ................................
 
  -- Command: emacspeak-epub-delete
 
      Delete EPub under point.
 
-12.62.1.22 emacspeak-epub-eww
+12.62.2.22 emacspeak-epub-eww
 .............................
 
  -- Command: emacspeak-epub-eww (epub-file)
@@ -1485,7 +1492,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn EPUB-FILE)
 
-12.62.1.23 emacspeak-epub-fulltext
+12.62.2.23 emacspeak-epub-fulltext
 ..................................
 
  -- Command: emacspeak-epub-fulltext (epub-file)
@@ -1495,7 +1502,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn EPUB-FILE)
 
-12.62.1.24 emacspeak-epub-google
+12.62.2.24 emacspeak-epub-google
 ................................
 
  -- Command: emacspeak-epub-google (query)
@@ -1504,7 +1511,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn QUERY)
 
-12.62.1.25 emacspeak-epub-gutenberg-catalog
+12.62.2.25 emacspeak-epub-gutenberg-catalog
 ...........................................
 
  -- Command: emacspeak-epub-gutenberg-catalog (&optional refresh)
@@ -1514,7 +1521,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn &optional REFRESH)
 
-12.62.1.26 emacspeak-epub-gutenberg-download
+12.62.2.26 emacspeak-epub-gutenberg-download
 ............................................
 
  -- Command: emacspeak-epub-gutenberg-download (book-id &optional
@@ -1526,7 +1533,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn BOOK-ID &optional DOWNLOAD)
 
-12.62.1.27 emacspeak-epub-locate-epubs
+12.62.2.27 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
@@ -1535,7 +1542,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn PATTERN)
 
-12.62.1.28 emacspeak-epub-mode
+12.62.2.28 emacspeak-epub-mode
 ..............................
 
  -- Command: emacspeak-epub-mode
@@ -1550,7 +1557,7 @@ layers etc., perhaps via a simplified smil implementation.
      C-d		emacspeak-epub-bookshelf-remove-directory
      C-k		emacspeak-epub-delete
      C-l		emacspeak-epub-bookshelf-redraw
-     RET		emacspeak-epub-open
+     RET		emacspeak-epub-eww
      C-o		emacspeak-epub-bookshelf-open-epub
      C-x		Prefix Command
      ESC		Prefix Command
@@ -1583,14 +1590,14 @@ layers etc., perhaps via a simplified smil implementation.
      this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.1.29 emacspeak-epub-next
+12.62.2.29 emacspeak-epub-next
 ..............................
 
  -- Command: emacspeak-epub-next
 
      Move to next book.
 
-12.62.1.30 emacspeak-epub-open
+12.62.2.30 emacspeak-epub-open
 ..............................
 
  -- Command: emacspeak-epub-open (epub-file)
@@ -1600,14 +1607,14 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn EPUB-FILE)
 
-12.62.1.31 emacspeak-epub-previous
+12.62.2.31 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.62.1.32 emacspeak-epub-url-executor
+12.62.2.32 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)
@@ -1616,7 +1623,7 @@ layers etc., perhaps via a simplified smil implementation.
 
      (fn URL)
 
-12.62.2 emacspeak-epub Options
+12.62.3 emacspeak-epub Options
 ------------------------------
 
  -- Variable: User Option emacspeak-epub-bookshelf-directory

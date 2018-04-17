@@ -41,7 +41,8 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; @section Introduction 
+
+;;; @subsection Introduction 
 ;;; This module implements the Emacspeak EPub Bookshelf --- a unified
 ;;; interface for organizing, locating and reading EPub EBooks on the
 ;;; emacspeak Audio Desktop. For now it supports epub2 --- it will
