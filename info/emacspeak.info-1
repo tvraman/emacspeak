@@ -2731,11 +2731,11 @@ high-level overview of that module, followed by detailed description of
 the commands and options defined in that module.
 
    Emacspeak modules can be classified as follows:
-   • Modules that interface with various TTS engines, e.g.
+  1. Modules that interface with various TTS engines, e.g.
      ‘espeak-voices’ and ‘dectalk-voices’.
-   • Modules that implement core Emacspeak functionality, e.g.,
+  2. Modules that implement core Emacspeak functionality, e.g.,
      ‘emacspeak-speak’, ‘voice-lock’ and ‘emacspeak-voices’.
-   • Emacspeak extensions for speech-enabling various emacs packages,
+  3. Emacspeak extensions for speech-enabling various emacs packages,
      these are all named using the convention
      ‘emacspeak-<mpackagename>’.
 
