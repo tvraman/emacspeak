@@ -1,4 +1,4 @@
-;;; emacspeak-wizards.el  Emacspeak  convenience   -*- lexical-binding: t; -*-
+;;; emacspeak-wizards.el --- Wizards For Emacspeak  Power Users   -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains convenience wizards
