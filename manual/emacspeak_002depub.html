@@ -92,12 +92,155 @@
   that provides single-key commands for adding, removing and
   finding books, as well as for opening the selected book using
   Emacs’ built-in Web browser (<code>eww</code>).</p><a name=
-  "emacspeak_002depub-Commands" id=
+  "Organizing-EBooks-On-The-Emacspeak-Desktop" id=
+  "Organizing-EBooks-On-The-Emacspeak-Desktop"></a>
+  <h4 class="subsection">12.62.2 Organizing EBooks On The Emacspeak
+  Desktop</h4>
+  <p>In the simplest case, EBooks can be placed under a specific
+  directory (with sub-directories as needed). Customize user option
+  <code>emacspeak-epub-library-directory</code> to point to this
+  location. Here is a quick summary of commands for organizing,
+  saving and opening a bookshelf:</p>
+  <dl compact="compact">
+    <dt><kbd>a</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-add-epub</p>
+    </dd>
+    <dt><kbd>b</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-open</p>
+    </dd>
+    <dt><kbd>c</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-clear</p>
+    </dd>
+    <dt><kbd>d</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-remove-this-book</p>
+    </dd>
+    <dt><kbd>r</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-rename</p>
+    </dd>
+    <dt><kbd>l</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-locate-epubs</p>
+    </dd>
+    <dt><kbd>C-a</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-add-directory</p>
+    </dd>
+    <dt><kbd>C-d</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-remove-directory</p>
+    </dd>
+    <dt><kbd>C-l</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-redraw</p>
+    </dd>
+    <dt><kbd>C-o</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-open-epub</p>
+    </dd>
+    <dt><kbd>M-s</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-save</p>
+    </dd>
+    <dt><kbd>C-x C-q</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-refresh</p>
+    </dd>
+    <dt><kbd>C-x C-s</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-save</p>
+    </dd>
+  </dl><a name="Integrating-With-Project-Gutenberg" id=
+  "Integrating-With-Project-Gutenberg"></a>
+  <h4 class="subsection">12.62.3 Integrating With Project
+  Gutenberg</h4>
+  <p>Gutenberg integration provides one-shot commands for
+  downloading the latest copy of the Gutenberg catalog and finding
+  and downloading the desired epub for offline reading.</p>
+  <dl compact="compact">
+    <dt><kbd>C</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-gutenberg-catalog</p>
+    </dd>
+    <dt><kbd>g</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-gutenberg-download</p>
+    </dd>
+  </dl>
+  <p>Once downloaded, these EBooks can be organized under
+  <code>emacspeak-epub-library-directory</code>; For more advanced
+  usage, see the next section on integrating with Calibre
+  catalogs.</p><a name="Calibre-Integration" id=
+  "Calibre-Integration"></a>
+  <h4 class="subsection">12.62.4 Calibre Integration</h4>
+  <p>Project Calibre enables the indexing and searching of large
+  EBook collections. Read the Calibre documentation for organizing
+  and indexing your EBook library. See user options named
+  <code>emacspeak-epub-calibre-*</code> for customizing emacspeak
+  to work with Calibre. Once set up, Calibre integration provides
+  the following commands from the <em>bookshelf</em> buffer:</p>
+  <dl compact="compact">
+    <dt><kbd>/</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-calibre-results</p>
+    </dd>
+    <dt><kbd>A</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-calibre-author</p>
+    </dd>
+    <dt><kbd>S</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-calibre-search</p>
+    </dd>
+    <dt><kbd>T</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-bookshelf-calibre-title</p>
+    </dd>
+  </dl><a name="Reading-EBooks-From-The-Bookshelf" id=
+  "Reading-EBooks-From-The-Bookshelf"></a>
+  <h4 class="subsection">12.62.5 Reading EBooks From The
+  Bookshelf</h4>
+  <p>The most efficient means to read an EBook is to have EWW
+  render the entire book — this works well even for very large
+  EBooks given that EWW is efficient at rendering HTML. Rendering
+  the entire book means that all of the contents are available for
+  searching. To view an EBook in its entirety, use command
+  <code>emacspeak-epub-eww</code>. You can open the EPub table of
+  contents with command
+  <code>emacspeak-epub-bookshelf-open-epub</code>; for a
+  well-constructed epub, this TOC should provide hyperlinks to each
+  section listed in the table of contents.</p>
+  <dl compact="compact">
+    <dt><kbd>RET</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-eww</p>
+    </dd>
+    <dt><kbd>e</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-eww</p>
+    </dd>
+    <dt><kbd>f</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-browse-files</p>
+    </dd>
+    <dt><kbd>o</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-open</p>
+    </dd>
+    <dt><kbd>t</kbd></dt>
+    <dd>
+      <p>emacspeak-epub-fulltext</p>
+    </dd>
+  </dl><a name="emacspeak_002depub-Commands" id=
   "emacspeak_002depub-Commands"></a>
-  <h4 class="subsection">12.62.2 emacspeak-epub
+  <h4 class="subsection">12.62.6 emacspeak-epub
   Commands</h4><a name="emacspeak_002dcalibre_002dmode" id=
   "emacspeak_002dcalibre_002dmode"></a>
-  <h4 class="subsubsection">12.62.2.1 emacspeak-calibre-mode</h4>
+  <h4 class="subsubsection">12.62.6.1 emacspeak-calibre-mode</h4>
   <dl>
     <dt><a name="index-emacspeak_002dcalibre_002dmode" id=
     "index-emacspeak_002dcalibre_002dmode"></a>Command:
@@ -122,7 +265,7 @@ during initialization.
     </dd>
   </dl><a name="emacspeak_002depub-2" id=
   "emacspeak_002depub-2"></a>
-  <h4 class="subsubsection">12.62.2.2 emacspeak-epub</h4>
+  <h4 class="subsubsection">12.62.6.2 emacspeak-epub</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub" id=
     "index-emacspeak_002depub"></a>Command:
@@ -146,7 +289,7 @@ For detailed documentation, see M-x emacspeak-epub-mode
   </dl><a name=
   "emacspeak_002depub_002dbookshelf_002dadd_002ddirectory" id=
   "emacspeak_002depub_002dbookshelf_002dadd_002ddirectory"></a>
-  <h4 class="subsubsection">12.62.2.3
+  <h4 class="subsubsection">12.62.6.3
   emacspeak-epub-bookshelf-add-directory</h4>
   <dl>
     <dt><a name=
@@ -172,7 +315,7 @@ Interactive prefix arg searches recursively in directory.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dadd_002depub"
   id="emacspeak_002depub_002dbookshelf_002dadd_002depub"></a>
-  <h4 class="subsubsection">12.62.2.4
+  <h4 class="subsubsection">12.62.6.4
   emacspeak-epub-bookshelf-add-epub</h4>
   <dl>
     <dt><a name=
@@ -195,7 +338,7 @@ Interactive prefix arg searches recursively in directory.
   </dl><a name=
   "emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor" id=
   "emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor"></a>
-  <h4 class="subsubsection">12.62.2.5
+  <h4 class="subsubsection">12.62.6.5
   emacspeak-epub-bookshelf-calibre-author</h4>
   <dl>
     <dt><a name=
@@ -222,7 +365,7 @@ Interactive prefix arg searches recursively in directory.
   </dl><a name=
   "emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch" id=
   "emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch"></a>
-  <h4 class="subsubsection">12.62.2.6
+  <h4 class="subsubsection">12.62.6.6
   emacspeak-epub-bookshelf-calibre-search</h4>
   <dl>
     <dt><a name=
@@ -249,7 +392,7 @@ Interactive prefix arg searches recursively in directory.
   </dl><a name=
   "emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle" id=
   "emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle"></a>
-  <h4 class="subsubsection">12.62.2.7
+  <h4 class="subsubsection">12.62.6.7
   emacspeak-epub-bookshelf-calibre-title</h4>
   <dl>
     <dt><a name=
@@ -274,7 +417,7 @@ Interactive prefix arg searches recursively in directory.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dclear" id=
   "emacspeak_002depub_002dbookshelf_002dclear"></a>
-  <h4 class="subsubsection">12.62.2.8
+  <h4 class="subsubsection">12.62.6.8
   emacspeak-epub-bookshelf-clear</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbookshelf_002dclear"
@@ -291,7 +434,7 @@ Interactive prefix arg searches recursively in directory.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dload" id=
   "emacspeak_002depub_002dbookshelf_002dload"></a>
-  <h4 class="subsubsection">12.62.2.9
+  <h4 class="subsubsection">12.62.6.9
   emacspeak-epub-bookshelf-load</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbookshelf_002dload"
@@ -308,7 +451,7 @@ Interactive prefix arg searches recursively in directory.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dopen" id=
   "emacspeak_002depub_002dbookshelf_002dopen"></a>
-  <h4 class="subsubsection">12.62.2.10
+  <h4 class="subsubsection">12.62.6.10
   emacspeak-epub-bookshelf-open</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbookshelf_002dopen"
@@ -329,7 +472,7 @@ Interactive prefix arg searches recursively in directory.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dopen_002depub"
   id="emacspeak_002depub_002dbookshelf_002dopen_002depub"></a>
-  <h4 class="subsubsection">12.62.2.11
+  <h4 class="subsubsection">12.62.6.11
   emacspeak-epub-bookshelf-open-epub</h4>
   <dl>
     <dt><a name=
@@ -352,7 +495,7 @@ Interactive prefix arg searches recursively in directory.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dredraw" id=
   "emacspeak_002depub_002dbookshelf_002dredraw"></a>
-  <h4 class="subsubsection">12.62.2.12
+  <h4 class="subsubsection">12.62.6.12
   emacspeak-epub-bookshelf-redraw</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbookshelf_002dredraw"
@@ -374,7 +517,7 @@ Optional interactive prefix arg author-first prints author at the
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002drefresh" id=
   "emacspeak_002depub_002dbookshelf_002drefresh"></a>
-  <h4 class="subsubsection">12.62.2.13
+  <h4 class="subsubsection">12.62.6.13
   emacspeak-epub-bookshelf-refresh</h4>
   <dl>
     <dt><a name=
@@ -393,7 +536,7 @@ Optional interactive prefix arg author-first prints author at the
   </dl><a name=
   "emacspeak_002depub_002dbookshelf_002dremove_002ddirectory" id=
   "emacspeak_002depub_002dbookshelf_002dremove_002ddirectory"></a>
-  <h4 class="subsubsection">12.62.2.14
+  <h4 class="subsubsection">12.62.6.14
   emacspeak-epub-bookshelf-remove-directory</h4>
   <dl>
     <dt><a name=
@@ -422,7 +565,7 @@ Interactive prefix arg searches recursively in directory.
   "emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook"
   id=
   "emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook"></a>
-  <h4 class="subsubsection">12.62.2.15
+  <h4 class="subsubsection">12.62.6.15
   emacspeak-epub-bookshelf-remove-this-book</h4>
   <dl>
     <dt><a name=
@@ -446,7 +589,7 @@ No book files are deleted.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002drename" id=
   "emacspeak_002depub_002dbookshelf_002drename"></a>
-  <h4 class="subsubsection">12.62.2.16
+  <h4 class="subsubsection">12.62.6.16
   emacspeak-epub-bookshelf-rename</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbookshelf_002drename"
@@ -468,7 +611,7 @@ Interactive prefix arg ‘overwrite’ will overwrite existing file.
     </dd>
   </dl><a name="emacspeak_002depub_002dbookshelf_002dsave" id=
   "emacspeak_002depub_002dbookshelf_002dsave"></a>
-  <h4 class="subsubsection">12.62.2.17
+  <h4 class="subsubsection">12.62.6.17
   emacspeak-epub-bookshelf-save</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbookshelf_002dsave"
@@ -485,7 +628,7 @@ Interactive prefix arg ‘overwrite’ will overwrite existing file.
     </dd>
   </dl><a name="emacspeak_002depub_002dbrowse_002dfiles" id=
   "emacspeak_002depub_002dbrowse_002dfiles"></a>
-  <h4 class="subsubsection">12.62.2.18
+  <h4 class="subsubsection">12.62.6.18
   emacspeak-epub-browse-files</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dbrowse_002dfiles" id=
@@ -506,7 +649,7 @@ Useful if table of contents in toc.ncx is empty.
   </dl><a name=
   "emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint" id=
   "emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint"></a>
-  <h4 class="subsubsection">12.62.2.19
+  <h4 class="subsubsection">12.62.6.19
   emacspeak-epub-calibre-dired-at-point</h4>
   <dl>
     <dt><a name=
@@ -529,7 +672,7 @@ Useful if table of contents in toc.ncx is empty.
     </dd>
   </dl><a name="emacspeak_002depub_002dcalibre_002dresults" id=
   "emacspeak_002depub_002dcalibre_002dresults"></a>
-  <h4 class="subsubsection">12.62.2.20
+  <h4 class="subsubsection">12.62.6.20
   emacspeak-epub-calibre-results</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dcalibre_002dresults"
@@ -547,7 +690,7 @@ Useful if table of contents in toc.ncx is empty.
     </dd>
   </dl><a name="emacspeak_002depub_002ddelete" id=
   "emacspeak_002depub_002ddelete"></a>
-  <h4 class="subsubsection">12.62.2.21 emacspeak-epub-delete</h4>
+  <h4 class="subsubsection">12.62.6.21 emacspeak-epub-delete</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002ddelete" id=
     "index-emacspeak_002depub_002ddelete"></a>Command:
@@ -562,7 +705,7 @@ Useful if table of contents in toc.ncx is empty.
     </dd>
   </dl><a name="emacspeak_002depub_002deww" id=
   "emacspeak_002depub_002deww"></a>
-  <h4 class="subsubsection">12.62.2.22 emacspeak-epub-eww</h4>
+  <h4 class="subsubsection">12.62.6.22 emacspeak-epub-eww</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002deww" id=
     "index-emacspeak_002depub_002deww"></a>Command:
@@ -580,7 +723,7 @@ Useful if table of contents in toc.ncx is empty.
     </dd>
   </dl><a name="emacspeak_002depub_002dfulltext" id=
   "emacspeak_002depub_002dfulltext"></a>
-  <h4 class="subsubsection">12.62.2.23 emacspeak-epub-fulltext</h4>
+  <h4 class="subsubsection">12.62.6.23 emacspeak-epub-fulltext</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dfulltext" id=
     "index-emacspeak_002depub_002dfulltext"></a>Command:
@@ -599,7 +742,7 @@ Suitable for text searches.
     </dd>
   </dl><a name="emacspeak_002depub_002dgoogle" id=
   "emacspeak_002depub_002dgoogle"></a>
-  <h4 class="subsubsection">12.62.2.24 emacspeak-epub-google</h4>
+  <h4 class="subsubsection">12.62.6.24 emacspeak-epub-google</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dgoogle" id=
     "index-emacspeak_002depub_002dgoogle"></a>Command:
@@ -616,7 +759,7 @@ Suitable for text searches.
     </dd>
   </dl><a name="emacspeak_002depub_002dgutenberg_002dcatalog" id=
   "emacspeak_002depub_002dgutenberg_002dcatalog"></a>
-  <h4 class="subsubsection">12.62.2.25
+  <h4 class="subsubsection">12.62.6.25
   emacspeak-epub-gutenberg-catalog</h4>
   <dl>
     <dt><a name=
@@ -638,7 +781,7 @@ Fetch if needed, or if refresh is T.
     </dd>
   </dl><a name="emacspeak_002depub_002dgutenberg_002ddownload" id=
   "emacspeak_002depub_002dgutenberg_002ddownload"></a>
-  <h4 class="subsubsection">12.62.2.26
+  <h4 class="subsubsection">12.62.6.26
   emacspeak-epub-gutenberg-download</h4>
   <dl>
     <dt><a name=
@@ -661,7 +804,7 @@ With interactive prefix arg ‘download’, download the epub.
     </dd>
   </dl><a name="emacspeak_002depub_002dlocate_002depubs" id=
   "emacspeak_002depub_002dlocate_002depubs"></a>
-  <h4 class="subsubsection">12.62.2.27
+  <h4 class="subsubsection">12.62.6.27
   emacspeak-epub-locate-epubs</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dlocate_002depubs" id=
@@ -680,7 +823,7 @@ With interactive prefix arg ‘download’, download the epub.
     </dd>
   </dl><a name="emacspeak_002depub_002dmode" id=
   "emacspeak_002depub_002dmode"></a>
-  <h4 class="subsubsection">12.62.2.28 emacspeak-epub-mode</h4>
+  <h4 class="subsubsection">12.62.6.28 emacspeak-epub-mode</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dmode" id=
     "index-emacspeak_002depub_002dmode"></a>Command:
@@ -736,7 +879,7 @@ during initialization.
     </dd>
   </dl><a name="emacspeak_002depub_002dnext" id=
   "emacspeak_002depub_002dnext"></a>
-  <h4 class="subsubsection">12.62.2.29 emacspeak-epub-next</h4>
+  <h4 class="subsubsection">12.62.6.29 emacspeak-epub-next</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dnext" id=
     "index-emacspeak_002depub_002dnext"></a>Command:
@@ -751,7 +894,7 @@ during initialization.
     </dd>
   </dl><a name="emacspeak_002depub_002dopen" id=
   "emacspeak_002depub_002dopen"></a>
-  <h4 class="subsubsection">12.62.2.30 emacspeak-epub-open</h4>
+  <h4 class="subsubsection">12.62.6.30 emacspeak-epub-open</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dopen" id=
     "index-emacspeak_002depub_002dopen"></a>Command:
@@ -769,7 +912,7 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl><a name="emacspeak_002depub_002dprevious" id=
   "emacspeak_002depub_002dprevious"></a>
-  <h4 class="subsubsection">12.62.2.31 emacspeak-epub-previous</h4>
+  <h4 class="subsubsection">12.62.6.31 emacspeak-epub-previous</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002dprevious" id=
     "index-emacspeak_002depub_002dprevious"></a>Command:
@@ -784,7 +927,7 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl><a name="emacspeak_002depub_002durl_002dexecutor" id=
   "emacspeak_002depub_002durl_002dexecutor"></a>
-  <h4 class="subsubsection">12.62.2.32
+  <h4 class="subsubsection">12.62.6.32
   emacspeak-epub-url-executor</h4>
   <dl>
     <dt><a name="index-emacspeak_002depub_002durl_002dexecutor" id=
@@ -804,10 +947,10 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl><a name="emacspeak_002depub-Options" id=
   "emacspeak_002depub-Options"></a>
-  <h4 class="subsection">12.62.3 emacspeak-epub Options</h4>
+  <h4 class="subsection">12.62.7 emacspeak-epub Options</h4>
   <dl>
-    <dt><a name="index-User-Option-571" id=
-    "index-User-Option-571"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-560" id=
+    "index-User-Option-560"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-epub-bookshelf-directory</em></dt>
     <dd>
@@ -816,40 +959,40 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-572" id=
-    "index-User-Option-572"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-561" id=
+    "index-User-Option-561"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-calibre-root-dir</em></dt>
     <dd>
       <p>Root of Calibre library.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-573" id=
-    "index-User-Option-573"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-562" id=
+    "index-User-Option-562"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-calibre-sqlite</em></dt>
     <dd>
       <p>Path to sqlite3.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-574" id=
-    "index-User-Option-574"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-563" id=
+    "index-User-Option-563"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-gutenberg-mirror</em></dt>
     <dd>
       <p>Base URL for Gutenberg mirror.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-575" id=
-    "index-User-Option-575"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-564" id=
+    "index-User-Option-564"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-gutenberg-suffix</em></dt>
     <dd>
       <p>Suffix of book type we retrieve.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-576" id=
-    "index-User-Option-576"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-565" id=
+    "index-User-Option-565"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-epub-html-to-text-command</em></dt>
     <dd>
@@ -857,8 +1000,8 @@ Filename may need to  be shell-quoted when called from Lisp.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-577" id=
-    "index-User-Option-577"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-566" id=
+    "index-User-Option-566"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-epub-library-directory</em></dt>
     <dd>
       <p>Directory under which we store Epubs.</p>
