@@ -1,3 +1,7 @@
+;;; emacspeak-table-ui.el --- Table Navigation UI  -*- lexical-binding: t; -*-
+;;; $Author: tv.raman.tv $
+;;; Description:  Emacspeak Table Navigation UI
+;;; Keywords: Emacspeak, Table UI ,  Visual layout gives structure
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
