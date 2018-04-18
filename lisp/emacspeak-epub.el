@@ -76,6 +76,8 @@
 ;;; emacspeak-epub-bookshelf-remove-this-book
 ;;; @item r               
 ;;; emacspeak-epub-bookshelf-rename
+;;; @item l
+;;; emacspeak-epub-locate-epubs
 ;;; @item C-a             
 ;;; emacspeak-epub-bookshelf-add-directory
 ;;; @item C-d             
@@ -125,7 +127,31 @@
 ;;; @item T
 ;;; emacspeak-epub-bookshelf-calibre-title
 ;;; @end table
-
+;;;
+;;; @subsection Reading EBooks From The Bookshelf
+;;;
+;;; The most efficient means to read an EBook is to have EWW render
+;;; the entire book --- this works well even for very large EBooks
+;;; given that EWW is efficient at rendering HTML. Rendering the
+;;; entire book means that all of the contents are available for
+;;; searching. To view an EBook in its entirety, use command
+;;; @code{emacspeak-epub-eww}. You can open the EPub table of contents
+;;; with command @code{emacspeak-epub-bookshelf-open-epub}; for a
+;;; well-constructed epub, this TOC should provide hyperlinks to each
+;;; section listed in the table of contents.
+;;;
+;;; @table @kbd
+;;; @item RET             
+;;; emacspeak-epub-eww
+;;; @item e               
+;;; emacspeak-epub-eww
+;;; @item f               
+;;; emacspeak-epub-browse-files
+;;; @item o               
+;;; emacspeak-epub-open
+;;; @item t               
+;;; emacspeak-epub-fulltext
+;;; @end table
 ;;}}}
 ;;{{{ Required Modules:
 
