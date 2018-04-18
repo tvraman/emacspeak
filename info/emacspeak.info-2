@@ -1323,10 +1323,43 @@ bookshelf:
 ‘C-x C-s’
      emacspeak-epub-bookshelf-save
 
-12.62.3 emacspeak-epub Commands
+12.62.3 Integrating With Project Gutenberg
+------------------------------------------
+
+Gutenberg integration provides one-shot commands for downloading the
+latest copy of the Gutenberg catalog and finding and downloading the
+desired epub for offline reading.
+
+‘C’
+     emacspeak-epub-gutenberg-catalog
+‘g’
+     emacspeak-epub-gutenberg-download
+   Once downloaded, these EBooks can be organized under
+‘emacspeak-epub-library-directory’; For more advanced usage, see the
+next section on integrating with Calibre catalogs.
+
+12.62.4 Calibre Integration
+---------------------------
+
+Project Calibre enables the indexing and searching of large EBook
+collections.  Read the Calibre documentation for organizing and indexing
+your EBook library.  See user options named ‘emacspeak-epub-calibre-*’
+for customizing emacspeak to work with Calibre.  Once set up, Calibre
+integration provides the following commands from the _bookshelf_ buffer:
+
+‘/’
+     emacspeak-epub-calibre-results
+‘A’
+     emacspeak-epub-bookshelf-calibre-author
+‘S’
+     emacspeak-epub-bookshelf-calibre-search
+‘T’
+     emacspeak-epub-bookshelf-calibre-title
+
+12.62.5 emacspeak-epub Commands
 -------------------------------
 
-12.62.3.1 emacspeak-calibre-mode
+12.62.5.1 emacspeak-calibre-mode
 ................................
 
  -- Command: emacspeak-calibre-mode
@@ -1343,7 +1376,7 @@ bookshelf:
      this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.3.2 emacspeak-epub
+12.62.5.2 emacspeak-epub
 ........................
 
  -- Command: emacspeak-epub
@@ -1353,7 +1386,7 @@ bookshelf:
      EPub  Interaction.
      For detailed documentation, see M-x emacspeak-epub-mode
 
-12.62.3.3 emacspeak-epub-bookshelf-add-directory
+12.62.5.3 emacspeak-epub-bookshelf-add-directory
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-add-directory (directory &optional
@@ -1364,7 +1397,7 @@ bookshelf:
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.62.3.4 emacspeak-epub-bookshelf-add-epub
+12.62.5.4 emacspeak-epub-bookshelf-add-epub
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-add-epub (epub-file)
@@ -1373,7 +1406,7 @@ bookshelf:
 
      (fn EPUB-FILE)
 
-12.62.3.5 emacspeak-epub-bookshelf-calibre-author
+12.62.5.5 emacspeak-epub-bookshelf-calibre-author
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-author (pattern)
@@ -1382,7 +1415,7 @@ bookshelf:
 
      (fn PATTERN)
 
-12.62.3.6 emacspeak-epub-bookshelf-calibre-search
+12.62.5.6 emacspeak-epub-bookshelf-calibre-search
 .................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-search (pattern)
@@ -1391,7 +1424,7 @@ bookshelf:
 
      (fn PATTERN)
 
-12.62.3.7 emacspeak-epub-bookshelf-calibre-title
+12.62.5.7 emacspeak-epub-bookshelf-calibre-title
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-title (pattern)
@@ -1400,21 +1433,21 @@ bookshelf:
 
      (fn PATTERN)
 
-12.62.3.8 emacspeak-epub-bookshelf-clear
+12.62.5.8 emacspeak-epub-bookshelf-clear
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-clear
 
      Clear all books from bookshelf.
 
-12.62.3.9 emacspeak-epub-bookshelf-load
+12.62.5.9 emacspeak-epub-bookshelf-load
 .......................................
 
  -- Command: emacspeak-epub-bookshelf-load
 
      Load bookshelf metadata from disk.
 
-12.62.3.10 emacspeak-epub-bookshelf-open
+12.62.5.10 emacspeak-epub-bookshelf-open
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-open (bookshelf)
@@ -1423,7 +1456,7 @@ bookshelf:
 
      (fn BOOKSHELF)
 
-12.62.3.11 emacspeak-epub-bookshelf-open-epub
+12.62.5.11 emacspeak-epub-bookshelf-open-epub
 .............................................
 
  -- Command: emacspeak-epub-bookshelf-open-epub (epub-file)
@@ -1432,7 +1465,7 @@ bookshelf:
 
      (fn EPUB-FILE)
 
-12.62.3.12 emacspeak-epub-bookshelf-redraw
+12.62.5.12 emacspeak-epub-bookshelf-redraw
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-redraw (&optional author-first)
@@ -1443,14 +1476,14 @@ bookshelf:
 
      (fn &optional AUTHOR-FIRST)
 
-12.62.3.13 emacspeak-epub-bookshelf-refresh
+12.62.5.13 emacspeak-epub-bookshelf-refresh
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-refresh
 
      Refresh and redraw bookshelf.
 
-12.62.3.14 emacspeak-epub-bookshelf-remove-directory
+12.62.5.14 emacspeak-epub-bookshelf-remove-directory
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-directory (directory
@@ -1461,7 +1494,7 @@ bookshelf:
 
      (fn DIRECTORY &optional RECURSIVE)
 
-12.62.3.15 emacspeak-epub-bookshelf-remove-this-book
+12.62.5.15 emacspeak-epub-bookshelf-remove-this-book
 ....................................................
 
  -- Command: emacspeak-epub-bookshelf-remove-this-book
@@ -1469,7 +1502,7 @@ bookshelf:
      Remove the book on current line from this bookshelf.
      No book files are deleted.
 
-12.62.3.16 emacspeak-epub-bookshelf-rename
+12.62.5.16 emacspeak-epub-bookshelf-rename
 ..........................................
 
  -- Command: emacspeak-epub-bookshelf-rename (name &optional overwrite)
@@ -1479,14 +1512,14 @@ bookshelf:
 
      (fn NAME &optional OVERWRITE)
 
-12.62.3.17 emacspeak-epub-bookshelf-save
+12.62.5.17 emacspeak-epub-bookshelf-save
 ........................................
 
  -- Command: emacspeak-epub-bookshelf-save
 
      Save bookshelf metadata.
 
-12.62.3.18 emacspeak-epub-browse-files
+12.62.5.18 emacspeak-epub-browse-files
 ......................................
 
  -- Command: emacspeak-epub-browse-files (epub)
@@ -1496,28 +1529,28 @@ bookshelf:
 
      (fn EPUB)
 
-12.62.3.19 emacspeak-epub-calibre-dired-at-point
+12.62.5.19 emacspeak-epub-calibre-dired-at-point
 ................................................
 
  -- Command: emacspeak-epub-calibre-dired-at-point
 
      Open directory containing current result.
 
-12.62.3.20 emacspeak-epub-calibre-results
+12.62.5.20 emacspeak-epub-calibre-results
 .........................................
 
  -- Command: emacspeak-epub-calibre-results
 
      Show most recent Calibre search results.
 
-12.62.3.21 emacspeak-epub-delete
+12.62.5.21 emacspeak-epub-delete
 ................................
 
  -- Command: emacspeak-epub-delete
 
      Delete EPub under point.
 
-12.62.3.22 emacspeak-epub-eww
+12.62.5.22 emacspeak-epub-eww
 .............................
 
  -- Command: emacspeak-epub-eww (epub-file)
@@ -1526,7 +1559,7 @@ bookshelf:
 
      (fn EPUB-FILE)
 
-12.62.3.23 emacspeak-epub-fulltext
+12.62.5.23 emacspeak-epub-fulltext
 ..................................
 
  -- Command: emacspeak-epub-fulltext (epub-file)
@@ -1536,7 +1569,7 @@ bookshelf:
 
      (fn EPUB-FILE)
 
-12.62.3.24 emacspeak-epub-google
+12.62.5.24 emacspeak-epub-google
 ................................
 
  -- Command: emacspeak-epub-google (query)
@@ -1545,7 +1578,7 @@ bookshelf:
 
      (fn QUERY)
 
-12.62.3.25 emacspeak-epub-gutenberg-catalog
+12.62.5.25 emacspeak-epub-gutenberg-catalog
 ...........................................
 
  -- Command: emacspeak-epub-gutenberg-catalog (&optional refresh)
@@ -1555,7 +1588,7 @@ bookshelf:
 
      (fn &optional REFRESH)
 
-12.62.3.26 emacspeak-epub-gutenberg-download
+12.62.5.26 emacspeak-epub-gutenberg-download
 ............................................
 
  -- Command: emacspeak-epub-gutenberg-download (book-id &optional
@@ -1567,7 +1600,7 @@ bookshelf:
 
      (fn BOOK-ID &optional DOWNLOAD)
 
-12.62.3.27 emacspeak-epub-locate-epubs
+12.62.5.27 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
@@ -1576,7 +1609,7 @@ bookshelf:
 
      (fn PATTERN)
 
-12.62.3.28 emacspeak-epub-mode
+12.62.5.28 emacspeak-epub-mode
 ..............................
 
  -- Command: emacspeak-epub-mode
@@ -1624,14 +1657,14 @@ bookshelf:
      this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.3.29 emacspeak-epub-next
+12.62.5.29 emacspeak-epub-next
 ..............................
 
  -- Command: emacspeak-epub-next
 
      Move to next book.
 
-12.62.3.30 emacspeak-epub-open
+12.62.5.30 emacspeak-epub-open
 ..............................
 
  -- Command: emacspeak-epub-open (epub-file)
@@ -1641,14 +1674,14 @@ bookshelf:
 
      (fn EPUB-FILE)
 
-12.62.3.31 emacspeak-epub-previous
+12.62.5.31 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.62.3.32 emacspeak-epub-url-executor
+12.62.5.32 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)
@@ -1657,7 +1690,7 @@ bookshelf:
 
      (fn URL)
 
-12.62.4 emacspeak-epub Options
+12.62.6 emacspeak-epub Options
 ------------------------------
 
  -- Variable: User Option emacspeak-epub-bookshelf-directory

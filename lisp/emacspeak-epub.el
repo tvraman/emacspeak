@@ -91,6 +91,40 @@
 ;;; @item C-x C-s         
 ;;; emacspeak-epub-bookshelf-save
 ;;; @end table
+;;;
+;;; @subsection Integrating With Project Gutenberg
+;;;
+;;; Gutenberg integration provides one-shot commands for downloading
+;;; the latest copy of the Gutenberg catalog and  finding and downloading
+;;; the desired epub for offline reading.
+;;;
+;;; @table @kbd
+;;; @item C
+;;; emacspeak-epub-gutenberg-catalog
+;;; @item g
+;;; emacspeak-epub-gutenberg-download
+;;; @end table
+;;; Once downloaded, these EBooks can be organized under  @code{emacspeak-epub-library-directory};
+;;; For  more advanced usage, see the next section on integrating with Calibre catalogs.
+;;;
+;;; @subsection Calibre Integration
+;;;
+;;; Project Calibre  enables the indexing and searching of large EBook collections.
+;;; Read the Calibre documentation for organizing and indexing your EBook library.
+;;; See user options named @code{emacspeak-epub-calibre-*} for
+;;; customizing  emacspeak to work with Calibre.
+;;; Once set up, Calibre integration provides the following commands from the @emph{bookshelf} buffer:
+;;;
+;;; @table @kbd
+;;; @item /
+;;; emacspeak-epub-calibre-results
+;;; @item A
+;;; emacspeak-epub-bookshelf-calibre-author
+;;; @item S
+;;; emacspeak-epub-bookshelf-calibre-search
+;;; @item T
+;;; emacspeak-epub-bookshelf-calibre-title
+;;; @end table
 
 ;;}}}
 ;;{{{ Required Modules:
