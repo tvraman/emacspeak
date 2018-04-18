@@ -1,4 +1,4 @@
-This is turning-twenty.info, produced by makeinfo version 6.4.90 from
+This is turning-twenty.info, produced by makeinfo version 6.5 from
 turning-twenty.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -783,26 +783,26 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 
 Tag Table:
-Node: Top256
-Node: Introduction1843
-Node: Using UNIX With Speech Output — 19942520
-Node: Key Enabler — Emacs And Lisp Advice4342
-Node: Key Component — Text To Speech (TTS)5370
-Node: Emacspeak And Software Development7897
-Node: Programming Defensively10495
-Node: Emacspeak And Authoring Documents11753
-Node: Emacspeak And The Early Days Of The Web13311
-Node: Audio Formatting — Generalizing Aural CSS16742
-Node: Conversational Gestures For The Audio Desktop19793
-Node: Speech-Enabling Interactive Games23130
-Node: Accessing Media Streams24906
-Node: EBooks— Ubiquitous Access To Books26995
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29523
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31371
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access34836
-Node: Mashing It Up — Leveraging Evolving Web APIs38363
-Node: Conclusion40832
-Node: References42142
+Node: Top253
+Node: Introduction1840
+Node: Using UNIX With Speech Output — 19942517
+Node: Key Enabler — Emacs And Lisp Advice4339
+Node: Key Component — Text To Speech (TTS)5367
+Node: Emacspeak And Software Development7894
+Node: Programming Defensively10492
+Node: Emacspeak And Authoring Documents11750
+Node: Emacspeak And The Early Days Of The Web13308
+Node: Audio Formatting — Generalizing Aural CSS16739
+Node: Conversational Gestures For The Audio Desktop19790
+Node: Speech-Enabling Interactive Games23127
+Node: Accessing Media Streams24903
+Node: EBooks— Ubiquitous Access To Books26992
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29520
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31368
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access34833
+Node: Mashing It Up — Leveraging Evolving Web APIs38360
+Node: Conclusion40829
+Node: References42139
 
 End Tag Table
 

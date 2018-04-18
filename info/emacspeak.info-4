@@ -12,6 +12,143 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspeak And The Early Days Of The Web,  Prev: Emacspeak And Software Development,  Up: Emacspeak At Twenty
+
+15.6 Emacspeak And Authoring Documents
+======================================
+
+In 1994, my preferred environment for authoring *all* documents was
+*LaTeX* using the Auctex package.  Later I started writing either LaTeX
+or HTML using the appropriate support modes; today I use *org-mode* to
+do most of my content authoring.  Personally, I have never been a fan of
+What You See Is What You Get (WYSIWYG) authoring tools — in my
+experience that places an undue burden on the author by drawing
+attention away from the content to focus on the final appearance.  An
+added benefit of creating content in Emacs in the form of light-weight
+markup is that the content is long-lived — I can still usefully process
+and re-use things I have written 25 years ago.
+
+   Emacs, with Emacspeak providing audio formatting and context-specific
+feedback remains my environment of choice for writing all forms of
+content ranging from simple email messages to polished documents for
+print publishing.  And it is worth repeating that I *never* need to
+focus on what the content is going to look like — that job is best left
+to the computer.
+
+   As an example of producing high-fidelity visual content, see this
+write-up on Polyhedral Geometry
+(http://emacspeak.sourceforge.net/raman/publications/polyhedra/) that I
+published in 2002; all of the content, including the drawings were
+created by me using Emacs.
+
+
+File: emacspeak.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Audio Formatting --- Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Emacspeak At Twenty
+
+15.7 Emacspeak And The Early Days Of The Web
+============================================
+
+Right around the time that I was writing version 0.01 of emacspeak, a
+far more significant software movement was under way — the World Wide
+Web was moving from the realms of academia to the mainstream world with
+the launch of NCSA Mosaic — and in late 1994 by the first commercial Web
+browser in Netscape Navigator.  Emacs had always enabled integrated
+access to FTP archives via package _ange-ftp_; in late 1993, William
+Perry released Emacs-W3, a Web browser for Emacs written entirely in
+Emacs Lisp.  W3 was one of the first large packages to be speech-enabled
+by Emacspeak — later it was the browser on which I implemented the first
+draft of the Aural CSS specification
+(http://www.w3.org/TR/CSS2/aural.html).  Emacs-W3 enabled many early
+innovations in the context of providing non-visual access to Web
+content, including audio formatting and structured content navigation;
+in summer of 1995, Dave Raggett and I outlined a few extensions to HTML
+Forms, including the *label* element as a means of associating metadata
+with interactive form controls in HTML, and many of these ideas were
+prototyped in Emacs-W3 at the time.  Over the years, Emacs-W3 fell
+behind the times — especially as the Web moved away from cleanly
+structured HTML to a massive soup of unmatched tags.  This made parsing
+and error-correcting badly-formed HTML markup expensive to do in
+Emacs-Lisp — and performance suffered.  To add to this, mainstream users
+moved away because Emacs’ rendering engine at the time was not rich
+enough to provide the type of visual renderings that users had come to
+expect.  The advent of DHTML, and JavaScript based Web Applications
+finally killed off Emacs-W3 as far as most Emacs users were concerned.
+
+   But Emacs-W3 went through a revival on the emacspeak audio desktop in
+late 1999 with the arrival of XSLT, and Daniel Veillard’s excellent
+implementation via the *libxml2* and *libxslt* packages.  With these in
+hand, Emacspeak was able to hand-off the bulk of HTML error correction
+to the *xsltproc* tool.  The lack of visual fidelity didn’t matter much
+for an eyes-free environment; so Emacs-W3 continued to be a useful tool
+for consuming large amounts of Web content that did not require
+JavaScript support.
+
+   During the last 24 months, *libxml2* has been built into Emacs; this
+means that you can now parse arbitrary HTML as found in the wild without
+incurring a performance hit.  This functionality was leveraged first by
+package *shr* (Simple HTML Renderer) within the *gnus* package for
+rendering HTML email.  Later, the author of *gnus* and *shr* created a
+new light-weight HTML viewer called *eww* that is now part of Emacs 24.
+With improved support for variable pitch fonts and image embedding,
+Emacs is once again able to provide visual renderings for a large
+proportion of text-heavy Web content where it becomes useful for
+mainstream Emacs users to view at least some Web content within Emacs;
+during the last year, I have added support within emacspeak to extend
+package *eww*
+(http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html)
+with support for DOM filtering and quick content navigation.
+
+
+File: emacspeak.info,  Node: Audio Formatting --- Generalizing Aural CSS,  Next: Conversational Gestures For The Audio Desktop,  Prev: Emacspeak And The Early Days Of The Web,  Up: Emacspeak At Twenty
+
+15.8 Audio Formatting — Generalizing Aural CSS
+==============================================
+
+A key idea in Audio System For Technical Readings (AsTeR)
+(http://www.cs.cornell.edu/home/raman/aster/aster-toplevel.html) was the
+use of various voice properties in combination with non-speech auditory
+icons to create rich aural renderings.  When I implemented Emacspeak, I
+brought over the notion of audio formatting to all buffers in Emacs by
+creating a *voice-lock* module that paralleled Emacs’ *font-lock*
+module.  The visual medium is far richer in terms of available fonts and
+colors as compared to voice parameters available on TTS engines —
+consequently, it did not make sense to directly map Emacs’ *face*
+properties to voice parameters.  To aid in projecting visual formatting
+onto auditory space, I created property *personality* analogous to
+Emacs’ *face* property that could be applied to content displayed in
+Emacs; module *voice-lock* applied that property appropriately, and the
+Emacspeak core handled the details of mapping personality values to the
+underlying TTS engine.
+
+   The values used in property *personality* were abstract, i.e., they
+were independent of any given speech engine.  Later in the fall of 1995,
+I re-expressed these set of abstract voice properties in terms of Aural
+CSS; the work was published as a first draft toward the end of 1995, and
+implemented in Emacs-W3 in early 1996.  Aural CSS was an appendix in the
+CSS-1.0 specification; later, it graduated to being its own module
+within CSS-2.0.
+
+   Later in 1996, all of Emacs’ *voice-lock* functionality was
+re-implemented in terms of Aural CSS; the implementation has stood the
+test of time in that as I added support for more TTS engines, I was able
+to implement engine-specific mappings of Aural-CSS values.  This meant
+that the rest of Emacspeak could define various types of voices for use
+in specific contexts without having to worry about individual TTS
+engines.  Conceptually, property *personality* can be thought of as
+holding an *aural display list* — various parts of the system can
+annotate pieces of text with relevant properties that finally get
+rendered in the aggregate.  This model also works well with the notion
+of Emacs overlays where a moving overlay is used to temporarily
+highlight text that has other context-specific properties applied to it.
+
+   Audio formatting as implemented in Emacspeak is extremely effective
+when working with all types of content ranging from richly structured
+mark-up documents (LaTeX, org-mode) and formatted Web pages to program
+source code.  Perceptually, switching to audio formatted output feels
+like switching from a black-and-white monitor to a rich color display.
+Today, Emacspeak’s audio formatted output is the only way I can
+correctly write *else if* vs *elsif* in various programming languages!
+
+
 File: emacspeak.info,  Node: Conversational Gestures For The Audio Desktop,  Next: Accessing Media Streams,  Prev: Audio Formatting --- Generalizing Aural CSS,  Up: Emacspeak At Twenty
 
 15.9 Conversational Gestures For The Audio Desktop

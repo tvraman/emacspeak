@@ -1,4 +1,4 @@
-This is introducing-emacspeak.info, produced by makeinfo version 6.4.90
+This is introducing-emacspeak.info, produced by makeinfo version 6.5
 from introducing-emacspeak.texi.
 
 Copyright (C) 2003, 2005, 2006 Robert J. Chassell
@@ -1182,21 +1182,21 @@ in a shell as user 'root'.
 
 
 Tag Table:
-Node: Top764
-Node: This Essay1852
-Node: Questions4068
-Node: How to Introduce Emacspeak6285
-Node: Info and Help8323
-Node: Movement10790
-Node: Keybindings11992
-Node: X Windows Keybindings14564
-Node: Speech Rate15648
-Node: Basic Commands Reference16668
-Node: Characteristics18014
-Node: Emacs manual19911
-Node: Free Books26433
-Node: An Initialization File28517
-Node: Software Synthesizers35698
-Node: Installation37181
+Node: Top761
+Node: This Essay1849
+Node: Questions4065
+Node: How to Introduce Emacspeak6282
+Node: Info and Help8320
+Node: Movement10787
+Node: Keybindings11989
+Node: X Windows Keybindings14561
+Node: Speech Rate15645
+Node: Basic Commands Reference16665
+Node: Characteristics18011
+Node: Emacs manual19908
+Node: Free Books26430
+Node: An Initialization File28514
+Node: Software Synthesizers35695
+Node: Installation37178
 
 End Tag Table

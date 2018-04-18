@@ -4,6 +4,8 @@
 
 This chapter documents a total of 1205 commands and 1183 options.
 
+@include intro-docs.texi
+
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
 * amixer::Control AMixer from Emacs.

@@ -2725,6 +2725,261 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 
 This chapter documents a total of 1205 commands and 1183 options.
 
+   This chapter documents the various Emacspeak modules and is
+auto-generated from the Emacspeak source code.  Each section provides a
+high-level overview of that module, followed by detailed description of
+the commands and options defined in that module.
+
+* Menu:
+
+* acss-structure::
+* amixer::
+* cd-tool::
+* dectalk-voices::
+* dom-addons::
+* dtk-interp::
+* dtk-speak::
+* dtk-unicode::
+* emacspeak::
+* emacspeak-2048::
+* emacspeak-actions::
+* emacspeak-add-log::
+* emacspeak-advice::
+* emacspeak-amark::
+* emacspeak-analog::
+* emacspeak-ansi-color::
+* emacspeak-apt-sources::
+* emacspeak-arc::
+* emacspeak-auctex::
+* emacspeak-aumix::
+* emacspeak-bbc::
+* emacspeak-bbdb::
+* emacspeak-bibtex::
+* emacspeak-bookmark::
+* emacspeak-bookshare::
+* emacspeak-browse-kill-ring::
+* emacspeak-bs::
+* emacspeak-buff-menu::
+* emacspeak-c::
+* emacspeak-calc::
+* emacspeak-calculator::
+* emacspeak-calendar::
+* emacspeak-cedet::
+* emacspeak-checkdoc::
+* emacspeak-cider::
+* emacspeak-ciel::
+* emacspeak-clojure::
+* emacspeak-cmuscheme::
+* emacspeak-company::
+* emacspeak-compile::
+* emacspeak-cperl::
+* emacspeak-custom::
+* emacspeak-dbus::
+* emacspeak-desktop::
+* emacspeak-dictionary::
+* emacspeak-diff-mode::
+* emacspeak-dired::
+* emacspeak-ecb::
+* emacspeak-eclim::
+* emacspeak-ediary::
+* emacspeak-ediff::
+* emacspeak-ein::
+* emacspeak-elfeed::
+* emacspeak-elisp-refs::
+* emacspeak-elpy::
+* emacspeak-elscreen::
+* emacspeak-emms::
+* emacspeak-enriched::
+* emacspeak-entertain::
+* emacspeak-epa::
+* emacspeak-eperiodic::
+* emacspeak-epub::
+* emacspeak-erc::
+* emacspeak-eshell::
+* emacspeak-ess::
+* emacspeak-etable::
+* emacspeak-eterm::
+* emacspeak-eudc::
+* emacspeak-evil::
+* emacspeak-eww::
+* emacspeak-facemenu::
+* emacspeak-feeds::
+* emacspeak-filtertext::
+* emacspeak-find-dired::
+* emacspeak-find-func::
+* emacspeak-fix-interactive::
+* emacspeak-flycheck::
+* emacspeak-flyspell::
+* emacspeak-folding::
+* emacspeak-forms::
+* emacspeak-ftf::
+* emacspeak-geiser::
+* emacspeak-generic::
+* emacspeak-gnuplot::
+* emacspeak-gnus::
+* emacspeak-go-mode::
+* emacspeak-gomoku::
+* emacspeak-google::
+* emacspeak-gridtext::
+* emacspeak-gtags::
+* emacspeak-gud::
+* emacspeak-helm::
+* emacspeak-hide::
+* emacspeak-hideshow::
+* emacspeak-hydra::
+* emacspeak-ibuffer::
+* emacspeak-ido::
+* emacspeak-imenu::
+* emacspeak-indium::
+* emacspeak-info::
+* emacspeak-ispell::
+* emacspeak-ivy::
+* emacspeak-jabber::
+* emacspeak-jdee::
+* emacspeak-js2::
+* emacspeak-jss::
+* emacspeak-keymap::
+* emacspeak-kite::
+* emacspeak-kmacro::
+* emacspeak-librivox::
+* emacspeak-lua::
+* emacspeak-m-player::
+* emacspeak-magit::
+* emacspeak-make-mode::
+* emacspeak-man::
+* emacspeak-markdown::
+* emacspeak-maths::
+* emacspeak-message::
+* emacspeak-metapost::
+* emacspeak-midge::
+* emacspeak-mines::
+* emacspeak-mspools::
+* emacspeak-muggles::
+* emacspeak-muse::
+* emacspeak-net-utils::
+* emacspeak-newsticker::
+* emacspeak-npr::
+* emacspeak-nxml::
+* emacspeak-ocr::
+* emacspeak-org::
+* emacspeak-origami::
+* emacspeak-outline::
+* emacspeak-package::
+* emacspeak-paradox::
+* emacspeak-perl::
+* emacspeak-personality::
+* emacspeak-php-mode::
+* emacspeak-pianobar::
+* emacspeak-popup::
+* emacspeak-proced::
+* emacspeak-projectile::
+* emacspeak-prompts::
+* emacspeak-pronounce::
+* emacspeak-py::
+* emacspeak-pydoc::
+* emacspeak-python::
+* emacspeak-racket::
+* emacspeak-re-builder::
+* emacspeak-redefine::
+* emacspeak-reftex::
+* emacspeak-related::
+* emacspeak-remote::
+* emacspeak-rg::
+* emacspeak-rmail::
+* emacspeak-rpm::
+* emacspeak-rpm-spec::
+* emacspeak-rst::
+* emacspeak-ruby::
+* emacspeak-ses::
+* emacspeak-setup::
+* emacspeak-sgml-mode::
+* emacspeak-sh-script::
+* emacspeak-shx::
+* emacspeak-sigbegone::
+* emacspeak-slime::
+* emacspeak-smart-window::
+* emacspeak-smartparens::
+* emacspeak-solitaire::
+* emacspeak-sounds::
+* emacspeak-speak::
+* emacspeak-speedbar::
+* emacspeak-sql::
+* emacspeak-sudoku::
+* emacspeak-supercite::
+* emacspeak-table::
+* emacspeak-table-ui::
+* emacspeak-tabulate::
+* emacspeak-tapestry::
+* emacspeak-tar::
+* emacspeak-tcl::
+* emacspeak-tdtd::
+* emacspeak-tempo::
+* emacspeak-tetris::
+* emacspeak-texinfo::
+* emacspeak-threes::
+* emacspeak-tide::
+* emacspeak-todo-mode::
+* emacspeak-twittering::
+* emacspeak-typo::
+* emacspeak-url-template::
+* emacspeak-vdiff::
+* emacspeak-view::
+* emacspeak-vlc::
+* emacspeak-vm::
+* emacspeak-wdired::
+* emacspeak-we::
+* emacspeak-websearch::
+* emacspeak-webspace::
+* emacspeak-webutils::
+* emacspeak-widget::
+* emacspeak-windmove::
+* emacspeak-winring::
+* emacspeak-wizards::
+* emacspeak-woman::
+* emacspeak-xkcd::
+* emacspeak-xml-shell::
+* emacspeak-xref::
+* emacspeak-xslt::
+* emacspeak-yasnippet::
+* espeak-voices::
+* g::
+* g-utils::
+* gm-nnir::
+* gmaps::
+* ladspa::
+* mac-voices::
+* outloud-voices::
+* plain-voices::
+* soundscape::
+* sox::
+* sox-gen::
+* stack-f::
+* tetris::
+* toy-braille::
+* tts::
+* tts-cmds::
+* voice-setup::
+* xbacklight::
+* URL Templates::
+
+12.1 How To Use This Chapter
+============================
+
+Emacspeak modules can be classified as follows:
+  1. Modules that interface with various TTS engines, e.g.
+     ‘espeak-voices’ and ‘dectalk-voices’.
+  2. Modules that implement core Emacspeak functionality, e.g.,
+     ‘emacspeak-speak’, ‘voice-lock’ and ‘emacspeak-voices’.
+  3. Emacspeak extensions for speech-enabling various emacs packages,
+     these are all named using the convention
+     ‘emacspeak-<mpackagename>’.
+
+   The first two of the above are mostly of interest when extending
+Emacspeak, or to learn how things are implemented.  The third category
+is useful in understanding how emacspeak works with a given package;
+thus, when learning to use the Emacs Web Browser (EWW), read the EWW
+documentation, then read *Note emacspeak-eww::.
+
 * Menu:
 
 * acss-structure::CSS – Cascaded Speech Style structure.
@@ -2960,7 +3215,7 @@ This chapter documents a total of 1205 commands and 1183 options.
 
 File: emacspeak.info,  Node: acss-structure,  Next: amixer,  Up: Emacspeak Commands And Options
 
-12.1 acss-structure
+12.2 acss-structure
 ===================
 
 The CSS Speech Style Sheet specification defines a number of abstract
@@ -2992,15 +3247,15 @@ to see how voices are defined.
 
 File: emacspeak.info,  Node: amixer,  Next: cd-tool,  Prev: acss-structure,  Up: Emacspeak Commands And Options
 
-12.2 amixer
+12.3 amixer
 ===========
 
 Provide an emacs front-end to amixer.  amixer is part of ALSA.
 
-12.2.1 amixer Commands
+12.3.1 amixer Commands
 ----------------------
 
-12.2.1.1 amixer
+12.3.1.1 amixer
 ...............
 
  -- Command: amixer (&optional refresh)
@@ -3010,28 +3265,28 @@ Provide an emacs front-end to amixer.  amixer is part of ALSA.
 
      (fn &optional REFRESH)
 
-12.2.1.2 amixer-equalize
+12.3.1.2 amixer-equalize
 ........................
 
  -- Command: amixer-equalize
 
      Set equalizer. Only affects device ‘equal’.
 
-12.2.1.3 amixer-reset-equalizer
+12.3.1.3 amixer-reset-equalizer
 ...............................
 
  -- Command: amixer-reset-equalizer
 
      Reset equalizer to default values – 66% for all 10 bands.
 
-12.2.1.4 amixer-store
+12.3.1.4 amixer-store
 .....................
 
  -- Command: amixer-store
 
      Persist current amixer settings.
 
-12.2.2 amixer Options
+12.3.2 amixer Options
 ---------------------
 
  -- Variable: User Option amixer-device
@@ -3040,7 +3295,7 @@ Provide an emacs front-end to amixer.  amixer is part of ALSA.
 
 File: emacspeak.info,  Node: cd-tool,  Next: dectalk-voices,  Prev: amixer,  Up: Emacspeak Commands And Options
 
-12.3 cd-tool
+12.4 cd-tool
 ============
 
 Provide an emacs front-end to cdtool.  cdtool can be obtained as an rpm
@@ -3049,10 +3304,10 @@ check using rpmfind or from its home site at sunsite.unc.edu
 play or save clips from a CD if you have cdda2wav installed.  cdda2wav
 is a cd to wav converter.
 
-12.3.1 cd-tool Commands
+12.4.1 cd-tool Commands
 -----------------------
 
-12.3.1.1 cd-tool
+12.4.1.1 cd-tool
 ................
 
  -- Command: cd-tool
@@ -3080,7 +3335,7 @@ is a cd to wav converter.
      cap C   Save clip to disk
 
 
-12.3.2 cd-tool Options
+12.4.2 cd-tool Options
 ----------------------
 
  -- Variable: User Option cd-tool-start-command
@@ -3089,16 +3344,16 @@ is a cd to wav converter.
 
 File: emacspeak.info,  Node: dectalk-voices,  Next: dom-addons,  Prev: cd-tool,  Up: Emacspeak Commands And Options
 
-12.4 dectalk-voices
+12.5 dectalk-voices
 ===================
 
 This module defines the various voices used in voice-lock mode.  This
 module is Dectalk specific.
 
-12.4.1 dectalk-voices Commands
+12.5.1 dectalk-voices Commands
 ------------------------------
 
-12.4.1.1 dectalk
+12.5.1.1 dectalk
 ................
 
  -- Command: dectalk
@@ -3107,14 +3362,14 @@ module is Dectalk specific.
 
      Select Dectalk TTS server.
 
-12.4.1.2 dtk-exp
+12.5.1.2 dtk-exp
 ................
 
  -- Command: dtk-exp
 
      Select Dectalk TTS server.
 
-12.4.2 dectalk-voices Options
+12.5.2 dectalk-voices Options
 -----------------------------
 
  -- Variable: User Option dectalk-default-speech-rate
@@ -3123,7 +3378,7 @@ module is Dectalk specific.
 
 File: emacspeak.info,  Node: dom-addons,  Next: dtk-interp,  Prev: dectalk-voices,  Up: Emacspeak Commands And Options
 
-12.5 dom-addons
+12.6 dom-addons
 ===============
 
 Useful additional functions for dom.el
@@ -3131,7 +3386,7 @@ Useful additional functions for dom.el
 
 File: emacspeak.info,  Node: dtk-interp,  Next: dtk-speak,  Prev: dom-addons,  Up: Emacspeak Commands And Options
 
-12.6 dtk-interp
+12.7 dtk-interp
 ===============
 
 All requests to the speech server are factored out into this module.
@@ -3142,15 +3397,15 @@ to call out to different speech servers.
 
 File: emacspeak.info,  Node: dtk-speak,  Next: dtk-unicode,  Prev: dtk-interp,  Up: Emacspeak Commands And Options
 
-12.7 dtk-speak
+12.8 dtk-speak
 ==============
 
 Defines the TTS interface.
 
-12.7.1 dtk-speak Commands
+12.8.1 dtk-speak Commands
 -------------------------
 
-12.7.1.1 dtk-add-cleanup-pattern
+12.8.1.1 dtk-add-cleanup-pattern
 ................................
 
  -- Command: dtk-add-cleanup-pattern (&optional delete)
@@ -3170,7 +3425,7 @@ Defines the TTS interface.
 
      (fn &optional DELETE)
 
-12.7.1.2 dtk-cloud
+12.8.1.2 dtk-cloud
 ..................
 
  -- Command: dtk-cloud
@@ -3179,7 +3434,7 @@ Defines the TTS interface.
 
      Select preferred Cloud TTS server.
 
-12.7.1.3 dtk-local-server
+12.8.1.3 dtk-local-server
 .........................
 
  -- Command: dtk-local-server (program &optional prompt-port)
@@ -3193,7 +3448,7 @@ Defines the TTS interface.
 
      (fn PROGRAM &optional PROMPT-PORT)
 
-12.7.1.4 dtk-notify-initialize
+12.8.1.4 dtk-notify-initialize
 ..............................
 
  -- Command: dtk-notify-initialize
@@ -3202,7 +3457,7 @@ Defines the TTS interface.
 
      Initialize notification TTS stream.
 
-12.7.1.5 dtk-notify-shutdown
+12.8.1.5 dtk-notify-shutdown
 ............................
 
  -- Command: dtk-notify-shutdown
@@ -3211,7 +3466,7 @@ Defines the TTS interface.
 
      Shutdown notification TTS stream.
 
-12.7.1.6 dtk-notify-stop
+12.8.1.6 dtk-notify-stop
 ........................
 
  -- Command: dtk-notify-stop
@@ -3220,7 +3475,7 @@ Defines the TTS interface.
 
      Stop  speech on notification stream.
 
-12.7.1.7 dtk-reset-state
+12.8.1.7 dtk-reset-state
 ........................
 
  -- Command: dtk-reset-state
@@ -3230,7 +3485,7 @@ Defines the TTS interface.
      Restore sanity to the Dectalk.
      Typically used after the Dectalk has been power   cycled.
 
-12.7.1.8 dtk-select-server
+12.8.1.8 dtk-select-server
 ..........................
 
  -- Command: dtk-select-server (program &optional device)
@@ -3245,7 +3500,7 @@ Defines the TTS interface.
 
      (fn PROGRAM &optional DEVICE)
 
-12.7.1.9 dtk-set-character-scale
+12.8.1.9 dtk-set-character-scale
 ................................
 
  -- Command: dtk-set-character-scale (factor &optional prefix)
@@ -3260,7 +3515,7 @@ Defines the TTS interface.
 
      (fn FACTOR &optional PREFIX)
 
-12.7.1.10 dtk-set-chunk-separator-syntax
+12.8.1.10 dtk-set-chunk-separator-syntax
 ........................................
 
  -- Command: dtk-set-chunk-separator-syntax (s)
@@ -3274,7 +3529,7 @@ Defines the TTS interface.
 
      (fn S)
 
-12.7.1.11 dtk-set-language
+12.8.1.11 dtk-set-language
 ..........................
 
  -- Command: dtk-set-language (lang)
@@ -3285,7 +3540,7 @@ Defines the TTS interface.
 
      (fn LANG)
 
-12.7.1.12 dtk-set-next-language
+12.8.1.12 dtk-set-next-language
 ...............................
 
  -- Command: dtk-set-next-language
@@ -3294,7 +3549,7 @@ Defines the TTS interface.
 
      Switch to the next available language
 
-12.7.1.13 dtk-set-predefined-speech-rate
+12.8.1.13 dtk-set-predefined-speech-rate
 ........................................
 
  -- Command: dtk-set-predefined-speech-rate (&optional prefix)
@@ -3326,7 +3581,7 @@ Defines the TTS interface.
 
      (fn &optional PREFIX)
 
-12.7.1.14 dtk-set-preferred-language
+12.8.1.14 dtk-set-preferred-language
 ....................................
 
  -- Command: dtk-set-preferred-language (alias lang)
@@ -3339,7 +3594,7 @@ Defines the TTS interface.
 
      (fn ALIAS LANG)
 
-12.7.1.15 dtk-set-previous-language
+12.8.1.15 dtk-set-previous-language
 ...................................
 
  -- Command: dtk-set-previous-language
@@ -3348,7 +3603,7 @@ Defines the TTS interface.
 
      Switch to the previous available language
 
-12.7.1.16 dtk-set-punctuations
+12.8.1.16 dtk-set-punctuations
 ..............................
 
  -- Command: dtk-set-punctuations (mode &optional prefix)
@@ -3362,7 +3617,7 @@ Defines the TTS interface.
 
      (fn MODE &optional PREFIX)
 
-12.7.1.17 dtk-set-punctuations-to-all
+12.8.1.17 dtk-set-punctuations-to-all
 .....................................
 
  -- Command: dtk-set-punctuations-to-all (&optional prefix)
@@ -3372,7 +3627,7 @@ Defines the TTS interface.
 
      (fn &optional PREFIX)
 
-12.7.1.18 dtk-set-punctuations-to-some
+12.8.1.18 dtk-set-punctuations-to-some
 ......................................
 
  -- Command: dtk-set-punctuations-to-some (&optional prefix)
@@ -3382,7 +3637,7 @@ Defines the TTS interface.
 
      (fn &optional PREFIX)
 
-12.7.1.19 dtk-set-rate
+12.8.1.19 dtk-set-rate
 ......................
 
  -- Command: dtk-set-rate (rate &optional prefix)
@@ -3395,7 +3650,7 @@ Defines the TTS interface.
 
      (fn RATE &optional PREFIX)
 
-12.7.1.20 dtk-stop
+12.8.1.20 dtk-stop
 ..................
 
  -- Command: dtk-stop (&optional all)
@@ -3409,7 +3664,7 @@ Defines the TTS interface.
 
      (fn &optional ALL)
 
-12.7.1.21 dtk-toggle-allcaps-beep
+12.8.1.21 dtk-toggle-allcaps-beep
 .................................
 
  -- Command: dtk-toggle-allcaps-beep (&optional prefix)
@@ -3423,7 +3678,7 @@ Defines the TTS interface.
      Note that allcaps-beep is a very useful thing when programming.
      However it is irritating to have it on when reading documents.
 
-12.7.1.22 dtk-toggle-capitalization
+12.8.1.22 dtk-toggle-capitalization
 ...................................
 
  -- Command: dtk-toggle-capitalization (&optional prefix)
@@ -3435,7 +3690,7 @@ Defines the TTS interface.
      short beep.  Interactive PREFIX arg means toggle the global default
      value, and then set the current local value to the result.
 
-12.7.1.23 dtk-toggle-punctuation-mode
+12.8.1.23 dtk-toggle-punctuation-mode
 .....................................
 
  -- Command: dtk-toggle-punctuation-mode (&optional prefix)
@@ -3447,7 +3702,7 @@ Defines the TTS interface.
 
      (fn &optional PREFIX)
 
-12.7.1.24 dtk-toggle-quiet
+12.8.1.24 dtk-toggle-quiet
 ..........................
 
  -- Command: dtk-toggle-quiet (&optional prefix)
@@ -3458,7 +3713,7 @@ Defines the TTS interface.
      Turning on this switch silences speech.
      Optional interactive prefix arg causes this setting to become global.
 
-12.7.1.25 dtk-toggle-speak-nonprinting-chars
+12.8.1.25 dtk-toggle-speak-nonprinting-chars
 ............................................
 
  -- Command: dtk-toggle-speak-nonprinting-chars (&optional prefix)
@@ -3470,7 +3725,7 @@ Defines the TTS interface.
      Interactive PREFIX arg means toggle the global default
      value, and then set the current local value to the result.
 
-12.7.1.26 dtk-toggle-split-caps
+12.8.1.26 dtk-toggle-split-caps
 ...............................
 
  -- Command: dtk-toggle-split-caps (&optional prefix)
@@ -3483,7 +3738,7 @@ Defines the TTS interface.
      means toggle the global default value, and then set the current local
      value to the result.
 
-12.7.1.27 dtk-toggle-splitting-on-white-space
+12.8.1.27 dtk-toggle-splitting-on-white-space
 .............................................
 
  -- Command: dtk-toggle-splitting-on-white-space
@@ -3504,7 +3759,7 @@ Defines the TTS interface.
      when splitting on white space, the speech sounds choppy
      since the synthesizer is getting a word at a time.
 
-12.7.1.28 dtk-toggle-strip-octals
+12.8.1.28 dtk-toggle-strip-octals
 .................................
 
  -- Command: dtk-toggle-strip-octals (&optional prefix)
@@ -3516,7 +3771,7 @@ Defines the TTS interface.
       toggle the global default value, and then set the current local
      value to the result.
 
-12.7.1.29 tts-cycle-device
+12.8.1.29 tts-cycle-device
 ..........................
 
  -- Command: tts-cycle-device (&optional restart)
@@ -3526,7 +3781,7 @@ Defines the TTS interface.
 
      (fn &optional RESTART)
 
-12.7.1.30 tts-restart
+12.8.1.30 tts-restart
 .....................
 
  -- Command: tts-restart
@@ -3535,14 +3790,14 @@ Defines the TTS interface.
 
      Use this to nuke the currently running TTS server and restart it.
 
-12.7.1.31 tts-speak-version
+12.8.1.31 tts-speak-version
 ...........................
 
  -- Command: tts-speak-version
 
      Speak version.
 
-12.7.2 dtk-speak Options
+12.8.2 dtk-speak Options
 ------------------------
 
  -- Variable: User Option dtk-cleanup-patterns
@@ -3591,15 +3846,15 @@ Defines the TTS interface.
 
 File: emacspeak.info,  Node: dtk-unicode,  Next: emacspeak,  Prev: dtk-speak,  Up: Emacspeak Commands And Options
 
-12.8 dtk-unicode
+12.9 dtk-unicode
 ================
 
 This Provides Unicode support to the speech layer.
 
-12.8.1 dtk-unicode Commands
+12.9.1 dtk-unicode Commands
 ---------------------------
 
-12.8.1.1 dtk-unicode-customize-char
+12.9.1.1 dtk-unicode-customize-char
 ...................................
 
  -- Command: dtk-unicode-customize-char (char replacement)
@@ -3610,7 +3865,7 @@ This Provides Unicode support to the speech layer.
 
      (fn CHAR REPLACEMENT)
 
-12.8.1.2 dtk-unicode-uncustomize-char
+12.9.1.2 dtk-unicode-uncustomize-char
 .....................................
 
  -- Command: dtk-unicode-uncustomize-char (char)
@@ -3621,7 +3876,7 @@ This Provides Unicode support to the speech layer.
 
      (fn CHAR)
 
-12.8.2 dtk-unicode Options
+12.9.2 dtk-unicode Options
 --------------------------
 
  -- Variable: User Option dtk-unicode-character-replacement-alist
@@ -3641,8 +3896,8 @@ This Provides Unicode support to the speech layer.
 
 File: emacspeak.info,  Node: emacspeak,  Next: emacspeak-2048,  Prev: dtk-unicode,  Up: Emacspeak Commands And Options
 
-12.9 emacspeak
-==============
+12.10 emacspeak
+===============
 
 Emacspeak extends Emacs to be a fully functional audio desktop.  This is
 the main emacspeak module.  It actually does very little: It sets up
@@ -3650,11 +3905,11 @@ Emacs to load package-specific Emacspeak modules as each package is
 loaded.  It implements function emacspeak which loads the rest of the
 system.
 
-12.9.1 emacspeak Commands
--------------------------
+12.10.1 emacspeak Commands
+--------------------------
 
-12.9.1.1 emacspeak
-..................
+12.10.1.1 emacspeak
+...................
 
  -- Command: emacspeak
 
@@ -4051,8 +4306,8 @@ system.
      See the online documentation C-e TAB for individual
      commands and options for details.
 
-12.9.1.2 emacspeak-describe-emacspeak
-.....................................
+12.10.1.2 emacspeak-describe-emacspeak
+......................................
 
  -- Command: emacspeak-describe-emacspeak
      ‘C-h C-e’
@@ -4061,15 +4316,15 @@ system.
 
      Give a brief overview of emacspeak.
 
-12.9.1.3 emacspeak-info
-.......................
+12.10.1.3 emacspeak-info
+........................
 
  -- Command: emacspeak-info
 
      Open Emacspeak Info Manual.
 
-12.9.1.4 emacspeak-submit-bug
-.............................
+12.10.1.4 emacspeak-submit-bug
+..............................
 
  -- Command: emacspeak-submit-bug
      ‘C-e C-M-b’
@@ -4077,8 +4332,8 @@ system.
 
      Function to submit a bug to the programs maintainer.
 
-12.9.2 emacspeak Options
-------------------------
+12.10.2 emacspeak Options
+-------------------------
 
  -- Variable: User Option emacspeak-Info-quoted-voice
      Personality used for Info-quoted This personality uses
@@ -6327,43 +6582,43 @@ system.
 
 File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-actions,  Prev: emacspeak,  Up: Emacspeak Commands And Options
 
-12.10 emacspeak-2048
+12.11 emacspeak-2048
 ====================
 
 Speech-enable 2048 Game
 
-12.10.1 emacspeak-2048 Commands
+12.11.1 emacspeak-2048 Commands
 -------------------------------
 
-12.10.1.1 emacspeak-2048-add-column
+12.11.1.1 emacspeak-2048-add-column
 ...................................
 
  -- Command: emacspeak-2048-add-column
 
      Add a column  to the current board.
 
-12.10.1.2 emacspeak-2048-add-row
+12.11.1.2 emacspeak-2048-add-row
 ................................
 
  -- Command: emacspeak-2048-add-row
 
      Add a row  to the current board.
 
-12.10.1.3 emacspeak-2048-drop-column
+12.11.1.3 emacspeak-2048-drop-column
 ....................................
 
  -- Command: emacspeak-2048-drop-column
 
      Drop last  row  from  the current board.
 
-12.10.1.4 emacspeak-2048-drop-row
+12.11.1.4 emacspeak-2048-drop-row
 .................................
 
  -- Command: emacspeak-2048-drop-row
 
      Drop last  row  from  the current board.
 
-12.10.1.5 emacspeak-2048-export
+12.11.1.5 emacspeak-2048-export
 ...............................
 
  -- Command: emacspeak-2048-export (&optional prompt)
@@ -6374,7 +6629,7 @@ Speech-enable 2048 Game
 
      (fn &optional PROMPT)
 
-12.10.1.6 emacspeak-2048-import
+12.11.1.6 emacspeak-2048-import
 ...............................
 
  -- Command: emacspeak-2048-import (&optional prompt)
@@ -6384,14 +6639,14 @@ Speech-enable 2048 Game
 
      (fn &optional PROMPT)
 
-12.10.1.7 emacspeak-2048-pop-state
+12.11.1.7 emacspeak-2048-pop-state
 ..................................
 
  -- Command: emacspeak-2048-pop-state
 
      Reset state from stack.
 
-12.10.1.8 emacspeak-2048-prune-stack
+12.11.1.8 emacspeak-2048-prune-stack
 ....................................
 
  -- Command: emacspeak-2048-prune-stack (drop)
@@ -6400,14 +6655,14 @@ Speech-enable 2048 Game
 
      (fn DROP)
 
-12.10.1.9 emacspeak-2048-push-state
+12.11.1.9 emacspeak-2048-push-state
 ...................................
 
  -- Command: emacspeak-2048-push-state
 
      Push current game state on stack.
 
-12.10.1.10 emacspeak-2048-randomize-game
+12.11.1.10 emacspeak-2048-randomize-game
 ........................................
 
  -- Command: emacspeak-2048-randomize-game (&optional count)
@@ -6416,21 +6671,21 @@ Speech-enable 2048 Game
 
      (fn &optional COUNT)
 
-12.10.1.11 emacspeak-2048-score
+12.11.1.11 emacspeak-2048-score
 ...............................
 
  -- Command: emacspeak-2048-score
 
      Show total on board.
 
-12.10.1.12 emacspeak-2048-speak-board
+12.11.1.12 emacspeak-2048-speak-board
 .....................................
 
  -- Command: emacspeak-2048-speak-board
 
      Speak board.
 
-12.10.1.13 emacspeak-2048-speak-transposed-board
+12.11.1.13 emacspeak-2048-speak-transposed-board
 ................................................
 
  -- Command: emacspeak-2048-speak-transposed-board
@@ -6440,7 +6695,7 @@ Speech-enable 2048 Game
 
 File: emacspeak.info,  Node: emacspeak-actions,  Next: emacspeak-add-log,  Prev: emacspeak-2048,  Up: Emacspeak Commands And Options
 
-12.11 emacspeak-actions
+12.12 emacspeak-actions
 =======================
 
 Define mode-specific actions.  Actions are defined by adding them to
@@ -6449,12 +6704,12 @@ hook emacspeak-<mode-name>-actions-hook
 
 File: emacspeak.info,  Node: emacspeak-add-log,  Next: emacspeak-advice,  Prev: emacspeak-actions,  Up: Emacspeak Commands And Options
 
-12.12 emacspeak-add-log
+12.13 emacspeak-add-log
 =======================
 
 Speech-enable Changelog mode
 
-12.12.1 emacspeak-add-log Options
+12.13.1 emacspeak-add-log Options
 ---------------------------------
 
  -- Variable: User Option emacspeak-change-log-acknowledgment-voice
@@ -6500,7 +6755,7 @@ Speech-enable Changelog mode
 
 File: emacspeak.info,  Node: emacspeak-advice,  Next: emacspeak-amark,  Prev: emacspeak-add-log,  Up: Emacspeak Commands And Options
 
-12.13 emacspeak-advice
+12.14 emacspeak-advice
 ======================
 
 This module defines the advice forms for making the core of Emacs speak
@@ -6514,10 +6769,10 @@ that this and subsequent versions of Emacspeak should not be run on
 versions of Emacs older than Emacs 21, And preferably only run on Emacs
 22.  This version of Emacspeak is only tested on Emacs 24 and later.
 
-12.13.1 emacspeak-advice Commands
+12.14.1 emacspeak-advice Commands
 ---------------------------------
 
-12.13.1.1 emacspeak-eldoc-speak-doc
+12.14.1.1 emacspeak-eldoc-speak-doc
 ...................................
 
  -- Command: emacspeak-eldoc-speak-doc
@@ -6526,7 +6781,7 @@ versions of Emacs older than Emacs 21, And preferably only run on Emacs
 
      Speak Eldoc documentation if available.
 
-12.13.2 emacspeak-advice Options
+12.14.2 emacspeak-advice Options
 --------------------------------
 
  -- Variable: User Option emacspeak-advice-progress-reporter
@@ -6551,7 +6806,7 @@ versions of Emacs older than Emacs 21, And preferably only run on Emacs
 
 File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: emacspeak-advice,  Up: Emacspeak Commands And Options
 
-12.14 emacspeak-amark
+12.15 emacspeak-amark
 =====================
 
 Structure emacspeak-amark holds a bookmark into an mp3 file path: fully
@@ -6561,10 +6816,10 @@ time offset from start
    This library will be used from emacspeak-m-player, emacspeak-mplayer
 and friends to set and jump to bookmarks.
 
-12.14.1 emacspeak-amark Commands
+12.15.1 emacspeak-amark Commands
 --------------------------------
 
-12.14.1.1 emacspeak-amark-add
+12.15.1.1 emacspeak-amark-add
 .............................
 
  -- Command: emacspeak-amark-add (path name position)
@@ -6575,7 +6830,7 @@ and friends to set and jump to bookmarks.
 
      (fn PATH NAME POSITION)
 
-12.14.1.2 emacspeak-amark-find
+12.15.1.2 emacspeak-amark-find
 ..............................
 
  -- Command: emacspeak-amark-find (name)
@@ -6584,14 +6839,14 @@ and friends to set and jump to bookmarks.
 
      (fn NAME)
 
-12.14.1.3 emacspeak-amark-load
+12.15.1.3 emacspeak-amark-load
 ..............................
 
  -- Command: emacspeak-amark-load
 
      Locate AMarks file from current directory, and load it.
 
-12.14.1.4 emacspeak-amark-save
+12.15.1.4 emacspeak-amark-save
 ..............................
 
  -- Command: emacspeak-amark-save
@@ -6601,15 +6856,15 @@ and friends to set and jump to bookmarks.
 
 File: emacspeak.info,  Node: emacspeak-analog,  Next: emacspeak-ansi-color,  Prev: emacspeak-amark,  Up: Emacspeak Commands And Options
 
-12.15 emacspeak-analog
+12.16 emacspeak-analog
 ======================
 
 Speech-enables package analog –convenient log analyzer
 
-12.15.1 emacspeak-analog Commands
+12.16.1 emacspeak-analog Commands
 ---------------------------------
 
-12.15.1.1 emacspeak-analog-backward-field-or-char
+12.16.1.1 emacspeak-analog-backward-field-or-char
 .................................................
 
  -- Command: emacspeak-analog-backward-field-or-char
@@ -6618,7 +6873,7 @@ Speech-enables package analog –convenient log analyzer
      Otherwise move to previous char.
      Speak field or char moved to.
 
-12.15.1.2 emacspeak-analog-forward-field-or-char
+12.16.1.2 emacspeak-analog-forward-field-or-char
 ................................................
 
  -- Command: emacspeak-analog-forward-field-or-char
@@ -6627,28 +6882,28 @@ Speech-enables package analog –convenient log analyzer
      Otherwise move to next char.
      Speak field or char moved to.
 
-12.15.1.3 emacspeak-analog-next-line
+12.16.1.3 emacspeak-analog-next-line
 ....................................
 
  -- Command: emacspeak-analog-next-line
 
      Move down and speak current field.
 
-12.15.1.4 emacspeak-analog-previous-line
+12.16.1.4 emacspeak-analog-previous-line
 ........................................
 
  -- Command: emacspeak-analog-previous-line
 
      Move up and speak current field.
 
-12.15.1.5 emacspeak-analog-speak-this-field
+12.16.1.5 emacspeak-analog-speak-this-field
 ...........................................
 
  -- Command: emacspeak-analog-speak-this-field
 
      Speak current field.
 
-12.15.2 emacspeak-analog Options
+12.16.2 emacspeak-analog Options
 --------------------------------
 
  -- Variable: User Option emacspeak-analog-entry-header-personality
@@ -6659,7 +6914,7 @@ Speech-enables package analog –convenient log analyzer
 
 File: emacspeak.info,  Node: emacspeak-ansi-color,  Next: emacspeak-apt-sources,  Prev: emacspeak-analog,  Up: Emacspeak Commands And Options
 
-12.16 emacspeak-ansi-color
+12.17 emacspeak-ansi-color
 ==========================
 
 Module ansi-color (bundled with Emacs 21) handles ansi escape sequences
@@ -6669,7 +6924,7 @@ shell buffers.  This module maps ansi codes to the appropriate voices.
 
 File: emacspeak.info,  Node: emacspeak-apt-sources,  Next: emacspeak-arc,  Prev: emacspeak-ansi-color,  Up: Emacspeak Commands And Options
 
-12.17 emacspeak-apt-sources
+12.18 emacspeak-apt-sources
 ===========================
 
 This module speech-enables apt-sources.el that is included in the
@@ -6679,37 +6934,37 @@ sources.list file.
 
 File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emacspeak-apt-sources,  Up: Emacspeak Commands And Options
 
-12.18 emacspeak-arc
+12.19 emacspeak-arc
 ===================
 
 Auditory interface to archive mode This lets Emacs manipulate package
 files such as .zip and .jar files.
 
-12.18.1 emacspeak-arc Commands
+12.19.1 emacspeak-arc Commands
 ------------------------------
 
-12.18.1.1 emacspeak-arc-speak-file-modification-time
+12.19.1.1 emacspeak-arc-speak-file-modification-time
 ....................................................
 
  -- Command: emacspeak-arc-speak-file-modification-time
 
      Speak modification time of the file on current line
 
-12.18.1.2 emacspeak-arc-speak-file-name
+12.19.1.2 emacspeak-arc-speak-file-name
 .......................................
 
  -- Command: emacspeak-arc-speak-file-name
 
      Speak the name of the file on current line
 
-12.18.1.3 emacspeak-arc-speak-file-permissions
+12.19.1.3 emacspeak-arc-speak-file-permissions
 ..............................................
 
  -- Command: emacspeak-arc-speak-file-permissions
 
      Speak permissions of file current entry
 
-12.18.1.4 emacspeak-arc-speak-file-size
+12.19.1.4 emacspeak-arc-speak-file-size
 .......................................
 
  -- Command: emacspeak-arc-speak-file-size
@@ -6719,7 +6974,7 @@ files such as .zip and .jar files.
 
 File: emacspeak.info,  Node: emacspeak-auctex,  Next: emacspeak-aumix,  Prev: emacspeak-arc,  Up: Emacspeak Commands And Options
 
-12.19 emacspeak-auctex
+12.20 emacspeak-auctex
 ======================
 
 Speech-enables the AucTeX package.  AucTeX, now available from ELPA, has
@@ -6728,16 +6983,16 @@ been my authoring environment of choice for writing LaTeX since 1991.
 
 File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bbc,  Prev: emacspeak-auctex,  Up: Emacspeak Commands And Options
 
-12.20 emacspeak-aumix
+12.21 emacspeak-aumix
 =====================
 
 Provides an AUI to setting up the auditory display via AUMIX This module
 is presently Linux specific
 
-12.20.1 emacspeak-aumix Commands
+12.21.1 emacspeak-aumix Commands
 --------------------------------
 
-12.20.1.1 emacspeak-aumix
+12.21.1.1 emacspeak-aumix
 .........................
 
  -- Command: emacspeak-aumix
@@ -6748,7 +7003,7 @@ is presently Linux specific
      adjust the settings to your preference.  Hit q to quit when
      you are done.
 
-12.20.1.2 emacspeak-aumix-edit
+12.21.1.2 emacspeak-aumix-edit
 ..............................
 
  -- Command: emacspeak-aumix-edit
@@ -6757,14 +7012,14 @@ is presently Linux specific
      Run command M-x emacspeak-aumix-reset
      after saving the settings to have them take effect.
 
-12.20.1.3 emacspeak-aumix-reset
+12.21.1.3 emacspeak-aumix-reset
 ...............................
 
  -- Command: emacspeak-aumix-reset
 
      Reset to default audio settings.
 
-12.20.1.4 emacspeak-aumix-volume-decrease
+12.21.1.4 emacspeak-aumix-volume-decrease
 .........................................
 
  -- Command: emacspeak-aumix-volume-decrease (&optional gain)
@@ -6773,7 +7028,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.20.1.5 emacspeak-aumix-volume-increase
+12.21.1.5 emacspeak-aumix-volume-increase
 .........................................
 
  -- Command: emacspeak-aumix-volume-increase (&optional gain)
@@ -6782,7 +7037,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.20.1.6 emacspeak-aumix-wave-decrease
+12.21.1.6 emacspeak-aumix-wave-decrease
 .......................................
 
  -- Command: emacspeak-aumix-wave-decrease (&optional gain)
@@ -6791,7 +7046,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.20.1.7 emacspeak-aumix-wave-increase
+12.21.1.7 emacspeak-aumix-wave-increase
 .......................................
 
  -- Command: emacspeak-aumix-wave-increase (&optional gain)
@@ -6800,7 +7055,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.20.2 emacspeak-aumix Options
+12.21.2 emacspeak-aumix Options
 -------------------------------
 
  -- Variable: User Option emacspeak-alsactl-program
@@ -6815,7 +7070,7 @@ is presently Linux specific
 
 File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-aumix,  Up: Emacspeak Commands And Options
 
-12.21 emacspeak-bbc
+12.22 emacspeak-bbc
 ===================
 
 BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
@@ -6831,10 +7086,10 @@ Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
 use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
 available.  For downloading a program etc., use Emacs package iplayer.
 
-12.21.1 emacspeak-bbc Commands
+12.22.1 emacspeak-bbc Commands
 ------------------------------
 
-12.21.1.1 emacspeak-bbc
+12.22.1.1 emacspeak-bbc
 .......................
 
  -- Command: emacspeak-bbc (&optional genre)
@@ -6849,14 +7104,14 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn &optional GENRE)
 
-12.21.1.2 emacspeak-bbc-genre
+12.22.1.2 emacspeak-bbc-genre
 .............................
 
  -- Command: emacspeak-bbc-genre
 
      Launch BBC Interaction for specified Genre.
 
-12.21.1.3 emacspeak-bbc-get-iplayer-stream-pid
+12.22.1.3 emacspeak-bbc-get-iplayer-stream-pid
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
@@ -6865,7 +7120,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn PID)
 
-12.21.1.4 emacspeak-bbc-get-iplayer-stream-url
+12.22.1.4 emacspeak-bbc-get-iplayer-stream-url
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
@@ -6874,7 +7129,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn URL)
 
-12.21.2 emacspeak-bbc Options
+12.22.2 emacspeak-bbc Options
 -----------------------------
 
  -- Variable: User Option emacspeak-bbc-button-action
@@ -6887,13 +7142,13 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
 File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
 
-12.22 emacspeak-bbdb
+12.23 emacspeak-bbdb
 ====================
 
 Speech-enables BBDB. I have used BBDB to manage email address and
 contact information since 1991.
 
-12.22.1 emacspeak-bbdb Options
+12.23.1 emacspeak-bbdb Options
 ------------------------------
 
  -- Variable: User Option emacspeak-bbdb-field-name-voice
@@ -6914,7 +7169,7 @@ contact information since 1991.
 
 File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
 
-12.23 emacspeak-bibtex
+12.24 emacspeak-bibtex
 ======================
 
 Speech extensions for bibtex mode.
@@ -6922,7 +7177,7 @@ Speech extensions for bibtex mode.
 
 File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
 
-12.24 emacspeak-bookmark
+12.25 emacspeak-bookmark
 ========================
 
 Speech enable bookmarks
@@ -6930,7 +7185,7 @@ Speech enable bookmarks
 
 File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
 
-12.25 emacspeak-bookshare
+12.26 emacspeak-bookshare
 =========================
 
 BOOKSHARE == http://www.bookshare.org provides book access to
@@ -6940,10 +7195,10 @@ Bookshare client.  For now, users will need to get their own API key
 This version needs Emacs with libxml2 support You need Emacs 24.1 or
 higher.
 
-12.25.1 emacspeak-bookshare Commands
+12.26.1 emacspeak-bookshare Commands
 ------------------------------------
 
-12.25.1.1 emacspeak-bookshare
+12.26.1.1 emacspeak-bookshare
 .............................
 
  -- Command: emacspeak-bookshare
@@ -6952,14 +7207,14 @@ higher.
 
      Bookshare  Interaction.
 
-12.25.1.2 emacspeak-bookshare-action
+12.26.1.2 emacspeak-bookshare-action
 ....................................
 
  -- Command: emacspeak-bookshare-action
 
      Call action specified by  invoking key.
 
-12.25.1.3 emacspeak-bookshare-author-search
+12.26.1.3 emacspeak-bookshare-author-search
 ...........................................
 
  -- Command: emacspeak-bookshare-author-search (query &optional
@@ -6970,21 +7225,21 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.25.1.4 emacspeak-bookshare-browse
+12.26.1.4 emacspeak-bookshare-browse
 ....................................
 
  -- Command: emacspeak-bookshare-browse
 
      Browse Bookshare.
 
-12.25.1.5 emacspeak-bookshare-browse-latest
+12.26.1.5 emacspeak-bookshare-browse-latest
 ...........................................
 
  -- Command: emacspeak-bookshare-browse-latest
 
      Return latest books.
 
-12.25.1.6 emacspeak-bookshare-browse-popular
+12.26.1.6 emacspeak-bookshare-browse-popular
 ............................................
 
  -- Command: emacspeak-bookshare-browse-popular (&optional category)
@@ -6994,7 +7249,7 @@ higher.
 
      (fn &optional CATEGORY)
 
-12.25.1.7 emacspeak-bookshare-download-audio
+12.26.1.7 emacspeak-bookshare-download-audio
 ............................................
 
  -- Command: emacspeak-bookshare-download-audio (id target)
@@ -7003,7 +7258,7 @@ higher.
 
      (fn ID TARGET)
 
-12.25.1.8 emacspeak-bookshare-download-audio-at-point
+12.26.1.8 emacspeak-bookshare-download-audio-at-point
 .....................................................
 
  -- Command: emacspeak-bookshare-download-audio-at-point
@@ -7011,7 +7266,7 @@ higher.
      Download audio version of book under point.
      Target location is generated from author and title.
 
-12.25.1.9 emacspeak-bookshare-download-brf
+12.26.1.9 emacspeak-bookshare-download-brf
 ..........................................
 
  -- Command: emacspeak-bookshare-download-brf (id target)
@@ -7020,7 +7275,7 @@ higher.
 
      (fn ID TARGET)
 
-12.25.1.10 emacspeak-bookshare-download-brf-at-point
+12.26.1.10 emacspeak-bookshare-download-brf-at-point
 ....................................................
 
  -- Command: emacspeak-bookshare-download-brf-at-point
@@ -7028,7 +7283,7 @@ higher.
      Download Braille version of book under point.
      Target location is generated from author and title.
 
-12.25.1.11 emacspeak-bookshare-download-daisy
+12.26.1.11 emacspeak-bookshare-download-daisy
 .............................................
 
  -- Command: emacspeak-bookshare-download-daisy (id target)
@@ -7037,7 +7292,7 @@ higher.
 
      (fn ID TARGET)
 
-12.25.1.12 emacspeak-bookshare-download-daisy-at-point
+12.26.1.12 emacspeak-bookshare-download-daisy-at-point
 ......................................................
 
  -- Command: emacspeak-bookshare-download-daisy-at-point
@@ -7045,7 +7300,7 @@ higher.
      Download Daisy version of book under point.
      Target location is generated from author and title.
 
-12.25.1.13 emacspeak-bookshare-download-epub-3
+12.26.1.13 emacspeak-bookshare-download-epub-3
 ..............................................
 
  -- Command: emacspeak-bookshare-download-epub-3 (id target)
@@ -7054,7 +7309,7 @@ higher.
 
      (fn ID TARGET)
 
-12.25.1.14 emacspeak-bookshare-download-epub-3-at-point
+12.26.1.14 emacspeak-bookshare-download-epub-3-at-point
 .......................................................
 
  -- Command: emacspeak-bookshare-download-epub-3-at-point
@@ -7062,7 +7317,7 @@ higher.
      Download epub-3 version of book under point.
      Target location is generated from author and title.
 
-12.25.1.15 emacspeak-bookshare-download-internal
+12.26.1.15 emacspeak-bookshare-download-internal
 ................................................
 
  -- Command: emacspeak-bookshare-download-internal (url target)
@@ -7071,7 +7326,7 @@ higher.
 
      (fn URL TARGET)
 
-12.25.1.16 emacspeak-bookshare-eww
+12.26.1.16 emacspeak-bookshare-eww
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
@@ -7080,7 +7335,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.25.1.17 emacspeak-bookshare-expand-at-point
+12.26.1.17 emacspeak-bookshare-expand-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-expand-at-point
@@ -7088,7 +7343,7 @@ higher.
      Expand entry at point by retrieving metadata.
      Once retrieved, memoize to avoid multiple retrievals.
 
-12.25.1.18 emacspeak-bookshare-extract-and-view
+12.26.1.18 emacspeak-bookshare-extract-and-view
 ...............................................
 
  -- Command: emacspeak-bookshare-extract-and-view (url)
@@ -7097,7 +7352,7 @@ higher.
 
      (fn URL)
 
-12.25.1.19 emacspeak-bookshare-extract-xml
+12.26.1.19 emacspeak-bookshare-extract-xml
 ..........................................
 
  -- Command: emacspeak-bookshare-extract-xml (url)
@@ -7106,7 +7361,7 @@ higher.
 
      (fn URL)
 
-12.25.1.20 emacspeak-bookshare-flush-lines
+12.26.1.20 emacspeak-bookshare-flush-lines
 ..........................................
 
  -- Command: emacspeak-bookshare-flush-lines (regexp)
@@ -7115,7 +7370,7 @@ higher.
 
      (fn REGEXP)
 
-12.25.1.21 emacspeak-bookshare-fulltext
+12.26.1.21 emacspeak-bookshare-fulltext
 .......................................
 
  -- Command: emacspeak-bookshare-fulltext (directory)
@@ -7125,7 +7380,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.25.1.22 emacspeak-bookshare-fulltext-search
+12.26.1.22 emacspeak-bookshare-fulltext-search
 ..............................................
 
  -- Command: emacspeak-bookshare-fulltext-search (query)
@@ -7134,14 +7389,14 @@ higher.
 
      (fn QUERY)
 
-12.25.1.23 emacspeak-bookshare-get-more-results
+12.26.1.23 emacspeak-bookshare-get-more-results
 ...............................................
 
  -- Command: emacspeak-bookshare-get-more-results
 
      Get next page of results for last query.
 
-12.25.1.24 emacspeak-bookshare-id-search
+12.26.1.24 emacspeak-bookshare-id-search
 ........................................
 
  -- Command: emacspeak-bookshare-id-search (query)
@@ -7150,7 +7405,7 @@ higher.
 
      (fn QUERY)
 
-12.25.1.25 emacspeak-bookshare-isbn-search
+12.26.1.25 emacspeak-bookshare-isbn-search
 ..........................................
 
  -- Command: emacspeak-bookshare-isbn-search (query)
@@ -7159,14 +7414,14 @@ higher.
 
      (fn QUERY)
 
-12.25.1.26 emacspeak-bookshare-list-preferences
+12.26.1.26 emacspeak-bookshare-list-preferences
 ...............................................
 
  -- Command: emacspeak-bookshare-list-preferences
 
      Return preference list.
 
-12.25.1.27 emacspeak-bookshare-mode
+12.26.1.27 emacspeak-bookshare-mode
 ...................................
 
  -- Command: emacspeak-bookshare-mode
@@ -7237,28 +7492,28 @@ higher.
      this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.25.1.28 emacspeak-bookshare-next-result
+12.26.1.28 emacspeak-bookshare-next-result
 ..........................................
 
  -- Command: emacspeak-bookshare-next-result
 
      Move to next result.
 
-12.25.1.29 emacspeak-bookshare-periodical-list
+12.26.1.29 emacspeak-bookshare-periodical-list
 ..............................................
 
  -- Command: emacspeak-bookshare-periodical-list
 
      Return list of periodicals.
 
-12.25.1.30 emacspeak-bookshare-previous-result
+12.26.1.30 emacspeak-bookshare-previous-result
 ..............................................
 
  -- Command: emacspeak-bookshare-previous-result
 
      Move to previous result.
 
-12.25.1.31 emacspeak-bookshare-set-preference
+12.26.1.31 emacspeak-bookshare-set-preference
 .............................................
 
  -- Command: emacspeak-bookshare-set-preference (preference-id value)
@@ -7267,14 +7522,14 @@ higher.
 
      (fn PREFERENCE-ID VALUE)
 
-12.25.1.32 emacspeak-bookshare-sign-out
+12.26.1.32 emacspeak-bookshare-sign-out
 .......................................
 
  -- Command: emacspeak-bookshare-sign-out
 
      Sign out, clearing password.
 
-12.25.1.33 emacspeak-bookshare-since-search
+12.26.1.33 emacspeak-bookshare-since-search
 ...........................................
 
  -- Command: emacspeak-bookshare-since-search (query &optional category)
@@ -7284,7 +7539,7 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.25.1.34 emacspeak-bookshare-title-search
+12.26.1.34 emacspeak-bookshare-title-search
 ...........................................
 
  -- Command: emacspeak-bookshare-title-search (query &optional category)
@@ -7294,7 +7549,7 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.25.1.35 emacspeak-bookshare-toc
+12.26.1.35 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
@@ -7303,7 +7558,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.25.1.36 emacspeak-bookshare-toc-at-point
+12.26.1.36 emacspeak-bookshare-toc-at-point
 ...........................................
 
  -- Command: emacspeak-bookshare-toc-at-point
@@ -7311,14 +7566,14 @@ higher.
      View TOC for book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.25.1.37 emacspeak-bookshare-unpack-at-point
+12.26.1.37 emacspeak-bookshare-unpack-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-unpack-at-point
 
      Unpack downloaded content if necessary.
 
-12.25.1.38 emacspeak-bookshare-url-executor
+12.26.1.38 emacspeak-bookshare-url-executor
 ...........................................
 
  -- Command: emacspeak-bookshare-url-executor (url)
@@ -7327,7 +7582,7 @@ higher.
 
      (fn URL)
 
-12.25.1.39 emacspeak-bookshare-version-handler
+12.26.1.39 emacspeak-bookshare-version-handler
 ..............................................
 
  -- Command: emacspeak-bookshare-version-handler (&rest ignore)
@@ -7337,7 +7592,7 @@ higher.
 
      (fn &rest IGNORE)
 
-12.25.1.40 emacspeak-bookshare-view
+12.26.1.40 emacspeak-bookshare-view
 ...................................
 
  -- Command: emacspeak-bookshare-view (directory)
@@ -7346,7 +7601,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.25.1.41 emacspeak-bookshare-view-at-point
+12.26.1.41 emacspeak-bookshare-view-at-point
 ............................................
 
  -- Command: emacspeak-bookshare-view-at-point
@@ -7354,7 +7609,7 @@ higher.
      View book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.25.1.42 emacspeak-bookshare-view-page-range
+12.26.1.42 emacspeak-bookshare-view-page-range
 ..............................................
 
  -- Command: emacspeak-bookshare-view-page-range (url)
@@ -7363,7 +7618,7 @@ higher.
 
      (fn URL)
 
-12.25.2 emacspeak-bookshare Options
+12.26.2 emacspeak-bookshare Options
 -----------------------------------
 
  -- Variable: User Option emacspeak-bookshare-api-key
