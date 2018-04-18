@@ -1,6 +1,3 @@
-
-
-
 This chapter documents the various Emacspeak modules and is
 auto-generated from the Emacspeak source code.
 Each section provides a high-level overview of that module, followed by
@@ -10,14 +7,14 @@ detailed description of the commands and options defined in that module.
 
 
 Emacspeak modules can be classified as follows:
-@enumerate 
+@itemize 
 @item  Modules that interface with various TTS engines,
 e.g. @code{espeak-voices} and @code{dectalk-voices}.
 @item Modules that implement core Emacspeak functionality, e.g.,
 @code{emacspeak-speak}, @code{voice-lock} and @code{emacspeak-voices}.
 @item Emacspeak extensions for speech-enabling various emacs packages,
  these are all named using the convention @code{emacspeak-<mpackagename>}.
-@end enumerate 
+@end itemize 
 
 The first two of the above are mostly of interest when extending
 Emacspeak, or to learn how things are implemented. The third category is
