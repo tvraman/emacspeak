@@ -212,7 +212,6 @@ epub
 EPub
 epubs
 Epubs
-EPubs
 erc
 ESC
 eshell
@@ -261,7 +260,6 @@ func
 GAFA
 galeon
 gblogger
-gbooks
 gdb
 GDB
 geiser
@@ -533,7 +531,6 @@ sldb
 smartparens
 SmartParens
 SMARTPARENS
-smil
 smoothen
 Smoothen
 snd
@@ -589,6 +586,7 @@ theEmacspeak
 tiffcp
 timesavers
 toc
+TOC
 todo
 toolbelt
 tooltips
@@ -638,6 +636,8 @@ Veillard's
 ViaVoice
 viewability
 vimdiff
+vlc
+VLC
 vm
 VM
 VMMail
