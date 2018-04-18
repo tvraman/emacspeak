@@ -81,8 +81,13 @@
   <h4 class="subsection">12.62.1 Introduction</h4>
   <p>This module implements the Emacspeak EPub Bookshelf — a
   unified interface for organizing, locating and reading EPub
-  EBooks on the emacspeak Audio Desktop. For now it supports epub2
-  — it will support epub3 some time in the future.</p>
+  EBooks on the emacspeak Audio Desktop. The epub reader is built
+  using the Emacs Web Browser (EWW), and all of emacspeak’s EWW
+  conveniences are available when reading EBooks — see See <a href=
+  "emacspeak_002deww.html#emacspeak_002deww">emacspeak-eww</a> for
+  useful tools including bookmarking and structured navigation. For
+  now it supports epub2 — it will support epub3 some time in the
+  future.</p>
   <p>The main entry point is command <code>emacspeak-epub</code>
   bound to <kbd>C-e g</kbd>. This command opens a new bookshelf
   buffer unless the user has previously opened a specific
@@ -91,9 +96,12 @@
   and <em>author</em>. The bookshelf buffer is in a special mode
   that provides single-key commands for adding, removing and
   finding books, as well as for opening the selected book using
-  Emacs’ built-in Web browser (<code>eww</code>).</p><a name=
-  "Organizing-EBooks-On-The-Emacspeak-Desktop" id=
-  "Organizing-EBooks-On-The-Emacspeak-Desktop"></a>
+  Emacs’ built-in Web browser (<code>eww</code>).</p>
+  <p>The next few sections give a high-level overview of the
+  emacspeak Bookshelf and EPub interaction, followed by detailed
+  documentation on the various commands and user
+  options.</p><a name="Organizing-EBooks-On-The-Emacspeak-Desktop"
+  id="Organizing-EBooks-On-The-Emacspeak-Desktop"></a>
   <h4 class="subsection">12.62.2 Organizing EBooks On The Emacspeak
   Desktop</h4>
   <p>In the simplest case, EBooks can be placed under a specific
