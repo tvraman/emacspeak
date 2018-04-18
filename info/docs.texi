@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1205 commands and 1172 options.
+This chapter documents a total of 1205 commands and 1183 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -180,7 +180,7 @@ This chapter documents a total of 1205 commands and 1172 options.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
 * emacspeak-table::Implements data model for table browsing.
-* emacspeak-table-ui::
+* emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Interpret tabulated information as a table.
 * emacspeak-tapestry::Speak information about current layout of windows.
 * emacspeak-tar::Speech enable Tar Mode -- Manipulate tar archives from Emacs.
@@ -207,7 +207,7 @@ This chapter documents a total of 1205 commands and 1172 options.
 * emacspeak-widget::Speech enable Emacs' native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing -- Manage multiple Emacs window configurations.
-* emacspeak-wizards::
+* emacspeak-wizards::Wizards For Emacspeak  Power Users.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
 * emacspeak-xml-shell::Implements a simple XML browser.
@@ -217,7 +217,7 @@ This chapter documents a total of 1205 commands and 1172 options.
 * espeak-voices::Define  Espeak tags.
 * g::Google Client.
 * g-utils::Google Client Utilities.
-* gm-nnir::
+* gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
 * ladspa::Ladspa Tools For Emacs.
 * mac-voices::Define  Mac tags.
@@ -4019,6 +4019,72 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -19209,6 +19275,8 @@ Copy current table element to kill ring.
 
 @format
 Copy current table element to specified register.
+
+(fn REGISTER)
 @end format
 @end deffn
 
@@ -19250,6 +19318,8 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -19267,6 +19337,8 @@ the documentation on the table browser.
 @format
 Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. 
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -19283,6 +19355,8 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -19299,6 +19373,8 @@ the documentation on the table browser.
 
 @format
 Prompt for a table cell coordinates and jump to it.
+
+(fn ROW COLUMN)
 @end format
 @end deffn
 
@@ -19403,6 +19479,8 @@ Goes to the top of the current column.
 
 @format
 Move to the next column if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19427,6 +19505,8 @@ Move to the next column if possible
 
 @format
 Move to the next row if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19462,6 +19542,8 @@ markup to use.
 
 @format
 Move to the previous column  if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19486,6 +19568,8 @@ Move to the previous column  if possible
 
 @format
 Move to the previous row if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -19505,6 +19589,8 @@ Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current. When called from a program, ‘what’ can
   be either ‘row’ or ‘column’.
+
+(fn &optional WHAT)
 @end format
 @end deffn
 
@@ -19621,6 +19707,8 @@ Speak  both row and column header and table element
 @format
 Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -19702,6 +19790,8 @@ Speak current table dimensions.
 @format
 Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -19734,6 +19824,8 @@ Speak  row header and table element
 
 @format
 Load saved filter settings.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -19750,6 +19842,8 @@ Load saved filter settings.
 
 @format
 Save out filter settings.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -19767,6 +19861,8 @@ Save out filter settings.
 @format
 Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. 
+
+(fn &optional BUFFER-NAME)
 @end format
 @end deffn
 
@@ -19777,6 +19873,8 @@ The processed  data is  presented using emacspeak table navigation.
 @format
 Process a csv (comma separated values) data at  ‘URL’.
 The processed  data is  presented using emacspeak table navigation. 
+
+(fn URL &optional BUFFER-NAME)
 @end format
 @end deffn
 

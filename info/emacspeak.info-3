@@ -2881,6 +2881,8 @@ User interface to tables
 
      Copy current table element to specified register.
 
+     (fn REGISTER)
+
 12.176.1.3 emacspeak-table-copy-to-clipboard
 ............................................
 
@@ -2908,6 +2910,8 @@ User interface to tables
      C-h m in a buffer that is in emacspeak table mode to read
      the documentation on the table browser.
 
+     (fn START END)
+
 12.176.1.5 emacspeak-table-find-csv-file
 ........................................
 
@@ -2917,6 +2921,8 @@ User interface to tables
 
      Process a csv (comma separated values) file.
      The processed  data is presented using emacspeak table navigation.
+
+     (fn FILENAME)
 
 12.176.1.6 emacspeak-table-find-file
 ....................................
@@ -2932,6 +2938,8 @@ User interface to tables
      C-h m in a buffer that is in emacspeak table mode to read
      the documentation on the table browser.
 
+     (fn FILENAME)
+
 12.176.1.7 emacspeak-table-goto
 ...............................
 
@@ -2940,6 +2948,8 @@ User interface to tables
      ‘<fn> C-t j’
 
      Prompt for a table cell coordinates and jump to it.
+
+     (fn ROW COLUMN)
 
 12.176.1.8 emacspeak-table-goto-bottom
 ......................................
@@ -2998,6 +3008,8 @@ User interface to tables
 
      Move to the next column if possible
 
+     (fn &optional COUNT)
+
 12.176.1.13 emacspeak-table-next-row
 ....................................
 
@@ -3010,6 +3022,8 @@ User interface to tables
      ‘<fn> C-t <down>’
 
      Move to the next row if possible
+
+     (fn &optional COUNT)
 
 12.176.1.14 emacspeak-table-paste-from-clipboard
 ................................................
@@ -3033,6 +3047,8 @@ User interface to tables
 
      Move to the previous column  if possible
 
+     (fn &optional COUNT)
+
 12.176.1.16 emacspeak-table-previous-row
 ........................................
 
@@ -3046,6 +3062,8 @@ User interface to tables
 
      Move to the previous row if possible
 
+     (fn &optional COUNT)
+
 12.176.1.17 emacspeak-table-search
 ..................................
 
@@ -3057,6 +3075,8 @@ User interface to tables
      row or column to search and pattern to look for.    If there is a match, makes
      the matching cell current. When called from a program, ‘what’ can
        be either ‘row’ or ‘column’.
+
+     (fn &optional WHAT)
 
 12.176.1.18 emacspeak-table-search-column
 .........................................
@@ -3125,6 +3145,8 @@ User interface to tables
      Speaks a table column after applying a specified column filter.
      Optional prefix arg prompts for a new filter.
 
+     (fn &optional PREFIX)
+
 12.176.1.25 emacspeak-table-speak-column-header-and-element
 ...........................................................
 
@@ -3171,6 +3193,8 @@ User interface to tables
      Speaks a table row after applying a specified row filter.
      Optional prefix arg prompts for a new filter.
 
+     (fn &optional PREFIX)
+
 12.176.1.30 emacspeak-table-speak-row-header-and-element
 ........................................................
 
@@ -3189,6 +3213,8 @@ User interface to tables
 
      Load saved filter settings.
 
+     (fn FILE)
+
 12.176.1.32 emacspeak-table-ui-filter-save
 ..........................................
 
@@ -3197,6 +3223,8 @@ User interface to tables
      ‘<fn> C-t M-s’
 
      Save out filter settings.
+
+     (fn FILE)
 
 12.176.1.33 emacspeak-table-view-csv-buffer
 ...........................................
@@ -3208,6 +3236,8 @@ User interface to tables
      Process a csv (comma separated values) data.
      The processed  data is  presented using emacspeak table navigation.
 
+     (fn &optional BUFFER-NAME)
+
 12.176.1.34 emacspeak-table-view-csv-url
 ........................................
 
@@ -3215,6 +3245,8 @@ User interface to tables
 
      Process a csv (comma separated values) data at  ‘URL’.
      The processed  data is  presented using emacspeak table navigation.
+
+     (fn URL &optional BUFFER-NAME)
 
 
 File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Prev: emacspeak-table-ui,  Up: Emacspeak Commands And Options
@@ -9504,62 +9536,4 @@ source code.  Perceptually, switching to audio formatted output feels
 like switching from a black-and-white monitor to a rich color display.
 Today, Emacspeak’s audio formatted output is the only way I can
 correctly write *else if* vs *elsif* in various programming languages!
-
-
-File: emacspeak.info,  Node: Conversational Gestures For The Audio Desktop,  Next: Accessing Media Streams,  Prev: Audio Formatting --- Generalizing Aural CSS,  Up: Emacspeak At Twenty
-
-15.9 Conversational Gestures For The Audio Desktop
-==================================================
-
-By 1996, Emacspeak was the only piece of adaptive technology I used; in
-fall of 1995, I had moved to Adobe Systems from DEC Research to focus on
-enhancing the Portable Document Format (PDF) to make PDF content
-repurposable.  Between 1996 and 1998, I was primarily focused on
-electronic document formats — I took this opportunity to step back and
-evaluate what I had built as an auditory interface within Emacspeak.
-This retrospect proved extremely useful in gaining a sense of
-perspective and led to formalizing the high-level concept of
-_Conversational Gestures_ and structured browsing/searching as a means
-of thinking about user interfaces.
-
-   By now, Emacspeak was a complete environment — I formalized what it
-provided under the moniker _Complete Audio Desktop_.  The fully
-integrated user experience allowed me to move forward with respect to
-defining interaction models that were highly optimized to eyes-free
-interaction — as an example, see how Emacspeak interfaces with modes
-like *dired* (Directory Editor) for browsing and manipulating the
-filesystem, or *proced* (Process Editor) for browsing and manipulating
-running processes.  Emacs’ integration with *ispell* for spell checking,
-as well as its various completion facilities ranging from minibuffer
-completion to other forms of dynamic completion while typing text
-provided more opportunities for creating innovative forms of eyes-free
-interaction.  With respect to what had gone before (and is still par for
-the course as far as traditional screen-readers are concerned), these
-types of highly dynamic interfaces present a challenge.  For example,
-consider handling a completion interface using a screen-reader that is
-speaking the visual display.  There is a significant challenge in
-deciding _what to speak_ e.g., when presented with a list of
-completions, the currently typed text, and the default completion, which
-of these should you speak, and in what order?  The problem gets harder
-when you consider that the underlying semantics of these items is
-generally not available from examining the visual presentation in a
-consistent manner.  By having direct access to the underlying
-information being presented, Emacspeak had a leg up with respect to
-addressing the higher-level question — when you do have access to this
-information, how do you present it effectively in an eyes-free
-environment?  For this and many other cases of dynamic interaction, a
-combination of audio formatting, auditory icons, and the ability to
-synthesize succinct messages from a combination of information items —
-rather than having to forcibly speak each item as it is rendered
-visually provided for highly efficient eyes-free interaction.
-
-   This was also when I stepped back to build out Emacspeak’s table
-browsing facilities — see the online Emacspeak documentation for details
-on Emacspeak’s table browsing functionality which continues to remain
-one of the richest collection of end-user affordances for working with
-two-dimensional data.
-
-* Menu:
-
-* Speech-Enabling Interactive Games::
 
