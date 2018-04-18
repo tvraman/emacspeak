@@ -144,6 +144,8 @@
       <div class="format">
         <pre class="format">
         Copy current table element to specified register.
+
+(fn REGISTER)
 </pre>
       </div>
     </dd>
@@ -211,6 +213,8 @@ emacspeak distribution contains some sample tables –these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -239,6 +243,8 @@ the documentation on the table browser.
         <pre class="format">
         Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. 
+
+(fn FILENAME)
 </pre>
       </div>
     </dd>
@@ -264,6 +270,8 @@ emacspeak distribution contains some sample tables –these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
+
+(fn FILENAME)
 </pre>
       </div>
     </dd>
@@ -288,6 +296,8 @@ the documentation on the table browser.
       <div class="format">
         <pre class="format">
         Prompt for a table cell coordinates and jump to it.
+
+(fn ROW COLUMN)
 </pre>
       </div>
     </dd>
@@ -443,6 +453,8 @@ the documentation on the table browser.
       "index-emacspeak_002dtable_002dnext_002dcolumn-1"></a>
       <div class="format">
         <pre class="format">Move to the next column if possible
+
+(fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
@@ -479,6 +491,8 @@ the documentation on the table browser.
       id="index-emacspeak_002dtable_002dnext_002drow-1"></a>
       <div class="format">
         <pre class="format">Move to the next row if possible
+
+(fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
@@ -544,6 +558,8 @@ markup to use.
       <div class="format">
         <pre class="format">
         Move to the previous column  if possible
+
+(fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
@@ -581,6 +597,8 @@ markup to use.
       "index-emacspeak_002dtable_002dprevious_002drow-1"></a>
       <div class="format">
         <pre class="format">Move to the previous row if possible
+
+(fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
@@ -608,6 +626,8 @@ markup to use.
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current. When called from a program, ‘what’ can
   be either ‘row’ or ‘column’.
+
+(fn &amp;optional WHAT)
 </pre>
       </div>
     </dd>
@@ -807,6 +827,8 @@ browsing table elements
         <pre class="format">
         Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -944,6 +966,8 @@ Optional prefix arg prompts for a new filter.
         <pre class="format">
         Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -1000,6 +1024,8 @@ Optional prefix arg prompts for a new filter.
       "index-emacspeak_002dtable_002dui_002dfilter_002dload-1"></a>
       <div class="format">
         <pre class="format">Load saved filter settings.
+
+(fn FILE)
 </pre>
       </div>
     </dd>
@@ -1026,6 +1052,8 @@ Optional prefix arg prompts for a new filter.
       "index-emacspeak_002dtable_002dui_002dfilter_002dsave-1"></a>
       <div class="format">
         <pre class="format">Save out filter settings.
+
+(fn FILE)
 </pre>
       </div>
     </dd>
@@ -1054,6 +1082,8 @@ Optional prefix arg prompts for a new filter.
         <pre class="format">
         Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. 
+
+(fn &amp;optional BUFFER-NAME)
 </pre>
       </div>
     </dd>
@@ -1075,6 +1105,8 @@ The processed  data is  presented using emacspeak table navigation.
         <pre class="format">
         Process a csv (comma separated values) data at  ‘URL’.
 The processed  data is  presented using emacspeak table navigation. 
+
+(fn URL &amp;optional BUFFER-NAME)
 </pre>
       </div>
     </dd>
