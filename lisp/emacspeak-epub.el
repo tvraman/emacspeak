@@ -42,10 +42,13 @@
 
 ;;; Commentary:
 
-;;; @subsection Introduction 
-;;; This module implements the Emacspeak EPub Bookshelf --- a unified
-;;; interface for organizing, locating and reading EPub EBooks on the
-;;; emacspeak Audio Desktop. For now it supports epub2 --- it will
+;;; @subsection Introduction This module implements the Emacspeak EPub
+;;; Bookshelf --- a unified interface for organizing, locating and
+;;; reading EPub EBooks on the emacspeak Audio Desktop. The epub
+;;; reader is built using the Emacs Web Browser (EWW), and all of
+;;; emacspeak's EWW conveniences are available when reading EBooks ---
+;;; see @xref{emacspeak-eww} for useful tools including bookmarking
+;;; and structured navigation. For now it supports epub2 --- it will
 ;;; support epub3 some time in the future.
 
 ;;; The main entry point is command @command{emacspeak-epub} bound to
@@ -57,6 +60,11 @@
 ;;; provides single-key commands for adding, removing and finding
 ;;; books, as well as for opening the selected book using Emacs'
 ;;; built-in Web browser (@command{eww}).
+;;;
+;;; The next few sections give a high-level overview of the emacspeak
+;;; Bookshelf and EPub interaction, followed by detailed documentation
+;;; on the various commands and user options.
+
 
 ;;; @subsection Organizing EBooks On The Emacspeak Desktop
 ;;;
