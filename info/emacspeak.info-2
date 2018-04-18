@@ -1273,16 +1273,16 @@ File: emacspeak.info,  Node: emacspeak-epub,  Next: emacspeak-erc,  Prev: emacsp
 12.62 emacspeak-epub
 ====================
 
-12.62.1 Introduction This module implements the Emacspeak EPub
---------------------------------------------------------------
+12.62.1 Introduction
+--------------------
 
-Bookshelf — a unified interface for organizing, locating and reading
-EPub EBooks on the emacspeak Audio Desktop.  The epub reader is built
-using the Emacs Web Browser (EWW), and all of emacspeak’s EWW
-conveniences are available when reading EBooks — see *Note
-emacspeak-eww:: for useful tools including bookmarking and structured
-navigation.  For now it supports epub2 — it will support epub3 some time
-in the future.
+This module implements the Emacspeak EPub Bookshelf — a unified
+interface for organizing, locating and reading EPub EBooks on the
+emacspeak Audio Desktop.  The epub reader is built using the Emacs Web
+Browser (EWW), and all of emacspeak’s EWW conveniences are available
+when reading EBooks — see *Note emacspeak-eww:: for useful tools
+including bookmarking and structured navigation.  For now it supports
+epub2 — it will support epub3 some time in the future.
 
    The main entry point is command ‘emacspeak-epub’ bound to ‘C-e g’.
 This command opens a new bookshelf buffer unless the user has previously

@@ -42,7 +42,9 @@
 
 ;;; Commentary:
 
-;;; @subsection Introduction This module implements the Emacspeak EPub
+;;; @subsection Introduction
+;;;
+;;; This module implements the Emacspeak EPub
 ;;; Bookshelf --- a unified interface for organizing, locating and
 ;;; reading EPub EBooks on the emacspeak Audio Desktop. The epub
 ;;; reader is built using the Emacs Web Browser (EWW), and all of
