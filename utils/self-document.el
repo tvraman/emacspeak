@@ -362,8 +362,8 @@
        (format
         "@node Emacspeak Commands And Options \n
 @chapter Emacspeak Commands And Options \n\n
-@include intro-docs.texi\n\n"
-This chapter documents a total of %d commands and %d options.\n\n
+@include intro-docs.texi\n\n
+This chapter documents a total of %d commands and %d options.\n\n"
         self-document-command-count self-document-option-count ))
       (cl-loop
        for k in keys do
