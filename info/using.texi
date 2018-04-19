@@ -195,7 +195,6 @@ emacspeak-read-next-line
 Default is to read the next line. 
 
 @findex  emacspeak-speak-paragraph
- @kindex  control e @{
  @kindex  control e p
 @item  control e p
 emacspeak-speak-paragraph
