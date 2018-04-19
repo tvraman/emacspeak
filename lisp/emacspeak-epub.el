@@ -146,7 +146,7 @@
 ;;; entire book means that all of the contents are available for
 ;;; searching. To view an EBook in its entirety, use command
 ;;; @code{emacspeak-epub-eww}. You can open the EPub table of contents
-;;; with command @code{emacspeak-epub-bookshelf-open-epub}; for a
+;;; with command @code{emacspeak-epub-open}; for a
 ;;; well-constructed epub, this TOC should provide hyperlinks to each
 ;;; section listed in the table of contents.
 ;;;
