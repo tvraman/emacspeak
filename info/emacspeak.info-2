@@ -1373,9 +1373,9 @@ entire book — this works well even for very large EBooks given that EWW
 is efficient at rendering HTML. Rendering the entire book means that all
 of the contents are available for searching.  To view an EBook in its
 entirety, use command ‘emacspeak-epub-eww’.  You can open the EPub table
-of contents with command ‘emacspeak-epub-bookshelf-open-epub’; for a
-well-constructed epub, this TOC should provide hyperlinks to each
-section listed in the table of contents.
+of contents with command ‘emacspeak-epub-open’; for a well-constructed
+epub, this TOC should provide hyperlinks to each section listed in the
+table of contents.
 
 ‘RET’
      emacspeak-epub-eww

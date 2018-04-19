@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1205 commands and 1183 options.
+This chapter documents a total of 1205 commands and 1172 options.
 
 @include intro-docs.texi
 
@@ -4024,72 +4024,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -6991,7 +6925,7 @@ given that EWW is efficient at rendering HTML. Rendering the
 entire book means that all of the contents are available for
 searching. To view an EBook in its entirety, use command
 @code{emacspeak-epub-eww}. You can open the EPub table of contents
-with command @code{emacspeak-epub-bookshelf-open-epub}; for a
+with command @code{emacspeak-epub-open}; for a
 well-constructed epub, this TOC should provide hyperlinks to each
 section listed in the table of contents.
 
