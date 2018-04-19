@@ -194,12 +194,10 @@ emacspeak-read-next-line
  Read next line, specified by an offset, without moving.
 Default is to read the next line. 
 
-
-
 @findex  emacspeak-speak-paragraph
  @kindex  control e @{
- 
-@item  control e @@
+ @kindex  control e p
+@item  control e p
 emacspeak-speak-paragraph
  Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
