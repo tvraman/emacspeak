@@ -1,5 +1,9 @@
 This chapter documents the various Emacspeak modules and is
 auto-generated from the Emacspeak source code.
+It is meant to be a complete reference to the emacspeak implementation
+while also providing high-level usage summaries of  some of the larger
+Emacspeak modules.
+
 Each section provides a high-level overview of that module, followed by
 detailed description of the commands and options defined in that module.
 
