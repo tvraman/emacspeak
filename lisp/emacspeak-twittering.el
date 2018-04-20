@@ -97,9 +97,14 @@
                (emacspeak-auditory-icon 'mark-object)
                (emacspeak-speak-this-face-chunk)))))
 
-(defun emacspeak-twittering-speak-this-tweet ()
-  "Speak tweet under point."
-  (interactive)
+(defun emacspeak-twittering-speak-this-tweet (&optional copy-as-kill)
+  "Speak tweet under point.
+With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
+  (interactive "P")
+  (when copy-as-kill
+    (kill-new (format "%s: %s"
+           (get-text-property (point) 'username)
+           (get-text-property (point) 'text))))
   (dtk-speak
    (format "%s: %s"
            (get-text-property (point) 'username)
