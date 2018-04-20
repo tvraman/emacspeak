@@ -276,8 +276,17 @@ See module dectalk-voices.el to see how voices are defined.
 @node amixer
 @section amixer
 
-Provide an emacs front-end to amixer.
-amixer is part of ALSA.
+Provide an emacs front-end to amixer,
+the sound mixer in ALSA that is used to configure the audio device.
+
+The main entry point is command @code{emacspeak-audio-setup} bound
+to @kbd{C-e )}. When called for the first time, this command
+builds up a database of available controls on the default audio
+device. These control names are then available for completion in
+the minibuffer. Pick a desired control, e.g., "master playback
+volume", and this displays a prompt with the current value. Enter
+the new value and press <RETURN>. To reset all controls to their
+default values, Press @kbd{C-j}.
 
 @subsection amixer Commands
 
@@ -20360,11 +20369,14 @@ Move to and open closest URI  following point.
 @end deffn
 
 @subsubsection emacspeak-twittering-speak-this-tweet
-@deffn {Command} emacspeak-twittering-speak-this-tweet   
+@deffn {Command} emacspeak-twittering-speak-this-tweet  (&optional copy-as-kill)
 @findex emacspeak-twittering-speak-this-tweet
 
 @format
 Speak tweet under point.
+With interactive prefix arg ‘copy-as-kill’, copy it to kill ring as well.
+
+(fn &optional COPY-AS-KILL)
 @end format
 @end deffn
 
