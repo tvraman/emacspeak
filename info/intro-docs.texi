@@ -15,7 +15,7 @@ Emacspeak modules can be classified as follows:
 e.g. @code{espeak-voices} and @code{dectalk-voices}.
 @item Modules that implement core Emacspeak functionality, e.g.,
 @code{emacspeak-speak}, @code{voice-lock} and @code{emacspeak-voices}.
-@item Emacspeak extensions for speech-enabling various emacs packages,
+@item Emacspeak extensions that speech-enable various emacs packages,
  these are all named using the convention @code{emacspeak-<mpackagename>}.
 @end enumerate 
 
