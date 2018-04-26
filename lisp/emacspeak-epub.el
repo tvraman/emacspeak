@@ -635,7 +635,7 @@ No book files are deleted."
       (print  emacspeak-epub-db  buff)
       (save-buffer buff)
       (kill-buffer buff)
-      (when (ems-interactive-p) (emacspeak-auditory-icon 'save-object)))))
+      (when (called-interactively-p 'interactive) (emacspeak-auditory-icon 'save-object)))))
 
 (defun emacspeak-epub-bookshelf-load ()
   "Load bookshelf metadata from disk."
