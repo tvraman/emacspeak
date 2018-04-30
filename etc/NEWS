@@ -12,6 +12,10 @@ This version requires Emacs-25.1 or later.
 
 Command ~emacspeak-m-player-locate-media~ bound to _Super-l_ to find
 and play local media.
+* Updated EPub Support 
+
+Module ~emacspeak-epub~ support for Gutenberg has been updated.
+
 * Updated Outloud TTS Server
 
 The outloud server has been updated to work around some ALSA issues in
