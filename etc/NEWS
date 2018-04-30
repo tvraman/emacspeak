@@ -52,6 +52,9 @@ Support for package ~mpg123.el~ has been removed.
 Module ~emacspeak-m-player~ now implements a  set of equalizer presets
 that can be selected via _e_ in MPlayer interaction.
 
+* VLC
+
+New module ~emacspeak-vlc~ implements  light-weight VLC interaction.
 
 * Obsolete: emacspeak-mpg123.el
 
