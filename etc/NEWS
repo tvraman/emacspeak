@@ -8,38 +8,38 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 48 -- Emacspeak 48 User Visible Changes
 This version requires Emacs-25.1 or later.
 
-* Emacs 26 Support 
+** Emacs 26 Support 
 
 Emacspeak 48 supports  new functionality  introduced in the upcoming
 Emacs 26.1.
 
 
-* Locate And Play Media 
+** Locate And Play Media 
 
 Command ~emacspeak-m-player-locate-media~ bound to _Super-l_ to find
 and play local media.
-* Updated EPub Support 
+** Updated EPub Support 
 
 Module ~emacspeak-epub~ support for Gutenberg has been updated.
 
-* Updated Outloud TTS Server
+** Updated Outloud TTS Server
 
 The outloud server has been updated to work around some ALSA issues in
 newer versions of Debian.
 
-* Espeak-NG And Emacspeak
+** Espeak-NG And Emacspeak
 
 On newer Debian systems, espeak users are recommended to move to
 espeak-ng by installing the corresponding espeak-ng and espeak
 compatibility packages. This avoids portaudio issues, and also brings
 all of the power of alsa --- including applying ladspa effects to TTS.
 
-* Emacspeak Prompts 
+** Emacspeak Prompts 
 
 Emacspeak now includes an ~emacspeak-prompts~ module that provides
 high-quality spoken prompts as MP3 files.
 
-* DBus Integration
+** DBus Integration
 
 Module ~emacspeak-dbus~ now provides auditory feedback when waking up
 and unlocking ~gnome-screensaver~ via DBus integration.
@@ -47,18 +47,18 @@ It also provides  interactive command  ~emacspeak-dbus-lock-screen~
 for locking the screen.
 Support for package ~mpg123.el~ has been removed.
 
-* MPlayer And Equalizer Presets 
+** MPlayer And Equalizer Presets 
 
 Module ~emacspeak-m-player~ now implements a  set of equalizer presets
 that can be selected via _e_ in MPlayer interaction.
 
-* VLC
+** VLC
 
 New module ~emacspeak-vlc~ implements  light-weight VLC interaction.
 
-* Obsolete: emacspeak-mpg123.el
+** Obsolete: emacspeak-mpg123.el
 
-* Removing W3 Support 
+** Removing W3 Support 
 
 Browser emacs-w3 no longer works with Emacs 26, and consequently,
 module ~emacspeak-w3~ has been obsoleted, and all references to
