@@ -8,6 +8,12 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 48 -- Emacspeak 48 User Visible Changes
 This version requires Emacs-25.1 or later.
 
+* Emacs 26 Support 
+
+Emacspeak 48 supports  new functionality  introduced in the upcoming
+Emacs 26.1.
+
+
 * Locate And Play Media 
 
 Command ~emacspeak-m-player-locate-media~ bound to _Super-l_ to find
