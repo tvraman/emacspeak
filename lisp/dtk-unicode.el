@@ -59,7 +59,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'descr-text)
-
 ;;}}}
 ;;{{{ Customizations
 
@@ -287,7 +286,6 @@ When called interactively, CHAR defaults to the character after point."
 
 This is meant to be used in places where the user asks for a detailed description of CHAR."
   (dtk-unicode-name-for-char char))
-
 (defun dtk-unicode-short-name-for-char (char)
   "Return name of CHAR.
 
@@ -296,13 +294,14 @@ This is meant to be used in places where the user asks for a short description o
       (char-to-string char)
     (dtk-unicode-name-for-char char)))
 
+
+
 (defun dtk-unicode-replace-chars (mode)
   "Replace unicode characters in current buffer with something more TTS friendly.
 
 This is the main entry point for this module.
 The argument MODE specifies the current punctuation mode.
 Does nothing for unibyte buffers."
-  (cl-declare (special dtk-unicode-process-utf8))
   (when  dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
       (goto-char (point-min))
@@ -318,7 +317,11 @@ Does nothing for unibyte buffers."
             (let ((props (text-properties-at pos)))
               (replace-match replacement t t nil)
               (when props
-                (set-text-properties pos (point) props)))))))))
+                (set-text-properties pos (point) props))
+            
+              (add-text-properties
+               pos (point)
+               '(personality voice-animate)))))))))
 
 ;;}}}
 (provide 'dtk-unicode)
