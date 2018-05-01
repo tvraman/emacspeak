@@ -47,7 +47,7 @@
 
 ;;; Commentary:
 
-;; 
+;;
 ;;; This  Provides Unicode support to the speech layer.
 
 ;;; Code:
@@ -79,14 +79,14 @@
     (?“ . "\"")                     ;LEFT DOUBLE QUOTATION MARK
     (?” . "\"")                     ; RIGHT DOUBLE QUOTATION MARK
     (?⋆ . "*")                      ; STAR OPERATOR
-    (?­ .  "-") ; soft-hyphen 
+    (?­ .  "-") ; soft-hyphen
     (?‘ . " backquote  ")           ; LEFT SINGLE QUOTATION MARK
     (?’ . "'")                      ; right SINGLE QUOTATION MARK
     (?‐ . "hyphen")                      ; hyphenm
     (?– . " -- ")                     ; n-dash
     (?— . " --- ")                    ; m-dash
-    (?  . " ") ; hair space 
-    (?― . "----")                   ; horizontal bar 
+    (?  . " ") ; hair space
+    (?― . "----")                   ; horizontal bar
     (?‖ . "||")                     ; vertical bar
     (?… . "...")                    ; ellipses
     (?• . " bullet ")               ; bullet
@@ -294,15 +294,13 @@ This is meant to be used in places where the user asks for a short description o
       (char-to-string char)
     (dtk-unicode-name-for-char char)))
 
-
-
 (defun dtk-unicode-replace-chars (mode)
   "Replace unicode characters in current buffer with something more TTS friendly.
 
 This is the main entry point for this module.
 The argument MODE specifies the current punctuation mode.
 Does nothing for unibyte buffers."
-   (cl-declare (special dtk-unicode-process-utf8))
+  (cl-declare (special dtk-unicode-process-utf8))
   (when  dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
       (goto-char (point-min))
@@ -310,7 +308,7 @@ Does nothing for unibyte buffers."
         (let* ((pos (match-beginning 0))
                (char (char-after pos))
                (replacement
-                (save-match-data  
+                (save-match-data
                   (if (and (eq mode 'none) (dtk-unicode-char-punctuation-p char))
                       " "
                     (run-hook-with-args-until-success 'dtk-unicode-handlers char)))))
