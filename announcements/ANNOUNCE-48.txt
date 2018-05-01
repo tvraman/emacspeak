@@ -1,4 +1,4 @@
-#    -*- mode: org -*-mss
+#    -*- mode: org -*-
 *For Immediate Release:
 
 San Jose, Calif., (May 04, 2018)
@@ -17,8 +17,8 @@ evolving Data, Social and Assistant-Oriented Internet cloud.
 With several prominent tweeters expanding coverage of _#emacspeak_,
 NASDOG: ESPK has now been consistently trading over the social net at
 levels close to that once attained by DogCom high-fliers—and as of
-November 
-2017 is trading at levels close to that achieved by once better known
+May 
+2018 is trading at levels close to that achieved by once better known
 stocks in the tech sector.
 
 * What Is It?
@@ -36,8 +36,19 @@ assistant-oriented social Internet cloud.
 * Major Enhancements:
 
 This version *requires* emacs-25.1 or later. 
- 
-     - And a lot more than will fit this margin. … 🗞
+ 1. Emacs 26 Support  🤻
+2. Locate And Play Media   ᭳
+3. Updated EPub Support 🕮
+4. Updated Outloud TTS Server 💬
+5. Espeak-NG support📢
+6. Smart TTS  Prompts  🙊
+7. DBus Integration 🚌
+8. MPlayer And Equalizer Presets  ≝
+9. VLC support 🎹
+10. Updated URL templates 🕷
+11. Updated websearch wizards 🕸
+
+     — And a lot more than will fit this margin. … 🗞
 
 
 * Establishing Liberty, Equality And Freedom:
@@ -84,8 +95,8 @@ adversely affecting the continued performance of the computer. These
 same tests also revealed that once uninstalled, the user stopped
 functioning altogether. Speaking with Aster Labrador, the creator of
 Emacspeak once pointed out that these results re-emphasize the
-user-centric design of Emacspeak; "It is the user --and not the
-computer-- that stops functioning when Emacspeak is uninstalled!".
+user-centric design of Emacspeak; “It is the user --and not the
+computer-- that stops functioning when Emacspeak is uninstalled!”.
 
 ** Note from Aster,Bubbles and Tilden:
 
@@ -109,6 +120,9 @@ Git  from GitHub  at
 [[https://github.com/tvraman/emacspeak][Emacspeak GitHub ]].
 
 * History:
+
+  - Emacspeak 48.0  (ServiceDog) builds on earlier releases to provide
+    continued end-user value.
   - Emacspeak 47.0 (GentleDog) goes the next step in being helpful
     while letting users learn and grow.
   - Emacspeak 46.0 (HelpfulDog) heralds the  coming of Smart Assistants.
@@ -267,7 +281,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Emacspeak 47.0—GentleDog—Unleashed!
+#+TITLE:     Emacspeak 48.0—ServiceDog—Unleashed!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
