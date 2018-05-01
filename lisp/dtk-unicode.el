@@ -302,6 +302,7 @@ This is meant to be used in places where the user asks for a short description o
 This is the main entry point for this module.
 The argument MODE specifies the current punctuation mode.
 Does nothing for unibyte buffers."
+   (cl-declare (special dtk-unicode-process-utf8))
   (when  dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
       (goto-char (point-min))
@@ -318,7 +319,6 @@ Does nothing for unibyte buffers."
               (replace-match replacement t t nil)
               (when props
                 (set-text-properties pos (point) props))
-            
               (add-text-properties
                pos (point)
                '(personality voice-animate)))))))))
