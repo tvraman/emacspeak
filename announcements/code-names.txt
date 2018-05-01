@@ -50,6 +50,7 @@ Note that special releases are marked with an '*'.
 | 45.0 | November 2016  | IdealDog       |
 | 46.0 | May 2017       | HelpfulDog     |
 | 47.0 | November 2017  | GentleDog      |
+| 48.0 | May 2018       | ServiceDog     |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt
