@@ -531,9 +531,9 @@ the end of this description. Use Emacs online help facility to
 look up help on these commands.
 
 emacspeak-bookshare-mode provides the necessary functionality to
-Search and download Bookshare material,
-Manage a local library of downloaded Bookshare content,
-And commands to easily read newer Daisy books from Bookshare.
+Search and download Bookshare material, Manage a local library of
+downloaded Bookshare content, And commands to easily read newer
+Daisy books from Bookshare.
 
 Here is a list of all emacspeak Bookshare commands  with their key-bindings:
 a Author Search
