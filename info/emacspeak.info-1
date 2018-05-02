@@ -2838,7 +2838,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-generic::Speech enable  generic modes.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
-* emacspeak-gnus::Speech enable GNUS – Fluent spoken access to usenet.
+* emacspeak-gnus::Speech enable GNUS – Fluent spoken access to imap, usenet.
 * emacspeak-go-mode::Speech-enable GO-MODE.
 * emacspeak-gomoku::Speech enable the game of Gomoku.
 * emacspeak-google::Google Search Tools.
