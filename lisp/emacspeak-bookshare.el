@@ -558,7 +558,6 @@ b Browse
 (cl-loop
  for a in
  '(
-   ("SPC" emacspeak-bookshare-action)
    ("+" emacspeak-bookshare-get-more-results)
    ("/" emacspeak-bookshare-title/author-search)
    ("I" emacspeak-bookshare-id-search)
