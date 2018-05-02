@@ -12,6 +12,15 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-prompts,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
+
+12.141 emacspeak-projectile
+===========================
+
+PROJECTILE == ‘M-x package-install projectile’.  Project management in
+Emacs.
+
+
 File: emacspeak.info,  Node: emacspeak-prompts,  Next: emacspeak-pronounce,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
 
 12.142 emacspeak-prompts

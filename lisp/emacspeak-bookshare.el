@@ -46,10 +46,33 @@
 ;;; provides book access to print-disabled users.
 ;;; It provides a simple Web  API http://developer.bookshare.org
 ;;; This module implements an Emacspeak Bookshare client.
-;;; For now, users will need to get their own API key
-;;; This version needs Emacs with libxml2 support
-;;; You need Emacs 24.1 or higher.
-
+;;; @subsection  requirements
+;;; @itemize
+;;; @item You need to get your own API key
+;;; @item You need Emacs built with libxml2 support
+;;; @item You need Emacs 24.1 or higher.
+;;; @end itemize
+;;;
+;;; @subsection Usage
+;;; The main entry point is command @code{emacspeak-bookshare} bound to @kbd{C-e C-b}.
+;;; This creates a special @emph{Bookshare Interaction} buffer that is
+;;; placed in @emph{emacspeak-bookshare-mode}.
+;;; Se the help for that mode on detailed usage instructions and key-bindings.
+;;;
+;;;@subsection Sample Interaction
+;;;
+;;; Assuming you have correctly setup your API key:
+;;; @itemize
+;;;@item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
+;;; @item Perform a search @kbd{a} or @kbd{t} for author or title search.
+;;; @item You will be prompted for your Bookshare password if this is the first time in this Emacs session.
+;;; @item The results of the search appear in the Bookshare buffer.
+;;; Audio formatting and auditory icons convey if  a result is already available locally.
+;;; @item If not available locally, press @kbd{D} to download the content.
+;;; @item Press @kbd{U} to unpack the downloaded content.
+;;;@item Press @kbd{e} to  display the entire book.
+;;;@item Press @kbd{c} to display the table of contents.
+;;;@end itemize
 ;;; Code:
 ;;}}}
 ;;{{{  Required modules

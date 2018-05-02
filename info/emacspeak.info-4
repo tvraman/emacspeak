@@ -615,7 +615,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-@:                              emacspeak-speak.    (line  399)
 * <fn> C-a:                              emacspeak-sounds.   (line   87)
 * <fn> C-b:                              emacspeak-bookshare.
-                                                             (line   22)
+                                                             (line   51)
 * <fn> C-c:                              emacspeak-wizards.  (line   31)
 * <fn> C-d:                              emacspeak-speak.    (line 1257)
 * <fn> C-j:                              emacspeak-hide.     (line   44)
@@ -1008,7 +1008,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-@:                               emacspeak-speak.    (line  397)
 * C-e C-a:                               emacspeak-sounds.   (line   86)
 * C-e C-b:                               emacspeak-bookshare.
-                                                             (line   21)
+                                                             (line   50)
 * C-e C-c:                               emacspeak-wizards.  (line   30)
 * C-e C-d:                               emacspeak-speak.    (line 1256)
 * C-e C-j:                               emacspeak-hide.     (line   43)
