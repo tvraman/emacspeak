@@ -6993,6 +6993,7 @@ detailed usage instructions and key-bindings.
 --------------------------
 
 Assuming you have correctly setup your API key:
+   • Customize group ‘emacspeak-bookshare’ by pressing ‘C-h G’.
    • Press ‘C-e C-b’ to open or switch to the Bookshare buffer.
    • Perform a search ‘a’ or ‘t’ for author or title search.
    • You will be prompted for your Bookshare password if this is the
