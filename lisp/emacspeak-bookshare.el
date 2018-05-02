@@ -63,6 +63,7 @@
 ;;;
 ;;; Assuming you have correctly setup your API key:
 ;;; @itemize
+;;;@item Customize group @code{emacspeak-bookshare} by pressing @kbd{C-h G}.
 ;;;@item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
 ;;; @item Perform a search @kbd{a} or @kbd{t} for author or title search.
 ;;; @item You will be prompted for your Bookshare password if this is the first time in this Emacs session.
