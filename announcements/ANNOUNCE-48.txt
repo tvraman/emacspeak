@@ -42,9 +42,9 @@ This version *requires* emacs-25.1 or later.
 4. Updated Outloud TTS Server 💬
 5. Espeak-NG support📢
 6. Smart TTS  Prompts  🙊
-7. DBus Integration 🚌
+7. DBus Integration including screenlock via Gnome-ScreenSaver  🚌
 8. MPlayer And Equalizer Presets  ≝
-9. VLC support 🎹
+9. VLC front-end 🎹
 10. Updated URL templates 🕷
 11. Updated websearch wizards 🕸
 
