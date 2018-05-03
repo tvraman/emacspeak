@@ -73,6 +73,7 @@
 ;;; @item Press @kbd{U} to unpack the downloaded content.
 ;;;@item Press @kbd{e} to  display the entire book.
 ;;;@item Press @kbd{c} to display the table of contents.
+;;; @item Now, use all of @xref{eww} and @xref{emacspeak-eww} and profit!
 ;;;@end itemize
 ;;; Code:
 ;;}}}
