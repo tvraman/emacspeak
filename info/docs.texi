@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1205 commands and 1183 options.
+This chapter documents a total of 1205 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4033,72 +4033,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -5042,6 +4976,7 @@ Audio formatting and auditory icons convey if  a result is already available loc
 @item Press @kbd{U} to unpack the downloaded content.
 @item Press @kbd{e} to  display the entire book.
 @item Press @kbd{c} to display the table of contents.
+@item Now, use all of EWW  @xref{emacspeak-eww} extensions  and profit!
 @end itemize
 
 @subsection emacspeak-bookshare Commands
@@ -6148,21 +6083,21 @@ after emacspeak has been started.
 
 This module provides integration via DBus  for the following:
 @itemize @bullet
-@item Respond to network coming up or going down 
+@item Respond to network coming up or going down
 --- @code{(nm-enable)}.
-@item Respond to screen getting locked/unlocked by gnome-screen-saver 
+@item Respond to screen getting locked/unlocked by gnome-screen-saver
 --- @code{(emacspeak-dbus-watch-screen-lock)}.
-@item Respond to laptop  going to sleep or waking up 
+@item Respond to laptop  going to sleep or waking up
 ---  @code{(emacspeak-dbus-sleep-enable)}.
-@item Respond to insertion/ejection of removable storage 
+@item Respond to insertion/ejection of removable storage
 --- @code{(emacspeak-dbus-udisks-enable)}.
-@item Watch for power devices 
+@item Watch for power devices
 --- @code{(emacspeak-dbus-upower-enable)}.
-@item An interactive command  @command{emacspeak-dbus-lock-screen} 
+@item An interactive command  @command{emacspeak-dbus-lock-screen}
 bound to @kbd{C-, C-d} to lock the screen using DBus.
 Note: this key-binding is available only if this module is loaded.
 @end itemize
-Add calls to the desired functions from the above list 
+Add calls to the desired functions from the above list
 to the emacs startup file after  this module has been loaded.
 See relevant hooks for customizing behavior.
 Note that each of the  sleep/wake-up, UDisks2   and network/up-down
