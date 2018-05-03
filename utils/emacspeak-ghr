@@ -6,7 +6,7 @@
 # Set token, username and repo in environment
 
 . ${HOME}/.github_token
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:${HOME}/go/bin
 AText="./announcements/ANNOUNCE-$1.txt"
 AHtml="./announcements/ANNOUNCE-$1.html"
 # First,  create a release for this tag.
