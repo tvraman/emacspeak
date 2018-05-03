@@ -45,26 +45,25 @@
 ;;; This module needs to be loaded explicitly from the user's init file
 ;;; after emacspeak has been started.
 
-
 ;;; @subsection Overview
 ;;;
 ;;; This module provides integration via DBus  for the following:
 ;;; @itemize @bullet
-;;; @item Respond to network coming up or going down 
+;;; @item Respond to network coming up or going down
 ;;; --- @code{(nm-enable)}.
-;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver 
+;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver
 ;;; --- @code{(emacspeak-dbus-watch-screen-lock)}.
-;;; @item Respond to laptop  going to sleep or waking up 
+;;; @item Respond to laptop  going to sleep or waking up
 ;;; ---  @code{(emacspeak-dbus-sleep-enable)}.
-;;; @item Respond to insertion/ejection of removable storage 
+;;; @item Respond to insertion/ejection of removable storage
 ;;; --- @code{(emacspeak-dbus-udisks-enable)}.
-;;; @item Watch for power devices 
+;;; @item Watch for power devices
 ;;; --- @code{(emacspeak-dbus-upower-enable)}.
-;;; @item An interactive command  @command{emacspeak-dbus-lock-screen} 
+;;; @item An interactive command  @command{emacspeak-dbus-lock-screen}
 ;;; bound to @kbd{C-, C-d} to lock the screen using DBus.
 ;;; Note: this key-binding is available only if this module is loaded.
 ;;; @end itemize
-;;; Add calls to the desired functions from the above list 
+;;; Add calls to the desired functions from the above list
 ;;; to the emacs startup file after  this module has been loaded.
 ;;; See relevant hooks for customizing behavior.
 ;;; Note that each of the  sleep/wake-up, UDisks2   and network/up-down
@@ -80,9 +79,9 @@
 (require 'emacspeak-preamble)
 (eval-when-compile
   (require 'amixer)
-(require 'sox-gen)
-(require 'derived)
-(require 'dbus))
+  (require 'sox-gen)
+  (require 'derived)
+  (require 'dbus))
 (require 'nm "nm" 'no-error)
 
 ;;}}}
@@ -133,8 +132,8 @@ Startup  apps that need the network."
    60 nil
    #'(lambda ()
        (when (featurep 'xbacklight) (xbacklight-black))
-       ;(when (featurep 'jabber) (jabber-connect-all))
-       ;(when (featurep 'twittering-mode) (twittering-start))
+                                        ;(when (featurep 'jabber) (jabber-connect-all))
+                                        ;(when (featurep 'twittering-mode) (twittering-start))
        ))
   (emacspeak-play-auditory-icon 'network-up)
   (soundscape-tickle)
@@ -207,7 +206,7 @@ signal registration objects."
   (cl-declare (special emacspeak-dbus-sleep-registration))
   (unless emacspeak-dbus-sleep-registration
     (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register)))
-    (message "Enabled integration with login1 daemon."))
+  (message "Enabled integration with login1 daemon."))
 
 ;;; Disable integration
 (defun emacspeak-dbus-sleep-disable()
@@ -231,18 +230,18 @@ already disabled."
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (ems-with-messages-silenced
-  (condition-case nil
-       (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive")
-  (error
-   (progn
-   (shell-command
-    "pidof gnome-screensaver \
+      (condition-case nil
+          (dbus-call-method
+           :session
+           "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+           "org.gnome.ScreenSaver" "GetActive")
+        (error
+         (progn
+           (shell-command
+            "pidof gnome-screensaver \
  && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
-   (start-process "screen-saver" nil "gnome-screensaver"))))
-  t))
+           (start-process "screen-saver" nil "gnome-screensaver"))))
+    t))
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
@@ -272,14 +271,14 @@ already disabled."
   (message "Registering UDisks2 signal handler.")
   (list
    (dbus-register-signal
-    :system 
+    :system
     "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
     "org.freedesktop.DBus.ObjectManager" "InterfacesAdded"
     #'(lambda(path _props)
         (emacspeak-play-auditory-icon 'open-object)
         (message "Added storage %s" path)))
    (dbus-register-signal
-    :system 
+    :system
     "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
     "org.freedesktop.DBus.ObjectManager" "InterfacesRemoved"
     #'(lambda(path _props )
@@ -292,7 +291,7 @@ already disabled."
   (cl-declare (special emacspeak-dbus-udisks-registration))
   (unless emacspeak-dbus-udisks-registration
     (setq emacspeak-dbus-udisks-registration (emacspeak-dbus-udisks-register)))
-    (message "Enabled integration with UDisks2."))
+  (message "Enabled integration with UDisks2."))
 
 ;;; Disable integration
 (defun emacspeak-dbus-udisks-disable()
@@ -317,14 +316,14 @@ already disabled."
   (message "Registering UPower signal handler.")
   (list
    (dbus-register-signal
-    :system 
+    :system
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceAdded"
     #'(lambda(device)
         (emacspeak-play-auditory-icon 'on)
         (message "Added device %s" device)))
    (dbus-register-signal
-    :system 
+    :system
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceRemoved"
     #'(lambda(device )
@@ -337,7 +336,7 @@ already disabled."
   (cl-declare (special emacspeak-dbus-upower-registration))
   (unless emacspeak-dbus-upower-registration
     (setq emacspeak-dbus-upower-registration (emacspeak-dbus-upower-register)))
-    (message "Enabled integration with UPower."))
+  (message "Enabled integration with UPower."))
 
 ;;; Disable integration
 (defun emacspeak-dbus-upower-disable()
@@ -360,12 +359,12 @@ already disabled."
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-prompt "locking-up")
   (when (featurep 'xbacklight) (xbacklight-black))
-  (dbus-call-method 
-:session 
-"org.gnome.ScreenSaver"
-"/"
-"org.gnome.ScreenSaver"
-"Lock"))
+  (dbus-call-method
+   :session
+   "org.gnome.ScreenSaver"
+   "/"
+   "org.gnome.ScreenSaver"
+   "Lock"))
 
 (global-set-key (kbd "C-, C-d") 'emacspeak-dbus-lock-screen)
 ;;}}}
