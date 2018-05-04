@@ -527,21 +527,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
    target))
 
 ;;}}}
-;;{{{ Actions Table:
-
-(defvar emacspeak-bookshare-action-table (make-hash-table :test #'equal)
-  "Table mapping Bookshare actions to  handlers.")
-
-(defun emacspeak-bookshare-action-set (action handler)
-  "Set up action handler."
-  (cl-declare (special emacspeak-bookshare-action-table))
-  (setf (gethash action emacspeak-bookshare-action-table) handler))
-
-(defun emacspeak-bookshare-action-get (action)
-  "Retrieve action handler."
-  (cl-declare (special emacspeak-bookshare-action-table))
-  (or (gethash action emacspeak-bookshare-action-table)
-      (error "No handler defined for action %s" action)))
+;;{{{ Derived Mode:
 
 (define-derived-mode emacspeak-bookshare-mode special-mode
   "Bookshare Library Of Accessible Books And Periodicals"
@@ -598,10 +584,8 @@ b Browse
    ("t" emacspeak-bookshare-title-search)
    )
  do
- (progn
-   (emacspeak-bookshare-action-set (cl-first a) (cl-second a))
-   (define-key emacspeak-bookshare-mode-map (kbd (cl-first a))
-     'emacspeak-bookshare-action)))
+ (define-key emacspeak-bookshare-mode-map (kbd (cl-first a))
+   (cl-second a)))
 
 ;;}}}
 ;;{{{ Bookshare XML  handlers:
@@ -887,22 +871,6 @@ b Browse
       (switch-to-buffer emacspeak-bookshare-interaction-buffer)))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-
-(defun emacspeak-bookshare-action  ()
-  "Call action specified by  invoking key."
-  (interactive)
-  (emacspeak-bookshare-assert)
-  (goto-char (point-max))
-  (let* ((inhibit-read-only t)
-         (key (format "%c" last-input-event))
-         (start nil)
-         (response (call-interactively (emacspeak-bookshare-action-get key))))
-    (insert "\n\f\n")
-    (setq start (point))
-    (emacspeak-bookshare-bookshare-handler response)
-    (goto-char start)
-    (emacspeak-auditory-icon 'task-done)
-    (emacspeak-speak-line)))
 
 (defun emacspeak-bookshare-browse ()
   "Browse Bookshare."
