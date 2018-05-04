@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1204 commands and 1172 options.
+This chapter documents a total of 1203 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5120,17 +5120,6 @@ Download epub-3 format of specified book to target location.
 @format
 Download epub-3 version of book under point.
 Target location is generated from author and title.
-@end format
-@end deffn
-
-@subsubsection emacspeak-bookshare-download-internal
-@deffn {Command} emacspeak-bookshare-download-internal  (url target)
-@findex emacspeak-bookshare-download-internal
-
-@format
-Download content  to target location.
-
-(fn URL TARGET)
 @end format
 @end deffn
 
