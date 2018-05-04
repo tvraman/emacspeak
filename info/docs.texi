@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1205 commands and 1172 options.
+This chapter documents a total of 1204 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4997,15 +4997,6 @@ Bookshare  Interaction.
 @end format
 @end deffn
 
-@subsubsection emacspeak-bookshare-action
-@deffn {Command} emacspeak-bookshare-action   
-@findex emacspeak-bookshare-action
-
-@format
-Call action specified by  invoking key.
-@end format
-@end deffn
-
 @subsubsection emacspeak-bookshare-author-search
 @deffn {Command} emacspeak-bookshare-author-search  (query &optional category)
 @findex emacspeak-bookshare-author-search
@@ -5294,34 +5285,36 @@ key             binding
 RET		emacspeak-bookshare-toc-at-point
 ESC		Prefix Command
 SPC		emacspeak-bookshare-expand-at-point
-+		emacspeak-bookshare-action
-/		emacspeak-bookshare-action
++		emacspeak-bookshare-get-more-results
+/		emacspeak-bookshare-title/author-search
 3		emacspeak-bookshare-download-epub-3-at-point
 A		emacspeak-bookshare-download-audio-at-point
 B		emacspeak-bookshare-download-brf-at-point
 C		emacspeak-bookshare-fulltext
 D		emacspeak-bookshare-download-daisy-at-point
 E		emacspeak-bookshare-eww
-I		emacspeak-bookshare-action
-P		emacspeak-bookshare-action
-S		emacspeak-bookshare-action
+I		emacspeak-bookshare-id-search
+P		emacspeak-bookshare-list-preferences
+S		emacspeak-bookshare-set-preference
 U		emacspeak-bookshare-unpack-at-point
 V		emacspeak-bookshare-view-at-point
 [		backward-page
 ]		forward-page
-a		emacspeak-bookshare-action
+a		emacspeak-bookshare-author-search
 b		emacspeak-bookshare-browse
 c		emacspeak-bookshare-toc-at-point
-d		emacspeak-bookshare-action
+d		emacspeak-bookshare-since-search
 e		emacspeak-bookshare-eww
 f		emacspeak-bookshare-flush-lines
-i		emacspeak-bookshare-action
+i		emacspeak-bookshare-isbn-search
 j		next-line
 k		previous-line
-l .. m		emacspeak-bookshare-action
-p		emacspeak-bookshare-action
+l		emacspeak-bookshare-browse-latest
+m		emacspeak-bookshare-periodical-list
+p		emacspeak-bookshare-browse-popular
 q		bury-buffer
-s .. t		emacspeak-bookshare-action
+s		emacspeak-bookshare-fulltext-search
+t		emacspeak-bookshare-title-search
 v		emacspeak-bookshare-view
 
 M-n		emacspeak-bookshare-next-result
