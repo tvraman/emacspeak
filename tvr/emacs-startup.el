@@ -69,8 +69,8 @@
   '(("AliceBlue" "#FFD724")
     ("#FFBCC9" "#FFD724") ;gold on pink
     ("#F4C430" "sea green") ; saffron 
-    ("#FFFFDA" "dark blue")
-    ("mint cream" "dark blue")
+    ("#FFFFDA" "royal blue")
+    ("mint cream" "royal blue")
     ("#9BD2FA" "gold")
     ("#FFF3FF" "gold")) ; lavender blush 
   "Alist of color pairs for days of the week")
