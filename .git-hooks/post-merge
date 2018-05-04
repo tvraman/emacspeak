@@ -3,3 +3,5 @@
 # Run make config  followed by make after an update 
 make -s config
 make  -s
+make outloud 
+cd tvr && make
