@@ -547,13 +547,6 @@ downloaded Bookshare content, And commands to easily read newer
 Daisy books from Bookshare.
 
 Here is a list of all emacspeak Bookshare commands  with their key-bindings:
-a Author Search
-A Author/Title Search
-t Title Search
-s Full Text Search
-d Date Search
-b Browse
-
 \\{emacspeak-bookshare-mode-map}"
   (let ((inhibit-read-only t)
         (start (point)))
