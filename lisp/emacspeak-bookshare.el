@@ -488,7 +488,6 @@ Optional interactive prefix arg prompts for a category to use as a filter."
 
 (defun emacspeak-bookshare-download-internal(url target)
   "Download content  to target location."
-  (interactive)
   (shell-command
    (format
     "%s %s %s  '%s' -o \"%s\""
