@@ -279,6 +279,20 @@ the kill ring as well."
    (emacspeak-keymap-update  jabber-chat-mode-map k)))
 
 ;;}}}
+;;{{{ Speak recent message:
+;;;###autoload
+(defun emacspeak-jabber-speak-recent-message ()
+  "Speak most recent message if one exists."
+  (interactive )
+  (cond
+   (jabber-activity-jids
+    (save-excursion
+      (jabber-activity-switch-to)
+      (goto-char (point-max))
+      (emacspeak-jabber-chat-previous-message)))
+      (t (message "No recent message."))))
+
+;;}}}
 (provide 'emacspeak-jabber)
 ;;{{{ end of file
 
