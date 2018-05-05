@@ -63,7 +63,7 @@ displayed buffers."
          (windows nil)
          (description
           (format
-           "Displaying %s buffer%s "
+           "Displaying %s window%s "
            count 
            (if (> count 1) "s" ""))))
     (put-text-property
