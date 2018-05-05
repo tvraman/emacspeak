@@ -452,7 +452,7 @@ relief."
     ("q" emacspeak-wizards-alpha-vantage-quotes)
     ("w" emacspeak-wizards-noaa-weather)
     ("r" jabber-activity-switch-to)
-    (" " emacspeak-jabber-speak-recent-message)
+    ("SPC" emacspeak-jabber-speak-recent-message)
     ("s" emacspeak-emergency-tts-restart)
     ("t" emacspeak-speak-telephone-directory)
     ("u" emacspeak-wizards-units)
