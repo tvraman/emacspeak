@@ -6,4 +6,4 @@
 (defun erc-cricket ()
   "Join cricinfo IRC server."
   (interactive)
-  (erc  :server "us.starlink.org       " :port 6667 :nick "raman"))
+  (erc  :server "us.starlink.net       " :port 6667 :nick "raman"))
