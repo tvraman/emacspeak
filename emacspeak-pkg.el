@@ -1,6 +1,6 @@
 (define-package
   "emacspeak"
-  "46.0"
+  "48.0"
   "Emacspeak: The Complete Audio Desktop"
   '((emacs "25.1"))
   :url "http://github.com/tvraman/emacspeak"

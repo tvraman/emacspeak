@@ -5,14 +5,15 @@
 # This should let a user bootstrap into a talking Emacs.
 # Not intended for daily use.
 
-#  Prerequisites: espeak, libespeak libespeak-dev 
+#  Prerequisites: espeak, libespeak libespeak-dev
+# libespeak-ng-libespeak-dev libespeak-ng-dev espeak-ng-espeak
 # Downloads,  builds and runs specified version.
-
+latest=48.0
 v=$1
 
 if [ ! -n "$1" ]
 then
-  v=47.0
+  v=$latest
 fi  
 
 u="https://github.com/tvraman/emacspeak/releases/download/${v}/emacspeak-${v}.tar.bz2"

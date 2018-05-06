@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1203 commands and 1172 options.
+This chapter documents a total of 1205 commands and 1172 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4997,6 +4997,15 @@ Bookshare  Interaction.
 @end format
 @end deffn
 
+@subsubsection emacspeak-bookshare-action
+@deffn {Command} emacspeak-bookshare-action   
+@findex emacspeak-bookshare-action
+
+@format
+Call action specified by  invoking key.
+@end format
+@end deffn
+
 @subsubsection emacspeak-bookshare-author-search
 @deffn {Command} emacspeak-bookshare-author-search  (query &optional category)
 @findex emacspeak-bookshare-author-search
@@ -5120,6 +5129,17 @@ Download epub-3 format of specified book to target location.
 @format
 Download epub-3 version of book under point.
 Target location is generated from author and title.
+@end format
+@end deffn
+
+@subsubsection emacspeak-bookshare-download-internal
+@deffn {Command} emacspeak-bookshare-download-internal  (url target)
+@findex emacspeak-bookshare-download-internal
+
+@format
+Download content  to target location.
+
+(fn URL TARGET)
 @end format
 @end deffn
 
@@ -5261,42 +5281,47 @@ downloaded Bookshare content, And commands to easily read newer
 Daisy books from Bookshare.
 
 Here is a list of all emacspeak Bookshare commands  with their key-bindings:
+a Author Search
+A Author/Title Search
+t Title Search
+s Full Text Search
+d Date Search
+b Browse
+
 key             binding
 ---             -------
 
 RET		emacspeak-bookshare-toc-at-point
 ESC		Prefix Command
 SPC		emacspeak-bookshare-expand-at-point
-+		emacspeak-bookshare-get-more-results
-/		emacspeak-bookshare-title/author-search
++		emacspeak-bookshare-action
+/		emacspeak-bookshare-action
 3		emacspeak-bookshare-download-epub-3-at-point
 A		emacspeak-bookshare-download-audio-at-point
 B		emacspeak-bookshare-download-brf-at-point
 C		emacspeak-bookshare-fulltext
 D		emacspeak-bookshare-download-daisy-at-point
 E		emacspeak-bookshare-eww
-I		emacspeak-bookshare-id-search
-P		emacspeak-bookshare-list-preferences
-S		emacspeak-bookshare-set-preference
+I		emacspeak-bookshare-action
+P		emacspeak-bookshare-action
+S		emacspeak-bookshare-action
 U		emacspeak-bookshare-unpack-at-point
 V		emacspeak-bookshare-view-at-point
 [		backward-page
 ]		forward-page
-a		emacspeak-bookshare-author-search
+a		emacspeak-bookshare-action
 b		emacspeak-bookshare-browse
 c		emacspeak-bookshare-toc-at-point
-d		emacspeak-bookshare-since-search
+d		emacspeak-bookshare-action
 e		emacspeak-bookshare-eww
 f		emacspeak-bookshare-flush-lines
-i		emacspeak-bookshare-isbn-search
+i		emacspeak-bookshare-action
 j		next-line
 k		previous-line
-l		emacspeak-bookshare-browse-latest
-m		emacspeak-bookshare-periodical-list
-p		emacspeak-bookshare-browse-popular
+l .. m		emacspeak-bookshare-action
+p		emacspeak-bookshare-action
 q		bury-buffer
-s		emacspeak-bookshare-fulltext-search
-t		emacspeak-bookshare-title-search
+s .. t		emacspeak-bookshare-action
 v		emacspeak-bookshare-view
 
 M-n		emacspeak-bookshare-next-result
