@@ -1615,10 +1615,13 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
      ,(format "Move forward to the next %s.
-Optional interactive prefix arg speaks the structural unit." f)
+Optional interactive prefix arg speaks the %s.
+The %s is automatically spoken if there is no user activity."
+              f f f)
      (interactive "P")
      (funcall-interactively #'emacspeak-eww-next-element (intern ,(format "%s" f)))
-     (when speak
+     (when (or speak (sit-for 1.0))
+       (emacspeak-auditory-icon 'item)
        (let ((start  (point)))
          (condition-case nil 
              (save-excursion
@@ -1628,10 +1631,13 @@ Optional interactive prefix arg speaks the structural unit." f)
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
-Optional interactive prefix arg speaks the structural unit." f)
+Optional interactive prefix arg speaks the %s.
+The %s is automatically spoken if there is no user activity."
+              f f f)
      (interactive "P")
      (funcall-interactively #'emacspeak-eww-previous-element (intern ,(format "%s" f)))
-     (when speak
+     (when (or speak (sit-for 1.0))
+       (emacspeak-auditory-icon 'item)
        (let ((start  (point)))
          (condition-case nil 
              (save-excursion
