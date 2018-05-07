@@ -12,6 +12,6 @@ Files:
 raw.xml was pulled using 
 
 wget -O raw.xml 'http://emacspeak.blogspot.com/feeds/posts/default?max-results=1000'
-articles.xml was produced by running xmlindent on raw.xml
+
 
 articles.html: xsltproc ../xsl/atom-view.xsl raw.xml >articles.html
