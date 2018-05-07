@@ -135,6 +135,12 @@ install:
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 # }}}
+# {{{Worktree:
+# Usage make wk TAG=tag
+wk:
+	git worktree add ../${TAG} ${TAG}
+
+# }}}
 # {{{ end of file
 
 #local variables:
