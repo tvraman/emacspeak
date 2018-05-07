@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1205 commands and 1172 options.
+This chapter documents a total of 1206 commands and 1183 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1324,6 +1324,7 @@ C-SPC		emacspeak-speak-current-mark
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
 
+x SPC		emacspeak-jabber-speak-recent-message
 x ,		emacspeak-wizards-shell-directory-set
 x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
@@ -4030,6 +4031,72 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -8589,7 +8656,8 @@ Prompts if content at point is enclosed by multiple elements.
 
 @format
 Move forward to the next h.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h.
+The h is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8599,7 +8667,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next h1.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h1.
+The h1 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8609,7 +8678,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next h2.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h2.
+The h2 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8619,7 +8689,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next h3.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h3.
+The h3 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8629,7 +8700,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next h4.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h4.
+The h4 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8639,7 +8711,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next h5.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h5.
+The h5 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8649,7 +8722,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next h6.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h6.
+The h6 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8659,7 +8733,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next li.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the li.
+The li is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8669,7 +8744,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next ol.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the ol.
+The ol is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8679,7 +8755,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next p.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the p.
+The p is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8689,7 +8766,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next table.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the table.
+The table is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8699,7 +8777,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move forward to the next ul.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the ul.
+The ul is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8770,7 +8849,8 @@ Prompts if content at point is enclosed by multiple elements.
 
 @format
 Move backward to the next h.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h.
+The h is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8780,7 +8860,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next h1.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h1.
+The h1 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8790,7 +8871,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next h2.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h2.
+The h2 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8800,7 +8882,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next h3.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h3.
+The h3 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8810,7 +8893,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next h4.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h4.
+The h4 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8820,7 +8904,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next h5.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h5.
+The h5 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8830,7 +8915,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next h6.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the h6.
+The h6 is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8840,7 +8926,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next li.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the li.
+The li is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8850,7 +8937,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next ol.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the ol.
+The ol is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8860,7 +8948,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next p.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the p.
+The p is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8870,7 +8959,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next table.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the table.
+The table is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -8880,7 +8970,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Move backward to the next ul.
-Optional interactive prefix arg speaks the structural unit.
+Optional interactive prefix arg speaks the ul.
+The ul is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -10615,6 +10706,22 @@ the kill ring as well.
 
 @format
 Pop to Jabber roster.
+@end format
+@end deffn
+
+@subsubsection emacspeak-jabber-speak-recent-message
+@deffn {Command} emacspeak-jabber-speak-recent-message   
+@table @kbd
+@item C-e x SPC
+@kindex C-e x SPC
+@item <fn> x SPC
+@kindex <fn> x SPC
+@end table
+
+@findex emacspeak-jabber-speak-recent-message
+
+@format
+Speak most recent message if one exists.
 @end format
 @end deffn
 

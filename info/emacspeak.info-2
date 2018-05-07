@@ -2748,7 +2748,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h (&optional speak)
 
      Move forward to the next h.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h.
+     The h is automatically spoken if there is no user activity.
 
 12.70.7.12 emacspeak-eww-next-h1
 ................................
@@ -2756,7 +2757,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h1 (&optional speak)
 
      Move forward to the next h1.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h1.
+     The h1 is automatically spoken if there is no user activity.
 
 12.70.7.13 emacspeak-eww-next-h2
 ................................
@@ -2764,7 +2766,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h2 (&optional speak)
 
      Move forward to the next h2.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h2.
+     The h2 is automatically spoken if there is no user activity.
 
 12.70.7.14 emacspeak-eww-next-h3
 ................................
@@ -2772,7 +2775,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h3 (&optional speak)
 
      Move forward to the next h3.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h3.
+     The h3 is automatically spoken if there is no user activity.
 
 12.70.7.15 emacspeak-eww-next-h4
 ................................
@@ -2780,7 +2784,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h4 (&optional speak)
 
      Move forward to the next h4.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h4.
+     The h4 is automatically spoken if there is no user activity.
 
 12.70.7.16 emacspeak-eww-next-h5
 ................................
@@ -2788,7 +2793,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h5 (&optional speak)
 
      Move forward to the next h5.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h5.
+     The h5 is automatically spoken if there is no user activity.
 
 12.70.7.17 emacspeak-eww-next-h6
 ................................
@@ -2796,7 +2802,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-h6 (&optional speak)
 
      Move forward to the next h6.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h6.
+     The h6 is automatically spoken if there is no user activity.
 
 12.70.7.18 emacspeak-eww-next-li
 ................................
@@ -2804,7 +2811,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-li (&optional speak)
 
      Move forward to the next li.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the li.
+     The li is automatically spoken if there is no user activity.
 
 12.70.7.19 emacspeak-eww-next-ol
 ................................
@@ -2812,7 +2820,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-ol (&optional speak)
 
      Move forward to the next ol.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the ol.
+     The ol is automatically spoken if there is no user activity.
 
 12.70.7.20 emacspeak-eww-next-p
 ...............................
@@ -2820,7 +2829,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-p (&optional speak)
 
      Move forward to the next p.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the p.
+     The p is automatically spoken if there is no user activity.
 
 12.70.7.21 emacspeak-eww-next-table
 ...................................
@@ -2828,7 +2838,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-table (&optional speak)
 
      Move forward to the next table.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the table.
+     The table is automatically spoken if there is no user activity.
 
 12.70.7.22 emacspeak-eww-next-ul
 ................................
@@ -2836,7 +2847,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-next-ul (&optional speak)
 
      Move forward to the next ul.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the ul.
+     The ul is automatically spoken if there is no user activity.
 
 12.70.7.23 emacspeak-eww-open-mark
 ..................................
@@ -2891,7 +2903,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h (&optional speak)
 
      Move backward to the next h.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h.
+     The h is automatically spoken if there is no user activity.
 
 12.70.7.29 emacspeak-eww-previous-h1
 ....................................
@@ -2899,7 +2912,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
 
      Move backward to the next h1.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h1.
+     The h1 is automatically spoken if there is no user activity.
 
 12.70.7.30 emacspeak-eww-previous-h2
 ....................................
@@ -2907,7 +2921,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
 
      Move backward to the next h2.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h2.
+     The h2 is automatically spoken if there is no user activity.
 
 12.70.7.31 emacspeak-eww-previous-h3
 ....................................
@@ -2915,7 +2930,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
 
      Move backward to the next h3.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h3.
+     The h3 is automatically spoken if there is no user activity.
 
 12.70.7.32 emacspeak-eww-previous-h4
 ....................................
@@ -2923,7 +2939,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
 
      Move backward to the next h4.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h4.
+     The h4 is automatically spoken if there is no user activity.
 
 12.70.7.33 emacspeak-eww-previous-h5
 ....................................
@@ -2931,7 +2948,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
 
      Move backward to the next h5.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h5.
+     The h5 is automatically spoken if there is no user activity.
 
 12.70.7.34 emacspeak-eww-previous-h6
 ....................................
@@ -2939,7 +2957,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
 
      Move backward to the next h6.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the h6.
+     The h6 is automatically spoken if there is no user activity.
 
 12.70.7.35 emacspeak-eww-previous-li
 ....................................
@@ -2947,7 +2966,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-li (&optional speak)
 
      Move backward to the next li.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the li.
+     The li is automatically spoken if there is no user activity.
 
 12.70.7.36 emacspeak-eww-previous-ol
 ....................................
@@ -2955,7 +2975,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-ol (&optional speak)
 
      Move backward to the next ol.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the ol.
+     The ol is automatically spoken if there is no user activity.
 
 12.70.7.37 emacspeak-eww-previous-p
 ...................................
@@ -2963,7 +2984,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-p (&optional speak)
 
      Move backward to the next p.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the p.
+     The p is automatically spoken if there is no user activity.
 
 12.70.7.38 emacspeak-eww-previous-table
 .......................................
@@ -2971,7 +2993,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-table (&optional speak)
 
      Move backward to the next table.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the table.
+     The table is automatically spoken if there is no user activity.
 
 12.70.7.39 emacspeak-eww-previous-ul
 ....................................
@@ -2979,7 +3002,8 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-previous-ul (&optional speak)
 
      Move backward to the next ul.
-     Optional interactive prefix arg speaks the structural unit.
+     Optional interactive prefix arg speaks the ul.
+     The ul is automatically spoken if there is no user activity.
 
 12.70.7.40 emacspeak-eww-reading-settings
 .........................................
@@ -4468,6 +4492,15 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
      ‘<fn> x j’
 
      Pop to Jabber roster.
+
+12.103.1.5 emacspeak-jabber-speak-recent-message
+................................................
+
+ -- Command: emacspeak-jabber-speak-recent-message
+     ‘C-e x SPC’
+     ‘<fn> x SPC’
+
+     Speak most recent message if one exists.
 
 12.103.2 emacspeak-jabber Options
 ---------------------------------
@@ -8451,265 +8484,4 @@ keys from ‘pianobar-key-map’.
 
  -- Variable: User Option emacspeak-pianobar-max-preset
      Number of presets.
-
-
-File: emacspeak.info,  Node: emacspeak-popup,  Next: emacspeak-proced,  Prev: emacspeak-pianobar,  Up: Emacspeak Commands And Options
-
-12.139 emacspeak-popup
-======================
-
-POPUP == popup.el from MELPA
-
-
-File: emacspeak.info,  Node: emacspeak-proced,  Next: emacspeak-projectile,  Prev: emacspeak-popup,  Up: Emacspeak Commands And Options
-
-12.140 emacspeak-proced
-=======================
-
-PROCED == Process Editor A new Task Manager for Emacs.  Proced is part
-of emacs 23.
-
-12.140.1 emacspeak-proced Commands
-----------------------------------
-
-12.140.1.1 emacspeak-proced-jump-to-process
-...........................................
-
- -- Command: emacspeak-proced-jump-to-process (name)
-
-     Jump to process by name.
-
-     (fn NAME)
-
-12.140.1.2 emacspeak-proced-next-field
-......................................
-
- -- Command: emacspeak-proced-next-field
-
-     Navigate to next field.
-
-12.140.1.3 emacspeak-proced-next-line
-.....................................
-
- -- Command: emacspeak-proced-next-line
-
-     Move to next line and speak a summary.
-
-12.140.1.4 emacspeak-proced-previous-field
-..........................................
-
- -- Command: emacspeak-proced-previous-field
-
-     Navigate to previous field.
-
-12.140.1.5 emacspeak-proced-previous-line
-.........................................
-
- -- Command: emacspeak-proced-previous-line
-
-     Move to next line and speak a summary.
-
-12.140.1.6 emacspeak-proced-speak-args
-......................................
-
- -- Command: emacspeak-proced-speak-args
-
-     Speak command  invocation  for this process.
-
-12.140.1.7 emacspeak-proced-speak-field
-.......................................
-
- -- Command: emacspeak-proced-speak-field (field-name)
-
-     Speak value of specified field in current line.
-
-     (fn FIELD-NAME)
-
-12.140.1.8 emacspeak-proced-speak-that-field
-............................................
-
- -- Command: emacspeak-proced-speak-that-field
-
-     Speak desired field via single keystroke.
-
-12.140.1.9 emacspeak-proced-speak-this-field
-............................................
-
- -- Command: emacspeak-proced-speak-this-field (&optional position)
-
-     Speak field at specified column — defaults to current column.
-
-     (fn &optional POSITION)
-
-
-File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-prompts,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
-
-12.141 emacspeak-projectile
-===========================
-
-PROJECTILE == ‘M-x package-install projectile’.  Project management in
-Emacs.
-
-
-File: emacspeak.info,  Node: emacspeak-prompts,  Next: emacspeak-pronounce,  Prev: emacspeak-projectile,  Up: Emacspeak Commands And Options
-
-12.142 emacspeak-prompts
-========================
-
-This module provides a set of pre-defined speech prompts, And a
-light-weight player for generating these prompts.
-
-
-File: emacspeak.info,  Node: emacspeak-pronounce,  Next: emacspeak-py,  Prev: emacspeak-prompts,  Up: Emacspeak Commands And Options
-
-12.143 emacspeak-pronounce
-==========================
-
-This module implements user customizable pronunciation dictionaries for
-emacspeak.  Custom pronunciations can be defined per file, per directory
-and/or per major mode.  Emacspeak maintains a persistent user dictionary
-upon request and loads these in new emacspeak sessions.  This module
-implements the user interface to the custom dictionary as well as
-providing the internal API used by the rest of emacspeak in using the
-dictionary.  Algorithm:
-
-   The persistent dictionary is a hash table where the hash keys are
-filenames, directory names, or major-mode names.  The hash values are
-association lists defining the dictionary.  Users of this module can
-retrieve a dictionary made up of all applicable association lists for a
-given file.
-
-12.143.1 emacspeak-pronounce Commands
--------------------------------------
-
-12.143.1.1 emacspeak-pronounce-clear-dictionaries
-.................................................
-
- -- Command: emacspeak-pronounce-clear-dictionaries
-
-     Clear all current pronunciation dictionaries.
-
-12.143.1.2 emacspeak-pronounce-define-local-pronunciation
-.........................................................
-
- -- Command: emacspeak-pronounce-define-local-pronunciation (word
-          pronunciation)
-
-     Define buffer local pronunciation.
-     Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
-
-     (fn WORD PRONUNCIATION)
-
-12.143.1.3 emacspeak-pronounce-define-pronunciation
-...................................................
-
- -- Command: emacspeak-pronounce-define-pronunciation
-
-     Interactively define entries in the pronunciation dictionaries.
-     Default term to define is delimited by region.
-     First loads any persistent dictionaries if not already loaded.
-
-12.143.1.4 emacspeak-pronounce-define-template-pronunciation
-............................................................
-
- -- Command: emacspeak-pronounce-define-template-pronunciation
-
-     Interactively define template entries in the pronunciation dictionaries.
-     Default term to define is delimited by region.
-     First loads any persistent dictionaries if not already loaded.
-
-12.143.1.5 emacspeak-pronounce-dispatch
-.......................................
-
- -- Command: emacspeak-pronounce-dispatch
-     ‘C-e M-d’
-     ‘<fn> M-d’
-
-     Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
-
-12.143.1.6 emacspeak-pronounce-edit-pronunciations
-..................................................
-
- -- Command: emacspeak-pronounce-edit-pronunciations (key)
-
-     Prompt for and launch a pronunciation editor on the
-     specified pronunciation dictionary key.
-
-     (fn KEY)
-
-12.143.1.7 emacspeak-pronounce-load-dictionaries
-................................................
-
- -- Command: emacspeak-pronounce-load-dictionaries (&optional filename)
-
-     Load pronunciation dictionaries.
-     Optional argument FILENAME specifies the dictionary file.
-
-     (fn &optional FILENAME)
-
-12.143.1.8 emacspeak-pronounce-refresh-pronunciations
-.....................................................
-
- -- Command: emacspeak-pronounce-refresh-pronunciations
-
-     Refresh pronunciation table for current buffer.
-     Activates pronunciation dictionaries if not already active.
-
-12.143.1.9 emacspeak-pronounce-save-dictionaries
-................................................
-
- -- Command: emacspeak-pronounce-save-dictionaries
-
-     Writes out the persistent emacspeak pronunciation dictionaries.
-
-12.143.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
-..........................................................
-
- -- Command: emacspeak-pronounce-toggle-use-of-dictionaries (&optional
-          state)
-
-     Toggle use of pronunciation dictionaries in current buffer.
-     Pronunciations can be defined on a per file, per directory and/or per
-     mode basis.
-     Pronunciations are activated on a per buffer basis.
-     Turning on the use of pronunciation dictionaries results in emacspeak
-     composing a pronunciation table based on the currently defined
-     pronunciation dictionaries.
-     After this, the pronunciations will be applied whenever text in the
-     buffer is spoken.
-     Optional argument state can be used from Lisp programs to
-     explicitly turn pronunciations on or off.
-
-     (fn &optional STATE)
-
-12.143.1.11 emacspeak-pronounce-yank-word
-.........................................
-
- -- Command: emacspeak-pronounce-yank-word
-
-     Yank word at point into minibuffer.
-
-12.143.2 emacspeak-pronounce Options
-------------------------------------
-
- -- Variable: User Option
-          emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-     Pronunciations for well known namespace URIs.
-
- -- Variable: User Option emacspeak-pronounce-dictionaries-file
-     File that holds the persistent emacspeak pronunciation
-     dictionaries.
-
- -- Variable: User Option
-          emacspeak-pronounce-internet-smileys-pronunciations
-     Pronunciation dictionary used in all instant messenger and IRC chat
-     modes.  See http://www.charm.net/~kmarsh/smiley.html.
-
- -- Variable: User Option
-          emacspeak-pronounce-load-pronunciations-on-startup
-     Says if user dictionaries loaded on emacspeak startup.
-
- -- Variable: User Option emacspeak-pronounce-pronunciation-personality
-     *Pronunciation personality.  This is the personality used when
-     speaking things that have a pronunciation applied.
 
