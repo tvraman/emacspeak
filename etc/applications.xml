@@ -321,8 +321,13 @@ type="text/xsl"?>
     Play media streams using zinf.</application>
     <application name="madplay">
     Play MP3 and OGG streams using Madplay.</application>
+<application name="vlc">
+      Play media streams. Includes
+      presets  for single click access to
+      favorite streams.
+    </application>
     <application name="mplayer">
-      Play Windows media  and mp3  streams. Includes
+      Play Internet  Media  streams. Includes
       presets  for single click access to
       favorite streams.
     </application>
