@@ -656,7 +656,9 @@ are available are cued by an auditory icon on the header line."
    (eww-form-submit voice-animate)
    (eww-form-checkbox voice-monotone)
    (eww-form-select voice-annotate)
-   (eww-form-text voice-lighten)))
+   (eww-form-text voice-lighten)
+   (eww-form-file voice-lighten )
+   (eww-form-textarea voice-brighten)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
