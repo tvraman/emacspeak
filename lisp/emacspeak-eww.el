@@ -1620,7 +1620,7 @@ The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
      (funcall-interactively #'emacspeak-eww-next-element (intern ,(format "%s" f)))
-     (when (or speak (sit-for 1.0))
+     (when (or speak (sit-for 3.0))
        (emacspeak-auditory-icon 'item)
        (let ((start  (point)))
          (condition-case nil 
@@ -1636,7 +1636,7 @@ The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
      (funcall-interactively #'emacspeak-eww-previous-element (intern ,(format "%s" f)))
-     (when (or speak (sit-for 1.0))
+     (when (or speak (sit-for 3.0))
        (emacspeak-auditory-icon 'item)
        (let ((start  (point)))
          (condition-case nil 
