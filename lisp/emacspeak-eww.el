@@ -1619,6 +1619,9 @@ Optional interactive prefix arg speaks the %s.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
+     (when (memq (intern ,(format "%s" f)) '(h1 h2 h3 h4))
+       (emacspeak-auditory-icon 'section))
+     
      (funcall-interactively #'emacspeak-eww-next-element (intern ,(format "%s" f)))
      (when (or speak (sit-for 3.0))
        (emacspeak-auditory-icon 'item)
@@ -1635,6 +1638,8 @@ Optional interactive prefix arg speaks the %s.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
+     (when (memq (intern ,(format "%s" f)) '(h1 h2 h3 h4))
+       (emacspeak-auditory-icon 'section))
      (funcall-interactively #'emacspeak-eww-previous-element (intern ,(format "%s" f)))
      (when (or speak (sit-for 3.0))
        (emacspeak-auditory-icon 'item)
