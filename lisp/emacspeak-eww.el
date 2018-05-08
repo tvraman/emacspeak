@@ -658,7 +658,9 @@ are available are cued by an auditory icon on the header line."
    (eww-form-select voice-annotate)
    (eww-form-text voice-lighten)
    (eww-form-file voice-lighten )
-   (eww-form-textarea voice-brighten)))
+   (eww-form-textarea voice-brighten)
+   (shr-selected-link  voice-animate)
+   (shr-strike-through voice-annotate )))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
