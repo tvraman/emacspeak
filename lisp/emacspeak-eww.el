@@ -1607,10 +1607,11 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
       (emacspeak-eww-next-element  element)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start (point)))))
+;;; Generate next and previous structural navigators:
 
 (cl-loop
  for  f in
- '(h h1 h2 h3 h4 h5 h6 li table ol ul p)
+ '(h h1 h2 h3 h4 h5 h6 li dt dd table ol ul dl p)
  do
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
@@ -1619,18 +1620,19 @@ Optional interactive prefix arg speaks the %s.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
-     (when (memq (intern ,(format "%s" f)) '(h1 h2 h3 h4))
-       (emacspeak-auditory-icon 'section))
-     
-     (funcall-interactively #'emacspeak-eww-next-element (intern ,(format "%s" f)))
-     (when (or speak (sit-for 3.0))
-       (emacspeak-auditory-icon 'item)
-       (let ((start  (point)))
-         (condition-case nil 
-             (save-excursion
-               (funcall #'emacspeak-eww-next-element (intern ,(format "%s" f)))
-               (emacspeak-speak-region start (point)))
-           (error nil))))))
+     (let ((s (intern ,(format "%s" f))))
+       (when (memq s '(h1 h2 h3 h4))
+         (emacspeak-auditory-icon 'section))
+       (funcall-interactively #'emacspeak-eww-next-element s)
+       (when (or speak (sit-for 3.0))
+         (emacspeak-auditory-icon 'item)
+         (forward-line 1)
+         (let ((start  (point)))
+           (condition-case nil 
+               (save-excursion
+                 (funcall #'emacspeak-eww-next-element s)
+                 (emacspeak-speak-region start (point)))
+             (error nil)))))))
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
@@ -1638,17 +1640,19 @@ Optional interactive prefix arg speaks the %s.
 The %s is automatically spoken if there is no user activity."
               f f f)
      (interactive "P")
-     (when (memq (intern ,(format "%s" f)) '(h1 h2 h3 h4))
-       (emacspeak-auditory-icon 'section))
-     (funcall-interactively #'emacspeak-eww-previous-element (intern ,(format "%s" f)))
-     (when (or speak (sit-for 3.0))
-       (emacspeak-auditory-icon 'item)
-       (let ((start  (point)))
-         (condition-case nil 
-             (save-excursion
-               (funcall #'emacspeak-eww-next-element (intern ,(format "%s" f)))
-               (emacspeak-speak-region start (point)))
-           (error nil)))))))
+     (let ((s (intern ,(format "%s" f))))
+       (when (memq s '(h1 h2 h3 h4))
+         (emacspeak-auditory-icon 'section))
+       (funcall-interactively #'emacspeak-eww-previous-element s)
+       (when (or speak (sit-for 3.0))
+         (emacspeak-auditory-icon 'item)
+         (forward-line 1)
+         (let ((start  (point)))
+           (condition-case nil 
+               (save-excursion
+                 (funcall #'emacspeak-eww-next-element s)
+                 (emacspeak-speak-region start (point)))
+             (error nil))))))))
 
 ;;}}}
 ;;{{{ Google Search  fixes:
