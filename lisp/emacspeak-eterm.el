@@ -1096,14 +1096,16 @@ emacspeak-toggle-eterm-autospeak bound to
                     emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
                     emacspeak-eterm-autospeak 
                     term-current-row term-current-column))
-  (let ((emacspeak-eterm-window (get-buffer-window (process-buffer (ad-get-arg 0))))
+  (when (process-live-p (ad-get-arg 0))
+    (let ((emacspeak-eterm-window (get-buffer-window (process-buffer (ad-get-arg 0))))
         (emacspeak-eterm-row (term-current-row))
         (emacspeak-eterm-column (term-current-column))
         (current-char (preceding-char))
         (new-row nil)
         (new-column nil)
         (old-point (point))
-        (dtk-stop-immediately (not eterm-line-mode)))
+        (dtk-stop-immediately (not eterm-line-mode))
+        (inhibit-read-only  t))
     ad-do-it
     (setq new-row (term-current-row)
           new-column (term-current-column))
@@ -1157,7 +1159,7 @@ emacspeak-toggle-eterm-autospeak bound to
           (emacspeak-speak-word)))
        (t (emacspeak-speak-line)))
       (when (and (not  emacspeak-eterm-pointer-mode) emacspeak-eterm-pointer)
-        (emacspeak-eterm-pointer-to-cursor)))))
+        (emacspeak-eterm-pointer-to-cursor))))))
 
 (ems-generate-switcher 'emacspeak-eterm-toggle-pointer-mode
                        'emacspeak-eterm-pointer-mode
