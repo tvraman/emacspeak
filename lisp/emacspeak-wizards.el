@@ -3322,6 +3322,47 @@ access to the various functions provided by alpha-vantage."
     (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker ))))
 
 ;;}}}
+;;{{{ Stock Quotes from iextrading 
+;;; API: https://iextrading.com/developer/docs/
+
+(defvar emacspeak-wizards-iex-trading-base
+  "https://api.iextrading.com/1.0"
+"Rest End-Point For iex-trading Stock API.")
+
+(defun emacspeak-wizards-iex-trading-uri (symbols types)
+  "Return URL for calling iex-trading API."
+  (cl-declare (special emacspeak-wizards-iex-trading-base))
+  (format
+   "%s/stock/market/batch?symbols=%s&types=%s"
+   emacspeak-wizards-iex-trading-base symbols types))
+
+
+(defconst  ems--iex-trading-types
+  '("ohlc" "financials" "news" )
+"Iex-Trading query types.")
+;;;###autoload
+(defun emacspeak-wizards-iex-trading-quotes (symbols &optional custom)
+  "Retrieve stock quote data from IEX Trading.
+Prompts for `symbols' -- a comma-separated list.
+ Optional interactive prefix arg `custom' provides
+access to the various query types provided by iex-trading."
+  (interactive
+   (list (read-from-minibuffer "Symbols: ")
+    current-prefix-arg))
+  (cl-declare (special emacspeak-wizards-personal-portfolio
+                       ems--iex-trading-funcs))
+  (let* ((completion-ignore-case t)
+         (method
+          (if custom
+               (ido-completing-read "Choose: " ems--iex-trading-funcs)
+                   (mapconcat #'identity ems--iex-trading-types ",")))
+         (url
+          (emacspeak-wizards-iex-trading-uri symbols method)))
+    (kill-new url))
+  ;;; Format and present json results:
+  )
+
+;;}}}
 ;;{{{ Sports API:
 
 (defvar emacspeak-wizards--xmlstats-standings-uri
@@ -3745,6 +3786,7 @@ updating custom settings for a specific package or group of packages."
 
 ;;}}}
 ;;{{{ Quick Weather:
+
 ;;;###autoload
 (defun emacspeak-wizards-quick-weather ()
   "Bring up weather forecast for current location."
