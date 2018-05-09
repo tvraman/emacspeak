@@ -1549,7 +1549,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special emacspeak-eww-element-navigation-history))
   (cond
    (emacspeak-eww-element-navigation-history
-    (emacspeak-eww-next-element
+    (funcall-interactively #'emacspeak-eww-next-element
      (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
@@ -1559,7 +1559,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cl-declare (special emacspeak-eww-element-navigation-history))
   (cond
    (emacspeak-eww-element-navigation-history
-    (emacspeak-eww-previous-element
+    (funcall-interactively #'emacspeak-eww-previous-element
      (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
