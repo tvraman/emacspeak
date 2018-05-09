@@ -3338,7 +3338,7 @@ access to the various functions provided by alpha-vantage."
 
 
 (defconst  ems--iex-trading-types
-  '("ohlc" "financials" "news" )
+  '("quote" "financials" "news" )
 "Iex-Trading query types.")
 ;;;###autoload
 (defun emacspeak-wizards-iex-trading-quotes (symbols &optional custom)
