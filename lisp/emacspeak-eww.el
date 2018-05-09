@@ -1589,14 +1589,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 Prompts if content at point is enclosed by multiple elements."
   (interactive
    (list (emacspeak-eww-read-tags-like-this)))
-  (emacspeak-eww-next-element  element))
+  (funcall-interactively #'emacspeak-eww-next-element  element))
 
 (defun emacspeak-eww-previous-element-like-this (element)
   "Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements."
   (interactive
    (list (emacspeak-eww-read-tags-like-this)))
-  (emacspeak-eww-previous-element  element))
+  (funcall-interactively #'emacspeak-eww-previous-element  element))
 
 (defun emacspeak-eww-speak-this-element (element)
   "Speaks  to next element like current.
