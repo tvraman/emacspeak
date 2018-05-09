@@ -55,6 +55,7 @@ config:
 
 pub: tips.html applications.html
 	scp tips.html applications.html    raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs
+	cp applications.html tips.html ../gh-emacspeak/
 # }}}
 # {{{ end of file 
 
