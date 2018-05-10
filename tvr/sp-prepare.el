@@ -10,4 +10,6 @@
      (define-key smartparens-mode-map (kbd "M-a") 'sp-backward-down-sexp)
      (define-key smartparens-mode-map (kbd "M-e") 'sp-up-sexp)
      (define-key smartparens-mode-map (kbd "M-k") 'sp-kill-sexp)
+     (define-key smartparens-mode-map "C-M-f" 'forward-sexp)
+     (define-key smartparens-mode-map "C-M-b" 'backward-sexp)
      ))
