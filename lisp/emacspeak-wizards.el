@@ -3358,10 +3358,9 @@ Prompts for `symbols' -- a comma-separated list. "
                        ems--iex-types))
   (let* ((completion-ignore-case t)
          (types (mapconcat #'identity ems--iex-types ","))
-         (url (emacspeak-wizards-iex-uri symbols types))
-         (result nil))
+         (url (emacspeak-wizards-iex-uri symbols types)))
     (kill-new url)
-    (setq result (g-json-from-url url))
+    (g-json-from-url url)
 ;;; Format and present json results:
     ))
 
