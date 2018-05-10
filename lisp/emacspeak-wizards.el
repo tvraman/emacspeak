@@ -3332,6 +3332,9 @@ access to the various functions provided by alpha-vantage."
   "https://api.iextrading.com/1.0"
   "Rest End-Point For iex Stock API.")
 
+(defvar emacspeak-wizards-iex-cache nil
+  "Cache retrieved data to save API calls.")
+
 (defun emacspeak-wizards-iex-uri (symbols types)
   "Return URL for calling iex API."
   (cl-declare (special emacspeak-wizards-iex-base))
@@ -3344,23 +3347,25 @@ access to the various functions provided by alpha-vantage."
   "Iex query types.")
 
 ;;;###autoload
-(defun emacspeak-wizards-iex-quotes (symbols)
+(defun emacspeak-wizards-iex-quotes (symbols &optional refresh-cache)
   "Retrieve stock quote data from IEX Trading.
-Prompts for `symbols' -- a comma-separated list. "
+Prompts for `symbols' -- a comma-separated list.
+ Optional interactive prefix arg refreshes cache."
   (interactive
    (list
     (read-from-minibuffer
      "Symbols: "
      nil nil nil nil
      (mapconcat #'identity
-                (split-string emacspeak-wizards-personal-portfolio)","))))
-  (cl-declare (special emacspeak-wizards-personal-portfolio
-                       ems--iex-types))
+                (split-string emacspeak-wizards-personal-portfolio)","))
+    current-prefix-arg))
+  (cl-declare (special ems--iex-types
+               emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((completion-ignore-case t)
          (types (mapconcat #'identity ems--iex-types ","))
          (url (emacspeak-wizards-iex-uri symbols types)))
     (kill-new url)
-    (g-json-from-url url)
+    (setq emacspeak-wizards-iex-cache (g-json-from-url url))
 ;;; Format and present json results:
     ))
 
