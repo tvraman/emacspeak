@@ -3436,20 +3436,28 @@ Optional interactive prefix arg refreshes cache."
     (with-current-buffer buff
       (erase-buffer)
       (org-mode)
+      (goto-char (point-min))
+      (insert (format "* News For %s From IEXTrading\n" symbol))
       (setq this  (let-alist result  .news))
+      (unless this                      ; not in cache
+      (setq this
+            (g-json-from-url
+             (format "%s/stock/%s/news"
+             emacspeak-wizards-iex-base symbol))))
       (mapc
        #'(lambda (n)
            (let-alist n
              (insert (format "  -  "))
              (insert
               (format
-               "[[%s][%s]] %s %s\n"
-               .url .headline .source .datetime))))
+               "[[%s][%s]] %s \n"
+               .url .headline .source))))
        this)
+      (setq buffer-read-only t)
       (setq
        header-line-format
-       (format "Stock News From IEXTrading")))
-    (goto-char (point-min))
+       (format "Stock News From IEXTrading For %S"
+               (upcase symbol))))
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
 
