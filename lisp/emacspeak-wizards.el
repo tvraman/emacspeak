@@ -3328,6 +3328,12 @@ access to the various functions provided by alpha-vantage."
 
 ;;; API: https://iextrading.com/developer/docs/
 
+(defconst  ems--iex-types
+  (mapconcat #'identity
+             '("quote" "financials" "news" "stats" "ohlc")
+             ",")
+  "Iex query types.")
+
 (defvar emacspeak-wizards-iex-base
   "https://api.iextrading.com/1.0"
   "Rest End-Point For iex Stock API.")
@@ -3342,22 +3348,16 @@ access to the various functions provided by alpha-vantage."
    "%s/stock/market/batch?symbols=%s&types=%s"
    emacspeak-wizards-iex-base symbols types))
 
-(defconst  ems--iex-types
-  '("quote" "financials" "news" "stats" "ohlc")
-  "Iex query types.")
-
-
 (defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '."
-  (interactive)
   (cl-declare (special ems--iex-types
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
-  (let* ((types (mapconcat #'identity ems--iex-types ","))
+  (let* (
          (url (
                emacspeak-wizards-iex-uri
                (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio ) ",")
-                                         types)))
+               ems--iex-types)))
     (kill-new url)
     (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
@@ -3375,28 +3375,26 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
    (format "%s -s %s/stock/%s/price"
            g-curl-program emacspeak-wizards-iex-base symbol)))
 
-
 ;;; Specialized display methods:
 
 ;;;###autoload
-(defun emacspeak-wizards-iex-show-ohlc (&optional refresh)
+(defun emacspeak-wizards-iex-show-open-close (&optional refresh)
   "Show Open/Close data from cache.
 Optional interactive prefix arg forces cache refresh."
   (interactive "P")
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
-  (let* ((buff "Open/Close")
+  (let* ((buff (get-buffer-create "Open/Close"))
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
            (let-alist (cdr i)
-             (push(cons 'symbol
-                        (format "%s"(car i)))
-                  .ohlc))))
-         (table (make-vector  (1+ (length results)) nil))
-         (row nil))
-    (aset table 0 ["Symbol" "Open" "Low" "High" "Close"])
+             `(,(cons 'companyName  .stats.companyName)
+               ,(cons 'symbol (format "%s"(car i)))
+               ,@.ohlc))))
+         (table (make-vector  (1+ (length results)) nil))         (row nil))
+    (aset table 0 ["CompanyName" "Symbol" "Open" "Low" "High" "Close"])
     (cl-loop
      for r in results
      and i from 1 do
@@ -3405,23 +3403,21 @@ Optional interactive prefix arg forces cache refresh."
             #'vector
             (let-alist r
               (list
-               .symbol
+               .companyName .symbol
                .open.price
                .low .high
                .close.price))))
      (aset table  i row))
     (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table table)
-     (get-buffer-create buff))
+     (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))
     (setq
      emacspeak-table-speak-element 'emacspeak-table-speak-both-headers-and-element
      header-line-format
-          (format "Stock Quotes"))
-    (call-interactively 'emacspeak-table-next-row)
-    (emacspeak-table-next-row))
-  (call-interactively #'emacspeak-table-next-column))
+     (format "Stock Quotes From IEXTrading"))
+    (emacspeak-table-next-row)
+    (call-interactively #'emacspeak-table-next-column)))
 
 ;;}}}
 ;;{{{ Sports API:
