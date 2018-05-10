@@ -596,7 +596,7 @@
 ;;}}}
 ;;{{{ Additional table function:
 
- ;;;###autoload
+;;;###autoload
 (unless (fboundp 'org-table-previous-row)
   (defun org-table-previous-row ()
     "Go to the previous row (same column) in the current table.
