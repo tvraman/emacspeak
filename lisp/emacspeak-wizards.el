@@ -3375,8 +3375,6 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
    (format "%s -s %s/stock/%s/price"
            g-curl-program emacspeak-wizards-iex-base symbol)))
 
-;;; Specialized display methods:
-
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-open-close (&optional refresh)
   "Show Open/Close data from cache.
@@ -3418,6 +3416,42 @@ Optional interactive prefix arg forces cache refresh."
      (format "Stock Quotes From IEXTrading"))
     (emacspeak-table-next-row)
     (call-interactively #'emacspeak-table-next-column)))
+
+
+(defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
+  "Show news for specified ticker.
+Checks cache, then makes API call if needed.
+Optional interactive prefix arg refreshes cache."
+  (interactive
+   (list
+    (completing-read "Symbol: "
+                     (split-string emacspeak-wizards-personal-portfolio))
+    current-prefix-arg))
+  (cl-declare (special emacspeak-wizards-iex-cache))
+  (when (or refresh (null emacspeak-wizards-iex-cache))
+    (emacspeak-wizards-iex-refresh))
+  (let* ((buff (get-buffer-create (format "News For %s" symbol)))
+         (this nil)
+         (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
+    (with-current-buffer buff
+      (erase-buffer)
+      (org-mode)
+      (setq this  (let-alist result  .news))
+      (mapc
+       #'(lambda (n)
+           (let-alist n
+             (insert (format "  -  "))
+             (insert
+              (format
+               "[[%s][%s]] %s %s\n"
+               .url .headline .source .datetime))))
+       this)
+      (setq
+       header-line-format
+       (format "Stock News From IEXTrading")))
+    (goto-char (point-min))
+    (funcall-interactively #'switch-to-buffer buff)
+    (goto-char (point-min))))
 
 ;;}}}
 ;;{{{ Sports API:
