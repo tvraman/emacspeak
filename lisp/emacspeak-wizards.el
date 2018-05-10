@@ -3346,28 +3346,17 @@ access to the various functions provided by alpha-vantage."
   '("quote" "financials" "news" "stats" "ohlc")
   "Iex query types.")
 
-;;;###autoload
-(defun emacspeak-wizards-iex-quotes (symbols &optional refresh-cache)
+
+(defun emacspeak-wizards-iex-quotes ()
   "Retrieve stock quote data from IEX Trading.
-Prompts for `symbols' -- a comma-separated list.
- Optional interactive prefix arg refreshes cache."
-  (interactive
-   (list
-    (read-from-minibuffer
-     "Symbols: "
-     nil nil nil nil
-     (mapconcat #'identity
-                (split-string emacspeak-wizards-personal-portfolio)","))
-    current-prefix-arg))
+Uses symbols set in `emacspeak-wizards-personal-portfolio '."
+  (interactive)
   (cl-declare (special ems--iex-types
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
-  (let* ((completion-ignore-case t)
-         (types (mapconcat #'identity ems--iex-types ","))
-         (url (emacspeak-wizards-iex-uri symbols types)))
+  (let* ((types (mapconcat #'identity ems--iex-types ","))
+         (url (emacspeak-wizards-iex-uri emacspeak-wizards-personal-portfolio types)))
     (kill-new url)
-    (setq emacspeak-wizards-iex-cache (g-json-from-url url))
-;;; Format and present json results:
-    ))
+    (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-stock-price (symbol)
@@ -3393,7 +3382,7 @@ Optional interactive prefix arg forces cache refresh."
   (interactive "P")
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
-    (call-interactively #'emacspeak-wizards-iex-quotes))
+    (emacspeak-wizards-iex-quotes))
   (let* ((buff "Open/Close")
          (results
           (cl-loop
