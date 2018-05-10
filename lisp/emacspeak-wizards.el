@@ -3321,28 +3321,30 @@ access to the various functions provided by alpha-vantage."
            ticker)))
     (kill-new url)
     (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker ))))
+;;;###autoload
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
+
 ;;; API: https://iextrading.com/developer/docs/
 
-(defvar emacspeak-wizards-iex-trading-base
+(defvar emacspeak-wizards-iex-base
   "https://api.iextrading.com/1.0"
-  "Rest End-Point For iex-trading Stock API.")
+  "Rest End-Point For iex Stock API.")
 
-(defun emacspeak-wizards-iex-trading-uri (symbols types)
-  "Return URL for calling iex-trading API."
-  (cl-declare (special emacspeak-wizards-iex-trading-base))
+(defun emacspeak-wizards-iex-uri (symbols types)
+  "Return URL for calling iex API."
+  (cl-declare (special emacspeak-wizards-iex-base))
   (format
    "%s/stock/market/batch?symbols=%s&types=%s"
-   emacspeak-wizards-iex-trading-base symbols types))
+   emacspeak-wizards-iex-base symbols types))
 
-(defconst  ems--iex-trading-types
+(defconst  ems--iex-types
   '("quote" "financials" "news" "stats")
-  "Iex-Trading query types.")
+  "Iex query types.")
 
 ;;;###autoload
-(defun emacspeak-wizards-iex-trading-quotes (symbols)
+(defun emacspeak-wizards-iex-quotes (symbols)
   "Retrieve stock quote data from IEX Trading.
 Prompts for `symbols' -- a comma-separated list. "
   (interactive
@@ -3353,15 +3355,24 @@ Prompts for `symbols' -- a comma-separated list. "
      (mapconcat #'identity
                 (split-string emacspeak-wizards-personal-portfolio)","))))
   (cl-declare (special emacspeak-wizards-personal-portfolio
-                       ems--iex-trading-types))
+                       ems--iex-types))
   (let* ((completion-ignore-case t)
-         (types (mapconcat #'identity ems--iex-trading-types ","))
-         (url (emacspeak-wizards-iex-trading-uri symbols types))
+         (types (mapconcat #'identity ems--iex-types ","))
+         (url (emacspeak-wizards-iex-uri symbols types))
          (result nil))
     (kill-new url)
     (setq result (g-json-from-url url))
 ;;; Format and present json results:
     ))
+
+;;;###autoload
+(defun emacspeak-wizards-iex-stock-price (symbol)
+  "Quick Quote: Just stock price from IEX Trading."
+  (interactive "sSymbol: ")
+  (cl-declare (special emacspeak-wizards-iex-base g-curl-program))
+  (shell-command
+   (format "%s -s %s/stock/%s/price"
+           g-curl-program emacspeak-wizards-iex-base symbol)))
 
 ;;}}}
 ;;{{{ Sports API:
