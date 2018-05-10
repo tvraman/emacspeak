@@ -3354,7 +3354,10 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
   (cl-declare (special ems--iex-types
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((types (mapconcat #'identity ems--iex-types ","))
-         (url (emacspeak-wizards-iex-uri emacspeak-wizards-personal-portfolio types)))
+         (url (
+               emacspeak-wizards-iex-uri
+               (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio ) ",")
+                                         types)))
     (kill-new url)
     (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
