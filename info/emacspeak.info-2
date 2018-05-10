@@ -2716,8 +2716,35 @@ prefix arg to delete a previously created eww-mark.
 
      Toggle masquerade state.
 
-12.70.7.8 emacspeak-eww-next-element
-....................................
+12.70.7.8 emacspeak-eww-next-dd
+...............................
+
+ -- Command: emacspeak-eww-next-dd (&optional speak)
+
+     Move forward to the next dd.
+     Optional interactive prefix arg speaks the dd.
+     The dd is automatically spoken if there is no user activity.
+
+12.70.7.9 emacspeak-eww-next-dl
+...............................
+
+ -- Command: emacspeak-eww-next-dl (&optional speak)
+
+     Move forward to the next dl.
+     Optional interactive prefix arg speaks the dl.
+     The dl is automatically spoken if there is no user activity.
+
+12.70.7.10 emacspeak-eww-next-dt
+................................
+
+ -- Command: emacspeak-eww-next-dt (&optional speak)
+
+     Move forward to the next dt.
+     Optional interactive prefix arg speaks the dt.
+     The dt is automatically spoken if there is no user activity.
+
+12.70.7.11 emacspeak-eww-next-element
+.....................................
 
  -- Command: emacspeak-eww-next-element (el)
 
@@ -2725,14 +2752,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn EL)
 
-12.70.7.9 emacspeak-eww-next-element-from-history
-.................................................
+12.70.7.12 emacspeak-eww-next-element-from-history
+..................................................
 
  -- Command: emacspeak-eww-next-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.70.7.10 emacspeak-eww-next-element-like-this
+12.70.7.13 emacspeak-eww-next-element-like-this
 ...............................................
 
  -- Command: emacspeak-eww-next-element-like-this (element)
@@ -2742,7 +2769,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.70.7.11 emacspeak-eww-next-h
+12.70.7.14 emacspeak-eww-next-h
 ...............................
 
  -- Command: emacspeak-eww-next-h (&optional speak)
@@ -2751,7 +2778,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.70.7.12 emacspeak-eww-next-h1
+12.70.7.15 emacspeak-eww-next-h1
 ................................
 
  -- Command: emacspeak-eww-next-h1 (&optional speak)
@@ -2760,7 +2787,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.70.7.13 emacspeak-eww-next-h2
+12.70.7.16 emacspeak-eww-next-h2
 ................................
 
  -- Command: emacspeak-eww-next-h2 (&optional speak)
@@ -2769,7 +2796,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.70.7.14 emacspeak-eww-next-h3
+12.70.7.17 emacspeak-eww-next-h3
 ................................
 
  -- Command: emacspeak-eww-next-h3 (&optional speak)
@@ -2778,7 +2805,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.70.7.15 emacspeak-eww-next-h4
+12.70.7.18 emacspeak-eww-next-h4
 ................................
 
  -- Command: emacspeak-eww-next-h4 (&optional speak)
@@ -2787,7 +2814,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.70.7.16 emacspeak-eww-next-h5
+12.70.7.19 emacspeak-eww-next-h5
 ................................
 
  -- Command: emacspeak-eww-next-h5 (&optional speak)
@@ -2796,7 +2823,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.70.7.17 emacspeak-eww-next-h6
+12.70.7.20 emacspeak-eww-next-h6
 ................................
 
  -- Command: emacspeak-eww-next-h6 (&optional speak)
@@ -2805,7 +2832,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.70.7.18 emacspeak-eww-next-li
+12.70.7.21 emacspeak-eww-next-li
 ................................
 
  -- Command: emacspeak-eww-next-li (&optional speak)
@@ -2814,7 +2841,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.70.7.19 emacspeak-eww-next-ol
+12.70.7.22 emacspeak-eww-next-ol
 ................................
 
  -- Command: emacspeak-eww-next-ol (&optional speak)
@@ -2823,7 +2850,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.70.7.20 emacspeak-eww-next-p
+12.70.7.23 emacspeak-eww-next-p
 ...............................
 
  -- Command: emacspeak-eww-next-p (&optional speak)
@@ -2832,7 +2859,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.70.7.21 emacspeak-eww-next-table
+12.70.7.24 emacspeak-eww-next-table
 ...................................
 
  -- Command: emacspeak-eww-next-table (&optional speak)
@@ -2841,7 +2868,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.70.7.22 emacspeak-eww-next-ul
+12.70.7.25 emacspeak-eww-next-ul
 ................................
 
  -- Command: emacspeak-eww-next-ul (&optional speak)
@@ -2850,7 +2877,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.70.7.23 emacspeak-eww-open-mark
+12.70.7.26 emacspeak-eww-open-mark
 ..................................
 
  -- Command: emacspeak-eww-open-mark (name &optional delete)
@@ -2862,7 +2889,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn NAME &optional DELETE)
 
-12.70.7.24 emacspeak-eww-phantom
+12.70.7.27 emacspeak-eww-phantom
 ................................
 
  -- Command: emacspeak-eww-phantom (url)
@@ -2871,7 +2898,34 @@ prefix arg to delete a previously created eww-mark.
 
      (fn URL)
 
-12.70.7.25 emacspeak-eww-previous-element
+12.70.7.28 emacspeak-eww-previous-dd
+....................................
+
+ -- Command: emacspeak-eww-previous-dd (&optional speak)
+
+     Move backward to the next dd.
+     Optional interactive prefix arg speaks the dd.
+     The dd is automatically spoken if there is no user activity.
+
+12.70.7.29 emacspeak-eww-previous-dl
+....................................
+
+ -- Command: emacspeak-eww-previous-dl (&optional speak)
+
+     Move backward to the next dl.
+     Optional interactive prefix arg speaks the dl.
+     The dl is automatically spoken if there is no user activity.
+
+12.70.7.30 emacspeak-eww-previous-dt
+....................................
+
+ -- Command: emacspeak-eww-previous-dt (&optional speak)
+
+     Move backward to the next dt.
+     Optional interactive prefix arg speaks the dt.
+     The dt is automatically spoken if there is no user activity.
+
+12.70.7.31 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
@@ -2880,14 +2934,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn EL)
 
-12.70.7.26 emacspeak-eww-previous-element-from-history
+12.70.7.32 emacspeak-eww-previous-element-from-history
 ......................................................
 
  -- Command: emacspeak-eww-previous-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.70.7.27 emacspeak-eww-previous-element-like-this
+12.70.7.33 emacspeak-eww-previous-element-like-this
 ...................................................
 
  -- Command: emacspeak-eww-previous-element-like-this (element)
@@ -2897,7 +2951,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.70.7.28 emacspeak-eww-previous-h
+12.70.7.34 emacspeak-eww-previous-h
 ...................................
 
  -- Command: emacspeak-eww-previous-h (&optional speak)
@@ -2906,7 +2960,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.70.7.29 emacspeak-eww-previous-h1
+12.70.7.35 emacspeak-eww-previous-h1
 ....................................
 
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
@@ -2915,7 +2969,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.70.7.30 emacspeak-eww-previous-h2
+12.70.7.36 emacspeak-eww-previous-h2
 ....................................
 
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
@@ -2924,7 +2978,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.70.7.31 emacspeak-eww-previous-h3
+12.70.7.37 emacspeak-eww-previous-h3
 ....................................
 
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
@@ -2933,7 +2987,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.70.7.32 emacspeak-eww-previous-h4
+12.70.7.38 emacspeak-eww-previous-h4
 ....................................
 
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
@@ -2942,7 +2996,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.70.7.33 emacspeak-eww-previous-h5
+12.70.7.39 emacspeak-eww-previous-h5
 ....................................
 
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
@@ -2951,7 +3005,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.70.7.34 emacspeak-eww-previous-h6
+12.70.7.40 emacspeak-eww-previous-h6
 ....................................
 
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
@@ -2960,7 +3014,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.70.7.35 emacspeak-eww-previous-li
+12.70.7.41 emacspeak-eww-previous-li
 ....................................
 
  -- Command: emacspeak-eww-previous-li (&optional speak)
@@ -2969,7 +3023,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.70.7.36 emacspeak-eww-previous-ol
+12.70.7.42 emacspeak-eww-previous-ol
 ....................................
 
  -- Command: emacspeak-eww-previous-ol (&optional speak)
@@ -2978,7 +3032,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.70.7.37 emacspeak-eww-previous-p
+12.70.7.43 emacspeak-eww-previous-p
 ...................................
 
  -- Command: emacspeak-eww-previous-p (&optional speak)
@@ -2987,7 +3041,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.70.7.38 emacspeak-eww-previous-table
+12.70.7.44 emacspeak-eww-previous-table
 .......................................
 
  -- Command: emacspeak-eww-previous-table (&optional speak)
@@ -2996,7 +3050,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.70.7.39 emacspeak-eww-previous-ul
+12.70.7.45 emacspeak-eww-previous-ul
 ....................................
 
  -- Command: emacspeak-eww-previous-ul (&optional speak)
@@ -3005,21 +3059,21 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.70.7.40 emacspeak-eww-reading-settings
+12.70.7.46 emacspeak-eww-reading-settings
 .........................................
 
  -- Command: emacspeak-eww-reading-settings
 
      Setup speech-rate, punctuation and split-caps for reading prose.
 
-12.70.7.41 emacspeak-eww-restore
+12.70.7.47 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.70.7.42 emacspeak-eww-speak-this-element
+12.70.7.48 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -3030,21 +3084,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.70.7.43 emacspeak-eww-tags-at-point
+12.70.7.49 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.70.7.44 emacspeak-eww-transcode
+12.70.7.50 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.70.7.45 emacspeak-eww-update-title
+12.70.7.51 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)

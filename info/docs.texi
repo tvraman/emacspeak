@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1206 commands and 1183 options.
+This chapter documents a total of 1214 commands and 1176 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -209,7 +209,7 @@ This chapter documents a total of 1206 commands and 1183 options.
 * emacspeak-widget::Speech enable Emacs' native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing -- Manage multiple Emacs window configurations.
-* emacspeak-wizards::Wizards For Emacspeak  Power Users.
+* emacspeak-wizards::Magic For Power Users.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
 * emacspeak-xml-shell::Implements a simple XML browser.
@@ -1339,7 +1339,7 @@ x j		emacspeak-jabber-popup-roster
 x m		mspools-show
 x o		emacspeak-wizards-occur-header-lines
 x p		paradox-list-packages
-x q		emacspeak-wizards-alpha-vantage-quotes
+x q		emacspeak-wizards-iex-stock-price
 x r		jabber-activity-switch-to
 x s		emacspeak-emergency-tts-restart
 x t		emacspeak-speak-telephone-directory
@@ -2439,6 +2439,12 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-eww-form-file-voice
+Personality used for eww-form-file
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-eww-form-select-voice
 Personality used for eww-form-select
 This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
@@ -2454,6 +2460,12 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-eww-form-text-voice
 Personality used for eww-form-text
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-eww-form-textarea-voice
+Personality used for eww-form-textarea
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -3962,6 +3974,18 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
+@defvar {User Option} emacspeak-shr-selected-link-voice
+Personality used for shr-selected-link
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-shr-strike-through-voice
+Personality used for shr-strike-through
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-sp-pair-overlay-personality
 Personality used for sp-pair-overlay-face
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
@@ -4031,72 +4055,6 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} emacspeak-twittering-username-personality
 Personality used for twittering-username-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -8618,6 +8576,39 @@ Toggle masquerade state.
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-next-dd
+@deffn {Command} emacspeak-eww-next-dd  (&optional speak)
+@findex emacspeak-eww-next-dd
+
+@format
+Move forward to the next dd.
+Optional interactive prefix arg speaks the dd.
+The dd is automatically spoken if there is no user activity.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-next-dl
+@deffn {Command} emacspeak-eww-next-dl  (&optional speak)
+@findex emacspeak-eww-next-dl
+
+@format
+Move forward to the next dl.
+Optional interactive prefix arg speaks the dl.
+The dl is automatically spoken if there is no user activity.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-next-dt
+@deffn {Command} emacspeak-eww-next-dt  (&optional speak)
+@findex emacspeak-eww-next-dt
+
+@format
+Move forward to the next dt.
+Optional interactive prefix arg speaks the dt.
+The dt is automatically spoken if there is no user activity.
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-next-element
 @deffn {Command} emacspeak-eww-next-element  (el)
 @findex emacspeak-eww-next-element
@@ -8808,6 +8799,39 @@ interactive prefix arg ‘delete’, delete that mark instead.
 Retrieve ‘url’  using PhantomJS and render with EWW.
 
 (fn URL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-previous-dd
+@deffn {Command} emacspeak-eww-previous-dd  (&optional speak)
+@findex emacspeak-eww-previous-dd
+
+@format
+Move backward to the next dd.
+Optional interactive prefix arg speaks the dd.
+The dd is automatically spoken if there is no user activity.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-previous-dl
+@deffn {Command} emacspeak-eww-previous-dl  (&optional speak)
+@findex emacspeak-eww-previous-dl
+
+@format
+Move backward to the next dl.
+Optional interactive prefix arg speaks the dl.
+The dl is automatically spoken if there is no user activity.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-previous-dt
+@deffn {Command} emacspeak-eww-previous-dt  (&optional speak)
+@findex emacspeak-eww-previous-dt
+
+@format
+Move backward to the next dt.
+Optional interactive prefix arg speaks the dt.
+The dt is automatically spoken if there is no user activity.
 @end format
 @end deffn
 
@@ -23102,13 +23126,6 @@ Default is to add autoload cookies to current file.
 
 @subsubsection emacspeak-wizards-alpha-vantage-quotes
 @deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
-@table @kbd
-@item C-e x q
-@kindex C-e x q
-@item <fn> x q
-@kindex <fn> x q
-@end table
-
 @findex emacspeak-wizards-alpha-vantage-quotes
 
 @format
@@ -23707,6 +23724,36 @@ run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 
 (fn START END &optional PREFIX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-iex-quotes
+@deffn {Command} emacspeak-wizards-iex-quotes  (symbols)
+@findex emacspeak-wizards-iex-quotes
+
+@format
+Retrieve stock quote data from IEX Trading.
+Prompts for ‘symbols’ -- a comma-separated list. 
+
+(fn SYMBOLS)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-iex-stock-price
+@deffn {Command} emacspeak-wizards-iex-stock-price  (symbol)
+@table @kbd
+@item C-e x q
+@kindex C-e x q
+@item <fn> x q
+@kindex <fn> x q
+@end table
+
+@findex emacspeak-wizards-iex-stock-price
+
+@format
+Quick Quote: Just stock price from IEX Trading.
+
+(fn SYMBOL)
 @end format
 @end deffn
 

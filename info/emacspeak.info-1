@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 7, 2018.
+last updated on May 9, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1206 commands and 1183 options.
+   This chapter documents a total of 1214 commands and 1176 options.
 
 * Menu:
 
@@ -2956,7 +2956,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-widget::Speech enable Emacs’ native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing – Manage multiple Emacs window configurations.
-* emacspeak-wizards::Wizards For Emacspeak  Power Users.
+* emacspeak-wizards::Magic For Power Users.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
 * emacspeak-xml-shell::Implements a simple XML browser.
@@ -3833,7 +3833,7 @@ system.
      x m		mspools-show
      x o		emacspeak-wizards-occur-header-lines
      x p		paradox-list-packages
-     x q		emacspeak-wizards-alpha-vantage-quotes
+     x q		emacspeak-wizards-iex-stock-price
      x r		jabber-activity-switch-to
      x s		emacspeak-emergency-tts-restart
      x t		emacspeak-speak-telephone-directory
@@ -4784,6 +4784,11 @@ system.
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
 
+ -- Variable: User Option emacspeak-eww-form-file-voice
+     Personality used for eww-form-file This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-eww-form-select-voice
      Personality used for eww-form-select This personality uses
      voice-annotate whose effect can be changed globally by customizing
@@ -4798,6 +4803,11 @@ system.
      Personality used for eww-form-text This personality uses
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-eww-form-textarea-voice
+     Personality used for eww-form-textarea This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
 
  -- Variable: User Option emacspeak-eww-invalid-certificate-voice
      Personality used for eww-invalid-certificate This personality uses
@@ -6053,6 +6063,16 @@ system.
      whose effect can be changed globally by customizing
      voice-bolden-settings.
 
+ -- Variable: User Option emacspeak-shr-selected-link-voice
+     Personality used for shr-selected-link This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-shr-strike-through-voice
+     Personality used for shr-strike-through This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
  -- Variable: User Option emacspeak-sp-pair-overlay-personality
      Personality used for sp-pair-overlay-face This personality uses
      voice-lighten whose effect can be changed globally by customizing
@@ -6112,61 +6132,6 @@ system.
      Personality used for twittering-username-face This personality uses
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-author-personality
-     Personality used for u-vm-color-author-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
-     Personality used for u-vm-color-citation-1-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
-     Personality used for u-vm-color-citation-2-face This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-date-personality
-     Personality used for u-vm-color-date-face This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-header-personality
-     Personality used for u-vm-color-header-face This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-recipient-personality
-     Personality used for u-vm-color-recipient-face This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-signature-personality
-     Personality used for u-vm-color-signature-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
-     Personality used for u-vm-color-spamassassin-face This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-subject-personality
-     Personality used for u-vm-color-subject-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-time-personality
-     Personality used for u-vm-color-time-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-u-vm-color-user-personality
-     Personality used for u-vm-color-user-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
 
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
