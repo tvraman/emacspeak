@@ -3347,7 +3347,7 @@ access to the various functions provided by alpha-vantage."
   "Iex query types.")
 
 
-(defun emacspeak-wizards-iex-quotes ()
+(defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '."
   (interactive)
@@ -3385,7 +3385,7 @@ Optional interactive prefix arg forces cache refresh."
   (interactive "P")
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
-    (emacspeak-wizards-iex-quotes))
+    (emacspeak-wizards-iex-refresh))
   (let* ((buff "Open/Close")
          (results
           (cl-loop
