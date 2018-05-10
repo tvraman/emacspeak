@@ -3394,13 +3394,15 @@ Optional interactive prefix arg forces cache refresh."
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (call-interactively #'emacspeak-wizards-iex-quotes))
-  (let* ((results
-         (cl-loop
- for i in emacspeak-wizards-iex-cache collect
- (let-alist (cdr i)
-   (push(cons 'symbol (car i))
-   .ohlc))))
-    (table (make-vector  (1+ (length results)) nil))
+  (let* ((buff "Open/Close")
+         (results
+          (cl-loop
+           for i in emacspeak-wizards-iex-cache collect
+           (let-alist (cdr i)
+             (push(cons 'symbol
+                        (format "%s"(car i)))
+                  .ohlc))))
+         (table (make-vector  (1+ (length results)) nil))
          (row nil))
     (aset table 0 ["Symbol" "Open" "Low" "High" "Close"])
     (cl-loop
@@ -3413,12 +3415,21 @@ Optional interactive prefix arg forces cache refresh."
               (list
                .symbol
                .open.price
-               .high .low
+               .low .high
                .close.price))))
      (aset table  i row))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table)
-     (get-buffer-create "Open/Close"))))
+     (get-buffer-create buff))
+    (funcall-interactively #'switch-to-buffer buff)
+    (goto-char (point-min))
+    (setq
+     emacspeak-table-speak-element 'emacspeak-table-speak-both-headers-and-element
+     header-line-format
+          (format "Stock Quotes"))
+    (call-interactively 'emacspeak-table-next-row)
+    (emacspeak-table-next-row))
+  (call-interactively #'emacspeak-table-next-column))
 
 ;;}}}
 ;;{{{ Sports API:
