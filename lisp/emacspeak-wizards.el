@@ -3431,13 +3431,15 @@ Optional interactive prefix arg refreshes cache."
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create (format "News For %s" symbol)))
+         (title (format "Stock News From IEXTrading For %S" (upcase symbol)))
          (this nil)
          (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
     (with-current-buffer buff
       (erase-buffer)
       (org-mode)
       (goto-char (point-min))
-      (insert (format "* News For %s From IEXTrading\n" symbol))
+      (insert title)
+      (insert "\n\n")
       (setq this  (let-alist result  .news))
       (unless this                      ; not in cache
       (setq this
@@ -3447,17 +3449,13 @@ Optional interactive prefix arg refreshes cache."
       (mapc
        #'(lambda (n)
            (let-alist n
-             (insert (format "  -  "))
              (insert
               (format
-               "[[%s][%s]] %s \n"
+               "  - [[%s][%s]] %s \n"
                .url .headline .source))))
        this)
       (setq buffer-read-only t)
-      (setq
-       header-line-format
-       (format "Stock News From IEXTrading For %S"
-               (upcase symbol))))
+      (setq header-line-format title))
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
 
