@@ -3338,29 +3338,25 @@ access to the various functions provided by alpha-vantage."
 
 
 (defconst  ems--iex-trading-types
-  '("quote" "financials" "news" )
+  '("quote" "financials" "news" "stats")
 "Iex-Trading query types.")
+
 ;;;###autoload
-(defun emacspeak-wizards-iex-trading-quotes (symbols &optional custom)
+(defun emacspeak-wizards-iex-trading-quotes (symbols)
   "Retrieve stock quote data from IEX Trading.
-Prompts for `symbols' -- a comma-separated list.
- Optional interactive prefix arg `custom' provides
-access to the various query types provided by iex-trading."
+Prompts for `symbols' -- a comma-separated list. "
   (interactive
    (list
-    (read-from-minibuffer "Symbols: "
-                          nil nil nil nil
-                          (mapconcat #'identity
-                                     (split-string emacspeak-wizards-personal-portfolio)","))
-    current-prefix-arg))
+    (read-from-minibuffer
+     "Symbols: "
+     nil nil nil nil
+     (mapconcat #'identity
+                (split-string emacspeak-wizards-personal-portfolio)","))))
   (cl-declare (special emacspeak-wizards-personal-portfolio
-                       ems--iex-trading-funcs))
+                       ems--iex-trading-types))
   (let* ((completion-ignore-case t)
-         (method
-          (if custom
-              (ido-completing-read "Choose: " ems--iex-trading-funcs)
-            (mapconcat #'identity ems--iex-trading-types ",")))
-         (url (emacspeak-wizards-iex-trading-uri symbols method))
+         (types (mapconcat #'identity ems--iex-trading-types ","))
+         (url (emacspeak-wizards-iex-trading-uri symbols types))
          (result nil))
     (kill-new url)
   (setq result (g-json-from-url url))
