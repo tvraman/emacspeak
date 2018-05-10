@@ -105,9 +105,9 @@
   (interactive)
   (cl-declare (special emacspeak-etc-directory))
   (emacspeak-webutils-without-xsl
-   (browse-url
-    (format "file:///%stips.html"
-            emacspeak-etc-directory)))
+      (browse-url
+       (format "file:///%stips.html"
+               emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
@@ -684,11 +684,11 @@ name of a clipboard file."
         (clipboard nil))
     (setq clipboard (find-file-noselect  clipboard-file))
     (ems-with-messages-silenced
-     (save-current-buffer
-       (set-buffer clipboard)
-       (erase-buffer)
-       (insert clip)
-       (save-buffer)))
+        (save-current-buffer
+          (set-buffer clipboard)
+          (erase-buffer)
+          (insert clip)
+          (save-buffer)))
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
@@ -1373,26 +1373,26 @@ visiting the ppt file."
   (cl-declare (special emacspeak-wizards-ppthtml-program
                        emacspeak-wizards-ppt-preview-buffer))
   (emacspeak-webutils-without-xsl
-   (cond
-    ((null emacspeak-wizards-ppthtml-program)
-     (message "Not using Emacspeak PPTHTML wizard."))
-    (t
-     (let ((filename (buffer-file-name))
-           (ppt-buffer (current-buffer))
-           (buffer (get-buffer-create " *ppt scratch*")))
-       (save-current-buffer
-         (setq buffer-undo-list t)
-         (set-buffer buffer)
-         (erase-buffer)
-         (kill-all-local-variables)
-         (shell-command
-          (format "%s  %s"
-                  emacspeak-wizards-ppthtml-program filename)
-          'replace
-          (current-buffer))
-         (call-interactively #'browse-url-of-buffer))
-       (kill-buffer buffer)
-       (kill-buffer ppt-buffer))))))
+      (cond
+       ((null emacspeak-wizards-ppthtml-program)
+        (message "Not using Emacspeak PPTHTML wizard."))
+       (t
+        (let ((filename (buffer-file-name))
+              (ppt-buffer (current-buffer))
+              (buffer (get-buffer-create " *ppt scratch*")))
+          (save-current-buffer
+            (setq buffer-undo-list t)
+            (set-buffer buffer)
+            (erase-buffer)
+            (kill-all-local-variables)
+            (shell-command
+             (format "%s  %s"
+                     emacspeak-wizards-ppthtml-program filename)
+             'replace
+             (current-buffer))
+            (call-interactively #'browse-url-of-buffer))
+          (kill-buffer buffer)
+          (kill-buffer ppt-buffer))))))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.ppt$"
@@ -1815,26 +1815,26 @@ Ubuntu and Debian this is group `tty'."
                        emacspeak-wizards-vc-console
                        temporary-file-directory))
   (ems-with-messages-silenced
-   (let ((command
-          (format emacspeak-wizards-vc-viewer-command
-                  console
-                  (expand-file-name
-                   (format "vc-%s.dump" console)
-                   temporary-file-directory)))
-         (buffer (get-buffer-create
-                  (format "*vc-%s*" console))))
-     (shell-command command buffer)
-     (switch-to-buffer buffer)
-     (kill-all-local-variables)
-     (insert-file-contents
-      (expand-file-name
-       (format "vc-%s.dump" console)
-       temporary-file-directory))
-     (set-buffer-modified-p nil)
-     (emacspeak-wizards-vc-viewer-mode)
-     (setq emacspeak-wizards-vc-console console)
-     (goto-char (point-min))
-     (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
+      (let ((command
+             (format emacspeak-wizards-vc-viewer-command
+                     console
+                     (expand-file-name
+                      (format "vc-%s.dump" console)
+                      temporary-file-directory)))
+            (buffer (get-buffer-create
+                     (format "*vc-%s*" console))))
+        (shell-command command buffer)
+        (switch-to-buffer buffer)
+        (kill-all-local-variables)
+        (insert-file-contents
+         (expand-file-name
+          (format "vc-%s.dump" console)
+          temporary-file-directory))
+        (set-buffer-modified-p nil)
+        (emacspeak-wizards-vc-viewer-mode)
+        (setq emacspeak-wizards-vc-console console)
+        (goto-char (point-min))
+        (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
@@ -2128,9 +2128,9 @@ Location is specified by name."
     (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
   (ems-with-messages-silenced
-   (let ((time (emacspeak-speak-decode-iso-datetime iso)))
-     (tts-with-punctuations 'some (dtk-speak time))
-     (message time))))
+      (let ((time (emacspeak-speak-decode-iso-datetime iso)))
+        (tts-with-punctuations 'some (dtk-speak time))
+        (message time))))
 
 ;;}}}
 ;;{{{ date pronouncer wizard
@@ -2218,15 +2218,15 @@ RIVO is implemented by rivo.pl ---
    (list
     (read-from-minibuffer "At Time: hh:mm Month Day")
     (ems-with-messages-silenced
-     (let ((completion-ignore-case t)
-           (minibuffer-history emacspeak-media-history))
-       (emacspeak-pronounce-define-local-pronunciation
-        emacspeak-media-shortcuts-directory " shortcuts/ ")
-       (read-file-name "RealAudio resource: "
-                       emacspeak-media-shortcuts-directory
-                       (if (eq major-mode 'dired-mode)
-                           (dired-get-filename)
-                         emacspeak-media-last-url))))
+        (let ((completion-ignore-case t)
+              (minibuffer-history emacspeak-media-history))
+          (emacspeak-pronounce-define-local-pronunciation
+           emacspeak-media-shortcuts-directory " shortcuts/ ")
+          (read-file-name "RealAudio resource: "
+                          emacspeak-media-shortcuts-directory
+                          (if (eq major-mode 'dired-mode)
+                              (dired-get-filename)
+                            emacspeak-media-last-url))))
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
@@ -2748,7 +2748,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Speak line using espeak polyglot wizard."
   (interactive)
   (ems-with-messages-silenced
-  (emacspeak-wizards-espeak-region  (line-beginning-position ) (line-end-position))))
+      (emacspeak-wizards-espeak-region  (line-beginning-position ) (line-end-position))))
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
@@ -3056,7 +3056,6 @@ per headers."
 ;;}}}
 ;;{{{ google Finance  Search Wizard
 
-
 (defun emacspeak-wizards-finance-google-search  ()
   "Google Finance Search"
   (interactive)
@@ -3277,10 +3276,9 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
            (string :tag "API Key"))
   :group 'emacspeak-wizards)
 
-
 (defvar emacspeak-wizards-alpha-vantage-base
   "https://www.alphavantage.co/query?function=%s&symbol=%s&apikey=%s&datatype=csv"
-"Rest End-Point For Alpha-Vantage Stock API.")
+  "Rest End-Point For Alpha-Vantage Stock API.")
 
 (defun emacspeak-wizards-alpha-vantage-uri (func ticker)
   "Return URL for calling Alpha-Vantage API."
@@ -3294,8 +3292,8 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
 
 (defconst  ems--alpha-vantage-funcs
   '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
-            "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")
-"Alpha-Vantage query types.")
+    "TIME_SERIES_WEEKLY_ADJUSTED" "TIME_SERIES_MONTHLY_ADJUSTED")
+  "Alpha-Vantage query types.")
 
 (defun emacspeak-wizards-alpha-vantage-quotes (ticker &optional custom)
   "Retrieve stock quote data from Alpha Vantage. Prompts for `ticker'
@@ -3313,7 +3311,7 @@ access to the various functions provided by alpha-vantage."
          (method
           (if custom
               (upcase (ido-completing-read "Choose: " ems--alpha-vantage-funcs))
-                   "TIME_SERIES_DAILY"))
+            "TIME_SERIES_DAILY"))
          (url
           (emacspeak-wizards-alpha-vantage-uri
            method
@@ -3322,12 +3320,12 @@ access to the various functions provided by alpha-vantage."
     (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker ))))
 
 ;;}}}
-;;{{{ Stock Quotes from iextrading 
+;;{{{ Stock Quotes from iextrading
 ;;; API: https://iextrading.com/developer/docs/
 
 (defvar emacspeak-wizards-iex-trading-base
   "https://api.iextrading.com/1.0"
-"Rest End-Point For iex-trading Stock API.")
+  "Rest End-Point For iex-trading Stock API.")
 
 (defun emacspeak-wizards-iex-trading-uri (symbols types)
   "Return URL for calling iex-trading API."
@@ -3336,10 +3334,9 @@ access to the various functions provided by alpha-vantage."
    "%s/stock/market/batch?symbols=%s&types=%s"
    emacspeak-wizards-iex-trading-base symbols types))
 
-
 (defconst  ems--iex-trading-types
   '("quote" "financials" "news" "stats")
-"Iex-Trading query types.")
+  "Iex-Trading query types.")
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-trading-quotes (symbols)
@@ -3359,9 +3356,9 @@ Prompts for `symbols' -- a comma-separated list. "
          (url (emacspeak-wizards-iex-trading-uri symbols types))
          (result nil))
     (kill-new url)
-  (setq result (g-json-from-url url))
+    (setq result (g-json-from-url url))
 ;;; Format and present json results:
-  ))
+    ))
 
 ;;}}}
 ;;{{{ Sports API:
@@ -3550,9 +3547,9 @@ under point as either the foreground or background color."
 (defun ems--color-wheel-hex (w)
   "Return color value as hex."
   (format "#%02X%02X%02X"
-                (ems--color-wheel-red w)
-                (ems--color-wheel-green w)
-                (ems--color-wheel-blue w)))
+          (ems--color-wheel-red w)
+          (ems--color-wheel-green w)
+          (ems--color-wheel-blue w)))
 
 (defun ems--color-wheel-name  (wheel)
   "Name of color  the wheel is set to currently."
@@ -3561,7 +3558,6 @@ under point as either the foreground or background color."
            (ems--color-wheel-red wheel)
            (ems--color-wheel-green wheel)
            (ems--color-wheel-blue wheel))))
-
 
 (defun ems--color-wheel-shade  (wheel)
   "Shade of color  the wheel is set to currently."
@@ -3728,15 +3724,15 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 
 ;;}}}
 ;;{{{ Swap Foreground And Background:
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-wizards-swap-fg-and-bg ()
-"Swap foreground and background."
-(interactive)
-(let ((fg (foreground-color-at-point))
-(bg (background-color-at-point)))
-(set-foreground-color bg)
-(set-background-color fg)
-(call-interactively #'emacspeak-wizards-color-diff-at-point)))
+  "Swap foreground and background."
+  (interactive)
+  (let ((fg (foreground-color-at-point))
+        (bg (background-color-at-point)))
+    (set-foreground-color bg)
+    (set-background-color fg)
+    (call-interactively #'emacspeak-wizards-color-diff-at-point)))
 
 ;;}}}
 ;;{{{ Utility: Read from a pipe helper:
@@ -3925,7 +3921,7 @@ weather for `gweb-my-address'.  "
   (interactive)
   (cl-declare (special url-http-open-connections))
   (let ((count 0))
-    (cl-loop 
+    (cl-loop
      for p being the hash-values of url-http-open-connections
      when p do
      (cl-incf count)
