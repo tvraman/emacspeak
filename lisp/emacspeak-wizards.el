@@ -3383,6 +3383,43 @@ Prompts for `symbols' -- a comma-separated list.
    (format "%s -s %s/stock/%s/price"
            g-curl-program emacspeak-wizards-iex-base symbol)))
 
+
+;;; Specialized display methods:
+
+;;;###autoload
+(defun emacspeak-wizards-iex-show-ohlc (&optional refresh)
+  "Show Open/Close data from cache.
+Optional interactive prefix arg forces cache refresh."
+  (interactive "P")
+  (cl-declare (special emacspeak-wizards-iex-cache))
+  (when (or refresh (null emacspeak-wizards-iex-cache))
+    (call-interactively #'emacspeak-wizards-iex-quotes))
+  (let* ((results
+         (cl-loop
+ for i in emacspeak-wizards-iex-cache collect
+ (let-alist (cdr i)
+   (push(cons 'symbol (car i))
+   .ohlc))))
+    (table (make-vector  (1+ (length results)) nil))
+         (row nil))
+    (aset table 0 ["Symbol" "Open" "Low" "High" "Close"])
+    (cl-loop
+     for r in results
+     and i from 1 do
+     (setq row
+           (apply
+            #'vector
+            (let-alist r
+              (list
+               .symbol
+               .open.price
+               .high .low
+               .close.price))))
+     (aset table  i row))
+    (emacspeak-table-prepare-table-buffer
+     (emacspeak-table-make-table table)
+     (get-buffer-create "Open/Close"))))
+
 ;;}}}
 ;;{{{ Sports API:
 
