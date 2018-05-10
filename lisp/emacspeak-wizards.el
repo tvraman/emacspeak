@@ -3340,7 +3340,7 @@ access to the various functions provided by alpha-vantage."
    emacspeak-wizards-iex-base symbols types))
 
 (defconst  ems--iex-types
-  '("quote" "financials" "news" "stats")
+  '("quote" "financials" "news" "stats" "ohlc")
   "Iex query types.")
 
 ;;;###autoload
