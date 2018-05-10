@@ -449,7 +449,7 @@ relief."
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
-    ("q" emacspeak-wizards-alpha-vantage-quotes)
+    ("q" emacspeak-wizards-iex-stock-price)
     ("w" emacspeak-wizards-noaa-weather)
     ("r" jabber-activity-switch-to)
     ("SPC" emacspeak-jabber-speak-recent-message)

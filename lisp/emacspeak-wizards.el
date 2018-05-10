@@ -3367,8 +3367,13 @@ Prompts for `symbols' -- a comma-separated list. "
 ;;;###autoload
 (defun emacspeak-wizards-iex-stock-price (symbol)
   "Quick Quote: Just stock price from IEX Trading."
-  (interactive "sSymbol: ")
-  (cl-declare (special emacspeak-wizards-iex-base g-curl-program))
+  (interactive
+   (list
+    (completing-read "Stock Symbol: "
+                      (split-string emacspeak-wizards-personal-portfolio))))
+  (cl-declare (special emacspeak-wizards-iex-base
+                       emacspeak-wizards-personal-portfolio
+                       g-curl-program))
   (shell-command
    (format "%s -s %s/stock/%s/price"
            g-curl-program emacspeak-wizards-iex-base symbol)))
