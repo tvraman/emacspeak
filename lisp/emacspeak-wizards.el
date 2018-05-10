@@ -1,4 +1,4 @@
-;;; emacspeak-wizards.el --- Wizards For Emacspeak  Power Users   -*- lexical-binding: t; -*-
+;;; emacspeak-wizards.el --- Magic For Power Users   -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains convenience wizards
@@ -1030,7 +1030,8 @@ Signals beginning  of buffer."
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with a browser ."
   (interactive "sURL: ")
-  (cl-declare (special emacspeak-wizards-curl-program emacspeak-curl-cookie-store))
+  (cl-declare (special emacspeak-wizards-curl-program
+                       emacspeak-curl-cookie-store))
   (with-temp-buffer
     (shell-command
      (format
@@ -2230,7 +2231,8 @@ RIVO is implemented by rivo.pl ---
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
-  (cl-declare (special emacspeak-media-last-url emacspeak-media-shortcuts-directory
+  (cl-declare (special
+               emacspeak-media-last-url emacspeak-media-shortcuts-directory
                        emacspeak-media-history))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
@@ -2748,7 +2750,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Speak line using espeak polyglot wizard."
   (interactive)
   (ems-with-messages-silenced
-      (emacspeak-wizards-espeak-region  (line-beginning-position ) (line-end-position))))
+      (emacspeak-wizards-espeak-region
+       (line-beginning-position ) (line-end-position))))
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
@@ -3506,7 +3509,8 @@ Otherwise just return  `color'."
   (interactive)
   (message "%s on %s"
            (ems--color-name (frame-parameter (selected-frame) 'foreground-color))
-           (ems--color-name (frame-parameter (selected-frame) 'background-color))))
+           (ems--color-name
+            (frame-parameter (selected-frame) 'background-color))))
 
 (defun emacspeak-wizards--set-color (color)
   "Set color as foreground or background."
