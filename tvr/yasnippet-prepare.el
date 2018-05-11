@@ -2,7 +2,7 @@
 
 (eval-after-load
     'yasnippet
-  `(progn 
-     (yas-reload-all)
+  `(progn
+     (run-with-idle-timer 1 nil #'yas-reload-all)
      (setq yas-verbosity 0)))
 
