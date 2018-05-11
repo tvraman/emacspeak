@@ -3330,7 +3330,7 @@ access to the various functions provided by alpha-vantage."
 
 (defconst  ems--iex-types
   (mapconcat #'identity
-             '("quote" "financials" "news" "stats" "ohlc")
+             '("quote" "financials" "news" "stats" )
              ",")
   "Iex query types.")
 
@@ -3387,12 +3387,16 @@ Optional interactive prefix arg forces cache refresh."
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
-           (let-alist (cdr i)
-             `(,(cons 'companyName  .stats.companyName)
-               ,(cons 'symbol (format "%s"(car i)))
-               ,@.ohlc))))
+           (let-alist i
+             `(,@.quote
+               ,@.stats))))
          (table (make-vector  (1+ (length results)) nil))         (row nil))
-    (aset table 0 ["CompanyName" "Symbol" "Open" "Low" "High" "Close"])
+    (aset table 0
+          ["CompanyName" "Symbol"
+           "Open" "Low" "High" "Close"
+           "52WeekLow" "52WeekHigh"
+           "MarketCap" "PERatio" 
+           "DividentYield" "DividentRate"])
     (cl-loop
      for r in results
      and i from 1 do
@@ -3401,10 +3405,10 @@ Optional interactive prefix arg forces cache refresh."
             #'vector
             (let-alist r
               (list
-               .companyName .symbol
-               .open.price
-               .low .high
-               .close.price))))
+               .symbol .companyName
+               .open .low .high .close
+               .week52Low .week52High
+               .dividendYield  .dividendRate))))
      (aset table  i row))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
