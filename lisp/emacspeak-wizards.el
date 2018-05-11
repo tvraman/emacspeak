@@ -3353,11 +3353,10 @@ access to the various functions provided by alpha-vantage."
 Uses symbols set in `emacspeak-wizards-personal-portfolio '."
   (cl-declare (special ems--iex-types
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
-  (let* (
-         (url (
-               emacspeak-wizards-iex-uri
-               (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio ) ",")
-               ems--iex-types)))
+  (let* ((url
+          (emacspeak-wizards-iex-uri
+           (mapconcat #'identity (split-string emacspeak-wizards-personal-portfolio ) ",")
+           ems--iex-types)))
     (kill-new url)
     (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
