@@ -3376,8 +3376,8 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
            g-curl-program emacspeak-wizards-iex-base symbol)))
 
 ;;;###autoload
-(defun emacspeak-wizards-iex-show-open-close (&optional refresh)
-  "Show Open/Close data from cache.
+(defun emacspeak-wizards-iex-show-quote (&optional refresh)
+  "Show portfolio  data from cache.
 Optional interactive prefix arg forces cache refresh."
   (interactive "P")
   (cl-declare (special emacspeak-wizards-iex-cache))
@@ -3390,7 +3390,8 @@ Optional interactive prefix arg forces cache refresh."
            (let-alist i
              `(,@.quote
                ,@.stats))))
-         (table (make-vector  (1+ (length results)) nil))         (row nil))
+         (table (make-vector  (1+ (length results)) nil))
+         (row nil))
     (aset table 0
           ["CompanyName" "Symbol"
            "Open" "Low" "High" "Close"
@@ -3408,6 +3409,7 @@ Optional interactive prefix arg forces cache refresh."
                .symbol .companyName
                .open .low .high .close
                .week52Low .week52High
+               .marketcap .peRatio
                .dividendYield  .dividendRate))))
      (aset table  i row))
     (emacspeak-table-prepare-table-buffer
