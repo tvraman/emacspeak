@@ -167,6 +167,7 @@
   (company-mode 1)
   (hs-minor-mode 1)
   (smartparens-mode 1)
+  (yas-minor-mode 1)
   (abbrev-mode 1))
 
 ;;}}}

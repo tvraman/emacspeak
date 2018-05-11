@@ -3439,6 +3439,7 @@ Optional interactive prefix arg refreshes cache."
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create (format "News For %s" symbol)))
+         (inhibit-read-only  t)
          (title (format "Stock News From IEXTrading For %S" (upcase symbol)))
          (this nil)
          (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
