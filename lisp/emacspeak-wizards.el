@@ -3473,11 +3473,10 @@ Optional interactive prefix arg refreshes cache."
   "Top-level dispatch for looking up financial information."
   (interactive "P")
   (cl-ecase (read-char  "q:quote, n:News, p:price")
-  (?p (call-interactively #'emacspeak-wizards-iex-stock-price))
-  (?n (call-interactively #'emacspeak-wizards-iex-show-news))
-  (?q (call-interactively #'emacspeak-wizards-iex-show-quote))))
+    (?p (call-interactively #'emacspeak-wizards-iex-stock-price))
+    (?n (call-interactively #'emacspeak-wizards-iex-show-news))
+    (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))))
   
-  )
 ;;}}}
 ;;{{{ Sports API:
 
