@@ -550,6 +550,7 @@ interactive command that the key sequence executes."
     ("g" emacspeak-google-tts-region)
     ("j" ido-imenu-anywhere)
     ("o" ciel-co)
+    ("q" emacspeak-wizards-iex-show-quote)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
