@@ -3383,7 +3383,7 @@ Optional interactive prefix arg forces cache refresh."
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
-  (let* ((buff (get-buffer-create "Open/Close"))
+  (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
@@ -3407,7 +3407,7 @@ Optional interactive prefix arg forces cache refresh."
             #'vector
             (let-alist r
               (list
-               .symbol .companyName
+               .companyName .symbol
                .open .low .high .close
                .week52Low .week52High
                .day50MovingAvg .day200MovingAvg
