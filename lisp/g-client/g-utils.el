@@ -316,9 +316,8 @@ references, poor-man's xpath."
   "Run command and return its output."
   (cl-declare (special shell-file-name shell-command-switch))
   (g-using-scratch
-   (call-process shell-file-name nil t
-                 nil shell-command-switch
-                 command)
+   (call-process shell-file-name nil t nil
+                 shell-command-switch command)
    (set-buffer-multibyte nil) ;return raw binary string
    (buffer-string)))
 
