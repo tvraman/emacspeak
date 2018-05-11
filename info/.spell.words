@@ -159,6 +159,7 @@ Dom
 DOM
 dont
 Dorman
+dt
 DTD
 DTDs
 dtk
@@ -296,9 +297,11 @@ https
 ibuffer
 ido
 IDO
+iex
 iheart
 ILisp
 IM
+imap
 IMap
 imenu
 Imenu
@@ -540,7 +543,6 @@ sox
 Sox
 SoX
 soxplay
-spamassassin
 spc
 SPC
 speedbar
@@ -583,6 +585,7 @@ Tetris
 texi
 texinfo
 Texinfo
+textarea
 textfilter
 theEmacspeak
 tiffcp
@@ -601,8 +604,6 @@ transcoder
 Transcoder
 Treese
 trplayer
-tts
-TTS
 tty
 TuneIn
 tvr

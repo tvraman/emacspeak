@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 9, 2018.
+last updated on May 10, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1214 commands and 1176 options.
+   This chapter documents a total of 1216 commands and 1176 options.
 
 * Menu:
 
@@ -3833,7 +3833,7 @@ system.
      x m		mspools-show
      x o		emacspeak-wizards-occur-header-lines
      x p		paradox-list-packages
-     x q		emacspeak-wizards-iex-stock-price
+     x q		emacspeak-wizards-quote
      x r		jabber-activity-switch-to
      x s		emacspeak-emergency-tts-restart
      x t		emacspeak-speak-telephone-directory

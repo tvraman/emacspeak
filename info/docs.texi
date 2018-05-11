@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1214 commands and 1176 options.
+This chapter documents a total of 1216 commands and 1176 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1339,7 +1339,7 @@ x j		emacspeak-jabber-popup-roster
 x m		mspools-show
 x o		emacspeak-wizards-occur-header-lines
 x p		paradox-list-packages
-x q		emacspeak-wizards-iex-stock-price
+x q		emacspeak-wizards-quote
 x r		jabber-activity-switch-to
 x s		emacspeak-emergency-tts-restart
 x t		emacspeak-speak-telephone-directory
@@ -23727,27 +23727,33 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-iex-quotes
-@deffn {Command} emacspeak-wizards-iex-quotes  (symbols)
-@findex emacspeak-wizards-iex-quotes
+@subsubsection emacspeak-wizards-iex-show-news
+@deffn {Command} emacspeak-wizards-iex-show-news  (symbol &optional refresh)
+@findex emacspeak-wizards-iex-show-news
 
 @format
-Retrieve stock quote data from IEX Trading.
-Prompts for ‘symbols’ -- a comma-separated list. 
+Show news for specified ticker.
+Checks cache, then makes API call if needed.
+Optional interactive prefix arg refreshes cache.
 
-(fn SYMBOLS)
+(fn SYMBOL &optional REFRESH)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-iex-show-quote
+@deffn {Command} emacspeak-wizards-iex-show-quote  (&optional refresh)
+@findex emacspeak-wizards-iex-show-quote
+
+@format
+Show portfolio  data from cache.
+Optional interactive prefix arg forces cache refresh.
+
+(fn &optional REFRESH)
 @end format
 @end deffn
 
 @subsubsection emacspeak-wizards-iex-stock-price
 @deffn {Command} emacspeak-wizards-iex-stock-price  (symbol)
-@table @kbd
-@item C-e x q
-@kindex C-e x q
-@item <fn> x q
-@kindex <fn> x q
-@end table
-
 @findex emacspeak-wizards-iex-stock-price
 
 @format
@@ -24008,6 +24014,24 @@ Switch to previous shell.
 
 @format
 Bring up weather forecast for current location.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-quote
+@deffn {Command} emacspeak-wizards-quote  (&optional refresh)
+@table @kbd
+@item C-e x q
+@kindex C-e x q
+@item <fn> x q
+@kindex <fn> x q
+@end table
+
+@findex emacspeak-wizards-quote
+
+@format
+Top-level dispatch for looking up financial information.
+
+(fn &optional REFRESH)
 @end format
 @end deffn
 
