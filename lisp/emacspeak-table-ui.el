@@ -944,7 +944,7 @@ match, makes the matching row or column current."
          (column (emacspeak-table-current-column emacspeak-table))
          (found nil)
          (slice
-          (cl-case (read-char)
+          (cl-case (read-char "Search headers : r row c column")
             (?r 'row)
             (?c 'column)
             (otherwise (error "Can only search in either row or column"))))
