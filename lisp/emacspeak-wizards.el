@@ -3467,6 +3467,17 @@ Optional interactive prefix arg refreshes cache."
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
 
+;;; Top-Level Dispatch:
+;;;###autoload
+(defun emacspeak-wizards-quote (&optional refresh)
+  "Top-level dispatch for looking up financial information."
+  (interactive "P")
+  (cl-ecase (read-char  "q:quote, n:News, p:price")
+  (?p (call-interactively #'emacspeak-wizards-iex-stock-price))
+  (?n (call-interactively #'emacspeak-wizards-iex-show-news))
+  (?q (call-interactively #'emacspeak-wizards-iex-show-quote))))
+  
+  )
 ;;}}}
 ;;{{{ Sports API:
 
