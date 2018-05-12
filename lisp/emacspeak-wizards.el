@@ -3519,7 +3519,7 @@ Optional interactive prefix arg refreshes cache."
 ;;; Top-Level Dispatch:
 ;;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
-  "Top-level dispatch for looking up financial information.
+  "Top-level dispatch for looking up Stock Market information.
 
 Key:Action
 f: Financials
