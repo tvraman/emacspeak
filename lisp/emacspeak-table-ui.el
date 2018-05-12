@@ -892,7 +892,7 @@ the matching cell current. When called from a program, `what' can
          (found nil)
          (slice
           (or what
-              (cl-case (read-char)
+              (cl-case (read-char "Search   in: r row c column")
                 (?r 'row)
                 (?c 'column)
                 (otherwise (error "Can only search in either row or column")))))
