@@ -3341,25 +3341,23 @@ access to the various functions provided by alpha-vantage."
 (defvar emacspeak-wizards-iex-cache nil
   "Cache retrieved data to save API calls.")
 
-(defun emacspeak-wizards-iex-uri (symbols types)
+(defun emacspeak-wizards-iex-uri (symbols)
   "Return URL for calling iex API."
-  (cl-declare (special emacspeak-wizards-iex-base))
+  (cl-declare (special emacspeak-wizards-iex-base ems--iex-types))
   (format
    "%s/stock/market/batch?symbols=%s&types=%s"
-   emacspeak-wizards-iex-base symbols types))
+   emacspeak-wizards-iex-base symbols ems--iex-types))
 
 (defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '."
   (cl-declare (special
-               ems--iex-types
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
-  (let* ((url
-          (emacspeak-wizards-iex-uri
-           (mapconcat #'identity
-                      (split-string emacspeak-wizards-personal-portfolio ) ",")
-           ems--iex-types)))
-    (kill-new url)
+  (let* ((symbols
+          (mapconcat
+           #'identity
+           (split-string emacspeak-wizards-personal-portfolio ) ","))
+         (url (emacspeak-wizards-iex-uri symbols )))
     (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
 ;;;###autoload
@@ -3385,22 +3383,18 @@ Optional interactive prefix arg forces cache refresh."
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
-         (row nil)
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
            (let-alist i
-             `(,@.quote
-               ,@.stats))))
-         (table (make-vector  (1+ (length results)) nil))
-         )
+             `(,@.quote ,@.stats))))
+         (row nil)
+         (table (make-vector  (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
            "Open" "Low" "High" "Close"
-           "52WeekLow" "52WeekHigh"
-           "52DayMovingAverage" "200DayMovingAverage"
-           "MarketCap" "PERatio"
-           "DividentYield" "DividentRate"])
+           "52WeekLow" "52WeekHigh" "52DayMovingAverage" "200DayMovingAverage"
+           "MarketCap" "PERatio" "DividentYield" "DividentRate"])
     (cl-loop
      for r in results
      and i from 1 do
@@ -3411,21 +3405,17 @@ Optional interactive prefix arg forces cache refresh."
               (list
                .companyName .symbol
                .open .low .high .close
-               .week52Low .week52High
-               .day50MovingAvg .day200MovingAvg
-               .marketcap .peRatio
-               .dividendYield  .dividendRate))))
+               .week52Low .week52High .day50MovingAvg .day200MovingAvg
+               .marketcap .peRatio .dividendYield  .dividendRate))))
      (aset table  i row))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
-    (goto-char (point-min))
     (setq
      emacspeak-table-speak-element 'emacspeak-table-speak-both-headers-and-element
      header-line-format
      (format "Stock Quotes From IEXTrading"))
-    (emacspeak-table-next-row)
-    (call-interactively #'emacspeak-table-next-column)))
+    (funcall-interactively #'emacspeak-table-goto 1 2)))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
@@ -3434,14 +3424,15 @@ Checks cache, then makes API call if needed.
 Optional interactive prefix arg refreshes cache."
   (interactive
    (list
-    (completing-read "Symbol: "
-                     (split-string emacspeak-wizards-personal-portfolio))
+    (completing-read
+     "Symbol: "
+     (split-string emacspeak-wizards-personal-portfolio))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
-  (let* ((buff (get-buffer-create (format "News For %s" symbol)))
-         (inhibit-read-only  t)
+  (let* ((inhibit-read-only  t)
+         (buff (get-buffer-create (format "News For %s" symbol)))
          (title (format "Stock News From IEXTrading For %S" (upcase symbol)))
          (this nil)
          (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
@@ -3449,8 +3440,7 @@ Optional interactive prefix arg refreshes cache."
       (erase-buffer)
       (org-mode)
       (goto-char (point-min))
-      (insert title)
-      (insert "\n\n")
+      (insert title "\n\n")
       (setq this  (let-alist result  .news))
       (unless this                      ; not in cache
         (setq this
@@ -3469,6 +3459,7 @@ Optional interactive prefix arg refreshes cache."
       (setq header-line-format title))
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
+
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-financials (symbol &optional refresh)
   "Show financials for specified ticker.
@@ -3476,8 +3467,9 @@ Checks cache, then makes API call if needed.
 Optional interactive prefix arg refreshes cache."
   (interactive
    (list
-    (completing-read "Symbol: "
-                     (split-string emacspeak-wizards-personal-portfolio))
+    (completing-read
+     "Symbol: "
+     (split-string emacspeak-wizards-personal-portfolio))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
@@ -3522,9 +3514,7 @@ Optional interactive prefix arg refreshes cache."
      (format "Financials For %s From IEXTrading" (upcase symbol))
      emacspeak-table-speak-element
      'emacspeak-table-speak-column-header-and-element)
-    (goto-char (point-min))
-    (emacspeak-table-next-row)
-    (call-interactively #'emacspeak-table-next-column)))
+    (funcall-interactively #'emacspeak-table-goto 1 2)))
 
 ;;; Top-Level Dispatch:
 ;;;###autoload
