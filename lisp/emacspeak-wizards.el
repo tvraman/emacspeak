@@ -3451,10 +3451,10 @@ Optional interactive prefix arg refreshes cache."
       (insert "\n\n")
       (setq this  (let-alist result  .news))
       (unless this                      ; not in cache
-      (setq this
-            (g-json-from-url
-             (format "%s/stock/%s/news"
-             emacspeak-wizards-iex-base symbol))))
+        (setq this
+              (g-json-from-url
+               (format "%s/stock/%s/news"
+                       emacspeak-wizards-iex-base symbol))))
       (mapc
        #'(lambda (n)
            (let-alist n
@@ -3495,10 +3495,6 @@ Optional interactive prefix arg refreshes cache."
                           emacspeak-wizards-iex-base symbol))
                .financials.financials))))))
     
-    (goto-char (point-min))))
-
-
-
 ;;; Top-Level Dispatch:
 ;;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
