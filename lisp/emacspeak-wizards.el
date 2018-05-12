@@ -2233,7 +2233,7 @@ RIVO is implemented by rivo.pl ---
     (read-directory-name "Output Directory:")))
   (cl-declare (special
                emacspeak-media-last-url emacspeak-media-shortcuts-directory
-                       emacspeak-media-history))
+               emacspeak-media-history))
   (let ((command
          (format "%s -c %s -s %s -o %s -d %s\n"
                  emacspeak-wizards-rivo-program
@@ -3351,7 +3351,8 @@ access to the various functions provided by alpha-vantage."
 (defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '."
-  (cl-declare (special ems--iex-types
+  (cl-declare (special
+               ems--iex-types
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((url
           (emacspeak-wizards-iex-uri
@@ -3367,7 +3368,7 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
   (interactive
    (list
     (completing-read "Stock Symbol: "
-                      (split-string emacspeak-wizards-personal-portfolio))))
+                     (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio
                        g-curl-program))
@@ -3398,7 +3399,7 @@ Optional interactive prefix arg forces cache refresh."
            "Open" "Low" "High" "Close"
            "52WeekLow" "52WeekHigh"
            "52DayMovingAverage" "200DayMovingAverage"
-           "MarketCap" "PERatio" 
+           "MarketCap" "PERatio"
            "DividentYield" "DividentRate"])
     (cl-loop
      for r in results
@@ -3487,11 +3488,11 @@ Optional interactive prefix arg refreshes cache."
          (headers nil)
          (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
     (cond
-     (result                            ; in cache 
+     (result                            ; in cache
       (setq this  (let-alist result  .financials.financials)))
      (t                                 ; not in cache
       (setq this
-            (let-alist 
+            (let-alist
                 (g-json-from-url
                  (format "%s/stock/%s/financials"
                          emacspeak-wizards-iex-base symbol))
@@ -3506,22 +3507,25 @@ Optional interactive prefix arg refreshes cache."
     (aset table 0 headers)
     (cl-loop
      for i from 0 to(1-  (length this)) do
-     (aset 
+     (aset
       table
       (+ i 1)
       (apply
        #'vector
        (mapcar #'(lambda (v) (format "%s" (cdr v)))
                (aref this i  )))))
-     (emacspeak-table-prepare-table-buffer
-      (emacspeak-table-make-table table) buff)
-     (funcall-interactively #'switch-to-buffer buff)
-     (setq header-line-format (format "Financials For %s From IEXTrading" (upcase symbol))
-           emacspeak-table-speak-element 'emacspeak-table-speak-column-header-and-element)
-     (goto-char (point-min))
-     (emacspeak-table-next-row)
-     (call-interactively #'emacspeak-table-next-column)))
-    
+    (emacspeak-table-prepare-table-buffer
+     (emacspeak-table-make-table table) buff)
+    (funcall-interactively #'switch-to-buffer buff)
+    (setq
+     header-line-format
+     (format "Financials For %s From IEXTrading" (upcase symbol))
+     emacspeak-table-speak-element
+     'emacspeak-table-speak-column-header-and-element)
+    (goto-char (point-min))
+    (emacspeak-table-next-row)
+    (call-interactively #'emacspeak-table-next-column)))
+
 ;;; Top-Level Dispatch:
 ;;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
@@ -3540,7 +3544,7 @@ q: Quotes
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
     (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))
     (otherwise (error "Invalid key"))))
-  
+
 ;;}}}
 ;;{{{ Sports API:
 
