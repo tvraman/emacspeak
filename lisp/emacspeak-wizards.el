@@ -3425,7 +3425,7 @@ Optional interactive prefix arg forces cache refresh."
     (emacspeak-table-next-row)
     (call-interactively #'emacspeak-table-next-column)))
 
-
+;;;###autoload
 (defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
   "Show news for specified ticker.
 Checks cache, then makes API call if needed.
@@ -3467,6 +3467,37 @@ Optional interactive prefix arg refreshes cache."
       (setq header-line-format title))
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
+;;;###autoload
+ (defun emacspeak-wizards-iex-show-financials (symbol &optional refresh)
+   "Show financials for specified ticker.
+Checks cache, then makes API call if needed.
+Optional interactive prefix arg refreshes cache."
+   (interactive
+    (list
+     (completing-read "Symbol: "
+                      (split-string emacspeak-wizards-personal-portfolio))
+     current-prefix-arg))
+   (cl-declare (special emacspeak-wizards-iex-cache))
+   (when (or refresh (null emacspeak-wizards-iex-cache))
+     (emacspeak-wizards-iex-refresh))
+   (let* ((buff (get-buffer-create (format "Financials For %s" symbol)))
+          (title (format "Financials From IEXTrading For %S" (upcase symbol)))
+          (this nil)
+          (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
+     (cond
+      (result                           ; in cache 
+       (setq this  (let-alist result  .financials.financials)))
+      (t                                ; not in cache
+       (setq this
+             (let-alist 
+                 (g-json-from-url
+                  (format "%s/stock/%s/financials"
+                          emacspeak-wizards-iex-base symbol))
+               .financials.financials))))))
+    
+    (goto-char (point-min))))
+
+
 
 ;;; Top-Level Dispatch:
 ;;;###autoload
