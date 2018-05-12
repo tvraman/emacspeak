@@ -3492,7 +3492,7 @@ Optional interactive prefix arg refreshes cache."
                 (g-json-from-url
                  (format "%s/stock/%s/financials"
                          emacspeak-wizards-iex-base symbol))
-              .financials.financials))))))
+              .financials))))))
     
 ;;; Top-Level Dispatch:
 ;;;###autoload
