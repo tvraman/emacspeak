@@ -3391,7 +3391,7 @@ Optional interactive prefix arg forces cache refresh."
              `(,@.quote
                ,@.stats))))
          (table (make-vector  (1+ (length results)) nil))
-         (row nil))
+         )
     (aset table 0
           ["CompanyName" "Symbol"
            "Open" "Low" "High" "Close"
@@ -3501,6 +3501,24 @@ Optional interactive prefix arg refreshes cache."
                  (mapcar
                   #'(lambda (h) (format "%s" (car h)))
                   (aref this 0))))
+    (setq table (make-vector (1+ (length this)) nil))
+    (aset table 0 headers)
+    (cl-loop
+     for i from 0 to(1-  (length this)) do
+     (aset 
+      table
+      (+ i 1)
+      (apply
+       #'vector
+       (mapcar #'(lambda (v) (format "%s" (cdr v)))
+               (aref this i  )))))
+     (emacspeak-table-prepare-table-buffer
+      (emacspeak-table-make-table table) buff)
+     (funcall-interactively #'switch-to-buffer buff)
+     (goto-char (point-min))))
+     
+     
+    
     ))
     
 ;;; Top-Level Dispatch:
