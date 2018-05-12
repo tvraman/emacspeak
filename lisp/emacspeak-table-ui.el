@@ -892,7 +892,7 @@ the matching cell current. When called from a program, `what' can
          (found nil)
          (slice
           (or what
-              (cl-case (read-char "Search   in: r row c column")
+              (cl-case (read-char)
                 (?r 'row)
                 (?c 'column)
                 (otherwise (error "Can only search in either row or column")))))
@@ -949,8 +949,14 @@ match, makes the matching row or column current."
             (?c 'column)
             (otherwise (error "Can only search in either row or column"))))
          (pattern
-          (read-string
-           (format "Search %s headers for: " slice))))
+          (completing-read
+           (format "Search %s headers for: " slice)
+           (cond
+            ((eq slice 'row)
+             (append (emacspeak-table-row-header emacspeak-table) nil))
+            ((eq slice 'column)
+             (append (emacspeak-table-column-header emacspeak-table) nil)))
+           nil 'must-match)))
     (cond
      ((eq slice 'row)
       (setq found
