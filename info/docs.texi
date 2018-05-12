@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1216 commands and 1176 options.
+This chapter documents a total of 1217 commands and 1176 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -23729,6 +23729,19 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-iex-show-financials
+@deffn {Command} emacspeak-wizards-iex-show-financials  (symbol &optional refresh)
+@findex emacspeak-wizards-iex-show-financials
+
+@format
+Show financials for specified ticker.
+Checks cache, then makes API call if needed.
+Optional interactive prefix arg refreshes cache.
+
+(fn SYMBOL &optional REFRESH)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-iex-show-news
 @deffn {Command} emacspeak-wizards-iex-show-news  (symbol &optional refresh)
 @findex emacspeak-wizards-iex-show-news
@@ -24048,6 +24061,12 @@ Bring up weather forecast for current location.
 
 @format
 Top-level dispatch for looking up financial information.
+
+Key:Action
+f: Financials
+n: News
+p: Price
+q: Quotes
 
 (fn &optional REFRESH)
 @end format
