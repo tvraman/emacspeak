@@ -3384,6 +3384,7 @@ Optional interactive prefix arg forces cache refresh."
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
+         (row nil)
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
