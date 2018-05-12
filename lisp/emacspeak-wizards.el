@@ -3515,18 +3515,26 @@ Optional interactive prefix arg refreshes cache."
      (emacspeak-table-prepare-table-buffer
       (emacspeak-table-make-table table) buff)
      (funcall-interactively #'switch-to-buffer buff)
-     (goto-char (point-min))))
-     
-     
-    
-    ))
+     (setq header-line-format (format "Financials For %s From IEXTrading" (upcase symbol))
+           emacspeak-table-speak-element 'emacspeak-table-speak-column-header-and-element)
+     (goto-char (point-min))
+     (emacspeak-table-next-row)
+     (call-interactively #'emacspeak-table-next-column)))
     
 ;;; Top-Level Dispatch:
 ;;;###autoload
 (defun emacspeak-wizards-quote (&optional refresh)
-  "Top-level dispatch for looking up financial information."
+  "Top-level dispatch for looking up financial information.
+
+Key:Action
+f: Financials
+n: News
+p: Price
+q: Quotes
+"
   (interactive "P")
-  (cl-case (read-char  "q:quote, n:News, p:price")
+  (cl-case (read-char  "f: Financials, n: News, p: Price, q: Quotes")
+    (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
     (?p (call-interactively #'emacspeak-wizards-iex-stock-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
     (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))
