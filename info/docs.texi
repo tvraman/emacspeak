@@ -24060,7 +24060,7 @@ Bring up weather forecast for current location.
 @findex emacspeak-wizards-quote
 
 @format
-Top-level dispatch for looking up financial information.
+Top-level dispatch for looking up Stock Market information.
 
 Key:Action
 f: Financials
