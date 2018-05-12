@@ -1559,6 +1559,7 @@ l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
 o		ciel-co
 p		proced
+q		emacspeak-wizards-iex-show-quote
 r		soundscape-restart
 s		soundscape
 t		soundscape-toggle
@@ -1583,6 +1584,7 @@ m		magit-status
 n		emacspeak-wizards-cycle-to-next-buffer
 o		emacspeak-feeds-opml-display
 p		emacspeak-wizards-cycle-to-previous-buffer
+q		emacspeak-wizards-iex-stock-price
 r		emacspeak-feeds-rss-display
 s		emacspeak-wizards-tune-in-radio-search
 t		emacspeak-wizards-tune-in-radio-browse
@@ -23742,6 +23744,15 @@ Optional interactive prefix arg refreshes cache.
 
 @subsubsection emacspeak-wizards-iex-show-quote
 @deffn {Command} emacspeak-wizards-iex-show-quote  (&optional refresh)
+@table @kbd
+@item C-. q
+@kindex C-. q
+@item C-' q
+@kindex C-' q
+@item C-x @@ s q
+@kindex C-x @@ s q
+@end table
+
 @findex emacspeak-wizards-iex-show-quote
 
 @format
@@ -23754,6 +23765,13 @@ Optional interactive prefix arg forces cache refresh.
 
 @subsubsection emacspeak-wizards-iex-stock-price
 @deffn {Command} emacspeak-wizards-iex-stock-price  (symbol)
+@table @kbd
+@item C-, q
+@kindex C-, q
+@item C-x @@ a q
+@kindex C-x @@ a q
+@end table
+
 @findex emacspeak-wizards-iex-stock-price
 
 @format

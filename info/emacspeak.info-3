@@ -6465,6 +6465,9 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-wizards-iex-show-quote (&optional refresh)
+     ‘C-. q’
+     ‘C-' q’
+     ‘C-x @ s q’
 
      Show portfolio  data from cache.
      Optional interactive prefix arg forces cache refresh.
@@ -6475,6 +6478,8 @@ Contains various wizards for the Emacspeak desktop.
 .............................................
 
  -- Command: emacspeak-wizards-iex-stock-price (symbol)
+     ‘C-, q’
+     ‘C-x @ a q’
 
      Quick Quote: Just stock price from IEX Trading.
 
