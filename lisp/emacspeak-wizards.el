@@ -3482,6 +3482,8 @@ Optional interactive prefix arg refreshes cache."
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create (format "Financials For %s" symbol)))
          (this nil)
+         (table nil)
+         (headers nil)
          (result  (assq (intern (upcase symbol)) emacspeak-wizards-iex-cache)))
     (cond
      (result                            ; in cache 
@@ -3492,7 +3494,14 @@ Optional interactive prefix arg refreshes cache."
                 (g-json-from-url
                  (format "%s/stock/%s/financials"
                          emacspeak-wizards-iex-base symbol))
-              .financials))))))
+              .financials))))
+    (cl-assert (arrayp this) t "Not an array.")
+    (setq headers
+          (apply #'vector
+                 (mapcar
+                  #'(lambda (h) (format "%s" (car h)))
+                  (aref this 0))))
+    ))
     
 ;;; Top-Level Dispatch:
 ;;;###autoload
