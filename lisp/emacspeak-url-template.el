@@ -801,16 +801,6 @@ name of the list.")
      (emacspeak-we-extract-by-class "column" url 'speak)))
 
 (emacspeak-url-template-define
- "CNN technology "
- "http://www.cnn.com/TECH/"
- nil
- nil
- "CNN Technology news."
- #'(lambda (url)
-     (emacspeak-we-xslt-filter "//article"
-                               url 'speak)))
-
-(emacspeak-url-template-define
  "CNN Market Data "
  "http://money.cnn.com/markets/data/"
  nil
