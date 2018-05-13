@@ -476,21 +476,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-by-class "gs_r" url 'speak)))
 
 ;;}}}
-;;{{{ google images
-
-(emacspeak-url-template-define
- "Google Image Search"
- "https://images.google.com/images?hl=en&source=hp&q=%s&btnG=Search+Images&gbv=1"
- (list "Google Image Search: ")
- #'(lambda ()
-     (search-forward "results" nil t)
-     (emacspeak-speak-line))
- "Google Image Search"
- #'(lambda (url)
-     (emacspeak-webutils-without-xsl
-      (browse-url url))))
-
-;;}}}
 ;;{{{ google translation service
 
 (emacspeak-url-template-define
@@ -549,20 +534,6 @@ from English to German")
 
 ;;}}}
 ;;{{{ google OverviewOfNews
-
-(emacspeak-url-template-define
- "Google NewsPaper"
- "https://news.google.com/news"
- nil
- nil
- "Retrieve and speak Google News Overview."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id-list
-      '("s_WEATHER_GADGET" "s_SPORTS_GADGET"
-        "s_MOST_POPULAR" "s_INTERESTING"
-        "s_EDITORS_PICK" "s_BREAKING_NEWS_BOX")
-      url
-      'speak)))
 
 (emacspeak-url-template-define
  "html Google News Search"
