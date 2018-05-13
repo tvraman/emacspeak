@@ -1154,20 +1154,6 @@ JSON is retrieved from `url'."
  "Look up term in WordNet.")
 
 ;;}}}
-;;{{{ earthquakes
-
-(emacspeak-url-template-define
- "Earthquakes"
- "http://earthquake.usgs.gov/earthquakes/recenteqsus/Quakes/quakes_all.php"
- nil
- nil
- "Show table of recent quakes."
- #'(lambda (url)
-     (emacspeak-we-xslt-filter "//tr[position() < 10]"
-                               url
-                               'speak)))
-
-;;}}}
 ;;{{{ Radio station streams
 
 (emacspeak-url-template-define
