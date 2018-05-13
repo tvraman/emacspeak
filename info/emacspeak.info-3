@@ -8894,7 +8894,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.229 URL Templates
 ====================
 
-This section documents a total of 89 URL Templates.
+This section documents a total of 82 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -8989,10 +8989,6 @@ goog:us
 
    CNN Money
 
-   CNN technology
-
-   CNN Technology news.
-
    CNNPodCasts
 
    List CNN Podcast media links.
@@ -9001,19 +8997,11 @@ goog:us
 
    Dictionary Lookup
 
-   Earthquakes
-
-   Show table of recent quakes.
-
    EmacsWiki Search
 
    EmacsWiki Search
 
    Finance Google Search
-
-   Display content from Google Finance.
-
-   Finance Google news
 
    Display content from Google Finance.
 
@@ -9055,10 +9043,6 @@ goog:us
    Google News Search
 
    Search Google news.
-
-   Google NewsPaper
-
-   Retrieve and speak Google News Overview.
 
    Google Regional News
 
@@ -9103,14 +9087,6 @@ goog:us
    MLB standings
 
    Display MLB standings.
-
-   Market summary from Google
-
-   Display financial market summary.
-
-   Money Content
-
-   CNN Money Content
 
    Multilingual dictionary via Google.
 
@@ -9223,10 +9199,6 @@ template.
    WordNet Search
 
    Look up term in WordNet.
-
-   Yahoo Business News
-
-   Retrieve and speak business section from Yahoo Daily News.
 
    Yahoo RSS Feeds
 

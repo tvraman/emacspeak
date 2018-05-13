@@ -26813,7 +26813,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 89 URL Templates.
+This section documents a total of 82 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -26911,10 +26911,6 @@ Filter down to CNN content area.
 
 CNN Money
 
-@b{CNN technology }
-
-CNN Technology news.
-
 @b{CNNPodCasts}
 
 List CNN Podcast media links.
@@ -26923,19 +26919,11 @@ List CNN Podcast media links.
 
 Dictionary Lookup
 
-@b{Earthquakes}
-
-Show table of recent quakes.
-
 @b{EmacsWiki Search}
 
 EmacsWiki Search
 
 @b{Finance Google Search}
-
-Display content from Google Finance.
-
-@b{Finance Google news}
 
 Display content from Google Finance.
 
@@ -26980,10 +26968,6 @@ Google Image Search
 
 Search Google news.
 
-@b{Google NewsPaper}
-
-Retrieve and speak Google News Overview.
-
 @b{Google Regional News}
 
 Google News By Region.
@@ -27027,14 +27011,6 @@ Show MLB Scorecard.
 @b{MLB standings}
 
 Display MLB standings.
-
-@b{Market summary from Google}
-
-Display financial market summary.
-
-@b{Money Content }
-
-CNN Money Content
 
 @b{Multilingual dictionary via Google.}
 
@@ -27148,10 +27124,6 @@ Search WikiData.
 @b{WordNet Search}
 
 Look up term in WordNet.
-
-@b{Yahoo Business News}
-
-Retrieve and speak business section from Yahoo Daily News.
 
 @b{Yahoo RSS Feeds}
 
