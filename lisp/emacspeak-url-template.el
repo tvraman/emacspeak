@@ -370,21 +370,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil 'dont-escape)
 
 ;;}}}
-;;{{{ market summary from google finance
-;;; Forward Declaration:
-
-
-(emacspeak-url-template-define
- "Market summary from Google"
- "https://finance.google.com/finance"
- nil
- nil
- "Display financial market summary."
- #'(lambda (url)
-       (emacspeak-we-extract-by-class
-        "id-summary-chart" url 'speak)))
-
-;;}}}
 ;;{{{ utils:
 
 (defun emacspeak-url-template-setup-content-filter ()
@@ -675,15 +660,6 @@ from English to German")
  "List Yahoo RSS Feeds."
  #'emacspeak-feeds-rss-display)
 
-(emacspeak-url-template-define
- "Yahoo Business News"
- "http://story.news.yahoo.com/news?tmpl=index&cid=749"
- nil
- nil
- "Retrieve and speak business section from Yahoo Daily News."
- #'(lambda (url)
-     (emacspeak-we-extract-by-role "main" url 'speak)))
-
 ;;}}}
 ;;{{{ w3c
 
@@ -762,18 +738,6 @@ name of the list.")
      (emacspeak-we-extract-by-role
       "main" ;"wsod_marketsOverview"
       url 'speak)))
-
-(emacspeak-url-template-define
- "Money Content "
- "http://money.cnn.com/"
- nil
- 'emacspeak-url-template-setup-content-filter
- "CNN Money Content"
- #'(lambda (url)
-     (emacspeak-we-extract-by-role
-      "main"
-      url
-      'speak)))
 
 ;;}}}
 ;;{{{ sourceforge
