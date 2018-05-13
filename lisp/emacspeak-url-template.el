@@ -463,25 +463,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda (url)
 (emacspeak-we-extract-by-id "res" url 'speak)))
 
-(defun emacspeak-finance-google-up-or-down (value)
-  "Return up/down by value."
-  (let ((minus-p (string-match "-" value)))
-    (cond
-     (minus-p
-      (format " down %s"
-              (substring value (1+ minus-p))))
-     (t (format " up %s " value)))))
-
-(emacspeak-url-template-define
- "Finance Google news"
- "https://finance.google.com/"
- nil
- nil
- "Display content from Google Finance."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class
-      "news" url 'speak)))
-
 ;;}}}
 ;;{{{ google scholar
 
