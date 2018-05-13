@@ -344,6 +344,19 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Show HTML5 IRC log.")
 
 ;;}}}
+;;{{{ google image search:
+
+(emacspeak-url-template-define
+
+ "Google Image Search"
+ "http://www.google.com/search?gbv=1&bih=&biw=&source=hp&hl=en&tbm=isch&btnG=Search+Images&q=%s"
+ (list "Search:")
+ nil
+ "Google Image Search"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id "res" url 'speak)))
+
+;;}}}
 ;;{{{ Google Trends:
 
 (emacspeak-url-template-define
