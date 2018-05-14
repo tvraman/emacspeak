@@ -3358,6 +3358,7 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
            #'identity
            (split-string emacspeak-wizards-personal-portfolio ) ","))
          (url (emacspeak-wizards-iex-uri symbols )))
+    (kill-new url)
     (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
 ;;;###autoload
