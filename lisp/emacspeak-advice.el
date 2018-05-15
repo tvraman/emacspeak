@@ -737,7 +737,7 @@ icon."
            (and
             (null inhibit-message)
             m emacspeak-speak-messages  ; speaking messages
-            (not (string= m emacspeak-last-message))
+            ;(not (string= m emacspeak-last-message))
             (< 0.1  (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
          (setq emacspeak-lazy-message-time (current-time)
                emacspeak-last-message (ansi-color-apply m))
