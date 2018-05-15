@@ -3536,6 +3536,24 @@ q: Quotes
     (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))
     (otherwise (error "Invalid key"))))
 
+(cl-loop
+ for n in
+ '(financials news price) do
+ (eval
+ `(defun
+      ,(intern (format "emacspeak-wizards-iex-this-%s" n))
+      ()
+      ,(format "Show %s for symbol in current row" n)
+    (interactive)
+    (funcall-interactively
+     (symbol-function
+           ',(intern (format "emacspeak-wizards-iex-show-%s" n)))
+     (aref
+      (aref
+       (emacspeak-table-elements emacspeak-table)
+       (emacspeak-table-current-row emacspeak-table))
+           1)))))
+
 ;;}}}
 ;;{{{ Sports API:
 
