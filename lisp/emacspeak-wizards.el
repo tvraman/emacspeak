@@ -3393,7 +3393,7 @@ Optional interactive prefix arg forces cache refresh."
          (table (make-vector  (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
-           "Open" "Low" "High" "Close"
+           "latestPrice" "Open" "Low" "High" "Close"
            "52WeekLow" "52WeekHigh" "52DayMovingAverage" "200DayMovingAverage"
            "MarketCap" "PERatio" "DividentYield" "DividentRate"])
     (cl-loop
@@ -3405,7 +3405,7 @@ Optional interactive prefix arg forces cache refresh."
             (let-alist r
               (list
                .companyName .symbol
-               .open .low .high .close
+               .latestPrice .open .low .high .close
                .week52Low .week52High .day50MovingAvg .day200MovingAvg
                .marketcap .peRatio .dividendYield  .dividendRate))))
      (aset table  i row))
