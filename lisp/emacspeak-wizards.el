@@ -3375,6 +3375,15 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
    (format "%s -s %s/stock/%s/price"
            g-curl-program emacspeak-wizards-iex-base symbol)))
 
+(defvar ems--wizards-iex-quotes-keymap
+  (let ((map (make-sparse-keymap)))
+  (define-key map "F" 'emacspeak-wizards-iex-this-financials)
+  (define-key map "N" 'emacspeak-wizards-iex-this-news)
+  (define-key map "P" 'emacspeak-wizards-iex-this-price)
+  map)
+  "Local keymap used in quotes view.")
+
+
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-quote (&optional refresh)
   "Show portfolio  data from cache.
@@ -3384,6 +3393,7 @@ Optional interactive prefix arg forces cache refresh."
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
+         (inhibit-read-only  t)
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
