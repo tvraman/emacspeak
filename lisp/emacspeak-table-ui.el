@@ -46,68 +46,17 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'derived)
 (require 'emacspeak-table)
 
 ;;}}}
 ;;{{{  emacspeak table mode
 
-(defvar emacspeak-table-keymap (make-sparse-keymap)
-  "Keymap for using in table browsing mode")
 ;;; emacspeak-table-submap makes these available globally.
+;;; Forward declaration
 
-(cl-loop
- for binding in
- '(
-   ("M-l" emacspeak-table-ui-filter-load)
-   ("M-s" emacspeak-table-ui-filter-save)
-   ("S-<tab>" emacspeak-table-previous-column)
-   ("#" emacspeak-table-sort-on-current-column)
-   ("." emacspeak-table-speak-coordinates)
-   ("," emacspeak-table-find-csv-file)
-   ("v" emacspeak-table-view-csv-buffer)
-   ("<down>" emacspeak-table-next-row)
-   ("<left>" emacspeak-table-previous-column)
-   ("<right>" emacspeak-table-next-column)
-   ("<up>"  emacspeak-table-previous-row)
-   ("=" emacspeak-table-speak-dimensions)
-   ("<" emacspeak-table-goto-left)
-   (">" emacspeak-table-goto-right)
-   ("M-<" emacspeak-table-goto-top)
-   ("M->" emacspeak-table-goto-bottom)
-   ("A" emacspeak-table-goto-left)
-   ("B" emacspeak-table-goto-bottom)
-   ("C" emacspeak-table-search-column)
-   ("C-b" emacspeak-table-previous-column)
-   ("C-f" emacspeak-table-next-column)
-   ("C-n" emacspeak-table-next-row)
-   ("C-p" emacspeak-table-previous-row)
-   ("E" emacspeak-table-goto-right)
-   ("R" emacspeak-table-search-row)
-   ("SPC" emacspeak-table-speak-current-element)
-   ("T" emacspeak-table-goto-top)
-   ("TAB" emacspeak-table-next-column)
-   ("a" emacspeak-table-select-automatic-speaking-method)
-   ("b" emacspeak-table-speak-both-headers-and-element)
-   ("c" emacspeak-table-speak-column-header-and-element)
-   ("f" emacspeak-table-speak-row-filtered)
-   ("g" emacspeak-table-speak-column-filtered)
-   ("h" emacspeak-table-search-headers)
-   ("j" emacspeak-table-goto)
-   ("k" emacspeak-table-copy-to-clipboard)
-   ("n" emacspeak-table-next-row)
-   ("p" emacspeak-table-previous-row)
-   ("q" quit-window)
-   ("Q" emacspeak-kill-buffer-quietly)
-   ("r" emacspeak-table-speak-row-header-and-element)
-   ("s" emacspeak-table-search)
-   ("w" emacspeak-table-copy-current-element-to-kill-ring)
-   ("x" emacspeak-table-copy-current-element-to-register)
-   )
- do
- (emacspeak-keymap-update emacspeak-table-keymap binding)
- (emacspeak-keymap-update emacspeak-table-submap binding))
-
-(defun emacspeak-table-mode ()
+(define-derived-mode  emacspeak-table-mode  special-mode
+  "Table Navigation On The Emacspeak Audio Desktop"
   "Major mode for browsing tables.
 Table mode is designed to allow speech users to browse tabular data
 with full contextual feedback while retaining all the power of the
@@ -181,25 +130,70 @@ feature. Note that you can intersperse meaningful strings in the list that
 specifies the filter.
 
 Full List Of Keybindings:
-\\{emacspeak-table-keymap}"
-  (cl-declare (special emacspeak-table-keymap))
-  (use-local-map emacspeak-table-keymap)
+\\{emacspeak-table-mode-map}"
   (set (make-local-variable 'voice-lock-mode) t)
-  (setq major-mode 'emacspeak-table-mode
-        mode-name "table")
-  (put-text-property
-   (point-min)
-   (point-max)
-   'point-entered
-   'emacspeak-table-point-motion-hook)
+  (put-text-property (point-min) (point-max)
+   'point-entered 'emacspeak-table-point-motion-hook)
   (not-modified)
   (setq buffer-undo-list t)
   (setq buffer-read-only t)
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
 
-;;; Inherit from 'special-mode:
-(put 'emacspeak-table-mode  'derived-mode-parent 'special-mode)
+(cl-loop
+ for binding in
+ '(
+   ("M-l" emacspeak-table-ui-filter-load)
+   ("M-s" emacspeak-table-ui-filter-save)
+   ("S-<tab>" emacspeak-table-previous-column)
+   ("#" emacspeak-table-sort-on-current-column)
+   ("." emacspeak-table-speak-coordinates)
+   ("," emacspeak-table-find-csv-file)
+   ("v" emacspeak-table-view-csv-buffer)
+   ("<down>" emacspeak-table-next-row)
+   ("<left>" emacspeak-table-previous-column)
+   ("<right>" emacspeak-table-next-column)
+   ("<up>"  emacspeak-table-previous-row)
+   ("=" emacspeak-table-speak-dimensions)
+   ("<" emacspeak-table-goto-left)
+   (">" emacspeak-table-goto-right)
+   ("M-<" emacspeak-table-goto-top)
+   ("M->" emacspeak-table-goto-bottom)
+   ("A" emacspeak-table-goto-left)
+   ("B" emacspeak-table-goto-bottom)
+   ("C" emacspeak-table-search-column)
+   ("C-b" emacspeak-table-previous-column)
+   ("C-f" emacspeak-table-next-column)
+   ("C-n" emacspeak-table-next-row)
+   ("C-p" emacspeak-table-previous-row)
+   ("E" emacspeak-table-goto-right)
+   ("R" emacspeak-table-search-row)
+   ("SPC" emacspeak-table-speak-current-element)
+   ("T" emacspeak-table-goto-top)
+   ("TAB" emacspeak-table-next-column)
+   ("a" emacspeak-table-select-automatic-speaking-method)
+   ("b" emacspeak-table-speak-both-headers-and-element)
+   ("c" emacspeak-table-speak-column-header-and-element)
+   ("f" emacspeak-table-speak-row-filtered)
+   ("g" emacspeak-table-speak-column-filtered)
+   ("h" emacspeak-table-search-headers)
+   ("j" emacspeak-table-goto)
+   ("k" emacspeak-table-copy-to-clipboard)
+   ("n" emacspeak-table-next-row)
+   ("p" emacspeak-table-previous-row)
+   ("q" quit-window)
+   ("Q" emacspeak-kill-buffer-quietly)
+   ("r" emacspeak-table-speak-row-header-and-element)
+   ("s" emacspeak-table-search)
+   ("w" emacspeak-table-copy-current-element-to-kill-ring)
+   ("x" emacspeak-table-copy-current-element-to-register)
+   )
+ do
+ (emacspeak-keymap-update emacspeak-table-mode-map binding)
+ (emacspeak-keymap-update emacspeak-table-submap binding))
+
+
+
 ;;}}}
 ;;{{{  speaking current entry
 
@@ -493,6 +487,7 @@ Optional prefix arg prompts for a new filter."
   "Prepare tabular data."
   (cl-declare (special emacspeak-table positions))
   (with-current-buffer buffer
+    (emacspeak-table-mode)
     (let ((i 0)
           (j 0)
           (count 0)
@@ -527,8 +522,7 @@ Optional prefix arg prompts for a new filter."
        (setq j 0)
        (put-text-property row-start (point) 'row i)
        (setq row-start (point))
-       (cl-incf i))
-      (emacspeak-table-mode)))
+       (cl-incf i))))
   (switch-to-buffer buffer)
   (emacspeak-table-goto-cell emacspeak-table 0 0)
   (setq truncate-lines t)
@@ -690,11 +684,11 @@ the documentation on the table browser."
       (flush-lines "^ *$")
       (setq table (emacspeak-table-make-table
                    (ems-tabulate-parse-region
-                    (point-min)
-                    (point-max)))))
+                    (point-min) (point-max)))))
     (kill-buffer workspace)
     (save-current-buffer
       (set-buffer buffer)
+      (emacspeak-table-mode)
       (let ((inhibit-read-only t))
         (erase-buffer)
         (set (make-local-variable 'emacspeak-table) table)
@@ -723,7 +717,6 @@ the documentation on the table browser."
                  (put-text-property row-start (point) 'row i)
                  (setq row-start (point))
                  (cl-incf i))
-        (emacspeak-table-mode)
         (goto-char (point-min))))
     (switch-to-buffer buffer)
     (rename-buffer
