@@ -419,9 +419,149 @@ the documentation on the table browser.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dtable_002dmode" id=
+  "emacspeak_002dtable_002dmode"></a>
+  <h4 class="subsubsection">12.176.1.12 emacspeak-table-mode</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dmode" id=
+    "index-emacspeak_002dtable_002dmode"></a>Command:
+    <strong>emacspeak-table-mode</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002dtable_002dmode-1" id=
+      "index-emacspeak_002dtable_002dmode-1"></a>
+      <div class="format">
+        <pre class="format">Major mode for browsing tables.
+Table mode is designed to allow speech users to browse tabular data
+with full contextual feedback while retaining all the power of the
+two-dimensional spatial layout of tables.
+
+In table mode, the arrow keys move between cells of the table.
+Emacspeak speaks the cell contents in a user-customizable way.  The
+visual display is kept in sync with the speech you hear; however
+Emacspeak is examining the entire table in order to speak the current
+cell content intelligently.
+
+You can interactively specify that emacspeak should speak either the row or
+column header (or both) while speaking each cell.  You can also specify a row
+or column filter that should be applied when speaking entire rows or columns
+–this lets you view slices of a table.  You can move to a specific row or
+column by searching the cell contents or by searching the row or column
+headers to locate items of interest.
+
+Here is a short description of the special commands provided in this mode.
+
+The next four commands help you move to the edges of the table:
+
+E               emacspeak-table-goto-right
+A               emacspeak-table-goto-left
+B               emacspeak-table-goto-bottom
+T               emacspeak-table-goto-top
+
+The next two commands let you search the table.
+The commands ask you if you want to search rows or columns.
+When searching headers remember that row 0 is the column header, and that column 0 is the row header.
+
+h               emacspeak-table-search-headers
+s               emacspeak-table-search
+
+The next command lets you specify how cell contents should be spoken.  Specify
+one of: ‘b’ for both, ‘c’ for column, ‘r’ for row, ‘f’ for row filtering and
+‘g’ for column filtering. –table cells with then be spoken with both (or
+either)row and column headers, or with the filter applied.
+
+a               emacspeak-table-select-automatic-speaking-method
+
+The next set of commands speak the current table cell:
+
+.               emacspeak-table-speak-coordinates
+b               emacspeak-table-speak-both-headers-and-element
+SPC             emacspeak-table-speak-current-element
+c               emacspeak-table-speak-column-header-and-element
+r               e macspeak-table-speak-row-header-and-element
+
+The next set of commands navigate the table:
+
+right               emacspeak-table-next-column
+left               emacspeak-table-previous-column
+down               emacspeak-table-next-row
+up               emacspeak-table-previous-row
+j               emacspeak-table-goto
+S-tab               emacspeak-table-previous-column
+TAB               emacspeak-table-next-column
+
+Row and Column Filtering
+
+Filtering is designed to let you view slices of a table.
+They are specified as lists of numbers and strings.
+The concept is best explained with an example.
+
+A row filter specifies which of the entries in the current row should be
+spoken.Entries are numbered starting with 0.  Thus, when working with a table
+having 8 columns, a row filter of (1 2 3) will speak only entries 1 2 and 3.
+Use the sample tables in etc/tables   to familiarize yourself with this
+feature. Note that you can intersperse meaningful strings in the list that
+specifies the filter.
+
+Full List Of Keybindings:
+key             binding
+—             ——-
+
+C-b             emacspeak-table-previous-column
+C-f             emacspeak-table-next-column
+TAB             emacspeak-table-next-column
+C-n             emacspeak-table-next-row
+C-p             emacspeak-table-previous-row
+ESC             Prefix Command
+SPC             emacspeak-table-speak-current-element
+#               emacspeak-table-sort-on-current-column
+,               emacspeak-table-find-csv-file
+.               emacspeak-table-speak-coordinates
+&lt;            emacspeak-table-goto-left
+=               emacspeak-table-speak-dimensions
+&gt;            emacspeak-table-goto-right
+A               emacspeak-table-goto-left
+B               emacspeak-table-goto-bottom
+C               emacspeak-table-search-column
+E               emacspeak-table-goto-right
+Q               emacspeak-kill-buffer-quietly
+R               emacspeak-table-search-row
+T               emacspeak-table-goto-top
+a               emacspeak-table-select-automatic-speaking-method
+b               emacspeak-table-speak-both-headers-and-element
+c               emacspeak-table-speak-column-header-and-element
+f               emacspeak-table-speak-row-filtered
+g               emacspeak-table-speak-column-filtered
+h               emacspeak-table-search-headers
+j               emacspeak-table-goto
+k               emacspeak-table-copy-to-clipboard
+n               emacspeak-table-next-row
+p               emacspeak-table-previous-row
+q               quit-window
+r               emacspeak-table-speak-row-header-and-element
+s               emacspeak-table-search
+v               emacspeak-table-view-csv-buffer
+w               emacspeak-table-copy-current-element-to-kill-ring
+x               emacspeak-table-copy-current-element-to-register
+&lt;S-tab&gt;           emacspeak-table-previous-column
+&lt;down&gt;            emacspeak-table-next-row
+&lt;left&gt;            emacspeak-table-previous-column
+&lt;right&gt;           emacspeak-table-next-column
+&lt;up&gt;              emacspeak-table-previous-row
+
+M-&lt;          emacspeak-table-goto-top
+M-&gt;          emacspeak-table-goto-bottom
+M-l             emacspeak-table-ui-filter-load
+M-s             emacspeak-table-ui-filter-save
+
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-table-mode-hook’, as the final or penultimate step
+during initialization.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dtable_002dnext_002dcolumn" id=
   "emacspeak_002dtable_002dnext_002dcolumn"></a>
-  <h4 class="subsubsection">12.176.1.12
+  <h4 class="subsubsection">12.176.1.13
   emacspeak-table-next-column</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dnext_002dcolumn" id=
@@ -460,7 +600,7 @@ the documentation on the table browser.
     </dd>
   </dl><a name="emacspeak_002dtable_002dnext_002drow" id=
   "emacspeak_002dtable_002dnext_002drow"></a>
-  <h4 class="subsubsection">12.176.1.13
+  <h4 class="subsubsection">12.176.1.14
   emacspeak-table-next-row</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dnext_002drow" id=
@@ -499,7 +639,7 @@ the documentation on the table browser.
   </dl><a name=
   "emacspeak_002dtable_002dpaste_002dfrom_002dclipboard" id=
   "emacspeak_002dtable_002dpaste_002dfrom_002dclipboard"></a>
-  <h4 class="subsubsection">12.176.1.14
+  <h4 class="subsubsection">12.176.1.15
   emacspeak-table-paste-from-clipboard</h4>
   <dl>
     <dt><a name=
@@ -523,7 +663,7 @@ markup to use.
     </dd>
   </dl><a name="emacspeak_002dtable_002dprevious_002dcolumn" id=
   "emacspeak_002dtable_002dprevious_002dcolumn"></a>
-  <h4 class="subsubsection">12.176.1.15
+  <h4 class="subsubsection">12.176.1.16
   emacspeak-table-previous-column</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dprevious_002dcolumn"
@@ -565,7 +705,7 @@ markup to use.
     </dd>
   </dl><a name="emacspeak_002dtable_002dprevious_002drow" id=
   "emacspeak_002dtable_002dprevious_002drow"></a>
-  <h4 class="subsubsection">12.176.1.16
+  <h4 class="subsubsection">12.176.1.17
   emacspeak-table-previous-row</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dprevious_002drow"
@@ -604,7 +744,7 @@ markup to use.
     </dd>
   </dl><a name="emacspeak_002dtable_002dsearch" id=
   "emacspeak_002dtable_002dsearch"></a>
-  <h4 class="subsubsection">12.176.1.17 emacspeak-table-search</h4>
+  <h4 class="subsubsection">12.176.1.18 emacspeak-table-search</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dsearch" id=
     "index-emacspeak_002dtable_002dsearch"></a>Command:
@@ -633,7 +773,7 @@ the matching cell current. When called from a program, ‘what’ can
     </dd>
   </dl><a name="emacspeak_002dtable_002dsearch_002dcolumn" id=
   "emacspeak_002dtable_002dsearch_002dcolumn"></a>
-  <h4 class="subsubsection">12.176.1.18
+  <h4 class="subsubsection">12.176.1.19
   emacspeak-table-search-column</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dsearch_002dcolumn"
@@ -658,7 +798,7 @@ the matching cell current. When called from a program, ‘what’ can
     </dd>
   </dl><a name="emacspeak_002dtable_002dsearch_002dheaders" id=
   "emacspeak_002dtable_002dsearch_002dheaders"></a>
-  <h4 class="subsubsection">12.176.1.19
+  <h4 class="subsubsection">12.176.1.20
   emacspeak-table-search-headers</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dsearch_002dheaders"
@@ -686,7 +826,7 @@ match, makes the matching row or column current.
     </dd>
   </dl><a name="emacspeak_002dtable_002dsearch_002drow" id=
   "emacspeak_002dtable_002dsearch_002drow"></a>
-  <h4 class="subsubsection">12.176.1.20
+  <h4 class="subsubsection">12.176.1.21
   emacspeak-table-search-row</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtable_002dsearch_002drow" id=
@@ -711,7 +851,7 @@ match, makes the matching row or column current.
   "emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod"
   id=
   "emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod"></a>
-  <h4 class="subsubsection">12.176.1.21
+  <h4 class="subsubsection">12.176.1.22
   emacspeak-table-select-automatic-speaking-method</h4>
   <dl>
     <dt><a name=
@@ -742,7 +882,7 @@ browsing table elements
   </dl><a name=
   "emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn" id=
   "emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn"></a>
-  <h4 class="subsubsection">12.176.1.22
+  <h4 class="subsubsection">12.176.1.23
   emacspeak-table-sort-on-current-column</h4>
   <dl>
     <dt><a name=
@@ -772,7 +912,7 @@ browsing table elements
   "emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"
   id=
   "emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"></a>
-  <h4 class="subsubsection">12.176.1.23
+  <h4 class="subsubsection">12.176.1.24
   emacspeak-table-speak-both-headers-and-element</h4>
   <dl>
     <dt><a name=
@@ -802,7 +942,7 @@ browsing table elements
   </dl><a name=
   "emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered" id=
   "emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered"></a>
-  <h4 class="subsubsection">12.176.1.24
+  <h4 class="subsubsection">12.176.1.25
   emacspeak-table-speak-column-filtered</h4>
   <dl>
     <dt><a name=
@@ -836,7 +976,7 @@ Optional prefix arg prompts for a new filter.
   "emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"
   id=
   "emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"></a>
-  <h4 class="subsubsection">12.176.1.25
+  <h4 class="subsubsection">12.176.1.26
   emacspeak-table-speak-column-header-and-element</h4>
   <dl>
     <dt><a name=
@@ -864,7 +1004,7 @@ Optional prefix arg prompts for a new filter.
     </dd>
   </dl><a name="emacspeak_002dtable_002dspeak_002dcoordinates" id=
   "emacspeak_002dtable_002dspeak_002dcoordinates"></a>
-  <h4 class="subsubsection">12.176.1.26
+  <h4 class="subsubsection">12.176.1.27
   emacspeak-table-speak-coordinates</h4>
   <dl>
     <dt><a name=
@@ -890,7 +1030,7 @@ Optional prefix arg prompts for a new filter.
   </dl><a name=
   "emacspeak_002dtable_002dspeak_002dcurrent_002delement" id=
   "emacspeak_002dtable_002dspeak_002dcurrent_002delement"></a>
-  <h4 class="subsubsection">12.176.1.27
+  <h4 class="subsubsection">12.176.1.28
   emacspeak-table-speak-current-element</h4>
   <dl>
     <dt><a name=
@@ -917,7 +1057,7 @@ Optional prefix arg prompts for a new filter.
     </dd>
   </dl><a name="emacspeak_002dtable_002dspeak_002ddimensions" id=
   "emacspeak_002dtable_002dspeak_002ddimensions"></a>
-  <h4 class="subsubsection">12.176.1.28
+  <h4 class="subsubsection">12.176.1.29
   emacspeak-table-speak-dimensions</h4>
   <dl>
     <dt><a name=
@@ -942,7 +1082,7 @@ Optional prefix arg prompts for a new filter.
     </dd>
   </dl><a name="emacspeak_002dtable_002dspeak_002drow_002dfiltered"
   id="emacspeak_002dtable_002dspeak_002drow_002dfiltered"></a>
-  <h4 class="subsubsection">12.176.1.29
+  <h4 class="subsubsection">12.176.1.30
   emacspeak-table-speak-row-filtered</h4>
   <dl>
     <dt><a name=
@@ -975,7 +1115,7 @@ Optional prefix arg prompts for a new filter.
   "emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement"
   id=
   "emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement"></a>
-  <h4 class="subsubsection">12.176.1.30
+  <h4 class="subsubsection">12.176.1.31
   emacspeak-table-speak-row-header-and-element</h4>
   <dl>
     <dt><a name=
@@ -1003,7 +1143,7 @@ Optional prefix arg prompts for a new filter.
     </dd>
   </dl><a name="emacspeak_002dtable_002dui_002dfilter_002dload" id=
   "emacspeak_002dtable_002dui_002dfilter_002dload"></a>
-  <h4 class="subsubsection">12.176.1.31
+  <h4 class="subsubsection">12.176.1.32
   emacspeak-table-ui-filter-load</h4>
   <dl>
     <dt><a name=
@@ -1031,7 +1171,7 @@ Optional prefix arg prompts for a new filter.
     </dd>
   </dl><a name="emacspeak_002dtable_002dui_002dfilter_002dsave" id=
   "emacspeak_002dtable_002dui_002dfilter_002dsave"></a>
-  <h4 class="subsubsection">12.176.1.32
+  <h4 class="subsubsection">12.176.1.33
   emacspeak-table-ui-filter-save</h4>
   <dl>
     <dt><a name=
@@ -1059,7 +1199,7 @@ Optional prefix arg prompts for a new filter.
     </dd>
   </dl><a name="emacspeak_002dtable_002dview_002dcsv_002dbuffer"
   id="emacspeak_002dtable_002dview_002dcsv_002dbuffer"></a>
-  <h4 class="subsubsection">12.176.1.33
+  <h4 class="subsubsection">12.176.1.34
   emacspeak-table-view-csv-buffer</h4>
   <dl>
     <dt><a name=
@@ -1089,7 +1229,7 @@ The processed  data is  presented using emacspeak table navigation.
     </dd>
   </dl><a name="emacspeak_002dtable_002dview_002dcsv_002durl" id=
   "emacspeak_002dtable_002dview_002dcsv_002durl"></a>
-  <h4 class="subsubsection">12.176.1.34
+  <h4 class="subsubsection">12.176.1.35
   emacspeak-table-view-csv-url</h4>
   <dl>
     <dt><a name=
