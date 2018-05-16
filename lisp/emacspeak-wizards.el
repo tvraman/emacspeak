@@ -3410,7 +3410,7 @@ P: Show live price for current stock."
          (table (make-vector  (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
-           "latestPrice" "Open" "Low" "High" "Close"
+           "lastTrade" "Open" "Low" "High" "Close"
            "52WeekLow" "52WeekHigh" "52DayMovingAverage" "200DayMovingAverage"
            "MarketCap" "PERatio" "DividentYield" "DividentRate"])
     (cl-loop
