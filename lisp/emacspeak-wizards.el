@@ -3362,7 +3362,7 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
     (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
 
 ;;;###autoload
-(defun emacspeak-wizards-iex-stock-price (symbol)
+(defun emacspeak-wizards-iex-show-price (symbol)
   "Quick Quote: Just stock price from IEX Trading."
   (interactive
    (list
@@ -3387,7 +3387,14 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-quote (&optional refresh)
   "Show portfolio  data from cache.
-Optional interactive prefix arg forces cache refresh."
+Optional interactive prefix arg forces cache refresh.
+
+The quotes view uses emacspeak's table mode.
+In addition,  the following  keys are available :
+
+F: Show financials for current stock.
+N: Show news for current stock.
+P: Show live price for current stock."
   (interactive "P")
   (cl-declare (special emacspeak-wizards-iex-cache))
   (when (or refresh (null emacspeak-wizards-iex-cache))
@@ -3426,6 +3433,9 @@ Optional interactive prefix arg forces cache refresh."
      emacspeak-table-speak-element 'emacspeak-table-speak-both-headers-and-element
      header-line-format
      (format "Stock Quotes From IEXTrading"))
+    (put-text-property
+     (point-min) (point-max)
+     'keymap ems--wizards-iex-quotes-keymap)
     (funcall-interactively #'emacspeak-table-goto 1 2)))
 
 ;;;###autoload
@@ -3541,7 +3551,7 @@ q: Quotes
   (interactive "P")
   (cl-case (read-char  "f: Financials, n: News, p: Price, q: Quotes")
     (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
-    (?p (call-interactively #'emacspeak-wizards-iex-stock-price))
+    (?p (call-interactively #'emacspeak-wizards-iex-show-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
     (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))
     (otherwise (error "Invalid key"))))
