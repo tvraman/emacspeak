@@ -43,7 +43,7 @@
 
 ;;}}}
 ;;{{{ requires
-
+(require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-table)
