@@ -622,7 +622,7 @@ interactive command that the key sequence executes."
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("o" emacspeak-feeds-opml-display)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
-    ("q" emacspeak-wizards-iex-stock-price )
+    ("q" emacspeak-wizards-iex-show-price )
     ("r" emacspeak-feeds-rss-display)
     ("s" emacspeak-wizards-tune-in-radio-search)
     ("t" emacspeak-wizards-tune-in-radio-browse)
