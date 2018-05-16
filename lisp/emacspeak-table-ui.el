@@ -483,7 +483,7 @@ Optional prefix arg prompts for a new filter."
 
 ;;}}}
 
-(defun emacspeak-table-prepare-table-buffer (table buffer &optional filename)
+(defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
   (cl-declare (special emacspeak-table positions))
   (with-current-buffer buffer
@@ -499,7 +499,6 @@ Optional prefix arg prompts for a new filter."
       (erase-buffer)
       (set (make-local-variable 'emacspeak-table) table)
       (set (make-local-variable 'positions) (make-hash-table))
-      (when filename (setq buffer-file-name filename))
       (setq count (1-  (emacspeak-table-num-columns table)))
       (cl-loop
        for row across (emacspeak-table-elements table) do
@@ -547,7 +546,7 @@ the documentation on the table browser."
     (setq data (find-file-noselect filename))
     (setq table (emacspeak-table-make-table (read data)))
     (kill-buffer data)
-    (emacspeak-table-prepare-table-buffer table buffer filename)))
+    (emacspeak-table-prepare-table-buffer table buffer )))
 
 (defun ems-csv-get-fields ()
   "Return list of fields on this line."
