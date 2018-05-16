@@ -97,7 +97,7 @@ s   Sub-square Distribution.
   (cl-declare (special current-board))
   (dtk-speak-list
    (cl-loop for r in current-board
-            collect  (count 0 r))
+            collect  (cl-count 0 r))
    3))
 
 (defun emacspeak-sudoku-board-columns-summarize ()
