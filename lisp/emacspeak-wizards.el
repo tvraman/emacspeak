@@ -3356,9 +3356,10 @@ access to the various functions provided by alpha-vantage."
 
 (defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
-Uses symbols set in `emacspeak-wizards-personal-portfolio '."
+Uses symbols set in `emacspeak-wizards-personal-portfolio '.
+Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special
-               emacspeak-wizards-iex-portfolio-file
+               emacspeak-wizards-iex-portfolio-file g-curl-program
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
@@ -3368,9 +3369,8 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
     (kill-new url)
     (shell-command
      (format "%s -s -o %s '%s'"
-             g-curl-program  emacspeak-wizards-personal-portfolio url))
-
-    (setq emacspeak-wizards-iex-cache (json-read-file emacspeak-wizards-personal-portfolio))))
+             g-curl-program  emacspeak-wizards-iex-portfolio-file url))
+    (setq emacspeak-wizards-iex-cache (json-read-file emacspeak-wizards-iex-portfolio-file))))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
