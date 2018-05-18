@@ -3326,6 +3326,10 @@ access to the various functions provided by alpha-vantage."
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
 
+(defvar emacspeak-wizards-iex-portfolio-file
+  (expand-file-name "portfolio.json" emacspeak-resource-directory)
+  "Local file cache of IEX API data.")
+
 ;;; API: https://iextrading.com/developer/docs/
 
 (defconst  ems--iex-types
@@ -3338,7 +3342,9 @@ access to the various functions provided by alpha-vantage."
   "https://api.iextrading.com/1.0"
   "Rest End-Point For iex Stock API.")
 
-(defvar emacspeak-wizards-iex-cache nil
+(defvar emacspeak-wizards-iex-cache
+  (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
+    (json-read-file emacspeak-wizards-iex-portfolio-file))
   "Cache retrieved data to save API calls.")
 
 (defun emacspeak-wizards-iex-uri (symbols)
@@ -3352,6 +3358,7 @@ access to the various functions provided by alpha-vantage."
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '."
   (cl-declare (special
+               emacspeak-wizards-iex-portfolio-file
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
@@ -3359,7 +3366,11 @@ Uses symbols set in `emacspeak-wizards-personal-portfolio '."
            (split-string emacspeak-wizards-personal-portfolio ) ","))
          (url (emacspeak-wizards-iex-uri symbols )))
     (kill-new url)
-    (setq emacspeak-wizards-iex-cache (g-json-from-url url))))
+    (shell-command
+     (format "%s -s -o %s '%s'"
+             g-curl-program  emacspeak-wizards-personal-portfolio url))
+
+    (setq emacspeak-wizards-iex-cache (json-read-file emacspeak-wizards-personal-portfolio))))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
