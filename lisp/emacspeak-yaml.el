@@ -72,9 +72,8 @@ yaml-narrow-to-block-literal
 
 (defadvice yaml-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p)
     (unless emacspeak-audio-indentation
-      (emacspeak-toggle-audio-indentation))))
+      (emacspeak-toggle-audio-indentation)))
 
 
 (defadvice yaml-fill-paragraph (after emacspeak pre act comp)
