@@ -1584,7 +1584,7 @@ m		magit-status
 n		emacspeak-wizards-cycle-to-next-buffer
 o		emacspeak-feeds-opml-display
 p		emacspeak-wizards-cycle-to-previous-buffer
-q		emacspeak-wizards-iex-stock-price
+q		emacspeak-wizards-iex-show-price
 r		emacspeak-feeds-rss-display
 s		emacspeak-wizards-tune-in-radio-search
 t		emacspeak-wizards-tune-in-radio-browse
@@ -23891,6 +23891,13 @@ Optional interactive prefix arg refreshes cache.
 
 @subsubsection emacspeak-wizards-iex-show-price
 @deffn {Command} emacspeak-wizards-iex-show-price  (symbol)
+@table @kbd
+@item C-, q
+@kindex C-, q
+@item C-x @@ a q
+@kindex C-x @@ a q
+@end table
+
 @findex emacspeak-wizards-iex-show-price
 
 @format

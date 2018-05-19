@@ -6609,6 +6609,8 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-wizards-iex-show-price (symbol)
+     ‘C-, q’
+     ‘C-x @ a q’
 
      Quick Quote: Just stock price from IEX Trading.
 
