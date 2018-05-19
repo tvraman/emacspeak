@@ -7580,7 +7580,7 @@ XREF == Cross-references in source code.  This is part of Emacs 25.
 This module speech-enables xref
 
 
-File: emacspeak.info,  Node: emacspeak-xslt,  Next: emacspeak-yasnippet,  Prev: emacspeak-xref,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-xslt,  Next: emacspeak-yaml,  Prev: emacspeak-xref,  Up: Emacspeak Commands And Options
 
 12.208 emacspeak-xslt
 =====================
@@ -7647,14 +7647,23 @@ transformations using xsltproc
      Name of XSLT transformation engine.
 
 
-File: emacspeak.info,  Node: emacspeak-yasnippet,  Next: espeak-voices,  Prev: emacspeak-xslt,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-yaml,  Next: emacspeak-yasnippet,  Prev: emacspeak-xslt,  Up: Emacspeak Commands And Options
 
-12.209 emacspeak-yasnippet
+12.209 emacspeak-yaml
+=====================
+
+YAML == Yet Another Markup Language This module speech-enables
+yaml-mode.
+
+
+File: emacspeak.info,  Node: emacspeak-yasnippet,  Next: espeak-voices,  Prev: emacspeak-yaml,  Up: Emacspeak Commands And Options
+
+12.210 emacspeak-yasnippet
 ==========================
 
 YASNIPPET == Template based editing using snippets.
 
-12.209.1 emacspeak-yasnippet Options
+12.210.1 emacspeak-yasnippet Options
 ------------------------------------
 
  -- Variable: User Option emacspeak-yas-field-highlight-personality
@@ -7665,16 +7674,16 @@ YASNIPPET == Template based editing using snippets.
 
 File: emacspeak.info,  Node: espeak-voices,  Next: g,  Prev: emacspeak-yasnippet,  Up: Emacspeak Commands And Options
 
-12.210 espeak-voices
+12.211 espeak-voices
 ====================
 
 This module defines the various voices used in voice-lock mode by the
 ESpeak TTS engine.
 
-12.210.1 espeak-voices Commands
+12.211.1 espeak-voices Commands
 -------------------------------
 
-12.210.1.1 espeak
+12.211.1.1 espeak
 .................
 
  -- Command: espeak
@@ -7683,7 +7692,7 @@ ESpeak TTS engine.
 
      Start ESpeak engine.
 
-12.210.2 espeak-voices Options
+12.211.2 espeak-voices Options
 ------------------------------
 
  -- Variable: User Option espeak-default-speech-rate
@@ -7692,7 +7701,7 @@ ESpeak TTS engine.
 
 File: emacspeak.info,  Node: g,  Next: g-utils,  Prev: espeak-voices,  Up: Emacspeak Commands And Options
 
-12.211 g
+12.212 g
 ========
 
 Top-level bootstrap module for Google Client.  Loads in authentication
@@ -7702,13 +7711,13 @@ Web Search gblogger: Blogger gphoto: Google Photos
 
 File: emacspeak.info,  Node: g-utils,  Next: gm-nnir,  Prev: g,  Up: Emacspeak Commands And Options
 
-12.212 g-utils
+12.213 g-utils
 ==============
 
 Common Code e.g.  helper functions.  Used by modules like gphoto,
 gblogger etc.
 
-12.212.1 g-utils Options
+12.213.1 g-utils Options
 ------------------------
 
  -- Variable: User Option g-atom-edit-filter
@@ -7747,16 +7756,16 @@ gblogger etc.
 
 File: emacspeak.info,  Node: gm-nnir,  Next: gmaps,  Prev: g-utils,  Up: Emacspeak Commands And Options
 
-12.213 gm-nnir
+12.214 gm-nnir
 ==============
 
 Makes search GMail more convenient.  IMap search operators, GMail search
 extensions.
 
-12.213.1 gm-nnir Commands
+12.214.1 gm-nnir Commands
 -------------------------
 
-12.213.1.1 gm-nnir-group-make-gmail-group
+12.214.1.1 gm-nnir-group-make-gmail-group
 .........................................
 
  -- Command: gm-nnir-group-make-gmail-group
@@ -7765,7 +7774,7 @@ extensions.
      See https://support.google.com/mail/answer/7190?hl=en for syntax.
      Default is to search All Mail when not on a Group line.
 
-12.213.1.2 gm-nnir-group-make-nnir-group
+12.214.1.2 gm-nnir-group-make-nnir-group
 ........................................
 
  -- Command: gm-nnir-group-make-nnir-group
@@ -7776,15 +7785,15 @@ extensions.
 
 File: emacspeak.info,  Node: gmaps,  Next: ladspa,  Prev: gm-nnir,  Up: Emacspeak Commands And Options
 
-12.214 gmaps
+12.215 gmaps
 ============
 
 Implements the Google Maps API
 
-12.214.1 gmaps Commands
+12.215.1 gmaps Commands
 -----------------------
 
-12.214.1.1 gmaps
+12.215.1.1 gmaps
 ................
 
  -- Command: gmaps
@@ -7797,7 +7806,7 @@ Implements the Google Maps API
 
      (fn)
 
-12.214.1.2 gmaps-bicycling-directions
+12.215.1.2 gmaps-bicycling-directions
 .....................................
 
  -- Command: gmaps-bicycling-directions (origin destination)
@@ -7808,7 +7817,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.214.1.3 gmaps-directions
+12.215.1.3 gmaps-directions
 ...........................
 
  -- Command: gmaps-directions (origin destination mode)
@@ -7817,7 +7826,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION MODE)
 
-12.214.1.4 gmaps-driving-directions
+12.215.1.4 gmaps-driving-directions
 ...................................
 
  -- Command: gmaps-driving-directions (origin destination)
@@ -7828,21 +7837,21 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.214.1.5 gmaps-locations-load
+12.215.1.5 gmaps-locations-load
 ...............................
 
  -- Command: gmaps-locations-load
 
      Load saved GMaps locations.
 
-12.214.1.6 gmaps-locations-save
+12.215.1.6 gmaps-locations-save
 ...............................
 
  -- Command: gmaps-locations-save
 
      Save GMaps Locations.
 
-12.214.1.7 gmaps-mode
+12.215.1.7 gmaps-mode
 .....................
 
  -- Command: gmaps-mode
@@ -7874,7 +7883,7 @@ Implements the Google Maps API
      M-i		backward-button
 
 
-12.214.1.8 gmaps-place-details
+12.215.1.8 gmaps-place-details
 ..............................
 
  -- Command: gmaps-place-details
@@ -7886,7 +7895,7 @@ Implements the Google Maps API
 
      (fn)
 
-12.214.1.9 gmaps-place-reviews
+12.215.1.9 gmaps-place-reviews
 ..............................
 
  -- Command: gmaps-place-reviews
@@ -7894,7 +7903,7 @@ Implements the Google Maps API
      Display reviews for place at point.
      Place details need to have been expanded first.
 
-12.214.1.10 gmaps-places-nearby
+12.215.1.10 gmaps-places-nearby
 ...............................
 
  -- Command: gmaps-places-nearby (&optional clear-filter)
@@ -7906,7 +7915,7 @@ Implements the Google Maps API
 
      (fn &optional CLEAR-FILTER)
 
-12.214.1.11 gmaps-places-search
+12.215.1.11 gmaps-places-search
 ...............................
 
  -- Command: gmaps-places-search (query &optional clear-filter)
@@ -7919,7 +7928,7 @@ Implements the Google Maps API
 
      (fn QUERY &optional CLEAR-FILTER)
 
-12.214.1.12 gmaps-set-current-filter
+12.215.1.12 gmaps-set-current-filter
 ....................................
 
  -- Command: gmaps-set-current-filter (&optional all)
@@ -7929,7 +7938,7 @@ Implements the Google Maps API
 
      (fn &optional ALL)
 
-12.214.1.13 gmaps-set-current-location
+12.215.1.13 gmaps-set-current-location
 ......................................
 
  -- Command: gmaps-set-current-location (address)
@@ -7940,7 +7949,7 @@ Implements the Google Maps API
 
      (fn ADDRESS)
 
-12.214.1.14 gmaps-set-current-radius
+12.215.1.14 gmaps-set-current-radius
 ....................................
 
  -- Command: gmaps-set-current-radius (radius)
@@ -7951,7 +7960,7 @@ Implements the Google Maps API
 
      (fn RADIUS)
 
-12.214.1.15 gmaps-transit-directions
+12.215.1.15 gmaps-transit-directions
 ....................................
 
  -- Command: gmaps-transit-directions (origin destination)
@@ -7962,7 +7971,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.214.1.16 gmaps-walking-directions
+12.215.1.16 gmaps-walking-directions
 ....................................
 
  -- Command: gmaps-walking-directions (origin destination)
@@ -7973,7 +7982,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.214.2 gmaps Options
+12.215.2 gmaps Options
 ----------------------
 
  -- Variable: User Option gmaps-places-key
@@ -7987,7 +7996,7 @@ Implements the Google Maps API
 
 File: emacspeak.info,  Node: ladspa,  Next: mac-voices,  Prev: gmaps,  Up: Emacspeak Commands And Options
 
-12.215 ladspa
+12.216 ladspa
 =============
 
 This module uses tools from the Ladspa SDK to expose Ladspa plugins in a
@@ -8000,10 +8009,10 @@ zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins rev-plugins
 mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
 invada-studio-plugins-ladspa fil-plugins
 
-12.215.1 ladspa Commands
+12.216.1 ladspa Commands
 ------------------------
 
-12.215.1.1 ladspa
+12.216.1.1 ladspa
 .................
 
  -- Command: ladspa (&optional refresh)
@@ -8012,28 +8021,28 @@ invada-studio-plugins-ladspa fil-plugins
 
      (fn &optional REFRESH)
 
-12.215.1.2 ladspa-analyse-plugin-at-point
+12.216.1.2 ladspa-analyse-plugin-at-point
 .........................................
 
  -- Command: ladspa-analyse-plugin-at-point
 
      Analyse plugin at point.
 
-12.215.1.3 ladspa-edit-control
+12.216.1.3 ladspa-edit-control
 ..............................
 
  -- Command: ladspa-edit-control
 
      Edit Ladspa control  at point by prompting for control values.
 
-12.215.1.4 ladspa-instantiate
+12.216.1.4 ladspa-instantiate
 .............................
 
  -- Command: ladspa-instantiate
 
      Instantiate plugin at point by prompting for control values.
 
-12.215.1.5 ladspa-mode
+12.216.1.5 ladspa-mode
 ......................
 
  -- Command: ladspa-mode
@@ -8059,13 +8068,13 @@ invada-studio-plugins-ladspa fil-plugins
 
 File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
 
-12.216 mac-voices
+12.217 mac-voices
 =================
 
 This module defines the various voices used in voice-lock mode by Mac
 TTS.
 
-12.216.1 mac-voices Options
+12.217.1 mac-voices Options
 ---------------------------
 
  -- Variable: User Option mac-default-speech-rate
@@ -8074,16 +8083,16 @@ TTS.
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
-12.217 outloud-voices
+12.218 outloud-voices
 =====================
 
 This module defines the various voices used in voice-lock mode.  This
 module is IBM ViaVoice Outloud specific.
 
-12.217.1 outloud-voices Commands
+12.218.1 outloud-voices Commands
 --------------------------------
 
-12.217.1.1 outloud
+12.218.1.1 outloud
 ..................
 
  -- Command: outloud (&optional device)
@@ -8094,14 +8103,14 @@ module is IBM ViaVoice Outloud specific.
 
      (fn &optional DEVICE)
 
-12.217.1.2 outloud-32
+12.218.1.2 outloud-32
 .....................
 
  -- Command: outloud-32
 
      Select 32-Outloud server.
 
-12.217.2 outloud-voices Options
+12.218.2 outloud-voices Options
 -------------------------------
 
  -- Variable: User Option outloud-default-speech-rate
@@ -8110,7 +8119,7 @@ module is IBM ViaVoice Outloud specific.
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
 
-12.218 plain-voices
+12.219 plain-voices
 ===================
 
 This module defines the various voices used in voice-lock mode.  This
@@ -8120,7 +8129,7 @@ implemented appropriate voice-locking controls
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
-12.219 soundscape
+12.220 soundscape
 =================
 
 Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
@@ -8157,10 +8166,10 @@ that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
 email, IM, ...  map to the same _mood_.
 
-12.219.1 soundscape Commands
+12.220.1 soundscape Commands
 ----------------------------
 
-12.219.1.1 soundscape
+12.220.1.1 soundscape
 .....................
 
  -- Command: soundscape (scape)
@@ -8172,14 +8181,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.219.1.2 soundscape-kill
+12.220.1.2 soundscape-kill
 ..........................
 
  -- Command: soundscape-kill
 
      Stop all running soundscapes.
 
-12.219.1.3 soundscape-listener
+12.220.1.3 soundscape-listener
 ..............................
 
  -- Command: soundscape-listener (&optional restart)
@@ -8190,14 +8199,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional RESTART)
 
-12.219.1.4 soundscape-listener-shutdown
+12.220.1.4 soundscape-listener-shutdown
 .......................................
 
  -- Command: soundscape-listener-shutdown
 
      Shutdown listener.
 
-12.219.1.5 soundscape-remote
+12.220.1.5 soundscape-remote
 ............................
 
  -- Command: soundscape-remote (names)
@@ -8206,7 +8215,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn NAMES)
 
-12.219.1.6 soundscape-restart
+12.220.1.6 soundscape-restart
 .............................
 
  -- Command: soundscape-restart (&optional device)
@@ -8220,7 +8229,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional DEVICE)
 
-12.219.1.7 soundscape-stop
+12.220.1.7 soundscape-stop
 ..........................
 
  -- Command: soundscape-stop (scape)
@@ -8232,14 +8241,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.219.1.8 soundscape-theme
+12.220.1.8 soundscape-theme
 ...........................
 
  -- Command: soundscape-theme
 
      Shows default theme in a special buffer.
 
-12.219.1.9 soundscape-toggle
+12.220.1.9 soundscape-toggle
 ............................
 
  -- Command: soundscape-toggle
@@ -8251,7 +8260,7 @@ email, IM, ...  map to the same _mood_.
      When turned on, Soundscapes are automatically run based on current major mode.
      Run command M-x soundscape-theme to see the default mode->mood mapping.
 
-12.219.1.10 soundscape-update-mood
+12.220.1.10 soundscape-update-mood
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
@@ -8265,7 +8274,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT-MODE)
 
-12.219.2 soundscape Options
+12.220.2 soundscape Options
 ---------------------------
 
  -- Variable: User Option soundscape-data
@@ -8285,7 +8294,7 @@ email, IM, ...  map to the same _mood_.
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
-12.220 sox
+12.221 sox
 ==========
 
 This module defines a convenient speech-enabled interface for editing
@@ -8302,10 +8311,10 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-12.220.1 sox Commands
+12.221.1 sox Commands
 ---------------------
 
-12.220.1.1 sox-add-effect
+12.221.1.1 sox-add-effect
 .........................
 
  -- Command: sox-add-effect (name)
@@ -8314,7 +8323,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.220.1.2 sox-delete-effect-at-point
+12.221.1.2 sox-delete-effect-at-point
 .....................................
 
  -- Command: sox-delete-effect-at-point
@@ -8325,14 +8334,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.220.1.3 sox-edit-effect-at-point
+12.221.1.3 sox-edit-effect-at-point
 ...................................
 
  -- Command: sox-edit-effect-at-point
 
      Edit effect at point.
 
-12.220.1.4 sox-mode
+12.221.1.4 sox-mode
 ...................
 
  -- Command: sox-mode
@@ -8347,7 +8356,7 @@ always work.  This module can be used independent of Emacspeak.
      —             ——-
 
 
-12.220.1.5 sox-open-file
+12.221.1.5 sox-open-file
 ........................
 
  -- Command: sox-open-file (snd-file)
@@ -8358,14 +8367,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SND-FILE)
 
-12.220.1.6 sox-play
+12.221.1.6 sox-play
 ...................
 
  -- Command: sox-play
 
      Play sound from current context.
 
-12.220.1.7 sox-refresh
+12.221.1.7 sox-refresh
 ......................
 
  -- Command: sox-refresh
@@ -8376,7 +8385,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.220.1.8 sox-save
+12.221.1.8 sox-save
 ...................
 
  -- Command: sox-save (save-file)
@@ -8385,7 +8394,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SAVE-FILE)
 
-12.220.1.9 sox-set-effect
+12.221.1.9 sox-set-effect
 .........................
 
  -- Command: sox-set-effect (name)
@@ -8394,21 +8403,21 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.220.1.10 sox-show-timestamp
+12.221.1.10 sox-show-timestamp
 ..............................
 
  -- Command: sox-show-timestamp
 
      Show timestamp   in stream.
 
-12.220.1.11 sox-stop
+12.221.1.11 sox-stop
 ....................
 
  -- Command: sox-stop
 
      Stop currently playing  sound from current context.
 
-12.220.2 sox Options
+12.221.2 sox Options
 --------------------
 
  -- Variable: User Option sox-edit
@@ -8420,13 +8429,13 @@ always work.  This module can be used independent of Emacspeak.
 
 File: emacspeak.info,  Node: sox-gen,  Next: stack-f,  Prev: sox,  Up: Emacspeak Commands And Options
 
-12.221 sox-gen
+12.222 sox-gen
 ==============
 
 Provides binaural audio along with pre-defined themes.  This module can
 be used independent of Emacspeak.
 
-12.221.1 Binaural Beats Using SoX
+12.222.1 Binaural Beats Using SoX
 ---------------------------------
 
 A binaural beat is an auditory illusion perceived when two different
@@ -8454,7 +8463,7 @@ binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
    — default is 0.
 
-12.221.1.1 High-Level Commands For Pre-Defined Binaural Beats
+12.222.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
 
 These commands can be called directly to play one of the predefined
@@ -8489,10 +8498,10 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-12.221.2 sox-gen Commands
+12.222.2 sox-gen Commands
 -------------------------
 
-12.221.2.1 sox-beats-binaural
+12.222.2.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -8502,7 +8511,7 @@ binaural beats.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-12.221.2.2 sox-binaural
+12.222.2.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -8513,7 +8522,7 @@ binaural beats.
 
      (fn NAME DURATION)
 
-12.221.2.3 sox-chakras
+12.222.2.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -8523,7 +8532,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.221.2.4 sox-relax
+12.222.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -8533,7 +8542,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.2.5 sox-rev-up
+12.222.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -8543,7 +8552,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.2.6 sox-slide-binaural
+12.222.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -8552,7 +8561,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.221.2.7 sox-tone-binaural
+12.222.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -8562,7 +8571,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.221.2.8 sox-tone-slide-binaural
+12.222.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -8573,7 +8582,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.221.2.9 sox-turn-down
+12.222.2.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (length)
@@ -8583,7 +8592,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.2.10 sox-wind-down
+12.222.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -8593,7 +8602,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.221.3 sox-gen Options
+12.222.3 sox-gen Options
 ------------------------
 
  -- Variable: User Option sox-binaural-gain-offset
@@ -8610,7 +8619,7 @@ binaural beats.
 
 File: emacspeak.info,  Node: stack-f,  Next: tetris,  Prev: sox-gen,  Up: Emacspeak Commands And Options
 
-12.222 stack-f
+12.223 stack-f
 ==============
 
 The stack is implemented as a linked list with a tag ’STACK as the first
@@ -8619,13 +8628,13 @@ element.  All entries and removals are done using destructive functions.
 
 File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: stack-f,  Up: Emacspeak Commands And Options
 
-12.223 tetris
+12.224 tetris
 =============
 
 
 File: emacspeak.info,  Node: toy-braille,  Next: tts,  Prev: tetris,  Up: Emacspeak Commands And Options
 
-12.224 toy-braille
+12.225 toy-braille
 ==================
 
 This is a bit of toy code to write in braille.
@@ -8660,17 +8669,17 @@ configured).
 
 File: emacspeak.info,  Node: tts,  Next: tts-cmds,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
-12.225 tts
+12.226 tts
 ==========
 
 Define data structure and API for setting up, accessing and manipulating
 TTS environment.  When complete, this will be used by the various engine
 configuration functions to set everything in one structure.
 
-12.225.1 tts Commands
+12.226.1 tts Commands
 ---------------------
 
-12.225.1.1 tts-set-chunk-separator
+12.226.1.1 tts-set-chunk-separator
 ..................................
 
  -- Command: tts-set-chunk-separator (chunk-separator)
@@ -8679,7 +8688,7 @@ configuration functions to set everything in one structure.
 
      (fn CHUNK-SEPARATOR)
 
-12.225.1.2 tts-set-punctuations
+12.226.1.2 tts-set-punctuations
 ...............................
 
  -- Command: tts-set-punctuations (punctuations)
@@ -8688,7 +8697,7 @@ configuration functions to set everything in one structure.
 
      (fn PUNCTUATIONS)
 
-12.225.1.3 tts-set-rate
+12.226.1.3 tts-set-rate
 .......................
 
  -- Command: tts-set-rate (rate)
@@ -8697,49 +8706,49 @@ configuration functions to set everything in one structure.
 
      (fn RATE)
 
-12.225.1.4 tts-toggle-allcaps
+12.226.1.4 tts-toggle-allcaps
 .............................
 
  -- Command: tts-toggle-allcaps
 
      Toggle field allcaps in current tts-state.
 
-12.225.1.5 tts-toggle-capitalize
+12.226.1.5 tts-toggle-capitalize
 ................................
 
  -- Command: tts-toggle-capitalize
 
      Toggle field capitalize in current tts-state.
 
-12.225.1.6 tts-toggle-quiet
+12.226.1.6 tts-toggle-quiet
 ...........................
 
  -- Command: tts-toggle-quiet
 
      Toggle field quiet in current tts-state.
 
-12.225.1.7 tts-toggle-speak-nonprinting-chars
+12.226.1.7 tts-toggle-speak-nonprinting-chars
 .............................................
 
  -- Command: tts-toggle-speak-nonprinting-chars
 
      Toggle field speak-nonprinting-chars in current tts-state.
 
-12.225.1.8 tts-toggle-split-caps
+12.226.1.8 tts-toggle-split-caps
 ................................
 
  -- Command: tts-toggle-split-caps
 
      Toggle field split-caps in current tts-state.
 
-12.225.1.9 tts-toggle-strip-octals
+12.226.1.9 tts-toggle-strip-octals
 ..................................
 
  -- Command: tts-toggle-strip-octals
 
      Toggle field strip-octals in current tts-state.
 
-12.225.1.10 tts-toggle-use-auditory-icons
+12.226.1.10 tts-toggle-use-auditory-icons
 .........................................
 
  -- Command: tts-toggle-use-auditory-icons
@@ -8749,16 +8758,16 @@ configuration functions to set everything in one structure.
 
 File: emacspeak.info,  Node: tts-cmds,  Next: voice-setup,  Prev: tts,  Up: Emacspeak Commands And Options
 
-12.226 tts-cmds
+12.227 tts-cmds
 ===============
 
 End-user TTS Commands implemented using tts-state.  If this works out,
 these will eventually replace the commands implemented in dtk-speak.el
 
-12.226.1 tts-cmds Commands
+12.227.1 tts-cmds Commands
 --------------------------
 
-12.226.1.1 tts-cmd-set-rate
+12.227.1.1 tts-cmd-set-rate
 ...........................
 
  -- Command: tts-cmd-set-rate (rate &optional prefix)
@@ -8770,7 +8779,7 @@ these will eventually replace the commands implemented in dtk-speak.el
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: tts-cmds,  Up: Emacspeak Commands And Options
 
-12.227 voice-setup
+12.228 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -8810,10 +8819,10 @@ available via custom.  new voices can be defined using CSS style
 specifications see special form defvoice Voices defined via defvoice can
 be customized via custom see the documentation for defvoice.
 
-12.227.1 voice-setup Commands
+12.228.1 voice-setup Commands
 -----------------------------
 
-12.227.1.1 voice-lock-mode
+12.228.1.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -8822,7 +8831,7 @@ be customized via custom see the documentation for defvoice.
 
      (fn &optional ARG)
 
-12.227.1.2 voice-lock-toggle
+12.228.1.2 voice-lock-toggle
 ............................
 
  -- Command: voice-lock-toggle
@@ -8831,7 +8840,7 @@ be customized via custom see the documentation for defvoice.
 
      Interactively toggle voice lock.
 
-12.227.1.3 voice-setup-describe-personality
+12.228.1.3 voice-setup-describe-personality
 ...........................................
 
  -- Command: voice-setup-describe-personality (personality)
@@ -8846,7 +8855,7 @@ be customized via custom see the documentation for defvoice.
 
      (fn PERSONALITY)
 
-12.227.1.4 voice-setup-list-voices
+12.228.1.4 voice-setup-list-voices
 ..................................
 
  -- Command: voice-setup-list-voices (pattern)
@@ -8860,7 +8869,7 @@ be customized via custom see the documentation for defvoice.
 
      (fn PATTERN)
 
-12.227.1.5 voice-setup-toggle-silence-personality
+12.228.1.5 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -8876,7 +8885,7 @@ be customized via custom see the documentation for defvoice.
      either case, the buffer is refontified to have the new mapping
      take effect.
 
-12.227.2 voice-setup Options
+12.228.2 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-animate-extra-settings
@@ -8984,7 +8993,7 @@ be customized via custom see the documentation for defvoice.
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-12.228 xbacklight
+12.229 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -8994,38 +9003,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.228.1 xbacklight Commands
+12.229.1 xbacklight Commands
 ----------------------------
 
-12.228.1.1 xbacklight-black
+12.229.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Turn screen black.
 
-12.228.1.2 xbacklight-decrement
+12.229.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness by  by one step.
 
-12.228.1.3 xbacklight-get
+12.229.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get current brightness level.
 
-12.228.1.4 xbacklight-increment
+12.229.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness by  by one step.
 
-12.228.1.5 xbacklight-set
+12.229.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -9035,14 +9044,14 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-12.228.1.6 xbacklight-white
+12.229.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
 
      Turn screen white.
 
-12.228.2 xbacklight Options
+12.229.2 xbacklight Options
 ---------------------------
 
  -- Variable: User Option xbacklight-step
@@ -9051,7 +9060,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-12.229 URL Templates
+12.230 URL Templates
 ====================
 
 This section documents a total of 82 URL Templates.

@@ -279,6 +279,7 @@ emacspeak-wizards.elc  \
 emacspeak-xref.elc \
 emacspeak-xml-shell.elc \
 emacspeak-xslt.elc \
+emacspeak-yaml.elc \
 emacspeak-yasnippet.elc 
 
 ADDON_OBJECTS = \
@@ -562,6 +563,7 @@ emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc voice-setup.elc
 emacspeak-xref.elc: emacspeak-xref.el dtk-speak.elc
 emacspeak-xml-shell.elc: emacspeak-xml-shell.el dtk-speak.elc voice-setup.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
+emacspeak-yaml.elc: emacspeak-yaml.el dtk-speak.elc
 emacspeak-yasnippet.elc: emacspeak-yasnippet.el dtk-speak.elc
 
 emacspeak.elc: emacspeak.el

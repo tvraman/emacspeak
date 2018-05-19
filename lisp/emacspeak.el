@@ -320,6 +320,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "winring" 'emacspeak-winring)
 (emacspeak-do-package-setup "woman" 'emacspeak-woman)
 (emacspeak-do-package-setup "yasnippet" 'emacspeak-yasnippet)
+(emacspeak-do-package-setup "yaml-mode" 'emacspeak-yaml)
 ;;}}}
 ;;{{{  Submit bugs
 

@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 18, 2018.
+last updated on May 19, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2962,6 +2962,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-xml-shell::Implements a simple XML browser.
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
+* emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * espeak-voices::Define  Espeak tags.
 * g::Google Client.

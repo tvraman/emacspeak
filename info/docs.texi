@@ -215,6 +215,7 @@ This chapter documents a total of 1221 commands and 1176 options.
 * emacspeak-xml-shell::Implements a simple XML browser.
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
+* emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * espeak-voices::Define  Espeak tags.
 * g::Google Client.
@@ -25301,6 +25302,12 @@ Options passed to xsltproc.
 Name of XSLT transformation engine.
 
 @end defvar
+
+@node emacspeak-yaml
+@section emacspeak-yaml
+
+YAML == Yet Another Markup Language
+This module speech-enables yaml-mode.
 
 @node emacspeak-yasnippet
 @section emacspeak-yasnippet
