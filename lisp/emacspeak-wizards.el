@@ -3327,6 +3327,20 @@ access to the various functions provided by alpha-vantage."
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
 
+(defcustom emacspeak-wizards-iex-quotes-row-filter
+  '(0 " ask  " 2
+       " trading between   " 4  " and  " 5
+       " PE is "12
+       " for a market cap of " 11 
+       "the 52 week average is " 9
+       "and the 200 day moving average is " 10)
+  "Template used to audio-format  rows."
+  :type '(repeat
+          (choice :tag "Entry"
+                  (integer :tag "Column Number:")
+                  (string :tag "Text")))
+  :group 'emacspeak-wizards)
+
 (defvar emacspeak-wizards-iex-portfolio-file
   (expand-file-name "portfolio.json" emacspeak-resource-directory)
   "Local file cache of IEX API data.")
@@ -3444,6 +3458,7 @@ P: Show live price for current stock."
     (funcall-interactively #'switch-to-buffer buff)
     (setq
      emacspeak-table-speak-element 'emacspeak-table-speak-both-headers-and-element
+     emacspeak-table-speak-row-filter emacspeak-wizards-iex-quotes-row-filter
      header-line-format
      (format "Stock Quotes From IEXTrading"))
     (put-text-property
