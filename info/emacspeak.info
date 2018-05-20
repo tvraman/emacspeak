@@ -16,7 +16,7 @@ Indirect:
 emacspeak.info-1: 327
 emacspeak.info-2: 306494
 emacspeak.info-3: 600856
-emacspeak.info-4: 901342
+emacspeak.info-4: 900672
 
 Tag Table:
 (Indirect)
@@ -287,58 +287,58 @@ Node: emacspeak-widget780403
 Node: emacspeak-windmove781897
 Node: emacspeak-winring782203
 Node: emacspeak-wizards782633
-Node: emacspeak-woman835191
-Node: emacspeak-xkcd835418
-Node: emacspeak-xml-shell836019
-Node: emacspeak-xref839239
-Node: emacspeak-xslt839520
-Node: emacspeak-yaml841365
-Node: emacspeak-yasnippet841620
-Node: espeak-voices842179
-Node: g842780
-Node: g-utils843103
-Node: gm-nnir844402
-Node: gmaps845221
-Node: ladspa850224
-Node: mac-voices852180
-Node: outloud-voices852553
-Node: plain-voices853341
-Node: soundscape853696
-Node: sox858561
-Node: sox-gen861414
-Node: stack-f867852
-Node: tetris868140
-Node: toy-braille868281
-Node: tts869118
-Node: tts-cmds871121
-Node: voice-setup871630
-Node: xbacklight879334
-Node: URL Templates880798
-Node: Emacspeak Keyboard Commands886799
-Node: TTS Servers888861
-Node: Emacspeak At Twenty895738
-Node: Turning Twenty897441
-Node: Using UNIX With Speech Output --- 1994898129
-Node: Key Enabler --- Emacs And Lisp Advice899970
-Node: Key Component --- Text To Speech (TTS)901342
-Node: Emacspeak And Software Development903886
-Node: Programming Defensively906502
-Node: Emacspeak And Authoring Documents907761
-Node: Emacspeak And The Early Days Of The Web909336
-Node: Audio Formatting --- Generalizing Aural CSS912784
-Node: Conversational Gestures For The Audio Desktop915852
-Node: Speech-Enabling Interactive Games919207
-Node: Accessing Media Streams920984
-Node: EBooks --- Ubiquitous Access To Books923091
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks925639
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols927505
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access930987
-Node: Mashing It Up --- Leveraging Evolving Web APIs934531
-Node: Conclusion --- Turning Twenty937036
-Node: References938418
-Node: Acknowledgments939348
-Node: Concept Index939506
-Node: Key Index943149
+Node: emacspeak-woman835566
+Node: emacspeak-xkcd835793
+Node: emacspeak-xml-shell836394
+Node: emacspeak-xref839614
+Node: emacspeak-xslt839895
+Node: emacspeak-yaml841740
+Node: emacspeak-yasnippet841995
+Node: espeak-voices842554
+Node: g843155
+Node: g-utils843478
+Node: gm-nnir844777
+Node: gmaps845596
+Node: ladspa850599
+Node: mac-voices852555
+Node: outloud-voices852928
+Node: plain-voices853716
+Node: soundscape854071
+Node: sox858936
+Node: sox-gen861789
+Node: stack-f868227
+Node: tetris868515
+Node: toy-braille868656
+Node: tts869493
+Node: tts-cmds871496
+Node: voice-setup872005
+Node: xbacklight879709
+Node: URL Templates881173
+Node: Emacspeak Keyboard Commands887174
+Node: TTS Servers889236
+Node: Emacspeak At Twenty896113
+Node: Turning Twenty897816
+Node: Using UNIX With Speech Output --- 1994898504
+Node: Key Enabler --- Emacs And Lisp Advice900672
+Node: Key Component --- Text To Speech (TTS)901717
+Node: Emacspeak And Software Development904261
+Node: Programming Defensively906877
+Node: Emacspeak And Authoring Documents908136
+Node: Emacspeak And The Early Days Of The Web909711
+Node: Audio Formatting --- Generalizing Aural CSS913159
+Node: Conversational Gestures For The Audio Desktop916227
+Node: Speech-Enabling Interactive Games919582
+Node: Accessing Media Streams921359
+Node: EBooks --- Ubiquitous Access To Books923466
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks926014
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols927880
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access931362
+Node: Mashing It Up --- Leveraging Evolving Web APIs934906
+Node: Conclusion --- Turning Twenty937411
+Node: References938793
+Node: Acknowledgments939723
+Node: Concept Index939881
+Node: Key Index943524
 
 End Tag Table
 

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1221 commands and 1176 options.
+This chapter documents a total of 1222 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -23620,7 +23620,7 @@ Display list of open EWW buffers.
 @end deffn
 
 @subsubsection emacspeak-wizards-finance-google-search
-@deffn {Command} emacspeak-wizards-finance-google-search   
+@deffn {Command} emacspeak-wizards-finance-google-search  (ticker)
 @table @kbd
 @item C-, f
 @kindex C-, f
@@ -23632,6 +23632,8 @@ Display list of open EWW buffers.
 
 @format
 Google Finance Search
+
+(fn TICKER)
 @end format
 @end deffn
 
@@ -23945,6 +23947,15 @@ Show financials for symbol in current row
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-iex-this-google-finance
+@deffn {Command} emacspeak-wizards-iex-this-google-finance   
+@findex emacspeak-wizards-iex-this-google-finance
+
+@format
+Lookup this ticker on Google Finance
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-iex-this-news
 @deffn {Command} emacspeak-wizards-iex-this-news   
 @findex emacspeak-wizards-iex-this-news
@@ -24233,6 +24244,7 @@ Top-level dispatch for looking up Stock Market information.
 
 Key:Action
 f: Financials
+G: finance Google Search
 n: News
 p: Price
 q: Quotes
@@ -24994,6 +25006,11 @@ Find switches whose args need quoting.
 
 @defvar {User Option} emacspeak-wizards-find-switches-widget
 Widget to get find switch.
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-iex-quotes-row-filter
+Template used to audio-format  rows.
 
 @end defvar
 
