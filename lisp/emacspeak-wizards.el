@@ -3572,6 +3572,7 @@ Optional interactive prefix arg refreshes cache."
 
 Key:Action
 f: Financials
+G: finance Google Search
 n: News
 p: Price
 q: Quotes
