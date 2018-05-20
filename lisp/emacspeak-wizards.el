@@ -3059,12 +3059,13 @@ per headers."
 ;;}}}
 ;;{{{ google Finance  Search Wizard
 
-(defun emacspeak-wizards-finance-google-search  ()
+(defun emacspeak-wizards-finance-google-search  (ticker)
   "Google Finance Search"
-  (interactive)
-  (require 'emacspeak-url-template)
-  (let ((name "Finance Google Search"))
-    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+  (interactive "sTicker: ")
+  (emacspeak-we-extract-by-id
+   "res"
+   (format "https://finance.google.com/finance?q=%s"  ticker)
+   'speak))
 
 ;;}}}
 ;;{{{ YQL: Stock Quotes
@@ -3389,6 +3390,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
 (defvar ems--wizards-iex-quotes-keymap
   (let ((map (make-sparse-keymap)))
   (define-key map "F" 'emacspeak-wizards-iex-this-financials)
+  (define-key map "G" 'emacspeak-wizards-iex-this-google-finance)
   (define-key map "N" 'emacspeak-wizards-iex-this-news)
   (define-key map "P" 'emacspeak-wizards-iex-this-price)
   map)
@@ -3571,19 +3573,33 @@ q: Quotes
  for n in
  '(financials news price) do
  (eval
- `(defun
-      ,(intern (format "emacspeak-wizards-iex-this-%s" n))
-      ()
-      ,(format "Show %s for symbol in current row" n)
-    (interactive)
-    (funcall-interactively
-     (symbol-function
-           ',(intern (format "emacspeak-wizards-iex-show-%s" n)))
+  `(defun
+       ,(intern (format "emacspeak-wizards-iex-this-%s" n))
+       ()
+     ,(format "Show %s for symbol in current row" n)
+     (interactive)
+     (cl-declare (special emacspeak-table))
+     (funcall-interactively
+      (symbol-function
+       ',(intern (format "emacspeak-wizards-iex-show-%s" n)))
+      (aref
+       (aref
+        (emacspeak-table-elements emacspeak-table)
+        (emacspeak-table-current-row emacspeak-table))
+       1)))))
+
+(defun emacspeak-wizards-iex-this-google-finance ()
+  "Lookup this ticker on Google Finance"
+  (interactive )
+  (cl-declare (special emacspeak-table))
+  (funcall-interactively
+     #'emacspeak-wizards-finance-google-search
      (aref
       (aref
        (emacspeak-table-elements emacspeak-table)
        (emacspeak-table-current-row emacspeak-table))
-           1)))))
+           1))
+  )
 
 ;;}}}
 ;;{{{ Sports API:
