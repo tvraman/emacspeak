@@ -335,6 +335,7 @@ See  \\{soundscape-default-theme} for details."
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
     ("Still" (text-mode view-mode))
+    ("BuddhaLoop" (org-mode))
     ("SurfWaves"  (eww-mode))
     ("TonkSpace" (tabulated-list-mode))
     ("WaterFlow"  (dired-mode))
