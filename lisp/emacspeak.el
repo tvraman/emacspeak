@@ -279,6 +279,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "sgml-mode" 'emacspeak-sgml-mode)
 (emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
 (emacspeak-do-package-setup "shx" 'emacspeak-shx)
+(emacspeak-do-package-setup "sage-shell-mode" 'emacspeak-sage)
 (emacspeak-do-package-setup "slime" 'emacspeak-slime)
 (emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)
 (emacspeak-do-package-setup "smartparens" 'emacspeak-smartparens)
