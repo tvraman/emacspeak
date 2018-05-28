@@ -165,6 +165,7 @@ This chapter documents a total of 1222 commands and 1177 options.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
+* emacspeak-sage::Speech-enable SAGE.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak environment --loaded to start Emacspeak.
 * emacspeak-sgml-mode::Speech enable SGML mode.
@@ -16296,6 +16297,14 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @section emacspeak-ruby
 
 Provide additional advice to Ruby mode 
+
+@node emacspeak-sage
+@section emacspeak-sage
+
+SAGE == sage-shell-mode
+This is a major mode for interacting with sagemath
+ http://www.sagemath.org/
+An Open-source  Mathematical Software System.
 
 @node emacspeak-ses
 @section emacspeak-ses

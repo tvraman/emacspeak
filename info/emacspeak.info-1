@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 19, 2018.
+last updated on May 27, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2912,6 +2912,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
+* emacspeak-sage::Speech-enable SAGE.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak environment –loaded to start Emacspeak.
 * emacspeak-sgml-mode::Speech enable SGML mode.
