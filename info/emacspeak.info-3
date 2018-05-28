@@ -875,9 +875,9 @@ File: emacspeak.info,  Node: emacspeak-sage,  Next: emacspeak-ses,  Prev: emacsp
 12.159 emacspeak-sage
 =====================
 
-SAGE == sage-shell-mode This is a major mode for interacting with
-sagemath http://www.sagemath.org/ An Open-source Mathematical Software
-System.
+Speech-enable ‘sage-shell-mode’.  This is a major mode for interacting
+with ‘sage’, <http://www.sagemath.org/> An Open-source Mathematical
+Software System.
 
 
 File: emacspeak.info,  Node: emacspeak-ses,  Next: emacspeak-setup,  Prev: emacspeak-sage,  Up: Emacspeak Commands And Options

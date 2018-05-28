@@ -16301,9 +16301,9 @@ Provide additional advice to Ruby mode
 @node emacspeak-sage
 @section emacspeak-sage
 
-SAGE == sage-shell-mode
-This is a major mode for interacting with sagemath
- http://www.sagemath.org/
+Speech-enable @code{sage-shell-mode}.
+This is a major mode for interacting with @code{sage},
+ @url{http://www.sagemath.org/}
 An Open-source  Mathematical Software System.
 
 @node emacspeak-ses
