@@ -144,6 +144,10 @@ sage-shell:set-process-buffer
 
 ;;}}}
 ;;{{{ Advice Help:
+(defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (with-current-buffer (window-buffer (selected-window))
+    (emacspeak-auditory-icon 'help) (emacspeak-speak-buffer)))
 
 (cl-loop
  for f in 
