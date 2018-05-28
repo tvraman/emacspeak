@@ -59,15 +59,11 @@
 
 '(
   sage-mode
-
 sage-shell-blocks:backward
 sage-shell-blocks:forward
 sage-shell-blocks:pull-next
 sage-shell-blocks:send-current
-
-sage-shell-info
 sage-shell-info-send-doctest
-sage-shell-menu
 sage-shell-mode
 sage-shell-pdb:input-continue
 sage-shell-pdb:input-down
@@ -98,25 +94,19 @@ sage-shell-view-toggle-inline-plots
 sage-shell:attach-file
 sage-shell:check-ipython-version
 sage-shell:clear-current-buffer
-sage-shell:comint-send-input
-sage-shell:complete
-sage-shell:copy-previous-output-to-kill-ring
+
 sage-shell:define-alias
-sage-shell:delchar-or-maybe-eof
+
 sage-shell:delete-output
-
-
 sage-shell:ido-input-history
 sage-shell:interrupt-subjob
 sage-shell:list-outputs
 sage-shell:list-outputs-mode
 sage-shell:load-file
-sage-shell:next-input
-sage-shell:output-backward
-sage-shell:output-forward
+
 sage-shell:restart-sage
-sage-shell:run-new-sage
-sage-shell:run-sage
+
+
 sage-shell:sage-mode
 sage-shell:sagetex-load-file
 sage-shell:send-all-doctests
@@ -179,7 +169,43 @@ sage-shell:set-process-buffer
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
-;;{{{ comint interaction:
+;;{{{ sage comint interaction:
+(defadvice sage-shell:delchar-or-maybe-eof (around emacspeak pre act comp)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p)
+    (cond
+     ((= (point) (point-max))
+      (message "Sending EOF to comint process"))
+     (t (dtk-tone-deletion)
+        (emacspeak-speak-char t)))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice sage-shell:delete-output (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+(cl-loop
+ for f in 
+ '(sage-shell:run-new-sage sage-shell:run-sage)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-mode-line)))))
+
+
+(defadvice sage-shell:copy-previous-output-to-kill-ring (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'yank-object)
+    (call-interactively #'emacspeak-speak-current-kill)))
 
 (defadvice sage-shell:send-input (after emacspeak pre act comp)
   "Provide auditory feedback."
