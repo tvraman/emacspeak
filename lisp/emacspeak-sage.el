@@ -179,16 +179,20 @@ sage-shell:set-process-buffer
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
-(provide 'emacspeak-sage)
 ;;{{{ comint interaction:
 
 (defadvice sage-shell:send-input (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-speak-line)
+    (sit-for .01)
+    (accept-process-output)
+    (dtk-speak
+     (apply #'buffer-substring-no-properties
+                     (sage-shell:last-output-beg-end)))
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
+(provide 'emacspeak-sage)
 ;;{{{ end of file
 
 ;;; local variables:
