@@ -81,9 +81,9 @@ sage-shell-edit:send-line*
 sage-shell-edit:send-line-and-go
 sage-shell-edit:send-region
 sage-shell-edit:send-region-and-go
-sage-shell-help:backward-history
-sage-shell-help:forward-history
-sage-shell-help:send-current-line
+
+
+
 sage-shell-info
 sage-shell-info-send-doctest
 sage-shell-menu
@@ -123,8 +123,8 @@ sage-shell:copy-previous-output-to-kill-ring
 sage-shell:define-alias
 sage-shell:delchar-or-maybe-eof
 sage-shell:delete-output
-sage-shell:help
-sage-shell:help-mode
+
+
 sage-shell:ido-input-history
 sage-shell:interrupt-subjob
 sage-shell:list-outputs
@@ -144,6 +144,24 @@ sage-shell:send-eof
 sage-shell:send-input
 sage-shell:set-process-buffer
 )
+
+;;}}}
+;;{{{ Advice Help:
+
+(cl-loop
+ for f in 
+ '(
+   sage-shell-help:forward-history sage-shell-help:backward-history
+   sage-shell:help )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp )
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'help)
+       (emacspeak-speak-buffer)))))
+
+(emacspeak-auditory-icon 'help)
 
 ;;}}}
 (provide 'emacspeak-sage)
