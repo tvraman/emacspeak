@@ -185,6 +185,7 @@ sage-shell:set-process-buffer
 (defadvice sage-shell:send-input (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
