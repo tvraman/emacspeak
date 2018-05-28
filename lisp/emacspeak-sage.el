@@ -182,16 +182,10 @@ sage-shell:set-process-buffer
 (provide 'emacspeak-sage)
 ;;{{{ comint interaction:
 
-(defadvice sage-shell:send-input (around emacspeak pre act comp)
+(defadvice sage-shell:send-input (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cond
-   ((ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (let ((orig (line-beginning-position)))
-      ad-do-it
-      (emacspeak-speak-region orig (point))))
-(t ad-do-it))
-  ad-return-value)
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
 ;;{{{ end of file
