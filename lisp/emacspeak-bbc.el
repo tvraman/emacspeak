@@ -242,7 +242,7 @@ Date defaults to today."
 ;;;###autoload
 (defun emacspeak-bbc-get-iplayer-stream-pid (pid)
   "Stream using get_iplayer."
-  (interactive "sURL: ")
+  (interactive "sPid ")
   (cl-declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
   (let
       ((command
