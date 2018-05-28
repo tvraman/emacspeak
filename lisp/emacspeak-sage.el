@@ -81,9 +81,6 @@ sage-shell-edit:send-line*
 sage-shell-edit:send-line-and-go
 sage-shell-edit:send-region
 sage-shell-edit:send-region-and-go
-
-
-
 sage-shell-info
 sage-shell-info-send-doctest
 sage-shell-menu
