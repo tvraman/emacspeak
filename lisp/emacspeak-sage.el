@@ -59,28 +59,12 @@
 
 '(
   sage-mode
-sage-shell-adjust-window-size
+
 sage-shell-blocks:backward
 sage-shell-blocks:forward
 sage-shell-blocks:pull-next
 sage-shell-blocks:send-current
-sage-shell-edit:attach-file
-sage-shell-edit:load-current-file
-sage-shell-edit:load-current-file-and-go
-sage-shell-edit:load-file
-sage-shell-edit:load-file-and-go
-sage-shell-edit:pop-to-process-buffer
-sage-shell-edit:send--buffer
-sage-shell-edit:send--buffer-and-go
-sage-shell-edit:send-buffer
-sage-shell-edit:send-buffer-and-go
-sage-shell-edit:send-defun
-sage-shell-edit:send-defun-and-go
-sage-shell-edit:send-line
-sage-shell-edit:send-line*
-sage-shell-edit:send-line-and-go
-sage-shell-edit:send-region
-sage-shell-edit:send-region-and-go
+
 sage-shell-info
 sage-shell-info-send-doctest
 sage-shell-menu
@@ -165,7 +149,51 @@ sage-shell:set-process-buffer
 (emacspeak-auditory-icon 'help)
 
 ;;}}}
+;;{{{ Advice sage-edit:
+
+(cl-loop
+ for f in 
+ '(
+   sage-shell-edit:load-current-file
+   sage-shell-edit:load-current-file-and-go
+   sage-shell-edit:load-file
+   sage-shell-edit:load-file-and-go
+   sage-shell-edit:pop-to-process-buffer
+   sage-shell-edit:send--buffer
+   sage-shell-edit:send--buffer-and-go
+   sage-shell-edit:send-buffer
+   sage-shell-edit:send-buffer-and-go
+   sage-shell-edit:send-defun
+   sage-shell-edit:send-defun-and-go
+   sage-shell-edit:send-line
+   sage-shell-edit:send-line*
+   sage-shell-edit:send-line-and-go
+   sage-shell-edit:send-region
+   sage-shell-edit:send-region-and-go)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-mode-line)))))
+
+;;}}}
 (provide 'emacspeak-sage)
+;;{{{ comint interaction:
+
+(defadvice sage-shell:send-input (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (let ((orig (line-beginning-position)))
+      ad-do-it
+      (emacspeak-speak-region orig (point))))
+(t ad-do-it))
+  ad-return-value)
+
+;;}}}
 ;;{{{ end of file
 
 ;;; local variables:
