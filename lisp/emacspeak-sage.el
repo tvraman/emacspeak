@@ -69,19 +69,18 @@
   (cl-assert
    (memq  major-mode '(sage-shell-mode sage-shell:sage-mode))
    t "Not in a Sage buffer")
-  (cond
-   ((eq major-mode 'sage-shell-mode)
-    (dtk-speak
-     (apply #'buffer-substring-no-properties
-            (sage-shell:last-output-beg-end))))
-   ((eq major-mode 'sage-shell:sage-mode)
-    (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
+  (cl-flet
+      ((say-it ()
+               (dtk-speak
+                (apply #'buffer-substring (sage-shell:last-output-beg-end)))))
+    (cond
+     ((eq major-mode 'sage-shell-mode) (say-it))
+     ((eq major-mode 'sage-shell:sage-mode)
+      (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
 ;;; Take the first one for now:
-    (with-current-buffer
-        (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
-      (dtk-speak
-       (apply #'buffer-substring-no-properties
-              (sage-shell:last-output-beg-end)))))))
+      (with-current-buffer
+          (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
+        (say-it))))))
     
    
 ;;}}}
