@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1222 commands and 1177 options.
+This chapter documents a total of 1223 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1624,6 +1624,15 @@ Give a brief overview of emacspeak.
 
 @format
 Open Emacspeak Info Manual.
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-speak-output
+@deffn {Command} emacspeak-sage-speak-output   
+@findex emacspeak-sage-speak-output
+
+@format
+Speak last output from Sage.
 @end format
 @end deffn
 

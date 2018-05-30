@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 27, 2018.
+last updated on May 29, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1222 commands and 1177 options.
+   This chapter documents a total of 1223 commands and 1177 options.
 
 * Menu:
 
@@ -4109,7 +4109,14 @@ system.
 
      Open Emacspeak Info Manual.
 
-12.9.1.4 emacspeak-submit-bug
+12.9.1.4 emacspeak-sage-speak-output
+....................................
+
+ -- Command: emacspeak-sage-speak-output
+
+     Speak last output from Sage.
+
+12.9.1.5 emacspeak-submit-bug
 .............................
 
  -- Command: emacspeak-submit-bug
