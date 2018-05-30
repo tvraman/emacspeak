@@ -76,13 +76,13 @@
     (cond
      ((eq major-mode 'sage-shell-mode) (say-it))
      ((eq major-mode 'sage-shell:sage-mode)
-      (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
+      (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
 ;;; Take the first one for now:
       (with-current-buffer
           (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
         (say-it))))))
-    
-   
+
+
 ;;}}}
 ;;{{{ Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
@@ -149,7 +149,7 @@
 ;;{{{ sage-mode navigation:
 
 (cl-loop
- for f in 
+ for f in
  '(sage-shell-blocks:forward sage-shell-blocks:backward)
  do
  (eval
@@ -158,7 +158,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
-
 
 ;;}}}
 ;;{{{ sage comint interaction:
@@ -192,7 +191,8 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-mode-line)))))
 
-(defadvice sage-shell:copy-previous-output-to-kill-ring (after emacspeak pre act comp)
+(defadvice sage-shell:copy-previous-output-to-kill-ring
+    (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
@@ -210,7 +210,7 @@
 ;;{{{ sage sagetext:
 
 (cl-loop
- for f in 
+ for f in
  '(sage-shell-sagetex:compile-current-file
    sage-shell-sagetex:compile-file
    sage-shell-sagetex:error-mode
@@ -230,7 +230,8 @@
 ;;}}}
 ;;{{{ Keybindings:
 (cl-declaim (special sage-shell:sage-mode-map))
-(define-key sage-shell:sage-mode-map (kbd "C-C SPC") 'emacspeak-sage-speak-output)
+(define-key sage-shell:sage-mode-map (kbd "C-C SPC")
+  'emacspeak-sage-speak-output)
 
 ;;}}}
 (provide 'emacspeak-sage)
