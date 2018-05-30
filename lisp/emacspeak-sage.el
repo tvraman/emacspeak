@@ -289,6 +289,11 @@
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
+;;{{{ Keybindings:
+(cl-declaim (special sage-shell:sage-mode-map))
+(define-key sage-shell:sage-mode-map (kbd "C-C SPC") 'emacspeak-sage-speak-output)
+
+;;}}}
 (provide 'emacspeak-sage)
 ;;{{{ end of file
 
