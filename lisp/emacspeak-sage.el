@@ -139,7 +139,7 @@
    (apply #'buffer-substring-no-properties
           (sage-shell:last-output-beg-end))))))))
     
-   )))
+   
 ;;}}}
 ;;{{{ Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
