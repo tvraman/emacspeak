@@ -133,7 +133,7 @@
     (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
     ;;; Take the cl-first one for now:
     (let ((buff
-           (process-buffer (car (first  (sage-shell-edit:process-alist))))))
+           (process-buffer (car (cl-  (sage-shell-edit:process-alist))))))
       (with-current-buffer buff
         (dtk-speak
    (apply #'buffer-substring-no-properties
