@@ -59,11 +59,11 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (defun vm-chromium ()
   "Run Chromium on current link."
   (interactive)
-  (let ((url
-         (or (get-text-property (point) 'shr-url) (browse-url-url-at-point))))
+  (let ((url (browse-url-url-at-point)))
     (unless url (error "No link here."))
+    (dtk-stop)
     (browse-url-chrome url)
-    (message "Opening %s with Chrome" url)))
+    (message "Opening url with Chrome")))
 
 (define-key vm-mode-map "C" 'vm-chromium)
 (define-key vm-mode-map "o" 'mspools-show)
