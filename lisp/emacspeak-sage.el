@@ -230,7 +230,7 @@
 ;;}}}
 ;;{{{ Keybindings:
 (cl-declaim (special sage-shell:sage-mode-map))
-(define-key sage-shell:sage-mode-map (kbd "C-C s")
+(define-key sage-shell:sage-mode-map (kbd "C-C SPC")
   'emacspeak-sage-speak-output)
 
 ;;}}}
