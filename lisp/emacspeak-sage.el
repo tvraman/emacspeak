@@ -116,6 +116,12 @@
   )
 
 ;;}}}
+;;{{{ Forward Decls:
+
+(declare-function sage-shell-edit:process-alist "sage-shell-mode" nil)
+(declare-function sage-shell:last-output-beg-end "sage-shell-mode" nil)
+
+;;}}}
 ;;{{{ Helpers:
 
 (defun emacspeak-sage-speak-output ()
@@ -127,17 +133,16 @@
   (cond
    ((eq major-mode 'sage-shell-mode)
     (dtk-speak
-   (apply #'buffer-substring-no-properties
-          (sage-shell:last-output-beg-end))))
+     (apply #'buffer-substring-no-properties
+            (sage-shell:last-output-beg-end))))
    ((eq major-mode 'sage-shell:sage-mode)
     (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
-    ;;; Take the cl-first one for now:
-    (let ((buff
-           (process-buffer (car (cl-  (sage-shell-edit:process-alist))))))
-      (with-current-buffer buff
-        (dtk-speak
-   (apply #'buffer-substring-no-properties
-          (sage-shell:last-output-beg-end))))))))
+;;; Take the first one for now:
+    (with-current-buffer
+        (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
+      (dtk-speak
+       (apply #'buffer-substring-no-properties
+              (sage-shell:last-output-beg-end)))))))
     
    
 ;;}}}
@@ -179,8 +184,6 @@
    sage-shell-edit:send-buffer-and-go
    sage-shell-edit:send-defun
    sage-shell-edit:send-defun-and-go
-   sage-shell-edit:send-line
-   sage-shell-edit:send-line*
    sage-shell-edit:send-line-and-go
    sage-shell-edit:send-region
    sage-shell-edit:send-region-and-go)
@@ -189,8 +192,19 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)
-       (emacspeak-sage-speak-output)))))
+       (emacspeak-auditory-icon 'task-done)))))
+
+(cl-loop
+ for f in
+ '(sage-shell-edit:send-line sage-shell-edit:send-line*)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done))
+     (sit-for 0.1)
+     (emacspeak-sage-speak-output))))
 
 ;;}}}
 ;;{{{ sage comint interaction:
