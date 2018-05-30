@@ -55,66 +55,6 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ Interactive Commands:
-
-'(
-  sage-mode
-  
-  sage-shell-blocks:pull-next
-  sage-shell-blocks:send-current
-  sage-shell-info-send-doctest
-  sage-shell-mode
-  sage-shell-pdb:input-continue
-  sage-shell-pdb:input-down
-  sage-shell-pdb:input-help
-  sage-shell-pdb:input-next
-  sage-shell-pdb:input-quit
-  sage-shell-pdb:input-run
-  sage-shell-pdb:input-step
-  sage-shell-pdb:input-until
-  sage-shell-pdb:input-up
-  sage-shell-pdb:input-where
-  sage-shell-pdb:set-break-point-at-point
-  sage-shell-sagetex:compile-current-file
-  sage-shell-sagetex:compile-file
-  sage-shell-sagetex:error-mode
-  sage-shell-sagetex:load-current-file
-  sage-shell-sagetex:load-file
-  sage-shell-sagetex:run-latex-and-load-current-file
-  sage-shell-sagetex:run-latex-and-load-file
-  sage-shell-sagetex:send-environment
-  sage-shell-tab-command
-  sage-shell-view
-  sage-shell-view-enable-inline-output
-  sage-shell-view-enable-inline-plots
-  sage-shell-view-mode
-  sage-shell-view-toggle-inline-output
-  sage-shell-view-toggle-inline-plots
-  sage-shell:attach-file
-  sage-shell:check-ipython-version
-  sage-shell:clear-current-buffer
-
-  sage-shell:define-alias
-
-  sage-shell:delete-output
-  sage-shell:ido-input-history
-  sage-shell:interrupt-subjob
-  sage-shell:list-outputs
-  sage-shell:list-outputs-mode
-  sage-shell:load-file
-
-  sage-shell:restart-sage
-
-  sage-shell:sage-mode
-  sage-shell:sagetex-load-file
-  sage-shell:send-all-doctests
-  sage-shell:send-doctest
-  sage-shell:send-eof
-  sage-shell:send-input
-  sage-shell:set-process-buffer
-  )
-
-;;}}}
 ;;{{{ Forward Decls:
 
 (declare-function sage-shell-edit:process-alist "sage-shell-mode" nil)
