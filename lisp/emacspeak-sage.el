@@ -116,6 +116,16 @@
   )
 
 ;;}}}
+;;{{{ Helpers:
+
+(defun emacspeak-sage-speak-output ()
+  "Speak last output from Sage."
+  (cl-assert (eq major-mode 'sage-shell-mode) t "Not in a Sage Shell")
+  (dtk-speak
+   (apply #'buffer-substring-no-properties
+          (sage-shell:last-output-beg-end))))
+
+;;}}}
 ;;{{{ Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -210,9 +220,7 @@
   (when (ems-interactive-p)
     (sit-for .01)
     (accept-process-output)
-    (dtk-speak
-     (apply #'buffer-substring-no-properties
-            (sage-shell:last-output-beg-end)))
+    (emacspeak-sage-speak-output)
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
