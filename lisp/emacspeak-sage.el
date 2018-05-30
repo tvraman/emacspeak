@@ -59,8 +59,7 @@
 
 '(
   sage-mode
-  sage-shell-blocks:backward
-  sage-shell-blocks:forward
+  
   sage-shell-blocks:pull-next
   sage-shell-blocks:send-current
   sage-shell-info-send-doctest
@@ -173,6 +172,7 @@
 (cl-loop
  for f in
  '(
+   sage-shell-blocks:send-current
    sage-shell-edit:load-current-file
    sage-shell-edit:load-current-file-and-go
    sage-shell-edit:load-file
@@ -205,6 +205,21 @@
        (emacspeak-auditory-icon 'task-done))
      (sit-for 0.1)
      (emacspeak-sage-speak-output))))
+
+;;}}}
+;;{{{ sage-mode navigation:
+
+(cl-loop
+ for f in 
+ '(sage-shell-blocks:forward sage-shell-blocks:backward)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 ;;{{{ sage comint interaction:
