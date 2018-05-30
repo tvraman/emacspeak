@@ -120,11 +120,26 @@
 
 (defun emacspeak-sage-speak-output ()
   "Speak last output from Sage."
-  (cl-assert (eq major-mode 'sage-shell-mode) t "Not in a Sage Shell")
-  (dtk-speak
+  (interactive)
+  (cl-assert
+   (memq  major-mode '(sage-shell-mode sage-shell:sage-mode))
+   t "Not in a Sage buffer")
+  (cond
+   ((eq major-mode 'sage-shell-mode)
+    (dtk-speak
    (apply #'buffer-substring-no-properties
           (sage-shell:last-output-beg-end))))
-
+   ((eq major-mode 'sage-shell:sage-mode)
+    (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
+    ;;; Take the first one for now:
+    (let ((buff
+           (process-buffer (car (first  (sage-shell-edit:process-alist))))))
+      (with-current-buffer buff
+        (dtk-speak
+   (apply #'buffer-substring-no-properties
+          (sage-shell:last-output-beg-end))))))))
+    
+   )))
 ;;}}}
 ;;{{{ Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
@@ -175,7 +190,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
-       (emacspeak-speak-mode-line)))))
+       (emacspeak-sage-speak-output)))))
 
 ;;}}}
 ;;{{{ sage comint interaction:
