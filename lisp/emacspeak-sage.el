@@ -131,7 +131,7 @@
           (sage-shell:last-output-beg-end))))
    ((eq major-mode 'sage-shell:sage-mode)
     (cl-assert   (sage-shell-edit:process-alist) t "No running Sage processes.")
-    ;;; Take the first one for now:
+    ;;; Take the cl-first one for now:
     (let ((buff
            (process-buffer (car (first  (sage-shell-edit:process-alist))))))
       (with-current-buffer buff
