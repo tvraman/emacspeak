@@ -412,6 +412,13 @@ Provide contextual feedback when closing blocks"
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-rest-of-buffer)))
 
+(defadvice py-help-at-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (dtk-stop)
+    (emacspeak-speak-buffer)))
+
 ;;}}}
 
 (provide 'emacspeak-py)
