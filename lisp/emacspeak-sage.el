@@ -57,11 +57,20 @@
 ;;}}}
 ;;{{{ Forward Decls:
 
+(declare-function sage-shell:-send-input-one-line "sage-shell-mode" (line))
+(declare-function  sage-shell-help:describe-symbol "emacspeak-sage" t)
 (declare-function sage-shell-edit:process-alist "sage-shell-mode" nil)
 (declare-function sage-shell:last-output-beg-end "sage-shell-mode" nil)
 
 ;;}}}
 ;;{{{ Helpers:
+
+(defun emacspeak-sage-get-output ()
+  "Return most recent Sage output"
+  (interactive )
+  (with-current-buffer
+          (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
+  (apply #'buffer-substring (sage-shell:last-output-beg-end))))
 
 (defun emacspeak-sage-speak-output ()
   "Speak last output from Sage."
@@ -81,6 +90,19 @@
       (with-current-buffer
           (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
         (say-it))))))
+
+
+(defun emacspeak-sage-get-output-as-latex ()
+  "Return most recent Sage output as LaTeX markup."
+  (interactive )
+  (cl-assert (eq major-mode 'sage-shell:sage-mode) t "Not in a sage buffer")
+  (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
+  (let ((orig (emacspeak-sage-get-output)))
+    (with-current-buffer
+        (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
+      (sage-shell:-send-input-one-line (format "latex(%s)" orig))
+      (sit-for .1)
+      (emacspeak-sage-get-output))))
 
 ;;}}}
 ;;{{{ Advice Help:

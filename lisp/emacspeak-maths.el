@@ -388,6 +388,17 @@ Set calc-language to tex to use this feature."
   (calc-kill 1 'no-delete)
   (substring (car calc-last-kill) 2))
 
+
+;;; Guess expression from sage
+
+(declare-function emacspeak-sage-get-output-as-latex "emacspeak-sage" nil)
+
+(defun emacspeak-maths-guess-sage ()
+  "Guess expression to speak in sage-mode buffers."
+  (cl-assert (eq major-mode 'sage-shell:sage-mode) nil "This is not a Sage buffer.")
+    (sit-for 0.1)
+    (emacspeak-sage-get-output-as-latex))
+    
 ;;; Helper: Guess current math expression from TeX/LaTeX
 
 (defun emacspeak-maths-guess-tex ()
@@ -443,6 +454,8 @@ Set calc-language to tex to use this feature."
        (cond
         ((eq major-mode 'calc-mode)
          (emacspeak-maths-guess-calc))
+        ((eq major-mode 'sage-shell:sage-mode)
+         (emacspeak-maths-guess-sage))
         ((and (memq major-mode '(tex-mode plain-tex-mode latex-mode ams-tex-mode))
               (featurep 'texmathp))
          (emacspeak-maths-guess-tex))
