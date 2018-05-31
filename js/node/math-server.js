@@ -114,7 +114,7 @@ net.createServer(function(socket) {
      }
 
      // Announce yourself:
-     socket.write('(welcome  \"Maths Speech  Server! \") ');
+     socket.write('(welcome  \"Maths Speech  Server! \")\n ');
      // Handle incoming messages from Emacs:
      socket.on('data', function(data) {
        respond(data, socket);
