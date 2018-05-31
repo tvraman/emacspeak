@@ -97,12 +97,15 @@
   (interactive )
   (cl-assert (eq major-mode 'sage-shell:sage-mode) t "Not in a sage buffer")
   (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
-  (let ((orig (emacspeak-sage-get-output)))
+  (let ((orig (emacspeak-sage-get-output))
+        (result nil))
     (with-current-buffer
         (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
       (sage-shell:-send-input-one-line (format "latex(%s)" orig))
       (sit-for .1)
-      (emacspeak-sage-get-output))))
+      (setq result (emacspeak-sage-get-output))
+      (sage-shell:delete-output)
+      result)))
 
 ;;}}}
 ;;{{{ Advice Help:
