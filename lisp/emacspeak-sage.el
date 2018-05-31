@@ -82,7 +82,6 @@
           (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
         (say-it))))))
 
-
 ;;}}}
 ;;{{{ Advice Help:
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
@@ -228,8 +227,28 @@
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
+;;{{{ Additional Interactive Commands:
+
+(defun emacspeak-sage-describe-symbol (s)
+  "Describe Sage symbol at point."
+  (interactive
+   (list
+    (read-from-minibuffer
+     "Sage Symbol: "
+     (format "%s" (symbol-at-point)))))
+  (cl-assert (eq  major-mode  'sage-shell:sage-mode) t "Not in a Sage buffer")
+  (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
+;;; Take the first one for now:
+  (with-current-buffer
+      (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
+    (sage-shell-help:describe-symbol s)))
+
+;;}}}
 ;;{{{ Keybindings:
+
 (cl-declaim (special sage-shell:sage-mode-map))
+(define-key sage-shell:sage-mode-map (kbd "C-C h")
+  'emacspeak-sage-describe-symbol)
 (define-key sage-shell:sage-mode-map (kbd "C-C SPC")
   'emacspeak-sage-speak-output)
 
