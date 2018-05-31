@@ -494,7 +494,14 @@ Optional interactive prefix arg shuffles playlist."
         (emacspeak-m-player  m3u 'play-list)))))
 
     ;;}}}
+;;{{{ Open Downloads:
+;;;###autoload
+(defun emacspeak-dired-downloads ()
+  "Open Downloads directory."
+  (interactive)
+  (funcall-interactively 'dired (expand-file-name "~/Downloads") "-alt"))
 
+;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
 

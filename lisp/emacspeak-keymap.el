@@ -613,6 +613,7 @@ interactive command that the key sequence executes."
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("d" emacspeak-dired-downloads)
     ("e" eww)
     ("f" emacspeak-wizards-finance-google-search)
     ("g" emacspeak-gnus-async)
