@@ -160,6 +160,14 @@
 
 ;;}}}
 ;;{{{ sage comint interaction:
+(defadvice sage-shell:list-outputs (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (with-current-buffer (window-buffer (selected-window))
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-line))))
+
+
 (defadvice sage-shell:delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."
   (cond
