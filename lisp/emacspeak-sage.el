@@ -278,12 +278,15 @@
 
 ;;}}}
 ;;{{{ Keybindings:
-
 (cl-declaim (special sage-shell:sage-mode-map))
-(define-key sage-shell:sage-mode-map (kbd "C-C h")
-  'emacspeak-sage-describe-symbol)
-(define-key sage-shell:sage-mode-map (kbd "C-C SPC")
-  'emacspeak-sage-speak-output)
+(cl-loop
+ for b in
+ '(
+   ("C-c h" emacspeak-sage-describe-symbol)
+   ("C-C SPC" emacspeak-sage-speak-output)
+   ("C-C m" emacspeak-maths-enter-guess))
+ do
+ (emacspeak-keymap-update sage-shell:sage-mode-map b))
 
 ;;}}}
 (provide 'emacspeak-sage)
