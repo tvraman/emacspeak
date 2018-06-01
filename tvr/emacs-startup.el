@@ -6,6 +6,7 @@
 ;;; September 2017: Optimized and Cleaned Up
 ;;}}}
 ;;{{{ Fix system-users:
+
 (defadvice system-users (around  fix pre act comp)
   "Just return user real name."
   (list user-real-login-name))
@@ -175,6 +176,12 @@
   (smartparens-mode 1)
   (yas-minor-mode 1)
   (abbrev-mode 1))
+;;; prescient and company:
+(when (locate-library "prescient")
+  (load-library "prescient")
+  (prescient-persist-mode 1))
+(when (locate-library "company-prescient")
+  (company-prescient-mode 1));;}}}
 
 ;;}}}
 (defun tvr-emacs()
@@ -280,6 +287,9 @@
 (declare-function auto-correct-mode "auto-correct" (&optional arg))
 (declare-function company-mode "company" (&optional arg))
 (declare-function smartparens-mode "smartparens" (&optional arg))
+(declare-function  company-prescient-mode "emacs-startup" t)
+(declare-function prescient-persist-mode "prescient" (&optional arg))
+(declare-function yas-minor-mode "yasnippet" (&optional arg))
 
 
 ;;}}}
