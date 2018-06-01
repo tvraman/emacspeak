@@ -56,7 +56,7 @@
 
 ;;}}}
 ;;{{{ Forward Decls:
-
+(declare-function sage-shell:delete-output "sage-shell-mode" nil)
 (declare-function sage-shell:-send-input-one-line "sage-shell-mode" (line))
 (declare-function  sage-shell-help:describe-symbol "emacspeak-sage" t)
 (declare-function sage-shell-edit:process-alist "sage-shell-mode" nil)
