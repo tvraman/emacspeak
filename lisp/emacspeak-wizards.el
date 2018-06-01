@@ -2768,9 +2768,11 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     result))
 
 ;;;###autoload
-(defun emacspeak-wizards-enumerate-uncovered-commands (pattern)
-  "Enumerate unadvised commands matching pattern."
-  (interactive "sFilter Regex:")
+(defun emacspeak-wizards-enumerate-uncovered-commands (pattern &optional bound-only)
+  "Enumerate unadvised commands matching pattern.
+Optional interactive prefix arg `bound-only'
+filters out commands that dont have an active key-binding."
+  (interactive "sFilter Regex:\nP")
   (let ((result nil))
     (mapatoms
      #'(lambda (s)
@@ -2779,6 +2781,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                (and
                 (string-match pattern  name)
                 (commandp s)
+                (if bound-only (where-is-internal s nil nil t) t )
                 (not (string-match "^emacspeak" name))
                 (not (string-match "^ad-Orig" name))
                 (not (ad-find-some-advice s 'any  "emacspeak")))
