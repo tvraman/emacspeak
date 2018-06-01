@@ -677,6 +677,7 @@ command that the key sequence executes."
 
 (defcustom emacspeak-hyper-keys 
   '(
+    ("C-e" eshell)
     ("TAB" hippie-expand)
     ("C-r" flx-isearch-backward)
     ("C-s" flx-isearch-forward)
