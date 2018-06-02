@@ -1636,7 +1636,7 @@ mapped to voices.
     "index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands">
     </a>Command:
     <strong>emacspeak-wizards-enumerate-uncovered-commands</strong>
-    <em>(pattern)</em></dt>
+    <em>(pattern &amp;optional bound-only)</em></dt>
     <dd>
       <a name=
       "index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands-1"
@@ -1646,8 +1646,10 @@ mapped to voices.
       <div class="format">
         <pre class="format">
         Enumerate unadvised commands matching pattern.
+Optional interactive prefix arg ‘bound-only’
+filters out commands that dont have an active key-binding.
 
-(fn PATTERN)
+(fn PATTERN &amp;optional BOUND-ONLY)
 </pre>
       </div>
     </dd>
