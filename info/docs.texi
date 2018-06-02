@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1223 commands and 1177 options.
+This chapter documents a total of 1227 commands and 1177 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1502,6 +1502,7 @@ Press C-; to access keybindings in emacspeak-hyper-keymap:
 key             binding
 ---             -------
 
+C-e		eshell
 TAB		hippie-expand
 C-r		flx-isearch-backward
 C-s		flx-isearch-forward
@@ -1577,6 +1578,7 @@ key             binding
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
+d		emacspeak-dired-downloads
 e		eww
 f		emacspeak-wizards-finance-google-search
 g		emacspeak-gnus-async
@@ -1624,6 +1626,35 @@ Give a brief overview of emacspeak.
 
 @format
 Open Emacspeak Info Manual.
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-describe-symbol
+@deffn {Command} emacspeak-sage-describe-symbol  (s)
+@findex emacspeak-sage-describe-symbol
+
+@format
+Describe Sage symbol at point.
+
+(fn S)
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-get-output
+@deffn {Command} emacspeak-sage-get-output   
+@findex emacspeak-sage-get-output
+
+@format
+Return most recent Sage output
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-get-output-as-latex
+@deffn {Command} emacspeak-sage-get-output-as-latex   
+@findex emacspeak-sage-get-output-as-latex
+
+@format
+Return most recent Sage output as LaTeX markup.
 @end format
 @end deffn
 
@@ -6261,6 +6292,22 @@ Voicification is used to indicate directories, marked files etc.
 
 @format
 Open CSV file on current dired line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dired-downloads
+@deffn {Command} emacspeak-dired-downloads   
+@table @kbd
+@item C-, d
+@kindex C-, d
+@item C-x @@ a d
+@kindex C-x @@ a d
+@end table
+
+@findex emacspeak-dired-downloads
+
+@format
+Open Downloads directory.
 @end format
 @end deffn
 
@@ -23575,13 +23622,15 @@ mapped to voices.
 @end deffn
 
 @subsubsection emacspeak-wizards-enumerate-uncovered-commands
-@deffn {Command} emacspeak-wizards-enumerate-uncovered-commands  (pattern)
+@deffn {Command} emacspeak-wizards-enumerate-uncovered-commands  (pattern &optional bound-only)
 @findex emacspeak-wizards-enumerate-uncovered-commands
 
 @format
 Enumerate unadvised commands matching pattern.
+Optional interactive prefix arg ‘bound-only’
+filters out commands that dont have an active key-binding.
 
-(fn PATTERN)
+(fn PATTERN &optional BOUND-ONLY)
 @end format
 @end deffn
 

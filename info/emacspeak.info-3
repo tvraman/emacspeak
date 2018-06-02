@@ -6347,11 +6347,14 @@ Contains various wizards for the Emacspeak desktop.
 12.204.1.55 emacspeak-wizards-enumerate-uncovered-commands
 ..........................................................
 
- -- Command: emacspeak-wizards-enumerate-uncovered-commands (pattern)
+ -- Command: emacspeak-wizards-enumerate-uncovered-commands (pattern
+          &optional bound-only)
 
      Enumerate unadvised commands matching pattern.
+     Optional interactive prefix arg ‘bound-only’
+     filters out commands that dont have an active key-binding.
 
-     (fn PATTERN)
+     (fn PATTERN &optional BOUND-ONLY)
 
 12.204.1.56 emacspeak-wizards-enumerate-unmapped-faces
 ......................................................
