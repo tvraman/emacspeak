@@ -181,6 +181,7 @@
   (load-library "prescient")
   (prescient-persist-mode 1))
 (when (locate-library "company-prescient")
+  (load-library "company-prescient")
   (company-prescient-mode 1));;}}}
 
 ;;}}}
