@@ -4095,8 +4095,7 @@ Location is a Lat/Lng pair retrieved from Googke Maps API."
                  (gmaps-address-geocode gweb-my-address))))
     (with-current-buffer buffer
       (erase-buffer)
-      (special-mode)
-      (orgstruct-mode)
+      (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
       (insert (format "* Weather Forecast For %s\n\n" address))
 ;;; produce Daily forecast
@@ -4129,8 +4128,10 @@ Location is a Lat/Lng pair retrieved from Googke Maps API."
              (ems--noaa-time "%R" .startTime)
              .shortForecast
              .temperature .windSpeed .windDirection)))))
+      (setq buffer-read-only t)
       (goto-char (point-min)))
     buffer))
+
 ;;;###autoload
 (defun emacspeak-wizards-noaa-weather (&optional ask)
   "Display weather information using NOAA Weather API.
