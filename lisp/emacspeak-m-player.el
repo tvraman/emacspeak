@@ -1277,8 +1277,17 @@ flat classical club dance full-bass full-bass-and-treble
 
 ;;;###autoload
 
+(defun ems--m-p-get-yt-audio-fmt (url)
+  "Get first available audio format code for   YT URL"
+(substring 
+  (shell-command-to-string
+   (format 
+    "%s -F '%s' | grep audio   | head -1 | cut -f 1 -d \' \'"
+    emacspeak-m-player-youtube-dl url))
+  0 -1))
+
 (defun emacspeak-m-player-youtube-player (url)
-  "Use youtube-dl and mplayer to stream YouTube content."
+  "Use youtube-dl and mplayer to stream the audio for YouTube content."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
@@ -1287,7 +1296,10 @@ flat classical club dance full-bass full-bass-and-treble
     (error "Please install youtube-dl first."))
   (let ((u
          (shell-command-to-string
-          (format "%s -f 249 -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url))))
+          (format "%s -f %s -g '%s' 2> /dev/null"
+                  emacspeak-m-player-youtube-dl
+                  (ems--m-p-get-yt-audio-fmt url)
+                  url))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (setq u (substring u 0 -1))
     (kill-new u)
