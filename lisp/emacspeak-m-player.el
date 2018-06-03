@@ -365,8 +365,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (setq result
           (read-file-name
            "Media Resource: "
-           (emacspeak-media-guess-directory)
-           default 'must-match default))
+           (emacspeak-media-guess-directory) ; default dir 
+           default 'must-match))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
