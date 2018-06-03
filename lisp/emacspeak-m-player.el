@@ -1287,7 +1287,7 @@ flat classical club dance full-bass full-bass-and-treble
     (error "Please install youtube-dl first."))
   (let ((u
          (shell-command-to-string
-          (format "%s -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url))))
+          (format "%s -f 249 -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (setq u (substring u 0 -1))
     (kill-new u)
