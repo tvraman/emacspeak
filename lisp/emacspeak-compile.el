@@ -87,6 +87,7 @@
              "Speak the line containing the error. "
              (when (ems-interactive-p)
                (dtk-stop)
+               (emacspeak-auditory-icon 'large-movement)
                (emacspeak-compilation-speak-error)))))
 
 (cl-loop for f in 
