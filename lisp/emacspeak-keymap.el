@@ -704,7 +704,6 @@ command that the key sequence executes."
     ("n" emacspeak-npr-play-program)
     ("o" helm-mini)
     ("p" emacspeak-wizards-pdf-open)
-    ("q" emacspeak-remote-quick-connect-to-server)
     ("r" org-capture)
     ("s" emacspeak-wizards-shell)
     ("t" twit)
