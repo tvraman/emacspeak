@@ -55,8 +55,12 @@
 (defvar emacspeak-todo-mode-navigation-commands
   '(todo-forward-item
     todo-backward-item
+    todo-next-item
+    todo-previous-item
     todo-forward-category
     todo-backward-category
+    todo-next-category
+    todo-previous-category
     todo-jump-to-category
     )
   "Todo mode navigation commands to speech enable.")
