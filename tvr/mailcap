@@ -1,6 +1,6 @@
-video/*; emplay %s
-audio/*; emplay %s
+video/*; ${EMACSPEAK_DIR}bash-utils/emplay %s
+audio/*; ${EMACSPEAK_DIR}bash-utils/emplay %s
 application/pdf; pdftotext -layout %s -
-application/atom+xml; xsltproc /usr/local/share/emacs/site-lisp/emacspeak/xsl/legacy-atom.xsl %s
-application/rss+xml; xsltproc /usr/local/share/emacs/site-lisp/emacspeak/xsl/rss.xsl %s
-application/xhtml+xml; xsltproc /usr/local/share/emacs/site-lisp/emacspeak/xsl/identity.xsl %s
+application/atom+xml; xsltproc ${EMACSPEAK_DIR}xsl/legacy-atom.xsl %s
+application/rss+xml; xsltproc ${EMACSPEAK_DIR}xsl/rss.xsl %s
+application/xhtml+xml; xsltproc ${EMACSPEAK_DIR}xsl/identity.xsl %s
