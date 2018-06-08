@@ -912,12 +912,9 @@ specifies the page to extract contents  from."
 ;;}}}
 ;;{{{ xpath  filter
 ;;;###autoload
-(defcustom emacspeak-we-recent-xpath-filter
+(defvar emacspeak-we-recent-xpath-filter
   "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"
-  "Caches most recently used xpath filter.
-Can be customized to set up initial default."
-  :type 'string
-  :group 'emacspeak-we)
+  "Caches most recently used xpath filter.")
 
 (defvar emacspeak-we-xpath-filter-history 
   (list
@@ -935,12 +932,10 @@ urls.")
 (make-variable-buffer-local 'emacspeak-we-xpath-filter)
 
 ;;;###autoload
-(defcustom emacspeak-we-paragraphs-xpath-filter
+(defvar emacspeak-we-paragraphs-xpath-filter
   "//p"
-  "Filter paragraphs."
-  :type 'string
-  :group 'emacspeak-we)
-
+  "Filter paragraphs.")
+  
 ;;;###autoload
 (defun emacspeak-we-xpath-filter-and-follow (&optional prompt)
   "Follow url and point, and filter the result by specified xpath.
@@ -985,12 +980,10 @@ used as well."
 urls.")
 
 (make-variable-buffer-local 'emacspeak-we-class-filter)
-(defcustom emacspeak-we-recent-class-filter
+(defvar emacspeak-we-recent-class-filter
   nil
-  "Caches most recently used class filter.
-Can be customized to set up initial default."
-  :type 'string
-  :group 'emacspeak-we)
+  "Caches most recently used class filter.")
+
 ;;;###autoload
 (defun emacspeak-we-class-filter-and-follow-link (&optional prompt)
   "Follow url and point, and filter the result by specified class.
