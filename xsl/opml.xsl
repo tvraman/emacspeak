@@ -34,7 +34,8 @@ View OPML feeds as XHTML
   <xsl:template match="outline">
 
     <xsl:if test="@xmlUrl|@xmlurl|@URL">
-      <li><a>
+      <li><xsl:value-of select="@description|@subtext"/>
+      <a>
         <xsl:attribute name="href">
           <xsl:value-of select="@xmlUrl|@xmlurl|@URL"/>
         </xsl:attribute>
@@ -43,12 +44,11 @@ View OPML feeds as XHTML
           <xsl:when test="@type='link'"> (Link: C-o to open) </xsl:when>
           <xsl:when test="@type='atom'"> (Atom: C-a to open) </xsl:when>
           <xsl:when test="@type='rss'"> (RSS: C-r to open) </xsl:when>
-          <xsl:when test="@type='audio'"> (Audio: C-u ; or U  to play
-          --- try both) </xsl:when>
+          <xsl:when test="@type='audio'"> (Play: C-u ; or U)
+            </xsl:when>
           <xsl:otherwise>(<xsl:value-of select="@type"/>)</xsl:otherwise>
         </xsl:choose>
       </a>
-      <xsl:value-of select="@description|@subtext"/>
       </li>
     </xsl:if>
 
