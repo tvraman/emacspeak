@@ -74,7 +74,7 @@
 
 ;;}}}
 ;;{{{ Ladspa Setup:
-
+;;;###autoload
 (defconst ladspa-home
   (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
   "Instalation location for Ladspa plugins.")
