@@ -242,6 +242,7 @@ fil
 filesystem
 filladapt
 filtertext
+financials
 flipflop
 Flite
 flx
@@ -543,6 +544,7 @@ sox
 Sox
 SoX
 soxplay
+spamassassin
 spc
 SPC
 speedbar
@@ -701,6 +703,8 @@ XSL
 xslt
 XSLT
 xsltproc
+yaml
+YAML
 yas
 yasnippet
 YASNIPPET
