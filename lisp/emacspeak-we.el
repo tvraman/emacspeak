@@ -956,7 +956,8 @@ used as well."
              (cl-first emacspeak-we-url-rewrite-rule)
              (cl-second emacspeak-we-url-rewrite-rule)
              url)))
-    (when (or prompt (null emacspeak-we-xpath-filter))
+    (when (or prompt (null emacspeak-we-xpath-filter)
+              (= 0 (length emacspeak-we-xpath-filter)))
       (setq emacspeak-we-xpath-filter
             (read-from-minibuffer
              "Specify XPath: "
