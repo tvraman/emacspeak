@@ -1279,12 +1279,12 @@ flat classical club dance full-bass full-bass-and-treble
 
 (defun ems--m-p-get-yt-audio-fmt (url)
   "Get first available audio format code for   YT URL"
-(substring 
-  (shell-command-to-string
-   (format 
-    "%s -F '%s' | grep '^[0-9]'   | head -1 | cut -f 1 -d \' \'"
-    emacspeak-m-player-youtube-dl url))
-  0 -1))
+  (substring 
+   (shell-command-to-string
+    (format 
+     "%s -F '%s' | grep '^[0-9]'   | head -1 | cut -f 1 -d \' \'"
+     emacspeak-m-player-youtube-dl url))
+   0 -1))
 
 (defun emacspeak-m-player-youtube-player (url)
   "Use youtube-dl and mplayer to stream the audio for YouTube content."
