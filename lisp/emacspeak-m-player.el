@@ -1282,7 +1282,7 @@ flat classical club dance full-bass full-bass-and-treble
 (substring 
   (shell-command-to-string
    (format 
-    "%s -F '%s' | grep audio   | head -1 | cut -f 1 -d \' \'"
+    "%s -F '%s' | grep '^[0-9]'   | head -1 | cut -f 1 -d \' \'"
     emacspeak-m-player-youtube-dl url))
   0 -1))
 
