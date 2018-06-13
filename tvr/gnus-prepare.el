@@ -1,9 +1,7 @@
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;;{{{  News Source etc
 ;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
-                                        ;(require 'nnimap)
-                                        ;(require 'nnir)
-                                        ;(require 'gnus-demon)
+
 (eval-after-load "gnus"
   `(progn
      (setq gnus-auto-subscribed-groups nil
