@@ -16,7 +16,7 @@
         (nnimap-address "imap.gmail.com")
         (nnimap-server-port 993)
         (nnimap-fetch-partial-articles "text/")
-        (nnimap-record-commands t)
+        ;(nnimap-record-commands t) ;for debugging
         (nnimap-expunge-on-close always)
         (nnimap-stream ssl)))
 
@@ -31,7 +31,6 @@
          (nnimap-address "imap.gmail.com")
          (nnimap-server-port 993)
          (nnimap-fetch-partial-articles "text/")
-                                        ;(nnimap-record-commands t)
          (nnimap-expunge-on-close always)
          (nnimap-stream ssl)
          (nnimap-authinfo-file "~/.authinfo.gpg")))
