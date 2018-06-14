@@ -1650,6 +1650,7 @@ to play individual tracks."
      (line-beginning-position) (line-end-position)
      'keymap  emacspeak-locate-media-map)
     (emacspeak-auditory-icon 'open-object)
+    (rename-buffer (format "Media  matching %s" pattern))
     (emacspeak-speak-mode-line)))
 
 ;;}}}
