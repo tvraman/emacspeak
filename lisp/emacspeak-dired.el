@@ -465,8 +465,7 @@ On a directory line, run du -s on the directory to speak its size."
   "Treat locate results as a play-list.
 Optional interactive prefix arg shuffles playlist."
   (interactive "P" )
-  (cl-declare (special emacspeak-locate-media-pattern
-                       emacspeak-m-player-options))
+  (cl-declare (special emacspeak-m-player-options))
   (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")
   (save-excursion
     (goto-char (point-min))
@@ -480,8 +479,7 @@ Optional interactive prefix arg shuffles playlist."
         (dired-next-line 1)
         (setq file  (dired-file-name-at-point)))
       (setq results (nreverse results))
-      (message "%s tracks matching %s"
-               (length results) emacspeak-locate-media-pattern)
+      (message "%s tracks matching " (length results))
       (with-current-buffer buff
         (cl-loop
          for f in results do
