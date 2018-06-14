@@ -1616,7 +1616,6 @@ tap-reverb already installed."
     (emacspeak-m-player file 'playlist)))
 ;;}}}
 ;;{{{ Use locate to construct media playlist:
-(defvar-local emacspeak-locate-media-pattern nil)
 
 (defvar emacspeak-locate-media-map
   (let ((map (make-sparse-keymap)))
@@ -1634,8 +1633,7 @@ Results are placed in a Locate buffer and can be played using
 M-Player --- use \\[emacspeak-dired-open-this-file] locally bound to C-RET 
 to play individual tracks."
   (interactive "sSearch Pattern: ")
-  (cl-declare  (special emacspeak-media-extensions
-                        emacspeak-locate-media-pattern))
+  (cl-declare  (special emacspeak-media-extensions))
   (let ((inhibit-read-only t)
         (locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
     (locate-with-filter
@@ -1643,7 +1641,6 @@ to play individual tracks."
                 (split-string pattern)
                 "[ '\"_.,-]")
      emacspeak-media-extensions)
-    (setq emacspeak-locate-media-pattern pattern)
     (goto-char (point-min))
     (message "Buffer: %s" (current-buffer))
     (put-text-property
