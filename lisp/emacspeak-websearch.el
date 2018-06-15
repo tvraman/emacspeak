@@ -1047,7 +1047,7 @@ Results"
 (emacspeak-websearch-set-key ?y 'youtube-search)
 
 (defvar emacspeak-websearch-youtube-search-uri
-  "https://www.youtube.com/results?search_query=%s"
+  "https://www.google.com/search?num=25&lite=90586&q=youtube+%s"
   "REST end-point for YouTube Search.")
 
 ;;;###autoload
@@ -1055,8 +1055,8 @@ Results"
   "YouTube search."
   (interactive (list (gweb-youtube-autocomplete)))
   (cl-declare (special emacspeak-websearch-youtube-search-uri))
-  (emacspeak-we-extract-by-id
-   "results"
+  (emacspeak-we-extract-by-id-list
+   '("center_col" "nav" "rhs_block")
    (format emacspeak-websearch-youtube-search-uri (url-encode-url query))
    'speak))
 
