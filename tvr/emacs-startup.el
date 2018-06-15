@@ -142,6 +142,13 @@
      (tvr-customize)
      (soundscape-toggle)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+     ;;; prescient and company:
+(when (locate-library "prescient")
+  (load-library "prescient")
+  (prescient-persist-mode 1))
+(when (locate-library "company-prescient")
+  (load-library "company-prescient")
+  (company-prescient-mode 1));;}}}
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
        (nm-enable)
@@ -176,13 +183,6 @@
   (smartparens-mode 1)
   (yas-minor-mode 1)
   (abbrev-mode 1))
-;;; prescient and company:
-(when (locate-library "prescient")
-  (load-library "prescient")
-  (prescient-persist-mode 1))
-(when (locate-library "company-prescient")
-  (load-library "company-prescient")
-  (company-prescient-mode 1));;}}}
 
 ;;}}}
 (defun tvr-emacs()
