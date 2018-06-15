@@ -137,18 +137,13 @@
      (mapc
       (if (getenv "TVR_TIME_EMS")
           #'load-library-if-available #'load)
- tvr-libs)
+      tvr-libs)
      (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
      (tvr-customize)
      (soundscape-toggle)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-     ;;; prescient and company:
-(when (locate-library "prescient")
-  (load-library "prescient")
-  (prescient-persist-mode 1))
-(when (locate-library "company-prescient")
-  (load-library "company-prescient")
-  (company-prescient-mode 1));;}}}
+     (prescient-persist-mode 1)
+     (company-prescient-mode 1)
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
        (nm-enable)
