@@ -8,7 +8,6 @@
 (setq
  send-mail-function 'smtpmail-send-it
  user-mail-address "tv.raman.tv@gmail.com"
- smtpmail-default-smtp-server "smtp.gmail.com"
  smtpmail-smtp-server "smtp.gmail.com"
  smtpmail-smtp-service 587
  )
