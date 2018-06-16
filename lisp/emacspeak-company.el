@@ -91,12 +91,11 @@
 
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
-  (ems-with-messages-silenced
-   (cl-case command
-         (pre-command nil)
-         (post-command (emacspeak-play-auditory-icon 'help)
-                       (emacspeak-company-speak-this))
-         (hide nil))))
+  (cl-case command
+    (pre-command nil)
+    (post-command (emacspeak-auditory-icon 'help)
+                  (emacspeak-company-speak-this))
+    (hide nil)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
