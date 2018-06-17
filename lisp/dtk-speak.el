@@ -1898,8 +1898,7 @@ only speak upto the first ctrl-m."
   "Evaluate body  after temporarily silencing auditory error feedback."
   (declare (indent 1) (debug t))
   `(let ((emacspeak-speak-messages nil)
-         (inhibit-message t)
-         (emacspeak-use-auditory-icons nil))
+         (inhibit-message t))
      ,@body))
 
 (defun dtk-speak-and-echo (message)
