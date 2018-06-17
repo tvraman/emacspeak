@@ -73,12 +73,12 @@
 ;;{{{ Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
-  '(("PowderBlue" "#67BE90") ; silver tree
+  '(("light sky blue" "#67BE90") ; silver tree
     ("#FFBCC9" "#FFD724") ;gold on pink
     ("#F4C430" "sea green") ; saffron 
     ("#FFFFDA" "royal blue")
     ("mint cream" "royal blue")
-    ("#9BD2FA" "gold")
+    ("PowderBlue" "gold") 
     ("#FFF3FF" "gold")) ; lavender blush 
   "Alist of color pairs for days of the week")
 
