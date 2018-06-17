@@ -319,7 +319,6 @@ Argument BODY specifies forms to execute."
   "Evaluate body  after temporarily silencing auditory error feedback."
   (declare (indent 1) (debug t))
   `(let ((emacspeak-speak-errors nil)
-         (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil))
      ,@body))
 
