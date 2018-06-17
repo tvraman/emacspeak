@@ -73,7 +73,7 @@
 ;;{{{ Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
-  '(("PowderBlue" "#FFD724")
+  '(("PowderBlue" "#67BE90") ; silver tree
     ("#FFBCC9" "#FFD724") ;gold on pink
     ("#F4C430" "sea green") ; saffron 
     ("#FFFFDA" "royal blue")
