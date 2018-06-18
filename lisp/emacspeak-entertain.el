@@ -83,6 +83,17 @@
    (t ad-do-it))
   ad-return-value)
 
+(defadvice dun-unix-parse (around emacspeak pre act comp)
+  "Provide auditory feedback"
+  (cond
+   ((ems-interactive-p)
+    (let ((orig (point)))
+      ad-do-it
+      (emacspeak-auditory-icon 'mark-object)
+      (emacspeak-speak-region orig (point))))
+   (t ad-do-it))
+  ad-return-value)
+
 ;;}}}
 ;;{{{  hangman 
 
