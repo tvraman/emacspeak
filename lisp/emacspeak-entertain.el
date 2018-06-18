@@ -73,7 +73,7 @@
 ;;{{{ dunnet
 (cl-loop
  for f in
- '(dun-parse dun-unix-parse)
+ '(dun-parse dun-unix-parse) do 
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Provide auditory feedback"
@@ -83,8 +83,8 @@
          ad-do-it
          (emacspeak-auditory-icon 'mark-object)
          (emacspeak-speak-region orig (point))))
-      (t ad-do-it)))))
-  ad-return-value)
+      (t ad-do-it))
+  ad-return-value)))
 
 
 
