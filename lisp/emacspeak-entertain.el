@@ -1,15 +1,15 @@
 ;;; emacspeak-entertain.el --- Speech enable misc games  -*- lexical-binding: t; -*-
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface to diversions
 ;;; Keywords: Emacspeak, Speak, Spoken Output, games
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2017, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -38,7 +38,7 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;{{{  Introduction 
+;;{{{  Introduction
 
 ;;; Commentary:
 
@@ -58,7 +58,7 @@
   (dtk-speak
    (mapconcat
     #'(lambda (s)
-                (format "%s" s))
+        (format "%s" s))
     (ad-get-arg 0)
     " ")))
 
@@ -70,7 +70,7 @@
    (mpuz-unsolved voice-bolden)
    (mpuz-solved voice-animate)))
 ;;}}}
-;;{{{ dunnet 
+;;{{{ dunnet
 
 (defadvice dun-parse (around emacspeak pre act comp)
   "Provide auditory feedback"
@@ -95,7 +95,7 @@
   ad-return-value)
 
 ;;}}}
-;;{{{  hangman 
+;;{{{  hangman
 
 (defun emacspeak-hangman-speak-statistics ()
   "Speak statistics."
@@ -122,7 +122,7 @@
   "Speak current guessed string. "
   (interactive)
   (cl-declare (special hm-current-guess-string
-                    hm-current-word))
+                       hm-current-word))
   (let ((string (make-string  (length hm-current-word)
                               ?\))))
     (cl-loop for i from 0 to (1- (length hm-current-word))
@@ -147,11 +147,11 @@
 
 ;;}}}
 (provide 'emacspeak-entertain)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
