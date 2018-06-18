@@ -71,28 +71,22 @@
    (mpuz-solved voice-animate)))
 ;;}}}
 ;;{{{ dunnet
-
-(defadvice dun-parse (around emacspeak pre act comp)
-  "Provide auditory feedback"
-  (cond
-   ((ems-interactive-p)
-    (let ((orig (point)))
-      ad-do-it
-      (emacspeak-auditory-icon 'mark-object)
-      (emacspeak-speak-region orig (point))))
-   (t ad-do-it))
+(cl-loop
+ for f in
+ '(dun-parse dun-unix-parse)
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Provide auditory feedback"
+     (cond
+      ((ems-interactive-p)
+       (let ((orig (point)))
+         ad-do-it
+         (emacspeak-auditory-icon 'mark-object)
+         (emacspeak-speak-region orig (point))))
+      (t ad-do-it)))))
   ad-return-value)
 
-(defadvice dun-unix-parse (around emacspeak pre act comp)
-  "Provide auditory feedback"
-  (cond
-   ((ems-interactive-p)
-    (let ((orig (point)))
-      ad-do-it
-      (emacspeak-auditory-icon 'mark-object)
-      (emacspeak-speak-region orig (point))))
-   (t ad-do-it))
-  ad-return-value)
+
 
 ;;}}}
 ;;{{{  hangman
