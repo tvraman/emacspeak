@@ -1459,6 +1459,19 @@ url
  "Search Linux ArchWiki")
 
 ;;}}}
+;;{{{ World Cup Soccer From Google:
+
+(emacspeak-url-template-define
+ "Soccer World Cup From Google "
+ "https://www.google.com/search?source=hp&q=worldcup+%s&num=25"
+ (list "Enter Teams : ")
+ #'emacspeak-speak-buffer
+ "World Cup Soccer Card"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "KPjRue" url 'speak)))
+
+;;}}}
+
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
