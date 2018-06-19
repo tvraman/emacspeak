@@ -1468,7 +1468,7 @@ url
  #'emacspeak-speak-buffer
  "World Cup Soccer Card"
  #'(lambda (url)
-     (emacspeak-we-extract-by-class "KPjRue" url 'speak)))
+     (emacspeak-we-extract-by-class "xVDuB" url 'speak)))
 
 ;;}}}
 
