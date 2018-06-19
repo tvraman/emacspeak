@@ -1,5 +1,3 @@
-#+STARTUP: hidestars
-
 * GTD
 
 Getting Things Done (GTD) is a productivity system taught by the
@@ -457,35 +455,3 @@ Here is an edited version of this file using the an example file,
 #+TEXT:      A brief overview of org-mode Emacs and how it can be used to
 #+TEXT:      implement David Allen's Getting Things Done methodology
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:nil
-
-@<hr>
-
-* COMMENT HTML style specifications
-
-# Local Variables:
-# org-export-html-style: " <style type=\"text/css\">
-html {
-       font-family: Verdana, Times, serif;
-    font-size: 10pt;
-    margin-left: 40pt;
-    margin-right: 40pt;
-  }
-pre {
-      border: 1pt solid #AEBDCC;
-      background-color: #F3F5F7;
-      padding: 5pt;
-      font-family: courier, monospace;
-     font-size: 10pt;
-     margin-left: 45pt;
-     margin-right: 45pt;
-  }
-p,li {
-    margin-left: 1.5 cm;
-    margin-right: 1.5 cm;
-   }
-.author, .date {
-     font-size: 8pt;
-     margin-left: 0pt;
-   }
-  h1 {color: darkblue; }
- </style>"
