@@ -169,7 +169,7 @@
 (defadvice magit-toggle-section (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (let ((state (magit-section-hidden (magit-current-section))))
+    (let ((state (magit-section-hidden-body (magit-current-section))))
       (cond
        (state (emacspeak-auditory-icon 'close-object))
        (t (emacspeak-auditory-icon 'open-object)))
@@ -226,7 +226,7 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon
-        (if   (magit-section-hidden (ad-get-arg 0)) 'close-object 'open-object))))))
+        (if   (magit-section-hidden-body (ad-get-arg 0)) 'close-object 'open-object))))))
 
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
