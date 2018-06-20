@@ -2069,7 +2069,7 @@ interactive prefix arg `delete', delete that mark instead."
   (cl-assert (shr-url-at-point prefix) t "No URL at point.")
   (let ((url (shr-url-at-point prefix))
         (cmd (completing-read "Shell Command: " emacspeak-eww-url-shell-commands)))
-    (shell-command (format "%s '%s' &" cmd url))
+    (shell-command (format "%s '%s'" cmd url))
     (emacspeak-auditory-icon 'task-done)))
 ;;}}}
 (provide 'emacspeak-eww)
