@@ -2063,7 +2063,8 @@ interactive prefix arg `delete', delete that mark instead."
 
 ;;;###autoload
 (defun emacspeak-eww-shell-command-on-url-at-point (&optional prefix)
-  "Run specified shell command on URL at point."
+  "Run specified shell command on URL at point.
+Warning: Running shell script cbox through this fails mysteriously."
   (interactive "P")
   (cl-declare (special emacspeak-eww-url-shell-commands))
   (cl-assert (shr-url-at-point prefix) t "No URL at point.")
