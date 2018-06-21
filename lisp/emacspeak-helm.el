@@ -72,16 +72,16 @@
   (emacspeak-auditory-icon 'complete)
   (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
-(add-hook 'helm-before-initialize-hook #'emacspeak-helm-before-initialize-hook)
-(add-hook
- 'helm-minibuffer-set-up-hook
- #'(lambda nil (emacspeak-auditory-icon 'open-object)))
+;(add-hook 'helm-before-initialize-hook #'emacspeak-helm-before-initialize-hook)
+;(add-hook
+ ;'helm-minibuffer-set-up-hook
+ ;#'(lambda nil (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-helm-cleanup-hook ()
   "Restore Emacspeak's minibuffer setup hook."
   (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
-(add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
+;(add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
@@ -97,7 +97,7 @@
               'personality voice-bolden)))
       (condition-case nil ; needed for some calls
           (dtk-speak (concat line count-msg))
-        (error nil))))
+        (error "caught an error"))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
