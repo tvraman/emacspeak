@@ -32,7 +32,7 @@
     "sp-prepare" ;"vdiff-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
     ;"use-emms"
-    "calc-prepare"; "helm-prepare"                      ;helm not activated
+    "calc-prepare" "helm-prepare"                      
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare")
