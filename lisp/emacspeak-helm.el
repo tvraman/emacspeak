@@ -84,8 +84,7 @@
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
-  (when (sit-for 0.5)
-    (let ((inhibit-read-only t)
+  (let ((inhibit-read-only t)
           (line (buffer-substring (line-beginning-position) (line-end-position)))
           (count-msg nil))
       (setq count-msg
@@ -97,13 +96,14 @@
               'personality voice-bolden)))
       (condition-case nil ; needed for some calls
           (dtk-speak (concat line count-msg))
-        (error nil)))))
+        (error nil))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
 
 ;;}}}
 ;;{{{ Advice helm-google-suggest to filter results:
+
 (declare-function eww-display-dom-by-id-list  "emacspeak-eww.el" (id-list))
 
 (defadvice helm-google-suggest (before emacspeak pre act comp)
