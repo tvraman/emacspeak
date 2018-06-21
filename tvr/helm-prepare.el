@@ -24,6 +24,8 @@
         ("," helm-mode)
         ("f" helm-find-file)
         ("u" helm-unicode)
+        ("b" helm-buffers-list)
+        ("i" helm-info)
         ("o" helm-mini))
       do
       (define-key helm-command-map (cl-first b) (cl-second b)))
