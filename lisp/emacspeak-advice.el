@@ -2397,11 +2397,7 @@ Produce auditory icons if possible."
 
 (defadvice push-mark (around emacspeak pre act comp)
   "Never show the mark set message."
-  (or (ad-get-arg 1)
-      (memq last-command emacspeak-advice-smart-mark-functions)
-      (ad-set-arg 1 t))
-  ad-do-it
-  ad-return-value)
+      (ems-with-messages-silenced ad-do-it))
 (cl-loop
  for f in
  '(set-mark-command pop-to-mark-command)
