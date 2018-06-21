@@ -128,10 +128,9 @@
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'open-object)))
-
   (add-hook
    'company-completion-finished-hook
-   #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'close-object))))
+   #'(lambda (&rest _ignore) (emacspeak-play-auditory-icon 'close-object))))
 
 ;;}}}
 ;;{{{ Silence YCMD Chatter:

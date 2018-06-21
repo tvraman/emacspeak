@@ -1463,7 +1463,7 @@ url
 
 (emacspeak-url-template-define
  "Soccer World Cup From Google "
- "https://www.google.com/search?source=hp&q=worldcup+%s&num=25"
+ "https://www.google.com/search?source=hp&q=world cup+%s&num=25"
  (list "Enter Teams : ")
  #'emacspeak-speak-buffer
  "World Cup Soccer Card"

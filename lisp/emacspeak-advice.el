@@ -2390,22 +2390,10 @@ Produce auditory icons if possible."
 
 ;;; Prevent push-mark from displaying its mark set message
 ;;; when called from functions that know better.
-(defvar emacspeak-advice-smart-mark-functions
-  (list 'mark-defun
-        'mark-whole-buffer
-        'mark-paragraph
-        'mark-page
-        'mark-word
-        'mark-perl-function)
-  "Functions that display their own smart mark set message.")
 
 (defadvice push-mark (around emacspeak pre act comp)
   "Never show the mark set message."
-  (or (ad-get-arg 1)
-      (memq last-command emacspeak-advice-smart-mark-functions)
-      (ad-set-arg 1 t))
-  ad-do-it
-  ad-return-value)
+      (ems-with-messages-silenced ad-do-it))
 (cl-loop
  for f in
  '(set-mark-command pop-to-mark-command)
@@ -2437,31 +2425,34 @@ Produce auditory icons if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Marked buffer containing %s lines"
-             (count-lines (point) (mark 'force)))))
+    (dtk-speak-and-echo
+     (format "Marked buffer containing %s lines"
+             (count-lines (point) (mark 'force))))))
 
 (defadvice mark-paragraph (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Marked paragraph containing %s lines"
+    (dtk-speak-and-echo
+     (format "Marked paragraph containing %s lines"
              (count-lines (point)
-                          (mark 'force)))))
+                          (mark 'force))))))
 
 (defadvice mark-page (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Marked page containing %s lines"
-             (count-lines (point)
-                          (mark 'force)))))
+    (dtk-speak-and-echo
+     (format "Marked page containing %s lines"
+             (count-lines (point) (mark 'force))))))
 
 (defadvice mark-word (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Word %s marked"
-             (buffer-substring-no-properties (point) (mark 'force)))))
+    (dtk-speak-and-echo
+     (format "Word %s marked"
+              (buffer-substring-no-properties (point) (mark 'force))))))
 
 (defadvice mark-sexp (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
@@ -2469,9 +2460,10 @@ Produce auditory icons if possible."
     (let ((lines (count-lines (point) (marker-position (mark-marker))))
           (chars (abs (- (point) (marker-position (mark-marker))))))
       (emacspeak-auditory-icon 'mark-object)
-      (if (> lines 1)
-          (message "Marked S expression spanning %s lines" lines)
-        (message "marked S expression containing %s characters" chars)))))
+      (dtk-speak-and-echo
+       (if (> lines 1)
+           (format "Marked S expression spanning %s lines" lines)
+         (format "marked S expression containing %s characters" chars))))))
 
 (defadvice mark-end-of-sentence (after emacspeak pre act comp)
   "Produce an auditory icon if possible."

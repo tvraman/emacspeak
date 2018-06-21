@@ -59,11 +59,12 @@
 ;;{{{ Setup Helm Hooks:
 
 (defadvice helm-mode (after emacspeak pre act comp)
-  "Emacspeak setup."
+  "Cue state of helm mode."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if helm-mode  'on 'off))
     (message "Turned %s helm-mode"
              (if helm-mode "on" "off"))))
+
 (declare-function emacspeak-minibuffer-setup-hook "emacspeak-advice" nil)
 
 (defun emacspeak-helm-before-initialize-hook ()
@@ -71,21 +72,20 @@
   (emacspeak-auditory-icon 'complete)
   (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
-(add-hook 'helm-before-initialize-hook #'emacspeak-helm-before-initialize-hook)
-(add-hook
- 'helm-minibuffer-set-up-hook
- #'(lambda nil (emacspeak-auditory-icon 'open-object)))
+;(add-hook 'helm-before-initialize-hook #'emacspeak-helm-before-initialize-hook)
+;(add-hook
+ ;'helm-minibuffer-set-up-hook
+ ;#'(lambda nil (emacspeak-auditory-icon 'open-object)))
 
 (defun emacspeak-helm-cleanup-hook ()
   "Restore Emacspeak's minibuffer setup hook."
   (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
-(add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
+;(add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
-  (when (sit-for 0.5)
-    (let ((inhibit-read-only t)
+  (let ((inhibit-read-only t)
           (line (buffer-substring (line-beginning-position) (line-end-position)))
           (count-msg nil))
       (setq count-msg
@@ -95,15 +95,16 @@
                       (- (line-number-at-pos) 2)
                       (- (count-lines(point-min) (point-max))2))
               'personality voice-bolden)))
-      (condition-case nil ; needed for some calls
-          (dtk-speak (concat line count-msg))
-        (error nil)))))
+      (when (and line count-msg)
+        (dtk-speak (concat line count-msg)))))
+
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
 
 ;;}}}
 ;;{{{ Advice helm-google-suggest to filter results:
+
 (declare-function eww-display-dom-by-id-list  "emacspeak-eww.el" (id-list))
 
 (defadvice helm-google-suggest (before emacspeak pre act comp)
