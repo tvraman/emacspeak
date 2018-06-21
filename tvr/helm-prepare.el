@@ -14,7 +14,7 @@
 ;;; Use hyper-, as the helm prefix 
      (global-set-key (kbd "C-x @h,") 'helm-command-prefix)
 
-                                        
+     
 ;;; Insert on desktop 
      (global-set-key (kbd "<insert>") 'helm-command-prefix)
      (global-unset-key (kbd "C-x c"))
@@ -29,5 +29,6 @@
       (define-key helm-command-map (cl-first b) (cl-second b)))
 
      (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
-                                        ;(helm-mode 1)
-     ))
+     (helm-mode 1)
+     (helm-flx-mode 1)
+     (helm-fuzzier-mode 1)))
