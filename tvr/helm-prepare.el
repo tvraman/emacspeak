@@ -1,4 +1,4 @@
-;; -*- lexical-binding: nil; -*-
+;;; -*- lexical-binding: nil; -*-
 (require 'cl-lib)
 ;;; Taken from http://tuhdo.github.io/helm-intro.html
 (eval-after-load
