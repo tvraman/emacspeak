@@ -95,9 +95,9 @@
                       (- (line-number-at-pos) 2)
                       (- (count-lines(point-min) (point-max))2))
               'personality voice-bolden)))
-      (condition-case nil ; needed for some calls
-          (dtk-speak (concat line count-msg))
-        (error "caught an error"))))
+      (when (and line count-msg)
+        (dtk-speak (concat line count-msg)))))
+
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
