@@ -2391,12 +2391,8 @@ Produce auditory icons if possible."
 ;;; Prevent push-mark from displaying its mark set message
 ;;; when called from functions that know better.
 (defvar emacspeak-advice-smart-mark-functions
-  (list 'mark-defun
-        'mark-whole-buffer
-        'mark-paragraph
-        'mark-page
-        'mark-word
-        'mark-perl-function)
+  '(mark-defun mark-whole-buffer mark-paragraph
+        mark-page mark-word mark-perl-function)
   "Functions that display their own smart mark set message.")
 
 (defadvice push-mark (around emacspeak pre act comp)
