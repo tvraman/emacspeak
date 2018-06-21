@@ -2425,31 +2425,34 @@ Produce auditory icons if possible."
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Marked buffer containing %s lines"
-             (count-lines (point) (mark 'force)))))
+    (dtk-speak-and-echo
+     (format "Marked buffer containing %s lines"
+             (count-lines (point) (mark 'force))))))
 
 (defadvice mark-paragraph (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Marked paragraph containing %s lines"
+    (dtk-speak-and-echo
+     (format "Marked paragraph containing %s lines"
              (count-lines (point)
-                          (mark 'force)))))
+                          (mark 'force))))))
 
 (defadvice mark-page (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Marked page containing %s lines"
-             (count-lines (point)
-                          (mark 'force)))))
+    (dtk-speak-and-echo
+     (format "Marked page containing %s lines"
+             (count-lines (point) (mark 'force))))))
 
 (defadvice mark-word (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
-    (message "Word %s marked"
-             (buffer-substring-no-properties (point) (mark 'force)))))
+    (dtk-speak-and-echo
+     (format "Word %s marked"
+              (buffer-substring-no-properties (point) (mark 'force))))))
 
 (defadvice mark-sexp (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
@@ -2457,9 +2460,10 @@ Produce auditory icons if possible."
     (let ((lines (count-lines (point) (marker-position (mark-marker))))
           (chars (abs (- (point) (marker-position (mark-marker))))))
       (emacspeak-auditory-icon 'mark-object)
-      (if (> lines 1)
-          (message "Marked S expression spanning %s lines" lines)
-        (message "marked S expression containing %s characters" chars)))))
+      (dtk-speak-and-echo
+       (if (> lines 1)
+           (format "Marked S expression spanning %s lines" lines)
+         (format "marked S expression containing %s characters" chars))))))
 
 (defadvice mark-end-of-sentence (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
