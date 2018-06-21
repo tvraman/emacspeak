@@ -59,11 +59,12 @@
 ;;{{{ Setup Helm Hooks:
 
 (defadvice helm-mode (after emacspeak pre act comp)
-  "Emacspeak setup."
+  "Cue state of helm mode."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if helm-mode  'on 'off))
     (message "Turned %s helm-mode"
              (if helm-mode "on" "off"))))
+
 (declare-function emacspeak-minibuffer-setup-hook "emacspeak-advice" nil)
 
 (defun emacspeak-helm-before-initialize-hook ()
