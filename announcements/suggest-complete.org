@@ -52,23 +52,23 @@ Here are exemplars of tasks that I perform often and where I require
 all the help that Emacs can provide in completing the task as rapidly
 as possible:
 
-  1. File Navigation  :: Navigating to and opening a file  --- either code or prose.
-  2. Content Navigation :: Jump  to a
-    specific location (section, function, class/method, or pattern-match) in
-     that file.
-  3. Buffer Navigation :: Jump to an already open buffer in  a long-running Emacs.
-   If that buffer existed --- but has since been killed (by
-    =midnight= for example), then re-open that buffer.
-    I do *everything* in Emacs, so open buffers include  a large
-     number of ORG and LaTeX documents,  Web Pages opened in  EWW 
-     (news sites, documentation, blog articles), IM Chats (I use
-     =jabber=), Mail  Buffers --- both open folders and previously
-     sent messages,  and much, much more.
-  4. Media :: Easily launch media streams including local and streaming media.
-  5. EBooks :: Open (or jump to an already open) EBook to continue reading.
-  6. Code Completion :: Complete function/method-name  as I type  with an easy
-    affordance to move among the available choices. The
-    *Suggest/Input/Filter/Target* interaction loop applies here as well.
+  - File Navigation  :: Navigating to and opening a file  --- either code or prose.
+  - Content Navigation :: Jump  to a
+   specific location (section, function, class/method, or pattern-match) in
+    that file.
+  - Buffer Navigation :: Jump to an already open buffer in  a long-running Emacs.
+  If that buffer existed --- but has since been killed (by
+   =midnight= for example), then re-open that buffer.
+   I do *everything* in Emacs, so open buffers include  a large
+    number of ORG and LaTeX documents,  Web Pages opened in  EWW 
+    (news sites, documentation, blog articles), IM Chats (I use
+    =jabber=), Mail  Buffers --- both open folders and previously
+    sent messages,  and much, much more.
+  - Media :: Easily launch media streams including local and streaming media.
+  - EBooks :: Open (or jump to an already open) EBook to continue reading.
+  - Code Completion :: Complete function/method-name  as I type  with an easy
+   affordance to move among the available choices. The
+   *Suggest/Input/Filter/Target* interaction loop applies here as well.
      
   
 Notice that as one performs all of these tasks, *every target* is an
