@@ -1,18 +1,34 @@
 *Executive Summary 
 
 Emacs has always provided a wealth of techniques for rapid keyboard
-input --- and these affordances have significantly increased over the
-last few years with the arrival of packages like =ido=, =company=,
+input (abbrev, dabbrev, hippie-expandand completion come to mind)---
+and these affordances have significantly increased over the last few
+years with the arrival of packages like =ido=, =company=, =a c=,
 =helm= etc., each replete with different strategies for rapid task
-completion. Each of these packages now support a variety of completion
-techniques, including flex and fuzzy matching. This article
-investigates  what is entailed in leveraging these tools in an
-eyes-free environment, specifically in the context of Emacspeak I've
-not investigated every possible package in this space --- instead,
-I've picked a collection of packages  and techniques that have worked
-well for me. Finally, the ultimate metric I use in each case is the
-time to task completion --- since at the end of the day, that's the
-only metric that counts when it comes to user productivity.
+completion such as flex and fuzzy matching. This article investigates
+these tools in an eyes-free environment, specifically in the context
+of Emacspeak.  I've not investigated every possible package in this
+space --- instead, I've picked a collection of packages and techniques
+that have worked well for me. Finally, the ultimate metric I use in
+each case is the time to task completion --- since at the end of the
+day, that's the only metric that counts when it comes to user
+productivity.
+* Terminology 
+
+For this article, I will use terms /suggestion/ and /completion/ to
+mean  subtly different concepts:
+
+  - Suggestion :: Offer the user some /suggestions/ that help explore the
+                  space of choices.
+  - Completion  ::  Filter the available choices based on user input
+                   with the goal of reaching the target as rapidly as possible.
+
+Note that in practice, /suggestions/ and /completions/ work
+hand-in-hand, with the visual display  playing a central role in
+guiding the user through the pace of available choices.
+
+*  Tasks Where Suggestions And Completions Help Speed Up Task Completion
+
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
