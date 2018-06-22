@@ -4211,7 +4211,7 @@ external package."
 
 ;;}}}
 ;;{{{ World Cup 2018
-
+;;;###autoload
 (defun emacspeak-wizards-wc-2018 (team)
   "Display Soccer World Cup Card From Google."
   (interactive "sTeam:")
