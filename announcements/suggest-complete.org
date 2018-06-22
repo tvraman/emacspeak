@@ -1,19 +1,19 @@
 *Executive Summary 
 
 Emacs has always provided a wealth of techniques for rapid keyboard
-input (abbrev, dabbrev, hippie-expandand completion come to mind)---
-and a rich collection of tools for navigating among open buffers. And
-these affordances have significantly increased over the last few years
-with the arrival of packages like =ido=, =company=,   =helm= etc.,
-each replete with different strategies for rapid task completion such
-as flex and fuzzy matching. This article investigates these tools in
-an eyes-free environment, specifically in the context of Emacspeak and
-rapid task completion. I've not investigated every possible package in
-this space --- instead, I've picked a collection of packages and
-techniques that have worked well in an eyes-free context. Finally, the
-ultimate metric I use in each case is the time to successful task
-completion --- since at the end of the day, that's the only metric
-that counts when it comes to user productivity.
+input (abbrev, dabbrev, hippie-expandand completion come to mind)
+alongside a rich collection of tools for navigating among open
+buffers. And these affordances have significantly increased over the
+last few years with the arrival of packages like =ido=, =company=,
+=helm= etc., each replete with different strategies for rapid task
+completion such as flex and fuzzy matching. This article investigates
+these tools in an eyes-free environment, specifically in the context
+of Emacspeak and rapid task completion. I've not investigated every
+possible package in this space --- instead, I've picked a collection
+of packages and techniques that have worked well in an eyes-free
+context. Finally, the ultimate metric I use in each case is the time
+to successful task completion --- since at the end of the day, that's
+the only metric that counts when it comes to user productivity.
 
 * Terminology 
 
@@ -68,12 +68,12 @@ as possible:
   5. EBooks :: Open (or jump to an already open) EBook to continue reading.
   6. Code Completion :: Complete function/method-name  as I type  with an easy
     affordance to move among the available choices. The
-    suggest/explore/complete interaction loop applies here as well.
+    *Suggest/Input/Filter/Target* interaction loop applies here as well.
      
   
 Notice that as one performs all of these tasks, *every target* is an
-Emacs buffer  or Emacs buffer location. In the case of completion
-tools, the target is a string that gets inserted at the current buffer location.
+Emacs buffer or Emacs buffer location. In the case of completion, the
+target is a string that gets inserted at the current  location.
 
 * Features Of Eyes-Free Interaction
 
@@ -82,7 +82,7 @@ the following special features and/or drawbacks:
 
   1. A large visual display can offer the user many choices at a time,
      and the eye's ability to rapidly scan these choices makes for an
-     extremely fast *suggest/explore/complete* loop. As an example, an
+     extremely fast *Suggest/Input/Filter/Target* loop. As an example, an
      interface like=helm= can display a large number of initial
      choices, with the user  filtering these down with a few strategic key-presses.
   2. Spoken output takes time --- and there is simply no way around
@@ -90,7 +90,7 @@ the following special features and/or drawbacks:
      50 choices very fast does not help the user  in the /explore/
      phase. This means that  effective filtering and ranking of the available
      choices takes on added importance.
-  3. More importantly, picking a *suggest/explore/complete*
+  3. More importantly, picking a *Suggest/Input/Filter/Target* (SIFT)
      interaction loop that depends on a large display is sub-optimal
      for eyes-free interaction.
   4. Given (2,3), smart filtering, flex/fuzzy matching, and ranking
