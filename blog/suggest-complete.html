@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-06-22 Fri 14:36 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Effective Suggest And Complete In An Eyes-Free Environment</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Effective Suggest And Complete In An Eyes-Free Environment</h1>
+<p>
+*Executive Summary 
+</p>
+
+<p>
+Emacs has always provided a wealth of techniques for rapid keyboard
+input (abbrev, dabbrev, hippie-expandand completion come to mind)
+alongside a rich collection of tools for navigating among open
+buffers. And these affordances have significantly increased over the
+last few years with the arrival of packages like <code>ido</code>, <code>company</code>,
+<code>helm</code> etc., each replete with different strategies for rapid task
+completion such as flex and fuzzy matching. This article investigates
+these tools in an eyes-free environment, specifically in the context
+of Emacspeak and rapid task completion. I've not investigated every
+possible package in this space &#x2014; instead, I've picked a collection
+of packages and techniques that have worked well in an eyes-free
+context. Finally, the ultimate metric I use in each case is the time
+to successful task completion &#x2014; since at the end of the day, that's
+the only metric that counts when it comes to user productivity.
+</p>
+
+<div id="outline-container-org9b2bdf2" class="outline-2">
+<h2 id="org9b2bdf2"><span class="section-number-2">1</span> Terminology</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+For this article, I will use terms <i>suggestion</i> and <i>completion</i> to
+mean  subtly different concepts. I'll also use terms <i>explore</i> and
+<i>filter</i> in describing various phases in user interaction.
+</p>
+
+<dl class="org-dl">
+<dt>Suggestion</dt><dd>Offer the user some <i>suggestions</i> that help explore the
+space of choices. (metaphor: avoid the blank sheet
+of paper syndrome).</dd>
+<dt>Completion </dt><dd>Filter the available choices based on user input
+with the goal of reaching the target as rapidly as possible.</dd>
+<dt>Explore </dt><dd>User does not necessarily know what he is looking
+for, but expects to be able to <i>recognize</i> what he
+wants from the displayed choices.</dd>
+<dt>Target </dt><dd>User knows exactly what he wants, e.g., filename, or
+function-name, but would still like to get there with
+the fewest possible number of keystrokes, along with
+the needed memory aids to guide the decision.</dd>
+</dl>
+
+
+<p>
+Note that in practice, <i>suggestions</i> and <i>completions</i> work
+hand-in-hand, with the visual display playing a central role in
+guiding the user through the pace of available choices. In a typical
+user interaction session, the space of suggestions gets filtered by
+user input to produce the available completions (choices) for the next
+round of user input &#x2014; think of this as a
+<b>Suggest/Input/Filter/Target</b> (SIFT)  interaction loop. Similarly, <i>explore</i> and
+<i>target</i> type activities typically go hand-in-hand, with <i>explore</i>
+serving as a memory-aid for locating the <i>target</i>.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org020d5df" class="outline-2">
+<h2 id="org020d5df"><span class="section-number-2">2</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Here are exemplars of tasks that I perform often and where I require
+all the help that Emacs can provide in completing the task as rapidly
+as possible:
+</p>
+
+<ol class="org-ol">
+<li>File Navigation  :: Navigating to and opening a file  &#x2014; either code or prose.</li>
+<li>Content Navigation :: Jump  to a
+specific location (section, function, class/method, or pattern-match) in
+ that file.</li>
+<li>Buffer Navigation :: Jump to an already open buffer in  a long-running Emacs.
+If that buffer existed &#x2014; but has since been killed (by
+ <code>midnight</code> for example), then re-open that buffer.
+ I do <b>everything</b> in Emacs, so open buffers include  a large
+  number of ORG and LaTeX documents,  Web Pages opened in  EWW 
+  (news sites, documentation, blog articles), IM Chats (I use
+  <code>jabber</code>), Mail  Buffers &#x2014; both open folders and previously
+  sent messages,  and much, much more.</li>
+<li>Media :: Easily launch media streams including local and streaming media.</li>
+<li>EBooks :: Open (or jump to an already open) EBook to continue reading.</li>
+<li>Code Completion :: Complete function/method-name  as I type  with an easy
+affordance to move among the available choices. The
+<b>Suggest/Input/Filter/Target</b> interaction loop applies here as well.</li>
+</ol>
+
+
+<p>
+Notice that as one performs all of these tasks, <b>every target</b> is an
+Emacs buffer or Emacs buffer location. In the case of completion, the
+target is a string that gets inserted at the current  location.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org18be484" class="outline-2">
+<h2 id="org18be484"><span class="section-number-2">3</span> Features Of Eyes-Free Interaction</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Using spoken output &#x2014; as opposed to a rich visual display &#x2014;  has
+the following special features and/or drawbacks:
+</p>
+
+<ol class="org-ol">
+<li>A large visual display can offer the user many choices at a time,
+and the eye's ability to rapidly scan these choices makes for an
+extremely fast <b>Suggest/Input/Filter/Target</b> loop. As an example, an
+interface like=helm= can display a large number of initial
+choices, with the user  filtering these down with a few strategic key-presses.</li>
+<li>Spoken output takes time &#x2014; and there is simply no way around
+this &#x2014; speeding up speech-rate helps to a point, but speaking
+50 choices very fast does not help the user  in the <i>explore</i>
+phase. This means that  effective filtering and ranking of the available
+choices takes on added importance.</li>
+<li>More importantly, picking a <b>Suggest/Input/Filter/Target</b> (SIFT)
+interaction loop that depends on a large display is sub-optimal
+for eyes-free interaction.</li>
+<li>Given (2,3), smart filtering, flex/fuzzy matching, and ranking
+based on past user behavior take on added importance in an
+eyes-free environment. As an aside, I have high hopes in this
+area for package <code>prescient</code> &#x2014; though in my few days of usage,
+it has yet to  make a  difference in my productivity.</li>
+<li>For many of the tasks enumerated in the previous section, (2, 3
+and 4) make <code>ido</code> with flex and fuzzy matching extremely
+effective. In contrast, <code>helm</code> with similar flex and fuzzy
+matching (via packages <code>helm-flx</code> and <code>helm-fuzzier</code>) adds little
+extra benefit &#x2014; and the fractional extra time to compute and
+display the choices can even lead to a minor productivity hit.</li>
+<li>When it comes to writing code with completion, package <code>company</code>
+has proven extremely effective. Notice that when writing code,
+one rarely if ever resorts to <b>fuzzy</b> matching &#x2014; this may well
+be  subjective. Speaking for myself, I cannot think of function
+or method names in the context of fuzzy matching &#x2014; said
+differently, it's hard to think <code>xl</code> for function-name
+<code>next-line</code> &#x2014; even though in a given filtering context, <code>xl</code>
+might define the shortest path through the available choices to
+the target <code>next-line</code>. Given this, emacspeak implements a
+<code>company front-end</code> that allows the user to navigate through the
+available choices with succinct spoken feedback, and I use those
+choices only after I have  typed sufficiently many characters to
+have a manageable number of choices &#x2014; said differently, though
+package <code>company</code> is set up to trigger after 3 characters have
+been typed, I usually end up typing more &#x2014; and  often resort to
+<code>dabbrev</code> or <code>hippee-expand</code> to  input this longer prefix.</li>
+<li>Some of the shortcomings  with eyes-free interaction enumerated
+above lead to my looking for effective work-arounds  that  might
+well work well outside the eyes-free context, e.g. when the
+available choices are too large to fit on a typical visual
+display. Interestingly, most of these have also been solved by
+mainstream Emacs developers in their never-ending/unerring quest for increased
+productivity &#x2014; package <code>ido</code> and <code>company</code> are excellent exemplars.</li>
+</ol>
+
+
+<ul class="org-ul">
+<li>Mapping Solutions To Tasks</li>
+</ul>
+
+<p>
+This section maps the various solutions I use to speed up the tasks
+enumerated earlier in this article.
+</p>
+</div>
+
+<div id="outline-container-org1d828cd" class="outline-3">
+<h3 id="org1d828cd"><span class="section-number-3">3.1</span> File And Buffer Navigation</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+I use package <code>ido</code> with add-ons=flx-ido= and  <code>ido-completing-read+</code>
+(formerly <code>ido-ubiquitous</code>) as my primary/only solution for this
+task. I've dabbled with package <code>helm</code> &#x2014; primarily via command
+<code>helm-mini</code> but have found almost no use-cases where I did better with
+<code>helm</code>. I also use command <code>org-switchb</code> to quickly jump to any of my
+open <code>org</code> buffers &#x2013; since that automatically filters the choices
+down for me &#x2014; I can then get to the <code>org-mode</code> buffer I want with
+one or two keystrokes. Notice that in  all of these cases, I'm relying
+on the fact that I mostly know what I want, i.e., the <i>explore</i> phase
+does not start with an entirely blank sheet of paper.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74250fb" class="outline-3">
+<h3 id="org74250fb"><span class="section-number-3">3.2</span> Content Navigation</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Incremental search is your biggest and most effective friend in
+effective eyes-free interaction &#x2014; this simply cannot be stressed
+enough. That <b>everything</b> in Emacs is <i>searchable</i> via
+incremental-search is a big win for eyes-free interaction. When you
+have a large visual display, the human eye is the search interface of
+first resort &#x2013; you typically use a <i>search-command</i> only if the
+target is <i>below the fold</i> or far away from the cursor. Because spoken
+output takes time, I use <i>isearch</i> even when the target is one or two
+lines away.
+</p>
+
+<p>
+Structured navigation comes next in my toolbox for navigating content
+&#x2014; <code>imenu</code> for code, and section navigation for documents (org,
+LaTeX). I also use command <code>occur</code> to advantage since that provides a
+quick way of finding all the desired targets in a document. Given that
+program source-code uses indentation for displaying structure,
+hbuilt-in command <code>selective-display</code> remains one of Emacs' hidden
+treasures with respect to expanding/collapsing source-code.
+</p>
+
+<p>
+Finally, I
+use a combination of <code>isearch</code> and <code>structured navigation</code> in
+<code>org-mode</code> buffres by collapsing the document, and then using
+<code>isearch</code> to reveal the desired content fragment.
+In the case of <code>LaTeX</code> documents, I use  package <code>reftex</code> to
+generate a <i>navigation</i> buffer that functions as an interactive table
+of contents. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44c8c71" class="outline-3">
+<h3 id="org44c8c71"><span class="section-number-3">3.3</span> Locating And Playing Media</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>I keep all my music content organized under  <code>~/mp3</code>.</li>
+<li>I keep playlist files that contain stream-links to my favorite
+Internet streams under <code>emacspeak/media</code>.</li>
+<li>The afore-mentioned  techniques using <code>ido</code>  enables me to launch
+local and streaming media with a small number of keystrokes. Once
+selected, the content is played via package <code>emacspeak-m-player</code>
+which provides Emacs bindings to all  <code>mplayer</code>  functionality
+via that program's <code>slave-mode</code>. In addition, Emacspeak also
+implements a  smart <code>emacspeak-m-player-locate-media</code> which uses
+Emacs' integration with command <code>locate</code> to  turn the located
+files matching a given pattern into an interactive play-list.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb862927" class="outline-3">
+<h3 id="orgb862927"><span class="section-number-3">3.4</span> EBooks</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Jumping to already open ebooks is no different than buffer
+     navigation.  I organize all my ebooks under a single directory
+     tree, and module <code>emacspeak-epub</code> implements a <i>bookshelf</i> that
+     allows me to organize and browse my collection along various
+     axies. Finally, Emacspeak implements a light-weight bookmark
+     facility that works with <code>eww</code> so that I can save my place in an
+     ebook across Emacs sessions.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org565a7af" class="outline-3">
+<h3 id="org565a7af"><span class="section-number-3">3.5</span> Code Completion</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+As covered earlier, I use <code>company</code> along with <code>dabbrev</code> and
+     <code>hippee-expand</code> while writing code. I also use <code>yasnippet</code> to
+     generate skeleton code. I use <code>auto-correct-mode</code> to
+     automatically correct repeated errors, and add abbrevs for
+     commonly occurring typos. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41b5187" class="outline-2">
+<h2 id="org41b5187"><span class="section-number-2">4</span> Summary</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>Emacs' <b>Suggest/Input/Filter/Target</b> (SIFT)  interaction loop is just as
+effective in eyes-free interaction &#x2014; in fact more so .</li>
+<li>Fuzzy matching when filtering is a big win when working with spoken
+output &#x2014; it leads to faster task completion.</li>
+<li>Navigating ones  computing environment based on  the underlying
+structure and semantics of electronic content is a major win &#x2014;
+both when working with a visual  or spoken display. The advantages
+just become evident far sooner in the eyes-free context due to the
+inherently temporal nature of spoken interaction.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2018-06-22 Fri 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2018-06-22 Fri 14:36</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
