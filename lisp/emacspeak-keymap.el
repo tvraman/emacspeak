@@ -549,7 +549,7 @@ interactive command that the key sequence executes."
     ("f" flyspell-mode)
     ("g" emacspeak-google-tts-region)
     ("j" ido-imenu-anywhere)
-    ("o" ciel-co)
+    ("o" org-switchb)
     ("q" emacspeak-wizards-iex-show-quote)
     ("r" soundscape-restart)
     ("s" soundscape)
