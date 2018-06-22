@@ -4,7 +4,7 @@ Emacs has always provided a wealth of techniques for rapid keyboard
 input (abbrev, dabbrev, hippie-expandand completion come to mind)---
 and a rich collection of tools for navigating among open buffers. And
 these affordances have significantly increased over the last few years
-with the arrival of packages like =ido=, =company=, , =helm= etc.,
+with the arrival of packages like =ido=, =company=,   =helm= etc.,
 each replete with different strategies for rapid task completion such
 as flex and fuzzy matching. This article investigates these tools in
 an eyes-free environment, specifically in the context of Emacspeak and
@@ -41,7 +41,7 @@ guiding the user through the pace of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
 round of user input --- think of this as a
-*Suggest/Explore/Complete* interaction loop. Similarly, /explore/ and
+*Suggest/Input/Filter/Take* (SIFT)  interaction loop. Similarly, /explore/ and
 /target/ type activities typically go hand-in-hand, with /explore/
 serving as a memory-aid for locating the /target/.
 
@@ -209,7 +209,7 @@ As covered earlier, I use =company= along with =dabbrev= and
      
 * Summary 
 
-1. Emacs' *Suggest/Explore/Complete* interaction loop is just as
+1. Emacs' *Suggest/Input/Filter/Take* (SIFT)  interaction loop is just as
    effective in eyes-free interaction --- in fact more so .
 2. Fuzzy matching when filtering is a big win when working with spoken
    output --- it leads to faster task completion.
