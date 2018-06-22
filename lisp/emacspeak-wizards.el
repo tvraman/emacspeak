@@ -4210,6 +4210,17 @@ external package."
       arglist ))))
 
 ;;}}}
+;;{{{ World Cup 2018
+
+(defun emacspeak-wizards-wc-2018 (team)
+  "Display Soccer World Cup Card From Google."
+  (interactive "sTeam:")
+  (emacspeak-we-extract-by-class
+   "xVDuB"
+   (format "https://www.google.com/search?source=hp&q=world cup+%s&num=25" team)
+   'speak))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
