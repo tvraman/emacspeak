@@ -41,7 +41,7 @@ guiding the user through the pace of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
 round of user input --- think of this as a
-*suggest/explore/complete* interaction loop. Similarly, /explore/ and
+*Suggest/Explore/Complete* interaction loop. Similarly, /explore/ and
 /target/ type activities typically go hand-in-hand, with /explore/
 serving as a memory-aid for locating the /target/.
 
@@ -67,7 +67,7 @@ as possible:
   4. Media :: Easily launch media streams including local and streaming media.
   5. EBooks :: Open (or jump to an already open) EBook to continue reading.
   6. Code Completion :: Complete function/method-name  as I type  with an easy
-    affordances to move among the available choices. The
+    affordance to move among the available choices. The
     suggest/explore/complete interaction loop applies here as well.
      
   
@@ -162,7 +162,12 @@ lines away.
 Structured navigation comes next in my toolbox for navigating content
 --- =imenu= for code, and section navigation for documents (org,
 LaTeX). I also use command =occur= to advantage since that provides a
-quick way of finding all the desired targets in a document. Finally, I
+quick way of finding all the desired targets in a document. Given that
+program source-code uses indentation for displaying structure,
+built-in command =selective-display= remains one of Emacs' hidden
+treasures with respect to expanding/collapsing source-code.
+
+Finally, I
 use a combination of =isearch= and =structured navigation= in
 =org-mode= buffres by collapsing the document, and then using
 =isearch= to reveal the desired content fragment.
