@@ -26,8 +26,32 @@ mean  subtly different concepts:
 Note that in practice, /suggestions/ and /completions/ work
 hand-in-hand, with the visual display  playing a central role in
 guiding the user through the pace of available choices.
+In a typical user interaction session,  the space of suggestions gets filtered by user input to produce
+the available completions (choices) for the next round of user input.
+
 
 *  Tasks Where Suggestions And Completions Help Speed Up Task Completion
+
+Here are exemplars of tasks that I perform often and where I require
+all the help that Emacs can provide in completing the task as rapidly
+as possible:
+
+  1. Navigating to and opening a file  --- either code or prose.
+  2. Jump  to a
+    specific location (section, function, class/method, or pattern-match) in
+     that file.
+  3. Jump to an already open buffer in  a long-running Emacs.
+  4. If that buffer existed --- but has since been killed (by
+    =midnight= for example), then re-open that buffer.
+  5. I do *everything* in Emacs, so open buffers include Web Pages
+     (news sites, documentation, blog articles), IM Chats (I use
+     =jabber=), Mail  Buffers --- both open folders and previously
+     sent messages,  and much, much more.
+  6. Easily launch media streams including local and streaming media.
+  7. Open (or jump to an already open)  an EBook to continue reading.
+  
+Notice that as one performs all of these tasks, *everything* is an
+Emacs buffer (or leads to an Emacs buffer)!
 
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
