@@ -52,33 +52,33 @@ Here are exemplars of tasks that I perform often and where I require
 all the help that Emacs can provide in completing the task as rapidly
 as possible:
 
-  1. Navigating to and opening a file  --- either code or prose.
-  2. Jump  to a
+  1. File Navigation  :: Navigating to and opening a file  --- either code or prose.
+  2. Content Navigation :: Jump  to a
     specific location (section, function, class/method, or pattern-match) in
      that file.
-  3. Jump to an already open buffer in  a long-running Emacs.
-  4. If that buffer existed --- but has since been killed (by
+  3. Buffer Navigation :: Jump to an already open buffer in  a long-running Emacs.
+   If that buffer existed --- but has since been killed (by
     =midnight= for example), then re-open that buffer.
-  5. I do *everything* in Emacs, so open buffers include  a large
+    I do *everything* in Emacs, so open buffers include  a large
      number of ORG and LaTeX documents,  Web Pages opened in  EWW 
      (news sites, documentation, blog articles), IM Chats (I use
      =jabber=), Mail  Buffers --- both open folders and previously
      sent messages,  and much, much more.
-  6. Easily launch media streams including local and streaming media.
-  7. Open (or jump to an already open)  an EBook to continue reading.
-  8. Complete function/method-name  as I type  with an easy
+  4. Media :: Easily launch media streams including local and streaming media.
+  5. EBooks :: Open (or jump to an already open)  an EBook to continue reading.
+  6. Code Completion :: Complete function/method-name  as I type  with an easy
     affordance to move among the available choices. The
     suggest/explore/complete interaction loop applies here as well.
-  9. Google suggest for picking  among popular queries.
      
   
 Notice that as one performs all of these tasks, *every target* is an
-Emacs buffer  or Emacs buffer location.
+Emacs buffer  or Emacs buffer location. In the case of completion
+tools, the target is a string that gets inserted at the current buffer location.
 
 * Features Of Eyes-Free Interaction
 
 Using spoken output --- as opposed to a rich visual display ---  has
-the following special features:
+the following special features and/or drawbacks:
 
   1. A large visual display can offer the user many choices at a time,
      and the eye's ability to rapidly scan these choices makes for an
@@ -112,15 +112,110 @@ the following special features:
      differently, it's hard to think =xl= for function-name
      =next-line= --- even though in a given filtering context, =xl=
      might define the shortest path through the available choices to
-     the target =next=line=. Given this, emacspeak implements a
+     the target =next-line=. Given this, emacspeak implements a
      =company front-end= that allows the user to navigate through the
      available choices with succinct spoken feedback, and I use those
      choices only after I have  typed sufficiently many characters to
      have a managable number of choices --- said differently, though
      package =company= is set up to trigger after 3 characters have
-     been typed, I usually end up typing more -- and  often resort to
-     =dabbrev= or =hippee-expand= to  input this prefix.
+     been typed, I usually end up typing more --- and  often resort to
+     =dabbrev= or =hippee-expand= to  input this longer prefix.
+  7. Some of the shortcomings  with eyes-free interaction enumerated
+     above lead to my looking for effective work-arounds  that  might
+     well work well outside the eyes-free context, e.g. when the
+     available choices are too large to fit on a typical visual
+     display. Interestingly, most of these have also been solved by
+     mainstream Emacs develpers in their never-ending/unerring quest for increased
+     productivity --- package =ido= and =company= are excellent exemplars.
+ 
+
+    * Mapping Solutions To Tasks 
+
+This section maps the various solutions I use to speed up the tasks
+enumerated earlier in this article.
+
+** File And Buffer Navigation
+
+I use package =ido= with add-ons=flx-ido= and  =ido-completing-read+=
+(formerly =ido-ubiquitous=) as my primary/only solution for this
+task. I've dabbled with package =helm= --- primarily via command
+=helm-mini= but have found almost no use-cases where I did better with
+=helm=. I also use command =org-switchb= to quickly jump to any of my
+open =org= buffers -- since that automatically filters the choices
+down for me --- I can then get to the =org-mode= buffer I want with
+one or two keystrokes. Notice that in  all of these cases, I'm relying
+on the fact that I mostly know what I want, i.e., the /explore/ phase
+does not start with an entirely blank sheet of paper.
+
+** Content Navigation 
+
+Incremental search is your biggest and most effective friend in
+effective eyes-free interaction --- this simply cannot be stressed
+enough. That *everything* in Emacs is /searchable/ via
+incremental-search is a big win for eyes-free interaction. When you
+have a large visual display, the human eye is the search interface of
+first resort -- you typically use a /search-command/ only if the
+target is /below the fold/ or far away from the cursor. Because spoken
+output takes time, I use /isearch/ even when the target is one or two
+lines away.
+
+Structured navigation comes next in my toolbox for navigating content
+--- =imenu= for code, and section navigation for documents (org,
+LaTeX). I also use command =occur= to advantage since that provides a
+quick way of finding all the desired targets in a document. Finally, I
+use a combination of =isearch= and =structured navigation= in
+=org-mode= buffres by collapsing the document, and then using
+=isearch= to reveal the desired content fragment.
+In the case of =LaTeX= documents, I use  package =reftex= to
+generate a /navigation/ buffer that functions as an interactive table
+of contents. 
+
+** Locating And Playing Media 
+
+  1. I keep all my music content organized under  =~/mp3=.
+  2. I keep playlist files that contain stream-links to my favorite
+     Internet streams under =emacspeak/media=.
+  3. The afore-mentioned  techniques using =ido=  enables me to launch
+     local and streaming media with a small number of keystrokes. Once
+     selected, the content is played via package =emacspeak-m-player=
+     which provides Emacs bindings to all  =mplayer=  functionality
+     via that program's =slave-mode=. In addition, Emacspeak also
+     implements a  smart =emacspeak-m-player-locate-media= which uses
+     Emacs' integration with command =locate= to  turn the located
+     files matching a given pattern into an interactive play-list.
+
+** EBooks 
+
+Jumping to already open ebooks is no different than buffer
+     navigation.  I organize all my ebooks under a single directory
+     tree, and module =emacspeak-epub= implements a /bookshelf/ that
+     allows me to organize and browse my collection along various
+     axies. Finally, Emacspeak implements a light-weight bookmark
+     facility that works with =eww= so that I can save my place in an
+     ebook across Emacs sessions.
+
+** Code Completion 
+
+As covered earlier, I use =company= along with =dabbrev= and
+     =hippee-expand= while writing code. I also use =yasnippet= to
+     generate skeleton code. I use =auto-correct-mode= to
+     automatically correct repeated errors, and add abbrevs for
+     commonly occurring typos. 
      
+* Summary 
+
+1. Emacs' *Suggest/Explore/Complete* interaction loop is just as
+   effective in eyes-free interaction --- in fact more so .
+2. Fuzzy matching when filtering is a big win when working with spoken
+   output --- it leads to faster task completion.
+3.  Navigating ones  computing environment based on  the underlying
+   structure and semantics of electronic content is a major win ---
+   both when working with a visual  or spoken display. The advantages
+   just become evident far sooner in the eyes-free context due to the
+   inherently temporal nature of spoken interaction. 
+
+
+
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
