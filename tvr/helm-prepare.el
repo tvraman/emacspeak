@@ -15,10 +15,11 @@
       for b in
       '(
         ("," helm-mode)
-        ("f" helm-find-file)
+        ("f" helm-find-files)
         ("u" helm-unicode)
         ("b" helm-buffers-list)
         ("i" helm-info)
+        ("." helm-make)
         ("o" helm-mini)) do
       (define-key helm-command-map (cl-first b) (cl-second b)))
 
