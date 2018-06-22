@@ -2,24 +2,28 @@
 
 Emacs has always provided a wealth of techniques for rapid keyboard
 input (abbrev, dabbrev, hippie-expandand completion come to mind)---
-and these affordances have significantly increased over the last few
-years with the arrival of packages like =ido=, =company=, =a c=,
-=helm= etc., each replete with different strategies for rapid task
-completion such as flex and fuzzy matching. This article investigates
-these tools in an eyes-free environment, specifically in the context
-of Emacspeak.  I've not investigated every possible package in this
-space --- instead, I've picked a collection of packages and techniques
-that have worked well for me. Finally, the ultimate metric I use in
-each case is the time to task completion --- since at the end of the
-day, that's the only metric that counts when it comes to user
-productivity.
+and a rich collection of tools for navigating among open buffers. And
+these affordances have significantly increased over the last few years
+with the arrival of packages like =ido=, =company=, =a c=, =helm=
+etc., each replete with different strategies for rapid task completion
+such as flex and fuzzy matching. This article investigates these tools
+in an eyes-free environment, specifically in the context of Emacspeak
+and rapid task completion. I've not investigated every possible
+package in this space --- instead, I've picked a collection of
+packages and techniques that have worked well in an eyes-free
+context. Finally, the ultimate metric I use in each case is the time
+to successful task completion --- since at the end of the day, that's
+the only metric that counts when it comes to user productivity.
+
 * Terminology 
 
 For this article, I will use terms /suggestion/ and /completion/ to
-mean  subtly different concepts:
+mean  subtly different concepts. I'll also use terms /explore/ and
+/filter/ in describing various phases in user interaction.
 
   - Suggestion :: Offer the user some /suggestions/ that help explore the
-                  space of choices.
+                  space of choices. (metaphor: avoid the blank sheet
+                  of paper syndrome).
   - Completion  ::  Filter the available choices based on user input
                    with the goal of reaching the target as rapidly as possible.
   - Explore  ::  User does not necessarily know what he is looking
@@ -27,7 +31,8 @@ mean  subtly different concepts:
                 wants from the displayed choices.
   - Target  ::  User knows exactly what he wants, e.g., filename, or
                function-name, but would still like to get there with
-               the fewest possible number of keystrokes.
+               the fewest possible number of keystrokes, along with
+               the needed memory aids to guide the decision.
   
 
 Note that in practice, /suggestions/ and /completions/ work
@@ -35,9 +40,10 @@ hand-in-hand, with the visual display playing a central role in
 guiding the user through the pace of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
-round of user input. Thus, think of this as a
+round of user input --- think of this as a
 *suggest/explore/complete* interaction loop. Similarly, /explore/ and
-/target/ type activities typically go hand-in-hand.
+/target/ type activities typically go hand-in-hand, with /explore/
+serving as a memory-aid for locating the /target/.
 
 
 *  Tasks Where Suggestions And Completions Help Speed Up Task Completion
@@ -53,15 +59,17 @@ as possible:
   3. Jump to an already open buffer in  a long-running Emacs.
   4. If that buffer existed --- but has since been killed (by
     =midnight= for example), then re-open that buffer.
-  5. I do *everything* in Emacs, so open buffers include Web Pages
+  5. I do *everything* in Emacs, so open buffers include  a large
+     number of ORG and LaTeX documents,  Web Pages opened in  EWW 
      (news sites, documentation, blog articles), IM Chats (I use
      =jabber=), Mail  Buffers --- both open folders and previously
      sent messages,  and much, much more.
   6. Easily launch media streams including local and streaming media.
   7. Open (or jump to an already open)  an EBook to continue reading.
-  8.  Complete function/method-name  as I type  with an easy
-     affordance to move among the available choices. The
-     suggest/explore/complete interaction loop applies here as well.
+  8. Complete function/method-name  as I type  with an easy
+    affordance to move among the available choices. The
+    suggest/explore/complete interaction loop applies here as well.
+  9. Google suggest for picking  among popular queries.
      
   
 Notice that as one performs all of these tasks, *every target* is an
@@ -87,13 +95,31 @@ the following special features:
      for eyes-free interaction.
   4. Given (2,3), smart filtering, flex/fuzzy matching, and ranking
      based on past user behavior take on added importance in an
-     eyes-free environment.
+     eyes-free environment. As an aside, I have high hopes in this
+     area for package =prescient= --- though in my few days of usage,
+     it has yet to  make a  difference in my productivity.
   5. For many of the tasks enumerated in the previous section, (2, 3
      and 4) make =ido= with flex and fuzzy matching extremely
      effective. In contrast, =helm= with similar flex and fuzzy
      matching (via packages =helm-flx= and =helm-fuzzier=) adds little
      extra benefit --- and the fractional extra time to compute and
      display the choices can even lead to a minor productivity hit.
+  6. When it comes to writing code with completion, package =company=
+     has proven extremely effective. Notice that when writing code,
+     one rarely if ever resorts to *fuzzy* matching --- this may well
+     be  subjective. Speaking for myself, I cannot think of function
+     or method names in the context of fuzzy matching --- said
+     differently, it's hard to think =xl= for function-name
+     =next-line= --- even though in a given filtering context, =xl=
+     might define the shortest path through the available choices to
+     the target =next=line=. Given this, emacspeak implements a
+     =company front-end= that allows the user to navigate through the
+     available choices with succinct spoken feedback, and I use those
+     choices only after I have  typed sufficiently many characters to
+     have a managable number of choices --- said differently, though
+     package =company= is set up to trigger after 3 characters have
+     been typed, I usually end up typing more -- and  often resort to
+     =dabbrev= or =hippee-expand= to  input this prefix.
      
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
