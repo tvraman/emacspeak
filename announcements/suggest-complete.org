@@ -41,7 +41,7 @@ guiding the user through the pace of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
 round of user input --- think of this as a
-*Suggest/Input/Filter/Type* (SIFT)  interaction loop. Similarly, /explore/ and
+*Suggest/Input/Filter/Target* (SIFT)  interaction loop. Similarly, /explore/ and
 /target/ type activities typically go hand-in-hand, with /explore/
 serving as a memory-aid for locating the /target/.
 
@@ -209,7 +209,7 @@ As covered earlier, I use =company= along with =dabbrev= and
      
 * Summary 
 
-1. Emacs' *Suggest/Input/Filter/Type* (SIFT)  interaction loop is just as
+1. Emacs' *Suggest/Input/Filter/Target* (SIFT)  interaction loop is just as
    effective in eyes-free interaction --- in fact more so .
 2. Fuzzy matching when filtering is a big win when working with spoken
    output --- it leads to faster task completion.
