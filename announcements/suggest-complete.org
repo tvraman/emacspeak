@@ -22,12 +22,22 @@ mean  subtly different concepts:
                   space of choices.
   - Completion  ::  Filter the available choices based on user input
                    with the goal of reaching the target as rapidly as possible.
+  - Explore  ::  User does not necessarily know what he is looking
+                for, but expects to be able to /recognize/ what he
+                wants from the displayed choices.
+  - Target  ::  User knows exactly what he wants, e.g., filename, or
+               function-name, but would still like to get there with
+               the fewest possible number of keystrokes.
+  
 
 Note that in practice, /suggestions/ and /completions/ work
-hand-in-hand, with the visual display  playing a central role in
-guiding the user through the pace of available choices.
-In a typical user interaction session,  the space of suggestions gets filtered by user input to produce
-the available completions (choices) for the next round of user input.
+hand-in-hand, with the visual display playing a central role in
+guiding the user through the pace of available choices. In a typical
+user interaction session, the space of suggestions gets filtered by
+user input to produce the available completions (choices) for the next
+round of user input. Thus, think of this as a
+*suggest/explore/complete* interaction loop. Similarly, /explore/ and
+/target/ type activities typically go hand-in-hand.
 
 
 *  Tasks Where Suggestions And Completions Help Speed Up Task Completion
@@ -49,10 +59,30 @@ as possible:
      sent messages,  and much, much more.
   6. Easily launch media streams including local and streaming media.
   7. Open (or jump to an already open)  an EBook to continue reading.
+  8.  Complete function/method-name  as I type  with an easy
+     affordance to move among the available choices. The
+     suggest/explore/complete interaction loop applies here as well.
+     
   
-Notice that as one performs all of these tasks, *everything* is an
-Emacs buffer (or leads to an Emacs buffer)!
+Notice that as one performs all of these tasks, *every target* is an
+Emacs buffer  or Emacs buffer location.
 
+* Features Of Eyes-Free Interaction
+
+Using spoken output --- as opposed to a rich visual display ---  has
+the following special features:
+
+  1. A large visual display can offer the user many choices at a time,
+     and the eye's ability to rapidly scan these choices makes for an
+     extremely fast *suggest/explore/complete* loop. As an example, an
+     interface like=helm= can display a large number of initial
+     choices, with the user  filtering these down with a few strategic key-presses.
+  2. Spoken output takes time --- and there is simply no way around
+     this --- speeding up speech-rate helps to a point, but speaking
+     50 choices very fast does not help the user  in the /explore/
+     phase. This means that  effective filtering and ranking of the available
+     choices takes on added importance.
+     
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
