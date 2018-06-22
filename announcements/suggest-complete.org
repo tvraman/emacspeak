@@ -4,16 +4,16 @@ Emacs has always provided a wealth of techniques for rapid keyboard
 input (abbrev, dabbrev, hippie-expandand completion come to mind)---
 and a rich collection of tools for navigating among open buffers. And
 these affordances have significantly increased over the last few years
-with the arrival of packages like =ido=, =company=, =a c=, =helm=
-etc., each replete with different strategies for rapid task completion
-such as flex and fuzzy matching. This article investigates these tools
-in an eyes-free environment, specifically in the context of Emacspeak
-and rapid task completion. I've not investigated every possible
-package in this space --- instead, I've picked a collection of
-packages and techniques that have worked well in an eyes-free
-context. Finally, the ultimate metric I use in each case is the time
-to successful task completion --- since at the end of the day, that's
-the only metric that counts when it comes to user productivity.
+with the arrival of packages like =ido=, =company=, , =helm= etc.,
+each replete with different strategies for rapid task completion such
+as flex and fuzzy matching. This article investigates these tools in
+an eyes-free environment, specifically in the context of Emacspeak and
+rapid task completion. I've not investigated every possible package in
+this space --- instead, I've picked a collection of packages and
+techniques that have worked well in an eyes-free context. Finally, the
+ultimate metric I use in each case is the time to successful task
+completion --- since at the end of the day, that's the only metric
+that counts when it comes to user productivity.
 
 * Terminology 
 
@@ -164,7 +164,7 @@ Structured navigation comes next in my toolbox for navigating content
 LaTeX). I also use command =occur= to advantage since that provides a
 quick way of finding all the desired targets in a document. Given that
 program source-code uses indentation for displaying structure,
-built-in command =selective-display= remains one of Emacs' hidden
+hbuilt-in command =selective-display= remains one of Emacs' hidden
 treasures with respect to expanding/collapsing source-code.
 
 Finally, I
