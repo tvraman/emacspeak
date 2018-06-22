@@ -58,7 +58,7 @@ France, Australia, Peru, Denmark
 **  6. Peru             - Denmark             0::1
     <2018-06-16 Sat 09:00> 
     Saransk Stadium          
-** 22. Denmark          - Australia          
+** 22. Denmark          - Australia           1::1
     <2018-06-21 Thu 05:00> 
     Samara Stadium           
 ** 21. France           - Peru                1::0
