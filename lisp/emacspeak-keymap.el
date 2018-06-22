@@ -544,6 +544,7 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("'" emacspeak-vlc)
+    ("," emacspeak-wizards-wc-2018)
     ("SPC"  emacspeak-wizards-scratch)
     ("." emacspeak-wizards-shell-directory-reset)
     ("f" flyspell-mode)
