@@ -1,0 +1,29 @@
+*Executive Summary 
+
+Emacs has always provided a wealth of techniques for rapid keyboard
+input --- and these affordances have significantly increased over the
+last few years with the arrival of packages like =ido=, =company=,
+=helm= etc., each replete with different strategies for rapid task
+completion. Each of these packages now support a variety of completion
+techniques, including flex and fuzzy matching. This article
+investigates  what is entailed in leveraging these tools in an
+eyes-free environment, specifically in the context of Emacspeak I've
+not investigated every possible package in this space --- instead,
+I've picked a collection of packages  and techniques that have worked
+well for me. Finally, the ultimate metric I use in each case is the
+time to task completion --- since at the end of the day, that's the
+only metric that counts when it comes to user productivity.
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Effective Suggest And Complete In An Eyes-Free Environment
+#+DATE: <2018-06-22 Fri>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 27.0.50 (Org mode 9.1.13)
