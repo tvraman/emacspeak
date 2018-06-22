@@ -16,7 +16,7 @@
       '(
         ("," helm-mode)
         ("f" helm-find-files)
-        ("u" helm-unicode)
+        ("u" helm-ucs)
         ("b" helm-buffers-list)
         ("i" helm-info)
         ("." helm-make)
