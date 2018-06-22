@@ -65,9 +65,9 @@ as possible:
      =jabber=), Mail  Buffers --- both open folders and previously
      sent messages,  and much, much more.
   4. Media :: Easily launch media streams including local and streaming media.
-  5. EBooks :: Open (or jump to an already open)  an EBook to continue reading.
+  5. EBooks :: Open (or jump to an already open) EBook to continue reading.
   6. Code Completion :: Complete function/method-name  as I type  with an easy
-    affordance to move among the available choices. The
+    affordances to move among the available choices. The
     suggest/explore/complete interaction loop applies here as well.
      
   
@@ -116,7 +116,7 @@ the following special features and/or drawbacks:
      =company front-end= that allows the user to navigate through the
      available choices with succinct spoken feedback, and I use those
      choices only after I have  typed sufficiently many characters to
-     have a managable number of choices --- said differently, though
+     have a manageable number of choices --- said differently, though
      package =company= is set up to trigger after 3 characters have
      been typed, I usually end up typing more --- and  often resort to
      =dabbrev= or =hippee-expand= to  input this longer prefix.
@@ -125,7 +125,7 @@ the following special features and/or drawbacks:
      well work well outside the eyes-free context, e.g. when the
      available choices are too large to fit on a typical visual
      display. Interestingly, most of these have also been solved by
-     mainstream Emacs develpers in their never-ending/unerring quest for increased
+     mainstream Emacs developers in their never-ending/unerring quest for increased
      productivity --- package =ido= and =company= are excellent exemplars.
  
 
