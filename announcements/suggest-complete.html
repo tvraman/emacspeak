@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-22 Fri 10:48 -->
+<!-- 2018-06-22 Fri 11:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Effective Suggest And Complete In An Eyes-Free Environment</title>
@@ -191,29 +191,33 @@
 <p>
 Emacs has always provided a wealth of techniques for rapid keyboard
 input (abbrev, dabbrev, hippie-expandand completion come to mind)&#x2014;
-and these affordances have significantly increased over the last few
-years with the arrival of packages like <code>ido</code>, <code>company</code>, <code>a c</code>,
-<code>helm</code> etc., each replete with different strategies for rapid task
-completion such as flex and fuzzy matching. This article investigates
-these tools in an eyes-free environment, specifically in the context
-of Emacspeak.  I've not investigated every possible package in this
-space &#x2014; instead, I've picked a collection of packages and techniques
-that have worked well for me. Finally, the ultimate metric I use in
-each case is the time to task completion &#x2014; since at the end of the
-day, that's the only metric that counts when it comes to user
-productivity.
+and a rich collection of tools for navigating among open buffers. And
+these affordances have significantly increased over the last few years
+with the arrival of packages like <code>ido</code>, <code>company</code>, <code>a c</code>, <code>helm</code>
+etc., each replete with different strategies for rapid task completion
+such as flex and fuzzy matching. This article investigates these tools
+in an eyes-free environment, specifically in the context of Emacspeak
+and rapid task completion. I've not investigated every possible
+package in this space &#x2014; instead, I've picked a collection of
+packages and techniques that have worked well in an eyes-free
+context. Finally, the ultimate metric I use in each case is the time
+to successful task completion &#x2014; since at the end of the day, that's
+the only metric that counts when it comes to user productivity.
 </p>
-<div id="outline-container-orgb006814" class="outline-2">
-<h2 id="orgb006814"><span class="section-number-2">1</span> Terminology</h2>
+
+<div id="outline-container-org0e11e4b" class="outline-2">
+<h2 id="org0e11e4b"><span class="section-number-2">1</span> Terminology</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For this article, I will use terms <i>suggestion</i> and <i>completion</i> to
-mean  subtly different concepts:
+mean  subtly different concepts. I'll also use terms <i>explore</i> and
+<i>filter</i> in describing various phases in user interaction.
 </p>
 
 <dl class="org-dl">
 <dt>Suggestion</dt><dd>Offer the user some <i>suggestions</i> that help explore the
-space of choices.</dd>
+space of choices. (metaphor: avoid the blank sheet
+of paper syndrome).</dd>
 <dt>Completion </dt><dd>Filter the available choices based on user input
 with the goal of reaching the target as rapidly as possible.</dd>
 <dt>Explore </dt><dd>User does not necessarily know what he is looking
@@ -221,7 +225,8 @@ for, but expects to be able to <i>recognize</i> what he
 wants from the displayed choices.</dd>
 <dt>Target </dt><dd>User knows exactly what he wants, e.g., filename, or
 function-name, but would still like to get there with
-the fewest possible number of keystrokes.</dd>
+the fewest possible number of keystrokes, along with
+the needed memory aids to guide the decision.</dd>
 </dl>
 
 
@@ -231,16 +236,17 @@ hand-in-hand, with the visual display playing a central role in
 guiding the user through the pace of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
-round of user input. Thus, think of this as a
+round of user input &#x2014; think of this as a
 <b>suggest/explore/complete</b> interaction loop. Similarly, <i>explore</i> and
-<i>target</i> type activities typically go hand-in-hand.
+<i>target</i> type activities typically go hand-in-hand, with <i>explore</i>
+serving as a memory-aid for locating the <i>target</i>.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org48b0d91" class="outline-2">
-<h2 id="org48b0d91"><span class="section-number-2">2</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
+<div id="outline-container-org9760e3e" class="outline-2">
+<h2 id="org9760e3e"><span class="section-number-2">2</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are exemplars of tasks that I perform often and where I require
@@ -256,7 +262,8 @@ specific location (section, function, class/method, or pattern-match) in
 <li>Jump to an already open buffer in  a long-running Emacs.</li>
 <li>If that buffer existed &#x2014; but has since been killed (by
 <code>midnight</code> for example), then re-open that buffer.</li>
-<li>I do <b>everything</b> in Emacs, so open buffers include Web Pages
+<li>I do <b>everything</b> in Emacs, so open buffers include  a large
+number of ORG and LaTeX documents,  Web Pages opened in  EWW 
 (news sites, documentation, blog articles), IM Chats (I use
 <code>jabber</code>), Mail  Buffers &#x2014; both open folders and previously
 sent messages,  and much, much more.</li>
@@ -265,6 +272,7 @@ sent messages,  and much, much more.</li>
 <li>Complete function/method-name  as I type  with an easy
 affordance to move among the available choices. The
 suggest/explore/complete interaction loop applies here as well.</li>
+<li>Google suggest for picking  among popular queries.</li>
 </ol>
 
 
@@ -275,8 +283,8 @@ Emacs buffer  or Emacs buffer location.
 </div>
 </div>
 
-<div id="outline-container-org87d36b6" class="outline-2">
-<h2 id="org87d36b6"><span class="section-number-2">3</span> Features Of Eyes-Free Interaction</h2>
+<div id="outline-container-org1a71aca" class="outline-2">
+<h2 id="org1a71aca"><span class="section-number-2">3</span> Features Of Eyes-Free Interaction</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Using spoken output &#x2014; as opposed to a rich visual display &#x2014;  has
@@ -299,13 +307,31 @@ interaction loop that depends on a large display is sub-optimal
 for eyes-free interaction.</li>
 <li>Given (2,3), smart filtering, flex/fuzzy matching, and ranking
 based on past user behavior take on added importance in an
-eyes-free environment.</li>
+eyes-free environment. As an aside, I have high hopes in this
+area for package <code>prescient</code> &#x2014; though in my few days of usage,
+it has yet to  make a  difference in my productivity.</li>
 <li>For many of the tasks enumerated in the previous section, (2, 3
 and 4) make <code>ido</code> with flex and fuzzy matching extremely
 effective. In contrast, <code>helm</code> with similar flex and fuzzy
 matching (via packages <code>helm-flx</code> and <code>helm-fuzzier</code>) adds little
 extra benefit &#x2014; and the fractional extra time to compute and
 display the choices can even lead to a minor productivity hit.</li>
+<li>When it comes to writing code with completion, package <code>company</code>
+has proven extremely effective. Notice that when writing code,
+one rarely if ever resorts to <b>fuzzy</b> matching &#x2014; this may well
+be  subjective. Speaking for myself, I cannot think of function
+or method names in the context of fuzzy matching &#x2014; said
+differently, it's hard to think <code>xl</code> for function-name
+<code>next-line</code> &#x2014; even though in a given filtering context, <code>xl</code>
+might define the shortest path through the available choices to
+the target <code>next=line</code>. Given this, emacspeak implements a
+<code>company front-end</code> that allows the user to navigate through the
+available choices with succinct spoken feedback, and I use those
+choices only after I have  typed sufficiently many characters to
+have a managable number of choices &#x2014; said differently, though
+package <code>company</code> is set up to trigger after 3 characters have
+been typed, I usually end up typing more &#x2013; and  often resort to
+<code>dabbrev</code> or <code>hippee-expand</code> to  input this prefix.</li>
 </ol>
 </div>
 </div>
@@ -313,7 +339,7 @@ display the choices can even lead to a minor productivity hit.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2018-06-22 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2018-06-22 Fri 10:48</p>
+<p class="date">Created: 2018-06-22 Fri 11:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
