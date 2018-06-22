@@ -82,6 +82,18 @@ the following special features:
      50 choices very fast does not help the user  in the /explore/
      phase. This means that  effective filtering and ranking of the available
      choices takes on added importance.
+  3. More importantly, picking a *suggest/explore/complete*
+     interaction loop that depends on a large display is sub-optimal
+     for eyes-free interaction.
+  4. Given (2,3), smart filtering, flex/fuzzy matching, and ranking
+     based on past user behavior take on added importance in an
+     eyes-free environment.
+  5. For many of the tasks enumerated in the previous section, (2, 3
+     and 4) make =ido= with flex and fuzzy matching extremely
+     effective. In contrast, =helm= with similar flex and fuzzy
+     matching (via packages =helm-flx= and =helm-fuzzier=) adds little
+     extra benefit --- and the fractional extra time to compute and
+     display the choices can even lead to a minor productivity hit.
      
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline

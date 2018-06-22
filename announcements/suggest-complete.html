@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-22 Fri 10:12 -->
+<!-- 2018-06-22 Fri 10:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Effective Suggest And Complete In An Eyes-Free Environment</title>
@@ -203,8 +203,8 @@ each case is the time to task completion &#x2014; since at the end of the
 day, that's the only metric that counts when it comes to user
 productivity.
 </p>
-<div id="outline-container-org674e2cc" class="outline-2">
-<h2 id="org674e2cc"><span class="section-number-2">1</span> Terminology</h2>
+<div id="outline-container-orgb006814" class="outline-2">
+<h2 id="orgb006814"><span class="section-number-2">1</span> Terminology</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 For this article, I will use terms <i>suggestion</i> and <i>completion</i> to
@@ -216,21 +216,31 @@ mean  subtly different concepts:
 space of choices.</dd>
 <dt>Completion </dt><dd>Filter the available choices based on user input
 with the goal of reaching the target as rapidly as possible.</dd>
+<dt>Explore </dt><dd>User does not necessarily know what he is looking
+for, but expects to be able to <i>recognize</i> what he
+wants from the displayed choices.</dd>
+<dt>Target </dt><dd>User knows exactly what he wants, e.g., filename, or
+function-name, but would still like to get there with
+the fewest possible number of keystrokes.</dd>
 </dl>
+
 
 <p>
 Note that in practice, <i>suggestions</i> and <i>completions</i> work
-hand-in-hand, with the visual display  playing a central role in
-guiding the user through the pace of available choices.
-In a typical user interaction session,  the space of suggestions gets filtered by user input to produce
-the available completions (choices) for the next round of user input.
+hand-in-hand, with the visual display playing a central role in
+guiding the user through the pace of available choices. In a typical
+user interaction session, the space of suggestions gets filtered by
+user input to produce the available completions (choices) for the next
+round of user input. Thus, think of this as a
+<b>suggest/explore/complete</b> interaction loop. Similarly, <i>explore</i> and
+<i>target</i> type activities typically go hand-in-hand.
 </p>
 </div>
 </div>
 
 
-<div id="outline-container-org9014c21" class="outline-2">
-<h2 id="org9014c21"><span class="section-number-2">2</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
+<div id="outline-container-org48b0d91" class="outline-2">
+<h2 id="org48b0d91"><span class="section-number-2">2</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are exemplars of tasks that I perform often and where I require
@@ -252,19 +262,58 @@ specific location (section, function, class/method, or pattern-match) in
 sent messages,  and much, much more.</li>
 <li>Easily launch media streams including local and streaming media.</li>
 <li>Open (or jump to an already open)  an EBook to continue reading.</li>
+<li>Complete function/method-name  as I type  with an easy
+affordance to move among the available choices. The
+suggest/explore/complete interaction loop applies here as well.</li>
 </ol>
 
+
 <p>
-Notice that as one performs all of these tasks, <b>everything</b> is an
-Emacs buffer (or leads to an Emacs buffer)!
+Notice that as one performs all of these tasks, <b>every target</b> is an
+Emacs buffer  or Emacs buffer location.
 </p>
+</div>
+</div>
+
+<div id="outline-container-org87d36b6" class="outline-2">
+<h2 id="org87d36b6"><span class="section-number-2">3</span> Features Of Eyes-Free Interaction</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Using spoken output &#x2014; as opposed to a rich visual display &#x2014;  has
+the following special features:
+</p>
+
+<ol class="org-ol">
+<li>A large visual display can offer the user many choices at a time,
+and the eye's ability to rapidly scan these choices makes for an
+extremely fast <b>suggest/explore/complete</b> loop. As an example, an
+interface like=helm= can display a large number of initial
+choices, with the user  filtering these down with a few strategic key-presses.</li>
+<li>Spoken output takes time &#x2014; and there is simply no way around
+this &#x2014; speeding up speech-rate helps to a point, but speaking
+50 choices very fast does not help the user  in the <i>explore</i>
+phase. This means that  effective filtering and ranking of the available
+choices takes on added importance.</li>
+<li>More importantly, picking a <b>suggest/explore/complete</b>
+interaction loop that depends on a large display is sub-optimal
+for eyes-free interaction.</li>
+<li>Given (2,3), smart filtering, flex/fuzzy matching, and ranking
+based on past user behavior take on added importance in an
+eyes-free environment.</li>
+<li>For many of the tasks enumerated in the previous section, (2, 3
+and 4) make <code>ido</code> with flex and fuzzy matching extremely
+effective. In contrast, <code>helm</code> with similar flex and fuzzy
+matching (via packages <code>helm-flx</code> and <code>helm-fuzzier</code>) adds little
+extra benefit &#x2014; and the fractional extra time to compute and
+display the choices can even lead to a minor productivity hit.</li>
+</ol>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2018-06-22 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2018-06-22 Fri 10:12</p>
+<p class="date">Created: 2018-06-22 Fri 10:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
