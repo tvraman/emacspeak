@@ -12,121 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-php-mode,  Next: emacspeak-pianobar,  Prev: emacspeak-personality,  Up: Emacspeak Commands And Options
-
-12.137 emacspeak-php-mode
-=========================
-
-speech-enable php-mode.el (available from sourceforge project php-mode)
-
-
-File: emacspeak.info,  Node: emacspeak-pianobar,  Next: emacspeak-popup,  Prev: emacspeak-php-mode,  Up: Emacspeak Commands And Options
-
-12.138 emacspeak-pianobar
-=========================
-
-12.138.1 PIANOBAR == Pandora Client for Emacs
----------------------------------------------
-
-pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian: sudo
-apt-get install pianobar
-
-   Pianobar Is a stand-alone client for Pandora Radio.  pianobar.el
-available on the Emacs Wiki at
-http://www.emacswiki.org/emacs/pianobar.el Provides access to Pandora
-Radio via pianobar from the comfort of Emacs.  This module
-speech-enables Pianobar and enhances it for the Complete Audio Desktop.
-
-12.138.2 Emacspeak Usage:
--------------------------
-
-Emacspeak implements command emacspeak-pianobar, a light-weight wrapper
-on top of pianobar.  Emacspeak binds this command to ‘C-e '’.  In my
-personal ‘.emacs’, I bind this to ‘f5’.  Command emacspeak-pianobar is
-designed to let you launch Pandora channels and switch tracks/channels
-without moving away from your primary tasks such as editting code or
-reading/composing email.  Toward this end, launching command
-emacspeak-pianobar the first time initializes the ‘*pianobar*’ buffer
-and launches command ‘pianobar’; Focus is placed in the ‘*pianobar*’
-buffer.  Pianobar can be controlled with single keystrokes while in this
-buffer.  The most useful keys are ‘right’ for skipping tracks, ‘up’ and
-‘down’ for switching channels etc.; see the keys bound in
-‘pianobar-key-map’ for a complete list.  Pressing ‘C-e '’ in the
-‘*pianobar*’ buffer buries the ‘*pianobar*’.  From here on, Pianobar can
-be controlled by pressing the Pianobar prefix key (‘C-e '’) followed by
-keys from ‘pianobar-key-map’.
-
-12.138.3 emacspeak-pianobar Commands
-------------------------------------
-
-12.138.3.1 emacspeak-pianobar
-.............................
-
- -- Command: emacspeak-pianobar
-     ‘C-e '’
-     ‘<fn> '’
-
-     Start or control Emacspeak Pianobar player.
-
-12.138.3.2 emacspeak-pianobar-command
-.....................................
-
- -- Command: emacspeak-pianobar-command (key)
-
-     Invoke Pianobar  commands.
-
-     (fn KEY)
-
-12.138.3.3 emacspeak-pianobar-electric-mode-toggle
-..................................................
-
- -- Command: emacspeak-pianobar-electric-mode-toggle
-
-     Toggle electric mode in pianobar buffer.
-     If electric mode is on, keystrokes invoke pianobar commands directly.
-
-12.138.3.4 emacspeak-pianobar-next-preset
-.........................................
-
- -- Command: emacspeak-pianobar-next-preset
-
-     Switch to next preset.
-
-12.138.3.5 emacspeak-pianobar-previous-preset
-.............................................
-
- -- Command: emacspeak-pianobar-previous-preset
-
-     Switch to previous preset.
-
-12.138.3.6 emacspeak-pianobar-switch-to-preset
-..............................................
-
- -- Command: emacspeak-pianobar-switch-to-preset
-
-     Switch to one of the  presets.
-
-12.138.3.7 emacspeak-pianobar-volume-down
-.........................................
-
- -- Command: emacspeak-pianobar-volume-down
-
-     Decrease volume
-
-12.138.3.8 emacspeak-pianobar-volume-up
-.......................................
-
- -- Command: emacspeak-pianobar-volume-up
-
-     Increase volume
-
-12.138.4 emacspeak-pianobar Options
------------------------------------
-
- -- Variable: User Option emacspeak-pianobar-max-preset
-     Number of presets.
-
-
 File: emacspeak.info,  Node: emacspeak-popup,  Next: emacspeak-proced,  Prev: emacspeak-pianobar,  Up: Emacspeak Commands And Options
 
 12.139 emacspeak-popup
@@ -9777,4 +9662,85 @@ mixed-case (AKA Camel Case) identifiers.
 
    Setting this flag produces a high-pitched beep when speaking words
 that are in all-caps, e.g.  abbreviations.
+
+
+File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
+
+15 Emacspeak At Twenty.
+***********************
+
+This article was originally published to mark the 20th anniversary of
+Emacspeak.  It has been incorporated as the final chapter of the
+Emacspeak manual for easy reference.  The original article is available
+on the Web and in its original source form as an *org* file in the
+emacspeak distribution.
+* Menu:
+
+* Turning Twenty::
+* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
+* Key Enabler  ---  Emacs And Lisp Advice::
+* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
+* Emacspeak And Software Development::
+* Emacspeak And Authoring Documents::
+* Emacspeak And The Early Days Of The Web::
+* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
+* Conversational Gestures For The Audio Desktop::
+* Accessing Media Streams::
+* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
+* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
+* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
+* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
+* Conclusion --- Turning Twenty::
+* References::
+
+
+File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
+
+15.1 Turning Twenty
+===================
+
+One afternoon in the third week of September 1994, I started writing
+myself a small Emacs extension using Lisp Advice to make Emacs speak to
+me so I could use a Linux laptop.  As Emacspeak turns twenty, this
+article is both a quick look back over the twenty years of lessons
+learned, as well as a glimpse into what might be possible as we evolve
+to a world of connected, ubiquitous computing.  This article draws on
+Learning To Program In 10 Years (http://norvig.com/21-days.html) by
+Peter Norvig for some of its inspiration.
+
+
+File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
+
+15.2 Using UNIX With Speech Output — 1994
+=========================================
+
+As a graduate student at Cornell
+(http://www.cs.cornell.edu/info/people/raman/raman.html), I accessed my
+Unix workstation (SunOS) from an Intel 486 PC running IBM Screen-Reader.
+There was no means of directly using a UNIX box at the time; after
+graduating, I continued doing the same for about six months at Digital
+Research in Cambridge — the only difference being that my desktop
+workstation was now a DEC-Alpha.  Throughout this time, Emacs was my
+environment of choice for everything from software development and
+Internet access to writing documents.
+
+   In fall of 1994, I wanted to start using a laptop running Linux; a
+colleague (Dave Wecker) was retiring his 386mhz laptop that already had
+Linux on it and I decided to inherit it.  But there was only one problem
+— until then I had always accessed a UNIX machine from a secondary PC
+running a screen-reader — something that would clearly make no sense
+with a laptop!
+
+   Another colleague, Win Treese, had pointed out the interesting
+possibilities presented by package *advice* in Emacs 19.23 — a few weeks
+earlier, he had sent around a small snippet of code that magically
+modified Emacs’ version-control primitive to first create an _RCS_
+directory if none existed before adding a file to version control.  When
+I speculated about using the Linux laptop, Dave remarked — you live in
+Emacs anyway — why dont you just make it talk!
+
+   Connecting the dots, I decided to write myself a tool that augmented
+Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
+of Emacspeak was up and running.
 
