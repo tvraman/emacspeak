@@ -136,7 +136,7 @@ enumerated earlier in this article.
 
 ** File And Buffer Navigation
 
-I use package =ido= with add-ons=flx-ido= and  =ido-completing-read+=
+I use package =ido= with add-ons =flx-ido= and  =ido-completing-read+=
 (formerly =ido-ubiquitous=) as my primary/only solution for this
 task. I've dabbled with package =helm= --- primarily via command
 =helm-mini= but have found almost no use-cases where I did better with
