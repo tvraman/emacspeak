@@ -401,8 +401,9 @@ Also cleanup ANSI escape sequences."
         (setf
          (emacspeak-m-player-metadata-info emacspeak-m-player-metadata)
          (format "%s" output))
-        (emacspeak-auditory-icon 'progress)
-        (when emacspeak-m-player-cue-info (emacspeak-m-player-stream-info)))
+        (when emacspeak-m-player-cue-info
+          (emacspeak-auditory-icon 'progress)
+          (emacspeak-m-player-stream-info)))
       (goto-char (process-mark process))
       (let ((start (point)))
         (insert output)
