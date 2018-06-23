@@ -66,7 +66,7 @@ as possible:
     sent messages,  and much, much more.
   - Media :: Easily launch media streams including local and streaming media.
   - EBooks :: Open (or jump to an already open) EBook to continue reading.
-  - Code Completion :: Complete function/method-name  as I type  with an easy
+  - Code Completion :: Complete function/method-name  as I type,  with an easy
    affordance to move among the available choices. The
    *Suggest/Input/Filter/Target* interaction loop applies here as well.
      
