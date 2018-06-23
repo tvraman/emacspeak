@@ -118,7 +118,7 @@ Germany, Mexico,  Sweden, Korea
 ** 12. Sweden           - Korea Republic      1::0
     <2018-06-18 Mon 05:00> 
     Nizhny Novgorod Stadium  
-** 28. Korea Republic   - Mexico             
+** 28. Korea Republic   - Mexico              0::2
     <2018-06-23 Sat 08:00> 
     Rostov-on-Don Stadium    
 ** 27. Germany          - Sweden             
@@ -136,9 +136,9 @@ Belgium, Panama, Tunisia, England
     <2018-06-18 Mon 08:00> 
     Fisht Stadium, Sochi     
 ** 14. Tunisia          - England             1::2
-    <2018-06-18 Mon 11:00> 
+    <2018-06-23 Sat 05:00> 
     Volgograd Stadium        
-** 29. Belgium          - Tunisia            
+** 29. Belgium          - Tunisia             5::2
     <2018-06-23 Sat 05:00> 
     Otkrytiye Arena, Moscow  
 ** 30. England          - Panama             
