@@ -83,7 +83,7 @@ the following special features and/or drawbacks:
   1. A large visual display can offer the user many choices at a time,
      and the eye's ability to rapidly scan these choices makes for an
      extremely fast *Suggest/Input/Filter/Target* loop. As an example, an
-     interface like=helm= can display a large number of initial
+     interface like =helm= can display a large number of initial
      choices, with the user  filtering these down with a few strategic key-presses.
   2. Spoken output takes time --- and there is simply no way around
      this --- speeding up speech-rate helps to a point, but speaking
