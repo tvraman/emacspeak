@@ -1427,12 +1427,6 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 (when (file-exists-p "/proc")
   (add-hook 'shell-mode-hook 'dirtrack-procfs-mode))
 
-;;; Silence Bash completions chatter:
-(defadvice bash-completion-dynamic-complete (around emacspeak pre act comp)
-  "Silence chatter."
-  (ems-with-messages-silenced
-   ad-do-it))
-
 ;;}}}
 ;;{{{ Advice centering and filling commands:
 
