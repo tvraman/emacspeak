@@ -1431,7 +1431,6 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 (defadvice bash-completion-dynamic-complete (around emacspeak pre act comp)
   "Silence chatter."
   (ems-with-messages-silenced
-   (emacspeak-auditory-icon 'complete)
    ad-do-it))
 
 ;;}}}
