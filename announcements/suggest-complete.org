@@ -1,4 +1,4 @@
-*Executive Summary 
+* Executive Summary 
 
 Emacs has always provided a wealth of techniques for rapid keyboard
 input (abbrev, dabbrev, hippie-expandand completion come to mind)
