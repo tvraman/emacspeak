@@ -547,6 +547,7 @@ are available are cued by an auditory icon on the header line."
 
 (defadvice url-http-user-agent-string (around emacspeak pre act comp)
   "Respond to user  asking us to masquerade."
+  ad-do-it
   (cond
    ((and emacspeak-eww-masquerade
          (eq browse-url-browser-function 'eww-browse-url))
