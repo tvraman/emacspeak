@@ -506,6 +506,16 @@ Useful in handling double-redirect from TuneIn."
     (read (current-buffer))))
 
 ;;}}}
+;;{{{ Clean up web connections:
+
+(defadvice url-retrieve-internal (before emacspeak pre act comp)
+  "Clean up stale web connections"
+  (cl-loop
+   for p being the hash-values of url-http-open-connections
+   when p do (delete-process (car p))))
+
+
+;;}}}
 (provide 'emacspeak-webutils)
 ;;{{{ end of file
 
