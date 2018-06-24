@@ -4188,7 +4188,8 @@ weather for `gweb-my-address'.  "
      when p do
      (cl-incf count)
      (delete-process (car p)))
-    (message "Deleted %d web  connections" count)))
+    (when (called-interactively-p 'interactive)
+      (message "Deleted %d web  connections" count))))
 
 ;;}}}
 ;;{{{ generate declare-function statements:
