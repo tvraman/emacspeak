@@ -507,7 +507,7 @@ Useful in handling double-redirect from TuneIn."
 
 ;;}}}
 ;;{{{ Clean up web connections:
-
+(defvar url-http-open-connections nil)
 (defadvice url-retrieve-internal (before emacspeak pre act comp)
   "Clean up stale web connections"
   (cl-declare (special url-http-open-connections))
