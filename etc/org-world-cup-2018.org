@@ -141,7 +141,7 @@ Belgium, Panama, Tunisia, England
 ** 29. Belgium          - Tunisia             5::2
     <2018-06-24 Sun 05:00> 
     Otkrytiye Arena, Moscow  
-** 30. England          - Panama             
+** 30. England          - Panama              6:1
     <2018-06-24 Sun 05:00> 
     Nizhny Novgorod Stadium  
 ** 46. Panama           - Tunisia            
@@ -156,7 +156,7 @@ Columbia, Japan,  Poland, Senegal
     <2018-06-19 Tue 05:00> 
     Saransk Stadium          
 ** 15. Poland           - Senegal             1::2
-    <2018-06-19 Tue 08:00> 
+    <2018-06-24 Sun 08:00> 
     Otkrytiye Arena, Moscow  
 ** 32. Japan            - Senegal            
     <2018-06-24 Sun 08:00> 
@@ -165,7 +165,7 @@ Columbia, Japan,  Poland, Senegal
     <2018-06-24 Sun 11:00> 
     Kazan Arena              
 ** 47. Japan            - Poland             
-    <2018-06-28 Thu 07:00> 
+    <2018-06-24 Sat 08:00> 
     Volgograd Stadium        
 ** 48. Senegal          - Colombia           
     <2018-06-28 Thu 07:00> 
