@@ -52,6 +52,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'url-http)
 (require 'url)
 (require 'browse-url)
 ;;}}}
@@ -507,7 +508,6 @@ Useful in handling double-redirect from TuneIn."
 
 ;;}}}
 ;;{{{ Clean up web connections:
-(defvar url-http-open-connections nil)
 (defadvice url-retrieve-internal (before emacspeak pre act comp)
   "Clean up stale web connections"
   (cl-declare (special url-http-open-connections))
