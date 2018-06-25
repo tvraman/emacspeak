@@ -44,10 +44,10 @@ Morocco, Iran, Portugal, Spain
 ** 20. Iran             - Spain               0::1
     <2018-06-20 Wed 11:00> 
     Kazan Arena              
-** 35. Iran             - Portugal           
+** 35. Iran             - Portugal            1::1
     <2018-06-25 Mon 11:00> 
     Saransk Stadium          
-** 36. Spain            - Morocco            
+** 36. Spain            - Morocco             2::2
     <2018-06-25 Mon 11:00> 
     Kaliningrad Stadium      
 * Group C                                                            :GroupC:
