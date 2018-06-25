@@ -408,6 +408,21 @@ Append means place corresponding personality at the end."
                  (const :tag "Prepend" emacspeak-personality-prepend)
                  (const :tag "Append" emacspeak-personality-append))
   :group 'emacspeak-personality)
+(defadvice delete-overlay (after emacspeak-personality  pre act)
+  "Used by emacspeak to augment font lock."
+  (when emacspeak-personality-voiceify-overlays
+    (let* ((overlay (ad-get-arg 0))
+           (value (overlay-get overlay 'personality))
+           (start (overlay-start overlay))
+           (end (overlay-end overlay)))
+      (when
+          (and value
+               (integer-or-marker-p start)
+               (integer-or-marker-p end))
+        (save-current-buffer
+          (set-buffer (overlay-buffer overlay))
+          (remove-text-properties '(personality) start end))))))
+
 
 (defadvice overlay-put (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
