@@ -24,10 +24,10 @@ Russia, Saudi Arabia, Egypt, Uruguay
 ** 18. Uruguay          - Saudi Arabia         1::0
     <2018-06-25 Mon 08:00> 
     Rostov-on-Don Stadium    
-** 33. Uruguay          - Russia             
+** 33. Uruguay          - Russia              3::0
     <2018-06-25 Mon 07:00> 
     Samara Stadium           
-** 34. Saudi Arabia     - Egypt              
+** 34. Saudi Arabia     - Egypt               2::1
     <2018-06-25 Mon 07:00> 
     Volgograd Stadium        
 * Group B                                                            :GroupB:
