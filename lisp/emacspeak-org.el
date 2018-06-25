@@ -167,7 +167,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
-;;; orgstruct-mode defines structured navigators that in turn call org-cycle.
+;;; orgalist-mode defines structured navigators that in turn call org-cycle.
 ;;; Removing itneractive check in advice for org-cycle 
 ;;; to speech enable all such nav commands.
 ;;; Note that org itself produces the folded state via org-unlogged-message
@@ -447,7 +447,7 @@
     (emacspeak-setup-programming-mode)))
 
 (add-hook 'org-mode-hook #'emacspeak-org-mode-setup)
-(add-hook 'orgstruct-mode-hook #'emacspeak-org-mode-setup)
+
 ;;; advice end-of-line here to call org specific action
 (defadvice end-of-line (after emacspeak-org pre act comp)
   "Call org specific actions in org mode."
