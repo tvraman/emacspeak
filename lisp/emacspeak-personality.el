@@ -430,6 +430,25 @@ Append means place corresponding personality at the end."
             (funcall emacspeak-personality-voiceify-overlays
                      (overlay-start overlay) (overlay-end overlay)
                      voice (overlay-buffer overlay))))))))
+
+(defadvice delete-overlay (after emacspeak-personality  pre act)
+  "Used by emacspeak to augment font lock."
+  (when emacspeak-personality-voiceify-overlays
+    (let* ((o (ad-get-arg 0))
+           (buffer (overlay-buffer o))
+           (start (overlay-start o))
+           (end (overlay-end o)))
+      (when
+          (and  buffer
+                (emacspeak-personality-plist-face-p (overlay-properties o)))
+        (save-current-buffer
+          (set-buffer (overlay-buffer overlay))
+          (condition-case nil 
+          (put-text-property
+           (overlay-start o) (overlay-end o)
+           'face nil)
+          (error nil)))))))
+
 (defvar emacspeak-personality-advice-move-overlay t
   "Set to nil to avoid recursive advice during redisplay.")
 
