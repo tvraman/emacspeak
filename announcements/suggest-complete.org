@@ -37,7 +37,7 @@ mean  subtly different concepts. I'll also use terms /explore/ and
 
 Note that in practice, /suggestions/ and /completions/ work
 hand-in-hand, with the visual display playing a central role in
-guiding the user through the pace of available choices. In a typical
+guiding the user through the space of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
 round of user input --- think of this as a

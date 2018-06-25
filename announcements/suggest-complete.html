@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-06-23 Sat 17:22 -->
+<!-- 2018-06-25 Mon 08:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Effective Suggest And Complete In An Eyes-Free Environment</title>
@@ -180,58 +180,12 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">Effective Suggest And Complete In An Eyes-Free Environment</h1>
-<div id="outline-container-orgf9cdbd5" class="outline-2">
-<h2 id="orgf9cdbd5"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-orga26ffa2" class="outline-2">
+<h2 id="orga26ffa2"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacs has always provided a wealth of techniques for rapid keyboard
@@ -252,8 +206,8 @@ the only metric that counts when it comes to user productivity.
 </div>
 </div>
 
-<div id="outline-container-org03a5b2e" class="outline-2">
-<h2 id="org03a5b2e"><span class="section-number-2">2</span> Terminology</h2>
+<div id="outline-container-orgf3723e6" class="outline-2">
+<h2 id="orgf3723e6"><span class="section-number-2">2</span> Terminology</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 For this article, I will use terms <i>suggestion</i> and <i>completion</i> to
@@ -280,7 +234,7 @@ the needed memory aids to guide the decision.</dd>
 <p>
 Note that in practice, <i>suggestions</i> and <i>completions</i> work
 hand-in-hand, with the visual display playing a central role in
-guiding the user through the pace of available choices. In a typical
+guiding the user through the space of available choices. In a typical
 user interaction session, the space of suggestions gets filtered by
 user input to produce the available completions (choices) for the next
 round of user input &#x2014; think of this as a
@@ -292,8 +246,8 @@ serving as a memory-aid for locating the <i>target</i>.
 </div>
 
 
-<div id="outline-container-org5333515" class="outline-2">
-<h2 id="org5333515"><span class="section-number-2">3</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
+<div id="outline-container-org4999f9c" class="outline-2">
+<h2 id="org4999f9c"><span class="section-number-2">3</span> Tasks Where Suggestions And Completions Help Speed Up Task Completion</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Here are exemplars of tasks that I perform often and where I require
@@ -334,8 +288,8 @@ target is a string that gets inserted at the current  location.
 </div>
 </div>
 
-<div id="outline-container-org63d149a" class="outline-2">
-<h2 id="org63d149a"><span class="section-number-2">4</span> Features Of Eyes-Free Interaction</h2>
+<div id="outline-container-org2dd9bbd" class="outline-2">
+<h2 id="org2dd9bbd"><span class="section-number-2">4</span> Features Of Eyes-Free Interaction</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Using spoken output &#x2014; as opposed to a rich visual display &#x2014;  has
@@ -403,8 +357,8 @@ enumerated earlier in this article.
 </p>
 </div>
 
-<div id="outline-container-org35ff442" class="outline-3">
-<h3 id="org35ff442"><span class="section-number-3">4.1</span> File And Buffer Navigation</h3>
+<div id="outline-container-orgbae661b" class="outline-3">
+<h3 id="orgbae661b"><span class="section-number-3">4.1</span> File And Buffer Navigation</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 I use package <code>ido</code> with add-ons <code>flx-ido</code> and  <code>ido-completing-read+</code>
@@ -421,8 +375,8 @@ does not start with an entirely blank sheet of paper.
 </div>
 </div>
 
-<div id="outline-container-org99ad4ed" class="outline-3">
-<h3 id="org99ad4ed"><span class="section-number-3">4.2</span> Content Navigation</h3>
+<div id="outline-container-org6ad6fcc" class="outline-3">
+<h3 id="org6ad6fcc"><span class="section-number-3">4.2</span> Content Navigation</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Incremental search is your biggest and most effective friend in
@@ -458,8 +412,8 @@ of contents.
 </div>
 </div>
 
-<div id="outline-container-org0537c43" class="outline-3">
-<h3 id="org0537c43"><span class="section-number-3">4.3</span> Locating And Playing Media</h3>
+<div id="outline-container-org7991ec1" class="outline-3">
+<h3 id="org7991ec1"><span class="section-number-3">4.3</span> Locating And Playing Media</h3>
 <div class="outline-text-3" id="text-4-3">
 <ol class="org-ol">
 <li>I keep all my music content organized under  <code>~/mp3</code>.</li>
@@ -477,8 +431,8 @@ files matching a given pattern into an interactive play-list.</li>
 </div>
 </div>
 
-<div id="outline-container-org7595f5c" class="outline-3">
-<h3 id="org7595f5c"><span class="section-number-3">4.4</span> EBooks</h3>
+<div id="outline-container-orgfea3bf6" class="outline-3">
+<h3 id="orgfea3bf6"><span class="section-number-3">4.4</span> EBooks</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 Jumping to already open ebooks is no different than buffer
@@ -492,8 +446,8 @@ Jumping to already open ebooks is no different than buffer
 </div>
 </div>
 
-<div id="outline-container-org17ce1a8" class="outline-3">
-<h3 id="org17ce1a8"><span class="section-number-3">4.5</span> Code Completion</h3>
+<div id="outline-container-orgc7722f6" class="outline-3">
+<h3 id="orgc7722f6"><span class="section-number-3">4.5</span> Code Completion</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 As covered earlier, I use <code>company</code> along with <code>dabbrev</code> and
@@ -506,8 +460,8 @@ As covered earlier, I use <code>company</code> along with <code>dabbrev</code> a
 </div>
 </div>
 
-<div id="outline-container-org039aec8" class="outline-2">
-<h2 id="org039aec8"><span class="section-number-2">5</span> Summary</h2>
+<div id="outline-container-orgbaea5f2" class="outline-2">
+<h2 id="orgbaea5f2"><span class="section-number-2">5</span> Summary</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li>Emacs' <b>Suggest/Input/Filter/Target</b> (SIFT)  interaction loop is just as
@@ -526,7 +480,7 @@ inherently temporal nature of spoken interaction.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2018-06-22 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2018-06-23 Sat 17:22</p>
+<p class="date">Created: 2018-06-25 Mon 08:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
