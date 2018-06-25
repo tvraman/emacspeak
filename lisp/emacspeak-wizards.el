@@ -2927,7 +2927,7 @@ mapped to voices."
           (and
            (eq  major-mode 'emacspeak-m-player-mode)
            (process-live-p (get-buffer-process buffer)))))))
-  (rename-buffer "Media Player Buffers" 'unique)
+  (rename-buffer "*Media Player Buffers*" 'unique)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
