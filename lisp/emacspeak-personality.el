@@ -444,7 +444,7 @@ Append means place corresponding personality at the end."
         (save-current-buffer
           (set-buffer (overlay-buffer overlay))
           (condition-case nil 
-          (put-text-property startend 'personality nil)
+          (put-text-property start end 'personality nil)
           (error nil)))))))
 
 (defvar emacspeak-personality-advice-move-overlay t
