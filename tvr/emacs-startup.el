@@ -197,9 +197,11 @@
       (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
     ;;}}}
-    (make-thread
-     #'(lambda ()
-         (tvr-fastload (package-initialize))))
+    
+    ;; (make-thread
+    ;;  #'(lambda ()
+    ;;      (tvr-fastload (package-initialize))))
+    
     ;;{{{ Basic Look And Feel:
 
     (setq inhibit-startup-echo-area-message user-login-name
