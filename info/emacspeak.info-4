@@ -12,6 +12,87 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
+
+15 Emacspeak At Twenty.
+***********************
+
+This article was originally published to mark the 20th anniversary of
+Emacspeak.  It has been incorporated as the final chapter of the
+Emacspeak manual for easy reference.  The original article is available
+on the Web and in its original source form as an *org* file in the
+emacspeak distribution.
+* Menu:
+
+* Turning Twenty::
+* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
+* Key Enabler  ---  Emacs And Lisp Advice::
+* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
+* Emacspeak And Software Development::
+* Emacspeak And Authoring Documents::
+* Emacspeak And The Early Days Of The Web::
+* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
+* Conversational Gestures For The Audio Desktop::
+* Accessing Media Streams::
+* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
+* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
+* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
+* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
+* Conclusion --- Turning Twenty::
+* References::
+
+
+File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
+
+15.1 Turning Twenty
+===================
+
+One afternoon in the third week of September 1994, I started writing
+myself a small Emacs extension using Lisp Advice to make Emacs speak to
+me so I could use a Linux laptop.  As Emacspeak turns twenty, this
+article is both a quick look back over the twenty years of lessons
+learned, as well as a glimpse into what might be possible as we evolve
+to a world of connected, ubiquitous computing.  This article draws on
+Learning To Program In 10 Years (http://norvig.com/21-days.html) by
+Peter Norvig for some of its inspiration.
+
+
+File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
+
+15.2 Using UNIX With Speech Output — 1994
+=========================================
+
+As a graduate student at Cornell
+(http://www.cs.cornell.edu/info/people/raman/raman.html), I accessed my
+Unix workstation (SunOS) from an Intel 486 PC running IBM Screen-Reader.
+There was no means of directly using a UNIX box at the time; after
+graduating, I continued doing the same for about six months at Digital
+Research in Cambridge — the only difference being that my desktop
+workstation was now a DEC-Alpha.  Throughout this time, Emacs was my
+environment of choice for everything from software development and
+Internet access to writing documents.
+
+   In fall of 1994, I wanted to start using a laptop running Linux; a
+colleague (Dave Wecker) was retiring his 386mhz laptop that already had
+Linux on it and I decided to inherit it.  But there was only one problem
+— until then I had always accessed a UNIX machine from a secondary PC
+running a screen-reader — something that would clearly make no sense
+with a laptop!
+
+   Another colleague, Win Treese, had pointed out the interesting
+possibilities presented by package *advice* in Emacs 19.23 — a few weeks
+earlier, he had sent around a small snippet of code that magically
+modified Emacs’ version-control primitive to first create an _RCS_
+directory if none existed before adding a file to version control.  When
+I speculated about using the Linux laptop, Dave remarked — you live in
+Emacs anyway — why dont you just make it talk!
+
+   Connecting the dots, I decided to write myself a tool that augmented
+Emacs’ default behavior to _speak_ — within about 4 hours, version 0.01
+of Emacspeak was up and running.
+
+
 File: emacspeak.info,  Node: Key Enabler --- Emacs And Lisp Advice,  Next: Key Component --- Text To Speech (TTS),  Prev: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
 
 15.3 Key Enabler — Emacs And Lisp Advice
@@ -782,7 +863,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> ":                                voice-setup.        (line   85)
 * <f1> ,:                                emacspeak-wizards.  (line  476)
 * <f1> =:                                emacspeak-wizards.  (line 1419)
-* <f1> C-e:                              emacspeak.          (line  423)
+* <f1> C-e:                              emacspeak.          (line  424)
 * <f1> C-l:                              emacspeak-wizards.  (line  138)
 * <f1> C-s:                              emacspeak-wizards.  (line  549)
 * <f1> C-v:                              voice-setup.        (line   70)
@@ -848,7 +929,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  549)
 * <fn> C-M-@:                            emacspeak-speak.    (line 1011)
-* <fn> C-M-b:                            emacspeak.          (line  470)
+* <fn> C-M-b:                            emacspeak.          (line  471)
 * <fn> C-M-l:                            emacspeak-speak.    (line  731)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line 1010)
 * <fn> C-n:                              emacspeak-speak.    (line  697)
@@ -1064,7 +1145,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> ":                              voice-setup.        (line   86)
 * <help> ,:                              emacspeak-wizards.  (line  477)
 * <help> =:                              emacspeak-wizards.  (line 1420)
-* <help> C-e:                            emacspeak.          (line  424)
+* <help> C-e:                            emacspeak.          (line  425)
 * <help> C-l:                            emacspeak-wizards.  (line  139)
 * <help> C-s:                            emacspeak-wizards.  (line  550)
 * <help> C-v:                            voice-setup.        (line   71)
@@ -1079,6 +1160,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <silence>:                             emacspeak-speak.    (line  238)
 * C-&:                                   emacspeak-speak.    (line   80)
 * C-' ':                                 emacspeak-vlc.      (line   17)
+* C-' ,:                                 emacspeak-wizards.  (line 1619)
 * C-' .:                                 emacspeak-wizards.  (line 1296)
 * C-' b:                                 emacspeak-bbc.      (line   28)
 * C-' g:                                 emacspeak-google.   (line  277)
@@ -1110,6 +1192,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, t:                                 emacspeak-wizards.  (line 1491)
 * C-, u:                                 emacspeak-m-player. (line  668)
 * C-. ':                                 emacspeak-vlc.      (line   16)
+* C-. ,:                                 emacspeak-wizards.  (line 1618)
 * C-. .:                                 emacspeak-wizards.  (line 1295)
 * C-. b:                                 emacspeak-bbc.      (line   27)
 * C-. g:                                 emacspeak-google.   (line  276)
@@ -1125,7 +1208,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
 * C-; ':                                 emacspeak-m-player. (line  679)
-* C-; /:                                 emacspeak-wizards.  (line 1618)
+* C-; /:                                 emacspeak-wizards.  (line 1630)
 * C-; ::                                 emacspeak-wizards.  (line 1579)
 * C-; ;:                                 emacspeak-m-player. (line  690)
 * C-; a:                                 emacspeak-wizards.  (line 1428)
@@ -1245,7 +1328,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  548)
 * C-e C-M-@:                             emacspeak-speak.    (line 1009)
-* C-e C-M-b:                             emacspeak.          (line  469)
+* C-e C-M-b:                             emacspeak.          (line  470)
 * C-e C-M-l:                             emacspeak-speak.    (line  730)
 * C-e C-M-SPC:                           emacspeak-speak.    (line 1008)
 * C-e C-n:                               emacspeak-speak.    (line  696)
@@ -1461,7 +1544,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h ":                                 voice-setup.        (line   84)
 * C-h ,:                                 emacspeak-wizards.  (line  475)
 * C-h =:                                 emacspeak-wizards.  (line 1418)
-* C-h C-e:                               emacspeak.          (line  422)
+* C-h C-e:                               emacspeak.          (line  423)
 * C-h C-l:                               emacspeak-wizards.  (line  136)
 * C-h C-s:                               emacspeak-wizards.  (line  548)
 * C-h C-v:                               voice-setup.        (line   69)
@@ -1487,7 +1570,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a t:                             emacspeak-wizards.  (line 1492)
 * C-x @ a u:                             emacspeak-m-player. (line  669)
 * C-x @ h ':                             emacspeak-m-player. (line  680)
-* C-x @ h /:                             emacspeak-wizards.  (line 1619)
+* C-x @ h /:                             emacspeak-wizards.  (line 1631)
 * C-x @ h ::                             emacspeak-wizards.  (line 1580)
 * C-x @ h ;:                             emacspeak-m-player. (line  691)
 * C-x @ h a:                             emacspeak-wizards.  (line 1429)
@@ -1505,6 +1588,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h v:                             emacspeak-evil.     (line   17)
 * C-x @ h w:                             emacspeak-wizards.  (line 1167)
 * C-x @ s ':                             emacspeak-vlc.      (line   18)
+* C-x @ s ,:                             emacspeak-wizards.  (line 1620)
 * C-x @ s .:                             emacspeak-wizards.  (line 1299)
 * C-x @ s b:                             emacspeak-bbc.      (line   29)
 * C-x @ s g:                             emacspeak-google.   (line  278)
