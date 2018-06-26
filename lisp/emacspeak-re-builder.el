@@ -114,15 +114,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-
-(defadvice reb-do-update (after emacspeak pre act comp)
-  "Update overlays with auditory icon."
-  (when reb-overlays
-    (cl-loop
-     for o in reb-overlays do
-     (overlay-put o 'auditory-icon 'item))))
-
-
 (defadvice reb-auto-update (after emacspeak pre act comp)
   "Provide spoken feedback after update is done."
   (emacspeak-speak-message-again))
