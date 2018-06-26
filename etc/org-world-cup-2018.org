@@ -62,12 +62,11 @@ France, Australia, Peru, Denmark
     <2018-06-21 Thu 05:00> 
     Samara Stadium           
 ** 21. France           - Peru                1::0
-    <2018-06-21 Thu 08:00> 
     Ekaterinburg Stadium     
-** 37. Denmark          - France             
+** 37. Denmark          - France              0::0
     <2018-06-26 Tue 07:00> 
     Luzhniki Stadium, Moscow 
-** 38. Australia        - Peru               
+** 38. Australia        - Peru                0::2
     <2018-06-26 Tue 07:00> 
     Fisht Stadium, Sochi     
 * Group D                                                            :GroupD:
