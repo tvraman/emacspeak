@@ -83,10 +83,10 @@ Argentina, Iceland, Croatia, Nigeria
 ** 24. Nigeria          - Iceland             2::0
     <2018-06-22 Fri 08:00> 
     Volgograd Stadium        
-** 39. Nigeria          - Argentina          
+** 39. Nigeria          - Argentina           1::2
     <2018-06-26 Tue 11:00> 
     Saint Petersburg Stadium 
-** 40. Iceland          - Croatia            
+** 40. Iceland          - Croatia             1::2
     <2018-06-26 Tue 11:00> 
     Rostov-on-Don Stadium    
 * Group E                                                            :GroupE:
