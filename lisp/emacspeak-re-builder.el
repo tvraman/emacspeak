@@ -118,7 +118,8 @@
 (defadvice reb-do-update (after emacspeak pre act comp)
   (when (buffer-live-p reb-target-buffer )
     (with-current-buffer reb-target-buffer
-      (mapc #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays ))))
+      (with-silent-modifications
+      (mapc #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays )))))
 
 (defadvice reb-auto-update (after emacspeak pre act comp)
   "Provide spoken feedback after update is done."
