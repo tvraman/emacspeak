@@ -1255,7 +1255,9 @@ char is assumed to be one of a--z."
 Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive "P")
   (let ((char  (following-char))
-        (display (get-char-property (point) 'display)))
+        (display (get-char-property (point) 'display))
+        (icon (get-char-property (point) 'auditory-icon)))
+    (when icon (emacspeak-auditory-icon icon))
     (when display
       (emacspeak-auditory-icon 'ellipses)
       (and (listp display)  (message "%s" (car display))))
