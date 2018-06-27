@@ -134,9 +134,7 @@ See command \\[emacspeak-gnus-summary-show-some-headers].")
 i.e. sender name, and subject."
   (interactive)
   (cl-declare (special emacspeak-gnus-ignored-most-headers)) 
-  (let ((gnus-ignored-headers emacspeak-gnus-ignored-most-headers))
-    (gnus-summary-toggle-header 1)
-    (gnus-summary-toggle-header -1)))
+    (gnus-summary-toggle-header -1))
 
 (defun emacspeak-gnus-summary-hide-all-headers()
   "Hide all headers in the article.
