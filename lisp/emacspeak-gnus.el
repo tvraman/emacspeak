@@ -43,9 +43,18 @@
 
 ;;; This module advises gnus to speak. 
 ;;; Updating support in 2014 (Emacspeak is nearly 20 years old)
+;;; Updating in 2018 as I switch to gnus as my primary mail interface.
+;;; These customizations to gnus make it convenient to listen to news:
+;;; You can read news mostly by using the four arrow keys.
+;;; By default all article headers are hidden, so you hear the real news.
+
+
+
 ;;; Code:
+
 ;;}}}
 ;;{{{ requires
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
@@ -54,6 +63,7 @@
 (require 'gnus-art)
 (require 'gnus-sum)
 (require 'gm-nnir) ; for smart GMail search
+
 ;;}}}
 ;;{{{  Customizations:
 
@@ -79,10 +89,6 @@ instead you hear only the first screenful."
   :type 'integer
   :group 'emacspeak-gnus 
   )
-;;; These customizations to gnus make it convenient to listen to news:
-;;; You can read news mostly by using the four arrow keys.
-;;; By default all article headers are hidden, so you hear the real news.
-;;; You can expose some of the headers with "T" in summary mode.
 
 ;;; Keybindings 
 (defun emacspeak-gnus-setup-keys ()
@@ -150,7 +156,7 @@ reading news."
 
 ;;; emacs can hang if too many message sfly by as gnus starts
 (defadvice gnus (around emacspeak pre act)
-  "Quieten messages, produce auditory icon."
+  "Silence messages, produce auditory icon."
   (dtk-speak  "Starting gnus")
   (ems-with-messages-silenced ad-do-it)
   (emacspeak-auditory-icon 'news)
@@ -172,9 +178,8 @@ reading news."
     (emacspeak-speak-line)))
 
 (defadvice gnus-group-get-new-news (around emacspeak pre act)
-  "Temporarily deactivate advice on message"
+  "Temporarily silence on message"
   (dtk-speak  "Getting new  gnus")
-  (sit-for 2)
   (ems-with-messages-silenced ad-do-it)
   (message "Gnus is ready ")
   (emacspeak-auditory-icon 'news))
@@ -185,6 +190,7 @@ reading news."
 
 ;;}}}
 ;;{{{  Newsgroup selection
+
 (cl-loop
  for f in
  '(gnus-group-select-group gnus-group-first-unread-group
