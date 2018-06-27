@@ -611,6 +611,7 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{  Article reading
 
@@ -620,8 +621,6 @@ Produce an auditory icon if possible."
   (gnus-summary-catchup-and-exit t t)
   (emacspeak-auditory-icon 'close-object)
   (emacspeak-speak-line))
-
-;;; helper function:
 
 (defadvice gnus-summary-show-article (after emacspeak pre act)
   "Start speaking the article. "
@@ -908,6 +907,7 @@ Helps to prevent words from being spelled instead of spoken."
        (condition-case err
            (gnus)
          (err (message (error-message-string err)))))))
+
 ;;}}}
 (provide 'emacspeak-gnus)
 ;;{{{  end of file 
