@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 26, 2018.
+last updated on June 27, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1229 commands and 1185 options.
+   This chapter documents a total of 1227 commands and 1184 options.
 
 * Menu:
 

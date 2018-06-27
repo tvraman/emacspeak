@@ -9786,3 +9786,34 @@ mixed-case (AKA Camel Case) identifiers.
    Setting this flag produces a high-pitched beep when speaking words
 that are in all-caps, e.g.  abbreviations.
 
+
+File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
+
+15 Emacspeak At Twenty.
+***********************
+
+This article was originally published to mark the 20th anniversary of
+Emacspeak.  It has been incorporated as the final chapter of the
+Emacspeak manual for easy reference.  The original article is available
+on the Web and in its original source form as an *org* file in the
+emacspeak distribution.
+* Menu:
+
+* Turning Twenty::
+* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
+* Key Enabler  ---  Emacs And Lisp Advice::
+* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
+* Emacspeak And Software Development::
+* Emacspeak And Authoring Documents::
+* Emacspeak And The Early Days Of The Web::
+* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
+* Conversational Gestures For The Audio Desktop::
+* Accessing Media Streams::
+* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
+* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
+* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
+* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
+* Conclusion --- Turning Twenty::
+* References::
+

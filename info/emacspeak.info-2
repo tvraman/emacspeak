@@ -3626,7 +3626,11 @@ File: emacspeak.info,  Node: emacspeak-gnus,  Next: emacspeak-go-mode,  Prev: em
 ====================
 
 This module advises gnus to speak.  Updating support in 2014 (Emacspeak
-is nearly 20 years old)
+is nearly 20 years old) Updating in 2018 as I switch to gnus as my
+primary mail interface.  These customizations to gnus make it convenient
+to listen to news: You can read news mostly by using the four arrow
+keys.  By default all article headers are hidden, so you hear the real
+news.
 
 12.85.1 emacspeak-gnus Commands
 -------------------------------
@@ -3646,23 +3650,6 @@ is nearly 20 years old)
  -- Command: emacspeak-gnus-summary-catchup-quietly-and-exit
 
      Catch up on all articles in current group.
-
-12.85.1.3 emacspeak-gnus-summary-hide-all-headers
-.................................................
-
- -- Command: emacspeak-gnus-summary-hide-all-headers
-
-     Hide all headers in the article.
-     Use this command if you don’t want to listen to any article headers when
-     reading news.
-
-12.85.1.4 emacspeak-gnus-summary-show-some-headers
-..................................................
-
- -- Command: emacspeak-gnus-summary-show-some-headers
-
-     Show only the important article headers,
-     i.e. sender name, and subject.
 
 12.85.2 emacspeak-gnus Options
 ------------------------------
@@ -8401,10 +8388,9 @@ File: emacspeak.info,  Node: emacspeak-personality,  Next: emacspeak-php-mode,  
 
 Implementation Notes From 2015:
 
-   Setting emacspeak-personality-voiceify-faces to nil (none via
-customize interface) now results in dtk-speak falling back to the
-face->voice mapping defined via voice-setup for the face at point.  What
-this means:
+   Setting emacspeak-personality-voiceify-faces to nil now results in
+dtk-speak falling back to the face->voice mapping defined via
+voice-setup for the face at point.  What this means:
 
    1.  You always get voice-locking except when you set voice-lock-mode
 to nil.
@@ -8422,18 +8408,6 @@ lock via font lock.
 
 12.136.1 emacspeak-personality Options
 --------------------------------------
-
- -- Variable: User Option emacspeak-personality-voiceify-faces
-     Determines how and if we voiceify faces.
-
-     All means faces are mapped directly to voices – this is the default
-
-     Prepend means that the corresponding personality is prepended to
-     the existing personalities on the text.
-
-     Append means place corresponding personality at the end.
-
-     Simple means that voiceification is not cumulative.
 
  -- Variable: User Option emacspeak-personality-voiceify-overlays
      Determines how and if we voiceify overlays.

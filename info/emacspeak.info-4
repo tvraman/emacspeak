@@ -12,37 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
-
-15 Emacspeak At Twenty.
-***********************
-
-This article was originally published to mark the 20th anniversary of
-Emacspeak.  It has been incorporated as the final chapter of the
-Emacspeak manual for easy reference.  The original article is available
-on the Web and in its original source form as an *org* file in the
-emacspeak distribution.
-* Menu:
-
-* Turning Twenty::
-* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
-* Key Enabler  ---  Emacs And Lisp Advice::
-* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
-* Emacspeak And Software Development::
-* Emacspeak And Authoring Documents::
-* Emacspeak And The Early Days Of The Web::
-* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
-* Conversational Gestures For The Audio Desktop::
-* Accessing Media Streams::
-* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
-* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
-* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
-* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
-* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
-* Conclusion --- Turning Twenty::
-* References::
-
-
 File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
 
 15.1 Turning Twenty
@@ -1181,7 +1150,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, c:                                 emacspeak-wizards.  (line 1599)
 * C-, d:                                 emacspeak-dired.    (line   25)
 * C-, f:                                 emacspeak-wizards.  (line  704)
-* C-, g:                                 emacspeak-gnus.     (line   17)
+* C-, g:                                 emacspeak-gnus.     (line   21)
 * C-, i:                                 emacspeak-wizards.  (line  984)
 * C-, n:                                 emacspeak-wizards.  (line  561)
 * C-, o:                                 emacspeak-feeds.    (line   65)
@@ -1559,7 +1528,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a c:                             emacspeak-wizards.  (line 1600)
 * C-x @ a d:                             emacspeak-dired.    (line   26)
 * C-x @ a f:                             emacspeak-wizards.  (line  705)
-* C-x @ a g:                             emacspeak-gnus.     (line   18)
+* C-x @ a g:                             emacspeak-gnus.     (line   22)
 * C-x @ a i:                             emacspeak-wizards.  (line  985)
 * C-x @ a n:                             emacspeak-wizards.  (line  562)
 * C-x @ a o:                             emacspeak-feeds.    (line   66)
