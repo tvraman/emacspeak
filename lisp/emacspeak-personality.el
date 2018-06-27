@@ -43,8 +43,8 @@
 ;;; Commentary:
 ;;; Implementation Notes From 2015:
 
-;;; Setting emacspeak-personality-voiceify-faces to nil (none via
-;;; customize interface) now results in dtk-speak falling back to the
+;;; Setting emacspeak-personality-voiceify-faces to  
+;;; nil  now results in dtk-speak falling back to the
 ;;; face->voice mapping defined via voice-setup for the face at
 ;;; point. What this means:
 ;;;
@@ -245,10 +245,10 @@ Preserve other existing personality properties on the text range."
 ;;}}}
 ;;{{{ advice put-text-personality
 
-(defcustom emacspeak-personality-voiceify-faces nil
+(defvar emacspeak-personality-voiceify-faces nil
   "Determines how and if we voiceify faces.
 
-All means   faces are  mapped directly to voices -- this is the default
+nil means we dont use advice any more.
 
 Prepend means that the corresponding personality is prepended to the
 existing personalities on the text.
@@ -256,12 +256,7 @@ existing personalities on the text.
 Append means place corresponding personality at the end.
 
 Simple means that voiceification is not cumulative."
-  :type '(choice :tag "Face Voiceification"
-                 (const :tag "All" nil)
-                 (const :tag "Simple" emacspeak-personality-put)
-                 (const :tag "Prepend" emacspeak-personality-prepend)
-                 (const :tag "Append" emacspeak-personality-append))
-  :group 'emacspeak-personality)
+   )
 
 ;;; Helper: Get face->voice mapping
 ;;;###autoload
