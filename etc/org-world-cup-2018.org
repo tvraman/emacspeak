@@ -123,10 +123,10 @@ Germany, Mexico,  Sweden, Korea
 ** 27. Germany          - Sweden              2::1
     <2018-06-23 Sat 11:00> 
     Fisht Stadium, Sochi     
-** 44. Mexico           - Sweden             
+** 44. Mexico           - Sweden              0::3
     <2018-06-27 Wed 07:00> 
     Ekaterinburg Stadium     
-** 43. Korea Republic   - Germany            
+** 43. Korea Republic   - Germany             2::0
     <2018-06-27 Wed 07:00> 
     Kazan Arena              
 * Group G                                                            :GroupE:
