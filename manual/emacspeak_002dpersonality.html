@@ -82,10 +82,10 @@
   "emacspeak_002dpersonality-1"></a>
   <h3 class="section">12.136 emacspeak-personality</h3>
   <p>Implementation Notes From 2015:</p>
-  <p>Setting emacspeak-personality-voiceify-faces to nil (none via
-  customize interface) now results in dtk-speak falling back to the
-  face-&gt;voice mapping defined via voice-setup for the face at
-  point. What this means:</p>
+  <p>Setting emacspeak-personality-voiceify-faces to nil now
+  results in dtk-speak falling back to the face-&gt;voice mapping
+  defined via voice-setup for the face at point. What this
+  means:</p>
   <p>1. You always get voice-locking except when you set
   voice-lock-mode to nil.</p>
   <p>2. The advice on put-text-property and friends become a no-op
@@ -102,22 +102,6 @@
   <dl>
     <dt><a name="index-User-Option-906" id=
     "index-User-Option-906"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-personality-voiceify-faces</em></dt>
-    <dd>
-      <p>Determines how and if we voiceify faces.</p>
-      <p>All means faces are mapped directly to voices – this is
-      the default</p>
-      <p>Prepend means that the corresponding personality is
-      prepended to the existing personalities on the text.</p>
-      <p>Append means place corresponding personality at the
-      end.</p>
-      <p>Simple means that voiceification is not cumulative.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-907" id=
-    "index-User-Option-907"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-personality-voiceify-overlays</em></dt>
     <dd>
