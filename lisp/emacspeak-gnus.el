@@ -131,10 +131,11 @@ reading news."
                     gnus-article-buffer))
   (with-current-buffer gnus-article-buffer
     (goto-char (point-min))
+    (search-forward "\n\n")
     (cond
-     ((< (count-lines (point-min) (point-max))
+     ((< (count-lines (point) (point-max))
          emacspeak-gnus-large-article)
-      (emacspeak-speak-buffer))
+      (emacspeak-speak-rest-of-buffer))
      (t (emacspeak-auditory-icon 'large-movement)
         (let ((start (point))
               (window (get-buffer-window (current-buffer))))
