@@ -36,7 +36,6 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-
 ;;{{{  Introduction:
 
 ;;; Commentary:
@@ -65,7 +64,7 @@
 (require 'gm-nnir) ; for smart GMail search
 
 ;;}}}
-ide-all;;{{{  Customizations:
+;;{{{  Customizations:
 
 (defgroup emacspeak-gnus nil
   "Emacspeak customizations for the Gnus News/Mail/RSS reader"
