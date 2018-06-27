@@ -65,7 +65,7 @@
 (require 'gm-nnir) ; for smart GMail search
 
 ;;}}}
-;;{{{  Customizations:
+ide-all;;{{{  Customizations:
 
 (defgroup emacspeak-gnus nil
   "Emacspeak customizations for the Gnus News/Mail/RSS reader"
@@ -97,7 +97,6 @@ instead you hear only the first screenful."
                     gnus-group-mmode-map
                     gnus-article-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
-  (define-key gnus-summary-mode-map "\M-T" 'emacspeak-gnus-summary-hide-all-headers)
   (define-key gnus-summary-mode-map "t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
@@ -112,18 +111,6 @@ instead you hear only the first screenful."
     'gnus-group-read-group))
 
 (add-hook 'gnus-started-hook 'emacspeak-gnus-setup-keys)
-
-;;}}}
-;;{{{  Hiding headers
-
-(defun emacspeak-gnus-summary-hide-all-headers()
-  "Hide all headers in the article.
-Use this command if you don't want to listen to any article headers when
-reading news."
-  (interactive)
-  (let ((gnus-ignored-headers "^.*:"))
-    (gnus-summary-toggle-header 1)
-    (gnus-summary-toggle-header -1)))
 
 ;;}}}
 ;;{{{  helper functions
