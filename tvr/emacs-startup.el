@@ -31,8 +31,8 @@
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
     "sp-prepare" ;"vdiff-prepare"
     "auctex-prepare"  "folding-prepare" "org-prepare"
-    ;"use-emms"
-    "calc-prepare" "helm-prepare"                      
+                                        ;"use-emms"
+    "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare")
@@ -75,11 +75,11 @@
 (defconst tvr-weekday-to-color-alist
   '(("light sky blue" "#6FBD87") ; silver tree
     ("#FFBCC9" "#FFD724") ;gold on pink
-    ("#F4C430" "sea green") ; saffron 
+    ("#F4C430" "sea green") ; saffron
     ("#FFFFDA" "royal blue")
     ("mint cream" "royal blue")
-    ("PowderBlue" "gold") 
-    ("#FFF3FF" "gold")) ; lavender blush 
+    ("PowderBlue" "gold")
+    ("#FFF3FF" "gold")) ; lavender blush
   "Alist of color pairs for days of the week")
 
 (defun tvr-set-color-for-today ()
@@ -98,7 +98,7 @@
 (defsubst tvr-shell-bind-keys ()
   "Set up  shell mode keys."
   (cl-declare (special shell-mode-map))
-  (cl-loop 
+  (cl-loop
    for b in
    '(
      ("SPC" comint-magic-space)
@@ -112,7 +112,7 @@
 (defun tvr-customize ()
   "Load my customizations."
   (cl-declare (special custom-file))
-  (tvr-fastload 
+  (tvr-fastload
    (setq-default custom-file (expand-file-name "~/.customize-emacs"))
    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
    (global-set-key (kbd "C-RET") 'hippie-expand)
@@ -189,86 +189,82 @@
                         outloud-default-speech-rate dectalk-default-speech-rate
                         outline-mode-prefix-map))
   (tvr-fastload
-    ;;{{{ Load  emacspeak
-    (setq outloud-default-speech-rate 125 ; because we load custom at the end
-          dectalk-default-speech-rate 485)
-    (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
-      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
+   ;;{{{ Load  emacspeak
+   (setq outloud-default-speech-rate 125 ; because we load custom at the end
+         dectalk-default-speech-rate 485)
+   (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+   (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
+     (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
-    ;;}}}
-    
-    ;; (make-thread
-    ;;  #'(lambda ()
-    ;;      (tvr-fastload (package-initialize))))
-    
-    ;;{{{ Basic Look And Feel:
+   ;;}}}
 
-    (setq inhibit-startup-echo-area-message user-login-name
-          initial-scratch-message ""
-          initial-buffer-choice t
-          text-quoting-style 'grave)
-    (tooltip-mode -1)
-    (menu-bar-mode -1)
-    (tool-bar-mode -1)
-    (scroll-bar-mode -1)
-    (fringe-mode 0)
-    (put 'list-timers 'disabled nil)
-    (put 'upcase-region 'disabled nil)
-    (put 'downcase-region 'disabled nil)
-    (put 'narrow-to-region 'disabled nil)
-    (put 'eval-expression 'disabled nil)
-    (put 'timer-list 'disabled nil)
+   ;;{{{ Basic Look And Feel:
 
-    ;;}}}
-    ;;{{{  set up terminal codes and global keys
+   (setq inhibit-startup-echo-area-message user-login-name
+         initial-scratch-message ""
+         initial-buffer-choice t
+         text-quoting-style 'grave)
+   (tooltip-mode -1)
+   (menu-bar-mode -1)
+   (tool-bar-mode -1)
+   (scroll-bar-mode -1)
+   (fringe-mode 0)
+   (put 'list-timers 'disabled nil)
+   (put 'upcase-region 'disabled nil)
+   (put 'downcase-region 'disabled nil)
+   (put 'narrow-to-region 'disabled nil)
+   (put 'eval-expression 'disabled nil)
+   (put 'timer-list 'disabled nil)
 
-    (prefer-coding-system 'utf-8-emacs)
-    (cl-loop
-     for  key in
-     '(
-       ("<f3>" bury-buffer)
-       ("<f4>" emacspeak-kill-buffer-quietly)
-       ("M--" undo)
-       ("<f11> "shell)
-       ("<f12>" vm)
-       ( "M-r"replace-string)
-       ("M-e"emacspeak-wizards-end-of-word)
-       ( "M-C-j"imenu)
-       ("M-C-c"calendar)
-       ("C-RET" hippie-expand))
-     do
-     (global-set-key (kbd (cl-first key)) (cl-second key)))
-    (cl-loop ; shell wizard
-     for i from 0 to 9 do
-     (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-    (global-set-key  (kbd "C-c <tab>") 'hs-toggle-hiding)
+   ;;}}}
+   ;;{{{  set up terminal codes and global keys
+
+   (prefer-coding-system 'utf-8-emacs)
+   (cl-loop
+    for  key in
+    '(
+      ("<f3>" bury-buffer)
+      ("<f4>" emacspeak-kill-buffer-quietly)
+      ("M--" undo)
+      ("<f11> "shell)
+      ("<f12>" vm)
+      ( "M-r"replace-string)
+      ("M-e"emacspeak-wizards-end-of-word)
+      ( "M-C-j"imenu)
+      ("M-C-c"calendar)
+      ("C-RET" hippie-expand))
+    do
+    (global-set-key (kbd (cl-first key)) (cl-second key)))
+   (cl-loop ; shell wizard
+    for i from 0 to 9 do
+    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
+   (global-set-key  (kbd "C-c <tab>") 'hs-toggle-hiding)
 ;;; Smarten up ctl-x-map
-    (define-key ctl-x-map "\C-n" 'forward-page)
-    (define-key ctl-x-map "\C-p" 'backward-page)
+   (define-key ctl-x-map "\C-n" 'forward-page)
+   (define-key ctl-x-map "\C-p" 'backward-page)
 
 ;;; Shell mode bindings:
-    (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
+   (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
-    ;;}}}
-    ;;{{{ outline mode setup:
+   ;;}}}
+   ;;{{{ outline mode setup:
 
-    (eval-after-load 'outline
-      `(progn
+   (eval-after-load 'outline
+     `(progn
 ;;;restore what we are about to steal
-         (define-key outline-mode-prefix-map "o" 'open-line)
-         (global-set-key "\C-o"outline-mode-prefix-map)
-         ))
+        (define-key outline-mode-prefix-map "o" 'open-line)
+        (global-set-key "\C-o"outline-mode-prefix-map)
+        ))
 
-    ;;}}}
-    ;;{{{ turn on modes:
-    (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
-    (add-hook 'text-mode-hook 'tvr-text-mode-hook)
-    (savehist-mode )
-    (save-place-mode)
-    (midnight-mode)
-    (server-start)
-    (and (fboundp 'pinentry-start)(pinentry-start)))
+   ;;}}}
+   ;;{{{ turn on modes:
+   (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
+   (add-hook 'text-mode-hook 'tvr-text-mode-hook)
+   (savehist-mode )
+   (save-place-mode)
+   (midnight-mode)
+   (server-start)
+   (and (fboundp 'pinentry-start)(pinentry-start)))
 
   ;;}}}
   ) ;end defun
@@ -292,7 +288,6 @@
 (declare-function prescient-persist-mode "prescient" (&optional arg))
 (declare-function yas-minor-mode "yasnippet" (&optional arg))
 
-
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
@@ -302,4 +297,3 @@
 ;;;end:
 
 ;;}}}
-
