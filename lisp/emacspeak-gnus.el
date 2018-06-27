@@ -92,7 +92,7 @@ instead you hear only the first screenful."
                     gnus-article-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map "\M-T" 'emacspeak-gnus-summary-hide-all-headers)
-  (define-key gnus-summary-mode-map "t" 'emacspeak-gnus-summary-show-some-headers)
+  (define-key gnus-summary-mode-map "t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
   (define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
@@ -109,32 +109,6 @@ instead you hear only the first screenful."
 
 ;;}}}
 ;;{{{  Hiding headers
-
-(defvar  emacspeak-gnus-ignored-most-headers
-  (concat
-   "^Path:\\|^Posting-Version:\\|^Article-I.D.:\\|^Expires:"
-   "\\|^Date-Received:\\|^References:\\|^Control:\\|^Xref:"
-   "\\|^Lines:\\|^Posted:\\|^Relay-Version:\\|^Message-ID:\\|^Nf-ID:"
-   "\\|^Nf-From:\\|^Approved:\\|^Sender:"
-   "\\|^Organization:\\|^Approved:\\|^Distribution:\\|^Apparently-To:"
-   "\\|^Keywords:\\|^Copyright:\\|^X-Supersedes:\\|^ACategory: \\|^Slugword:"
-   "\\|^Priority:\\|^ANPA:\\|^Codes:"
-   "\\|^Originator:\\|^Comment:\\|^NNTP-Posting-Host:\\|Original-To:"
-   "\\|^Followup-To:\\|^Original-Cc:\\|^Reply-To:")
-  "Article headers to ignore when only important article headers are to be
-spoken.
-See command \\[emacspeak-gnus-summary-show-some-headers].")
-(cl-declaim (special gnus-ignored-headers))
-(setq gnus-ignored-headers "^.*:")
-(cl-declaim (special gnus-visible-headers))
-(setq gnus-visible-headers "^Subject:")
-
-(defun emacspeak-gnus-summary-show-some-headers ()
-  "Show only the important article headers,
-i.e. sender name, and subject."
-  (interactive)
-  (cl-declare (special emacspeak-gnus-ignored-most-headers)) 
-    (gnus-summary-toggle-header -1))
 
 (defun emacspeak-gnus-summary-hide-all-headers()
   "Hide all headers in the article.
