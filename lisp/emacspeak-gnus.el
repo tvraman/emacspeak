@@ -281,29 +281,17 @@ this group is being deselected."
 ;;{{{  summary mode 
 (cl-loop
  for f in
- '(gnus-summary-clear-mark-backward gnus-summary-clear-mark-forward
-                                    gnus-summary-mark-as-dormant gnus-summary-mark-as-expirable
-                                    
-                                    ) do
+ '(
+   gnus-summary-clear-mark-backward gnus-summary-clear-mark-forward
+   gnus-summary-mark-as-dormant gnus-summary-mark-as-expirable
+   gnus-summary-mark-as-processable
+   gnus-summary-tick-article-backward gnus-summary-tick-article-forward
+   ) do
  (eval
   `(defadvice   ,f (around  emacspeak pre act)
      "Speak the article  line.
  Produce an auditory icon if possible."
      (let ((saved-point (point)))
-       ad-do-it
-       (when (ems-interactive-p)
-         (cond
-          ((= saved-point (point))
-           (dtk-speak "No more articles"))
-          (t 
-           (emacspeak-auditory-icon 'select-object)
-           (dtk-speak (gnus-summary-article-subject)))
-       ad-return-value))))))
-
-(defadvice gnus-summary-mark-as-processable (around  emacspeak pre act)
-  "Speak the article  line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point)))
     ad-do-it
     (when (ems-interactive-p)
       (if (= saved-point (point))
@@ -311,7 +299,7 @@ this group is being deselected."
         (progn 
           (emacspeak-auditory-icon 'mark-object)
           (emacspeak-gnus-summary-speak-subject))))
-    ad-return-value))
+    ad-return-value))))
 
 (defadvice gnus-summary-unmark-as-processable (after emacspeak pre act)
   "Speak the line.
@@ -320,31 +308,9 @@ this group is being deselected."
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-gnus-summary-speak-subject)))
 
-(defadvice gnus-summary-tick-article-backward (around  emacspeak pre act)
-  "Speak the article  line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'mark-object)
-          (emacspeak-gnus-summary-speak-subject))))
-    ad-return-value))
 
-(defadvice gnus-summary-tick-article-forward (around  emacspeak pre act)
-  "Speak the article  line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'mark-object)
-          (emacspeak-gnus-summary-speak-subject))))
-    ad-return-value))
+
+
 
 (defadvice gnus-summary-delete-article (after emacspeak pre act)
   "Speak the line.
@@ -352,20 +318,18 @@ this group is being deselected."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon  'delete-object)
     (emacspeak-gnus-summary-speak-subject)))
-
-(defadvice gnus-summary-catchup-from-here (after emacspeak pre act)
-  "Speak the line.
+(cl-loop
+ for f in
+ '(
+   gnus-summary-catchup-to-here gnus-summary-catchup-from-here
+   ) do
+ (eval
+  `(defadvice  ,f (after emacspeak pre act)
+     "Speak the line.
  Produce an auditory icon if possible."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon  'mark-object)
-    (emacspeak-gnus-summary-speak-subject)))
-
-(defadvice gnus-summary-catchup-to-here (after emacspeak pre act)
-  "Speak the line.
- Produce an auditory icon if possible."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon  'mark-object)
-    (emacspeak-gnus-summary-speak-subject)))
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon  'mark-object)
+       (emacspeak-gnus-summary-speak-subject)))))
 
 (defadvice  gnus-summary-select-article-buffer (after emacspeak pre act)
   "Speak the modeline.
