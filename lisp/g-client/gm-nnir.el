@@ -142,7 +142,7 @@
 (defun gm-nnir-group-make-gmail-group (query)
   "Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax."
-  (interactive "sGMail Query: ")
+ note: nnimap-address etc are available as local vars if needed in these functions.(interactive "sGMail Query: ")  
   (let ((nnir-imap-default-search-key "imap")
         (q (format "X-GM-RAW \"%s\"" query)))
     (cond
