@@ -150,13 +150,13 @@ Default is to search All Mail when not on a group."
      (t (error "Dont know how to find default nnimap group")))))
 
 ;;;###autoload
-(defun gm-nnir-group-make-gmail-group ()
+(defun gm-nnir-group-make-gmail-group (query)
   "Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
 Default is to search All Mail when not on a Group line."
-  (interactive)
+  (interactive "sGMail Query: ")
   (let ((nnir-imap-default-search-key "imap")
-        (q (format "X-GM-RAW \"%s\"" (read-from-minibuffer "GMail Query: "))))
+        (q (format "X-GM-RAW \"%s\"" query)))
     (cond
      ((gnus-group-group-name)           ; Search current group
       (gnus-group-make-nnir-group
