@@ -101,6 +101,7 @@ instead you hear only the first screenful."
   (define-key gnus-summary-mode-map '[right] 'gnus-summary-show-article)
   (define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
   (define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
+  (define-key gnus-group-mode-map ";" 'emacspeak-gnus-personal-gmail-recent)
   (define-key gnus-group-mode-map "\C-n" 'gnus-group-next-group)
   (define-key gnus-group-mode-map [down] 'gnus-group-next-group)
   (define-key gnus-group-mode-map [up] 'gnus-group-prev-group)
@@ -839,6 +840,27 @@ Helps to prevent words from being spelled instead of spoken."
        (condition-case err
            (gnus)
          (err (message (error-message-string err)))))))
+
+;;}}}
+;;{{{ GMail Search Accelerators:
+
+;;;###autoload
+(defun emacspeak-gnus-personal-gmail-recent ()
+  "Look for mail addressed personally in the last day."
+  (interactive)
+  (gm-nnir-group-make-gmail-group
+   (format "newer_than:1d to:me -cc:%s" user-mail-address)))
+
+;;;###autoload
+(defun emacspeak-gnus-personal-gmail-last-week()
+  "Look for mail addressed personally in the last week."
+  (interactive)
+  (gm-nnir-group-make-gmail-group
+   (format
+    "after:%s before:%s to:me -cc:%s"
+    "subtract days"
+    (format-time-string "%Y/%m/%d")
+    user-mail-address)))
 
 ;;}}}
 (provide 'emacspeak-gnus)
