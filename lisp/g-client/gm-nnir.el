@@ -127,27 +127,16 @@
 ;;{{{ NNIR Engine For GMail 
 ;;; GMail Search Commands 
 ;;;###autoload
-(defun gm-nnir-group-make-nnir-group ()
-  "GMail equivalent of gnus-group-make-nnir-group.
-Default is to search All Mail when not on a group."
-  (interactive)
-  (let ((nnir-imap-default-search-key "imap")
-        (q (gm-nnir-read-imap-query)))
+(defun gm-nnir-group-make-nnir-group (q)
+  "GMail equivalent of gnus-group-make-nnir-group."
+  (interactive (list  (gm-nnir-read-imap-query)))
+  (let ((nnir-imap-default-search-key "imap"))
     (cond
      ((gnus-group-group-name)           ; Search current group 
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs (nnir-query-spec (query  ,q)))))
-     ((eq 'nnimap (cl-first gnus-select-method)) ; "Search All Mail
-      (gnus-group-make-nnir-group
-       nil                              ; no extra parms needed
-       `(nnir-specs 
-         (nnir-query-spec (query ,q))
-         (nnir-group-spec
-          (
-           ,(format "nnimap:%s" (cl-second gnus-select-method))
-           ("[Gmail]/All Mail"))))))
-     (t (error "Dont know how to find default nnimap group")))))
+     (t (error "Not on a group")))))
 
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group (query)
