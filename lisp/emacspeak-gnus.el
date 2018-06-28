@@ -279,58 +279,26 @@ this group is being deselected."
 
 ;;}}}
 ;;{{{  summary mode 
-
-(defadvice gnus-summary-clear-mark-backward  (around  emacspeak pre act)
-  "Speak the article  line.
+(cl-loop
+ for f in
+ '(gnus-summary-clear-mark-backward gnus-summary-clear-mark-forward
+                                    gnus-summary-mark-as-dormant gnus-summary-mark-as-expirable
+                                    
+                                    ) do
+ (eval
+  `(defadvice   ,f (around  emacspeak pre act)
+     "Speak the article  line.
  Produce an auditory icon if possible."
-  (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'select-object)
-          (dtk-speak (gnus-summary-article-subject)))))
-    ad-return-value))
-
-(defadvice gnus-summary-clear-mark-forward  (around  emacspeak pre act)
-  "Speak the article  line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'select-object)
-          (dtk-speak (gnus-summary-article-subject)))))
-    ad-return-value))
-
-(defadvice gnus-summary-mark-as-dormant (around  emacspeak pre act)
-  "Speak the article  line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'mark-object)
-          (emacspeak-gnus-summary-speak-subject))))
-    ad-return-value))
-
-(defadvice gnus-summary-mark-as-expirable (around  emacspeak pre act)
-  "Speak the article  line.
- Produce an auditory icon if possible."
-  (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'mark-object)
-          (emacspeak-gnus-summary-speak-subject))))
-    ad-return-value))
+     (let ((saved-point (point)))
+       ad-do-it
+       (when (ems-interactive-p)
+         (cond
+          ((= saved-point (point))
+           (dtk-speak "No more articles"))
+          (t 
+           (emacspeak-auditory-icon 'select-object)
+           (dtk-speak (gnus-summary-article-subject)))
+       ad-return-value))))))
 
 (defadvice gnus-summary-mark-as-processable (around  emacspeak pre act)
   "Speak the article  line.
