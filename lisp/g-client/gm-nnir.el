@@ -152,8 +152,7 @@ Default is to search All Mail when not on a group."
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group (query)
   "Use GMail search syntax exclusively.
-See https://support.google.com/mail/answer/7190?hl=en for syntax.
-Default is to search All Mail when not on a Group line."
+See https://support.google.com/mail/answer/7190?hl=en for syntax."
   (interactive "sGMail Query: ")
   (let ((nnir-imap-default-search-key "imap")
         (q (format "X-GM-RAW \"%s\"" query)))
@@ -162,12 +161,7 @@ Default is to search All Mail when not on a Group line."
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs (nnir-query-spec (query ,q)))))
-     (t                                 ; "Search All Mail
-      (gnus-group-make-nnir-group
-       nil                              ; no extra parms needed
-       `(nnir-specs 
-         (nnir-query-spec (query ,q))
-         (nnir-group-spec ("nnimap:gmail" ("[Gmail]/All Mail")))))))))
+     (t (error "Not on a group.")))))
 
 ;;}}}
 (provide 'gm-nnir)
