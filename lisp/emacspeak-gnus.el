@@ -102,6 +102,7 @@ instead you hear only the first screenful."
   (define-key  gnus-group-mode-map "?" 'gm-nnir-group-make-nnir-group)
   (define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
   (define-key gnus-group-mode-map ";" 'emacspeak-gnus-personal-gmail-recent)
+  (define-key gnus-group-mode-map ":" 'emacspeak-gnus-personal-gmail-last-week)
   (define-key gnus-group-mode-map "\C-n" 'gnus-group-next-group)
   (define-key gnus-group-mode-map [down] 'gnus-group-next-group)
   (define-key gnus-group-mode-map [up] 'gnus-group-prev-group)
@@ -858,7 +859,7 @@ Helps to prevent words from being spelled instead of spoken."
   (gm-nnir-group-make-gmail-group
    (format
     "after:%s before:%s to:me -cc:%s"
-    "subtract days"
+    (format-time-string "%Y/%m/%d" (time-subtract (current-time) (* 7 86400)))
     (format-time-string "%Y/%m/%d")
     user-mail-address)))
 
