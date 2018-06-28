@@ -140,10 +140,10 @@ Belgium, Panama, Tunisia, England
 ** 29. Belgium          - Tunisia             5::2
     <2018-06-24 Sun 05:00> 
     Otkrytiye Arena, Moscow  
-** 30. England          - Panama              6:1
+** 30. England          - Panama              6:1 0::1
     <2018-06-24 Sun 05:00> 
     Nizhny Novgorod Stadium  
-** 46. Panama           - Tunisia            
+** 46. Panama           - Tunisia             1::2
     <2018-06-28 Thu 11:00> 
     Saransk Stadium          
 ** 45. England          - Belgium            
@@ -192,6 +192,7 @@ Sweden Switzerland
     Samara Stadium           
 ** 54. Winner Group G   - Runner-up Group H  
     <2018-07-02 Mon 11:00> 
+Belgium Japan
     Rostov-on-Don Stadium    
 ** 55. Winner Group F   - Runner-up Group E  
 Brazil Mexico 
@@ -199,6 +200,7 @@ Brazil Mexico
     Saint Petersburg Stadium 
 ** 56. Winner Group H   - Runner-up Group G  
     <2018-07-03 Tue 11:00> 
+Colombia England 
     Otkrytiye Arena, Moscow  
 * Quarter Finals                                              :QuarterFinals:
 ** 57. Winner Match 49  - Winner Match 50    
