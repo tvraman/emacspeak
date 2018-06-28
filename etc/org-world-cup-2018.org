@@ -163,10 +163,10 @@ Colombia, Japan,  Poland, Senegal
 ** 31. Poland           - Colombia            0::3
     <2018-06-24 Sun 11:00> 
     Kazan Arena              
-** 47. Japan            - Poland             
+** 47. Japan            - Poland              0::1
     <2018-06-24 Sat 08:00> 
     Volgograd Stadium        
-** 48. Senegal          - Colombia           
+** 48. Senegal          - Colombia             0::1
     <2018-06-28 Thu 07:00> 
     Samara Stadium           
 * Round of 16                                                     :Roundof16:
