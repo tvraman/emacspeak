@@ -47,10 +47,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
+
 ;;; Commentary:
 ;;; Makes search GMail more convenient.
 ;;; IMap search operators, GMail search extensions.
 ;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -125,10 +127,12 @@
 
 ;;}}}
 ;;{{{ NNIR Engine For GMail 
+
 ;;; GMail Search Commands 
 ;;;###autoload
 (defun gm-nnir-group-make-nnir-group (q)
-  "GMail equivalent of gnus-group-make-nnir-group."
+  "GMail equivalent of gnus-group-make-nnir-group.
+This uses standard IMap search operators."
   (interactive (list  (gm-nnir-read-imap-query)))
   (let ((nnir-imap-default-search-key "imap"))
     (cond
@@ -141,8 +145,9 @@
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group (query)
   "Use GMail search syntax exclusively.
-See https://support.google.com/mail/answer/7190?hl=en for syntax."
- note: nnimap-address etc are available as local vars if needed in these functions.(interactive "sGMail Query: ")  
+See https://support.google.com/mail/answer/7190?hl=en for syntax.
+ note: nnimap-address etc are available as local vars if needed in these functions."
+  (interactive "sGMail Query: ")  
   (let ((nnir-imap-default-search-key "imap")
         (q (format "X-GM-RAW \"%s\"" query)))
     (cond
