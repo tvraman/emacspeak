@@ -682,6 +682,7 @@ command that the key sequence executes."
     ("TAB" hippie-expand)
     ("C-r" flx-isearch-backward)
     ("C-s" flx-isearch-forward)
+    ("C-u" emacspeak-feeds-browse)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
     ("/" emacspeak-wizards-web-clean-up-processes)
@@ -708,8 +709,7 @@ command that the key sequence executes."
     ("r" org-capture)
     ("s" emacspeak-wizards-shell)
     ("t" twit)
-    ("u" browse-url)
-    ("v" emacspeak-evil-toggle-evil)
+    ("u" emacspeak-url-template-fetch)
     ("w" emacspeak-wizards-quick-weather))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
