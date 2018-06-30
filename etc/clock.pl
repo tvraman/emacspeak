@@ -19,8 +19,8 @@ if ($min == 0 ) {
   $hour %= 12;
   $hour = 12 if ($hour == 0);
   $chime = "$sounds/$c/$hour.mp3";
-  qx(mplayer $chime  2>/dev/null);
+  qx(mplayer -af bs2b $chime  2>/dev/null);
 } else {
   $chime = $chimes{$min}[$hour  % 3];
-  qx(mplayer -af extrastereo=0  $sounds/$chime 2>/dev/null);
+  qx(mplayer -af bs2b -af extrastereo=0  $sounds/$chime 2>/dev/null);
 }
