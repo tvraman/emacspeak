@@ -3,9 +3,9 @@
 #chime the time
 #Switching to MP3
 use strict;
-
-my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
+# Update ${EMACSPEAK_DIR} below to match your installation:
 my $sounds="$ENV{EMACSPEAK_DIR}/sounds/clock/";
+my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
 my %chimes =(
              0 => [qw(Sun Mon Tue Wed Thu Fri Sat)],
              15  => [qw(gf-15.wav chime-15.mp3 bigben-15.mp3)],
