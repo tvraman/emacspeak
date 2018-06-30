@@ -5,7 +5,7 @@
 use strict;
 
 my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
-my $sounds="$ENV{HOME}/cues/chimes/mp3";
+my $sounds="$ENV{EMACSPEAK_DIR}/sounds/clock/";
 my %chimes =(
              0 => [qw(Sun Mon Tue Wed Thu Fri Sat)],
              15  => [qw(gf-15.wav chime-15.wav bigben-15.wav)],
