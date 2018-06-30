@@ -8,7 +8,7 @@ my $sounds="$ENV{EMACSPEAK_DIR}/sounds/clock/";
 my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
 my %chimes =(
              0 => [qw(Sun Mon Tue Wed Thu Fri Sat)],
-             15  => [qw(gf-15.wav chime-15.mp3 bigben-15.mp3)],
+             15  => [qw(gf-15.mp3 chime-15.mp3 bigben-15.mp3)],
              30 =>[qw (gf-30.mp3 chime-30.mp3 bigben-30.mp3)],
              45 => [qw(gf-45.mp3 chime-45.mp3 bigben-45.mp3)]
             );
