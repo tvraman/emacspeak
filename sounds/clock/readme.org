@@ -1,3 +1,10 @@
-emacspeak/etc/clock.pl implements a chiming clock.
-These are the mp3 files used by  clock.pl.
+* Clock 
+
+  - emacspeak/etc/clock.pl implements a chiming clock.
+  - These are the mp3 files used by  clock.pl.
+  - crontab-clock shows a simple crontab entry for running the clock.
+  - To install, see clock.pl for configuration instructions,  then
+: sudo cp clock.pl /usr/local/bin/
+  - Install the corresponding crontab entry:
+: crontab crontab-clock
 
