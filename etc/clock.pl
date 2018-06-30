@@ -8,9 +8,9 @@ my $sounds="$ENV{EMACSPEAK_DIR}/sounds/clock/";
 my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
 my %chimes =(
              0 => [qw(Sun Mon Tue Wed Thu Fri Sat)],
-             15  => [qw(gf-15.mp3 chime-15.mp3 bigben-15.mp3)],
-             30 =>[qw (gf-30.mp3 chime-30.mp3 bigben-30.mp3)],
-             45 => [qw(gf-45.mp3 chime-45.mp3 bigben-45.mp3)]
+             15  => [qw(gf-15.mp3 wm-15.mp3 chime-15.mp3 bigben-15.mp3)],
+             30 =>[qw (gf-30.mp3 wm-30.mp3 chime-30.mp3 bigben-30.mp3)],
+             45 => [qw(gf-45.mp3 wm-45.mp3 chime-45.mp3 bigben-45.mp3)]
             );
 my $chime;
 exit unless defined ($chimes{$min});
@@ -21,6 +21,6 @@ if ($min == 0 ) {
   $chime = "$sounds/$c/$hour.mp3";
   qx(mplayer -af bs2b $chime  2>/dev/null);
 } else {
-  $chime = $chimes{$min}[$hour  % 3];
+  $chime = $chimes{$min}[$hour  % 4];
   qx(mplayer -af bs2b -af extrastereo=0  $sounds/$chime 2>/dev/null);
 }
