@@ -1,0 +1,2 @@
+ 
+ 0,15,30,45 *   * * * /usr/local/bin/clock.pl 2>&1 > /dev/null
