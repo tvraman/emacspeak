@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w #chime the time
 
 use strict;
-# Update  sounds location  to match your installation:
 $ENV{LADSPA_PATH} = "/usr/lib/ladspa";
+# Update  sounds location  to match your installation:
 my $sounds="$ENV{HOME}/emacs/lisp/emacspeak/sounds/clock";
 my ($sec,$min,$hour,$mDay,$mon,$year,$wDay,$yDay,$isdst) = localtime();
 my %chimes =(
