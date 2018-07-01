@@ -20,7 +20,7 @@ shown in the output.
   <!-- { html   -->
 <!-- nuke these -->  
   <xsl:template
-      match="//script|//meta|//nolayer|//ilayer|//layer|//spacer|//*[@style='display:none']"/>
+      match="//script|//meta|//nolayer|//ilayer|//layer|//spacer|//*[@style='display:none']|//*[@aria-hidden='true']"/>
   <!--add base uri if available. -->
   <xsl:template match="head">
     <head>
