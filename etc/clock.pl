@@ -11,8 +11,6 @@ my %chimes =(
     45 => [qw(gf-45.mp3 wm-45.mp3 chime-45.mp3 bigben-45.mp3)]
     );
 my $chime;
-$min = 15;
-
 exit unless defined ($chimes{$min});
 if ($min == 0 ) {
     my $c = $chimes{0}[$wDay];
