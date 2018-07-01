@@ -22,5 +22,5 @@ if ($min == 0 ) {
   qx(mplayer -af bs2b $chime  2>/dev/null);
 } else {
   $chime = $chimes{$min}[$hour  % 4];
-  qx(mplayer -af bs2b -af extrastereo=0  $sounds/$chime 2>/dev/null);
+  qx(mplayer -af bs2b   $sounds/$chime 2>/dev/null);
 }
