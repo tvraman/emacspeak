@@ -20,6 +20,7 @@ Description: default transformation applied by Bubbles.
   <!-- {nuke these elements. --> 
   
   <xsl:template match="script"/>
+<xsl:template match="//*[@aria-hidden='true']"/>
   <xsl:template match="iframe">
   <a>
 <xsl:attribute name="href">
