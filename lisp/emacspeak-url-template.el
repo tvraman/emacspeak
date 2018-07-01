@@ -616,13 +616,7 @@ from English to German")
  'emacspeak-speak-buffer
  "Transcode site via Google.")
 
-(emacspeak-url-template-define
- "Google topical News"
- "https://news.google.com/news?ned=us&topic=%s&output=atom"
- (list "Topic Code: ")
- nil
- "Display specified news feed."
- #'emacspeak-feeds-atom-display)
+
 
 ;;}}}
 ;;{{{ Google Structured Data Parser:
