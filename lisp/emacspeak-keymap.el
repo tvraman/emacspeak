@@ -558,7 +558,6 @@ interactive command that the key sequence executes."
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
     ("S" soundscape-stop)
-    ("b" emacspeak-bbc)
     ("e" elfeed)
     ("h" emacspeak-m-player-from-media-history)
     ("l" emacspeak-m-player-locate-media)
