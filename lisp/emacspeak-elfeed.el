@@ -163,6 +163,8 @@
   (cl-declare (special emacspeak-we-recent-xpath-filter))
   (let* ((entry (emacspeak-elfeed-entry-at-point))
          (link(elfeed-entry-link entry)))
+    (when (string=  "" emacspeak-we-recent-xpath-filter)
+      (setq emacspeak-we-recent-xpath-filter "//p"))
     (cond
      (entry (elfeed-untag  entry 'unread)
             (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
