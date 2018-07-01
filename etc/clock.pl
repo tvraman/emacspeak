@@ -11,6 +11,7 @@ my %chimes =(
     45 => [qw(gf-45.mp3 wm-45.mp3 chime-45.mp3 bigben-45.mp3)]
     );
 my $chime;
+$min = 15;
 
 exit unless defined ($chimes{$min});
 if ($min == 0 ) {
@@ -22,5 +23,7 @@ if ($min == 0 ) {
     my $c = $chimes{$min}[$hour % 4];
     $chime = "$sounds/$c";
 }
-qx(mplayer -af bs2b $chime  2>&1  >/dev/null);
+# If ladspa not available, use next line.
+#qx(mplayer -af bs2b $chime  2>&1  >/dev/null);
+qx(mplayer -af bs2b -af ladspa=tap_reverb:tap_reverb:10000:-4:-15:1:1:1:1:6 $chime  2>&1  >/dev/null);
 
