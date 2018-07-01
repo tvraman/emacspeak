@@ -552,6 +552,7 @@ interactive command that the key sequence executes."
     ("g" emacspeak-google-tts-region)
     ("j" ido-imenu-anywhere)
     ("o" org-switchb)
+    ("n" emacspeak-wizards-google-newspaper)
     ("q" emacspeak-wizards-iex-show-quote)
     ("r" soundscape-restart)
     ("s" soundscape)

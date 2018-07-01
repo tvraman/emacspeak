@@ -4222,6 +4222,18 @@ external package."
    'speak))
 
 ;;}}}
+;;{{{ Google Newspaper:
+
+;;;###autoload
+(defun emacspeak-wizards-google-newspaper ()
+  "Google: news.google.com filtered."
+  (interactive)
+  (emacspeak-we-xslt-filter
+   "//main"
+   "https://news.google.com"
+   'speak))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
