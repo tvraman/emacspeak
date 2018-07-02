@@ -2643,9 +2643,7 @@ Default is to add autoload cookies to current file."
   (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
     (cond
      (prev
-      (switch-to-buffer prev)
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-mode-line))
+      (funcall-interactively #'pop-to-buffer prev))
      (t (error "No previous buffer in mode %s" major-mode)))))
 
 ;;;###autoload
@@ -2655,9 +2653,7 @@ Default is to add autoload cookies to current file."
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
     (cond
      (next (bury-buffer)
-           (switch-to-buffer next)
-           (emacspeak-auditory-icon 'select-object)
-           (emacspeak-speak-mode-line))
+           (funcall-interactively #'pop-to-buffer next))
      (t (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
