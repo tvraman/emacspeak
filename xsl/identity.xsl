@@ -11,7 +11,8 @@ Identity transform used in all style sheets.
   <xsl:output encoding="UTF-8"
               method="html"  indent="yes"/>
   <!-- {identity default  -->   
-  <!-- nuke these -->  
+  <!-- nuke these -->
+  <xsl:template match="//*[@aria-hidden='true']"/>
   <xsl:template
       match="//script|//nolayer|//ilayer|//layer|//spacer|//*[@style='display:none']"/>
   <xsl:include href="display-none.xsl"/>
