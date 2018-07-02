@@ -548,6 +548,7 @@ interactive command that the key sequence executes."
     ("SPC"  emacspeak-wizards-scratch)
     ("d" emacspeak-dired-downloads)
     ("." emacspeak-wizards-shell-directory-reset)
+    ("a" emacspeak-wizards-execute-asynchronously)
     ("f" flyspell-mode)
     ("g" emacspeak-google-tts-region)
     ("j" ido-imenu-anywhere)

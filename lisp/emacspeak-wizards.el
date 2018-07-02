@@ -4234,6 +4234,20 @@ external package."
    'speak))
 
 ;;}}}
+;;{{{ Use Threads To Call Command Asynchronously:
+;;;Experimental: Handle with care.
+
+;;;###autoload
+(defun emacspeak-wizards-execute-asynchronously (key)
+  "Read key-sequence, then execute its command on a new thread."
+  (interactive
+   (list
+    (read-key-sequence "Key Sequence: ")))
+  (ems-with-messages-silenced
+      (let* ((command (or (local-key-binding key) (global-key-binding key)))
+             (res (y-or-n-p (format "Call %s asynchronously?" command))))
+        (when res (make-thread command)))))
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
