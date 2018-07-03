@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1231 commands and 1184 options.
+   This chapter documents a total of 1230 commands and 1184 options.
 
 * Menu:
 
@@ -4076,7 +4076,6 @@ system.
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
      e		eww
      f		emacspeak-wizards-finance-google-search
-     g		emacspeak-gnus-async
      i		emacspeak-wizards-iheart
      l		eww-open-file
      m		magit-status

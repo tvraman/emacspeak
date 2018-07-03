@@ -3636,30 +3636,21 @@ news.
 12.85.1 emacspeak-gnus Commands
 -------------------------------
 
-12.85.1.1 emacspeak-gnus-async
-..............................
-
- -- Command: emacspeak-gnus-async
-     ‘C-, g’
-     ‘C-x @ a g’
-
-     Run gnus on a separate thread.
-
-12.85.1.2 emacspeak-gnus-personal-gmail-last-week
+12.85.1.1 emacspeak-gnus-personal-gmail-last-week
 .................................................
 
  -- Command: emacspeak-gnus-personal-gmail-last-week
 
      Look for mail addressed personally in the last week.
 
-12.85.1.3 emacspeak-gnus-personal-gmail-recent
+12.85.1.2 emacspeak-gnus-personal-gmail-recent
 ..............................................
 
  -- Command: emacspeak-gnus-personal-gmail-recent
 
      Look for mail addressed personally in the last day.
 
-12.85.1.4 emacspeak-gnus-summary-catchup-quietly-and-exit
+12.85.1.3 emacspeak-gnus-summary-catchup-quietly-and-exit
 .........................................................
 
  -- Command: emacspeak-gnus-summary-catchup-quietly-and-exit

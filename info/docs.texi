@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1231 commands and 1184 options.
+This chapter documents a total of 1230 commands and 1184 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1582,7 +1582,6 @@ b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
 e		eww
 f		emacspeak-wizards-finance-google-search
-g		emacspeak-gnus-async
 i		emacspeak-wizards-iheart
 l		eww-open-file
 m		magit-status
@@ -9756,22 +9755,6 @@ You can read news mostly by using the four arrow keys.
 By default all article headers are hidden, so you hear the real news.
 
 @subsection emacspeak-gnus Commands
-
-@subsubsection emacspeak-gnus-async
-@deffn {Command} emacspeak-gnus-async   
-@table @kbd
-@item C-, g
-@kindex C-, g
-@item C-x @@ a g
-@kindex C-x @@ a g
-@end table
-
-@findex emacspeak-gnus-async
-
-@format
-Run gnus on a separate thread.
-@end format
-@end deffn
 
 @subsubsection emacspeak-gnus-personal-gmail-last-week
 @deffn {Command} emacspeak-gnus-personal-gmail-last-week   
