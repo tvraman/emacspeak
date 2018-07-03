@@ -150,6 +150,18 @@
        (emacspeak-auditory-icon 'mark-object)))))
 
 ;;}}}
+;;{{{ Advice Upgrade:
+
+(defadvice package-menu-mark-upgrades (after emacspeak pre act comp)
+  "Speak list of packages we marked for upgrading."
+  (when (ems-interactive-p)
+    (let ((upgrades (package-menu--find-upgrades)))
+      (when upgrades
+        (message "%s" (mapcar #'car upgrades))))))
+
+
+
+;;}}}
 (provide 'emacspeak-package)
 ;;{{{ end of file
 
