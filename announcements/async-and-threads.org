@@ -1,0 +1,23 @@
+* Executive Summary 
+
+Emacs 26 has threads for executing functions asynchronously.
+Emacs commands that call an external process and wait for that 
+process  to finish  make a good candidate for asynchronous
+execution  --- e.g., ~smtpmail-send-it~ for sending mail. The arrival of threads provides an interesting option for
+running such commands asynchronously.
+
+
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Using Emacs Threads To Execute Commands Asynchronously 
+#+DATE: <2018-07-03 Tue>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 27.0.50 (Org mode 9.1.13)
