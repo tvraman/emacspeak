@@ -200,7 +200,7 @@ Brazil Mexico  2::0
     Saint Petersburg Stadium 
 ** 56. Winner Group H   - Runner-up Group G  
     <2018-07-03 Tue 11:00> 
-Colombia England 
+Colombia England  1::1 3::4
     Otkrytiye Arena, Moscow  
 * Quarter Finals                                              :QuarterFinals:
 ** 57. Winner Match 49  - Winner Match 50    
