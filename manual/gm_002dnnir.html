@@ -87,7 +87,8 @@
     <dt><a name=
     "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup" id=
     "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup"></a>Command:
-    <strong>gm-nnir-group-make-gmail-group</strong></dt>
+    <strong>gm-nnir-group-make-gmail-group</strong>
+    <em>(query)</em></dt>
     <dd>
       <a name=
       "index-gm_002dnnir_002dgroup_002dmake_002dgmail_002dgroup-1"
@@ -96,7 +97,9 @@
       <div class="format">
         <pre class="format">Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
-Default is to search All Mail when not on a Group line.
+ note: nnimap-address etc are available as local vars if needed in these functions.
+
+(fn QUERY)
 </pre>
       </div>
     </dd>
@@ -108,7 +111,8 @@ Default is to search All Mail when not on a Group line.
     <dt><a name=
     "index-gm_002dnnir_002dgroup_002dmake_002dnnir_002dgroup" id=
     "index-gm_002dnnir_002dgroup_002dmake_002dnnir_002dgroup"></a>Command:
-    <strong>gm-nnir-group-make-nnir-group</strong></dt>
+    <strong>gm-nnir-group-make-nnir-group</strong>
+    <em>(q)</em></dt>
     <dd>
       <a name=
       "index-gm_002dnnir_002dgroup_002dmake_002dnnir_002dgroup-1"
@@ -117,7 +121,9 @@ Default is to search All Mail when not on a Group line.
       <div class="format">
         <pre class="format">
         GMail equivalent of gnus-group-make-nnir-group.
-Default is to search All Mail when not on a group.
+This uses standard IMap search operators.
+
+(fn Q)
 </pre>
       </div>
     </dd>
