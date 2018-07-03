@@ -4239,10 +4239,17 @@ external package."
   (interactive
    (list
     (read-key-sequence "Key Sequence: ")))
-  (ems-with-messages-silenced
-      (let* ((command (or (local-key-binding key) (global-key-binding key)))
-             (res (y-or-n-p (format "Call %s asynchronously?" command))))
-        (when res (make-thread command)))))
+      (let ((l  (local-key-binding key))
+             (g (global-key-binding key)))
+    (cond
+     ( (commandp l)
+      (make-thread l)
+      (message "Running %s on a new thread." l))
+     ((commandp g)
+      (make-thread g)
+      (message "Running %s on a new thread." g))
+     (t (error "%s is not bound to a command." key)))))
+        
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
