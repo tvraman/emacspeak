@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1227 commands and 1184 options.
+This chapter documents a total of 1231 commands and 1173 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1506,6 +1506,7 @@ C-e		eshell
 TAB		hippie-expand
 C-r		flx-isearch-backward
 C-s		flx-isearch-forward
+C-u		emacspeak-feeds-browse
 SPC		emacspeak-webspace
 '		emacspeak-m-player-using-hrtf
 /		emacspeak-wizards-web-clean-up-processes
@@ -1533,8 +1534,7 @@ p		emacspeak-wizards-pdf-open
 r		org-capture
 s		emacspeak-wizards-shell
 t		twit
-u		browse-url
-v		emacspeak-evil-toggle-evil
+u		emacspeak-url-template-fetch
 w		emacspeak-wizards-quick-weather
 
 SPC SPC		emacspeak-webspace-headlines-browse
@@ -1552,7 +1552,8 @@ SPC		emacspeak-wizards-scratch
 .		emacspeak-wizards-shell-directory-reset
 R		emacspeak-webspace-feed-reader
 S		soundscape-stop
-b		emacspeak-bbc
+a		emacspeak-wizards-execute-asynchronously
+d		emacspeak-dired-downloads
 e		elfeed
 f		flyspell-mode
 g		emacspeak-google-tts-region
@@ -1560,6 +1561,7 @@ h		emacspeak-m-player-from-media-history
 j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
+n		emacspeak-wizards-google-newspaper
 o		org-switchb
 p		proced
 q		emacspeak-wizards-iex-show-quote
@@ -1578,7 +1580,6 @@ key             binding
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
-d		emacspeak-dired-downloads
 e		eww
 f		emacspeak-wizards-finance-google-search
 g		emacspeak-gnus-async
@@ -4102,72 +4103,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -4975,15 +4910,6 @@ For downloading a program etc., use Emacs package iplayer.
 
 @subsubsection emacspeak-bbc
 @deffn {Command} emacspeak-bbc  (&optional genre)
-@table @kbd
-@item C-. b
-@kindex C-. b
-@item C-' b
-@kindex C-' b
-@item C-x @@ s b
-@kindex C-x @@ s b
-@end table
-
 @findex emacspeak-bbc
 
 @format
@@ -6364,10 +6290,12 @@ Open CSV file on current dired line.
 @subsubsection emacspeak-dired-downloads
 @deffn {Command} emacspeak-dired-downloads   
 @table @kbd
-@item C-, d
-@kindex C-, d
-@item C-x @@ a d
-@kindex C-x @@ a d
+@item C-. d
+@kindex C-. d
+@item C-' d
+@kindex C-' d
+@item C-x @@ s d
+@kindex C-x @@ s d
 @end table
 
 @findex emacspeak-dired-downloads
@@ -8229,13 +8157,6 @@ This is work-in-progress and is not complete.
 
 @subsubsection emacspeak-evil-toggle-evil
 @deffn {Command} emacspeak-evil-toggle-evil   
-@table @kbd
-@item C-; v
-@kindex C-; v
-@item C-x @@ h v
-@kindex C-x @@ h v
-@end table
-
 @findex emacspeak-evil-toggle-evil
 
 @format
@@ -9272,8 +9193,12 @@ Display ATOM feed.
 @table @kbd
 @item C-e C-u
 @kindex C-e C-u
+@item C-; C-u
+@kindex C-; C-u
 @item <fn> C-u
 @kindex <fn> C-u
+@item C-x @@ h C-u
+@kindex C-x @@ h C-u
 @end table
 
 @findex emacspeak-feeds-browse
@@ -9779,6 +9704,24 @@ By default all article headers are hidden, so you hear the real news.
 
 @format
 Run gnus on a separate thread.
+@end format
+@end deffn
+
+@subsubsection emacspeak-gnus-personal-gmail-last-week
+@deffn {Command} emacspeak-gnus-personal-gmail-last-week   
+@findex emacspeak-gnus-personal-gmail-last-week
+
+@format
+Look for mail addressed personally in the last week.
+@end format
+@end deffn
+
+@subsubsection emacspeak-gnus-personal-gmail-recent
+@deffn {Command} emacspeak-gnus-personal-gmail-recent   
+@findex emacspeak-gnus-personal-gmail-recent
+
+@format
+Look for mail addressed personally in the last day.
 @end format
 @end deffn
 
@@ -20738,8 +20681,12 @@ that are presently defined.
 @table @kbd
 @item C-e u
 @kindex C-e u
+@item C-; u
+@kindex C-; u
 @item <fn> u
 @kindex <fn> u
+@item C-x @@ h u
+@kindex C-x @@ h u
 @end table
 
 @findex emacspeak-url-template-fetch
@@ -23709,6 +23656,26 @@ Display list of open EWW buffers.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-execute-asynchronously
+@deffn {Command} emacspeak-wizards-execute-asynchronously  (key)
+@table @kbd
+@item C-. a
+@kindex C-. a
+@item C-' a
+@kindex C-' a
+@item C-x @@ s a
+@kindex C-x @@ s a
+@end table
+
+@findex emacspeak-wizards-execute-asynchronously
+
+@format
+Read key-sequence, then execute its command on a new thread.
+
+(fn KEY)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-finance-google-search
 @deffn {Command} emacspeak-wizards-finance-google-search  (ticker)
 @table @kbd
@@ -23922,6 +23889,24 @@ content at URL.
 Extracted content is placed as a csv file in task.csv.
 
 (fn URL DEPTH COUNT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-google-newspaper
+@deffn {Command} emacspeak-wizards-google-newspaper   
+@table @kbd
+@item C-. n
+@kindex C-. n
+@item C-' n
+@kindex C-' n
+@item C-x @@ s n
+@kindex C-x @@ s n
+@end table
+
+@findex emacspeak-wizards-google-newspaper
+
+@format
+Google: news.google.com filtered.
 @end format
 @end deffn
 
@@ -25561,23 +25546,27 @@ IMap search operators, GMail search extensions.
 @subsection gm-nnir Commands
 
 @subsubsection gm-nnir-group-make-gmail-group
-@deffn {Command} gm-nnir-group-make-gmail-group   
+@deffn {Command} gm-nnir-group-make-gmail-group  (query)
 @findex gm-nnir-group-make-gmail-group
 
 @format
 Use GMail search syntax exclusively.
 See https://support.google.com/mail/answer/7190?hl=en for syntax.
-Default is to search All Mail when not on a Group line.
+ note: nnimap-address etc are available as local vars if needed in these functions.
+
+(fn QUERY)
 @end format
 @end deffn
 
 @subsubsection gm-nnir-group-make-nnir-group
-@deffn {Command} gm-nnir-group-make-nnir-group   
+@deffn {Command} gm-nnir-group-make-nnir-group  (q)
 @findex gm-nnir-group-make-nnir-group
 
 @format
 GMail equivalent of gnus-group-make-nnir-group.
-Default is to search All Mail when not on a group.
+This uses standard IMap search operators.
+
+(fn Q)
 @end format
 @end deffn
 
@@ -27115,11 +27104,11 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 82 URL Templates.
+This section documents a total of 81 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
- @kbd{C-e u <fn> u}.
+ @kbd{C-e u C-; u <fn> u C-x @ h u}.
 This command prompts for the name of the template, and completion
  is available via Emacs' minibuffer completion.
 Each URL template carries out the following steps:
@@ -27297,10 +27286,6 @@ Display comparative trends.
 @b{Google Webmaster Page Analysis}
 
 Page Analysis From Google Webmaster tools.
-
-@b{Google topical News}
-
-Display specified news feed.
 
 @b{Guardian RSS Feeds Directory}
 
