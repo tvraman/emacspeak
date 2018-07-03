@@ -832,15 +832,8 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ Async Gnus:
 
-;;;###autoload
-(defun emacspeak-gnus-async ()
-  "Run gnus on a separate thread."
-  (interactive)
-  (make-thread
-   #'(lambda ()
-       (condition-case err
-           (gnus)
-         (err (message (error-message-string err)))))))
+
+
 
 ;;}}}
 ;;{{{ GMail Search Accelerators:
