@@ -7,7 +7,65 @@ execution  --- e.g., ~smtpmail-send-it~ for sending mail. The arrival of threads
 running such commands asynchronously.
 
 
+* First Attempt --- Custom Async ~gnus~ Command 
 
+I initially wrote a custom command for launching ~gnus~ asynchronously
+-- it was a one-line  function that   ran the following line:
+#+BEGIN_SRC emacs-lisp
+(make-thread #'gnus)
+#+END_SRC
+
+The above worked well --- except when command ~gnus~ needed user input
+--- so I just had to be thoughtful about when I called it. But a few
+weeks later, I wanted the equivalent for function ~smtpmail-send-it~
+when sending mail. I almost wrote myself one more command before
+stepping back to create a more generic solution.
+
+
+
+* One Command To Thread Them All 
+
+I have now defined command ~emacspeak-wizards-execute-asynchronously~
+bound to ~C-' a~.
+Note that this command, though part of package ~emacspeak-wizards~ has
+no emacspeak dependencies.
+
+#+BEGIN_SRC emacs-lisp
+(defun emacspeak-wizards-execute-asynchronously (key)
+  "Read key-sequence, then execute its command on a new thread."
+  (interactive (list (read-key-sequence "Key Sequence: ")))
+      (let ((l  (local-key-binding key))
+             (g (global-key-binding key)))
+    (cond
+     ( (commandp l)
+       (make-thread l)
+      (message "Running %s on a new thread." l))
+     ((commandp g)
+      (make-thread g)
+      (message "Running %s on a new thread." g))
+     (t (error "%s is not bound to a command." key)))))
+#+END_SRC
+
+With this command bound to ~C-' a~, I can now get rid of my custom
+~gnus-async~ command and its associated key-binding. I already have
+command ~gnus~ bound to ~C-; g~, so I can just press ~C-' a C-; g~ to
+fetch news/mail asynchronously. Similarly, when sending mail using
+~smtpmail~ I can press ~C-' a C-c C-c~ to send mail without Emacs
+blocking.
+
+* Final Caveats 
+
+Like other asynchronous solutions (see package ~async~  for instance)
+one needs to make sure that the command being executed asynchronously
+will not require user input. In the case of package ~async~, the
+asynchronous Emacs will block waiting for input; in the case of
+~make-thread~, Emacs enters a blocking loop with the minibuffer
+continuously displaying 
+: No catch for ...
+The only way to come out is to kill Emacs --- so make sure to only use
+ command ~emacspeak-wizards-execute-asynchronously~ only when you're
+ sure that the command being run asynchronously wont require user
+ input.
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
