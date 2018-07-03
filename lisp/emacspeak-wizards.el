@@ -4236,14 +4236,12 @@ external package."
 ;;;###autoload
 (defun emacspeak-wizards-execute-asynchronously (key)
   "Read key-sequence, then execute its command on a new thread."
-  (interactive
-   (list
-    (read-key-sequence "Key Sequence: ")))
+  (interactive (list (read-key-sequence "Key Sequence: ")))
       (let ((l  (local-key-binding key))
              (g (global-key-binding key)))
     (cond
      ( (commandp l)
-      (make-thread l)
+       (make-thread l)
       (message "Running %s on a new thread." l))
      ((commandp g)
       (make-thread g)
