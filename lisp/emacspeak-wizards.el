@@ -4240,20 +4240,17 @@ external package."
   (let ((l  (local-key-binding key))
         (g (global-key-binding key))
         (k
-         (when-let (map(get-text-property (point) 'keymap) )
-                  
+         (when-let (map(get-text-property (point) 'keymap))
            (lookup-key map key))))
-    (cond
-     ( (commandp k)
-       (make-thread k)
-       (message "Running %s on a new thread." k))
-     ( (commandp l)
-       (make-thread l)
-       (message "Running %s on a new thread." l))
-     ((commandp g)
-      (make-thread g)
-      (message "Running %s on a new thread." g))
-     (t (error "%s is not bound to a command." key)))))
+    (cl-flet
+        ((do-it (command)
+                (make-thread command)
+                (message "Running %s on a new thread." command)))
+      (cond
+       ( (commandp k) (do-it k))
+       ( (commandp l) (do-it l))
+       ((commandp g) (do-it g))
+       (t (error "%s is not bound to a command." key))))))
         
 ;;}}}
 (provide 'emacspeak-wizards)
