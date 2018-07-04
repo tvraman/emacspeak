@@ -129,6 +129,31 @@ Note that the Web browser should reset this hook after using it.")
      `#'(lambda ()
           (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))))
 
+(defun emacspeak-webutils-make-xsl-transformer-pipeline   (specs)
+  "Return a function that can be attached to
+emacspeak-web-pre-process-hook to apply required xslt transformation
+pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
+  (let ((pipeline nil))
+    (cl-loop
+     for s in specs do
+     (cond
+      ((null (cl-second s))
+       (push 
+        (eval
+         `#'(lambda ()
+              (emacspeak-xslt-region ,(cl-first s) (point) (point-max))))
+              pipeline))
+       (t
+      (push
+       (eval
+        `#'(lambda ()
+             (emacspeak-xslt-region ,(cl-first s) (point) (point-max) ',(cl-second s))))
+       pipeline))))
+    (eval
+     `#'(lambda nil
+          (mapc #'funcall ,(nreverse pipeline))))))
+
+
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
