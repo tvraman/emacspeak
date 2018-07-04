@@ -4222,7 +4222,7 @@ external package."
 
 ;;;###autoload
 (defun emacspeak-wizards-google-newspaper ()
-  "Google: news.google.com filtered."
+  "Clean up news.google.com for  skimming the news."
   (interactive)
   (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
   (emacspeak-we-xslt-pipeline-filter
