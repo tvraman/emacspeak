@@ -116,7 +116,7 @@ Note that the Web browser should reset this hook after using it.")
 
 ;;}}}
 ;;{{{ Helpers:
-;;;###autoload
+
 (defun emacspeak-webutils-make-xsl-transformer  (xsl &optional params)
   "Return a function that can be attached to emacspeak-web-pre-process-hook to apply required xslt transform."
   (cond
@@ -141,22 +141,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
              (cl-first s)
              (point) (point-max)
              (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
-      
-    
-
-
-
-(defun emacspeak-webutils-make-xsl-transformer-pair   (filters)
-  "Here to debug transformer pipeline."
-       (eval
-        `#'(lambda ()
-             (emacspeak-xslt-region ,emacspeak-we-xsl-filter (point) (point-max) ',(cl-first filters))
-             (emacspeak-xslt-region ,emacspeak-we-xsl-junk (point) (point-max) ',(cl-second filters)))))
-       
-    
-     
           
-
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
