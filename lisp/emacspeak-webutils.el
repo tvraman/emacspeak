@@ -139,7 +139,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
      for s in ',specs do
             (emacspeak-xslt-region
              (cl-first s)
-             (point-min) (point-max)
+             (point) (point-max)
              (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
       
     
