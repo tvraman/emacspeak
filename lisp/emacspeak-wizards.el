@@ -4228,7 +4228,7 @@ external package."
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil (eww-display-dom-by-element 'h3)))
-  (message "Press l to see full news page.")
+  (message "Press l to expand all sections.")
   (emacspeak-we-xslt-pipeline-filter
    `((,emacspeak-we-xsl-filter "//main") ;specs
          (,emacspeak-we-xsl-junk "//menu|//*[contains(@role,\"button\")]"))
