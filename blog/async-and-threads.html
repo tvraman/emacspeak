@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-07-03 Tue 14:37 -->
+<!-- 2018-07-04 Wed 08:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Using Emacs Threads To Execute Commands Asynchronously</title>
@@ -180,12 +180,58 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
 </head>
 <body>
 <div id="content">
 <h1 class="title">Using Emacs Threads To Execute Commands Asynchronously</h1>
-<div id="outline-container-org817c562" class="outline-2">
-<h2 id="org817c562"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-org00f5f02" class="outline-2">
+<h2 id="org00f5f02"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacs 26 has threads for executing functions asynchronously. Emacs
@@ -198,8 +244,8 @@ an interesting option for running such commands asynchronously.
 </div>
 
 
-<div id="outline-container-org3175966" class="outline-2">
-<h2 id="org3175966"><span class="section-number-2">2</span> First Attempt &#x2014; Custom Async <code>gnus</code> Command</h2>
+<div id="outline-container-org3f83764" class="outline-2">
+<h2 id="org3f83764"><span class="section-number-2">2</span> First Attempt &#x2014; Custom Async <code>gnus</code> Command</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I initially wrote a custom command for launching <code>gnus</code> asynchronously
@@ -220,8 +266,8 @@ stepping back to create a more generic solution.
 </div>
 </div>
 
-<div id="outline-container-org2bc6dcb" class="outline-2">
-<h2 id="org2bc6dcb"><span class="section-number-2">3</span> One Command To Thread Them All</h2>
+<div id="outline-container-orgb07e9d6" class="outline-2">
+<h2 id="orgb07e9d6"><span class="section-number-2">3</span> One Command To Thread Them All</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 I have now defined command <code>emacspeak-wizards-execute-asynchronously</code>
@@ -234,16 +280,20 @@ no emacspeak dependencies.
 <pre class="src src-emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">emacspeak-wizards-execute-asynchronously</span> (key)
   <span style="color: #8b2252;">"Read key-sequence, then execute its command on a new thread."</span>
   (<span style="color: #a020f0;">interactive</span> (list (read-key-sequence <span style="color: #8b2252;">"Key Sequence: "</span>)))
-      (<span style="color: #a020f0;">let</span> ((l  (local-key-binding key))
-             (g (global-key-binding key)))
-    (<span style="color: #a020f0;">cond</span>
-     ( (commandp l)
-       (make-thread l)
-      (message <span style="color: #8b2252;">"Running %s on a new thread."</span> l))
-     ((commandp g)
-      (make-thread g)
-      (message <span style="color: #8b2252;">"Running %s on a new thread."</span> g))
-     (t (<span style="color: #ff0000; font-weight: bold;">error</span> <span style="color: #8b2252;">"%s is not bound to a command."</span> key)))))
+  (<span style="color: #a020f0;">let</span> ((l  (local-key-binding key))
+        (g (global-key-binding key))
+        (k
+         (<span style="color: #a020f0;">when-let</span> (map(get-text-property (point) 'keymap))
+           (lookup-key map key))))
+    (<span style="color: #a020f0;">cl-flet</span>
+        ((do-it (command)
+                (make-thread command)
+                (message <span style="color: #8b2252;">"Running %s on a new thread."</span> command)))
+      (<span style="color: #a020f0;">cond</span>
+       ( (commandp k) (do-it k))
+       ( (commandp l) (do-it l))
+       ((commandp g) (do-it g))
+       (t (<span style="color: #ff0000; font-weight: bold;">error</span> <span style="color: #8b2252;">"%s is not bound to a command."</span> key))))))
 
 (global-set-key (kbd <span style="color: #8b2252;">"C-' a"</span>) 'emacspeak-wizards-execute-asynchronously)
 </pre>
@@ -263,8 +313,8 @@ C-c</code> in the <code>*mail*</code> buffer to send mail without Emacs blocking
 </div>
 </div>
 
-<div id="outline-container-orge8a6d79" class="outline-2">
-<h2 id="orge8a6d79"><span class="section-number-2">4</span> Final Caveats</h2>
+<div id="outline-container-orgddc2037" class="outline-2">
+<h2 id="orgddc2037"><span class="section-number-2">4</span> Final Caveats</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Like other asynchronous solutions (see package <code>async</code> for instance)
@@ -290,7 +340,7 @@ input.
 <div id="postamble" class="status">
 <p class="date">Date: 2018-07-03 Tue 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2018-07-03 Tue 14:37</p>
+<p class="date">Created: 2018-07-04 Wed 08:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
