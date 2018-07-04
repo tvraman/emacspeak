@@ -306,7 +306,7 @@ part of the libxslt package."
      (read-file-name "XSL Transformation: "))
     (read-string "URL: " (browse-url-url-at-point))))
   (cl-declare (special emacspeak-xslt-options))
-  (add-to-list
+  (add-hook
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer style))
   (browse-url url))
