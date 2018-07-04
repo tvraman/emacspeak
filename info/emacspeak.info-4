@@ -12,52 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
-
-15 Emacspeak At Twenty.
-***********************
-
-This article was originally published to mark the 20th anniversary of
-Emacspeak.  It has been incorporated as the final chapter of the
-Emacspeak manual for easy reference.  The original article is available
-on the Web and in its original source form as an *org* file in the
-emacspeak distribution.
-* Menu:
-
-* Turning Twenty::
-* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
-* Key Enabler  ---  Emacs And Lisp Advice::
-* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
-* Emacspeak And Software Development::
-* Emacspeak And Authoring Documents::
-* Emacspeak And The Early Days Of The Web::
-* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
-* Conversational Gestures For The Audio Desktop::
-* Accessing Media Streams::
-* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
-* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
-* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
-* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
-* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
-* Conclusion --- Turning Twenty::
-* References::
-
-
-File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
-
-15.1 Turning Twenty
-===================
-
-One afternoon in the third week of September 1994, I started writing
-myself a small Emacs extension using Lisp Advice to make Emacs speak to
-me so I could use a Linux laptop.  As Emacspeak turns twenty, this
-article is both a quick look back over the twenty years of lessons
-learned, as well as a glimpse into what might be possible as we evolve
-to a world of connected, ubiquitous computing.  This article draws on
-Learning To Program In 10 Years (http://norvig.com/21-days.html) by
-Peter Norvig for some of its inspiration.
-
-
 File: emacspeak.info,  Node: Using UNIX With Speech Output --- 1994,  Next: Key Enabler --- Emacs And Lisp Advice,  Prev: Turning Twenty,  Up: Emacspeak At Twenty
 
 15.2 Using UNIX With Speech Output — 1994
