@@ -4227,7 +4227,8 @@ external package."
   (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
   (emacspeak-we-xslt-pipeline-filter
    `((,emacspeak-we-xsl-filter "//main")
-         (,emacspeak-we-xsl-junk "//menu|//figure"  ))
+         (,emacspeak-we-xsl-junk
+          "//menu|//figure|//*[contains(@role,\"button\")]"))
    "https://news.google.com"
    'speak))
 
