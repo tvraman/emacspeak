@@ -151,7 +151,8 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
        pipeline))))
     (eval
      `#'(lambda nil
-          (mapc #'funcall ,(nreverse pipeline))))))
+          (mapc #'funcall
+'                      ,(nreverse pipeline))))))
 
 
 ;;;###autoload
