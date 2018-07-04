@@ -136,24 +136,31 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
   (let ((pipeline nil))
     (cl-loop
      for s in specs do
-     (cond
-      ((null (cl-second s))
-       (push 
-        (eval
-         `#'(lambda ()
-              (emacspeak-xslt-region ,(cl-first s) (point) (point-max))))
-              pipeline))
-       (t
-      (push
-       (eval
-        `#'(lambda ()
-             (emacspeak-xslt-region ,(cl-first s) (point) (point-max) ',(cl-second s))))
-       pipeline))))
+     (push
+      (eval
+       `#'(lambda ()
+            (emacspeak-xslt-region
+             ,(cl-first s)
+             (point) (point-max)
+             ,(format "%s" (cl-second s)))))
+      pipeline))
     (eval
      `#'(lambda nil
           (mapc #'funcall
-'                      ,(nreverse pipeline))))))
+                ,(nreverse pipeline))))))
 
+
+
+(defun emacspeak-webutils-make-xsl-transformer-pair   (filters)
+  "Here to debug transformer pipeline."
+       (eval
+        `#'(lambda ()
+             (emacspeak-xslt-region ,emacspeak-we-xsl-filter (point) (point-max) ',(cl-first filters))
+             (emacspeak-xslt-region ,emacspeak-we-xsl-junk (point) (point-max) ',(cl-second filters)))))
+       
+    
+     
+          
 
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
