@@ -278,7 +278,9 @@ from Web page -- default is the current page being viewed."
 
 
 (defun emacspeak-we-xslt-pipeline-filter (specs    url  &optional _speak)
-  "Filter and junk  elements as   specified in `specs'. "
+  "Apply a pipeline of filters specified in `specs', a list.
+Each filter is a list of the form
+ `(xsl-stylesheet-name xpath)'."
   (cl-declare (special emacspeak-we-filters-rename-buffer))
   (when emacspeak-we-filters-rename-buffer
     (emacspeak-webutils-rename-buffer (format "Pipeline filtered " )))
