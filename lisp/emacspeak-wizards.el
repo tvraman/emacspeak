@@ -4224,8 +4224,10 @@ external package."
 (defun emacspeak-wizards-google-newspaper ()
   "Google: news.google.com filtered."
   (interactive)
-  (emacspeak-we-xslt-filter
-   "//main"
+  (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
+  (emacspeak-we-xslt-pipeline-filter
+   `((,emacspeak-we-xsl-filter "//main")
+         (,emacspeak-we-xsl-junk "//menu"  ))
    "https://news.google.com"
    'speak))
 

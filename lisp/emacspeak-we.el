@@ -277,16 +277,14 @@ from Web page -- default is the current page being viewed."
                (browse-url url)))
 
 
-(defun emacspeak-we-xslt-filter-and-junk (specs    url  &optional _speak)
+(defun emacspeak-we-xslt-pipeline-filter (specs    url  &optional _speak)
   "Filter and junk  elements as   specified in `specs'. "
-  (cl-declare (special emacspeak-we-xsl-filter
-                       emacspeak-we-xsl-junk
-                       emacspeak-we-filters-rename-buffer))
+  (cl-declare (special emacspeak-we-filters-rename-buffer))
   (when emacspeak-we-filters-rename-buffer
-    (emacspeak-webutils-rename-buffer (format "Filtered " )))
+    (emacspeak-webutils-rename-buffer (format "Pipeline filtered " )))
   (add-to-list
    'emacspeak-web-pre-process-hook
-   (emacspeak-webutils-make-xsl-transformer-pipeline specs))
+   (emacspeak-webutils-make-xsl-transformer-pipeline specs url))
   (add-hook
    'emacspeak-web-post-process-hook
    #'emacspeak-eww-reading-settings 'at-end)

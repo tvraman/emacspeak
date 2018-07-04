@@ -133,21 +133,16 @@ Note that the Web browser should reset this hook after using it.")
   "Return a function that can be attached to
 emacspeak-web-pre-process-hook to apply required xslt transformation
 pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
-  (let ((pipeline nil))
+  (eval
+   `#'(lambda ()
     (cl-loop
-     for s in specs do
-     (push
-      (eval
-       `#'(lambda ()
+     for s in ',specs do
             (emacspeak-xslt-region
-             ,(cl-first s)
-             (point) (point-max)
-             ',(emacspeak-xslt-params-from-xpath (format "%s" (cl-second s)) url))))
-      pipeline))
-    (eval
-     `#'(lambda nil
-          (cl-loop  for f in ,(nreverse pipeline) do 
-                    (funcall  f))))))
+             (cl-first s)
+             (point-min) (point-max)
+             (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
+      
+    
 
 
 
