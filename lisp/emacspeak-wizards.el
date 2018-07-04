@@ -4225,6 +4225,10 @@ external package."
   "Clean up news.google.com for  skimming the news."
   (interactive)
   (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
+  (add-hook
+   'emacspeak-web-post-process-hook
+   #'(lambda nil (eww-display-dom-by-element 'h3)))
+  (message "Press l to see full news page.")
   (emacspeak-we-xslt-pipeline-filter
    `((,emacspeak-we-xsl-filter "//main") ;specs
          (,emacspeak-we-xsl-junk "//menu|//*[contains(@role,\"button\")]"))
