@@ -178,7 +178,7 @@ Default is to apply sort-tables."
   "Apply specified transformation to current Web page."
   (interactive (list (emacspeak-xslt-read)))
   (emacspeak-webutils-browser-check)
-  (add-to-list
+  (add-hook
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer  xsl))
   (browse-url (funcall emacspeak-webutils-current-url)))
@@ -267,7 +267,7 @@ from Web page -- default is the current page being viewed."
                     emacspeak-we-filters-rename-buffer))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
-               (add-to-list
+               (add-hook
                 'emacspeak-web-pre-process-hook
                 (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
                (when (eq browse-url-browser-function 'eww-browse-url)
@@ -282,7 +282,7 @@ from Web page -- default is the current page being viewed."
   (cl-declare (special emacspeak-we-filters-rename-buffer))
   (when emacspeak-we-filters-rename-buffer
     (emacspeak-webutils-rename-buffer (format "Pipeline filtered " )))
-  (add-to-list
+  (add-hook
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer-pipeline specs url))
   (add-hook
@@ -302,7 +302,7 @@ from Web page -- default is the current page being viewed."
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
                (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
                (when speak (emacspeak-webutils-autospeak))
-               (add-to-list
+               (add-hook
                 'emacspeak-web-pre-process-hook
                 (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-junk params))
                (browse-url url)))
