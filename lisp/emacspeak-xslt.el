@@ -230,14 +230,14 @@ part of the libxslt package."
 
 (defun emacspeak-xslt-pipeline-url (specs url &optional  no-comment)
   "Apply XSLT transformation to url
-and return the results in a newly created buffer.
+and browse the results.
 Argument `specs' is a list of elements of the form
 `(xsl xpath)'.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (cl-declare (special emacspeak-xslt-program
                        emacspeak-xslt-keep-errors))
-  (let ((result (get-buffer-create " *xslt result*"))
+  (let ((result (url-retrieve-synchronously url))
         (command ""))
     (setq command
           (apply
@@ -246,7 +246,7 @@ part of the libxslt package."
             for s in specs
             and i from 0 collect 
             (format
-             "%s %s %s %s %s "
+             "%s %s %s %s %s - 2>/dev/null  "
              (if (= i 0)  "" "|")
              emacspeak-xslt-program
              (or emacspeak-xslt-options "")
@@ -256,24 +256,20 @@ part of the libxslt package."
                           (car pair) (cdr pair)))
               (emacspeak-xslt-params-from-xpath (cl-second s) url)
               "")
-             (if (= i 0) url "-")))))
+             (cl-first s)))))
+    (message command)
     (with-silent-modifications
       (with-current-buffer result 
-        (kill-all-local-variables)
-        (erase-buffer)
-        (setq buffer-undo-list t)
         (let ((coding-system-for-write 'utf-8)
               (coding-system-for-read 'utf-8)
               (buffer-file-coding-system 'utf-8))
+          (goto-char (point-min))
+          (search-forward "\n\n")
+          (delete-region (point-min) (point))
           (shell-command
            command (current-buffer)
            (when emacspeak-xslt-keep-errors "*xslt errors*"))
-          (when emacspeak-xslt-nuke-null-char
-            (goto-char (point-min))
-            (while (search-forward
-                    (format "%c" 0)
-                    nil  t)
-              (replace-match " "))))
+          (when emacspeak-xslt-nuke-null-char))
         (when (get-buffer  "*xslt errors*")
           (bury-buffer "*xslt errors*"))
         (goto-char (point-max))
@@ -283,7 +279,7 @@ part of the libxslt package."
                    command)))
         (set-buffer-multibyte t)
         (goto-char (point-min))
-        result))))
+        (browse-url-of-buffer)))))
 
 ;;;###autoload
 (defun emacspeak-xslt-xml-url (xsl url &optional params)
