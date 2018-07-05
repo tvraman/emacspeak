@@ -257,7 +257,6 @@ part of the libxslt package."
               (emacspeak-xslt-params-from-xpath (cl-second s) url)
               "")
              (cl-first s)))))
-    (message command)
     (with-silent-modifications
       (with-current-buffer result 
         (let ((coding-system-for-write 'utf-8)
@@ -266,10 +265,10 @@ part of the libxslt package."
           (goto-char (point-min))
           (search-forward "\n\n")
           (delete-region (point-min) (point))
-          (shell-command
-           command (current-buffer)
-           (when emacspeak-xslt-keep-errors "*xslt errors*"))
-          (when emacspeak-xslt-nuke-null-char))
+          (shell-command-on-region
+           (point-min) (point-max)
+           command (current-buffer) 'replace
+           (when emacspeak-xslt-keep-errors "*xslt errors*")))
         (when (get-buffer  "*xslt errors*")
           (bury-buffer "*xslt errors*"))
         (goto-char (point-max))
