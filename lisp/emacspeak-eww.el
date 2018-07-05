@@ -549,8 +549,7 @@ are available are cued by an auditory icon on the header line."
   "Respond to user  asking us to masquerade."
   ad-do-it
   (cond
-   ((and emacspeak-eww-masquerade
-         (eq browse-url-browser-function 'eww-browse-url))
+   ( emacspeak-eww-masquerade
     (setq ad-return-value emacspeak-eww-masquerade-as))
    (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
 
