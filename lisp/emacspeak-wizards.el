@@ -4221,7 +4221,7 @@ external package."
 ;;{{{ Google Newspaper:
 
 ;;;###autoload
-(defun emacspeak-wizards-google-newspaper ()
+(defun emacspeak-wizards-google-news ()
   "Clean up news.google.com for  skimming the news."
   (interactive)
   (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
@@ -4234,6 +4234,13 @@ external package."
          (,emacspeak-we-xsl-junk "//menu|//*[contains(@role,\"button\")]"))
    "https://news.google.com"
    'speak))
+
+
+;;;###autoload
+(defun emacspeak-wizards-google-headlines ()
+  "Display just the headlines from Google News for fast loading."
+  (interactive)
+  (emacspeak-we-xslt-filter  "//h3" "https://news.google.com" 'speak))
 
 ;;}}}
 ;;{{{ Use Threads To Call Command Asynchronously:
