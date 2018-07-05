@@ -157,7 +157,7 @@
   (when (ems-interactive-p)
     (let ((upgrades (package-menu--find-upgrades)))
       (when upgrades
-        (dtk-notify-speak "%s" (mapcar #'car upgrades))))))
+        (dtk-notify-speak (format "%s" (mapcar #'car upgrades)))))))
 
 
 
