@@ -859,14 +859,13 @@ Retain previously set punctuations  mode."
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
   (cl-declare (special emacspeak-web-pre-process-hook))
-  (let ((orig (point)))
+  (save-excursion
     (cond
      (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
      ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-we-xsl-transform (point) (point-max)
-       emacspeak-we-xsl-params)))
-    (goto-char orig)))
+       emacspeak-we-xsl-params)))))
 
 ;;}}}
 ;;{{{ DOM Structure In Rendered Buffer:
