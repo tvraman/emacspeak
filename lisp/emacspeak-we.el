@@ -264,17 +264,16 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-read-url)
     current-prefix-arg))
   (cl-declare (special emacspeak-we-xsl-filter
-                    emacspeak-we-filters-rename-buffer))
+                       emacspeak-we-filters-rename-buffer))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-               (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
-               (add-hook
-                'emacspeak-web-pre-process-hook
-                (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
-               (when (eq browse-url-browser-function 'eww-browse-url)
-               (add-hook
-             'emacspeak-web-post-process-hook
-             #'emacspeak-eww-reading-settings 'at-end))
-               (browse-url url)))
+    (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
+    (add-hook
+     'emacspeak-web-pre-process-hook
+     (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'emacspeak-eww-reading-settings 'at-end)
+    (browse-url url)))
 
 
 (defun emacspeak-we-xslt-pipeline-filter (specs    url  &optional _speak)
