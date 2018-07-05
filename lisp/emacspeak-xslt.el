@@ -116,42 +116,42 @@ part of the libxslt package."
   (cl-declare (special emacspeak-xslt-program emacspeak-xslt-options
                     emacspeak-xslt-keep-errors modification-flag))
   (save-excursion
-    (let ((command nil)
-          (parameters (when params
-                        (mapconcat
-                         #'(lambda (pair)
-                             (format "--param %s %s "
-                                     (car pair)
-                                     (cdr pair)))
-                         params
-                         " ")))
-          (coding-system-for-write 'utf-8)
-          (coding-system-for-read 'utf-8)
-          (buffer-file-coding-system 'utf-8))
-      (setq command
-            (format
-             "%s %s  %s  %s - %s"
-             emacspeak-xslt-program
-             (or emacspeak-xslt-options "")
-             (or parameters "")
-             xsl
-             (unless  emacspeak-xslt-keep-errors " 2>/dev/null ")))
-      (shell-command-on-region
-       start end
-       command
-       (current-buffer)
-       'replace
-       (when emacspeak-xslt-keep-errors "*xslt errors*"))
-      (when (get-buffer  "*xslt errors*")
-        (bury-buffer "*xslt errors*"))
-      (unless no-comment
-        (goto-char (point-max))
-        (insert
-         (format "<!--\n %s \n-->\n"
-                 command)))
-      (setq modification-flag nil)
-      (set-buffer-multibyte t)
-      (current-buffer))))
+    (with-silent-modifications
+      (let ((command nil)
+            (parameters (when params
+                          (mapconcat
+                           #'(lambda (pair)
+                               (format "--param %s %s "
+                                       (car pair)
+                                       (cdr pair)))
+                           params
+                           " ")))
+            (coding-system-for-write 'utf-8)
+            (coding-system-for-read 'utf-8)
+            (buffer-file-coding-system 'utf-8))
+        (setq command
+              (format
+               "%s %s  %s  %s - %s"
+               emacspeak-xslt-program
+               (or emacspeak-xslt-options "")
+               (or parameters "")
+               xsl
+               (unless  emacspeak-xslt-keep-errors " 2>/dev/null ")))
+        (shell-command-on-region
+         start end
+         command
+         (current-buffer)
+         'replace
+         (when emacspeak-xslt-keep-errors "*xslt errors*"))
+        (when (get-buffer  "*xslt errors*")
+          (bury-buffer "*xslt errors*"))
+        (unless no-comment
+          (goto-char (point-max))
+          (insert
+           (format "<!--\n %s \n-->\n"
+                   command)))
+        (set-buffer-multibyte t)
+        (current-buffer)))))
 
 ;;;###autoload
 (defun emacspeak-xslt-run (xsl &optional start end)
