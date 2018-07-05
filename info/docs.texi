@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1230 commands and 1173 options.
+This chapter documents a total of 1231 commands and 1173 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1546,6 +1546,7 @@ Press C-’ or C-.  to access keybindings in emacspeak-super-keymap:
 key             binding
 ---             -------
 
+C-n		emacspeak-wizards-google-headlines
 SPC		emacspeak-wizards-scratch
 '		emacspeak-vlc
 ,		emacspeak-wizards-wc-2018
@@ -1561,7 +1562,7 @@ h		emacspeak-m-player-from-media-history
 j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
-n		emacspeak-wizards-google-newspaper
+n		emacspeak-wizards-google-news
 o		org-switchb
 p		proced
 q		emacspeak-wizards-iex-show-quote
@@ -23875,8 +23876,26 @@ Extracted content is placed as a csv file in task.csv.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-google-newspaper
-@deffn {Command} emacspeak-wizards-google-newspaper   
+@subsubsection emacspeak-wizards-google-headlines
+@deffn {Command} emacspeak-wizards-google-headlines   
+@table @kbd
+@item C-. C-n
+@kindex C-. C-n
+@item C-' C-n
+@kindex C-' C-n
+@item C-x @@ s C-n
+@kindex C-x @@ s C-n
+@end table
+
+@findex emacspeak-wizards-google-headlines
+
+@format
+Display just the headlines from Google News for fast loading.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-google-news
+@deffn {Command} emacspeak-wizards-google-news   
 @table @kbd
 @item C-. n
 @kindex C-. n
@@ -23886,7 +23905,7 @@ Extracted content is placed as a csv file in task.csv.
 @kindex C-x @@ s n
 @end table
 
-@findex emacspeak-wizards-google-newspaper
+@findex emacspeak-wizards-google-news
 
 @format
 Clean up news.google.com for  skimming the news.

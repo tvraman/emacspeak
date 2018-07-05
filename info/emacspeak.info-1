@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 4, 2018.
+last updated on July 5, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1230 commands and 1173 options.
+   This chapter documents a total of 1231 commands and 1173 options.
 
 * Menu:
 
@@ -4040,6 +4040,7 @@ system.
      key             binding
      —             ——-
 
+     C-n		emacspeak-wizards-google-headlines
      SPC		emacspeak-wizards-scratch
      ’		emacspeak-vlc
      ,		emacspeak-wizards-wc-2018
@@ -4055,7 +4056,7 @@ system.
      j		ido-imenu-anywhere
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode
-     n		emacspeak-wizards-google-newspaper
+     n		emacspeak-wizards-google-news
      o		org-switchb
      p		proced
      q		emacspeak-wizards-iex-show-quote
