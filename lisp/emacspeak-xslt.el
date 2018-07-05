@@ -246,7 +246,7 @@ part of the libxslt package."
             for s in specs
             and i from 0 collect 
             (format
-             "%s %s %s  %s  %s - "
+             "%s %s %s %s %s "
              (if (= i 0)  "" "|")
              emacspeak-xslt-program
              (or emacspeak-xslt-options "")
@@ -255,7 +255,8 @@ part of the libxslt package."
                   (format "--param %s %s "
                           (car pair) (cdr pair)))
               (emacspeak-xslt-params-from-xpath (cl-second s) url)
-              "")))))
+              "")
+             (if (= i 0) url "-")))))
     (with-silent-modifications
       (with-current-buffer result 
         (kill-all-local-variables)
