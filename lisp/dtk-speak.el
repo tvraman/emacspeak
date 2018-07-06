@@ -727,13 +727,13 @@ has higher precedence than `face'."
   "Format and speak text.
 Arguments START and END specify region to speak."
   (cl-declare (special voice-lock-mode dtk-speaker-process
-                       tts-default-voice emacspeak-use-auditory-icons))
+                    tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
-  (when-let (pause  (get-text-property start 'pause))
-    (dtk-interp-silence  pause nil))
+  (when (get-text-property start 'pause)
+    (dtk-interp-silence  (get-text-property start 'pause) nil))
   (cond
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end)))
    (t                                   ; voiceify as we go
@@ -749,8 +749,8 @@ Arguments START and END specify region to speak."
         (setq
          start  last
          personality (dtk-get-style last))
-        (when-let (pause  (get-text-property start 'pause))
-          (dtk-interp-silence pause nil)))))))
+        (when (get-text-property start 'pause)
+          (dtk-interp-silence (get-text-property start 'pause) nil)))))))
 
 ;;;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
