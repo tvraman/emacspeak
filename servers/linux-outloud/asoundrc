@@ -12,6 +12,8 @@ pcm.media  {
         pcm "hw:0,0"
         period_size 1024
         buffer_size 8192
+        format S24_3LE 
+        rate 96000 
     }
 }
 
