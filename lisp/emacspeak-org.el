@@ -637,14 +637,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
      :url (eww-current-url)
      :description (emacspeak-eww-current-title))))
 
-(unless (functionp 'org-store-link-functions)
-;;; org-mode 8.x and earlier:
-  (add-hook
-   'org-load-hook
-   #'(lambda nil
-       (cl-declare (special org-store-link-functions))
-       (push #'org-eww-store-link org-store-link-functions))))
-
 ;;}}}
 ;;{{{ Speech-enable export prompt:
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
