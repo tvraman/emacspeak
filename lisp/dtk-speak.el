@@ -421,8 +421,7 @@ specifies the current pronunciation mode --- See
             (personality nil))
         (while (re-search-forward dtk-bracket-regexp  nil t)
           (setq start (1- (point)))
-          (setq personality
-                (get-text-property start 'personality))
+          (setq personality (get-text-property start 'personality))
           (cond
            ((= 10  (char-after (match-beginning 0))) ; newline
             (replace-match " "))
