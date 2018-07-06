@@ -101,6 +101,14 @@ Then speak the folded line."
     (emacspeak-auditory-icon 'close-object)
     (message "Hid current fold")))
 
+
+(defadvice fold-show (after emacspeak pre act)
+  "Provide auditory feedback"
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'open-object)))
+
+
 ;;}}}
 ;;{{{ Fix keymap:
 (cl-declaim (special folding-mode-map))
