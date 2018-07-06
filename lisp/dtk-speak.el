@@ -446,8 +446,7 @@ specifies the current pronunciation mode --- See
            ((= ?` (char-after (match-beginning 0)))
             (replace-match " backquote " nil t)))
           (when personality
-            (put-text-property start (point)
-                               'personality personality)))))
+            (put-text-property start (point) 'personality personality)))))
      (t
       (while (re-search-forward dtk-bracket-regexp   nil t)
         (replace-match " " nil t))))))
