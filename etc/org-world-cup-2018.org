@@ -146,7 +146,7 @@ Belgium, Panama, Tunisia, England
 ** 46. Panama           - Tunisia             1::2
     <2018-06-28 Thu 11:00> 
     Saransk Stadium          
-** 45. England          - Belgium            
+** 45. England          - Belgium             0::1
     <2018-06-28 Thu 11:00> 
     Kaliningrad Stadium      
 * Group H                                                            :GroupH:
