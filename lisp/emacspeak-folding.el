@@ -53,6 +53,17 @@
 ;;}}}
 ;;{{{ Advice
 
+
+(cl-loop
+ for f in 
+ '(fold-backward-char fold-forward-char)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak char."
+     (when (ems-interactive-p)
+       (emacspeak-speak-char t)))))
+
 (defadvice fold-goto-line (after emacspeak pre act)
   "Speak the line. "
   (when (ems-interactive-p)
