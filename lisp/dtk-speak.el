@@ -420,7 +420,7 @@ specifies the current pronunciation mode --- See
       (let ((start nil)
             (personality nil))
         (while (re-search-forward dtk-bracket-regexp  nil t)
-          (setq start (1- (point)))
+          (setq start (match-beginning 0))
           (setq personality (get-text-property start 'personality))
           (cond
            ((= 10  (char-after (match-beginning 0))) ; newline
