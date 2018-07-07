@@ -2,7 +2,7 @@
 # {{{ Device media --- a mixer --- is default
 
 
-# rate  defaults to 48000, enables hrtf on mplayer
+
 # buffer_size has to be period_size*4 to avoid clicks
 
 pcm.media  {
