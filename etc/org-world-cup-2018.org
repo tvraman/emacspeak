@@ -216,7 +216,7 @@ Brazil Belgium 1::2
 England Sweden
     Samara Stadium           
 ** 59. Winner Match 51  - Winner Match 52    
-Russia Croatia 
+Russia Croatia  1::1 4::3
     <2018-07-07 Sat 11:00> 
     Fisht Stadium, Sochi     
 * Semi Finals                                                    :SemiFinals:
@@ -225,6 +225,7 @@ France Belgium
     <2018-07-10 Tue 11:00> 
     Saint Petersburg Stadium 
 ** 62. Winner Match 59  - Winner Match 60    
+England Croatia 
     <2018-07-11 Wed 11:00> 
     Luzhniki Stadium, Moscow 
 * Third Place Match                                         :ThirdPlaceMatch:
