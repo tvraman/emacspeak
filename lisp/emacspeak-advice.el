@@ -254,7 +254,8 @@ beginning or end of a physical line produces an appropriate auditory icon."
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak char under point."
+     "Speak char under point.
+When on a close delimiter, speaking matching open delimiter after a small delay. "
      (when (ems-interactive-p)
        (and dtk-stop-immediately (dtk-stop))
        (emacspeak-speak-char t)
