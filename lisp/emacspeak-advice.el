@@ -335,7 +335,7 @@ beginning or end of a physical line produces an appropriate auditory icon."
          (let ((start (point))
                (end (line-end-position)))
            ad-do-it
-           (emacspeak-auditory-icon 'paragraph)
+           (emacspeak-auditory-icon 'large-movement)
            (cond
             ((>= end (point))
              (emacspeak-speak-region start (point)))
