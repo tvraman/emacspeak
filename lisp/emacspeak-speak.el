@@ -974,11 +974,11 @@ with auditory icon `more'.  These can then be spoken using command
 \\[emacspeak-speak-overlay-properties]."
   (interactive "P")
   (cl-declare (special voice-animate voice-indent linum-mode
-                    dtk-stop-immediately dtk-punctuation-mode
-                    emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
-                    emacspeak-speak-maximum-line-length emacspeak-show-point
-                    emacspeak-decoration-rule emacspeak-horizontal-rule
-                    emacspeak-unspeakable-rule emacspeak-audio-indentation))
+                       dtk-stop-immediately dtk-punctuation-mode
+                       emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
+                       emacspeak-speak-maximum-line-length emacspeak-show-point
+                       emacspeak-decoration-rule emacspeak-horizontal-rule
+                       emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg)))
   (when dtk-stop-immediately (dtk-stop))
   (let ((inhibit-field-text-motion t)
@@ -1007,9 +1007,11 @@ with auditory icon `more'.  These can then be spoken using command
      (t (setq end orig)))
     (setq line
           (if emacspeak-show-point
-              (ems-set-personality-temporarily
-               orig (1+ orig) voice-animate
-               (buffer-substring  start end))
+              (ems-set-pause-temporarily
+               orig (1+ orig) 5
+               (ems-set-personality-temporarily
+                   orig (1+ orig) voice-animate
+                   (buffer-substring  start end)))
             (buffer-substring start end)))
     (when (and (null arg) emacspeak-speak-line-column-filter)
       (setq
