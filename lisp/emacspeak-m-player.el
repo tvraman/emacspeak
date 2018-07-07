@@ -504,7 +504,7 @@ feature. Calling spec is like `emacspeak-m-player'."
       (funcall-interactively #'emacspeak-m-player resource play-list))))
 
 (defvar emacspeak-m-player-hrtf-options
-  '("-af" "resample=48000,hrtf")
+  '("-af" "hrtf" "-af" "resample=48000")
   "Additional options to use built-in HRTF.")
 
 ;;;###autoload
