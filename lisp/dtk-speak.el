@@ -418,10 +418,14 @@ specifies the current pronunciation mode --- See
     (cond
      ((eq 'all mode)
       (let ((start nil)
-            (personality nil))
+            (personality nil)
+            (face nil))
         (while (re-search-forward dtk-bracket-regexp  nil t)
           (setq start (match-beginning 0))
-          (setq personality (get-text-property start 'personality))
+          (setq
+           personality (get-text-property start 'personality)
+           face (or (get-text-property start 'face)
+                    (get-text-property start 'font-lock-face)))
           (cond
            ((= 10  (char-after (match-beginning 0))) ; newline
             (replace-match " "))
@@ -446,7 +450,9 @@ specifies the current pronunciation mode --- See
            ((= ?` (char-after (match-beginning 0)))
             (replace-match " backquote " nil t)))
           (when personality
-            (put-text-property start (point) 'personality personality)))))
+            (put-text-property start (point) 'personality personality))
+          (when face
+            (put-text-property start (point) 'face  face)))))
      (t
       (while (re-search-forward dtk-bracket-regexp   nil t)
         (replace-match " " nil t))))))
