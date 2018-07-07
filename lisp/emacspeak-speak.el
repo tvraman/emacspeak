@@ -315,6 +315,27 @@ Argument BODY specifies forms to execute."
           (max (point-min) ,start)
           (min (point-max)  ,end) 'personality saved-personality)))))
 
+
+(defmacro ems-set-pause-temporarily (start end duration &rest body)
+  "Temporarily set property pause.
+Argument START   specifies the start of the region to operate on.
+Argument END specifies the end of the region.
+Argument duration specifies duration in milliseconds.
+Argument BODY specifies forms to execute."
+  (declare (indent 1) (debug t))
+  `(let ((saved-pause (get-text-property ,start 'pause)))
+     (with-silent-modifications
+       (unwind-protect
+           (progn
+             (put-text-property
+              (max (point-min) ,start)
+              (min (point-max) ,end)
+              'pause ,duration)
+             ,@body)
+         (put-text-property
+          (max (point-min) ,start)
+          (min (point-max)  ,end) 'pause saved-pause)))))
+
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   (declare (indent 1) (debug t))
