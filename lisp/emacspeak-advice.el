@@ -257,7 +257,15 @@ beginning or end of a physical line produces an appropriate auditory icon."
      "Speak char under point."
      (when (ems-interactive-p)
        (and dtk-stop-immediately (dtk-stop))
-       (emacspeak-speak-char t)))))
+       (emacspeak-speak-char t)
+       (when
+           (and
+            (= ?\) (char-syntax (following-char)))
+            (sit-for 0.15))
+         (emacspeak-auditory-icon 'item)
+         (save-excursion
+           (forward-char 1)
+           (emacspeak-blink-matching-open)))))))
 
 (cl-loop
  for f in
