@@ -289,6 +289,20 @@
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
 
+;;}}}
+;;{{{ Slurp and barf:
+
+(cl-loop
+ for f in
+ '(lispy-barf lispy-slurp)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak line with show-point turned on."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-line))))))
 
 ;;}}}
 (provide 'emacspeak-lispy)
