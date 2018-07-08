@@ -262,7 +262,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
        (when
            (and
             (= ?\) (char-syntax (following-char)))
-            (sit-for 0.15))
+            (sit-for 0.25))
          (emacspeak-auditory-icon 'item)
          (save-excursion
            (forward-char 1)
