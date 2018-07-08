@@ -4,6 +4,7 @@
 
 
 # buffer_size has to be period_size*4 to avoid clicks
+defaults.pcm.rate_converter "speexrate_best"
 
 pcm.media  {
     type dmix
@@ -71,7 +72,6 @@ pcm.amp {
 
 
 # }}}
-
 # {{{tap_reverb:
 
 pcm.tap_reverb {

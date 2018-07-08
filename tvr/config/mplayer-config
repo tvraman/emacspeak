@@ -5,5 +5,5 @@ cache	        = 32
 #cache-min=50
 slave=1
 af=scaletempo
-#mixer-channel=master,1
-volstep=1
+mixer-channel=master,1
+volstep=10
