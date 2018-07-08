@@ -238,6 +238,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "jss" 'emacspeak-jss)
 (emacspeak-do-package-setup "kite" 'emacspeak-kite)
 (emacspeak-do-package-setup "kmacro" 'emacspeak-kmacro)
+(emacspeak-do-package-setup "lispy" 'emacspeak-lispy)
 (emacspeak-do-package-setup"lua-mdoe" 'emacspeak-lua)
 (emacspeak-do-package-setup "magit" 'emacspeak-magit)
 (emacspeak-do-package-setup "make-mode" 'emacspeak-make-mode)
