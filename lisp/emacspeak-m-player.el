@@ -195,6 +195,7 @@ This is set to nil when playing Internet  streams.")
       ) ":")
    "-slave"  "-softvol" "-softvol-max" "300" "-quiet")
   "Default options for MPlayer.")
+
 (defcustom emacspeak-m-player-options
   (copy-sequence emacspeak-m-player-default-options)
   "Options passed to mplayer."
