@@ -3103,8 +3103,8 @@ value to apply."
           (tts-with-punctuations
               'all
             (dtk-speak-and-echo
-             (format
-              "Matches %s"
+             (concat
+              "Matches "
               (cond
 ;;; Show what precedes the open in its line, if anything.
                ((save-excursion
