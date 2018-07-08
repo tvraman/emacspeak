@@ -701,6 +701,17 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
        (emacspeak-auditory-icon 'fill-object)
        (message "Filled current paragraph")))
 
+
+(defadvice org-todo (after emacspeak pre act comp)
+  "Provide auditory feedback when changing the state of a TODO item."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (let ((state (org-get-todo-state)))
+      (if (null state)
+          (message "State unset")
+        (message state)))))
+
+
 ;;}}}
 
 (provide 'emacspeak-org)
