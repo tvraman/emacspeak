@@ -280,6 +280,23 @@ lispy-yank
 )
 
 ;;}}}
+;;{{{ Advice Navigation:
+
+(cl-loop
+ for f in
+ '(
+   lispy-left lispy-right lispy-up lispy-down
+   lispy-backward lispy-forward lispy-flow)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "speak line with show-point turned on."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))))))
+
+
+;;}}}
 (provide 'emacspeak-lispy)
 ;;{{{ end of file
 
