@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -101,7 +102,6 @@
   lispy-barf
   lispy-barf-to-point
   lispy-barf-to-point-nostring
-  lispy-beginning-of-defun
   lispy-bind-variable
   lispy-braces
   lispy-braces-auto-wrap
@@ -252,7 +252,7 @@
   lispy-tick
   lispy-tilde
   lispy-to-cond
-  lispy-to-defun
+  
   lispy-to-ifs
   lispy-to-lambda
   lispy-unbind-variable
@@ -279,7 +279,9 @@
  for f in
  '(
    lispy-left lispy-right lispy-up lispy-down
-   lispy-backward lispy-forward lispy-flow)
+   lispy-backward lispy-forward lispy-flow
+   lispy-to-defun lispy-beginning-of-defun
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
