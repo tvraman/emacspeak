@@ -80,7 +80,7 @@
 (cl-loop
  for f in
  '(
-   folding-context-next-action folding-toggle-show-hide
+   folding-context-next-action folding-toggle-show-hide folding-pick-move
                                folding-toggle-enter-exit folding-region-open-close
    )do 
  (eval
