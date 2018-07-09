@@ -302,8 +302,6 @@
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
 
-
-
 (cl-loop
  for f in 
  '(lispy-parens lispy-braces lispy-brackets lispy-quotes)
@@ -318,6 +316,16 @@
          (forward-sexp -1)
          (emacspeak-speak-sexp))))))
 
+(cl-loop
+ for f in 
+ '(lispy-newline-and-indent lispy-newline-and-indent-plain)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{ Slurp and barf:
