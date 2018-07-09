@@ -990,18 +990,18 @@ with auditory icon `more'.  These can then be spoken using command
         (before (get-char-property (point) 'before-string))
         (after (get-char-property (point) 'after-string))
         (display (get-char-property (point) 'display))
-        (start  nil)
+        (start nil)
         (end nil)
         (line nil)
         (orig (point))
-        (linenum 
+        (linenum
          (when
              (or (bound-and-true-p display-line-numbers)
                  (bound-and-true-p linenum-mode))
            (line-number-at-pos)))
         (indent nil))
-    (setq  start (line-beginning-position)
-           end (line-end-position))
+    (setq start (line-beginning-position)
+          end (line-end-position))
 ;;;determine what to speak based on prefix arg
     (cond
      ((null arg))
@@ -1010,10 +1010,10 @@ with auditory icon `more'.  These can then be spoken using command
     (setq line
           (if emacspeak-show-point
               (ems-set-pause-temporarily
-               orig (1+ orig) 5
-               (ems-set-personality-temporarily
-                   orig (1+ orig) voice-animate
-                   (buffer-substring  start end)))
+                  orig (1+ orig) 5
+                  (ems-set-personality-temporarily
+                      orig (1+ orig) voice-animate
+                      (buffer-substring start end)))
             (buffer-substring start end)))
     (when (and (null arg) emacspeak-speak-line-column-filter)
       (setq
@@ -1025,24 +1025,24 @@ with auditory icon `more'.  These can then be spoken using command
                (eq emacspeak-audio-indentation-method 'tone))
       (ems--tone-indent indent))
     (when (or (invisible-p end)
-              (get-text-property  start 'emacspeak-hidden-block))
+              (get-text-property start 'emacspeak-hidden-block))
       (emacspeak-auditory-icon 'ellipses))
     (when (or display before after) (emacspeak-auditory-icon 'more))
     (cond
 ;;; C1..C5
-     ((string-equal ""  line)
-      (dtk-tone 130.8   150 'force))
-     ((string-match  emacspeak-speak-space-regexp  line) ;only white space
+     ((string-equal "" line)
+      (dtk-tone 130.8 150 'force))
+     ((string-match emacspeak-speak-space-regexp line) ;only white space
       (dtk-tone 261.6 150 'force))
      ((and (not (eq 'all dtk-punctuation-mode))
-           (string-match  emacspeak-horizontal-rule line))
-      (dtk-tone 523.3   150 t))
+           (string-match emacspeak-horizontal-rule line))
+      (dtk-tone 523.3 150 t))
      ((and (not (eq 'all dtk-punctuation-mode))
-           (string-match  emacspeak-decoration-rule line))
-      (dtk-tone 1047   150 t))
+           (string-match emacspeak-decoration-rule line))
+      (dtk-tone 1047 150 t))
      ((and (not (eq 'all dtk-punctuation-mode))
-           (string-match  emacspeak-unspeakable-rule line))
-      (dtk-tone 2093   150 t))
+           (string-match emacspeak-unspeakable-rule line))
+      (dtk-tone 2093 150 t))
      (t
       (let*
           ((l (length line))
@@ -1057,16 +1057,16 @@ with auditory icon `more'.  These can then be spoken using command
               (with-silent-modifications
                 (put-text-property start end 'speak-line t))
               t))))
-        (when  speakable
+        (when speakable
           (when
               (and (null arg) indent (> indent 0)
                    (eq 'speak emacspeak-audio-indentation-method))
             (setq indent (format "indent %d" indent))
-            (setq indent (propertize indent 'personality voice-indent   ))
+            (setq indent (propertize indent 'personality voice-indent))
             (setq line (concat indent line)))
-          (when  linenum
+          (when linenum
             (setq linenum (format "%d" linenum))
-            (setq linenum (propertize linenum 'personality   voice-lighten))
+            (setq linenum (propertize linenum 'personality voice-lighten))
             (setq line (concat linenum line)))
           (dtk-speak line)))))))
 
