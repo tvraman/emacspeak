@@ -8,7 +8,6 @@ SETUP = emacs-startup.elc kbd-setup.elc  \
  gm-smtp.elc \
  vm-prepare.elc gnus-prepare.elc bbdb-prepare.elc \
 laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
- folding.elc folding-prepare.elc \
 auctex-prepare.elc reftex-prepare.elc \
 calc-prepare.elc js-prepare.elc tcl-prepare.elc \
 slime-prepare.elc  python-mode-prepare.elc \
