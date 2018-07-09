@@ -56,7 +56,7 @@
 
 (cl-loop
  for f in 
- '(fold-backward-char fold-forward-char)
+ '(folding-backward-char folding-forward-char)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -64,7 +64,7 @@
      (when (ems-interactive-p)
        (emacspeak-speak-char t)))))
 
-(defadvice fold-goto-line (after emacspeak pre act)
+(defadvice folding-goto-line (after emacspeak pre act)
   "Speak the line. "
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
@@ -75,26 +75,26 @@
     (message "turned %s folding mode"
              (if folding-mode " on " " off"))))
 
-(defadvice fold-enter (after emacspeak pre act)
+(defadvice folding-enter (after emacspeak pre act)
   "Produce an auditory icon and then speak the line. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-(defadvice fold-exit (after emacspeak pre act)
+(defadvice folding-exit (after emacspeak pre act)
   "Produce an auditory icon. 
 Then speak the folded line."
   (when (ems-interactive-p) 
     (emacspeak-auditory-icon'close-object)
     (emacspeak-speak-line)))
 
-(defadvice fold-fold-region (after emacspeak pre act)
+(defadvice folding-fold-region (after emacspeak pre act)
   "Produce an auditory icon. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Specify a meaningful name for the new fold ")))
 
-(defadvice fold-hide (after emacspeak pre act)
+(defadvice folding-hide-current-entry (after emacspeak pre act)
   "Provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
@@ -102,7 +102,7 @@ Then speak the folded line."
     (message "Hid current fold")))
 
 
-(defadvice fold-show (after emacspeak pre act)
+(defadvice folding-show (after emacspeak pre act)
   "Provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
