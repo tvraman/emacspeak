@@ -79,39 +79,39 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
-
-(defadvice folding-shift-out (after emacspeak pre act)
-  "Produce an auditory icon.
+(cl-loop
+ for f in
+ '(
+   folding-hide-current-subtree folding-hide-current-entry
+   folding-shift-out folding-whole-buffer)
+ do
+ (eval
+  `(defadvice  ,f (after emacspeak pre act)
+     "Produce an auditory icon.
 Then speak the folded line."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon'close-object)
-    (emacspeak-speak-line)))
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon'close-object)
+       (emacspeak-speak-line)))))
 
-(defadvice folding-shift-in (after emacspeak pre act)
-  "Produce an auditory icon.
+(cl-loop
+ for f in
+ '(
+   folding-show-all folding-show-current-entry folding-show-current-subtree
+   folding-shift-in folding-open-buffer)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act)
+     "Produce an auditory icon.
 Then speak the  line."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon'open-object)
-    (emacspeak-speak-line)))
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon'open-object)
+       (emacspeak-speak-line)))))
 
 (defadvice folding-fold-region (after emacspeak pre act)
   "Produce an auditory icon. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Specify a meaningful name for the new fold ")))
-
-(defadvice folding-hide-current-entry (after emacspeak pre act)
-  "Provide auditory feedback"
-  (when (ems-interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'close-object)
-    (message "Hid current fold")))
-
-(defadvice folding-show-current-entry (after emacspeak pre act)
-  "Provide auditory feedback"
-  (when (ems-interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 ;;{{{ Fix keymap:
