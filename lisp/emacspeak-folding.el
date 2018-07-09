@@ -1,5 +1,4 @@
 ;;; emacspeak-folding.el --- Speech enable Folding Mode -- enables structured editing  -*- lexical-binding: t; -*-
-;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for folding-mode
 ;;; Keywords:emacspeak, audio interface to emacs Folding editor
@@ -36,11 +35,6 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-;;{{{ requires
-(cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble)
-
-;;}}}
 ;;{{{  Introduction:
 ;;; Commentary:
 ;;; Folding mode turns emacs into a folding editor.
@@ -50,6 +44,12 @@
 ;;; Think of a fold as a container.
 ;;;
 ;;; Code:
+;;}}}
+;;{{{ requires
+(require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+
 ;;}}}
 ;;{{{ Advice
 
@@ -74,17 +74,24 @@
     (message "turned %s folding mode"
              (if folding-mode " on " " off"))))
 
-(defadvice folding-enter (after emacspeak pre act)
+(defadvice folding-context-next-action (after emacspeak pre act)
   "Produce an auditory icon and then speak the line. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
-(defadvice folding-exit (after emacspeak pre act)
+(defadvice folding-shift-out (after emacspeak pre act)
   "Produce an auditory icon.
 Then speak the folded line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon'close-object)
+    (emacspeak-speak-line)))
+
+(defadvice folding-shift-in (after emacspeak pre act)
+  "Produce an auditory icon.
+Then speak the  line."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon'open-object)
     (emacspeak-speak-line)))
 
 (defadvice folding-fold-region (after emacspeak pre act)
@@ -110,7 +117,7 @@ Then speak the folded line."
 ;;{{{ Fix keymap:
 (cl-declaim (special folding-mode-map))
 (when (boundp 'folding-mode-map)
-  (define-key folding-mode-map "\C-e" 'emacspeak-prefix-command))
+  (define-key folding-mode-map (kbd "C-e") 'emacspeak-prefix-command))
 
 ;;}}}
 (provide  'emacspeak-folding)
