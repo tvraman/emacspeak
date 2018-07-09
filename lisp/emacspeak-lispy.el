@@ -281,6 +281,7 @@
    lispy-left lispy-right lispy-up lispy-down
    lispy-backward lispy-forward lispy-flow
    lispy-to-defun lispy-beginning-of-defun
+   lispy-move-beginning-of-line lispy-move-end-of-line
    )
  do
  (eval
