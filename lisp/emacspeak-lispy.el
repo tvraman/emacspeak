@@ -296,6 +296,14 @@
 ;;}}}
 ;;{{{Advice Insertions:
 
+(defadvice lispy-backtick (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line))))
+
+
+
 (cl-loop
  for f in 
  '(lispy-parens lispy-braces lispy-brackets lispy-quotes)
