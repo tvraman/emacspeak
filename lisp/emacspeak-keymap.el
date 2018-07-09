@@ -258,7 +258,7 @@
    ("V" emacspeak-speak-version)
    ("W" emacspeak-tapestry-select-window-by-name)
    ("[" emacspeak-speak-page)
-   ("\"" emacspeak-speak-sexp-interactively)
+   ("\"" emacspeak-speak-sexp)
    ("\\" emacspeak-toggle-speak-line-invert-filter)
    ("]" emacspeak-speak-page-interactively)
    ("^" emacspeak-filtertext)
