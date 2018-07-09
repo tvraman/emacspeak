@@ -1,9 +1,11 @@
 ;;; Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
 ;;{{{ History:
+
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
 ;;; September 2017: Optimized and Cleaned Up
+
 ;;}}}
 ;;{{{ Fix system-users:
 
@@ -30,7 +32,7 @@
     "kbd-setup"
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
     "sp-prepare" ;"vdiff-prepare"
-    "auctex-prepare"   "org-prepare"
+    "auctex-prepare"   "org-prepare" "folding"
                                         ;"use-emms"
     "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
