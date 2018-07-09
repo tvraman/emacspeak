@@ -1,4 +1,8 @@
 ;; -*- lexical-binding: nil; -*-
+
+(defvar folding-mode-prefix-key (kbd "C-, f")
+  "Prefix key for folding mode. ")
+
 (load-library "folding")
 
 (setq fold-fold-on-startup nil)
@@ -17,7 +21,8 @@
                         (define-key 'ctl-f-folding-mode-prefix "s" 'fold-show)
                         (define-key 'ctl-f-folding-mode-prefix "t" 'fold-top-level)
                         )
-                      (local-set-key "\C-f" 'ctl-f-folding-mode-prefix)))
+                      (global-set-key (kbd "C-f") 'forward-char)
+                      (local-set-key (kbd "C-, f") 'ctl-f-folding-mode-prefix)))
 
 (setq fold-dont-bind-keys t)
 (setq fold-inhibit-startup-message t)

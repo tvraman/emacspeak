@@ -375,8 +375,9 @@ Here is the full list of keys bound in Folding mode:
 		(and hook-symbol
 		     (run-hooks hook-symbol)))
 	    (fold-set-mode-line)
-	    (use-local-map
-	     (fold-merge-keymaps (current-local-map) folding-mode-map)))
+	    ;(use-local-map
+	     ;(fold-merge-keymaps (current-local-map) folding-mode-map))
+      )
 	  (and fold-fold-on-startup
 	       (if (or (interactive-p)
 		       arg
