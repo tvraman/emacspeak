@@ -1,23 +1,23 @@
 ;;; emacspeak-folding.el --- Speech enable Folding Mode -- enables structured editing  -*- lexical-binding: t; -*-
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for folding-mode
 ;;; Keywords:emacspeak, audio interface to emacs Folding editor
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
 ;;}}}
 ;;{{{  Copyright:
-;;;Copyright (C) 1995 -- 2017, T. V. Raman 
+;;;Copyright (C) 1995 -- 2017, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -44,18 +44,17 @@
 ;;{{{  Introduction:
 ;;; Commentary:
 ;;; Folding mode turns emacs into a folding editor.
-;;; Folding mode is what I use: 
+;;; Folding mode is what I use:
 ;;; emacs 19 comes with similar packages, e.g. allout.el
 ;;; This module defines some advice forms that make folding mode a pleasure to use.
-;;; Think of a fold as a container. 
-;;; 
+;;; Think of a fold as a container.
+;;;
 ;;; Code:
 ;;}}}
 ;;{{{ Advice
 
-
 (cl-loop
- for f in 
+ for f in
  '(folding-backward-char folding-forward-char)
  do
  (eval
@@ -82,9 +81,9 @@
     (emacspeak-speak-line)))
 
 (defadvice folding-exit (after emacspeak pre act)
-  "Produce an auditory icon. 
+  "Produce an auditory icon.
 Then speak the folded line."
-  (when (ems-interactive-p) 
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon'close-object)
     (emacspeak-speak-line)))
 
@@ -101,13 +100,11 @@ Then speak the folded line."
     (emacspeak-auditory-icon 'close-object)
     (message "Hid current fold")))
 
-
-(defadvice folding-show (after emacspeak pre act)
+(defadvice folding-show-current-entry (after emacspeak pre act)
   "Provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'open-object)))
-
 
 ;;}}}
 ;;{{{ Fix keymap:
@@ -117,11 +114,11 @@ Then speak the folded line."
 
 ;;}}}
 (provide  'emacspeak-folding)
-;;{{{  emacs local variables 
+;;{{{  emacs local variables
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
-;;; end: 
+;;; end:
 
 ;;}}}
