@@ -292,6 +292,24 @@
          (emacspeak-speak-line))))))
 
 ;;}}}
+;;{{{Insertions:
+
+(cl-loop
+ for f in 
+ '(lispy-parens lispy-braces lispy-brackets lispy-quotes)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'item)
+       (save-excursion
+         (forward-char 1)
+         (forward-sexp -1)
+         (emacspeak-speak-sexp))))))
+
+
+;;}}}
 ;;{{{ Slurp and barf:
 
 (cl-loop
