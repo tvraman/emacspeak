@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2017, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -36,6 +37,7 @@
 
 ;;}}}
 ;;{{{  Introduction:
+
 ;;; Commentary:
 ;;; Folding mode turns emacs into a folding editor.
 ;;; Folding mode is what I use:
@@ -44,6 +46,7 @@
 ;;; Think of a fold as a container.
 ;;;
 ;;; Code:
+
 ;;}}}
 ;;{{{ requires
 (require 'cl-lib)
@@ -74,11 +77,19 @@
     (message "turned %s folding mode"
              (if folding-mode " on " " off"))))
 
-(defadvice folding-context-next-action (after emacspeak pre act)
-  "Produce an auditory icon and then speak the line. "
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
-    (emacspeak-speak-line)))
+(cl-loop
+ for f in
+ '(
+   folding-context-next-action folding-toggle-show-hide
+                               folding-toggle-enter-exit folding-region-open-close
+   )do 
+ (eval
+  `(defadvice ,f (after emacspeak pre act)
+     "Produce an auditory icon and then speak the line. "
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)
+       (emacspeak-speak-line)))))
+
 (cl-loop
  for f in
  '(
@@ -112,6 +123,17 @@ Then speak the  line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Specify a meaningful name for the new fold ")))
+
+(cl-loop
+ for f in 
+ '(folding-previous-visible-heading folding-next-visible-heading)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ Fix keymap:
