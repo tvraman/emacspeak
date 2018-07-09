@@ -394,6 +394,7 @@ _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 "
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
+   ("C-f" turn-on-folding-mode)
    ("F" (call-interactively #'flyspell-mode))
    ("a" (call-interactively #'abbrev-mode))
    ("d" (call-interactively #'toggle-debug-on-error))
@@ -655,6 +656,7 @@ Info-mode:
 
 ;;}}}
 ;;{{{ smartParens:
+
 (global-set-key
  (kbd "C-c ,")
  (defhydra emacspeak-muggles-smartparens
@@ -693,7 +695,6 @@ Info-mode:
    ("u" sp-backward-up-sexp)  
    ("w" sp-copy-sexp)  
    ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))  ))
-   
 
 ;;}}}
 ;;{{{ Muggles Autoload Wizard:
