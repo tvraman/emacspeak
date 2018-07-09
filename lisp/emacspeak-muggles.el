@@ -382,7 +382,7 @@ Argument `k-map' is a symbol  that names a keymap."
                   (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
            :post emacspeak-hydra-post)
    "
-_C-f_ turn-on-folding-mmode       %`turn-on-folding-mode
+_C-f_ turn-on-folding-mmode       %`folding-mode
 _F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
