@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2017, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -137,7 +138,7 @@
          (lines (split-string
                  (shell-command-to-string
                   (format
-                   "%s   %s %s | grep  control "
+                   "%s   %s %s 2>/dev/null | grep  control "
                    ladspa-analyse library label))
                  "\n" 'omit-null))
          (result (make-ladspa-plugin :library library :label label :desc desc)))
@@ -154,7 +155,7 @@ list of parsed ladspa-plugin structures, one per label."
         (labels
          (split-string
           (shell-command-to-string
-           (format "%s -l %s" ladspa-analyse library))
+           (format "%s -l %s 2>/dev/null" ladspa-analyse library))
           "\n" 'omit-null)))
     (cl-loop for label in labels  do
              (push (ladspa-analyse-label library label) result))
@@ -397,7 +398,7 @@ list of parsed ladspa-plugin structures, one per label."
     (error "No Ladspa Plugin here."))
   (let ((plugin (get-text-property (point) 'ladspa)))
     (shell-command
-     (format "%s %s %s"
+     (format "%s %s %s 2>/dev/null"
              ladspa-analyse
              (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)))))
 
