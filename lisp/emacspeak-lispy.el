@@ -293,7 +293,7 @@
          (emacspeak-speak-line))))))
 
 ;;}}}
-;;{{{Insertions:
+;;{{{Advice Insertions:
 
 (cl-loop
  for f in 
@@ -324,6 +324,14 @@
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
+
+;;}}}
+;;{{{Advice Marking:
+(defadvice lispy-mark-symbol (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (emacspeak-speak-region  (region-beginning) (region-end))))
 
 ;;}}}
 (provide 'emacspeak-lispy)
