@@ -334,6 +334,16 @@
     (emacspeak-speak-region  (region-beginning) (region-end))))
 
 ;;}}}
+;;{{{Advice WhiteSpace Manipulation:
+
+(defadvice lispy-tab (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
+       (emacspeak-speak-line)))
+
+
+;;}}}
 (provide 'emacspeak-lispy)
 ;;{{{ end of file
 
