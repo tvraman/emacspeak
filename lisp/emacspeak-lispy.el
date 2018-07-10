@@ -82,209 +82,17 @@
 (emacspeak-lispy-setup)
 
 ;;}}}
-;;{{{ Interactive Commands:
-
-'(lispy--ediff-regions
-  lispy-ace-char
-  lispy-ace-paren
-  lispy-ace-subword
-  lispy-ace-symbol
-  lispy-ace-symbol-replace
-  lispy-alt-line
-  lispy-alt-multiline
-  lispy-arglist-inline
-  lispy-at
-  lispy-backtick
-  lispy-backward-barf-sexp
-  lispy-backward-delete
-  lispy-backward-kill-word
-  lispy-backward-slurp-sexp
-  lispy-barf
-  lispy-barf-to-point
-  lispy-barf-to-point-nostring
-  lispy-bind-variable
-  lispy-braces
-  lispy-braces-auto-wrap
-  lispy-braces-barf-to-point-or-jump-nostring
-  lispy-brackets
-  lispy-brackets-auto-wrap
-  lispy-brackets-barf-to-point-or-jump-nostring
-  lispy-buffer-kill-ring-save
-  lispy-build-semanticdb
-  lispy-cleanup
-  lispy-clojure-apropos
-  lispy-clone
-  lispy-close-curly
-  lispy-close-round-and-newline
-  lispy-close-square
-  lispy-colon
-  lispy-comment
-  lispy-comment-region
-  lispy-convolute
-  lispy-convolute-left
-  lispy-convolute-sexp
-  lispy-cursor-ace
-  lispy-cursor-down
-  lispy-debug-step-in
-  lispy-dedent-adjust-parens
-  lispy-delete
-  lispy-delete-backward
-  lispy-delete-backward-or-splice-or-slurp
-  lispy-delete-or-splice-or-slurp
-  lispy-describe
-  lispy-describe-bindings-C-4
-  lispy-describe-inline
-  lispy-different
-  lispy-doublequote
-  lispy-down-slurp
-  lispy-edebug
-  lispy-edebug-stop
-  lispy-ediff-regions
-  lispy-ert
-  lispy-eval
-  lispy-eval-and-comment
-  lispy-eval-and-insert
-  lispy-eval-and-replace
-  lispy-eval-current-outline
-  lispy-eval-expression
-  lispy-eval-other-window
-  lispy-expr-canonical-p
-  lispy-extract-block
-  lispy-extract-defun
-  lispy-fill
-  lispy-flatten
-  lispy-follow
-  lispy-forward-barf-sexp
-  lispy-forward-delete
-  lispy-forward-slurp-sexp
-  lispy-goto
-  lispy-goto-def-ace
-  lispy-goto-def-down
-  lispy-goto-elisp-commands
-  lispy-goto-local
-  lispy-goto-mode
-  lispy-goto-projectile
-  lispy-goto-recursive
-  lispy-goto-symbol
-  lispy-goto-verb
-  lispy-hash
-  lispy-hat
-  lispy-iedit
-  lispy-indent-adjust-parens
-  lispy-insert-outline-below
-  lispy-insert-outline-left
-  lispy-join
-  lispy-kill
-  lispy-kill-at-point
-  lispy-kill-sentence
-  lispy-kill-word
-  lispy-knight-down
-  lispy-knight-up
-  lispy-let-flatten
-  lispy-map-done
-  lispy-mark
-  lispy-mark-car
-  lispy-mark-left
-  lispy-mark-list
-  lispy-mark-right
-  lispy-mark-symbol
-  lispy-meta-doublequote
-  lispy-meta-return
-  lispy-mode
-  lispy-move-beginning-of-line
-  lispy-move-down
-  lispy-move-end-of-line
-  lispy-move-left
-  lispy-move-outline-up
-  lispy-move-right
-  lispy-move-up
-  lispy-multiline
-  lispy-narrow
-  lispy-new-copy
-  lispy-newline-and-indent
-  lispy-newline-and-indent-plain
-  lispy-occur
-  lispy-oneline
-  lispy-open-curly
-  lispy-open-line
-  lispy-open-square
-  lispy-other-mode
-  lispy-other-space
-  lispy-other-verb
-  lispy-out-forward-newline
-  lispy-outline-demote
-  lispy-outline-goto-child
-  lispy-outline-left
-  lispy-outline-next
-  lispy-outline-prev
-  lispy-outline-promote
-  lispy-outline-right
-  lispy-parens
-  lispy-parens-auto-wrap
-  lispy-parens-barf-to-point-or-jump-nostring
-  lispy-parens-down
-  lispy-paste
-  lispy-python-middleware-reload
-  lispy-quit
-  lispy-quotes
-  lispy-raise
-  lispy-raise-sexp
-  lispy-raise-some
-  lispy-repeat
-  lispy-reverse
-  lispy-right-nostring
-  lispy-set-python-process
-  lispy-setq
-  lispy-shifttab
-  lispy-slurp
-  lispy-slurp-or-barf-left
-  lispy-slurp-or-barf-right
-  lispy-space
-  lispy-splice
-  lispy-splice-sexp-killing-backward
-  lispy-split
-  lispy-store-region-and-buffer
-  lispy-string-oneline
-  lispy-stringify
-  lispy-stringify-oneline
-  lispy-tab
-  lispy-teleport
-  lispy-tick
-  lispy-tilde
-  lispy-to-cond
-  
-  lispy-to-ifs
-  lispy-to-lambda
-  lispy-unbind-variable
-  lispy-unbind-variable-clojure
-  lispy-underscore
-  lispy-undo
-  lispy-unstringify
-  lispy-up-slurp
-  lispy-view
-  lispy-view-test
-  lispy-visit
-  lispy-widen
-  lispy-wrap-braces
-  lispy-wrap-brackets
-  lispy-wrap-round
-  lispy-x
-  lispy-x-more-verbosity
-  lispy-yank)
-
-;;}}}
 ;;{{{ Advice Navigation:
 
 (cl-loop
  for f in
  '(
    lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char lispy-ace-subword
-   lispy-move-up lispy-move-down lispy-undo 
-   lispy-left lispy-right lispy-up lispy-down
+   lispy-move-up lispy-move-down lispy-undo
+   lispy-left lispy-right lispy-up lispy-down lispy-back
    lispy-different lispy-backward lispy-forward lispy-flow
    lispy-to-defun lispy-beginning-of-defun
-   lispy-move-beginning-of-line lispy-move-end-of-line
-   )
+   lispy-move-beginning-of-line lispy-move-end-of-line)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -292,8 +100,7 @@
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
-         (emacspeak-speak-line)))
-     )))
+         (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{Advice Insertions:
