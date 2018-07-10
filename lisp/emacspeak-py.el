@@ -56,14 +56,6 @@
 ;;}}}
 ;;{{{  electric editing
 
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice py-electric-colon (after emacspeak pre act comp)
-    "Speak what you inserted")
-  (when (ems-interactive-p)
-    (dtk-say " colon ")))
-
 (defadvice py-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting.
 Provide contextual feedback when closing blocks"
