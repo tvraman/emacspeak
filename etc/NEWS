@@ -11,3 +11,9 @@ This version requires Emacs-25.1 or later.
 
 Module ~emacspeak-sage~ speech-enables package ~sage-shell-mode~.
 
+** Updated Folding Support
+
+Module ~emacspeak-folding~ has been updated to support package
+~folding~ from Melpa.
+The old version of ~folding~ is now no longer supported --- that
+version dated back to the early 90's.
