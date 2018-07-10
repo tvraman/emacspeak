@@ -165,6 +165,11 @@
 
 ;;}}}
 ;;{{{Advice WhiteSpace Manipulation:
+(defadvice lispy-fill (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-speak-line)))
 
 (cl-loop
  for f in 
