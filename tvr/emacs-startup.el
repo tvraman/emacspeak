@@ -31,7 +31,7 @@
   '(
     "kbd-setup"
     "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
-    "sp-prepare" ;"vdiff-prepare"
+    "lispy-prepare" "sp-prepare" ;"vdiff-prepare"
     "auctex-prepare"   "org-prepare" 
                                         ;"use-emms"
     "calc-prepare" "helm-prepare"
