@@ -363,6 +363,26 @@
 
 
 ;;}}}
+;;{{{Advice Help:
+
+ 
+ 
+(defadvice lispy-describe-inline (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (with-current-buffer  "*lispy-help*"
+         (emacspeak-auditory-icon 'help)
+         (emacspeak-speak-buffer))))
+
+
+(defadvice lispy-arglist-inline (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak (ad-get-arg 0))))
+
+
+
+;;}}}
 (provide 'emacspeak-lispy)
 ;;{{{ end of file
 
