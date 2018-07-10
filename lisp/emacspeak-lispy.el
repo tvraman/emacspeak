@@ -184,11 +184,17 @@
 
 ;;}}}
 ;;{{{Advice Marking:
-(defadvice lispy-mark-list (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'mark-object)
-    (emacspeak-speak-region (region-beginning) (region-end))))
+
+(cl-loop
+ for f in
+ '(lispy-mark-list lispy-mark)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback."
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'mark-object)
+      (emacspeak-speak-region (region-beginning) (region-end))))))
 
 (defadvice lispy-mark-symbol (after emacspeak pre act comp)
   "Provide auditory feedback."
