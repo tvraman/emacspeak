@@ -87,6 +87,7 @@
 (cl-loop
  for f in
  '(
+   lispy-stringify 
    lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char lispy-ace-subword
    lispy-move-up lispy-move-down lispy-undo
    lispy-right-nostring lispy-left lispy-right lispy-up lispy-down lispy-back
@@ -148,7 +149,7 @@
 
 (cl-loop
  for f in 
- '(lispy-parens lispy-braces lispy-brackets lispy-quotes)
+ '(lispy-parens lispy-braces lispy-brackets )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -162,6 +163,7 @@
 
 
 
+
 ;;}}}
 ;;{{{ Slurp and barf:
 
@@ -169,7 +171,7 @@
  for f in
  '(
    lispy-barf lispy-slurp lispy-join lispy-split
-               lispy-alt-multiline
+               lispy-quotes lispy-alt-multiline
               lispy-out-forward-newline lispy-parens-down lispy-meta-return)
  do
  (eval
