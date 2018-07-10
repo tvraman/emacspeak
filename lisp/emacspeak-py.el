@@ -59,14 +59,6 @@
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice py-electric-comment (after emacspeak pre act comp)
-    "Speak what you inserted"
-    (when (ems-interactive-p)
-      (dtk-say " pound "))))
-
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   (defadvice py-electric-colon (after emacspeak pre act comp)
     "Speak what you inserted")
   (when (ems-interactive-p)
