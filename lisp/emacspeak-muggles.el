@@ -372,6 +372,19 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;{{{ Option Toggle
 
 ;;; Cloned from hydra-examples.el and modified to tase.
+;;; Helper:
+
+(defun emacspeak-muggles-lispy-or-sp ()
+  "Toggle between lispy and smartparens."
+  (interactive)
+  (lispy-mode 'toggle)
+  (smartparens-mode 'toggle)
+  (emacspeak-auditory-icon 'button)
+  (message "Now using %s"
+           (cond
+            (lispy-mode "Lispy")
+            (smartparens-mode "Smart Parens")
+            (t "neither lispy or sp"))))
 
 (global-set-key
  (kbd "C-c o")
@@ -392,6 +405,7 @@ _h_ hydra-is-helpful    %`hydra-is-helpful
 _i_ ido-everywhere    %`ido-everywhere
 _I_ flx-ido-mode    %`flx-ido-mode
 _l_ lispy-mode:    %`lispy-mode
+_p_ emacspeak-muggles-lispy-or-sp:    %`lispy-mode
 _s_ smartparens-mode:    %`smartparens-mode
 _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
@@ -407,6 +421,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("i" (call-interactively #'ido-everywhere))
    ("I" (call-interactively #'flx-ido-mode))
    ("l" #'lispy-mode)
+   ("p" emacspeak-muggles-lispy-or-sp)
    ("s" #'smartparens-mode)
    ("t" (call-interactively #'toggle-truncate-lines))
    ("u" (call-interactively #'ido-ubiquitous-mode))
