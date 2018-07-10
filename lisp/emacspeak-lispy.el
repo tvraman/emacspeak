@@ -89,7 +89,7 @@
  '(
    lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char lispy-ace-subword
    lispy-move-up lispy-move-down lispy-undo
-   lispy-left lispy-right lispy-up lispy-down lispy-back
+   lispy-right-nostring lispy-left lispy-right lispy-up lispy-down lispy-back
    lispy-different lispy-backward lispy-forward lispy-flow
    lispy-to-defun lispy-beginning-of-defun
    lispy-move-beginning-of-line lispy-move-end-of-line)
@@ -117,6 +117,16 @@
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
+
+(defadvice lispy-tick (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (cond
+     ((region-active-p)
+      (emacspeak-speak-region (region-beginning) (region-end)))
+     (t (emacspeak-speak-line)))))
+
+
 (cl-loop
  for f in
  '(lispy-colon lispy-hash lispy-hat)
@@ -148,7 +158,9 @@
 
 (cl-loop
  for f in
- '(lispy-barf lispy-slurp lispy-join lispy-split)
+ '(
+   lispy-barf lispy-slurp lispy-join lispy-split
+              lispy-out-forward-newline lispy-parens-down lispy-meta-return)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
