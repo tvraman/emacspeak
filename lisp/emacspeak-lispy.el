@@ -104,6 +104,15 @@
 
 ;;}}}
 ;;{{{Advice Insertions:
+
+(defadvice lispy-clone (before emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-sexp)
+    (emacspeak-auditory-icon 'yank-object)
+    ))
+
+
 (defadvice lispy-comment (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -160,6 +169,7 @@
  for f in
  '(
    lispy-barf lispy-slurp lispy-join lispy-split
+               lispy-alt-multiline
               lispy-out-forward-newline lispy-parens-down lispy-meta-return)
  do
  (eval
