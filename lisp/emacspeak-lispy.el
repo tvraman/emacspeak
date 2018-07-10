@@ -278,7 +278,7 @@
 (cl-loop
  for f in
  '(
-   lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char
+   lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char lispy-ace-subword
    lispy-move-up lispy-move-down lispy-undo 
    lispy-left lispy-right lispy-up lispy-down
    lispy-different lispy-backward lispy-forward lispy-flow
