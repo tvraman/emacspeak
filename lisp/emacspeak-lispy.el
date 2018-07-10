@@ -363,6 +363,51 @@
 
 
 ;;}}}
+;;{{{Advice Kill/Yank:
+
+'(
+  lispy-kill lispy-backward-kill-word lispy-kill-word
+             lispy-kill-at-point
+  lispy-delete-backward  lispy-delete lispy-yank)
+
+
+(defadvice lispy-kill (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-current-kill)))
+
+(defadvice lispy-yank (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'yank-object)
+    (emacspeak-speak-region (region-beginning) (region-end))))
+
+
+
+ 
+ 
+ 
+(defadvice lispy-delete-backward(around emacspeak pre act comp)
+     "Provide auditory feedback."
+     (cond
+      ((ems-interactive-p)
+       (emacspeak-auditory-icon 'delete-object)
+       (emacspeak-speak-this-char (preceding-char))
+       ad-do-it)
+      (t ad-do-it)))
+
+
+(defadvice lispy-delete (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+      ((ems-interactive-p)
+       (dtk-tone-deletion)
+       (emacspeak-speak-char t)
+       ad-do-it)
+      (t ad-do-it)))
+
+;;}}}
 ;;{{{Advice Help:
 
  
