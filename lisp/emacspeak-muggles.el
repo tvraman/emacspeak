@@ -405,7 +405,7 @@ _h_ hydra-is-helpful    %`hydra-is-helpful
 _i_ ido-everywhere    %`ido-everywhere
 _I_ flx-ido-mode    %`flx-ido-mode
 _l_ lispy-mode:    %`lispy-mode
-_p_ emacspeak-muggles-lispy-or-sp:    %`lispy-mode
+_p_ emacspeak-muggles-lispy-or-sp:    %`smartparens-mode
 _s_ smartparens-mode:    %`smartparens-mode
 _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
