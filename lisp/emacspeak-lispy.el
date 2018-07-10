@@ -104,12 +104,24 @@
 
 ;;}}}
 ;;{{{Advice Insertions:
+(defadvice lispy-comment (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (cond
+     ((use-region-p)(emacspeak-speak-region (region-beginning) (region-end)))
+     (t (emacspeak-speak-line)))))
 
 (defadvice lispy-backtick (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
+
+(defadvice lispy-colon (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-this-char (preceding-char))))
 
 (cl-loop
  for f in 
@@ -144,6 +156,7 @@
 
 ;;}}}
 ;;{{{Advice Marking:
+
 (defadvice lispy-mark-symbol (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -152,6 +165,7 @@
 
 ;;}}}
 ;;{{{Advice WhiteSpace Manipulation:
+
 (cl-loop
  for f in 
  '(lispy-newline-and-indent lispy-newline-and-indent-plain)
@@ -167,7 +181,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
        (emacspeak-speak-line)))
-
 
 ;;}}}
 ;;{{{Advice Kill/Yank:
