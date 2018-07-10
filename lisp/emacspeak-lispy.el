@@ -368,19 +368,15 @@
  
  
 (defadvice lispy-describe-inline (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (with-current-buffer  "*lispy-help*"
-         (emacspeak-auditory-icon 'help)
-         (emacspeak-speak-buffer))))
-
-
-(defadvice lispy-arglist-inline (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (dtk-speak (ad-get-arg 0))))
-
-
+  (when
+      (and 
+       (ems-interactive-p)
+       (buffer-live-p (get-buffer "*lispy-help*"))
+       (window-live-p (get-buffer-window "*lispy-help*")))
+    (with-current-buffer  "*lispy-help*"
+      (emacspeak-auditory-icon 'help)
+      (emacspeak-speak-buffer))))
 
 ;;}}}
 (provide 'emacspeak-lispy)
