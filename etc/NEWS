@@ -17,3 +17,8 @@ Module ~emacspeak-folding~ has been updated to support package
 ~folding~ from Melpa.
 The old version of ~folding~ is now no longer supported --- that
 version dated back to the early 90's.
+
+
+** Speech-Enable Package Lispy For Rapid Lisp Editing 
+
+Module ~emacspeak-lispy~ speech-enables package ~lispy~ available on Melpa.
