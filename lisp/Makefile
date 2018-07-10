@@ -597,7 +597,6 @@ clean:
 
 #local variables:
 #mode: makefile
-#eval:  (fold-set-marks "# {{{" "# }}}")
 #fill-column: 90
 #folded-file: t
 #end:
