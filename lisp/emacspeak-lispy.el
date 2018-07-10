@@ -117,11 +117,15 @@
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
-
-(defadvice lispy-colon (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-speak-this-char (preceding-char))))
+(cl-loop
+ for f in
+ '(lispy-colon lispy-hash lispy-hat)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-this-char (preceding-char))))))
 
 (cl-loop
  for f in 
