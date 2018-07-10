@@ -148,7 +148,7 @@
 
 (cl-loop
  for f in
- '(lispy-barf lispy-slurp)
+ '(lispy-barf lispy-slurp lispy-join lispy-split)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -196,7 +196,8 @@
 
 (cl-loop
  for f in
- '(lispy-kill lispy-kill-word lispy-backward-kill-word lispy-kill-at-point)
+ '(lispy-kill lispy-kill-word lispy-backward-kill-word
+              lispy-kill-sentencelispy-kill-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
