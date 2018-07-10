@@ -1012,6 +1012,8 @@ with auditory icon `more'.  These can then be spoken using command
      ((null arg))
      ((> arg 0) (setq start orig))
      (t (setq end orig)))
+    (when (and emacspeak-show-point (bolp))
+      (emacspeak-auditory-icon 'item))
     (setq line
           (if emacspeak-show-point
               (ems-set-pause-temporarily
