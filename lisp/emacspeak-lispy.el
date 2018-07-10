@@ -365,17 +365,16 @@
 ;;}}}
 ;;{{{Advice Kill/Yank:
 
-'(
-  lispy-kill lispy-backward-kill-word lispy-kill-word
-             lispy-kill-at-point
-  lispy-delete-backward  lispy-delete lispy-yank)
-
-
-(defadvice lispy-kill (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
-    (emacspeak-speak-current-kill)))
+(cl-loop
+ for f in
+ '(lispy-kill lispy-kill-word lispy-backward-kill-word lispy-kill-at-point)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'delete-object)
+       (emacspeak-speak-current-kill)))))
 
 (defadvice lispy-yank (after emacspeak pre act comp)
   "Provide auditory feedback."
