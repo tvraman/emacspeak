@@ -964,7 +964,7 @@ indentation with a tone or a spoken message if audio indentation is in
 use see `emacspeak-toggle-audio-indentation' bound to
 \\[emacspeak-toggle-audio-indentation].  Indicates position of point
 with an aural highlight if option `emacspeak-show-point' is turned on
---see command `emacspeak-show-point' bound to
+--see command `emacspeak-toggle-show-point' bound to
 \\[emacspeak-toggle-show-point].  Lines that start hidden blocks of text,
 e.g.  outline header lines, or header lines of blocks created by
 command `emacspeak-hide-or-expose-block' are indicated with auditory
