@@ -278,7 +278,8 @@
 (cl-loop
  for f in
  '(
-   lispy-ace-paren lispy-move-up lispy-move-down lispy-undo 
+   lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char
+   lispy-move-up lispy-move-down lispy-undo 
    lispy-left lispy-right lispy-up lispy-down
    lispy-different lispy-backward lispy-forward lispy-flow
    lispy-to-defun lispy-beginning-of-defun
@@ -291,7 +292,8 @@
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
-         (emacspeak-speak-line))))))
+         (emacspeak-speak-line)))
+     )))
 
 ;;}}}
 ;;{{{Advice Insertions:
