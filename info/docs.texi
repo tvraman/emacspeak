@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1231 commands and 1173 options.
+This chapter documents a total of 1232 commands and 1185 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -117,6 +117,7 @@ This chapter documents a total of 1231 commands and 1173 options.
 * emacspeak-kite::Speech-enable KITE.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
+* emacspeak-lispy::Speech-enable LISPY.
 * emacspeak-lua::Speech-enable LUA.
 * emacspeak-m-player::Control mplayer from Emacs.
 * emacspeak-magit::Speech-enable MAGIT: Git Client.
@@ -1251,7 +1252,7 @@ C-y		emacspeak-clipboard-paste
 ESC		Prefix Command
 SPC		emacspeak-speak-header-line
 !		emacspeak-speak-run-shell-command
-"		emacspeak-speak-sexp-interactively
+"		emacspeak-speak-sexp
 #		emacspeak-gridtext
 %		emacspeak-speak-current-percentage
 &		emacspeak-wizards-shell-command-on-current-file
@@ -1582,7 +1583,6 @@ a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
 e		eww
-f		emacspeak-wizards-finance-google-search
 i		emacspeak-wizards-iheart
 l		eww-open-file
 m		magit-status
@@ -3309,6 +3309,78 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-link-voice
 Personality used for link
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-command-name-personality
+Personality used for lispy-command-name-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-cursor-personality
+Personality used for lispy-cursor-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-hint-voice
+Personality used for lispy-face-hint
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-key-nosel-voice
+Personality used for lispy-face-key-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-key-sel-voice
+Personality used for lispy-face-key-sel
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-opt-nosel-voice
+Personality used for lispy-face-opt-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-opt-sel-voice
+Personality used for lispy-face-opt-sel
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-req-nosel-voice
+Personality used for lispy-face-req-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-req-sel-voice
+Personality used for lispy-face-req-sel
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-rst-nosel-voice
+Personality used for lispy-face-rst-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-face-rst-sel-voice
+Personality used for lispy-face-rst-sel
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-lispy-test-personality
+Personality used for lispy-test-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
@@ -9498,10 +9570,10 @@ Correction style to use with flyspell.
 @section emacspeak-folding
 
 Folding mode turns emacs into a folding editor.
-Folding mode is what I use: 
+Folding mode is what I use:
 emacs 19 comes with similar packages, e.g. allout.el
 This module defines some advice forms that make folding mode a pleasure to use.
-Think of a fold as a container. 
+Think of a fold as a container.
 
 @node emacspeak-forms
 @section emacspeak-forms
@@ -11346,6 +11418,12 @@ more results.
 Location where we cache LIBRIVOX playlists.
 
 @end defvar
+
+@node emacspeak-lispy
+@section emacspeak-lispy
+
+LISPY ==  smart Navigation Of Lisp code
+This module speech-enables lispy.
 
 @node emacspeak-lua
 @section emacspeak-lua
@@ -13674,6 +13752,15 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 @end format
 @end deffn
 
+@subsubsection emacspeak-muggles-lispy-or-sp
+@deffn {Command} emacspeak-muggles-lispy-or-sp   
+@findex emacspeak-muggles-lispy-or-sp
+
+@format
+Toggle between lispy and smartparens.
+@end format
+@end deffn
+
 @subsubsection emacspeak-muggles-m-player/body
 @deffn {Command} emacspeak-muggles-m-player/body   
 @table @kbd
@@ -13949,6 +14036,7 @@ Call the body in the "emacspeak-muggles-toggle-option" hydra.
 The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
+"C-f":    ‘turn-on-folding-mode’,
 "F":    ‘(call-interactively #’flyspell-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
@@ -13957,6 +14045,7 @@ The heads for the associated hydra are:
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
 "i":    ‘(call-interactively #’ido-everywhere)’,
 "I":    ‘(call-interactively #’flx-ido-mode)’,
+"p":    ‘emacspeak-muggles-lispy-or-sp’,
 "t":    ‘(call-interactively #’toggle-truncate-lines)’,
 "u":    ‘(call-interactively #’ido-ubiquitous-mode)’,
 "q":    ‘nil’
@@ -17646,8 +17735,8 @@ indentation with a tone or a spoken message if audio indentation is in
 use see ‘emacspeak-toggle-audio-indentation’ bound to
 C-e d i.  Indicates position of point
 with an aural highlight if option ‘emacspeak-show-point’ is turned on
---see command ‘emacspeak-show-point’ bound to
-M-x emacspeak-show-point.  Lines that start hidden blocks of text,
+--see command ‘emacspeak-toggle-show-point’ bound to
+C-e C-d.  Lines that start hidden blocks of text,
 e.g.  outline header lines, or header lines of blocks created by
 command ‘emacspeak-hide-or-expose-block’ are indicated with auditory
 icon ellipses. Presence of additional presentational overlays (created
@@ -18268,6 +18357,13 @@ Set punctuation mode for all buffers in current mode.
 
 @subsubsection emacspeak-speak-sexp
 @deffn {Command} emacspeak-speak-sexp  (&optional arg)
+@table @kbd
+@item C-e "
+@kindex C-e "
+@item <fn> "
+@kindex <fn> "
+@end table
+
 @findex emacspeak-speak-sexp
 
 @format
@@ -18282,13 +18378,6 @@ If option  ‘voice-lock-mode’ is on, then uses the personality.
 
 @subsubsection emacspeak-speak-sexp-interactively
 @deffn {Command} emacspeak-speak-sexp-interactively   
-@table @kbd
-@item C-e "
-@kindex C-e "
-@item <fn> "
-@kindex <fn> "
-@end table
-
 @findex emacspeak-speak-sexp-interactively
 
 @format
@@ -23662,13 +23751,6 @@ Read key-sequence, then execute its command on a new thread.
 
 @subsubsection emacspeak-wizards-finance-google-search
 @deffn {Command} emacspeak-wizards-finance-google-search  (ticker)
-@table @kbd
-@item C-, f
-@kindex C-, f
-@item C-x @@ a f
-@kindex C-x @@ a f
-@end table
-
 @findex emacspeak-wizards-finance-google-search
 
 @format

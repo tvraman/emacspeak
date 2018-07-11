@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 7, 2018.
+last updated on July 10, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1231 commands and 1173 options.
+   This chapter documents a total of 1232 commands and 1185 options.
 
 * Menu:
 
@@ -2864,6 +2864,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-kite::Speech-enable KITE.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
+* emacspeak-lispy::Speech-enable LISPY.
 * emacspeak-lua::Speech-enable LUA.
 * emacspeak-m-player::Control mplayer from Emacs.
 * emacspeak-magit::Speech-enable MAGIT: Git Client.
@@ -3745,7 +3746,7 @@ system.
      ESC		Prefix Command
      SPC		emacspeak-speak-header-line
      !		emacspeak-speak-run-shell-command
-     "		emacspeak-speak-sexp-interactively
+     "		emacspeak-speak-sexp
      #		emacspeak-gridtext
      %		emacspeak-speak-current-percentage
      &		emacspeak-wizards-shell-command-on-current-file
@@ -4076,7 +4077,6 @@ system.
      b		sox-binaural
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
      e		eww
-     f		emacspeak-wizards-finance-google-search
      i		emacspeak-wizards-iheart
      l		eww-open-file
      m		magit-status
@@ -5511,6 +5511,66 @@ system.
      Personality used for link This personality uses voice-bolden-medium
      whose effect can be changed globally by customizing
      voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-lispy-command-name-personality
+     Personality used for lispy-command-name-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-lispy-cursor-personality
+     Personality used for lispy-cursor-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-hint-voice
+     Personality used for lispy-face-hint This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-key-nosel-voice
+     Personality used for lispy-face-key-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-key-sel-voice
+     Personality used for lispy-face-key-sel This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-opt-nosel-voice
+     Personality used for lispy-face-opt-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-opt-sel-voice
+     Personality used for lispy-face-opt-sel This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-req-nosel-voice
+     Personality used for lispy-face-req-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-req-sel-voice
+     Personality used for lispy-face-req-sel This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-rst-nosel-voice
+     Personality used for lispy-face-rst-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-lispy-face-rst-sel-voice
+     Personality used for lispy-face-rst-sel This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-lispy-test-personality
+     Personality used for lispy-test-face This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
 
  -- Variable: User Option emacspeak-log-edit-header-voice
      Personality used for log-edit-header This personality uses
