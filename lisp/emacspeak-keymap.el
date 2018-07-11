@@ -178,7 +178,7 @@
    ("#" emacspeak-gridtext)
    ("%" emacspeak-speak-current-percentage)
    ("&" emacspeak-wizards-shell-command-on-current-file)
-   ("'" emacspeak-speaksexp)
+   ("'" emacspeak-speak-sexp)
    ("(" emacspeak-audio-setup)
    (")" emacspeak-sounds-select-theme)
    ("," emacspeak-speak-browse-buffer)
