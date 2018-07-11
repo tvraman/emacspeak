@@ -87,9 +87,8 @@
 (cl-loop
  for f in
  '(
-   lispy-stringify
-   lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char lispy-ace-subword
-   lispy-move-up lispy-move-down lispy-undo
+   lispy-stringify lispy-ace-paren lispy-ace-symbol lispy-teleport
+   lispy-ace-char lispy-ace-subword lispy-move-up lispy-move-down lispy-undo
    lispy-right-nostring lispy-left lispy-right lispy-up lispy-down lispy-back
    lispy-different lispy-backward lispy-forward lispy-flow
    lispy-to-defun lispy-beginning-of-defun
@@ -159,7 +158,6 @@
        (emacspeak-auditory-icon 'item)
        (save-excursion
          (forward-char 1)
-         (forward-sexp -1)
          (emacspeak-speak-sexp))))))
 
 ;;}}}
