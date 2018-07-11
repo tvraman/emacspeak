@@ -229,7 +229,7 @@
 (cl-loop
  for f in
  '(lispy-kill lispy-kill-word lispy-backward-kill-word
-              lispy-kill-sentencelispy-kill-at-point)
+              lispy-kill-sentence lispy-kill-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
