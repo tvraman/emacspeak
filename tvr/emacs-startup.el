@@ -180,7 +180,9 @@
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode 1)
   (hs-minor-mode 1)
-  (smartparens-mode 1)
+  (if (eq major-mode 'emacs-lisp-mode)
+      (lispy-mode 1)
+    (smartparens-mode 1))
   (yas-minor-mode 1)
   (abbrev-mode 1))
 
