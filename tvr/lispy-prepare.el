@@ -12,7 +12,7 @@
            '((:eval
               (format  "%s %s %s"
                        (buffer-name)
-                       "Emacs Lispy"
+                       " Lispy"
                        (if vc-mode
                            (concat
                             vc-mode
