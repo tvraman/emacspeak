@@ -101,7 +101,7 @@
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
-         (emacspeak-speak-line))))))
+         (emacspeak-speak-sexp))))))
 
 ;;}}}
 ;;{{{Advice Insertions:
