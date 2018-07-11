@@ -10,7 +10,12 @@
           (setq
            header-line-format
            '((:eval
-              (format  "%s %s"
+              (format  "%s %s %s"
                        (buffer-name)
-                       "Emacs Lispy"))))))
+                       "Emacs Lispy"
+                       (if vc-mode
+                           (concat
+                            vc-mode
+                            (format "%s" (vc-state (buffer-file-name))))
+                         "")))))))
      ))
