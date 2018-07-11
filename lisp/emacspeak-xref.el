@@ -59,9 +59,9 @@
 (cl-loop
  for   f in 
  '(
-   xref-find-definitions xref-pop-marker-stack
+   xref-find-definitions xref-pop-marker-stack pop-tag-mark
    xref-next-line xref-prev-line
-   xref-find-regexp 
+   xref-find-regexp  xref-pop-marker-stack
    xref-find-apropos xref-goto-xref)
  do
  (eval
