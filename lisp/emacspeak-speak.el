@@ -1082,15 +1082,21 @@ with auditory icon `more'.  These can then be spoken using command
 (defun emacspeak-speak-overlay-properties  ()
   "Speak display, before-string or after-string property if any."
   (interactive)
-  (let ((before-string (get-char-property (point) 'before-string))
-        (after-string (get-char-property (point) 'after-string))
-        (display (get-char-property (point) 'display)))
+  (let ((before (get-char-property (point) 'before-string))
+        (after (get-char-property (point) 'after-string))
+        (display (get-char-property (point) 'display))
+        (result nil))
+    (setq result
+          (concat
+           (when (stringp display) display)
+           (when (stringp before) before)
+           (when (stringp after) after)))
     (cond
-     ((and (null before-string) (null after-string) (null display))
-      (message "No interesting overlay properties here."))
+     ((or (null result) (= 0 (length result)))
+      (message "No speakable overlay properties here."))
       (t
        (emacspeak-auditory-icon 'ellipses)
-       (dtk-speak (concat display before-string after-string))))))
+       (dtk-speak result)))))
 
 
 ;;;###autoload
