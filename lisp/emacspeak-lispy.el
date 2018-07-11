@@ -56,20 +56,20 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
-'(
-(lispy-command-name-face voice-bolden)
-(lispy-cursor-face voice-animate)
-(lispy-face-hint voice-smoothen)
-(lispy-face-key-nosel voice-monotone)
-(lispy-face-key-sel voice-brighten)
-(lispy-face-opt-nosel voice-monotone)
-(lispy-face-opt-sel voice-lighten)
-(lispy-face-req-nosel voice-monotone )
-(lispy-face-req-sel voice-brighten-extra)
-(lispy-face-rst-nosel voice-monotone)
-(lispy-face-rst-sel voice-lighten-extra)
-(lispy-test-face voice-annotate)))
+(voice-setup-add-map
+ '(
+   (lispy-command-name-face voice-bolden)
+   (lispy-cursor-face voice-animate)
+   (lispy-face-hint voice-smoothen)
+   (lispy-face-key-nosel voice-monotone)
+   (lispy-face-key-sel voice-brighten)
+   (lispy-face-opt-nosel voice-monotone)
+   (lispy-face-opt-sel voice-lighten)
+   (lispy-face-req-nosel voice-monotone )
+   (lispy-face-req-sel voice-brighten-extra)
+   (lispy-face-rst-nosel voice-monotone)
+   (lispy-face-rst-sel voice-lighten-extra)
+   (lispy-test-face voice-annotate)))
 
 ;;}}}
 ;;{{{ Setup:
@@ -87,7 +87,7 @@
 (cl-loop
  for f in
  '(
-   lispy-stringify 
+   lispy-stringify
    lispy-ace-paren lispy-ace-symbol lispy-teleport lispy-ace-char lispy-ace-subword
    lispy-move-up lispy-move-down lispy-undo
    lispy-right-nostring lispy-left lispy-right lispy-up lispy-down lispy-back
@@ -116,7 +116,6 @@
     (emacspeak-auditory-icon 'yank-object)
     ))
 
-
 (defadvice lispy-comment (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -139,7 +138,6 @@
       (emacspeak-speak-region (region-beginning) (region-end)))
      (t (emacspeak-speak-line)))))
 
-
 (cl-loop
  for f in
  '(lispy-colon lispy-hash lispy-hat)
@@ -151,7 +149,7 @@
        (emacspeak-speak-this-char (preceding-char))))))
 
 (cl-loop
- for f in 
+ for f in
  '(lispy-parens lispy-braces lispy-brackets )
  do
  (eval
@@ -164,9 +162,6 @@
          (forward-sexp -1)
          (emacspeak-speak-sexp))))))
 
-
-
-
 ;;}}}
 ;;{{{ Slurp and barf:
 
@@ -174,8 +169,8 @@
  for f in
  '(
    lispy-barf lispy-slurp lispy-join lispy-split
-               lispy-quotes lispy-alt-multiline
-              lispy-out-forward-newline lispy-parens-down lispy-meta-return)
+   lispy-quotes lispy-alt-multiline
+   lispy-out-forward-newline lispy-parens-down lispy-meta-return)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -194,10 +189,10 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'mark-object)
-      (emacspeak-speak-region (region-beginning) (region-end))))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'mark-object)
+       (emacspeak-speak-region (region-beginning) (region-end))))))
 
 (defadvice lispy-mark-symbol (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -214,7 +209,7 @@
     (emacspeak-speak-line)))
 
 (cl-loop
- for f in 
+ for f in
  '(lispy-newline-and-indent lispy-newline-and-indent-plain)
  do
  (eval
@@ -223,11 +218,12 @@
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
+
 (defadvice lispy-tab (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
-       (emacspeak-speak-line)))
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{Advice Kill/Yank:
@@ -252,37 +248,34 @@
 
 
 
- 
- 
- 
-(defadvice lispy-delete-backward(around emacspeak pre act comp)
-     "Provide auditory feedback."
-     (cond
-      ((ems-interactive-p)
-       (emacspeak-auditory-icon 'delete-object)
-       (emacspeak-speak-this-char (preceding-char))
-       ad-do-it)
-      (t ad-do-it)))
 
+(defadvice lispy-delete-backward(around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-this-char (preceding-char))
+    ad-do-it)
+   (t ad-do-it)))
 
 (defadvice lispy-delete (around emacspeak pre act comp)
   "Provide auditory feedback."
   (cond
-      ((ems-interactive-p)
-       (dtk-tone-deletion)
-       (emacspeak-speak-char t)
-       ad-do-it)
-      (t ad-do-it)))
+   ((ems-interactive-p)
+    (dtk-tone-deletion)
+    (emacspeak-speak-char t)
+    ad-do-it)
+   (t ad-do-it)))
 
 ;;}}}
 ;;{{{Advice Help:
 
- 
- 
+
+
 (defadvice lispy-describe-inline (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when
-      (and 
+      (and
        (ems-interactive-p)
        (buffer-live-p (get-buffer "*lispy-help*"))
        (window-live-p (get-buffer-window "*lispy-help*")))
