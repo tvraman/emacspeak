@@ -51,8 +51,10 @@
 (require 'emacspeak-keymap)
 (eval-when-compile
   (condition-case nil
-   (package-initialize)
-   (error "Check your elpa packages --- something is broken")))
+      (let ((inhibit-message t))
+        (message-log-max nil)
+        (package-initialize))
+    (error "Check your elpa packages --- something is broken")))
 
 ;;}}}
 
