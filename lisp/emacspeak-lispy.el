@@ -96,20 +96,27 @@
    lispy-move-beginning-of-line lispy-move-end-of-line)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "speak line with show-point turned on."
-     (when (ems-interactive-p)
-       (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'large-movement)
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Provide auditory feedback.
+Speak sexp when at the beginning of a sexp.
+Speak line if at end of sexp.
+Indicate  no movement if we did not move."
+     (cond
+      ((ems-interactive-p)
+       (let ((emacspeak-show-point t)
+             (orig (point)))
+         ad-do-it
          (cond
-          ((and
-            (not (ring-empty-p lispy-pos-ring))
-            (eq (marker-position (ring-ref lispy-pos-ring 0)) (point)))
+          ((eq orig (point))
            (message "Did not move")
            (emacspeak-auditory-icon 'warn-user))
           ((= ?\) (char-syntax (preceding-char)))
+           (emacspeak-auditory-icon 'large-movement)
            (emacspeak-speak-line))
-          (t (emacspeak-speak-sexp))))))))
+          (t(emacspeak-auditory-icon 'large-movement)
+            (emacspeak-speak-sexp)))))
+      (t ad-do-it))
+     ad-return-value)))
 
 ;;}}}
 ;;{{{Advice Insertions:
