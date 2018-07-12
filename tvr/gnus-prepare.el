@@ -15,8 +15,9 @@
         "gmail"
         (nnimap-address "imap.gmail.com")
         (nnimap-server-port 993)
+        (nnimap-user "raman@google.com")
         (nnimap-fetch-partial-articles "text/")
-        ;(nnimap-record-commands t) ;for debugging
+                                        ;(nnimap-record-commands t) ;for debugging
         (nnimap-expunge-on-close always)
         (nnimap-stream ssl)))
 
