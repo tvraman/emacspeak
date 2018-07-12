@@ -293,6 +293,12 @@ Indicate  no movement if we did not move."
       (emacspeak-auditory-icon 'help)
       (emacspeak-speak-buffer))))
 
+
+(defadvice lispy--show (before emacspeak   pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'help)
+  (dtk-speak (ad-get-arg 0)))
+
 ;;}}}
 (provide 'emacspeak-lispy)
 ;;{{{ end of file
