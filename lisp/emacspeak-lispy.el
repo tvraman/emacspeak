@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{ Advice Navigation:
 
-(cl-loop                                ;;; Navigators:
+(cl-loop ;;; Navigators:
  for f in
  '(
    lispy-goto-symbol
@@ -113,8 +113,8 @@ Indicate  no movement if we did not move."
           ((= ?\) (char-syntax (preceding-char)))
            (emacspeak-auditory-icon 'large-movement)
            (emacspeak-speak-line))
-          (t(emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-sexp)))))
+          (t (emacspeak-auditory-icon 'large-movement)
+             (emacspeak-speak-sexp)))))
       (t ad-do-it))
      ad-return-value)))
 
