@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{ Advice Navigation:
 
-(cl-loop
+(cl-loop                                ;;; Navigators:
  for f in
  '(
    lispy-goto-symbol
@@ -108,7 +108,7 @@ Indicate  no movement if we did not move."
          ad-do-it
          (cond
           ((eq orig (point))
-           (message "Did not move")
+           (dtk-notify-speak "Did not move")
            (emacspeak-auditory-icon 'warn-user))
           ((= ?\) (char-syntax (preceding-char)))
            (emacspeak-auditory-icon 'large-movement)
