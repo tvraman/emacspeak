@@ -1431,6 +1431,7 @@ If option  `voice-lock-mode' is on, then uses the personality."
        ((null arg))
        ((> arg 0) (setq start orig))
        ((< arg 0) (setq end orig)))
+      (emacspeak-auditory-icon 'select-object)
       (dtk-speak (buffer-substring  start end)))))
 
 ;;;###autoload
