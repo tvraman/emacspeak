@@ -113,8 +113,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-sexp)
-    (emacspeak-auditory-icon 'yank-object)
-    ))
+    (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice lispy-comment (after emacspeak pre act comp)
   "Provide auditory feedback."
