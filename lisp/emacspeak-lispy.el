@@ -248,7 +248,7 @@ Indicate  no movement if we did not move."
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'delete-object)
-       (emacspeak-speak-current-kill)))))
+       (dtk-speak (current-kill 0 nil))))))
 
 (defadvice lispy-yank (after emacspeak pre act comp)
   "Provide auditory feedback."
