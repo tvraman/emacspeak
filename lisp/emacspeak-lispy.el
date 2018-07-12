@@ -102,6 +102,9 @@
        (let ((emacspeak-show-point t))
          (emacspeak-auditory-icon 'large-movement)
          (cond
+          ((eq (marker-position (ring-ref lispy-pos-ring 0)) (point))
+           (message "Did not move")
+           (emacspeak-auditory-icon 'warn-user))
           ((= ?\) (char-syntax (preceding-char)))
            (emacspeak-speak-line))
           (t (emacspeak-speak-sexp))))))))
