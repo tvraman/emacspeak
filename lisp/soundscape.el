@@ -465,7 +465,7 @@ Optional interactive prefix arg restarts the listener if already running."
         (setq name
               (completing-read "Soundscape Name:"
                                (mapcar #'car soundscape-default-theme)))
-        (when (> (length name) 0) (push name  result)))
+        (when (> (length name) 0) (push name result)))
       result)))
   (cl-declare (special soundscape-remote-nc))
   (unless (process-live-p soundscape-listener-process) (soundscape-listener))
@@ -473,9 +473,12 @@ Optional interactive prefix arg restarts the listener if already running."
     (when (and (process-live-p soundscape-listener-process)
                (file-exists-p soundscape--remote))
       (setq soundscape-remote-control
-            (make-network-process  :name "nc-connect"
-                                   :family 'local
-                                   :remote soundscape--remote))))
+            (if (executable-find "nc")
+
+                (start-process "nc" nil "nc" "-U" soundscape--remote)
+              (make-network-process :name "nc-connect"
+                                    :family 'local
+                                    :remote soundscape--remote)))))
   (when (process-live-p soundscape-remote-control)
     (process-send-string
      soundscape-remote-control
