@@ -455,7 +455,7 @@ Optional interactive prefix arg restarts the listener if already running."
     (delete-file soundscape--remote)))
 
 (defun soundscape-remote (names)
-  "Activate scapes named names."
+  "Activate scapes named `names' --- a list of strings."
   (interactive
    (list
     (let ((completion-ignore-case t)
