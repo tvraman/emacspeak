@@ -4,7 +4,7 @@
      (define-key lispy-mode-map (kbd "M-m") nil)
      (define-key lispy-mode-map (kbd "C-,") nil)
      (define-key lispy-mode-map [(control left)] 'lispy-barf)
-     (define-key lispy-mode-map [(control right)] 'lispy-snarf)
+     (define-key lispy-mode-map [(control right)] 'lispy-slurp)
      (define-key lispy-mode-map-lispy (kbd "C-,") nil)
      (add-hook
       'lispy-mode-hook
