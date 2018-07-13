@@ -786,27 +786,26 @@ Helps to prevent words from being spelled instead of spoken."
    ;; as they are only necessary if users have persistently visible groups
    ;; in the case of empty groups, and voices for the various levels.
    (gnus-group-mail-1-empty voice-bolden-extra)
-   (gnus-group-mail-1 default)
    (gnus-group-mail-2-empty voice-bolden-extra)
-   (gnus-group-mail-2 default)
+   
    (gnus-group-mail-3-empty  voice-bolden-extra)
-   (gnus-group-mail-3 default)
+   
    (gnus-group-mail-low-empty voice-bolden-extra)
-   (gnus-group-mail-low default)
+   
    (gnus-group-news-1-empty voice-bolden-extra)
-   (gnus-group-news-1 default)
+   
    (gnus-group-news-2-empty voice-bolden-extra)
-   (gnus-group-news-2 default)
+   
    (gnus-group-news-3-empty voice-bolden-extra)
-   (gnus-group-news-3 default)
+   
    (gnus-group-news-4-empty voice-bolden-extra)
-   (gnus-group-news-4 default)
+   
    (gnus-group-news-5-empty voice-bolden-extra)
-   (gnus-group-news-5 default)
+   
    (gnus-group-news-6-empty voice-bolden-extra)
-   (gnus-group-news-6 default)
+   
    (gnus-group-news-low-empty voice-bolden-extra)
-   (gnus-group-news-low default)
+   
    
    ;; server buffer personalities
 
