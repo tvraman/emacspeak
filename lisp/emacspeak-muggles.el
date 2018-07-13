@@ -377,6 +377,7 @@ Argument `k-map' is a symbol  that names a keymap."
 (defun emacspeak-muggles-lispy-or-sp ()
   "Toggle between lispy and smartparens."
   (interactive)
+  (cl-declare (special lispy-mode smartparens-mode))
   (lispy-mode 'toggle)
   (smartparens-mode 'toggle)
   (emacspeak-auditory-icon 'button)
