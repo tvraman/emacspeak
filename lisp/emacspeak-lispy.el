@@ -187,7 +187,7 @@ Indicate  no movement if we did not move."
      "speak line with show-point turned on."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-auditory-icon 'select-object)
          (emacspeak-speak-line))))))
 
 ;;}}}
