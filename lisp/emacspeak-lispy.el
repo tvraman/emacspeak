@@ -100,7 +100,7 @@
 (cl-loop ;;; Navigators:
  for f in
  '(
-   lispy-goto-symbol
+   lispy-goto-symbol lispy-splice
    lispy-stringify lispy-ace-paren lispy-ace-symbol lispy-teleport
    lispy-ace-char lispy-ace-subword lispy-move-up lispy-move-down lispy-undo
    lispy-right-nostring lispy-left lispy-right lispy-up lispy-down lispy-back
