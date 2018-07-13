@@ -109,7 +109,7 @@ Indicate  no movement if we did not move."
          (cond
           ((eq orig (point))
            (dtk-notify-speak "Did not move")
-           (emacspeak-auditory-icon 'warn-user))
+           (emacspeak-auditory-icon 'tick-tick))
           ((= ?\) (char-syntax (preceding-char)))
            (emacspeak-auditory-icon 'large-movement)
            (emacspeak-speak-line))
