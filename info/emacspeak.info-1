@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 10, 2018.
+last updated on July 15, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1232 commands and 1185 options.
+   This chapter documents a total of 1232 commands and 1174 options.
 
 * Menu:
 
@@ -3746,11 +3746,11 @@ system.
      ESC		Prefix Command
      SPC		emacspeak-speak-header-line
      !		emacspeak-speak-run-shell-command
-     "		emacspeak-speak-sexp
+     "		emacspeak-pianobar
      #		emacspeak-gridtext
      %		emacspeak-speak-current-percentage
      &		emacspeak-wizards-shell-command-on-current-file
-     ’		emacspeak-pianobar
+     ’		emacspeak-speak-sexp
      (		emacspeak-audio-setup
      )		emacspeak-sounds-select-theme
      ,		emacspeak-speak-browse-buffer
@@ -4966,110 +4966,55 @@ system.
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
- -- Variable: User Option emacspeak-gnus-group-mail-1-voice
-     Personality used for gnus-group-mail-1 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
-
  -- Variable: User Option emacspeak-gnus-group-mail-2-empty-voice
      Personality used for gnus-group-mail-2-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-gnus-group-mail-2-voice
-     Personality used for gnus-group-mail-2 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
 
  -- Variable: User Option emacspeak-gnus-group-mail-3-empty-voice
      Personality used for gnus-group-mail-3-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
- -- Variable: User Option emacspeak-gnus-group-mail-3-voice
-     Personality used for gnus-group-mail-3 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
-
  -- Variable: User Option emacspeak-gnus-group-mail-low-empty-voice
      Personality used for gnus-group-mail-low-empty This personality
      uses voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-gnus-group-mail-low-voice
-     Personality used for gnus-group-mail-low This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
 
  -- Variable: User Option emacspeak-gnus-group-news-1-empty-voice
      Personality used for gnus-group-news-1-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
- -- Variable: User Option emacspeak-gnus-group-news-1-voice
-     Personality used for gnus-group-news-1 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
-
  -- Variable: User Option emacspeak-gnus-group-news-2-empty-voice
      Personality used for gnus-group-news-2-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-gnus-group-news-2-voice
-     Personality used for gnus-group-news-2 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
 
  -- Variable: User Option emacspeak-gnus-group-news-3-empty-voice
      Personality used for gnus-group-news-3-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
- -- Variable: User Option emacspeak-gnus-group-news-3-voice
-     Personality used for gnus-group-news-3 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
-
  -- Variable: User Option emacspeak-gnus-group-news-4-empty-voice
      Personality used for gnus-group-news-4-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-gnus-group-news-4-voice
-     Personality used for gnus-group-news-4 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
 
  -- Variable: User Option emacspeak-gnus-group-news-5-empty-voice
      Personality used for gnus-group-news-5-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
- -- Variable: User Option emacspeak-gnus-group-news-5-voice
-     Personality used for gnus-group-news-5 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
-
  -- Variable: User Option emacspeak-gnus-group-news-6-empty-voice
      Personality used for gnus-group-news-6-empty This personality uses
      voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
- -- Variable: User Option emacspeak-gnus-group-news-6-voice
-     Personality used for gnus-group-news-6 This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
-
  -- Variable: User Option emacspeak-gnus-group-news-low-empty-voice
      Personality used for gnus-group-news-low-empty This personality
      uses voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-gnus-group-news-low-voice
-     Personality used for gnus-group-news-low This personality uses
-     default whose effect can be changed globally by customizing
-     default-settings.
 
  -- Variable: User Option emacspeak-gnus-header-content-voice
      Personality used for gnus-header-content This personality uses

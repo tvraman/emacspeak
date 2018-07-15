@@ -230,11 +230,11 @@ England Croatia  1::2
     Luzhniki Stadium, Moscow 
 * Third Place Match                                         :ThirdPlaceMatch:
 ** 63. Losers Match 61  - Losers Match 62    
-Belgium England
-    <2018-07-14 Sat 07:00> 
+Belgium England 2::0
+    <2018-07-14 Sat 08:00> 
     Saint Petersburg Stadium 
 * Final                                                               :Final:
 ** 64. Winner Match 61  - Winner Match 62    
-    <2018-07-15 Sun 13:00> 
+    <2018-07-15 Sun 08:00> 
 France Croatia 
     Luzhniki Stadium, Moscow 

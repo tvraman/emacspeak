@@ -12,37 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
-
-15 Emacspeak At Twenty.
-***********************
-
-This article was originally published to mark the 20th anniversary of
-Emacspeak.  It has been incorporated as the final chapter of the
-Emacspeak manual for easy reference.  The original article is available
-on the Web and in its original source form as an *org* file in the
-emacspeak distribution.
-* Menu:
-
-* Turning Twenty::
-* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
-* Key Enabler  ---  Emacs And Lisp Advice::
-* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
-* Emacspeak And Software Development::
-* Emacspeak And Authoring Documents::
-* Emacspeak And The Early Days Of The Web::
-* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
-* Conversational Gestures For The Audio Desktop::
-* Accessing Media Streams::
-* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
-* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
-* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
-* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
-* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
-* Conclusion --- Turning Twenty::
-* References::
-
-
 File: emacspeak.info,  Node: Turning Twenty,  Next: Using UNIX With Speech Output --- 1994,  Up: Emacspeak At Twenty
 
 15.1 Turning Twenty
@@ -872,13 +841,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> TAB:                              emacspeak-info.     (line   38)
 * <f1> \:                                emacspeak-wizards.  (line  486)
 * <fn> !:                                emacspeak-wizards.  (line  304)
-* <fn> ":                                emacspeak-speak.    (line  946)
+* <fn> ":                                emacspeak-pianobar. (line   46)
 * <fn> # a:                              emacspeak-gridtext. (line   28)
 * <fn> # l:                              emacspeak-gridtext. (line   39)
 * <fn> # s:                              emacspeak-gridtext. (line   50)
 * <fn> %:                                emacspeak-speak.    (line  417)
 * <fn> &:                                emacspeak-wizards.  (line 1315)
-* <fn> ':                                emacspeak-pianobar. (line   46)
+* <fn> ':                                emacspeak-speak.    (line  946)
 * <fn> (:                                emacspeak-sounds.   (line   32)
 * <fn> ):                                emacspeak-sounds.   (line   76)
 * <fn> ,:                                emacspeak-speak.    (line  266)
@@ -1276,13 +1245,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-c o <1>:                             emacspeak-muggles.  (line  397)
 * C-c v:                                 emacspeak-muggles.  (line  424)
 * C-e !:                                 emacspeak-wizards.  (line  303)
-* C-e ":                                 emacspeak-speak.    (line  945)
+* C-e ":                                 emacspeak-pianobar. (line   45)
 * C-e # a:                               emacspeak-gridtext. (line   27)
 * C-e # l:                               emacspeak-gridtext. (line   38)
 * C-e # s:                               emacspeak-gridtext. (line   49)
 * C-e %:                                 emacspeak-speak.    (line  416)
 * C-e &:                                 emacspeak-wizards.  (line 1314)
-* C-e ':                                 emacspeak-pianobar. (line   45)
+* C-e ':                                 emacspeak-speak.    (line  945)
 * C-e (:                                 emacspeak-sounds.   (line   31)
 * C-e ):                                 emacspeak-sounds.   (line   75)
 * C-e ,:                                 emacspeak-speak.    (line  265)

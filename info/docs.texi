@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1232 commands and 1185 options.
+This chapter documents a total of 1232 commands and 1174 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1252,11 +1252,11 @@ C-y		emacspeak-clipboard-paste
 ESC		Prefix Command
 SPC		emacspeak-speak-header-line
 !		emacspeak-speak-run-shell-command
-"		emacspeak-speak-sexp
+"		emacspeak-pianobar
 #		emacspeak-gridtext
 %		emacspeak-speak-current-percentage
 &		emacspeak-wizards-shell-command-on-current-file
-'		emacspeak-pianobar
+'		emacspeak-speak-sexp
 (		emacspeak-audio-setup
 )		emacspeak-sounds-select-theme
 ,		emacspeak-speak-browse-buffer
@@ -2658,21 +2658,9 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-group-mail-1-voice
-Personality used for gnus-group-mail-1
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-group-mail-2-empty-voice
 Personality used for gnus-group-mail-2-empty
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-gnus-group-mail-2-voice
-Personality used for gnus-group-mail-2
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
 
 @end defvar
 
@@ -2682,21 +2670,9 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-group-mail-3-voice
-Personality used for gnus-group-mail-3
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-group-mail-low-empty-voice
 Personality used for gnus-group-mail-low-empty
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-gnus-group-mail-low-voice
-Personality used for gnus-group-mail-low
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
 
 @end defvar
 
@@ -2706,21 +2682,9 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-group-news-1-voice
-Personality used for gnus-group-news-1
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-group-news-2-empty-voice
 Personality used for gnus-group-news-2-empty
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-gnus-group-news-2-voice
-Personality used for gnus-group-news-2
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
 
 @end defvar
 
@@ -2730,21 +2694,9 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-group-news-3-voice
-Personality used for gnus-group-news-3
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-group-news-4-empty-voice
 Personality used for gnus-group-news-4-empty
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-gnus-group-news-4-voice
-Personality used for gnus-group-news-4
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
 
 @end defvar
 
@@ -2754,33 +2706,15 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-group-news-5-voice
-Personality used for gnus-group-news-5
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-group-news-6-empty-voice
 Personality used for gnus-group-news-6-empty
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-group-news-6-voice
-Personality used for gnus-group-news-6
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-group-news-low-empty-voice
 Personality used for gnus-group-news-low-empty
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-gnus-group-news-low-voice
-Personality used for gnus-group-news-low
-This personality uses  default whose  effect can be changed globally by customizing default-settings.
 
 @end defvar
 
@@ -11424,6 +11358,17 @@ Location where we cache LIBRIVOX playlists.
 
 LISPY ==  smart Navigation Of Lisp code
 This module speech-enables lispy.
+ @subsection Overview
+Lispy editing keeps delimiters balanced and Lispy navigators
+reliably place point on either the opening or closing delimiter of
+the current s-expression. Emacspeak leverages this fact in the
+type of spoken feedback that is produced. All navigation commands  produce the following:
+@itemize
+@item  Speak the current s-expression when at the front of a sexp.
+@item  Speak the current line with option @code{emacspeak-show-point}
+turned on when at the end of an s-expression.
+@item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
+@end itemize
 
 @node emacspeak-lua
 @section emacspeak-lua
@@ -15388,10 +15333,10 @@ keys from @code{pianobar-key-map}.
 @subsubsection emacspeak-pianobar
 @deffn {Command} emacspeak-pianobar   
 @table @kbd
-@item C-e '
-@kindex C-e '
-@item <fn> '
-@kindex <fn> '
+@item C-e "
+@kindex C-e "
+@item <fn> "
+@kindex <fn> "
 @end table
 
 @findex emacspeak-pianobar
@@ -18358,10 +18303,10 @@ Set punctuation mode for all buffers in current mode.
 @subsubsection emacspeak-speak-sexp
 @deffn {Command} emacspeak-speak-sexp  (&optional arg)
 @table @kbd
-@item C-e "
-@kindex C-e "
-@item <fn> "
-@kindex <fn> "
+@item C-e '
+@kindex C-e '
+@item <fn> '
+@kindex <fn> '
 @end table
 
 @findex emacspeak-speak-sexp
@@ -26142,7 +26087,7 @@ Shutdown listener.
 @findex soundscape-remote
 
 @format
-Activate scapes named names.
+Activate scapes named ‘names’ --- a list of strings.
 
 (fn NAMES)
 @end format
