@@ -78,6 +78,23 @@
   <a name="emacspeak_002dlispy-1" id="emacspeak_002dlispy-1"></a>
   <h3 class="section">12.111 emacspeak-lispy</h3>
   <p>LISPY == smart Navigation Of Lisp code This module
-  speech-enables lispy.</p>
+  speech-enables lispy.</p><a name="Overview-2" id=
+  "Overview-2"></a>
+  <h4 class="subsection">12.111.1 Overview</h4>
+  <p>Lispy editing keeps delimiters balanced and Lispy navigators
+  reliably place point on either the opening or closing delimiter
+  of the current s-expression. Emacspeak leverages this fact in the
+  type of spoken feedback that is produced. All navigation commands
+  produce the following:</p>
+  <ul>
+    <li>Speak the current s-expression when at the front of a
+    sexp.</li>
+    <li>Speak the current line with option
+    <code>emacspeak-show-point</code> turned on when at the end of
+    an s-expression.</li>
+    <li>Produce auditory icon <code>left</code> or
+    <code>right</code> to indicate point being at the beginning or
+    end of current line.</li>
+  </ul>
 </body>
 </html>
