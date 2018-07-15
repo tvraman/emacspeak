@@ -5094,6 +5094,7 @@ following:
      when at the end of an s-expression.
    • Produce auditory icon ‘left’ or ‘right’ to indicate point being at
      the beginning or end of current line.
+   • Indicate with an auditory icon if point did not move.
 
 
 File: emacspeak.info,  Node: emacspeak-lua,  Next: emacspeak-m-player,  Prev: emacspeak-lispy,  Up: Emacspeak Commands And Options
