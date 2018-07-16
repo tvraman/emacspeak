@@ -176,6 +176,7 @@
    ("M-f" emacspeak-frame-label-or-switch-to-labelled-frame)
    ("!" emacspeak-speak-run-shell-command)
    ("#" emacspeak-gridtext)
+   ("$" emacspeak-shell-command)
    ("%" emacspeak-speak-current-percentage)
    ("&" emacspeak-wizards-shell-command-on-current-file)
    ("'" emacspeak-speak-sexp)
