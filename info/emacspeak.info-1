@@ -2739,7 +2739,8 @@ module.
   1. Modules that interface with various TTS engines, e.g.
      ‘espeak-voices’ and ‘dectalk-voices’.
   2. Modules that implement core Emacspeak functionality, e.g.,
-     ‘emacspeak-speak’, ‘voice-lock’ and ‘emacspeak-voices’.
+     ‘emacspeak-speak’, ‘emacspeak-keymap’, ‘voice-lock’ and
+     ‘emacspeak-advice’.
   3. Emacspeak extensions that speech-enable various emacs packages,
      these are all named using the convention
      ‘emacspeak-<mpackagename>’.
