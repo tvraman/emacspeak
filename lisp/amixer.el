@@ -82,7 +82,7 @@
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
-  (cl-declare (special amixer-card amixer-device))
+  (cl-declare (special  amixer-device))
   (let ((fields nil)
         (emacspeak-speak-messages nil)
         (slots nil)
