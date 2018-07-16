@@ -2046,6 +2046,7 @@ Provide an auditory icon if possible."
 (defadvice widen (after emacspeak pre act comp)
   "Announce yourself."
   (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
     (message "You can now edit the entire buffer ")))
 
 (defadvice delete-other-windows (after emacspeak pre act comp)

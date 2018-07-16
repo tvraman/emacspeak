@@ -314,6 +314,22 @@ Indicate  no movement if we did not move."
 
 ;;}}}
 ;;{{{Advice Outliner:
+
+(defadvice lispy-narrow (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'mark-object)
+       (message "Narrowed editing region to %s lines"
+                (count-lines (region-beginning)
+                             (region-end)))))
+
+
+(defadvice lispy-widen (after emacspeak pre act comp)
+  "Announce yourself."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (message "You can now edit the entire buffer ")))
+
 (cl-loop
  for f in
  '(lispy-outline-next lispy-outline-prev lispy-shifttab )
