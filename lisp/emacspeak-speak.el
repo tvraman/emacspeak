@@ -209,7 +209,7 @@ message area.  You can use command
 
 (defun  emacspeak-shell-command (command)
   "Run shell command and speak its output."
-  (interactive)
+  (interactive "sCommand:")
   (let ((output (get-buffer-create "*Emacspeak Shell Command*")))
     (save-current-buffer
       (set-buffer output)
