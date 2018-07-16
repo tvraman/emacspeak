@@ -313,6 +313,20 @@ Indicate  no movement if we did not move."
   (dtk-speak (ad-get-arg 0)))
 
 ;;}}}
+;;{{{Advice Outliner:
+(cl-loop
+ for f in
+ '(lispy-outline-next lispy-outline-prev lispy-shifttab )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))))))
+
+
+;;}}}
 (provide 'emacspeak-lispy)
 ;;{{{ end of file
 
