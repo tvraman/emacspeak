@@ -220,6 +220,52 @@ message area.  You can use command
       (dtk-speak (buffer-string)))))
 
 ;;}}}
+;;{{{ Utility command to run and tabulate shell output
+
+(defvar emacspeak-speak-run-shell-command-history nil
+  "Records history of commands used so far.")
+
+;;;###autoload
+(defun emacspeak-speak-run-shell-command (command &optional read-as-csv)
+  "Invoke shell COMMAND and display its output as a table. The
+results are placed in a buffer in Emacspeak's table browsing
+mode. Optional interactive prefix arg read-as-csv interprets the
+result as csv. . Use this for running shell commands that produce
+tabulated output. This command should be used for shell commands
+that produce tabulated output that works with Emacspeak's table
+recognizer. Verify this first by running the command in a shell
+and executing command `emacspeak-table-display-table-in-region'
+normally bound to \\[emacspeak-table-display-table-in-region]."
+  (interactive
+   (list
+    (read-from-minibuffer "Shell command: "
+                          nil           ;initial input
+                          nil           ; keymap
+                          nil           ;read
+                          'emacspeak-speak-run-shell-command-history)
+    current-prefix-arg))
+  (let ((buffer-name (format "%s" command))
+        (start nil)
+        (end nil))
+    (shell-command command buffer-name)
+    (cl-pushnew   command
+                  emacspeak-speak-run-shell-command-history :test 'string-equal)
+    (save-current-buffer
+      (set-buffer buffer-name)
+      (untabify (point-min) (point-max))
+      (setq start (point-min)
+            end (1- (point-max)))
+      (condition-case nil
+          (cond
+           (read-as-csv (emacspeak-table-view-csv-buffer  (current-buffer)))
+           (t (emacspeak-table-display-table-in-region  start end)))
+        (error
+         (progn
+           (message "Output could not be tabulated correctly")
+           (switch-to-buffer buffer-name)))))))
+
+;;}}}
+
 ;;{{{ Notifications:
 
 (defun emacspeak--notifications-init  ()
