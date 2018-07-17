@@ -70,25 +70,13 @@
   )
 
 ;;}}}
-;;{{{ Utilities:
-
-(defalias  'emacspeak-url-encode 'url-encode-url)
-
-;;}}}
 ;;{{{ forward declarations:
-
+(defalias  'emacspeak-url-encode 'url-encode-url)
 (defvar emacspeak-last-message)
 (defvar emacspeak-resource-directory)
 (defvar emacspeak-sounds-directory)
 (defvar emacspeak-version)
-(defvar semantic--buffer-cache)
-(defvar voice-animate)
-(defvar voice-annotate)
-(defvar voice-bolden)
-(defvar voice-bolden-medium)
-(defvar voice-indent)
-(defvar voice-punctuations-some)
-(defvar voice-smoothen)
+
 
 ;;}}}
 ;;{{{  custom group
