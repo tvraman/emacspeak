@@ -4176,6 +4176,7 @@ external package."
 
 ;;}}}
 ;;{{{ Google Newspaper:
+(declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
 ;;;###autoload
 (defun emacspeak-wizards-google-news ()

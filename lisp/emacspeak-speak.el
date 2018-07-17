@@ -72,18 +72,7 @@
 ;;}}}
 ;;{{{ Utilities:
 
-(defsubst emacspeak-url-encode (str)
-  "URL encode string."
-  (mapconcat
-   #'(lambda (c)
-       (cond ((= c 32) "%20")
-             ((or (and (>= c ?a) (<= c ?z))
-                  (and (>= c ?A) (<= c ?Z))
-                  (and (>= c ?0) (<= c ?9)))
-              (char-to-string c))
-             (t (upcase (format "%%%02x" c)))))
-   str
-   ""))
+(defalias  'emacspeak-url-encode 'url-encode-url)
 
 ;;}}}
 ;;{{{ forward declarations:
