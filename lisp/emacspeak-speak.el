@@ -210,12 +210,14 @@ message area.  You can use command
 (defun  emacspeak-shell-command (command)
   "Run shell command and speak its output."
   (interactive "sCommand:")
-  (let ((output (get-buffer-create "*Emacspeak Shell Command*")))
-    (save-current-buffer
-      (set-buffer output)
+  (cl-declare (special default-directory))
+  (let ((directory default-directory)
+        (output (get-buffer-create "*Emacspeak Shell Command*")))
+    (with-current-buffer output 
       (erase-buffer)
+      (setq default-directory directory)
       (ems-with-messages-silenced
-       (shell-command command output))
+          (shell-command command output))
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
 
