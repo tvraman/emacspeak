@@ -238,7 +238,6 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
            (switch-to-buffer buffer-name)))))))
 
 ;;}}}
-
 ;;{{{ Notifications:
 
 (defun emacspeak--notifications-init  ()
