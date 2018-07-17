@@ -2,6 +2,8 @@
     "lispy"
   `(progn
      (define-key lispy-mode-map (kbd "M-m") nil)
+     (define-key lispy-mode-map "a" 'special-lispy-beginning-of-defun)
+     (define-key lispy-mode-map "A" 'special-lispy-ace-symbol)
      (define-key lispy-mode-map (kbd "C-,") nil)
      (define-key lispy-mode-map [(control left)] 'lispy-barf)
      (define-key lispy-mode-map [(control right)] 'lispy-slurp)
@@ -24,9 +26,9 @@
 ;;;###autoload
 ;;;  Lispy for eval-expression:
 
-(defun conditionally-enable-lispy ()
-  (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
-    (lispy-mode 1)))
-(add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
+     (defun conditionally-enable-lispy ()
+       (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
+         (lispy-mode 1)))
+     (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
 
      ))
