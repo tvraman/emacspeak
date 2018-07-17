@@ -96,7 +96,11 @@ q:
 	make clean
 	make config 
 	make
-	cd lisp && make muggles 
+	cd lisp && make muggles
+	cd	 tvr && make
+
+qq:
+	make -s -j q 2>&1 |grep -v Loading 
 
 # }}}
 # {{{  user level target-- clean
