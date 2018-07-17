@@ -79,25 +79,11 @@
 
 
 ;;}}}
-;;{{{  custom group
-
-(defgroup emacspeak-speak nil
-  "Basic speech output commands."
-  :group 'emacspeak)
-
-;;}}}
 ;;{{{ This line:
 
 (defun ems-this-line ()
   "Return current line as string."
   (buffer-substring (line-beginning-position) (line-end-position)))
-
-;;}}}
-;;{{{ same-line-p
-
-(defun ems-same-line-p (start end)
-  "Check if start and end are in the same line."
-  (= (count-lines start end) 1))
 
 ;;}}}
 ;;{{{ Helper: voicify string
