@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2017, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -287,6 +288,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
 (defvar emacspeak-notifications-gc-timer
   (run-at-time 1800 1800 #'emacspeak-notifications-truncate)
   "Idle timer that runs every 30 minutes to cleanup notifications.")
+
 ;;}}}
 ;;{{{ Completion helper:
 
@@ -585,50 +587,6 @@ Argument MODE defines action mode."
 (ems-generate-switcher 'emacspeak-toggle-action-mode
                        'emacspeak-action-mode
                        "Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.")
-
-;;}}}
-;;{{{  line, Word and Character echo
-
-;;;###autoload
-(defcustom emacspeak-line-echo nil
-  "If t, then emacspeak echoes lines as you type.
-You can use \\[emacspeak-toggle-line-echo] to set this
-option."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
-(ems-generate-switcher 'emacspeak-toggle-line-echo
-                       'emacspeak-line-echo
-                       "Toggle state of  Emacspeak  line echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.")
-;;;###autoload
-(defcustom emacspeak-word-echo t
-  "If t, then emacspeak echoes words as you type.
-You can use \\[emacspeak-toggle-word-echo] to toggle this
-option."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
-(ems-generate-switcher ' emacspeak-toggle-word-echo
-                         'emacspeak-word-echo
-                         "Toggle state of  Emacspeak  word echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.")
-;;;###autoload
-(defcustom emacspeak-character-echo t
-  "If t, then emacspeak echoes characters  as you type.
-You can
-use \\[emacspeak-toggle-character-echo] to toggle this
-setting."
-  :group 'emacspeak-speak
-  :type 'boolean)
-
-(ems-generate-switcher ' emacspeak-toggle-character-echo
-                         'emacspeak-character-echo
-                         "Toggle state of  Emacspeak  character echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
