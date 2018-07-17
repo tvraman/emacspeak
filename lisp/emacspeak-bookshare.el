@@ -344,7 +344,7 @@ Optional argument 'no-auth says we dont need a user auth."
             'result)))
       (cl-loop
        for r in result collect
-       (emacspeak-url-encode (dom-text (dom-by-tag r  'name))))))))
+       (url-encode-url (dom-text (dom-by-tag r  'name))))))))
 
 ;;;  Following actions return book metadata:
 
@@ -381,7 +381,7 @@ Optional argument 'no-auth says we dont need a user auth."
 Interactive prefix arg filters search by category."
   (interactive
    (list
-    (emacspeak-url-encode
+    (url-encode-url
      (read-from-minibuffer "author: "))
     current-prefix-arg))
   (cond
@@ -402,7 +402,7 @@ Interactive prefix arg filters search by category."
 Interactive prefix arg filters search by category."
   (interactive
    (list
-    (emacspeak-url-encode
+    (url-encode-url
      (read-from-minibuffer "Title: "))
     current-prefix-arg))
   (cond

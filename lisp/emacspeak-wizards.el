@@ -3056,7 +3056,7 @@ sorted in lexical order with duplicates removed when saving."
   "Return YQL select statement for specified list of symbols."
   (let ((qt "select * from yahoo.finance.quotes where symbol in (\"%s\")")
         (tickers-string (mapconcat #'identity  symbols "\",\"")))
-    (emacspeak-url-encode (format qt tickers-string))))
+    (url-encode-url (format qt tickers-string))))
 
 (defun emacspeak-wizards-yq-url (symbols)
   "Return query url."

@@ -403,7 +403,7 @@ With a prefix argument, extracts url under point."
   (cl-declare (special emacspeak-webutils-google-transcoder-url))
   (browse-url
    (format emacspeak-webutils-google-transcoder-url
-           (emacspeak-url-encode url))))
+           (url-encode-url url))))
 
 ;;;###autoload
 (defun emacspeak-webutils-transcode-via-google (&optional untranscode)

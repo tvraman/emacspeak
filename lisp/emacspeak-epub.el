@@ -808,7 +808,7 @@ Suitable for text searches."
   (cl-declare (special emacspeak-epub-google-search-template))
   (emacspeak-feeds-atom-display
    (format emacspeak-epub-google-search-template
-           (emacspeak-url-encode query))))
+           (url-encode-url query))))
 
 (defun emacspeak-epub-next ()
   "Move to next book."

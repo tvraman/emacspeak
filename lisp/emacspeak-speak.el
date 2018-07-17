@@ -71,15 +71,6 @@
   )
 
 ;;}}}
-;;{{{ forward declarations:
-(defalias  'emacspeak-url-encode 'url-encode-url)
-(defvar emacspeak-last-message)
-(defvar emacspeak-resource-directory)
-(defvar emacspeak-sounds-directory)
-(defvar emacspeak-version)
-
-
-;;}}}
 ;;{{{  custom group
 
 (defgroup emacspeak-speak nil

@@ -93,7 +93,7 @@
                               ((stringp g)
                                (if (emacspeak-url-template-dont-url-encode ut)
                                    (read-from-minibuffer g)
-                                 (emacspeak-url-encode (read-from-minibuffer g))))
+                                 (url-encode-url (read-from-minibuffer g))))
                               (t (funcall g))))
                        input))
                  (emacspeak-url-template-generators ut)))))

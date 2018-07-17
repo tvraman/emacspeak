@@ -291,7 +291,7 @@ Optional prefix arg `offset' prompts for offset."
   (when offset (setq offset (read-number "Offset: ")))
   (emacspeak-librivox-search
    (format "genre=%s"
-           (emacspeak-url-encode genre))
+           (url-encode-url genre))
    offset))
 
 ;;;###autoload
@@ -304,7 +304,7 @@ Optional prefix arg `offset' prompts for offset."
     (setq offset (read-number "Offset: ")))
   (emacspeak-librivox-search
    (format "author=%s"
-           (emacspeak-url-encode author))
+           (url-encode-url author))
    offset))
 
 ;;;###autoload
@@ -315,7 +315,7 @@ more results."
   (interactive "sTitle: \nP")
   (emacspeak-librivox-search
    (format "title=%s"
-           (emacspeak-url-encode title))
+           (url-encode-url title))
    offset))
 
 ;;}}}
