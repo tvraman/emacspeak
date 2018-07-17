@@ -79,6 +79,13 @@
 
 
 ;;}}}
+;;{{{  custom group
+
+(defgroup emacspeak-speak nil
+  "Basic speech output commands."
+  :group 'emacspeak)
+
+;;}}}
 ;;{{{ This line:
 
 (defun ems-this-line ()
