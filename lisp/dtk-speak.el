@@ -695,13 +695,15 @@ Argument COMPLEMENT  is the complement of separator."
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
   (let ((initial-value (get-text-property start  prop object)))
-    (if (atom initial-value)
-        (next-single-property-change start prop object limit)
+    (cond
+     ((atom initial-value)
+      (next-single-property-change start prop object limit))
+     (t
       (let ((pos start))
-        (while  (and (< pos limit)
-                     (equal initial-value (get-text-property pos prop object)))
+        (while (and (< pos limit)
+                    (equal initial-value (get-text-property pos prop object)))
           (setq pos (next-single-property-change pos prop object limit)))
-        pos))))
+        pos)))))
 
 (defun dtk-previous-style-change (start &optional end)
   "Get position of previous style change from start to end. Here, style
