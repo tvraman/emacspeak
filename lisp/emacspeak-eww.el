@@ -756,6 +756,8 @@ Retain previously set punctuations  mode."
     (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique))
     (when alt
       (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
+    (emacspeak-audio-annotate-paragraphs)
+    (emacspeak-speak-voice-annotate-paragraphs)
     (cond
      (emacspeak-web-post-process-hook
       (emacspeak-webutils-run-post-process-hook))
