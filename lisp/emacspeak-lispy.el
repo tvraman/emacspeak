@@ -250,6 +250,12 @@ Indicate  no movement if we did not move."
 
 ;;}}}
 ;;{{{Advice Kill/Yank:
+(defadvice lispy-new-copy (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (message "region containing %s chars copied to kill ring "
+                (length (current-kill 0)))))
 
 (cl-loop
  for f in
@@ -340,7 +346,6 @@ Indicate  no movement if we did not move."
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
-
 
 ;;}}}
 (provide 'emacspeak-lispy)
