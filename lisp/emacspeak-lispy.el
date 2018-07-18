@@ -164,7 +164,7 @@ Indicate  no movement if we did not move."
 
 (cl-loop
  for f in
- '(lispy-colon lispy-hash lispy-hat)
+ '(lispy-at lispy-colon lispy-hash lispy-hat)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
