@@ -682,12 +682,13 @@ Argument COMPLEMENT  is the complement of separator."
             (overlays-at pos)))))
 
 (defun tts-get-overlay-face (pos)
-  "Returnface at the front of the overlay list at pos."
+  "Return face or font-lock-face at the front of the overlay list at pos."
   (car
    (delete nil
            (mapcar
             #'(lambda (o)
-                (overlay-get o 'face))
+                (or (overlay-get o 'face)
+                    (overlay-get o 'font-lock-face)))
             (overlays-at pos)))))
 
 (defun next-true-single-property-change (start  prop object  limit)
