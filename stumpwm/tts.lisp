@@ -3,7 +3,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Interface Common Lisp (SBCL)  to Emacspeak TTS servers
 ;;; Keywords: stumpwm, Emacspeak, Audio Desktop
-;;; {  LCD Archive entry:
+;;{{{   LCD Archive entry:
 
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -13,8 +13,8 @@
 ;;; Location undetermined
 ;;;
 
-;;; }
-;;; {  Copyright:
+;;}}} 
+;;{{{   Copyright:
 
 ;;; Copyright (C)  2011, T. V. Raman<raman@cs.cornell.edu>
 ;;; All Rights Reserved.
@@ -35,15 +35,15 @@
 ;;; along with GNU Emacs; see the file COPYING.  If not, write to
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
-;;; }
-;;; { Introduction:
+;;}}} 
+;;{{{  Introduction:
 
 ;;; Commentary:
 ;;; Interface Common  Lisp  to Emacspeak TTS servers
 
-;;; }
+;;}}} 
 (in-package :stumpwm)
-;;; { Settings
+;;{{{  Settings
 
 (defvar *emacspeak* "/usr/share/emacs/site-lisp/emacspeak/"
   "Root of Emacspeak installation.")
@@ -66,8 +66,8 @@
 (defvar *tts-engine* *tts-dtk*
   "Default TTS  engine. User settable.")
 
-;;; }
-;;; {Internal  Functions
+;;}}} 
+;;{{{ Internal  Functions
 
 (defun tts-open ()
   "Open a TTS session."
@@ -108,8 +108,8 @@
     (write-line "d" i)
     (force-output i)))
 
-;;; }
-;;; {Exported Functions
+;;}}} 
+;;{{{ Exported Functions
 (defun tts-stop ()
   "Stop speech."
   (let ((i (sb-ext:process-input *tts-process*)))
@@ -164,14 +164,14 @@
     (write-line (format nil "l ~a" text) i)
     (force-output i)))
 
-;;; }
+;;}}} 
 (provide 'tts)
 
-;;; { end of file
+;;{{{  end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end:
 
-;;; }
+;;}}} 
