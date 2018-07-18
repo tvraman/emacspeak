@@ -134,7 +134,7 @@ Indicate  no movement if we did not move."
 ;;}}}
 ;;{{{Advice Insertions:
 
-(defadvice lispy-clone (before emacspeak pre act comp)
+(defadvice lispy-clone (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-sexp)
