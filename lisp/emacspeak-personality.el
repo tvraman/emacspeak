@@ -414,14 +414,14 @@ Append means place corresponding personality at the end."
       (when
           (and
            (or (eq prop 'face)
+               (eq prop 'font-lock-face)
                (and (eq prop 'category) (get value 'face)))
            (integer-or-marker-p (overlay-start overlay))
            (integer-or-marker-p (overlay-end overlay)))
         (and (eq prop 'category) (setq value (get value 'face)))
         (setq voice (ems-get-voice-for-face value))
         (when voice
-          (save-current-buffer
-            (set-buffer (overlay-buffer overlay))
+          (with-current-buffer (overlay-buffer overlay)
             (funcall emacspeak-personality-voiceify-overlays
                      (overlay-start overlay) (overlay-end overlay)
                      voice (overlay-buffer overlay))))))))
@@ -437,8 +437,7 @@ Append means place corresponding personality at the end."
       (when
           (and  buffer
                 (emacspeak-personality-plist-face-p (overlay-properties o)))
-        (save-current-buffer
-          (set-buffer (overlay-buffer overlay))
+        (with-current-buffer (overlay-buffer overlay)
           (condition-case nil 
           (put-text-property start end 'personality nil)
           (error nil))))))))
