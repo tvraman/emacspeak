@@ -167,7 +167,6 @@
  'emacs-startup-hook
  #'(lambda ()
      (delete-other-windows)
-     (setq gc-cons-threshold 1000000)
      (message "<Successfully initialized Emacs for %s in %s with %s gcs (%.2fs)>"
               user-login-name (emacs-init-time) gcs-done gc-elapsed)))
 
