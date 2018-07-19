@@ -158,7 +158,7 @@
        (emacspeak-dbus-watch-screen-lock))
      (emacspeak-wizards-project-shells-initialize)
      (start-process
-      "play" nil "play"
+      "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
      (tvr-time-it after-start "after-init"))))
 
@@ -180,10 +180,10 @@
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode 1)
   (hs-minor-mode 1)
-  (if
-      (memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
-      (lispy-mode 1)
-    (smartparens-mode 1))
+  (cond
+   ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
+    (lispy-mode 1))
+   (t (smartparens-mode 1)))
   (yas-minor-mode 1)
   (abbrev-mode 1))
 
@@ -207,8 +207,7 @@
 
    (setq inhibit-startup-echo-area-message user-login-name
          initial-scratch-message ""
-         initial-buffer-choice t
-         text-quoting-style 'grave)
+         initial-buffer-choice t)
    (tooltip-mode -1)
    (menu-bar-mode -1)
    (tool-bar-mode -1)
