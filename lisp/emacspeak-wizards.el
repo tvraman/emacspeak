@@ -228,7 +228,6 @@ Prompts for the new location and preserves modification time
     (message "Symlinked  current doc>ument to %s" location)))
 
 ;;}}}
-
 ;;{{{ pop up messages buffer
 
 ;;; Internal variable to memoize window configuration
