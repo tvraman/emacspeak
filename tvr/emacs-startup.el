@@ -230,7 +230,7 @@
       ("<f3>" bury-buffer)
       ("<f4>" emacspeak-kill-buffer-quietly)
       ("M--" undo)
-      ("<f11> " shell)
+      ("<f11>" shell)
       ("<f12>" vm)
       ("M-r" replace-string)
       ("M-e" emacspeak-wizards-end-of-word)
