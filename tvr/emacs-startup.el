@@ -225,21 +225,22 @@
 
    (prefer-coding-system 'utf-8-emacs)
    (cl-loop
-    for  key in
+    for key in
     '(
       ("<f3>" bury-buffer)
       ("<f4>" emacspeak-kill-buffer-quietly)
       ("M--" undo)
-      ("<f11> "shell)
+      ("<f11> " shell)
       ("<f12>" vm)
-      ( "M-r"replace-string)
-      ("M-e"emacspeak-wizards-end-of-word)
-      ( "M-C-j"imenu)
-      ("M-C-c"calendar)
+      ("M-r" replace-string)
+      ("M-e" emacspeak-wizards-end-of-word)
+      ("M-C-j" imenu)
+      ("M-C-c" calendar)
       ("C-RET" hippie-expand))
     do
     (global-set-key (kbd (cl-first key)) (cl-second key)))
-   (cl-loop ; shell wizard
+   
+   (cl-loop                             ; shell wizard
     for i from 0 to 9 do
     (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
    (global-set-key  (kbd "C-c <tab>") 'hs-toggle-hiding)
