@@ -983,7 +983,7 @@ with auditory icon `more'.  These can then be spoken using command
        (cond
         ((bolp) 'left)
         ((eolp) 'right)
-        (t 'item))))
+        (t 'tick-tick))))
     (setq line
           (if emacspeak-show-point
               (ems-set-pause-temporarily
