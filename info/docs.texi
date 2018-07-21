@@ -1254,6 +1254,7 @@ SPC		emacspeak-speak-header-line
 !		emacspeak-speak-run-shell-command
 "		emacspeak-pianobar
 #		emacspeak-gridtext
+$		emacspeak-shell-command
 %		emacspeak-speak-current-percentage
 &		emacspeak-wizards-shell-command-on-current-file
 '		emacspeak-speak-sexp
@@ -3950,54 +3951,6 @@ This personality uses  voice-animate-extra whose  effect can be changed globally
 
 @defvar {User Option} emacspeak-play-emacspeak-startup-icon
 If set to T, emacspeak plays its icon as it launches.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-isearch-match-voice
-Personality used for popup-isearch-match
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-menu-mouse-personality
-Personality used for popup-menu-mouse-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-menu-personality
-Personality used for popup-menu-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-menu-selection-personality
-Personality used for popup-menu-selection-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-menu-summary-personality
-Personality used for popup-menu-summary-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-personality
-Personality used for popup-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-summary-personality
-Personality used for popup-summary-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-popup-tip-personality
-Personality used for popup-tip-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -15425,6 +15378,56 @@ Number of presets.
 
 POPUP ==  popup.el from MELPA
 
+@subsection emacspeak-popup Options
+
+@defvar {User Option} emacspeak-popup-isearch-match-voice
+Personality used for popup-isearch-match
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-mouse-personality
+Personality used for popup-menu-mouse-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-personality
+Personality used for popup-menu-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-selection-personality
+Personality used for popup-menu-selection-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-summary-personality
+Personality used for popup-menu-summary-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-personality
+Personality used for popup-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-summary-personality
+Personality used for popup-summary-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-tip-personality
+Personality used for popup-tip-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @node emacspeak-proced
 @section emacspeak-proced
 
@@ -17259,6 +17262,13 @@ Call search defined in <search>.
 
 @subsubsection emacspeak-shell-command
 @deffn {Command} emacspeak-shell-command  (command)
+@table @kbd
+@item C-e $
+@kindex C-e $
+@item <fn> $
+@kindex <fn> $
+@end table
+
 @findex emacspeak-shell-command
 
 @format
@@ -18246,6 +18256,32 @@ Speak remainder of the buffer starting at point
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-run-shell-command
+@deffn {Command} emacspeak-speak-run-shell-command  (command &optional read-as-csv)
+@table @kbd
+@item C-e !
+@kindex C-e !
+@item <fn> !
+@kindex <fn> !
+@end table
+
+@findex emacspeak-speak-run-shell-command
+
+@format
+Invoke shell COMMAND and display its output as a table. The
+results are placed in a buffer in Emacspeak’s table browsing
+mode. Optional interactive prefix arg read-as-csv interprets the
+result as csv. . Use this for running shell commands that produce
+tabulated output. This command should be used for shell commands
+that produce tabulated output that works with Emacspeak’s table
+recognizer. Verify this first by running the command in a shell
+and executing command ‘emacspeak-table-display-table-in-region’
+normally bound to C-e M-i.
+
+(fn COMMAND &optional READ-AS-CSV)
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-seconds-since-epoch
 @deffn {Command} emacspeak-speak-seconds-since-epoch  (seconds)
 @findex emacspeak-speak-seconds-since-epoch
@@ -18700,7 +18736,7 @@ Toggle Emacspeak’s default header line.
 
 @format
 Toggle comint-autospeak when in a comint buffer.
-Otherwise call voice-setup-toggle-silence-personality which toggles the 
+Otherwise call voice-setup-toggle-silence-personality which toggles the
 personality under point.
 @end format
 @end deffn
@@ -23116,32 +23152,6 @@ Signals end of buffer.
 Pop up messages buffer.
 If it is already selected then hide it and try to restore
 previous window configuration.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-run-shell-command
-@deffn {Command} emacspeak-speak-run-shell-command  (command &optional read-as-csv)
-@table @kbd
-@item C-e !
-@kindex C-e !
-@item <fn> !
-@kindex <fn> !
-@end table
-
-@findex emacspeak-speak-run-shell-command
-
-@format
-Invoke shell COMMAND and display its output as a table. The
-results are placed in a buffer in Emacspeak’s table browsing
-mode. Optional interactive prefix arg read-as-csv interprets the
-result as csv. . Use this for running shell commands that produce
-tabulated output. This command should be used for shell commands
-that produce tabulated output that works with Emacspeak’s table
-recognizer. Verify this first by running the command in a shell
-and executing command ‘emacspeak-table-display-table-in-region’
-normally bound to C-e M-i.
-
-(fn COMMAND &optional READ-AS-CSV)
 @end format
 @end deffn
 

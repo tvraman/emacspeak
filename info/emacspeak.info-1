@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 15, 2018.
+last updated on July 21, 2018.
 
    The manual is divided into the following chapters:
 
@@ -3749,6 +3749,7 @@ system.
      !		emacspeak-speak-run-shell-command
      "		emacspeak-pianobar
      #		emacspeak-gridtext
+     $		emacspeak-shell-command
      %		emacspeak-speak-current-percentage
      &		emacspeak-wizards-shell-command-on-current-file
      ’		emacspeak-speak-sexp
@@ -6045,46 +6046,6 @@ system.
 
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
      If set to T, emacspeak plays its icon as it launches.
-
- -- Variable: User Option emacspeak-popup-isearch-match-voice
-     Personality used for popup-isearch-match This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-popup-menu-mouse-personality
-     Personality used for popup-menu-mouse-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-popup-menu-personality
-     Personality used for popup-menu-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-popup-menu-selection-personality
-     Personality used for popup-menu-selection-face This personality
-     uses voice-lighten whose effect can be changed globally by
-     customizing voice-lighten-settings.
-
- -- Variable: User Option emacspeak-popup-menu-summary-personality
-     Personality used for popup-menu-summary-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-popup-personality
-     Personality used for popup-face This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-popup-summary-personality
-     Personality used for popup-summary-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-popup-tip-personality
-     Personality used for popup-tip-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-query-replace-voice
      Personality used for query-replace This personality uses
