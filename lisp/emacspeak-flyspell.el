@@ -118,8 +118,8 @@ fly spell checking."
 
 (defcustom emacspeak-flyspell-correct
   (cond
-   ((locate-library "flyspell-correct-popup") 'flyspell-correct-popup)
    ((locate-library "flyspell-correct-ido") 'flyspell-correct-ido)
+   ((locate-library "flyspell-correct-popup") 'flyspell-correct-popup)
    ((locate-library "flyspell-correct-helm") 'flyspell-correct-helm)
    (t nil))
   "Correction style to use with flyspell."
