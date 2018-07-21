@@ -612,7 +612,14 @@ Default is to read the previous word.
     <strong>emacspeak-shell-command</strong>
     <em>(command)</em></dt>
     <dd>
-      <a name="index-emacspeak_002dshell_002dcommand-1" id=
+      <dl compact="compact">
+        <dt><kbd>C-e $</kbd></dt>
+        <dd><a name="index-C_002de-_0024" id=
+        "index-C_002de-_0024"></a></dd>
+        <dt><kbd>&lt;fn&gt; $</kbd></dt>
+        <dd><a name="index-_003cfn_003e-_0024" id=
+        "index-_003cfn_003e-_0024"></a></dd>
+      </dl><a name="index-emacspeak_002dshell_002dcommand-1" id=
       "index-emacspeak_002dshell_002dcommand-1"></a>
       <div class="format">
         <pre class="format">Run shell command and speak its output.
@@ -2200,10 +2207,48 @@ Argument START  and END specify region to speak.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dspeak_002drun_002dshell_002dcommand"
+  id="emacspeak_002dspeak_002drun_002dshell_002dcommand"></a>
+  <h4 class="subsubsection">12.172.1.82
+  emacspeak-speak-run-shell-command</h4>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002drun_002dshell_002dcommand" id=
+    "index-emacspeak_002dspeak_002drun_002dshell_002dcommand"></a>Command:
+    <strong>emacspeak-speak-run-shell-command</strong> <em>(command
+    &amp;optional read-as-csv)</em></dt>
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-e !</kbd></dt>
+        <dd><a name="index-C_002de-_0021" id=
+        "index-C_002de-_0021"></a></dd>
+        <dt><kbd>&lt;fn&gt; !</kbd></dt>
+        <dd><a name="index-_003cfn_003e-_0021" id=
+        "index-_003cfn_003e-_0021"></a></dd>
+      </dl><a name=
+      "index-emacspeak_002dspeak_002drun_002dshell_002dcommand-1"
+      id=
+      "index-emacspeak_002dspeak_002drun_002dshell_002dcommand-1"></a>
+      <div class="format">
+        <pre class="format">
+        Invoke shell COMMAND and display its output as a table. The
+results are placed in a buffer in Emacspeak’s table browsing
+mode. Optional interactive prefix arg read-as-csv interprets the
+result as csv. . Use this for running shell commands that produce
+tabulated output. This command should be used for shell commands
+that produce tabulated output that works with Emacspeak’s table
+recognizer. Verify this first by running the command in a shell
+and executing command ‘emacspeak-table-display-table-in-region’
+normally bound to C-e M-i.
+
+(fn COMMAND &amp;optional READ-AS-CSV)
+</pre>
+      </div>
+    </dd>
   </dl><a name=
   "emacspeak_002dspeak_002dseconds_002dsince_002depoch" id=
   "emacspeak_002dspeak_002dseconds_002dsince_002depoch"></a>
-  <h4 class="subsubsection">12.172.1.82
+  <h4 class="subsubsection">12.172.1.83
   emacspeak-speak-seconds-since-epoch</h4>
   <dl>
     <dt><a name=
@@ -2227,7 +2272,7 @@ Argument START  and END specify region to speak.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dsentence" id=
   "emacspeak_002dspeak_002dsentence"></a>
-  <h4 class="subsubsection">12.172.1.83
+  <h4 class="subsubsection">12.172.1.84
   emacspeak-speak-sentence</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dsentence" id=
@@ -2248,7 +2293,7 @@ Negative prefix arg speaks from start of sentence to point.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dset_002ddisplay_002dtable"
   id="emacspeak_002dspeak_002dset_002ddisplay_002dtable"></a>
-  <h4 class="subsubsection">12.172.1.84
+  <h4 class="subsubsection">12.172.1.85
   emacspeak-speak-set-display-table</h4>
   <dl>
     <dt><a name=
@@ -2274,7 +2319,7 @@ setting to be global.
   </dl><a name=
   "emacspeak_002dspeak_002dset_002dmode_002dpunctuations" id=
   "emacspeak_002dspeak_002dset_002dmode_002dpunctuations"></a>
-  <h4 class="subsubsection">12.172.1.85
+  <h4 class="subsubsection">12.172.1.86
   emacspeak-speak-set-mode-punctuations</h4>
   <dl>
     <dt><a name=
@@ -2305,7 +2350,7 @@ setting to be global.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dsexp" id=
   "emacspeak_002dspeak_002dsexp"></a>
-  <h4 class="subsubsection">12.172.1.86 emacspeak-speak-sexp</h4>
+  <h4 class="subsubsection">12.172.1.87 emacspeak-speak-sexp</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dsexp-1" id=
     "index-emacspeak_002dspeak_002dsexp-1"></a>Command:
@@ -2333,7 +2378,7 @@ If option  ‘voice-lock-mode’ is on, then uses the personality.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dsexp_002dinteractively" id=
   "emacspeak_002dspeak_002dsexp_002dinteractively"></a>
-  <h4 class="subsubsection">12.172.1.87
+  <h4 class="subsubsection">12.172.1.88
   emacspeak-speak-sexp-interactively</h4>
   <dl>
     <dt><a name=
@@ -2357,7 +2402,7 @@ any other key to speak entire sexp.
   "emacspeak_002dspeak_002dshow_002dactive_002dnetwork_002dinterfaces"
   id=
   "emacspeak_002dspeak_002dshow_002dactive_002dnetwork_002dinterfaces"></a>
-  <h4 class="subsubsection">12.172.1.88
+  <h4 class="subsubsection">12.172.1.89
   emacspeak-speak-show-active-network-interfaces</h4>
   <dl>
     <dt><a name=
@@ -2392,7 +2437,7 @@ also copied to the kill ring for convenient yanking.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dskim_002dbuffer" id=
   "emacspeak_002dspeak_002dskim_002dbuffer"></a>
-  <h4 class="subsubsection">12.172.1.89
+  <h4 class="subsubsection">12.172.1.90
   emacspeak-speak-skim-buffer</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dskim_002dbuffer" id=
@@ -2410,7 +2455,7 @@ also copied to the kill ring for convenient yanking.
   </dl><a name=
   "emacspeak_002dspeak_002dskim_002dnext_002dparagraph" id=
   "emacspeak_002dspeak_002dskim_002dnext_002dparagraph"></a>
-  <h4 class="subsubsection">12.172.1.90
+  <h4 class="subsubsection">12.172.1.91
   emacspeak-speak-skim-next-paragraph</h4>
   <dl>
     <dt><a name=
@@ -2430,7 +2475,7 @@ also copied to the kill ring for convenient yanking.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dskim_002dparagraph" id=
   "emacspeak_002dspeak_002dskim_002dparagraph"></a>
-  <h4 class="subsubsection">12.172.1.91
+  <h4 class="subsubsection">12.172.1.92
   emacspeak-speak-skim-paragraph</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dskim_002dparagraph"
@@ -2450,7 +2495,7 @@ Speech is scaled by the value of dtk-speak-skim-scale
     </dd>
   </dl><a name="emacspeak_002dspeak_002dspaces_002dat_002dpoint"
   id="emacspeak_002dspeak_002dspaces_002dat_002dpoint"></a>
-  <h4 class="subsubsection">12.172.1.92
+  <h4 class="subsubsection">12.172.1.93
   emacspeak-speak-spaces-at-point</h4>
   <dl>
     <dt><a name=
@@ -2481,7 +2526,7 @@ Speech is scaled by the value of dtk-speak-skim-scale
     </dd>
   </dl><a name="emacspeak_002dspeak_002dspell_002dcurrent_002dword"
   id="emacspeak_002dspeak_002dspell_002dcurrent_002dword"></a>
-  <h4 class="subsubsection">12.172.1.93
+  <h4 class="subsubsection">12.172.1.94
   emacspeak-speak-spell-current-word</h4>
   <dl>
     <dt><a name=
@@ -2500,7 +2545,7 @@ Speech is scaled by the value of dtk-speak-skim-scale
     </dd>
   </dl><a name="emacspeak_002dspeak_002dtext_002drange" id=
   "emacspeak_002dspeak_002dtext_002drange"></a>
-  <h4 class="subsubsection">12.172.1.94
+  <h4 class="subsubsection">12.172.1.95
   emacspeak-speak-text-range</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dtext_002drange" id=
@@ -2520,7 +2565,7 @@ Speech is scaled by the value of dtk-speak-skim-scale
     </dd>
   </dl><a name="emacspeak_002dspeak_002dthis_002dface_002dchunk"
   id="emacspeak_002dspeak_002dthis_002dface_002dchunk"></a>
-  <h4 class="subsubsection">12.172.1.95
+  <h4 class="subsubsection">12.172.1.96
   emacspeak-speak-this-face-chunk</h4>
   <dl>
     <dt><a name=
@@ -2540,7 +2585,7 @@ Speech is scaled by the value of dtk-speak-skim-scale
   </dl><a name=
   "emacspeak_002dspeak_002dthis_002dpersonality_002dchunk" id=
   "emacspeak_002dspeak_002dthis_002dpersonality_002dchunk"></a>
-  <h4 class="subsubsection">12.172.1.96
+  <h4 class="subsubsection">12.172.1.97
   emacspeak-speak-this-personality-chunk</h4>
   <dl>
     <dt><a name=
@@ -2563,7 +2608,7 @@ personality.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dtime" id=
   "emacspeak_002dspeak_002dtime"></a>
-  <h4 class="subsubsection">12.172.1.97 emacspeak-speak-time</h4>
+  <h4 class="subsubsection">12.172.1.98 emacspeak-speak-time</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dtime-1" id=
     "index-emacspeak_002dspeak_002dtime-1"></a>Command:
@@ -2591,7 +2636,7 @@ Second interactive prefix sets clock to new timezone.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dversion" id=
   "emacspeak_002dspeak_002dversion"></a>
-  <h4 class="subsubsection">12.172.1.98
+  <h4 class="subsubsection">12.172.1.99
   emacspeak-speak-version</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dversion-1" id=
@@ -2619,7 +2664,7 @@ Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision num
     </dd>
   </dl><a name="emacspeak_002dspeak_002dvisual_002dline" id=
   "emacspeak_002dspeak_002dvisual_002dline"></a>
-  <h4 class="subsubsection">12.172.1.99
+  <h4 class="subsubsection">12.172.1.100
   emacspeak-speak-visual-line</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dvisual_002dline" id=
@@ -2637,7 +2682,7 @@ Cues the start of a physical line with auditory icon ‘left’.
   </dl><a name=
   "emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs" id=
   "emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs"></a>
-  <h4 class="subsubsection">12.172.1.100
+  <h4 class="subsubsection">12.172.1.101
   emacspeak-speak-voice-annotate-paragraphs</h4>
   <dl>
     <dt><a name=
@@ -2662,7 +2707,7 @@ Useful to do this before you listen to an entire buffer.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dwhich_002dfunction" id=
   "emacspeak_002dspeak_002dwhich_002dfunction"></a>
-  <h4 class="subsubsection">12.172.1.101
+  <h4 class="subsubsection">12.172.1.102
   emacspeak-speak-which-function</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dwhich_002dfunction"
@@ -2690,7 +2735,7 @@ semantic to do the work.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dwindow_002dinformation" id=
   "emacspeak_002dspeak_002dwindow_002dinformation"></a>
-  <h4 class="subsubsection">12.172.1.102
+  <h4 class="subsubsection">12.172.1.103
   emacspeak-speak-window-information</h4>
   <dl>
     <dt><a name=
@@ -2716,7 +2761,7 @@ semantic to do the work.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dword" id=
   "emacspeak_002dspeak_002dword"></a>
-  <h4 class="subsubsection">12.172.1.103 emacspeak-speak-word</h4>
+  <h4 class="subsubsection">12.172.1.104 emacspeak-speak-word</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dword-1" id=
     "index-emacspeak_002dspeak_002dword-1"></a>Command:
@@ -2745,7 +2790,7 @@ spelled out  instead of being spoken.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dword_002dinteractively" id=
   "emacspeak_002dspeak_002dword_002dinteractively"></a>
-  <h4 class="subsubsection">12.172.1.104
+  <h4 class="subsubsection">12.172.1.105
   emacspeak-speak-word-interactively</h4>
   <dl>
     <dt><a name=
@@ -2767,7 +2812,7 @@ any other key to speak entire word.
     </dd>
   </dl><a name="emacspeak_002dspeak_002dworld_002dclock" id=
   "emacspeak_002dspeak_002dworld_002dclock"></a>
-  <h4 class="subsubsection">12.172.1.105
+  <h4 class="subsubsection">12.172.1.106
   emacspeak-speak-world-clock</h4>
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dworld_002dclock" id=
@@ -2789,7 +2834,7 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
   </dl><a name=
   "emacspeak_002dswitch_002dto_002dreference_002dbuffer" id=
   "emacspeak_002dswitch_002dto_002dreference_002dbuffer"></a>
-  <h4 class="subsubsection">12.172.1.106
+  <h4 class="subsubsection">12.172.1.107
   emacspeak-switch-to-reference-buffer</h4>
   <dl>
     <dt><a name=
@@ -2811,7 +2856,7 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002daction_002dmode" id=
   "emacspeak_002dtoggle_002daction_002dmode"></a>
-  <h4 class="subsubsection">12.172.1.107
+  <h4 class="subsubsection">12.172.1.108
   emacspeak-toggle-action-mode</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002daction_002dmode"
@@ -2831,7 +2876,7 @@ current local  value to the result.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002daudio_002dindentation" id=
   "emacspeak_002dtoggle_002daudio_002dindentation"></a>
-  <h4 class="subsubsection">12.172.1.108
+  <h4 class="subsubsection">12.172.1.109
   emacspeak-toggle-audio-indentation</h4>
   <dl>
     <dt><a name=
@@ -2864,7 +2909,7 @@ results in the number of initial spaces being spoken.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dcharacter_002decho" id=
   "emacspeak_002dtoggle_002dcharacter_002decho"></a>
-  <h4 class="subsubsection">12.172.1.109
+  <h4 class="subsubsection">12.172.1.110
   emacspeak-toggle-character-echo</h4>
   <dl>
     <dt><a name=
@@ -2893,7 +2938,7 @@ current local  value to the result.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dcomint_002dautospeak" id=
   "emacspeak_002dtoggle_002dcomint_002dautospeak"></a>
-  <h4 class="subsubsection">12.172.1.110
+  <h4 class="subsubsection">12.172.1.111
   emacspeak-toggle-comint-autospeak</h4>
   <dl>
     <dt><a name=
@@ -2918,7 +2963,7 @@ set the current local value to the result.
   </dl><a name=
   "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor" id=
   "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></a>
-  <h4 class="subsubsection">12.172.1.111
+  <h4 class="subsubsection">12.172.1.112
   emacspeak-toggle-comint-output-monitor</h4>
   <dl>
     <dt><a name=
@@ -2951,7 +2996,7 @@ set the current local value to the result.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dheader_002dline" id=
   "emacspeak_002dtoggle_002dheader_002dline"></a>
-  <h4 class="subsubsection">12.172.1.112
+  <h4 class="subsubsection">12.172.1.113
   emacspeak-toggle-header-line</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dheader_002dline"
@@ -2969,7 +3014,7 @@ set the current local value to the result.
   "emacspeak_002dtoggle_002dinaudible_002dor_002dcomint_002dautospeak"
   id=
   "emacspeak_002dtoggle_002dinaudible_002dor_002dcomint_002dautospeak"></a>
-  <h4 class="subsubsection">12.172.1.113
+  <h4 class="subsubsection">12.172.1.114
   emacspeak-toggle-inaudible-or-comint-autospeak</h4>
   <dl>
     <dt><a name=
@@ -2993,14 +3038,14 @@ set the current local value to the result.
       <div class="format">
         <pre class="format">
         Toggle comint-autospeak when in a comint buffer.
-Otherwise call voice-setup-toggle-silence-personality which toggles the 
+Otherwise call voice-setup-toggle-silence-personality which toggles the
 personality under point.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dline_002decho" id=
   "emacspeak_002dtoggle_002dline_002decho"></a>
-  <h4 class="subsubsection">12.172.1.114
+  <h4 class="subsubsection">12.172.1.115
   emacspeak-toggle-line-echo</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dline_002decho-1"
@@ -3026,7 +3071,7 @@ current local  value to the result.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dmail_002dalert" id=
   "emacspeak_002dtoggle_002dmail_002dalert"></a>
-  <h4 class="subsubsection">12.172.1.115
+  <h4 class="subsubsection">12.172.1.116
   emacspeak-toggle-mail-alert</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dmail_002dalert" id=
@@ -3055,7 +3100,7 @@ indicating the arrival  of new mail when displaying the mode line.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dshow_002dpoint" id=
   "emacspeak_002dtoggle_002dshow_002dpoint"></a>
-  <h4 class="subsubsection">12.172.1.116
+  <h4 class="subsubsection">12.172.1.117
   emacspeak-toggle-show-point</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dshow_002dpoint" id=
@@ -3084,7 +3129,7 @@ current local  value to the result.
   "emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter"
   id=
   "emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter"></a>
-  <h4 class="subsubsection">12.172.1.117
+  <h4 class="subsubsection">12.172.1.118
   emacspeak-toggle-speak-line-invert-filter</h4>
   <dl>
     <dt><a name=
@@ -3116,7 +3161,7 @@ current local  value to the result.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dspeak_002dmessages" id=
   "emacspeak_002dtoggle_002dspeak_002dmessages"></a>
-  <h4 class="subsubsection">12.172.1.118
+  <h4 class="subsubsection">12.172.1.119
   emacspeak-toggle-speak-messages</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dspeak_002dmessages"
@@ -3143,7 +3188,7 @@ current local  value to the result.
     </dd>
   </dl><a name="emacspeak_002dtoggle_002dword_002decho" id=
   "emacspeak_002dtoggle_002dword_002decho"></a>
-  <h4 class="subsubsection">12.172.1.119
+  <h4 class="subsubsection">12.172.1.120
   emacspeak-toggle-word-echo</h4>
   <dl>
     <dt><a name="index-emacspeak_002dtoggle_002dword_002decho-1"
@@ -3170,7 +3215,7 @@ current local  value to the result.
   </dl><a name=
   "emacspeak_002duse_002dcustomized_002dblink_002dparen" id=
   "emacspeak_002duse_002dcustomized_002dblink_002dparen"></a>
-  <h4 class="subsubsection">12.172.1.120
+  <h4 class="subsubsection">12.172.1.121
   emacspeak-use-customized-blink-paren</h4>
   <dl>
     <dt><a name=
@@ -3194,7 +3239,7 @@ builtin blink-paren function which does not talk.
     </dd>
   </dl><a name="emacspeak_002dview_002dnotifications" id=
   "emacspeak_002dview_002dnotifications"></a>
-  <h4 class="subsubsection">12.172.1.121
+  <h4 class="subsubsection">12.172.1.122
   emacspeak-view-notifications</h4>
   <dl>
     <dt><a name="index-emacspeak_002dview_002dnotifications" id=
@@ -3220,7 +3265,7 @@ builtin blink-paren function which does not talk.
     </dd>
   </dl><a name="emacspeak_002dvoiceify_002drectangle" id=
   "emacspeak_002dvoiceify_002drectangle"></a>
-  <h4 class="subsubsection">12.172.1.122
+  <h4 class="subsubsection">12.172.1.123
   emacspeak-voiceify-rectangle</h4>
   <dl>
     <dt><a name="index-emacspeak_002dvoiceify_002drectangle" id=
@@ -3242,7 +3287,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl><a name="emacspeak_002dvoiceify_002dregion" id=
   "emacspeak_002dvoiceify_002dregion"></a>
-  <h4 class="subsubsection">12.172.1.123
+  <h4 class="subsubsection">12.172.1.124
   emacspeak-voiceify-region</h4>
   <dl>
     <dt><a name="index-emacspeak_002dvoiceify_002dregion" id=
@@ -3264,7 +3309,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl><a name="emacspeak_002dzap_002dtts" id=
   "emacspeak_002dzap_002dtts"></a>
-  <h4 class="subsubsection">12.172.1.124 emacspeak-zap-tts</h4>
+  <h4 class="subsubsection">12.172.1.125 emacspeak-zap-tts</h4>
   <dl>
     <dt><a name="index-emacspeak_002dzap_002dtts" id=
     "index-emacspeak_002dzap_002dtts"></a>Command:
