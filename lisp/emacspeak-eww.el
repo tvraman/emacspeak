@@ -1630,7 +1630,7 @@ The %s is automatically spoken if there is no user activity."
        (when (memq s '(h1 h2 h3 h4))
          (emacspeak-auditory-icon 'section))
        (funcall-interactively #'emacspeak-eww-next-element s)
-       (when (or speak (sit-for 3.0))
+       (when (or speak (sit-for 4.0))
          (emacspeak-auditory-icon 'item)
          (forward-line 1)
          (let ((start  (point)))
