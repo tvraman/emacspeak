@@ -67,6 +67,7 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
   (let ((msg (elt (popup-list popup) (popup-cursor popup))))
