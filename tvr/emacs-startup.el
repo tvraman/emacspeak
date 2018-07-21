@@ -9,7 +9,7 @@
 ;;}}}
 ;;{{{ Fix system-users:
 
-(defadvice system-users (around  fix pre act comp)
+(defadvice system-users (around fix pre act comp)
   "Just return user real name."
   (list user-real-login-name))
 
@@ -17,22 +17,22 @@
 ;;{{{  lib
 
 (require 'cl-lib)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
+(cl-declaim (optimize (safety 0) (speed 3)))
 (setq ad-redefinition-action 'accept)
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
 
-(when (file-exists-p  emacs-personal-library)
+(when (file-exists-p emacs-personal-library)
   (cl-pushnew emacs-personal-library load-path))
 
 (defvar tvr-libs
   '(
     "kbd-setup"
-    "vm-prepare" "gnus-prepare"  "bbdb-prepare" "elfeed-prepare"
-    "lispy-prepare" "sp-prepare" ;"vdiff-prepare"
-    "auctex-prepare"   "org-prepare" 
+    "vm-prepare" "gnus-prepare" "bbdb-prepare" "elfeed-prepare"
+    "lispy-prepare" "sp-prepare"        ;"vdiff-prepare"
+    "auctex-prepare" "org-prepare"
                                         ;"use-emms"
     "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
@@ -46,7 +46,7 @@
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
   `(let ((file-name-handler-alist nil)
-         (load-source-file-function  nil)
+         (load-source-file-function nil)
          (inhibit-message t)
          (emacspeak-speak-messages nil)
          (gc-cons-threshold 64000000))
@@ -75,13 +75,13 @@
 ;;{{{ Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
-  '(("light sky blue" "#6FBD87") ; silver tree
-    ("#FFBCC9" "#FFD724") ;gold on pink
-    ("#F4C430" "sea green") ; saffron
+  '(("light sky blue" "#6FBD87")        ; silver tree
+    ("#FFBCC9" "#FFD724")               ;gold on pink
+    ("#F4C430" "sea green")             ; saffron
     ("#FFFFDA" "royal blue")
     ("mint cream" "royal blue")
     ("PowderBlue" "gold")
-    ("#FFF3FF" "gold")) ; lavender blush
+    ("#FFF3FF" "gold"))                 ; lavender blush
   "Alist of color pairs for days of the week")
 
 (defun tvr-set-color-for-today ()
@@ -89,7 +89,7 @@
   (interactive)
   (cl-declare (special tvr-weekday-to-color-alist))
   (let ((pair
-         (elt  tvr-weekday-to-color-alist (read (format-time-string "%w")))))
+         (elt tvr-weekday-to-color-alist (read (format-time-string "%w")))))
     (set-background-color (cl-first pair))
     (set-foreground-color (cl-second pair)))
   (call-interactively #'emacspeak-wizards-color-diff-at-point))
@@ -140,10 +140,10 @@
       (if (getenv "TVR_TIME_EMS")
           #'load-library-if-available #'load)
       tvr-libs)
-     (run-with-idle-timer  0.1  nil  #'tvr-defer-muggles)
+     (run-with-idle-timer 0.1 nil #'tvr-defer-muggles)
      (tvr-customize)
      (soundscape-toggle)
-     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
+     (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
 ;;; prescient and company:
      (when (locate-library "prescient")
        (load-library "prescient")
@@ -173,6 +173,7 @@
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-correct-mode 1)
+  (flyspell-mode)
   (abbrev-mode 1))
 
 (defun tvr-prog-mode-hook ()
@@ -188,16 +189,16 @@
   (abbrev-mode 1))
 
 ;;}}}
-(defun tvr-emacs()
+(defun tvr-emacs ()
   "Start up emacs."
-  (cl-declare (special  emacspeak-directory
-                        outloud-default-speech-rate dectalk-default-speech-rate
-                        outline-mode-prefix-map))
+  (cl-declare (special emacspeak-directory
+                       outloud-default-speech-rate dectalk-default-speech-rate
+                       outline-mode-prefix-map))
   (tvr-fastload
    ;;{{{ Load  emacspeak
    (setq outloud-default-speech-rate 125 ; because we load custom at the end
          dectalk-default-speech-rate 485)
-   (load (expand-file-name"~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+   (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
@@ -239,11 +240,11 @@
       ("C-RET" hippie-expand))
     do
     (global-set-key (kbd (cl-first key)) (cl-second key)))
-   
+
    (cl-loop                             ; shell wizard
     for i from 0 to 9 do
     (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-   (global-set-key  (kbd "C-c <tab>") 'hs-toggle-hiding)
+   (global-set-key (kbd "C-c <tab>") 'hs-toggle-hiding)
 ;;; Smarten up ctl-x-map
    (define-key ctl-x-map "\C-n" 'forward-page)
    (define-key ctl-x-map "\C-p" 'backward-page)
@@ -258,18 +259,17 @@
      `(progn
 ;;;restore what we are about to steal
         (define-key outline-mode-prefix-map "o" 'open-line)
-        (global-set-key "\C-o"outline-mode-prefix-map)
-        ))
+        (global-set-key "\C-o" outline-mode-prefix-map)))
 
    ;;}}}
    ;;{{{ turn on modes:
    (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
    (add-hook 'text-mode-hook 'tvr-text-mode-hook)
-   (savehist-mode )
+   (savehist-mode)
    (save-place-mode)
    (midnight-mode)
    (server-start)
-   (and (fboundp 'pinentry-start)(pinentry-start)))
+   (and (fboundp 'pinentry-start) (pinentry-start)))
 
   ;;}}}
   ) ;end defun
