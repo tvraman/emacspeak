@@ -246,6 +246,7 @@ Indicate  no movement if we did not move."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
+    (when (buffer-modified-p) (emacspeak-auditory-icon 'modified-object))
     (emacspeak-speak-line)))
 
 ;;}}}
