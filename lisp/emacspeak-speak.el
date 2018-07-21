@@ -978,7 +978,7 @@ with auditory icon `more'.  These can then be spoken using command
      ((null arg))
      ((> arg 0) (setq start orig))
      (t (setq end orig)))
-    (when  emacspeak-show-point
+    (when emacspeak-show-point
       (emacspeak-auditory-icon
        (cond
         ((bolp) 'left)
@@ -1047,7 +1047,7 @@ with auditory icon `more'.  These can then be spoken using command
             (setq line (concat linenum line)))
           (dtk-speak line)))))))
 
-(defun emacspeak-speak-overlay-properties  ()
+(defun emacspeak-speak-overlay-properties ()
   "Speak display, before-string or after-string property if any."
   (interactive)
   (let ((before (get-char-property (point) 'before-string))
@@ -1062,9 +1062,9 @@ with auditory icon `more'.  These can then be spoken using command
     (cond
      ((or (null result) (= 0 (length result)))
       (message "No speakable overlay properties here."))
-      (t
-       (emacspeak-auditory-icon 'ellipses)
-       (dtk-speak result)))))
+     (t
+      (emacspeak-auditory-icon 'ellipses)
+      (dtk-speak result)))))
 
 
 ;;;###autoload
@@ -1076,7 +1076,7 @@ Cues the start of a physical line with auditory icon `left'."
   (when dtk-stop-immediately (dtk-stop))
   (let ((inhibit-field-text-motion t)
         (inhibit-read-only t)
-        (start  nil)
+        (start nil)
         (end nil)
         (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
@@ -1093,8 +1093,8 @@ Cues the start of a physical line with auditory icon `left'."
       (setq line
             (if emacspeak-show-point
                 (ems-set-personality-temporarily
-                 orig (1+ orig)
-                 voice-animate (buffer-substring  start end))
+                    orig (1+ orig)
+                    voice-animate (buffer-substring start end))
               (buffer-substring start end)))
       (dtk-speak line))))
 
@@ -1150,7 +1150,7 @@ spelled out  instead of being spoken."
       (forward-word 1)
       (setq end (point))
       (backward-word 1)
-      (setq start (min orig  (point)))
+      (setq start (min orig (point)))
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
@@ -1161,8 +1161,8 @@ spelled out  instead of being spoken."
              (eq emacspeak-speak-last-spoken-word-position orig))
         (setq speaker 'emacspeak-speak-spell-word)
         (setq emacspeak-speak-last-spoken-word-position nil))
-       (t (setq  emacspeak-speak-last-spoken-word-position orig)))
-      (funcall speaker  (buffer-substring  start end)))))
+       (t (setq emacspeak-speak-last-spoken-word-position orig)))
+      (funcall speaker (buffer-substring start end)))))
 
 (defun emacspeak-is-alpha-p (c)
   "Check if argument C is an alphabetic character."
