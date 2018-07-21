@@ -714,7 +714,7 @@ command emacspeak-speak-line-set-column-filter."
 
 (make-variable-buffer-local 'emacspeak-speak-line-invert-filter)
 
-(ems-generate-switcher '() emacspeak-toggle-speak-line-invert-filter
+(ems-generate-switcher 'emacspeak-toggle-speak-line-invert-filter
                        'emacspeak-speak-line-invert-filter
                        "Toggle state of   how column filter is interpreted.
 Interactive PREFIX arg means toggle  the global default value, and then set the
