@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1232 commands and 1174 options.
+This chapter documents a total of 1232 commands and 1169 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -18933,7 +18933,7 @@ setting..
 @end defvar
 
 @defvar {User Option} emacspeak-audio-indentation-method
-*Current technique used to cue indentation.  Default is
+Current technique used to cue indentation.  Default is
 ‘speak’.  You can specify ‘tone’ for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set.
@@ -18957,18 +18957,6 @@ setting.
 
 @end defvar
 
-@defvar {User Option} emacspeak-decoration-rule
-*Regular expressions to match lines that are purely
-decorative ascii.
-
-@end defvar
-
-@defvar {User Option} emacspeak-horizontal-rule
-*Regular expression to match horizontal rules in ascii
-text.
-
-@end defvar
-
 @defvar {User Option} emacspeak-line-echo
 If t, then emacspeak echoes lines as you type.
 You can use C-e d l to set this
@@ -18977,7 +18965,7 @@ option.
 @end defvar
 
 @defvar {User Option} emacspeak-mail-alert
-*Option to indicate cueing of new mail.
+Option to indicate cueing of new mail.
 If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
@@ -19019,7 +19007,7 @@ List of coding systems on this platform.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-directory-settings
-*Name of file that holds directory specific settings.
+Name of file that holds directory specific settings.
 
 @end defvar
 
@@ -19034,7 +19022,7 @@ File where emacspeak filters are persisted.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-line-column-filter
-*List that specifies columns to be filtered.
+List that specifies columns to be filtered.
 The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
@@ -19042,22 +19030,15 @@ by cut -c on UNIX.
 
 @end defvar
 
-@defvar {User Option} emacspeak-speak-line-invert-filter
-Non-nil means the sense of ‘filter’ is inverted when filtering
-columns in a line --see
-command emacspeak-speak-line-set-column-filter.
-
-@end defvar
-
 @defvar {User Option} emacspeak-speak-load-directory-settings-quietly
-*User option that affects loading of directory specific settings.
+User option that affects loading of directory specific settings.
 If set to T,Emacspeak will not prompt before loading
 directory specific settings.
 
 @end defvar
 
 @defvar {User Option} emacspeak-speak-maximum-line-length
-*Threshold for determining ‘long’ lines.
+Threshold for determining ‘long’ lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
@@ -19066,7 +19047,7 @@ with a long string of gibberish.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-messages
-*Option indicating if messages are spoken.  If nil,
+Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 ‘emacspeak-toggle-speak-messages’ bound to
@@ -19075,17 +19056,12 @@ C-e q.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-paragraph-personality
-*Personality used to mark start of paragraph.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-space-regexp
-Pattern that matches white space.
+Personality used to mark start of paragraph.
 
 @end defvar
 
 @defvar {User Option} emacspeak-speak-time-format-string
-*Format string that specifies how the time should be spoken.
+Format string that specifies how the time should be spoken.
 See the documentation for function
 ‘format-time-string’
 
@@ -19093,15 +19069,6 @@ See the documentation for function
 
 @defvar {User Option} emacspeak-speak-zoneinfo-directory
 Directory containing timezone data.
-
-@end defvar
-
-@defvar {User Option} emacspeak-unspeakable-rule
-*Pattern to match lines of special chars.
-This is a regular expression that matches lines containing only
-non-alphanumeric characters.  emacspeak will generate a tone
-instead of speaking such lines when punctuation mode is set
-to some.
 
 @end defvar
 

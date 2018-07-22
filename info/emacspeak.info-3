@@ -2799,7 +2799,7 @@ of emacspeak from becoming dependent on the speech server modules
      this setting..
 
  -- Variable: User Option emacspeak-audio-indentation-method
-     *Current technique used to cue indentation.  Default is ‘speak’.
+     Current technique used to cue indentation.  Default is ‘speak’.
      You can specify ‘tone’ for producing a beep indicating the
      indentation.  Automatically becomes local in any buffer where it is
      set.
@@ -2813,19 +2813,12 @@ of emacspeak from becoming dependent on the speech server modules
      ‘emacspeak-toggle-comint-autospeak‘ bound to M-x
      emacspeak-toggle-comint-autospeak to toggle this setting.
 
- -- Variable: User Option emacspeak-decoration-rule
-     *Regular expressions to match lines that are purely decorative
-     ascii.
-
- -- Variable: User Option emacspeak-horizontal-rule
-     *Regular expression to match horizontal rules in ascii text.
-
  -- Variable: User Option emacspeak-line-echo
      If t, then emacspeak echoes lines as you type.  You can use C-e d l
      to set this option.
 
  -- Variable: User Option emacspeak-mail-alert
-     *Option to indicate cueing of new mail.  If t, emacspeak will alert
+     Option to indicate cueing of new mail.  If t, emacspeak will alert
      you about newly arrived mail with an auditory icon when displaying
      the mode line.  You can use command ‘emacspeak-toggle-mail-alert’
      bound to C-e M-m to set this option.  If you have online access to
@@ -2850,7 +2843,7 @@ of emacspeak from becoming dependent on the speech server modules
      List of coding systems on this platform.
 
  -- Variable: User Option emacspeak-speak-directory-settings
-     *Name of file that holds directory specific settings.
+     Name of file that holds directory specific settings.
 
  -- Variable: User Option emacspeak-speak-embedded-url-pattern
      Pattern to recognize embedded URLs.
@@ -2859,51 +2852,37 @@ of emacspeak from becoming dependent on the speech server modules
      File where emacspeak filters are persisted.
 
  -- Variable: User Option emacspeak-speak-line-column-filter
-     *List that specifies columns to be filtered.  The list when set
+     List that specifies columns to be filtered.  The list when set
      holds pairs of start-col.end-col pairs that specifies the columns
      that should not be spoken.  Each column contains a single character
      –this is inspired by cut -c on UNIX.
 
- -- Variable: User Option emacspeak-speak-line-invert-filter
-     Non-nil means the sense of ‘filter’ is inverted when filtering
-     columns in a line –see command
-     emacspeak-speak-line-set-column-filter.
-
  -- Variable: User Option
           emacspeak-speak-load-directory-settings-quietly
-     *User option that affects loading of directory specific settings.
+     User option that affects loading of directory specific settings.
      If set to T,Emacspeak will not prompt before loading directory
      specific settings.
 
  -- Variable: User Option emacspeak-speak-maximum-line-length
-     *Threshold for determining ‘long’ lines.  Emacspeak will ask for
+     Threshold for determining ‘long’ lines.  Emacspeak will ask for
      confirmation before speaking lines that are longer than this
      length.  This is to avoid accidentally opening a binary file and
      torturing the speech synthesizer with a long string of gibberish.
 
  -- Variable: User Option emacspeak-speak-messages
-     *Option indicating if messages are spoken.  If nil, emacspeak will
+     Option indicating if messages are spoken.  If nil, emacspeak will
      not speak messages as they are echoed to the message area.  You can
      use command ‘emacspeak-toggle-speak-messages’ bound to C-e q.
 
  -- Variable: User Option emacspeak-speak-paragraph-personality
-     *Personality used to mark start of paragraph.
-
- -- Variable: User Option emacspeak-speak-space-regexp
-     Pattern that matches white space.
+     Personality used to mark start of paragraph.
 
  -- Variable: User Option emacspeak-speak-time-format-string
-     *Format string that specifies how the time should be spoken.  See
+     Format string that specifies how the time should be spoken.  See
      the documentation for function ‘format-time-string’
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
-
- -- Variable: User Option emacspeak-unspeakable-rule
-     *Pattern to match lines of special chars.  This is a regular
-     expression that matches lines containing only non-alphanumeric
-     characters.  emacspeak will generate a tone instead of speaking
-     such lines when punctuation mode is set to some.
 
  -- Variable: User Option emacspeak-use-header-line
      Use default header line defined by Emacspeak for buffers that dont
@@ -9749,4 +9728,35 @@ mixed-case (AKA Camel Case) identifiers.
 
    Setting this flag produces a high-pitched beep when speaking words
 that are in all-caps, e.g.  abbreviations.
+
+
+File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
+
+15 Emacspeak At Twenty.
+***********************
+
+This article was originally published to mark the 20th anniversary of
+Emacspeak.  It has been incorporated as the final chapter of the
+Emacspeak manual for easy reference.  The original article is available
+on the Web and in its original source form as an *org* file in the
+emacspeak distribution.
+* Menu:
+
+* Turning Twenty::
+* Using UNIX With Speech Output  —   1994: Using UNIX With Speech Output  ---  1994.
+* Key Enabler  ---  Emacs And Lisp Advice::
+* Key Component  —   Text To Speech (TTS): Key Component  ---  Text To Speech (TTS).
+* Emacspeak And Software Development::
+* Emacspeak And Authoring Documents::
+* Emacspeak And The Early Days Of The Web::
+* Audio Formatting  —   Generalizing Aural CSS: Audio Formatting  ---  Generalizing Aural CSS.
+* Conversational Gestures For The Audio Desktop::
+* Accessing Media Streams::
+* EBooks —    Ubiquitous Access To Books: EBooks ---  Ubiquitous Access To Books.
+* Leveraging Computational Tools  —   From SQL And R To IPython Notebooks: Leveraging Computational Tools  ---  From SQL And R To IPython Notebooks.
+* Social Web   —  EMail, Instant Messaging, Blogging  And Tweeting Using Open Protocols: Social Web  ---  EMail Instant Messaging Blogging And Tweeting Using Open Protocols.
+* The RESTful Web  —   Web Wizards And URL Templates For Faster Access: The RESTful Web  ---  Web Wizards And URL Templates For Faster Access.
+* Mashing It Up  —   Leveraging Evolving Web APIs: Mashing It Up  --- Leveraging Evolving Web APIs.
+* Conclusion --- Turning Twenty::
+* References::
 
