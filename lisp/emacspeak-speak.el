@@ -904,13 +904,7 @@ with a long string of gibberish."
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 
 (defcustom emacspeak-speak-space-regexp
-  (format "^[%c%c%c%c%c]+$"
-          ?\2 40                        ; non-break space
-          ?\                            ; Ascii 32
-          ?\t                           ; tab
-          ?\r                           ; CR
-          ?\f                           ; form-feed
-          )
+  "[:space :]+"
   "Pattern that matches white space."
   :type 'string
   :group 'emacspeak)
