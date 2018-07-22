@@ -173,7 +173,6 @@
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-correct-mode 1)
-  (flyspell-mode)
   (abbrev-mode 1))
 
 (defun tvr-prog-mode-hook ()
