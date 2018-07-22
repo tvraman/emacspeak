@@ -764,11 +764,9 @@ icon."
      (setq eldoc-idle-delay 3)
      (message "Turning off global-eldoc-mode")))
 
-(defcustom emacspeak-eldoc-speak-explicitly
+(defvar emacspeak-eldoc-speak-explicitly
   (not (emacspeak-tts-use-notify-stream-p))
-  "Set to T if not using a separate TTS notification stream."
-  :type 'boolean
-  :group 'emacspeak-eldoc)
+  "Set to T if not using a separate TTS notification stream.")
 
 
 (voice-setup-map-face 'eldoc-highlight-function-argument 'voice-bolden)
