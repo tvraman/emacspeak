@@ -156,7 +156,7 @@ current local  value to the result.")
 ;;{{{ Shell Command Helper:
 
 (defcustom emacspeak-speak-messages t
-  "*Option indicating if messages are spoken.  If nil,
+  "Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 `emacspeak-toggle-speak-messages' bound to
@@ -381,7 +381,7 @@ Argument BODY specifies forms to execute."
                              'auditory-icon sound-cue))))))
 
 (defcustom emacspeak-speak-paragraph-personality voice-animate
-  "*Personality used to mark start of paragraph."
+  "Personality used to mark start of paragraph."
   :group 'emacspeak-speak
   :type 'symbol)
 
@@ -659,7 +659,7 @@ setting.."
   "Possible methods of indicating indentation.")
 
 (defcustom emacspeak-audio-indentation-method 'speak
-  "*Current technique used to cue indentation.  Default is
+  "Current technique used to cue indentation.  Default is
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set."
@@ -686,7 +686,7 @@ results in the number of initial spaces being spoken.")
 ;;{{{ filtering columns
 
 (defcustom emacspeak-speak-line-column-filter nil
-  "*List that specifies columns to be filtered.
+  "List that specifies columns to be filtered.
 The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
@@ -704,12 +704,10 @@ by cut -c on UNIX."
 
 (make-variable-buffer-local 'emacspeak-speak-line-column-filter)
 
-(defcustom emacspeak-speak-line-invert-filter nil
+(defvar emacspeak-speak-line-invert-filter nil
   "Non-nil means the sense of `filter' is inverted when filtering
 columns in a line --see
-command emacspeak-speak-line-set-column-filter."
-  :type 'boolean
-  :group 'emacspeak-speak)
+command emacspeak-speak-line-set-column-filter.")
 
 (make-variable-buffer-local 'emacspeak-speak-line-invert-filter)
 
@@ -860,40 +858,32 @@ Argument START  and END specify region to speak."
                      'personality personality string)
   (dtk-speak string))
 
-(defcustom emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
-  "*Regular expression to match horizontal rules in ascii
-text."
-  :group 'emacspeak-speak
-  :type 'string)
+(defvar emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
+  "Regular expression to match horizontal rules in ascii text.")
 
 (put 'emacspeak-horizontal-rule 'variable-interactive
      "sEnterregular expression to match horizontal rule: ")
 
-(defcustom emacspeak-decoration-rule
+(defvar emacspeak-decoration-rule
   "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
-  "*Regular expressions to match lines that are purely
-decorative ascii."
-  :group 'emacspeak-speak
-  :type 'string)
+  "Regular expressions to match lines that are purely decorative ascii.")
 
 (put 'emacspeak-decoration-rule 'variable-interactive
      "sEnterregular expression to match lines that are decorative ASCII: ")
 
-(defcustom emacspeak-unspeakable-rule
+(defvar emacspeak-unspeakable-rule
   "^[^0-9a-zA-Z]+$"
-  "*Pattern to match lines of special chars.
+  "Pattern to match lines of special chars.
 This is a regular expression that matches lines containing only
 non-alphanumeric characters.  emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
-to some."
-  :group 'emacspeak-speak
-  :type 'string)
+to some.")
 
 (put 'emacspeak-unspeakable-rule 'variable-interactive
      "sEnterregular expression to match unspeakable lines: ")
 
 (defcustom emacspeak-speak-maximum-line-length 512
-  "*Threshold for determining `long' lines.
+  "Threshold for determining `long' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
@@ -903,12 +893,9 @@ with a long string of gibberish."
 
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 
-(defcustom emacspeak-speak-blank-line-regexp
+(defvar emacspeak-speak-blank-line-regexp
   "^[:space:]+$}"
-  
-  "Pattern that matches white space."
-  :type 'string
-  :group 'emacspeak)
+  "Pattern that matches white space.")
 ;;; Forward Declaration:
 (defvar linum-mode nil)
 
@@ -1614,7 +1601,7 @@ Alert the user only if mail has arrived since this time in the
     (emacspeak-auditory-icon 'voice-mail)))
 
 (defcustom emacspeak-mail-alert t
-  "*Option to indicate cueing of new mail.
+  "Option to indicate cueing of new mail.
 If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
@@ -2047,7 +2034,7 @@ Default is to read the next word. "
 
 (defcustom emacspeak-speak-time-format-string
   "%_I %M %p  on %A, %B %_e, %Y "
-  "*Format string that specifies how the time should be spoken.
+  "Format string that specifies how the time should be spoken.
 See the documentation for function
 `format-time-string'"
   :group 'emacspeak-speak
@@ -3440,7 +3427,7 @@ See documentation for command run-at-time for details on time-spec."
 ;;{{{ Directory specific settings
 
 (defcustom emacspeak-speak-load-directory-settings-quietly t
-  "*User option that affects loading of directory specific settings.
+  "User option that affects loading of directory specific settings.
 If set to T,Emacspeak will not prompt before loading
 directory specific settings."
   :group 'emacspeak-speak
@@ -3448,7 +3435,7 @@ directory specific settings."
 
 (defcustom emacspeak-speak-directory-settings
   ".espeak.el"
-  "*Name of file that holds directory specific settings."
+  "Name of file that holds directory specific settings."
   :group 'emacspeak-speak
   :type 'string)
 
