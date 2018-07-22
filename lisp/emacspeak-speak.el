@@ -894,7 +894,13 @@ with a long string of gibberish."
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 
 (defvar emacspeak-speak-blank-line-regexp
-  "^[:space:]+$}"
+  (format "^[%c%c%c%c%c]+$"
+          ?\240                        ; non-break space
+          ?\                            ; Ascii 32
+          ?\t                           ; tab
+          ?\r                           ; CR
+          ?\f                           ; form-feed
+          )
   "Pattern that matches white space.")
 ;;; Forward Declaration:
 (defvar linum-mode nil)
