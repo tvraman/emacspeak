@@ -53,6 +53,7 @@
 ;;{{{ requires
 
 (require 'cl-lib)
+
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
@@ -77,31 +78,31 @@
       (cond
        ((symbolp ,voice)
         (tts-get-voice-command
-         (if (boundp  ,voice)
+         (if (boundp ,voice)
              (symbol-value ,voice)
            ,voice)))
        ((listp ,voice)
-        (mapconcat  #'(lambda (v)
-                        (tts-get-voice-command
-                         (if (boundp  v)
-                             (symbol-value v)
-                           v)))
-                    ,voice
-                    " "))
-       (t       "")))
+        (mapconcat #'(lambda (v)
+                       (tts-get-voice-command
+                        (if (boundp v)
+                            (symbol-value v)
+                          v)))
+                   ,voice
+                   " "))
+       (t "")))
      ,@body
      (dtk-interp-queue-code (tts-voice-reset-code))))  
 
 (defmacro tts-with-punctuations (setting &rest body)
   "Safely set punctuation mode for duration of body form."
   (declare (indent 1) (debug t))
-  `(let    ((save-punctuation-mode dtk-punctuation-mode))
+  `(let ((save-punctuation-mode dtk-punctuation-mode))
      (unwind-protect
          (unless (eq ,setting save-punctuation-mode)
            (dtk-interp-set-punctuations ,setting)
            (setq dtk-punctuation-mode ,setting))
        ,@body
-       (unless (eq  ,setting  save-punctuation-mode)
+       (unless (eq ,setting save-punctuation-mode)
          (setq dtk-punctuation-mode save-punctuation-mode)
          (dtk-interp-set-punctuations ,setting)))))
 
@@ -129,7 +130,7 @@
 
 (defun dtk-interp-queue (text)
   (cl-declare (special dtk-speaker-process))
-  (unless (string-match "^[\s]+$"  text)
+  (unless (string-match "^[\s]+$" text)
     (process-send-string dtk-speaker-process (format "q {%s }\n" text))))
 
 (defun dtk-interp-queue-code (code)
@@ -137,7 +138,7 @@
   (process-send-string dtk-speaker-process
                        (format "c {%s }\n" code)))
 
-(defun dtk-interp-queue-set-rate(rate)
+(defun dtk-interp-queue-set-rate (rate)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "r {%s}\n" rate)))
@@ -154,7 +155,7 @@
 
 (defun dtk-interp-say (string)
   (cl-declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process (format  "tts_say { %s}\n" string)))
+  (process-send-string dtk-speaker-process (format "tts_say { %s}\n" string)))
 
 ;;}}}
 
@@ -167,17 +168,17 @@
 ;;}}}
 ;;{{{ sync
 
-(defun dtk-interp-sync()
+(defun dtk-interp-sync ()
   (cl-declare (special dtk-speaker-process
-                    dtk-punctuation-mode dtk-speech-rate
-                    dtk-capitalize dtk-split-caps
-                    dtk-allcaps-beep))
+                       dtk-punctuation-mode dtk-speech-rate
+                       dtk-capitalize dtk-split-caps
+                       dtk-allcaps-beep))
   (process-send-string
    dtk-speaker-process
    (format "tts_sync_state %s %s %s %s %s\n"
            dtk-punctuation-mode
-           (if dtk-capitalize 1  0)
-           (if dtk-allcaps-beep 1  0)
+           (if dtk-capitalize 1 0)
+           (if dtk-allcaps-beep 1 0)
            (if dtk-split-caps 1 0)
            dtk-speech-rate)))
 
@@ -256,21 +257,21 @@
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_capitalize  %s\n"
-                               (if flag  1 0))))
+                               (if flag 1 0))))
 
 ;;}}}
 ;;{{{ allcaps beep
 
-(defun dtk-interp-toggle-allcaps-beep  (flag)
+(defun dtk-interp-toggle-allcaps-beep (flag)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_allcaps_beep  %s\n"
-                               (if flag  1 0))))
+                               (if flag 1 0))))
 
 ;;}}}
 ;;{{{ punctuations
 
-(defun dtk-interp-set-punctuations(mode)
+(defun dtk-interp-set-punctuations (mode)
   (cl-declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
