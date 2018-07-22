@@ -64,7 +64,7 @@
 ;;;###autoload
 (defvar dtk-program
   (cond
-   ((getenv "DTK_PROGRAM")(getenv "DTK_PROGRAM"))
+   ((getenv "DTK_PROGRAM") (getenv "DTK_PROGRAM"))
    ((eq system-type 'darwin) "mac")
    (t "espeak"))
   "The program to use to talk to the speech engine.
@@ -77,7 +77,7 @@ mac for MAC TTS (default on Mac)")
 
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
-    (split-string   (getenv "DTK_PROGRAM_ARGS")))
+    (split-string (getenv "DTK_PROGRAM_ARGS")))
   "Arguments passed to the dtk-program")
 
 (defvar emacspeak-pronounce-pronunciation-table)
@@ -99,8 +99,8 @@ mac for MAC TTS (default on Mac)")
   "Set to T to strip all octal chars before speaking.
 Particularly useful for web browsing."
   :type 'boolean
-  :group  'dtk
-  :group  'tts)
+  :group 'dtk
+  :group 'tts)
 (make-variable-buffer-local 'tts-strip-octals)
 
 ;;;###autoload
@@ -133,8 +133,8 @@ Do not set this variable by hand, use command  `dtk-toggle-split-caps'
 ;;;###autoload
 (defcustom dtk-cleanup-patterns
   (list
-"." "_" "-"  "=" "/"  "+" "*" ":" ";" "%"
-   "\\/" "/\\""{" "}" "~" "$" ")" "#"  "<>")
+   "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
+   "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>")
   "List of repeating patterns to clean up.
 You can use  command  `dtk-add-cleanup-pattern'
  bound to \\[dtk-add-cleanup-pattern]  to add more patterns.
@@ -144,7 +144,7 @@ untold pain to the speech synthesizer.
 If more than 3 consecutive occurrences
 of a specified pattern is found, the TTS engine replaces it
 with a repeat count. "
-  :type '(repeat  (string :tag "pattern"))
+  :type '(repeat (string :tag "pattern"))
   :group 'tts)
 
 ;;}}}
@@ -209,18 +209,18 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 Modifies text and point in buffer."
   (cl-declare (special emacspeak-pronounce-pronunciation-personality))
   (let ((words
-         (cl-loop for  k  being the hash-keys  of pronunciation-table collect k)))
+         (cl-loop for k being the hash-keys of pronunciation-table collect k)))
     (cl-loop
      for w in words do
      (when w
-       (let ((pronunciation (gethash  w pronunciation-table))
+       (let ((pronunciation (gethash w pronunciation-table))
              (pp nil))
          (goto-char (point-min))
          (cond
           ((stringp pronunciation)
-           (while (search-forward  w nil t)
+           (while (search-forward w nil t)
              (setq pp (dtk-get-style))
-             (replace-match  pronunciation t t)
+             (replace-match pronunciation t t)
              (when (or pp emacspeak-pronounce-pronunciation-personality)
                (put-text-property
                 (match-beginning 0)
@@ -236,7 +236,7 @@ Modifies text and point in buffer."
            (let ((matcher (car pronunciation))
                  (pronouncer (cdr pronunciation))
                  (pronunciation ""))
-             (while (funcall matcher   w nil t)
+             (while (funcall matcher w nil t)
                (setq pp (dtk-get-style))
                (setq pronunciation
                      (save-match-data
@@ -272,20 +272,19 @@ Modifies text and point in buffer."
       (if (eq buffer-invisibility-spec t)
           prop
         (or (memq prop buffer-invisibility-spec)
-            (assq prop buffer-invisibility-spec)))))
-  ) ;;; needed before Emacs 23.
+            (assq prop buffer-invisibility-spec)))))) ;;; needed before Emacs 23.
 
-(defun skip-invisible-forward  ()
-  (while (and(not (eobp))
-             (invisible-p (point)))
+(defun skip-invisible-forward ()
+  (while (and (not (eobp))
+              (invisible-p (point)))
     (goto-char
      (next-single-char-property-change (point) 'invisible
                                        (current-buffer) (point-max)))))
 
-(defun skip-invisible-backward  ()
+(defun skip-invisible-backward ()
   "Move backwards over invisible text."
-  (while (and(not (bobp))
-             (invisible-p (point)))
+  (while (and (not (bobp))
+              (invisible-p (point)))
     (goto-char
      (previous-single-char-property-change (point) 'invisible
                                            (current-buffer) (point-min)))))
@@ -293,12 +292,12 @@ Modifies text and point in buffer."
 (defun delete-invisible-text ()
   "Delete invisible text."
   (goto-char (point-min))
-  (let ((start  (point)))
+  (let ((start (point)))
     (while (not (eobp))
       (cond
        ((invisible-p (point))
         (skip-invisible-forward)
-        (delete-region  start (point))
+        (delete-region start (point))
         (setq start (point)))
        (t (goto-char
            (or (next-single-property-change (point) 'invisible)
@@ -313,7 +312,7 @@ Modifies text and point in buffer."
 Argument DURATION  specifies number of milliseconds to pause.
 Optional argument FORCE  flushes the command to the speech server."
   (cl-declare (special dtk-quiet dtk-speaker-process
-                    dtk-speak-server-initialized))
+                       dtk-speak-server-initialized))
   (unless dtk-quiet
     (when dtk-speak-server-initialized
       (dtk-interp-silence duration
@@ -332,7 +331,7 @@ Argument DURATION  is specified in milliseconds.
 Uses a 5ms fade-in and fade-out.
 Optional argument FORCE  flushes the command to the speech server."
   (cl-declare (special dtk-quiet dtk-speaker-process
-                    dtk-use-tones dtk-speak-server-initialized))
+                       dtk-use-tones dtk-speak-server-initialized))
   (unless
       (or dtk-quiet
           (not dtk-use-tones)
@@ -343,7 +342,7 @@ Optional argument FORCE  flushes the command to the speech server."
   "Set language according to the argument lang."
   (interactive "sEnter new language: \n")
   (cl-declare (special dtk-quiet dtk-speaker-process
-                    dtk-speak-server-initialized))
+                       dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-language lang (called-interactively-p 'interactive))))
 
@@ -358,7 +357,7 @@ Optional argument FORCE  flushes the command to the speech server."
   "Switch to the previous available language"
   (interactive)
   (cl-declare (special dtk-quiet dtk-speaker-process
-                    dtk-speak-server-initialized))
+                       dtk-speak-server-initialized))
   ;;  (unless dtk-quiet
   (when dtk-speak-server-initialized
     (dtk-interp-previous-language (called-interactively-p 'interactive))))
@@ -372,7 +371,7 @@ will set \"en_GB\".
 "
   (interactive "s")
   (cl-declare (special dtk-quiet dtk-speaker-process
-                    dtk-speak-server-initialized))
+                       dtk-speak-server-initialized))
   ;;  (unless dtk-quiet
   (when dtk-speak-server-initialized
     (dtk-interp-preferred-language alias lang)))
@@ -380,7 +379,7 @@ will set \"en_GB\".
 (defun dtk-list-language ()
   "Say the available languages."
   (cl-declare (special dtk-quiet dtk-speaker-process
-                    dtk-speak-server-initialized))
+                       dtk-speak-server-initialized))
   (unless dtk-quiet
     (when dtk-speak-server-initialized
       (dtk-interp-list-language))))
@@ -405,25 +404,25 @@ Newlines  become spaces so each server request is a single line.
   "Remove all octal chars."
   (let ((inhibit-read-only t))
     (goto-char (point-min))
-    (while (re-search-forward "[\177-\377]+"  nil t)
+    (while (re-search-forward "[\177-\377]+" nil t)
       (replace-match " "))))
 
-(defun  dtk-fix-brackets (mode)
+(defun dtk-fix-brackets (mode)
   "Quote any delimiters that need special treatment. Argument MODE
 specifies the current pronunciation mode --- See
 \\[dtk-bracket-regexp]"
-  (cl-declare  (special dtk-bracket-regexp))
+  (cl-declare (special dtk-bracket-regexp))
   (let ((inhibit-read-only t))
     (goto-char (point-min))
     (cond
      ((eq 'all mode)
       (let ((start nil)
             (personality nil))
-        (while (re-search-forward dtk-bracket-regexp  nil t)
+        (while (re-search-forward dtk-bracket-regexp nil t)
           (setq start (match-beginning 0))
           (setq personality (dtk-get-style (match-beginning 0)))
           (cond
-           ((= 10  (char-after (match-beginning 0))) ; newline
+           ((= 10 (char-after (match-beginning 0))) ; newline
             (replace-match " "))
            ((= ?| (char-after (match-beginning 0)))
             (replace-match " pipe " nil t))
@@ -435,9 +434,9 @@ specifies the current pronunciation mode --- See
             (replace-match " left brace " nil t))
            ((= ?} (char-after (match-beginning 0)))
             (replace-match " right brace " nil t))
-           ((=  ?\] (char-after (match-beginning 0)))
+           ((= ?\] (char-after (match-beginning 0)))
             (replace-match " right bracket " nil t))
-           ((= ?\[ (char-after  (match-beginning 0)))
+           ((= ?\[ (char-after (match-beginning 0)))
             (replace-match " left bracket " nil t))
            ((= ?\\ (char-after (match-beginning 0)))
             (replace-match " backslash " nil t))
@@ -448,7 +447,7 @@ specifies the current pronunciation mode --- See
           (when personality
             (put-text-property start (point) 'personality personality)))))
      (t
-      (while (re-search-forward dtk-bracket-regexp   nil t)
+      (while (re-search-forward dtk-bracket-regexp nil t)
         (replace-match " " nil t))))))
 
 ;;;###autoload
@@ -471,8 +470,8 @@ Set this once per emacspeak session for efficiency.")
 (defun dtk-fix-control-chars ()
   "Handle control characters in speech stream."
   (cl-declare (special dtk-character-to-speech-table
-                    dtk-octal-chars
-                    dtk-speak-nonprinting-chars))
+                       dtk-octal-chars
+                       dtk-speak-nonprinting-chars))
   (let ((char nil))
     (goto-char (point-min))
     (cond
@@ -482,7 +481,7 @@ Set this once per emacspeak session for efficiency.")
       (while (re-search-forward dtk-octal-chars nil t)
         (setq char (char-after (match-beginning 0)))
         (replace-match
-         (format " %s " (aref  dtk-character-to-speech-table char))
+         (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
 
 ;;; Takes a string, and replaces occurences of this pattern
@@ -500,14 +499,14 @@ Argument MODE  specifies the current pronunciation mode."
          (pattern (regexp-quote string))
          (reg (concat
                pattern pattern
-               "\\(" pattern  "\\)+"))
+               "\\(" pattern "\\)+"))
          (start nil)
          (personality nil)
          (replacement nil))
     (while (re-search-forward reg nil t)
       (setq personality (dtk-get-style (match-beginning 0)))
       (setq replacement
-            (if  (eq 'all  mode)
+            (if (eq 'all mode)
                 (format " aw %s %s"
                         (/ (- (match-end 0) (match-beginning 0)) len)
                         (if (string-equal " " pattern)
@@ -536,10 +535,10 @@ Argument MODE  specifies the current pronunciation mode."
   (goto-char (point-min))
   (cond
    ((eq mode 'all)
-    (while (search-forward  dtk-null-char nil t) (replace-match " control at " nil t)))
-   (t (while (search-forward  dtk-null-char nil t) (replace-match "")))))
+    (while (search-forward dtk-null-char nil t) (replace-match " control at " nil t)))
+   (t (while (search-forward dtk-null-char nil t) (replace-match "")))))
 
-(defun  dtk-quote(mode)
+(defun dtk-quote (mode)
   "Clean-up text before sending it out."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
@@ -571,12 +570,12 @@ Argument MODE  specifies the current pronunciation mode."
   (concat "^" dtk-chunk-separator-syntax))
 
 ;;; set chunk separator to match both whitespace and punctuations:
-(defun dtk-chunk-on-white-space-and-punctuations()
+(defun dtk-chunk-on-white-space-and-punctuations ()
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
-        (concat  dtk-chunk-separator-syntax " ")))
+        (concat dtk-chunk-separator-syntax " ")))
 
-(defun dtk-chunk-only-on-punctuations()
+(defun dtk-chunk-only-on-punctuations ()
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
         (cl-delete-if
@@ -587,7 +586,7 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; move across the complement and the following separator
 ;;; return value is a boolean indicating if we moved.
 ;;; side-effect is to move across a chunk
-(defun  dtk-move-across-a-chunk (separator complement)
+(defun dtk-move-across-a-chunk (separator complement)
   "Move over a chunk of text.
 Chunks are defined  based on major modes.
 Argument SEPARATOR  is the syntax class of chunk separators.
@@ -600,54 +599,54 @@ Argument COMPLEMENT  is the complement of separator."
 
 (defun dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
-  (cl-declare (special  dtk-quiet tts-default-voice))
+  (cl-declare (special dtk-quiet tts-default-voice))
   (unless (or (eq 'inaudible voice) dtk-quiet
-              (null text) (string-equal  text "")
+              (null text) (string-equal text "")
               (and (listp voice) (memq 'inaudible voice)))
 ;;; ensure text is a  string
     (unless (stringp text) (setq text (format "%s" text)))
-    ;(dtk-interp-queue-code (tts-voice-reset-code))
+                                        ;(dtk-interp-queue-code (tts-voice-reset-code))
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
        (tts-get-voice-command
-        (if (boundp  voice)
+        (if (boundp voice)
             (symbol-value voice)
           voice)))
       ((listp voice)
-       (mapconcat  #'(lambda (v)
-                       (tts-get-voice-command
-                        (if (boundp  v)
-                            (symbol-value v)
-                          v)))
-                   voice
-                   " "))
-      (t       "")))
+       (mapconcat #'(lambda (v)
+                      (tts-get-voice-command
+                       (if (boundp v)
+                           (symbol-value v)
+                         v)))
+                  voice
+                  " "))
+      (t "")))
     (dtk-interp-queue text)
     (dtk-interp-queue-code (tts-voice-reset-code))))
 
 (defun dtk-letter-using-voice (voice letter)
   "Use voice VOICE to speak letter."
-  (cl-declare (special  dtk-quiet tts-default-voice))
+  (cl-declare (special dtk-quiet tts-default-voice))
   (unless (or (eq 'inaudible voice) dtk-quiet
-              (null letter)(string-equal  letter ""))
+              (null letter) (string-equal letter ""))
     (dtk-interp-queue-code (tts-voice-reset-code))
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
        (tts-get-voice-command
-        (if (boundp  voice)
+        (if (boundp voice)
             (symbol-value voice)
           voice)))
       ((listp voice)
-       (mapconcat  #'(lambda (v)
-                       (tts-get-voice-command
-                        (if (boundp  v)
-                            (symbol-value v)
-                          v)))
-                   voice
-                   " "))
-      (t       "")))
+       (mapconcat #'(lambda (v)
+                      (tts-get-voice-command
+                       (if (boundp v)
+                           (symbol-value v)
+                         v)))
+                  voice
+                  " "))
+      (t "")))
     (dtk-interp-letter letter)
     (dtk-interp-queue-code (tts-voice-reset-code))))
 
@@ -691,10 +690,10 @@ Argument COMPLEMENT  is the complement of separator."
                     (overlay-get o 'font-lock-face)))
             (overlays-at pos)))))
 
-(defun next-true-single-property-change (start  prop object  limit)
+(defun next-true-single-property-change (start prop object limit)
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
-  (let ((initial-value (get-text-property start  prop object)))
+  (let ((initial-value (get-text-property start prop object)))
     (cond
      ((atom initial-value)
       (next-single-property-change start prop object limit))
@@ -739,17 +738,17 @@ has higher precedence than `face'."
   "Format and speak text.
 Arguments START and END specify region to speak."
   (cl-declare (special voice-lock-mode dtk-speaker-process
-                    tts-default-voice emacspeak-use-auditory-icons))
+                       tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
   (when (get-text-property start 'pause)
-    (dtk-interp-silence  (get-text-property start 'pause) nil))
+    (dtk-interp-silence (get-text-property start 'pause) nil))
   (cond
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end)))
    (t                                   ; voiceify as we go
-    (let ((last  nil)
+    (let ((last nil)
           (personality (dtk-get-style start)))
       (while
           (and
@@ -757,9 +756,9 @@ Arguments START and END specify region to speak."
            (setq last (dtk-next-style-change start end)))
         (if personality
             (dtk-speak-using-voice personality (buffer-substring start last))
-          (dtk-interp-queue (buffer-substring  start last)))
+          (dtk-interp-queue (buffer-substring start last)))
         (setq
-         start  last
+         start last
          personality (dtk-get-style last))
         (when (get-text-property start 'pause)
           (dtk-interp-silence (get-text-property start 'pause) nil)))))))
@@ -774,8 +773,8 @@ Arguments START and END specify region to speak."
 (defun dtk-dispatch (string)
   "Send request STRING to speech server."
   (cl-declare (special dtk-speaker-process
-                    dtk-speak-server-initialized
-                    dtk-quiet))
+                       dtk-speak-server-initialized
+                       dtk-quiet))
   (unless dtk-quiet
     (when dtk-speak-server-initialized
       (dtk-interp-say string))))
@@ -790,7 +789,7 @@ Optional arg `all' or interactive call   silences notification stream as well."
       (and (dtk-notify-process) (or all (called-interactively-p 'interactive)))
     (dtk-notify-stop)))
 
-(defun dtk-reset-default-voice()
+(defun dtk-reset-default-voice ()
   (cl-declare (special tts-default-voice))
   (dtk-dispatch (tts-get-voice-command tts-default-voice)))
 
@@ -841,17 +840,17 @@ will say ``aw fifteen dot'' when speaking the string
 (defun ems-generate-switcher (command switch documentation)
   "Generate desired command to switch the specified state."
   (eval
-   `(defun ,command  (&optional prefix)
+   `(defun ,command (&optional prefix)
       ,documentation
       (interactive "P")
-      (cl-declare (special  ,switch))
+      (cl-declare (special ,switch))
       (cond
        (prefix
-        (setq-default  ,switch
-                       (not  (default-value  ',switch)))
+        (setq-default ,switch
+                      (not (default-value ',switch)))
         (setq ,switch (default-value ',switch)))
-       (t  (make-local-variable ',switch)
-           (setq ,switch (not ,switch))))
+       (t (make-local-variable ',switch)
+          (setq ,switch (not ,switch))))
       (dtk-interp-sync)
       (when
           (if (fboundp 'called-interactively-p)
@@ -868,7 +867,7 @@ will say ``aw fifteen dot'' when speaking the string
 ;;{{{  sending commands
 
 ;;;###autoload
-(defun dtk-set-rate (rate    &optional prefix)
+(defun dtk-set-rate (rate &optional prefix)
   "Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result."
@@ -877,8 +876,8 @@ current local  value to the result."
     (read-from-minibuffer "Enter new rate: ")
     current-prefix-arg))
   (cl-declare (special dtk-speech-rate dtk-speaker-process
-                    tts-default-speech-rate
-                    dtk-program dtk-speak-server-initialized))
+                       tts-default-speech-rate
+                       dtk-program dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (cond
      (prefix
@@ -903,8 +902,8 @@ Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level."
   (interactive "P")
   (cl-declare (special dtk-speech-rate-step
-                    dtk-speech-rate-base
-                    last-input-event))
+                       dtk-speech-rate-base
+                       last-input-event))
   (let ((level
          (condition-case nil
              (read (format "%c" last-input-event))
@@ -916,11 +915,11 @@ speech rate:")))
     (cond
      ((or (not (numberp level))
           (< level 0)
-          (> level  9))
+          (> level 9))
       (error "Invalid level %s" level))
      (t (dtk-set-rate
          (+ dtk-speech-rate-base
-            (* dtk-speech-rate-step  level))
+            (* dtk-speech-rate-step level))
          prefix)
         (when (called-interactively-p 'interactive)
           (message "Set speech rate to level %s %s"
@@ -936,7 +935,7 @@ Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result."
   (interactive "nEnter new factor:\nP")
   (cl-declare (special dtk-character-scale dtk-speaker-process
-                    dtk-speak-server-initialized))
+                       dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (cond
      (prefix
@@ -948,7 +947,7 @@ current local  value to the result."
     (when (called-interactively-p 'interactive)
       (message "Set character scale factor to %s %s"
                dtk-character-scale
-               (if  prefix ""  "locally")))))
+               (if prefix "" "locally")))))
 
 (ems-generate-switcher 'dtk-toggle-quiet
                        'dtk-quiet
@@ -971,23 +970,23 @@ Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.")
 
-(ems-generate-switcher' dtk-toggle-capitalization
-                        'dtk-capitalize
-                        "Toggle capitalization.
+(ems-generate-switcher 'dtk-toggle-capitalization
+                       'dtk-capitalize
+                       "Toggle capitalization.
 when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
-(ems-generate-switcher' dtk-toggle-speak-nonprinting-chars
-                        'dtk-speak-nonprinting-chars
-                        "Toggle speak-nonprinting-chars.
+(ems-generate-switcher 'dtk-toggle-speak-nonprinting-chars
+                       'dtk-speak-nonprinting-chars
+                       "Toggle speak-nonprinting-chars.
 Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
-(ems-generate-switcher'dtk-toggle-allcaps-beep
- 'dtk-allcaps-beep
- "Toggle allcaps-beep.
+(ems-generate-switcher 'dtk-toggle-allcaps-beep
+                       'dtk-allcaps-beep
+                       "Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
@@ -995,7 +994,7 @@ Note that allcaps-beep is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
 ;;;###autoload
-(defun dtk-set-punctuations  (mode &optional prefix)
+(defun dtk-set-punctuations (mode &optional prefix)
   "Set punctuation mode to MODE.
 Possible values are `some', `all', or `none'.
 Interactive PREFIX arg means set   the global default value, and then set the
@@ -1003,14 +1002,14 @@ current local  value to the result."
   (interactive
    (list
     (intern
-     (completing-read  "Enter punctuation mode: "
-                       dtk-punctuation-mode-alist
-                       nil
-                       t))
+     (completing-read "Enter punctuation mode: "
+                      dtk-punctuation-mode-alist
+                      nil
+                      t))
     current-prefix-arg))
   (cl-declare (special dtk-punctuation-mode dtk-speaker-process
-                    dtk-speak-server-initialized
-                    dtk-punctuation-mode-alist))
+                       dtk-speak-server-initialized
+                       dtk-punctuation-mode-alist))
   (when dtk-speak-server-initialized
     (cond
      (prefix
@@ -1045,9 +1044,9 @@ Interactive PREFIX arg makes the new setting global."
   (interactive "P")
   (cl-declare (special dtk-punctuation-mode))
   (cond
-   ((eq 'all  dtk-punctuation-mode)
+   ((eq 'all dtk-punctuation-mode)
     (dtk-set-punctuations-to-some prefix))
-   ((eq 'some  dtk-punctuation-mode)
+   ((eq 'some dtk-punctuation-mode)
     (dtk-set-punctuations-to-all prefix)))
   (when (called-interactively-p 'interactive)
     (message "set punctuation mode to %s %s"
@@ -1059,8 +1058,8 @@ Interactive PREFIX arg makes the new setting global."
   "Restore sanity to the Dectalk.
 Typically used after the Dectalk has been power   cycled."
   (interactive)
-  (cl-declare (special  dtk-speaker-process
-                     dtk-speak-server-initialized))
+  (cl-declare (special dtk-speaker-process
+                       dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-reset-state)))
 
@@ -1084,7 +1083,7 @@ important to be interrupted.")
 (defvar dtk-notify-process nil
   "Notify speaker  process handle.")
 
-(defvar dtk-punctuation-mode  'all
+(defvar dtk-punctuation-mode 'all
   "Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;
@@ -1115,7 +1114,7 @@ File .servers is expected to contain name of one server per
       (goto-char (point-min))
       (while (not (eobp))
         (unless
-            (looking-at  "^#")
+            (looking-at "^#")
           (setq this
                 (buffer-substring-no-properties
                  (line-beginning-position) (line-end-position)))
@@ -1150,34 +1149,34 @@ available TTS servers.")
 (defun dtk-speak-setup-character-table ()
   "Setup pronunciations in the character table for the Dectalk."
   (let ((table dtk-character-to-speech-table))
-    (aset  table 0 "control at")
-    (aset  table 1 "control a")
-    (aset  table 2 "control b")
-    (aset  table 3  "control c")
-    (aset  table 4 "control d")
-    (aset  table 5 "control e")
-    (aset  table 6 "control f")
-    (aset  table 7 "control g")
-    (aset  table 8 "control h")
-    (aset  table 9 "tab")
-    (aset  table 10 "newline")
-    (aset  table 11 "control k")
-    (aset  table 12 "control l")
-    (aset  table 13 "control m")
-    (aset  table 14 "control n")
-    (aset  table 15 "control o")
-    (aset  table 16"control p")
-    (aset  table 17 "control q")
-    (aset  table 18 "control r")
-    (aset  table 19 "control s")
-    (aset  table 20 "control t")
-    (aset  table 21 "control u")
-    (aset  table 22 "control v")
-    (aset  table 23 "control w")
-    (aset  table 24 "control x")
-    (aset  table 25 "control y")
-    (aset  table 26 "control z")
-    (aset  table 27 "escape")
+    (aset table 0 "control at")
+    (aset table 1 "control a")
+    (aset table 2 "control b")
+    (aset table 3 "control c")
+    (aset table 4 "control d")
+    (aset table 5 "control e")
+    (aset table 6 "control f")
+    (aset table 7 "control g")
+    (aset table 8 "control h")
+    (aset table 9 "tab")
+    (aset table 10 "newline")
+    (aset table 11 "control k")
+    (aset table 12 "control l")
+    (aset table 13 "control m")
+    (aset table 14 "control n")
+    (aset table 15 "control o")
+    (aset table 16 "control p")
+    (aset table 17 "control q")
+    (aset table 18 "control r")
+    (aset table 19 "control s")
+    (aset table 20 "control t")
+    (aset table 21 "control u")
+    (aset table 22 "control v")
+    (aset table 23 "control w")
+    (aset table 24 "control x")
+    (aset table 25 "control y")
+    (aset table 26 "control z")
+    (aset table 27 "escape")
     (aset table 28 "control[*]backslash")
     (aset table 29 "control[*]right bracket")
     (aset table 30 "control[*]caret")
@@ -1185,228 +1184,228 @@ available TTS servers.")
     (aset table 32 "space")
     (aset table 33 "exclamation")
     (aset table 34 "quotes")
-    (aset table 35  "pound")
-    (aset table  36  "dollar")
-    (aset table 37  "percent")
-    (aset table 38  "ampersand")
-    (aset table 39  "apostrophe")
-    (aset table 40  "left[*]paren")
+    (aset table 35 "pound")
+    (aset table 36 "dollar")
+    (aset table 37 "percent")
+    (aset table 38 "ampersand")
+    (aset table 39 "apostrophe")
+    (aset table 40 "left[*]paren")
     (aset table 41 "right[*]paren")
-    (aset table  42   "star")
-    (aset table 43  "plus")
-    (aset   table 44 "comma")
-    (aset table  45  "dash")
-    (aset table 46  "dot")
-    (aset table 47  "slash")
-    (aset table 48  "zero")
+    (aset table 42 "star")
+    (aset table 43 "plus")
+    (aset table 44 "comma")
+    (aset table 45 "dash")
+    (aset table 46 "dot")
+    (aset table 47 "slash")
+    (aset table 48 "zero")
     (aset table 49 "one")
     (aset table 50 "two")
     (aset table 51 "three")
-    (aset  table 52  "four")
-    (aset  table 53 "five")
-    (aset  table 54 "six")
-    (aset  table 55 "seven")
-    (aset  table 56 "eight")
-    (aset  table 57 "nine")
+    (aset table 52 "four")
+    (aset table 53 "five")
+    (aset table 54 "six")
+    (aset table 55 "seven")
+    (aset table 56 "eight")
+    (aset table 57 "nine")
     (aset table 58 "colon")
     (aset table 59 "semi")
     (aset table 60 "less[*]than")
-    (aset  table 61 "equals")
-    (aset  table 62  "greater[*]than")
-    (aset  table 63 "question[*]mark")
-    (aset  table 64 "at")
-    (aset  table 65  " cap[*]a")
-    (aset  table 66 " cap[*]b")
-    (aset  table 67 "cap[*]c")
-    (aset  table 68 "cap[*]d")
-    (aset  table 69 "cap[*]e")
-    (aset  table 70 "cap[*]f")
-    (aset  table 71 "cap[*]g")
-    (aset  table 72 "cap[*]h")
-    (aset  table 73 "cap[*]i")
-    (aset  table 74 "cap[*]j")
-    (aset  table 75 "cap[*]k")
-    (aset  table 76 "cap[*]l")
-    (aset  table 77 "cap[*]m")
-    (aset  table 78 "cap[*]m")
-    (aset  table 79 "cap[*]o")
-    (aset  table 80 "cap[*]p")
-    (aset  table 81 "cap[*]q")
-    (aset  table 82 "cap[*]r")
-    (aset  table 83 "cap[*]s")
-    (aset  table 84 "cap[*]t")
-    (aset  table 85 "cap[*]u")
-    (aset  table 86 "cap[*]v")
-    (aset  table 87 "cap[*]w")
-    (aset  table 88 "cap[*]x")
-    (aset  table 89 "cap[*]y")
-    (aset  table 90 "cap[*]z")
-    (aset  table 91 "left[*]bracket")
-    (aset  table 92  "backslash")
-    (aset  table 93 "right[*]bracket")
-    (aset  table 94  "caret")
-    (aset  table 95  "underscore")
-    (aset  table 96 "backquote")
-    (aset  table 97  "a")
-    (aset  table 98 "b")
-    (aset  table 99 "c")
-    (aset  table 100 "d")
-    (aset  table 101 "e")
-    (aset  table 102 "f")
-    (aset  table 103 "g")
-    (aset  table 104 "h")
-    (aset  table 105 "i")
-    (aset  table 106 "j")
-    (aset  table 107 "k")
-    (aset  table 108 "l")
-    (aset  table 109 "m")
-    (aset  table 110 "n")
-    (aset  table 111 "o")
-    (aset  table 112 "p")
-    (aset  table 113 "q")
-    (aset  table 114 "r")
-    (aset  table 115 "s")
-    (aset  table 116 "t")
-    (aset  table 117 "u")
-    (aset  table 118 "v")
-    (aset  table 119 "w")
-    (aset  table 120  "x")
-    (aset  table 121 "y")
-    (aset  table 122 "z")
-    (aset  table 123 "left[*]brace")
-    (aset  table 124 "pipe")
-    (aset  table 125 "right[*]brace ")
-    (aset  table 126 "tilde")
-    (aset  table 127  "backspace")
+    (aset table 61 "equals")
+    (aset table 62 "greater[*]than")
+    (aset table 63 "question[*]mark")
+    (aset table 64 "at")
+    (aset table 65 " cap[*]a")
+    (aset table 66 " cap[*]b")
+    (aset table 67 "cap[*]c")
+    (aset table 68 "cap[*]d")
+    (aset table 69 "cap[*]e")
+    (aset table 70 "cap[*]f")
+    (aset table 71 "cap[*]g")
+    (aset table 72 "cap[*]h")
+    (aset table 73 "cap[*]i")
+    (aset table 74 "cap[*]j")
+    (aset table 75 "cap[*]k")
+    (aset table 76 "cap[*]l")
+    (aset table 77 "cap[*]m")
+    (aset table 78 "cap[*]m")
+    (aset table 79 "cap[*]o")
+    (aset table 80 "cap[*]p")
+    (aset table 81 "cap[*]q")
+    (aset table 82 "cap[*]r")
+    (aset table 83 "cap[*]s")
+    (aset table 84 "cap[*]t")
+    (aset table 85 "cap[*]u")
+    (aset table 86 "cap[*]v")
+    (aset table 87 "cap[*]w")
+    (aset table 88 "cap[*]x")
+    (aset table 89 "cap[*]y")
+    (aset table 90 "cap[*]z")
+    (aset table 91 "left[*]bracket")
+    (aset table 92 "backslash")
+    (aset table 93 "right[*]bracket")
+    (aset table 94 "caret")
+    (aset table 95 "underscore")
+    (aset table 96 "backquote")
+    (aset table 97 "a")
+    (aset table 98 "b")
+    (aset table 99 "c")
+    (aset table 100 "d")
+    (aset table 101 "e")
+    (aset table 102 "f")
+    (aset table 103 "g")
+    (aset table 104 "h")
+    (aset table 105 "i")
+    (aset table 106 "j")
+    (aset table 107 "k")
+    (aset table 108 "l")
+    (aset table 109 "m")
+    (aset table 110 "n")
+    (aset table 111 "o")
+    (aset table 112 "p")
+    (aset table 113 "q")
+    (aset table 114 "r")
+    (aset table 115 "s")
+    (aset table 116 "t")
+    (aset table 117 "u")
+    (aset table 118 "v")
+    (aset table 119 "w")
+    (aset table 120 "x")
+    (aset table 121 "y")
+    (aset table 122 "z")
+    (aset table 123 "left[*]brace")
+    (aset table 124 "pipe")
+    (aset table 125 "right[*]brace ")
+    (aset table 126 "tilde")
+    (aset table 127 "backspace")
 ;;; Characters with the 8th bit set:
-    (aset  table 128  " octal 200 ")
-    (aset  table 129  " ")              ;shows up on WWW pages
-    (aset  table 130  " octal 202 ")
-    (aset  table 131  " octal 203 ")
-    (aset  table 132  " octal 204 ")
-    (aset  table 133  " octal 205 ")
-    (aset  table 134  " octal 206 ")
-    (aset  table 135  " octal 207 ")
-    (aset  table 136  " octal 210 ")
-    (aset  table 137  " octal 211 ")
-    (aset  table 138  " octal 212 ")
-    (aset  table 139  " octal 213 ")
-    (aset  table 140  " octal 214 ")
-    (aset  table 141  " octal 215 ")
-    (aset  table 142  " octal 216 ")
-    (aset  table 143  " octal 217 ")
-    (aset  table 144  " octal 220 ")
-    (aset  table 145  " octal 221 ")
-    (aset  table 146  " '  ")
-    (aset  table 147  " quote  ")
-    (aset  table 148  " octal 224 ")
-    (aset  table 149  " octal 225 ")
-    (aset  table 150  " octal 226 ")
-    (aset  table 151  " octal 227 ")
-    (aset  table 152  " octal 230 ")
-    (aset  table 153  " octal 231 ")
-    (aset  table 154  " octal 232 ")
-    (aset  table 155  " octal 233 ")
-    (aset  table 156  " octal 234 ")
-    (aset  table 157  " octal 235 ")
-    (aset  table 158  " octal 236 ")
-    (aset  table 159  " octal 237 ")
-    (aset  table 160  "  ")             ;non breaking space
-    (aset  table 161  " octal 241 ")
-    (aset  table 162  " octal 242 ")
-    (aset  table 163  " octal 243 ")
-    (aset  table 164  " octal 244 ")
-    (aset  table 165  " octal 245 ")
-    (aset  table 166  " octal 246 ")
-    (aset  table 167  " octal 247 ")
-    (aset  table 168  " octal 250 ")
-    (aset  table 169  " copyright ")    ;copyright sign
-    (aset  table 170  " octal 252 ")
-    (aset  table 171  " octal 253 ")
-    (aset  table 172  " octal 254 ")
-    (aset  table 173  "-")              ;soft hyphen
-    (aset  table 174  " (R) ")          ;registered sign
-    (aset  table 175  " octal 257 ")
-    (aset  table 176  " octal 260 ")
-    (aset  table 177  " octal 261 ")
-    (aset  table 178  " octal 262 ")
-    (aset  table 179  " octal 263 ")
-    (aset  table 180  " octal 264 ")
-    (aset  table 181  " octal 265 ")
-    (aset  table 182  " octal 266 ")
-    (aset  table 183  " octal 267 ")
-    (aset  table 184  " octal 270 ")
-    (aset  table 185  " octal 271 ")
-    (aset  table 186  " octal 272 ")
-    (aset  table 187  " octal 273 ")
-    (aset  table 188  " octal 274 ")
-    (aset  table 189  " octal 275 ")
-    (aset  table 190  " octal 276 ")
-    (aset  table 191  " octal 277 ")
-    (aset  table 192  " octal 300 ")
-    (aset  table 193  " octal 301 ")
-    (aset  table 194  " octal 302 ")
-    (aset  table 195  " octal 303 ")
-    (aset  table 196  " octal 304 ")
-    (aset  table 197  " octal 305 ")
-    (aset  table 198  " octal 306 ")
-    (aset  table 199  " octal 307 ")
-    (aset  table 200  " octal 310 ")
-    (aset  table 201  " octal 311 ")
-    (aset  table 202  " octal 312 ")
-    (aset  table 203  " octal 313 ")
-    (aset  table 204  " octal 314 ")
-    (aset  table 205  " octal 315 ")
-    (aset  table 206  " octal 316 ")
-    (aset  table 207  " octal 317 ")
-    (aset  table 208  " octal 320 ")
-    (aset  table 209  " octal 321 ")
-    (aset  table 210  " octal 322 ")
-    (aset  table 211  " octal 323 ")
-    (aset  table 212  " octal 324 ")
-    (aset  table 213  " octal 325 ")
-    (aset  table 214  " octal 326 ")
-    (aset  table 215  " octal 327 ")
-    (aset  table 216  " octal 330 ")
-    (aset  table 217  " octal 331 ")
-    (aset  table 218  " octal 332 ")
-    (aset  table 219  " octal 333 ")
-    (aset  table 220  " octal 334 ")
-    (aset  table 221  " octal 335 ")
-    (aset  table 222  " octal 336 ")
-    (aset  table 223  " octal 337 ")
-    (aset  table 224  " octal 340 ")
-    (aset  table 225  " octal 341 ")
-    (aset  table 226  " octal 342 ")
-    (aset  table 227  " octal 343 ")
-    (aset  table 228  " octal 344 ")
-    (aset  table 229  " octal 345 ")
-    (aset  table 230  " octal 346 ")
-    (aset  table 231  " octal 347 ")
-    (aset  table 232  " octal 350 ")
-    (aset  table 233  " octal 351 ")
-    (aset  table 234  " octal 352 ")
-    (aset  table 235  " octal 353 ")
-    (aset  table 236  " octal 354 ")
-    (aset  table 237  " octal 355 ")
-    (aset  table 238  " octal 356 ")
-    (aset  table 239  " octal 357 ")
-    (aset  table 240  " octal 360 ")
-    (aset  table 241  " octal 361 ")
-    (aset  table 242  " octal 362 ")
-    (aset  table 243  " octal 363 ")
-    (aset  table 244  " octal 364 ")
-    (aset  table 245  " octal 365 ")
-    (aset  table 246  " octal 366 ")
-    (aset  table 247  " octal 367 ")
-    (aset  table 248  " octal 370 ")
-    (aset  table 249  " octal 371 ")
-    (aset  table 250  " octal 372 ")
-    (aset  table 251  " octal 373 ")
-    (aset  table 252  " octal 374 ")
-    (aset  table 253  " octal 375 ")
-    (aset  table 254  " octal 376 ")
-    (aset  table 255  " octal 377 ")))
+    (aset table 128 " octal 200 ")
+    (aset table 129 " ")                ;shows up on WWW pages
+    (aset table 130 " octal 202 ")
+    (aset table 131 " octal 203 ")
+    (aset table 132 " octal 204 ")
+    (aset table 133 " octal 205 ")
+    (aset table 134 " octal 206 ")
+    (aset table 135 " octal 207 ")
+    (aset table 136 " octal 210 ")
+    (aset table 137 " octal 211 ")
+    (aset table 138 " octal 212 ")
+    (aset table 139 " octal 213 ")
+    (aset table 140 " octal 214 ")
+    (aset table 141 " octal 215 ")
+    (aset table 142 " octal 216 ")
+    (aset table 143 " octal 217 ")
+    (aset table 144 " octal 220 ")
+    (aset table 145 " octal 221 ")
+    (aset table 146 " '  ")
+    (aset table 147 " quote  ")
+    (aset table 148 " octal 224 ")
+    (aset table 149 " octal 225 ")
+    (aset table 150 " octal 226 ")
+    (aset table 151 " octal 227 ")
+    (aset table 152 " octal 230 ")
+    (aset table 153 " octal 231 ")
+    (aset table 154 " octal 232 ")
+    (aset table 155 " octal 233 ")
+    (aset table 156 " octal 234 ")
+    (aset table 157 " octal 235 ")
+    (aset table 158 " octal 236 ")
+    (aset table 159 " octal 237 ")
+    (aset table 160 "  ")               ;non breaking space
+    (aset table 161 " octal 241 ")
+    (aset table 162 " octal 242 ")
+    (aset table 163 " octal 243 ")
+    (aset table 164 " octal 244 ")
+    (aset table 165 " octal 245 ")
+    (aset table 166 " octal 246 ")
+    (aset table 167 " octal 247 ")
+    (aset table 168 " octal 250 ")
+    (aset table 169 " copyright ")      ;copyright sign
+    (aset table 170 " octal 252 ")
+    (aset table 171 " octal 253 ")
+    (aset table 172 " octal 254 ")
+    (aset table 173 "-")                ;soft hyphen
+    (aset table 174 " (R) ")            ;registered sign
+    (aset table 175 " octal 257 ")
+    (aset table 176 " octal 260 ")
+    (aset table 177 " octal 261 ")
+    (aset table 178 " octal 262 ")
+    (aset table 179 " octal 263 ")
+    (aset table 180 " octal 264 ")
+    (aset table 181 " octal 265 ")
+    (aset table 182 " octal 266 ")
+    (aset table 183 " octal 267 ")
+    (aset table 184 " octal 270 ")
+    (aset table 185 " octal 271 ")
+    (aset table 186 " octal 272 ")
+    (aset table 187 " octal 273 ")
+    (aset table 188 " octal 274 ")
+    (aset table 189 " octal 275 ")
+    (aset table 190 " octal 276 ")
+    (aset table 191 " octal 277 ")
+    (aset table 192 " octal 300 ")
+    (aset table 193 " octal 301 ")
+    (aset table 194 " octal 302 ")
+    (aset table 195 " octal 303 ")
+    (aset table 196 " octal 304 ")
+    (aset table 197 " octal 305 ")
+    (aset table 198 " octal 306 ")
+    (aset table 199 " octal 307 ")
+    (aset table 200 " octal 310 ")
+    (aset table 201 " octal 311 ")
+    (aset table 202 " octal 312 ")
+    (aset table 203 " octal 313 ")
+    (aset table 204 " octal 314 ")
+    (aset table 205 " octal 315 ")
+    (aset table 206 " octal 316 ")
+    (aset table 207 " octal 317 ")
+    (aset table 208 " octal 320 ")
+    (aset table 209 " octal 321 ")
+    (aset table 210 " octal 322 ")
+    (aset table 211 " octal 323 ")
+    (aset table 212 " octal 324 ")
+    (aset table 213 " octal 325 ")
+    (aset table 214 " octal 326 ")
+    (aset table 215 " octal 327 ")
+    (aset table 216 " octal 330 ")
+    (aset table 217 " octal 331 ")
+    (aset table 218 " octal 332 ")
+    (aset table 219 " octal 333 ")
+    (aset table 220 " octal 334 ")
+    (aset table 221 " octal 335 ")
+    (aset table 222 " octal 336 ")
+    (aset table 223 " octal 337 ")
+    (aset table 224 " octal 340 ")
+    (aset table 225 " octal 341 ")
+    (aset table 226 " octal 342 ")
+    (aset table 227 " octal 343 ")
+    (aset table 228 " octal 344 ")
+    (aset table 229 " octal 345 ")
+    (aset table 230 " octal 346 ")
+    (aset table 231 " octal 347 ")
+    (aset table 232 " octal 350 ")
+    (aset table 233 " octal 351 ")
+    (aset table 234 " octal 352 ")
+    (aset table 235 " octal 353 ")
+    (aset table 236 " octal 354 ")
+    (aset table 237 " octal 355 ")
+    (aset table 238 " octal 356 ")
+    (aset table 239 " octal 357 ")
+    (aset table 240 " octal 360 ")
+    (aset table 241 " octal 361 ")
+    (aset table 242 " octal 362 ")
+    (aset table 243 " octal 363 ")
+    (aset table 244 " octal 364 ")
+    (aset table 245 " octal 365 ")
+    (aset table 246 " octal 366 ")
+    (aset table 247 " octal 367 ")
+    (aset table 248 " octal 370 ")
+    (aset table 249 " octal 371 ")
+    (aset table 250 " octal 372 ")
+    (aset table 251 " octal 373 ")
+    (aset table 252 " octal 374 ")
+    (aset table 253 " octal 375 ")
+    (aset table 254 " octal 376 ")
+    (aset table 255 " octal 377 ")))
 
 (dtk-speak-setup-character-table)
 ;;}}}
@@ -1514,17 +1513,16 @@ available TTS servers.")
   (aset table 252 " u diaeresis ")
   (aset table 253 " y acute ")
   (aset table 254 " small thorn, Icelandic ")
-  (aset table 255 " small y diaeresis ")
-  )
+  (aset table 255 " small y diaeresis "))
 
 ;;}}}
 (defun dtk-char-to-speech (char)
   "Translate CHAR to speech string."
   (cl-declare (special dtk-character-to-speech-table))
-  (if  (eq (char-charset char) 'ascii)
+  (if (eq (char-charset char) 'ascii)
       (aref dtk-character-to-speech-table char)
     (or (dtk-unicode-short-name-for-char char)
-        (format "octal %o"  char))))
+        (format "octal %o" char))))
 
 ;;}}}
 ;;{{{  interactively selecting the server:
@@ -1558,9 +1556,9 @@ available TTS servers.")
        (string-match "^cloud" tts-name) ; cloud
        (string-match "^log" tts-name))
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
-  (let ((file-name-handler-alist  nil)
-        (load-source-file-function  nil))
-  (load-library "voice-setup")))
+  (let ((file-name-handler-alist nil)
+        (load-source-file-function nil))
+    (load-library "voice-setup")))
 
 (defvar tts-device "default"
   "Name of current sound device in use.")
@@ -1570,7 +1568,7 @@ available TTS servers.")
   :type '(string
           (choice
            (:const "cloud-outloud" :tag "Outloud Variants")
-           (:const  "cloud-dtk" :tag "DTK Variants")
+           (:const "cloud-dtk" :tag "DTK Variants")
            (:const "cloud-espeak" :tag "ESpeak Variants")
            (:const "cloud-mac" :tag "Mac Variants")))
   :group 'dtk)
@@ -1589,9 +1587,9 @@ ALSA_DEFAULT to specified device before starting the server."
      (or dtk-servers-alist (tts-setup-servers-alist))
      nil t)
     current-prefix-arg))
-  (cl-declare (special   dtk-program dtk-servers-alist
-                      tts-device emacspeak-servers-directory
-                      emacspeak-tts-use-notify-stream emacspeak-ssh-tts-server))
+  (cl-declare (special dtk-program dtk-servers-alist
+                       tts-device emacspeak-servers-directory
+                       emacspeak-tts-use-notify-stream emacspeak-ssh-tts-server))
   (when (and (called-interactively-p 'interactive) device)
     (setq tts-device
           (completing-read "Device: "
@@ -1604,7 +1602,7 @@ ALSA_DEFAULT to specified device before starting the server."
         (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
-    (when (called-interactively-p  'interactive)
+    (when (called-interactively-p 'interactive)
       (setq emacspeak-tts-use-notify-stream
             (emacspeak-tts-multistream-p dtk-program))
       (dtk-initialize))))
@@ -1622,8 +1620,8 @@ ALSA_DEFAULT to specified device before starting the server."
   "List of ALSA sound devices  we can use."
   :type '(repeat
           (choice :tag "Device"
-                  (const   "default")
-                  (const   "$ALSA_DEFAULT")
+                  (const "default")
+                  (const "$ALSA_DEFAULT")
                   (string)))
   :group 'dtk)
 
@@ -1634,7 +1632,7 @@ Optional interactive prefix arg restarts current TTS server."
   (interactive "P")
   (cl-declare (special tts-device tts-device-list))
   (let ((pos (cl-position tts-device tts-device-list :test
-                       #'string=))
+                          #'string=))
         (len (length tts-device-list)))
     (cond
      ((= len 1) (message "Only  one ALSA device."))
@@ -1685,17 +1683,17 @@ program. Port defaults to dtk-local-server-port"
      nil nil
      dtk-program)
     current-prefix-arg))
-  (cl-declare (special    dtk-servers-alist dtk-local-server-port
+  (cl-declare (special dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory))
   (setq dtk-local-server-process
         (start-process
          "LocalTTS"
          "*localTTS*"
-         (expand-file-name  dtk-speech-server-program emacspeak-servers-directory)
+         (expand-file-name dtk-speech-server-program emacspeak-servers-directory)
          (if prompt-port
              (read-from-minibuffer "Port:" "3333")
            dtk-local-server-port)
-         (expand-file-name program  emacspeak-servers-directory))))
+         (expand-file-name program emacspeak-servers-directory))))
 
 ;;}}}
 ;;{{{  initialize the speech process
@@ -1704,10 +1702,10 @@ program. Port defaults to dtk-local-server-port"
   "Records if the server is initialized.")
 
 ;;; Helper: dtk-make-process:
-(defun  dtk-make-process  (name)
+(defun dtk-make-process (name)
   "Make a  TTS process called name."
   (cl-declare (special dtk-program dtk-program-args emacspeak-servers-directory))
-  (let ((process-connection-type  nil)
+  (let ((process-connection-type nil)
         (program (expand-file-name dtk-program emacspeak-servers-directory))
         (process nil))
     (setq process (apply #'start-process name nil program dtk-program-args))
@@ -1716,10 +1714,10 @@ program. Port defaults to dtk-local-server-port"
                              (tts-env-get (tts-env-key dtk-program)))
     process))
 
-(defun  dtk-initialize ()
+(defun dtk-initialize ()
   "Initialize speech system."
   (cl-declare (special dtk-speaker-process dtk-speak-server-initialized
-                    dtk-startup-hook))
+                       dtk-startup-hook))
   (let* ((new-process (dtk-make-process "Speaker"))
          (state (process-status new-process)))
     (setq dtk-speak-server-initialized (memq state '(run open)))
@@ -1729,7 +1727,7 @@ program. Port defaults to dtk-local-server-port"
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
       (run-hooks 'dtk-startup-hook)))))
-;;;###autoload 
+;;;###autoload
 (defun tts-shutdown ()
   "Shutdown TTS servers."
   (cl-declare (special dtk-speaker-process dtk-notify-process))
@@ -1738,7 +1736,7 @@ program. Port defaults to dtk-local-server-port"
   (when (processp dtk-notify-process)
     (delete-process dtk-notify-process)))
 
-  
+
 ;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
@@ -1802,16 +1800,16 @@ No-op if variable `dtk-quiet' is set to t.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (cl-declare (special dtk-speaker-process dtk-stop-immediately
-                    tts-strip-octals inhibit-point-motion-hooks
-                    inhibit-modification-hooks
-                    dtk-speak-server-initialized emacspeak-use-auditory-icons
-                    dtk-speech-rate dtk-speak-nonprinting-chars
-                    dtk-speak-treat-embedded-punctuations-specially
-                    dtk-quiet  dtk-chunk-separator-syntax
-                    voice-lock-mode   dtk-punctuation-mode
-                    dtk-split-caps dtk-capitalize dtk-allcaps-beep
-                    emacspeak-pronounce-pronunciation-table
-                    selective-display))
+                       tts-strip-octals inhibit-point-motion-hooks
+                       inhibit-modification-hooks
+                       dtk-speak-server-initialized emacspeak-use-auditory-icons
+                       dtk-speech-rate dtk-speak-nonprinting-chars
+                       dtk-speak-treat-embedded-punctuations-specially
+                       dtk-quiet dtk-chunk-separator-syntax
+                       voice-lock-mode dtk-punctuation-mode
+                       dtk-split-caps dtk-capitalize dtk-allcaps-beep
+                       emacspeak-pronounce-pronunciation-table
+                       selective-display))
 ;;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
 ;;; ensure  the process  is live
@@ -1826,7 +1824,7 @@ only speak upto the first ctrl-m."
     (when dtk-stop-immediately (dtk-stop))
     (when selective-display
       (let ((ctrl-m (string-match "\015" text)))
-        (and ctrl-m (setq text (substring  text 0 ctrl-m))
+        (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t) ;snapshot relevant state
           (inhibit-read-only t)
@@ -1840,7 +1838,7 @@ only speak upto the first ctrl-m."
           (inherit-chunk-separator-syntax dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)
-          (complement-separator(dtk-complement-chunk-separator-syntax))
+          (complement-separator (dtk-complement-chunk-separator-syntax))
           (speech-rate dtk-speech-rate)
           (capitalize dtk-capitalize)
           (all-caps dtk-allcaps-beep)
@@ -1871,7 +1869,7 @@ only speak upto the first ctrl-m."
         (set-syntax-table syntax-table)
         (set-buffer-multibyte inherit-enable-multibyte-characters)
         (dtk-interp-sync)
-        (insert  text)
+        (insert text)
         (delete-invisible-text)
         (when pronunciation-table
           (tts-apply-pronunciations pronunciation-table))
@@ -1879,22 +1877,22 @@ only speak upto the first ctrl-m."
         (dtk-handle-repeating-patterns mode)
         (dtk-quote mode)
         (goto-char (point-min))
-        (skip-syntax-forward " ");skip leading whitespace
+        (skip-syntax-forward " ")       ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk
                      inherit-chunk-separator-syntax complement-separator))
           (unless
-              (and (char-after  (point))
+              (and (char-after (point))
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
-            (skip-syntax-forward " ");skip  whitespace
+            (skip-syntax-forward " ")   ;skip  whitespace
             (setq end (point))
-            (dtk-format-text-and-speak  start end)
-            (setq start  end)))         ; end while
+            (dtk-format-text-and-speak start end)
+            (setq start end)))          ; end while
                                         ; process trailing text
-        (unless  (= start (point-max))
-          (skip-syntax-forward " ");skip leading whitespace
+        (unless (= start (point-max))
+          (skip-syntax-forward " ")     ;skip leading whitespace
           (setq start (point))
           (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
@@ -1902,7 +1900,7 @@ only speak upto the first ctrl-m."
 ;;; forward Declaration:
 (defvar emacspeak-speak-messages)
 
-(defmacro ems-with-messages-silenced  (&rest body)
+(defmacro ems-with-messages-silenced (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   (declare (indent 1) (debug t))
   `(let ((emacspeak-speak-messages nil)
@@ -1912,8 +1910,8 @@ only speak upto the first ctrl-m."
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (ems-with-messages-silenced
-   (dtk-speak message)
-   (message "%s" message)))
+      (dtk-speak message)
+    (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.
@@ -1924,12 +1922,12 @@ inserted.  Otherwise it is a number that specifies grouping"
   (cl-declare (special dtk-speaker-process))
   (unless group (setq group 3))
   (when (numberp group)
-;;; Create split list 
+;;; Create split list
     (setq group
           (let ((q (/ (length text) group))
                 (r (% (length text) group))
                 (splits nil))
-            ( setq splits (cl-loop for i from 0 to (1- q)collect    group ))
+            (setq splits (cl-loop for i from 0 to (1- q) collect group))
             (if (zerop r)
                 splits
               `(,@splits ,r)))))
@@ -1946,7 +1944,7 @@ inserted.  Otherwise it is a number that specifies grouping"
        for element in text do
        (let
            ((p (and (stringp element)
-                    (get-text-property  0 'personality element))))
+                    (get-text-property 0 'personality element))))
          (if (stringp element)
              (insert element)
            (insert (format " %s" element)))
@@ -1954,27 +1952,27 @@ inserted.  Otherwise it is a number that specifies grouping"
           ((= count (car group))
            (setq count 1)
            (pop group)
-           (if p 
+           (if p
                (insert (propertize "," 'personality p))
              (insert ", ")))
-           (t (cl-incf count)
-              (insert " ")))))
-       (setq contents (buffer-string)))
-      (tts-with-punctuations 'some(dtk-speak contents))))
+          (t (cl-incf count)
+             (insert " ")))))
+      (setq contents (buffer-string)))
+    (tts-with-punctuations 'some (dtk-speak contents))))
 
 (defun dtk-letter (letter)
   "Speak a LETTER."
   (cl-declare (special dtk-speaker-process
-                    dtk-speak-server-initialized
-                    dtk-quiet))
+                       dtk-speak-server-initialized
+                       dtk-quiet))
   (unless dtk-quiet
     (when dtk-speak-server-initialized
-      (dtk-interp-letter  letter))))
+      (dtk-interp-letter letter))))
 
 (defun dtk-say (words)
   "Say these WORDS."
   (cl-declare (special dtk-speaker-process dtk-stop-immediately
-                    dtk-speak-server-initialized dtk-quiet))
+                       dtk-speak-server-initialized dtk-quiet))
                                         ; ensure words is a  string
   (unless (stringp words) (setq words (format "%s" words)))
   ;; I wont talk if you dont want me to
@@ -1994,14 +1992,14 @@ inserted.  Otherwise it is a number that specifies grouping"
   "Return valid TTS handle for notifications.
 Returns nil if the result would not be a valid process handle."
   (cl-declare (special dtk-notify-process dtk-speaker-process
-                    emacspeak-tts-use-notify-stream dtk-program))
+                       emacspeak-tts-use-notify-stream dtk-program))
   (let ((result
          (cond
           ((null emacspeak-tts-use-notify-stream) dtk-speaker-process) ;custom overrides.
           ((null (emacspeak-tts-multistream-p dtk-program)) dtk-speaker-process)
           ((null dtk-notify-process) dtk-speaker-process)
-          ((and  (processp dtk-notify-process)
-                 (memq (process-status dtk-notify-process) '(open run)))
+          ((and (processp dtk-notify-process)
+                (memq (process-status dtk-notify-process) '(open run)))
            dtk-notify-process)
           (t dtk-speaker-process))))
     (when (process-live-p result) result)))
@@ -2016,7 +2014,7 @@ Returns nil if the result would not be a valid process handle."
 (defun dtk-notify-apply (func text)
   "Internal helper to handle notifications.
 Applies func to text with dtk-speaker-process bound to the  notification stream."
-  (let ((dtk-speaker-process  (dtk-notify-process)))
+  (let ((dtk-speaker-process (dtk-notify-process)))
     (funcall func text)))
 (declare-function emacspeak-log-notification "emacspeak-speak" (text))
 
@@ -2029,7 +2027,7 @@ Fall back to dtk-speak if notification stream not available."
   (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-apply #'dtk-speak  text))
+    (dtk-notify-apply #'dtk-speak text))
    (t (dtk-speak text))))
 
 ;;;###autoload
@@ -2040,7 +2038,7 @@ Fall back to dtk-speak if notification stream not available."
   (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-apply #'dtk-say  text))
+    (dtk-notify-apply #'dtk-say text))
    (t (dtk-say text))))
 
 ;;;###autoload
@@ -2050,22 +2048,22 @@ Fall back to dtk-speak if notification stream not available."
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-letter letter))
    (t (dtk-letter letter))))
-;;; Forward Declaration 
+;;; Forward Declaration
 (defvar tts-notification-device)
 
 (defun dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
   (cl-declare (special tts-notification-device))
   (or tts-notification-device
-    (getenv "ALSA_DEFAULT")))
+      (getenv "ALSA_DEFAULT")))
 
 ;;;###autoload
-(defun  dtk-notify-initialize ()
+(defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
   (cl-declare (special dtk-notify-process))
   (let ((save-device (getenv "ALSA_DEFAULT"))
-        (device  (dtk-get-notify-alsa-device))
+        (device (dtk-get-notify-alsa-device))
         (dtk-program
          (if
              (string-match "cloud" dtk-program)
@@ -2095,7 +2093,7 @@ Fall back to dtk-speak if notification stream not available."
 (defun dtk-notify-shutdown ()
   "Shutdown notification TTS stream."
   (interactive)
-  (when (process-live-p  dtk-notify-process) (delete-process dtk-notify-process)))
+  (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process)))
 
 ;;}}}
 (provide 'dtk-speak)

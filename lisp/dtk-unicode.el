@@ -56,7 +56,7 @@
 ;;{{{ Preamble
 
 (require 'cl-lib)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
+(cl-declaim (optimize (safety 0) (speed 3)))
 (require 'descr-text)
 ;;}}}
 ;;{{{ Customizations
@@ -69,40 +69,39 @@
 ;;;###autoload
 (defcustom dtk-unicode-character-replacement-alist
   '(
-    (? . "-")                   ; START OF GUARDED AREA
-    (?━ .  "-")                     ; horiz bars
-    (?┃ . "|")                      ; vertical block
-    (?° . " degrees ")              ; degree sign
-    (?℃ . "Degree C")               ; celsius
-    (?℉ . "Degree F ")              ; Fahrenheit
-    (?“ . "\"")                     ;LEFT DOUBLE QUOTATION MARK
-    (?” . "\"")                     ; RIGHT DOUBLE QUOTATION MARK
-    (?⋆ . "*")                      ; STAR OPERATOR
-    (?­ .  "-") ; soft-hyphen
-    (?‘ . " backquote  ")           ; LEFT SINGLE QUOTATION MARK
-    (?’ . "'")                      ; right SINGLE QUOTATION MARK
-    (?‐ . "hyphen")                      ; hyphenm
-    (?– . " -- ")                     ; n-dash
-    (?— . " --- ")                    ; m-dash
-    (?  . " ") ; hair space
-    (?― . "----")                   ; horizontal bar
-    (?‖ . "||")                     ; vertical bar
-    (?… . "...")                    ; ellipses
-    (?• . " bullet ")               ; bullet
-    (? . " ... ")               ; message-waiting
-    (?™ . "TM")                     ; trademark
-    (?ﬀ . "ff")                     ; latin small ligature ff
-    (?ﬁ . "fi")                     ; latin small ligature fi
-    (?ﬂ . "fl")                     ; latin small ligature fl
-    (?ﬃ . "ffi")                    ; latin small ligature ffi
-    (?ﬄ . "Ffl")                    ; latin small ligature ffl
+    (? . "-")                       ; START OF GUARDED AREA
+    (?━ . "-")                          ; horiz bars
+    (?┃ . "|")                          ; vertical block
+    (?° . " degrees ")                  ; degree sign
+    (?℃ . "Degree C")                   ; celsius
+    (?℉ . "Degree F ")                  ; Fahrenheit
+    (?“ . "\"")                         ;LEFT DOUBLE QUOTATION MARK
+    (?” . "\"")                         ; RIGHT DOUBLE QUOTATION MARK
+    (?⋆ . "*")                          ; STAR OPERATOR
+    (?­ . "-")                          ; soft-hyphen
+    (?‘ . " backquote  ")               ; LEFT SINGLE QUOTATION MARK
+    (?’ . "'")                          ; right SINGLE QUOTATION MARK
+    (?‐ . "hyphen")                     ; hyphenm
+    (?– . " -- ")                       ; n-dash
+    (?— . " --- ")                      ; m-dash
+    (?  . " ")                          ; hair space
+    (?― . "----")                       ; horizontal bar
+    (?‖ . "||")                         ; vertical bar
+    (?… . "...")                        ; ellipses
+    (?• . " bullet ")                   ; bullet
+    (? . " ... ")                   ; message-waiting
+    (?™ . "TM")                         ; trademark
+    (?ﬀ . "ff")                         ; latin small ligature ff
+    (?ﬁ . "fi")                         ; latin small ligature fi
+    (?ﬂ . "fl")                         ; latin small ligature fl
+    (?ﬃ . "ffi")                        ; latin small ligature ffi
+    (?ﬄ . "Ffl")                        ; latin small ligature ffl
     )
   "Explicit replacements for some characters."
   :group 'dtk-unicode
   :type '(alist
           :key-type (character :tag "character")
-          :value-type (string :tag "replacement"))
-  )
+          :value-type (string :tag "replacement")))
 
 ;;;###autoload
 (defcustom dtk-unicode-process-utf8 t
@@ -113,16 +112,14 @@ themselves, e.g., when using an Asian language."
 
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
-    ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" .  (lambda (s) (match-string 2 s)))
-    ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" .  (lambda (s) (match-string 2 s)))
-    ("\\(.*\\) sign$" . (lambda (s) (match-string 1 s)))
-    )
+    ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
+    ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
+    ("\\(.*\\) sign$" . (lambda (s) (match-string 1 s))))
   "Alist of character name transformation rules."
   :group 'dtk-unicode
   :type '(repeat (cons :value ("." . identity)
                        (regexp :tag "pattern")
-                       (function :tag "transformation")))
-  )
+                       (function :tag "transformation"))))
 
 ;;}}}
 ;;{{{ Variables
@@ -187,11 +184,10 @@ charsets returned by operations such as `find-charset-region'."
          (unwind-protect
              (progn ,@body)
            (apply #'set-charset-priority ,current)))))
-  ;;; Now use it:
-  (defun dtk-unicode-char-in-charsets-p  (char charsets)
+;;; Now use it:
+  (defun dtk-unicode-char-in-charsets-p (char charsets)
     "Return t if CHAR is a member of one in the charsets in CHARSETS."
-    (dtk--with-charset-priority charsets (memq (char-charset char) charsets)))
-  )
+    (dtk--with-charset-priority charsets (memq (char-charset char) charsets))))
 
 (defun dtk-unicode-char-untouched-p (char)
   "Return t if char is a member of one of the charsets in dtk-unicode-untouched-charsets."
@@ -275,7 +271,7 @@ When called interactively, CHAR defaults to the character after point."
   "Uses the unicode data file to find the name of CHAR."
   (let ((char-desc (dtk-unicode-name-for-char char)))
     (when char-desc
-      (format  " %s " (dtk-unicode-apply-name-transformation-rules char-desc)))))
+      (format " %s " (dtk-unicode-apply-name-transformation-rules char-desc)))))
 
 ;;}}}
 ;;{{{ External interface
@@ -300,10 +296,10 @@ This is the main entry point for this module.
 The argument MODE specifies the current punctuation mode.
 Does nothing for unibyte buffers."
   (cl-declare (special dtk-unicode-process-utf8))
-  (when  dtk-unicode-process-utf8
+  (when dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
       (goto-char (point-min))
-      (while (re-search-forward dtk-unicode-charset-filter-regexp  nil t)
+      (while (re-search-forward dtk-unicode-charset-filter-regexp nil t)
         (let* ((pos (match-beginning 0))
                (char (char-after pos))
                (replacement
