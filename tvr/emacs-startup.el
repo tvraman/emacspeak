@@ -173,6 +173,7 @@
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-correct-mode 1)
+  (auto-fill-mode)
   (abbrev-mode 1))
 
 (defun tvr-prog-mode-hook ()
@@ -180,6 +181,7 @@
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode 1)
   (hs-minor-mode 1)
+  (auto-fill-mode)
   (cond
    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
     (lispy-mode 1))
