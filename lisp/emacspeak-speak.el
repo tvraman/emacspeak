@@ -903,7 +903,7 @@ with a long string of gibberish."
 
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 
-(defcustom emacspeak-speak-space-regexp
+(defcustom emacspeak-speak-blank-line-regexp
   "^[:space:]+$}"
   
   "Pattern that matches white space."
@@ -933,7 +933,7 @@ with auditory icon `more'.  These can then be spoken using command
   (cl-declare (special voice-animate voice-indent linum-mode
                        dtk-stop-immediately dtk-punctuation-mode
                        dtk-cleanup-patterns
-                       emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
+                       emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
                        emacspeak-speak-maximum-line-length emacspeak-show-point
                        emacspeak-decoration-rule emacspeak-horizontal-rule
                        emacspeak-unspeakable-rule emacspeak-audio-indentation))
@@ -1000,7 +1000,7 @@ with auditory icon `more'.  These can then be spoken using command
 ;;; C1..C5
      ((string-equal "" line)
       (dtk-tone 130.8 150 'force))
-     ((string-match emacspeak-speak-space-regexp line) ;only white space
+     ((string-match emacspeak-speak-blank-line-regexp line) ;only white space
       (dtk-tone 261.6 150 'force))
      ((and (not (eq 'all dtk-punctuation-mode))
            (string-match emacspeak-horizontal-rule line))
