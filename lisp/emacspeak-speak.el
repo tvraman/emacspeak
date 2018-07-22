@@ -928,11 +928,10 @@ with auditory icon `more'.  These can then be spoken using command
   (when dtk-stop-immediately (dtk-stop))
   (let ((inhibit-field-text-motion t)
         (dtk-cleanup-patterns
-         (if
-             (and emacspeak-show-point
-                  (= ?\) (char-syntax (following-char))))
-             nil
-           dtk-cleanup-patterns))
+         (cond
+          ((and emacspeak-show-point
+                (= ?\) (char-syntax (following-char)))))
+          (t dtk-cleanup-patterns)))
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
