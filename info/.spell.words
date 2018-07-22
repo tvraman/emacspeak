@@ -29,7 +29,6 @@ arg
 ARG
 args
 ASIN
-async
 auctex
 Auctex
 AucTeX
@@ -110,7 +109,6 @@ cmds
 cmuscheme
 CNet
 CNET
-CNNPodCasts
 comint
 cp
 cpan
@@ -354,6 +352,9 @@ libxslt
 linearize
 Linearizing
 liquidsoap
+lispy
+Lispy
+LISPY
 litable
 loc
 lua
@@ -405,6 +406,7 @@ noaa
 NodeJS
 nonprinting
 Norvig
+nosel
 nvm
 nxml
 NYTimes
@@ -491,6 +493,7 @@ Renderer
 repl
 REPL
 repurposable
+req
 restartable
 RET
 rg
@@ -522,6 +525,7 @@ screenfull
 screenreader
 screenreaders
 SDK
+sel
 selfeval
 ses
 sexp
@@ -544,7 +548,6 @@ sox
 Sox
 SoX
 soxplay
-spamassassin
 spc
 SPC
 speedbar
@@ -648,7 +651,6 @@ VLC
 vm
 VM
 VMMail
-voiceification
 voiceified
 voiceify
 voiceifying

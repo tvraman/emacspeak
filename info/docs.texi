@@ -1551,7 +1551,6 @@ key             binding
 C-n		emacspeak-wizards-google-headlines
 SPC		emacspeak-wizards-scratch
 '		emacspeak-vlc
-,		emacspeak-wizards-wc-2018
 .		emacspeak-wizards-shell-directory-reset
 R		emacspeak-webspace-feed-reader
 S		soundscape-stop
@@ -24988,15 +24987,6 @@ Read a personality  and apply it to the current line.
 
 @subsubsection emacspeak-wizards-wc-2018
 @deffn {Command} emacspeak-wizards-wc-2018  (team)
-@table @kbd
-@item C-. ,
-@kindex C-. ,
-@item C-' ,
-@kindex C-' ,
-@item C-x @@ s ,
-@kindex C-x @@ s ,
-@end table
-
 @findex emacspeak-wizards-wc-2018
 
 @format

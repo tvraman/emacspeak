@@ -4046,7 +4046,6 @@ system.
      C-n		emacspeak-wizards-google-headlines
      SPC		emacspeak-wizards-scratch
      ’		emacspeak-vlc
-     ,		emacspeak-wizards-wc-2018
      .		emacspeak-wizards-shell-directory-reset
      R		emacspeak-webspace-feed-reader
      S		soundscape-stop
