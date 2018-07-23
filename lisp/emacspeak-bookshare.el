@@ -108,12 +108,8 @@ See http://developer.bookshare.org/docs for details on how to get
            (string :tag "API Key"))
   :group 'emacspeak-bookshare)
 
-(defcustom emacspeak-bookshare-user-id nil
-  "Bookshare user Id."
-  :type '(choice :tag "Bookshare User id"
-                 (const :tag "None" nil)
-                 (string :tag "Email"))
-  :group 'emacspeak-bookshare)
+(defvar emacspeak-bookshare-user-id nil
+  "Bookshare user Id.")
 
 (defcustom emacspeak-bookshare-directory (expand-file-name "~/books/book-share")
   "Customize this to the root of where books are organized."
@@ -170,23 +166,45 @@ Bookshare docs."
 
 (defvar emacspeak-bookshare-md5-cached-token nil
   "Cache MD5 token for future use.")
-(defvar emacspeak-bookshare-password-cache nil
-  "Cache user password for this session.")
 
 (defun emacspeak-bookshare-user-password ()
   "User password.
-Memoize token, and return token encoded using md5, and packaged
-with X-password HTTP header for use with Curl."
-  (cl-declare (special emacspeak-bookshare-md5-cached-token
-                    emacspeak-bookshare-password-cache))
-  (setq emacspeak-bookshare-password-cache
-        (or  emacspeak-bookshare-password-cache
-             (read-passwd
-              (format "Bookshare password for %s: "
-                      emacspeak-bookshare-user-id))))
-  (setq emacspeak-bookshare-md5-cached-token
-        (md5 emacspeak-bookshare-password-cache))
+Get user and secret from auth-sources, and memoize the user and
+the MD5-encoded secret"
+  (cl-declare (special emacspeak-bookshare-user-id
+                       emacspeak-bookshare-md5-cached-token))
+  (let ((auth-info (emacspeak-bookshare-get-auth-info)))
+    (setq emacspeak-bookshare-user-id (car auth-info))
+    (setq emacspeak-bookshare-md5-cached-token
+          (md5 (cdr auth-info))))
   (format "-H 'X-password: %s'" emacspeak-bookshare-md5-cached-token))
+
+(defun emacspeak-bookshare-get-auth-info()
+  "Get the email and password for BookShare if it already exists
+in `auth-sources'. If not present, ask for email and password,
+and create an entry in the `auth-sources'.
+
+Returns a cons cell where the car is email, and the cdr is
+password."
+  (let* ((auth-source-creation-prompts
+          '((user . "Your BookShare.org e-mail: ")
+            (secret . "Your BookShare.org password: ")))
+         (found
+          (nth 0
+               (auth-source-search
+                :max 1
+                :host "api.bookshare.org"
+                :port 'https
+                :create t
+                :require '(:username :secret)))))
+    (when found
+      (let ((user (plist-get found :user))
+            (secret (plist-get found :secret))
+            (save-function (plist-get found :save-function)))
+        (funcall save-function)
+        (when (functionp secret)
+          (setq secret (funcall secret)))
+        (cons user secret)))))
 
 (defun emacspeak-bookshare-rest-endpoint (operation operand &optional noauth)
   "Return  URL  end point for specified operation.
@@ -1054,7 +1072,6 @@ Target location is generated from author and title."
 (defun emacspeak-bookshare-unpack-at-point ()
   "Unpack downloaded content if necessary."
   (interactive)
-  (cl-declare (special emacspeak-bookshare-password-cache))
   (emacspeak-bookshare-assert)
   (let ((inhibit-read-only t)
         (target (emacspeak-bookshare-get-target))
@@ -1067,9 +1084,7 @@ Target location is generated from author and title."
     (shell-command
      (format "cd \"%s\"; unzip -P %s %s"
              directory
-             (or emacspeak-bookshare-password-cache
-                 (read-passwd
-                  (format "Password for %s" emacspeak-bookshare-user-id)))
+             (cdr (emacspeak-bookshare-get-auth-info))
              target))
     (add-text-properties
      (line-beginning-position) (line-end-position)
@@ -1338,16 +1353,6 @@ Useful for fulltext search in a book."
            (emacspeak-speak-mode-line)))
       (browse-url-of-buffer)
       (kill-buffer buffer))))
-
-(defun emacspeak-bookshare-sign-out ()
-  "Sign out, clearing password."
-  (interactive)
-  (cl-declare (special emacspeak-bookshare-md5-cached-token
-                    emacspeak-bookshare-password-cache))
-  (setq emacspeak-bookshare-password-cache nil
-        emacspeak-bookshare-md5-cached-token nil)
-  (emacspeak-auditory-icon 'close-object)
-  (message "Signed out from Bookshare."))
 
 ;;}}}
 ;;{{{ Navigation in  Bookshare Interaction
