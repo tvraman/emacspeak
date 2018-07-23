@@ -1372,22 +1372,46 @@ prompts for a location and speaks the forecast. \n\n"
 
 ;;}}}
 ;;{{{ Search NLS Bard:
+
+(defun emacspeak-url-template-nls-auth-info()
+  "Get the email and password forNls if it already exists
+in `auth-sources'. If not present, ask for email and password,
+and create an entry in the `auth-sources'.
+Returns a cons cell where the car is email, and the cdr is password."
+  (let* ((auth-source-creation-prompts
+          '((user . "Your BARD NLSUserID: ")
+            (secret . "Your BARD NLS password: ")))
+         (found
+          (nth 0
+               (auth-source-search
+                :max 1
+                :host "nlsbard.loc.gov"
+                :port 'https
+                :create t
+                :require '(:username :secret)))))
+    (when found
+      (let ((user (plist-get found :user))
+            (secret (plist-get found :secret))
+            (save-function (plist-get found :save-function)))
+        (funcall save-function)
+        (when (functionp secret)
+          (setq secret (funcall secret)))
+        (cons user secret)))))
+
 (defvar emacspeak-url-template-nls-authenticated nil
   "Record if we have authenticated in this Emacs session.")
 
 (defun emacspeak-url-template-nls-ensure-auth ()
   "Fetch our auth tokens, then sign in."
-  (cl-declare (special emacspeak-url-template-nls-authenticated
-                       emacspeak-url-template-nls-user
-                       emacspeak-url-template-nls-password))
+  (cl-declare (special emacspeak-url-template-nls-authenticated))
   (unless emacspeak-url-template-nls-authenticated
-    (let 
-        ((url-request-extra-headers
-          '(("Content-Type" . "application/x-www-form-urlencoded")))
-         (url-request-data
-          (format
-           "url_return=&submit=Login&password=%s&loginid=%s"
-           emacspeak-url-template-nls-password emacspeak-url-template-nls-user)))
+    (let* ((token (emacspeak-url-template-nls-auth-info))
+          (url-request-extra-headers
+           '(("Content-Type" . "application/x-www-form-urlencoded")))
+          (url-request-data
+           (format
+            "url_return=&submit=Login&password=%s&loginid=%s"
+            (cdr token) (car token))))
       (eww-browse-url
        "https://nlsbard.loc.gov:443/nlsbardprod/login/NLS")
       (setq emacspeak-url-template-nls-authenticated t))))
