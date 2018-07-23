@@ -389,6 +389,9 @@ Argument BODY specifies forms to execute."
   "Records if paragraphs in this buffer have been voice annotated.")
 
 (make-variable-buffer-local 'emacspeak-speak-voice-annotated-paragraphs)
+(defvar-local emacspeak-speak-para-count nil
+  "Buffer-local count of paragraphs.
+Set by audio-annotating paragraphs.")
 
 (defun emacspeak-speak-voice-annotate-paragraphs ()
   "Locate paragraphs and voice annotate the first word.
@@ -396,6 +399,7 @@ Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer."
   (interactive)
   (cl-declare (special emacspeak-speak-paragraph-personality
+                       emacspeak-speak-para-count
                        emacspeak-speak-voice-annotated-paragraphs))
   (when emacspeak-speak-paragraph-personality
     (save-excursion
