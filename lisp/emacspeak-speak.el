@@ -385,11 +385,10 @@ Argument BODY specifies forms to execute."
   :group 'emacspeak-speak
   :type 'symbol)
 
-(defvar emacspeak-speak-voice-annotated-paragraphs nil
+(defvar-local  emacspeak-speak-voice-annotated-paragraphs nil
   "Records if paragraphs in this buffer have been voice annotated.")
 
-(make-variable-buffer-local 'emacspeak-speak-voice-annotated-paragraphs)
-(defvar-local emacspeak-speak-para-count nil
+(defvar-local emacspeak-speak-para-count 0
   "Buffer-local count of paragraphs.
 Set by audio-annotating paragraphs.")
 
@@ -401,7 +400,9 @@ Useful to do this before you listen to an entire buffer."
   (cl-declare (special emacspeak-speak-paragraph-personality
                        emacspeak-speak-para-count
                        emacspeak-speak-voice-annotated-paragraphs))
-  (when emacspeak-speak-paragraph-personality
+  (when
+      (and  emacspeak-speak-paragraph-personality
+            (null emacspeak-speak-voice-annotated-paragraphs)) ; memoized
     (save-excursion
       (goto-char (point-min))
       (condition-case nil
@@ -414,11 +415,12 @@ Useful to do this before you listen to an entire buffer."
               (while (re-search-forward blank-line nil t)
                 (skip-syntax-forward " ")
                 (setq start (point))
+                (incf emacspeak-speak-para-count)
                 (unless (get-text-property start 'personality)
                   (skip-syntax-forward "^ ")
-                  (put-text-property start (point)
-                                     'personality
-                                     emacspeak-speak-paragraph-personality)))))
+                  (put-text-property
+                   start (point)
+                   'personality emacspeak-speak-paragraph-personality)))))
         (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
