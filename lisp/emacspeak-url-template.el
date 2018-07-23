@@ -1372,7 +1372,25 @@ prompts for a location and speaks the forecast. \n\n"
 
 ;;}}}
 ;;{{{ Search NLS Bard:
+(defvar emacspeak-url-template-nls-authenticated nil
+  "Record if we have authenticated in this Emacs session.")
 
+(defun emacspeak-url-template-nls-ensure-auth ()
+  "Fetch our auth tokens, then sign in."
+  (cl-declare (special emacspeak-url-template-nls-authenticated
+                       emacspeak-url-template-nls-user
+                       emacspeak-url-template-nls-password))
+  (unless emacspeak-url-template-nls-authenticated
+    (let 
+        ((url-request-extra-headers
+          '(("Content-Type" . "application/x-www-form-urlencoded")))
+         (url-request-data
+          (format
+           "url_return=&submit=Login&password=%s&loginid=%s"
+           emacspeak-url-template-nls-password emacspeak-url-template-nls-user)))
+      (eww-browse-url
+       "https://nlsbard.loc.gov:443/nlsbardprod/login/NLS")
+      (setq emacspeak-url-template-nls-authenticated t))))
 
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
@@ -1393,17 +1411,24 @@ prompts for a location and speaks the forecast. \n\n"
      (cl-declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
      (emacspeak-speak-mode-line))
- "Search NLS Bard Catalog. Login once before using this template.")
+ "Search NLS Bard Catalog. Login once before using this template."
+ #'(lambda (url)
+     (emacspeak-url-template-nls-ensure-auth)
+     (eww-browse-url url)))
 
 (emacspeak-url-template-define
  "NLS Bard Popular"
-"https://nlsbard.loc.gov:443/nlsbardprod/search/most_popular/page/1/sort/s/srch/most_popular/local/0"
+ "https://nlsbard.loc.gov:443/nlsbardprod/search/most_popular/page/1/sort/s/srch/most_popular/local/0"
  nil
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
      (emacspeak-speak-mode-line))
- "NLS Bard Catalog: Most Popular. Login once before using this template.")
+ "NLS Bard Catalog: Most Popular. Login once before using this
+template."
+ #'(lambda (url)
+     (emacspeak-url-template-nls-ensure-auth)
+     (eww-browse-url url)))
 
 (emacspeak-url-template-define
  "NLS Bard Recent"
@@ -1413,7 +1438,11 @@ prompts for a location and speaks the forecast. \n\n"
      (cl-declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor #'emacspeak-url-template-nls-add-to-wishlist)
      (emacspeak-speak-mode-line))
- "NLS Bard Catalog: Recently Added. Login once before using this template.")
+ "NLS Bard Catalog: Recently Added. Login once before using this
+template."
+ #'(lambda (url)
+     (emacspeak-url-template-nls-ensure-auth)
+     (eww-browse-url url)))
 
 ;;}}}
 ;;{{{ Bloomberg:
