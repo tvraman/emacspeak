@@ -750,13 +750,13 @@ Retain previously set punctuations  mode."
 
 (defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer. "
+  (cl-declare (special emacspeak-speak-para-count))
   (let ((title (emacspeak-eww-current-title))
         (alt (dom-alternate-links (emacspeak-eww-current-dom))))
     (when (= 0 (length title)) (setq title "EWW: Untitled"))
     (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique))
     (when alt
       (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
-    (emacspeak-audio-annotate-paragraphs)
     (emacspeak-speak-voice-annotate-paragraphs)
     (cond
      (emacspeak-web-post-process-hook
