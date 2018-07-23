@@ -170,7 +170,7 @@ Bookshare docs."
 (defun emacspeak-bookshare-user-password ()
   "User password.
 Get user and secret from auth-sources, and memoize the user and
-the MD5-encoded secret"
+the MD5-encoded secret."
   (cl-declare (special emacspeak-bookshare-user-id
                        emacspeak-bookshare-md5-cached-token))
   (let ((auth-info (emacspeak-bookshare-get-auth-info)))
@@ -184,8 +184,7 @@ the MD5-encoded secret"
 in `auth-sources'. If not present, ask for email and password,
 and create an entry in the `auth-sources'.
 
-Returns a cons cell where the car is email, and the cdr is
-password."
+Returns a cons cell where the car is email, and the cdr is password."
   (let* ((auth-source-creation-prompts
           '((user . "Your BookShare.org e-mail: ")
             (secret . "Your BookShare.org password: ")))
