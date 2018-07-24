@@ -209,6 +209,9 @@ Returns a cons cell where the car is email, and the cdr is password."
   "Return  URL  end point for specified operation.
 Optional argument `noauth' says no user auth needed."
   (cl-assert emacspeak-bookshare-api-key nil "API key not set.")
+  (unless (or  noauth  emacspeak-bookshare-user-id)
+    ;;  initialize user-id
+     (emacspeak-bookshare-user-password))
   (url-encode-url
    (format "%s/%s/%s/%s?api_key=%s"
            emacspeak-bookshare-api-base operation operand
