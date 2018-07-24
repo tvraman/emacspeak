@@ -91,6 +91,7 @@
 (require 'dom) ; Cloned from Emacs 25
 (require 'xml)
 (require 'derived)
+(autoload 'auth-source-search "auth-source")
 ;;}}}
 ;;{{{ Customizations
 
