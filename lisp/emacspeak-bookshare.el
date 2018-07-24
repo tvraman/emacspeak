@@ -202,7 +202,7 @@ Returns a cons cell where the car is email, and the cdr is password."
             (secret (plist-get found :secret))
             (save-function (plist-get found :save-function)))
         (funcall save-function)
-        (while (functionp secret)
+        (when (functionp secret)
           (setq secret (funcall secret)))
         (cons user secret)))))
 
