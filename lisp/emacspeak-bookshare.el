@@ -202,7 +202,7 @@ Returns a cons cell where the car is email, and the cdr is password."
             (secret (plist-get found :secret))
             (save-function (plist-get found :save-function)))
         (  funcall save-function)
-        (when (functionp secret) (setq secret (funcall secret)))
+        (while (functionp secret) (setq secret (funcall secret)))
         (cons user secret)))))
 
 (defun emacspeak-bookshare-rest-endpoint (operation operand &optional noauth)
