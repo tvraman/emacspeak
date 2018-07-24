@@ -50,6 +50,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'let-alist)
 (require 'lisp-mnt)
 (require 'subr-x)
 (require 'desktop)
