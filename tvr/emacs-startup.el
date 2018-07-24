@@ -37,8 +37,8 @@
     "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" ;; "iplayer-prepare"
-    "erc-prepare" "jabber-prepare" "twittering-prepare")
-  "auth-source-xoauth2"
+    "erc-prepare" "jabber-prepare" "twittering-prepare"
+"auth-source-xoauth2")
   "Libraries to load.")
 
 ;;}}}
