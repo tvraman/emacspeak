@@ -112,6 +112,7 @@ themselves, e.g., when using an Asian language."
 
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
+    ("BOX DRAWING" . (lambda (s) "."))
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
     ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
     ("\\(.*\\) sign$" . (lambda (s) (match-string 1 s))))
