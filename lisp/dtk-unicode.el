@@ -114,13 +114,18 @@ themselves, e.g., when using an Asian language."
   '(
     ("BOX DRAWING" . (lambda (s) "."))
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
-    ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
-    ("\\(.*\\) sign$" . (lambda (s) (match-string 1 s))))
+    ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s)
+                                                           (match-string 2 s)))
+    ("^DEVANAGARI? LETTER \\(.*\\)$" . (lambda (s) (match-string 1 s)))
+                                        ;("\\(.*\\) sign$" . (lambda (s) (match-string 1 s)))
+    )
   "Alist of character name transformation rules."
   :group 'dtk-unicode
-  :type '(repeat (cons :value ("." . identity)
-                       (regexp :tag "pattern")
-                       (function :tag "transformation"))))
+  :type
+  '(repeat
+    (cons :value ("." . identity)
+          (regexp :tag "pattern")
+          (function :tag "transformation"))))
 
 ;;}}}
 ;;{{{ Variables
