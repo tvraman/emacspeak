@@ -1,6 +1,7 @@
 (eval-after-load
     "lispy"
   `(progn
+     (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
      (define-key lispy-mode-map (kbd "M-m") nil)
      (define-key lispy-mode-map (kbd ";") 'self-insert-command)
      (define-key lispy-mode-map (kbd "M-e") 'lispy-move-end-of-line)
