@@ -90,7 +90,7 @@ on load.")
 ;;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
 ;;;(google-py-oauth2-cli "emacspeak@gmail.com" file-app-secrets)
 
-(provide 'file-auth-source)
+(provide 'file-xoauth2)
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
