@@ -47,16 +47,16 @@ on load.")
 (auth-source-xoauth2-enable)
 (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
-;; ;;}}}
-;; ;;{{{ Tests:
+;;}}}
+;;{{{ Tests:
 
-;; ;;; (auth-source-xoauth2--search nil nil nil "raman@google.com" nil)
-;; ;;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1)
+;;; (auth-source-xoauth2--search nil nil nil "raman@google.com" nil)
+;;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1)
 
-;; ;;}}}
-;; ;;{{{ Sending Mail:
+;;}}}
+;;{{{ Sending Mail:
 
-;; ;;  Set send-mail-function via custom.
+;;  Set send-mail-function via custom.
 ;; (setq
 ;;  ;; mail-from-style 'angles
 ;;                                         ;smtpmail-debug-info t
@@ -66,8 +66,8 @@ on load.")
 ;;  smtpmail-smtp-server "smtp.gmail.com"
 ;;  smtpmail-smtp-service 465)
 
-;; ;;}}}
-;; ;;{{{GMail Using xoauth2  and Gnus:
+;;}}}
+;;{{{GMail Using xoauth2  and Gnus:
 ;; (cl-declaim (special gnus-select-method gnus-secondary-select-methods))
 ;; (setq
 ;;  gnus-select-method
@@ -100,8 +100,8 @@ on load.")
 ;;       (mapcar #'gm-user-to-nnimap
 ;;               '( "tv.raman.tv" "emacspeak")))
 
-;; ;;}}}
-;; ;;{{{ Utils:
+;;}}}
+;;{{{ Utils:
 
 ;; (defun google-py-oauth2-cli (user app-secret)
 ;;   "generate command-line for pasting into a shell."
@@ -110,17 +110,17 @@ on load.")
 ;;    user
 ;;    (plist-get app-secret :client-id)
 ;;    (plist-get app-secret :client-secret)))
-;; ;;; Usage:
+;;; Usage:
 ;;                                         ;(google-py-oauth2-cli "tv.raman.tv@gmail.com" tvr-app-secrets)
 ;;                                         ;(google-py-oauth2-cli "emacspeak@gmail.com" tvr-app-secrets)
 
-;; ;;}}}
+;;}}}
 ;; (provide 'tvr-auth-source)
-;; ;;{{{ end of file
+;;{{{ end of file
 
-;; ;;; local variables:
-;; ;;; folded-file: t
-;; ;;; byte-compile-dynamic: t
-;; ;;; end:
+;;; local variables:
+;;; folded-file: t
+;;; byte-compile-dynamic: t
+;;; end:
 
-;; ;;}}}
+;;}}}
