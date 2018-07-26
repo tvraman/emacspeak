@@ -2,6 +2,7 @@
     "lispy"
   `(progn
      (define-key lispy-mode-map (kbd "M-m") nil)
+     (define-key lispy-mode-map (kbd ";") 'self-insert-command)
      (define-key lispy-mode-map (kbd "M-e") 'lispy-move-end-of-line)
      (define-key lispy-mode-map "a" 'special-lispy-beginning-of-defun)
      (define-key lispy-mode-map "A" 'special-lispy-ace-symbol)
