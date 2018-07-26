@@ -24,9 +24,9 @@ on load.")
 ;;}}}
 ;;{{{  Configure XOauth2:
 
-;;; I only use XOauth2 with GMail.
-;;; So creds are keyed by email address.
-;;;  Creds file auth-xoauth2-tvr-creds should define and populate the hash-table.
+
+
+
 
 (defun tvr-auth-source-oauth (_host user _port)
   "Read and return OAuth2 tokens from secure store"
@@ -42,7 +42,8 @@ on load.")
       (error "Could not find OAuth2 secrets store")))
   (gethash user auth-xoauth2-tvr-creds))
 
-(setq auth-source-xoauth2-creds  #'tvr-auth-source-oauth)
+;; (setq auth-source-xoauth2-creds  #'tvr-auth-source-oauth)
+(setq auth-source-xoauth2-creds (expand-file-name "~/.xoauth2-creds.gpg"))
 (auth-source-xoauth2-enable)
 (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
