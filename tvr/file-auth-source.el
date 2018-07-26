@@ -10,7 +10,7 @@
 (require 'smtpmail)
 
 ;;;  Personal Creds:
-(defvar tvr-xoauth2-creds-location
+(defvar file-xoauth2-creds-location
   (expand-file-name "~/.xoauth2-creds.gpg")
   "Where we store our tokens.
 This file should be GPG encrypted --- Emacs is smart enough to decrypt
@@ -19,7 +19,7 @@ on load.")
 ;;}}}
 ;;{{{  Configure XOauth2:
 
-(setq auth-source-xoauth2-creds  tvr-xoauth2-creds-location)
+(setq auth-source-xoauth2-creds  file-xoauth2-creds-location)
 (auth-source-xoauth2-enable)
 (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
@@ -87,13 +87,10 @@ on load.")
    (plist-get app-secret :client-secret)))
 
 ;;; Usage:
-;;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" tvr-app-secrets)
-;;;(google-py-oauth2-cli "emacspeak@gmail.com" tvr-app-secrets)
+;;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
+;;;(google-py-oauth2-cli "emacspeak@gmail.com" file-app-secrets)
 
-;;}}}
-;; (provide 'tvr-auth-source)
-;;{{{ end of file
-
+(provide 'file-auth-source)
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
