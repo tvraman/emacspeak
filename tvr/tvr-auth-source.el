@@ -24,10 +24,6 @@ on load.")
 ;;}}}
 ;;{{{  Configure XOauth2:
 
-
-
-
-
 (defun tvr-auth-source-oauth (_host user _port)
   "Read and return OAuth2 tokens from secure store"
   (cl-declare (special auth-xoauth2-tvr-creds
@@ -43,7 +39,7 @@ on load.")
   (gethash user auth-xoauth2-tvr-creds))
 
 (setq auth-source-xoauth2-creds  #'tvr-auth-source-oauth)
-(setq auth-source-xoauth2-creds (expand-file-name "~/.xoauth2-creds.gpg"))
+;(setq auth-source-xoauth2-creds (expand-file-name "~/.xoauth2-creds.gpg"))
 (auth-source-xoauth2-enable)
 (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
