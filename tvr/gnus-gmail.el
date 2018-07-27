@@ -1,3 +1,4 @@
+;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;;; Uses auth-source-xoauth2:
 ;;; https://github.com/ccrusius/auth-source-xoauth2
@@ -6,72 +7,87 @@
 ;;;Using  a file-based creds store.
 ;;{{{ Requires:
 
-(require 'cl-lib)
-(require 'auth-source-xoauth2)
-(require 'smtpmail)
+(eval-after-load "gnus"
+  `(progn
 
-(defvar file-xoauth2-creds-location
-  (expand-file-name "~/.xoauth2-creds.gpg")
-  "Where we store our tokens.
+     (require 'cl-lib)
+     (require 'auth-source-xoauth2)
+     (require 'smtpmail)
+
+     (defvar file-xoauth2-creds-location
+       (expand-file-name "~/.xoauth2-creds.gpg")
+       "Where we store our tokens.
 This file should be GPG encrypted --- Emacs will  decrypt on load.")
 
-(setq auth-source-xoauth2-creds  file-xoauth2-creds-location)
-(auth-source-xoauth2-enable)
-(add-to-list 'smtpmail-auth-supported 'xoauth2)
+     (setq auth-source-xoauth2-creds  file-xoauth2-creds-location)
+     (auth-source-xoauth2-enable)
+     (add-to-list 'smtpmail-auth-supported 'xoauth2)
 
-;;}}}
-;;{{{ Tests:
+     ;;}}}
+     ;;{{{ Tests:
 
 ;;; (auth-source-xoauth2--search nil nil nil "raman@google.com" nil)
 ;;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1)
 
-;;}}}
-;;{{{ Sending Mail:
+     ;;}}}
+     ;;{{{ Sending Mail:
 
 ;;;  Set send-mail-function via custom.
-(setq
+     (setq
                                         ;smtpmail-debug-info t
                                         ;smtpmail-debug-verb t
                                         ;  smtpmail-stream-type 'ssl
- smtpmail-smtp-user "raman@google.com"
- smtpmail-smtp-server "smtp.gmail.com"
- smtpmail-smtp-service 465)
+      smtpmail-smtp-user "raman@google.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 465)
 
-;;}}}
-;;{{{GMail Using xoauth2  and Gnus:
-(cl-declaim (special gnus-select-method gnus-secondary-select-methods))
-(setq
- gnus-select-method
- `(nnimap
-   "gmail"
-   (nnimap-address "imap.gmail.com")
-   (nnimap-server-port 993)
-   (nnimap-user "raman@google.com")
-   (nnimap-authenticator xoauth2)
-   (nnimap-fetch-partial-articles "text/")
-   (nnimap-expunge always)
-   (nnmail-expiry-wait immediate)
-   (nnimap-streaming t)
-   (nnimap-stream ssl)))
+     ;;}}}
+     ;;{{{GMail Using xoauth2  and Gnus:
+     (cl-declaim (special gnus-select-method gnus-secondary-select-methods))
+     (setq
+      gnus-select-method
+      `(nnimap
+        "gmail"
+        (nnimap-address "imap.gmail.com")
+        (nnimap-server-port 993)
+        (nnimap-user "raman@google.com")
+        (nnimap-authenticator xoauth2)
+        (nnimap-fetch-partial-articles "text/")
+        (nnimap-expunge always)
+        (nnmail-expiry-wait immediate)
+        (nnimap-streaming t)
+        (nnimap-stream ssl)))
 
-(defun gm-user-to-nnimap (user)
-  "Return nnimap select method for sspecified user."
-  `(nnimap
-    ,user
-    (nnimap-user ,(format "%s@gmail.com" user))
-    (nnimap-authenticator xoauth2)
-    (nnimap-address "imap.gmail.com")
-    (nnimap-server-port 993)
-    (nnimap-fetch-partial-articles "text/")
-    (nnmail-expiry-wait immediate)
-    (nnimap-streaming t)
-    (nnimap-stream ssl)))
+     (defun gm-user-to-nnimap (user)
+       "Return nnimap select method for sspecified user."
+       `(nnimap
+         ,user
+         (nnimap-user ,(format "%s@gmail.com" user))
+         (nnimap-authenticator xoauth2)
+         (nnimap-address "imap.gmail.com")
+         (nnimap-server-port 993)
+         (nnimap-fetch-partial-articles "text/")
+         (nnmail-expiry-wait immediate)
+         (nnimap-streaming t)
+         (nnimap-stream ssl)))
 
-(setq gnus-secondary-select-methods
-      (mapcar #'gm-user-to-nnimap
-              '( "tv.raman.tv" "emacspeak")))
+     (setq gnus-secondary-select-methods
+           (mapcar #'gm-user-to-nnimap
+                   '( "tv.raman.tv" "emacspeak")))
 
-;;}}}
+     ;;}}}
+     ;;{{{Additional gnus settings:
+
+     (setq gnus-auto-subscribed-groups nil)
+     (defun gmail-report-spam ()
+       "Report the current or marked mails as spam.
+This moves them into the Spam folder."
+       (interactive)
+       (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam")
+       (emacspeak-auditory-icon 'task-done))
+     (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
+     ;;}}}
+     ))
 ;;{{{ Utils:
 
 (defun google-py-oauth2-cli (user app-secret)

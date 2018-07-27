@@ -30,7 +30,7 @@
 (defvar tvr-libs
   '(
     "kbd-setup"
-    "vm-prepare" "gnus-prepare" "bbdb-prepare" "elfeed-prepare"
+    "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" "elfeed-prepare"
     "lispy-prepare" "sp-prepare"        ;"vdiff-prepare"
     "auctex-prepare" "org-prepare"
                                         ;"use-emms"
