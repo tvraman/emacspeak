@@ -1400,6 +1400,8 @@ Returns a cons cell where the car is email, and the cdr is password."
 
 (defvar emacspeak-url-template-nls-authenticated nil
   "Record if we have authenticated in this Emacs session.")
+(declare-function mml-compute-boundary "mml" (cont))
+(declare-function mm-url-encode-www-form-urlencoded "mm-url" (pairs))
 
 (defun emacspeak-url-template-nls-ensure-auth ()
   "Fetch our auth tokens, then sign in."
