@@ -37,7 +37,7 @@ on load.")
                                         ;smtpmail-debug-info t
                                         ;smtpmail-debug-verb t
                                         ;  smtpmail-stream-type 'ssl
- smtpmail-smtp-user user-mail-address
+ smtpmail-smtp-user "raman@google.com"
  smtpmail-smtp-server "smtp.gmail.com"
  smtpmail-smtp-service 465)
 
