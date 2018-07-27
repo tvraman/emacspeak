@@ -1406,15 +1406,24 @@ Returns a cons cell where the car is email, and the cdr is password."
   (cl-declare (special emacspeak-url-template-nls-authenticated))
   (unless emacspeak-url-template-nls-authenticated
     (let* ((token (emacspeak-url-template-nls-auth-info))
-          (url-request-extra-headers
-           '(("Content-Type" . "application/x-www-form-urlencoded")))
-          (url-request-data
-           (format
-            "url_return=&submit=Login&password=%s&loginid=%s"
-            (cdr token) (car token))))
+           (boundary (mml-compute-boundary nil))
+           (values 
+            (list
+             (cons "url_return" nil)
+             (cons "submit" nil)
+             (cons "login" (cdr token))
+             (cons "password" (car token))))
+           (url-request-method "POST")
+		       (url-request-extra-headers
+			      (list
+             (cons "Content-Type"
+				           (concat "multipart/form-data; boundary=" boundary))))       
+		       (url-request-data
+			      (mm-url-encode-www-form-urlencoded values)))
+      (setq emacspeak-url-template-nls-authenticated t)
       (eww-browse-url
-       "https://nlsbard.loc.gov:443/nlsbardprod/login/NLS")
-      (setq emacspeak-url-template-nls-authenticated t))))
+       "https://nlsbard.loc.gov:443/nlsbardprod/login/NLS"))))
+      
 
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
