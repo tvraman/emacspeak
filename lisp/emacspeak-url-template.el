@@ -1448,7 +1448,6 @@ Returns a cons cell where the car is email, and the cdr is password."
      (emacspeak-speak-mode-line))
  "Search NLS Bard Catalog. Login once before using this template."
  #'(lambda (url)
-     (emacspeak-url-template-nls-ensure-auth)
      (eww-browse-url url)))
 
 (emacspeak-url-template-define
@@ -1462,7 +1461,6 @@ Returns a cons cell where the car is email, and the cdr is password."
  "NLS Bard Catalog: Most Popular. Login once before using this
 template."
  #'(lambda (url)
-     (emacspeak-url-template-nls-ensure-auth)
      (eww-browse-url url)))
 
 (emacspeak-url-template-define
@@ -1476,7 +1474,6 @@ template."
  "NLS Bard Catalog: Recently Added. Login once before using this
 template."
  #'(lambda (url)
-     (emacspeak-url-template-nls-ensure-auth)
      (eww-browse-url url)))
 
 ;;}}}
