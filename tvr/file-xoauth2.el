@@ -43,7 +43,7 @@ on load.")
 
 ;;}}}
 ;;{{{GMail Using xoauth2  and Gnus:
- (cl-declaim (special gnus-select-method gnus-secondary-select-methods))
+(cl-declaim (special gnus-select-method gnus-secondary-select-methods))
 (setq
   gnus-select-method
   `(nnimap
