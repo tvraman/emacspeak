@@ -1147,7 +1147,7 @@ available TTS servers.")
 
 ;;;  Assign entries in the table:
 (defun dtk-speak-setup-character-table ()
-  "Setup pronunciations in the character table for the Dectalk."
+  "Setup pronunciations in the character table for theTTS engine."
   (let ((table dtk-character-to-speech-table))
     (aset table 0 "control at")
     (aset table 1 "control a")
