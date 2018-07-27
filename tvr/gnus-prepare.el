@@ -4,7 +4,8 @@
 
 (eval-after-load "gnus"
   `(progn
-     (load-library "file-xoauth2")
+     ;;; Configure gnus select  via file-xoauth2.el after
+     ;;; customizations have been loaded.
      (setq gnus-auto-subscribed-groups nil
            gnus-auto-subscribed-categories nil)
 
