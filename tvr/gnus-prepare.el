@@ -9,8 +9,6 @@
      (setq gnus-auto-subscribed-groups nil
            gnus-auto-subscribed-categories nil)
 
-;;; Set all nnimap options through the select method.
-
 ;;; Fetch news when emacs is idle.
                                         ;(gnus-demon-add-handler 'gnus-demon-scan-news 2 t)
 
