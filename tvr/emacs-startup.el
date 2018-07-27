@@ -121,7 +121,7 @@
    (global-set-key (kbd "C-RET") 'hippie-expand)
    (tvr-set-color-for-today)
    (when (file-exists-p custom-file) (load custom-file))
-   (load-library "file-xoauth2")))
+   ))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."

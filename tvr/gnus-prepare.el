@@ -4,8 +4,8 @@
 
 (eval-after-load "gnus"
   `(progn
-     ;;; Configure gnus select  via file-xoauth2.el after
-     ;;; customizations have been loaded.
+;;; Configure gnus select  via file-xoauth2.el after
+;;; customizations have been loaded.
      (setq gnus-auto-subscribed-groups nil
            gnus-auto-subscribed-categories nil)
 
@@ -32,5 +32,6 @@ This moves them into the Spam folder."
        (emacspeak-auditory-icon 'task-done))
 
      (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
+     (load-library "file-xoauth2")
      (provide 'gnus-prepare)
      ))
