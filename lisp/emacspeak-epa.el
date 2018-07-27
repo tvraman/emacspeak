@@ -89,7 +89,6 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback. "
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
        (emacspeak-auditory-icon 'task-done)))))
 
 (defadvice epa-delete-keys (after emacspeak pre act comp)
