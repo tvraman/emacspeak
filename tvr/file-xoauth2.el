@@ -50,7 +50,7 @@ on load.")
     "gmail"
     (nnimap-address "imap.gmail.com")
     (nnimap-server-port 993)
-    (nnimap-user ,user-mail-address)
+    (nnimap-user "raman@google.com")
     (nnimap-authenticator xoauth2)
     (nnimap-fetch-partial-articles "text/")
     (nnimap-expunge always)

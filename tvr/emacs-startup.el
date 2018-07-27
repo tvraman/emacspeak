@@ -38,7 +38,7 @@
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare" ;; "iplayer-prepare"
     "erc-prepare" "jabber-prepare" "twittering-prepare"
-    "auth-source-pass" "auth-source-xoauth2" "file-xoauth2")
+    "auth-source-pass" "auth-source-xoauth2" )
   "Libraries to load.")
 
 ;;}}}
@@ -120,7 +120,8 @@
    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
    (global-set-key (kbd "C-RET") 'hippie-expand)
    (tvr-set-color-for-today)
-   (when (file-exists-p custom-file) (load custom-file))))
+   (when (file-exists-p custom-file) (load custom-file))
+   (load-library "file-xoauth2")))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
