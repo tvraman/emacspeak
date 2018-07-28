@@ -36,7 +36,7 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
      (setq
                                         ;smtpmail-debug-info t
                                         ;smtpmail-debug-verb t
-                                        ;  smtpmail-stream-type 'ssl
+      smtpmail-stream-type 'ssl
       smtpmail-smtp-user "raman@google.com"
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 465)
