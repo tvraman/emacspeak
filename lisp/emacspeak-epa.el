@@ -94,7 +94,9 @@
 (add-hook
  'epa-key-list-mode-hook
  #'(lambda nil
-     (and (sit-for 0.3) (emacspeak-speak-line))))
+     (when (sit-for 0.3)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line))))
 
 (defadvice epa-delete-keys (after emacspeak pre act comp)
   "Provide auditory feedback."
