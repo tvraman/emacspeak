@@ -1369,7 +1369,6 @@ Negative prefix arg speaks from start of sexp to point. "
           (backward-sexp 1)
         (error nil))
       (setq start (point))
-      (emacspeak-handle-action-at-point)
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
