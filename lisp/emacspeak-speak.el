@@ -1352,8 +1352,7 @@ Negative prefix arg speaks from start of sentence to point."
 (defun emacspeak-speak-sexp (&optional arg)
   "Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
-Negative prefix arg speaks from start of sexp to point.
-If option  `voice-lock-mode' is on, then uses the personality."
+Negative prefix arg speaks from start of sexp to point. "
   (interactive "P")
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
