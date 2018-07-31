@@ -66,7 +66,11 @@
 ;;;@item Customize group @code{emacspeak-bookshare} by pressing @kbd{C-h G}.
 ;;;@item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
 ;;; @item Perform a search @kbd{a} or @kbd{t} for author or title search.
-;;; @item You will be prompted for your Bookshare password if this is the first time in this Emacs session.
+;;; @item You will be prompted for your Bookshare password if this is
+;;; the first time.
+;;; @item The password will be saved to your configured
+;;; @code{auth-source} --- usually @code{~/.authinfo.gpg}.
+;;; You can also use @code{password-store[.]}
 ;;; @item The results of the search appear in the Bookshare buffer.
 ;;; Audio formatting and auditory icons convey if  a result is already available locally.
 ;;; @item If not available locally, press @kbd{D} to download the content.
