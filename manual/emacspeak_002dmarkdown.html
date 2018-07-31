@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-markdown (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-markdown (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-markdown (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dmaths.html#emacspeak_002dmaths" rel=
+  "next" title="emacspeak-maths" />
+  <link href="emacspeak_002dman.html#emacspeak_002dman" rel="prev"
+  title="emacspeak-man" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+</head>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dmarkdown" id="emacspeak_002dmarkdown"></a>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dmaths.html#emacspeak_002dmaths"
+    accesskey="n" rel="next">emacspeak-maths</a>, Previous:
+    <a href="emacspeak_002dman.html#emacspeak_002dman" accesskey=
+    "p" rel="prev">emacspeak-man</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dmarkdown-1" id=
+  "emacspeak_002dmarkdown-1"></a>
+  <h3 class="section">12.117 emacspeak-markdown</h3>
+  <p>MARKDOWN == Light-weight markup. This module speech-enables
+  markdown.el</p><a name="emacspeak_002dmarkdown-Options" id=
+  "emacspeak_002dmarkdown-Options"></a>
+  <h4 class="subsection">12.117.1 emacspeak-markdown Options</h4>
+  <dl>
+    <dt><a name="index-User-Option-789" id=
+    "index-User-Option-789"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-blockquote-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-blockquote-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-790" id=
+    "index-User-Option-790"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-bold-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-bold-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-791" id=
+    "index-User-Option-791"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-comment-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-comment-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-792" id=
+    "index-User-Option-792"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-footnote-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-footnote-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-793" id=
+    "index-User-Option-793"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-delimiter-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-delimiter-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-794" id=
+    "index-User-Option-794"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-face-1-voice</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face-1 This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-795" id=
+    "index-User-Option-795"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-face-2-voice</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face-2 This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-796" id=
+    "index-User-Option-796"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-face-3-voice</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face-3 This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-797" id=
+    "index-User-Option-797"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-face-4-voice</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face-4 This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-798" id=
+    "index-User-Option-798"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-face-5-voice</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face-5 This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-799" id=
+    "index-User-Option-799"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-face-6-voice</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face-6 This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-800" id=
+    "index-User-Option-800"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-801" id=
+    "index-User-Option-801"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-header-rule-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-header-rule-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-802" id=
+    "index-User-Option-802"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-inline-code-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-inline-code-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-803" id=
+    "index-User-Option-803"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-italic-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-italic-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-804" id=
+    "index-User-Option-804"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-language-keyword-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-language-keyword-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-805" id=
+    "index-User-Option-805"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-line-break-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-line-break-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-806" id=
+    "index-User-Option-806"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-link-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-link-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-807" id=
+    "index-User-Option-807"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-link-title-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-link-title-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-808" id=
+    "index-User-Option-808"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-list-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-list-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-809" id=
+    "index-User-Option-809"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-math-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-math-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-810" id=
+    "index-User-Option-810"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-metadata-key-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-metadata-key-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-811" id=
+    "index-User-Option-811"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-metadata-value-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-metadata-value-face This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-812" id=
+    "index-User-Option-812"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-missing-link-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-missing-link-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-813" id=
+    "index-User-Option-813"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-pre-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-pre-face This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-814" id=
+    "index-User-Option-814"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-reference-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-reference-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-815" id=
+    "index-User-Option-815"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-markdown-url-personality</em></dt>
+    <dd>
+      <p>Personality used for markdown-url-face This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dmaths.html#emacspeak_002dmaths"
+    accesskey="n" rel="next">emacspeak-maths</a>, Previous:
+    <a href="emacspeak_002dman.html#emacspeak_002dman" accesskey=
+    "p" rel="prev">emacspeak-man</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
