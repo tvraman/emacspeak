@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 22, 2018.
+last updated on July 31, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2751,7 +2751,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1232 commands and 1169 options.
+   This chapter documents a total of 1231 commands and 1178 options.
 
 * Menu:
 
@@ -6136,6 +6136,61 @@ system.
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
 
+ -- Variable: User Option emacspeak-u-vm-color-author-personality
+     Personality used for u-vm-color-author-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
+     Personality used for u-vm-color-citation-1-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
+     Personality used for u-vm-color-citation-2-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-date-personality
+     Personality used for u-vm-color-date-face This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-header-personality
+     Personality used for u-vm-color-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-recipient-personality
+     Personality used for u-vm-color-recipient-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-signature-personality
+     Personality used for u-vm-color-signature-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
+     Personality used for u-vm-color-spamassassin-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-subject-personality
+     Personality used for u-vm-color-subject-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-time-personality
+     Personality used for u-vm-color-time-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-user-personality
+     Personality used for u-vm-color-user-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -6536,9 +6591,6 @@ versions of Emacs older than Emacs 21, And preferably only run on Emacs
 
  -- Variable: User Option emacspeak-advice-progress-reporter
      Set to true if progress reporter should produce an auditory icon.
-
- -- Variable: User Option emacspeak-eldoc-speak-explicitly
-     Set to T if not using a separate TTS notification stream.
 
  -- Variable: User Option emacspeak-replace-personality
      Personality used in search and replace to indicate word that is
@@ -6963,7 +7015,9 @@ Assuming you have correctly setup your API key:
    • Press ‘C-e C-b’ to open or switch to the Bookshare buffer.
    • Perform a search ‘a’ or ‘t’ for author or title search.
    • You will be prompted for your Bookshare password if this is the
-     first time in this Emacs session.
+     first time.
+   • The password will be saved to your configured ‘auth-source’ —
+     usually ‘~/.authinfo.gpg’.  You can also use ‘password-store[.]’
    • The results of the search appear in the Bookshare buffer.  Audio
      formatting and auditory icons convey if a result is already
      available locally.
@@ -7300,14 +7354,7 @@ Assuming you have correctly setup your API key:
 
      (fn PREFERENCE-ID VALUE)
 
-12.25.4.32 emacspeak-bookshare-sign-out
-.......................................
-
- -- Command: emacspeak-bookshare-sign-out
-
-     Sign out, clearing password.
-
-12.25.4.33 emacspeak-bookshare-since-search
+12.25.4.32 emacspeak-bookshare-since-search
 ...........................................
 
  -- Command: emacspeak-bookshare-since-search (query &optional category)
@@ -7317,7 +7364,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.25.4.34 emacspeak-bookshare-title-search
+12.25.4.33 emacspeak-bookshare-title-search
 ...........................................
 
  -- Command: emacspeak-bookshare-title-search (query &optional category)
@@ -7327,7 +7374,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.25.4.35 emacspeak-bookshare-toc
+12.25.4.34 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
@@ -7336,7 +7383,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.25.4.36 emacspeak-bookshare-toc-at-point
+12.25.4.35 emacspeak-bookshare-toc-at-point
 ...........................................
 
  -- Command: emacspeak-bookshare-toc-at-point
@@ -7344,14 +7391,14 @@ Assuming you have correctly setup your API key:
      View TOC for book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.25.4.37 emacspeak-bookshare-unpack-at-point
+12.25.4.36 emacspeak-bookshare-unpack-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-unpack-at-point
 
      Unpack downloaded content if necessary.
 
-12.25.4.38 emacspeak-bookshare-url-executor
+12.25.4.37 emacspeak-bookshare-url-executor
 ...........................................
 
  -- Command: emacspeak-bookshare-url-executor (url)
@@ -7360,7 +7407,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.25.4.39 emacspeak-bookshare-version-handler
+12.25.4.38 emacspeak-bookshare-version-handler
 ..............................................
 
  -- Command: emacspeak-bookshare-version-handler (&rest ignore)
@@ -7370,7 +7417,7 @@ Assuming you have correctly setup your API key:
 
      (fn &rest IGNORE)
 
-12.25.4.40 emacspeak-bookshare-view
+12.25.4.39 emacspeak-bookshare-view
 ...................................
 
  -- Command: emacspeak-bookshare-view (directory)
@@ -7379,7 +7426,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.25.4.41 emacspeak-bookshare-view-at-point
+12.25.4.40 emacspeak-bookshare-view-at-point
 ............................................
 
  -- Command: emacspeak-bookshare-view-at-point
@@ -7387,7 +7434,7 @@ Assuming you have correctly setup your API key:
      View book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.25.4.42 emacspeak-bookshare-view-page-range
+12.25.4.41 emacspeak-bookshare-view-page-range
 ..............................................
 
  -- Command: emacspeak-bookshare-view-page-range (url)
@@ -7414,9 +7461,6 @@ Assuming you have correctly setup your API key:
 
  -- Variable: User Option emacspeak-bookshare-html-to-text-command
      Command to convert html to text on stdin.
-
- -- Variable: User Option emacspeak-bookshare-user-id
-     Bookshare user Id.
 
  -- Variable: User Option emacspeak-bookshare-xslt
      Name of bookshare XSL transform.

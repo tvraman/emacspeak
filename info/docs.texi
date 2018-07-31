@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1232 commands and 1169 options.
+This chapter documents a total of 1231 commands and 1178 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4061,6 +4061,72 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -4530,11 +4596,6 @@ icon.
 
 @end defvar
 
-@defvar {User Option} emacspeak-eldoc-speak-explicitly
-Set to T if not using a separate TTS notification stream.
-
-@end defvar
-
 @defvar {User Option} emacspeak-replace-personality
 Personality used in search and replace to indicate word
 that is being replaced.
@@ -4988,7 +5049,11 @@ Assuming you have correctly setup your API key:
 @item Customize group @code{emacspeak-bookshare} by pressing @kbd{C-h G}.
 @item  Press @kbd{C-e C-b} to open or switch to the Bookshare buffer.
 @item Perform a search @kbd{a} or @kbd{t} for author or title search.
-@item You will be prompted for your Bookshare password if this is the first time in this Emacs session.
+@item You will be prompted for your Bookshare password if this is
+the first time.
+@item The password will be saved to your configured
+@code{auth-source} --- usually @code{~/.authinfo.gpg}.
+You can also use @code{password-store[.]}
 @item The results of the search appear in the Bookshare buffer.
 Audio formatting and auditory icons convey if  a result is already available locally.
 @item If not available locally, press @kbd{D} to download the content.
@@ -5390,15 +5455,6 @@ Set preference preference-id to value.
 @end format
 @end deffn
 
-@subsubsection emacspeak-bookshare-sign-out
-@deffn {Command} emacspeak-bookshare-sign-out   
-@findex emacspeak-bookshare-sign-out
-
-@format
-Sign out, clearing password.
-@end format
-@end deffn
-
 @subsubsection emacspeak-bookshare-since-search
 @deffn {Command} emacspeak-bookshare-since-search  (query &optional category)
 @findex emacspeak-bookshare-since-search
@@ -5531,11 +5587,6 @@ Customize this to the root of where books are organized.
 
 @defvar {User Option} emacspeak-bookshare-html-to-text-command
 Command to convert html to text on stdin.
-
-@end defvar
-
-@defvar {User Option} emacspeak-bookshare-user-id
-Bookshare user Id.
 
 @end defvar
 
@@ -18350,8 +18401,7 @@ Set punctuation mode for all buffers in current mode.
 @format
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
-Negative prefix arg speaks from start of sexp to point.
-If option  ‘voice-lock-mode’ is on, then uses the personality.
+Negative prefix arg speaks from start of sexp to point. 
 
 (fn &optional ARG)
 @end format
@@ -27314,11 +27364,13 @@ Display NBA standings.
 
 @b{NLS Bard Popular}
 
-NLS Bard Catalog: Most Popular. Login once before using this template.
+NLS Bard Catalog: Most Popular. Login once before using this
+template.
 
 @b{NLS Bard Recent}
 
-NLS Bard Catalog: Recently Added. Login once before using this template.
+NLS Bard Catalog: Recently Added. Login once before using this
+template.
 
 @b{NLS Bard Search}
 
