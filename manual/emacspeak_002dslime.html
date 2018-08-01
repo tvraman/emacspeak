@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-slime (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-slime (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-slime (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href=
+  "emacspeak_002dsmart_002dwindow.html#emacspeak_002dsmart_002dwindow"
+  rel="next" title="emacspeak-smart-window" />
+  <link href="emacspeak_002dsigbegone.html#emacspeak_002dsigbegone"
+  rel="prev" title="emacspeak-sigbegone" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+</head>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dslime" id="emacspeak_002dslime"></a>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dsmart_002dwindow.html#emacspeak_002dsmart_002dwindow"
+    accesskey="n" rel="next">emacspeak-smart-window</a>, Previous:
+    <a href="emacspeak_002dsigbegone.html#emacspeak_002dsigbegone"
+    accesskey="p" rel="prev">emacspeak-sigbegone</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dslime-1" id="emacspeak_002dslime-1"></a>
+  <h3 class="section">12.167 emacspeak-slime</h3>
+  <p>;;; SLIME == Superior Lisp Interaction Mode For Emacs</p>
+  <p>Slime is a powerful IDE for developing in Common Lisp and
+  Clojure. It’s similar but more modern than package ILisp that I
+  used as a graduate student when developing AsTeR.</p><a name=
+  "emacspeak_002dslime-Options" id=
+  "emacspeak_002dslime-Options"></a>
+  <h4 class="subsection">12.167.1 emacspeak-slime Options</h4>
+  <dl>
+    <dt><a name="index-User-Option-982" id=
+    "index-User-Option-982"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-catch-tag-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-catch-tag-face This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-983" id=
+    "index-User-Option-983"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-condition-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-condition-face This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-984" id=
+    "index-User-Option-984"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-detailed-frame-line-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-detailed-frame-line-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-985" id=
+    "index-User-Option-985"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-frame-label-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-frame-label-face This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-986" id=
+    "index-User-Option-986"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-frame-line-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-frame-line-face This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-987" id=
+    "index-User-Option-987"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-local-name-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-local-name-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-988" id=
+    "index-User-Option-988"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-local-value-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-local-value-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-989" id=
+    "index-User-Option-989"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-non-restartable-frame-line-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-non-restartable-frame-line-face
+      This personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-990" id=
+    "index-User-Option-990"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-reference-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-reference-face This personality
+      uses voice-smoothen-extra whose effect can be changed
+      globally by customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-991" id=
+    "index-User-Option-991"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-restart-number-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-restart-number-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-992" id=
+    "index-User-Option-992"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-restart-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-restart-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-993" id=
+    "index-User-Option-993"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-restart-type-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-restart-type-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-994" id=
+    "index-User-Option-994"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-restartable-frame-line-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-restartable-frame-line-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-995" id=
+    "index-User-Option-995"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-section-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-section-face This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-996" id=
+    "index-User-Option-996"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-sldb-topline-personality</em></dt>
+    <dd>
+      <p>Personality used for sldb-topline-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-997" id=
+    "index-User-Option-997"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-apropos-label-voice</em></dt>
+    <dd>
+      <p>Personality used for slime-apropos-label This personality
+      uses voice-monotone-light whose effect can be changed
+      globally by customizing voice-monotone-light-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-998" id=
+    "index-User-Option-998"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-apropos-symbol-voice</em></dt>
+    <dd>
+      <p>Personality used for slime-apropos-symbol This personality
+      uses voice-monotone-light whose effect can be changed
+      globally by customizing voice-monotone-light-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-999" id=
+    "index-User-Option-999"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-slime-error-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-error-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1000" id=
+    "index-User-Option-1000"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-highlight-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-highlight-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1001" id=
+    "index-User-Option-1001"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-inspector-action-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-inspector-action-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1002" id=
+    "index-User-Option-1002"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-inspector-label-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-inspector-label-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1003" id=
+    "index-User-Option-1003"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-inspector-topline-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-inspector-topline-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1004" id=
+    "index-User-Option-1004"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-inspector-type-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-inspector-type-face This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1005" id=
+    "index-User-Option-1005"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-inspector-value-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-inspector-value-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1006" id=
+    "index-User-Option-1006"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-slime-note-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-note-face This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1007" id=
+    "index-User-Option-1007"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-reader-conditional-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-reader-conditional-face This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1008" id=
+    "index-User-Option-1008"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-repl-input-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-repl-input-face This
+      personality uses voice-brighten-medium whose effect can be
+      changed globally by customizing
+      voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1009" id=
+    "index-User-Option-1009"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-repl-inputed-output-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-repl-inputed-output-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1010" id=
+    "index-User-Option-1010"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-repl-output-mouseover-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-repl-output-mouseover-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1011" id=
+    "index-User-Option-1011"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-repl-output-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-repl-output-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1012" id=
+    "index-User-Option-1012"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-repl-prompt-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-repl-prompt-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1013" id=
+    "index-User-Option-1013"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-repl-result-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-repl-result-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1014" id=
+    "index-User-Option-1014"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-style-warning-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-style-warning-face This
+      personality uses voice-animate-medium whose effect can be
+      changed globally by customizing
+      voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-1015" id=
+    "index-User-Option-1015"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-slime-warning-personality</em></dt>
+    <dd>
+      <p>Personality used for slime-warning-face This personality
+      uses voice-animate-medium whose effect can be changed
+      globally by customizing voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dsmart_002dwindow.html#emacspeak_002dsmart_002dwindow"
+    accesskey="n" rel="next">emacspeak-smart-window</a>, Previous:
+    <a href="emacspeak_002dsigbegone.html#emacspeak_002dsigbegone"
+    accesskey="p" rel="prev">emacspeak-sigbegone</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>

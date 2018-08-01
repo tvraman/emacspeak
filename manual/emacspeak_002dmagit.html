@@ -1,0 +1,992 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.2.0" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <title>emacspeak-magit (Emacspeak User’s Manual — 2nd
+  Edition.)</title>
+  <meta name="description" content=
+  "emacspeak-magit (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="keywords" content=
+  "emacspeak-magit (Emacspeak User’s Manual — 2nd Edition.)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href=
+  "emacspeak_002dmake_002dmode.html#emacspeak_002dmake_002dmode"
+  rel="next" title="emacspeak-make-mode" />
+  <link href=
+  "emacspeak_002dm_002dplayer.html#emacspeak_002dm_002dplayer" rel=
+  "prev" title="emacspeak-m-player" />
+  <style type="text/css">
+  /*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.indentedblock {margin-right: 0em}
+  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style: oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nolinebreak {white-space: nowrap}
+  span.roman {font-family: initial; font-weight: normal}
+  span.sansserif {font-family: sans-serif; font-weight: normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+</head>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dmagit" id="emacspeak_002dmagit"></a>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dmake_002dmode.html#emacspeak_002dmake_002dmode"
+    accesskey="n" rel="next">emacspeak-make-mode</a>, Previous:
+    <a href=
+    "emacspeak_002dm_002dplayer.html#emacspeak_002dm_002dplayer"
+    accesskey="p" rel="prev">emacspeak-m-player</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dmagit-1" id="emacspeak_002dmagit-1"></a>
+  <h3 class="section">12.114 emacspeak-magit</h3>
+  <p>MAGIT == Git interface in Emacs git clone
+  git://github.com/magit/magit.git</p><a name=
+  "emacspeak_002dmagit-Options" id=
+  "emacspeak_002dmagit-Options"></a>
+  <h4 class="subsection">12.114.1 emacspeak-magit Options</h4>
+  <dl>
+    <dt><a name="index-User-Option-703" id=
+    "index-User-Option-703"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-bisect-bad-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-bisect-bad This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-704" id=
+    "index-User-Option-704"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-bisect-good-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-bisect-good This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-705" id=
+    "index-User-Option-705"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-bisect-skip-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-bisect-skip This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-706" id=
+    "index-User-Option-706"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-blame-date-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-date This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-707" id=
+    "index-User-Option-707"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-blame-hash-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-hash This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-708" id=
+    "index-User-Option-708"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-blame-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-heading This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-709" id=
+    "index-User-Option-709"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-blame-name-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-name This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-710" id=
+    "index-User-Option-710"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-blame-summary-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-summary This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-711" id=
+    "index-User-Option-711"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-branch-current-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-branch-current This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-712" id=
+    "index-User-Option-712"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-branch-local-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-branch-local This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-713" id=
+    "index-User-Option-713"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-branch-remote-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-branch-remote This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-714" id=
+    "index-User-Option-714"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-cherry-equivalent-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-cherry-equivalent This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-715" id=
+    "index-User-Option-715"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-cherry-unmatched-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-cherry-unmatched This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-716" id=
+    "index-User-Option-716"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-added-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-added-highlight This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-717" id=
+    "index-User-Option-717"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-added-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-added This personality
+      uses voice-animate-extra whose effect can be changed globally
+      by customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-718" id=
+    "index-User-Option-718"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-base-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-base-highlight This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-719" id=
+    "index-User-Option-719"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-base-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-base This personality uses
+      voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-720" id=
+    "index-User-Option-720"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-conflict-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-conflict-heading This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-721" id=
+    "index-User-Option-721"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-context-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-context-highlight This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-722" id=
+    "index-User-Option-722"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-context-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-context This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-723" id=
+    "index-User-Option-723"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-file-heading-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-file-heading-highlight
+      This personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-724" id=
+    "index-User-Option-724"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-file-heading-selection-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-file-heading-selection
+      This personality uses voice-lighten whose effect can be
+      changed globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-725" id=
+    "index-User-Option-725"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-file-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-file-heading This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-726" id=
+    "index-User-Option-726"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-hunk-heading-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-heading-highlight
+      This personality uses voice-brighten whose effect can be
+      changed globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-727" id=
+    "index-User-Option-727"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-hunk-heading-selection-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-heading-selection
+      This personality uses voice-lighten whose effect can be
+      changed globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-728" id=
+    "index-User-Option-728"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-hunk-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-heading This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-729" id=
+    "index-User-Option-729"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-hunk-region-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-region This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-730" id=
+    "index-User-Option-730"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-lines-boundary-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-lines-boundary This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-731" id=
+    "index-User-Option-731"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-lines-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-lines-heading This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-732" id=
+    "index-User-Option-732"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-our-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-our-highlight This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-733" id=
+    "index-User-Option-733"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-our-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-our This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-734" id=
+    "index-User-Option-734"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-removed-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-removed-highlight This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-735" id=
+    "index-User-Option-735"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-removed-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-removed This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-736" id=
+    "index-User-Option-736"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-their-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-their-highlight This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-737" id=
+    "index-User-Option-737"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-their-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-their This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-738" id=
+    "index-User-Option-738"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diffstat-added-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diffstat-added This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-739" id=
+    "index-User-Option-739"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diffstat-removed-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-diffstat-removed This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-740" id=
+    "index-User-Option-740"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-dimmed-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-dimmed This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-741" id=
+    "index-User-Option-741"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-filename-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-filename This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-742" id=
+    "index-User-Option-742"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-hash-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-hash This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-743" id=
+    "index-User-Option-743"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-head-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-head This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-744" id=
+    "index-User-Option-744"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-header-line-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-header-line This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-745" id=
+    "index-User-Option-745"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-keyword-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-keyword This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-746" id=
+    "index-User-Option-746"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-log-author-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-log-author This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-747" id=
+    "index-User-Option-747"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-log-date-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-log-date This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-748" id=
+    "index-User-Option-748"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-log-graph-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-log-graph This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-749" id=
+    "index-User-Option-749"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-popup-argument-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-argument This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-750" id=
+    "index-User-Option-750"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-popup-disabled-argument-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-disabled-argument This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-751" id=
+    "index-User-Option-751"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-popup-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-heading This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-752" id=
+    "index-User-Option-752"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-popup-key-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-key This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-753" id=
+    "index-User-Option-753"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-popup-option-value-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-option-value This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-754" id=
+    "index-User-Option-754"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-amend-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-amend This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-755" id=
+    "index-User-Option-755"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-checkout-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-checkout This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-756" id=
+    "index-User-Option-756"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-cherry-pick-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-cherry-pick This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-757" id=
+    "index-User-Option-757"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-commit-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-commit This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-758" id=
+    "index-User-Option-758"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-merge-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-merge This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-759" id=
+    "index-User-Option-759"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-other-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-other This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-760" id=
+    "index-User-Option-760"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-rebase-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-rebase This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-761" id=
+    "index-User-Option-761"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-remote-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-remote This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-762" id=
+    "index-User-Option-762"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-reflog-reset-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-reset This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-763" id=
+    "index-User-Option-763"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-refname-stash-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-refname-stash This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-764" id=
+    "index-User-Option-764"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-refname-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-refname This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-765" id=
+    "index-User-Option-765"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-refname-wip-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-refname-wip This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-766" id=
+    "index-User-Option-766"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-section-heading-selection-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-section-heading-selection This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-767" id=
+    "index-User-Option-767"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-section-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-section-heading This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-768" id=
+    "index-User-Option-768"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-section-highlight-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-section-highlight This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-769" id=
+    "index-User-Option-769"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-section-secondary-heading-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-section-secondary-heading This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-770" id=
+    "index-User-Option-770"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-done-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-done This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-771" id=
+    "index-User-Option-771"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-drop-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-drop This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-772" id=
+    "index-User-Option-772"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-head-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-head This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-773" id=
+    "index-User-Option-773"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-onto-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-onto This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-774" id=
+    "index-User-Option-774"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-part-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-part This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-775" id=
+    "index-User-Option-775"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-pick-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-pick This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-776" id=
+    "index-User-Option-776"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-sequence-stop-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-stop This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-777" id=
+    "index-User-Option-777"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-bad-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-bad This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-778" id=
+    "index-User-Option-778"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-error-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-error This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-779" id=
+    "index-User-Option-779"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-expired-key-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-expired-key This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-780" id=
+    "index-User-Option-780"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-expired-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-expired This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-781" id=
+    "index-User-Option-781"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-good-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-good This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-782" id=
+    "index-User-Option-782"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-revoked-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-revoked This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-783" id=
+    "index-User-Option-783"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-signature-untrusted-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-untrusted This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-784" id=
+    "index-User-Option-784"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-tag-voice</em></dt>
+    <dd>
+      <p>Personality used for magit-tag This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dmake_002dmode.html#emacspeak_002dmake_002dmode"
+    accesskey="n" rel="next">emacspeak-make-mode</a>, Previous:
+    <a href=
+    "emacspeak_002dm_002dplayer.html#emacspeak_002dm_002dplayer"
+    accesskey="p" rel="prev">emacspeak-m-player</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
