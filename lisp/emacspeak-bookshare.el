@@ -174,7 +174,7 @@ Get user and secret from auth-sources, and memoize the user and
 the MD5-encoded secret."
   (cl-declare (special emacspeak-bookshare-user-id
                        emacspeak-bookshare-md5-cached-token))
-  (unless (or emacspeak-bookshare-md5-cached-token emacspeak-bookshare-user-id)
+  (unless emacspeak-bookshare-md5-cached-token
     (let ((auth-info (emacspeak-bookshare-get-auth-info)))
       (setq emacspeak-bookshare-user-id (car auth-info))
       (setq emacspeak-bookshare-md5-cached-token (md5 (cdr auth-info)))))
