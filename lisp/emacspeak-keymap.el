@@ -323,7 +323,6 @@
    ("n" dtk-toggle-speak-nonprinting-chars)
    ("o" dtk-toggle-strip-octals)
    ("p" dtk-set-punctuations)
-   ("q" dtk-toggle-quiet)
    ("r" dtk-set-rate)
    ("s" dtk-toggle-split-caps)
    ("v" voice-lock-toggle)
