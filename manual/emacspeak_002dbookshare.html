@@ -111,7 +111,11 @@
     <li>Perform a search <kbd>a</kbd> or <kbd>t</kbd> for author or
     title search.</li>
     <li>You will be prompted for your Bookshare password if this is
-    the first time in this Emacs session.</li>
+    the first time.</li>
+    <li>The password will be saved to your configured
+    <code>auth-source</code> — usually
+    <code>~/.authinfo.gpg</code>. You can also use
+    <code>password-store[.]</code></li>
     <li>The results of the search appear in the Bookshare buffer.
     Audio formatting and auditory icons convey if a result is
     already available locally.</li>
@@ -847,25 +851,9 @@ during initialization.
 </pre>
       </div>
     </dd>
-  </dl><a name="emacspeak_002dbookshare_002dsign_002dout" id=
-  "emacspeak_002dbookshare_002dsign_002dout"></a>
-  <h4 class="subsubsection">12.25.4.32
-  emacspeak-bookshare-sign-out</h4>
-  <dl>
-    <dt><a name="index-emacspeak_002dbookshare_002dsign_002dout"
-    id="index-emacspeak_002dbookshare_002dsign_002dout"></a>Command:
-    <strong>emacspeak-bookshare-sign-out</strong></dt>
-    <dd>
-      <a name="index-emacspeak_002dbookshare_002dsign_002dout-1"
-      id="index-emacspeak_002dbookshare_002dsign_002dout-1"></a>
-      <div class="format">
-        <pre class="format">Sign out, clearing password.
-</pre>
-      </div>
-    </dd>
   </dl><a name="emacspeak_002dbookshare_002dsince_002dsearch" id=
   "emacspeak_002dbookshare_002dsince_002dsearch"></a>
-  <h4 class="subsubsection">12.25.4.33
+  <h4 class="subsubsection">12.25.4.32
   emacspeak-bookshare-since-search</h4>
   <dl>
     <dt><a name=
@@ -887,7 +875,7 @@ Optional interactive prefix arg filters by category.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002dtitle_002dsearch" id=
   "emacspeak_002dbookshare_002dtitle_002dsearch"></a>
-  <h4 class="subsubsection">12.25.4.34
+  <h4 class="subsubsection">12.25.4.33
   emacspeak-bookshare-title-search</h4>
   <dl>
     <dt><a name=
@@ -909,7 +897,7 @@ Interactive prefix arg filters search by category.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002dtoc" id=
   "emacspeak_002dbookshare_002dtoc"></a>
-  <h4 class="subsubsection">12.25.4.35 emacspeak-bookshare-toc</h4>
+  <h4 class="subsubsection">12.25.4.34 emacspeak-bookshare-toc</h4>
   <dl>
     <dt><a name="index-emacspeak_002dbookshare_002dtoc" id=
     "index-emacspeak_002dbookshare_002dtoc"></a>Command:
@@ -928,7 +916,7 @@ Interactive prefix arg filters search by category.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002dtoc_002dat_002dpoint"
   id="emacspeak_002dbookshare_002dtoc_002dat_002dpoint"></a>
-  <h4 class="subsubsection">12.25.4.36
+  <h4 class="subsubsection">12.25.4.35
   emacspeak-bookshare-toc-at-point</h4>
   <dl>
     <dt><a name=
@@ -949,7 +937,7 @@ Make sure it’s downloaded and unpacked first.
   </dl><a name=
   "emacspeak_002dbookshare_002dunpack_002dat_002dpoint" id=
   "emacspeak_002dbookshare_002dunpack_002dat_002dpoint"></a>
-  <h4 class="subsubsection">12.25.4.37
+  <h4 class="subsubsection">12.25.4.36
   emacspeak-bookshare-unpack-at-point</h4>
   <dl>
     <dt><a name=
@@ -969,7 +957,7 @@ Make sure it’s downloaded and unpacked first.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002durl_002dexecutor" id=
   "emacspeak_002dbookshare_002durl_002dexecutor"></a>
-  <h4 class="subsubsection">12.25.4.38
+  <h4 class="subsubsection">12.25.4.37
   emacspeak-bookshare-url-executor</h4>
   <dl>
     <dt><a name=
@@ -991,7 +979,7 @@ Make sure it’s downloaded and unpacked first.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002dversion_002dhandler"
   id="emacspeak_002dbookshare_002dversion_002dhandler"></a>
-  <h4 class="subsubsection">12.25.4.39
+  <h4 class="subsubsection">12.25.4.38
   emacspeak-bookshare-version-handler</h4>
   <dl>
     <dt><a name=
@@ -1013,7 +1001,7 @@ This function accepts any number of arguments, but ignores them.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002dview" id=
   "emacspeak_002dbookshare_002dview"></a>
-  <h4 class="subsubsection">12.25.4.40
+  <h4 class="subsubsection">12.25.4.39
   emacspeak-bookshare-view</h4>
   <dl>
     <dt><a name="index-emacspeak_002dbookshare_002dview" id=
@@ -1032,7 +1020,7 @@ This function accepts any number of arguments, but ignores them.
     </dd>
   </dl><a name="emacspeak_002dbookshare_002dview_002dat_002dpoint"
   id="emacspeak_002dbookshare_002dview_002dat_002dpoint"></a>
-  <h4 class="subsubsection">12.25.4.41
+  <h4 class="subsubsection">12.25.4.40
   emacspeak-bookshare-view-at-point</h4>
   <dl>
     <dt><a name=
@@ -1053,7 +1041,7 @@ Make sure it’s downloaded and unpacked first.
   </dl><a name=
   "emacspeak_002dbookshare_002dview_002dpage_002drange" id=
   "emacspeak_002dbookshare_002dview_002dpage_002drange"></a>
-  <h4 class="subsubsection">12.25.4.42
+  <h4 class="subsubsection">12.25.4.41
   emacspeak-bookshare-view-page-range</h4>
   <dl>
     <dt><a name=
@@ -1079,8 +1067,8 @@ Make sure it’s downloaded and unpacked first.
   "emacspeak_002dbookshare-Options"></a>
   <h4 class="subsection">12.25.5 emacspeak-bookshare Options</h4>
   <dl>
-    <dt><a name="index-User-Option-474" id=
-    "index-User-Option-474"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-473" id=
+    "index-User-Option-473"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-bookshare-api-key</em></dt>
     <dd>
       <p>Web API key for this application. See
@@ -1089,8 +1077,8 @@ Make sure it’s downloaded and unpacked first.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-475" id=
-    "index-User-Option-475"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-474" id=
+    "index-User-Option-474"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-bookshare-browser-function</em></dt>
     <dd>
@@ -1100,8 +1088,8 @@ Make sure it’s downloaded and unpacked first.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-476" id=
-    "index-User-Option-476"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-475" id=
+    "index-User-Option-475"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-bookshare-directory</em></dt>
     <dd>
       <p>Customize this to the root of where books are
@@ -1109,8 +1097,8 @@ Make sure it’s downloaded and unpacked first.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-477" id=
-    "index-User-Option-477"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-476" id=
+    "index-User-Option-476"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-bookshare-html-to-text-command</em></dt>
     <dd>
@@ -1118,16 +1106,8 @@ Make sure it’s downloaded and unpacked first.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-478" id=
-    "index-User-Option-478"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-bookshare-user-id</em></dt>
-    <dd>
-      <p>Bookshare user Id.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-479" id=
-    "index-User-Option-479"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-477" id=
+    "index-User-Option-477"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-bookshare-xslt</em></dt>
     <dd>
       <p>Name of bookshare XSL transform.</p>
