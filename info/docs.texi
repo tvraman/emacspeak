@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1231 commands and 1167 options.
+This chapter documents a total of 1232 commands and 1167 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1373,6 +1373,7 @@ M-t		emacspeak-tapestry-describe-tapestry
 M-u		emacspeak-feeds-add-feed
 M-v		emacspeak-show-personality-at-point
 M-w		emacspeak-speak-which-function
+M-x		emacspeak-wizards-execute-emacspeak-command
 C-M-SPC		emacspeak-speak-spaces-at-point
 
 C-t C-b		emacspeak-table-previous-column
@@ -23644,6 +23645,24 @@ Display list of open EWW buffers.
 Read key-sequence, then execute its command on a new thread.
 
 (fn KEY)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-execute-emacspeak-command
+@deffn {Command} emacspeak-wizards-execute-emacspeak-command  (command)
+@table @kbd
+@item C-e M-x
+@kindex C-e M-x
+@item <fn> M-x
+@kindex <fn> M-x
+@end table
+
+@findex emacspeak-wizards-execute-emacspeak-command
+
+@format
+Prompt for and execute an Emacspeak command.
+
+(fn COMMAND)
 @end format
 @end deffn
 
