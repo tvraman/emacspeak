@@ -2705,6 +2705,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
+
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-matching-commands (pattern)
   "Return list of commands whose names match pattern."
@@ -2782,6 +2783,32 @@ mapped to voices."
                  (when (string-match pattern name) name)))
            (face-list)))))
     (sort result #'(lambda (a b) (string-lessp a b)))))
+
+;;}}}
+;;{{{Emacspeak Execute Command:
+
+(defconst emacspeak-wizards-emacspeak-command-pattern
+  (concat "^"
+          (regexp-opt
+           '("amixer" "cd-tool"
+             "dectalk" "dtk" "espeak" "mac-"
+             "emacspeak" "xbacklight"
+             "g-" "g-app"   "gm-" "gmap"  "gweb"
+             "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
+  "Patterns to match Emacspeak command names.")
+;;;###autoload
+(defun emacspeak-wizards-execute-emacspeak-command (command)
+  "Prompt for and execute an Emacspeak command."
+  (interactive
+   (list
+    (read
+     (completing-read
+      "Emacspeak Command:"
+      (emacspeak-wizards-enumerate-matching-commands
+       emacspeak-wizards-emacspeak-command-pattern)))))
+  (cl-declare (special emacspeak-wizards-emacspeak-command-pattern))
+  (call-interactively command))
+
 ;;}}}
 ;;{{{ Global sunrise/sunset wizard:
 
