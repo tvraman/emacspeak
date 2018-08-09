@@ -1847,11 +1847,10 @@ Indicate change of selection with an auditory icon
 (defadvice help-with-tutorial (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
+    (dtk-set-punctuations 'all)
     (emacspeak-auditory-icon 'open-object)
-    (save-excursion
-      (goto-char (point-min))
-      (forward-line (window-height))
-      (emacspeak-speak-region (point-min) (point)))))
+    (emacspeak-speak-predefined-window 1)))
+
 (defun ems-canonicalize-key-description (desc)
   "Change key description to a speech-friendly form."
   (let ((shift-regexp "S-\\(.\\)")
