@@ -5,7 +5,6 @@
 
 (files "lisp/*.el" "lisp/g-client/*.el")
 
-(depends-on "cl-lib" "0.3")
 (depends-on "emacs" "26.1")
 
 (development
