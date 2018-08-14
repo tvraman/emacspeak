@@ -1,9 +1,10 @@
+;;;  -*- major-mode: emacs-lisp-mode; -*-
 (source melpa)
 (source gnu)
 
 (package "emacspeak" "49.0" "emacspeak")
 
-(files "lisp/*.el" "lisp/g-client/*.el" "info/*.texi)
+(files "lisp/*.el" "lisp/g-client/*.el" "info/*.texi")
 
 (depends-on "emacs" "26.1")
 
