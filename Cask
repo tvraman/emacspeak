@@ -3,7 +3,7 @@
 
 (package "emacspeak" "49.0" "emacspeak")
 
-(files "lisp/*.el" "lisp/g-client/*.el")
+(files "lisp/*.el" "lisp/g-client/*.el" "info/*.texi)
 
 (depends-on "emacs" "26.1")
 
