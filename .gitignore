@@ -21,3 +21,4 @@ servers/linux-outloud/atcleci.so
 servers/linux-espeak/tclespeak.so
 .build.log
 lisp/sudoku.el
+js/.indium.json
