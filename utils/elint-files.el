@@ -1,6 +1,6 @@
 ;;;$Id: elint-files.el 7425 2011-11-22 01:55:17Z tv.raman.tv $  -*- lexical-binding: t; -*-
 
-(require 'cl)
+(require 'cl-lib)
 (require 'advice)
 (require 'derived)
 (push default-directory load-path)
@@ -10,7 +10,6 @@
 (load-library "g-loaddefs")
 (require 'elint)
 (require 'emacspeak-preamble)
-(package-initialize)
 (defun batch-elint-files ()
   "Batch elint  elisp files in directory."
   (let ((file-list (directory-files default-directory nil "\\.el\\'")))
@@ -18,7 +17,8 @@
      for f in file-list do
      (unless
          (or (string-match  "emacspeak-loaddefs.el" file)
-             (string-match "emacspeak-autoload.el" file))
+             (string-match "emacspeak-autoload.el" file)
+             (string-match ".skeleton.el" file))
        (elint-file f)))))
 
 (batch-elint-files)
