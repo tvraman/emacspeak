@@ -422,9 +422,10 @@ Append means place corresponding personality at the end."
         (setq voice (ems-get-voice-for-face value))
         (when voice
           (with-current-buffer (overlay-buffer overlay)
-            (funcall emacspeak-personality-voiceify-overlays
-                     (overlay-start overlay) (overlay-end overlay)
-                     voice (overlay-buffer overlay))))))))
+            (with-silent-modifications
+              (funcall emacspeak-personality-voiceify-overlays
+                       (overlay-start overlay) (overlay-end overlay)
+                       voice (overlay-buffer overlay)))))))))
 
 (defadvice delete-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
@@ -460,12 +461,13 @@ Append means place corresponding personality at the end."
                emacspeak-personality-voiceify-overlays
                (integer-or-marker-p (overlay-start overlay))
                (integer-or-marker-p (overlay-end overlay)))
-        (emacspeak-personality-remove
-         (overlay-start overlay)
-         (overlay-end overlay)
-         voice (overlay-buffer overlay))
-        (funcall emacspeak-personality-voiceify-overlays
-                 beg end voice object)))))
+        (with-silent-modifications
+          (emacspeak-personality-remove
+           (overlay-start overlay)
+           (overlay-end overlay)
+           voice (overlay-buffer overlay))
+          (funcall emacspeak-personality-voiceify-overlays
+                   beg end voice object))))))
 
 ;;}}}
 (provide 'emacspeak-personality)
