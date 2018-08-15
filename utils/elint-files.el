@@ -6,6 +6,7 @@
 (push default-directory load-path)
 (push (expand-file-name "g-client" default-directory) load-path)
 (require 'emacspeak-load-path)
+(load-file (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory))
 (require 'emacspeak-sounds)
 (load-library "g-loaddefs")
 (require 'elint)
