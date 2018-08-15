@@ -2,7 +2,8 @@
     "configurations": [
         {
             "name": "Web project",
-            "type": "chrome"
+            "type": "chrome",
+          "url" : "https://github.com/tvraman"
         }
     ]
 }
