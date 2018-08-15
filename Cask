@@ -9,4 +9,4 @@
 (depends-on "emacs" "26.1")
 
 (development
- (depends-on "elsa"))
+ (depends-on "elsa" "elisp-lint"))
