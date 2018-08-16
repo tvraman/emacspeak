@@ -50,6 +50,10 @@
 ;;; with GNU Emacs 19.28 and earlier. It has been updated to work
 ;;; with the newer and much larger ediff system found in Emacs 19.29
 ;;; and later.
+;;;
+;;; When using under modern versions of Emacs, I recommend setting
+;;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;;; so that Emacs always displays Ediff windows in a single frame.
 ;;; Code:
 
 ;;}}}
