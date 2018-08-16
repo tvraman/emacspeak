@@ -243,6 +243,90 @@ Preserve other existing personality properties on the text range."
        (cdr value)))
 
 ;;}}}
+;;{{{ advice overlay-put
+
+(defcustom emacspeak-personality-voiceify-overlays
+  'emacspeak-personality-prepend
+  "Determines how and if we voiceify overlays.
+
+None means that overlay faces are not mapped to voices.
+Prepend means that the corresponding personality is prepended to the
+existing personalities on the text under overlay.
+
+Append means place corresponding personality at the end."
+  :type '(choice :tag "Overlay Voiceification"
+                 (const :tag "None" nil)
+                 (const :tag "Simple" emacspeak-personality-put)
+                 (const :tag "Prepend" emacspeak-personality-prepend)
+                 (const :tag "Append" emacspeak-personality-append))
+  :group 'emacspeak-personality)
+
+(defadvice overlay-put (after emacspeak-personality  pre act)
+  "Used by emacspeak to augment font lock."
+  (when emacspeak-personality-voiceify-overlays
+    (let ((overlay (ad-get-arg 0))
+          (prop (ad-get-arg 1))
+          (value (ad-get-arg 2))
+          (voice nil))
+      (when
+          (and
+           (or (eq prop 'face)
+               (eq prop 'font-lock-face)
+               (and (eq prop 'category) (get value 'face)))
+           (integer-or-marker-p (overlay-start overlay))
+           (integer-or-marker-p (overlay-end overlay)))
+        (and (eq prop 'category) (setq value (get value 'face)))
+        (setq voice (ems-get-voice-for-face value))
+        (when voice
+          (with-current-buffer (overlay-buffer overlay)
+            (with-silent-modifications
+              (funcall emacspeak-personality-voiceify-overlays
+                       (overlay-start overlay) (overlay-end overlay)
+                       voice (overlay-buffer overlay)))))))))
+
+(defadvice delete-overlay (before emacspeak-personality  pre act)
+  "Used by emacspeak to augment font lock."
+  (when emacspeak-personality-voiceify-overlays
+    (let* ((o (ad-get-arg 0))
+           (buffer (overlay-buffer o))
+           (start (overlay-start o))
+           (end (overlay-end o)))
+      (when
+          (and  buffer
+                (emacspeak-personality-plist-face-p (overlay-properties o)))
+        (with-current-buffer (overlay-buffer overlay)
+          (with-silent-modifications
+          (condition-case nil 
+          (put-text-property start end 'personality nil)
+          (error nil))))))))
+
+(defvar emacspeak-personality-advice-move-overlay t
+  "Set to nil to avoid recursive advice during redisplay.")
+
+(defadvice move-overlay (before emacspeak-personality  pre act)
+  "Used by emacspeak to augment font lock."
+  (when emacspeak-personality-advice-move-overlay
+    (let ((overlay (ad-get-arg 0))
+          (emacspeak-personality-advice-move-overlay nil)
+          (beg (ad-get-arg 1))
+          (end (ad-get-arg 2))
+          (object (ad-get-arg 3))
+          (voice nil))
+      (setq voice (overlay-get  overlay 'personality))
+      (when
+          (and voice
+               emacspeak-personality-voiceify-overlays
+               (integer-or-marker-p (overlay-start overlay))
+               (integer-or-marker-p (overlay-end overlay)))
+        (with-silent-modifications
+          (emacspeak-personality-remove
+           (overlay-start overlay)
+           (overlay-end overlay)
+           voice (overlay-buffer overlay))
+          (funcall emacspeak-personality-voiceify-overlays
+                   beg end voice object))))))
+
+;;}}}
 ;;{{{ advice put-text-personality
 
 (defvar emacspeak-personality-voiceify-faces nil
@@ -388,90 +472,7 @@ Simple means that voiceification is not cumulative."
                              'personality nil object))))))
 
 ;;}}}
-;;{{{ advice overlay-put
 
-(defcustom emacspeak-personality-voiceify-overlays
-  'emacspeak-personality-prepend
-  "Determines how and if we voiceify overlays.
-
-None means that overlay faces are not mapped to voices.
-Prepend means that the corresponding personality is prepended to the
-existing personalities on the text under overlay.
-
-Append means place corresponding personality at the end."
-  :type '(choice :tag "Overlay Voiceification"
-                 (const :tag "None" nil)
-                 (const :tag "Simple" emacspeak-personality-put)
-                 (const :tag "Prepend" emacspeak-personality-prepend)
-                 (const :tag "Append" emacspeak-personality-append))
-  :group 'emacspeak-personality)
-
-(defadvice overlay-put (after emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when emacspeak-personality-voiceify-overlays
-    (let ((overlay (ad-get-arg 0))
-          (prop (ad-get-arg 1))
-          (value (ad-get-arg 2))
-          (voice nil))
-      (when
-          (and
-           (or (eq prop 'face)
-               (eq prop 'font-lock-face)
-               (and (eq prop 'category) (get value 'face)))
-           (integer-or-marker-p (overlay-start overlay))
-           (integer-or-marker-p (overlay-end overlay)))
-        (and (eq prop 'category) (setq value (get value 'face)))
-        (setq voice (ems-get-voice-for-face value))
-        (when voice
-          (with-current-buffer (overlay-buffer overlay)
-            (with-silent-modifications
-              (funcall emacspeak-personality-voiceify-overlays
-                       (overlay-start overlay) (overlay-end overlay)
-                       voice (overlay-buffer overlay)))))))))
-
-(defadvice delete-overlay (before emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when emacspeak-personality-voiceify-overlays
-    (let* ((o (ad-get-arg 0))
-           (buffer (overlay-buffer o))
-           (start (overlay-start o))
-           (end (overlay-end o)))
-      (when
-          (and  buffer
-                (emacspeak-personality-plist-face-p (overlay-properties o)))
-        (with-current-buffer (overlay-buffer overlay)
-          (with-silent-modifications
-          (condition-case nil 
-          (put-text-property start end 'personality nil)
-          (error nil))))))))
-
-(defvar emacspeak-personality-advice-move-overlay t
-  "Set to nil to avoid recursive advice during redisplay.")
-
-(defadvice move-overlay (before emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when emacspeak-personality-advice-move-overlay
-    (let ((overlay (ad-get-arg 0))
-          (emacspeak-personality-advice-move-overlay nil)
-          (beg (ad-get-arg 1))
-          (end (ad-get-arg 2))
-          (object (ad-get-arg 3))
-          (voice nil))
-      (setq voice (overlay-get  overlay 'personality))
-      (when
-          (and voice
-               emacspeak-personality-voiceify-overlays
-               (integer-or-marker-p (overlay-start overlay))
-               (integer-or-marker-p (overlay-end overlay)))
-        (with-silent-modifications
-          (emacspeak-personality-remove
-           (overlay-start overlay)
-           (overlay-end overlay)
-           voice (overlay-buffer overlay))
-          (funcall emacspeak-personality-voiceify-overlays
-                   beg end voice object))))))
-
-;;}}}
 (provide 'emacspeak-personality)
 ;;{{{ end of file
 
