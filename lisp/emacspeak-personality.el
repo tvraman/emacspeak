@@ -41,6 +41,14 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
+;;; Implementation Notes From2018:
+
+;;; After 3 years, variable emacspeak-personality-voiceify-faces has
+;;; been removed,
+;;; and the advice on put-text-property and friends removed.
+;;; This module now limtis itself to mapping face/font-lock properties
+;;; from overlays to the associated text-property (personality).
+
 ;;; Implementation Notes From 2015:
 
 ;;; Setting emacspeak-personality-voiceify-faces to  
@@ -229,7 +237,26 @@ Preserve other existing personality properties on the text range."
             (emacspeak-personality-remove extent end personality))))))))
 
 ;;}}}
-;;{{{ helper: face-p
+;;{{{Face Helpers: 
+
+;;; Helper: Get face->voice mapping
+;;;###autoload
+(defun ems-get-voice-for-face (value)
+  "Compute face->voice mapping."
+  (when value 
+    (let ((voice nil))
+      (condition-case nil
+          (cond
+           ((symbolp value)
+            (setq voice (voice-setup-get-voice-for-face value)))
+           ((ems-plain-cons-p value)) ;;pass on plain cons
+           ((listp value)
+            (setq voice
+                  (delq nil
+                        (mapcar   #'voice-setup-get-voice-for-face value)))))
+        (error nil))
+      voice)))
+
 
 (defsubst emacspeak-personality-plist-face-p (plist)
   "Check if plist contains a face setting."
@@ -327,152 +354,6 @@ Append means place corresponding personality at the end."
                    beg end voice object))))))
 
 ;;}}}
-;;{{{ advice put-text-personality
-
-(defvar emacspeak-personality-voiceify-faces nil
-  "Determines how and if we voiceify faces.
-
-nil means we dont use advice any more.
-
-Prepend means that the corresponding personality is prepended to the
-existing personalities on the text.
-
-Append means place corresponding personality at the end.
-
-Simple means that voiceification is not cumulative."
-   )
-
-;;; Helper: Get face->voice mapping
-;;;###autoload
-(defun ems-get-voice-for-face (value)
-  "Compute face->voice mapping."
-  (when value 
-    (let ((voice nil))
-      (condition-case nil
-          (cond
-           ((symbolp value)
-            (setq voice (voice-setup-get-voice-for-face value)))
-           ((ems-plain-cons-p value)) ;;pass on plain cons
-           ((listp value)
-            (setq voice
-                  (delq nil
-                        (mapcar   #'voice-setup-get-voice-for-face value)))))
-        (error nil))
-      voice)))
-
-(defadvice put-text-property (after emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
-    (let ((start (ad-get-arg 0))
-          (end (ad-get-arg 1))
-          (prop (ad-get-arg 2))
-          (value (ad-get-arg 3))
-          (object (ad-get-arg 4))
-          (voice nil))
-      (when (and (or (eq prop 'face) (eq prop 'font-lock-face))
-                 (not (= start end)))
-        (setq voice (ems-get-voice-for-face value))
-        (when voice
-          (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-
-(defadvice add-face-text-property (after emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
-    (let ((start (ad-get-arg 0))
-          (end (ad-get-arg 1))
-          (value (ad-get-arg 2))
-          (object (ad-get-arg 4))
-          (voice nil))
-      (unless (= start end)
-        (setq voice (ems-get-voice-for-face value))
-        (when voice
-          (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-
-(defadvice add-text-properties (after emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when (and voice-lock-mode    emacspeak-personality-voiceify-faces)
-    (let ((start (ad-get-arg 0))
-          (end (ad-get-arg 1))
-          (properties (ad-get-arg 2))
-          (object (ad-get-arg 3))
-          (facep nil)
-          (voice nil)
-          (value nil))
-      (setq facep (emacspeak-personality-plist-face-p properties))
-      (when facep (setq value (cl-second facep))
-            (setq voice (ems-get-voice-for-face value))
-            (when voice
-              (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-
-(defadvice set-text-properties (after emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (when (and  voice-lock-mode emacspeak-personality-voiceify-faces)
-    (let ((start (ad-get-arg 0))
-          (end (ad-get-arg 1))
-          (properties (ad-get-arg 2))
-          (object (ad-get-arg 3))
-          (facep nil)
-          (voice nil)
-          (value nil))
-      (setq facep (emacspeak-personality-plist-face-p properties))
-      (when  facep
-        (setq value (cl-second facep))
-        (setq voice (ems-get-voice-for-face value))
-        
-        (when voice
-          (funcall emacspeak-personality-voiceify-faces start end voice object))))))
-
-(defadvice propertize (around emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
-  (let ((string (ad-get-arg 0))
-        (properties (ad-get-args 1))
-        (facep nil)
-        (voice nil)
-        (value nil))
-    (setq facep (emacspeak-personality-plist-face-p properties))
-    (cond
-     ((and  emacspeak-personality-voiceify-faces
-            voice-lock-mode facep)
-      ad-do-it
-      (setq value (cl-second facep))
-      (setq voice (ems-get-voice-for-face value))
-      (when voice
-        (funcall emacspeak-personality-voiceify-faces 0
-                 (length ad-return-value) voice ad-return-value)))
-     (t ad-do-it))
-    ad-return-value))
-
-;;; If a face property is being removed, set personality  to nil:
-
-(defadvice remove-text-properties (before emacspeak-personality pre act comp)
-  "Undo any voiceification if needed."
-  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
-    (let  ((start (ad-get-arg 0))
-           (end (ad-get-arg 1))
-           (props (ad-get-arg 2))
-           (object (ad-get-arg 3))
-           (inhibit-read-only  t))
-      (with-silent-modifications
-        (when (and (not (= start end))
-                   (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
-          (put-text-property start end 'personality nil object))))))
-
-(defadvice remove-list-of-text-properties (before emacspeak-personality pre act comp)
-  "Undo any voiceification if needed."
-  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
-    (with-silent-modifications
-      (let  ((start (ad-get-arg 0))
-             (end (ad-get-arg 1))
-             (props (ad-get-arg 2))
-             (object (ad-get-arg 3))
-             (inhibit-read-only t))
-        (when (and (not (= start end))
-                   (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
-          (put-text-property start end
-                             'personality nil object))))))
-
-;;}}}
-
 (provide 'emacspeak-personality)
 ;;{{{ end of file
 
