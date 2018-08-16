@@ -83,20 +83,6 @@
         voice-name)
     (error nil)))
 
-(defadvice ansi-color-set-extent-face (after emacspeak pre act comp)
-  "Apply aural properties."
-  (cl-declare (special emacspeak-personality-voiceify-faces))
-  (let* ((extent (ad-get-arg 0))
-         (face (ad-get-arg 1))
-         (start (overlay-start extent))
-         (end (overlay-end extent))
-         (voice (when (listp face)
-                  (emacspeak-ansi-color-to-voice face))))
-    (when voice
-      (funcall emacspeak-personality-voiceify-faces
-               start end
-               voice nil))))
-
 ;;}}}
 ;;{{{ advice interactive commands
 

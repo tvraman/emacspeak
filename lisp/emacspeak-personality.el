@@ -243,7 +243,7 @@ Preserve other existing personality properties on the text range."
        (cdr value)))
 
 ;;}}}
-;;{{{ advice overlay-put
+;;{{{ advice overlays
 
 (defcustom emacspeak-personality-voiceify-overlays
   'emacspeak-personality-prepend
