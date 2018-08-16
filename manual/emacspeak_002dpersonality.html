@@ -81,6 +81,12 @@
   <a name="emacspeak_002dpersonality-1" id=
   "emacspeak_002dpersonality-1"></a>
   <h3 class="section">12.137 emacspeak-personality</h3>
+  <p>Implementation Notes From2018:</p>
+  <p>After 3 years, variable emacspeak-personality-voiceify-faces
+  has been removed, and the advice on put-text-property and friends
+  removed. This module now limtis itself to mapping face/font-lock
+  properties from overlays to the associated text-property
+  (personality).</p>
   <p>Implementation Notes From 2015:</p>
   <p>Setting emacspeak-personality-voiceify-faces to nil now
   results in dtk-speak falling back to the face-&gt;voice mapping
@@ -100,8 +106,8 @@
   <h4 class="subsection">12.137.1 emacspeak-personality
   Options</h4>
   <dl>
-    <dt><a name="index-User-Option-886" id=
-    "index-User-Option-886"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-897" id=
+    "index-User-Option-897"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-personality-voiceify-overlays</em></dt>
     <dd>
