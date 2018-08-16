@@ -722,7 +722,7 @@ Here,  change is any change in property personality, face or font-lock-face."
    (next-true-single-property-change start 'face (current-buffer) end)
    (next-true-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defun dtk-get-style (&optional pos)
+(defsubst dtk-get-style (&optional pos)
   "Compute style at pos by examining personality and face
 properties. Return value is a personality that can be applied to the
 content when speaking. Default `pos' to point. Property `personality'
