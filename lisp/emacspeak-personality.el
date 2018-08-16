@@ -431,7 +431,6 @@ Append means place corresponding personality at the end."
 
 (defadvice delete-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
-  (with-silent-modifications
   (when emacspeak-personality-voiceify-overlays
     (let* ((o (ad-get-arg 0))
            (buffer (overlay-buffer o))
@@ -441,6 +440,7 @@ Append means place corresponding personality at the end."
           (and  buffer
                 (emacspeak-personality-plist-face-p (overlay-properties o)))
         (with-current-buffer (overlay-buffer overlay)
+          (with-silent-modifications
           (condition-case nil 
           (put-text-property start end 'personality nil)
           (error nil))))))))
