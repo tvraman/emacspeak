@@ -212,6 +212,10 @@
 
 ;;}}}
 ;;{{{ Advice:
+(defadvice ediff-toggle-help (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)))
 
 (defadvice ediff-next-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
@@ -298,6 +302,15 @@
   (when (ems-interactive-p)
     (message "turned %s file name truncation in Ediff registry"
              ediff-meta-truncate-filenames)))
+
+;;}}}
+;;{{{Hooks:
+
+(add-hook
+ 'ediff-mode-hook
+ #'(lambda ()
+     (emacspeak-speak-mode-line)
+     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 (provide 'emacspeak-ediff)
