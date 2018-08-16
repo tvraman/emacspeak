@@ -263,7 +263,7 @@ Preserve other existing personality properties on the text range."
   (or (memq 'face plist)
       (memq 'font-lock-face plist)))
 
-(defun ems-plain-cons-p (value)
+(defsubst ems-plain-cons-p (value)
   "Help identify (a . b)."
   (and (consp value)
        (equal value (last value))
