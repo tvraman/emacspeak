@@ -245,6 +245,10 @@ Preserve other existing personality properties on the text range."
 ;;}}}
 ;;{{{ advice put-text-personality
 
+;;; The code in this section is called only if
+;;; emacspeak-personality-voiceify-faces is t.
+;;; It's no longer used in newer versions of Emacspeak.
+
 (defvar emacspeak-personality-voiceify-faces nil
   "Determines how and if we voiceify faces.
 
@@ -256,7 +260,7 @@ existing personalities on the text.
 Append means place corresponding personality at the end.
 
 Simple means that voiceification is not cumulative."
-   )
+  )
 
 ;;; Helper: Get face->voice mapping
 ;;;###autoload
@@ -340,23 +344,24 @@ Simple means that voiceification is not cumulative."
 
 (defadvice propertize (around emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
-  (let ((string (ad-get-arg 0))
-        (properties (ad-get-args 1))
-        (facep nil)
-        (voice nil)
-        (value nil))
-    (setq facep (emacspeak-personality-plist-face-p properties))
-    (cond
-     ((and  emacspeak-personality-voiceify-faces
-            voice-lock-mode facep)
-      ad-do-it
-      (setq value (cl-second facep))
-      (setq voice (ems-get-voice-for-face value))
-      (when voice
-        (funcall emacspeak-personality-voiceify-faces 0
-                 (length ad-return-value) voice ad-return-value)))
-     (t ad-do-it))
-    ad-return-value))
+  (when emacspeak-personality-voiceify-faces
+    (let ((string (ad-get-arg 0))
+          (properties (ad-get-args 1))
+          (facep nil)
+          (voice nil)
+          (value nil))
+      (setq facep (emacspeak-personality-plist-face-p properties))
+      (cond
+       ((and  
+         voice-lock-mode facep)
+        ad-do-it
+        (setq value (cl-second facep))
+        (setq voice (ems-get-voice-for-face value))
+        (when voice
+          (funcall emacspeak-personality-voiceify-faces 0
+                   (length ad-return-value) voice ad-return-value)))
+       (t ad-do-it))
+      ad-return-value)))
 
 ;;; If a face property is being removed, set personality  to nil:
 
@@ -425,13 +430,13 @@ Append means place corresponding personality at the end."
         (when voice
           (with-current-buffer (overlay-buffer overlay)
             (with-silent-modifications
-              (funcall emacspeak-personality-voiceify-overlays
-                       (overlay-start overlay) (overlay-end overlay)
-                       voice (overlay-buffer overlay)))))))))
+              (funcall
+               emacspeak-personality-voiceify-overlays
+               (overlay-start overlay) (overlay-end overlay)
+               voice (overlay-buffer overlay)))))))))
 
 (defadvice delete-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
-  (with-silent-modifications
   (when emacspeak-personality-voiceify-overlays
     (let* ((o (ad-get-arg 0))
            (buffer (overlay-buffer o))
@@ -441,9 +446,10 @@ Append means place corresponding personality at the end."
           (and  buffer
                 (emacspeak-personality-plist-face-p (overlay-properties o)))
         (with-current-buffer (overlay-buffer overlay)
-          (condition-case nil 
-          (put-text-property start end 'personality nil)
-          (error nil))))))))
+          (with-silent-modifications
+            (condition-case nil 
+                (put-text-property start end 'personality nil)
+              (error nil))))))))
 
 (defvar emacspeak-personality-advice-move-overlay t
   "Set to nil to avoid recursive advice during redisplay.")
