@@ -110,6 +110,40 @@
 (require 'voice-setup)
 
 ;;}}}
+;;{{{Face Helpers: 
+(defsubst ems-plain-cons-p (value)
+  "Help identify (a . b)."
+  (and (consp value)
+       (equal value (last value))
+       (cdr value)))
+
+;;; Helper: Get face->voice mapping
+;;;###autoload
+(defun ems-get-voice-for-face (value)
+  "Compute face->voice mapping."
+  (when value 
+    (let ((voice nil))
+      (condition-case nil
+          (cond
+           ((symbolp value)
+            (setq voice (voice-setup-get-voice-for-face value)))
+           ((ems-plain-cons-p value)) ;;pass on plain cons
+           ((listp value)
+            (setq voice
+                  (delq nil
+                        (mapcar   #'voice-setup-get-voice-for-face value)))))
+        (error nil))
+      voice)))
+
+
+(defsubst emacspeak-personality-plist-face-p (plist)
+  "Check if plist contains a face setting."
+  (or (memq 'face plist)
+      (memq 'font-lock-face plist)))
+
+
+
+;;}}}
 ;;{{{ cumulative personalities
 
 ;;;###autoload
@@ -237,39 +271,7 @@ Preserve other existing personality properties on the text range."
             (emacspeak-personality-remove extent end personality))))))))
 
 ;;}}}
-;;{{{Face Helpers: 
 
-;;; Helper: Get face->voice mapping
-;;;###autoload
-(defun ems-get-voice-for-face (value)
-  "Compute face->voice mapping."
-  (when value 
-    (let ((voice nil))
-      (condition-case nil
-          (cond
-           ((symbolp value)
-            (setq voice (voice-setup-get-voice-for-face value)))
-           ((ems-plain-cons-p value)) ;;pass on plain cons
-           ((listp value)
-            (setq voice
-                  (delq nil
-                        (mapcar   #'voice-setup-get-voice-for-face value)))))
-        (error nil))
-      voice)))
-
-
-(defsubst emacspeak-personality-plist-face-p (plist)
-  "Check if plist contains a face setting."
-  (or (memq 'face plist)
-      (memq 'font-lock-face plist)))
-
-(defsubst ems-plain-cons-p (value)
-  "Help identify (a . b)."
-  (and (consp value)
-       (equal value (last value))
-       (cdr value)))
-
-;;}}}
 ;;{{{ advice overlays
 
 (defcustom emacspeak-personality-voiceify-overlays
