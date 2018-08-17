@@ -710,25 +710,6 @@ Argument COMPLEMENT  is the complement of separator."
                 (overlay-get o 'auditory-icon))
             (overlays-at pos)))))
 
-(defun tts-get-overlay-personality (pos)
-  "Return personality at the front of the overlay list at pos."
-  (car
-   (delete nil
-           (mapcar
-            #'(lambda (o)
-                (overlay-get o 'personality))
-            (overlays-at pos)))))
-
-(defun tts-get-overlay-face (pos)
-  "Return face or font-lock-face at the front of the overlay list at pos."
-  (car
-   (delete nil
-           (mapcar
-            #'(lambda (o)
-                (or (overlay-get o 'face)
-                    (overlay-get o 'font-lock-face)))
-            (overlays-at pos)))))
-
 (defun dtk-next-single-property-change (start prop object limit)
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
