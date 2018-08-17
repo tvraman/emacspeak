@@ -143,7 +143,7 @@ This chapter documents a total of 1232 commands and 1178 options.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
-* emacspeak-personality::Emacspeak's personality interface.
+* emacspeak-personality::
 * emacspeak-php-mode::Speech-Enable php-mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.

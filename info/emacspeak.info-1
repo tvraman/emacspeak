@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 16, 2018.
+last updated on August 17, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2891,7 +2891,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
-* emacspeak-personality::Emacspeak’s personality interface.
+* emacspeak-personality::
 * emacspeak-php-mode::Speech-Enable php-mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
