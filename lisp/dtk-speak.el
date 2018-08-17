@@ -738,8 +738,8 @@ Arguments START and END specify region to speak."
   (cl-declare (special voice-lock-mode dtk-speaker-process
                        tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
-             (get-text-property start 'auditory-icon))
-    (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
+             (get-char-property start 'auditory-icon))
+    (emacspeak-queue-auditory-icon (get-char-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
   (when (get-text-property start 'pause)
     (dtk-interp-silence (get-text-property start 'pause) nil))
