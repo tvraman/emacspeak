@@ -729,10 +729,8 @@ content when speaking. Default `pos' to point. Property `personality'
 has higher precedence than `face'."
   (or pos (setq pos (point)))
   (or
-   (get-text-property pos 'personality)
-   (ems-get-voice-for-face
-    (or (get-text-property pos 'face)
-        (get-text-property pos 'font-lock-face)))))
+   (get-char-property pos 'personality)
+   (ems-get-voice-for-face (get-char-property pos 'face))))
 
 (defun dtk-format-text-and-speak (start end)
   "Format and speak text.
