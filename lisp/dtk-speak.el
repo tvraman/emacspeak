@@ -690,7 +690,7 @@ Argument COMPLEMENT  is the complement of separator."
                     (overlay-get o 'font-lock-face)))
             (overlays-at pos)))))
 
-(defun next-true-single-property-change (start prop object limit)
+(defun dtk-next-single-property-change (start prop object limit)
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
   (let ((initial-value (get-char-property start prop object)))
@@ -718,9 +718,9 @@ change is any change in property personality, face or font-lock-face."
 Here,  change is any change in property personality, face or font-lock-face."
   (or end (setq end (point-max)))
   (min
-   (next-true-single-property-change start 'personality (current-buffer) end)
-   (next-true-single-property-change start 'face (current-buffer) end)
-   (next-true-single-property-change start 'font-lock-face (current-buffer) end)))
+   (dtk-next-single-property-change start 'personality (current-buffer) end)
+   (dtk-next-single-property-change start 'face (current-buffer) end)
+   (dtk-next-single-property-change start 'font-lock-face (current-buffer) end)))
 
 (defsubst dtk-get-style (&optional pos)
   "Compute style at pos by examining personality and face
