@@ -1,4 +1,4 @@
-;;; emacspeak-personality.el --- Emacspeak's personality interface  -*- lexical-binding: t; -*-
+;;; emacspeak-personality.el ---Voiceify Overlays  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock implementation
@@ -141,14 +141,13 @@
   (or (memq 'face plist)
       (memq 'font-lock-face plist)))
 
-
-
 ;;}}}
 ;;{{{ cumulative personalities
 
 ;;;###autoload
 (defun emacspeak-personality-put (start end personality &optional object)
-  "Apply personality to specified region, over-writing any current personality settings."
+  "Apply personality to specified region,
+over-writing any current personality settings."
   (when
       (and personality
            (integer-or-marker-p start)
