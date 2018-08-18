@@ -781,18 +781,10 @@ emacspeak-emergency-tts-server."
 at point."
   (interactive)
   (let ((f
-         (or (get-text-property (point) 'font-lock-face)
-             (get-text-property (point) 'face)))
-        (style (dtk-get-style))
-        (o
-         (delq nil
-               (mapcar
-                #'(lambda (overlay)
-                    (or (overlay-get overlay 'font-lock-face)
-                        (overlay-get overlay 'face)))
-                (overlays-at (point))))))
+         (get-char-property (point) 'face))
+        (style (dtk-get-style)))
     (message
-     "%s  %s   Face %s %s"
+     "%s  %s   Face %s "
      (cond
       ((null style) "")
       ((listp style)
@@ -802,8 +794,7 @@ at point."
         style " "))
       ((boundp style) (symbol-value style)))
      (or style "")
-     f
-     (if o (format "Overlay Face: %s" o) " "))))
+     f)))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property)
