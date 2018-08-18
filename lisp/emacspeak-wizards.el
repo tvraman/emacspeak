@@ -780,8 +780,7 @@ emacspeak-emergency-tts-server."
   "Show value of property personality (and possibly face)
 at point."
   (interactive)
-  (let ((f
-         (get-char-property (point) 'face))
+  (let ((f (get-char-property (point) 'face))
         (style (dtk-get-style)))
     (message
      "%s  %s   Face %s "
