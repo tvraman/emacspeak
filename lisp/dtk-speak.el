@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2017, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -182,6 +183,18 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 
 ;;;declared here to help compilation
 (defvar voice-lock-mode nil)
+
+;;}}}
+;;{{{Style Helper:
+(defsubst dtk-get-style (&optional pos)
+  "Compute style at pos by examining personality and face
+properties. Return value is a personality that can be applied to the
+content when speaking. Default `pos' to point. Property `personality'
+has higher precedence than `face'."
+  (or pos (setq pos (point)))
+  (or
+   (get-char-property pos 'personality)
+   (ems-get-voice-for-face (get-char-property pos 'face))))
 
 ;;}}}
 ;;{{{ Tone Helpers:
@@ -722,15 +735,7 @@ Here,  change is any change in property personality, face or font-lock-face."
    (dtk-next-single-property-change start 'face (current-buffer) end)
    (dtk-next-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defsubst dtk-get-style (&optional pos)
-  "Compute style at pos by examining personality and face
-properties. Return value is a personality that can be applied to the
-content when speaking. Default `pos' to point. Property `personality'
-has higher precedence than `face'."
-  (or pos (setq pos (point)))
-  (or
-   (get-char-property pos 'personality)
-   (ems-get-voice-for-face (get-char-property pos 'face))))
+
 
 (defun dtk-format-text-and-speak (start end)
   "Format and speak text.
