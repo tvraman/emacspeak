@@ -407,6 +407,7 @@ NodeJS
 nonprinting
 Norvig
 nosel
+nowlimits
 nvm
 nxml
 NYTimes
@@ -528,6 +529,7 @@ SDK
 sel
 selfeval
 ses
+setq
 sexp
 SFO
 shr

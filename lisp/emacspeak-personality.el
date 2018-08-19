@@ -46,7 +46,7 @@
 ;;; After 3 years, variable emacspeak-personality-voiceify-faces has
 ;;; been removed,
 ;;; and the advice on put-text-property and friends removed.
-;;; This module now limtis itself to mapping face/font-lock properties
+;;; This module nowlimits itself to mapping face/font-lock properties
 ;;; from overlays to the associated text-property (personality).
 
 ;;; Implementation Notes From 2015:
