@@ -777,8 +777,7 @@ emacspeak-emergency-tts-server."
 
 ;;;###autoload
 (defun emacspeak-show-personality-at-point ()
-  "Show value of property personality (and possibly face)
-at point."
+  "Show value of property personality (and possibly face) at point."
   (interactive)
   (let ((f (get-char-property (point) 'face))
         (style (dtk-get-style)))
