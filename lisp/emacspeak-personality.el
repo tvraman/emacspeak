@@ -270,7 +270,6 @@ Preserve other existing personality properties on the text range."
             (emacspeak-personality-remove extent end personality))))))))
 
 ;;}}}
-
 ;;{{{ advice overlays
 
 (defcustom emacspeak-personality-voiceify-overlays
