@@ -220,8 +220,8 @@ content when speaking. Default `pos' to point. Property `personality'
 has higher precedence than `face'."
   (or pos (setq pos (point)))
   (or
-   (get-char-property pos 'personality)
-   (dtk-get-voice-for-face (get-char-property pos 'face))))
+   (get-text-property pos 'personality)
+   (dtk-get-voice-for-face (get-text-property pos 'face))))
 
 ;;}}}
 ;;{{{ Tone Helpers:
@@ -308,7 +308,7 @@ Modifies text and point in buffer."
   (defun invisible-p (pos)
     "Check if text is invisible. Emacspeak helper."
     (cl-declare (special buffer-invisibility-spec))
-    (let ((prop (get-char-property pos 'invisible)))
+    (let ((prop (get-text-property pos 'invisible)))
       (if (eq buffer-invisibility-spec t)
           prop
         (or (memq prop buffer-invisibility-spec)
@@ -318,7 +318,7 @@ Modifies text and point in buffer."
   (while (and (not (eobp))
               (invisible-p (point)))
     (goto-char
-     (next-single-char-property-change (point) 'invisible
+     (next-single-property-change (point) 'invisible
                                        (current-buffer) (point-max)))))
 
 (defun skip-invisible-backward ()
@@ -326,7 +326,7 @@ Modifies text and point in buffer."
   (while (and (not (bobp))
               (invisible-p (point)))
     (goto-char
-     (previous-single-char-property-change (point) 'invisible
+     (previous-single-property-change (point) 'invisible
                                            (current-buffer) (point-min)))))
 
 (defun delete-invisible-text ()
@@ -732,15 +732,15 @@ Argument COMPLEMENT  is the complement of separator."
 (defun dtk-next-single-property-change (start prop object limit)
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
-  (let ((initial-value (get-char-property start prop object)))
+  (let ((initial-value (get-text-property start prop object)))
     (cond
      ((atom initial-value)
-      (next-single-char-property-change start prop object limit))
+      (next-single-property-change start prop object limit))
      (t
       (let ((pos start))
         (while (and (< pos limit)
-                    (equal initial-value (get-char-property pos prop object)))
-          (setq pos (next-single-char-property-change pos prop object limit)))
+                    (equal initial-value (get-text-property pos prop object)))
+          (setq pos (next-single-property-change pos prop object limit)))
         pos)))))
 
 (defun dtk-previous-style-change (start &optional end)
@@ -769,8 +769,8 @@ Arguments START and END specify region to speak."
   (cl-declare (special voice-lock-mode dtk-speaker-process
                        tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
-             (get-char-property start 'auditory-icon))
-    (emacspeak-queue-auditory-icon (get-char-property start 'auditory-icon)))
+             (get-text-property start 'auditory-icon))
+    (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
   (when (get-text-property start 'pause)
     (dtk-interp-silence (get-text-property start 'pause) nil))
