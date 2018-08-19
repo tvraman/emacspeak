@@ -315,7 +315,7 @@ Append means place corresponding personality at the end."
           (end (ad-get-arg 2))
           (object (ad-get-arg 3))
           (voice nil))
-      (setq voice (dtk-get-voice-for-face (overlay-get  overlay 'personality)))
+      (setq voice (dtk-get-voice-for-face (overlay-get  overlay 'face)))
       (when
           (and voice
                emacspeak-personality-voiceify-overlays
