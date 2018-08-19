@@ -782,7 +782,7 @@ emacspeak-emergency-tts-server."
   (let ((f (get-char-property (point) 'face))
         (style (dtk-get-style)))
     (message
-     "%s  %s   Face %s "
+     "%s from %s   for Face %s "
      (cond
       ((null style) "")
       ((listp style)
