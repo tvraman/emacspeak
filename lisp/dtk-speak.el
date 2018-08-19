@@ -59,7 +59,7 @@
 
 ;;}}}
 ;;{{{ Forward Declarations:
-
+(declare-function voice-setup-get-voice-for-face "voice-setup" (face))
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
 ;;;###autoload
@@ -186,6 +186,33 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 
 ;;}}}
 ;;{{{Style Helper:
+
+(defsubst dtk-plain-cons-p (value)
+  "Help identify (a . b)."
+  (and (consp value)
+       (equal value (last value))
+       (cdr value)))
+
+;;; Helper: Get face->voice mapping
+;;;###autoload
+(defun dtk-get-voice-for-face (value)
+  "Compute face->voice mapping."
+  (when value 
+    (let ((voice nil))
+      (condition-case nil
+          (cond
+           ((symbolp value)
+            (setq voice (voice-setup-get-voice-for-face value)))
+           ((dtk-plain-cons-p value)) ;;pass on plain cons
+           ((listp value)
+            (setq voice
+                  (delq nil
+                        (mapcar   #'voice-setup-get-voice-for-face value)))))
+        (error nil))
+      voice)))
+
+
+
 (defsubst dtk-get-style (&optional pos)
   "Compute style at pos by examining personality and face
 properties. Return value is a personality that can be applied to the
@@ -194,7 +221,7 @@ has higher precedence than `face'."
   (or pos (setq pos (point)))
   (or
    (get-char-property pos 'personality)
-   (ems-get-voice-for-face (get-char-property pos 'face))))
+   (dtk-get-voice-for-face (get-char-property pos 'face))))
 
 ;;}}}
 ;;{{{ Tone Helpers:
