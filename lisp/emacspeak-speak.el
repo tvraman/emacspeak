@@ -955,6 +955,8 @@ with auditory icon `more'.  These can then be spoken using command
      ((null arg))
      ((> arg 0) (setq start orig))
      (t (setq end orig)))
+    (when (get-char-property start 'auditory-icon)
+      (emacspeak-auditory-icon (get-char-property (point) 'auditory-icon)))
     (when emacspeak-show-point
       (emacspeak-auditory-icon
        (cond
