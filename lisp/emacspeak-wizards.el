@@ -780,19 +780,30 @@ emacspeak-emergency-tts-server."
   "Show value of property personality (and possibly face) at point."
   (interactive)
   (let ((f (get-char-property (point) 'face))
-        (style (dtk-get-style)))
-    (message
-     "%s from %s   for Face %s "
-     (cond
-      ((null style) "")
-      ((listp style)
-       (mapconcat
-        #'(lambda (s)
-            (format "%s" (if (boundp s) (symbol-value s) "")))
-        style " "))
-      ((boundp style) (symbol-value style)))
-     (or style "")
-     f)))
+        (style (dtk-get-style))
+        (msg nil))
+    (setq msg
+          (concat
+           (propertize
+            (format "%s" (or style "No Style "))
+            'personality 'voice-bolden)
+           (if style "is"  "")
+           (propertize
+            (format "%s"
+                    (cond
+                     ((null style) "")
+                     ((listp style)
+                      (mapconcat
+                       #'(lambda (s)
+                           (format "%s" (if (boundp s) (symbol-value s) "")))
+                       style " "))
+                     ((boundp style) (symbol-value style))))
+            'personality 'voice-smoothen)
+           (if f " for " "")
+           (propertize
+            (format "%s" (or f "" ))
+            'personality voice-animate)))
+    (message msg)))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property)
