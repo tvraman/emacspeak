@@ -82,12 +82,11 @@
   <p>Voice-lock-mode is a minor mode that causes your comments to
   be spoken in one personality, strings in another, reserved words
   in another, documentation strings in another, and so on.</p>
-  <p>Comments will be spoken in
-  ‘emacspeak-voice-lock-comment-personality’. Strings will be
-  spoken in ‘emacspeak-voice-lock-string-personality’. Function and
-  variable names (in their defining forms) will be spoken in
-  ‘emacspeak-voice-lock-function-name-personality’. Reserved words
-  will be spoken in ‘emacspeak-voice-lock-keyword-personality’.</p>
+  <p>Comments will be spoken in ‘voice-comment-personality’.
+  Strings will be spoken in ‘voice-string-personality’. Function
+  and variable names (in their defining forms) will be spoken in
+  ‘voice-function-name-personality’. Reserved words will be spoken
+  in ‘voice-keyword-personality’.</p>
   <p>To make the text you type be voiceified, use M-x
   voice-lock-mode. When this minor mode is on, the voices of the
   current line are updated with every insertion or deletion.</p>
@@ -262,128 +261,128 @@ take effect.
   "voice_002dsetup-Options"></a>
   <h4 class="subsection">12.230.2 voice-setup Options</h4>
   <dl>
-    <dt><a name="index-User-Option-1135" id=
-    "index-User-Option-1135"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-255" id=
+    "index-User-Option-255"></a>Variable: <strong>User
     Option</strong> <em>voice-animate-extra-settings</em></dt>
     <dd>
       <p>Adds extra animation to current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1136" id=
-    "index-User-Option-1136"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-256" id=
+    "index-User-Option-256"></a>Variable: <strong>User
     Option</strong> <em>voice-animate-medium-settings</em></dt>
     <dd>
       <p>Adds medium animation current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1137" id=
-    "index-User-Option-1137"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-257" id=
+    "index-User-Option-257"></a>Variable: <strong>User
     Option</strong> <em>voice-animate-settings</em></dt>
     <dd>
       <p>Animates current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1138" id=
-    "index-User-Option-1138"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-258" id=
+    "index-User-Option-258"></a>Variable: <strong>User
     Option</strong> <em>voice-annotate-settings</em></dt>
     <dd>
       <p>Indicate annotation.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1139" id=
-    "index-User-Option-1139"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-259" id=
+    "index-User-Option-259"></a>Variable: <strong>User
     Option</strong> <em>voice-bolden-and-animate-settings</em></dt>
     <dd>
       <p>Bolden and animate current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1140" id=
-    "index-User-Option-1140"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-260" id=
+    "index-User-Option-260"></a>Variable: <strong>User
     Option</strong> <em>voice-bolden-extra-settings</em></dt>
     <dd>
       <p>Extra bolden current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1141" id=
-    "index-User-Option-1141"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-261" id=
+    "index-User-Option-261"></a>Variable: <strong>User
     Option</strong> <em>voice-bolden-medium-settings</em></dt>
     <dd>
       <p>Add medium bolden current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1142" id=
-    "index-User-Option-1142"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-262" id=
+    "index-User-Option-262"></a>Variable: <strong>User
     Option</strong> <em>voice-bolden-settings</em></dt>
     <dd>
       <p>Bolden current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1143" id=
-    "index-User-Option-1143"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-263" id=
+    "index-User-Option-263"></a>Variable: <strong>User
     Option</strong> <em>voice-brighten-extra-settings</em></dt>
     <dd>
       <p>Extra brighten current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1144" id=
-    "index-User-Option-1144"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-264" id=
+    "index-User-Option-264"></a>Variable: <strong>User
     Option</strong> <em>voice-brighten-medium-settings</em></dt>
     <dd>
       <p>Brighten (medium) current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1145" id=
-    "index-User-Option-1145"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-265" id=
+    "index-User-Option-265"></a>Variable: <strong>User
     Option</strong> <em>voice-brighten-settings</em></dt>
     <dd>
       <p>Brighten current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1146" id=
-    "index-User-Option-1146"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-266" id=
+    "index-User-Option-266"></a>Variable: <strong>User
     Option</strong> <em>voice-indent-settings</em></dt>
     <dd>
       <p>Indicate indentation .</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1147" id=
-    "index-User-Option-1147"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-267" id=
+    "index-User-Option-267"></a>Variable: <strong>User
     Option</strong> <em>voice-lighten-extra-settings</em></dt>
     <dd>
       <p>Add extra lightness to current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1148" id=
-    "index-User-Option-1148"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-268" id=
+    "index-User-Option-268"></a>Variable: <strong>User
     Option</strong> <em>voice-lighten-medium-settings</em></dt>
     <dd>
       <p>Add medium lightness to current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1149" id=
-    "index-User-Option-1149"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-269" id=
+    "index-User-Option-269"></a>Variable: <strong>User
     Option</strong> <em>voice-lighten-settings</em></dt>
     <dd>
       <p>Lighten current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1150" id=
-    "index-User-Option-1150"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-270" id=
+    "index-User-Option-270"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-global-modes</em></dt>
     <dd>
       <p>Modes for which Voice Lock mode is automagically turned
@@ -399,8 +398,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1151" id=
-    "index-User-Option-1151"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-271" id=
+    "index-User-Option-271"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-0-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 0 of ACSS structure to
@@ -408,8 +407,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1152" id=
-    "index-User-Option-1152"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-272" id=
+    "index-User-Option-272"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-1-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 1 of ACSS structure to
@@ -417,8 +416,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1153" id=
-    "index-User-Option-1153"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-273" id=
+    "index-User-Option-273"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-2-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 2 of ACSS structure to
@@ -426,8 +425,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1154" id=
-    "index-User-Option-1154"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-274" id=
+    "index-User-Option-274"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-3-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 3 of ACSS structure to
@@ -435,24 +434,24 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1155" id=
-    "index-User-Option-1155"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-275" id=
+    "index-User-Option-275"></a>Variable: <strong>User
     Option</strong> <em>voice-monotone-light-settings</em></dt>
     <dd>
       <p>Turns current voice into a light monotone.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1156" id=
-    "index-User-Option-1156"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-276" id=
+    "index-User-Option-276"></a>Variable: <strong>User
     Option</strong> <em>voice-monotone-medium-settings</em></dt>
     <dd>
       <p>Turns current voice into a medium monotone.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1157" id=
-    "index-User-Option-1157"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-277" id=
+    "index-User-Option-277"></a>Variable: <strong>User
     Option</strong> <em>voice-monotone-settings</em></dt>
     <dd>
       <p>Turns current voice into a monotone and speaks all
@@ -460,8 +459,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1158" id=
-    "index-User-Option-1158"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-278" id=
+    "index-User-Option-278"></a>Variable: <strong>User
     Option</strong> <em>voice-punctuations-all-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks all
@@ -469,8 +468,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1159" id=
-    "index-User-Option-1159"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-279" id=
+    "index-User-Option-279"></a>Variable: <strong>User
     Option</strong> <em>voice-punctuations-none-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks no
@@ -478,8 +477,8 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1160" id=
-    "index-User-Option-1160"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-280" id=
+    "index-User-Option-280"></a>Variable: <strong>User
     Option</strong> <em>voice-punctuations-some-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks some
@@ -487,40 +486,40 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1161" id=
-    "index-User-Option-1161"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-281" id=
+    "index-User-Option-281"></a>Variable: <strong>User
     Option</strong> <em>voice-setup-sample-text</em></dt>
     <dd>
       <p>Sample text used when displaying available voices.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1162" id=
-    "index-User-Option-1162"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-282" id=
+    "index-User-Option-282"></a>Variable: <strong>User
     Option</strong> <em>voice-smoothen-extra-settings</em></dt>
     <dd>
       <p>Extra smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1163" id=
-    "index-User-Option-1163"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-283" id=
+    "index-User-Option-283"></a>Variable: <strong>User
     Option</strong> <em>voice-smoothen-medium-settings</em></dt>
     <dd>
       <p>Add medium smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1164" id=
-    "index-User-Option-1164"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-284" id=
+    "index-User-Option-284"></a>Variable: <strong>User
     Option</strong> <em>voice-smoothen-settings</em></dt>
     <dd>
       <p>Smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-1165" id=
-    "index-User-Option-1165"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-285" id=
+    "index-User-Option-285"></a>Variable: <strong>User
     Option</strong> <em>voice-womanize-1-settings</em></dt>
     <dd>
       <p>Apply first female voice.</p>
