@@ -787,7 +787,7 @@ emacspeak-emergency-tts-server."
            (propertize
             (format "%s" (or style "No Style "))
             'personality 'voice-bolden)
-           (if style "is"  "")
+           (if style " is"  "")
            (propertize
             (format "%s"
                     (cond
