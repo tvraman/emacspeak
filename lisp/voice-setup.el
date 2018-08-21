@@ -45,11 +45,11 @@
 ;; spoken in one personality, strings in another, reserved words in another,
 ;; documentation strings in another, and so on.
 ;;
-;; Comments will be spoken in `emacspeak-comment-personality'.
-;; Strings will be spoken in `emacspeak-string-personality'.
+;; Comments will be spoken in `voice-comment-personality'.
+;; Strings will be spoken in `voice-string-personality'.
 ;; Function and variable names (in their defining forms) will be
-;;  spoken in `emacspeak-function-name-personality'.
-;; Reserved words will be spoken in `emacspeak-keyword-personality'.
+;;  spoken in `voice-function-name-personality'.
+;; Reserved words will be spoken in `voice-keyword-personality'.
 ;;
 ;; To make the text you type be voiceified, use M-x voice-lock-mode.
 ;; When this minor mode is on, the voices of the current line are
@@ -220,7 +220,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
            name))
     (when (string-equal name face-name)
       (setq name (format "%s-voice" name)))
-    (concat "emacspeak-" name)))
+    name))
 
 (defun voice-setup-map-face (face voice)
   "Invoke def-voice-font with appropriately generated personality name."
