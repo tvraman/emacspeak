@@ -802,7 +802,7 @@ emacspeak-emergency-tts-server."
            (if f " for " "")
            (propertize
             (format "%s" (or f "" ))
-            'personality voice-animate)))
+            'face f)))
     (message msg)))
 
 ;;;###autoload
