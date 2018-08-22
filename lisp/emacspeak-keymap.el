@@ -250,7 +250,7 @@
    ("M-t" emacspeak-tapestry-describe-tapestry)
    ("M-u" emacspeak-feeds-add-feed)
    ("M-p" emacspeak-show-property-at-point)
-   ("M-v" emacspeak-show-personality-at-point)
+   ("M-v" emacspeak-show-style-at-point)
    ("M-x" emacspeak-wizards-execute-emacspeak-command)
    ("N" emacspeak-view-emacspeak-news)
    ("P" emacspeak-speak-paragraph-interactively)

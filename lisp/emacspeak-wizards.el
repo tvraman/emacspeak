@@ -776,7 +776,7 @@ emacspeak-emergency-tts-server."
   "Properties emacspeak is interested in.")
 
 ;;;###autoload
-(defun emacspeak-show-personality-at-point ()
+(defun emacspeak-show-style-at-point ()
   "Show value of property personality (and possibly face) at point."
   (interactive)
   (let ((f (get-char-property (point) 'face))
