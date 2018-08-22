@@ -219,7 +219,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
            (replace-regexp-in-string "font" "voice" name)
            name))
     (when (string-equal name face-name)
-      (setq name (format "%s-voice" name)))
+      (setq name (format "voice-%s" name)))
     name))
 
 (defun voice-setup-map-face (face voice)
