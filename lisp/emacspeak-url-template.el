@@ -190,6 +190,16 @@ dont-url-encode if true then url arguments are not url-encoded "
       (kill-buffer buffer))))
 
 ;;}}}
+;;{{{Youtube News:
+
+(emacspeak-url-template-define
+ "Youtube News"
+ "https://www.youtube.com/news?disable_polymer=1"
+ nil
+ #'(lambda nil (eww-display-dom-by-element 'h3))
+ "News Headlines From Youtube")
+
+
 ;;; template resources
 ;;{{{ fedex, UPS
 (emacspeak-url-template-define
@@ -1514,6 +1524,9 @@ url
  "Search Linux ArchWiki")
 
 ;;}}}
+
+;;}}}
+ 
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
