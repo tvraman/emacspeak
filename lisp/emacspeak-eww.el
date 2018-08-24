@@ -1909,7 +1909,7 @@ Warning, this is fragile, and depends on a stable id for the
           (cond
            ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
            ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
-           (t (error "Cant create an emacspeak EWW mark here.")))
+           (t (error "EWW marks only work in EPub and Bookshare buffers.")))
           :book
           (or
            (bound-and-true-p emacspeak-bookshare-this-book)
