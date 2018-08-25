@@ -1641,7 +1641,7 @@ to play individual tracks."
     (locate-with-filter
      (mapconcat #'identity
                 (split-string pattern)
-                "[ '\"_.,-]")
+                "[ '/\"_.,-]")
      emacspeak-media-extensions)
     (goto-char (point-min))
     (message "Buffer: %s" (current-buffer))
