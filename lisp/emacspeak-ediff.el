@@ -182,7 +182,6 @@
 
 (defun emacspeak-ediff-speak-difference (n)
   "Speak a difference chunk"
-  (with-silent-modifications
     (let ((a-overlay (emacspeak-ediff-difference-a-overlay n))
           (b-overlay (emacspeak-ediff-difference-b-overlay n))
           (key ""))
@@ -200,7 +199,7 @@
         (dtk-speak
          (concat
           "Difference B "
-          (emacspeak-overlay-get-text b-overlay)))))))
+          (emacspeak-overlay-get-text b-overlay))))))
 
 (defun emacspeak-ediff-speak-current-difference ()
   "Speak the current difference"
