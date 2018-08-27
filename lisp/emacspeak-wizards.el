@@ -4245,6 +4245,27 @@ external package."
        (t (error "%s is not bound to a command." key))))))
 
 ;;}}}
+;;{{{Elisp Wizard: Insert Package Prefix:
+;;;###autoload 
+(defun emacspeak-wizards-insert-elisp-prefix ()
+  "Insert package prefix for current file."
+  (interactive)
+  (let ((prefix nil)
+        (pkg
+         (intern
+          (file-name-sans-extension
+           (file-relative-name (buffer-file-name (current-buffer)))))))
+    (when (featurep pkg)
+      (setq prefix (format "%s-" pkg))
+      (insert prefix)
+      (emacspeak-auditory-icon 'yank-object)
+      (dtk-speak prefix))))
+
+
+
+
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
