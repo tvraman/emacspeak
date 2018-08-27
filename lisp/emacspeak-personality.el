@@ -193,11 +193,11 @@ Existing personality properties on the text range are preserved."
              (next-single-property-change
               start 'personality object end)))
         (cond
-         ((null orig)                    ;simple case
+         ((null orig)                   ;simple case
           (put-text-property start extent 'personality v object)
           (when (< extent end)
             (emacspeak-personality-prepend extent end v object)))
-         (t                        ;accumulate the new personality
+         (t                            ;accumulate the new personality
           (unless (or (equal v orig)
                       (listp orig)
                       (and (listp orig) (memq v orig)))
@@ -209,7 +209,8 @@ Existing personality properties on the text range are preserved."
             (put-text-property start extent
                                'personality new object))
           (when (< extent end)
-            (emacspeak-personality-prepend extent end v object))))))))
+            (emacspeak-personality-prepend extent end v object)))))
+      (unless buffer-read-only (restore-buffer-modified-p nil)))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
   "Remove specified personality from text bounded by start and end.
