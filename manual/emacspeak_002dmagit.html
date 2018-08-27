@@ -82,6 +82,861 @@
   <a name="emacspeak_002dmagit-1" id="emacspeak_002dmagit-1"></a>
   <h3 class="section">12.114 emacspeak-magit</h3>
   <p>MAGIT == Git interface in Emacs git clone
-  git://github.com/magit/magit.git</p>
+  git://github.com/magit/magit.git</p><a name=
+  "emacspeak_002dmagit-Options" id=
+  "emacspeak_002dmagit-Options"></a>
+  <h4 class="subsection">12.114.1 emacspeak-magit Options</h4>
+  <dl>
+    <dt><a name="index-User-Option-549" id=
+    "index-User-Option-549"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-bisect-bad</em></dt>
+    <dd>
+      <p>Personality used for magit-bisect-bad This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-550" id=
+    "index-User-Option-550"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-bisect-good</em></dt>
+    <dd>
+      <p>Personality used for magit-bisect-good This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-551" id=
+    "index-User-Option-551"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-bisect-skip</em></dt>
+    <dd>
+      <p>Personality used for magit-bisect-skip This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-552" id=
+    "index-User-Option-552"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-blame-date</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-date This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-553" id=
+    "index-User-Option-553"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-blame-hash</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-hash This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-554" id=
+    "index-User-Option-554"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-blame-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-heading This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-555" id=
+    "index-User-Option-555"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-blame-name</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-name This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-556" id=
+    "index-User-Option-556"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-blame-summary</em></dt>
+    <dd>
+      <p>Personality used for magit-blame-summary This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-557" id=
+    "index-User-Option-557"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-branch-current</em></dt>
+    <dd>
+      <p>Personality used for magit-branch-current This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-558" id=
+    "index-User-Option-558"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-branch-local</em></dt>
+    <dd>
+      <p>Personality used for magit-branch-local This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-559" id=
+    "index-User-Option-559"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-branch-remote</em></dt>
+    <dd>
+      <p>Personality used for magit-branch-remote This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-560" id=
+    "index-User-Option-560"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-cherry-equivalent</em></dt>
+    <dd>
+      <p>Personality used for magit-cherry-equivalent This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-561" id=
+    "index-User-Option-561"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-cherry-unmatched</em></dt>
+    <dd>
+      <p>Personality used for magit-cherry-unmatched This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-562" id=
+    "index-User-Option-562"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-added</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-added This personality
+      uses voice-animate-extra whose effect can be changed globally
+      by customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-563" id=
+    "index-User-Option-563"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-added-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-added-highlight This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-564" id=
+    "index-User-Option-564"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-base</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-base This personality uses
+      voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-565" id=
+    "index-User-Option-565"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-base-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-base-highlight This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-566" id=
+    "index-User-Option-566"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-conflict-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-conflict-heading This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-567" id=
+    "index-User-Option-567"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-context</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-context This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-568" id=
+    "index-User-Option-568"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-diff-context-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-context-highlight This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-569" id=
+    "index-User-Option-569"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-file-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-file-heading This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-570" id=
+    "index-User-Option-570"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-diff-file-heading-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-file-heading-highlight
+      This personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-571" id=
+    "index-User-Option-571"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-diff-file-heading-selection</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-file-heading-selection
+      This personality uses voice-lighten whose effect can be
+      changed globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-572" id=
+    "index-User-Option-572"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-hunk-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-heading This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-573" id=
+    "index-User-Option-573"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-diff-hunk-heading-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-heading-highlight
+      This personality uses voice-brighten whose effect can be
+      changed globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-574" id=
+    "index-User-Option-574"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-diff-hunk-heading-selection</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-heading-selection
+      This personality uses voice-lighten whose effect can be
+      changed globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-575" id=
+    "index-User-Option-575"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-hunk-region</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-hunk-region This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-576" id=
+    "index-User-Option-576"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-lines-boundary</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-lines-boundary This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-577" id=
+    "index-User-Option-577"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-lines-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-lines-heading This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-578" id=
+    "index-User-Option-578"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-our</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-our This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-579" id=
+    "index-User-Option-579"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-our-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-our-highlight This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-580" id=
+    "index-User-Option-580"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-removed</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-removed This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-581" id=
+    "index-User-Option-581"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-diff-removed-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-removed-highlight This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-582" id=
+    "index-User-Option-582"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-their</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-their This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-583" id=
+    "index-User-Option-583"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diff-their-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-diff-their-highlight This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-584" id=
+    "index-User-Option-584"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diffstat-added</em></dt>
+    <dd>
+      <p>Personality used for magit-diffstat-added This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-585" id=
+    "index-User-Option-585"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-diffstat-removed</em></dt>
+    <dd>
+      <p>Personality used for magit-diffstat-removed This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-586" id=
+    "index-User-Option-586"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-dimmed</em></dt>
+    <dd>
+      <p>Personality used for magit-dimmed This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-587" id=
+    "index-User-Option-587"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-filename</em></dt>
+    <dd>
+      <p>Personality used for magit-filename This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-588" id=
+    "index-User-Option-588"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-hash</em></dt>
+    <dd>
+      <p>Personality used for magit-hash This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-589" id=
+    "index-User-Option-589"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-head</em></dt>
+    <dd>
+      <p>Personality used for magit-head This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-590" id=
+    "index-User-Option-590"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-header-line</em></dt>
+    <dd>
+      <p>Personality used for magit-header-line This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-591" id=
+    "index-User-Option-591"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-keyword</em></dt>
+    <dd>
+      <p>Personality used for magit-keyword This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-592" id=
+    "index-User-Option-592"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-log-author</em></dt>
+    <dd>
+      <p>Personality used for magit-log-author This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-593" id=
+    "index-User-Option-593"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-log-date</em></dt>
+    <dd>
+      <p>Personality used for magit-log-date This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-594" id=
+    "index-User-Option-594"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-log-graph</em></dt>
+    <dd>
+      <p>Personality used for magit-log-graph This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-595" id=
+    "index-User-Option-595"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-popup-argument</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-argument This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-596" id=
+    "index-User-Option-596"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-popup-disabled-argument</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-disabled-argument This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-597" id=
+    "index-User-Option-597"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-popup-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-heading This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-598" id=
+    "index-User-Option-598"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-popup-key</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-key This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-599" id=
+    "index-User-Option-599"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-popup-option-value</em></dt>
+    <dd>
+      <p>Personality used for magit-popup-option-value This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-600" id=
+    "index-User-Option-600"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-amend</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-amend This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-601" id=
+    "index-User-Option-601"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-checkout</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-checkout This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-602" id=
+    "index-User-Option-602"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-cherry-pick</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-cherry-pick This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-603" id=
+    "index-User-Option-603"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-commit</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-commit This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-604" id=
+    "index-User-Option-604"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-merge</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-merge This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-605" id=
+    "index-User-Option-605"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-other</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-other This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-606" id=
+    "index-User-Option-606"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-rebase</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-rebase This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-607" id=
+    "index-User-Option-607"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-remote</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-remote This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-608" id=
+    "index-User-Option-608"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-reflog-reset</em></dt>
+    <dd>
+      <p>Personality used for magit-reflog-reset This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-609" id=
+    "index-User-Option-609"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-refname</em></dt>
+    <dd>
+      <p>Personality used for magit-refname This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-610" id=
+    "index-User-Option-610"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-refname-stash</em></dt>
+    <dd>
+      <p>Personality used for magit-refname-stash This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-611" id=
+    "index-User-Option-611"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-refname-wip</em></dt>
+    <dd>
+      <p>Personality used for magit-refname-wip This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-612" id=
+    "index-User-Option-612"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-section-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-section-heading This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-613" id=
+    "index-User-Option-613"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-section-heading-selection</em></dt>
+    <dd>
+      <p>Personality used for magit-section-heading-selection This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-614" id=
+    "index-User-Option-614"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-section-highlight</em></dt>
+    <dd>
+      <p>Personality used for magit-section-highlight This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-615" id=
+    "index-User-Option-615"></a>Variable: <strong>User
+    Option</strong>
+    <em>voice-magit-section-secondary-heading</em></dt>
+    <dd>
+      <p>Personality used for magit-section-secondary-heading This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-616" id=
+    "index-User-Option-616"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-done</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-done This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-617" id=
+    "index-User-Option-617"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-drop</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-drop This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-618" id=
+    "index-User-Option-618"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-head</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-head This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-619" id=
+    "index-User-Option-619"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-onto</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-onto This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-620" id=
+    "index-User-Option-620"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-part</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-part This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-621" id=
+    "index-User-Option-621"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-pick</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-pick This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-622" id=
+    "index-User-Option-622"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-sequence-stop</em></dt>
+    <dd>
+      <p>Personality used for magit-sequence-stop This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-623" id=
+    "index-User-Option-623"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-bad</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-bad This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-624" id=
+    "index-User-Option-624"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-error</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-error This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-625" id=
+    "index-User-Option-625"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-expired</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-expired This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-626" id=
+    "index-User-Option-626"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-expired-key</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-expired-key This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-627" id=
+    "index-User-Option-627"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-good</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-good This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-628" id=
+    "index-User-Option-628"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-revoked</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-revoked This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-629" id=
+    "index-User-Option-629"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-signature-untrusted</em></dt>
+    <dd>
+      <p>Personality used for magit-signature-untrusted This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-630" id=
+    "index-User-Option-630"></a>Variable: <strong>User
+    Option</strong> <em>voice-magit-tag</em></dt>
+    <dd>
+      <p>Personality used for magit-tag This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dmake_002dmode.html#emacspeak_002dmake_002dmode"
+    accesskey="n" rel="next">emacspeak-make-mode</a>, Previous:
+    <a href=
+    "emacspeak_002dm_002dplayer.html#emacspeak_002dm_002dplayer"
+    accesskey="p" rel="prev">emacspeak-m-player</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
