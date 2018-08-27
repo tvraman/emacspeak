@@ -299,9 +299,7 @@ Append means place corresponding personality at the end."
                 (emacspeak-personality-plist-face-p (overlay-properties o)))
         (with-current-buffer (overlay-buffer overlay)
           (with-silent-modifications
-          (condition-case nil 
-          (put-text-property start end 'personality nil)
-          (error nil))))))))
+          (put-text-property start end 'personality nil)))))))
 
 (defvar emacspeak-personality-advice-move-overlay t
   "Set to nil to avoid recursive advice during redisplay.")
