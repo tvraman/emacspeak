@@ -809,6 +809,11 @@ interactive command that the key sequence executes."
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
+;;{{{Mode-Specific Bindings:
+
+(define-key emacs-lisp-mode-map (kbd "C-c SPC") 'emacspeak-wizards-insert-elisp-prefix)
+
+;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
