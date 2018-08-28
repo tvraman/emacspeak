@@ -136,6 +136,17 @@ over-writing any current personality settings."
       (with-silent-modifications
         (put-text-property start end 'personality v object)))))
 
+
+;;; Implementation Note:
+;;; Recursive calls to functions using with-silent-modifications
+;;; causes surprizes,
+;;; e.g. buffer shows up modified when there are no real
+;;; modifications.
+;;; Issue triggered by ediff.
+;;; Work-around: restore modification flag explicitly since we know we
+;;; didn't modify anything.
+
+
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality &optional object)
   "Append specified personality to text bounded by start and end.
@@ -156,11 +167,11 @@ Existing personality properties on the text range are preserved."
              (next-single-property-change
               start 'personality object end)))
         (cond
-         ((null orig)                    ;simple case
+         ((null orig)                   ;simple case
           (put-text-property start extent 'personality v object)
           (when (< extent end)
             (emacspeak-personality-append extent end v object)))
-         (t                        ;accumulate the new personality
+         (t                            ;accumulate the new personality
           (unless (or (equal  v orig)
                       (listp orig)
                       (and (listp orig)(memq v orig)))
@@ -172,7 +183,8 @@ Existing personality properties on the text range are preserved."
             (put-text-property start extent
                                'personality new object))
           (when (< extent end)
-            (emacspeak-personality-append extent end v object))))))))
+            (emacspeak-personality-append extent end v object))))))
+    (unless buffer-read-only (restore-buffer-modified-p nil))))
 
 ;;;###autoload
 (defun emacspeak-personality-prepend  (start end personality &optional object)
@@ -209,8 +221,8 @@ Existing personality properties on the text range are preserved."
             (put-text-property start extent
                                'personality new object))
           (when (< extent end)
-            (emacspeak-personality-prepend extent end v object)))))
-      (unless buffer-read-only (restore-buffer-modified-p nil)))))
+            (emacspeak-personality-prepend extent end v object))))))
+    (unless buffer-read-only (restore-buffer-modified-p nil))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
   "Remove specified personality from text bounded by start and end.
@@ -227,10 +239,10 @@ Preserve other existing personality properties on the text range."
              (next-single-property-change
               start 'personality (current-buffer) end)))
         (cond
-         ((null orig)                    ;simple case
+         ((null orig)                   ;simple case
           (when (< extent end)
             (emacspeak-personality-remove extent end personality)))
-         (t                            ;remove the new personality
+         (t                             ;remove the new personality
           (setq new
                 (cond
                  ((equal orig personality) nil)
@@ -244,7 +256,8 @@ Preserve other existing personality properties on the text range."
                                     (list 'personality)
                                     object))
           (when (< extent end)
-            (emacspeak-personality-remove extent end personality))))))))
+            (emacspeak-personality-remove extent end personality))))))
+    (unless buffer-read-only (restore-buffer-modified-p nil))))
 
 ;;}}}
 ;;{{{ advice overlays
