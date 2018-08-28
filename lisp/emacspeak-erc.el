@@ -266,12 +266,11 @@ set the current local value to the result.")
       (set-buffer buffer)
       (when (and emacspeak-erc-room-monitor
                  emacspeak-erc-monitor-my-messages)
-        (let ((emacspeak-speak-messages nil)
-              (msg (emacspeak-erc-compute-message (ad-get-arg 0)
+        (let ((msg (emacspeak-erc-compute-message (ad-get-arg 0)
                                                   buffer)))
           (when msg
             (emacspeak-auditory-icon 'progress)
-            (message msg)
+            (dtk-speak-and-echo (format "%s" msg))
             (tts-with-punctuations dtk-punctuation-mode
                                    (dtk-speak  msg))))))))
 

@@ -200,7 +200,7 @@ Returns a cons cell where the car is email, and the cdr is password."
                 :host "api.bookshare.org"
                 :port 'https
                 :create t
-                :require '(:username :secret)))))
+                :require '(:user :secret)))))
     (when found
       (let ((user (plist-get found :user))
             (secret (plist-get found :secret))
