@@ -643,7 +643,7 @@ b Browse
     (if (fboundp handler) handler 'emacspeak-bookshare-recurse)))
 
 (defvar emacspeak-bookshare-response-elements
-  '(bookshare version metadata messages string
+  '(bookshare version metadata messages string status-code
               book user string downloads-remaining
               id name value editable
               periodical list page num-pages limit result)
@@ -697,6 +697,24 @@ b Browse
   (cl-declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
     (mapc #'insert(dom-text   (dom-child-by-tag messages 'string)))
+    (insert "\t")
+    (insert
+     (mapconcat
+      #'identity
+      (emacspeak-bookshare-destruct-rest-url emacspeak-bookshare-last-action-uri)
+      " "))
+    (add-text-properties  start (point)
+                          (list 'uri emacspeak-bookshare-last-action-uri
+                                'face 'font-lock-string-face))
+    (insert "\n")))
+
+
+(defun emacspeak-bookshare-status-code-handler (status-code)
+  "Handlestatus-code element."
+  (cl-declare (special emacspeak-bookshare-last-action-uri))
+  (let ((start (point)))
+    (message "%s" (dom-text   (dom-children status-code )))
+    (mapc #'insert(dom-text   (dom-children status-code )))
     (insert "\t")
     (insert
      (mapconcat
