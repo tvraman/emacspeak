@@ -713,8 +713,9 @@ b Browse
   "Handlestatus-code element."
   (cl-declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
-    (message "%s" (dom-text   (dom-children status-code )))
-    (mapc #'insert(dom-text   (dom-children status-code )))
+    (message "Status-Code: %s" (dom-text    status-code))
+    (insert "Status Code: ")
+    (mapc #'insert (dom-text    status-code))
     (insert "\t")
     (insert
      (mapconcat
