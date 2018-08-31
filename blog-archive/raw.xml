@@ -1,4 +1,259 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2018-05-03T13:38:59.053-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>154</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-1466000085421733222</id><published>2018-05-03T13:38:00.004-07:00</published><updated>2018-05-03T13:38:58.991-07:00</updated><title type='text'>Emacspeak 48.0 (ServiceDog) Unleashed!</title><content type='html'>&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Emacspeak 48.0—ServiceDog—Unleashed!&lt;/h1&gt;&lt;p&gt;*For Immediate Release:&lt;br /&gt;
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2018-08-30T12:08:35.081-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>156</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-2629248606626328439</id><published>2018-07-03T14:57:00.001-07:00</published><updated>2018-07-03T14:57:26.593-07:00</updated><title type='text'>Using Emacs Threads To Execute Commands Asynchronously </title><content type='html'>&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Using Emacs Threads To Execute Commands Asynchronously&lt;/h1&gt;&lt;div id=&quot;outline-container-org817c562&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org817c562&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Emacs 26 has threads for executing functions asynchronously. Emacs&lt;br /&gt;
+commands that call an external process and wait for that process to&lt;br /&gt;
+finish make a good candidate for asynchronous execution &amp;#x2014; e.g.,&lt;br /&gt;
+&lt;code&gt;smtpmail-send-it&lt;/code&gt; for sending mail. The arrival of threads provides&lt;br /&gt;
+an interesting option for running such commands asynchronously.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org3175966&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org3175966&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; First Attempt &amp;#x2014; Custom Async &lt;code&gt;gnus&lt;/code&gt; Command&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;I initially wrote a custom command for launching &lt;code&gt;gnus&lt;/code&gt; asynchronously&lt;br /&gt;
+&amp;#x2014; it was a one-line  function that   ran the following:&lt;br /&gt;
+&lt;/p&gt;&lt;div class=&quot;org-src-container&quot;&gt;&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(make-thread #&#39;gnus)
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;p&gt;The above worked well &amp;#x2014; except when command &lt;code&gt;gnus&lt;/code&gt; needed user input&lt;br /&gt;
+&amp;#x2014; so I just had to be thoughtful about when I called it. But a few&lt;br /&gt;
+weeks later, I wanted the equivalent for function &lt;code&gt;smtpmail-send-it&lt;/code&gt;&lt;br /&gt;
+for  sending mail. I almost wrote myself one more command before&lt;br /&gt;
+stepping back to create a more generic solution.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org2bc6dcb&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org2bc6dcb&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; One Command To Thread Them All&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;I have now defined command &lt;code&gt;emacspeak-wizards-execute-asynchronously&lt;/code&gt;&lt;br /&gt;
+bound to &lt;code&gt;C-&#39; a&lt;/code&gt;.&lt;br /&gt;
+Note that this command, though part of module &lt;code&gt;emacspeak-wizards&lt;/code&gt;, has&lt;br /&gt;
+no emacspeak dependencies.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;div class=&quot;org-src-container&quot;&gt;&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #a020f0;&quot;&gt;defun&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;emacspeak-wizards-execute-asynchronously&lt;/span&gt; (key)
+  &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Read key-sequence, then execute its command on a new thread.&quot;&lt;/span&gt;
+  (&lt;span style=&quot;color: #a020f0;&quot;&gt;interactive&lt;/span&gt; (list (read-key-sequence &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Key Sequence: &quot;&lt;/span&gt;)))
+      (&lt;span style=&quot;color: #a020f0;&quot;&gt;let&lt;/span&gt; ((l  (local-key-binding key))
+             (g (global-key-binding key)))
+    (&lt;span style=&quot;color: #a020f0;&quot;&gt;cond&lt;/span&gt;
+     ( (commandp l)
+       (make-thread l)
+      (message &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Running %s on a new thread.&quot;&lt;/span&gt; l))
+     ((commandp g)
+      (make-thread g)
+      (message &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Running %s on a new thread.&quot;&lt;/span&gt; g))
+     (t (&lt;span style=&quot;color: #ff0000; font-weight: bold;&quot;&gt;error&lt;/span&gt; &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;%s is not bound to a command.&quot;&lt;/span&gt; key)))))
+
+(global-set-key (kbd &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;C-&#39; a&quot;&lt;/span&gt;) &#39;emacspeak-wizards-execute-asynchronously)
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;p&gt;With this command bound to &lt;code&gt;C-&#39; a&lt;/code&gt;, I can now get rid of my custom&lt;br /&gt;
+&lt;code&gt;gnus-async&lt;/code&gt; command and its associated key-binding. I already have&lt;br /&gt;
+command &lt;code&gt;gnus&lt;/code&gt; bound to &lt;code&gt;C-; g&lt;/code&gt;, so I can just press &lt;code&gt;C-&#39; a C-; g&lt;/code&gt; to&lt;br /&gt;
+fetch news/mail asynchronously. &lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Similarly, when sending mail using &lt;code&gt;smtpmail&lt;/code&gt; I can press &lt;code&gt;C-&#39; a C-c&lt;br /&gt;
+C-c&lt;/code&gt; in the &lt;code&gt;*mail*&lt;/code&gt; buffer to send mail without Emacs blocking.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orge8a6d79&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orge8a6d79&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Final Caveats&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;Like other asynchronous solutions (see package &lt;code&gt;async&lt;/code&gt; for instance)&lt;br /&gt;
+one needs to make sure that the command being executed asynchronously&lt;br /&gt;
+will not require user input. In the case of package &lt;code&gt;async&lt;/code&gt;, the&lt;br /&gt;
+asynchronous Emacs will block waiting for input; in the case of&lt;br /&gt;
+&lt;code&gt;make-thread&lt;/code&gt;, Emacs enters a blocking loop with the minibuffer&lt;br /&gt;
+continuously displaying&lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;No catch for ...
+
+&lt;/pre&gt;&lt;p&gt;The only way to come out is to kill Emacs &amp;#x2014; so make sure to use&lt;br /&gt;
+command &lt;code&gt;emacspeak-wizards-execute-asynchronously&lt;/code&gt; only when you&#39;re&lt;br /&gt;
+sure that the command being run asynchronously will not require user &lt;br /&gt;
+input.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;&lt;p class=&quot;date&quot;&gt;Date: 2018-07-03 Tue 00:00&lt;/p&gt;&lt;p class=&quot;author&quot;&gt;Author: T.V Raman&lt;/p&gt;&lt;p class=&quot;date&quot;&gt;Created: 2018-07-03 Tue 14:37&lt;/p&gt;&lt;p class=&quot;validation&quot;&gt;&lt;a href=&quot;http://validator.w3.org/check?uri=referer&quot;&gt;Validate&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;br /&gt;
+&lt;/html&gt;&lt;br /&gt;
+</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2629248606626328439'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2629248606626328439'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2018/07/using-emacs-threads-to-execute-commands.html' title='Using Emacs Threads To Execute Commands Asynchronously '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-2867697857245595694</id><published>2018-06-22T14:47:00.001-07:00</published><updated>2018-06-25T08:55:34.131-07:00</updated><title type='text'>Effective Suggest And Complete In An Eyes-Free Environment </title><content type='html'>&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Effective Suggest And Complete In An Eyes-Free Environment&lt;/h1&gt;&lt;div id=&quot;outline-container-orgf9cdbd5&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgf9cdbd5&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Emacs has always provided a wealth of techniques for rapid keyboard&lt;br /&gt;
+input (abbrev, dabbrev, hippie-expandand completion come to mind)&lt;br /&gt;
+alongside a rich collection of tools for navigating among open&lt;br /&gt;
+buffers. And these affordances have significantly increased over the&lt;br /&gt;
+last few years with the arrival of packages like &lt;code&gt;ido&lt;/code&gt;, &lt;code&gt;company&lt;/code&gt;,&lt;br /&gt;
+&lt;code&gt;helm&lt;/code&gt; etc., each replete with different strategies for rapid task&lt;br /&gt;
+completion such as flex and fuzzy matching. This article investigates&lt;br /&gt;
+these tools in an eyes-free environment, specifically in the context&lt;br /&gt;
+of Emacspeak and rapid task completion. I&#39;ve not investigated every&lt;br /&gt;
+possible package in this space &amp;#x2014; instead, I&#39;ve picked a collection&lt;br /&gt;
+of packages and techniques that have worked well in an eyes-free&lt;br /&gt;
+context. Finally, the ultimate metric I use in each case is the time&lt;br /&gt;
+to successful task completion &amp;#x2014; since at the end of the day, that&#39;s&lt;br /&gt;
+the only metric that counts when it comes to user productivity.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org03a5b2e&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org03a5b2e&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Terminology&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;For this article, I will use terms &lt;i&gt;suggestion&lt;/i&gt; and &lt;i&gt;completion&lt;/i&gt; to&lt;br /&gt;
+mean  subtly different concepts. I&#39;ll also use terms &lt;i&gt;explore&lt;/i&gt; and&lt;br /&gt;
+&lt;i&gt;filter&lt;/i&gt; in describing various phases in user interaction.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;dl class=&quot;org-dl&quot;&gt;&lt;dt&gt;Suggestion&lt;/dt&gt;
+&lt;dd&gt;Offer the user some &lt;i&gt;suggestions&lt;/i&gt; that help explore the space of choices. (metaphor: avoid the blank sheet of paper syndrome).&lt;/dd&gt;
+&lt;dt&gt;Completion &lt;/dt&gt;
+&lt;dd&gt;Filter the available choices based on user input with the goal of reaching the target as rapidly as possible.&lt;/dd&gt;
+&lt;dt&gt;Explore &lt;/dt&gt;
+&lt;dd&gt;User does not necessarily know what he is looking for, but expects to be able to &lt;i&gt;recognize&lt;/i&gt; what he wants from the displayed choices.&lt;/dd&gt;
+&lt;dt&gt;Target &lt;/dt&gt;
+&lt;dd&gt;User knows exactly what he wants, e.g., filename, or function-name, but would still like to get there with the fewest possible number of keystrokes, along with the needed memory aids to guide the decision.&lt;/dd&gt; &lt;/dl&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;Note that in practice, &lt;i&gt;suggestions&lt;/i&gt; and &lt;i&gt;completions&lt;/i&gt; work&lt;br /&gt;
+hand-in-hand, with the visual display playing a central role in&lt;br /&gt;
+guiding the user through the pace of available choices. In a typical&lt;br /&gt;
+user interaction session, the space of suggestions gets filtered by&lt;br /&gt;
+user input to produce the available completions (choices) for the next&lt;br /&gt;
+round of user input &amp;#x2014; think of this as a&lt;br /&gt;
+&lt;b&gt;Suggest/Input/Filter/Target&lt;/b&gt; (SIFT)  interaction loop. Similarly, &lt;i&gt;explore&lt;/i&gt; and&lt;br /&gt;
+&lt;i&gt;target&lt;/i&gt; type activities typically go hand-in-hand, with &lt;i&gt;explore&lt;/i&gt;&lt;br /&gt;
+serving as a memory-aid for locating the &lt;i&gt;target&lt;/i&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org5333515&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org5333515&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Tasks Where Suggestions And Completions Help Speed Up Task Completion&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;Here are exemplars of tasks that I perform often and where I require&lt;br /&gt;
+all the help that Emacs can provide in completing the task as rapidly&lt;br /&gt;
+as possible:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;dl class=&quot;org-dl&quot;&gt;&lt;dt&gt;File Navigation &lt;/dt&gt;
+&lt;dd&gt;Navigating to and opening a file  &amp;#x2014; either code or prose.&lt;/dd&gt;
+&lt;dt&gt;Content Navigation&lt;/dt&gt;
+&lt;dd&gt;Jump  to a specific location (section, function, class/method, or pattern-match) in  that file.&lt;/dd&gt;
+&lt;dt&gt;Buffer Navigation&lt;/dt&gt;
+&lt;dd&gt;Jump to an already open buffer in  a long-running Emacs.&lt;/dd&gt; &lt;/dl&gt;&lt;p&gt;If that buffer existed &amp;#x2014; but has since been killed (by&lt;br /&gt;
+&lt;code&gt;midnight&lt;/code&gt; for example), then re-open that buffer.&lt;br /&gt;
+I do &lt;b&gt;everything&lt;/b&gt; in Emacs, so open buffers include  a large&lt;br /&gt;
+number of ORG and LaTeX documents,  Web Pages opened in  EWW &lt;br /&gt;
+(news sites, documentation, blog articles), IM Chats (I use&lt;br /&gt;
+&lt;code&gt;jabber&lt;/code&gt;), Mail  Buffers &amp;#x2014; both open folders and previously&lt;br /&gt;
+sent messages,  and much, much more.&lt;br /&gt;
+&lt;/p&gt;&lt;dl class=&quot;org-dl&quot;&gt;&lt;dt&gt;Media&lt;/dt&gt;
+&lt;dd&gt;Easily launch media streams including local and streaming media.&lt;/dd&gt;
+&lt;dt&gt;EBooks&lt;/dt&gt;
+&lt;dd&gt;Open (or jump to an already open) EBook to continue reading.&lt;/dd&gt;
+&lt;dt&gt;Code Completion&lt;/dt&gt;
+&lt;dd&gt;Complete function/method-name  as I type,  with an easy affordance to move among the available choices. The &lt;b&gt;Suggest/Input/Filter/Target&lt;/b&gt; interaction loop applies here as well.&lt;/dd&gt; &lt;/dl&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;Notice that as one performs all of these tasks, &lt;b&gt;every target&lt;/b&gt; is an&lt;br /&gt;
+Emacs buffer or Emacs buffer location. In the case of completion, the&lt;br /&gt;
+target is a string that gets inserted at the current  location.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org63d149a&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org63d149a&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Features Of Eyes-Free Interaction&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;Using spoken output &amp;#x2014; as opposed to a rich visual display &amp;#x2014;  has&lt;br /&gt;
+the following special features and/or drawbacks:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;A large visual display can offer the user many choices at a time,&lt;br /&gt;
+and the eye&#39;s ability to rapidly scan these choices makes for an&lt;br /&gt;
+extremely fast &lt;b&gt;Suggest/Input/Filter/Target&lt;/b&gt; loop. As an example, an&lt;br /&gt;
+interface like &lt;code&gt;helm&lt;/code&gt; can display a large number of initial&lt;br /&gt;
+choices, with the user  filtering these down with a few strategic key-presses.&lt;/li&gt;
+&lt;li&gt;Spoken output takes time &amp;#x2014; and there is simply no way around&lt;br /&gt;
+this &amp;#x2014; speeding up speech-rate helps to a point, but speaking&lt;br /&gt;
+50 choices very fast does not help the user  in the &lt;i&gt;explore&lt;/i&gt;&lt;br /&gt;
+phase. This means that  effective filtering and ranking of the available&lt;br /&gt;
+choices takes on added importance.&lt;/li&gt;
+&lt;li&gt;More importantly, picking a &lt;b&gt;Suggest/Input/Filter/Target&lt;/b&gt; (SIFT)&lt;br /&gt;
+interaction loop that depends on a large display is sub-optimal&lt;br /&gt;
+for eyes-free interaction.&lt;/li&gt;
+&lt;li&gt;Given (2,3), smart filtering, flex/fuzzy matching, and ranking&lt;br /&gt;
+based on past user behavior take on added importance in an&lt;br /&gt;
+eyes-free environment. As an aside, I have high hopes in this&lt;br /&gt;
+area for package &lt;code&gt;prescient&lt;/code&gt; &amp;#x2014; though in my few days of usage,&lt;br /&gt;
+it has yet to  make a  difference in my productivity.&lt;/li&gt;
+&lt;li&gt;For many of the tasks enumerated in the previous section, (2, 3&lt;br /&gt;
+and 4) make &lt;code&gt;ido&lt;/code&gt; with flex and fuzzy matching extremely&lt;br /&gt;
+effective. In contrast, &lt;code&gt;helm&lt;/code&gt; with similar flex and fuzzy&lt;br /&gt;
+matching (via packages &lt;code&gt;helm-flx&lt;/code&gt; and &lt;code&gt;helm-fuzzier&lt;/code&gt;) adds little&lt;br /&gt;
+extra benefit &amp;#x2014; and the fractional extra time to compute and&lt;br /&gt;
+display the choices can even lead to a minor productivity hit.&lt;/li&gt;
+&lt;li&gt;When it comes to writing code with completion, package &lt;code&gt;company&lt;/code&gt;&lt;br /&gt;
+has proven extremely effective. Notice that when writing code,&lt;br /&gt;
+one rarely if ever resorts to &lt;b&gt;fuzzy&lt;/b&gt; matching &amp;#x2014; this may well&lt;br /&gt;
+be  subjective. Speaking for myself, I cannot think of function&lt;br /&gt;
+or method names in the context of fuzzy matching &amp;#x2014; said&lt;br /&gt;
+differently, it&#39;s hard to think &lt;code&gt;xl&lt;/code&gt; for function-name&lt;br /&gt;
+&lt;code&gt;next-line&lt;/code&gt; &amp;#x2014; even though in a given filtering context, &lt;code&gt;xl&lt;/code&gt;&lt;br /&gt;
+might define the shortest path through the available choices to&lt;br /&gt;
+the target &lt;code&gt;next-line&lt;/code&gt;. Given this, emacspeak implements a&lt;br /&gt;
+&lt;code&gt;company front-end&lt;/code&gt; that allows the user to navigate through the&lt;br /&gt;
+available choices with succinct spoken feedback, and I use those&lt;br /&gt;
+choices only after I have  typed sufficiently many characters to&lt;br /&gt;
+have a manageable number of choices &amp;#x2014; said differently, though&lt;br /&gt;
+package &lt;code&gt;company&lt;/code&gt; is set up to trigger after 3 characters have&lt;br /&gt;
+been typed, I usually end up typing more &amp;#x2014; and  often resort to&lt;br /&gt;
+&lt;code&gt;dabbrev&lt;/code&gt; or &lt;code&gt;hippee-expand&lt;/code&gt; to  input this longer prefix.&lt;/li&gt;
+&lt;li&gt;Some of the shortcomings  with eyes-free interaction enumerated&lt;br /&gt;
+above lead to my looking for effective work-arounds  that  might&lt;br /&gt;
+well work well outside the eyes-free context, e.g. when the&lt;br /&gt;
+available choices are too large to fit on a typical visual&lt;br /&gt;
+display. Interestingly, most of these have also been solved by&lt;br /&gt;
+mainstream Emacs developers in their never-ending/unerring quest for increased&lt;br /&gt;
+productivity &amp;#x2014; package &lt;code&gt;ido&lt;/code&gt; and &lt;code&gt;company&lt;/code&gt; are excellent exemplars.&lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;Mapping Solutions To Tasks&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;This section maps the various solutions I use to speed up the tasks&lt;br /&gt;
+enumerated earlier in this article.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org35ff442&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org35ff442&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.1&lt;/span&gt; File And Buffer Navigation&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-1&quot;&gt;&lt;p&gt;I use package &lt;code&gt;ido&lt;/code&gt; with add-ons &lt;code&gt;flx-ido&lt;/code&gt; and  &lt;code&gt;ido-completing-read+&lt;/code&gt;&lt;br /&gt;
+(formerly &lt;code&gt;ido-ubiquitous&lt;/code&gt;) as my primary/only solution for this&lt;br /&gt;
+task. I&#39;ve dabbled with package &lt;code&gt;helm&lt;/code&gt; &amp;#x2014; primarily via command&lt;br /&gt;
+&lt;code&gt;helm-mini&lt;/code&gt; but have found almost no use-cases where I did better with&lt;br /&gt;
+&lt;code&gt;helm&lt;/code&gt;. I also use command &lt;code&gt;org-switchb&lt;/code&gt; to quickly jump to any of my&lt;br /&gt;
+open &lt;code&gt;org&lt;/code&gt; buffers &amp;#x2013; since that automatically filters the choices&lt;br /&gt;
+down for me &amp;#x2014; I can then get to the &lt;code&gt;org-mode&lt;/code&gt; buffer I want with&lt;br /&gt;
+one or two keystrokes. Notice that in  all of these cases, I&#39;m relying&lt;br /&gt;
+on the fact that I mostly know what I want, i.e., the &lt;i&gt;explore&lt;/i&gt; phase&lt;br /&gt;
+does not start with an entirely blank sheet of paper.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org99ad4ed&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org99ad4ed&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.2&lt;/span&gt; Content Navigation&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-2&quot;&gt;&lt;p&gt;Incremental search is your biggest and most effective friend in&lt;br /&gt;
+effective eyes-free interaction &amp;#x2014; this simply cannot be stressed&lt;br /&gt;
+enough. That &lt;b&gt;everything&lt;/b&gt; in Emacs is &lt;i&gt;searchable&lt;/i&gt; via&lt;br /&gt;
+incremental-search is a big win for eyes-free interaction. When you&lt;br /&gt;
+have a large visual display, the human eye is the search interface of&lt;br /&gt;
+first resort &amp;#x2013; you typically use a &lt;i&gt;search-command&lt;/i&gt; only if the&lt;br /&gt;
+target is &lt;i&gt;below the fold&lt;/i&gt; or far away from the cursor. Because spoken&lt;br /&gt;
+output takes time, I use &lt;i&gt;isearch&lt;/i&gt; even when the target is one or two&lt;br /&gt;
+lines away.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Structured navigation comes next in my toolbox for navigating content&lt;br /&gt;
+&amp;#x2014; &lt;code&gt;imenu&lt;/code&gt; for code, and section navigation for documents (org,&lt;br /&gt;
+LaTeX). I also use command &lt;code&gt;occur&lt;/code&gt; to advantage since that provides a&lt;br /&gt;
+quick way of finding all the desired targets in a document. Given that&lt;br /&gt;
+program source-code uses indentation for displaying structure,&lt;br /&gt;
+hbuilt-in command &lt;code&gt;selective-display&lt;/code&gt; remains one of Emacs&#39; hidden&lt;br /&gt;
+treasures with respect to expanding/collapsing source-code.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Finally, I&lt;br /&gt;
+use a combination of &lt;code&gt;isearch&lt;/code&gt; and &lt;code&gt;structured navigation&lt;/code&gt; in&lt;br /&gt;
+&lt;code&gt;org-mode&lt;/code&gt; buffres by collapsing the document, and then using&lt;br /&gt;
+&lt;code&gt;isearch&lt;/code&gt; to reveal the desired content fragment.&lt;br /&gt;
+In the case of &lt;code&gt;LaTeX&lt;/code&gt; documents, I use  package &lt;code&gt;reftex&lt;/code&gt; to&lt;br /&gt;
+generate a &lt;i&gt;navigation&lt;/i&gt; buffer that functions as an interactive table&lt;br /&gt;
+of contents. &lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org0537c43&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org0537c43&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.3&lt;/span&gt; Locating And Playing Media&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-3&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;I keep all my music content organized under  &lt;code&gt;~/mp3&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;I keep playlist files that contain stream-links to my favorite&lt;br /&gt;
+Internet streams under &lt;code&gt;emacspeak/media&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The afore-mentioned  techniques using &lt;code&gt;ido&lt;/code&gt;  enables me to launch&lt;br /&gt;
+local and streaming media with a small number of keystrokes. Once&lt;br /&gt;
+selected, the content is played via package &lt;code&gt;emacspeak-m-player&lt;/code&gt;&lt;br /&gt;
+which provides Emacs bindings to all  &lt;code&gt;mplayer&lt;/code&gt;  functionality&lt;br /&gt;
+via that program&#39;s &lt;code&gt;slave-mode&lt;/code&gt;. In addition, Emacspeak also&lt;br /&gt;
+implements a  smart &lt;code&gt;emacspeak-m-player-locate-media&lt;/code&gt; which uses&lt;br /&gt;
+Emacs&#39; integration with command &lt;code&gt;locate&lt;/code&gt; to  turn the located&lt;br /&gt;
+files matching a given pattern into an interactive play-list.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org7595f5c&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org7595f5c&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.4&lt;/span&gt; EBooks&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-4&quot;&gt;&lt;p&gt;Jumping to already open ebooks is no different than buffer&lt;br /&gt;
+navigation.  I organize all my ebooks under a single directory&lt;br /&gt;
+tree, and module &lt;code&gt;emacspeak-epub&lt;/code&gt; implements a &lt;i&gt;bookshelf&lt;/i&gt; that&lt;br /&gt;
+allows me to organize and browse my collection along various&lt;br /&gt;
+axies. Finally, Emacspeak implements a light-weight bookmark&lt;br /&gt;
+facility that works with &lt;code&gt;eww&lt;/code&gt; so that I can save my place in an&lt;br /&gt;
+ebook across Emacs sessions.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org17ce1a8&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org17ce1a8&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.5&lt;/span&gt; Code Completion&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-5&quot;&gt;&lt;p&gt;As covered earlier, I use &lt;code&gt;company&lt;/code&gt; along with &lt;code&gt;dabbrev&lt;/code&gt; and&lt;br /&gt;
+&lt;code&gt;hippee-expand&lt;/code&gt; while writing code. I also use &lt;code&gt;yasnippet&lt;/code&gt; to&lt;br /&gt;
+generate skeleton code. I use &lt;code&gt;auto-correct-mode&lt;/code&gt; to&lt;br /&gt;
+automatically correct repeated errors, and add abbrevs for&lt;br /&gt;
+commonly occurring typos. &lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org039aec8&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org039aec8&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Emacs&#39; &lt;b&gt;Suggest/Input/Filter/Target&lt;/b&gt; (SIFT)  interaction loop is just as&lt;br /&gt;
+effective in eyes-free interaction &amp;#x2014; in fact more so .&lt;/li&gt;
+&lt;li&gt;Fuzzy matching when filtering is a big win when working with spoken&lt;br /&gt;
+output &amp;#x2014; it leads to faster task completion.&lt;/li&gt;
+&lt;li&gt;Navigating ones  computing environment based on  the underlying&lt;br /&gt;
+structure and semantics of electronic content is a major win &amp;#x2014;&lt;br /&gt;
+both when working with a visual  or spoken display. The advantages&lt;br /&gt;
+just become evident far sooner in the eyes-free context due to the&lt;br /&gt;
+inherently temporal nature of spoken interaction.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;&lt;p class=&quot;date&quot;&gt;Date: 2018-06-22 Fri 00:00&lt;/p&gt;&lt;p class=&quot;author&quot;&gt;Author: T.V Raman&lt;/p&gt;&lt;p class=&quot;date&quot;&gt;Created: 2018-06-23 Sat 17:22&lt;/p&gt;&lt;p class=&quot;validation&quot;&gt;&lt;a href=&quot;http://validator.w3.org/check?uri=referer&quot;&gt;Validate&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2867697857245595694'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2867697857245595694'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2018/06/effective-suggest-and-complete-in-eyes.html' title='Effective Suggest And Complete In An Eyes-Free Environment '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-1466000085421733222</id><published>2018-05-03T13:38:00.004-07:00</published><updated>2018-05-03T13:38:58.991-07:00</updated><title type='text'>Emacspeak 48.0 (ServiceDog) Unleashed!</title><content type='html'>&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Emacspeak 48.0—ServiceDog—Unleashed!&lt;/h1&gt;&lt;p&gt;*For Immediate Release:&lt;br /&gt;
 &lt;/p&gt;&lt;br /&gt;
 &lt;p&gt;San Jose, Calif., (May 04, 2018)&lt;br /&gt;
 &lt;/p&gt;&lt;br /&gt;
@@ -13132,48 +13387,4 @@ complains about the &lt;code&gt;&amp;lt;%&lt;/code&gt; directives.
         &lt;li&gt;Remove the &lt;code&gt;vsound&lt;/code&gt; dependency.&lt;/li&gt;
         &lt;li&gt;Enable us to record more than just RealAudio streams.&lt;/li&gt;
       &lt;/ul&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113622417010298115'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113622417010298115'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-wizard-recording-audio.html' title='Emacspeak Wizard: Recording Audio Streams For Later Playback'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113605677499310089</id><published>2005-12-31T11:19:00.000-08:00</published><updated>2005-12-31T11:19:35.036-08:00</updated><title type='text'>Emacs Tip: Viewing Commands Available On A Prefix Key</title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;
-Emacs, and consequently Emacspeak, uses a number of multi-key
-sequences. The initial key that makes up such a multi-key
-sequence --- AKA the &lt;code&gt;prefix-key&lt;/code&gt;
-that leads to all Emacspeak commands is &lt;code&gt;C-e&lt;/code&gt;
-(&lt;code&gt;control-e)&lt;/code&gt;.
-&lt;/p&gt;
-&lt;p&gt;Pressing any &lt;code&gt;prefix-key&lt;/code&gt; followed by the
-&lt;code&gt;help-key&lt;/code&gt; (&lt;code&gt;C-h&lt;/code&gt;) results in Emacs
-displaying a &lt;strong&gt;*Help*&lt;/strong&gt; buffer that lists all
-key-sequences beginning with that prefix. &lt;/p&gt;
-
-&lt;p&gt;This can be a very useful way of quickly seeing what keyboard
-commands are available ---  as  the resulting listing is 
- shorter than what is produced by &lt;code&gt;C-h b&lt;/code&gt; (command
-describe-bindings) which lists all key-bindings.
-&lt;/p&gt;
-&lt;p&gt;To  use this feature to review Emacspeak&#39;s
-key-bindings, I have now moved command
-&lt;code&gt;emacspeak-learn-emacs-mode&lt;/code&gt; to &lt;code&gt;C-h C-l&lt;/code&gt;
-and &lt;code&gt;C-e F1&lt;/code&gt;
-from its original key-binding of &lt;code&gt;C-e C-h&lt;/code&gt;  --- the
-change is checked into CVS.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113605677499310089'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113605677499310089'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2005/12/emacs-tip-viewing-commands-available.html' title='Emacs Tip: Viewing Commands Available On A Prefix Key'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113596114050756312</id><published>2005-12-30T08:45:00.000-08:00</published><updated>2006-01-01T13:25:05.803-08:00</updated><title type='text'>Using The New MPlayer With ALSA Support &#xa;</title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-    &lt;p&gt;
-      New versions of the Linux &lt;code&gt;mplayer&lt;/code&gt;
-      can now play RealMedia files in addition to the various DVD and Windows audio and video streams.
-      As an added bonus, &lt;code&gt;mplayer&lt;/code&gt; can be built to use ALSA ---(note that default RPMs available on the Web still default to OSS as of December 2006).
-    This, with the additional support for  newer RealMedia formats has finally caused me to switch away from &lt;code&gt;trplayer&lt;/code&gt; a---a command line RealPlayer that was built against RealPlayer 8.0&lt;/p&gt;
-    &lt;p&gt;Note that building &lt;code&gt;mplayer&lt;/code&gt; from source to include ALSA support, and locating all the  codecs you need will require a few Google searches. Specifically, to play NPR streams, you will need to grab &lt;code&gt;avisynth.dll&lt;/code&gt; from the SourceForge project of the same name. But once this is done,
-    &lt;code&gt;mplayer&lt;/code&gt; will happily play multiple streams of audio without requiring multichannel support from the sound card. For Emacspeak users this means that you get auditory icons, and more importantly software TTS while listening to audio streams.&lt;/p&gt;
-    &lt;p&gt;
-      To use software TTS while &lt;code&gt;mplayer&lt;/code&gt; is playing audio streams requires that you use a TTS server that uses ALSA; the default Emacspeak servers still use OSS.
-      To build a TTS server for IBM ViaVoice TTS, obtain Emacspeak sources from CVS, and follow the instructions in file &lt;code&gt;servers/linux-outloud/ALSA&lt;/code&gt;.
-    &lt;/p&gt;
-    &lt;p&gt;As of a few weeks ago, The Emacspeak CVS repository has been
-    updated so that all access to streaming media goes through
-    &lt;code&gt;mplayer&lt;/code&gt; by default.  Make sure to configure your
-    &lt;code&gt;mplayer&lt;/code&gt; with a smaller cache size if you use it
-    exclusively for streaming audio; by default it uses a rather
-    large cache, and streaming realaudio often takes a long time to
-    start before the cache is configured to be something smaller; I
-    use a cache size of &lt;code&gt;64kb&lt;/code&gt; on my laptop.&lt;/p&gt;
-  &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113596114050756312'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113596114050756312'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2005/12/using-new-mplayer-with-alsa-support.html' title='Using The New MPlayer With ALSA Support &#xa;'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
+    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113622417010298115'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113622417010298115'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-wizard-recording-audio.html' title='Emacspeak Wizard: Recording Audio Streams For Later Playback'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>

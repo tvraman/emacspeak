@@ -515,23 +515,21 @@ explicitly turn pronunciations on or off."
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
-   ((or (eq state 'on)
-        (not (boundp 'emacspeak-pronounce-pronunciation-table)))
-    (make-local-variable 'emacspeak-pronounce-pronunciation-table)
-    (setq emacspeak-pronounce-pronunciation-table
-          (emacspeak-pronounce-compose-pronunciation-table))
-    (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'on)
-      (message "Emacspeak pronunciation dictionaries are now active in this buffer")))
-   ((or (eq state 'off)
-                                        ;already on --turn it off
-        emacspeak-pronounce-pronunciation-table)
-    (setq emacspeak-pronounce-pronunciation-table nil)
-    (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'off)
-      (message
-       "Emacspeak pronunciation dictionaries no longer active in this buffer")))
-   (t ;turn it on
+   ( state
+     (unless (boundp 'emacspeak-pronounce-pronunciation-table)
+       (make-local-variable 'emacspeak-pronounce-pronunciation-table)
+       (setq emacspeak-pronounce-pronunciation-table
+             (emacspeak-pronounce-compose-pronunciation-table)))
+     (when (called-interactively-p 'interactive)
+       (emacspeak-auditory-icon 'on)
+       (message "Emacspeak pronunciation dictionaries are now active in this buffer")))
+   ( (null state)                       ;already on --turn it off
+     (setq emacspeak-pronounce-pronunciation-table nil)
+     (when (called-interactively-p 'interactive)
+       (emacspeak-auditory-icon 'off)
+       (message
+        "Emacspeak pronunciation dictionaries no longer active in this buffer")))
+   (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))
     (when (called-interactively-p 'interactive)
