@@ -248,17 +248,19 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines ()
   "Startup Headlines ticker using RSS/Atom  feeds."
   (interactive)
-  (cl-declare (special emacspeak-webspace-headlines emacspeak-feeds))
+  (cl-declare (special emacspeak-webspace-headlines elfeed-feeds emacspeak-feeds))
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
            :feeds
-           (apply
-            #'vector
-            (delq nil
-                  (mapcar
-                   #'(lambda (f) (unless (eq  'opml (cl-third f)) (cl-second f)))
-                   emacspeak-feeds)))
+           (if (bound-and-true-p elfeed-feeds)
+               (apply #'vector elfeed-feeds)
+               (apply
+                #'vector
+                (delq nil
+                      (mapcar
+                       #'(lambda (f) (unless (eq  'opml (cl-third f)) (cl-second f)))
+                       emacspeak-feeds))))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
