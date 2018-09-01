@@ -519,23 +519,16 @@ explicitly turn pronunciations on or off."
      (unless (boundp 'emacspeak-pronounce-pronunciation-table)
        (make-local-variable 'emacspeak-pronounce-pronunciation-table)
        (setq emacspeak-pronounce-pronunciation-table
-             (emacspeak-pronounce-compose-pronunciation-table)))
-     (when (called-interactively-p 'interactive)
-       (emacspeak-auditory-icon 'on)
-       (message "Emacspeak pronunciation dictionaries are now active in this buffer")))
+             (emacspeak-pronounce-compose-pronunciation-table))))
    ( (null state)                       ;already on --turn it off
-     (setq emacspeak-pronounce-pronunciation-table nil)
-     (when (called-interactively-p 'interactive)
-       (emacspeak-auditory-icon 'off)
+     (setq emacspeak-pronounce-pronunciation-table nil)))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon
+     (if emacspeak-pronounce-pronunciation-table 'on 'off))
        (message
-        "Emacspeak pronunciation dictionaries no longer active in this buffer")))
-   (t                                   ;turn it on
-    (setq emacspeak-pronounce-pronunciation-table
-          (emacspeak-pronounce-compose-pronunciation-table))
-    (when (called-interactively-p 'interactive)
-      (message
-       "Emacspeak pronunciations have been re-activated in this buffer")
-      (emacspeak-auditory-icon 'on)))))
+        "Turned %s pronunciations off."
+        (if emacspeak-pronounce-pronunciation-table " on " " off "))))
+
 ;;;###autoload
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer.
@@ -549,7 +542,7 @@ Activates pronunciation dictionaries if not already active."
    (emacspeak-pronounce-pronunciation-table ;already on --refresh it
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table)))
-   (t ;turn it on
+   (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
   (when (called-interactively-p 'interactive)
