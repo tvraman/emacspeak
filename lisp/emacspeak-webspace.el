@@ -243,24 +243,24 @@ Updated headlines found in emacspeak-webspace-headlines."
      (t (let ((h (ring-remove titles 0)))
           (ring-insert-at-beginning titles h)
           (cl-first h))))))
+(defcustom emacspeak-webspace-feeds
+  nil
+  "Feeds to use in Headline Ticker."
+  :type '(repeat (string :tag "URL"))
+  :group 'emacspeak-webspace)
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
   "Startup Headlines ticker using RSS/Atom  feeds."
   (interactive)
-  (cl-declare (special emacspeak-webspace-headlines elfeed-feeds emacspeak-feeds))
+  (cl-declare (special emacspeak-webspace-headlines
+                       emacspeak-webspace-feeds))
+  (cl-assert emacspeak-webspace-feeds t "First add some feeds to emacspeak-webspace-feeds.")
   (unless emacspeak-webspace-headlines
     (setq emacspeak-webspace-headlines
           (make-emacspeak-webspace-fs
            :feeds
-           (if (bound-and-true-p elfeed-feeds)
-               (apply #'vector elfeed-feeds)
-               (apply
-                #'vector
-                (delq nil
-                      (mapcar
-                       #'(lambda (f) (unless (eq  'opml (cl-third f)) (cl-second f)))
-                       emacspeak-feeds))))
+           (apply #'vector emacspeak-webspace-feeds)
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
