@@ -506,7 +506,6 @@ are available are cued by an auditory icon on the header line."
  'eww-mode-hook
  #'(lambda ()
      (outline-minor-mode nil)
-     (emacspeak-pronounce-toggle-use-of-dictionaries t)
      (setq
       emacspeak-webutils-document-title #'emacspeak-eww-current-title
       emacspeak-webutils-url-at-point
