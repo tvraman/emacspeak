@@ -448,7 +448,7 @@ and their meanings. ")
        (define-key c-mode-base-map "\M-n" 'c-next-statement)
        (define-key c-mode-base-map "\M-p"
          'c-previous-statement))
-     (emacspeak-pronounce-toggle-use-of-dictionaries 'on)
+     (emacspeak-pronounce-toggle-use-of-dictionaries t)
      (or dtk-split-caps
          (dtk-toggle-split-caps))
      (or dtk-allcaps-beep
