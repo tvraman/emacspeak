@@ -488,10 +488,10 @@ First loads any persistent dictionaries if not already loaded."
 
 ;;}}}
 ;;{{{ Turning dictionaries on and off on a per buffer basis
-(defvar emacspeak-pronounce-pronunciation-table nil
+(defvar-local  emacspeak-pronounce-pronunciation-table nil
   "Variable holding association list of pronunciations for a buffer.
 Becomes automatically buffer local.")
-(make-variable-buffer-local 'emacspeak-pronounce-pronunciation-table)
+
 (setq-default emacspeak-pronounce-pronunciation-table nil)
 
 ;;;###autoload
@@ -512,11 +512,12 @@ spoken.  Optional argument state can be used from Lisp programs
 to explicitly turn pronunciations on or off."
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
+  (unless (boundp 'emacspeak-pronounce-pronunciation-table)
+      (make-local-variable 'emacspeak-pronounce-pronunciation-table))
   (unless state (setq state (not emacspeak-pronounce-pronunciation-table)))
   (cond
    (state
-    (unless (boundp 'emacspeak-pronounce-pronunciation-table)
-      (make-local-variable 'emacspeak-pronounce-pronunciation-table)
+    (unless emacspeak-pronounce-pronunciation-table
       (setq emacspeak-pronounce-pronunciation-table
             (emacspeak-pronounce-compose-pronunciation-table))))
    ((null state)                        ;already on --turn it off
