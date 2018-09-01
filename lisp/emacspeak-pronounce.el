@@ -502,27 +502,25 @@ Becomes automatically buffer local.")
 ;;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be defined on a per file, per directory and/or per
-mode basis.
-Pronunciations are activated on a per buffer basis.
-Turning on the use of pronunciation dictionaries results in emacspeak
-composing a pronunciation table based on the currently defined
-pronunciation dictionaries.
-After this, the pronunciations will be applied whenever text in the
-buffer is spoken.
-Optional argument state can be used from Lisp programs to
-explicitly turn pronunciations on or off."
+Pronunciations can be defined on a per file, per directory and/or
+per mode basis.  Pronunciations are activated on a per buffer
+basis.  Turning on the use of pronunciation dictionaries results
+in emacspeak composing a pronunciation table based on the
+currently defined pronunciation dictionaries.  After this, the
+pronunciations will be applied whenever text in the buffer is
+spoken.  Optional argument state can be used from Lisp programs
+to explicitly turn pronunciations on or off."
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (unless state (setq state (not emacspeak-pronounce-pronunciation-table)))
   (cond
-   ( state
-     (unless (boundp 'emacspeak-pronounce-pronunciation-table)
-       (make-local-variable 'emacspeak-pronounce-pronunciation-table)
-       (setq emacspeak-pronounce-pronunciation-table
-             (emacspeak-pronounce-compose-pronunciation-table))))
-   ( (null state)                       ;already on --turn it off
-     (setq emacspeak-pronounce-pronunciation-table nil)))
+   (state
+    (unless (boundp 'emacspeak-pronounce-pronunciation-table)
+      (make-local-variable 'emacspeak-pronounce-pronunciation-table)
+      (setq emacspeak-pronounce-pronunciation-table
+            (emacspeak-pronounce-compose-pronunciation-table))))
+   ((null state)                        ;already on --turn it off
+    (setq emacspeak-pronounce-pronunciation-table nil)))
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon
      (if emacspeak-pronounce-pronunciation-table 'on 'off))
