@@ -525,7 +525,7 @@ to explicitly turn pronunciations on or off."
     (emacspeak-auditory-icon
      (if emacspeak-pronounce-pronunciation-table 'on 'off))
     (message
-     "Turned %s pronunciations off."
+     "Turned  pronunciations %s."
      (if emacspeak-pronounce-pronunciation-table " on " " off "))))
 
 ;;;###autoload
