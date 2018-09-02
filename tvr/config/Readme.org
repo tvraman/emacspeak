@@ -1,3 +1,5 @@
 * Linux Package-Specific Config Files.
   - [[./mplayer.config][MPlayer config (.mplayer/config)]]
   - [[alsoftrc][OpenAL Config (.alsoftrc)]]
+  - [[.mailcap][mailcap (.mailcap)]]
+
