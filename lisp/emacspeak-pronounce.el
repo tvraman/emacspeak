@@ -512,8 +512,6 @@ spoken.  Optional argument state can be used from Lisp programs
 to explicitly turn pronunciations on or off."
   (interactive "P")
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
-  (unless (boundp 'emacspeak-pronounce-pronunciation-table)
-      (make-local-variable 'emacspeak-pronounce-pronunciation-table))
   (unless state (setq state (not emacspeak-pronounce-pronunciation-table)))
   (cond
    (state
