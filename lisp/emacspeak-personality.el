@@ -145,6 +145,7 @@ over-writing any current personality settings."
 ;;; Issue triggered by ediff.
 ;;; Work-around: restore modification flag explicitly since we know we
 ;;; didn't modify anything.
+;;; Removing above fix since it breaks flycheck.
 
 
 ;;;###autoload
@@ -183,8 +184,7 @@ Existing personality properties on the text range are preserved."
             (put-text-property start extent
                                'personality new object))
           (when (< extent end)
-            (emacspeak-personality-append extent end v object))))))
-    (unless buffer-read-only (restore-buffer-modified-p nil))))
+            (emacspeak-personality-append extent end v object))))))))
 
 ;;;###autoload
 (defun emacspeak-personality-prepend  (start end personality &optional object)
@@ -221,8 +221,7 @@ Existing personality properties on the text range are preserved."
             (put-text-property start extent
                                'personality new object))
           (when (< extent end)
-            (emacspeak-personality-prepend extent end v object))))))
-    (unless buffer-read-only (restore-buffer-modified-p nil))))
+            (emacspeak-personality-prepend extent end v object))))))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
   "Remove specified personality from text bounded by start and end.
@@ -256,8 +255,7 @@ Preserve other existing personality properties on the text range."
                                     (list 'personality)
                                     object))
           (when (< extent end)
-            (emacspeak-personality-remove extent end personality))))))
-    (unless buffer-read-only (restore-buffer-modified-p nil))))
+            (emacspeak-personality-remove extent end personality))))))))
 
 ;;}}}
 ;;{{{ advice overlays
