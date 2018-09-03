@@ -759,13 +759,11 @@ icon."
 
 (defadvice display-message-or-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (emacspeak-auditory-icon 'help)
   (let ((m (ad-get-arg 0))
         (buffer-name (ad-get-arg 1)))
-    (cond
-     ((bufferp ad-return-value)
-      (dtk-speak "Displayed message in buffer  %s" buffer-name))
-     (t (dtk-speak m)))))
+    (emacspeak-auditory-icon 'help)
+    (when (bufferp ad-return-value)
+      (dtk-speak "Displayed message in buffer  %s" buffer-name))))
 
 
 (declare-function emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
