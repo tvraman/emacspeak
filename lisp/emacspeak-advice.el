@@ -734,7 +734,7 @@ icon."
 
 (defvar inhibit-message)
 (cl-loop
- for f in '(minibuffer-message message) do
+ for f in '(minibuffer-message message display-message-or-buffer) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak the message."
@@ -755,6 +755,18 @@ icon."
          (tts-with-punctuations 'all
            (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
+
+
+(defadvice display-message-or-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'help)
+  (let ((m (ad-get-arg 0))
+        (buffer-name (ad-get-arg 1)))
+    (cond
+     ((bufferp ad-return-value)
+      (dtk-speak "Displayed message in buffer  %s" buffer-name))
+     (t (dtk-speak m)))))
+
 
 (declare-function emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
 
