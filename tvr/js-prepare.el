@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: nil; -*-
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (eval-after-load "js2-mode"
   `(progn  
      (when (locate-library "tern")
