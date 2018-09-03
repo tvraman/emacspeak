@@ -928,7 +928,7 @@ specifies the page to extract contents  from."
 ;;{{{ xpath  filter
 ;;;###autoload
 (defvar emacspeak-we-recent-xpath-filter
-  "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"
+  "//p"
   "Caches most recently used xpath filter.")
 
 (defvar emacspeak-we-xpath-filter-history 
