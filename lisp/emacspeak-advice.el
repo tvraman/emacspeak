@@ -761,7 +761,6 @@ icon."
   "Provide auditory feedback."
   (let ((m (ad-get-arg 0))
         (buffer-name (ad-get-arg 1)))
-    (emacspeak-auditory-icon 'help)
     (when (bufferp ad-return-value)
       (dtk-speak "Displayed message in buffer  %s" buffer-name))))
 
