@@ -87,7 +87,7 @@
 ;;}}}
 ;;{{{ Helper: voicify string
 (defun ems-voiceify-string (string personality)
-  "Apply personality personality to string."
+  "Apply personality PERSONALITY to STRING."
   (put-text-property 0 (length string)
                      'personality personality string))
 
@@ -99,12 +99,12 @@
   "Store mode-specific punctuation mode setting.")
 
 (defun ems-get-mode-punctuation-setting (mode)
-  "Return punctuation setting for specified mode."
+  "Return punctuation setting for specified mode MODE."
   (cl-declare (special emacspeak-speak-mode-punctuation-table))
   (gethash mode emacspeak-speak-mode-punctuation-table))
 
 (defun ems-set-mode-punctuation-setting (mode value)
-  "Set punctuation setting for specified mode."
+  "Set punctuation setting for specified mode MODE to value VALUE."
   (cl-declare (special emacspeak-speak-mode-punctuation-table))
   (puthash mode value emacspeak-speak-mode-punctuation-table))
 
@@ -170,7 +170,7 @@ message area.  You can use command
 ;;; whose output we want to hear.
 
 (defun emacspeak-shell-command (command)
-  "Run shell command and speak its output."
+  "Run shell command COMMANDAND speak its output."
   (interactive "sCommand:")
   (cl-declare (special default-directory))
   (let ((directory default-directory)
