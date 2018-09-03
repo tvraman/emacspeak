@@ -181,6 +181,7 @@
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (local-set-key "\C-m" 'newline-and-indent)
+  (flycheck-mode 1)
   (company-mode 1)
   (hs-minor-mode 1)
   (auto-fill-mode)
