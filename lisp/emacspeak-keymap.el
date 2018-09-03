@@ -548,6 +548,7 @@ interactive command that the key sequence executes."
   '(
     ("'" emacspeak-vlc)
     ("SPC"  emacspeak-wizards-scratch)
+    ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("." emacspeak-wizards-shell-directory-reset)
     ("a" emacspeak-wizards-execute-asynchronously)
