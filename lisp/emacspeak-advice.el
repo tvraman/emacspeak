@@ -841,10 +841,10 @@ icon."
 (defun emacspeak-error-handler (data context _calling-function)
   "Emacspeak custom error handling function."
   (emacspeak-auditory-icon 'warn-user)
-  (ding)
+  ;(ding)
   (message "%s %s"
-           (error-message-string data)
-           (or context " ")))
+           (or context " ")
+           (error-message-string data)))
 
 (unless (boundp 'command-error-function)
   (defadvice signal (before emacspeak pre act comp)
