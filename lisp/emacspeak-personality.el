@@ -310,8 +310,7 @@ Append means place corresponding personality at the end."
            (voice (dtk-get-voice-for-face (overlay-get o 'face))))
       (when
           (and  voice
-                buffer
-                (emacspeak-personality-plist-face-p (overlay-properties o)))
+                buffer)
         (with-current-buffer (overlay-buffer overlay)
           (with-silent-modifications
             (condition-case nil 
