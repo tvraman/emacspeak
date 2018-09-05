@@ -1526,7 +1526,16 @@ url
 ;;}}}
 
 ;;}}}
- 
+;;{{{Air Quality Index:
+
+(emacspeak-url-template-define
+ "AQI: Air Quality Index"
+ "https://airnow.gov/index.cfm?action=airnow.local_city&zipcode=%s"
+ (list "ZipCode: ")
+ nil
+ "Return Air Quality for specified zip-code")
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
