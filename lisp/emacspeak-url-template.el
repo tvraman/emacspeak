@@ -191,6 +191,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{Youtube News:
+(declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
 (emacspeak-url-template-define
  "Youtube News"
@@ -1532,7 +1533,7 @@ url
  "AQI: Air Quality Index"
  "https://airnow.gov/index.cfm?action=airnow.local_city&zipcode=%s"
  (list "ZipCode: ")
- nil
+ #'(lambda nil (eww-display-dom-by-class "QDataContent"))
  "Return Air Quality for specified zip-code")
 
 ;;}}}
