@@ -115,20 +115,16 @@
 ;;{{{ cumulative personalities
 
 ;;;###autoload
-(defun emacspeak-personality-put (start end personality &optional object)
+(defun emacspeak-personality-put (start endv &optional object)
   "Apply personality to specified region,
 over-writing any current personality settings."
   (when
-      (and personality
+      (andv
            (integer-or-marker-p start)
            (integer-or-marker-p end)
            (not (= start end)))
-    (let ((v
-           (if (listp personality)
-               (cl-delete-duplicates personality :test #'eq)
-             personality)))
       (with-silent-modifications
-        (put-text-property start end 'personality v object)))))
+        (put-text-property start end 'personality v object))))
 
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality &optional object)
