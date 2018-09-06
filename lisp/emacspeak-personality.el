@@ -126,75 +126,6 @@ over-writing any current personality settings."
       (with-silent-modifications
         (put-text-property start end 'personality v object))))
 
-;;;###autoload
-(defun emacspeak-personality-append  (start end personality &optional object)
-  "Append specified personality to text bounded by start and end.
-Existing personality properties on the text range are preserved."
-  (when
-      (and personality
-           (integer-or-marker-p start)
-           (integer-or-marker-p end)
-           (not (= start end)))
-    (with-silent-modifications
-      (let ((inhibit-read-only t)
-            (v (if (listp personality)
-                   (cl-delete-duplicates personality :test #'eq)
-                 personality))
-            (orig (get-text-property start 'personality object))
-            (new nil)
-            (extent
-             (next-single-property-change
-              start 'personality object end)))
-        (cond
-         ((null orig)                   ;simple case
-          (put-text-property start extent 'personality v object)
-          (when (< extent end)
-            (emacspeak-personality-append extent end v object)))
-         (t                            ;accumulate the new personality
-          (unless (or (equal  v orig)
-                      (listp orig)
-                      (and (listp orig)(memq v orig)))
-            (setq new
-                  (cl-delete-duplicates
-                   (nconc
-                    (if (listp orig) orig (list orig))
-                    (if (listp v) v (list v)))))
-            (put-text-property start extent
-                               'personality new object))
-          (when (< extent end)
-            (emacspeak-personality-append extent end v object))))))))
-
-;;;###autoload
-(defun emacspeak-personality-prepend  (start end personality &optional object)
-  "Prepend specified personality (an atom) to text bounded by start and end.
-Existing personality properties on the text range are preserved."
-  (when
-      (and personality
-           (integer-or-marker-p start)
-           (integer-or-marker-p end)
-           (not (= start end)))
-    (with-silent-modifications
-      (let ((v personality)
-            (orig (get-text-property start 'personality object))
-            (new nil)
-            (extent
-             (next-single-property-change start 'personality object end)))
-        (cond
-         ((null orig)                   ;simple case
-          (put-text-property start extent 'personality v object))
-         (t                            ;accumulate the new personality
-          (unless (or (eq v orig)
-                      (and (listp orig) (memq v orig)))
-            (setq new
-                  (cl-delete-duplicates
-                   (nconc
-                    (list v)
-                    (if (listp orig) orig (list orig)))))
-            (put-text-property start extent 'personality new
-                               object))))
-        (when (< extent end)            ; recurse if needed:
-          (emacspeak-personality-prepend extent end v object))))))
-
 (defun emacspeak-personality-remove  (start end personality &optional object)
   "Remove specified personality from text bounded by start and end.
 Preserve other existing personality properties on the text range."
@@ -231,21 +162,8 @@ Preserve other existing personality properties on the text range."
 ;;}}}
 ;;{{{ advice overlays
 
-(defcustom emacspeak-personality-voiceify-overlays
-  'emacspeak-personality-put
-  "Determines how and if we voiceify overlays.
-
-None means that overlay faces are not mapped to voices.
-Prepend means that the corresponding personality is prepended to the
-existing personalities on the text under overlay.
-
-Append means place corresponding personality at the end."
-  :type '(choice :tag "Overlay Voiceification"
-                 (const :tag "None" nil)
-                 (const :tag "Simple" emacspeak-personality-put)
-                 (const :tag "Prepend" emacspeak-personality-prepend)
-                 (const :tag "Append" emacspeak-personality-append))
-  :group 'emacspeak-personality)
+(defvar emacspeak-personality-voiceify-overlays #'emacspeak-personality-put
+  "Determines how and if we voiceify overlays. ")
 
 (defadvice overlay-put (after emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
