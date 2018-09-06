@@ -1532,7 +1532,10 @@ url
 (emacspeak-url-template-define
  "AQI: Air Quality Index"
  "https://airnow.gov/index.cfm?action=airnow.local_city&zipcode=%s"
- (list "ZipCode: ")
+ (list
+  #'(lambda nil
+      (read-from-minibuffer "State/City:"
+                            (bound-and-true-p  gweb-my-zip))))
  #'(lambda nil (eww-display-dom-by-class "QDataContent"))
  "Return Air Quality for specified zip-code")
 
