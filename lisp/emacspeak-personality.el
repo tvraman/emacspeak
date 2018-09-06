@@ -119,7 +119,7 @@
   "Apply personality to specified region,
 over-writing any current personality settings."
   (when
-      (andv
+      (and v
            (integer-or-marker-p start)
            (integer-or-marker-p end)
            (not (= start end)))
