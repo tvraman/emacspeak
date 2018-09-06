@@ -115,7 +115,7 @@
 ;;{{{ cumulative personalities
 
 ;;;###autoload
-(defun emacspeak-personality-put (start endv &optional object)
+(defun emacspeak-personality-put (start end v &optional object)
   "Apply personality to specified region,
 over-writing any current personality settings."
   (when
