@@ -271,9 +271,7 @@ Append means place corresponding personality at the end."
                (eq prop 'font-lock-face)
                (and (eq prop 'category) (get value 'face)))
            (integer-or-marker-p (overlay-start overlay))
-           (integer-or-marker-p (overlay-end overlay))
-           (not (= (integer-or-marker-p (overlay-start overlay))
-                   (integer-or-marker-p (overlay-end overlay)))))
+           (integer-or-marker-p (overlay-end overlay)))
         (and (eq prop 'category) (setq value (get value 'face)))
         (setq voice (dtk-get-voice-for-face value))
         (when voice
