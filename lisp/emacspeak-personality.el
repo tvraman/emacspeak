@@ -233,9 +233,8 @@ Preserve other existing personality properties on the text range."
           (if new
               (put-text-property start extent
                                  'personality new object)
-            (remove-text-properties start extent
-                                    (list 'personality)
-                                    object))
+            (put-text-property start extent
+                                    'personality nil object))
           (when (< extent end)
             (emacspeak-personality-remove extent end personality))))))))
 
@@ -290,10 +289,8 @@ Append means place corresponding personality at the end."
            (start (overlay-start o))
            (end (overlay-end o))
            (voice (dtk-get-voice-for-face (overlay-get o 'face))))
-      (when
-          (and  voice
-                buffer)
-        (with-current-buffer (overlay-buffer overlay)
+      (when (and  voice buffer)
+        (with-current-buffer buffer
           (with-silent-modifications
             (condition-case nil 
                 (emacspeak-personality-remove start end voice)
