@@ -41,7 +41,7 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; Implementation Notes From2018:
+;;; Implementation Notes From 2018:
 
 ;;; After 3 years, variable emacspeak-personality-voiceify-faces has
 ;;; been removed,
@@ -98,6 +98,8 @@
 ;;; part of Emacs that was at its nascent stage in 1994, but is now
 ;;; stable.
 
+;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -108,14 +110,6 @@
 (require 'emacspeak-sounds)
 (require 'advice)
 (require 'voice-setup)
-
-;;}}}
-;;{{{Face Helpers: 
-
-(defsubst emacspeak-personality-plist-face-p (plist)
-  "Check if plist contains a face setting."
-  (or (memq 'face plist)
-      (memq 'font-lock-face plist)))
 
 ;;}}}
 ;;{{{ cumulative personalities
@@ -135,18 +129,6 @@ over-writing any current personality settings."
              personality)))
       (with-silent-modifications
         (put-text-property start end 'personality v object)))))
-
-
-;;; Implementation Note:
-;;; Recursive calls to functions using with-silent-modifications
-;;; causes surprizes,
-;;; e.g. buffer shows up modified when there are no real
-;;; modifications.
-;;; Issue triggered by ediff.
-;;; Work-around: restore modification flag explicitly since we know we
-;;; didn't modify anything.
-;;; Removing above fix since it breaks flycheck.
-
 
 ;;;###autoload
 (defun emacspeak-personality-append  (start end personality &optional object)
