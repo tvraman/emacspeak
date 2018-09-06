@@ -292,9 +292,10 @@ Append means place corresponding personality at the end."
       (when (and  voice buffer)
         (with-current-buffer buffer
           (with-silent-modifications
-            (condition-case nil 
-                (emacspeak-personality-remove start end voice)
-              (error nil))))))))
+            (save-restriction
+              (widen)
+              (emacspeak-personality-remove start end voice)
+              )))))))
 
 (defadvice move-overlay (before emacspeak-personality pre act)
   "Used by emacspeak to augment font lock."
