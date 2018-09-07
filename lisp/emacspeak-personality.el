@@ -48,6 +48,8 @@
 ;;; and the advice on put-text-property and friends removed.
 ;;; This module nowlimits itself to mapping face/font-lock properties
 ;;; from overlays to the associated text-property (personality).
+;;; This mapping is done via emacspeak-personality-put.
+;;; The options for cumulative personalities have been removed.
 
 ;;; Implementation Notes From 2015:
 
