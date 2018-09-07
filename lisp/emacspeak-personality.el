@@ -107,9 +107,6 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
 (require 'advice)
 (require 'voice-setup)
 
