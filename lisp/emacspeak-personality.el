@@ -126,7 +126,7 @@ over-writing any current personality settings."
       (put-text-property start end 'personality voice object))))
 
 (defun emacspeak-personality-remove  (start end voice &optional object)
-  "Remove specified personalityVOICE from text bounded by start and end.
+  "Remove specified personality VOICE from text bounded by start and end.
 Preserve other existing personality properties on the text."
   (when
       (and voice
