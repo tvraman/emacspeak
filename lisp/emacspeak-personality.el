@@ -51,7 +51,7 @@
 
 ;;; Implementation Notes From 2015:
 
-;;; Setting emacspeak-personality-voiceify-faces to  
+;;; Setting emacspeak-personality-voiceify-faces to
 ;;; nil  now results in dtk-speak falling back to the
 ;;; face->voice mapping defined via voice-setup for the face at
 ;;; point. What this means:
@@ -123,8 +123,8 @@ over-writing any current personality settings."
            (integer-or-marker-p start)
            (integer-or-marker-p end)
            (not (= start end)))
-      (with-silent-modifications
-        (put-text-property start end 'personality v object))))
+    (with-silent-modifications
+      (put-text-property start end 'personality v object))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
   "Remove specified personality from text bounded by start and end.
@@ -155,7 +155,7 @@ Preserve other existing personality properties on the text range."
               (put-text-property start extent
                                  'personality new object)
             (put-text-property start extent
-                                    'personality nil object))
+                               'personality nil object))
           (when (< extent end)
             (emacspeak-personality-remove extent end personality))))))))
 
