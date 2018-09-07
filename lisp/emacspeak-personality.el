@@ -158,11 +158,9 @@ Preserve other existing personality properties on the text."
            (voice (dtk-get-voice-for-face (overlay-get o 'face))))
       (when (and  voice buffer)
         (with-current-buffer buffer
-          (with-silent-modifications
             (save-restriction
               (widen)
-              (emacspeak-personality-remove start end voice)
-              )))))))
+              (emacspeak-personality-remove start end voice)))))))
 
 (defadvice overlay-put (after emacspeak-personality pre act)
   "Used by emacspeak to augment font lock."
