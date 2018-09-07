@@ -115,7 +115,7 @@
 
 ;;;###autoload
 (defun emacspeak-personality-put (start end voice &optional object)
-  "Apply personalityVOICE to specified region,
+  "Apply personality VOICE to specified region,
 over-writing any current personality settings."
   (with-silent-modifications
     (when
@@ -125,21 +125,21 @@ over-writing any current personality settings."
              (not (= start end)))
       (put-text-property start end 'personalityvoice object))))
 
-(defun emacspeak-personality-remove  (start end personality &optional object)
-  "Remove specified personality  PERSONALITY from text bounded by start and end.
+(defun emacspeak-personality-remove  (start end voice &optional object)
+  "Remove specified personalityVOICE from text bounded by start and end.
 Preserve other existing personality properties on the text."
   (when
-      (and personality
+      (and voice
            (integer-or-marker-p start)
            (integer-or-marker-p end)
            (not (= start end)))
-    (with-silent-modifications ; need to do som ework
-      (let ((orig (get-text-property start 'personality object))
-            (new nil)
-            (lim (next-single-property-change start 'personality object end)))
-        (setq new (when (listp orig) (remove personality orig)))
+    (let ((orig (get-text-property start 'personality object))
+          (new nil)
+          (lim (next-single-property-change start 'personality object end)))
+      (setq new (when (listp orig) (remove voice orig)))
+      (with-silent-modifications
         (put-text-property start lim 'personality new object)
-        (when (< lim end) (emacspeak-personality-remove lim end personality))))))
+        (when (< lim end) (emacspeak-personality-remove lim end voice))))))
 
 ;;}}}
 ;;{{{ advice overlays
