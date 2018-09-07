@@ -114,11 +114,11 @@
 (require 'voice-setup)
 
 ;;}}}
-;;{{{ cumulative personalities
+;;{{{Apply Personality:
 
 ;;;###autoload
 (defun emacspeak-personality-put (start end v &optional object)
-  "Apply personality to specified region,
+  "Apply personality V to specified region,
 over-writing any current personality settings."
   (when
       (and v
