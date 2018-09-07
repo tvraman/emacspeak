@@ -117,12 +117,12 @@
 (defun emacspeak-personality-put (start end v &optional object)
   "Apply personality V to specified region,
 over-writing any current personality settings."
-  (when
-      (and v
-           (integer-or-marker-p start)
-           (integer-or-marker-p end)
-           (not (= start end)))
-    (with-silent-modifications
+  (with-silent-modifications
+    (when
+        (and v
+             (integer-or-marker-p start)
+             (integer-or-marker-p end)
+             (not (= start end)))
       (put-text-property start end 'personality v object))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
