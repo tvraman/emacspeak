@@ -126,8 +126,8 @@ over-writing any current personality settings."
       (put-text-property start end 'personality v object))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
-  "Remove specified personality from text bounded by start and end.
-Preserve other existing personality properties on the text range."
+  "Remove specified personality  PERSONALITY from text bounded by start and end.
+Preserve other existing personality properties on the text."
   (when
       (and personality
            (integer-or-marker-p start)
@@ -136,27 +136,10 @@ Preserve other existing personality properties on the text range."
     (with-silent-modifications
       (let ((orig (get-text-property start 'personality object))
             (new nil)
-            (extent
-             (next-single-property-change
-              start 'personality (current-buffer) end)))
-        (cond
-         ((null orig)                   ;simple case
-          (when (< extent end)
-            (emacspeak-personality-remove extent end personality)))
-         (t                             ;remove the new personality
-          (setq new
-                (cond
-                 ((equal orig personality) nil)
-                 ((listp orig)
-                  (remove personality orig))
-                 (t nil)))
-          (if new
-              (put-text-property start extent
-                                 'personality new object)
-            (put-text-property start extent
-                               'personality nil object))
-          (when (< extent end)
-            (emacspeak-personality-remove extent end personality))))))))
+            (lim (next-single-property-change start 'personality object end)))
+        (setq new (when (listp orig) (remove personality orig)))
+        (put-text-property start lim 'personality new object)
+        (when (< lim end) (emacspeak-personality-remove lim end personality))))))
 
 ;;}}}
 ;;{{{ advice overlays
