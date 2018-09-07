@@ -48,7 +48,7 @@
 ;;; and the advice on put-text-property and friends removed.
 ;;; This module nowlimits itself to mapping face/font-lock properties
 ;;; from overlays to the associated text-property (personality).
-;;; This mapping is done via emacspeak-personality-put.
+;;; This mapping is done via emacspeak-personality-add.
 ;;; The options for cumulative personalities have been removed.
 
 ;;; Implementation Notes From 2015:
@@ -114,7 +114,7 @@
 ;;{{{Apply Personality:
 
 ;;;###autoload
-(defun emacspeak-personality-put (start end voice &optional object)
+(defun emacspeak-personality-add (start end voice &optional object)
   "Apply personality VOICE to specified region,
 over-writing any current personality settings."
   (with-silent-modifications
@@ -144,7 +144,7 @@ Preserve other existing personality properties on the text."
 ;;}}}
 ;;{{{ advice overlays
 
-(defvar ems--voiceify-overlays #'emacspeak-personality-put
+(defvar ems--voiceify-overlays #'emacspeak-personality-add
   "Determines how and if we voiceify overlays. ")
 
 (defadvice delete-overlay (before emacspeak-personality  pre act)
