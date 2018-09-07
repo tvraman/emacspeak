@@ -114,16 +114,16 @@
 ;;{{{Apply Personality:
 
 ;;;###autoload
-(defun emacspeak-personality-put (start end v &optional object)
-  "Apply personality V to specified region,
+(defun emacspeak-personality-put (start end voice &optional object)
+  "Apply personalityVOICE to specified region,
 over-writing any current personality settings."
   (with-silent-modifications
     (when
-        (and v
+        (and voice
              (integer-or-marker-p start)
              (integer-or-marker-p end)
              (not (= start end)))
-      (put-text-property start end 'personality v object))))
+      (put-text-property start end 'personalityvoice object))))
 
 (defun emacspeak-personality-remove  (start end personality &optional object)
   "Remove specified personality  PERSONALITY from text bounded by start and end.
