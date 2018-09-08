@@ -119,10 +119,9 @@
 over-writing any current personality settings."
   (with-silent-modifications
     (when
-        (and voice
-             (integer-or-marker-p start)
-             (integer-or-marker-p end)
-             (not (= start end)))
+        (and
+         (integerp start) (integerp end)
+         (not (= start end)))
       (put-text-property start end 'personality voice object))))
 
 (defun emacspeak-personality-remove  (start end voice &optional object)
@@ -145,17 +144,16 @@ over-writing any current personality settings."
 (defadvice delete-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment font lock."
   (when ems--voiceify-overlays
-    (let* ((inhibit-read-only  t)
-           (o (ad-get-arg 0))
+    (let* ((o (ad-get-arg 0))
            (buffer (overlay-buffer o))
            (start (overlay-start o))
            (end (overlay-end o))
            (voice (dtk-get-voice-for-face (overlay-get o 'face))))
       (when (and  voice buffer)
         (with-current-buffer buffer
-            (save-restriction
-              (widen)
-              (emacspeak-personality-remove start end voice)))))))
+          (save-restriction
+            (widen)
+            (emacspeak-personality-remove start end voice)))))))
 
 (defadvice overlay-put (after emacspeak-personality pre act)
   "Used by emacspeak to augment font lock."
