@@ -1536,7 +1536,7 @@ url
   #'(lambda nil
       (read-from-minibuffer "State/City:"
                             (bound-and-true-p  gweb-my-zip))))
- #'(lambda nil (eww-display-dom-by-class "QDataContent"))
+ #'(lambda nil (eww-display-dom-by-class "AQDataContent"))
  "Return Air Quality for specified zip-code")
 
 ;;}}}
