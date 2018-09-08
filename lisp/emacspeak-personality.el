@@ -128,14 +128,13 @@ over-writing any current personality settings."
 (defun emacspeak-personality-remove  (start end voice &optional object)
   "Remove specified personality VOICE from text bounded by start and end. "
   (when
-      (and voice
-           (integer-or-marker-p start)
-           (integer-or-marker-p end)
-           (not (= start end)))
-    (let ((orig (get-text-property start 'personality object)))
-      (when  (eq voice orig)
-        (with-silent-modifications
-          (put-text-property start end 'personality nil object))))))
+      (and
+       voice
+       (integerp start) (integerp end)
+       (not (= start end))
+       (eq voice (get-text-property start 'personality object)))
+    (with-silent-modifications
+      (put-text-property start end 'personality nil object))))
 
 ;;}}}
 ;;{{{ advice overlays
