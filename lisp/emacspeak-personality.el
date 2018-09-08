@@ -167,8 +167,8 @@ over-writing any current personality settings."
            (or (eq prop 'face)
                (eq prop 'font-lock-face)
                (and (eq prop 'category) (get value 'face)))
-           (integer-or-marker-p(overlay-start overlay))
-           (integer-or-marker-p (overlay-end overlay)))
+           (integerp (overlay-start overlay))
+           (integerp (overlay-end overlay)))
         (and (eq prop 'category) (setq value (get value 'face)))
         (setq voice (dtk-get-voice-for-face value))
         (when voice
@@ -188,8 +188,8 @@ over-writing any current personality settings."
            (voice (dtk-get-voice-for-face (overlay-get overlay 'face))))
       (when
           (and voice
-               (integer-or-marker-p (overlay-start overlay))
-               (integer-or-marker-p (overlay-end overlay)))
+               (integerp (overlay-start overlay))
+               (integerp (overlay-end overlay)))
         (emacspeak-personality-remove
          (overlay-start overlay) (overlay-end overlay)
          voice (overlay-buffer overlay))
