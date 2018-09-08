@@ -132,11 +132,10 @@ over-writing any current personality settings."
            (integer-or-marker-p start)
            (integer-or-marker-p end)
            (not (= start end)))
-    (let ((orig (get-text-property start 'personality object))
-          (new nil))
-      (setq new (when (listp orig) (remove voice orig)))
-      (with-silent-modifications
-        (put-text-property start end 'personality new object)))))
+    (let ((orig (get-text-property start 'personality object)))
+      (when  (eq voice orig)
+        (with-silent-modifications
+          (put-text-property start end 'personality nil object))))))
 
 ;;}}}
 ;;{{{ advice overlays
