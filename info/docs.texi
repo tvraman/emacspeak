@@ -1530,6 +1530,7 @@ r		org-capture
 s		emacspeak-wizards-shell
 t		twit
 u		emacspeak-url-template-fetch
+v		vdiff-magit-popup
 w		emacspeak-wizards-quick-weather
 
 SPC SPC		emacspeak-webspace-headlines-browse
@@ -1548,6 +1549,7 @@ SPC		emacspeak-wizards-scratch
 R		emacspeak-webspace-feed-reader
 S		soundscape-stop
 a		emacspeak-wizards-execute-asynchronously
+c		calculator
 d		emacspeak-dired-downloads
 e		elfeed
 f		flyspell-mode
@@ -12921,6 +12923,7 @@ The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
 "C-f":    ‘turn-on-folding-mode’,
+"C":    ‘(call-interactively #’flycheck-mode)’,
 "F":    ‘(call-interactively #’flyspell-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
 "d":    ‘(call-interactively #’toggle-debug-on-error)’,
@@ -14098,17 +14101,19 @@ Provide additional advice to perl-mode
 @node emacspeak-personality
 @section emacspeak-personality
 
-Implementation Notes From2018:
+Implementation Notes From 2018:
 
 After 3 years, variable emacspeak-personality-voiceify-faces has
 been removed,
 and the advice on put-text-property and friends removed.
 This module nowlimits itself to mapping face/font-lock properties
 from overlays to the associated text-property (personality).
+This mapping is done via emacspeak-personality-add.
+The options for cumulative personalities have been removed.
 
 Implementation Notes From 2015:
 
-Setting emacspeak-personality-voiceify-faces to  
+Setting emacspeak-personality-voiceify-faces to
 nil  now results in dtk-speak falling back to the
 face->voice mapping defined via voice-setup for the face at
 point. What this means:
@@ -14127,19 +14132,6 @@ Implementation Notes from 2002.
 
 This module defines a personality interface for implementing voice
 lock via font lock.
-
-@subsection emacspeak-personality Options
-
-@defvar {User Option} emacspeak-personality-voiceify-overlays
-Determines how and if we voiceify overlays.
-
-None means that overlay faces are not mapped to voices.
-Prepend means that the corresponding personality is prepended to the
-existing personalities on the text under overlay.
-
-Append means place corresponding personality at the end.
-
-@end defvar
 
 @node emacspeak-php-mode
 @section emacspeak-php-mode
@@ -14523,16 +14515,14 @@ Writes out the persistent emacspeak pronunciation dictionaries.
 
 @format
 Toggle use of pronunciation dictionaries in current buffer.
-Pronunciations can be defined on a per file, per directory and/or per
-mode basis.
-Pronunciations are activated on a per buffer basis.
-Turning on the use of pronunciation dictionaries results in emacspeak
-composing a pronunciation table based on the currently defined
-pronunciation dictionaries.
-After this, the pronunciations will be applied whenever text in the
-buffer is spoken.
-Optional argument state can be used from Lisp programs to
-explicitly turn pronunciations on or off.
+Pronunciations can be defined on a per file, per directory and/or
+per mode basis.  Pronunciations are activated on a per buffer
+basis.  Turning on the use of pronunciation dictionaries results
+in emacspeak composing a pronunciation table based on the
+currently defined pronunciation dictionaries.  After this, the
+pronunciations will be applied whenever text in the buffer is
+spoken.  Optional argument state can be used from Lisp programs
+to explicitly turn pronunciations on or off.
 
 (fn &optional STATE)
 @end format
@@ -15657,7 +15647,7 @@ Call search defined in <search>.
 @findex emacspeak-shell-command
 
 @format
-Run shell command and speak its output.
+Run shell command COMMANDAND speak its output.
 
 (fn COMMAND)
 @end format
@@ -20819,6 +20809,11 @@ Yank link under point into kill ring.
 
 @subsection emacspeak-webspace Options
 
+@defvar {User Option} emacspeak-webspace-feeds
+Feeds to use in Headline Ticker.
+
+@end defvar
+
 @defvar {User Option} emacspeak-webspace-kg-key
 API Key for Google Knowledge Graph.
 
@@ -25455,7 +25450,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 82 URL Templates.
+This section documents a total of 83 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25472,6 +25467,10 @@ Each URL template carries out the following steps:
 
 As an example, the URL template for weather forecasts
 prompts for a location and speaks the forecast. 
+
+@b{AQI: Air Quality Index}
+
+Return Air Quality for specified zip-code
 
 @b{Air Traffic Control}
 

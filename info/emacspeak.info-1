@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 26, 2018.
+last updated on September 8, 2018.
 
    The manual is divided into the following chapters:
 
@@ -4030,6 +4030,7 @@ system.
      s		emacspeak-wizards-shell
      t		twit
      u		emacspeak-url-template-fetch
+     v		vdiff-magit-popup
      w		emacspeak-wizards-quick-weather
 
      SPC SPC		emacspeak-webspace-headlines-browse
@@ -4048,6 +4049,7 @@ system.
      R		emacspeak-webspace-feed-reader
      S		soundscape-stop
      a		emacspeak-wizards-execute-asynchronously
+     c		calculator
      d		emacspeak-dired-downloads
      e		elfeed
      f		flyspell-mode

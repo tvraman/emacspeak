@@ -397,7 +397,7 @@ Argument `k-map' is a symbol  that names a keymap."
            :post emacspeak-hydra-post)
    "
 _C-f_ turn-on-folding-mmode       %`folding-mode
-_C_flycheck-mode:       %`flycheck-mode
+_C_flycheck-mode:       
 _F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error

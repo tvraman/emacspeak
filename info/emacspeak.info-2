@@ -6282,6 +6282,7 @@ binds ‘s’ to this command.
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
      "C-f":    ‘turn-on-folding-mode’,
+     "C":    ‘(call-interactively #’flycheck-mode)’,
      "F":    ‘(call-interactively #’flyspell-mode)’,
      "a":    ‘(call-interactively #’abbrev-mode)’,
      "d":    ‘(call-interactively #’toggle-debug-on-error)’,
@@ -7299,12 +7300,14 @@ File: emacspeak.info,  Node: emacspeak-personality,  Next: emacspeak-php-mode,  
 12.137 emacspeak-personality
 ============================
 
-Implementation Notes From2018:
+Implementation Notes From 2018:
 
    After 3 years, variable emacspeak-personality-voiceify-faces has been
 removed, and the advice on put-text-property and friends removed.  This
 module nowlimits itself to mapping face/font-lock properties from
-overlays to the associated text-property (personality).
+overlays to the associated text-property (personality).  This mapping is
+done via emacspeak-personality-add.  The options for cumulative
+personalities have been removed.
 
    Implementation Notes From 2015:
 
@@ -7325,18 +7328,6 @@ voice-locking.
 
    This module defines a personality interface for implementing voice
 lock via font lock.
-
-12.137.1 emacspeak-personality Options
---------------------------------------
-
- -- Variable: User Option emacspeak-personality-voiceify-overlays
-     Determines how and if we voiceify overlays.
-
-     None means that overlay faces are not mapped to voices.  Prepend
-     means that the corresponding personality is prepended to the
-     existing personalities on the text under overlay.
-
-     Append means place corresponding personality at the end.
 
 
 File: emacspeak.info,  Node: emacspeak-php-mode,  Next: emacspeak-pianobar,  Prev: emacspeak-personality,  Up: Emacspeak Commands And Options
@@ -7678,16 +7669,14 @@ given file.
           state)
 
      Toggle use of pronunciation dictionaries in current buffer.
-     Pronunciations can be defined on a per file, per directory and/or per
-     mode basis.
-     Pronunciations are activated on a per buffer basis.
-     Turning on the use of pronunciation dictionaries results in emacspeak
-     composing a pronunciation table based on the currently defined
-     pronunciation dictionaries.
-     After this, the pronunciations will be applied whenever text in the
-     buffer is spoken.
-     Optional argument state can be used from Lisp programs to
-     explicitly turn pronunciations on or off.
+     Pronunciations can be defined on a per file, per directory and/or
+     per mode basis.  Pronunciations are activated on a per buffer
+     basis.  Turning on the use of pronunciation dictionaries results
+     in emacspeak composing a pronunciation table based on the
+     currently defined pronunciation dictionaries.  After this, the
+     pronunciations will be applied whenever text in the buffer is
+     spoken.  Optional argument state can be used from Lisp programs
+     to explicitly turn pronunciations on or off.
 
      (fn &optional STATE)
 
@@ -8647,7 +8636,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e $’
      ‘<fn> $’
 
-     Run shell command and speak its output.
+     Run shell command COMMANDAND speak its output.
 
      (fn COMMAND)
 
