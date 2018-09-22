@@ -192,6 +192,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{Youtube News:
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
+(declare-function eww-display-dom-by-class "emacspeak-eww" (class))
 
 (emacspeak-url-template-define
  "Youtube News"
@@ -1538,6 +1539,27 @@ url
                             (bound-and-true-p  gweb-my-zip))))
  #'(lambda nil (eww-display-dom-by-class "AQDataContent"))
  "Return Air Quality for specified zip-code")
+
+;;}}}
+;;{{{Reddit At Point:
+
+(declare-function shr-url-at-point "shr" (image-url))
+
+
+(emacspeak-url-template-define
+ "Reddit At Point."
+ ""
+ nil
+ nil
+ "Open RSS Feed for Reddit URL under point."
+ #'(lambda (_url)
+     (let ((url (shr-url-at-point nil)))
+       (cl-assert url t "No URL under point.")
+       (cl-assert
+        (string-match "https://www.reddit.com" url) t
+        "Does not look like a Reddit URL")
+       (emacspeak-feeds-atom-display
+        (concat url ".rss")))))
 
 ;;}}}
 (provide 'emacspeak-url-template)
