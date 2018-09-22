@@ -1548,9 +1548,7 @@ url
 
 (emacspeak-url-template-define
  "Reddit At Point."
- ""
- nil
- nil
+ "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)
      (let ((url (shr-url-at-point nil)))
@@ -1558,8 +1556,7 @@ url
        (cl-assert
         (string-match "https://www.reddit.com" url) t
         "Does not look like a Reddit URL")
-       (emacspeak-feeds-atom-display
-        (concat url ".rss")))))
+       (emacspeak-feeds-atom-display (concat url ".rss")))))
 
 ;;}}}
 (provide 'emacspeak-url-template)
