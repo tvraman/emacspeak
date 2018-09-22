@@ -1558,6 +1558,15 @@ url
         "Does not look like a Reddit URL")
        (emacspeak-feeds-atom-display (concat url ".rss")))))
 
+
+(emacspeak-url-template-define
+ "RedditBy Topic."
+ "https://www.reddit.com/r/%s/.rss"
+ (list "Topic:")
+ nil
+ "Open RSS Feed for Reddit Topic."
+ #'emacspeak-feeds-atom-display)
+
 ;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
