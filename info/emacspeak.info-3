@@ -6231,7 +6231,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.232 URL Templates
 ====================
 
-This section documents a total of 83 URL Templates.
+This section documents a total of 85 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u C-; u <fn> u C-x
@@ -6484,6 +6484,14 @@ template.
    RadioTime Search
 
    RadioTime Search.
+
+   Reddit At Point.
+
+   Open RSS Feed for Reddit URL under point.
+
+   RedditBy Topic.
+
+   Open RSS Feed for Reddit Topic.
 
    Seeking Alpha Stock Search
 
