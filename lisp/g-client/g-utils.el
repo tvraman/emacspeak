@@ -93,7 +93,7 @@ For now, this is blogger specific."
   :group 'g)
 
 (defcustom g-curl-common-options
-  "--http1.0 --compressed --silent --location --location-trusted --max-time 2 --connect-timeout 1"
+  "--http1.0 --compressed --silent --location --location-trusted --max-time 4 --connect-timeout 1"
   "Common options to pass to all Curl invocations."
   :type 'string
   :group 'g)
