@@ -315,7 +315,7 @@ and xsl environment specified by style, params and options."
 (defvar emacspeak-webutils-document-title nil
   "Function variable returning the current document title.")
 
-(defvar emacspeak-webutils-url-at-point nil
+(defvar emacspeak-webutils-url-at-point #'shr-url-at-point
   "Function variable returning the value of the url under point
   in a Web page.")
 
