@@ -226,10 +226,10 @@ or URL read from minibuffer."
 (defun emacspeak-webutils-read-this-url ()
   "Return URL under point
 or URL read from minibuffer."
-  (cl-declare (special emacspeak-webutils-url-at-point))
-  (if (functionp  emacspeak-webutils-url-at-point)
-      (funcall emacspeak-webutils-url-at-point)
-    (car (browse-url-interactive-arg "URL: "))))
+  (let ((url (shr-url-at-point nil)))
+    (if url
+        url 
+      (car (browse-url-interactive-arg "URL: ")))))
 
 ;;;  Helper: rename result buffer
 (defun emacspeak-webutils-rename-buffer (key)
