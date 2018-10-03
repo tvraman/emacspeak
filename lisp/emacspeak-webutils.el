@@ -42,16 +42,18 @@
 
 ;;; Commentary:
 ;;; This module provides common Web utilities for emacspeak.
+;;; Code:
+
 ;;}}}
 ;;{{{ required modules
 
-;;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'url-http)
 (require 'url)
 (require 'browse-url)
+
 ;;}}}
 ;;{{{ Utility: Render HTML To String
 ;;;###autoload
