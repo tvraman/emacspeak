@@ -57,10 +57,10 @@
 
 ;;}}}
 ;;{{{ Utility: Render HTML To String
+
 ;;;###autoload
 (defun emacspeak-webutils-html-string (html-string)
   "Return formatted string."
-  (or (require 'shr) (error "Need  emacs 24.4"))
   (with-temp-buffer
     (insert html-string)
     (shr-render-region  (point-min) (point-max))
@@ -213,15 +213,7 @@ Forward punctuation and rate  settings to resulting buffer."
   (unless (eq major-mode 'eww-mode)
     (error "This command cannot be used outside browser buffers.")))
 
-(defun emacspeak-webutils-read-url ()
-  "Return URL of current page,
-or URL read from minibuffer."
-  (cl-declare (special emacspeak-webutils-current-url))
-  (if (functionp  emacspeak-webutils-current-url)
-      (funcall emacspeak-webutils-current-url)
-    (read-from-minibuffer "URL: "
-                          (or (browse-url-url-at-point)
-                              "http://"))))
+(defalias 'emacspeak-webutils-read-url 'emacspeak-webutils-read-this-url)
 
 (defun emacspeak-webutils-read-this-url ()
   "Return URL under point
@@ -322,13 +314,6 @@ and xsl environment specified by style, params and options."
 (defvar emacspeak-webutils-current-url nil
   "Function variable returning the value of the current document
   url in a Web page.")
-
-(make-variable-buffer-local 'emacspeak-webutils-document-title)
-(make-variable-buffer-local 'emacspeak-webutils-url-at-point)
-(make-variable-buffer-local 'emacspeak-webutils-current-url)
-
-;;}}}
-;;{{{ Properties from HTML stack:
 
 ;;}}}
 ;;{{{  google tools
