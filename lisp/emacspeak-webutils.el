@@ -53,6 +53,7 @@
 (require 'url-http)
 (require 'url)
 (require 'browse-url)
+(require 'shr)
 
 ;;}}}
 ;;{{{ Utility: Render HTML To String
