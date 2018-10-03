@@ -42,9 +42,6 @@
 
 ;;; Commentary:
 ;;; This module provides common Web utilities for emacspeak.
-;;; This is to avoid duplication of code  in web support libraries
-
-
 ;;}}}
 ;;{{{ required modules
 
