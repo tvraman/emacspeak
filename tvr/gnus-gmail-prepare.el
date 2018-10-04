@@ -26,8 +26,8 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
      ;;}}}
      ;;{{{ Tests:
 
-;;; (auth-source-xoauth2--search nil nil nil "raman@google.com" nil)
-;;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1)
+;;; (auth-source-xoauth2--search nil nil "gmail" "raman@google.com""993")
+;;; (auth-source-search :host "smtp.gmail.com" :user "raman@google.com" :type 'xoauth2 :max 1 :port "465")
 
      ;;}}}
      ;;{{{ Sending Mail:
