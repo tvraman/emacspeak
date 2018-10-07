@@ -1,13 +1,13 @@
 #+TITLE: 2018 FIFA World Cup
 #+CATEGORY: Football
 
-#+HEADERS: :var n=-2
+#+HEADERS: :var n=-10
 #+begin_src emacs-lisp :results silent
 (save-excursion
   (goto-char (point-min))
   (while (re-search-forward "[[<]" nil t)
     (when (org-at-timestamp-p t)
-      (org-timestamp-change -10 'hour))))
+      (org-timestamp-change n 'hour))))
 #+end_src
 
 * Group A                                                            :GroupA:
