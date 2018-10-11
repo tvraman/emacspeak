@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1233 commands and 894 options.
+This chapter documents a total of 1234 commands and 894 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -18843,6 +18843,8 @@ Speak the board
 Speak board by column.
 @item .
 Speak current score.
+@item ,
+Speak  number of zeros on the board.
 @item s
 Save current state
 @item u
@@ -18952,6 +18954,15 @@ Speak the score.
 
 @format
 Speak the board.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-speak-empty-count
+@deffn {Command} emacspeak-threes-speak-empty-count   
+@findex emacspeak-threes-speak-empty-count
+
+@format
+Speak number of cells that are non-empty.
 @end format
 @end deffn
 
@@ -20823,7 +20834,6 @@ API Key for Google Knowledge Graph.
 @section emacspeak-webutils
 
 This module provides common Web utilities for emacspeak.
-This is to avoid duplication of code  in web support libraries
 
 @subsection emacspeak-webutils Commands
 

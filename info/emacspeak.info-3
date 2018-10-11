@@ -1067,6 +1067,8 @@ well as getting a column-specific view of the board.
      Speak board by column.
 ‘.’
      Speak current score.
+‘,’
+     Speak number of zeros on the board.
 ‘s’
      Save current state
 ‘u’
@@ -1159,14 +1161,21 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      Speak the board.
 
-12.187.1.11 emacspeak-threes-speak-next
+12.187.1.11 emacspeak-threes-speak-empty-count
+..............................................
+
+ -- Command: emacspeak-threes-speak-empty-count
+
+     Speak number of cells that are non-empty.
+
+12.187.1.12 emacspeak-threes-speak-next
 .......................................
 
  -- Command: emacspeak-threes-speak-next
 
      Speak upcoming tile.
 
-12.187.1.12 emacspeak-threes-speak-transposed-board
+12.187.1.13 emacspeak-threes-speak-transposed-board
 ...................................................
 
  -- Command: emacspeak-threes-speak-transposed-board
@@ -2630,8 +2639,7 @@ File: emacspeak.info,  Node: emacspeak-webutils,  Next: emacspeak-widget,  Prev:
 12.201 emacspeak-webutils
 =========================
 
-This module provides common Web utilities for emacspeak.  This is to
-avoid duplication of code in web support libraries
+This module provides common Web utilities for emacspeak.
 
 12.201.1 emacspeak-webutils Commands
 ------------------------------------
@@ -7854,7 +7862,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M:                                emacspeak-speak.    (line  649)
 * <fn> m:                                emacspeak-speak.    (line  661)
 * <fn> M-%:                              emacspeak-speak.    (line   68)
-* <fn> M-;:                              emacspeak-webutils. (line   73)
+* <fn> M-;:                              emacspeak-webutils. (line   72)
 * <fn> M-a:                              emacspeak-sounds.   (line   43)
 * <fn> M-b:                              emacspeak-speak.    (line  708)
 * <fn> M-c:                              emacspeak-wizards.  (line   68)
@@ -8257,7 +8265,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M:                                 emacspeak-speak.    (line  648)
 * C-e m:                                 emacspeak-speak.    (line  660)
 * C-e M-%:                               emacspeak-speak.    (line   67)
-* C-e M-;:                               emacspeak-webutils. (line   72)
+* C-e M-;:                               emacspeak-webutils. (line   71)
 * C-e M-a:                               emacspeak-sounds.   (line   42)
 * C-e M-b:                               emacspeak-speak.    (line  707)
 * C-e M-c:                               emacspeak-wizards.  (line   67)
