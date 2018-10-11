@@ -63,6 +63,8 @@
 ;;; Speak board by column.
 ;;; @item .
 ;;; Speak current score.
+;;; @item ,
+;;; Speak  number of zeros on the board.
 ;;; @item s
 ;;; Save current state
 ;;; @item u
@@ -143,7 +145,7 @@
     (cl-loop
      for r in threes-cells  do
      (cl-loop for e in r
-              when (zerop e) do  (incf count)))
+              when (zerop e) do  (cl-incf count)))
     (dtk-speak  (format " %d zeros" count))))
 
 (defun emacspeak-threes-speak-next ()
