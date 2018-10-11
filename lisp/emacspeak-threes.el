@@ -135,7 +135,7 @@
       (emacspeak-auditory-icon 'item))))
 
 
-(defun emacspeak-threes-speak-nonempty-count ()
+(defun emacspeak-threes-speak-empty-count ()
   "Speak number of cells that are non-empty."
   (interactive)
   (cl-declare (special threes-cells))
@@ -143,8 +143,8 @@
     (cl-loop
      for r in threes-cells  do
      (cl-loop for e in r
-              unless (zerop e) do  (incf count)))
-    (dtk-speak  (format " %d " count))))
+              when (zerop e) do  (incf count)))
+    (dtk-speak  (format " %d zeros" count))))
 
 (defun emacspeak-threes-speak-next ()
   "Speak upcoming tile."
@@ -173,7 +173,7 @@
   (define-key threes-mode-map "g" 'threes)
   (define-key threes-mode-map " " 'emacspeak-threes-speak-board)
   (define-key threes-mode-map "." 'emacspeak-threes-score)
-  (define-key threes-mode-map "," 'emacspeak-threes-speak-nonempty-count)
+  (define-key threes-mode-map "," 'emacspeak-threes-speak-empty-count)
   (define-key threes-mode-map "/" 'emacspeak-threes-speak-transposed-board)
   (define-key threes-mode-map "?" 'emacspeak-threes-speak-next)
   (define-key threes-mode-map "n" 'threes-down)
