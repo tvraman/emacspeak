@@ -141,12 +141,12 @@
   "Speak number of cells that are non-empty."
   (interactive)
   (cl-declare (special threes-cells))
-  (let ((count 0))
-    (cl-loop
-     for r in threes-cells  do
-     (cl-loop for e in r
-              when (zerop e) do  (cl-incf count)))
-    (dtk-speak  (format " %d zeros" count))))
+  (dtk-speak
+   (format " %d zeros"
+           (apply
+            #'+
+            (mapcar #'(lambda (s) (cl-count-if #'zerop s))
+             threes-cells)))))
 
 (defun emacspeak-threes-speak-next ()
   "Speak upcoming tile."
