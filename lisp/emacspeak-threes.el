@@ -143,10 +143,9 @@
   (cl-declare (special threes-cells))
   (dtk-speak
    (format " %d zeros"
-           (apply
-            #'+
-            (mapcar #'(lambda (s) (cl-count-if #'zerop s))
-             threes-cells)))))
+           (apply #'+
+                  (mapcar #'(lambda (s) (cl-count-if #'zerop s))
+                          threes-cells)))))
 
 (defun emacspeak-threes-speak-next ()
   "Speak upcoming tile."
