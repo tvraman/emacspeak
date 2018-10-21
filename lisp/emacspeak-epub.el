@@ -1007,7 +1007,9 @@ Letters do not insert themselves; instead, they are commands.
   "Open web page for specified book.
 Place download url for epub in kill ring.
 With interactive prefix arg `download', download the epub."
-  (interactive "sBook-Id: ")
+  (interactive
+   (list (read-from-minibuffer "Book-Id:")
+         current-prefix-arg))
   (let ((file
          (expand-file-name
           (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
