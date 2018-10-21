@@ -193,6 +193,15 @@ Uses corpus found in gweb-completion-corpus"
    (t ad-do-it))
   ad-return-value)
 
+
+(defadvice minibuffer-complete-word (around emacspeak pre act comp)
+  "Fix up ido-complete-space for use with Google autocomplete."
+  (cond
+   (gweb-completion-flag  (insert-char  ?\ )
+                          (emacspeak-speak-word))
+   (t ad-do-it))
+  ad-return-value)
+
 ;;}}}
 (provide 'gweb)
 ;;{{{ end of file
