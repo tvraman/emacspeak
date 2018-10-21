@@ -184,23 +184,20 @@ Uses corpus found in gweb-completion-corpus"
   "Autocomplete using News Search corpus."
   (let ((gweb-completion-corpus "n"))
     (gweb--autocomplete-helper (or prompt "News: "))))
+(cl-loop
+ for f in
+ '(ido-complete-space minibuffer-complete-word) do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+       "Fix up ido-complete-space for use with Google autocomplete."
+     (cond
+      (gweb-completion-flag (insert-char ?\ )
+                            (emacspeak-speak-word))
+      (t ad-do-it))
+     ad-return-value)))
 
-(defadvice ido-complete-space (around emacspeak pre act comp)
-  "Fix up ido-complete-space for use with Google autocomplete."
-  (cond
-   (gweb-completion-flag  (insert-char  ?\ )
-                          (emacspeak-speak-word))
-   (t ad-do-it))
-  ad-return-value)
 
 
-(defadvice minibuffer-complete-word (around emacspeak pre act comp)
-  "Fix up ido-complete-space for use with Google autocomplete."
-  (cond
-   (gweb-completion-flag  (insert-char  ?\ )
-                          (emacspeak-speak-word))
-   (t ad-do-it))
-  ad-return-value)
 
 ;;}}}
 (provide 'gweb)
