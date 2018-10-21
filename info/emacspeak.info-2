@@ -4919,6 +4919,8 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url)
+     ‘C-, y’
+     ‘C-x @ a y’
 
      Use youtube-dl and mplayer to stream the audio for YouTube content.
 

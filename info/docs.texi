@@ -1590,6 +1590,7 @@ s		emacspeak-wizards-tune-in-radio-search
 t		emacspeak-wizards-tune-in-radio-browse
 u		emacspeak-m-player-url
 v		visual-line-mode
+y		emacspeak-m-player-youtube-player
 
 .
 
@@ -11361,6 +11362,13 @@ Invoke mp3splt to clip selected range in current file.
 
 @subsubsection emacspeak-m-player-youtube-player
 @deffn {Command} emacspeak-m-player-youtube-player  (url)
+@table @kbd
+@item C-, y
+@kindex C-, y
+@item C-x @@ a y
+@kindex C-x @@ a y
+@end table
+
 @findex emacspeak-m-player-youtube-player
 
 @format

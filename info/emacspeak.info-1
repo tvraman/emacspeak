@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 10, 2018.
+last updated on October 21, 2018.
 
    The manual is divided into the following chapters:
 
@@ -4090,6 +4090,7 @@ system.
      t		emacspeak-wizards-tune-in-radio-browse
      u		emacspeak-m-player-url
      v		visual-line-mode
+     y		emacspeak-m-player-youtube-player
 
      .
 
