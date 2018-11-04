@@ -189,11 +189,11 @@ Uses corpus found in gweb-completion-corpus"
  '(ido-complete-space minibuffer-complete-word) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-       "Fix up ido-complete-space for use with Google autocomplete."
+     "Fix up ido-complete-space for use with Google autocomplete."
      (cond
       (gweb-completion-flag (insert-char ?\ ))
-      (t ad-do-it
-         (emacspeak-speak-word)))
+      (t ad-do-it))
+     (emacspeak-speak-word)
      ad-return-value)))
 
 
