@@ -1,8 +1,7 @@
 ;; -*- lexical-binding: nil; -*-
-;(load-library "slime-autoloads")
 (eval-after-load "slime"
   `(progn
-     (setq inferior-lisp-program (executable-find "clisp"))
+     (setq inferior-lisp-program (executable-find "sbcl"))
      (setq common-lisp-hyperspec-root
            (if (file-exists-p "/usr/share/doc/hyperspec/")
                "file:///usr/share/doc/hyperspec/"

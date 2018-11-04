@@ -1,0 +1,14 @@
+* Overview 
+
+[[https://github.com/atlas-engineer/next][Next]] is a  web-browser written in Common Lisp atop Webkit.
+Nextalk aims to speech-enable Next 
+: emacs::emacspeak <->  Next::Nextalk.
+
+* Building Next
+
+On my Debian box, I needed to:
+
+  1. Update my installation of quicklisp 
+    :  (ql:update-dist "quicklisp")
+  2. Install _cl-webkit_ under _quicklisp/local_ from  https://github.com/next-browser/cl-webkit 
+  3. with the above, the browser builds and runs cleanly under SBCL.
