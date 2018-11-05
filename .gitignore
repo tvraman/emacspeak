@@ -1,6 +1,9 @@
 *.elc
 *.pyc
 *.el~
+*.lib
+*.fasl
+*.fas
 *.o
 # ignore generated files:
 README
