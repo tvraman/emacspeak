@@ -2,10 +2,10 @@
 ;;; tts.lisp -- Common Lisp interface to Emacspeak speech servers
 ;;; $Author: tv.raman.tv $
 ;;; Description: Interface Common Lisp to Emacspeak TTS servers
-;;; Keywords: AsTeR, Emacspeak, Audio Desktop
+;;; Keywords: Next, Emacspeak, Audio Desktop
 ;;{{{ Copyright:
 
-;;; Copyright (C) 2011 -- 2016, T. V. Raman<tv.raman.tv@gmail.com>
+;;; Copyright (C) 2011 -- 2018, T. V. Raman<tv.raman.tv@gmail.com>
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -32,20 +32,32 @@
 
 ;;}}}
 ;;{{{Package:
+
 (in-package :cl-user)
 
 (defpackage :tts
   (:use :common-lisp)
   (:export
- #:code #:queue #:speak #:letter #:speak-list #:icon
- #:pause #:stop #:force
- #:init #:shutdown)
-  )
-(in-package :tts)
+   #:code #:queue #:speak #:letter #:speak-list #:icon
+   #:pause #:stop #:force
+   #:init #:shutdown))
 
+(in-package :tts)
 
 ;;}}}
 ;;{{{ Setup:
+
+(defvar *emacspeak*
+  "/home/raman/emacs/lisp/emacspeak/"
+  "Root of Emacspeak installation.")
+
+(defun tts-location (engine)
+  "Return location of specified engine."
+  (declare (special *emacspeak*))
+  (concatenate 'string *emacspeak* "servers/" engine))
+
+(defvar *tts* nil
+  "Handle to tts server connection.")
 
 (defun tts ()
   "Return handle to TTS server."
@@ -55,24 +67,11 @@
 ;;; A TTS structure holds the engine name, process handle, and input/output streams.
 (defstruct tts engine process input output )
 
-(defvar *emacspeak*
-  "/home/raman/emacs/lisp/emacspeak/"
-  "Root of Emacspeak installation.")
-(defun tts-location (engine)
-  "Return location of specified engine."
-  (declare (special *emacspeak*))
-  (concatenate 'string *emacspeak* "servers/" engine))
-
-(defvar *tts* nil
-  "Handle to tts server connection.")
-
 (defun init (&key (engine "outloud"))
   "Initialize TTS  system."
   (declare (special *tts*))
-  (setq *tts*
-        (make-tts :engine (tts-location engine)))
+  (setq *tts* (make-tts :engine (tts-location engine)))
   (tts-open))
-
 
 ;;}}}
 ;;{{{Internal Functions
@@ -85,13 +84,10 @@
      (sb-ext:process-input
       (sb-ext:run-program (tts-engine handle) nil :wait nil :input :stream)))))
 
-;;; Hard-wiring 3d theme for now:
-
 (defun icon-file (icon)
   "Convert auditory icon name to a sound-file name."
   (declare (special *emacspeak*))
-  (format nil "~a/sounds/3d/~a.wav"  *emacspeak* icon))
-  
+  (format nil "~a/sounds/pan-chimes/~a.wav"  *emacspeak* icon))
 
 ;;}}}
 ;;{{{Exported Functions
@@ -99,15 +95,14 @@
 (defun shutdown ()
   "Shutdown a TTS session."
   (let ((handle (tts)))
-    (when (tts-input handle)
-      (close (tts-input handle)))
+    (when (tts-input handle) (close (tts-input handle)))
     (setf (tts-input handle) nil)))
 
 (defun code (cmd)
   "Queue TTS code  to engine."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "c {{{~a}}}~%" cmd) 
+    (format i "c {{{~a}}}~%" cmd)
     (finish-output i)))
 
 (defun icon (icon)
@@ -121,13 +116,13 @@
   "Queue text to speak."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "q {{{~a}}}~%" text) 
+    (format i "q {{{~a}}}~%" text)
     (finish-output i)))
 
 (defun pause (ms)
   "Send silence"
-(let ((i (tts-input (tts))))
-    (format i "sh {{{~a}}}~%" ms) 
+  (let ((i (tts-input (tts))))
+    (format i "sh {{{~a}}}~%" ms)
     (finish-output i))  )
 
 (defun force ()
@@ -174,4 +169,3 @@
 ;;; end:
 
 ;;}}}
-
