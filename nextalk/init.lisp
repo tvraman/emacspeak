@@ -1,0 +1,5 @@
+(in-package :next)
+(start-swank)
+(ql:quickload "tts")
+(tts:init)
+(tts:speak "Welcome To The Next In Browsers!")
