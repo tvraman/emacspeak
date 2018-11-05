@@ -63,16 +63,6 @@
   (declare (special *emacspeak*))
   (concatenate 'string *emacspeak* "servers/" engine))
 
-(defun tts-dtk-exp ()
-  "Return name of dtk-exp server."
-  (declare (special *emacspeak*))
-  (concatenate 'string *emacspeak* "servers/dtk-exp"))
-
-(defun tts-outloud ()
-  "Outloud tcl server"
-  (declare (special *emacspeak*))
-  (concatenate 'string *emacspeak* "servers/outloud"))
-
 (defvar *tts* nil
   "Handle to tts server connection.")
 
