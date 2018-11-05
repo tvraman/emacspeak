@@ -102,27 +102,27 @@
   "Queue TTS code  to engine."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "c {{{~a}}}~%" cmd)
+    (format i "c {~a}~%" cmd)
     (finish-output i)))
 
 (defun icon (icon)
   "Queue auditory icon  to play."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "a {{{~a}}}~%" (icon-file icon))
+    (format i "a {~a}~%" (icon-file icon))
     (finish-output i)))
 
 (defun queue (text)
   "Queue text to speak."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "q {{{~a}}}~%" text)
+    (format i "q {~a}~%" text)
     (finish-output i)))
 
 (defun pause (ms)
   "Send silence"
   (let ((i (tts-input (tts))))
-    (format i "sh {{{~a}}}~%" ms)
+    (format i "sh {~a}~%" ms)
     (finish-output i))  )
 
 (defun force ()
@@ -141,7 +141,7 @@
   "Speak text."
   (unless (tts-input (tts)) (tts-open))
   (let ((i (tts-input (tts))))
-    (format i "q {{{~a}}}~%" text)
+    (format i "q {~a}~%" text)
     (format i "d~%")
     (finish-output i)))
 
