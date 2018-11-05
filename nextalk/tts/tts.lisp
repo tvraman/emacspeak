@@ -3,7 +3,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description: Interface Common Lisp to Emacspeak TTS servers
 ;;; Keywords: AsTeR, Emacspeak, Audio Desktop
-;;; { Copyright:
+;;{{{ Copyright:
 
 ;;; Copyright (C) 2011 -- 2016, T. V. Raman<tv.raman.tv@gmail.com>
 ;;; All Rights Reserved.
@@ -24,14 +24,14 @@
 ;;; along with GNU Emacs; see the file COPYING. If not, write to
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
-;;; }
-;;; { Introduction:
+;;}}}
+;;{{{ Introduction:
 
 ;;; Commentary:
 ;;; Interface Common Lisp to Emacspeak TTS servers
 
-;;; }
-;;; {Package:
+;;}}}
+;;{{{Package:
 (in-package :cl-user)
 
 (defpackage :tts
@@ -44,8 +44,8 @@
 (in-package :tts)
 
 
-;;; }
-;;; { Setup:
+;;}}}
+;;{{{ Setup:
 
 (defun tts ()
   "Return handle to TTS server."
@@ -74,8 +74,8 @@
   (tts-open))
 
 
-;;; }
-;;; {Internal Functions
+;;}}}
+;;{{{Internal Functions
 
 (defun tts-open ()
   "Open a TTS session."
@@ -93,8 +93,8 @@
   (format nil "~a/sounds/3d/~a.wav"  *emacspeak* icon))
   
 
-;;; }
-;;; {Exported Functions
+;;}}}
+;;{{{Exported Functions
 
 (defun shutdown ()
   "Shutdown a TTS session."
@@ -107,27 +107,27 @@
   "Queue TTS code  to engine."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "c {~a}~%" cmd) 
+    (format i "c {{{~a}}}~%" cmd) 
     (finish-output i)))
 
 (defun icon (icon)
   "Queue auditory icon  to play."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "a {~a}~%" (icon-file icon))
+    (format i "a {{{~a}}}~%" (icon-file icon))
     (finish-output i)))
 
 (defun queue (text)
   "Queue text to speak."
   (let ((i (tts-input (tts))))
     (unless i (setq i (tts-open)))
-    (format i "q {~a}~%" text) 
+    (format i "q {{{~a}}}~%" text) 
     (finish-output i)))
 
 (defun pause (ms)
   "Send silence"
 (let ((i (tts-input (tts))))
-    (format i "sh {~a}~%" ms) 
+    (format i "sh {{{~a}}}~%" ms) 
     (finish-output i))  )
 
 (defun force ()
@@ -146,7 +146,7 @@
   "Speak text."
   (unless (tts-input (tts)) (tts-open))
   (let ((i (tts-input (tts))))
-    (format i "q {~a}~%" text)
+    (format i "q {{{~a}}}~%" text)
     (format i "d~%")
     (finish-output i)))
 
@@ -163,14 +163,15 @@
     (format i "l ~a~%" text)
     (finish-output i)))
 
-;;; }
+;;}}}
 (provide 'tts)
 
-;;; { end of file
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end:
 
-;;; }
+;;}}}
+
