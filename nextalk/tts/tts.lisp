@@ -56,8 +56,7 @@
 (defstruct tts engine process input output )
 
 (defvar *emacspeak*
-  (merge-pathnames "../../"
-                                       *load-truename*)
+  "/home/raman/emacs/lisp/emacspeak/"
   "Root of Emacspeak installation.")
 (defun tts-location (engine)
   "Return location of specified engine."
