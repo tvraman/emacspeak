@@ -12,3 +12,9 @@ On my Debian box, I needed to:
     :  (ql:update-dist "quicklisp")
   2. Install _cl-webkit_ under _quicklisp/local_ from  https://github.com/next-browser/cl-webkit 
   3. with the above, the browser builds and runs cleanly under SBCL.
+
+* Component Overview 
+
+  - init.lisp :: My  _~/.config/next/init.lisp_ file.
+  - tts :: TTS module connecting CL to Emacspeak TTS servers. 
+
