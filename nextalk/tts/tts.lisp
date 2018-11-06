@@ -48,7 +48,7 @@
 ;;{{{ Setup:
 
 (defvar *emacspeak*
-  "/home/raman/emacs/lisp/emacspeak/"
+  "/usr/local/google/home/raman/emacs/lisp/emacspeak/"
   "Root of Emacspeak installation.")
 
 (defun tts-location (engine)
