@@ -38,7 +38,7 @@
 (defpackage :tts
   (:use :common-lisp)
   (:export
-   #:code #:queue #:speak #:letter #:speak-list #:icon
+   #:code #:queue #:speak #:letter #:speak-list #:say #:icon
    #:pause #:stop #:force
    #:init #:shutdown))
 
@@ -145,6 +145,13 @@
   (let ((i (tts-input (tts))))
     (format i "q {~a}~%" text)
     (format i "d~%")
+    (finish-output i)))
+
+(defun say (text)
+  "Speak text with minimal pre-processing."
+  (unless (tts-input (tts)) (tts-open))
+  (let ((i (tts-input (tts))))
+    (format i "tts_say {~a}~%" text)
     (finish-output i)))
 
 (defun speak-list (lines)
