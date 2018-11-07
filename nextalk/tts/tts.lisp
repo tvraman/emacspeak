@@ -48,15 +48,15 @@
 ;;{{{ Setup:
 
 (defvar *emacspeak*
-  (directory-namestring
-   (merge-pathnames "emacs/lisp/emacspeak/"
-                    (user-homedir-pathname)))
-  "Root of Emacspeak installation.")
+  (merge-pathnames "emacs/lisp/emacspeak/" (user-homedir-pathname))
+  "Pathname specifying Root of Emacspeak installation.")
 
 (defun tts-location (engine)
-  "Return location of specified engine."
+  "Return location of specified engine as a string."
   (declare (special *emacspeak*))
-  (concatenate 'string *emacspeak* "servers/" engine))
+  (namestring
+   (merge-pathnames (concatenate 'string "servers/" engine)
+                    *emacspeak*)))
 
 (defvar *tts* nil
   "Handle to tts server connection.")
