@@ -1544,18 +1544,21 @@ url
 ;;{{{Reddit At Point:
 
 (declare-function shr-url-at-point "shr" (image-url))
-
+(declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
 
 (emacspeak-url-template-define
  "Reddit At Point."
  "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)
-     (let ((url (shr-url-at-point nil)))
+     (let
+         ((url
+           (emacspeak-google-canonicalize-result-url (shr-url-at-point nil))))
        (cl-assert url t "No URL under point.")
        (cl-assert
         (string-match "https://www.reddit.com" url) t
         "Does not look like a Reddit URL")
+       (emacspeak-webutils-autospeak)
        (emacspeak-feeds-atom-display (concat url ".rss")))))
 
 
