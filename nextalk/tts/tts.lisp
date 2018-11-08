@@ -169,7 +169,6 @@
     (format i "l ~a~%" text)
     (finish-output i)))
 
-
 (defun rate (rate)
   "Set speech rate."
   (unless (tts-input (tts)) (tts-open))
@@ -177,7 +176,6 @@
     (setf (tts-rate (tts)) rate)
     (format i "tts_set_speech_rate ~a~%"rate)
     (finish-output i)))
-
 
 (defun punctuations (mode)
   "Set punctuation mode."
