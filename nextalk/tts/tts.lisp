@@ -39,7 +39,7 @@
   (:use :common-lisp)
   (:export
    #:code #:queue #:speak #:letter #:speak-list #:say #:icon
-   #:pause #:stop #:force
+   #:pause #:stop #:force #:rate #:punctuations
    #:init #:shutdown))
 
 (in-package :tts)
@@ -67,7 +67,9 @@
   *tts*)
 
 ;;; A TTS structure holds the engine name, process handle, and input/output streams.
-(defstruct tts engine process input output )
+(defstruct tts
+  engine process input output
+  rate punctuations)
 
 (defun init (&key (engine "outloud"))
   "Initialize TTS  system."
@@ -165,6 +167,24 @@
   (unless (tts-input (tts)) (tts-open))
   (let ((i (tts-input (tts))))
     (format i "l ~a~%" text)
+    (finish-output i)))
+
+
+(defun rate (rate)
+  "Set speech rate."
+  (unless (tts-input (tts)) (tts-open))
+  (let ((i (tts-input (tts))))
+    (setf (tts-rate (tts)) rate)
+    (format i "tts_set_speech_rate ~a~%"rate)
+    (finish-output i)))
+
+
+(defun punctuations (mode)
+  "Set punctuation mode."
+  (unless (tts-input (tts)) (tts-open))
+  (let ((i (tts-input (tts))))
+    (setf (tts-punctuations (tts)) mode)
+    (format i "tts_set_punctuations ~a~%"mode)
     (finish-output i)))
 
 ;;}}}
