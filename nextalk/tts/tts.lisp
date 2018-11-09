@@ -32,7 +32,7 @@
 
 ;;}}}
 ;;{{{Package:
-
+(proclaim '(optimize (compilation-speed 0) (safety 1) (speed 3)))
 (in-package :cl-user)
 
 (defpackage :tts
@@ -68,7 +68,9 @@
 
 ;;; A TTS structure holds the engine name, process handle, and input/output streams.
 (defstruct tts
-  engine process input output
+  "Holds handle to TTS server instance."
+  engine process
+  input output
   rate punctuations)
 
 (defun init (&key (engine "outloud"))
