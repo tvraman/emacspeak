@@ -1545,15 +1545,18 @@ url
 
 (declare-function shr-url-at-point "shr" (image-url))
 (declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
+(declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
 
 (emacspeak-url-template-define
  "Reddit At Point."
  "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)
-     (let
-         ((url
-           (emacspeak-google-canonicalize-result-url (shr-url-at-point nil))))
+     (let* ((u (shr-url-at-point nil))
+            (url
+             (if (string-prefix-p (emacspeak-google-result-url-prefix) u)
+                 (emacspeak-google-canonicalize-result-url u)
+               u)))
        (cl-assert url t "No URL under point.")
        (cl-assert
         (string-match "https://www.reddit.com" url) t
