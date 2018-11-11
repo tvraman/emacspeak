@@ -16,7 +16,7 @@ e.g. @code{espeak-voices} and @code{dectalk-voices}.
 @item Modules that implement core Emacspeak functionality, e.g.,
 @code{emacspeak-speak}, @code{emacspeak-keymap}, @code{voice-lock} and @code{emacspeak-advice}.
 @item Emacspeak extensions that speech-enable various emacs packages,
- these are all named using the convention @code{emacspeak-<mpackagename>}.
+ these are all named using the convention @code{emacspeak-<packagename>}.
 @end enumerate 
 
 The first two of the above are mostly of interest when extending
