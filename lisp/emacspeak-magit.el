@@ -51,7 +51,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-(eval-when-compile (require 'magit "magit" 'no-error))
+(eval-when-compile (require 'magit nil 'no-error))
 
 ;;}}}
 ;;{{{ Map voices to faces:
@@ -179,6 +179,7 @@
  for f in
  '(
    magit-section-forward magit-section-backward magit-section-up
+                         magit-next-line magit-previous-line
    magit-section-forward-sibling magit-section-backward-sibling
    magit-ignore-file magit-ignore-item
    magit-stash
@@ -301,6 +302,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
+
 (cl-loop
  for f in
  '(magit-mode-quit-window magit-mode-bury-buffer magit-log-bury-buffer)
