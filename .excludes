@@ -11,6 +11,7 @@ emacspeak-pkg.el
 .files
 .git
 .git*
+git-hooks
 .indent.pro
 .rss
 .skeleton.el
