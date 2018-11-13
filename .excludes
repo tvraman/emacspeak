@@ -1,3 +1,4 @@
+emacspeak-pkg.el
 *.elc
 *.o
 *.so
