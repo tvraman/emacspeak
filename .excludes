@@ -30,6 +30,7 @@ js/node/auto
 js/piglets
 lib
 obsolete
+nextalk 
 patches
 lisp/patches
 lisp/g-client/patches 
