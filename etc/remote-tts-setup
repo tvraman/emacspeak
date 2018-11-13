@@ -13,8 +13,8 @@ EMACSPEAK=#emacspeak install directory
 
 SDIR=$EMACSPEAK/servers 
 # Primary server listens on 2222
-$SDIR/32-speech-server  2222 $SDIR/32-outloud  &
+$SDIR/speech-server  2222 $SDIR/outloud  &
 #notification stream listens on 3333
-(export ALSA_DEFAULT="tts_mono_left"; $SDIR/32-speech-server  3333 $SDIR/32-outloud  &)
+(export ALSA_DEFAULT="tts_mono_left"; $SDIR/speech-server  3333 $SDIR/outloud  &)
 beep -f 800 -l 50
 ssh-agent ssh -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
