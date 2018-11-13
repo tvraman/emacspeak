@@ -27,6 +27,8 @@ js/piglets
 lib
 obsolete
 patches
+lisp/patches
+lisp/g-client/patches 
 software-dtk
 sounds/chimes 
 sounds/clock
