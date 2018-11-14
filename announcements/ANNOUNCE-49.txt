@@ -5,7 +5,7 @@ San Jose, Calif., (Nov 21, 2018)
 
     Emacspeak 49.0 (WiseDog): 
     Advancing Accessibility In The Age Of User-Aware Interfaces
-    --Zero cost of Ownership  makes priceless software Universally affordable!
+    --- Zero cost of Ownership  makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 --- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/44.0/emacspeak-45.0.tar.bz2][Emacspeak 49.0]]
@@ -87,7 +87,7 @@ adversely affecting the continued performance of the computer. These
 same tests also revealed that once uninstalled, the user stopped
 functioning altogether. Speaking with Aster Labrador, the creator of
 Emacspeak once pointed out that these results re-emphasize the
-user-centric design of Emacspeak; “It is the user --and not the
+user-centric design of Emacspeak; “It is the user --- and not the
 computer-- that stops functioning when Emacspeak is uninstalled!”.
 
 ** Note from Aster,Bubbles and Tilden:
@@ -99,7 +99,7 @@ video demonstrating such complete user failure.
 * Obtaining Emacspeak:
 
 
-Emacspeak can be downloaded from GitHub --see
+Emacspeak can be downloaded from GitHub --- see
 https://github.com/tvraman/emacspeak you can visit Emacspeak on the
 WWW at http://emacspeak.sf.net. You can subscribe to the emacspeak
 mailing list — emacspeak@cs.vassar.edu — by sending mail to the
