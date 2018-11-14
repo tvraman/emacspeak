@@ -1,5 +1,6 @@
 [playlist]
-File1=http://radionetwork-iheart-ice.streamguys1.com/rsihr.aac
+file1=http://ais-nzme.streamguys1.com/nz_001_aac
+;File1=http://radionetwork-iheart-ice.streamguys1.com/rsihr.aac
 ;File1=https://ihrcast1.radiomyway.co.nz/rsihr.aac
 NumberOfEntries=1
 Version=2
