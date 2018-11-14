@@ -22,3 +22,21 @@ version dated back to the early 90's.
 ** Speech-Enable Package Lispy For Rapid Lisp Editing 
 
 Module ~emacspeak-lispy~ speech-enables package ~lispy~ available on Melpa.
+** Updated Bookshare Support 
+
+Bookshare support has been updated to cover additional download
+formats. The module  now supports Emacs' ~auth-source~ integration for
+managing passwords.
+
+** Updated Magit Support
+
+Module  emacspeak-magit has been updated for the latest Magit release.
+** Improved DBus Support 
+
+Module emacspeak-dbus now implements handlers for many more System
+DBus events.
+
+** Updated EWW Support
+
+Module emacspeak-eww has been updated with many more EWW enhancements.
+
