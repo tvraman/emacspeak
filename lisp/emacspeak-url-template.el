@@ -1532,13 +1532,15 @@ url
 
 (emacspeak-url-template-define
  "AQI: Air Quality Index"
- "https://airnow.gov/index.cfm?action=airnow.local_city&zipcode=%s"
+ "https://www.airnow.gov/index.cfm?action=airnow.local_city&zipcode=%s&submit=Go"
  (list
   #'(lambda nil
       (read-from-minibuffer "State/City:"
                             (bound-and-true-p  gweb-my-zip))))
- #'(lambda nil (eww-display-dom-by-class "AQDataContent"))
- "Return Air Quality for specified zip-code")
+ nil
+ "Return Air Quality for specified zip-code"
+ #'(lambda (url)
+       (emacspeak-we-extract-table-by-match "observed at" url 'speak)))
 
 ;;}}}
 ;;{{{Reddit At Point:
