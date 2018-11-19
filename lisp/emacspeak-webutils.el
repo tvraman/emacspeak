@@ -457,7 +457,8 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
   (cl-declare (special emacspeak-webutils-media-history))
   (let ((url
          (or (shr-url-at-point nil)
-             ((browse-url-url-at-point)))))
+             (browse-url-url-at-point))))
+    (cl-assert (stringp url) t "No URL under point." )
     (message "Playing media  URL under point")
     (kill-new url)
     (push (list url (if playlist-p t nil)) emacspeak-webutils-media-history)
