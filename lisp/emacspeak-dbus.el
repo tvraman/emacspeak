@@ -143,8 +143,8 @@ Startup  apps that need the network."
   "Announce  network manager disconnection.
 Stop apps that use the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
-  ;(when (featurep 'jabber) (jabber-disconnect))
-  ;(when (featurep 'twittering-mode) (twittering-stop))
+                                        ;(when (featurep 'jabber) (jabber-disconnect))
+                                        ;(when (featurep 'twittering-mode) (twittering-stop))
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
@@ -230,25 +230,25 @@ already disabled."
 (defun emacspeak-dbus-screensaver-check ()
   "Check  and fix Emacs DBus Binding to gnome-screensaver"
   (ems-with-messages-silenced
-      (condition-case nil
-          (dbus-call-method
-           :session
-           "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-           "org.gnome.ScreenSaver" "GetActive")
-        (error
-         (progn
-           (shell-command
-            "pidof gnome-screensaver \
+   (condition-case nil
+       (dbus-call-method
+        :session
+        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+        "org.gnome.ScreenSaver" "GetActive")
+     (error
+      (progn
+        (shell-command
+         "pidof gnome-screensaver \
  && kill -9 `pidof gnome-screensaver` 2>&1 > /dev/null")
-           (start-process "screen-saver" nil "gnome-screensaver"))))
-    t))
+        (start-process "screen-saver" nil "gnome-screensaver"))))
+   t))
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
   (cl-declare (special amixer-alsactl-config-file))
   (emacspeak-prompt "waking-up")
   (when (featurep 'xbacklight) (xbacklight-black))
-  (amixer-restore amixer-alsactl-config-file )
+  (amixer-restore amixer-alsactl-config-file)
   (when (featurep 'soundscape) (soundscape-restart))
   (when
       (dbus-call-method
@@ -281,7 +281,7 @@ already disabled."
     :system
     "org.freedesktop.UDisks2" "/org/freedesktop/UDisks2"
     "org.freedesktop.DBus.ObjectManager" "InterfacesRemoved"
-    #'(lambda(path _props )
+    #'(lambda(path _props)
         (message "Removed storage %s" path)
         (emacspeak-play-auditory-icon 'close-object)))))
 
@@ -326,7 +326,7 @@ already disabled."
     :system
     "org.freedesktop.UPower" "/org/freedesktop/UPower"
     "org.freedesktop.UPower" "DeviceRemoved"
-    #'(lambda(device )
+    #'(lambda(device)
         (message "Removed device  %s" device)
         (emacspeak-play-auditory-icon 'off)))))
 

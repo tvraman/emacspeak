@@ -67,7 +67,6 @@
 ;;; Bookshelf and EPub interaction, followed by detailed documentation
 ;;; on the various commands and user options.
 
-
 ;;; @subsection Organizing EBooks On The Emacspeak Desktop
 ;;;
 ;;; In the simplest case, EBooks can be placed under a specific
@@ -314,7 +313,7 @@
 (defun emacspeak-epub-get-metadata (epub)
   "Return list containing title/author metadata."
   (cl-declare (special emacspeak-epub-zip-extract emacspeak-xslt-program
-                    emacspeak-epub-opf-xsl))
+                       emacspeak-epub-opf-xsl))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
   (split-string
    (shell-command-to-string
@@ -366,7 +365,7 @@ Useful if table of contents in toc.ncx is empty."
       (get-text-property (point) 'epub)
       (read-file-name "EPub File: ")))))
   (cl-declare (special emacspeak-epub-scratch
-                    emacspeak-epub-files-command))
+                       emacspeak-epub-files-command))
   (let ((files
          (split-string
           (shell-command-to-string
@@ -399,8 +398,6 @@ Useful if table of contents in toc.ncx is empty."
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((toc (emacspeak-epub-toc epub)))
     (emacspeak-epub-browse-content epub toc nil epub-toc-xsl)))
-
-
 
 (defun emacspeak-epub-url-executor (url)
   "Custom URL executor for use in EPub Mode."
@@ -440,7 +437,7 @@ Useful if table of contents in toc.ncx is empty."
 (defun emacspeak-epub-bookshelf-update ()
   "Update bookshelf metadata."
   (cl-declare (special emacspeak-epub-db-file emacspeak-epub-db
-                    emacspeak-epub-library-directory))
+                       emacspeak-epub-library-directory))
   (let ((updated nil)
         (filename nil))
     (cl-loop
@@ -683,8 +680,8 @@ No book files are deleted."
 For detailed documentation, see \\[emacspeak-epub-mode]"
   (interactive)
   (cl-declare (special emacspeak-epub-interaction-buffer
-                    emacspeak-epub-zip-info
-                    emacspeak-epub-zip-extract))
+                       emacspeak-epub-zip-info
+                       emacspeak-epub-zip-extract))
   (unless emacspeak-epub-zip-extract
     (error "Please install unzip."))
   (unless emacspeak-epub-zip-info
@@ -754,8 +751,8 @@ Suitable for text searches."
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (cl-declare (special emacspeak-epub-files-command
-                    emacspeak-speak-directory-settings
-                    emacspeak-epub-this-epub))
+                       emacspeak-speak-directory-settings
+                       emacspeak-epub-this-epub))
   (let* ((gc-cons-threshold 8000000)
          (directory
           (string-trim
@@ -932,39 +929,39 @@ Letters do not insert themselves; instead, they are commands.
 (cl-declaim (special emacspeak-epub-mode-map))
 (cl-loop
  for k in
-         '(
-           ("/" emacspeak-epub-calibre-results)
-           ("A" emacspeak-epub-bookshelf-calibre-author)
-           ("S" emacspeak-epub-bookshelf-calibre-search)
-           ("T" emacspeak-epub-bookshelf-calibre-title)
-           ("C" emacspeak-epub-gutenberg-catalog)
-           ("G" emacspeak-epub-google)
-           ("\C-a" emacspeak-epub-bookshelf-add-directory)
-           ("\C-d" emacspeak-epub-bookshelf-remove-directory)
-           ("\C-k" emacspeak-epub-delete)
-           ("C-l" emacspeak-epub-bookshelf-redraw)
-           ("\C-m" emacspeak-epub-eww)
-           ("\C-o" emacspeak-epub-bookshelf-open-epub)
-           ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
-           ("\C-x\C-s" emacspeak-epub-bookshelf-save)
-           ("M-s" emacspeak-epub-bookshelf-save)
-           ("a" emacspeak-epub-bookshelf-add-epub)
-           ("b" emacspeak-epub-bookshelf-open)
-           ("c" emacspeak-epub-bookshelf-clear)
-           ("d" emacspeak-epub-bookshelf-remove-this-book)
-           ("e" emacspeak-epub-eww)
-           ("f" emacspeak-epub-browse-files)
-           ("g" emacspeak-epub-gutenberg-download)
-           ("l" emacspeak-epub-locate-epubs)
-           ("n" next-line)
-           ("o" emacspeak-epub-open)
-           ("p" previous-line)
-           ("r" emacspeak-epub-bookshelf-rename)
-           ("t" emacspeak-epub-fulltext)
-           ("RET" emacspeak-epub-eww)
-           )
-         do
-         (emacspeak-keymap-update emacspeak-epub-mode-map k))
+ '(
+   ("/" emacspeak-epub-calibre-results)
+   ("A" emacspeak-epub-bookshelf-calibre-author)
+   ("S" emacspeak-epub-bookshelf-calibre-search)
+   ("T" emacspeak-epub-bookshelf-calibre-title)
+   ("C" emacspeak-epub-gutenberg-catalog)
+   ("G" emacspeak-epub-google)
+   ("\C-a" emacspeak-epub-bookshelf-add-directory)
+   ("\C-d" emacspeak-epub-bookshelf-remove-directory)
+   ("\C-k" emacspeak-epub-delete)
+   ("C-l" emacspeak-epub-bookshelf-redraw)
+   ("\C-m" emacspeak-epub-eww)
+   ("\C-o" emacspeak-epub-bookshelf-open-epub)
+   ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
+   ("\C-x\C-s" emacspeak-epub-bookshelf-save)
+   ("M-s" emacspeak-epub-bookshelf-save)
+   ("a" emacspeak-epub-bookshelf-add-epub)
+   ("b" emacspeak-epub-bookshelf-open)
+   ("c" emacspeak-epub-bookshelf-clear)
+   ("d" emacspeak-epub-bookshelf-remove-this-book)
+   ("e" emacspeak-epub-eww)
+   ("f" emacspeak-epub-browse-files)
+   ("g" emacspeak-epub-gutenberg-download)
+   ("l" emacspeak-epub-locate-epubs)
+   ("n" next-line)
+   ("o" emacspeak-epub-open)
+   ("p" previous-line)
+   ("r" emacspeak-epub-bookshelf-rename)
+   ("t" emacspeak-epub-fulltext)
+   ("RET" emacspeak-epub-eww)
+   )
+ do
+ (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
 ;;}}}
 ;;{{{ Gutenberg Hookup:
@@ -989,16 +986,15 @@ Letters do not insert themselves; instead, they are commands.
 (defun emacspeak-epub-gutenberg-download-uri (book-id)
   "Return URL  for downloading Gutenberg EBook."
   (cl-declare (special emacspeak-epub-gutenberg-suffix
-                    emacspeak-epub-gutenberg-mirror))
+                       emacspeak-epub-gutenberg-mirror))
   (format "%s%s%s"
           emacspeak-epub-gutenberg-mirror
           book-id
           emacspeak-epub-gutenberg-suffix))
 
-
 (defun emacspeak-epub-gutenberg-browse-uri (book-id)
   "Return URL  for browsing Gutenberg EBook."
-  (cl-declare ( emacspeak-epub-gutenberg-suffix emacspeak-epub-gutenberg-mirror))
+  (cl-declare (emacspeak-epub-gutenberg-suffix emacspeak-epub-gutenberg-mirror))
   (format "%s%s"
           emacspeak-epub-gutenberg-mirror book-id))
 
@@ -1022,11 +1018,11 @@ With interactive prefix arg `download', download the epub."
       (message "Book available locally as %s" file))
      (t (kill-new   url)
         (browse-url browse)
-     (when download
-      (shell-command
-       (format"%s -O %s '%s'"
-              emacspeak-epub-wget file url))
-      (message "Downloaded content to %s" file))))))
+        (when download
+          (shell-command
+           (format"%s -O %s '%s'"
+                  emacspeak-epub-wget file url))
+          (message "Downloaded content to %s" file))))))
 
 (defvar emacspeak-epub-gutenberg-catalog-url
   "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
@@ -1041,8 +1037,8 @@ With interactive prefix arg `download', download the epub."
 Fetch if needed, or if refresh is T."
   (interactive "P")
   (cl-declare (special emacspeak-epub-gutenberg-catalog-url
-                    emacspeak-epub-gutenberg-catalog-file
-                    emacspeak-epub-wget))
+                       emacspeak-epub-gutenberg-catalog-file
+                       emacspeak-epub-wget))
   (unless emacspeak-epub-wget
     (error "Please install wget. "))
   (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
@@ -1160,7 +1156,7 @@ Searches for matches in both  Title and Author."
   "Add results of an title/author search to current bookshelf."
   (interactive "sSearch For: ")
   (cl-declare (special emacspeak-epub-calibre-root-dir 
-                    emacspeak-epub-calibre-results))
+                       emacspeak-epub-calibre-results))
   (unless (eq major-mode 'emacspeak-epub-mode)
     (error "Not in an Emacspeak Epub Bookshelf."))
   (let ((emacspeak-speak-messages nil)
@@ -1181,7 +1177,7 @@ Searches for matches in both  Title and Author."
   "Add results of an author search to current bookshelf."
   (interactive "sAuthor: ")
   (cl-declare (special emacspeak-epub-calibre-root-dir
-                    emacspeak-epub-calibre-results))
+                       emacspeak-epub-calibre-results))
   (unless (eq major-mode 'emacspeak-epub-mode)
     (error "Not in an Emacspeak Epub Bookshelf."))
   (let ((emacspeak-speak-messages nil)
@@ -1202,7 +1198,7 @@ Searches for matches in both  Title and Author."
   "Add results of an title search to current bookshelf."
   (interactive "sTitle: ")
   (cl-declare (special emacspeak-epub-calibre-root-dir
-                    emacspeak-epub-calibre-results))
+                       emacspeak-epub-calibre-results))
   (unless (eq major-mode 'emacspeak-epub-mode)
     (error "Not in an Emacspeak Epub Bookshelf."))
   (let ((emacspeak-speak-messages nil)

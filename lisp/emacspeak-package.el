@@ -159,8 +159,6 @@
       (when upgrades
         (dtk-notify-speak (format "%s" (mapcar #'car upgrades)))))))
 
-
-
 ;;}}}
 (provide 'emacspeak-package)
 ;;{{{ end of file

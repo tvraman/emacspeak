@@ -172,7 +172,7 @@ Generates auditory and visual display."
   "Add headlines from specified feed to our cache.
 Newly found headlines are inserted into the ring within our feedstore."
   (cl-declare (special emacspeak-webspace-headlines
-                    emacspeak-webspace-headlines-period))
+                       emacspeak-webspace-headlines-period))
   (let* ((last-update (get-text-property 0 'last-update feed))
          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines))
          (new-titles nil))
@@ -204,8 +204,8 @@ Newly found headlines are inserted into the ring within our feedstore."
   (cl-declare (special emacspeak-webspace-headlines))
   (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
     (condition-case nil
-(emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
-(error nil))))
+        (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))
+      (error nil))))
 
 (defun emacspeak-webspace-headlines-refresh ()
   "Update headlines."
@@ -274,7 +274,7 @@ Updated headlines found in emacspeak-webspace-headlines."
   "Display buffer of browsable headlines."
   (interactive)
   (cl-declare (special emacspeak-webspace-headlines
-                    emacspeak-webspace-headlines-buffer))
+                       emacspeak-webspace-headlines-buffer))
   (unless emacspeak-webspace-headlines
     (error "No cached headlines in this Emacs session."))
   (with-current-buffer
@@ -423,9 +423,9 @@ Optional interactive prefix arg forces a refresh."
   "Return list of results."
   (or limit (setq limit 5))
   (cl-map  'list
-        #'(lambda (r) (g-json-get 'result r))
-        (g-json-get 'itemListElement
-                    (emacspeak-webspace-kg-json-ld query limit))))
+           #'(lambda (r) (g-json-get 'result r))
+           (g-json-get 'itemListElement
+                       (emacspeak-webspace-kg-json-ld query limit))))
 
 (defun emacspeak-webspace-kg-format-result (result)
   "Format result as HTML."

@@ -70,8 +70,8 @@
 ;;{{{ keymaps
 (cl-declaim (special mspools-mode-map))
 (cl-eval-when (load)
-           (require 'emacspeak-keymap)
-           )
+  (require 'emacspeak-keymap)
+  )
 
 ;;}}}
 (provide 'emacspeak-mspools)

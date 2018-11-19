@@ -126,7 +126,7 @@ given name, it is updated with path and position."
   "Locate AMarks file from current directory, and load it."
   (interactive)
   (cl-declare (special emacspeak-amark-list
-                    emacspeak-amark-file))
+                       emacspeak-amark-file))
   (let ((buff nil)
         (l nil)
         (where

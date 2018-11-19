@@ -137,9 +137,9 @@
     (read-from-minibuffer "Title: ")
     (read-from-minibuffer "URL: ")
     (cl-ecase (read-char-exclusive "a Atom, o OPML, r RSS: ")
-           (?a 'atom)
-           (?o 'opml)
-           (?r 'rss))))
+      (?a 'atom)
+      (?o 'opml)
+      (?r 'rss))))
   (cl-declare (special emacspeak-feeds))
   (let ((found (emacspeak-feeds-added-p url)))
     (cond
@@ -160,7 +160,7 @@
 Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)
   (cl-declare (special emacspeak-feeds-archive-file
-                    emacspeak-feeds))
+                       emacspeak-feeds))
   (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
         (print-level nil)
         (print-length nil))
@@ -179,15 +179,15 @@ Archiving is useful when synchronizing feeds across multiple machines."
 Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)
   (cl-declare (special emacspeak-feeds-archive-file
-                    emacspeak-feeds))
+                       emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)
     (error "No archived feeds to restore. "))
   (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
         (feeds  nil))
     (ems-with-messages-silenced
-        (with-current-buffer buffer
-          (goto-char (point-min))
-          (setq feeds (read buffer))))
+     (with-current-buffer buffer
+       (goto-char (point-min))
+       (setq feeds (read buffer))))
     (kill-buffer buffer)
     (cl-loop for f in feeds
              do

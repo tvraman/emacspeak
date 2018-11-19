@@ -103,8 +103,8 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
   (interactive "P")
   (when copy-as-kill
     (kill-new (format "%s: %s"
-           (get-text-property (point) 'username)
-           (get-text-property (point) 'text))))
+                      (get-text-property (point) 'username)
+                      (get-text-property (point) 'text))))
   (dtk-speak
    (format "%s: %s"
            (get-text-property (point) 'username)

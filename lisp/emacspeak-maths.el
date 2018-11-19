@@ -94,7 +94,7 @@
 (require 'cl-lib)
 (require 'comint)
 (require 'derived)
-(require 'nvm "nvm" 'no-error )
+(require 'nvm "nvm" 'no-error)
 
 ;;}}}
 ;;{{{ Customizations And Variables:
@@ -324,7 +324,7 @@ left for next run."
   "Start Maths server bridge."
   (interactive)
   (cl-declare (special emacspeak-maths-inferior-program
-                    emacspeak-maths emacspeak-maths-server-program))
+                       emacspeak-maths emacspeak-maths-server-program))
   (cl-assert emacspeak-maths-inferior-program nil "No node executable found.")
   (let ((server
          (make-comint
@@ -388,7 +388,6 @@ Set calc-language to tex to use this feature."
   (calc-kill 1 'no-delete)
   (substring (car calc-last-kill) 2))
 
-
 ;;; Guess expression from sage
 
 (declare-function emacspeak-sage-get-output-as-latex "emacspeak-sage" nil)
@@ -396,9 +395,9 @@ Set calc-language to tex to use this feature."
 (defun emacspeak-maths-guess-sage ()
   "Guess expression to speak in sage-mode buffers."
   (cl-assert (eq major-mode 'sage-shell:sage-mode) nil "This is not a Sage buffer.")
-    (sit-for 0.1)
-    (emacspeak-sage-get-output-as-latex))
-    
+  (sit-for 0.1)
+  (emacspeak-sage-get-output-as-latex))
+
 ;;; Helper: Guess current math expression from TeX/LaTeX
 
 (defun emacspeak-maths-guess-tex ()

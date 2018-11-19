@@ -56,7 +56,6 @@
 (declare-function eperiodic-get-element-property  "ext:eperiodic.el" (e prop))
 (declare-function eperiodic-element-at "ext:eperiodic.el" (&optional pos))
 
-
 ;;}}}
 ;;{{{ faces and voices 
 (voice-setup-add-map

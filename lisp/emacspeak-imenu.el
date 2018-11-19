@@ -114,8 +114,8 @@
   "Goto the next index position in current buffer"
   (interactive)
   (cl-declare (special emacspeak-imenu-flattened-index-alist
-                    emacspeak-imenu-autospeak
-                    imenu--index-alist))
+                       emacspeak-imenu-autospeak
+                       imenu--index-alist))
   (let ((pos (point))
         (guess 0)
         (target (point-max)))
@@ -150,8 +150,8 @@
   "Goto the previous index pos in current buffer"
   (interactive)
   (cl-declare (special emacspeak-imenu-flattened-index-alist
-                    emacspeak-imenu-autospeak
-                    imenu--index-alist))
+                       emacspeak-imenu-autospeak
+                       imenu--index-alist))
   (let ((pos (point))
         (guess 0)
         (target (point-min)))
@@ -205,7 +205,7 @@
 ;;{{{ customize settings
 
 (cl-declaim (special imenu-space-replacement
-                  imenu-max-items))
+                     imenu-max-items))
 (setq imenu-space-replacement "."
       imenu-max-items 200)
 

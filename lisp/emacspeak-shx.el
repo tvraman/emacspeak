@@ -56,7 +56,6 @@
 ;;{{{ Forward Declaration 
 (declare-function shx-insert "shx" (&rest args))
 
-
 ;;}}}
 ;;{{{ Interactive Commands:
 

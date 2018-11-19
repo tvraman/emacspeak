@@ -67,10 +67,10 @@
 
 (defun emacspeak-sage-get-output ()
   "Return most recent Sage output"
-  (interactive )
+  (interactive)
   (with-current-buffer
-          (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
-  (apply #'buffer-substring (sage-shell:last-output-beg-end))))
+      (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
+    (apply #'buffer-substring (sage-shell:last-output-beg-end))))
 
 (defun emacspeak-sage-speak-output ()
   "Speak last output from Sage."
@@ -91,10 +91,9 @@
           (process-buffer (car (cl-first  (sage-shell-edit:process-alist))))
         (say-it))))))
 
-
 (defun emacspeak-sage-get-output-as-latex ()
   "Return most recent Sage output as LaTeX markup."
-  (interactive )
+  (interactive)
   (cl-assert (eq major-mode 'sage-shell:sage-mode) t "Not in a sage buffer")
   (cl-assert   (sage-shell-edit:process-alist) t "No running Sage.")
   (let ((orig (emacspeak-sage-get-output))
@@ -118,10 +117,10 @@
  for f in
  '(
    sage-shell-help:forward-history sage-shell-help:backward-history
-   sage-shell:help )
+   sage-shell:help)
  do
  (eval
-  `(defadvice ,f (after emacspeak pre act comp )
+  `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'help)
@@ -191,7 +190,6 @@
     (with-current-buffer (window-buffer (selected-window))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-line))))
-
 
 (defadvice sage-shell:delchar-or-maybe-eof (around emacspeak pre act comp)
   "Speak character you're deleting."

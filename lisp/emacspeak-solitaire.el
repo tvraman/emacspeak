@@ -69,15 +69,14 @@
   "Speak coordinates of current position"
   (interactive)
   (dtk-speak
-         (format "%s at %s %s "
-                 (cl-case(char-after (point))
-                   (?o "stone")
-                   (?. "hole"))
-                 (emacspeak-solitaire-current-row)
-                 (emacspeak-solitaire-current-column)))
-        (emacspeak-auditory-icon
-         (emacspeak-solitaire-cell-to-icon (format "%c" (following-char)))))
-    
+   (format "%s at %s %s "
+           (cl-case(char-after (point))
+             (?o "stone")
+             (?. "hole"))
+           (emacspeak-solitaire-current-row)
+           (emacspeak-solitaire-current-column)))
+  (emacspeak-auditory-icon
+   (emacspeak-solitaire-cell-to-icon (format "%c" (following-char)))))
 
 (defun emacspeak-solitaire-speak-stones ()
   "Speak number of stones remaining."
@@ -136,9 +135,6 @@
            (?. (push "." cells))))))
       (setq cells (nreverse cells))
       (emacspeak-play-auditory-icon-list (mapcar #'emacspeak-solitaire-cell-to-icon cells)))))
-      
-
-
 
 ;;}}}
 ;;{{{ advice commands
@@ -207,9 +203,9 @@ Emacspeak specific commands:
 \\[emacspeak-solitaire-show-row]                emacspeak-solitaire-show-row
                \\[emacspeak-solitaire-speak-coordinates]  emacspeak-solitaire-speak-coordinates"
   (delete-other-windows)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-solitaire-setup-keymap)
-    (message "Welcome to Solitaire"))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-solitaire-setup-keymap)
+  (message "Welcome to Solitaire"))
 
 (add-hook
  'solitaire-mode-hook

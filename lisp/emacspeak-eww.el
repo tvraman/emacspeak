@@ -418,27 +418,26 @@
  '(title url source dom)
  do
  (eval
-    `(defun
-         ,(intern (format "emacspeak-eww-current-%s" name)) ()
-       , (format "Return eww-current-%s." name)
-       (cl-declare (special eww-data))
-       (plist-get eww-data
-                  ,(intern (format ":%s" name))))))
-  
+  `(defun
+       ,(intern (format "emacspeak-eww-current-%s" name)) ()
+     , (format "Return eww-current-%s." name)
+     (cl-declare (special eww-data))
+     (plist-get eww-data
+                ,(intern (format ":%s" name))))))
 
 (cl-loop
  for name in
  '(title url source dom)
  do
  (eval
-    `(defun
-         ,(intern (format "emacspeak-eww-set-%s" name)) (value)
-       , (format "Set eww-current-%s." name)
-       (cl-assert (boundp 'eww-data) nil "Not a EWW rendered page.")
-       (plist-put eww-data
-                  ,(intern (format ":%s" name))
-                  value))))
-  
+  `(defun
+       ,(intern (format "emacspeak-eww-set-%s" name)) (value)
+     , (format "Set eww-current-%s." name)
+     (cl-assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+     (plist-put eww-data
+                ,(intern (format ":%s" name))
+                value))))
+
 ;;}}}
 ;;{{{ Declare generated functions:
 
@@ -549,17 +548,17 @@ are available are cued by an auditory icon on the header line."
   "Respond to user  asking us to masquerade."
   ad-do-it
   (cond
-   ( emacspeak-eww-masquerade
+   (emacspeak-eww-masquerade
     (setq ad-return-value emacspeak-eww-masquerade-as))
    (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (cl-declare (special eww-mode-map eww-link-keymap
-                    shr-inhibit-images
-                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                    emacspeak-eww-masquerade
-                    emacspeak-pronounce-load-pronunciations-on-startup))
+                       shr-inhibit-images
+                       emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+                       emacspeak-eww-masquerade
+                       emacspeak-pronounce-load-pronunciations-on-startup))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
@@ -658,10 +657,10 @@ are available are cued by an auditory icon on the header line."
    (eww-form-checkbox voice-monotone)
    (eww-form-select voice-annotate)
    (eww-form-text voice-lighten)
-   (eww-form-file voice-lighten )
+   (eww-form-file voice-lighten)
    (eww-form-textarea voice-brighten)
    (shr-selected-link  voice-animate)
-   (shr-strike-through voice-annotate )))
+   (shr-strike-through voice-annotate)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
@@ -708,31 +707,31 @@ Retain previously set punctuations  mode."
          emacspeak-eww-style)
                                         ; this is a displayed feed
     (let ((p dtk-punctuation-mode)
-      (r dtk-speech-rate)
-      (u (emacspeak-eww-current-url))
-      (s emacspeak-eww-style))
-     (kill-buffer)
-     (add-hook
-      'emacspeak-web-post-process-hook
-      #'(lambda ()
-          (dtk-set-punctuations p)
-          (dtk-set-rate r))
-      'at-end)
-     (emacspeak-feeds-feed-display u s 'speak)))
+          (r dtk-speech-rate)
+          (u (emacspeak-eww-current-url))
+          (s emacspeak-eww-style))
+      (kill-buffer)
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (dtk-set-punctuations p)
+           (dtk-set-rate r))
+       'at-end)
+      (emacspeak-feeds-feed-display u s 'speak)))
    ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
     (let
-     ((n emacspeak-eww-url-template)
-      (p dtk-punctuation-mode)
-      (r dtk-speech-rate))
-     (add-hook
-      'emacspeak-web-post-process-hook
-      #'(lambda nil
-          (dtk-set-punctuations p)
-          (dtk-set-rate r))
-      'at-end)
-     (kill-buffer)
-     (emacspeak-url-template-open (emacspeak-url-template-get  n))))
+        ((n emacspeak-eww-url-template)
+         (p dtk-punctuation-mode)
+         (r dtk-speech-rate))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda nil
+           (dtk-set-punctuations p)
+           (dtk-set-rate r))
+       'at-end)
+      (kill-buffer)
+      (emacspeak-url-template-open (emacspeak-url-template-get  n))))
    (t ad-do-it)))
 
 (cl-loop
@@ -764,7 +763,6 @@ Retain previously set punctuations  mode."
      (t (emacspeak-speak-mode-line)))))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
- 
 
 (defadvice eww-add-bookmark (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -971,8 +969,8 @@ Retain previously set punctuations  mode."
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
   (cl-declare (special eww-element-cache eww-id-cache
-                    eww-property-cache eww-itemprop-cache
-                    eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
+                       eww-property-cache eww-itemprop-cache
+                       eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
   (when (listp dom)                     ; build cache
     (let ((id (dom-attr dom 'id))
           (class (dom-attr dom 'class))
@@ -1076,7 +1074,7 @@ for use as a DOM filter."
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (cl-declare (special emacspeak-eww-rename-result-buffer
-                    emacspeak-eww-shr-render-functions))
+                       emacspeak-eww-shr-render-functions))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (emacspeak-eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
@@ -1153,7 +1151,7 @@ Optional interactive arg `multi' prompts for multiple ids."
 (defun emacspeak-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
   (cl-declare (special eww-id-cache eww-class-cache eww-role-cache
-                    eww-property-cache eww-itemprop-cache))
+                       eww-property-cache eww-itemprop-cache))
   (unless (or eww-role-cache eww-id-cache eww-class-cache
               eww-itemprop-cache eww-property-cache)
     (error "No attributes to filter."))
@@ -1528,7 +1526,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
        (completing-read "Element: " eww-element-cache nil 'must-match
                         nil 'emacspeak-eww-element-navigation-history)))))
   (cl-declare (special eww-element-cache
-                    emacspeak-eww-element-navigation-history))
+                       emacspeak-eww-element-navigation-history))
   (let* ((start
           (or
            (when (get-text-property  (point) el)
@@ -1552,7 +1550,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cond
    (emacspeak-eww-element-navigation-history
     (funcall-interactively #'emacspeak-eww-next-element
-     (car emacspeak-eww-element-navigation-history)))
+                           (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
@@ -1562,7 +1560,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (cond
    (emacspeak-eww-element-navigation-history
     (funcall-interactively #'emacspeak-eww-previous-element
-     (car emacspeak-eww-element-navigation-history)))
+                           (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-here-tags ()
@@ -1699,7 +1697,7 @@ Warning, this is fragile, and depends on a stable id for the
   knowledge card."
   (interactive)
   (cl-declare (special
-            emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
+               emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Turn on  masquerade mode for knowledge cards."))
   (unless (eq major-mode 'eww-mode)
@@ -1857,11 +1855,10 @@ Warning, this is fragile, and depends on a stable id for the
 (defadvice eww-browse-with-external-browser(around emacspeak pre act comp)
   "Use our m-player integration."
   (let* ((url (ad-get-arg 0))
-        (media-p (string-match emacspeak-media-extensions url)))
+         (media-p (string-match emacspeak-media-extensions url)))
     (cond
      (media-p (emacspeak-m-player url))
      (t ad-do-it))))
-
 
 ;;}}}
 ;;{{{ Set title:
@@ -1901,7 +1898,7 @@ Warning, this is fragile, and depends on a stable id for the
        (if (zerop (length input))
            "current" input)))))
   (cl-declare (special emacspeak-eww-marks
-                    emacspeak-epub-this-epub emacspeak-bookshare-this-book))
+                       emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
          (make-emacspeak-eww-mark
           :name name
@@ -2002,8 +1999,6 @@ interactive prefix arg `delete', delete that mark instead."
            'at-end))
         (funcall handler book)))))))
 
-
-
 (defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-resource-directory)
   "File where we save EWW marks.")
@@ -2059,7 +2054,6 @@ interactive prefix arg `delete', delete that mark instead."
            (expand-file-name "cbox-amp" emacspeak-etc-directory)
            (executable-find "youtube-dl")))
   "Shell commands we permit on URL under point.")
-
 
 ;;;###autoload
 (defun emacspeak-eww-shell-command-on-url-at-point (&optional prefix)

@@ -108,7 +108,7 @@ use the minibuffer."
     (cond
      ((zerop count) t)                  ;do nothing
      ((cl-notany #'(lambda (s) (string-match "%s" s))
-              prompts)
+                 prompts)
                                         ; generate auto advice
       (put sym 'emacspeak-auto-advised t)
       (eval
@@ -153,9 +153,9 @@ use the minibuffer."
   (interactive
    (list
     (locate-library
-    (completing-read "Fix library: "
-                     'locate-file-completion
-                     (cons load-path (get-load-suffixes))))))
+     (completing-read "Fix library: "
+                      'locate-file-completion
+                      (cons load-path (get-load-suffixes))))))
   (dolist
       (item (cl-rest (assoc module load-history)))
     (and (listp item)
@@ -181,15 +181,15 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
   (unless (eq emacspeak-load-history-pointer load-history)
     (let ((lh load-history))
 ;;; cdr down lh till we hit emacspeak-load-history-pointer
-                 (while (and lh
-                             (not (eq lh emacspeak-load-history-pointer)))
+      (while (and lh
+                  (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
-                   (emacspeak-fix-commands-loaded-from lh)
-                   (when (called-interactively-p 'interactive)
-                     (message "Fixed commands in %s" (cl-first (cl-first lh))))
-                   (setq lh (cl-rest lh)))
+        (emacspeak-fix-commands-loaded-from lh)
+        (when (called-interactively-p 'interactive)
+          (message "Fixed commands in %s" (cl-first (cl-first lh))))
+        (setq lh (cl-rest lh)))
 ;;;memoize for future call
-                 (setq emacspeak-load-history-pointer load-history))
+      (setq emacspeak-load-history-pointer load-history))
     (when (called-interactively-p 'interactive)
       (message "Fixed recently defined  interactive commands")))
   t)

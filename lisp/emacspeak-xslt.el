@@ -114,7 +114,7 @@ This is useful when handling bad HTML."
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (cl-declare (special emacspeak-xslt-program emacspeak-xslt-options
-                    emacspeak-xslt-keep-errors modification-flag))
+                       emacspeak-xslt-keep-errors modification-flag))
   (save-excursion
     (with-silent-modifications
       (let ((command nil)
@@ -153,9 +153,6 @@ part of the libxslt package."
         (set-buffer-multibyte t)
         (current-buffer)))))
 
-
-
-
 ;;;###autoload
 (defun emacspeak-xslt-run (xsl &optional start end)
   "Run xslt on region, and return output filtered by sort -u.
@@ -181,7 +178,7 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (cl-declare (special emacspeak-xslt-program
-                    emacspeak-xslt-keep-errors))
+                       emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
         (parameters (when params
@@ -226,7 +223,6 @@ part of the libxslt package."
       (set-buffer-multibyte t)
       (goto-char (point-min))
       result)))
-
 
 (defun emacspeak-xslt-pipeline-url (specs url &optional  no-comment)
   "Apply XSLT transformation to url
@@ -287,7 +283,7 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (cl-declare (special emacspeak-xslt-program
-                    emacspeak-xslt-keep-errors))
+                       emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
         (parameters

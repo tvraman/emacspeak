@@ -223,7 +223,7 @@ first initializing it if necessary."
   )
 
 (cl-eval-when (load)
-           (emacspeak-arc-setup-keys))
+  (emacspeak-arc-setup-keys))
 ;;}}}
 (provide 'emacspeak-arc)
 ;;{{{ end of file 

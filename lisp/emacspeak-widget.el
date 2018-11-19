@@ -572,7 +572,7 @@ Returns a string with appropriate personality."
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cl-declare (special emacspeak-webutils-url-at-point
-                    emacspeak-we-url-executor))
+                       emacspeak-we-url-executor))
   (let ((inhibit-read-only t)
         (widget (widget-at (ad-get-arg 0))))
     (cond
@@ -582,10 +582,10 @@ Returns a string with appropriate personality."
         (cond
          ((and (eq major-mode 'eww-mode)
                emacspeak-webutils-url-at-point
-           (funcall emacspeak-webutils-url-at-point)
-           emacspeak-we-url-executor
-           (boundp 'emacspeak-we-url-executor)
-           (fboundp emacspeak-we-url-executor))
+               (funcall emacspeak-webutils-url-at-point)
+               emacspeak-we-url-executor
+               (boundp 'emacspeak-we-url-executor)
+               (fboundp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)
           (call-interactively 'emacspeak-we-url-expand-and-execute))
          (t ad-do-it
@@ -662,7 +662,7 @@ widget before summarizing."
 (defadvice widget-setup (after emacspeak pre act comp)
   "Update widget keymaps."
   (cl-declare (special emacspeak-prefix
-                    widget-field-keymap widget-text-keymap))
+                       widget-field-keymap widget-text-keymap))
   (cl-loop
    for map in
    '(widget-field-keymap widget-text-keymap)
@@ -692,8 +692,8 @@ widget before summarizing."
     (emacspeak-widget-summarize w)))
 
 (cl-declaim (special widget-keymap
-                  widget-field-keymap
-                  widget-text-keymap))
+                     widget-field-keymap
+                     widget-text-keymap))
 
 ;;}}}
 

@@ -160,7 +160,7 @@ This is set to nil when playing Internet  streams.")
 \\{emacspeak-m-player-mode-map}"
   (progn
     (setq buffer-undo-list t)
-    ;(ansi-color-for-comint-mode-on)
+                                        ;(ansi-color-for-comint-mode-on)
     (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
@@ -312,7 +312,7 @@ etc to be ignored when guessing directory.")
 (defun emacspeak-media-guess-directory ()
   "Guess default directory."
   (cl-declare (special emacspeak-media-directory-regexp
-                    emacspeak-m-player-accelerator-p))
+                       emacspeak-m-player-accelerator-p))
   (cond
    ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
    (emacspeak-m-player-accelerator-p
@@ -425,10 +425,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (emacspeak-media-read-resource)
     current-prefix-arg))
   (cl-declare (special
-            emacspeak-m-player-file-list emacspeak-m-player-current-directory
-            ido-work-directory-list emacspeak-media-directory-regexp
-            emacspeak-media-shortcuts-directory emacspeak-m-player-process
-            emacspeak-m-player-program emacspeak-m-player-options))
+               emacspeak-m-player-file-list emacspeak-m-player-current-directory
+               ido-work-directory-list emacspeak-media-directory-regexp
+               emacspeak-media-shortcuts-directory emacspeak-m-player-process
+               emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -478,8 +478,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (setq  emacspeak-m-player-file-list file-list)
       (emacspeak-auditory-icon 'progress)
       (when (called-interactively-p 'interactive)
-      (message "MPlayer opened  %s" 
-               (file-name-nondirectory resource))))))
+        (message "MPlayer opened  %s" 
+                 (file-name-nondirectory resource))))))
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
@@ -492,8 +492,8 @@ feature. Calling spec is like `emacspeak-m-player'."
     (emacspeak-media-read-resource)
     current-prefix-arg))
   (cl-declare (special emacspeak-m-player-options
-                    emacspeak-m-player-openal-options
-                    emacspeak-m-player-process))
+                       emacspeak-m-player-openal-options
+                       emacspeak-m-player-process))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -514,7 +514,7 @@ feature. Calling spec is like `emacspeak-m-player'."
 This will work if the soundcard is set to 48000."
   (interactive)
   (cl-declare (special emacspeak-m-player-options emacspeak-m-player-hrtf-options
-                    emacspeak-m-player-process))
+                       emacspeak-m-player-process))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
@@ -555,7 +555,7 @@ Interactive prefix arg appends the new resource to what is playing."
           (dired-get-filename)))))
     current-prefix-arg))
   (cl-declare (special emacspeak-media-extensions
-                    emacspeak-media-shortcuts-directory))
+                       emacspeak-media-shortcuts-directory))
   (unless (string-match "^[a-z]+:"  resource)
     (setq resource (expand-file-name resource)))
   (emacspeak-m-player-dispatch
@@ -835,7 +835,7 @@ This affects pitch."
                        (or emacspeak-m-player-active-filters
                            emacspeak-m-player-filters nil nil)))))
   (cl-declare (special emacspeak-m-player-filters
-                    emacspeak-m-player-active-filters))
+                       emacspeak-m-player-active-filters))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (let* ((result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
       (setq emacspeak-m-player-active-filters (remove  filter emacspeak-m-player-active-filters))
@@ -959,7 +959,7 @@ selected filter before it is applied."
                      nil nil)
     current-prefix-arg))
   (cl-declare (special emacspeak-m-player-process
-                    emacspeak-m-player-active-filters))
+                       emacspeak-m-player-active-filters))
   (when edit
     (setq filter-name
           (read-from-minibuffer
@@ -1004,16 +1004,15 @@ selected filter before it is applied."
 
 (defvar emacspeak-webutils-media-history nil)
 
-
 (defun emacspeak-m-player-from-media-history (posn)
   "Play media from media-history.
 Numeric arg `posn' specifies position in history."
   (interactive "p")
-  (cl-declare (special emacspeak-webutils-media-history ))
+  (cl-declare (special emacspeak-webutils-media-history))
   (setq posn (1- posn))
   (cl-assert (and emacspeak-webutils-media-history (> (length emacspeak-webutils-media-history)  posn)) t "Not that many elements in media history")
   (apply #'emacspeak-m-player (elt emacspeak-webutils-media-history posn)))
-  
+
 ;;}}}
 ;;{{{ Reset Options:
 
@@ -1021,7 +1020,7 @@ Numeric arg `posn' specifies position in history."
   "Reset MPlayer options to initial defaults."
   (interactive)
   (cl-declare (special emacspeak-m-player-default-options
-                    emacspeak-m-player-options))
+                       emacspeak-m-player-options))
   (setq emacspeak-m-player-options
         emacspeak-m-player-default-options)
   (message "Reset options."))
@@ -1036,24 +1035,24 @@ Numeric arg `posn' specifies position in history."
 
 (defvar emacspeak-m-player-equalizer-presets 
   '(
-    ("flat" . [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0])
-    ("classical" . [0.0 0.0 0.0 0.0 0.0 -4.4 -4.4 -4.4 -5.8 -6.5])
-    ("club" . [0.0 0.0 4.8 3.3 3.3 3.3 1.9 0.0 0.0 0.0])
-    ("dance" . [5.7 4.3 1.4 0.0 0.0 -3.4 -4.4 -4.3 0.0 0.0])
-    ("full-bass" . [-4.8 5.7 5.7 3.3 1.0 -2.4 -4.8 -6.3 -6.7 -6.7])
-    ("full-bass-and-treble" . [4.3 3.3 0.0 -4.4 -2.9 1.0 4.8 6.7 7.2 7.2])
-    ("full-treble" . [-5.8 -5.8 -5.8 -2.4 1.4 6.7 9.6 9.6 9.6 10.1])
-    ("headphones" . [2.8 6.7 3.3 -2.0 -1.4 1.0 2.8 5.7 7.7 8.6])
-    ("large-hall" . [6.2 6.2 3.3 3.3 0.0 -2.9 -2.9 -2.9 0.0 0.0])
-    ("live" . [-2.9 0.0 2.4 3.3 3.3 3.3 2.4 1.4 1.4 1.4])
-    ("party" . [4.3 4.3 0.0 0.0 0.0 0.0 0.0 0.0 4.3 4.3])
-    ("pop" . [-1.0 2.8 4.3 4.8 3.3 0.0 -1.4 -1.4 -1.0 -1.0])
-    ("reggae" . [0.0 0.0 0.0 -3.4 0.0 3.8 3.8 0.0 0.0 0.0])
-    ("rock" . [4.8 2.8 -3.4 -4.8 -2.0 2.4 5.3 6.7 6.7 6.7])
-    ("ska" . [-1.4 -2.9 -2.4 0.0 2.4 3.3 5.3 5.7 6.7 5.8])
-    ("soft" . [2.8 1.0 0.0 -1.4 0.0 2.4 4.8 5.7 6.7 7.2])
-    ("soft-rock" . [2.4 2.4 1.4 0.0 -2.4 -3.4 -2.0 0.0 1.4 5.3])
-    ("techno" . [4.8 3.3 0.0 -3.4 -2.9 0.0 4.8 5.7 5.8 5.3]))
+      ("flat" . [0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0])
+      ("classical" . [0.0 0.0 0.0 0.0 0.0 -4.4 -4.4 -4.4 -5.8 -6.5])
+      ("club" . [0.0 0.0 4.8 3.3 3.3 3.3 1.9 0.0 0.0 0.0])
+      ("dance" . [5.7 4.3 1.4 0.0 0.0 -3.4 -4.4 -4.3 0.0 0.0])
+      ("full-bass" . [-4.8 5.7 5.7 3.3 1.0 -2.4 -4.8 -6.3 -6.7 -6.7])
+      ("full-bass-and-treble" . [4.3 3.3 0.0 -4.4 -2.9 1.0 4.8 6.7 7.2 7.2])
+      ("full-treble" . [-5.8 -5.8 -5.8 -2.4 1.4 6.7 9.6 9.6 9.6 10.1])
+      ("headphones" . [2.8 6.7 3.3 -2.0 -1.4 1.0 2.8 5.7 7.7 8.6])
+      ("large-hall" . [6.2 6.2 3.3 3.3 0.0 -2.9 -2.9 -2.9 0.0 0.0])
+      ("live" . [-2.9 0.0 2.4 3.3 3.3 3.3 2.4 1.4 1.4 1.4])
+      ("party" . [4.3 4.3 0.0 0.0 0.0 0.0 0.0 0.0 4.3 4.3])
+      ("pop" . [-1.0 2.8 4.3 4.8 3.3 0.0 -1.4 -1.4 -1.0 -1.0])
+      ("reggae" . [0.0 0.0 0.0 -3.4 0.0 3.8 3.8 0.0 0.0 0.0])
+      ("rock" . [4.8 2.8 -3.4 -4.8 -2.0 2.4 5.3 6.7 6.7 6.7])
+      ("ska" . [-1.4 -2.9 -2.4 0.0 2.4 3.3 5.3 5.7 6.7 5.8])
+      ("soft" . [2.8 1.0 0.0 -1.4 0.0 2.4 4.8 5.7 6.7 7.2])
+      ("soft-rock" . [2.4 2.4 1.4 0.0 -2.4 -3.4 -2.0 0.0 1.4 5.3])
+      ("techno" . [4.8 3.3 0.0 -3.4 -2.9 0.0 4.8 5.7 5.8 5.3]))
   "MPlayer equalizer presets.")
 
 (defsubst ems--equalizer-preset-get (name)
@@ -1146,7 +1145,6 @@ arg `reset' starts with all filters set to 0."
     (emacspeak-auditory-icon 'close-object)
     (push "equalizer" emacspeak-m-player-active-filters))
    (t (message "No stream playing at present."))))
-
 
 (defun emacspeak-m-player-equalizer-preset  (name)
   "Prompts for  equalizer preset and applies it to current stream.
@@ -1570,9 +1568,9 @@ tap-reverb already installed."
       (completing-read "Preset: "
                        emacspeak-m-player-tap-reverb-presets nil 'must-match))))
   (cl-declare (special emacspeak-m-player-tap-reverb-presets
-                    emacspeak-m-player-reverb-preset-table
-                    emacspeak-m-player-process
-                    emacspeak-m-player-reverb-filter))
+                       emacspeak-m-player-reverb-preset-table
+                       emacspeak-m-player-process
+                       emacspeak-m-player-reverb-filter))
   (let ((setting (assoc preset emacspeak-m-player-tap-reverb-presets))
         (ladspa (getenv "LADSPA_PATH"))
         (filter-spec nil)
@@ -1788,7 +1786,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   "Invoke mp3splt to clip selected range in current file."
   (interactive)
   (cl-declare (special emacspeak-sox
-                    emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
+                       emacspeak-m-player-clip-end emacspeak-m-player-clip-start))
   (cl-assert emacspeak-sox  nil "SoX needs to be installed to use this command.")
   (cl-assert (eq major-mode 'emacspeak-m-player-mode) nil "Not in an MPlayer buffer.")
   (cl-assert (numberp emacspeak-m-player-clip-start) nil "Set start of clip with M-[")

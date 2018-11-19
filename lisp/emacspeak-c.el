@@ -311,7 +311,7 @@ and their meanings. ")
     (setq description
           (mapconcat
            #'(lambda (sem)
-                       (cdr (assq  sem emacspeak-c-syntactic-table)))
+               (cdr (assq  sem emacspeak-c-syntactic-table)))
            semantics
            " "))
     (condition-case nil
@@ -431,7 +431,7 @@ and their meanings. ")
 ;;{{{ Additional keybindings:
 
 (cl-declaim (special c-mode-map
-                  c-mode-base-map))
+                     c-mode-base-map))
 (add-hook
  'c-mode-common-hook
  #'(lambda ()

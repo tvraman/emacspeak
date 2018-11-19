@@ -99,9 +99,9 @@ Interactive XML browser.
 (defun emacspeak-xml-shell-start-process (system-id)
   "Launch Xml-Shell process."
   (cl-declare (special emacspeak-xml-shell-process
-                    emacspeak-xml-shell-hooks
-                    emacspeak-xml-shell-command
-                    emacspeak-xml-shell-options))
+                       emacspeak-xml-shell-hooks
+                       emacspeak-xml-shell-command
+                       emacspeak-xml-shell-options))
   (let ((buffer (apply 'make-comint "Xml-Shell"
                        emacspeak-xml-shell-command
                        nil
@@ -136,7 +136,7 @@ Interactive XML browser.
       (read-file-name
        "Browse XML: "))))
   (cl-declare (special emacspeak-xml-shell-process
-                    emacspeak-xml-shell-document))
+                       emacspeak-xml-shell-document))
   (unless (string-match "^http:" system-id)
     (setq system-id (expand-file-name system-id)))
   (unless
@@ -242,7 +242,7 @@ and end."
 Display function accepts two arguments, start and end that specify the
 region of text to process."
   (cl-declare (special emacspeak-xml-shell-process
-                    emacspeak-xml-shell-cat))
+                       emacspeak-xml-shell-cat))
   (let ((accumulator nil)
         (terminator nil)
         (accumulate (get-buffer-create "*xml-shell-accumulator*")))

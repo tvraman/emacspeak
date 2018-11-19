@@ -179,7 +179,7 @@
  for f in
  '(
    magit-section-forward magit-section-backward magit-section-up
-                         magit-next-line magit-previous-line
+   magit-next-line magit-previous-line
    magit-section-forward-sibling magit-section-backward-sibling
    magit-ignore-file magit-ignore-item
    magit-stash

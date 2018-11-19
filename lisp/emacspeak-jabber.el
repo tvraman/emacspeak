@@ -161,7 +161,7 @@
 (defun emacspeak-jabber-presence-default-message (&rest _ignore)
   "Default presence alert used by Emacspeak.
 Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
-nil)
+  nil)
 (setq
  jabber-alert-presence-message-function
  #'emacspeak-jabber-presence-default-message)
@@ -225,7 +225,7 @@ nil)
 
 ;;}}}
 ;;{{{ Browse chat buffers:
-(defun emacspeak-jabber-chat-speak-this-message(&optional copy-as-kill )
+(defun emacspeak-jabber-chat-speak-this-message(&optional copy-as-kill)
   "Speak chat message under point.
 With optional interactive prefix arg `copy-as-kill', copy it to
 the kill ring as well."
@@ -239,17 +239,17 @@ the kill ring as well."
   (interactive)
   (cl-assert  (eq major-mode 'jabber-chat-mode) nil  "Not in a Jabber chat buffer.")
   (end-of-line)
-    (goto-char (next-single-property-change (point) 'face nil(point-max)))
-    (while (and (not (eobp))
-                (or (null (get-text-property (point) 'face))
-                 (get-text-property (point) 'field)))
-      (goto-char (next-single-property-change (point) 'face  nil  (point-max))))
-    (cond
-     ((eobp)
-        (message "On last message")
-        (emacspeak-auditory-icon 'warn-user))
-      (t(emacspeak-auditory-icon 'select-object)
-       (emacspeak-speak-text-range 'face))))
+  (goto-char (next-single-property-change (point) 'face nil(point-max)))
+  (while (and (not (eobp))
+              (or (null (get-text-property (point) 'face))
+                  (get-text-property (point) 'field)))
+    (goto-char (next-single-property-change (point) 'face  nil  (point-max))))
+  (cond
+   ((eobp)
+    (message "On last message")
+    (emacspeak-auditory-icon 'warn-user))
+   (t(emacspeak-auditory-icon 'select-object)
+     (emacspeak-speak-text-range 'face))))
 
 (defun emacspeak-jabber-chat-previous-message ()
   "Move backward to and speak the previous message in this chat session."
@@ -266,7 +266,7 @@ the kill ring as well."
     (message "On first message")
     (emacspeak-auditory-icon 'warn-user))
    (t(emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-text-range 'face))))
+     (emacspeak-speak-text-range 'face))))
 
 (when (boundp 'jabber-chat-mode-map)
   (cl-loop
@@ -283,14 +283,14 @@ the kill ring as well."
 ;;;###autoload
 (defun emacspeak-jabber-speak-recent-message ()
   "Speak most recent message if one exists."
-  (interactive )
+  (interactive)
   (cond
    (jabber-activity-jids
     (save-excursion
       (jabber-activity-switch-to)
       (goto-char (point-max))
       (emacspeak-jabber-chat-previous-message)))
-      (t (message "No recent message."))))
+   (t (message "No recent message."))))
 
 ;;}}}
 (provide 'emacspeak-jabber)

@@ -105,9 +105,9 @@
   (interactive)
   (cl-declare (special emacspeak-etc-directory))
   (emacspeak-webutils-without-xsl
-      (browse-url
-       (format "file:///%stips.html"
-               emacspeak-etc-directory)))
+   (browse-url
+    (format "file:///%stips.html"
+            emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'help)
   (emacspeak-speak-mode-line))
 
@@ -639,11 +639,11 @@ name of a clipboard file."
         (clipboard nil))
     (setq clipboard (find-file-noselect clipboard-file))
     (ems-with-messages-silenced
-        (save-current-buffer
-          (set-buffer clipboard)
-          (erase-buffer)
-          (insert clip)
-          (save-buffer)))
+     (save-current-buffer
+       (set-buffer clipboard)
+       (erase-buffer)
+       (insert clip)
+       (save-buffer)))
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
@@ -801,7 +801,7 @@ emacspeak-emergency-tts-server."
             'personality 'voice-smoothen)
            (if f " for " "")
            (propertize
-            (format "%s" (or f "" ))
+            (format "%s" (or f ""))
             'face f)))
     (message msg)))
 
@@ -1329,26 +1329,26 @@ visiting the ppt file."
   (cl-declare (special emacspeak-wizards-ppthtml-program
                        emacspeak-wizards-ppt-preview-buffer))
   (emacspeak-webutils-without-xsl
-      (cond
-       ((null emacspeak-wizards-ppthtml-program)
-        (message "Not using Emacspeak PPTHTML wizard."))
-       (t
-        (let ((filename (buffer-file-name))
-              (ppt-buffer (current-buffer))
-              (buffer (get-buffer-create " *ppt scratch*")))
-          (save-current-buffer
-            (setq buffer-undo-list t)
-            (set-buffer buffer)
-            (erase-buffer)
-            (kill-all-local-variables)
-            (shell-command
-             (format "%s  %s"
-                     emacspeak-wizards-ppthtml-program filename)
-             'replace
-             (current-buffer))
-            (call-interactively #'browse-url-of-buffer))
-          (kill-buffer buffer)
-          (kill-buffer ppt-buffer))))))
+   (cond
+    ((null emacspeak-wizards-ppthtml-program)
+     (message "Not using Emacspeak PPTHTML wizard."))
+    (t
+     (let ((filename (buffer-file-name))
+           (ppt-buffer (current-buffer))
+           (buffer (get-buffer-create " *ppt scratch*")))
+       (save-current-buffer
+         (setq buffer-undo-list t)
+         (set-buffer buffer)
+         (erase-buffer)
+         (kill-all-local-variables)
+         (shell-command
+          (format "%s  %s"
+                  emacspeak-wizards-ppthtml-program filename)
+          'replace
+          (current-buffer))
+         (call-interactively #'browse-url-of-buffer))
+       (kill-buffer buffer)
+       (kill-buffer ppt-buffer))))))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.ppt$"
@@ -1770,26 +1770,26 @@ Ubuntu and Debian this is group `tty'."
                        emacspeak-wizards-vc-console
                        temporary-file-directory))
   (ems-with-messages-silenced
-      (let ((command
-             (format emacspeak-wizards-vc-viewer-command
-                     console
-                     (expand-file-name
-                      (format "vc-%s.dump" console)
-                      temporary-file-directory)))
-            (buffer (get-buffer-create
-                     (format "*vc-%s*" console))))
-        (shell-command command buffer)
-        (switch-to-buffer buffer)
-        (kill-all-local-variables)
-        (insert-file-contents
-         (expand-file-name
-          (format "vc-%s.dump" console)
-          temporary-file-directory))
-        (set-buffer-modified-p nil)
-        (emacspeak-wizards-vc-viewer-mode)
-        (setq emacspeak-wizards-vc-console console)
-        (goto-char (point-min))
-        (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
+   (let ((command
+          (format emacspeak-wizards-vc-viewer-command
+                  console
+                  (expand-file-name
+                   (format "vc-%s.dump" console)
+                   temporary-file-directory)))
+         (buffer (get-buffer-create
+                  (format "*vc-%s*" console))))
+     (shell-command command buffer)
+     (switch-to-buffer buffer)
+     (kill-all-local-variables)
+     (insert-file-contents
+      (expand-file-name
+       (format "vc-%s.dump" console)
+       temporary-file-directory))
+     (set-buffer-modified-p nil)
+     (emacspeak-wizards-vc-viewer-mode)
+     (setq emacspeak-wizards-vc-console console)
+     (goto-char (point-min))
+     (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
@@ -2083,9 +2083,9 @@ Location is specified by name."
     (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
   (ems-with-messages-silenced
-      (let ((time (emacspeak-speak-decode-iso-datetime iso)))
-        (tts-with-punctuations 'some (dtk-speak time))
-        (message time))))
+   (let ((time (emacspeak-speak-decode-iso-datetime iso)))
+     (tts-with-punctuations 'some (dtk-speak time))
+     (message time))))
 
 ;;}}}
 ;;{{{ date pronouncer wizard
@@ -2173,15 +2173,15 @@ RIVO is implemented by rivo.pl ---
    (list
     (read-from-minibuffer "At Time: hh:mm Month Day")
     (ems-with-messages-silenced
-        (let ((completion-ignore-case t)
-              (minibuffer-history emacspeak-media-history))
-          (emacspeak-pronounce-define-local-pronunciation
-           emacspeak-media-shortcuts-directory " shortcuts/ ")
-          (read-file-name "RealAudio resource: "
-                          emacspeak-media-shortcuts-directory
-                          (if (eq major-mode 'dired-mode)
-                              (dired-get-filename)
-                            emacspeak-media-last-url))))
+     (let ((completion-ignore-case t)
+           (minibuffer-history emacspeak-media-history))
+       (emacspeak-pronounce-define-local-pronunciation
+        emacspeak-media-shortcuts-directory " shortcuts/ ")
+       (read-file-name "RealAudio resource: "
+                       emacspeak-media-shortcuts-directory
+                       (if (eq major-mode 'dired-mode)
+                           (dired-get-filename)
+                         emacspeak-media-last-url))))
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
@@ -2700,8 +2700,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Speak line using espeak polyglot wizard."
   (interactive)
   (ems-with-messages-silenced
-      (emacspeak-wizards-espeak-region
-       (line-beginning-position) (line-end-position))))
+   (emacspeak-wizards-espeak-region
+    (line-beginning-position) (line-end-position))))
 
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
@@ -4233,7 +4233,7 @@ external package."
         (g (global-key-binding key))
         (k
          (when-let (map (get-text-property (point) 'keymap))
-           (lookup-key map key))))
+                   (lookup-key map key))))
     (cl-flet
         ((do-it (command)
                 (make-thread command)
@@ -4260,9 +4260,6 @@ external package."
       (insert prefix)
       (emacspeak-auditory-icon 'yank-object)
       (dtk-speak prefix))))
-
-
-
 
 ;;}}}
 

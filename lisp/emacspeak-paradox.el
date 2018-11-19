@@ -69,7 +69,7 @@
    (paradox-commit-tag-face voice-brighten)
    (paradox-download- voice-smoothen)
    (paradox-highlight-face voice-bolden)
-   ( paradox-homepage-button-face voice-bolden-medium)))
+   (paradox-homepage-button-face voice-bolden-medium)))
 
 ;;}}}
 ;;{{{ Additional Commands

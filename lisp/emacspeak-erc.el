@@ -206,9 +206,9 @@ Optional interactive prefix  arg defines a pronunciation that
   "Uses environment of buffer to decide what message to
 display. String is the original message."
   (cl-declare (special emacspeak-erc-people-to-monitor
-                    emacspeak-erc-my-nick
-                    emacspeak-erc-speak-all-participants
-                    emacspeak-erc-monitor-my-messages))
+                       emacspeak-erc-my-nick
+                       emacspeak-erc-speak-all-participants
+                       emacspeak-erc-monitor-my-messages))
   (let ((who-from (car (split-string string)))
         (case-fold-search t))
     (cond
@@ -239,8 +239,8 @@ set the current local value to the result.")
                                            comp)
   "Speech-enable ERC."
   (cl-declare (special emacspeak-erc-room-monitor
-                    emacspeak-erc-monitor-my-messages
-                    emacspeak-erc-my-nick))
+                       emacspeak-erc-monitor-my-messages
+                       emacspeak-erc-my-nick))
   (let ((buffer (ad-get-arg 1))
         (case-fold-search t))
     (with-current-buffer  buffer
@@ -258,8 +258,8 @@ set the current local value to the result.")
 (defadvice erc-display-line-1  (after emacspeak pre act comp)
   "Speech-enable ERC."
   (cl-declare (special emacspeak-erc-room-monitor
-                    emacspeak-erc-monitor-my-messages
-                    emacspeak-erc-my-nick))
+                       emacspeak-erc-monitor-my-messages
+                       emacspeak-erc-my-nick))
   (let ((buffer (ad-get-arg 1))
         (case-fold-search t))
     (save-current-buffer

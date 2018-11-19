@@ -89,7 +89,6 @@
     (emacspeak-auditory-icon (if origami-mode 'on 'off))
     (message "Turned %s origami mode." (if origami-mode 'on 'off))))
 
-
 (cl-loop
  for f in
  '(
@@ -106,7 +105,7 @@
 
 (cl-loop
  for f in
- '(origami-close-node-recursively origami-close-node origami-close-all-nodes )
+ '(origami-close-node-recursively origami-close-node origami-close-all-nodes)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -119,7 +118,7 @@
  for f in
  '(
    origami-show-only-node  origami-show-node
-   origami-open-node-recursively origami-open-node origami-open-all-nodes )
+   origami-open-node-recursively origami-open-node origami-open-all-nodes)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -144,10 +143,10 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (let ((flag (if  (emacspeak-origami-invisible-p ) 'on 'off)))
-       (emacspeak-auditory-icon flag)
-       (message "%s nodes." (if flag "Expanded " "Collapsed "))
-       (emacspeak-speak-line))))))
+       (let ((flag (if  (emacspeak-origami-invisible-p) 'on 'off)))
+         (emacspeak-auditory-icon flag)
+         (message "%s nodes." (if flag "Expanded " "Collapsed "))
+         (emacspeak-speak-line))))))
 
 ;;}}}
 (provide 'emacspeak-origami)

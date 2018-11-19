@@ -171,7 +171,7 @@
   (emacspeak-auditory-icon 'off))
 
 (defadvice jdee-bug-toggle-breakpoint (after emacspeak pre
-                                            act comp)
+                                             act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (message "toggled breakpoint.")))

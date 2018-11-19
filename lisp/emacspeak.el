@@ -349,9 +349,9 @@ that implements the speech-enabling extensions for `package' (a string)."
                   emacspeak-use-auditory-icons
                   emacspeak-audio-indentation)))
       (mapcar
-        #'(lambda (x)
-          (if (not (and (boundp x) (symbol-value x)))
-              (setq vars (delq x vars))))vars)
+       #'(lambda (x)
+           (if (not (and (boundp x) (symbol-value x)))
+               (setq vars (delq x vars))))vars)
       (reporter-submit-bug-report
        emacspeak-bug-address
        (concat "Emacspeak Version: " emacspeak-version)
@@ -367,7 +367,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 This exports emacspeak's system variables to the environment
 so it can be passed to subprocesses."
   (cl-declare (special emacspeak-directory emacspeak-play-program
-                    emacspeak-sounds-directory))
+                       emacspeak-sounds-directory))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
   (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program))
@@ -385,7 +385,7 @@ Turns on audio indentation and sets
 punctuation mode to all, activates the dictionary and turns on split
 caps."
   (cl-declare (special dtk-split-caps
-                    emacspeak-audio-indentation))
+                       emacspeak-audio-indentation))
   (ems-with-messages-silenced
    (dtk-set-punctuations 'all)
    (or dtk-split-caps
@@ -415,7 +415,7 @@ caps."
 ;;{{{ set up after-init-hook to fix interactive functions
 
 (add-hook 'after-init-hook 'emacspeak-fix-commands-that-use-interactive)
-;(add-hook 'after-init-hook 'emacspeak-keymap-refresh)
+                                        ;(add-hook 'after-init-hook 'emacspeak-keymap-refresh)
 
 ;;}}}
 ;;{{{ Emacspeak:

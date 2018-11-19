@@ -84,9 +84,7 @@
          (emacspeak-auditory-icon 'mark-object)
          (emacspeak-speak-region orig (point))))
       (t ad-do-it))
-  ad-return-value)))
-
-
+     ad-return-value)))
 
 ;;}}}
 ;;{{{  hangman

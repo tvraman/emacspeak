@@ -35,7 +35,6 @@
 ;;; This module defines the various voices used in voice-lock mode by
 ;;; the ESpeak TTS engine.
 
-
 ;;; Code:
 ;;}}}
 ;;{{{ Required modules
@@ -174,10 +173,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody pitch=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody pitch=\"%s\">"
+                     (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -197,10 +196,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody pitch=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody pitch=\"%s\">"
+                     (cl-second setting))))
    '(
      (0 26)
      (1 32.5)
@@ -220,10 +219,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody pitch=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody pitch=\"%s\">"
+                     (cl-second setting))))
    '(
      (0 40)
      (1 48)
@@ -257,10 +256,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody range=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody range=\"%s\">"
+                     (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -280,10 +279,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody range=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody range=\"%s\">"
+                     (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -303,10 +302,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody range=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody range=\"%s\">"
+                     (cl-second setting))))
    '(
      (0 0)
      (1 10)
@@ -350,10 +349,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format "<prosody volume=\"%s\">"
-                    (cl-second setting))))
+       (aset table
+             (cl-first setting)
+             (format "<prosody volume=\"%s\">"
+                     (cl-second setting))))
    ;;            (format " ri:%s sm:%s "
    ;;                    (cl-third setting)))))
    '(
@@ -375,9 +374,9 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format "<prosody volume=\"%s\">"
-                    (cl-second setting))))
+       (aset table (cl-first setting)
+             (format "<prosody volume=\"%s\">"
+                     (cl-second setting))))
    ;;            (format " ri:%s sm:%s "
    ;;                     (cl-second setting)
    ;;                     (cl-third setting)))))
@@ -400,9 +399,9 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format "<prosody volume=\"%s\">"
-                    (cl-second setting))))
+       (aset table (cl-first setting)
+             (format "<prosody volume=\"%s\">"
+                     (cl-second setting))))
    ;;            (format " ri:%s sm:%s "
    ;;                     (cl-second setting)
    ;;                     (cl-third setting)))))
@@ -485,9 +484,9 @@ and TABLE gives the values along that dimension."
 (defun espeak-configure-tts ()
   "Configure TTS environment to use eSpeak."
   (cl-declare (special tts-default-speech-rate
-                    espeak-default-speech-rate
-                    dtk-speaker-process
-                    emacspeak-unspeakable-rule))
+                       espeak-default-speech-rate
+                       dtk-speaker-process
+                       emacspeak-unspeakable-rule))
   (fset 'tts-list-voices'espeak-list-voices)
   (fset 'tts-voice-defined-p 'espeak-voice-defined-p)
   (fset 'tts-get-voice-command 'espeak-get-voice-command)

@@ -206,11 +206,11 @@ Otherwise cue user to the line just created. "
 
 (add-hook 'cperl-mode-hook
           #'(lambda ()
-                      (dtk-set-punctuations 'all)
-                      (or dtk-split-caps
-                          (dtk-toggle-split-caps))
-                      (or emacspeak-audio-indentation
-                          (emacspeak-toggle-audio-indentation))))
+              (dtk-set-punctuations 'all)
+              (or dtk-split-caps
+                  (dtk-toggle-split-caps))
+              (or emacspeak-audio-indentation
+                  (emacspeak-toggle-audio-indentation))))
 
 ;;}}}
 (provide  'emacspeak-cperl)

@@ -104,7 +104,7 @@ Note that the Web browser should reset this hook after using it.")
 (defun emacspeak-webutils-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
   (cl-declare (special emacspeak-web-post-process-hook
-                    emacspeak-web-pre-process-hook))
+                       emacspeak-web-pre-process-hook))
   (setq emacspeak-web-pre-process-hook nil) ;clear  pre-process hook
   (when     emacspeak-web-post-process-hook
     (condition-case nil
@@ -135,13 +135,13 @@ emacspeak-web-pre-process-hook to apply required xslt transformation
 pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
   (eval
    `#'(lambda ()
-    (cl-loop
-     for s in ',specs do
-            (emacspeak-xslt-region
-             (cl-first s)
-             (point) (point-max)
-             (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
-          
+        (cl-loop
+         for s in ',specs do
+         (emacspeak-xslt-region
+          (cl-first s)
+          (point) (point-max)
+          (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
+
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
@@ -169,25 +169,25 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
 
 (defun emacspeak-webutils-supported-p ()
   "Check if this is a supported browser."
-        (eq browse-url-browser-function 'eww-browse-url))
+  (eq browse-url-browser-function 'eww-browse-url))
 
 (defun emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
   (let
-   ((p dtk-punctuation-mode)
-    (r dtk-speech-rate))
-   (add-hook
-    'emacspeak-web-post-process-hook
-    #'(lambda nil
-        (cl-declare (special emacspeak-we-xpath-filter))
-        (let ((inhibit-read-only t))
-          (dtk-set-punctuations p)
-          (dtk-set-rate r)
-          (emacspeak-dtk-sync)
-          (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
-          (emacspeak-speak-buffer)))
-    'at-end)))
+      ((p dtk-punctuation-mode)
+       (r dtk-speech-rate))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda nil
+         (cl-declare (special emacspeak-we-xpath-filter))
+         (let ((inhibit-read-only t))
+           (dtk-set-punctuations p)
+           (dtk-set-rate r)
+           (emacspeak-dtk-sync)
+           (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
+           (emacspeak-speak-buffer)))
+     'at-end)))
 
 (defun emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."
@@ -289,7 +289,7 @@ and xsl environment specified by style, params and options."
       (eval
        `#'(lambda ()
             (cl-declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
-                              emacspeak-xslt-options emacspeak-we-xsl-params))
+                                 emacspeak-xslt-options emacspeak-we-xsl-params))
             (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
                   emacspeak-xslt-options ,emacspeak-xslt-options
                   emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
@@ -483,7 +483,6 @@ Useful in handling double-redirect from TuneIn."
 
 ;;;###autoload
 
-
 ;;}}}
 ;;{{{ utility: Get Feed Titles With Links
 
@@ -513,7 +512,6 @@ Useful in handling double-redirect from TuneIn."
     (cl-loop
      for p being the hash-values of url-http-open-connections
      when p do (delete-process (car p)))))
-
 
 ;;}}}
 (provide 'emacspeak-webutils)

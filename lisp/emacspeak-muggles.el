@@ -269,7 +269,7 @@ Argument `k-map' is a symbol  that names a keymap."
      (progn
        (emacspeak-hydra-body-pre "Org Table UI")
        (when hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
-               :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
     "Org Table UI"
     ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
     ("j" org-table-next-row)
@@ -620,26 +620,26 @@ Info-mode:
 ;;{{{ origami:
 
 (global-set-key
-   (kbd "C-c /")
-   (defhydra emacspeak-origami
-     (:color red
-:body-pre
-    (progn
-      (origami-mode 1)
-      (emacspeak-hydra-body-pre "Origami")
-      (emacspeak-hydra-toggle-talkative))
-    :hint nil
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-     "
+ (kbd "C-c /")
+ (defhydra emacspeak-origami
+   (:color red
+           :body-pre
+           (progn
+             (origami-mode 1)
+             (emacspeak-hydra-body-pre "Origami")
+             (emacspeak-hydra-toggle-talkative))
+           :hint nil
+           :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+   "
     _o_pen node    _n_ext fold       toggle _f_orward
     _c_lose node   _p_revious fold   toggle _a_ll
     "
-     ("o" origami-open-node)
-     ("c" origami-close-node)
-     ("n" origami-next-fold)
-     ("p" origami-previous-fold)
-     ("f" origami-forward-toggle-node)
-     ("a" origami-toggle-all-nodes)))
+   ("o" origami-open-node)
+   ("c" origami-close-node)
+   ("n" origami-next-fold)
+   ("p" origami-previous-fold)
+   ("f" origami-forward-toggle-node)
+   ("a" origami-toggle-all-nodes)))
 
 ;;}}}
 ;;{{{ hydra-ox:
@@ -702,7 +702,7 @@ Info-mode:
    ("c" sp-convolute-sexp)  
    ("d" sp-down-sexp)  
    ("e" end-of-defun)
-   ("f" sp-forward-sexp )  
+   ("f" sp-forward-sexp)  
    ("i" sp-indent-defun)  
    ("j" sp-join-sexp)  
    ("k" sp-kill-sexp)  
@@ -713,7 +713,7 @@ Info-mode:
    ("t" sp-transpose-sexp)  
    ("u" sp-backward-up-sexp)  
    ("w" sp-copy-sexp)  
-   ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))  ))
+   ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
 ;;}}}
 ;;{{{ Muggles Autoload Wizard:
@@ -751,9 +751,9 @@ Also generates global keybindings if any."
       (cl-loop
        for m in muggles do
        (let ((key  (where-is-internal m nil 'first)))
-       (insert (format "(autoload \'%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
-       (when key 
-       (insert (format "(global-set-key %s \'%s)\n" key m)))))
+         (insert (format "(autoload \'%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
+         (when key 
+           (insert (format "(global-set-key %s \'%s)\n" key m)))))
       (insert "\n(provide \'emacspeak-muggles-autoloads)\n")
       (save-buffer))
     (message "Generated autoloads for muggles.")))

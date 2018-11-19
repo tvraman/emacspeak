@@ -301,8 +301,8 @@ keybindings for view mode")
 (defun emacspeak-view-optimize-view-keys()
   "optimize keybindings for emacspeak in view mode"
   (cl-declare (special emacspeak-view-edit-commands
-                    emacspeak-view-keys-optimized
-                    view-mode-map emacspeak-keymap))
+                       emacspeak-view-keys-optimized
+                       view-mode-map emacspeak-keymap))
   (unless emacspeak-view-keys-optimized
     (setq emacspeak-view-keys-optimized t)
     (cl-loop for edit-command in emacspeak-view-edit-commands

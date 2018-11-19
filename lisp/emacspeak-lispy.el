@@ -78,7 +78,7 @@
    (lispy-face-key-sel voice-brighten)
    (lispy-face-opt-nosel voice-monotone)
    (lispy-face-opt-sel voice-lighten)
-   (lispy-face-req-nosel voice-monotone )
+   (lispy-face-req-nosel voice-monotone)
    (lispy-face-req-sel voice-brighten-extra)
    (lispy-face-rst-nosel voice-monotone)
    (lispy-face-rst-sel voice-lighten-extra)
@@ -174,7 +174,7 @@ Indicate  no movement if we did not move."
 
 (cl-loop
  for f in
- '(lispy-parens lispy-braces lispy-brackets )
+ '(lispy-parens lispy-braces lispy-brackets)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -256,7 +256,7 @@ Indicate  no movement if we did not move."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "region containing %s chars copied to kill ring "
-                (length (current-kill 0)))))
+             (length (current-kill 0)))))
 
 (cl-loop
  for f in
@@ -275,9 +275,6 @@ Indicate  no movement if we did not move."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-region (region-beginning) (region-end))))
-
-
-
 
 (defadvice lispy-delete-backward(around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -300,8 +297,6 @@ Indicate  no movement if we did not move."
 ;;}}}
 ;;{{{Advice Help:
 
-
-
 (defadvice lispy-describe-inline (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when
@@ -312,7 +307,6 @@ Indicate  no movement if we did not move."
     (with-current-buffer  "*lispy-help*"
       (emacspeak-auditory-icon 'help)
       (emacspeak-speak-buffer))))
-
 
 (defadvice lispy--show (before emacspeak   pre act comp)
   "Provide auditory feedback."
@@ -325,11 +319,10 @@ Indicate  no movement if we did not move."
 (defadvice lispy-narrow (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'mark-object)
-       (message "Narrowed editing region to %s lines"
-                (count-lines (region-beginning)
-                             (region-end)))))
-
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Narrowed editing region to %s lines"
+             (count-lines (region-beginning)
+                          (region-end)))))
 
 (defadvice lispy-widen (after emacspeak pre act comp)
   "Announce yourself."
@@ -339,7 +332,7 @@ Indicate  no movement if we did not move."
 
 (cl-loop
  for f in
- '(lispy-outline-next lispy-outline-prev lispy-shifttab )
+ '(lispy-outline-next lispy-outline-prev lispy-shifttab)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

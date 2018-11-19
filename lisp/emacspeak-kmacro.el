@@ -102,14 +102,11 @@
   (when (ems-interactive-p)
     (message "Calling  second macro from ring.")))
 
-
-
 (defadvice kmacro-call-macro (around emacspeak pre act comp)
   "Speech-enabled by emacspeak."
   (let ((emacspeak-speak-messages nil))
     ad-do-it
-  ad-return-value))
-
+    ad-return-value))
 
 (defadvice call-last-kbd-macro (around emacspeak pre act comp)
   "Speech-enabled by emacspeak."

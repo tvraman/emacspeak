@@ -183,7 +183,7 @@ Note that some badly formed mime messages  cause trouble."
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
   (cl-declare (special vm-message-pointer smtpmail-local-domain
-                    vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
+                       vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
     (let*  ((message (car vm-message-pointer))
             (number (emacspeak-vm-number-of  message))
@@ -235,9 +235,9 @@ Note that some badly formed mime messages  cause trouble."
   "VM mode line information. "
   (interactive)
   (cl-declare (special vm-ml-message-attributes-alist
-                    vm-ml-message-read vm-ml-message-unread
-                    vm-virtual-folder-definition vm-ml-message-new
-                    vm-ml-message-number vm-ml-highest-message-number))
+                       vm-ml-message-read vm-ml-message-unread
+                       vm-virtual-folder-definition vm-ml-message-new
+                       vm-ml-message-number vm-ml-highest-message-number))
   (cond
    (vm-virtual-folder-definition
     (dtk-speak
@@ -403,8 +403,8 @@ Then speak the screenful. "
 ;;{{{  Keybindings:
 (when (boundp 'vm-mode-map)
   (cl-declaim  (special
-             vm-mode-map
-             global-map emacspeak-prefix emacspeak-keymap))
+                vm-mode-map
+                global-map emacspeak-prefix emacspeak-keymap))
   (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
   (define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
   (define-key vm-mode-map  "j" 'emacspeak-hide-or-expose-all-blocks)
@@ -534,7 +534,6 @@ Leave point at front of decoded attachment."
 ;;}}}
 ;;{{{ advice button motion
 
-
 ;;}}}
 ;;{{{  misc
 
@@ -601,26 +600,26 @@ Leave point at front of decoded attachment."
   "Customization settings for VM used by the author of
 Emacspeak."
   (cl-declare (special emacspeak-vm-demote-html-attachments
-                    emacspeak-vm-promote-html-attachments
-                    vm-mime-charset-converter-alist
-                    vm-mime-default-face-charsets
-                    vm-frame-per-folder
-                    vm-frame-per-composition
-                    vm-frame-per-edit
-                    vm-frame-per-help
-                    vm-frame-per-summary
-                    vm-index-file-suffix
-                    vm-primary-inbox
-                    vm-folder-directory
-                    vm-forwarding-subject-format
-                    vm-startup-with-summary
-                    vm-inhibit-startup-message
-                    vm-visible-headers
-                    vm-delete-after-saving
-                    vm-url-browser
-                    vm-confirm-new-folders
-                    vm-mime-alternative-select-method
-                    vm-move-after-deleting))
+                       emacspeak-vm-promote-html-attachments
+                       vm-mime-charset-converter-alist
+                       vm-mime-default-face-charsets
+                       vm-frame-per-folder
+                       vm-frame-per-composition
+                       vm-frame-per-edit
+                       vm-frame-per-help
+                       vm-frame-per-summary
+                       vm-index-file-suffix
+                       vm-primary-inbox
+                       vm-folder-directory
+                       vm-forwarding-subject-format
+                       vm-startup-with-summary
+                       vm-inhibit-startup-message
+                       vm-visible-headers
+                       vm-delete-after-saving
+                       vm-url-browser
+                       vm-confirm-new-folders
+                       vm-mime-alternative-select-method
+                       vm-move-after-deleting))
   (setq vm-mime-alternative-select-method
         emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist
@@ -652,8 +651,8 @@ Emacspeak."
   "Toggle state of HTML Mime Demotion."
   (interactive)
   (cl-declare (special emacspeak-vm-demote-html-attachments
-                    emacspeak-vm-promote-html-attachments
-                    vm-mime-alternative-select-method))
+                       emacspeak-vm-promote-html-attachments
+                       vm-mime-alternative-select-method))
   (cond
    ((eq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
     (setq vm-mime-alternative-select-method
@@ -724,20 +723,20 @@ text using wvText."
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
   (cl-declare (special vm-preview-lines
-                    vm-infer-mime-types
-                    vm-mime-decode-for-preview
-                    vm-auto-decode-mime-messages
-                    vm-auto-displayed-mime-content-type-exceptions
-                    vm-mime-attachment-save-directory
-                    vm-mime-base64-encoder-program
-                    vm-mime-base64-decoder-program
-                    vm-mime-attachment-auto-type-alist
-                    vm-mime-type-converter-alist
-                    emacspeak-vm-pdf2text
-                    emacspeak-vm-ppt2html
-                    emacspeak-vm-xls2html
-                    emacspeak-vm-doc2text
-                    emacspeak-vm-cal2text))
+                       vm-infer-mime-types
+                       vm-mime-decode-for-preview
+                       vm-auto-decode-mime-messages
+                       vm-auto-displayed-mime-content-type-exceptions
+                       vm-mime-attachment-save-directory
+                       vm-mime-base64-encoder-program
+                       vm-mime-base64-decoder-program
+                       vm-mime-attachment-auto-type-alist
+                       vm-mime-type-converter-alist
+                       emacspeak-vm-pdf2text
+                       emacspeak-vm-ppt2html
+                       emacspeak-vm-xls2html
+                       emacspeak-vm-doc2text
+                       emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-converter
    (list "text/calendar" "text/plain" emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-converter

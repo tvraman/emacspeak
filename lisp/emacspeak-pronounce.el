@@ -70,9 +70,9 @@
 (require 'thingatpt)
 (cl-eval-when (compile)
                                         ;avoid recursive include during compile
-           (provide 'emacspeak-pronounce)
-           (require 'dtk-speak)
-           (require 'emacspeak-sounds))
+  (provide 'emacspeak-pronounce)
+  (require 'dtk-speak)
+  (require 'emacspeak-sounds))
 
 ;;}}}
 ;;{{{ customizations
@@ -97,7 +97,7 @@ Values are alists containing string.pronunciation pairs.")
 
 (defun emacspeak-pronounce-get-dictionary (key)
   (cl-declare (special emacspeak-pronounce-dictionaries
-                    minibuffer-history))
+                       minibuffer-history))
   (when (stringp key)
     (setq key (intern key)))
   (gethash key emacspeak-pronounce-dictionaries))
@@ -358,7 +358,7 @@ Optional argument FILENAME specifies the dictionary file."
   "Yank word at point into minibuffer."
   (interactive)
   (cl-declare (special emacspeak-pronounce-yank-word-point
-                    emacspeak-pronounce-current-buffer))
+                       emacspeak-pronounce-current-buffer))
   (let ((string
          (save-current-buffer
            (set-buffer emacspeak-pronounce-current-buffer)
@@ -373,7 +373,7 @@ Optional argument FILENAME specifies the dictionary file."
 
 (defun emacspeak-pronounce-read-term (key)
   (cl-declare (special emacspeak-pronounce-yank-word-point
-                    emacspeak-pronounce-current-buffer))
+                       emacspeak-pronounce-current-buffer))
   (let ((default (and (mark)
                       (< (count-lines (region-beginning)
                                       (region-end)) 2)
@@ -715,17 +715,17 @@ specified pronunciation dictionary key."
   (message emacspeak-pronounce-help)
   (let ((event (read-char)))
     (cl-case event
-          (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
-          (?d (call-interactively
-               'emacspeak-pronounce-define-pronunciation t))
-          (?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
-          (?e (call-interactively
-               'emacspeak-pronounce-edit-pronunciations t))
-          (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
-          (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
-          (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
-          (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
-          (otherwise (message emacspeak-pronounce-help)))
+      (?c (call-interactively 'emacspeak-pronounce-clear-dictionaries))
+      (?d (call-interactively
+           'emacspeak-pronounce-define-pronunciation t))
+      (?D (call-interactively 'emacspeak-pronounce-define-template-pronunciation t))
+      (?e (call-interactively
+           'emacspeak-pronounce-edit-pronunciations t))
+      (?l (call-interactively 'emacspeak-pronounce-load-dictionaries))
+      (?r (call-interactively 'emacspeak-pronounce-refresh-pronunciations))
+      (?s (call-interactively 'emacspeak-pronounce-save-dictionaries))
+      (?t (call-interactively 'emacspeak-pronounce-toggle-use-of-dictionaries))
+      (otherwise (message emacspeak-pronounce-help)))
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}

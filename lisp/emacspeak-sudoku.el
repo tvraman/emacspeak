@@ -57,7 +57,6 @@
 ;;}}}
 ;;{{{Forward Decl:
 
-
 (declare-function sudoku-column "sudoku" (board n))
 (declare-function sudoku-subsquare "sudoku" (board n))
 (declare-function sudoku-get-cell-from-point "sudoku" (num))
@@ -68,7 +67,6 @@
 (declare-function sudoku-goto-cell "sudoku" (coords))
 (declare-function sudoku-change-cell "sudoku" (board x y input))
 (declare-function sudoku-board-print "sudoku" (board message))
-
 
 ;;}}}
 ;;{{{ Define additional speak commands:
@@ -84,13 +82,13 @@ s   Sub-square Distribution.
   (interactive)
   (let ((c (read-char "Summary: ")))
     (cl-case c
-          (?d (call-interactively 'emacspeak-sudoku-board-distribution-summarize))
-          (?r (call-interactively 'emacspeak-sudoku-board-rows-summarize))
-          (?c (call-interactively
-               'emacspeak-sudoku-board-columns-summarize))
-          (?s (call-interactively
-               'emacspeak-sudoku-board-sub-squares-summarize))
-          (otherwise (message "Unknown summary type?")))))
+      (?d (call-interactively 'emacspeak-sudoku-board-distribution-summarize))
+      (?r (call-interactively 'emacspeak-sudoku-board-rows-summarize))
+      (?c (call-interactively
+           'emacspeak-sudoku-board-columns-summarize))
+      (?s (call-interactively
+           'emacspeak-sudoku-board-sub-squares-summarize))
+      (otherwise (message "Unknown summary type?")))))
 
 (defun emacspeak-sudoku-board-distribution-summarize ()
   "Shows distribution of filled numbers."
@@ -279,7 +277,7 @@ s   Sub-square Distribution.
 (defun emacspeak-sudoku-erase-these-cells (cell-list)
   "Erase cells in cell-list taking account of original values."
   (cl-declare (special start-board current-board
-                    sudoku-onscreen-instructions))
+                       sudoku-onscreen-instructions))
   (let ((original (sudoku-get-cell-from-point (point))))
     (cl-loop for cell in cell-list
              do
@@ -395,7 +393,7 @@ See
   "Push current state on to history stack."
   (interactive)
   (cl-declare (special emacspeak-sudoku-history-stack
-                    current-board))
+                       current-board))
   (unless emacspeak-sudoku-history-stack
     (setq emacspeak-sudoku-history-stack
           (stack-create)))
@@ -408,9 +406,9 @@ See
   "Pop saved state off stack and redraw board."
   (interactive)
   (cl-declare (special emacspeak-sudoku-history-stack
-                    sudoku-onscreen-instructions
-                    start-board
-                    current-board))
+                       sudoku-onscreen-instructions
+                       start-board
+                       current-board))
   (let ((original (sudoku-get-cell-from-point (point))))
     (cond
      ((stack-empty emacspeak-sudoku-history-stack) ;start board

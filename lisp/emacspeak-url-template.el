@@ -68,7 +68,7 @@
 ;;{{{ structures
 
 (cl-defstruct (emacspeak-url-template
-            (:constructor emacspeak-url-template-constructor))
+               (:constructor emacspeak-url-template-constructor))
   name ;Human-readable name
   template ;template URL string
   generators ; list of param generator
@@ -200,7 +200,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  #'(lambda nil (eww-display-dom-by-element 'h3))
  "News Headlines From Youtube")
-
 
 ;;; template resources
 ;;{{{ fedex, UPS
@@ -462,8 +461,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ google finance
 
-
-
 (emacspeak-url-template-define
  "Finance Google Search"
  "https://finance.google.com/finance?q=%s"
@@ -471,7 +468,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display content from Google Finance."
  #'(lambda (url)
-(emacspeak-we-extract-by-id "res" url 'speak)))
+     (emacspeak-we-extract-by-id "res" url 'speak)))
 
 ;;}}}
 ;;{{{ google scholar
@@ -557,7 +554,7 @@ from English to German")
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
   "View Google Atom news feed pulled using Curl."
   (cl-declare (special g-atom-view-xsl
-                    g-curl-program g-curl-common-options))
+                       g-curl-program g-curl-common-options))
   (emacspeak-webutils-autospeak)
   (g-display-result
    (format
@@ -627,8 +624,6 @@ from English to German")
                                 "http://"))))
  'emacspeak-speak-buffer
  "Transcode site via Google.")
-
-
 
 ;;}}}
 ;;{{{ Google Structured Data Parser:
@@ -1005,7 +1000,6 @@ JSON is retrieved from `url'."
 
 ;;}}}
 ;;{{{ times of india
-
 
 (emacspeak-url-template-define
  "Times Of India"
@@ -1428,16 +1422,15 @@ Returns a cons cell where the car is email, and the cdr is password."
              (cons "login" (cdr token))
              (cons "password" (car token))))
            (url-request-method "POST")
-		       (url-request-extra-headers
-			      (list
+           (url-request-extra-headers
+            (list
              (cons "Content-Type"
-				           (concat "multipart/form-data; boundary=" boundary))))       
-		       (url-request-data
-			      (mm-url-encode-www-form-urlencoded values)))
+                   (concat "multipart/form-data; boundary=" boundary))))       
+           (url-request-data
+            (mm-url-encode-www-form-urlencoded values)))
       (setq emacspeak-url-template-nls-authenticated t)
       (eww-browse-url
        "https://nlsbard.loc.gov:443/nlsbardprod/login/NLS"))))
-      
 
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
@@ -1507,11 +1500,11 @@ template."
  "Washington Post Contents"
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list 
-'("headline xx-small highlight-style bulleted text-align-inherit " "headline normal normal-style text-align-inherit "
-  "no-skin flex-item flex-stack normal-air text-align-left wrap-text equalize-height-target"
-  "headline " "blurb normal normal-style ")
-url
-'speak)))
+      '("headline xx-small highlight-style bulleted text-align-inherit " "headline normal normal-style text-align-inherit "
+        "no-skin flex-item flex-stack normal-air text-align-left wrap-text equalize-height-target"
+        "headline " "blurb normal normal-style ")
+      url
+      'speak)))
 
 ;;}}}
 ;;{{{ ArchWiki 
@@ -1540,7 +1533,7 @@ url
  nil
  "Return Air Quality for specified zip-code"
  #'(lambda (url)
-       (emacspeak-we-extract-table-by-match "observed at" url 'speak)))
+     (emacspeak-we-extract-table-by-match "observed at" url 'speak)))
 
 ;;}}}
 ;;{{{Reddit At Point:
@@ -1565,7 +1558,6 @@ url
         "Does not look like a Reddit URL")
        (emacspeak-webutils-autospeak)
        (emacspeak-feeds-atom-display (concat url ".rss")))))
-
 
 (emacspeak-url-template-define
  "RedditBy Topic."

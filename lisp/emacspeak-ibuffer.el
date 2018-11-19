@@ -58,7 +58,7 @@
   "Speak information about this buffer"
   (interactive)
   (cl-declare (special dtk-stop-immediately
-                    list-buffers-directory))
+                       list-buffers-directory))
   (unless (eq major-mode 'ibuffer-mode)
     (error "This command can only be used in buffer menus"))
   (emacspeak-speak-line))

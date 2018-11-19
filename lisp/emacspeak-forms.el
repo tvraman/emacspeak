@@ -75,7 +75,7 @@ speak the first field")
   "Summarize current position in list of records"
   (interactive)
   (cl-declare (special forms--current-record forms--total-records
-                    forms-file))
+                       forms-file))
   (dtk-speak
    (format "Record %s of %s from %s"
            forms--current-record forms--total-records forms-file)))
@@ -185,7 +185,6 @@ Assumes that point is at the front of a field value."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-forms-speak-field)))   
-  
 
 (defadvice forms-kill-record (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -220,7 +219,7 @@ Assumes that point is at the front of a field value."
   "Rerun  filter --allows us to nuke more matching records"
   (interactive)
   (cl-declare (special forms--file-buffer
-                    forms--total-records forms-read-only))
+                       forms--total-records forms-read-only))
   (save-current-buffer
     (set-buffer forms--file-buffer)
     (let ((inhibit-read-only t)
@@ -256,7 +255,7 @@ Assumes that point is at the front of a field value."
 ;;}}}
 ;;{{{ bind smart filters
 (cl-declaim (special forms-mode-map forms-mode-ro-map
-                  forms-mode-edit-map))
+                     forms-mode-edit-map))
 (add-hook 'forms-mode-hooks
           (function
            (lambda nil 

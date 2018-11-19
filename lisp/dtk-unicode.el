@@ -116,7 +116,7 @@ themselves, e.g., when using an Asian language."
     ("^greek\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s) (match-string 2 s)))
     ("^latin\\( small\\| capital\\)? letter \\(.*\\)$" . (lambda (s)
                                                            (match-string 2 s)))
-     ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$" . (lambda (s) (match-string 2 s)))
+    ("^DEVANAGARI \\(sign\\|vowel sign\\|letter\\)? \\(.*\\)$" . (lambda (s) (match-string 2 s)))
                                         ;("\\(.*\\) sign$" . (lambda (s) (match-string 1 s)))
     )
   "Alist of character name transformation rules."

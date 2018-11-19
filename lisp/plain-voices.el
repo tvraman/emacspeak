@@ -603,8 +603,8 @@ and TABLE gives the values along that dimension."
 (defun plain-configure-tts ()
   "Configures TTS environment to use Plain family of synthesizers."
   (cl-declare (special  plain-default-speech-rate
-                     tts-default-speech-rate
-                     tts-default-voice))
+                        tts-default-speech-rate
+                        tts-default-voice))
   (setq tts-default-voice 'paul)
   (fset 'tts-list-voices 'plain-list-voices)
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)

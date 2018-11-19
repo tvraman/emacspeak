@@ -227,7 +227,6 @@ except that the outline section is  spoken"
   (forward-line -1)
   (emacspeak-outline-speak-heading 'outline-forward-same-level -1))
 
-
 ;;;###autoload
 (defun emacspeak-outline-speak-this-heading ()
   "Speak current outline section starting from point"

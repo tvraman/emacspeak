@@ -73,7 +73,7 @@
 (defun emacspeak-eshell-speak-output  ()
   "Speak eshell output."
   (cl-declare (special eshell-last-input-end eshell-last-output-end
-                    eshell-last-output-start))
+                       eshell-last-output-start))
   (emacspeak-speak-region eshell-last-input-end eshell-last-output-end))
 
 (add-hook 

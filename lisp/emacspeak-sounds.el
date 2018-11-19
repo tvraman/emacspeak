@@ -185,7 +185,7 @@ Do not set this by hand;
 (defun emacspeak-get-sound-filename (sound-name)
   "Retrieve name of sound file that produces  auditory icon SOUND-NAME."
   (cl-declare (special emacspeak-sounds-themes-table
-                    emacspeak-sounds-current-theme))
+                       emacspeak-sounds-current-theme))
   (let ((f
          (expand-file-name
           (format "%s%s"
@@ -306,7 +306,7 @@ Use Serve when working with remote speech servers."
 (defun emacspeak-auditory-icon (icon)
   "Play an auditory ICON."
   (cl-declare (special emacspeak-auditory-icon-function
-                    emacspeak-use-auditory-icons))
+                       emacspeak-use-auditory-icons))
   (when emacspeak-use-auditory-icons
     (funcall emacspeak-auditory-icon-function icon)))
 
@@ -320,7 +320,7 @@ Use Serve when working with remote speech servers."
 Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (cl-declare (special emacspeak-use-auditory-icons
-                    dtk-program emacspeak-auditory-icon-function))
+                       dtk-program emacspeak-auditory-icon-function))
   (require 'emacspeak-aumix)
   (cond
    (prefix

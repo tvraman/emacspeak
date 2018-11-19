@@ -50,13 +50,11 @@
 ;;}}}
 ;;{{{ personalities 
 
-
 (voice-setup-add-map
  '(
-   ( bbdb-field-name voice-monotone)
+   (bbdb-field-name voice-monotone)
    (bbdb-name voice-bolden)
    (bbdb-organization voice-lighten)))
-
 
 ;;}}}
 ;;{{{  Variable settings:

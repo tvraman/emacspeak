@@ -81,7 +81,7 @@
  for f in
  '(
    folding-context-next-action folding-toggle-show-hide folding-pick-move
-                               folding-toggle-enter-exit folding-region-open-close
+   folding-toggle-enter-exit folding-region-open-close
    )do 
  (eval
   `(defadvice ,f (after emacspeak pre act)

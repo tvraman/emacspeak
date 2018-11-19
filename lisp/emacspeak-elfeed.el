@@ -101,7 +101,7 @@
     (emacspeak-auditory-icon 'open-object)))
 (cl-loop
  for f in
- '(elfeed-kill-buffer  elfeed-search-quit-window )
+ '(elfeed-kill-buffer  elfeed-search-quit-window)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act  comp)

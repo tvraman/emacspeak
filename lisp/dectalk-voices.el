@@ -219,11 +219,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " ap %s hs % s"
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table
+             (cl-first setting)
+             (format " ap %s hs % s"
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 96 115)
      (1 101 112)
@@ -245,11 +245,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " ap %s hs % s"
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table
+             (cl-first setting)
+             (format " ap %s hs % s"
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 50 125)
      (1 59 123)
@@ -270,11 +270,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " ap %s hs % s"
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table
+             (cl-first setting)
+             (format " ap %s hs % s"
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 160 115)
      (1 170 112)
@@ -313,11 +313,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " pr %s as %s "
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table
+             (cl-first setting)
+             (format " pr %s as %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 0)
      (1 20 10)
@@ -338,11 +338,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " pr %s as %s "
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table
+             (cl-first setting)
+             (format " pr %s as %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 0)
      (1 16 20)
@@ -363,11 +363,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " pr %s as %s "
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table
+             (cl-first setting)
+             (format " pr %s as %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 0)
      (1 50 10)
@@ -408,13 +408,13 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " hr %s sr %s qu %s bf %s "
-                    (cl-second setting)
-                    (cl-third setting)
-                    (cl-fourth setting)
-                    (cl-fifth setting))))
+       (aset table
+             (cl-first setting)
+             (format " hr %s sr %s qu %s bf %s "
+                     (cl-second setting)
+                     (cl-third setting)
+                     (cl-fourth setting)
+                     (cl-fifth setting))))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -435,13 +435,13 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " hr %s sr %s qu %s bf %s "
-                    (cl-second setting)
-                    (cl-third setting)
-                    (cl-fourth setting)
-                    (cl-fifth setting))))
+       (aset table
+             (cl-first setting)
+             (format " hr %s sr %s qu %s bf %s "
+                     (cl-second setting)
+                     (cl-third setting)
+                     (cl-fourth setting)
+                     (cl-fifth setting))))
    '(
      (0  0 0 0 0)
      (1 4 6 2 2)
@@ -462,13 +462,13 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table
-            (cl-first setting)
-            (format " hr %s sr %s qu %s bf %s "
-                    (cl-second setting)
-                    (cl-third setting)
-                    (cl-fourth setting)
-                    (cl-fifth setting))))
+       (aset table
+             (cl-first setting)
+             (format " hr %s sr %s qu %s bf %s "
+                     (cl-second setting)
+                     (cl-third setting)
+                     (cl-fourth setting)
+                     (cl-fifth setting))))
    '(
      (0  1 1 0 0)
      (1 3 4 11 0)
@@ -502,10 +502,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format " ri %s sm %s "
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table (cl-first setting)
+             (format " ri %s sm %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 100)
      (1 14 80)
@@ -526,10 +526,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format " ri %s sm %s "
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table (cl-first setting)
+             (format " ri %s sm %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 100 0)
      (1 96 3)
@@ -550,10 +550,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapc
    #'(lambda (setting)
-      (aset table (cl-first setting)
-            (format " ri %s sm %s "
-                    (cl-second setting)
-                    (cl-third setting))))
+       (aset table (cl-first setting)
+             (format " ri %s sm %s "
+                     (cl-second setting)
+                     (cl-third setting))))
    '(
      (0 0 100)
      (1 8 76)
@@ -625,7 +625,7 @@ and TABLE gives the values along that dimension."
 (defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (cl-declare (special  dectalk-default-speech-rate
-                     tts-default-speech-rate tts-default-voice))
+                        tts-default-speech-rate tts-default-voice))
   (setq tts-default-voice 'paul)
   (fset 'tts-list-voices 'dectalk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)

@@ -84,7 +84,7 @@ See  command emacspeak-toggle-word-echo bound to
 Speech flushes as you type."
   (interactive "p")
   (cl-declare (special last-command-event buffer-undo-list  buffer-read-only
-                    emacspeak-character-echo emacspeak-word-echo))
+                       emacspeak-character-echo emacspeak-word-echo))
   (or arg (setq arg 1))
   (when buffer-read-only
     (signal 'buffer-read-only (list (current-buffer))))
@@ -117,7 +117,7 @@ See  command emacspeak-toggle-word-echo bound to
 \\[emacspeak-toggle-word-echo].
 Speech flushes as you type."
   (cl-declare (special last-command-event 
-                    emacspeak-character-echo emacspeak-word-echo))
+                       emacspeak-character-echo emacspeak-word-echo))
   (when buffer-read-only (dtk-speak "Buffer is read-only. "))
   (when
       (and (eq (preceding-char) last-command-event) ; Sanity check.

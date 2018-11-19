@@ -464,7 +464,7 @@ On a directory line, run du -s on the directory to speak its size."
 (defun emacspeak-locate-play-results-as-playlist (&optional shuffle)
   "Treat locate results as a play-list.
 Optional interactive prefix arg shuffles playlist."
-  (interactive "P" )
+  (interactive "P")
   (cl-declare (special emacspeak-m-player-options))
   (cl-assert (eq major-mode 'locate-mode) t "Not in a locate buffer")
   (save-excursion
@@ -491,7 +491,7 @@ Optional interactive prefix arg shuffles playlist."
                emacspeak-m-player-options)))
         (emacspeak-m-player  m3u 'play-list)))))
 
-    ;;}}}
+;;}}}
 ;;{{{ Open Downloads:
 ;;;###autoload
 (defun emacspeak-dired-downloads ()

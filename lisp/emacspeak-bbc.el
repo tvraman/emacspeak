@@ -86,7 +86,7 @@
   "Return URL for schedule for specified station, outlet, date.
 Date defaults to today."
   (cl-declare  (special emacspeak-bbc-json-schedules-template
-                     emacspeak-bbc-station-list))
+                        emacspeak-bbc-station-list))
   (let* ((fields (split-string
                   (completing-read "Station:Outlet:" emacspeak-bbc-station-list
                                    nil 'must-match)
@@ -281,8 +281,8 @@ chrome: Hand off URL to Chrome."
 on user preference."
   (cl-declare (special emacspeak-bbc-button-action))
   (cl-ecase emacspeak-bbc-button-action
-         ('chrome (funcall #'emacspeak-bbc-chrome-action button))
-         ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
+    ('chrome (funcall #'emacspeak-bbc-chrome-action button))
+    ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
 
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
@@ -310,9 +310,9 @@ Interactive prefix arg filters  content by genre."
                        emacspeak-bbc-json))
   (message url)
   (let ((json-data (g-json-get-result
-    (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
-            g-curl-program g-curl-common-options
-            url))))
+                    (format "%s --max-time 5 --connect-timeout 3 %s '%s'"
+                            g-curl-program g-curl-common-options
+                            url))))
     (setq emacspeak-bbc-json json-data)
     (emacspeak-bbc-iplayer-create json-data genres)))
 

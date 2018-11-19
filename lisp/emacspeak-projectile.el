@@ -67,9 +67,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-                             (emacspeak-speak-mode-line)))
-
-
+    (emacspeak-speak-mode-line)))
 
 (cl-loop
  for f in

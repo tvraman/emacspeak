@@ -80,10 +80,10 @@
   "Speak matched line."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
-    (save-excursion
-      (set-buffer reb-target-buffer)
-      (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement)))))
+      (save-excursion
+        (set-buffer reb-target-buffer)
+        (emacspeak-speak-line)
+        (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice reb-prev-match (after emacspeak pre act comp)
   "Speak matched line."
@@ -118,10 +118,10 @@
 
 (defadvice reb-auto-update (after emacspeak pre act comp)
   "Provide spoken feedback after update is done."
-  (when (buffer-live-p reb-target-buffer )
+  (when (buffer-live-p reb-target-buffer)
     (with-current-buffer reb-target-buffer
       (with-silent-modifications
-        (mapc #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays ))))
+        (mapc #'(lambda (o) (overlay-put o 'auditory-icon 'item))  reb-overlays))))
   (emacspeak-speak-message-again))
 
 ;;}}}

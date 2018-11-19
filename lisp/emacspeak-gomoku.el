@@ -78,9 +78,9 @@
            (gomoku-point-y)
            (gomoku-point-x)
            (cl-case (char-after (point))
-                 (?X "x")
-                 (?. "-")
-                 (?O "0")))))
+             (?X "x")
+             (?. "-")
+             (?O "0")))))
 
 (defun emacspeak-gomoku-show-current-row ()
   "Aurally display current row"
@@ -92,9 +92,9 @@
           (cl-loop for i from 1 to gomoku-board-width
                    collect 
                    (cl-case (emacspeak-gomoku-cell-value row i)
-                         (0 "-")
-                         (1  "x")
-                         (6 "0"))))
+                     (0 "-")
+                     (1  "x")
+                     (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -108,9 +108,9 @@
           (cl-loop for i from 1 to gomoku-board-height
                    collect 
                    (cl-case (emacspeak-gomoku-cell-value i column)
-                         (0 "-")
-                         (1  "x")
-                         (6 "0"))))
+                     (0 "-")
+                     (1  "x")
+                     (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -118,7 +118,7 @@
   "Aurally display current positively sloped diagonal"
   (interactive)
   (cl-declare (special gomoku-board-height
-                    gomoku-board-width))
+                       gomoku-board-width))
   (let ((row (gomoku-point-y))
         (column (gomoku-point-x))
         (diag-start-x nil)
@@ -139,9 +139,9 @@
                    and j from diag-start-x to gomoku-board-width 
                    collect
                    (cl-case (emacspeak-gomoku-cell-value i j)
-                         (0 "-")
-                         (1  "x")
-                         (6 "0"))))
+                     (0 "-")
+                     (1  "x")
+                     (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -149,7 +149,7 @@
   "Aurally display current negative sloped diagonal "
   (interactive)
   (cl-declare (special gomoku-board-height
-                    gomoku-board-width))
+                       gomoku-board-width))
   (let ((row (gomoku-point-y))
         (column (gomoku-point-x))
         (diag-start-x nil)
@@ -173,9 +173,9 @@
                    and j downfrom   diag-start-x  to 1 
                    collect
                    (cl-case (emacspeak-gomoku-cell-value i j)
-                         (0 "-")
-                         (1  "x")
-                         (6 "0"))))
+                     (0 "-")
+                     (1  "x")
+                     (6 "0"))))
     (dtk-speak
      (apply 'concat values))))
 
@@ -183,8 +183,8 @@
   "Display statistics from previous games"
   (interactive)
   (cl-declare (special gomoku-number-of-human-wins
-                    gomoku-number-of-emacs-wins
-                    gomoku-number-of-draws))
+                       gomoku-number-of-emacs-wins
+                       gomoku-number-of-draws))
   (message (format "Wins %d losses %d%s"
                    gomoku-number-of-human-wins
                    gomoku-number-of-emacs-wins
@@ -330,7 +330,7 @@
 (defadvice gomoku-terminate-game (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cl-declare (special emacspeak-last-message
-                    gomoku-number-of-moves))
+                       gomoku-number-of-moves))
   (let((result (ad-get-arg 0)))
     ad-do-it
     (dtk-speak

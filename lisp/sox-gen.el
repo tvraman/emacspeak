@@ -136,8 +136,6 @@
     
     (apply #'start-process "SoX" nil sox-play  (split-string cmd))))
 
-
-
 ;;}}}
 ;;{{{ Binaural Audio:
 (defcustom sox-binaural-gain-offset 0

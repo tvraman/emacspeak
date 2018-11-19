@@ -148,11 +148,11 @@ Controls media playback when already playing a stream.
   (call-interactively
    (or (lookup-key emacspeak-vlc-mode-map key) 'undefined)))
 ;;;###autoload
-(defun emacspeak-vlc-url (url )
+(defun emacspeak-vlc-url (url)
   "Call emacspeak-vlc with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (ems-with-messages-silenced
-      (emacspeak-vlc-player url )))
+   (emacspeak-vlc-player url)))
 
 (defun emacspeak-vlc-directory-files (directory)
   "Return media files in directory.

@@ -47,8 +47,6 @@
 ;;; You can read news mostly by using the four arrow keys.
 ;;; By default all article headers are hidden, so you hear the real news.
 
-
-
 ;;; Code:
 
 ;;}}}
@@ -93,8 +91,8 @@ instead you hear only the first screenful."
 (defun emacspeak-gnus-setup-keys ()
   "Setup Emacspeak keys."
   (cl-declare (special gnus-summary-mode-map
-                    gnus-group-mmode-map
-                    gnus-article-mode-map))
+                       gnus-group-mmode-map
+                       gnus-article-mode-map))
   (define-key gnus-summary-mode-map "\C-t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map "t" 'gnus-summary-toggle-header)
   (define-key gnus-summary-mode-map '[left] 'emacspeak-gnus-summary-catchup-quietly-and-exit)
@@ -121,8 +119,8 @@ instead you hear only the first screenful."
 
 (defun emacspeak-gnus-speak-article-body ()
   (cl-declare (special emacspeak-gnus-large-article
-                    voice-lock-mode dtk-punctuation-mode
-                    gnus-article-buffer))
+                       voice-lock-mode dtk-punctuation-mode
+                       gnus-article-buffer))
   (with-current-buffer gnus-article-buffer
     (goto-char (point-min))
     (search-forward "\n\n")
@@ -294,14 +292,14 @@ this group is being deselected."
      "Speak the article  line.
  Produce an auditory icon if possible."
      (let ((saved-point (point)))
-    ad-do-it
-    (when (ems-interactive-p)
-      (if (= saved-point (point))
-          (dtk-speak "No more articles")
-        (progn 
-          (emacspeak-auditory-icon 'mark-object)
-          (emacspeak-gnus-summary-speak-subject))))
-    ad-return-value))))
+       ad-do-it
+       (when (ems-interactive-p)
+         (if (= saved-point (point))
+             (dtk-speak "No more articles")
+           (progn 
+             (emacspeak-auditory-icon 'mark-object)
+             (emacspeak-gnus-summary-speak-subject))))
+       ad-return-value))))
 
 (defadvice gnus-summary-unmark-as-processable (after emacspeak pre act)
   "Speak the line.
@@ -309,10 +307,6 @@ this group is being deselected."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-gnus-summary-speak-subject)))
-
-
-
-
 
 (defadvice gnus-summary-delete-article (after emacspeak pre act)
   "Speak the line.
@@ -830,9 +824,6 @@ Helps to prevent words from being spelled instead of spoken."
 
 ;;}}}
 ;;{{{ Async Gnus:
-
-
-
 
 ;;}}}
 ;;{{{ GMail Search Accelerators:

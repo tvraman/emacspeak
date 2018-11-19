@@ -133,7 +133,7 @@ Full List Of Keybindings:
 \\{emacspeak-table-mode-map}"
   (set (make-local-variable 'voice-lock-mode) t)
   (put-text-property (point-min) (point-max)
-   'point-entered 'emacspeak-table-point-motion-hook)
+                     'point-entered 'emacspeak-table-point-motion-hook)
   (not-modified)
   (setq buffer-undo-list t)
   (setq buffer-read-only t)
@@ -191,8 +191,6 @@ Full List Of Keybindings:
  do
  (emacspeak-keymap-update emacspeak-table-mode-map binding)
  (emacspeak-keymap-update emacspeak-table-submap binding))
-
-
 
 ;;}}}
 ;;{{{  speaking current entry
@@ -546,7 +544,7 @@ the documentation on the table browser."
     (setq data (find-file-noselect filename))
     (setq table (emacspeak-table-make-table (read data)))
     (kill-buffer data)
-    (emacspeak-table-prepare-table-buffer table buffer )))
+    (emacspeak-table-prepare-table-buffer table buffer)))
 
 (defun ems-csv-get-fields ()
   "Return list of fields on this line."
@@ -614,7 +612,7 @@ The processed  data is  presented using emacspeak table navigation. "
     (emacspeak-table-prepare-table-buffer table buffer)
     (emacspeak-auditory-icon 'open-object)))
 
-(defun emacspeak-table-render-csv-url  (_status result-buffer )
+(defun emacspeak-table-render-csv-url  (_status result-buffer)
   "Render the result of asynchronously retrieving CSV data from url."
   (let ((inhibit-read-only t)
         (data-buffer (current-buffer))
@@ -639,11 +637,6 @@ The processed  data is  presented using emacspeak table navigation. "
     (setq buffer-name "CSV Data Table"))
   (cl-declare (special g-curl-program g-curl-common-options))
   (url-retrieve url #'emacspeak-table-render-csv-url  (list buffer-name)))
-
-
-
-
-
 
 ;;}}}
 ;;{{{ Processing a region of tabular data

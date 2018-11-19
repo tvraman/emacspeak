@@ -211,8 +211,6 @@ Do not modify this variable directly; use command  `dtk-set-rate'
         (error nil))
       voice)))
 
-
-
 (defsubst dtk-get-style (&optional pos)
   "Compute style at pos by examining personality and face
 properties. Return value is a personality that can be applied to the
@@ -319,7 +317,7 @@ Modifies text and point in buffer."
               (invisible-p (point)))
     (goto-char
      (next-single-property-change (point) 'invisible
-                                       (current-buffer) (point-max)))))
+                                  (current-buffer) (point-max)))))
 
 (defun skip-invisible-backward ()
   "Move backwards over invisible text."
@@ -327,7 +325,7 @@ Modifies text and point in buffer."
               (invisible-p (point)))
     (goto-char
      (previous-single-property-change (point) 'invisible
-                                           (current-buffer) (point-min)))))
+                                      (current-buffer) (point-min)))))
 
 (defun delete-invisible-text ()
   "Delete invisible text."
@@ -741,8 +739,6 @@ Here,  change is any change in property personality, face or font-lock-face."
    (dtk-next-single-property-change start 'personality (current-buffer) end)
    (dtk-next-single-property-change start 'face (current-buffer) end)
    (dtk-next-single-property-change start 'font-lock-face (current-buffer) end)))
-
-
 
 (defun dtk-format-text-and-speak (start end)
   "Format and speak text.
@@ -1746,7 +1742,6 @@ program. Port defaults to dtk-local-server-port"
   (when (processp dtk-notify-process)
     (delete-process dtk-notify-process)))
 
-
 ;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
@@ -1920,8 +1915,8 @@ only speak upto the first ctrl-m."
 (defun dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (ems-with-messages-silenced
-      (dtk-speak message)
-    (message "%s" message)))
+   (dtk-speak message)
+   (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group)
   "Speak a  list of strings.

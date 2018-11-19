@@ -235,9 +235,9 @@
         (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig)))))
 
 (cl-declaim (special
-          evil-normal-state-map evil-insert-state-map
-          evil-visual-state-map evil-replace-state-map
-          evil-operator-state-map evil-motion-state-map))
+             evil-normal-state-map evil-insert-state-map
+             evil-visual-state-map evil-replace-state-map
+             evil-operator-state-map evil-motion-state-map))
 
 (eval-after-load
     "evil-maps"

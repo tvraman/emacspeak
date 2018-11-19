@@ -206,7 +206,7 @@ Returns a cons cell where the car is email, and the cdr is password."
             (secret (plist-get found :secret))
             (save-function (plist-get found :save-function)))
         (while (functionp secret) (setq secret (funcall secret)))
-        (when ( functionp save-function) (  funcall save-function))
+        (when (functionp save-function) (funcall save-function))
         (cons user secret)))))
 
 (defun emacspeak-bookshare-rest-endpoint (operation operand &optional noauth)
@@ -215,7 +215,7 @@ Optional argument `noauth' says no user auth needed."
   (cl-assert emacspeak-bookshare-api-key nil "API key not set.")
   (unless (or  noauth  emacspeak-bookshare-user-id)
     ;;  initialize user-id
-     (emacspeak-bookshare-user-password))
+    (emacspeak-bookshare-user-password))
   (url-encode-url
    (format "%s/%s/%s/%s?api_key=%s"
            emacspeak-bookshare-api-base operation operand
@@ -708,7 +708,6 @@ b Browse
                                 'face 'font-lock-string-face))
     (insert "\n")))
 
-
 (defun emacspeak-bookshare-status-code-handler (status-code)
   "Handlestatus-code element."
   (cl-declare (special emacspeak-bookshare-last-action-uri))
@@ -949,9 +948,9 @@ b Browse
   (interactive)
   (let ((action (read-char "p Popular, l Latest")))
     (cl-case action
-          (?p (call-interactively 'emacspeak-bookshare-action))
-          (?l (call-interactively 'emacspeak-bookshare-action))
-          (otherwise (error "Unrecognized browse action.")))))
+      (?p (call-interactively 'emacspeak-bookshare-action))
+      (?l (call-interactively 'emacspeak-bookshare-action))
+      (otherwise (error "Unrecognized browse action.")))))
 
 (defun emacspeak-bookshare-expand-at-point ()
   "Expand entry at point by retrieving metadata.
@@ -1130,7 +1129,7 @@ Target location is generated from author and title."
 (defun emacspeak-bookshare-xslt (directory)
   "Return suitable XSL  transform."
   (cl-declare (special emacspeak-bookshare-xslt
-                    emacspeak-xslt-directory))
+                       emacspeak-xslt-directory))
   (let ((xsl (expand-file-name emacspeak-bookshare-xslt directory)))
     (cond
      ((file-exists-p xsl) xsl)
@@ -1143,7 +1142,7 @@ Target location is generated from author and title."
 (defun emacspeak-bookshare-toc-xslt ()
   "Return suitable XSL  transform for TOC."
   (cl-declare (special emacspeak-bookshare-toc-xslt
-                    emacspeak-xslt-directory))
+                       emacspeak-xslt-directory))
 
   (expand-file-name emacspeak-bookshare-toc-xslt emacspeak-xslt-directory))
 
@@ -1223,7 +1222,7 @@ Make sure it's downloaded and unpacked first."
   "Extract content referred to by link under point, and render via the browser."
   (interactive "sURL: ")
   (cl-declare (special emacspeak-bookshare-browser-function
-                    emacspeak-xslt-directory))
+                       emacspeak-xslt-directory))
   (let ((result (emacspeak-bookshare-extract-xml url))
         (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-current-buffer
@@ -1314,7 +1313,7 @@ Useful for fulltext search in a book."
                                emacspeak-bookshare-directory)))))
   (cl-declare (special emacspeak-xslt-program))
   (cl-declare (special emacspeak-bookshare-html-to-text-command
-                    emacspeak-bookshare-directory))
+                       emacspeak-bookshare-directory))
   (let ((xsl (emacspeak-bookshare-xslt directory))
         (buffer (get-buffer-create "Full Text"))
         (command nil)
@@ -1352,7 +1351,7 @@ Useful for fulltext search in a book."
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
   (cl-declare (special emacspeak-xslt-program emacspeak-bookshare-directory
-                    emacspeak-bookshare-this-book))
+                       emacspeak-bookshare-this-book))
   (unless (fboundp 'eww)
     (error "Your Emacs doesn't have EWW."))
   (let ((gc-cons-threshold 8000000)

@@ -125,17 +125,16 @@
   "Speak the board."
   (interactive)
   (cl-declare (special threes-cells threes-next-number
-                    emacspeak-threes-rows-max))
+                       emacspeak-threes-rows-max))
   (emacspeak-threes-sox-gen threes-next-number)
   (let ((cells (copy-sequence threes-cells)))
     (nconc
      cells
      (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
-     (dtk-speak-list   cells)
+    (dtk-speak-list   cells)
     (emacspeak-auditory-icon 'select-object)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
       (emacspeak-auditory-icon 'item))))
-
 
 (defun emacspeak-threes-speak-empty-count ()
   "Speak number of cells that are non-empty."
@@ -157,7 +156,7 @@
   "Speak the board by columns."
   (interactive)
   (cl-declare (special threes-cells))
-   (dtk-speak-list   (threes-cells-transpose threes-cells) 4)
+  (dtk-speak-list   (threes-cells-transpose threes-cells) 4)
   (emacspeak-auditory-icon 'progress))
 
 (defun emacspeak-threes-setup ()
@@ -237,7 +236,7 @@
   "Reset state from stack."
   (interactive)
   (cl-declare (special emacspeak-threes-game-stack threes-cells
-                    threes-game-over-p))
+                       threes-game-over-p))
   (cond
    ((null emacspeak-threes-game-stack) (error "No saved  states."))
    (t

@@ -276,8 +276,8 @@ HOSTNAME should not contain any username or port number."
 (require 'emacspeak-keymap)
 (eval-when-compile
   (condition-case nil
-   (package-initialize)
-   (error "Check your elpa packages --- something is broken")))
+      (package-initialize)
+    (error "Check your elpa packages --- something is broken")))
 
 ;;}}}
 

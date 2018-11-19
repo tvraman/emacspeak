@@ -690,17 +690,14 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
- 
 
- 
 ;;{{{ Fillers:
 
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'fill-object)
-       (message "Filled current paragraph")))
-
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
+    (message "Filled current paragraph")))
 
 (defadvice org-todo (after emacspeak pre act comp)
   "Provide auditory feedback when changing the state of a TODO item."
@@ -710,7 +707,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
       (if (null state)
           (message "State unset")
         (message state)))))
-
 
 ;;}}}
 

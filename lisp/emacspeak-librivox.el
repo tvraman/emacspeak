@@ -328,11 +328,11 @@ more results."
    (list
     (read-char "a: Author, t: Title,  p:Play, g:Genre, d: Browse Local")))
   (cl-ecase search-type
-         (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
-         (?a (call-interactively 'emacspeak-librivox-search-by-author))
-         (?p (call-interactively 'emacspeak-librivox-play))
-         (?t (call-interactively 'emacspeak-librivox-search-by-title))
-         (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
+    (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
+    (?a (call-interactively 'emacspeak-librivox-search-by-author))
+    (?p (call-interactively 'emacspeak-librivox-play))
+    (?t (call-interactively 'emacspeak-librivox-search-by-title))
+    (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
 ;;}}}
 ;;{{{ Cache Playlists:
@@ -374,7 +374,7 @@ more results."
    (list
     (emacspeak-webutils-read-this-url)))
   (cl-declare (special g-curl-program g-curl-common-options
-                    emacspeak-xslt-program))
+                       emacspeak-xslt-program))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
         (m3u-file nil))
     (shell-command

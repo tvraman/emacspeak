@@ -102,7 +102,7 @@
 (defun emacspeak-npr-rest-endpoint (operation operand)
   "Return  URL  end point for specified operation."
   (cl-declare (special emacspeak-npr-api-base
-                    emacspeak-npr-api-key))
+                       emacspeak-npr-api-key))
   (format "%s/%s?apiKey=%s&%s"
           emacspeak-npr-api-base operation emacspeak-npr-api-key operand))
 

@@ -192,7 +192,7 @@
 If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive)
   (cl-declare (special emacspeak-pianobar-electric-mode
-                    pianobar-key-map pianobar-buffer))
+                       pianobar-key-map pianobar-buffer))
   (with-current-buffer pianobar-buffer
     (cond
      (emacspeak-pianobar-electric-mode  ; turn it off

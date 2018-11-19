@@ -152,7 +152,6 @@ hook."
   (cl-declare (special dtk-program))
   (tts-configure-synthesis-setup dtk-program))
 
-
 ;;;###autoload
 (defcustom tts-notification-device
   (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))

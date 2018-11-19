@@ -75,7 +75,7 @@ a local  Emacspeak terminal buffer.")
 (defun emacspeak-remote-default-hook ()
   "Function run by default  when we launch a remote session"
   (cl-declare (special emacspeak-remote-update-keymap
-                    emacspeak-auditory-icon-function))
+                       emacspeak-auditory-icon-function))
   (when emacspeak-remote-update-keymap
     (emacspeak-keymap-choose-new-emacspeak-prefix
      (format "%c" 18)))
@@ -219,8 +219,8 @@ port that that host is listening on for speech requests."
                      )
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
   (cl-declare (special dtk-speaker-process dtk-program 
-                    dtk-local-server-port
-                    dtk-local-engine emacspeak-eterm-remote-hosts-table))
+                       dtk-local-server-port
+                       dtk-local-engine emacspeak-eterm-remote-hosts-table))
   (let* ((dtk-program dtk-local-engine)
          (process-connection-type nil)  ;dont waste a pty
          (old-process dtk-speaker-process)
