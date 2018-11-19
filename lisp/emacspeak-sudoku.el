@@ -55,6 +55,22 @@
 (require 'stack-f)
 (require 'sudoku "sudoku" 'no-error)
 ;;}}}
+;;{{{Forward Decl:
+
+
+(declare-function sudoku-column "sudoku" (board n))
+(declare-function sudoku-subsquare "sudoku" (board n))
+(declare-function sudoku-get-cell-from-point "sudoku" (num))
+(declare-function sudoku-row "sudoku" (board n))
+(declare-function sudoku-cell "sudoku" (board x y))
+(declare-function sudoku-cell-possibles "sudoku" (board x y))
+(declare-function sudoku-remaining-cells "sudoku" (board))
+(declare-function sudoku-goto-cell "sudoku" (coords))
+(declare-function sudoku-change-cell "sudoku" (board x y input))
+(declare-function sudoku-board-print "sudoku" (board message))
+
+
+;;}}}
 ;;{{{ Define additional speak commands:
 
 (defun emacspeak-sudoku-board-summarizer ()
@@ -106,7 +122,7 @@ s   Sub-square Distribution.
   (cl-declare (special current-board))
   (dtk-speak-list
    (cl-loop for c from 0 to 8
-            collect  (count 0 (sudoku-column current-board c)))
+            collect  (cl-count 0 (sudoku-column current-board c)))
    3))
 
 (defun emacspeak-sudoku-board-sub-squares-summarize ()
