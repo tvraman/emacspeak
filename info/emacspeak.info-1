@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 18, 2018.
+last updated on November 19, 2018.
 
    The manual is divided into the following chapters:
 
@@ -54,7 +54,7 @@ File: emacspeak.info,  Node: Copyright,  Next: Announce,  Prev: Top,  Up: Top
 
 This manual documents Emacspeak, a speech extension to Emacs.
 
-   Copyright (C)1994 – 2017 T. V. Raman All Rights Reserved.
+   Copyright (C)1994 – 2018 T. V. Raman All Rights Reserved.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
@@ -3028,13 +3028,13 @@ File: emacspeak.info,  Node: amixer,  Next: cd-tool,  Prev: acss-structure,  Up:
 Provide an emacs front-end to amixer, the sound mixer in ALSA that is
 used to configure the audio device.
 
-   The main entry point is command ‘emacspeak-audio-setup’ bound to ‘C-e
-)’.  When called for the first time, this command builds up a database
-of available controls on the default audio device.  These control names
-are then available for completion in the minibuffer.  Pick a desired
-control, e.g., "master playback volume", and this displays a prompt with
-the current value.  Enter the new value and press <RETURN>.  To reset
-all controls to their default values, Press ‘C-j’.
+   The main entry point is command ‘emacspeak-audio-setup’ bound to
+‘C-e)’.  When called for the first time, this command builds up a
+database of available controls on the default audio device.  These
+control names are then available for completion in the minibuffer.  Pick
+a desired control, e.g., "master playback volume", and this displays a
+prompt with the current value.  Enter the new value and press <RETURN>.
+To reset all controls to their default values, Press ‘C-j’.
 
 12.2.1 amixer Commands
 ----------------------
