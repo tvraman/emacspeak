@@ -509,7 +509,7 @@ are available are cued by an auditory icon on the header line."
       emacspeak-webutils-document-title #'emacspeak-eww-current-title
       emacspeak-webutils-url-at-point
       #'(lambda ()
-          (let ((url (get-text-property (point) 'help-echo)))
+          (let ((url (shr-url-at-point nil)))
             (cond
              ((and url
                    (stringp url)
