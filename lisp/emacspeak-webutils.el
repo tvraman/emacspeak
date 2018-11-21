@@ -307,7 +307,8 @@ and xsl environment specified by style, params and options."
 (defvar emacspeak-webutils-document-title nil
   "Function variable returning the current document title.")
 
-(defvar emacspeak-webutils-url-at-point #'shr-url-at-point
+(defvar emacspeak-webutils-url-at-point
+  #'(lambda nil (shr-url-at-point nil))
   "Function variable returning the value of the url under point
   in a Web page.")
 
@@ -454,9 +455,10 @@ instances."
 Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P")
-  (cl-declare (special emacspeak-webutils-media-history))
+  (cl-declare (special emacspeak-webutils-media-history
+                       emacspeak-webutils-url-at-point))
   (let ((url
-         (or (shr-url-at-point nil)
+         (or (funcall emacspeak-webutils-url-at-point)
              (browse-url-url-at-point))))
     (cl-assert (stringp url) t "No URL under point." )
     (message "Playing media  URL under point")
