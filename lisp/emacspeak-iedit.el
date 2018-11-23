@@ -87,7 +87,7 @@
 (defadvice iedit-done (after emacspeak pre act comp)
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'close-object)
-  (message "iedit done"))
+  (message "IEdit done"))
 
 
 (cl-loop
