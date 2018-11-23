@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 19, 2018.
+last updated on November 23, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1234 commands and 894 options.
+   This chapter documents a total of 1234 commands and 896 options.
 
 * Menu:
 
@@ -2851,6 +2851,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
 * emacspeak-ido::speech-enable ido.
+* emacspeak-iedit::Speech-enable IEDIT.
 * emacspeak-imenu::Speech enable Imenu – produce buffer-specific table of contents.
 * emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
 * emacspeak-info::Speech enable Info – Emacs’ online documentation viewer.

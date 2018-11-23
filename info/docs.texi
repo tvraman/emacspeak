@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1234 commands and 894 options.
+This chapter documents a total of 1234 commands and 896 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -104,6 +104,7 @@ This chapter documents a total of 1234 commands and 894 options.
 * emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
 * emacspeak-ido::speech-enable ido.
+* emacspeak-iedit::Speech-enable IEDIT.
 * emacspeak-imenu::Speech enable Imenu -- produce buffer-specific table of contents.
 * emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
 * emacspeak-info::Speech enable Info -- Emacs' online documentation viewer.
@@ -9682,6 +9683,26 @@ the entire list.
 
 @defvar {User Option} emacspeak-ido-typing-delay
 How long we wait before speaking completions.
+
+@end defvar
+
+@node emacspeak-iedit
+@section emacspeak-iedit
+
+IEDIT ==  Edit multiple regions 
+This module speech-enables iedit.
+
+@subsection emacspeak-iedit Options
+
+@defvar {User Option} voice-iedit-occurrence
+Personality used for iedit-occurrence
+This personality uses  voice-lock-overlay-1 whose  effect can be changed globally by customizing voice-lock-overlay-1-settings.
+
+@end defvar
+
+@defvar {User Option} voice-iedit-read-only-occurrence
+Personality used for iedit-read-only-occurrence
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
