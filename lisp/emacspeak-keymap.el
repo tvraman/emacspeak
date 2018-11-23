@@ -548,7 +548,6 @@ interactive command that the key sequence executes."
   '(
     ("'" emacspeak-vlc)
     ("SPC"  emacspeak-wizards-scratch)
-    ("b" sox-binaural)
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
     ("." emacspeak-wizards-shell-directory-reset)
@@ -620,6 +619,7 @@ interactive command that the key sequence executes."
   '(
     ("," emacspeak-eldoc-speak-doc)
     ("a" emacspeak-feeds-atom-display)
+    ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
     ("i" emacspeak-wizards-iheart)
