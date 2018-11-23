@@ -83,6 +83,13 @@
   iedit-upcase-occurrences
   )
 
+(defadvice iedit-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon
+     (if iedit-mode 'on 'off))))
+
+
 
 (defadvice iedit-done (after emacspeak pre act comp)
   "Provide auditory feedback."
