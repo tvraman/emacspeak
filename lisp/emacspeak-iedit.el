@@ -103,6 +103,15 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+(cl-loop
+ for f in 
+ '(iedit-describe-bindings iedit-describe-key iedit-describe-mode)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'help)))))
 
 ;;}}}
 (provide 'emacspeak-iedit)
