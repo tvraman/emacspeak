@@ -74,15 +74,12 @@
   iedit-expand-up-a-line
   iedit-expand-up-to-occurrence
   iedit-number-occurrences
-  iedit-quit
+  
   iedit-replace-occurrences
   iedit-restrict-current-line
   iedit-restrict-function
   iedit-show/hide-unmatched-lines
   iedit-switch-to-mc-mode
-  iedit-toggle-buffering
-  iedit-toggle-case-sensitive
-  iedit-toggle-selection
   iedit-upcase-occurrences
   )
 
