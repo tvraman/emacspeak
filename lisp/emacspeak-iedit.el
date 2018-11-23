@@ -65,9 +65,7 @@
 
 '(
   iedit-apply-global-modification
-  iedit-blank-occurrences
-  iedit-delete-occurrences
-  iedit-downcase-occurrences
+  
   iedit-execute-last-modification
   iedit-expand-down-a-line
   iedit-expand-down-to-occurrence
@@ -80,7 +78,7 @@
   iedit-restrict-function
   iedit-show/hide-unmatched-lines
   iedit-switch-to-mc-mode
-  iedit-upcase-occurrences
+  
   )
 
 (defadvice iedit-mode (after emacspeak pre act comp)
@@ -119,6 +117,19 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'help)))))
+
+(cl-loop
+ for f in
+ '(
+   iedit-upcase-occurrences iedit-downcase-occurrences
+   iedit-blank-occurrences iedit-delete-occurrences)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (message "%s"  ,(symbol-name f))))))
+
 
 ;;}}}
 (provide 'emacspeak-iedit)
