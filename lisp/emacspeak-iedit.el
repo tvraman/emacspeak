@@ -83,9 +83,9 @@
 
 (defadvice iedit-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (cl-declare (special iedit-mode))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if iedit-mode 'on 'off))))
+    (emacspeak-auditory-icon (if iedit-mode 'on 'off))))
 
 
 
