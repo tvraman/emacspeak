@@ -8,3 +8,8 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 50 -- Emacspeak 50 User Visible Changes
 This version requires Emacs-26.1 or later.
 
+
+** Speech-Enable IEdit
+
+Module ~emacspeak-iedit~ speech-enables package ~iedit~ for editing
+multiple occurrences.
