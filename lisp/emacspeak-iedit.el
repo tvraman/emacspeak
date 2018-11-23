@@ -57,7 +57,7 @@
 
 (voice-setup-add-map 
  '(
-   (iedit-occurrence voice-highlight)
+   (iedit-occurrence voice-lock-overlay-1)
    (iedit-read-only-occurrence voice-monotone)))
 
 ;;}}}
@@ -67,21 +67,14 @@
   iedit-apply-global-modification
   iedit-blank-occurrences
   iedit-delete-occurrences
-
   iedit-downcase-occurrences
   iedit-execute-last-modification
   iedit-expand-down-a-line
   iedit-expand-down-to-occurrence
   iedit-expand-up-a-line
   iedit-expand-up-to-occurrence
-  iedit-goto-first-occurrence
-  iedit-goto-last-occurrence
-
-  iedit-next-occurrence
   iedit-number-occurrences
-  iedit-prev-occurrence
   iedit-quit
-
   iedit-replace-occurrences
   iedit-restrict-current-line
   iedit-restrict-function
@@ -92,6 +85,27 @@
   iedit-toggle-selection
   iedit-upcase-occurrences
   )
+
+
+(defadvice iedit-done (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'close-object)
+  (message "iedit done"))
+
+
+(cl-loop
+ for f in
+ '(
+   iedit-prev-occurrence iedit-next-occurrence
+   iedit-goto-last-occurrence iedit-goto-first-occurrence
+   iedit-goto-last-occurrence)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-iedit)
