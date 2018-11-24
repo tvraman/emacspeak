@@ -40,7 +40,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; IEDIT ==  Edit multiple regions 
+;;; IEDIT ==  Edit multiple regions
 ;;; This module speech-enables iedit.
 
 ;;; Code:
@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
    (iedit-occurrence voice-lock-overlay-1)
    (iedit-read-only-occurrence voice-monotone)))
@@ -74,7 +74,7 @@
   iedit-replace-occurrences
   iedit-restrict-current-line
   iedit-restrict-function
-  iedit-show/hide-unmatched-lines
+
   )
 
 (defadvice iedit-mode (after emacspeak pre act comp)
@@ -83,13 +83,10 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if iedit-mode 'on 'off))))
 
-
-
 (defadvice iedit-done (after emacspeak pre act comp)
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'close-object)
   (message "IEdit done"))
-
 
 (cl-loop
  for f in
@@ -105,7 +102,7 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 (cl-loop
- for f in 
+ for f in
  '(iedit-describe-bindings iedit-describe-key iedit-describe-mode)
  do
  (eval
@@ -127,6 +124,12 @@
        (emacspeak-auditory-icon 'task-done)
        (message "%s"  ,(symbol-name f))))))
 
+(defadvice iedit-show/hide-unmatched-lines (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon
+     (if iedit-unmatched-lines-invisible 'on 'off))))
 
 ;;}}}
 (provide 'emacspeak-iedit)
