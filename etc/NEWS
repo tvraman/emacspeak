@@ -8,6 +8,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 50 -- Emacspeak 50 User Visible Changes
 This version requires Emacs-26.1 or later.
 
+** Bookshare
+
+Load emacspeak's directory-specific settings when opening Bookshare
+books using EWW.
 
 ** Speech-Enable IEdit
 
