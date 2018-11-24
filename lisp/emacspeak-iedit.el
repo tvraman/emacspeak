@@ -65,20 +65,16 @@
 
 '(
   iedit-apply-global-modification
-  
   iedit-execute-last-modification
   iedit-expand-down-a-line
   iedit-expand-down-to-occurrence
   iedit-expand-up-a-line
   iedit-expand-up-to-occurrence
   iedit-number-occurrences
-  
   iedit-replace-occurrences
   iedit-restrict-current-line
   iedit-restrict-function
   iedit-show/hide-unmatched-lines
-  iedit-switch-to-mc-mode
-  
   )
 
 (defadvice iedit-mode (after emacspeak pre act comp)
@@ -128,6 +124,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
        (message "%s"  ,(symbol-name f))))))
 
 
