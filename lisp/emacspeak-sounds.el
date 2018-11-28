@@ -116,14 +116,14 @@ use `emacspeak-toggle-auditory-icons' bound to
   "Emacspeak auditory icons."
   :group 'emacspeak)
 
-;;;###autoload
+
 (defcustom emacspeak-sounds-default-theme
   (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
   :group 'emacspeak-sounds)
 
-;;;###autoload
+
 (defcustom emacspeak-play-program
   (cond
    ((getenv "EMACSPEAK_PLAY_PROGRAM")
@@ -232,7 +232,7 @@ Do not set this by hand;
 ;;}}}
 ;;{{{  Play an icon
 
-;;;###autoload
+
 (defcustom emacspeak-play-args "-q"
   "Set this to nil if using paplay from pulseaudio."
   :type '(choice (string :tag "Arguments" "-q")
@@ -255,7 +255,7 @@ Do not set this by hand;
 (defvar emacspeak-sox (executable-find "sox")
   "Name of SoX executable.")
 
-;;;###autoload
+
 (defcustom emacspeak-soxplay-command 
   (when(executable-find "play")
     (format "%s -v 1.2 %%s  earwax &" (executable-find "play")))

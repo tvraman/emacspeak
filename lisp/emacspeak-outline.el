@@ -302,9 +302,10 @@ except that the outline section is  spoken"
 
 (defadvice outline-up-heading (around emacspeak pre act comp)
   "Silence error messages."
+  (cl-declare (special emacspeak-speak-errors))
   (ems-with-errors-silenced
-   ad-do-it
-   ad-return-value))
+      ad-do-it
+    ad-return-value))
 
 ;;}}}
 (provide  'emacspeak-outline)

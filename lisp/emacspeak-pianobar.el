@@ -247,7 +247,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (call-interactively (lookup-key pianobar-key-map key)))
    (t (pianobar-send-string  key))))
 
-;;;###autoload
+
 (defcustom emacspeak-pianobar-max-preset 10
   "Number of presets."
   :type 'number

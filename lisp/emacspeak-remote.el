@@ -54,7 +54,7 @@
 (defgroup emacspeak-remote nil
   "Emacspeak remote group."
   :group 'emacspeak-remote)
-;;;###autoload
+
 (defcustom emacspeak-remote-hooks nil
   "List of hook functions that are run after
 emacspeak is set to run as a remote application.
@@ -183,7 +183,7 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
            host port login)
    "remote-ssh"))
 
-;;;###autoload
+
 (defcustom emacspeak-remote-default-ssh-server
   nil
   "Default ssh server to use for remote speech server."

@@ -143,7 +143,7 @@ a rewrite rule even if one is already defined."
   "Emacspeak WebEdit"
   :group 'emacspeak)
 
-;;;###autoload
+
 (defcustom emacspeak-we-xsl-p nil
   "T means we apply XSL before displaying HTML."
   :type 'boolean
@@ -167,7 +167,7 @@ Default is to apply sort-tables."
 ;;; need to be set at top-level since the page-rendering code is
 ;;; called asynchronously.
 
-;;;###autoload
+
 (defcustom emacspeak-we-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean

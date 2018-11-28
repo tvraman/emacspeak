@@ -55,7 +55,7 @@
 
 ;;}}}
 ;;{{{ Customizations:
-;;;###autoload
+
 (defcustom dectalk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "
   :group 'tts

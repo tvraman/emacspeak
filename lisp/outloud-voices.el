@@ -56,7 +56,7 @@
 
 ;;}}}
 ;;{{{ Customizations:
-;;;###autoload
+
 (defcustom outloud-default-speech-rate 50
   "Default speech rate for outloud."
   :group 'tts

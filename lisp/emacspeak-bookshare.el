@@ -124,7 +124,7 @@ See http://developer.bookshare.org/docs for details on how to get
 (defvar emacspeak-bookshare-downloads-directory
   (expand-file-name "downloads/" emacspeak-bookshare-directory)
   "Directory where archives are saved on download.")
-;;;###autoload
+
 (defcustom emacspeak-bookshare-browser-function
   'eww-browse-url
   "Function to display Bookshare Book content in a WWW browser.
@@ -1116,7 +1116,7 @@ Target location is generated from author and title."
                 'auditory-icon 'item))
     (message "Unpacked content.")))
 
-;;;###autoload
+
 (defcustom emacspeak-bookshare-xslt
   "daisyTransform.xsl"
   "Name of bookshare  XSL transform."
@@ -1289,7 +1289,7 @@ Make sure it's downloaded and unpacked first."
     (emacspeak-xslt-view-file
      xsl
      (cl-first (directory-files directory 'full ".xml")))))
-;;;###autoload
+
 (defcustom emacspeak-bookshare-html-to-text-command
   "lynx -dump -stdin"
   "Command to convert html to text on stdin."

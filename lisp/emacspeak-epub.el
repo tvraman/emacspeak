@@ -179,13 +179,13 @@
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
 
-;;;###autoload
+
 (defcustom emacspeak-epub-library-directory
   (expand-file-name "~/EBooks/")
   "Directory under which we store Epubs."
   :type 'directory
   :group 'emacspeak-epub)
-;;;###autoload
+
 (defcustom emacspeak-epub-html-to-text-command
   "lynx -dump -stdin"
   "Command to convert html to text on stdin."
@@ -330,6 +330,7 @@
 
 (defun emacspeak-epub-browse-content (epub element _ffragment &optional style)
   "Browse content in specified element of EPub."
+  (cl-declare (special emacspeak-we-xsl-p))
   (unless   (emacspeak-epub-p epub) (error "Invalid epub"))
   (let ((base (emacspeak-epub-base epub))
         (content nil)
@@ -1058,14 +1059,14 @@ Fetch if needed, or if refresh is T."
 ;;{{{ Calibre Hookup:
 
 ;;; Inspired by https://github.com/whacked/calibre-mode.git
-;;;###autoload
+
 (defcustom emacspeak-epub-calibre-root-dir
   (expand-file-name "calibre" emacspeak-epub-library-directory)
   "Root of Calibre library."
   :type 'directory
   :group 'emacspeak-epub)
 
-;;;###autoload
+
 (defcustom   emacspeak-epub-calibre-sqlite
   (executable-find "sqlite3")
   "Path to sqlite3."

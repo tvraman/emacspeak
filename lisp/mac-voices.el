@@ -56,7 +56,7 @@
 
 ;;}}}
 ;;{{{ Customizations:
-;;;###autoload
+
 (defcustom mac-default-speech-rate 225
   "Default speech rate for mac."
   :group 'tts

@@ -87,7 +87,7 @@
   :type 'string
   :group 'emacspeak-xslt)
 
-;;;###autoload
+
 (defcustom emacspeak-xslt-options
   "--html --nonet --novalid --encoding utf-8"
   "Options passed to xsltproc."

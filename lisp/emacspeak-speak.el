@@ -111,7 +111,7 @@
 ;;}}}
 ;;{{{  line, Word and Character echo
 
-;;;###autoload
+
 (defcustom emacspeak-line-echo nil
   "If t, then emacspeak echoes lines as you type.
 You can use \\[emacspeak-toggle-line-echo] to set this
@@ -124,7 +124,7 @@ option."
                        "Toggle state of  Emacspeak  line echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
-;;;###autoload
+
 (defcustom emacspeak-word-echo t
   "If t, then emacspeak echoes words as you type.
 You can use \\[emacspeak-toggle-word-echo] to toggle this
@@ -137,7 +137,7 @@ option."
                        "Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
-;;;###autoload
+
 (defcustom emacspeak-character-echo t
   "If t, then emacspeak echoes characters  as you type.
 You can
@@ -522,7 +522,7 @@ Value returned is compatible with `encode-time'."
 ;;}}}
 ;;{{{  url link pattern:
 
-;;;###autoload
+
 (defcustom emacspeak-speak-embedded-url-pattern
   "<https?:[^ \t]*>"
   "Pattern to recognize embedded URLs."
@@ -1936,7 +1936,7 @@ The result is put in the kill ring for convenience."
 ;;}}}
 ;;{{{ Speak header-line
 
-;;;###autoload
+
 (defcustom emacspeak-use-header-line t
   "Use default header line defined  by Emacspeak for buffers that
 dont customize the header."
@@ -3484,7 +3484,7 @@ settings? "))
 
 ;;}}}
 ;;{{{ silence:
-;;;###autoload
+
 (defcustom emacspeak-silence-hook nil
   "Functions run after emacspeak-silence is called."
   :type '(repeat function)

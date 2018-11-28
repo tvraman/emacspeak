@@ -485,7 +485,8 @@ This variable is buffer-local.")
 (defun emacspeak-google-show-toolbelt()
   "Reload search page with toolbelt showing."
   (interactive)
-  (cl-declare (special emacspeak-google-query))
+  (cl-declare (special emacspeak-google-query
+                       emacspeak-websearch-google-options))
   (let ((emacspeak-websearch-google-options "&tbo=1"))
     (emacspeak-websearch-google emacspeak-google-query)))
 

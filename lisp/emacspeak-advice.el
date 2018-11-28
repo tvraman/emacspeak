@@ -601,7 +601,7 @@ the words that were capitalized."
 ;;}}}
 ;;{{{ advice tabify:
 
-;;;###autoload
+
 (defcustom emacspeak-untabify-fixes-non-breaking-space t
   "Advice untabify to change non-breaking space chars to space."
   :type 'boolean
@@ -820,7 +820,7 @@ icon."
 
 ;;{{{ advising signal
 
-;;;###autoload
+
 (defcustom emacspeak-speak-errors t
   "Specifies if error messages are cued."
   :type 'boolean

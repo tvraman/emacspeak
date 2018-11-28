@@ -544,7 +544,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 ;;}}}
 ;;{{{ google
-;;;###autoload
+
 (defcustom emacspeak-websearch-google-use-https t
   "Specify whether we use secure connections for Google search."
   :type 'boolean
@@ -559,7 +559,7 @@ Optional second arg as-html processes the results as HTML rather than data."
                                   'emacspeak-websearch-google-with-toolbelt)
 (emacspeak-websearch-set-key ?m 'google-mobile)
 (emacspeak-websearch-set-searcher 'google-mobile 'emacspeak-websearch-google-mobile)
-;;;###autoload
+
 (defcustom emacspeak-websearch-google-number-of-results 25
   "Number of results to return from google search."
   :type 'number
@@ -578,7 +578,7 @@ Optional second arg as-html processes the results as HTML rather than data."
        "https://"
      "http://")
    emacspeak-websearch-google-uri-template))
-;;;###autoload
+
 (defcustom emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy..."
   :type '(choice

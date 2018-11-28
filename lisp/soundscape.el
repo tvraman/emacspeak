@@ -130,7 +130,7 @@
 
 (defvar soundscape--scapes nil
   "Cache of currently running scapes.")
-;;;###autoload
+
 (defcustom soundscape-device nil
   "Alsa sound device to use for soundscapes."
   :type  '(choice  :tag "Device"
@@ -138,7 +138,7 @@
                    (string :tag "Alsa Device Name"))
   :group 'soundscape)
 
-;;;###autoload
+
 (defcustom soundscape-manager-options
   '("-o" "alsa"
     "-m" "0.3")
@@ -534,7 +534,7 @@ Optional interactive prefix arg `force' skips optimization checks."
   (when (process-live-p soundscape-remote-control)
     (process-send-string soundscape-remote-control "soundscape 0\n")))
 
-;;;###autoload
+
 (defcustom soundscape-idle-delay 0.1
   "Number of seconds of idle time
 before soundscapes are synchronized with current mode."
