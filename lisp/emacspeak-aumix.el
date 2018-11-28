@@ -104,10 +104,8 @@ display."
     (expand-file-name ".aumixrc" emacspeak-resource-directory))
   "*Name of file containing personal aumix settings.")
 
-(defcustom emacspeak-alsactl-program "alsactl"
-  "ALSA sound controller used to restore settings."
-  :type 'string
-  :group 'emacspeak-aumix)
+(defvar emacspeak-alsactl-program "alsactl"
+  "ALSA sound controller used to restore settings.")
 
 
 (defcustom emacspeak-aumix-reset-options
