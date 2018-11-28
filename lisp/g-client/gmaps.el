@@ -218,7 +218,7 @@ Optional argument `raw-p' returns raw JSON  object."
   "Postal Code --- automatically set by reverse geocoding gweb-my-address")
 
 (declare-function  emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
-;;;###autoload
+
 (defcustom gweb-my-address
   nil
   "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
