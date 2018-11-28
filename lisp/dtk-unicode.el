@@ -66,7 +66,7 @@
   "Customization group for dtk-unicode."
   :group 'emacspeak
   :prefix "dtk-unicode-")
-;;;###autoload
+
 (defcustom dtk-unicode-character-replacement-alist
   '(
     (? . "-")                       ; START OF GUARDED AREA
@@ -103,7 +103,7 @@
           :key-type (character :tag "character")
           :value-type (string :tag "replacement")))
 
-;;;###autoload
+
 (defcustom dtk-unicode-process-utf8 t
   "Turn this off when working with TTS  engines that handle UTF8
 themselves, e.g., when using an Asian language."
