@@ -545,10 +545,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 ;;}}}
 ;;{{{ google
 
-(defcustom emacspeak-websearch-google-use-https t
-  "Specify whether we use secure connections for Google search."
-  :type 'boolean
-  :group 'emacspeak-websearch)
+
 
 (emacspeak-websearch-set-searcher 'google
                                   'emacspeak-websearch-google)
@@ -571,10 +568,10 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 (defun emacspeak-websearch-google-uri ()
   "Return URI end-point for Google search."
-  (cl-declare (special emacspeak-websearch-google-use-https
+  (cl-declare (special emacspeak-google-use-https
                        emacspeak-websearch-google-uri-template))
   (concat
-   (if emacspeak-websearch-google-use-https
+   (if emacspeak-google-use-https
        "https://"
      "http://")
    emacspeak-websearch-google-uri-template))
