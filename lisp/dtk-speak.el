@@ -95,7 +95,7 @@ mac for MAC TTS (default on Mac)")
   "Text To Speech (TTS) customizations for the Emacspeak audio desktop."
   :group 'emacspeak
   :prefix "dtk-")
-;;;###autoload
+
 (defcustom tts-strip-octals nil
   "Set to T to strip all octal chars before speaking.
 Particularly useful for web browsing."
@@ -104,13 +104,13 @@ Particularly useful for web browsing."
   :group 'tts)
 (make-variable-buffer-local 'tts-strip-octals)
 
-;;;###autoload
+
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
   "*Value of lowest tolerable speech rate."
   :type 'integer
   :group 'tts)
-;;;###autoload
+
 (defcustom dtk-speech-rate-step
   (if (string-match "dtk" dtk-program) 50 8)
   "*Value of speech rate increment.
@@ -131,7 +131,7 @@ See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
 Do not set this variable by hand, use command  `dtk-toggle-split-caps'
  bound to \\[dtk-toggle-split-caps].")
 (make-variable-buffer-local 'dtk-split-caps)
-;;;###autoload
+
 (defcustom dtk-cleanup-patterns
   (list
    "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
@@ -356,7 +356,7 @@ Optional argument FORCE  flushes the command to the speech server."
       (dtk-interp-silence duration
                           (if force "\nd" "")))))
 
-;;;###autoload
+
 (defcustom dtk-use-tones t
   "Allow tones to be turned off."
   :type 'boolean
@@ -488,7 +488,7 @@ specifies the current pronunciation mode --- See
       (while (re-search-forward dtk-bracket-regexp nil t)
         (replace-match " " nil t))))))
 
-;;;###autoload
+
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
@@ -1568,7 +1568,7 @@ available TTS servers.")
 
 (defvar tts-device "default"
   "Name of current sound device in use.")
-;;;###autoload
+
 (defcustom dtk-cloud-server "cloud-outloud"
   "Set this to your preferred cloud TTS server."
   :type '(string
@@ -1655,7 +1655,7 @@ Optional interactive prefix arg restarts current TTS server."
 (defvar dtk-local-server-process nil
   "Local server process.")
 
-;;;###autoload
+
 (defcustom dtk-speech-server-program "speech-server"
   "Local speech server script."
   :type '(choice :tag "Local Server"
