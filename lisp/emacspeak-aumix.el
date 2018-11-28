@@ -97,14 +97,12 @@ display."
 ;;{{{ emacspeak-aumix
 
 
-(defcustom emacspeak-aumix-settings-file
+(defvar emacspeak-aumix-settings-file
   (when
       (file-exists-p (expand-file-name ".aumixrc"
                                        emacspeak-resource-directory))
     (expand-file-name ".aumixrc" emacspeak-resource-directory))
-  "*Name of file containing personal aumix settings."
-  :group 'emacspeak-aumix
-  :type 'string)
+  "*Name of file containing personal aumix settings.")
 
 (defcustom emacspeak-alsactl-program "alsactl"
   "ALSA sound controller used to restore settings."
