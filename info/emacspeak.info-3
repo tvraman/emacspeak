@@ -2499,9 +2499,6 @@ This module provides utility functions for searching the WWW
  -- Variable: User Option emacspeak-websearch-google-options
      Additional options to pass to Google e.g.  &xx=yy...
 
- -- Variable: User Option emacspeak-websearch-google-use-https
-     Specify whether we use secure connections for Google search.
-
 
 File: emacspeak.info,  Node: emacspeak-webspace,  Next: emacspeak-webutils,  Prev: emacspeak-websearch,  Up: Emacspeak Commands And Options
 

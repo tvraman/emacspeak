@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1234 commands and 896 options.
+This chapter documents a total of 1234 commands and 895 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -9689,7 +9689,7 @@ How long we wait before speaking completions.
 @node emacspeak-iedit
 @section emacspeak-iedit
 
-IEDIT ==  Edit multiple regions 
+IEDIT ==  Edit multiple regions
 This module speech-enables iedit.
 
 @subsection emacspeak-iedit Options
@@ -20680,11 +20680,6 @@ Number of results to return from google search.
 
 @defvar {User Option} emacspeak-websearch-google-options
 Additional options to pass to Google e.g. &xx=yy...
-
-@end defvar
-
-@defvar {User Option} emacspeak-websearch-google-use-https
-Specify whether we use secure connections for Google search.
 
 @end defvar
 
