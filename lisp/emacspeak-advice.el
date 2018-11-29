@@ -2989,6 +2989,16 @@ Produce auditory icons if possible."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{list-timers:
+
+(defadvice list-timers (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
