@@ -135,9 +135,11 @@ The default value of 12 is too high for using ido effectively with speech. "
              (if ido-enable-prefix 'on 'off)))))
 
 ;;; forward declaration
-(defvar ido-process-ignore-lists) 
+
+(defvar ido-process-ignore-lists nil)
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (cl-declare (special ido-process-ignore-list))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-process-ignore-lists 'on 'off))
     (dtk-speak
