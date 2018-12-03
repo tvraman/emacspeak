@@ -200,7 +200,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
   (cl-declare (special emacspeak-twittering-protocol-identifier))
   (let ((moved t))
     (while (and moved
-                (not (looking-at-p emacspeak-twittering-protocol-identifier)))
+                (not (looking-at emacspeak-twittering-protocol-identifier)))
       (setq moved (goto-char (next-single-property-change (point) 'uri))))
     (browse-url-at-point)))
 

@@ -584,14 +584,14 @@ the words that were capitalized."
       (save-match-data
         (save-excursion
           (forward-line 0)
-          (setq thisblank (looking-at-p "[ \t]*$"))
+          (setq thisblank (looking-at "[ \t]*$"))
           ;; Set singleblank if there is just one blank line here.
           (setq singleblank
                 (and thisblank
-                     (not (looking-at-p "[ \t]*\n[ \t]*$"))
+                     (not (looking-at "[ \t]*\n[ \t]*$"))
                      (or (bobp)
                          (progn (forward-line -1)
-                                (not (looking-at-p "[ \t]*$"))))))))
+                                (not (looking-at "[ \t]*$"))))))))
       (cond
        ((and thisblank singleblank)
         (message "Deleting current blank line"))

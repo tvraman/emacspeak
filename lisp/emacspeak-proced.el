@@ -137,7 +137,7 @@
        (+ (line-beginning-position)
           (emacspeak-proced-field-start field)))
       (setq start (point))
-      (when (looking-at-p "[^ ]")
+      (when (looking-at "[^ ]")
         (skip-syntax-backward "^ ")
         (setq start (point)))
       (skip-syntax-forward " ")

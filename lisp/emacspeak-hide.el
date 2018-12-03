@@ -141,13 +141,13 @@ STRING is the token's text."
       (catch 'done
         (setq not-token-table emacspeak-hide-prefix-not-token-table)
         (while not-token-table
-          (if (looking-at-p (car not-token-table))
+          (if (looking-at (car not-token-table))
               (throw 'done nil))
           (setq not-token-table (cdr not-token-table)))
         (setq token-table emacspeak-hide-prefix-token-table)
         (while  token-table
           (cond
-           ((null (looking-at-p (car (car token-table))))
+           ((null (looking-at (car (car token-table))))
             (setq token-table (cdr token-table)))
            (t                           ;got a match
             (goto-char (match-end 0))
@@ -305,7 +305,7 @@ Returns t if a block was found and hidden."
   (cl-declare (special emacspeak-hide-prefix-token-table))
   (let ((block-prefix nil))
     (or (emacspeak-hide-parse-prefix)
-        (when (and (not (looking-at-p "^[ \t]*$"))
+        (when (and (not (looking-at "^[ \t]*$"))
                    (y-or-n-p "Define a new block prefix? "))
           (setq block-prefix
                 (read-from-minibuffer "Specify prefix: "))

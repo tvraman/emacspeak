@@ -1120,7 +1120,7 @@ File .servers is expected to contain name of one server per
       (goto-char (point-min))
       (while (not (eobp))
         (unless
-            (looking-at-p "^#")
+            (looking-at "^#")
           (setq this
                 (buffer-substring-no-properties
                  (line-beginning-position) (line-end-position)))

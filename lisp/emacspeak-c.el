@@ -188,7 +188,7 @@
       (emacspeak-speak-line))
      (t (setq count (or count 1))
         (c-beginning-of-statement   count)
-        (and (save-match-data (looking-at-p "{"))
+        (and (save-match-data (looking-at "{"))
              (skip-syntax-backward " "))
         (if (>= (point) opoint)
             (progn (dtk-speak "Cannot move to previous  statement at
@@ -219,7 +219,7 @@ this level")
      (t (setq count (or count 1))
         (c-end-of-statement(1+  count))
         (c-beginning-of-statement  1)
-        (and (save-match-data (looking-at-p "{"))
+        (and (save-match-data (looking-at "{"))
              (skip-syntax-backward " "))
         (if (<= (point) opoint)
             (progn (dtk-speak "Cannot move to next statement at this

@@ -604,7 +604,7 @@ Before doing so, re-align the table if necessary."
     (interactive)
     (org-table-maybe-eval-formula)
     (org-table-maybe-recalculate-line)
-    (if (or (looking-at-p "[ \t]*$")
+    (if (or (looking-at "[ \t]*$")
             (save-excursion (skip-chars-backward " \t") (bolp)))
         (newline)
       (if (and org-table-automatic-realign
@@ -616,7 +616,7 @@ Before doing so, re-align the table if necessary."
           (beginning-of-line 1))
         (org-table-goto-column col)
         (skip-chars-backward "^|\n\r")
-        (if (looking-at-p " ") (forward-char 1))))))
+        (if (looking-at " ") (forward-char 1))))))
 
 ;;}}}
 ;;{{{ EWW Integration:

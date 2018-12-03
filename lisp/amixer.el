@@ -106,7 +106,7 @@
                      collect
                      (cl-second (split-string f "="))))
       (while (and (not (eobp))
-                  (looking-at-p "^ *;"))
+                  (looking-at "^ *;"))
         (forward-line 1))
       (setq current
             (cl-second
@@ -190,7 +190,7 @@
       (goto-char (point-min))
       (while (not   (eobp))
         (beginning-of-line)
-        (when (looking-at-p "^ *;")
+        (when (looking-at "^ *;")
           (search-forward "Item #" nil t)
           (push
            (buffer-substring-no-properties

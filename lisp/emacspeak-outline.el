@@ -70,7 +70,7 @@
   "Speak the line."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'section)
-    (and (looking-at-p "^$")
+    (and (looking-at "^$")
          (skip-syntax-backward " "))
     (emacspeak-speak-line)))
 
