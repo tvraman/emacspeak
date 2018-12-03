@@ -113,7 +113,7 @@
 ;;}}}
 ;;{{{Apply Personality:
 
-;;;###autoload
+
 (defun emacspeak-personality-add (start end voice &optional object)
   "Apply personality VOICE to specified region,
 over-writing any current personality settings."
