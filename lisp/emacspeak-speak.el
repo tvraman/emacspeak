@@ -1061,8 +1061,8 @@ Cues the start of a physical line with auditory icon `left'."
         (line nil)
         (orig (point)))
     (cond
-     ((looking-at "^ *") (emacspeak-auditory-icon 'left))
-     ((looking-at " *$") (emacspeak-auditory-icon 'right)))
+     ((looking-at-p "^ *") (emacspeak-auditory-icon 'left))
+     ((looking-at-p " *$") (emacspeak-auditory-icon 'right)))
     (save-excursion
       (beginning-of-visual-line)
       (setq start (point))

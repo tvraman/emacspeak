@@ -91,7 +91,7 @@
               (save-match-data
                 (beginning-of-line)
                 (string-to-number
-                 (if (looking-at "[0-9]+")
+                 (if (looking-at-p "[0-9]+")
                      (buffer-substring-no-properties
                       (match-beginning 0) (match-end 0))
                    "0")))))

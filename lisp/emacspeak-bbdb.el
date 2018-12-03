@@ -80,7 +80,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (save-excursion
-      (when (looking-at  "?")
+      (when (looking-at-p  "?")
         (forward-line 1))
       (emacspeak-speak-line))))
 
@@ -110,7 +110,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (save-excursion
-      (when (looking-at  "?")
+      (when (looking-at-p  "?")
         (forward-line 1))
       (emacspeak-speak-line))))
 
@@ -119,7 +119,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (save-excursion
-      (when (looking-at  "?")
+      (when (looking-at-p  "?")
         (forward-line 1))
       (emacspeak-speak-line))))
 

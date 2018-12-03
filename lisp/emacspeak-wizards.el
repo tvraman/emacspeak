@@ -2483,7 +2483,7 @@ Default is to add autoload cookies to current file."
             (re-search-forward "^ *(interactive")
             (beginning-of-defun)
             (forward-line -1)
-            (unless (looking-at emacspeak-autoload-cookie-pattern)
+            (unless (looking-at-p emacspeak-autoload-cookie-pattern)
               (cl-incf count)
               (forward-line 1)
               (beginning-of-line)
