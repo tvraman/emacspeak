@@ -298,11 +298,7 @@ Modifies text and point in buffer."
 
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
-
-(defun text-visible-p (pos)
-  (not (invisible-p pos)))
  
-
 (defun skip-invisible-forward ()
   (while (and (not (eobp))
               (invisible-p (point)))
