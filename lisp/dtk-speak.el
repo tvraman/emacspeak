@@ -301,16 +301,7 @@ Modifies text and point in buffer."
 
 (defun text-visible-p (pos)
   (not (invisible-p pos)))
-(unless (fboundp 'invisible-p)
-;;; defined in simple.el in Emacs 23.
-  (defun invisible-p (pos)
-    "Check if text is invisible. Emacspeak helper."
-    (cl-declare (special buffer-invisibility-spec))
-    (let ((prop (get-text-property pos 'invisible)))
-      (if (eq buffer-invisibility-spec t)
-          prop
-        (or (memq prop buffer-invisibility-spec)
-            (assq prop buffer-invisibility-spec)))))) ;;; needed before Emacs 23.
+ 
 
 (defun skip-invisible-forward ()
   (while (and (not (eobp))
