@@ -113,16 +113,17 @@
 ;;}}}
 ;;{{{Apply Personality:
 
-
 (defun emacspeak-personality-add (start end voice &optional object)
   "Apply personality VOICE to specified region,
 over-writing any current personality settings."
-  (with-silent-modifications
-    (when
-        (and
-         (integerp start) (integerp end)
-         (not (= start end)))
-      (put-text-property start end 'personality voice object))))
+  (when
+      (and
+       (integerp start) (integerp end)
+       (not (= start end)))
+    (with-current-buffer
+        (if (bufferp object) object (current-buffer))
+      (with-silent-modifications
+        (put-text-property start end 'personality voice object)))))
 
 (defun emacspeak-personality-remove  (start end voice &optional object)
   "Remove specified personality VOICE from text bounded by start and end. "
@@ -132,8 +133,10 @@ over-writing any current personality settings."
        (integerp start) (integerp end)
        (not (= start end))
        (eq voice (get-text-property start 'personality object)))
-    (with-silent-modifications
-      (put-text-property start end 'personality nil object))))
+      (with-current-buffer
+          (if (bufferp object) object (current-buffer))
+        (with-silent-modifications
+          (put-text-property start end 'personality nil object)))))
 
 ;;}}}
 ;;{{{ advice overlays
@@ -155,7 +158,7 @@ over-writing any current personality settings."
         (with-current-buffer buffer
           (save-restriction
             (widen)
-            (emacspeak-personality-remove start end voice))))
+            (emacspeak-personality-remove start end voice buffer))))
        ( invisible
          (with-silent-modifications
            (put-text-property start end 'invisible nil)))))))
@@ -220,7 +223,8 @@ over-writing any current personality settings."
         (beg (or (ad-get-arg 0) (point-min)))
         (end (or (ad-get-arg 1) (point-max)))
         (name (ad-get-arg 2))
-        (value (ad-get-arg 3)))
+        ;(value (ad-get-arg 3))
+        )
 ;;; simple-minded for now, ignore value
     (with-silent-modifications
       (put-text-property beg end name nil))
