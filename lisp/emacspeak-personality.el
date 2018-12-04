@@ -190,29 +190,29 @@ over-writing any current personality settings."
 (defadvice move-overlay (before emacspeak-personality pre act)
   "Used by emacspeak to augment font lock."
   (when ems--voiceify-overlays
-    (let*
-        ((overlay (ad-get-arg 0))
-         (beg (ad-get-arg 1))
-         (end (ad-get-arg 2))
-         (object (ad-get-arg 3))
-         (buffer (overlay-buffer overlay))
-         (voice (dtk-get-voice-for-face (overlay-get overlay 'face)))
-         (invisible (overlay-get overlay 'invisible)))
-      (unless object
-        (setq object (or buffer (current-buffer))))
-      (cond
-       ((and voice
-             (integerp (overlay-start overlay))
-             (integerp (overlay-end overlay)))
-        (emacspeak-personality-remove
-         (overlay-start overlay) (overlay-end overlay) voice object)
-        (funcall ems--voiceify-overlays beg end voice object))
-       (invisible
-        (with-current-buffer object
-          (with-silent-modifications
+    (with-silent-modifications
+      (let*
+          ((overlay (ad-get-arg 0))
+           (beg (ad-get-arg 1))
+           (end (ad-get-arg 2))
+           (object (ad-get-arg 3))
+           (buffer (overlay-buffer overlay))
+           (voice (dtk-get-voice-for-face (overlay-get overlay 'face)))
+           (invisible (overlay-get overlay 'invisible)))
+        (unless object
+          (setq object (or buffer (current-buffer))))
+        (cond
+         ((and voice
+               (integerp (overlay-start overlay))
+               (integerp (overlay-end overlay)))
+          (emacspeak-personality-remove
+           (overlay-start overlay) (overlay-end overlay) voice object)
+          (funcall ems--voiceify-overlays beg end voice object))
+         (invisible
+          (with-current-buffer object
             (put-text-property
              (overlay-start overlay) (overlay-end overlay) 'invisible nil)))
-        (put-text-property beg end 'invisible t))))))
+         (put-text-property beg end 'invisible t))))))
 
 ;;}}}
 (provide 'emacspeak-personality)
