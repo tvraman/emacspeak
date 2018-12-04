@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 28, 2018.
+last updated on December 3, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1234 commands and 895 options.
+   This chapter documents a total of 1227 commands and 891 options.
 
 * Menu:
 
@@ -2773,7 +2773,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-apt-sources::speech-enable APT’s sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode – a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX – a powerful TeX/LaTeX authoring environment.
-* emacspeak-aumix::Configure audio device settings.
 * emacspeak-bbc::Speech-enabled  BBC client.
 * emacspeak-bbdb::Speech enable BBDB – a powerful address manager.
 * emacspeak-bibtex::Speech enable bibtex – Supports maintaining bibliographies in bibtex format.
@@ -3612,9 +3611,6 @@ Defines the TTS interface.
      when setting speech rate via command
      ‘dtk-set-predefined-speech-rate’.  Formula used is
      dtk-speech-rate-base + dtk-speech-rate-step*level.
-
- -- Variable: User Option dtk-speech-server-program
-     Local speech server script.
 
  -- Variable: User Option dtk-use-tones
      Allow tones to be turned off.
@@ -6431,7 +6427,7 @@ files such as .zip and .jar files.
      Speak the size of the file on current line
 
 
-File: emacspeak.info,  Node: emacspeak-auctex,  Next: emacspeak-aumix,  Prev: emacspeak-arc,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-auctex,  Next: emacspeak-bbc,  Prev: emacspeak-arc,  Up: Emacspeak Commands And Options
 
 12.19 emacspeak-auctex
 ======================
@@ -6440,96 +6436,9 @@ Speech-enables the AucTeX package.  AucTeX, now available from ELPA, has
 been my authoring environment of choice for writing LaTeX since 1991.
 
 
-File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bbc,  Prev: emacspeak-auctex,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-auctex,  Up: Emacspeak Commands And Options
 
-12.20 emacspeak-aumix
-=====================
-
-Provides an AUI to setting up the auditory display via AUMIX This module
-is presently Linux specific
-
-12.20.1 emacspeak-aumix Commands
---------------------------------
-
-12.20.1.1 emacspeak-aumix
-.........................
-
- -- Command: emacspeak-aumix
-
-     Setup output parameters of the auditory display.
-      Launch this tool while you have auditory output on
-     multiple channels playing so you can
-     adjust the settings to your preference.  Hit q to quit when
-     you are done.
-
-12.20.1.2 emacspeak-aumix-edit
-..............................
-
- -- Command: emacspeak-aumix-edit
-
-     Edit aumix settings interactively.
-     Run command M-x emacspeak-aumix-reset
-     after saving the settings to have them take effect.
-
-12.20.1.3 emacspeak-aumix-reset
-...............................
-
- -- Command: emacspeak-aumix-reset
-
-     Reset to default audio settings.
-
-12.20.1.4 emacspeak-aumix-volume-decrease
-.........................................
-
- -- Command: emacspeak-aumix-volume-decrease (&optional gain)
-
-     Decrease overall volume.
-
-     (fn &optional GAIN)
-
-12.20.1.5 emacspeak-aumix-volume-increase
-.........................................
-
- -- Command: emacspeak-aumix-volume-increase (&optional gain)
-
-     Increase overall volume.
-
-     (fn &optional GAIN)
-
-12.20.1.6 emacspeak-aumix-wave-decrease
-.......................................
-
- -- Command: emacspeak-aumix-wave-decrease (&optional gain)
-
-     Decrease volume of wave output.
-
-     (fn &optional GAIN)
-
-12.20.1.7 emacspeak-aumix-wave-increase
-.......................................
-
- -- Command: emacspeak-aumix-wave-increase (&optional gain)
-
-     Increase volume of wave output.
-
-     (fn &optional GAIN)
-
-12.20.2 emacspeak-aumix Options
--------------------------------
-
- -- Variable: User Option emacspeak-alsactl-program
-     ALSA sound controller used to restore settings.
-
- -- Variable: User Option emacspeak-aumix-reset-options
-     *Option to pass to aumix for resetting to default values.
-
- -- Variable: User Option emacspeak-aumix-settings-file
-     *Name of file containing personal aumix settings.
-
-
-File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-aumix,  Up: Emacspeak Commands And Options
-
-12.21 emacspeak-bbc
+12.20 emacspeak-bbc
 ===================
 
 BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
@@ -6545,10 +6454,10 @@ Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
 use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
 available.  For downloading a program etc., use Emacs package iplayer.
 
-12.21.1 emacspeak-bbc Commands
+12.20.1 emacspeak-bbc Commands
 ------------------------------
 
-12.21.1.1 emacspeak-bbc
+12.20.1.1 emacspeak-bbc
 .......................
 
  -- Command: emacspeak-bbc (&optional genre)
@@ -6560,14 +6469,14 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn &optional GENRE)
 
-12.21.1.2 emacspeak-bbc-genre
+12.20.1.2 emacspeak-bbc-genre
 .............................
 
  -- Command: emacspeak-bbc-genre
 
      Launch BBC Interaction for specified Genre.
 
-12.21.1.3 emacspeak-bbc-get-iplayer-stream-pid
+12.20.1.3 emacspeak-bbc-get-iplayer-stream-pid
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
@@ -6576,7 +6485,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn PID)
 
-12.21.1.4 emacspeak-bbc-get-iplayer-stream-url
+12.20.1.4 emacspeak-bbc-get-iplayer-stream-url
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
@@ -6585,7 +6494,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn URL)
 
-12.21.2 emacspeak-bbc Options
+12.20.2 emacspeak-bbc Options
 -----------------------------
 
  -- Variable: User Option emacspeak-bbc-button-action
@@ -6598,13 +6507,13 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
 File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
 
-12.22 emacspeak-bbdb
+12.21 emacspeak-bbdb
 ====================
 
 Speech-enables BBDB. I have used BBDB to manage email address and
 contact information since 1991.
 
-12.22.1 emacspeak-bbdb Options
+12.21.1 emacspeak-bbdb Options
 ------------------------------
 
  -- Variable: User Option voice-bbdb-field-name
@@ -6625,7 +6534,7 @@ contact information since 1991.
 
 File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
 
-12.23 emacspeak-bibtex
+12.22 emacspeak-bibtex
 ======================
 
 Speech extensions for bibtex mode.
@@ -6633,7 +6542,7 @@ Speech extensions for bibtex mode.
 
 File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
 
-12.24 emacspeak-bookmark
+12.23 emacspeak-bookmark
 ========================
 
 Speech enable bookmarks
@@ -6641,7 +6550,7 @@ Speech enable bookmarks
 
 File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
 
-12.25 emacspeak-bookshare
+12.24 emacspeak-bookshare
 =========================
 
 BOOKSHARE == http://www.bookshare.org provides book access to
@@ -6649,14 +6558,14 @@ print-disabled users.  It provides a simple Web API
 http://developer.bookshare.org This module implements an Emacspeak
 Bookshare client.
 
-12.25.1 requirements
+12.24.1 requirements
 --------------------
 
    • You need to get your own API key
    • You need Emacs built with libxml2 support
    • You need Emacs 24.1 or higher.
 
-12.25.2 Usage
+12.24.2 Usage
 -------------
 
 The main entry point is command ‘emacspeak-bookshare’ bound to ‘C-e
@@ -6664,7 +6573,7 @@ C-b’.  This creates a special _Bookshare Interaction_ buffer that is
 placed in _emacspeak-bookshare-mode_.  Se the help for that mode on
 detailed usage instructions and key-bindings.
 
-12.25.3 Sample Interaction
+12.24.3 Sample Interaction
 --------------------------
 
 Assuming you have correctly setup your API key:
@@ -6684,10 +6593,10 @@ Assuming you have correctly setup your API key:
    • Press ‘c’ to display the table of contents.
    • Now, use all of EWW *Note emacspeak-eww:: extensions and profit!
 
-12.25.4 emacspeak-bookshare Commands
+12.24.4 emacspeak-bookshare Commands
 ------------------------------------
 
-12.25.4.1 emacspeak-bookshare
+12.24.4.1 emacspeak-bookshare
 .............................
 
  -- Command: emacspeak-bookshare
@@ -6696,14 +6605,14 @@ Assuming you have correctly setup your API key:
 
      Bookshare  Interaction.
 
-12.25.4.2 emacspeak-bookshare-action
+12.24.4.2 emacspeak-bookshare-action
 ....................................
 
  -- Command: emacspeak-bookshare-action
 
      Call action specified by  invoking key.
 
-12.25.4.3 emacspeak-bookshare-author-search
+12.24.4.3 emacspeak-bookshare-author-search
 ...........................................
 
  -- Command: emacspeak-bookshare-author-search (query &optional
@@ -6714,21 +6623,21 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.25.4.4 emacspeak-bookshare-browse
+12.24.4.4 emacspeak-bookshare-browse
 ....................................
 
  -- Command: emacspeak-bookshare-browse
 
      Browse Bookshare.
 
-12.25.4.5 emacspeak-bookshare-browse-latest
+12.24.4.5 emacspeak-bookshare-browse-latest
 ...........................................
 
  -- Command: emacspeak-bookshare-browse-latest
 
      Return latest books.
 
-12.25.4.6 emacspeak-bookshare-browse-popular
+12.24.4.6 emacspeak-bookshare-browse-popular
 ............................................
 
  -- Command: emacspeak-bookshare-browse-popular (&optional category)
@@ -6738,7 +6647,7 @@ Assuming you have correctly setup your API key:
 
      (fn &optional CATEGORY)
 
-12.25.4.7 emacspeak-bookshare-download-audio
+12.24.4.7 emacspeak-bookshare-download-audio
 ............................................
 
  -- Command: emacspeak-bookshare-download-audio (id target)
@@ -6747,7 +6656,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.25.4.8 emacspeak-bookshare-download-audio-at-point
+12.24.4.8 emacspeak-bookshare-download-audio-at-point
 .....................................................
 
  -- Command: emacspeak-bookshare-download-audio-at-point
@@ -6755,7 +6664,7 @@ Assuming you have correctly setup your API key:
      Download audio version of book under point.
      Target location is generated from author and title.
 
-12.25.4.9 emacspeak-bookshare-download-brf
+12.24.4.9 emacspeak-bookshare-download-brf
 ..........................................
 
  -- Command: emacspeak-bookshare-download-brf (id target)
@@ -6764,7 +6673,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.25.4.10 emacspeak-bookshare-download-brf-at-point
+12.24.4.10 emacspeak-bookshare-download-brf-at-point
 ....................................................
 
  -- Command: emacspeak-bookshare-download-brf-at-point
@@ -6772,7 +6681,7 @@ Assuming you have correctly setup your API key:
      Download Braille version of book under point.
      Target location is generated from author and title.
 
-12.25.4.11 emacspeak-bookshare-download-daisy
+12.24.4.11 emacspeak-bookshare-download-daisy
 .............................................
 
  -- Command: emacspeak-bookshare-download-daisy (id target)
@@ -6781,7 +6690,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.25.4.12 emacspeak-bookshare-download-daisy-at-point
+12.24.4.12 emacspeak-bookshare-download-daisy-at-point
 ......................................................
 
  -- Command: emacspeak-bookshare-download-daisy-at-point
@@ -6789,7 +6698,7 @@ Assuming you have correctly setup your API key:
      Download Daisy version of book under point.
      Target location is generated from author and title.
 
-12.25.4.13 emacspeak-bookshare-download-epub-3
+12.24.4.13 emacspeak-bookshare-download-epub-3
 ..............................................
 
  -- Command: emacspeak-bookshare-download-epub-3 (id target)
@@ -6798,7 +6707,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.25.4.14 emacspeak-bookshare-download-epub-3-at-point
+12.24.4.14 emacspeak-bookshare-download-epub-3-at-point
 .......................................................
 
  -- Command: emacspeak-bookshare-download-epub-3-at-point
@@ -6806,7 +6715,7 @@ Assuming you have correctly setup your API key:
      Download epub-3 version of book under point.
      Target location is generated from author and title.
 
-12.25.4.15 emacspeak-bookshare-download-internal
+12.24.4.15 emacspeak-bookshare-download-internal
 ................................................
 
  -- Command: emacspeak-bookshare-download-internal (url target)
@@ -6815,7 +6724,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL TARGET)
 
-12.25.4.16 emacspeak-bookshare-eww
+12.24.4.16 emacspeak-bookshare-eww
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
@@ -6824,7 +6733,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.25.4.17 emacspeak-bookshare-expand-at-point
+12.24.4.17 emacspeak-bookshare-expand-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-expand-at-point
@@ -6832,7 +6741,7 @@ Assuming you have correctly setup your API key:
      Expand entry at point by retrieving metadata.
      Once retrieved, memoize to avoid multiple retrievals.
 
-12.25.4.18 emacspeak-bookshare-extract-and-view
+12.24.4.18 emacspeak-bookshare-extract-and-view
 ...............................................
 
  -- Command: emacspeak-bookshare-extract-and-view (url)
@@ -6841,7 +6750,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.25.4.19 emacspeak-bookshare-extract-xml
+12.24.4.19 emacspeak-bookshare-extract-xml
 ..........................................
 
  -- Command: emacspeak-bookshare-extract-xml (url)
@@ -6850,7 +6759,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.25.4.20 emacspeak-bookshare-flush-lines
+12.24.4.20 emacspeak-bookshare-flush-lines
 ..........................................
 
  -- Command: emacspeak-bookshare-flush-lines (regexp)
@@ -6859,7 +6768,7 @@ Assuming you have correctly setup your API key:
 
      (fn REGEXP)
 
-12.25.4.21 emacspeak-bookshare-fulltext
+12.24.4.21 emacspeak-bookshare-fulltext
 .......................................
 
  -- Command: emacspeak-bookshare-fulltext (directory)
@@ -6869,7 +6778,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.25.4.22 emacspeak-bookshare-fulltext-search
+12.24.4.22 emacspeak-bookshare-fulltext-search
 ..............................................
 
  -- Command: emacspeak-bookshare-fulltext-search (query)
@@ -6878,14 +6787,14 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY)
 
-12.25.4.23 emacspeak-bookshare-get-more-results
+12.24.4.23 emacspeak-bookshare-get-more-results
 ...............................................
 
  -- Command: emacspeak-bookshare-get-more-results
 
      Get next page of results for last query.
 
-12.25.4.24 emacspeak-bookshare-id-search
+12.24.4.24 emacspeak-bookshare-id-search
 ........................................
 
  -- Command: emacspeak-bookshare-id-search (query)
@@ -6894,7 +6803,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY)
 
-12.25.4.25 emacspeak-bookshare-isbn-search
+12.24.4.25 emacspeak-bookshare-isbn-search
 ..........................................
 
  -- Command: emacspeak-bookshare-isbn-search (query)
@@ -6903,14 +6812,14 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY)
 
-12.25.4.26 emacspeak-bookshare-list-preferences
+12.24.4.26 emacspeak-bookshare-list-preferences
 ...............................................
 
  -- Command: emacspeak-bookshare-list-preferences
 
      Return preference list.
 
-12.25.4.27 emacspeak-bookshare-mode
+12.24.4.27 emacspeak-bookshare-mode
 ...................................
 
  -- Command: emacspeak-bookshare-mode
@@ -6981,28 +6890,28 @@ Assuming you have correctly setup your API key:
      this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.25.4.28 emacspeak-bookshare-next-result
+12.24.4.28 emacspeak-bookshare-next-result
 ..........................................
 
  -- Command: emacspeak-bookshare-next-result
 
      Move to next result.
 
-12.25.4.29 emacspeak-bookshare-periodical-list
+12.24.4.29 emacspeak-bookshare-periodical-list
 ..............................................
 
  -- Command: emacspeak-bookshare-periodical-list
 
      Return list of periodicals.
 
-12.25.4.30 emacspeak-bookshare-previous-result
+12.24.4.30 emacspeak-bookshare-previous-result
 ..............................................
 
  -- Command: emacspeak-bookshare-previous-result
 
      Move to previous result.
 
-12.25.4.31 emacspeak-bookshare-set-preference
+12.24.4.31 emacspeak-bookshare-set-preference
 .............................................
 
  -- Command: emacspeak-bookshare-set-preference (preference-id value)
@@ -7011,7 +6920,7 @@ Assuming you have correctly setup your API key:
 
      (fn PREFERENCE-ID VALUE)
 
-12.25.4.32 emacspeak-bookshare-since-search
+12.24.4.32 emacspeak-bookshare-since-search
 ...........................................
 
  -- Command: emacspeak-bookshare-since-search (query &optional category)
@@ -7021,7 +6930,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.25.4.33 emacspeak-bookshare-title-search
+12.24.4.33 emacspeak-bookshare-title-search
 ...........................................
 
  -- Command: emacspeak-bookshare-title-search (query &optional category)
@@ -7031,7 +6940,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.25.4.34 emacspeak-bookshare-toc
+12.24.4.34 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
@@ -7040,7 +6949,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.25.4.35 emacspeak-bookshare-toc-at-point
+12.24.4.35 emacspeak-bookshare-toc-at-point
 ...........................................
 
  -- Command: emacspeak-bookshare-toc-at-point
@@ -7048,14 +6957,14 @@ Assuming you have correctly setup your API key:
      View TOC for book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.25.4.36 emacspeak-bookshare-unpack-at-point
+12.24.4.36 emacspeak-bookshare-unpack-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-unpack-at-point
 
      Unpack downloaded content if necessary.
 
-12.25.4.37 emacspeak-bookshare-url-executor
+12.24.4.37 emacspeak-bookshare-url-executor
 ...........................................
 
  -- Command: emacspeak-bookshare-url-executor (url)
@@ -7064,7 +6973,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.25.4.38 emacspeak-bookshare-version-handler
+12.24.4.38 emacspeak-bookshare-version-handler
 ..............................................
 
  -- Command: emacspeak-bookshare-version-handler (&rest ignore)
@@ -7074,7 +6983,7 @@ Assuming you have correctly setup your API key:
 
      (fn &rest IGNORE)
 
-12.25.4.39 emacspeak-bookshare-view
+12.24.4.39 emacspeak-bookshare-view
 ...................................
 
  -- Command: emacspeak-bookshare-view (directory)
@@ -7083,7 +6992,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.25.4.40 emacspeak-bookshare-view-at-point
+12.24.4.40 emacspeak-bookshare-view-at-point
 ............................................
 
  -- Command: emacspeak-bookshare-view-at-point
@@ -7091,7 +7000,7 @@ Assuming you have correctly setup your API key:
      View book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.25.4.41 emacspeak-bookshare-view-page-range
+12.24.4.41 emacspeak-bookshare-view-page-range
 ..............................................
 
  -- Command: emacspeak-bookshare-view-page-range (url)
@@ -7100,7 +7009,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.25.5 emacspeak-bookshare Options
+12.24.5 emacspeak-bookshare Options
 -----------------------------------
 
  -- Variable: User Option emacspeak-bookshare-api-key
@@ -7125,7 +7034,7 @@ Assuming you have correctly setup your API key:
 
 File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
 
-12.26 emacspeak-browse-kill-ring
+12.25 emacspeak-browse-kill-ring
 ================================
 
 Browse the kill ring using browse-kill-ring.el - interactively insert
@@ -7134,15 +7043,15 @@ items from kill-ring (by Colin Walters)
 
 File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options
 
-12.27 emacspeak-bs
+12.26 emacspeak-bs
 ==================
 
 speech-enable bs.el – an alternative to Emacs’ default list-buffers
 
-12.27.1 emacspeak-bs Commands
+12.26.1 emacspeak-bs Commands
 -----------------------------
 
-12.27.1.1 emacspeak-bs-speak-buffer-line
+12.26.1.1 emacspeak-bs-speak-buffer-line
 ........................................
 
  -- Command: emacspeak-bs-speak-buffer-line
@@ -7152,15 +7061,15 @@ speech-enable bs.el – an alternative to Emacs’ default list-buffers
 
 File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: emacspeak-bs,  Up: Emacspeak Commands And Options
 
-12.28 emacspeak-buff-menu
+12.27 emacspeak-buff-menu
 =========================
 
 Speech-enable buffer-menus.
 
-12.28.1 emacspeak-buff-menu Commands
+12.27.1 emacspeak-buff-menu Commands
 ------------------------------------
 
-12.28.1.1 emacspeak-list-buffers-next-line
+12.27.1.1 emacspeak-list-buffers-next-line
 ..........................................
 
  -- Command: emacspeak-list-buffers-next-line (count)
@@ -7169,7 +7078,7 @@ Speech-enable buffer-menus.
 
      (fn COUNT)
 
-12.28.1.2 emacspeak-list-buffers-previous-line
+12.27.1.2 emacspeak-list-buffers-previous-line
 ..............................................
 
  -- Command: emacspeak-list-buffers-previous-line (count)
@@ -7178,14 +7087,14 @@ Speech-enable buffer-menus.
 
      (fn COUNT)
 
-12.28.1.3 emacspeak-list-buffers-speak-buffer-line
+12.27.1.3 emacspeak-list-buffers-speak-buffer-line
 ..................................................
 
  -- Command: emacspeak-list-buffers-speak-buffer-line
 
      Speak information about this buffer
 
-12.28.1.4 emacspeak-list-buffers-speak-buffer-name
+12.27.1.4 emacspeak-list-buffers-speak-buffer-name
 ..................................................
 
  -- Command: emacspeak-list-buffers-speak-buffer-name
@@ -7195,16 +7104,16 @@ Speech-enable buffer-menus.
 
 File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calc,  Prev: emacspeak-buff-menu,  Up: Emacspeak Commands And Options
 
-12.29 emacspeak-c
+12.28 emacspeak-c
 =================
 
 Make some of C and C++ mode more emacspeak friendly Works with both
 boring c-mode and the excellent cc-mode
 
-12.29.1 emacspeak-c Commands
+12.28.1 emacspeak-c Commands
 ----------------------------
 
-12.29.1.1 emacspeak-c-speak-semantics
+12.28.1.1 emacspeak-c-speak-semantics
 .....................................
 
  -- Command: emacspeak-c-speak-semantics
@@ -7214,7 +7123,7 @@ boring c-mode and the excellent cc-mode
 
 File: emacspeak.info,  Node: emacspeak-calc,  Next: emacspeak-calculator,  Prev: emacspeak-c,  Up: Emacspeak Commands And Options
 
-12.30 emacspeak-calc
+12.29 emacspeak-calc
 ====================
 
 This module extends the Emacs Calculator.  Extensions are minimal.  We
@@ -7224,7 +7133,7 @@ To fix all of calc’s interactive functions
 
 File: emacspeak.info,  Node: emacspeak-calculator,  Next: emacspeak-calendar,  Prev: emacspeak-calc,  Up: Emacspeak Commands And Options
 
-12.31 emacspeak-calculator
+12.30 emacspeak-calculator
 ==========================
 
 Speech enable desktop calculator
@@ -7232,17 +7141,17 @@ Speech enable desktop calculator
 
 File: emacspeak.info,  Node: emacspeak-calendar,  Next: emacspeak-cedet,  Prev: emacspeak-calculator,  Up: Emacspeak Commands And Options
 
-12.32 emacspeak-calendar
+12.31 emacspeak-calendar
 ========================
 
 This module speech enables the Emacs Calendar.  Speech enabling is not
 the same as speaking the screen: This is an excellent example of the
 advantages of speech-enabled interaction.
 
-12.32.1 emacspeak-calendar Commands
+12.31.1 emacspeak-calendar Commands
 -----------------------------------
 
-12.32.1.1 emacspeak-appt-repeat-announcement
+12.31.1.1 emacspeak-appt-repeat-announcement
 ............................................
 
  -- Command: emacspeak-appt-repeat-announcement
@@ -7251,7 +7160,7 @@ advantages of speech-enabled interaction.
 
      Speaks the most recently displayed appointment message if any.
 
-12.32.1.2 emacspeak-calendar-setup-sunrise-sunset
+12.31.1.2 emacspeak-calendar-setup-sunrise-sunset
 .................................................
 
  -- Command: emacspeak-calendar-setup-sunrise-sunset
@@ -7259,14 +7168,14 @@ advantages of speech-enabled interaction.
      Set up geo-coordinates using Google Maps reverse geocoding.
      To use, configure variable gweb-my-address via M-x customize-variable.
 
-12.32.1.3 emacspeak-calendar-speak-date
+12.31.1.3 emacspeak-calendar-speak-date
 .......................................
 
  -- Command: emacspeak-calendar-speak-date
 
      Speak the date under point when called in Calendar Mode.
 
-12.32.2 emacspeak-calendar Options
+12.31.2 emacspeak-calendar Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-calendar-mark-personality
@@ -7275,7 +7184,7 @@ advantages of speech-enabled interaction.
 
 File: emacspeak.info,  Node: emacspeak-cedet,  Next: emacspeak-checkdoc,  Prev: emacspeak-calendar,  Up: Emacspeak Commands And Options
 
-12.33 emacspeak-cedet
+12.32 emacspeak-cedet
 =====================
 
 CEDET consists of speedbar semantic ede and friends.  This module speech
@@ -7284,7 +7193,7 @@ enables new functionality in semantic, senator and friends
 
 File: emacspeak.info,  Node: emacspeak-checkdoc,  Next: emacspeak-cider,  Prev: emacspeak-cedet,  Up: Emacspeak Commands And Options
 
-12.34 emacspeak-checkdoc
+12.33 emacspeak-checkdoc
 ========================
 
 Speech-enable checkdoc.el
@@ -7292,12 +7201,12 @@ Speech-enable checkdoc.el
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-checkdoc,  Up: Emacspeak Commands And Options
 
-12.35 emacspeak-cider
+12.34 emacspeak-cider
 =====================
 
 Speech-Enable CIDER — Clojure IDE CIDER ==
 
-12.35.1 emacspeak-cider Options
+12.34.1 emacspeak-cider Options
 -------------------------------
 
  -- Variable: User Option voice-cider-repl-stderr-facevoice-animate
@@ -7308,7 +7217,7 @@ Speech-Enable CIDER — Clojure IDE CIDER ==
 
 File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
 
-12.36 emacspeak-ciel
+12.35 emacspeak-ciel
 ====================
 
 Package ciel provides vim’s "copy inside" and "clear inside" commands.
@@ -7318,7 +7227,7 @@ speech-enables ciel.
 
 File: emacspeak.info,  Node: emacspeak-clojure,  Next: emacspeak-cmuscheme,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
 
-12.37 emacspeak-clojure
+12.36 emacspeak-clojure
 =======================
 
 CLOJURE-mode: Specialized mode for Clojure programming.
@@ -7326,7 +7235,7 @@ CLOJURE-mode: Specialized mode for Clojure programming.
 
 File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-clojure,  Up: Emacspeak Commands And Options
 
-12.38 emacspeak-cmuscheme
+12.37 emacspeak-cmuscheme
 =========================
 
 speech-enable scheme support
@@ -7334,7 +7243,7 @@ speech-enable scheme support
 
 File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-cmuscheme,  Up: Emacspeak Commands And Options
 
-12.39 emacspeak-company
+12.38 emacspeak-company
 =======================
 
 COMPANY -mode: Complete Anything Support for emacs.
@@ -7348,7 +7257,7 @@ settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
 
-12.39.1 emacspeak-company Options
+12.38.1 emacspeak-company Options
 ---------------------------------
 
  -- Variable: User Option voice-company-echo
@@ -7384,24 +7293,24 @@ to generate their own feedback.
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
 
-12.40 emacspeak-compile
+12.39 emacspeak-compile
 =======================
 
 This module makes compiling code from inside Emacs speech friendly.  It
 is an example of how a little amount of code can make Emacspeak even
 better.
 
-12.40.1 emacspeak-compile Commands
+12.39.1 emacspeak-compile Commands
 ----------------------------------
 
-12.40.1.1 emacspeak-compilation-speak-error
+12.39.1.1 emacspeak-compilation-speak-error
 ...........................................
 
  -- Command: emacspeak-compilation-speak-error
 
      Speech feedback about the compilation error.
 
-12.40.2 emacspeak-compile Options
+12.39.2 emacspeak-compile Options
 ---------------------------------
 
  -- Variable: User Option voice-compilation-column-number
@@ -7447,7 +7356,7 @@ better.
 
 File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
 
-12.41 emacspeak-cperl
+12.40 emacspeak-cperl
 =====================
 
 Provide additional advice to CPerl mode
@@ -7455,23 +7364,23 @@ Provide additional advice to CPerl mode
 
 File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
 
-12.42 emacspeak-custom
+12.41 emacspeak-custom
 ======================
 
 Advise custom to speak.  most of the work is actually done by
 emacspeak-widget.el which speech-enables the widget libraries.
 
-12.42.1 emacspeak-custom Commands
+12.41.1 emacspeak-custom Commands
 ---------------------------------
 
-12.42.1.1 emacspeak-custom-goto-group
+12.41.1.1 emacspeak-custom-goto-group
 .....................................
 
  -- Command: emacspeak-custom-goto-group
 
      Jump to custom group when in a customization buffer.
 
-12.42.1.2 emacspeak-custom-goto-toolbar
+12.41.1.2 emacspeak-custom-goto-toolbar
 .......................................
 
  -- Command: emacspeak-custom-goto-toolbar
@@ -7481,14 +7390,14 @@ emacspeak-widget.el which speech-enables the widget libraries.
 
 File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-desktop,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
 
-12.43 emacspeak-dbus
+12.42 emacspeak-dbus
 ====================
 
 Loading this module sets up Emacspeak to respond to DBus notifications.
 This module needs to be loaded explicitly from the user’s init file
 after emacspeak has been started.
 
-12.43.1 Overview
+12.42.1 Overview
 ----------------
 
 This module provides integration via DBus for the following:
@@ -7509,17 +7418,17 @@ customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
 network/up-down can be separately enabled/disabled, and the actions
 customized via appropriately named hook functions.
 
-12.43.2 emacspeak-dbus Commands
+12.42.2 emacspeak-dbus Commands
 -------------------------------
 
-12.43.2.1 emacspeak-dbus-lock-screen
+12.42.2.1 emacspeak-dbus-lock-screen
 ....................................
 
  -- Command: emacspeak-dbus-lock-screen
 
      Lock screen using DBus.
 
-12.43.2.2 emacspeak-dbus-sleep-disable
+12.42.2.2 emacspeak-dbus-sleep-disable
 ......................................
 
  -- Command: emacspeak-dbus-sleep-disable
@@ -7527,14 +7436,14 @@ customized via appropriately named hook functions.
      Disable integration with login1 daemon. Does nothing if
      already disabled.
 
-12.43.2.3 emacspeak-dbus-sleep-enable
+12.42.2.3 emacspeak-dbus-sleep-enable
 .....................................
 
  -- Command: emacspeak-dbus-sleep-enable
 
      Enable integration with Login1. Does nothing if already enabled.
 
-12.43.2.4 emacspeak-dbus-udisks-disable
+12.42.2.4 emacspeak-dbus-udisks-disable
 .......................................
 
  -- Command: emacspeak-dbus-udisks-disable
@@ -7542,14 +7451,14 @@ customized via appropriately named hook functions.
      Disable integration with UDisks2 daemon. Does nothing if
      already disabled.
 
-12.43.2.5 emacspeak-dbus-udisks-enable
+12.42.2.5 emacspeak-dbus-udisks-enable
 ......................................
 
  -- Command: emacspeak-dbus-udisks-enable
 
      Enable integration with UDisks2. Does nothing if already enabled.
 
-12.43.2.6 emacspeak-dbus-upower-disable
+12.42.2.6 emacspeak-dbus-upower-disable
 .......................................
 
  -- Command: emacspeak-dbus-upower-disable
@@ -7557,14 +7466,14 @@ customized via appropriately named hook functions.
      Disable integration with UPower daemon. Does nothing if
      already disabled.
 
-12.43.2.7 emacspeak-dbus-upower-enable
+12.42.2.7 emacspeak-dbus-upower-enable
 ......................................
 
  -- Command: emacspeak-dbus-upower-enable
 
      Enable integration with UPower. Does nothing if already enabled.
 
-12.43.2.8 emacspeak-screen-saver-mode
+12.42.2.8 emacspeak-screen-saver-mode
 .....................................
 
  -- Command: emacspeak-screen-saver-mode

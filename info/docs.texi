@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1234 commands and 895 options.
+This chapter documents a total of 1227 commands and 891 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -26,7 +26,6 @@ This chapter documents a total of 1234 commands and 895 options.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment.
-* emacspeak-aumix::Configure audio device settings.
 * emacspeak-bbc::Speech-enabled  BBC client.
 * emacspeak-bbdb::Speech enable BBDB -- a powerful address manager.
 * emacspeak-bibtex::Speech enable bibtex -- Supports maintaining bibliographies in bibtex format.
@@ -1100,11 +1099,6 @@ it seems some accented characters in certain contexts.
 This determines step size used when setting speech rate via command
 ‘dtk-set-predefined-speech-rate’.  Formula used is
 dtk-speech-rate-base  +  dtk-speech-rate-step*level.
-
-@end defvar
-
-@defvar {User Option} dtk-speech-server-program
-Local speech server script.
 
 @end defvar
 
@@ -4395,108 +4389,6 @@ Speak the size of the file on current line
 
 Speech-enables the AucTeX package.
 AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
-
-@node emacspeak-aumix
-@section emacspeak-aumix
-
-Provides an AUI to setting up the auditory display via AUMIX
-This module is presently Linux specific
-
-@subsection emacspeak-aumix Commands
-
-@subsubsection emacspeak-aumix
-@deffn {Command} emacspeak-aumix   
-@findex emacspeak-aumix
-
-@format
-Setup output parameters of the auditory display.
- Launch this tool while you have auditory output on
-multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when
-you are done.
-@end format
-@end deffn
-
-@subsubsection emacspeak-aumix-edit
-@deffn {Command} emacspeak-aumix-edit   
-@findex emacspeak-aumix-edit
-
-@format
-Edit aumix settings interactively. 
-Run command M-x emacspeak-aumix-reset
-after saving the settings to have them take effect.
-@end format
-@end deffn
-
-@subsubsection emacspeak-aumix-reset
-@deffn {Command} emacspeak-aumix-reset   
-@findex emacspeak-aumix-reset
-
-@format
-Reset to default audio settings.
-@end format
-@end deffn
-
-@subsubsection emacspeak-aumix-volume-decrease
-@deffn {Command} emacspeak-aumix-volume-decrease  (&optional gain)
-@findex emacspeak-aumix-volume-decrease
-
-@format
-Decrease overall volume. 
-
-(fn &optional GAIN)
-@end format
-@end deffn
-
-@subsubsection emacspeak-aumix-volume-increase
-@deffn {Command} emacspeak-aumix-volume-increase  (&optional gain)
-@findex emacspeak-aumix-volume-increase
-
-@format
-Increase overall volume. 
-
-(fn &optional GAIN)
-@end format
-@end deffn
-
-@subsubsection emacspeak-aumix-wave-decrease
-@deffn {Command} emacspeak-aumix-wave-decrease  (&optional gain)
-@findex emacspeak-aumix-wave-decrease
-
-@format
-Decrease volume of wave output. 
-
-(fn &optional GAIN)
-@end format
-@end deffn
-
-@subsubsection emacspeak-aumix-wave-increase
-@deffn {Command} emacspeak-aumix-wave-increase  (&optional gain)
-@findex emacspeak-aumix-wave-increase
-
-@format
-Increase volume of wave output. 
-
-(fn &optional GAIN)
-@end format
-@end deffn
-
-@subsection emacspeak-aumix Options
-
-@defvar {User Option} emacspeak-alsactl-program
-ALSA sound controller used to restore settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-aumix-reset-options
-*Option to pass to aumix for resetting to default values.
-
-@end defvar
-
-@defvar {User Option} emacspeak-aumix-settings-file
-*Name of file containing personal aumix settings.
-
-@end defvar
 
 @node emacspeak-bbc
 @section emacspeak-bbc
