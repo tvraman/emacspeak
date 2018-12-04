@@ -87,9 +87,9 @@ use `emacspeak-toggle-auditory-icons' bound to
   (interactive "P")
   (cond
    ((executable-find "amixer")
+    (emacspeak-auditory-icon 'close-object)
     (funcall-interactively #'amixer prefix))
-   (t (funcall-interactively #'emacspeak-aumix)))
-  (emacspeak-auditory-icon 'close-object))
+   (t (error "amixer not found."))))
 
 ;;}}}
 ;;{{{  Setup sound themes
