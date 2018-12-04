@@ -321,7 +321,6 @@ Optional interactive PREFIX arg toggles global value."
   (interactive "P")
   (cl-declare (special emacspeak-use-auditory-icons
                        dtk-program emacspeak-auditory-icon-function))
-  (require 'emacspeak-aumix)
   (cond
    (prefix
     (setq  emacspeak-use-auditory-icons
