@@ -214,6 +214,19 @@ over-writing any current personality settings."
              (overlay-start overlay) (overlay-end overlay) 'invisible nil)))
          (put-text-property beg end 'invisible t))))))
 
+(defadvice remove-overlays (around emacspeak pre act comp)
+  "Clean up properties mirrored from overlays."
+  (let ((ems--voiceify-overlays  nil)
+        (beg (or (ad-get-arg 0) (point-min)))
+        (end (or (ad-get-arg 1) (point-max)))
+        (name (ad-get-arg 2))
+        (value (ad-get-arg 3)))
+;;; simple-minded for now, ignore value
+    (with-silent-modifications
+      (put-text-property beg end name nil))
+    ad-do-it))
+
+
 ;;}}}
 (provide 'emacspeak-personality)
 ;;{{{ end of file
