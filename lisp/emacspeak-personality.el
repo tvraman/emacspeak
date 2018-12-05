@@ -153,15 +153,14 @@ over-writing any current personality settings."
            (end (overlay-end o))
            (voice (dtk-get-voice-for-face (overlay-get o 'face)))
            (invisible (overlay-get o 'invisible)))
-      (cond
-       ((and  voice buffer)
+       (when  (and  voice buffer)
         (with-current-buffer buffer
           (save-restriction
             (widen)
             (emacspeak-personality-remove start end voice buffer))))
-       ( invisible
+       (when  invisible
          (with-silent-modifications
-           (put-text-property start end 'invisible nil)))))))
+           (put-text-property start end 'invisible nil))))))
 
 (defadvice overlay-put (after emacspeak-personality pre act)
   "Used by emacspeak to augment font lock."
