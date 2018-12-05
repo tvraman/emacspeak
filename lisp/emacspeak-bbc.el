@@ -222,7 +222,7 @@ Date defaults to today."
     (shell-command  command " *get-iplayer*")
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
-;;;###autoload
+
 (defun emacspeak-bbc-get-iplayer-stream-url (url)
   "Stream using get_iplayer."
   (interactive "sURL: ")
