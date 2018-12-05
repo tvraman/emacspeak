@@ -180,10 +180,9 @@ over-writing any current personality settings."
         (when (eq prop 'category) (setq value (get value 'face)))
         (setq voice (dtk-get-voice-for-face value))
         (when voice
-          (with-current-buffer (overlay-buffer overlay)
             (funcall
              ems--voiceify-overlays
-             start end voice (overlay-buffer overlay)))))
+             start end voice (overlay-buffer overlay))))
        ((eq prop 'invisible)
         (with-current-buffer (overlay-buffer overlay)
           (with-silent-modifications
