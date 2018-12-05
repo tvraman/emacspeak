@@ -517,7 +517,7 @@ commands and options for details."
        emacspeak-version)))
     (emacspeak-play-startup-icon)))
 
-;;;###autoload
+
 (defun emacspeak-info ()
   "Open Emacspeak Info Manual."
   (interactive)
