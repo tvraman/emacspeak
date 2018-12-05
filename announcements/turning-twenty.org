@@ -144,6 +144,7 @@ Python-Mode; the fact that white space is significant in Python
 made it difficult to program using a plain screen-reader that was
 unaware of the semantics of the underlying content being
 accessed.
+
 ** Programming Defensively 
 
 As an aside, note that all of Emacspeak has been developed over
@@ -360,6 +361,7 @@ browsing facilities — see the online Emacspeak documentation for
 details on Emacspeak's table browsing functionality which
 continues to remain one of the richest collection of end-user
 affordances for working with two-dimensional data.
+
 
 ** Speech-Enabling Interactive Games 
 
