@@ -2042,8 +2042,7 @@ Fall back to dtk-speak if notification stream not available."
   "Play icon  on notification stream. "
   (cond
    ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-apply #'emacspeak-auditory-icon icon))
-   (t (emacspeak-auditory-icon icon))))
+    (dtk-notify-apply #'emacspeak-auditory-icon icon))))
 
 ;;; Forward Declaration
 (defvar tts-notification-device)
