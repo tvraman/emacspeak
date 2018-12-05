@@ -751,8 +751,8 @@ icon."
          (setq emacspeak-lazy-message-time (current-time)
                emacspeak-last-message (ansi-color-apply m))
          ;; so we really need to speak it
-         (dtk-notify-icon 'progress)
          (tts-with-punctuations 'all
+           (dtk-notify-icon 'progress)
            (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
 
