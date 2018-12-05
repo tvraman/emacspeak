@@ -191,29 +191,30 @@ over-writing any current personality settings."
 (defadvice move-overlay (before emacspeak-personality pre act)
   "Used by emacspeak to augment font lock."
   (when ems--voiceify-overlays
-    (with-silent-modifications
-      (let*
-          ((overlay (ad-get-arg 0))
-           (beg (ad-get-arg 1))
-           (end (ad-get-arg 2))
-           (object (ad-get-arg 3))
-           (buffer (overlay-buffer overlay))
-           (voice (dtk-get-voice-for-face (overlay-get overlay 'face)))
-           (invisible (overlay-get overlay 'invisible)))
-        (unless object
-          (setq object (or buffer (current-buffer))))
-        (cond
-         ((and voice
+    (let*
+        ((overlay (ad-get-arg 0))
+         (beg (ad-get-arg 1))
+         (end (ad-get-arg 2))
+         (object (ad-get-arg 3))
+         (buffer (overlay-buffer overlay))
+         (voice (dtk-get-voice-for-face (overlay-get overlay 'face)))
+         (invisible (overlay-get overlay 'invisible)))
+      (unless object (setq object (or buffer (current-buffer))))
+      (when
+          (and voice
                (integerp (overlay-start overlay))
                (integerp (overlay-end overlay)))
-          (emacspeak-personality-remove
-           (overlay-start overlay) (overlay-end overlay) voice object)
-          (funcall ems--voiceify-overlays beg end voice object))
-         (invisible
-          (with-current-buffer object
+        (emacspeak-personality-remove
+         (overlay-start overlay) (overlay-end overlay) voice buffer)
+        (funcall ems--voiceify-overlays beg end voice object))
+      (when invisible
+        (with-current-buffer buffer
+          (with-silent-modifications
             (put-text-property
              (overlay-start overlay) (overlay-end overlay) 'invisible nil)))
-         (put-text-property beg end 'invisible t))))))
+        (with-current-buffer object
+          (with-silent-modifications
+            (put-text-property beg end 'invisible t)))))))
 
 (defadvice remove-overlays (around emacspeak pre act comp)
   "Clean up properties mirrored from overlays."
@@ -238,4 +239,4 @@ over-writing any current personality settings."
 ;;; byte-compile-dynamic: t
 ;;; end:
 
-;;}}}
+;;}}
