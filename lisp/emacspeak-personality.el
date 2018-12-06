@@ -222,12 +222,8 @@ end in object. "
   (let ((ems--voiceify-overlays  nil)
         (beg (or (ad-get-arg 0) (point-min)))
         (end (or (ad-get-arg 1) (point-max)))
-        (name (ad-get-arg 2))
-        ;(value (ad-get-arg 3))
-        )
-;;; simple-minded for now, ignore value
-    (with-silent-modifications
-      (put-text-property beg end name nil))
+        (name (ad-get-arg 2)))
+    (with-silent-modifications (put-text-property beg end name nil))
     ad-do-it))
 
 
