@@ -752,7 +752,6 @@ icon."
                emacspeak-last-message (ansi-color-apply m))
          ;; so we really need to speak it
          (tts-with-punctuations 'all
-           (dtk-notify-icon 'progress)
            (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
 
