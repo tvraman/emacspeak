@@ -626,9 +626,9 @@ buffer. Interactive use provides list of class values as completion."
     (completing-read "Class: "
                      emacspeak-we-buffer-class-cache)
     (emacspeak-webutils-read-url)
-    current-prefix-arg))
+    (or (called-interactively-p 'interactive) current-prefix-arg)))
   (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
-    (emacspeak-we-xslt-filter filter
+  (emacspeak-we-xslt-filter filter
                               url
                               (or (called-interactively-p 'interactive)
                                   speak))))
