@@ -633,6 +633,16 @@ buffer. Interactive use provides list of class values as completion."
                               (or (called-interactively-p 'interactive)
                                   speak))))
 
+
+;;;###autoload
+(defun emacspeak-we-extract-speakable (url &optional speak)
+  "Extract elements having class`speakable' from HTML. "
+  (interactive
+   (list
+    (emacspeak-webutils-read-url)
+    (or (called-interactively-p 'interactive) current-prefix-arg)))
+  (emacspeak-we-extract-by-class "speakable" url speak))
+
 (defun emacspeak-we-extract-by-role (role    url &optional speak)
   "Extract elements having specified role attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
@@ -1121,6 +1131,7 @@ used as well."
                                         ;("w" emacspeak-we-extract-by-property)
            ("x" emacspeak-we-extract-nested-table)
            ("y" emacspeak-we-class-filter-and-follow)
+           ("z" emacspeak-we-extract-speakable)
            )
          do
          (emacspeak-keymap-update emacspeak-we-xsl-map binding))
