@@ -169,25 +169,16 @@ xmlns:dtb="http://www.daisy.org/z3986/2005/dtbook/">
          PAGENUM, LINENUM
   ************************-->
 
-  <!--Put the pagenum into a paragraph element if the parent is level or level1...level6 otherwise put it into a span
+  <!--Put the pagenum into a paragraph element if the parent is level
+      or level1...level6 otherwise put it into a span
+TVR: Updating to always use a <p> element.
       Use the pagenum class for formatting -->
   <xsl:template match="dtb:pagenum">
-    <xsl:choose>
-      <xsl:when test="parent::dtb:level or parent::dtb:level1 or parent::dtb:level2 or parent::dtb:level3 or parent::dtb:level4 or parent::dtb:level5 or parent::dtb:level6">
-        <xsl:element name="p">
+    <xsl:element name="p">
           <xsl:call-template name="base-attributes"/>
           <xsl:attribute name="class"><xsl:value-of select="local-name(.)" /></xsl:attribute>
           <xsl:apply-templates />
         </xsl:element>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:element name="span">
-          <xsl:call-template name="base-attributes"/>
-          <xsl:attribute name="class"><xsl:value-of select="local-name(.)" /></xsl:attribute>
-          <xsl:apply-templates />
-        </xsl:element>
-      </xsl:otherwise>
-    </xsl:choose>
   </xsl:template>
 
   <!-- linenum is translated to span with class -->
