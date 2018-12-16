@@ -741,7 +741,7 @@ current local  value to the result.")
 (defun emacspeak-speak-persist-filter-entry (k v)
   (insert
    (format
-    "(cl-puthash
+    "(puthash
 (intern \"%s\")
 '%s
 emacspeak-speak-filter-table)\n" k v)))
