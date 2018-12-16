@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1227 commands and 891 options.
+This chapter documents a total of 1228 commands and 891 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1479,6 +1479,7 @@ x e u		emacspeak-we-extract-matching-urls
 x e v		emacspeak-we-class-filter-and-follow-link
 x e x		emacspeak-we-extract-nested-table
 x e y		emacspeak-we-class-filter-and-follow
+x e z		emacspeak-we-extract-speakable
 
 C-t M-<		emacspeak-table-goto-top
 C-t M->		emacspeak-table-goto-bottom
@@ -19790,6 +19791,24 @@ Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
+
+(fn URL &optional SPEAK)
+@end format
+@end deffn
+
+@subsubsection emacspeak-we-extract-speakable
+@deffn {Command} emacspeak-we-extract-speakable  (url &optional speak)
+@table @kbd
+@item C-e x e z
+@kindex C-e x e z
+@item <fn> x e z
+@kindex <fn> x e z
+@end table
+
+@findex emacspeak-we-extract-speakable
+
+@format
+Extract elements having class‘speakable’ from HTML. 
 
 (fn URL &optional SPEAK)
 @end format

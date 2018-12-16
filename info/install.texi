@@ -67,7 +67,7 @@ proceed to install that engine. Your choices are:
 @item Open Source ESpeak on Linux. Install the ESpeak packages for your
 system, then compile the Emacspeak ESpeak server by doing:
 @example
-cd servers/linux-espeak; make
+cd servers/native-espeak; make
 @end example
 @item ViaVoice Outloud (AKA Eloquent). You need to purchase this engine
 from the voxin.org site. That purchase will give you install-ready
@@ -113,7 +113,7 @@ Speech servers are located in the @code{emacspeak/servers} directory.
 
 @itemize @bullet
 @item ESpeak: servers/espeak. This is a TCL script that   uses  a
-library built in @code{servers/linux-espeak/}.
+library built in @code{servers/native-espeak/}.
 @item Dectalk:  @code{servers/dtk-exp}. This is a TCL script that does
 not depend on any native code.
 @item Outloud: @code{servers/outloud} or @code{servres/32-outloud} (for

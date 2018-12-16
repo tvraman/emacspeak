@@ -1919,7 +1919,18 @@ needed additional abstractions not already covered by browse-url
 
      (fn URL &optional SPEAK)
 
-12.198.1.19 emacspeak-we-extract-table-by-match
+12.198.1.19 emacspeak-we-extract-speakable
+..........................................
+
+ -- Command: emacspeak-we-extract-speakable (url &optional speak)
+     ‘C-e x e z’
+     ‘<fn> x e z’
+
+     Extract elements having class‘speakable’ from HTML.
+
+     (fn URL &optional SPEAK)
+
+12.198.1.20 emacspeak-we-extract-table-by-match
 ...............................................
 
  -- Command: emacspeak-we-extract-table-by-match (match url &optional
@@ -1932,7 +1943,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn MATCH URL &optional SPEAK)
 
-12.198.1.20 emacspeak-we-extract-table-by-position
+12.198.1.21 emacspeak-we-extract-table-by-position
 ..................................................
 
  -- Command: emacspeak-we-extract-table-by-position (pos url &optional
@@ -1945,7 +1956,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn POS URL &optional SPEAK)
 
-12.198.1.21 emacspeak-we-extract-tables-by-match-list
+12.198.1.22 emacspeak-we-extract-tables-by-match-list
 .....................................................
 
  -- Command: emacspeak-we-extract-tables-by-match-list (match-list url
@@ -1959,7 +1970,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn MATCH-LIST URL &optional SPEAK)
 
-12.198.1.22 emacspeak-we-extract-tables-by-position-list
+12.198.1.23 emacspeak-we-extract-tables-by-position-list
 ........................................................
 
  -- Command: emacspeak-we-extract-tables-by-position-list (positions url
@@ -1973,7 +1984,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn POSITIONS URL &optional SPEAK)
 
-12.198.1.23 emacspeak-we-follow-and-extract-main
+12.198.1.24 emacspeak-we-follow-and-extract-main
 ................................................
 
  -- Command: emacspeak-we-follow-and-extract-main (&optional speak)
@@ -1984,7 +1995,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn &optional SPEAK)
 
-12.198.1.24 emacspeak-we-follow-and-filter-by-id
+12.198.1.25 emacspeak-we-follow-and-filter-by-id
 ................................................
 
  -- Command: emacspeak-we-follow-and-filter-by-id (id prompt)
@@ -1998,7 +2009,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn ID PROMPT)
 
-12.198.1.25 emacspeak-we-junk-by-class
+12.198.1.26 emacspeak-we-junk-by-class
 ......................................
 
  -- Command: emacspeak-we-junk-by-class (class url &optional speak)
@@ -2011,7 +2022,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn CLASS URL &optional SPEAK)
 
-12.198.1.26 emacspeak-we-junk-by-class-list
+12.198.1.27 emacspeak-we-junk-by-class-list
 ...........................................
 
  -- Command: emacspeak-we-junk-by-class-list (classes url &optional
@@ -2028,7 +2039,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn CLASSES URL &optional SPEAK)
 
-12.198.1.27 emacspeak-we-style-filter
+12.198.1.28 emacspeak-we-style-filter
 .....................................
 
  -- Command: emacspeak-we-style-filter (style url &optional speak)
@@ -2042,7 +2053,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn STYLE URL &optional SPEAK)
 
-12.198.1.28 emacspeak-we-toggle-xsl-keep-result
+12.198.1.29 emacspeak-we-toggle-xsl-keep-result
 ...............................................
 
  -- Command: emacspeak-we-toggle-xsl-keep-result
@@ -2051,7 +2062,7 @@ needed additional abstractions not already covered by browse-url
 
      Toggle xsl keep result flag.
 
-12.198.1.29 emacspeak-we-url-expand-and-execute
+12.198.1.30 emacspeak-we-url-expand-and-execute
 ...............................................
 
  -- Command: emacspeak-we-url-expand-and-execute (&optional prefix)
@@ -2062,7 +2073,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn &optional PREFIX)
 
-12.198.1.30 emacspeak-we-url-rewrite-and-follow
+12.198.1.31 emacspeak-we-url-rewrite-and-follow
 ...............................................
 
  -- Command: emacspeak-we-url-rewrite-and-follow (&optional prompt)
@@ -2079,7 +2090,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn &optional PROMPT)
 
-12.198.1.31 emacspeak-we-xpath-filter-and-follow
+12.198.1.32 emacspeak-we-xpath-filter-and-follow
 ................................................
 
  -- Command: emacspeak-we-xpath-filter-and-follow (&optional prompt)
@@ -2093,7 +2104,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn &optional PROMPT)
 
-12.198.1.32 emacspeak-we-xpath-junk-and-follow
+12.198.1.33 emacspeak-we-xpath-junk-and-follow
 ..............................................
 
  -- Command: emacspeak-we-xpath-junk-and-follow (&optional prompt)
@@ -2108,7 +2119,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn &optional PROMPT)
 
-12.198.1.33 emacspeak-we-xsl-toggle
+12.198.1.34 emacspeak-we-xsl-toggle
 ...................................
 
  -- Command: emacspeak-we-xsl-toggle
@@ -2117,7 +2128,7 @@ needed additional abstractions not already covered by browse-url
 
      Toggle  application of XSL transformations.
 
-12.198.1.34 emacspeak-we-xslt-apply
+12.198.1.35 emacspeak-we-xslt-apply
 ...................................
 
  -- Command: emacspeak-we-xslt-apply (xsl)
@@ -2128,7 +2139,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn XSL)
 
-12.198.1.35 emacspeak-we-xslt-filter
+12.198.1.36 emacspeak-we-xslt-filter
 ....................................
 
  -- Command: emacspeak-we-xslt-filter (path url &optional speak)
@@ -2140,7 +2151,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn PATH URL &optional SPEAK)
 
-12.198.1.36 emacspeak-we-xslt-junk
+12.198.1.37 emacspeak-we-xslt-junk
 ..................................
 
  -- Command: emacspeak-we-xslt-junk (path url &optional speak)
@@ -2151,7 +2162,7 @@ needed additional abstractions not already covered by browse-url
 
      (fn PATH URL &optional SPEAK)
 
-12.198.1.37 emacspeak-we-xslt-select
+12.198.1.38 emacspeak-we-xslt-select
 ....................................
 
  -- Command: emacspeak-we-xslt-select (xsl)
@@ -7683,7 +7694,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> ":                                voice-setup.        (line   89)
 * <f1> ,:                                emacspeak-wizards.  (line  455)
 * <f1> =:                                emacspeak-wizards.  (line 1446)
-* <f1> C-e:                              emacspeak.          (line  427)
+* <f1> C-e:                              emacspeak.          (line  428)
 * <f1> C-l:                              emacspeak-wizards.  (line  138)
 * <f1> C-s:                              emacspeak-wizards.  (line  528)
 * <f1> C-v:                              voice-setup.        (line   74)
@@ -7750,7 +7761,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  551)
 * <fn> C-M-@:                            emacspeak-speak.    (line 1032)
-* <fn> C-M-b:                            emacspeak.          (line  474)
+* <fn> C-M-b:                            emacspeak.          (line  475)
 * <fn> C-M-l:                            emacspeak-speak.    (line  733)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line 1031)
 * <fn> C-n:                              emacspeak-speak.    (line  699)
@@ -7913,38 +7924,39 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x =:                              emacspeak-wizards.  (line  744)
 * <fn> x c:                              emacspeak-wizards.  (line  478)
 * <fn> x C:                              emacspeak-wizards.  (line  502)
-* <fn> x e a:                            emacspeak-we.       (line  443)
-* <fn> x e b:                            emacspeak-we.       (line  310)
+* <fn> x e a:                            emacspeak-we.       (line  454)
+* <fn> x e b:                            emacspeak-we.       (line  321)
 * <fn> x e c:                            emacspeak-we.       (line   84)
 * <fn> x e C:                            emacspeak-we.       (line   98)
-* <fn> x e C-c:                          emacspeak-we.       (line  340)
+* <fn> x e C-c:                          emacspeak-we.       (line  351)
 * <fn> x e C-f:                          emacspeak-we.       (line   51)
-* <fn> x e C-p:                          emacspeak-we.       (line  419)
+* <fn> x e C-p:                          emacspeak-we.       (line  430)
 * <fn> x e C-t:                          emacspeak-we.       (line   73)
 * <fn> x e C-x:                          emacspeak-we.       (line   62)
-* <fn> x e d:                            emacspeak-we.       (line  324)
-* <fn> x e D:                            emacspeak-we.       (line  339)
-* <fn> x e e:                            emacspeak-we.       (line  377)
-* <fn> x e f:                            emacspeak-we.       (line  454)
+* <fn> x e d:                            emacspeak-we.       (line  335)
+* <fn> x e D:                            emacspeak-we.       (line  350)
+* <fn> x e e:                            emacspeak-we.       (line  388)
+* <fn> x e f:                            emacspeak-we.       (line  465)
 * <fn> x e i:                            emacspeak-we.       (line  112)
 * <fn> x e I:                            emacspeak-we.       (line  126)
-* <fn> x e j:                            emacspeak-we.       (line  466)
-* <fn> x e k:                            emacspeak-we.       (line  368)
-* <fn> x e m:                            emacspeak-we.       (line  246)
-* <fn> x e M:                            emacspeak-we.       (line  272)
-* <fn> x e o:                            emacspeak-we.       (line  434)
-* <fn> x e P:                            emacspeak-we.       (line  299)
-* <fn> x e p:                            emacspeak-we.       (line  405)
+* <fn> x e j:                            emacspeak-we.       (line  477)
+* <fn> x e k:                            emacspeak-we.       (line  379)
+* <fn> x e m:                            emacspeak-we.       (line  257)
+* <fn> x e M:                            emacspeak-we.       (line  283)
+* <fn> x e o:                            emacspeak-we.       (line  445)
+* <fn> x e P:                            emacspeak-we.       (line  310)
+* <fn> x e p:                            emacspeak-we.       (line  416)
 * <fn> x e r:                            emacspeak-we.       (line  139)
-* <fn> x e S:                            emacspeak-we.       (line  354)
-* <fn> x e s:                            emacspeak-we.       (line  477)
-* <fn> x e t:                            emacspeak-we.       (line  259)
-* <fn> x e T:                            emacspeak-we.       (line  286)
+* <fn> x e S:                            emacspeak-we.       (line  365)
+* <fn> x e s:                            emacspeak-we.       (line  488)
+* <fn> x e t:                            emacspeak-we.       (line  270)
+* <fn> x e T:                            emacspeak-we.       (line  297)
 * <fn> x e u:                            emacspeak-we.       (line  176)
 * <fn> x e v:                            emacspeak-we.       (line   37)
 * <fn> x e x:                            emacspeak-we.       (line  207)
 * <fn> x e X:                            emacspeak-we.       (line  222)
 * <fn> x e y:                            emacspeak-we.       (line   22)
+* <fn> x e z:                            emacspeak-we.       (line  245)
 * <fn> x h:                              emacspeak-wizards.  (line  908)
 * <fn> x j:                              emacspeak-jabber.   (line   44)
 * <fn> x o:                              emacspeak-wizards.  (line 1117)
@@ -7966,7 +7978,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> ":                              voice-setup.        (line   90)
 * <help> ,:                              emacspeak-wizards.  (line  456)
 * <help> =:                              emacspeak-wizards.  (line 1447)
-* <help> C-e:                            emacspeak.          (line  428)
+* <help> C-e:                            emacspeak.          (line  429)
 * <help> C-l:                            emacspeak-wizards.  (line  139)
 * <help> C-s:                            emacspeak-wizards.  (line  529)
 * <help> C-v:                            voice-setup.        (line   75)
@@ -8154,7 +8166,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  550)
 * C-e C-M-@:                             emacspeak-speak.    (line 1030)
-* C-e C-M-b:                             emacspeak.          (line  473)
+* C-e C-M-b:                             emacspeak.          (line  474)
 * C-e C-M-l:                             emacspeak-speak.    (line  732)
 * C-e C-M-SPC:                           emacspeak-speak.    (line 1029)
 * C-e C-n:                               emacspeak-speak.    (line  698)
@@ -8317,38 +8329,39 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x =:                               emacspeak-wizards.  (line  743)
 * C-e x c:                               emacspeak-wizards.  (line  477)
 * C-e x C:                               emacspeak-wizards.  (line  501)
-* C-e x e a:                             emacspeak-we.       (line  442)
-* C-e x e b:                             emacspeak-we.       (line  309)
+* C-e x e a:                             emacspeak-we.       (line  453)
+* C-e x e b:                             emacspeak-we.       (line  320)
 * C-e x e c:                             emacspeak-we.       (line   83)
 * C-e x e C:                             emacspeak-we.       (line   97)
-* C-e x e C-c:                           emacspeak-we.       (line  338)
+* C-e x e C-c:                           emacspeak-we.       (line  349)
 * C-e x e C-f:                           emacspeak-we.       (line   50)
-* C-e x e C-p:                           emacspeak-we.       (line  418)
+* C-e x e C-p:                           emacspeak-we.       (line  429)
 * C-e x e C-t:                           emacspeak-we.       (line   72)
 * C-e x e C-x:                           emacspeak-we.       (line   61)
-* C-e x e d:                             emacspeak-we.       (line  323)
-* C-e x e D:                             emacspeak-we.       (line  337)
-* C-e x e e:                             emacspeak-we.       (line  376)
-* C-e x e f:                             emacspeak-we.       (line  453)
+* C-e x e d:                             emacspeak-we.       (line  334)
+* C-e x e D:                             emacspeak-we.       (line  348)
+* C-e x e e:                             emacspeak-we.       (line  387)
+* C-e x e f:                             emacspeak-we.       (line  464)
 * C-e x e i:                             emacspeak-we.       (line  111)
 * C-e x e I:                             emacspeak-we.       (line  125)
-* C-e x e j:                             emacspeak-we.       (line  465)
-* C-e x e k:                             emacspeak-we.       (line  367)
-* C-e x e m:                             emacspeak-we.       (line  245)
-* C-e x e M:                             emacspeak-we.       (line  271)
-* C-e x e o:                             emacspeak-we.       (line  433)
-* C-e x e P:                             emacspeak-we.       (line  298)
-* C-e x e p:                             emacspeak-we.       (line  404)
+* C-e x e j:                             emacspeak-we.       (line  476)
+* C-e x e k:                             emacspeak-we.       (line  378)
+* C-e x e m:                             emacspeak-we.       (line  256)
+* C-e x e M:                             emacspeak-we.       (line  282)
+* C-e x e o:                             emacspeak-we.       (line  444)
+* C-e x e P:                             emacspeak-we.       (line  309)
+* C-e x e p:                             emacspeak-we.       (line  415)
 * C-e x e r:                             emacspeak-we.       (line  138)
-* C-e x e S:                             emacspeak-we.       (line  353)
-* C-e x e s:                             emacspeak-we.       (line  476)
-* C-e x e t:                             emacspeak-we.       (line  258)
-* C-e x e T:                             emacspeak-we.       (line  285)
+* C-e x e S:                             emacspeak-we.       (line  364)
+* C-e x e s:                             emacspeak-we.       (line  487)
+* C-e x e t:                             emacspeak-we.       (line  269)
+* C-e x e T:                             emacspeak-we.       (line  296)
 * C-e x e u:                             emacspeak-we.       (line  175)
 * C-e x e v:                             emacspeak-we.       (line   36)
 * C-e x e x:                             emacspeak-we.       (line  206)
 * C-e x e X:                             emacspeak-we.       (line  221)
 * C-e x e y:                             emacspeak-we.       (line   21)
+* C-e x e z:                             emacspeak-we.       (line  244)
 * C-e x h:                               emacspeak-wizards.  (line  907)
 * C-e x j:                               emacspeak-jabber.   (line   43)
 * C-e x o:                               emacspeak-wizards.  (line 1116)
@@ -8370,7 +8383,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h ":                                 voice-setup.        (line   88)
 * C-h ,:                                 emacspeak-wizards.  (line  454)
 * C-h =:                                 emacspeak-wizards.  (line 1445)
-* C-h C-e:                               emacspeak.          (line  426)
+* C-h C-e:                               emacspeak.          (line  427)
 * C-h C-l:                               emacspeak-wizards.  (line  136)
 * C-h C-s:                               emacspeak-wizards.  (line  527)
 * C-h C-v:                               voice-setup.        (line   73)

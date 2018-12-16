@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 9, 2018.
+last updated on December 16, 2018.
 
    The manual is divided into the following chapters:
 
@@ -342,7 +342,7 @@ that package.
         • Open Source ESpeak on Linux.  Install the ESpeak packages for
           your system, then compile the Emacspeak ESpeak server by
           doing:
-               cd servers/linux-espeak; make
+               cd servers/native-espeak; make
         • ViaVoice Outloud (AKA Eloquent).  You need to purchase this
           engine from the voxin.org site.  That purchase will give you
           install-ready packages for installing the speech engine as
@@ -379,7 +379,7 @@ File: emacspeak.info,  Node: Building And Testing The Speech Server,  Prev: Quic
 Speech servers are located in the ‘emacspeak/servers’ directory.
 
    • ESpeak: servers/espeak.  This is a TCL script that uses a library
-     built in ‘servers/linux-espeak/’.
+     built in ‘servers/native-espeak/’.
    • Dectalk: ‘servers/dtk-exp’.  This is a TCL script that does not
      depend on any native code.
    • Outloud: ‘servers/outloud’ or ‘servres/32-outloud’ (for 64-bit
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1227 commands and 891 options.
+   This chapter documents a total of 1228 commands and 891 options.
 
 * Menu:
 
@@ -3980,6 +3980,7 @@ system.
      x e v		emacspeak-we-class-filter-and-follow-link
      x e x		emacspeak-we-extract-nested-table
      x e y		emacspeak-we-class-filter-and-follow
+     x e z		emacspeak-we-extract-speakable
 
      C-t M-<		emacspeak-table-goto-top
      C-t M->		emacspeak-table-goto-bottom
