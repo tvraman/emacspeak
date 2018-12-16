@@ -17,3 +17,8 @@ books using EWW.
 
 Module ~emacspeak-iedit~ speech-enables package ~iedit~ for editing
 multiple occurrences.
+
+** ESpeak
+
+The ESpeak server now builds on the Mac as well as Linux;
+consequently,  directory ~linux-espeak~ has been renamed to ~native-espeak~.
