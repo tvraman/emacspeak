@@ -28,7 +28,7 @@ fi
 # Build it:
 cd "emacspeak-${v}"
 make config && make
-(cd servers/linux-espeak &&  make )
+(cd servers/native-espeak &&  make )
 #Run out of this directory.
 # Default to using  espeak unless DTK_PROGRAM is set.
 #
