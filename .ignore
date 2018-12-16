@@ -18,7 +18,7 @@ js/node/auto
 .amarks.el
 *.boop
 servers/linux-outloud/atcleci.so
-servers/linux-espeak/tclespeak.so
+servers/native-espeak/tclespeak.so
 .build.log
 lisp/sudoku.el
 obsolete/
