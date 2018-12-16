@@ -58,7 +58,7 @@ outloud:
 	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
 
 espeak: 
-	cd servers/linux-espeak && $(MAKE) || echo "Cant build espeak server!"
+	cd servers/native-espeak && $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets   dist
