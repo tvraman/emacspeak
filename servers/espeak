@@ -528,7 +528,7 @@ if {[info exists server_p]} {
     set tts(input) sock0
 }
 set servers [file dirname $argv0]
-set tclTTS $servers/linux-espeak
+set tclTTS $servers/native-espeak
 load $tclTTS/tclespeak[info sharedlibextension]
 if {[file exists /proc/asound]} {
     set tts(play) /usr/bin/aplay
