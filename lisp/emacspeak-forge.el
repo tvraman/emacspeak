@@ -68,23 +68,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  forge-edit-post
-  forge-edit-topic-assignees
-  forge-edit-topic-labels
-  forge-edit-topic-state
-  forge-edit-topic-title
-  forge-post-cancel
-
-  forge-post-submit
-  forge-pull
-  forge-pull-notifications
-  forge-pull-pullreq
-
-  
-  )
-
-
 (cl-loop
  for f in 
  '(
