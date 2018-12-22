@@ -314,13 +314,7 @@ Does nothing for unibyte buffers."
                       " "
                     (run-hook-with-args-until-success 'dtk-unicode-handlers char)))))
           (when replacement
-            (let ((props (text-properties-at pos)))
-              (replace-match replacement t t nil)
-              (when props
-                (set-text-properties pos (point) props))
-              (add-text-properties
-               pos (point)
-               '(personality voice-animate)))))))))
+            (replace-match replacement t t nil)))))))
 
 ;;}}}
 (provide 'dtk-unicode)
