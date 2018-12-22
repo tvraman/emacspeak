@@ -2,15 +2,13 @@
 # TVR: This is rc.local that cues bootup via sound
 # If your system ignores rc.local, install as /etc/init.d/local
 # And symlink it in /etc/rc2.d as S99local
-# On newer systems using systemd, place this file in /etc,
-# then run systemctl start rc-local.service 
-# depending on your system setup above may need sudo.
 ogg123 -q /usr/share/sounds/ubuntu/stereo/desktop-login.ogg &
+#espeak "system startup complete"
+/usr/local/bin/play -q   /home/raman/emacs/lisp/emacspeak/sounds/prompts/startup.mp3 &
 # It also sets up the console with emacspeak friendly keymaps
 loadkeys /usr/share/keymaps/i386/qwerty/emacs2.kmap.gz
 loadkeys /usr/share/keymaps/i386/qwerty/emacspeak.kmap.gz 
 
 TWEET=" -f 1000 -l 50 -n -f 2000 -l 50 "
 beep $TWEET -n $TWEET
-
 exit 0
