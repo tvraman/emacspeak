@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 21, 2018.
+last updated on December 22, 2018.
 
    The manual is divided into the following chapters:
 
@@ -2750,7 +2750,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1228 commands and 891 options.
+   This chapter documents a total of 1228 commands and 898 options.
 
 * Menu:
 
@@ -2832,6 +2832,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flyspell::Speech enable flyspell.
 * emacspeak-folding::Speech enable Folding Mode – enables structured editing.
+* emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs’ forms mode  – provides  a convenient database interface.
 * emacspeak-ftf::Speech-enable find-things-fast.
 * emacspeak-geiser::Speech-enable GEISER.

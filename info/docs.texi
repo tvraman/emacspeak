@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 891 options.
+This chapter documents a total of 1228 commands and 898 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -85,6 +85,7 @@ This chapter documents a total of 1228 commands and 891 options.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flyspell::Speech enable flyspell.
 * emacspeak-folding::Speech enable Folding Mode -- enables structured editing.
+* emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs' forms mode  -- provides  a convenient database interface.
 * emacspeak-ftf::Speech-enable find-things-fast.
 * emacspeak-geiser::Speech-enable GEISER.
@@ -8709,6 +8710,56 @@ Folding mode is what I use:
 emacs 19 comes with similar packages, e.g. allout.el
 This module defines some advice forms that make folding mode a pleasure to use.
 Think of a fold as a container.
+
+@node emacspeak-forge
+@section emacspeak-forge
+
+FORGE ==  Work with Github, Gitlab etc from inside magit.
+This module speech-enables magit/forge.
+
+@subsection emacspeak-forge Options
+
+@defvar {User Option} voice-forge-post-author
+Personality used for forge-post-author
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-forge-post-date
+Personality used for forge-post-date
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-forge-topic-closed
+Personality used for forge-topic-closed
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-forge-topic-merged
+Personality used for forge-topic-merged
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-forge-topic-open
+Personality used for forge-topic-open
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-forge-topic-unmerged
+Personality used for forge-topic-unmerged
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-forge-topic-unread
+Personality used for forge-topic-unread
+This personality uses  voice-highlight whose  effect can be changed globally by customizing voice-highlight-settings.
+
+@end defvar
 
 @node emacspeak-forms
 @section emacspeak-forms
