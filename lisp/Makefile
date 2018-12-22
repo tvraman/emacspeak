@@ -157,6 +157,7 @@ emacspeak-find-func.elc \
 emacspeak-flycheck.elc \
 emacspeak-flyspell.elc \
 emacspeak-folding.elc \
+emacspeak-forge.elc \
 emacspeak-forms.elc \
 emacspeak-generic.elc \
 emacspeak-geiser.elc \
@@ -426,6 +427,7 @@ emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc
 emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc voice-setup.elc
 emacspeak-folding.elc: emacspeak-folding.el dtk-speak.elc voice-setup.elc
+emacspeak-forge.elc: emacspeak-forge.el dtk-speak.elc voice-setup.elc
 emacspeak-forms.elc: emacspeak-forms.el dtk-speak.elc voice-setup.elc
 emacspeak-generic.elc: emacspeak-generic.el dtk-speak.elc voice-setup.elc
 emacspeak-geiser.elc: emacspeak-geiser.el dtk-speak.elc voice-setup.elc
