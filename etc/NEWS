@@ -22,3 +22,8 @@ multiple occurrences.
 
 The ESpeak server now builds on the Mac as well as Linux;
 consequently,  directory ~linux-espeak~ has been renamed to ~native-espeak~.
+
+** Forge Support
+
+Module ~emacspeak-forge~ speech-enables package ~forge~, a magit
+companion for working with Git Forges like  Github and Gitlab.
