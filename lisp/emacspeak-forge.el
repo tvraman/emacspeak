@@ -68,52 +68,37 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'( 
-  forge-add-pullreq-refspec
-forge-branch-pullreq
-forge-browse-branch
-forge-browse-commit
-forge-browse-dwim
-forge-browse-issue
-forge-browse-issues
-forge-browse-post
-forge-browse-pullreq
-forge-browse-pullreqs
-forge-browse-remote
-forge-browse-topic
-forge-checkout-pullreq
-forge-checkout-worktree
-forge-create-issue
-forge-create-post
-forge-create-pullreq
-forge-dispatch
-forge-edit-post
-forge-edit-topic-assignees
-forge-edit-topic-labels
-forge-edit-topic-state
-forge-edit-topic-title
-forge-issue-list-mode
-forge-list-issues
-forge-list-notifications
-forge-list-pullreqs
-forge-list-visit-issue
-forge-list-visit-pullreq
-forge-notifications-mode
-forge-post-cancel
-forge-post-mode
-forge-post-submit
-forge-pull
-forge-pull-notifications
-forge-pull-pullreq
-forge-pullreq-list-mode
-forge-reset-database
-forge-topic-list-mode
-forge-topic-mode
-forge-visit-issue
-forge-visit-pullreq
-forge-visit-topic
-)
+'(
+  forge-edit-post
+  forge-edit-topic-assignees
+  forge-edit-topic-labels
+  forge-edit-topic-state
+  forge-edit-topic-title
+  forge-post-cancel
 
+  forge-post-submit
+  forge-pull
+  forge-pull-notifications
+  forge-pull-pullreq
+
+  
+  )
+
+
+(cl-loop
+ for f in 
+ '(
+   forge-create-issue forge-create-post forge-create-pullreq
+   forge-list-issues forge-list-notifications forge-list-pullreqs
+   forge-list-visit-issue forge-list-visit-pullreq forge-visit-issue
+   forge-visit-pullreq forge-visit-topic)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-forge)
