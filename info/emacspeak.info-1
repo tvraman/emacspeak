@@ -58,7 +58,9 @@ This manual documents Emacspeak, a speech extension to Emacs.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
-notice are preserved on all copies.
+notice are preserved on all copies.  Sections of this manual are
+auto-generated from the source code, and the documentation inherits the
+same license as the original source code.
 
 
 File: emacspeak.info,  Node: Announce,  Next: Background,  Prev: Copyright,  Up: Top
