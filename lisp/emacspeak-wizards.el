@@ -4046,7 +4046,7 @@ updating custom settings for a specific package or group of packages."
 
 (defun ems--noaa-url (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
-Location is a Lat/Lng pair retrieved from Googke Maps API."
+Location is a Lat/Lng pair retrieved from Google Maps API."
   (cl-declare (special gweb-my-address))
   (cl-assert (or geo gweb-my-address) nil "Location not specified.")
   (unless geo (setq geo (gmaps-address-geocode gweb-my-address)))
