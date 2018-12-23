@@ -304,17 +304,23 @@ Does nothing for unibyte buffers."
   (cl-declare (special dtk-unicode-process-utf8))
   (when dtk-unicode-process-utf8
     (let ((inhibit-read-only t))
-      (goto-char (point-min))
-      (while (re-search-forward dtk-unicode-charset-filter-regexp nil t)
-        (let* ((pos (match-beginning 0))
-               (char (char-after pos))
-               (replacement
-                (save-match-data
-                  (if (and (eq mode 'none) (dtk-unicode-char-punctuation-p char))
-                      " "
-                    (run-hook-with-args-until-success 'dtk-unicode-handlers char)))))
-          (when replacement
-            (replace-match replacement t t nil)))))))
+      (save-excursion
+        (goto-char (point-min))
+        (while (re-search-forward dtk-unicode-charset-filter-regexp nil t)
+          (let* ((pos (match-beginning 0))
+                 (char (char-after pos))
+                 (props (text-properties-at pos))
+                 (replacement
+                  (save-match-data
+                    (if (and (eq mode 'none) (dtk-unicode-char-punctuation-p char))
+                        " "
+                      (run-hook-with-args-until-success 'dtk-unicode-handlers char)))))
+            (replace-match replacement t t nil)
+            (when props
+              (set-text-properties pos (point) props))))))))
+
+;;}}}
+(provide 'dtk-unicode)
 
 ;;}}}
 (provide 'dtk-unicode)
