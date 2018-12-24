@@ -312,7 +312,9 @@ Does nothing for unibyte buffers."
                  (props (text-properties-at pos))
                  (replacement
                   (save-match-data
-                    (if (and (eq mode 'none) (dtk-unicode-char-punctuation-p char))
+                    (if (and
+                         (memq mode '(some none))
+                         (dtk-unicode-char-punctuation-p char))
                         " "
                       (run-hook-with-args-until-success 'dtk-unicode-handlers char)))))
             (replace-match replacement t t nil)
