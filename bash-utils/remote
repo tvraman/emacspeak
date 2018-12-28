@@ -2,7 +2,7 @@
 # usage: remote hostname server-script $DTK_PROGRAM  
 # starts a local server, then ssh to remote-host,
 # and set up reverse port forwarding.
-
+# See https://hackertarget.com/ssh-examples-tunnels/ for ssh tunnel tips
 #Examples:
 # remote host.example.com  speech-server outloud 
 
