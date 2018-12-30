@@ -146,7 +146,7 @@ end in object. "
   "Determines how and if we voiceify overlays. ")
 
 (defadvice delete-overlay (before emacspeak-personality  pre act)
-  "Used by emacspeak to augment font lock."
+  "Used by emacspeak to augment voice lock."
   (when ems--voiceify-overlays
     (let* ((o (ad-get-arg 0))
            (buffer (overlay-buffer o))
@@ -164,7 +164,7 @@ end in object. "
            (put-text-property start end 'invisible nil))))))
 
 (defadvice overlay-put (after emacspeak-personality pre act)
-  "Used by emacspeak to augment font lock."
+  "Used by emacspeak to augmentvoice lock."
   (when (and (overlay-buffer (ad-get-arg 0)) ems--voiceify-overlays)
     (let* ((overlay (ad-get-arg 0))
            (prop (ad-get-arg 1))
@@ -187,10 +187,10 @@ end in object. "
        ((eq prop 'invisible)
         (with-current-buffer (overlay-buffer overlay)
           (with-silent-modifications
-            (put-text-property start end 'invisible t))))))))
+            (put-text-property start end 'invisible value))))))))
 
 (defadvice move-overlay (before emacspeak-personality pre act)
-  "Used by emacspeak to augment font lock."
+  "Used by emacspeak to augment voice lock."
   (when ems--voiceify-overlays
     (let*
         ((overlay (ad-get-arg 0))
