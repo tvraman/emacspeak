@@ -299,14 +299,14 @@ Modifies text and point in buffer."
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
  
-(defun skip-invisible-forward ()
+(defun dtk--skip-invisible-forward ()
   (while (and (not (eobp))
               (invisible-p (point)))
     (goto-char
      (next-single-property-change (point) 'invisible
                                   (current-buffer) (point-max)))))
 
-(defun skip-invisible-backward ()
+(defun dtk--skip-invisible-backward ()
   "Move backwards over invisible text."
   (while (and (not (bobp))
               (invisible-p (point)))
@@ -314,14 +314,14 @@ Modifies text and point in buffer."
      (previous-single-property-change (point) 'invisible
                                       (current-buffer) (point-min)))))
 
-(defun delete-invisible-text ()
+(defun dtk--delete-invisible-text ()
   "Delete invisible text."
   (goto-char (point-min))
   (let ((start (point)))
     (while (not (eobp))
       (cond
        ((invisible-p (point))
-        (skip-invisible-forward)
+        (dtk--skip-invisible-forward)
         (delete-region start (point))
         (setq start (point)))
        (t (goto-char
@@ -1858,7 +1858,7 @@ only speak upto the first ctrl-m."
         (set-buffer-multibyte inherit-enable-multibyte-characters)
         (dtk-interp-sync)
         (insert text)
-        (delete-invisible-text)
+        (dtk--delete-invisible-text)
         (when pronunciation-table
           (tts-apply-pronunciations pronunciation-table))
         (dtk-unicode-replace-chars mode)
