@@ -215,7 +215,7 @@ end in object. "
              (overlay-start overlay) (overlay-end overlay) 'invisible nil)))
         (with-current-buffer object
           (with-silent-modifications
-            (put-text-property beg end 'invisible t)))))))
+            (put-text-property beg end 'invisible invisible)))))))
 
 ;;}}}
 (provide 'emacspeak-personality)
