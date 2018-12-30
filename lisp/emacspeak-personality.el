@@ -164,7 +164,7 @@ end in object. "
            (put-text-property start end 'invisible nil))))))
 
 (defadvice overlay-put (after emacspeak-personality pre act)
-  "Used by emacspeak to augmentvoice lock."
+  "Used by emacspeak to augment voice lock."
   (when (and (overlay-buffer (ad-get-arg 0)) ems--voiceify-overlays)
     (let* ((overlay (ad-get-arg 0))
            (prop (ad-get-arg 1))
