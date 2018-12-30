@@ -187,7 +187,7 @@ end in object. "
        ((eq prop 'invisible)
         (with-current-buffer (overlay-buffer overlay)
           (with-silent-modifications
-            (put-text-property start end 'invisible value))))))))
+            (put-text-property start end 'invisible (or value nil)))))))))
 
 (defadvice move-overlay (before emacspeak-personality pre act)
   "Used by emacspeak to augment voice lock."
