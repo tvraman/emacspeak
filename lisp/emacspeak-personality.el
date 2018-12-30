@@ -145,6 +145,17 @@ end in object. "
 (defvar ems--voiceify-overlays #'emacspeak-personality-add
   "Determines how and if we voiceify overlays. ")
 
+;;; Needed for  outline support:
+(defadvice remove-overlays (around emacspeak pre act comp)
+  "Clean up properties mirrored from overlays."
+  (let ((ems--voiceify-overlays  nil)
+        (beg (or (ad-get-arg 0) (point-min)))
+        (end (or (ad-get-arg 1) (point-max)))
+        (name (ad-get-arg 2)))
+    (with-silent-modifications ; ignores value for now 
+      (put-text-property beg end name nil))
+    ad-do-it))
+
 (defadvice delete-overlay (before emacspeak-personality  pre act)
   "Used by emacspeak to augment voice lock."
   (when ems--voiceify-overlays
@@ -154,14 +165,14 @@ end in object. "
            (end (overlay-end o))
            (voice (dtk-get-voice-for-face (overlay-get o 'face)))
            (invisible (overlay-get o 'invisible)))
-       (when  (and  voice buffer)
+      (when  (and  voice buffer)
         (with-current-buffer buffer
           (save-restriction
             (widen)
             (emacspeak-personality-remove start end voice buffer))))
-       (when  invisible
-         (with-silent-modifications
-           (put-text-property start end 'invisible nil))))))
+      (when  invisible
+        (with-silent-modifications
+          (put-text-property start end 'invisible nil))))))
 
 (defadvice overlay-put (after emacspeak-personality pre act)
   "Used by emacspeak to augment voice lock."
