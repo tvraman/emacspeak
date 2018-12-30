@@ -41,12 +41,8 @@
 
 (require 'cl-lib)
 (eval-when-compile (require 'subr-x))
-(eval-when-compile
-  (require 'cl-lib))
-(require 'auth-source)
-(require 'url-parse)
-
-
+;(require 'auth-source)
+;(require 'url-parse)
 (require 'advice)
 (setq ad-redefinition-action 'accept)
 (require 'emacspeak-load-path)
