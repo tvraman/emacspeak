@@ -152,7 +152,6 @@ end in object. "
         (beg (or (ad-get-arg 0) (point-min)))
         (end (or (ad-get-arg 1) (point-max)))
         (name (ad-get-arg 2)))
-    ad-do-it
     (with-silent-modifications          ; ignores value for now 
       (put-text-property beg end name nil))
     ad-do-it))
