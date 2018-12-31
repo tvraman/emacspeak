@@ -1,3 +1,15 @@
+;;{{{outline-flag-region:
+;;; Handle outline hide/show directly here --- rather than relying on
+;;overlay advice alone.
+
+(defadvice outline-flag-region (after emacspeak pre act comp)
+  "Reflect hide/show via property invisible as wel"
+  (put-text-property
+   (ad-get-arg 0)
+   (ad-get-arg 1)
+   'invisible
+   (if (ad-get-arg 2) 'outline nil)))
+
 ;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
@@ -308,6 +320,9 @@ except that the outline section is  spoken"
     ad-return-value))
 
 ;;}}}
+
+;;}}}
+
 (provide  'emacspeak-outline)
 ;;{{{  emacs local variables
 
