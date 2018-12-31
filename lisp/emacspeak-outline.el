@@ -2,13 +2,15 @@
 ;;; Handle outline hide/show directly here --- rather than relying on
 ;;overlay advice alone.
 
-(defadvice outline-flag-region (after emacspeak pre act comp)
+(defadvice outline-flag-region (around emacspeak pre act comp)
   "Reflect hide/show via property invisible as wel"
+(let ((ems--voiceify-overlays  nil))
+ad-do-it
   (put-text-property
    (ad-get-arg 0)
    (ad-get-arg 1)
    'invisible
-   (if (ad-get-arg 2) 'outline nil)))
+   (if (ad-get-arg 2) 'outline nil))))
 
 ;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents  -*- lexical-binding: t; -*-
 ;;; $Id$
