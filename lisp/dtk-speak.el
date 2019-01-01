@@ -624,8 +624,8 @@ Argument COMPLEMENT  is the complement of separator."
 
 (defun dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
-  (cl-declare (special dtk-quiet tts-default-voice))
-  (unless (or (eq 'inaudible voice) dtk-quiet
+  (cl-declare (special  tts-default-voice))
+  (unless (or (eq 'inaudible voice) 
               (null text) (string-equal text "")
               (and (listp voice) (memq 'inaudible voice)))
 ;;; ensure text is a  string
