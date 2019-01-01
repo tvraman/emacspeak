@@ -103,11 +103,6 @@ Also turn on hydra-is-helpful if it was turned off."
   (message (eval (symbol-value (intern (format "%s/hint" name))))))
 
 ;;}}}
-;;{{{ hydra-ox:
-
-;(when (locate-library "hydra-ox")(require 'hydra-ox))
-
-;;}}}
 (provide 'emacspeak-hydra)
 ;;{{{ end of file
 
