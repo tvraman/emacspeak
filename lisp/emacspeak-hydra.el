@@ -105,7 +105,7 @@ Also turn on hydra-is-helpful if it was turned off."
 ;;}}}
 ;;{{{ hydra-ox:
 
-(when (locate-library "hydra-ox")(require 'hydra-ox))
+;(when (locate-library "hydra-ox")(require 'hydra-ox))
 
 ;;}}}
 (provide 'emacspeak-hydra)
