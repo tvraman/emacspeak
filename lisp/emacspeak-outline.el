@@ -4,7 +4,8 @@
 
 (defadvice outline-flag-region (around emacspeak pre act comp)
   "Reflect hide/show via property invisible as wel"
-  (let  ((ems--voiceify-overlays  nil))
+  (let  ((ems--voiceify-overlays  nil)
+         (inhibit-read-only t))
     ad-do-it
     (with-silent-modifications
       (put-text-property
