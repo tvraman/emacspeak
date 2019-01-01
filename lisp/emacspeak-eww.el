@@ -399,7 +399,7 @@
 (require 'cl-lib)
 (require 'pp)
 (eval-when-compile(require 'subr-x))
-(eval-when-compile (require 'eww "eww" 'no-error))
+(require 'eww  )
 (require 'dom)
 (require 'dom-addons)
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
