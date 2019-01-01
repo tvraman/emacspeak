@@ -122,16 +122,16 @@
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak sexp after moving."
-     (when (ems-interactive-p)
-       (let ((start (point))
-             (end (line-end-position))
-             (emacspeak-show-point t))
-         ad-do-it
-         (emacspeak-auditory-icon 'large-movement)
-         (cond
-          ((>= end (point))
-           (emacspeak-speak-region start (point)))
-          (t (emacspeak-speak-line))))
+     (if (ems-interactive-p)
+         (let ((start (point))
+               (end (line-end-position))
+               (emacspeak-show-point t))
+           ad-do-it
+           (emacspeak-auditory-icon 'large-movement)
+           (cond
+            ((>= end (point))
+             (emacspeak-speak-region start (point)))
+            (t (emacspeak-speak-line))))
        ad-do-it)
      ad-return-value)))
 
@@ -168,6 +168,7 @@
    sp-highlight-current-sexp sp-forward-whitespace
    sp-html-previous-tag sp-html-next-tag
    sp-next-sexp sp-previous-sexp
+   sp-raise-sexp
    sp-rewrap-sexp sp-swap-enclosing-sexp
    sp-ruby-forward-sexp sp-ruby-backward-sexp
    sp-select-next-thing sp-select-previous-thing
