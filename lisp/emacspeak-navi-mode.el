@@ -66,16 +66,14 @@
   navi-clock-out
   navi-clock-report
   navi-copy-thing-at-point-to-register-s
-  navi-cycle-buffer
-  navi-cycle-subtree
   navi-deadline
   navi-demote-subtree
   navi-edit-as-org
   navi-edit-mode
   navi-export-dispatch
   navi-footnote-action
-  navi-generic-command
-  
+
+
   navi-inc-effort
   navi-insert-drawer
   navi-insert-last-stored-link
@@ -84,19 +82,18 @@
   navi-kill-thing-at-point
   navi-mail-subtree
   navi-mark-thing-at-point-and-switch
-  navi-mode
   navi-move-down-subtree
   navi-move-up-subtree
   navi-narrow-to-thing-at-point
   navi-next-block
   navi-next-link
-  navi-open-at-point
+
   navi-previous-block
   navi-previous-link
   navi-priority
   navi-promote-subtree
   navi-query-replace
-  navi-quit-and-switch
+
   navi-revert-function
   navi-schedule
   navi-search-and-switch
@@ -106,7 +103,7 @@
   navi-set-tags-command
   navi-show-help
   navi-sort-entries
-  
+
   navi-time-stamp
   navi-time-stamp-inactive
   navi-timer
@@ -127,7 +124,7 @@
   )
 
 (cl-loop
- for f in 
+ for f in
  '(navi-switch-to-twin-buffer navi-goto-occurrence-other-window)
  do
  (eval
@@ -137,7 +134,11 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-
+(defadvice navi-quit-and-switch (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-navi-mode)
