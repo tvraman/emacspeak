@@ -2594,6 +2594,11 @@ Produce auditory icons if possible."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
+(defadvice occur-mode-display-occurrence (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (message "Displayed occurrence in other window")))
 
 ;;}}}
 ;;{{{ abbrev mode advice
