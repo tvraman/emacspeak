@@ -133,6 +133,7 @@ This chapter documents a total of 1228 commands and 898 options.
 * emacspeak-mspools::Speech enable MSpools -- Monitor multiple mail drops.
 * emacspeak-muggles::Convenience Hydras For The Emacspeak Desktop.
 * emacspeak-muse::Speech-enable Muse.
+* emacspeak-navi-mode::Speech-enable NAVI-MODE.
 * emacspeak-net-utils::Speech enable net-utils.
 * emacspeak-newsticker::Speech-enable newsticker.
 * emacspeak-npr::Speech-enabled  NPR client.
@@ -140,7 +141,7 @@ This chapter documents a total of 1228 commands and 898 options.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
 * emacspeak-origami::Speech-enable ORIGAMI.
-* emacspeak-outline::Speech enable Outline --   Browsing  Structured Documents.
+* emacspeak-outline::
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
@@ -13079,6 +13080,11 @@ Personality used for muse-header-5
 This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
 
 @end defvar
+
+@node emacspeak-navi-mode
+@section emacspeak-navi-mode
+
+NAVI-MODE ==  Remote control for buffer navigation
 
 @node emacspeak-net-utils
 @section emacspeak-net-utils

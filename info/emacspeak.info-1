@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 22, 2018.
+last updated on January 2, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2882,6 +2882,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-mspools::Speech enable MSpools – Monitor multiple mail drops.
 * emacspeak-muggles::Convenience Hydras For The Emacspeak Desktop.
 * emacspeak-muse::Speech-enable Muse.
+* emacspeak-navi-mode::Speech-enable NAVI-MODE.
 * emacspeak-net-utils::Speech enable net-utils.
 * emacspeak-newsticker::Speech-enable newsticker.
 * emacspeak-npr::Speech-enabled  NPR client.
@@ -2889,7 +2890,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
 * emacspeak-origami::Speech-enable ORIGAMI.
-* emacspeak-outline::Speech enable Outline –   Browsing  Structured Documents.
+* emacspeak-outline::
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
