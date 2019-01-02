@@ -254,6 +254,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "mpuz" 'emacspeak-entertain)
 (emacspeak-do-package-setup "mspools" 'emacspeak-mspools)
 (emacspeak-do-package-setup "nero" 'emacspeak-nero)
+(emacspeak-do-package-setup "navi-mode" 'emacspeak-navi-mode)
 (emacspeak-do-package-setup "net-utils" 'emacspeak-net-utils)
 (emacspeak-do-package-setup "newsticker" 'emacspeak-newsticker)
 (emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)

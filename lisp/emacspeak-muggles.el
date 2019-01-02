@@ -92,6 +92,7 @@
 (eval-when-compile
   (require 'hideshow)
   (require 'emacspeak-maths)
+  (require 'org)
   (require 'origami "origami" 'no-error)
   (require 'smartparens "smartparens" 'no-error)
   (require 'browse-kill-ring "browse-kill-ring" 'no-error)
