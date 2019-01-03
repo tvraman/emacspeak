@@ -27,3 +27,8 @@ consequently,  directory ~linux-espeak~ has been renamed to ~native-espeak~.
 
 Module ~emacspeak-forge~ speech-enables package ~forge~, a magit
 companion for working with Git Forges like  Github and Gitlab.
+
+
+** Navi-Mode
+
+Module ~emacspeak-navi-mode.el~ speech-enables ~navi-mode~.
