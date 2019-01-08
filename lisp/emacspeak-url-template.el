@@ -190,19 +190,9 @@ dont-url-encode if true then url arguments are not url-encoded "
       (kill-buffer buffer))))
 
 ;;}}}
-;;{{{Youtube News:
-(declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
-(declare-function eww-display-dom-by-class "emacspeak-eww" (class))
-
-(emacspeak-url-template-define
- "Youtube News"
- "https://www.youtube.com/news?disable_polymer=1"
- nil
- #'(lambda nil (eww-display-dom-by-element 'h3))
- "News Headlines From Youtube")
-
 ;;; template resources
 ;;{{{ fedex, UPS
+
 (emacspeak-url-template-define
  "fedex packages"
  "http://www.fedex.com/cgi-bin/tracking?link=6&pv=ja&action=track&ftc_3=null&template_type=ftc&language=english&last_action=track&ascend_header=1&cntry_code=us&initial=x&mps=y&ascend_header=1&cntry_code=us&initial=x&tracknumber_list=%s"
@@ -1519,8 +1509,6 @@ template."
  "Search Linux ArchWiki")
 
 ;;}}}
-
-;;}}}
 ;;{{{Air Quality Index:
 
 (emacspeak-url-template-define
@@ -1566,6 +1554,38 @@ template."
  nil
  "Open RSS Feed for Reddit Topic."
  #'emacspeak-feeds-atom-display)
+
+;;}}}
+;;{{{Youtube News:
+
+(declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
+(declare-function eww-display-dom-by-class "emacspeak-eww" (class))
+
+(emacspeak-url-template-define
+ "Youtube News"
+ "https://www.youtube.com/news?disable_polymer=1"
+ nil
+ #'(lambda nil (eww-display-dom-by-element 'h3))
+ "News Headlines From Youtube")
+
+;;}}}
+;;{{{CNN Money:
+
+(defun emacspeak-url-template-cnn-content (url)
+  "Extract CNN content."
+  (emacspeak-we-extract-by-class
+   "zn-body__paragraph" url 'speak))
+
+(emacspeak-url-template-define
+ "Money CNN"
+ "https://money.cnn.com"
+ nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (eww-display-dom-by-element 'h3)
+     (setq
+      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
+ "Money Headlines From CNN")
 
 ;;}}}
 (provide 'emacspeak-url-template)
