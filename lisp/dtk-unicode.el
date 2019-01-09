@@ -79,12 +79,13 @@
     (?” . "\"")                         ; RIGHT DOUBLE QUOTATION MARK
     (?⋆ . "*")                          ; STAR OPERATOR
     (?­ . "-")                          ; soft-hyphen
-    (?‘ . "`")               ; LEFT SINGLE QUOTATION MARK
+    (?‘ . "`")                          ; LEFT SINGLE QUOTATION MARK
     (?’ . "'")                          ; right SINGLE QUOTATION MARK
-    (?‐ . "-")                     ; hyphenm
+    (?‐ . "-")                          ; hyphenm
     (?– . " -- ")                       ; n-dash
     (?— . " --- ")                      ; m-dash
     (?  . " ")                          ; hair space
+    (?  . " ") thin space
     (?― . "----")                       ; horizontal bar
     (?‖ . "||")                         ; vertical bar
     (?… . "...")                        ; ellipses
