@@ -166,27 +166,20 @@ The default value of 12 is too high for using ido effectively with speech. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
-
-;;; note that though these are after advice fragments,
-;;; ido-matches does not reflect the change at the time we
-;;; get called.
-;;; hence the off-by-one hack
-
-(defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
-  "Provide auditory icon."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
-
 (defadvice ido-bury-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
-
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
+
+(defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
+  "Provide auditory icon."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice ido-fallback-command (before emacspeak pre act comp)
   "Provide auditory cue to indicate we are closing out the IDO   minibuffer."
