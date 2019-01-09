@@ -1483,10 +1483,20 @@ template."
 ;;}}}
 ;;{{{ Washington Post
 
+(defun emacspeak-url-template-wapost-content (url)
+  "Extract article content from WApost."
+  (emacspeak-we-extract-by-class
+   "article-body content-format-ans "
+   url 'speak))
+
 (emacspeak-url-template-define
  "Washington Post"
  "https://www.washingtonpost.com/"
- nil nil
+ nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq emacspeak-we-url-executor
+           'emacspeak-url-template-wapost-content))
  "Washington Post Contents"
  #'(lambda (url)
      (emacspeak-we-extract-by-class-list 
