@@ -499,7 +499,7 @@ from English to German")
  "Dictionary Lookup"
  #'(lambda (url)
      (emacspeak-webutils-without-xsl
-      (browse-url url))))
+         (browse-url url))))
 
 ;;}}}
 ;;{{{ NY Times
@@ -713,21 +713,56 @@ name of the list.")
  nil
  nil
  "List CNN Podcast media links.")
+(defun emacspeak-url-template-cnn-content (url)
+  "Extract CNN content."
+  (emacspeak-we-extract-by-class
+   "zn-body__paragraph" url 'speak))
 
 (emacspeak-url-template-define
  "CNN Content"
  "http://www.cnn.com/us"
  nil
- nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (eww-display-dom-by-element 'h3)
+     (setq
+      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Filter down to CNN content area."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "column" url 'speak)))
 
 (emacspeak-url-template-define
+ "CNN Headlines"
+ "http://rss.cnn.com/rss/cnn_latest.rss"
+ nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq
+      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
+ "News Headlines From CNN"
+ #'emacspeak-feeds-rss-display)
+
+
+(emacspeak-url-template-define
+ "Money Headlines From CNN"
+ "https://money.cnn.com"
+ nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (eww-display-dom-by-element 'h3)
+     (setq
+      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
+ "Money Headlines From CNN")
+
+(emacspeak-url-template-define
  "world CNN Content"
  "http://www.cnn.com/world"
  nil
- nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (eww-display-dom-by-element 'h3)
+     (setq
+      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Filter down to CNN content area."
  #'(lambda (url)
      (emacspeak-we-extract-by-class "column" url 'speak)))
@@ -1405,7 +1440,7 @@ Returns a cons cell where the car is email, and the cdr is password."
   (unless emacspeak-url-template-nls-authenticated
     (let* ((token (emacspeak-url-template-nls-auth-info))
            (boundary (mml-compute-boundary nil))
-           (values 
+           (values
             (list
              (cons "url_return" nil)
              (cons "submit" nil)
@@ -1415,7 +1450,7 @@ Returns a cons cell where the car is email, and the cdr is password."
            (url-request-extra-headers
             (list
              (cons "Content-Type"
-                   (concat "multipart/form-data; boundary=" boundary))))       
+                   (concat "multipart/form-data; boundary=" boundary))))
            (url-request-data
             (mm-url-encode-www-form-urlencoded values)))
       (setq emacspeak-url-template-nls-authenticated t)
@@ -1499,7 +1534,7 @@ template."
            'emacspeak-url-template-wapost-content))
  "Washington Post Contents"
  #'(lambda (url)
-     (emacspeak-we-extract-by-class-list 
+     (emacspeak-we-extract-by-class-list
       '("headline xx-small highlight-style bulleted text-align-inherit " "headline normal normal-style text-align-inherit "
         "no-skin flex-item flex-stack normal-air text-align-left wrap-text equalize-height-target"
         "headline " "blurb normal normal-style ")
@@ -1507,7 +1542,7 @@ template."
       'speak)))
 
 ;;}}}
-;;{{{ ArchWiki 
+;;{{{ ArchWiki
 
 (emacspeak-url-template-define
  "ArchWiki Search"
@@ -1579,25 +1614,7 @@ template."
  "News Headlines From Youtube")
 
 ;;}}}
-;;{{{CNN Money:
 
-(defun emacspeak-url-template-cnn-content (url)
-  "Extract CNN content."
-  (emacspeak-we-extract-by-class
-   "zn-body__paragraph" url 'speak))
-
-(emacspeak-url-template-define
- "Money Headlines From CNN"
- "https://money.cnn.com"
- nil
- #'(lambda nil
-     (cl-declare (special emacspeak-we-url-executor))
-     (eww-display-dom-by-element 'h3)
-     (setq
-      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
- "Money Headlines From CNN")
-
-;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
