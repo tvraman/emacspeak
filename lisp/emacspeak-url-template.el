@@ -1587,7 +1587,7 @@ template."
    "zn-body__paragraph" url 'speak))
 
 (emacspeak-url-template-define
- "Money CNN"
+ "Money Headlines From CNN"
  "https://money.cnn.com"
  nil
  #'(lambda nil
