@@ -15,6 +15,12 @@
 @titlepage
 @title Emacspeak At Twenty: Looking Back, Looking Forward
 @author T. V. Raman (@email{tv.raman.tv@@gmail.com})
+Copyright (C) T. V. Raman
+All Rights Reserved. 
+
+Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies. 
 @end titlepage
 
 @contents
