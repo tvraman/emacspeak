@@ -772,10 +772,10 @@ name of the list.")
  "http://money.cnn.com/markets/data/"
  nil
  nil
- "CNN Money"
+ "Market data filtered from CNN Money"
  #'(lambda (url)
      (emacspeak-we-extract-by-role
-      "main" ;"wsod_marketsOverview"
+      "main" 
       url 'speak)))
 
 ;;}}}
