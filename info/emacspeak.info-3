@@ -6247,7 +6247,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.234 URL Templates
 ====================
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 87 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u C-; u <fn> u C-x
@@ -6341,6 +6341,10 @@ goog:us
    CNN Content
 
    Filter down to CNN content area.
+
+   CNN Headlines
+
+   News Headlines From CNN
 
    CNN Market Data
 
@@ -6440,6 +6444,10 @@ goog:us
    MLB standings
 
    Display MLB standings.
+
+   Money Headlines From CNN
+
+   Money Headlines From CNN
 
    Multilingual dictionary via Google.
 
