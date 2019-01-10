@@ -771,7 +771,10 @@ name of the list.")
  "CNN Market Data "
  "http://money.cnn.com/markets/data/"
  nil
- nil
+ #'(lambda nil
+     (cl-declare (special emacspeak-we-url-executor))
+     (setq
+      emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "Market data filtered from CNN Money"
  #'(lambda (url)
      (emacspeak-we-extract-by-role
