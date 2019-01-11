@@ -7,6 +7,18 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: turning-twenty.info,  Node: Copyright,  Next: Top
+
+1 Copyright
+***********
+
+Copyright (C) T. V. Raman All Rights Reserved.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual without charge provided the copyright notice and this permission
+notice are preserved on all copies.
+
+
 File: turning-twenty.info,  Node: Top,  Next: Introduction,  Up: (dir)
 
 Turning-20: Emacspeak At Twenty — Looking Back, Looking Forward
@@ -45,7 +57,7 @@ Conversational Gestures For The Audio Desktop
 
 File: turning-twenty.info,  Node: Introduction,  Next: Using UNIX With Speech Output — 1994,  Prev: Top,  Up: Top
 
-1 Introduction
+2 Introduction
 **************
 
 One afternoon in the third week of September 1994, I started writing
@@ -60,7 +72,7 @@ Peter Norvig for some of its inspiration.
 
 File: turning-twenty.info,  Node: Using UNIX With Speech Output — 1994,  Next: Key Enabler — Emacs And Lisp Advice,  Prev: Introduction,  Up: Top
 
-2 Using UNIX With Speech Output — 1994
+3 Using UNIX With Speech Output — 1994
 **************************************
 
 As a graduate student at Cornell
@@ -95,7 +107,7 @@ of Emacspeak was up and running.
 
 File: turning-twenty.info,  Node: Key Enabler — Emacs And Lisp Advice,  Next: Key Component — Text To Speech (TTS),  Prev: Using UNIX With Speech Output — 1994,  Up: Top
 
-3 Key Enabler — Emacs And Lisp Advice
+4 Key Enabler — Emacs And Lisp Advice
 *************************************
 
 It took me a couple of weeks to fully recognize the potential of what I
@@ -114,7 +126,7 @@ from O’Reilly.
 
 File: turning-twenty.info,  Node: Key Component — Text To Speech (TTS),  Next: Emacspeak And Software Development,  Prev: Key Enabler — Emacs And Lisp Advice,  Up: Top
 
-4 Key Component — Text To Speech (TTS)
+5 Key Component — Text To Speech (TTS)
 **************************************
 
 Emacspeak is a speech-subsystem for Emacs; it depends on an external
@@ -157,7 +169,7 @@ DECTalk!
 
 File: turning-twenty.info,  Node: Emacspeak And Software Development,  Next: Emacspeak And Authoring Documents,  Prev: Key Component — Text To Speech (TTS),  Up: Top
 
-5 Emacspeak And Software Development
+6 Emacspeak And Software Development
 ************************************
 
 Version 0.01 of Emacspeak was written using IBM Screen-Reader on a PC
@@ -209,7 +221,7 @@ content being accessed.
 
 File: turning-twenty.info,  Node: Programming Defensively,  Up: Emacspeak And Software Development
 
-5.1 Programming Defensively
+6.1 Programming Defensively
 ===========================
 
 As an aside, note that all of Emacspeak has been developed over the last
@@ -235,7 +247,7 @@ other key features of the Emacspeak code-base:
 
 File: turning-twenty.info,  Node: Emacspeak And Authoring Documents,  Next: Emacspeak And The Early Days Of The Web,  Prev: Emacspeak And Software Development,  Up: Top
 
-6 Emacspeak And Authoring Documents
+7 Emacspeak And Authoring Documents
 ***********************************
 
 In 1994, my preferred environment for authoring *all* documents was
@@ -265,7 +277,7 @@ created by me using Emacs.
 
 File: turning-twenty.info,  Node: Emacspeak And The Early Days Of The Web,  Next: Audio Formatting — Generalizing Aural CSS,  Prev: Emacspeak And Authoring Documents,  Up: Top
 
-7 Emacspeak And The Early Days Of The Web
+8 Emacspeak And The Early Days Of The Web
 *****************************************
 
 Right around the time that I was writing version 0.01 of emacspeak, a
@@ -321,7 +333,7 @@ with support for DOM filtering and quick content navigation.
 
 File: turning-twenty.info,  Node: Audio Formatting — Generalizing Aural CSS,  Next: Conversational Gestures For The Audio Desktop,  Prev: Emacspeak And The Early Days Of The Web,  Up: Top
 
-8 Audio Formatting — Generalizing Aural CSS
+9 Audio Formatting — Generalizing Aural CSS
 *******************************************
 
 A key idea in Audio System For Technical Readings (AsTeR)
@@ -372,8 +384,8 @@ correctly write *else if* vs *elsif* in various programming languages!
 
 File: turning-twenty.info,  Node: Conversational Gestures For The Audio Desktop,  Next: Accessing Media Streams,  Prev: Audio Formatting — Generalizing Aural CSS,  Up: Top
 
-9 Conversational Gestures For The Audio Desktop
-***********************************************
+10 Conversational Gestures For The Audio Desktop
+************************************************
 
 By 1996, Emacspeak was the only piece of adaptive technology I used; in
 fall of 1995, I had moved to Adobe Systems from DEC Research to focus on
@@ -429,8 +441,8 @@ two-dimensional data.
 
 File: turning-twenty.info,  Node: Speech-Enabling Interactive Games,  Up: Conversational Gestures For The Audio Desktop
 
-9.1 Speech-Enabling Interactive Games
-=====================================
+10.1 Speech-Enabling Interactive Games
+======================================
 
 So in 1997, I went the next step in asking — given access to the
 underlying infromation, is it possible to build effective eyes-free
@@ -461,7 +473,7 @@ the rest of the environment.
 
 File: turning-twenty.info,  Node: Accessing Media Streams,  Next: EBooks— Ubiquitous Access To Books,  Prev: Conversational Gestures For The Audio Desktop,  Up: Top
 
-10 Accessing Media Streams
+11 Accessing Media Streams
 **************************
 
 Streaming real-time audio on the Internet became a reality with the
@@ -496,7 +508,7 @@ package *ido*, these types of actions become even more efficient!
 
 File: turning-twenty.info,  Node: EBooks— Ubiquitous Access To Books,  Next: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Prev: Accessing Media Streams,  Up: Top
 
-11 EBooks— Ubiquitous Access To Books
+12 EBooks— Ubiquitous Access To Books
 *************************************
 
 AsTeR — was motivated by the increasing availability of technical
@@ -541,7 +553,7 @@ books.
 
 File: turning-twenty.info,  Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Next: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Prev: EBooks— Ubiquitous Access To Books,  Up: Top
 
-12 Leveraging Computational Tools — From SQL And R To IPython Notebooks
+13 Leveraging Computational Tools — From SQL And R To IPython Notebooks
 ***********************************************************************
 
 The ability to invoke external processes and interface with them via a
@@ -572,7 +584,7 @@ smoother in Emacs than in a browser-based editor.
 
 File: turning-twenty.info,  Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Next: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Prev: Leveraging Computational Tools — From SQL And R To IPython Notebooks,  Up: Top
 
-13 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
+14 Social Web — EMail, Instant Messaging, Blogging And Tweeting Using Open Protocols
 ************************************************************************************
 
 The ability to process large amounts of email and electronic news has
@@ -625,7 +637,7 @@ provides Emacs wrappers for Google services that provide a RESTful API.
 
 File: turning-twenty.info,  Node: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Next: Mashing It Up — Leveraging Evolving Web APIs,  Prev: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols,  Up: Top
 
-14 The RESTful Web — Web Wizards And URL Templates For Faster Access
+15 The RESTful Web — Web Wizards And URL Templates For Faster Access
 ********************************************************************
 
 Today, the Web, based on URLs and HTTP-style protocols is widely
@@ -691,7 +703,7 @@ user’s collection of subscribed feeds.
 
 File: turning-twenty.info,  Node: Mashing It Up — Leveraging Evolving Web APIs,  Next: Conclusion,  Prev: The RESTful Web — Web Wizards And URL Templates For Faster Access,  Up: Top
 
-15 Mashing It Up — Leveraging Evolving Web APIs
+16 Mashing It Up — Leveraging Evolving Web APIs
 ***********************************************
 
 The next step in this evolution came with the arrival of richer Web APIs
@@ -735,7 +747,7 @@ today’s tight association of the Web to the Web Browser.
 
 File: turning-twenty.info,  Node: Conclusion,  Next: References,  Prev: Mashing It Up — Leveraging Evolving Web APIs,  Up: Top
 
-16 Conclusion
+17 Conclusion
 *************
 
 In 1996, I wrote an article entitled User Interface — A Means To An End
@@ -760,7 +772,7 @@ interaction when this comes to pass.
 
 File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
-17 References
+18 References
 *************
 
    • Auditory User Interfaces
@@ -783,26 +795,27 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 
 Tag Table:
-Node: Top253
-Node: Introduction1840
-Node: Using UNIX With Speech Output — 19942517
-Node: Key Enabler — Emacs And Lisp Advice4339
-Node: Key Component — Text To Speech (TTS)5367
-Node: Emacspeak And Software Development7894
-Node: Programming Defensively10492
-Node: Emacspeak And Authoring Documents11750
-Node: Emacspeak And The Early Days Of The Web13308
-Node: Audio Formatting — Generalizing Aural CSS16739
-Node: Conversational Gestures For The Audio Desktop19790
-Node: Speech-Enabling Interactive Games23127
-Node: Accessing Media Streams24903
-Node: EBooks— Ubiquitous Access To Books26992
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29520
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31368
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access34833
-Node: Mashing It Up — Leveraging Evolving Web APIs38360
-Node: Conclusion40829
-Node: References42139
+Node: Copyright253
+Node: Top566
+Node: Introduction2153
+Node: Using UNIX With Speech Output — 19942830
+Node: Key Enabler — Emacs And Lisp Advice4652
+Node: Key Component — Text To Speech (TTS)5680
+Node: Emacspeak And Software Development8207
+Node: Programming Defensively10805
+Node: Emacspeak And Authoring Documents12063
+Node: Emacspeak And The Early Days Of The Web13621
+Node: Audio Formatting — Generalizing Aural CSS17052
+Node: Conversational Gestures For The Audio Desktop20103
+Node: Speech-Enabling Interactive Games23442
+Node: Accessing Media Streams25220
+Node: EBooks— Ubiquitous Access To Books27309
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29837
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31685
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access35150
+Node: Mashing It Up — Leveraging Evolving Web APIs38677
+Node: Conclusion41146
+Node: References42456
 
 End Tag Table
 
