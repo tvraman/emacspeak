@@ -6,4 +6,4 @@
 xcape -t 250 -e 'Shift_L=parenleft'
 
 #Control by itself gives emacspeak modifier:
-xcape -t 250 -e 'Control_L=Control_L|e'
+xcape -t 100 -e 'Control_L=Control_L|e'
