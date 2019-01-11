@@ -120,8 +120,7 @@ a rewrite rule even if one is already defined."
               "Executor function: "
               obarray 'fboundp t
               "emacspeak-" nil)))
-      (if (and (boundp 'emacspeak-we-url-executor)
-               (fboundp emacspeak-we-url-executor))
+      (if (functionp emacspeak-we-url-executor)
           (funcall emacspeak-we-url-executor url)
         (error "Invalid executor %s"
                emacspeak-we-url-executor))))))
