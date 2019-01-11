@@ -585,7 +585,7 @@ Returns a string with appropriate personality."
                (funcall emacspeak-webutils-url-at-point)
                emacspeak-we-url-executor
                (boundp 'emacspeak-we-url-executor)
-               (fboundp emacspeak-we-url-executor))
+               (functionp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)
           (call-interactively 'emacspeak-we-url-expand-and-execute))
          (t ad-do-it
