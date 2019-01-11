@@ -845,8 +845,7 @@ Retain previously set punctuations  mode."
   (emacspeak-auditory-icon 'button)
   (cond
    ((and (ems-interactive-p)
-         (boundp 'emacspeak-we-url-executor)
-         (fboundp emacspeak-we-url-executor)
+         (functionp emacspeak-we-url-executor)
          (y-or-n-p "Use custom executor? "))
     (let ((url (get-text-property (point) 'shr-url)))
       (unless url (error "No URL  under point"))
