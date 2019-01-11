@@ -109,8 +109,7 @@ a rewrite rule even if one is already defined."
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (unless url (error "Not on a link."))
     (cond
-     ((and (boundp 'emacspeak-we-url-executor)
-           (fboundp emacspeak-we-url-executor))
+     ((functionp emacspeak-we-url-executor)
       (if prefix
           (funcall emacspeak-we-url-executor url prefix)
         (funcall emacspeak-we-url-executor url)))
