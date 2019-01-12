@@ -1,10 +1,12 @@
 #!/bin/sh
 
 #XCape ==xcape -- reassign modifier keys etc.
-TM=150 #timeout
+#Control by itself gives emacspeak modifier.
+#Shift_L gives open paren
 
-#Shift_L gives open paren:
-xcape -t $TM -e 'Shift_L=parenleft'
+TM=150 #timeout in ms for keyup
 
-#Control by itself gives emacspeak modifier:
-xcape -t $TM -e 'Control_L=Control_L|e'
+KEYS="Shift_L=parenleft;\
+Control_L=Control_L|e"
+
+xcape -t $TM -e  "$KEYS"
