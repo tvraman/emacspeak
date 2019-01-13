@@ -10,5 +10,5 @@ TM=150 #timeout in ms for keyup
 KEYS="Shift_L=parenleft;\
 Shift_R=Escape;\
 Control_L=Control_L|e"
-
+pidof xcape && kill -9 `pidof xcape`
 xcape -t $TM -e  "$KEYS"
