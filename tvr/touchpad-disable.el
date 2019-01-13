@@ -1,5 +1,6 @@
 ;;; Disable mouse buttons and touchpad.
-;;; Avoids accidental touches 
+;;; Instead have all mouse-buttons run dtk-stop 
+;;; Also, Avoids accidental touches  on touch-pad
 (require 'cl-lib)
 ;(load-library "disable-mouse-autoloads")
 
@@ -38,5 +39,7 @@ Set by locating it via xinput --list."
 ;(add-hook 'focus-in-hook #'turn-off-touchpad)
 ;(add-hook 'focus-out-hook #'turn-on-touchpad)
 ;(add-hook 'delete-frame-functions #'turn-on-touchpad)
-(when (fboundp 'global-disable-mouse-mode) (global-disable-mouse-mode))
+(when (fboundp 'global-disable-mouse-mode)
+  (global-disable-mouse-mode)
+  (setq disable-mouse-command 'dtk-stop))
 (turn-off-touchpad)
