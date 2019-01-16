@@ -287,7 +287,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (interactive)
   (cl-declare (special emacspeak-eterm-pointer))
   (set-marker emacspeak-eterm-pointer (point))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-eterm-speak-cursor)))
 
@@ -298,7 +298,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (save-excursion
     (goto-char term-home-marker)  
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
 
@@ -309,7 +309,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   (save-excursion
     (goto-char (point-max))
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-line))))
 
@@ -356,7 +356,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer)
     (backward-char count)
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (dtk-stop)
       (emacspeak-speak-char t))))
 
@@ -370,7 +370,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer)
     (forward-char  count)
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (dtk-stop)
       (emacspeak-speak-char t))))
 
@@ -382,7 +382,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer)
     (end-of-line)
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p) 
+    (when (called-interactively-p 'interactive) 
       (dtk-stop)
       (emacspeak-auditory-icon 'right)
       (emacspeak-speak-char t))))
@@ -395,7 +395,7 @@ Argument COUNT specifies number of columns by which to move."
     (goto-char emacspeak-eterm-pointer)
     (forward-line 0)
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (dtk-stop)
       (emacspeak-auditory-icon 'left)
       (emacspeak-speak-char t))))
@@ -413,7 +413,7 @@ Argument COUNT specifies number of words by which to move."
         (forward-word  (- count))
       (error nil))
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-speak-word))))
 
 (defun emacspeak-eterm-pointer-forward-word (count)
@@ -430,7 +430,7 @@ Argument COUNT specifies number of words by which to move."
       (error nil))
     (skip-syntax-forward " ")
     (set-marker emacspeak-eterm-pointer (point))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-speak-word))))
 
 (defun emacspeak-eterm-goto-line (line)
@@ -588,7 +588,7 @@ to by the emacspeak eterm pointer."
     (setq coordinates
           (emacspeak-eterm-position-to-coordinates
            (marker-position emacspeak-eterm-pointer)))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'mark-object)
       (dtk-stop)
       (message "Set eterm mark at row %s column %s"
