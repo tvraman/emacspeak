@@ -11,4 +11,4 @@ KEYS="Shift_L=parenleft;\
 Shift_R=Escape;\
 Control_L=Control_L|e"
 pidof xcape && kill -9 `pidof xcape`
-xcape -t $TM -e  "$KEYS"
+nohup xcape -t $TM -e  "$KEYS" 2>&1 > /dev/null
