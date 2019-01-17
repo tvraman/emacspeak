@@ -317,31 +317,31 @@ Node: tts-cmds801673
 Node: voice-setup802182
 Node: xbacklight810093
 Node: URL Templates811557
-Node: Emacspeak Keyboard Commands817866
-Node: TTS Servers819928
-Node: Emacspeak At Twenty826805
-Node: Turning Twenty828508
-Node: Using UNIX With Speech Output --- 1994829196
-Node: Key Enabler --- Emacs And Lisp Advice831037
-Node: Key Component --- Text To Speech (TTS)832082
-Node: Emacspeak And Software Development834626
-Node: Programming Defensively837242
-Node: Emacspeak And Authoring Documents838501
-Node: Emacspeak And The Early Days Of The Web840076
-Node: Audio Formatting --- Generalizing Aural CSS843524
-Node: Conversational Gestures For The Audio Desktop846592
-Node: Speech-Enabling Interactive Games849947
-Node: Accessing Media Streams851724
-Node: EBooks --- Ubiquitous Access To Books853831
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks856379
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols858245
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access861727
-Node: Mashing It Up --- Leveraging Evolving Web APIs865271
-Node: Conclusion --- Turning Twenty867776
-Node: References869158
-Node: Acknowledgments870088
-Node: Concept Index870246
-Node: Key Index873889
+Node: Emacspeak Keyboard Commands817892
+Node: TTS Servers819954
+Node: Emacspeak At Twenty826831
+Node: Turning Twenty828534
+Node: Using UNIX With Speech Output --- 1994829222
+Node: Key Enabler --- Emacs And Lisp Advice831063
+Node: Key Component --- Text To Speech (TTS)832108
+Node: Emacspeak And Software Development834652
+Node: Programming Defensively837268
+Node: Emacspeak And Authoring Documents838527
+Node: Emacspeak And The Early Days Of The Web840102
+Node: Audio Formatting --- Generalizing Aural CSS843550
+Node: Conversational Gestures For The Audio Desktop846618
+Node: Speech-Enabling Interactive Games849973
+Node: Accessing Media Streams851750
+Node: EBooks --- Ubiquitous Access To Books853857
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks856405
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols858271
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access861753
+Node: Mashing It Up --- Leveraging Evolving Web APIs865297
+Node: Conclusion --- Turning Twenty867802
+Node: References869184
+Node: Acknowledgments870114
+Node: Concept Index870272
+Node: Key Index873915
 
 End Tag Table
 

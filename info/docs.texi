@@ -25556,7 +25556,7 @@ News Headlines From CNN
 
 @b{CNN Market Data }
 
-CNN Money
+Market data filtered from CNN Money
 
 @b{CNN PodCasts}
 
