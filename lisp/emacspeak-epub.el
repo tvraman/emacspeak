@@ -608,7 +608,7 @@ No book files are deleted."
   (interactive)
   (cl-declare (special emacspeak-epub-db))
   (when
-      (or (not (ems-interactive-p))
+      (or (not (called-interactively-p 'interactive))
           (y-or-n-p "Clear bookshelf?"))
     (clrhash emacspeak-epub-db)
     (setq header-line-format
