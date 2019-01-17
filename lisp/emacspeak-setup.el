@@ -183,7 +183,7 @@ TTS engine should use ALSA for this to be usable."
   (cl-declare (special dtk-program dtk-notify-process
                        emacspeak-tts-use-notify-stream))
   (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
-  (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
+  (when (emacspeak-tts-multistream-p dtk-program)
     (dtk-notify-initialize)))
 
 ;;;###autoload
