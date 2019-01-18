@@ -537,6 +537,11 @@ Leave point at front of decoded attachment."
 ;;}}}
 ;;{{{  misc
 
+(defadvice vm (around emacspeak pre act comp)
+  "Silence chatter."
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
 (defadvice vm-count-messages-in-file (around emacspeak-fix pre act comp)
   (ad-set-arg 1 'quiet)
   ad-do-it)
