@@ -1317,10 +1317,12 @@ Optional interactive prefix arg displays documentation for specified resource."
   (let ((completion-ignore-case t)
         (name nil))
     (setq name
-          (completing-read "Resource: "
-                           emacspeak-url-template-table
-                           nil
-                           'must-match))
+          (completing-read
+           "Resource: "
+           (sort (hash-table-keys  emacspeak-url-template-table)
+                 #'string-lessp)
+           nil
+           'must-match))
     (cond
      (documentation (emacspeak-url-template-help-internal name))
      (t
