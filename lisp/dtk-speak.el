@@ -1604,8 +1604,13 @@ ALSA_DEFAULT to specified device before starting the server."
 (defun dtk-cloud ()
   "Select preferred Cloud TTS server."
   (interactive)
-  (cl-declare (special dtk-cloud-server))
-  ...)
+  (cl-declare (special dtk-cloud-server
+                       emacspeak-tts-use-notify-stream))
+  (dtk-select-server dtk-cloud-server)
+  (dtk-initialize)
+  (when (emacspeak-tts-multistream-p dtk-cloud-server)
+    (dtk-notify-initialize)
+    (setq emacspeak-tts-use-notify-stream t)))
 
 (defcustom tts-device-list (list "default")
   "List of ALSA sound devices  we can use."
