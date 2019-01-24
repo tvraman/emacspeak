@@ -973,7 +973,7 @@ match, makes the matching row or column current."
   (cl-declare (special emacspeak-table))
   (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (kill-new  (emacspeak-table-current-element emacspeak-table))
-  (when (called-interactively-p)
+  (when (called-interactively-p 'interactive) 
     (emacspeak-auditory-icon 'delete-object)
     (message "Copied element to kill ring")))
 (defun emacspeak-table-copy-current-element-to-register (register)
@@ -983,7 +983,7 @@ match, makes the matching row or column current."
   (cl-assert  (boundp 'emacspeak-table) nil "No table here")
   (set-register register (emacspeak-table-current-element
                           emacspeak-table))
-  (when (called-interactively-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'select-object)
     (message "Copied element to register %c" register)))
 
