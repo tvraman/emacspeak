@@ -101,14 +101,15 @@
   "Speak tweet under point.
 With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
   (interactive "P")
-  (when copy-as-kill
-    (kill-new (format "%s: %s"
-                      (get-text-property (point) 'username)
-                      (get-text-property (point) 'text))))
-  (dtk-speak
-   (format "%s: %s"
-           (get-text-property (point) 'username)
-           (get-text-property (point) 'text))))
+  (let ((who (get-text-property (point) 'username))
+        (what (get-text-property (point) 'text)))
+    (cond
+     ((and who what)
+      (when copy-as-kill (kill-new (format "%s: %s" who what)))
+      (dtk-speak (format "%s: %s" who what)))
+     (t
+      (message "Not on a tweet.")
+      (emacspeak-auditory-icon 'warn-user)))))
 
 (cl-loop for command in
          '(twittering-goto-first-status
