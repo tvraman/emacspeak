@@ -156,9 +156,10 @@
 
 (defun gmaps-geocoder-url (address)
   "Return URL   for geocoding address."
-  (cl-declare (special gmaps-geocoder-base))
-  (format "%saddress=%s&sensor=false"
-          gmaps-geocoder-base address))
+  (cl-declare (special gmaps-geocoder-base gmaps-places-key))
+  (format "%saddress=%s&sensor=false&key=%s"
+          gmaps-geocoder-base address
+          gmaps-places-key))
 
 (defun gmaps-reverse-geocoder-url (location)
   "Return URL   for reverse geocoding location."
