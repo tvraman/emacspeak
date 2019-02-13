@@ -163,9 +163,10 @@
 
 (defun gmaps-reverse-geocoder-url (location)
   "Return URL   for reverse geocoding location."
-  (cl-declare (special gmaps-geocoder-base))
-  (format "%slatlng=%s&sensor=false"
-          gmaps-geocoder-base location))
+  (cl-declare (special gmaps-geocoder-base
+                       gmaps-places-key))
+  (format "%slatlng=%s&sensor=false&key=%s"
+          gmaps-geocoder-base location gmaps-places-key))
 
 ;;;###autoload
 (defun gmaps-geocode (address &optional raw-p)
