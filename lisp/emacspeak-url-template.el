@@ -1629,8 +1629,15 @@ template."
         (erase-buffer)
         (org-mode)
         (insert
-         (format "* Currency Rates For %s On %s.\n\n" .base .date)))
-      (display-buffer buffer))))
+         (format "* Currency Rates For %s On %s\n\n" .base .date))
+
+        (cl-loop
+         for r in .rates do
+         (insert
+          (format "  - %s %s\n"
+                  (car r) (cdr r))))
+        (goto-char (point-min)))
+      (funcall-interactively #'pop-to-buffer buffer))))
 
 (emacspeak-url-template-define
  "Currency Convertor "
