@@ -63,13 +63,22 @@
 (defgroup gmaps nil
   "Google Maps"
   :group 'g)
+;;; https://developers.google.com/places/
+
+(defcustom gmaps-api-key nil
+  "Places API  key --- goto  https://code.google.com/apis/console to get one."
+  :type '(choice
+          (const :tag "None" nil)
+          (string :value ""))
+  :group 'gmaps)
+
 
 ;;}}}
 ;;{{{ Address Structure 
 
 (cl-defstruct gmaps--location
   address
-  alias ; short-form entered by user
+  alias                                 ; short-form entered by user
   zip
   lat-lng)
 
@@ -284,14 +293,6 @@ Parameter `key' is the API  key."
      ((string= "OK" .status) .routes)
      (t (error "Status %s from Maps" .status)))))
 
-;;; https://developers.google.com/places/
-
-(defcustom gmaps-api-key nil
-  "Places API  key --- goto  https://code.google.com/apis/console to get one."
-  :type '(choice
-          (const :tag "None" nil)
-          (string :value ""))
-  :group 'gmaps)
 
 ;;}}}
 ;;{{{ Maps UI:
