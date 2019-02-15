@@ -1623,7 +1623,7 @@ template."
 
 (emacspeak-url-template-define
  "Currency Convertor "
- "https://api.exchangeratesapi.io/latest?symbols=%s&base=%s"
+ "https://api.exchangeratesapi.io/latest?base=%s&symbols=%s"
  (list "Base:" "Currencies:")
  nil
  "Currency Convertor. Currencies can be a comma-separated list of codes."
