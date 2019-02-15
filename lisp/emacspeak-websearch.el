@@ -968,7 +968,7 @@ Results"
 (emacspeak-websearch-set-searcher 'exchange-rate-converter
                                   'emacspeak-websearch-exchange-rate-converter)
 
-(emacspeak-websearch-set-key ?x 'exchange-rate-converter)
+;(emacspeak-websearch-set-key ?x 'exchange-rate-converter)
 
 (defvar emacspeak-websearch-exchange-rate-converter-uri
   "https://www.xe.com/currencyconverter/convert/?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
