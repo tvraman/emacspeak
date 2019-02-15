@@ -1620,13 +1620,29 @@ template."
 
 ;;}}}
 ;;{{{Currency Conversion:
+(defun ems--exchange-rates-to-org (url)
+  "Display retrieved rates as an org buffer."
+  (let-alist (g-json-from-url url)
+    (let ((buffer (get-buffer-create "*Currency Rates*"))
+          (inhibit-read-only  t))
+      (with-current-buffer buffer
+        (erase-buffer)
+        (org-mode)
+        (insert
+         (format "* Currency Rates For %s On %s.\n\n" .base .date)))
+      (display-buffer buffer))))
 
 (emacspeak-url-template-define
  "Currency Convertor "
  "https://api.exchangeratesapi.io/latest?base=%s&symbols=%s"
- (list "Base:" "Currencies:")
+ (list
+  #'(lambda nil (upcase (read-from-minibuffer "Base:")))
+  #'(lambda nil (upcase (read-from-minibuffer "Currencies:")))
+  )
  nil
- "Currency Convertor. Currencies can be a comma-separated list of codes."
+ "Currency Convertor. Currencies can be a comma-separated list of
+codes."
+ #'ems--exchange-rates-to-org
  )
 
 ;;}}}
