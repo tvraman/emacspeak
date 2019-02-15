@@ -971,7 +971,7 @@ Results"
 (emacspeak-websearch-set-key ?x 'exchange-rate-converter)
 
 (defvar emacspeak-websearch-exchange-rate-converter-uri
-  "http://www.xe.com/ucc/convert.cgi?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
+  "https://www.xe.com/currencyconverter/convert/?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
   "URI template  for currency conversion.")
 
 ;;;###autoload
