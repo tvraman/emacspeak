@@ -1619,7 +1619,17 @@ template."
  "News Headlines From Youtube")
 
 ;;}}}
+;;{{{Currency Conversion:
 
+(emacspeak-url-template-define
+ "Currency Convertor "
+ "https://api.exchangeratesapi.io/latest?symbols=%s&base=%s"
+ (list "Base:" "Currencies:")
+ nil
+ "Currency Convertor. Currencies can be a comma-separated list of codes."
+ )
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
