@@ -1641,7 +1641,7 @@ template."
         (erase-buffer)
         (org-mode)
         (insert
-         (format "* Currency RatesFrom %s On %s\n\n" .base .date))
+         (format "* Currency Rates In  %s On %s\n\n" .base .date))
         (cl-loop
          for r in .rates do
          (insert
