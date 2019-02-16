@@ -570,7 +570,7 @@ interactive command that the key sequence executes."
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("p" proced)
     ("R" emacspeak-webspace-feed-reader)
-    ("w" 'define-word))
+    ("w" define-word))
   "*Specifies super key bindings for the audio desktop. You can
 turn the right `windows menu' keys on your Linux PC keyboard into
 a `super' key on Linux by having it emit the sequence `C-x@s'.
