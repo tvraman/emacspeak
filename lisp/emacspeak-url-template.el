@@ -1651,7 +1651,7 @@ template."
       (funcall-interactively #'pop-to-buffer buffer))))
 
 (emacspeak-url-template-define
- "Currency Convertor "
+ "Currency Converter"
  "https://api.exchangeratesapi.io/latest?base=%s&symbols=%s"
  (list
   #'(lambda nil
@@ -1663,7 +1663,7 @@ template."
       (upcase
        (read-from-minibuffer "Currencies:" emacspeak-url-template-currency-list))))
  nil
- "Currency Convertor. Currencies can be a comma-separated list of
+ "Currency Converter. Currencies can be a comma-separated list of
 codes."
  #'ems--exchange-rates-to-org)
 
