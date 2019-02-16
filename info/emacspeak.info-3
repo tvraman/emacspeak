@@ -1330,6 +1330,15 @@ presently defined.
 
      (fn FILE)
 
+12.194.2 emacspeak-url-template Options
+---------------------------------------
+
+ -- Variable: User Option emacspeak-url-template-currency-base
+     Currency to use as the base when doing currency conversion.
+
+ -- Variable: User Option emacspeak-url-template-currency-list
+     List of currencies for which we request rates by default.
+
 
 File: emacspeak.info,  Node: emacspeak-vdiff,  Next: emacspeak-view,  Prev: emacspeak-url-template,  Up: Emacspeak Commands And Options
 
@@ -2286,17 +2295,7 @@ This module provides utility functions for searching the WWW
       Press ‘?’ to list available search engines.
      When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
 
-12.201.1.10 emacspeak-websearch-exchange-rate-converter
-.......................................................
-
- -- Command: emacspeak-websearch-exchange-rate-converter
-          (conversion-spec)
-
-     Currency converter.
-
-     (fn CONVERSION-SPEC)
-
-12.201.1.11 emacspeak-websearch-foldoc-search
+12.201.1.10 emacspeak-websearch-foldoc-search
 .............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
@@ -2305,7 +2304,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.12 emacspeak-websearch-google
+12.201.1.11 emacspeak-websearch-google
 ......................................
 
  -- Command: emacspeak-websearch-google (query &optional flag)
@@ -2316,14 +2315,14 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.201.1.13 emacspeak-websearch-google-category-news
+12.201.1.12 emacspeak-websearch-google-category-news
 ....................................................
 
  -- Command: emacspeak-websearch-google-category-news
 
      Browse Google News by category.
 
-12.201.1.14 emacspeak-websearch-google-feeling-lucky
+12.201.1.13 emacspeak-websearch-google-feeling-lucky
 ....................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
@@ -2332,7 +2331,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.15 emacspeak-websearch-google-mobile
+12.201.1.14 emacspeak-websearch-google-mobile
 .............................................
 
  -- Command: emacspeak-websearch-google-mobile (query &optional flag)
@@ -2343,28 +2342,28 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.201.1.16 emacspeak-websearch-google-news
+12.201.1.15 emacspeak-websearch-google-news
 ...........................................
 
  -- Command: emacspeak-websearch-google-news
 
      Invoke Google News url template.
 
-12.201.1.17 emacspeak-websearch-google-regional-news
+12.201.1.16 emacspeak-websearch-google-regional-news
 ....................................................
 
  -- Command: emacspeak-websearch-google-regional-news
 
      Browse Google News by region.
 
-12.201.1.18 emacspeak-websearch-google-search-in-date-range
+12.201.1.17 emacspeak-websearch-google-search-in-date-range
 ...........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.201.1.19 emacspeak-websearch-google-specialize
+12.201.1.18 emacspeak-websearch-google-specialize
 .................................................
 
  -- Command: emacspeak-websearch-google-specialize (specialize query)
@@ -2375,7 +2374,7 @@ This module provides utility functions for searching the WWW
 
      (fn SPECIALIZE QUERY)
 
-12.201.1.20 emacspeak-websearch-google-with-toolbelt
+12.201.1.19 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
@@ -2384,7 +2383,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.21 emacspeak-websearch-gutenberg
+12.201.1.20 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
@@ -2393,14 +2392,14 @@ This module provides utility functions for searching the WWW
 
      (fn TYPE QUERY)
 
-12.201.1.22 emacspeak-websearch-help
+12.201.1.21 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.201.1.23 emacspeak-websearch-merriam-webster-search
+12.201.1.22 emacspeak-websearch-merriam-webster-search
 ......................................................
 
  -- Command: emacspeak-websearch-merriam-webster-search (query)
@@ -2409,7 +2408,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.24 emacspeak-websearch-news-yahoo
+12.201.1.23 emacspeak-websearch-news-yahoo
 ..........................................
 
  -- Command: emacspeak-websearch-news-yahoo (query &optional rss)
@@ -2419,7 +2418,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional RSS)
 
-12.201.1.25 emacspeak-websearch-open-directory-search
+12.201.1.24 emacspeak-websearch-open-directory-search
 .....................................................
 
  -- Command: emacspeak-websearch-open-directory-search (query)
@@ -2428,14 +2427,14 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.26 emacspeak-websearch-software-search
+12.201.1.25 emacspeak-websearch-software-search
 ...............................................
 
  -- Command: emacspeak-websearch-software-search
 
      Search SourceForge, Freshmeat and other sites.
 
-12.201.1.27 emacspeak-websearch-sourceforge-search
+12.201.1.26 emacspeak-websearch-sourceforge-search
 ..................................................
 
  -- Command: emacspeak-websearch-sourceforge-search (query)
@@ -2444,7 +2443,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.28 emacspeak-websearch-weather
+12.201.1.27 emacspeak-websearch-weather
 .......................................
 
  -- Command: emacspeak-websearch-weather (query)
@@ -2453,7 +2452,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.29 emacspeak-websearch-wikipedia-search
+12.201.1.28 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -2462,7 +2461,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.30 emacspeak-websearch-yahoo
+12.201.1.29 emacspeak-websearch-yahoo
 .....................................
 
  -- Command: emacspeak-websearch-yahoo (query)
@@ -2471,17 +2470,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.201.1.31 emacspeak-websearch-yahoo-exchange-rate-converter
-.............................................................
-
- -- Command: emacspeak-websearch-yahoo-exchange-rate-converter
-          (conversion-spec)
-
-     Currency converter.
-
-     (fn CONVERSION-SPEC)
-
-12.201.1.32 emacspeak-websearch-yahoo-historical-chart
+12.201.1.30 emacspeak-websearch-yahoo-historical-chart
 ......................................................
 
  -- Command: emacspeak-websearch-yahoo-historical-chart (ticker
@@ -2492,7 +2481,7 @@ This module provides utility functions for searching the WWW
 
      (fn TICKER &optional AS-HTML)
 
-12.201.1.33 emacspeak-websearch-youtube-search
+12.201.1.31 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
@@ -5165,7 +5154,7 @@ Implements the Google Maps API
 12.219.2 gmaps Options
 ----------------------
 
- -- Variable: User Option gmaps-places-key
+ -- Variable: User Option gmaps-api-key
      Places API key — goto https://code.google.com/apis/console to get
      one.
 
@@ -6247,7 +6236,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.234 URL Templates
 ====================
 
-This section documents a total of 87 URL Templates.
+This section documents a total of 88 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u C-; u <fn> u C-x
@@ -6353,6 +6342,11 @@ goog:us
    CNN PodCasts
 
    List CNN Podcast media links.
+
+   Currency Converter
+
+   Currency Converter.  Currencies can be a comma-separated list of
+codes.
 
    Dictionary Lookup
 

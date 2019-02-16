@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 898 options.
+This chapter documents a total of 1226 commands and 900 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -19121,6 +19121,18 @@ Save out url templates.
 @end format
 @end deffn
 
+@subsection emacspeak-url-template Options
+
+@defvar {User Option} emacspeak-url-template-currency-base
+Currency to use as the base when doing currency conversion.
+
+@end defvar
+
+@defvar {User Option} emacspeak-url-template-currency-list
+List of currencies for which we request rates by default.
+
+@end defvar
+
 @node emacspeak-vdiff
 @section emacspeak-vdiff
 
@@ -20380,17 +20392,6 @@ When using supported browsers,  this interface attempts to speak the most releva
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-exchange-rate-converter
-@deffn {Command} emacspeak-websearch-exchange-rate-converter  (conversion-spec)
-@findex emacspeak-websearch-exchange-rate-converter
-
-@format
-Currency converter.
-
-(fn CONVERSION-SPEC)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-foldoc-search
 @deffn {Command} emacspeak-websearch-foldoc-search  (query)
 @findex emacspeak-websearch-foldoc-search
@@ -20603,17 +20604,6 @@ Search Wikipedia using Google.
 Perform an Yahoo  search
 
 (fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-yahoo-exchange-rate-converter
-@deffn {Command} emacspeak-websearch-yahoo-exchange-rate-converter  (conversion-spec)
-@findex emacspeak-websearch-yahoo-exchange-rate-converter
-
-@format
-Currency converter.
-
-(fn CONVERSION-SPEC)
 @end format
 @end deffn
 
@@ -24149,7 +24139,7 @@ Walking directions from Google Maps.
 
 @subsection gmaps Options
 
-@defvar {User Option} gmaps-places-key
+@defvar {User Option} gmaps-api-key
 Places API  key --- goto  https://code.google.com/apis/console to get one.
 
 @end defvar
@@ -25453,7 +25443,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 87 URL Templates.
+This section documents a total of 88 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25562,6 +25552,11 @@ Market data filtered from CNN Money
 @b{CNN PodCasts}
 
 List CNN Podcast media links.
+
+@b{Currency Converter}
+
+Currency Converter. Currencies can be a comma-separated list of
+codes.
 
 @b{Dictionary Lookup}
 
