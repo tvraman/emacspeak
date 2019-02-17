@@ -321,11 +321,13 @@ references, poor-man's xpath."
    (set-buffer-multibyte nil) ;return raw binary string
    (buffer-string)))
 
-(defun g-json-get-result(command)
-  "Get command results and return json object read from result
-string."
-  (json-read-from-string
-   (g-get-result command)))
+(defun g-json-get-result (command)
+  "Get command results and return json object read from string."
+  (cond
+   ((fboundp 'json-parse-string)        ; emacs 27.1
+    (json-parse-string (g-get-result command) :object-type 'alist))
+   (t
+    (json-read-from-string (g-get-result command)))))
 
 (defun g-json-from-url (url)
   "Return JSON read from URL."
