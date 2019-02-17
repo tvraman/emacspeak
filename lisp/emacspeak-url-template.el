@@ -1635,20 +1635,21 @@ template."
 (defun ems--exchange-rates-to-org (url)
   "Display retrieved rates as an org buffer."
   (let-alist (g-json-from-url url)
-    (let ((buffer (get-buffer-create "*Currency Rates*"))
+    (let ((buffer
+           (get-buffer-create
+            (format "* Currency Rates In  %s On %s" .base .date)))
           (inhibit-read-only  t))
       (with-current-buffer buffer
         (erase-buffer)
-        (org-mode)
-        (insert
-         (format "* Currency Rates In  %s On %s\n\n" .base .date))
         (cl-loop
          for r in .rates do
          (insert
-          (format "  - %s %.2f\n" (car r) (cdr r))))
+          (format "%s %.2f\n" (car r) (cdr r))))
         (goto-char (point-min))
         (setq buffer-read-only t))
-      (funcall-interactively #'pop-to-buffer buffer))))
+      (pop-to-buffer buffer)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-buffer))))
 
 (emacspeak-url-template-define
  "Currency Converter"
