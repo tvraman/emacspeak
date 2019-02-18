@@ -63,12 +63,11 @@
     (emacspeak-auditory-icon
      (if transient-show-common-commands 'on 'off))))
 
-
 (defadvice transient-resume (after emacspeak pre act comp)
-"Provide auditory feedback."
-(when (ems-interactive-p)
-  (dtk-stop)
-  (emacspeak-auditory-icon 'open-object)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-stop)
+    (emacspeak-auditory-icon 'open-object)))
 
 (cl-loop
  for f in
@@ -91,9 +90,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'save-object)
        (dtk-stop)))))
-
-
-
 
 (cl-loop
  for f in
