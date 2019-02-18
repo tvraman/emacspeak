@@ -262,6 +262,7 @@ emacspeak-threes.elc \
 emacspeak-tide.elc \
 emacspeak-2048.elc \
 emacspeak-texinfo.elc \
+emacspeak-transient.elc \
 emacspeak-todo-mode.elc \
 emacspeak-twittering.elc \
 emacspeak-typo.elc \
@@ -549,6 +550,7 @@ emacspeak-threes.elc: emacspeak-threes.el dtk-speak.elc
 emacspeak-tide.elc: emacspeak-tide.el dtk-speak.elc
 emacspeak-2048.elc: emacspeak-2048.el dtk-speak.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
+emacspeak-transient.elc: emacspeak-transient.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-twittering.elc: emacspeak-twittering.el dtk-speak.elc voice-setup.elc
 emacspeak-typo.elc: emacspeak-typo.el dtk-speak.elc 

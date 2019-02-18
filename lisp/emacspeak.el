@@ -309,6 +309,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "2048-game" 'emacspeak-2048)
 (emacspeak-do-package-setup "tex-site" 'emacspeak-auctex)
 (emacspeak-do-package-setup "texinfo" 'emacspeak-texinfo)
+(emacspeak-do-package-setup "transient" 'emacspeak-transient)
 (emacspeak-do-package-setup "tmm" 'emacspeak-facemenu)
 (emacspeak-do-package-setup "todo-mode" 'emacspeak-todo-mode)
 (emacspeak-do-package-setup "twittering-mode" 'emacspeak-twittering)
