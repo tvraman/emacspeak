@@ -698,7 +698,7 @@ command that the key sequence executes."
     ("a" emacspeak-wizards-term)
     ("b" eww-list-buffers)
     ("c" browse-url-chrome)
-    ("d" magit-dispatch-popup)
+    ("d" magit-dispatch)
     ("e" gmaps)
     ("F" rg-dwim)
     ("f" rg)
