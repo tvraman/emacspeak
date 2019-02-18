@@ -55,24 +55,6 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-
-
-
-
-
-
-transient-resume-mode
-transient-save
-transient-set
-transient-set-level
-transient-show
-transient-suspend
-
-transient-undefined
-transient-update
-)
-
-
 (defadvice transient-toggle-common (after emacspeak pre act comp)
   "Provide auditory feedback."
   (cl-declare (special transient-show-common-commands))
@@ -90,6 +72,7 @@ transient-update
 
 (cl-loop
  for f in
+ '(transient-quit-all transient-quit-one transient-quit-seq)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
