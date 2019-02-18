@@ -129,7 +129,7 @@ s   Sub-square Distribution.
   (cl-declare (special current-board))
   (dtk-speak-list
    (cl-loop for s from 0 to 8
-            collect  (count 0 (sudoku-subsquare current-board s)))
+            collect  (cl-count 0 (sudoku-subsquare current-board s)))
    3))
 
 (defun emacspeak-sudoku-speak-current-cell-coordinates ()
