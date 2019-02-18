@@ -28,7 +28,10 @@ consequently,  directory ~linux-espeak~ has been renamed to ~native-espeak~.
 Module ~emacspeak-forge~ speech-enables package ~forge~, a magit
 companion for working with Git Forges like  Github and Gitlab.
 
+* Speech-Enable Transient 
 
+Transient is a new Hydra equivalent used by ~Magit~. Module
+~emacspeak-transient~ speech-enables ~transient~.
 ** Navi-Mode
 
 Module ~emacspeak-navi-mode.el~ speech-enables ~navi-mode~.
