@@ -2012,7 +2012,8 @@ Applies func to text with dtk-speaker-process bound to the  notification stream.
 ;;;###autoload
 (defun dtk-notify-speak (text &optional dont-log)
   "Speak text on notification stream.
-Fall back to dtk-speak if notification stream not available."
+Fall back to dtk-speak if notification stream not available.
+Notification is logged in the notifications buffer unless `dont-log' is T. "
   (cl-declare (special dtk-speaker-process emacspeak-last-message))
   (unless dont-log (emacspeak-log-notification text))
   (setq emacspeak-last-message text)
