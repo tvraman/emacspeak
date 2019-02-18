@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on February 16, 2019.
+last updated on February 17, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2947,6 +2947,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-threes::Speech-enable THREES.
 * emacspeak-tide::Speech-enable TIDE.
 * emacspeak-todo-mode::speech-enable todo-mode.
+* emacspeak-transient::Speech-enable TRANSIENT.
 * emacspeak-twittering::Speech-enable Twittering-mode.
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::Create library of URI templates.
@@ -4014,7 +4015,7 @@ system.
      a		emacspeak-wizards-term
      b		eww-list-buffers
      c		browse-url-chrome
-     d		magit-dispatch-popup
+     d		magit-dispatch
      e		gmaps
      f		rg
      g		gnus
@@ -4067,7 +4068,7 @@ system.
      s		soundscape
      t		soundscape-toggle
      u		soundscape-update-mood
-     w		??
+     w		define-word
 
      .
 

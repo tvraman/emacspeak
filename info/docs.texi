@@ -198,6 +198,7 @@ This chapter documents a total of 1226 commands and 900 options.
 * emacspeak-threes::Speech-enable THREES.
 * emacspeak-tide::Speech-enable TIDE.
 * emacspeak-todo-mode::speech-enable todo-mode.
+* emacspeak-transient::Speech-enable TRANSIENT.
 * emacspeak-twittering::Speech-enable Twittering-mode.
 * emacspeak-typo::Speech-enable TYPO.
 * emacspeak-url-template::Create library of URI templates.
@@ -1511,7 +1512,7 @@ N		emacspeak-npr-listing
 a		emacspeak-wizards-term
 b		eww-list-buffers
 c		browse-url-chrome
-d		magit-dispatch-popup
+d		magit-dispatch
 e		gmaps
 f		rg
 g		gnus
@@ -1564,7 +1565,7 @@ r		soundscape-restart
 s		soundscape
 t		soundscape-toggle
 u		soundscape-update-mood
-w		??
+w		define-word
 
 .
 
@@ -18996,6 +18997,12 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 todo-mode (part of Emacs 21) provides todo-lists that can be
 integrated with the Emacs calendar.
 This module speech-enables todo-mode
+
+@node emacspeak-transient
+@section emacspeak-transient
+
+TRANSIENT ==  Transient commands --- used by magit and friends.
+This module speech-enables transient.
 
 @node emacspeak-twittering
 @section emacspeak-twittering
