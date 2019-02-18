@@ -81,6 +81,19 @@
        (dtk-stop)
        (emacspeak-auditory-icon 'close-object)))))
 
+(cl-loop
+ for f in
+ '(transient-save transient-set)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'save-object)
+       (dtk-stop)))))
+
+
+
 
 (cl-loop
  for f in
