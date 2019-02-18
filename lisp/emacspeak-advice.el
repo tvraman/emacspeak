@@ -3017,7 +3017,7 @@ Produce auditory icons if possible."
 (defadvice lv-message (after emacspeak pre act comp)
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'help)
-  (dtk-speak (apply #'format (ad-get-args 0))))
+  (apply #'message (ad-get-args 0)))
 
 ;;}}}
 (provide 'emacspeak-advice)
