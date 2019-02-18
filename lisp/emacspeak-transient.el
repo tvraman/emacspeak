@@ -72,7 +72,7 @@
 
 (cl-loop
  for f in
- '(transient-quit-all transient-quit-one transient-quit-seq)
+ '(transient-quit-all transient-quit-one transient-quit-seq transient-suspend)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
