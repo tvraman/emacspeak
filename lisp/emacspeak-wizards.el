@@ -3346,7 +3346,7 @@ access to the various functions provided by alpha-vantage."
 
 (defvar emacspeak-wizards-iex-cache
   (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
-    (json-read-file emacspeak-wizards-iex-portfolio-file))
+    (ems--json-read-file emacspeak-wizards-iex-portfolio-file))
   "Cache retrieved data to save API calls.")
 
 (defun emacspeak-wizards-iex-uri (symbols)
@@ -3372,7 +3372,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
     (shell-command
      (format "%s -s -o %s '%s'"
              g-curl-program emacspeak-wizards-iex-portfolio-file url))
-    (setq emacspeak-wizards-iex-cache (json-read-file emacspeak-wizards-iex-portfolio-file))))
+    (setq emacspeak-wizards-iex-cache (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
