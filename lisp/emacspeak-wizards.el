@@ -3336,6 +3336,13 @@ access to the various functions provided by alpha-vantage."
 (defvar emacspeak-wizards-iex-base
   "https://api.iextrading.com/1.0"
   "Rest End-Point For iex Stock API.")
+(defun ems--json-read-file (filename)
+  "Use native json implementation if available to read json file."
+  (cond
+   ((fboundp 'json-parse-string)
+    (with-current-buffer (find-file-noselect filename)
+      (json-parse-buffer)))
+   (t (json-read-file filename))))
 
 (defvar emacspeak-wizards-iex-cache
   (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
