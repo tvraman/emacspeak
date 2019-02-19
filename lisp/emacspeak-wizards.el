@@ -3341,7 +3341,10 @@ access to the various functions provided by alpha-vantage."
   (cond
    ((fboundp 'json-parse-string)
     (with-current-buffer (find-file-noselect filename)
-      (json-parse-buffer :object-type 'alist)))
+      (goto-char (point-min))
+      (prog1
+          (json-parse-buffer :object-type 'alist)
+        (kill-buffer ))))
    (t (json-read-file filename))))
 
 (defvar emacspeak-wizards-iex-cache
