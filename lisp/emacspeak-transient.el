@@ -104,29 +104,6 @@
        (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
-;;{{{Hooks:
-
-
-(defun emacspeak-transient-post-hook ()
-  "Actions to execute after transient is done."
-  (dtk-stop)
-  (emacspeak-auditory-icon 'task-done)
-  (emacspeak-speak-mode-line))
-
-;(add-hook 'post-transient-hook 'emacspeak-transient-post-hook)
-;;}}}
-;;{{{Transient Help:
-
-(defadvice transient--describe-function (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-speak-help)))
-(defadvice transient--show-manpage (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-speak-buffer)))
-
-;;}}}
 (provide 'emacspeak-transient)
 ;;{{{ end of file
 
