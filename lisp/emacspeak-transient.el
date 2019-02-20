@@ -168,7 +168,7 @@
   (cl-declare (special lv-emacspeak-cache))
   (cond
    ((ems-interactive-p)
-    (let ((lv-buffer (get-buffer-create "*Transient-LV*"))
+    (let ((lv-buffer (get-buffer-create "*Transient-Emacspeak*"))
           (inhibit-read-only t))
       ad-do-it
       (emacspeak-auditory-icon 'close-object)
