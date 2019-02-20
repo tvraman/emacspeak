@@ -51,7 +51,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'derived)
 ;;}}}
 ;;{{{Map Faces:
 
@@ -122,20 +122,28 @@
        (dtk-stop)
        (emacspeak-auditory-icon 'select-object)))))
 
+(define-derived-mode emacspeak-transient-mode special-mode
+  "Browse current transient choices"
+  "emacspeak integration with Transient."
+  (use-local-map transient-sticky-map)
+  (local-set-key (kbd "C-c") 'transient-resume))
+
+
+
+
 (defadvice transient-suspend (around emacspeak pre act comp)
   "Provide auditory feedback."
+  (cl-declare (special lv-emacspeak-cache))
   (cond
    ((ems-interactive-p)
-    (let ((lv-buffer (get-buffer-create "*Transient-LV*"))
-          (lv-msg nil))
-      (when (lv-window)
-        (setq lv-msg
-              (with-current-buffer (window-buffer (lv-window)) (buffer-string))))
+    (let ((lv-buffer (get-buffer-create "*Transient-LV*")))
       ad-do-it
       (emacspeak-auditory-icon 'close-object)
       (with-current-buffer lv-buffer
         (erase-buffer)
-        (insert lv-msg))
+        (insert lv-emacspeak-cache)
+        (goto-char (point-min))
+        (emacspeak-transient-mode))
       (switch-to-buffer lv-buffer)
       (emacspeak-speak-mode-line)))
    (t ad-do-it))
