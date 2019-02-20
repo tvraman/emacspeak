@@ -3019,6 +3019,12 @@ Produce auditory icons if possible."
   (emacspeak-auditory-icon 'help)
   (with-current-buffer (window-buffer (lv-window)) (emacspeak-speak-buffer)))
 
+
+(defadvice lv-delete-window (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (dtk-stop)
+  (emacspeak-auditory-icon 'delete-object))
+
 ;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
