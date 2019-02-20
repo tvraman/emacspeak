@@ -62,7 +62,7 @@
 ;;; because  the list of available commands (potentially very long) gets
 ;;; spoken in its entirety by the advice on lv-message.
 ;;; 
-;;; @subsubsection Browsing Contents Of LV-Message
+;;; @subsection Browsing Contents Of LV-Message
 ;;; 
 ;;; When executing a command defined via Transient --- e.g. command
 ;;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
