@@ -125,6 +125,7 @@
 (define-derived-mode emacspeak-transient-mode special-mode
   "Browse current transient choices"
   "emacspeak integration with Transient."
+  (cl-declare (special transient-sticky-map))
   (use-local-map transient-sticky-map)
   (local-set-key (kbd "C-c") 'transient-resume))
 
