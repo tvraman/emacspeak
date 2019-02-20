@@ -126,6 +126,7 @@
      (when (ems-interactive-p)
        (dtk-stop)
        (emacspeak-auditory-icon 'close-object)
+       (when (eq major-mode 'emacspeak-transient-mode) (bury-buffer))
        (emacspeak-speak-mode-line)))))
 
 (cl-loop
@@ -167,7 +168,8 @@
   (cl-declare (special lv-emacspeak-cache))
   (cond
    ((ems-interactive-p)
-    (let ((lv-buffer (get-buffer-create "*Transient-LV*")))
+    (let ((lv-buffer (get-buffer-create "*Transient-LV*"))
+          (inhibit-read-only t))
       ad-do-it
       (emacspeak-auditory-icon 'close-object)
       (with-current-buffer lv-buffer
