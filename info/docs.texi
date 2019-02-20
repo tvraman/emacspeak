@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1226 commands and 900 options.
+This chapter documents a total of 1227 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -19003,6 +19003,126 @@ This module speech-enables todo-mode
 
 TRANSIENT ==  Transient commands --- used by magit and friends.
 This module speech-enables transient.
+
+@section Introduction
+
+Package Transient is similar to package Hydra in the sense that it can
+be used to create a sequence of chained/hierarchical commands that are
+invoked via a sequence of keys. It is used by Magit for dispatching to
+the various Git commands.
+Speech-enabling package Transient results in the various interactive
+commands producing auditory feedback. Transient uses package LV to
+show an ephemeral window with the currently available commands,
+Emacspeak speech-enables lv-message to speak that content.
+
+Finally, this module defines a new minor mode called
+transient-emacspeak  that  enables  interactive browsing of the
+contents displayed via lv-message. Note that without this
+functionality, learning complex packages like Magit would be difficult
+because  the list of available commands (potentially very long) gets
+spoken in its entirety by the advice on lv-message.
+
+@subsection Browsing Contents Of LV-Message
+
+When executing a command defined via Transient --- e.g. command
+Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
+temporarily suspend   the currently active transient. Emacspeak now
+displays a  *transient-lv* buffer that displays the contents of the
+most recently displayed transient choices. Pressing @kbd {C-c} resumes
+the transient; Pressing @kbd{C-q} quits the transient.
+
+@subsection emacspeak-transient Commands
+
+@subsubsection emacspeak-transient-mode
+@deffn {Command} emacspeak-transient-mode   
+@findex emacspeak-transient-mode
+
+@format
+emacspeak integration with Transient.
+
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-transient-mode-hook’, as the final or penultimate step
+during initialization.
+
+key             binding
+---             -------
+
+@end format
+@end deffn
+
+@subsection emacspeak-transient Options
+
+@defvar {User Option} voice-transient-argument
+Personality used for transient-argument
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-disabled-suffix
+Personality used for transient-disabled-suffix
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-enabled-suffix
+Personality used for transient-enabled-suffix
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-heading
+Personality used for transient-heading
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-inactive-argument
+Personality used for transient-inactive-argument
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-inactive-value
+Personality used for transient-inactive-value
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-key
+Personality used for transient-key
+This personality uses  voice-highlight whose  effect can be changed globally by customizing voice-highlight-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-mismatched-key
+Personality used for transient-mismatched-key
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-nonstandard-key
+Personality used for transient-nonstandard-key
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-unreachable
+Personality used for transient-unreachable
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-unreachable-key
+Personality used for transient-unreachable-key
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-transient-value
+Personality used for transient-value
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
 
 @node emacspeak-twittering
 @section emacspeak-twittering

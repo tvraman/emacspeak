@@ -125,8 +125,8 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (dtk-stop)
-       (emacspeak-speak-mode-line)
-       (emacspeak-auditory-icon 'close-object)))))
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
 
 (cl-loop
  for f in
@@ -156,6 +156,7 @@
   "emacspeak integration with Transient."
   (cl-declare (special transient-sticky-map))
   (use-local-map transient-sticky-map)
+  (local-set-key "q" 'bury-buffer)
   (local-set-key (kbd "C-c") 'transient-resume))
 
 
