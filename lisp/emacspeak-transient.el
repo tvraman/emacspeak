@@ -123,6 +123,16 @@
        (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
+;;{{{Hooks:
+
+(defun emacspeak-transient-post-hook ()
+  "Actions to execute after transient is done."
+  (dtk-stop)
+  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-speak-mode-line))
+;;; Not used: since it runs when each transient exits. 
+; (add-hook 'post-transient-hook 'emacspeak-transient-post-hook)
+;;}}}
 (provide 'emacspeak-transient)
 ;;{{{ end of file
 
