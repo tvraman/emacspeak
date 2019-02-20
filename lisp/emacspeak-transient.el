@@ -53,7 +53,7 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ Map Faces:
+;;{{{ Advice Interactive Commands:
 
 (defadvice transient-toggle-common (after emacspeak pre act comp)
   "Provide auditory feedback."
