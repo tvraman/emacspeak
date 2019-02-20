@@ -53,6 +53,25 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{Map Faces:
+
+
+
+(voice-setup-add-map 
+ '(
+   (transient-argument voice-animate)
+   (transient-disabled-suffix voice-smoothen)
+   (transient-enabled-suffix voice-brighten)
+   (transient-heading voice-bolden)
+   (transient-inactive-argument voice-smoothen-extra)
+   (transient-inactive-value voice-smoothen-extra)
+   (transient-key voice-highlight)
+   (transient-mismatched-key voice-monotone)
+   (transient-nonstandard-key voice-monotone)
+   (transient-unreachable voice-monotone)
+   (transient-unreachable-key voice-monotone)
+   (transient-value voice-brighten)))
+;;}}}
 ;;{{{ Advice Interactive Commands:
 
 (defadvice transient-toggle-common (after emacspeak pre act comp)
