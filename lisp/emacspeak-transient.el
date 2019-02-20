@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -43,6 +44,33 @@
 ;;; TRANSIENT ==  Transient commands --- used by magit and friends.
 ;;; This module speech-enables transient.
 
+;;; @section Introduction
+;;; 
+;;; Package Transient is similar to package Hydra in the sense that it can
+;;; be used to create a sequence of chained/hierarchical commands that are
+;;; invoked via a sequence of keys. It is used by Magit for dispatching to
+;;; the various Git commands.
+;;; Speech-enabling package Transient results in the various interactive
+;;; commands producing auditory feedback. Transient uses package LV to
+;;; show an ephemeral window with the currently available commands,
+;;; Emacspeak speech-enables lv-message to speak that content.
+;;; 
+;;; Finally, this module defines a new minor mode called
+;;; transient-emacspeak  that  enables  interactive browsing of the
+;;; contents displayed via lv-message. Note that without this
+;;; functionality, learning complex packages like Magit would be difficult
+;;; because  the list of available commands (potentially very long) gets
+;;; spoken in its entirety by the advice on lv-message.
+;;; 
+;;; @subsubsection Browsing Contents Of LV-Message
+;;; 
+;;; When executing a command defined via Transient --- e.g. command
+;;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
+;;; temporarily suspend   the currently active transient. Emacspeak now
+;;; displays a  *transient-lv* buffer that displays the contents of the
+;;; most recently displayed transient choices. Pressing @kbd {C-c} resumes
+;;; the transient; Pressing @kbd{C-q} quits the transient.
+;;; 
 ;;; Code:
 
 ;;}}}
@@ -97,6 +125,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (dtk-stop)
+       (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'close-object)))))
 
 (cl-loop
