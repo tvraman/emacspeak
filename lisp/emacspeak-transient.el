@@ -122,6 +122,25 @@
        (dtk-stop)
        (emacspeak-auditory-icon 'select-object)))))
 
+(defadvice transient-suspend (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (let ((lv-buffer (get-buffer-create "*Transient-LV*"))
+          (lv-msg nil))
+      (when (lv-window)
+        (setq lv-msg
+              (with-current-buffer (window-buffer (lv-window)) (buffer-string))))
+      ad-do-it
+      (emacspeak-auditory-icon 'close-object)
+      (with-current-buffer lv-buffer
+        (erase-buffer)
+        (insert lv-msg))
+      (switch-to-buffer lv-buffer)
+      (emacspeak-speak-mode-line)))
+   (t ad-do-it))
+  ad-return-value)
+
 ;;}}}
 ;;{{{Hooks:
 
