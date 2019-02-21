@@ -189,6 +189,7 @@ Press `C-c' to resume the suspended transient."
 
 (defun emacspeak-transient-post-hook ()
   "Actions to execute after transient is done."
+  (cl-declare (special transient--stack))
   (unless transient--stack
     (dtk-stop)
     (emacspeak-auditory-icon 'task-done)
