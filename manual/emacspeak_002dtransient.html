@@ -84,6 +84,201 @@
   "emacspeak_002dtransient-1"></a>
   <h3 class="section">12.192 emacspeak-transient</h3>
   <p>TRANSIENT == Transient commands — used by magit and friends.
-  This module speech-enables transient.</p>
+  This module speech-enables transient.</p><a name="Introduction-3"
+  id="Introduction-3"></a>
+  <h3 class="section">12.193 Introduction</h3>
+  <p>Package Transient is similar to package Hydra in the sense
+  that it can be used to create a sequence of chained/hierarchical
+  commands that are invoked via a sequence of keys. It is used by
+  Magit for dispatching to the various Git commands.
+  Speech-enabling package Transient results in the various
+  interactive commands producing auditory feedback. Transient uses
+  package LV to show an ephemeral window with the currently
+  available commands, Emacspeak speech-enables lv-message to speak
+  that content.</p>
+  <p>Finally, this module defines a new minor mode called
+  transient-emacspeak that enables interactive browsing of the
+  contents displayed via lv-message. Note that without this
+  functionality, learning complex packages like Magit would be
+  difficult because the list of available commands (potentially
+  very long) gets spoken in its entirety by the advice on
+  lv-message.</p><a name="Browsing-Contents-Of-LV_002dMessage" id=
+  "Browsing-Contents-Of-LV_002dMessage"></a>
+  <h4 class="subsection">12.193.1 Browsing Contents Of
+  LV-Message</h4>
+  <p>When executing a command defined via Transient — e.g. command
+  Magit-dispatch and friends, press <kbd>C-z</kbd>
+  (transient-suspend) to temporarily suspend the currently active
+  transient. Emacspeak now displays a *transient-lv* buffer that
+  displays the contents of the most recently displayed transient
+  choices. Pressing <kbd>C-c</kbd> resumes the transient; Pressing
+  <kbd>C-q</kbd> quits the transient.</p><a name=
+  "emacspeak_002dtransient-Commands" id=
+  "emacspeak_002dtransient-Commands"></a>
+  <h4 class="subsection">12.193.2 emacspeak-transient
+  Commands</h4><a name="emacspeak_002dtransient_002dmode" id=
+  "emacspeak_002dtransient_002dmode"></a>
+  <h4 class="subsubsection">12.193.2.1
+  emacspeak-transient-mode</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002dtransient_002dmode" id=
+    "index-emacspeak_002dtransient_002dmode"></a>Command:
+    <strong>emacspeak-transient-mode</strong></dt>
+    <dd>
+      <a name="index-emacspeak_002dtransient_002dmode-1" id=
+      "index-emacspeak_002dtransient_002dmode-1"></a>
+      <div class="format">
+        <pre class="format">emacspeak integration with Transient.
+
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-transient-mode-hook’, as the final or penultimate step
+during initialization.
+
+key             binding
+—             ——-
+
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dtransient-Options" id=
+  "emacspeak_002dtransient-Options"></a>
+  <h4 class="subsection">12.193.3 emacspeak-transient Options</h4>
+  <dl>
+    <dt><a name="index-User-Option-786" id=
+    "index-User-Option-786"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-argument</em></dt>
+    <dd>
+      <p>Personality used for transient-argument This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-787" id=
+    "index-User-Option-787"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-disabled-suffix</em></dt>
+    <dd>
+      <p>Personality used for transient-disabled-suffix This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-788" id=
+    "index-User-Option-788"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-enabled-suffix</em></dt>
+    <dd>
+      <p>Personality used for transient-enabled-suffix This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-789" id=
+    "index-User-Option-789"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-heading</em></dt>
+    <dd>
+      <p>Personality used for transient-heading This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-790" id=
+    "index-User-Option-790"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-inactive-argument</em></dt>
+    <dd>
+      <p>Personality used for transient-inactive-argument This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-791" id=
+    "index-User-Option-791"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-inactive-value</em></dt>
+    <dd>
+      <p>Personality used for transient-inactive-value This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-792" id=
+    "index-User-Option-792"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-key</em></dt>
+    <dd>
+      <p>Personality used for transient-key This personality uses
+      voice-highlight whose effect can be changed globally by
+      customizing voice-highlight-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-793" id=
+    "index-User-Option-793"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-mismatched-key</em></dt>
+    <dd>
+      <p>Personality used for transient-mismatched-key This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-794" id=
+    "index-User-Option-794"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-nonstandard-key</em></dt>
+    <dd>
+      <p>Personality used for transient-nonstandard-key This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-795" id=
+    "index-User-Option-795"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-unreachable</em></dt>
+    <dd>
+      <p>Personality used for transient-unreachable This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-796" id=
+    "index-User-Option-796"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-unreachable-key</em></dt>
+    <dd>
+      <p>Personality used for transient-unreachable-key This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt><a name="index-User-Option-797" id=
+    "index-User-Option-797"></a>Variable: <strong>User
+    Option</strong> <em>voice-transient-value</em></dt>
+    <dd>
+      <p>Personality used for transient-value This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dtwittering.html#emacspeak_002dtwittering"
+    accesskey="n" rel="next">emacspeak-twittering</a>, Previous:
+    <a href=
+    "emacspeak_002dtodo_002dmode.html#emacspeak_002dtodo_002dmode"
+    accesskey="p" rel="prev">emacspeak-todo-mode</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
