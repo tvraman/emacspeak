@@ -3014,7 +3014,7 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{lv-message:
-(voice-setup-map-face 'lv-separator 'inaudible)
+
 (defvar lv-emacspeak-cache nil
   "Emacspeak's private cache of the last lv message.")
 
