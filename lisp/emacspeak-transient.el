@@ -164,7 +164,9 @@
 
 
 (defadvice transient-suspend (around emacspeak pre act comp)
-  "Provide auditory feedback."
+  "Pop to *Transient-emacspeak* buffer where the message emitted by
+the transient can be browsed.
+Press `C-c' to resume the suspended transient."
   (cl-declare (special lv-emacspeak-cache))
   (cond
    ((ems-interactive-p)
