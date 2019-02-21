@@ -85,7 +85,7 @@
     (?– . " -- ")                       ; n-dash
     (?— . " --- ")                      ; m-dash
     (?  . " ")                          ; hair space
-    (?  . " ") thin space
+    (?  . " ") ; thin space
     (?― . "----")                       ; horizontal bar
     (?‖ . "||")                         ; vertical bar
     (?… . "...")                        ; ellipses
