@@ -176,6 +176,7 @@ Press `C-c' to resume the suspended transient."
       (emacspeak-auditory-icon 'close-object)
       (with-current-buffer lv-buffer
         (erase-buffer)
+        (insert "C-c to resume, C-g to quit.\n\n")
         (insert lv-emacspeak-cache)
         (goto-char (point-min))
         (emacspeak-transient-mode))
