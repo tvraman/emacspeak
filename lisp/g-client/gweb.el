@@ -95,13 +95,9 @@ n == News.")
 ;;}}}
 ;;{{{ google suggest helper:
 
-(defvar gweb-search-suggest-url
-  "http://suggestqueries.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=chrome&q=%s"
-  "URL  that gets suggestions from Google as JSON.")
-
 (defvar gweb-g-suggest-url
   "http://suggestqueries.google.com/complete/search?ds=%s&q=%s&client=chrome"
-  "Query Suggest: Youtube: yt, News: n")
+  "Query Suggest: ds param is empty for Search, Youtube: yt, News: n")
 
 (defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
