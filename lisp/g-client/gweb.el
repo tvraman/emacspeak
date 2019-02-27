@@ -164,7 +164,7 @@ Uses corpus found in gweb-completion-corpus"
 
 (defun gweb-google-autocomplete (&optional prompt)
   "Autocomplete using Google Search corpus."
-  (let ((gweb-completion-corpus "psy"))
+  (let ((gweb-completion-corpus ""))
     (gweb--autocomplete-helper (or prompt "Google: "))))
 
 (defun gweb-youtube-autocomplete (&optional prompt)
