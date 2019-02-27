@@ -92,7 +92,7 @@
 ;;{{{ google suggest helper:
 
 (defvar gweb-search-suggest-url
-  "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=%s&q=%s"
+  "http://suggestqueries.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=chrome&q=%s"
   "URL  that gets suggestions from Google as JSON.")
 
 (defvar gweb-g-suggest-url 
@@ -110,8 +110,7 @@
             (format
              (cond
               ((string= corpus "psy") gweb-search-suggest-url)
-              (t gweb-g-suggest-url))
-             corpus
+              (t (format  gweb-g-suggest-url corpus)))
              (g-url-encode input)))
            (js (g-json-from-url url)))
       (setq js  (aref js 1))
@@ -119,10 +118,7 @@
        for e across js collect
        (replace-regexp-in-string
         "</?b>" ""
-;;; note: psy is different:
-        (if (string= corpus "psy")
-            (aref e 0)
-          e))))))
+          e)))))
 
 (defvar gweb-google-suggest-metadata
   '(metadata .
