@@ -57,12 +57,12 @@
 ;;; 
 ;;; Finally, this module defines a new minor mode called
 ;;; transient-emacspeak  that  enables  interactive browsing of the
-;;; contents displayed via lv-message. Note that without this
+;;; contents displayed temporarily. Note that without this
 ;;; functionality, learning complex packages like Magit would be difficult
 ;;; because  the list of available commands (potentially very long) gets
-;;; spoken in its entirety by the advice on lv-message.
+;;; spoken in its entirety by the advice on transient--show
 ;;; 
-;;; @subsection Browsing Contents Of LV-Message
+;;; @subsection Browsing Contents Of transient--show
 ;;; 
 ;;; When executing a command defined via Transient --- e.g. command
 ;;; Magit-dispatch and friends, press @kbd {C-z} (transient-suspend) to
@@ -162,10 +162,15 @@
 
 
 
+(defvar emacspeak-transient-cache nil
+  "Cache of the last Transient buffer contents.")
+
 (defadvice transient--show (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (window-live-p transient--window)
     (with-current-buffer (window-buffer transient--window)
+      (setq emacspeak-transient-cache
+            (buffer-substring (point-min)  (point-max)))
       (emacspeak-auditory-icon 'open-object)
       (emacspeak-speak-buffer))))
 
@@ -173,20 +178,20 @@
   "Pop to *Transient-emacspeak* buffer where the message emitted by
 the transient can be browsed.
 Press `C-c' to resume the suspended transient."
-  (cl-declare (special lv-emacspeak-cache))
+  (cl-declare (special emacspeak-transient-cache))
   (cond
    ((ems-interactive-p)
-    (let ((lv-buffer (get-buffer-create "*Transient-Emacspeak*"))
+    (let ((buff (get-buffer-create "*Transient-Emacspeak*"))
           (inhibit-read-only t))
       ad-do-it
       (emacspeak-auditory-icon 'close-object)
-      (with-current-buffer lv-buffer
+      (with-current-buffer buff
         (erase-buffer)
         (insert "C-c to resume, C-g to quit.\n\n")
-        (insert lv-emacspeak-cache)
+        (insert emacspeak-transient-cache)
         (goto-char (point-min))
         (emacspeak-transient-mode))
-      (switch-to-buffer lv-buffer)
+      (switch-to-buffer buff)
       (emacspeak-speak-mode-line)))
    (t ad-do-it))
   ad-return-value)
