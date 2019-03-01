@@ -51,8 +51,8 @@
 ;;; invoked via a sequence of keys. It is used by Magit for dispatching to
 ;;; the various Git commands.
 ;;; Speech-enabling package Transient results in the various interactive
-;;; commands producing auditory feedback. Transient uses package LV to
-;;; show an ephemeral window with the currently available commands,
+;;; commands producing auditory feedback. Transient
+;;;shows an ephemeral window with the currently available commands,
 ;;; Emacspeak speech-enables transient--show to speak that content.
 ;;; 
 ;;; Finally, this module defines a new minor mode called
