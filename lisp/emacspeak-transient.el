@@ -162,6 +162,12 @@
 
 
 
+(defadvice transient--show (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (window-live-p transient--window)
+    (with-current-buffer (window-buffer transient--window)
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-buffer))))
 
 (defadvice transient-suspend (around emacspeak pre act comp)
   "Pop to *Transient-emacspeak* buffer where the message emitted by
