@@ -84,6 +84,7 @@
 ;;{{{Map Faces:
 
 
+(voice-setup-set-voice-for-face 'transient-separator  'inaudible)
 
 (voice-setup-add-map 
  '(
