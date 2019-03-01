@@ -1235,8 +1235,8 @@ be used to create a sequence of chained/hierarchical commands that are
 invoked via a sequence of keys.  It is used by Magit for dispatching to
 the various Git commands.  Speech-enabling package Transient results in
 the various interactive commands producing auditory feedback.  Transient
-uses package LV to show an ephemeral window with the currently available
-commands, Emacspeak speech-enables transient–show to speak that content.
+shows an ephemeral window with the currently available commands,
+Emacspeak speech-enables transient–show to speak that content.
 
    Finally, this module defines a new minor mode called
 transient-emacspeak that enables interactive browsing of the contents
