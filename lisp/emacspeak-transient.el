@@ -53,7 +53,7 @@
 ;;; Speech-enabling package Transient results in the various interactive
 ;;; commands producing auditory feedback. Transient uses package LV to
 ;;; show an ephemeral window with the currently available commands,
-;;; Emacspeak speech-enables lv-message to speak that content.
+;;; Emacspeak speech-enables transient--show to speak that content.
 ;;; 
 ;;; Finally, this module defines a new minor mode called
 ;;; transient-emacspeak  that  enables  interactive browsing of the
