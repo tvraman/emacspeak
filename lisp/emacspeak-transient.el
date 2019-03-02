@@ -60,7 +60,7 @@
 ;;; contents displayed temporarily. Note that without this
 ;;; functionality, learning complex packages like Magit would be difficult
 ;;; because  the list of available commands (potentially very long) gets
-;;; spoken in its entirety by the advice on transient--show
+;;; spoken in its entirety by the advice on transient--show.
 ;;; 
 ;;; @subsection Browsing Contents Of transient--show
 ;;; 
