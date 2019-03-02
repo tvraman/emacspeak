@@ -44,7 +44,7 @@
 ;;; TRANSIENT ==  Transient commands --- used by magit and friends.
 ;;; This module speech-enables transient.
 
-;;; @section Introduction
+;;; @subsection Introduction
 ;;; 
 ;;; Package Transient is similar to package Hydra in the sense that it can
 ;;; be used to create a sequence of chained/hierarchical commands that are

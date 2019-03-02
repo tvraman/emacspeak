@@ -1243,7 +1243,7 @@ transient-emacspeak that enables interactive browsing of the contents
 displayed temporarily.  Note that without this functionality, learning
 complex packages like Magit would be difficult because the list of
 available commands (potentially very long) gets spoken in its entirety
-by the advice on transient–show
+by the advice on transient–show.
 
 12.193.1 Browsing Contents Of transient–show
 --------------------------------------------
