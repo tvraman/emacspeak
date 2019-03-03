@@ -90,7 +90,7 @@
     (unless (locate-library "hydra") (package-install 'hydra))))
 (require 'emacspeak-hydra)
 (require 'hideshow)
-(require 'emacspeak-maths)
+(require 'emacspeak-maths nil 'no-error)
 (require 'org)
 (require 'origami "origami" 'no-error)
 (require 'smartparens "smartparens" 'no-error)
