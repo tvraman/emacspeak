@@ -2478,7 +2478,7 @@ etc.  Speaking commences at current buffer position.  Pressing
 was spoken.  Any other key continues to speak the buffer."
   (interactive)
   (let ((command
-         (key-binding (read-key-sequence "Press key sequence to repeat: "))))
+         (key-binding (read-key-sequence "Press navigation key to repeat: "))))
     (unless command (error "You specified an invalid key sequence.  "))
     (emacspeak-execute-repeatedly command)))
 
