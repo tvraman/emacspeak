@@ -137,6 +137,7 @@
   (tvr-fastload
    (let ((after-start (current-time)))
      (dynamic-completion-mode 1)
+     (jka-compr-install)
      (auto-compression-mode )
      (completion-initialize)
      (mapc
