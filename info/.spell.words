@@ -347,8 +347,6 @@ LISPY
 loc
 lua
 LUA
-lv
-LV
 magit
 Magit
 MAGIT
@@ -597,6 +595,8 @@ transcoder
 Transcoder
 Treese
 trplayer
+tts
+TTS
 tty
 TuneIn
 tvr
