@@ -137,6 +137,7 @@
   (tvr-fastload
    (let ((after-start (current-time)))
      (dynamic-completion-mode 1)
+     (auto-compression-mode )
      (completion-initialize)
      (mapc
       (if (getenv "TVR_TIME_EMS")
