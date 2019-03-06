@@ -2313,8 +2313,8 @@ personality."
   (let ((start (dtk-previous-style-change (point)))
         (end (dtk-next-style-change (point))))
     (emacspeak-speak-region
-     (or start (point-min))
-     (or end (point-max)))))
+     (if  start (1+ start) (point-min))
+     (or  end  (point-max)))))
 
 ;;;###autoload
 (defun emacspeak-speak-next-personality-chunk ()
@@ -2484,10 +2484,10 @@ was spoken.  Any other key continues to speak the buffer."
 
 ;;;###autoload
 (defun emacspeak-speak-browse-buffer-by-style (&optional browse)
-  "Browse current buffer.
-Default is to speak chunk having current personality.
+  "Browse current buffer by style.
+Default is to speak chunk having currentstyle.
 Interactive prefix arg `browse'  repeatedly browses  through
-  chunks having same personality as the current text chunk."
+  chunks having samestyle as the current text chunk."
   (interactive "P")
   (cond
    (browse
