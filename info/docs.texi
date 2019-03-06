@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1227 commands and 912 options.
+This chapter documents a total of 1225 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1251,7 +1251,7 @@ $		emacspeak-shell-command
 '		emacspeak-speak-sexp
 (		emacspeak-audio-setup
 )		emacspeak-sounds-select-theme
-,		emacspeak-speak-browse-buffer
+,		emacspeak-speak-skim-buffer
 .		dtk-notify-stop
 /		emacspeak-speak-this-buffer-other-window-display
 0 .. 9		emacspeak-speak-predefined-window
@@ -15671,22 +15671,15 @@ Speak extent delimited by point and last character typed.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-browse-buffer
-@deffn {Command} emacspeak-speak-browse-buffer  (&optional browse)
-@table @kbd
-@item C-e ,
-@kindex C-e ,
-@item <fn> ,
-@kindex <fn> ,
-@end table
-
-@findex emacspeak-speak-browse-buffer
+@subsubsection emacspeak-speak-browse-buffer-by-style
+@deffn {Command} emacspeak-speak-browse-buffer-by-style  (&optional browse)
+@findex emacspeak-speak-browse-buffer-by-style
 
 @format
-Browse current buffer.
-Default is to speak chunk having current personality.
+Browse current buffer by style.
+Default is to speak chunk having current style.
 Interactive prefix arg ‘browse’  repeatedly browses  through
-  chunks having same personality as the current text chunk.
+  chunks having same style as the current text chunk.
 
 (fn &optional BROWSE)
 @end format
@@ -16748,31 +16741,17 @@ also copied to the kill ring for convenient yanking.
 
 @subsubsection emacspeak-speak-skim-buffer
 @deffn {Command} emacspeak-speak-skim-buffer   
+@table @kbd
+@item C-e ,
+@kindex C-e ,
+@item <fn> ,
+@kindex <fn> ,
+@end table
+
 @findex emacspeak-speak-skim-buffer
 
 @format
 Skim the current buffer  a paragraph at a time.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-skim-next-paragraph
-@deffn {Command} emacspeak-speak-skim-next-paragraph   
-@findex emacspeak-speak-skim-next-paragraph
-
-@format
-Skim next paragraph.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-skim-paragraph
-@deffn {Command} emacspeak-speak-skim-paragraph   
-@findex emacspeak-speak-skim-paragraph
-
-@format
-Skim paragraph.
-Skimming a paragraph results in the speech speeding up after
-the first clause.
-Speech is scaled by the value of dtk-speak-skim-scale
 @end format
 @end deffn
 
