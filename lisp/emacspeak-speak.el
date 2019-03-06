@@ -2321,14 +2321,12 @@ personality."
   "Moves to the front of next chunk having current personality.
 Speak that chunk after moving."
   (interactive)
-  (let ((personality (dtk-get-style))
-        (this-end (dtk-next-style-change (point) (point-max)))
+  (let ((this-end (dtk-next-style-change (point) (point-max)))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
            (setq next-start
-                 (text-property-any this-end (point-max)
-                                    'personality personality)))
+                 (dtk-next-style-change this-end (point-max))))
       (goto-char next-start)
       (forward-char 1)
       (emacspeak-speak-this-personality-chunk))
