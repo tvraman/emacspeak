@@ -111,7 +111,6 @@
 ;;}}}
 ;;{{{  line, Word and Character echo
 
-
 (defcustom emacspeak-line-echo nil
   "If t, then emacspeak echoes lines as you type.
 You can use \\[emacspeak-toggle-line-echo] to set this
