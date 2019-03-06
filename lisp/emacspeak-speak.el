@@ -2392,7 +2392,7 @@ Speak that chunk after moving."
     (emacspeak-auditory-icon 'large-movement)))
 
 ;;}}}
-;;{{{ speakingface/personality  chunks
+;;{{{ speaking face/personality  chunks
 
 ;;;###autoload
 (defun emacspeak-speak-this-face-chunk ()
