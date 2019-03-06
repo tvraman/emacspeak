@@ -2406,20 +2406,18 @@ Speak that chunk after moving."
 
 ;;;###autoload
 (defun emacspeak-speak-next-face-chunk ()
-  "Moves to the front of next chunk having currentstyle.
+  "Moves to the front of next chunk having current style.
 Speak that chunk after moving."
   (interactive)
-  (let ((face (get-text-property (point) 'face))
-        (this-end (next-single-property-change (point) 'face))
+  (let ((style (dtk-get-style))
+        (this-end (dtk-next-style-change))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
-           (setq next-start
-                 (text-property-any this-end (point-max)
-                                    'face face)))
+           (setq next-start (dtk-next-style-change this-end)))
       (goto-char next-start)
-      (forward-char 1)
-      (emacspeak-speak-this-face-chunk))
+      (when (eq style (dtk-get-style))
+        (emacspeak-speak-this-face-chunk)))
      (t (message "No more chunks with current face.")))))
 
 ;;;###autoload
@@ -2427,17 +2425,16 @@ Speak that chunk after moving."
   "Moves to the front of previous chunk having current face.
 Speak that chunk after moving."
   (interactive)
-  (let ((face (get-char-property (point) 'face))
-        (this-start (previous-char-property-change (point)))
-        (next-end nil))
+  (let ((style (dtk-get-sty))
+        (this-start (dtk-previous-style-change))
+        (prev-end nil))
     (cond
      ((and (> this-start (point-min))
-           (setq next-end
-                 (ems-backwards-text-property-any (1- this-start) (point-min)
-                                                  'face face)))
-      (goto-char next-end)
-      (backward-char 1)
-      (emacspeak-speak-this-face-chunk))
+           (setq prev-end
+                 (dtk-previous-style-change (1- this-start))))
+      (goto-char prev-end)
+      (when (eq style (dtk-get-style))
+        (emacspeak-speak-this-face-chunk)))
      (t (error "No previous  chunks with current face.")))))
 
 ;;}}}
