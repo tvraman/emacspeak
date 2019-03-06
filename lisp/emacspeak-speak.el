@@ -2441,7 +2441,7 @@ Speak that chunk after moving."
      (t (error "No previous  chunks with current face.")))))
 
 ;;}}}
-;;{{{  Execute command repeatedly, browse
+;;{{{  Execute command repeatedly,
 
 ;;;###autoload
 (defun emacspeak-execute-repeatedly (command)
