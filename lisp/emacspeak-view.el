@@ -252,7 +252,7 @@
                          'personality voice-annotate line-number)
       (emacspeak-auditory-icon 'large-movement)
       (dtk-speak
-       (concat line-number (ems-this-line))))))
+       (concat line-number (ems--this-line))))))
 (defadvice View-scroll-to-buffer-end (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)

@@ -291,7 +291,7 @@ On a directory line, run du -s on the directory to speak its size."
       (when (= size -1)
         (setq size
               (nth  4
-                    (split-string (ems-this-line)))))
+                    (split-string (ems--this-line)))))
       (emacspeak-auditory-icon 'select-object)
       (message "File size %s"
                size))

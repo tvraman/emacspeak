@@ -211,7 +211,7 @@ commands. "
     (when (or  emacspeak-outline-dont-query-before-speaking
                (y-or-n-p
                 (format  "Speak %s lines from section %s"
-                         (count-lines start end) (ems-this-line))))
+                         (count-lines start end) (ems--this-line))))
       (emacspeak-speak-region start end))))
 ;;;###autoload
 (defun emacspeak-outline-speak-next-heading ()
@@ -259,7 +259,7 @@ except that the outline section is  spoken"
      (or emacspeak-outline-dont-query-before-speaking
          (y-or-n-p
           (format "Speak %s lines from section %s"
-                  (count-lines start end) (ems-this-line))))
+                  (count-lines start end) (ems--this-line))))
      (emacspeak-speak-region start end))))
 
 ;;{{{ bind these in outline mode
@@ -293,7 +293,7 @@ except that the outline section is  spoken"
     (emacspeak-auditory-icon 'open-object)
     (message
      "Zoomed into outline %s containing %s lines"
-     (ems-this-line) (count-lines (point-min) (point-max)))))
+     (ems--this-line) (count-lines (point-min) (point-max)))))
 
 (defadvice foldout-exit-fold (after emacspeak pre act comp)
   "Provide auditory feedback when exiting a fold"

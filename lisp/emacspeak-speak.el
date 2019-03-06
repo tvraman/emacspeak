@@ -80,7 +80,7 @@
 ;;}}}
 ;;{{{ This line:
 
-(defun ems-this-line ()
+(defsubst ems--this-line ()
   "Return current line as string."
   (buffer-substring (line-beginning-position) (line-end-position)))
 
@@ -2298,7 +2298,7 @@ by a change in voice personality."
       (goto-char pos)
       (ems-set-personality-temporarily
        pos (1+ pos) voice-animate
-       (setq line (ems-this-line))))
+       (setq line (ems--this-line))))
     (dtk-speak
      (concat context line))))
 
@@ -2678,7 +2678,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
       (emacspeak-speak-line)
       (when (and (called-interactively-p 'interactive)
                  emacspeak-speak-message-again-should-copy-to-kill-ring)
-        (kill-new (ems-this-line)))))))
+        (kill-new (ems--this-line)))))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
