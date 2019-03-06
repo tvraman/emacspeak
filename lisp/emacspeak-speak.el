@@ -2392,21 +2392,21 @@ Speak that chunk after moving."
     (emacspeak-auditory-icon 'large-movement)))
 
 ;;}}}
-;;{{{ speaking Face chunks
+;;{{{ speakingface/personality  chunks
 
 ;;;###autoload
 (defun emacspeak-speak-this-face-chunk ()
   "Speak chunk of text around point that has current face."
   (interactive)
-  (let ((start (previous-char-property-change (point)))
-        (end (next-char-property-change (point))))
+  (let ((start (dtk-previous-style-change (point)))
+        (end (dtk-next-style-change (point))))
     (emacspeak-speak-region
-     (or start (point-min))
+     (if  start (1- start) (point-min))
      (or end (point-max)))))
 
 ;;;###autoload
 (defun emacspeak-speak-next-face-chunk ()
-  "Moves to the front of next chunk having current face.
+  "Moves to the front of next chunk having currentstyle.
 Speak that chunk after moving."
   (interactive)
   (let ((face (get-text-property (point) 'face))
@@ -2492,7 +2492,6 @@ Interactive prefix arg `browse'  repeatedly browses  through
     (emacspeak-execute-repeatedly
      'emacspeak-speak-next-personality-chunk))
    (t (emacspeak-speak-this-personality-chunk))))
-
 
 ;;}}}
 ;;{{{  skimming
