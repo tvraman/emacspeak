@@ -2397,10 +2397,10 @@ Speak that chunk after moving."
 (defun emacspeak-speak-this-face-chunk ()
   "Speak chunk of text around point that has current face."
   (interactive)
-  (let ((start (dtk-previous-style-change (point)))
-        (end (dtk-next-style-change (point))))
+  (let ((start (previous-single-property-change (point) 'face))
+        (end (next-single-property-change (point) 'face (point))))
     (emacspeak-speak-region
-     (if  start (1- start) (point-min))
+     (if  start (1+ start) (point-min))
      (or end (point-max)))))
 
 ;;;###autoload
@@ -2408,14 +2408,14 @@ Speak that chunk after moving."
   "Moves to the front of next chunk having current style.
 Speak that chunk after moving."
   (interactive)
-  (let ((style (dtk-get-style))
-        (this-end (dtk-next-style-change))
+  (let ((face (get-text-property (point) 'face))
+        (this-end (next-single-property-change (point) 'face))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
-           (setq next-start (dtk-next-style-change this-end)))
+           (setq next-start (next-single-property-change this-end 'face)))
       (goto-char next-start)
-      (when (eq style (dtk-get-style))
+      (when (eq face  (get-text-property (point) 'face))
         (emacspeak-speak-this-face-chunk)))
      (t (message "No more chunks with current face.")))))
 
@@ -2424,15 +2424,15 @@ Speak that chunk after moving."
   "Moves to the front of previous chunk having current face.
 Speak that chunk after moving."
   (interactive)
-  (let ((style (dtk-get-sty))
-        (this-start (dtk-previous-style-change))
+  (let ((face (get-text-property (point) 'face))
+        (this-start (previous-single-property-change (point)  'face))
         (prev-end nil))
     (cond
      ((and (> this-start (point-min))
            (setq prev-end
-                 (dtk-previous-style-change (1- this-start))))
+                 (previous-single-property-change (1- this-start) 'face)))
       (goto-char prev-end)
-      (when (eq style (dtk-get-style))
+      (when (eq face (get-text-property (point) 'face))
         (emacspeak-speak-this-face-chunk)))
      (t (error "No previous  chunks with current face.")))))
 
