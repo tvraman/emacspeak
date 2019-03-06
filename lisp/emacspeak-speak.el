@@ -86,7 +86,7 @@
 
 ;;}}}
 ;;{{{ Helper: voicify string
-(defun ems-voiceify-string (string personality)
+(defsubst ems-voiceify-string (string personality)
   "Apply personality PERSONALITY to STRING."
   (put-text-property 0 (length string)
                      'personality personality string))
