@@ -182,7 +182,7 @@
    ("'" emacspeak-speak-sexp)
    ("(" emacspeak-audio-setup)
    (")" emacspeak-sounds-select-theme)
-   ("," emacspeak-speak-browse-buffer)
+   ("," emacspeak-speak-browse-buffer-by-style)
    ("." emacspeak-speak-current-field)
    ("/" emacspeak-speak-this-buffer-other-window-display)
    (":" emacspeak-m-player-shuffle)

@@ -2483,7 +2483,7 @@ was spoken.  Any other key continues to speak the buffer."
     (emacspeak-execute-repeatedly command)))
 
 ;;;###autoload
-(defun emacspeak-speak-browse-buffer (&optional browse)
+(defun emacspeak-speak-browse-buffer-by-style (&optional browse)
   "Browse current buffer.
 Default is to speak chunk having current personality.
 Interactive prefix arg `browse'  repeatedly browses  through
