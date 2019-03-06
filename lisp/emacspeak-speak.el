@@ -2481,11 +2481,11 @@ was spoken.  Any other key continues to speak the buffer."
     (emacspeak-execute-repeatedly command)))
 
 ;;;###autoload
-(defun emacspeak-speak-browse-buffer-by-style (&optional browse)
+(defun      emacspeak-speak-browse-buffer-by-style (&optional browse)
   "Browse current buffer by style.
-Default is to speak chunk having currentstyle.
+Default is to speak chunk having current style.
 Interactive prefix arg `browse'  repeatedly browses  through
-  chunks having samestyle as the current text chunk."
+  chunks having same style as the current text chunk."
   (interactive "P")
   (cond
    (browse
@@ -2493,40 +2493,15 @@ Interactive prefix arg `browse'  repeatedly browses  through
      'emacspeak-speak-next-personality-chunk))
    (t (emacspeak-speak-this-personality-chunk))))
 
-(defvar emacspeak-read-line-by-line-quotient 10
-  "Determines behavior of emacspeak-read-line-by-line.")
+
 ;;}}}
 ;;{{{  skimming
-
-;;;###autoload
-(defun emacspeak-speak-skim-paragraph ()
-  "Skim paragraph.
-Skimming a paragraph results in the speech speeding up after
-the first clause.
-Speech is scaled by the value of dtk-speak-skim-scale"
-  (interactive)
-  (save-excursion
-    (let ((inhibit-point-motion-hooks t)
-          (start nil)
-          (end nil))
-      (forward-paragraph 1)
-      (setq end (point))
-      (backward-paragraph 1)
-      (setq start (point))
-      (dtk-speak (buffer-substring start end)))))
-
-;;;###autoload
-(defun emacspeak-speak-skim-next-paragraph ()
-  "Skim next paragraph."
-  (interactive)
-  (forward-paragraph 1)
-  (emacspeak-speak-skim-paragraph))
 
 ;;;###autoload
 (defun emacspeak-speak-skim-buffer ()
   "Skim the current buffer  a paragraph at a time."
   (interactive)
-  (emacspeak-execute-repeatedly 'emacspeak-speak-skim-next-paragraph))
+  (emacspeak-execute-repeatedly 'forward-paragraph))
 
 ;;}}}
 ;;{{{ comint
