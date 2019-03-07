@@ -2398,7 +2398,7 @@ Speak that chunk after moving."
   "Speak chunk of text around point that has current face."
   (interactive)
   (let ((start (previous-single-property-change (point) 'face))
-        (end (next-single-property-change (point) 'face (point))))
+        (end (next-single-property-change (point) 'face )))
     (emacspeak-speak-region
      (if  start (1+ start) (point-min))
      (or end (point-max)))))
