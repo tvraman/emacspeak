@@ -1060,9 +1060,10 @@ JSON is retrieved from `url'."
       (read-from-minibuffer "Zip: "
                             (bound-and-true-p gweb-my-zip))))
  #'(lambda ()
-     (eww-view-dom-having-class "city-body"))
- "Weather forecast from weather underground mobile."
- )
+     (with-demoted-errors
+         (eww-display-dom-by-class "city-body"))
+     (emacspeak-speak-buffer))
+ "Weather forecast from weather underground mobile.")
 
 ;;}}}
 ;;{{{ airport conditions:
