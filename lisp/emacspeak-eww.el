@@ -533,10 +533,9 @@ are available are cued by an auditory icon on the header line."
   (emacspeak-auditory-icon (if emacspeak-eww-masquerade 'on 'off)))
 
 (defcustom  emacspeak-eww-masquerade-as
-  (format "User-Agent: %s %s %s\r\n"
-          "Mozilla/5.0 (X11; Linux i686 (x86_64)) "
-          "AppleWebKit/537.36 (KHTML, like Gecko) "
-          "Chrome/62.0.2785.8-1 Safari/537.36")
+  (format "User-Agent: %s\r\n"
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3724.8 Safari/537.36"
+          )
   "User Agent string that is  sent when masquerading is on."
   :type 'string
   :group 'emacspeak-eww)
