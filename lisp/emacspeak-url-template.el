@@ -1053,23 +1053,14 @@ JSON is retrieved from `url'."
  #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
- "Weather Light From Wunderground"
- "https://braille.wunderground.com/cgi-bin/findweather/hdfForecast?brand=braille&query=%s"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "State/City:"
-                            (bound-and-true-p  gweb-my-zip))))
- #'emacspeak-speak-buffer
- "Light weight weather forecast"
- #'browse-url)
-
-(emacspeak-url-template-define
  "Weather forecast from Weather Underground"
  "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
  (list
-  #'(lambda () (read-from-minibuffer "Zip: "
-                                     (bound-and-true-p  gweb-my-zip))))
- 'emacspeak-speak-buffer
+  #'(lambda ()
+      (read-from-minibuffer "Zip: "
+                            (bound-and-true-p gweb-my-zip))))
+ #'(lambda ()
+     (eww-view-dom-having-class "city-body"))
  "Weather forecast from weather underground mobile."
  )
 
