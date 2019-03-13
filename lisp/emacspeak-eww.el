@@ -966,9 +966,10 @@ Retain previously set punctuations  mode."
 
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
-  (cl-declare (special eww-element-cache eww-id-cache
-                       eww-property-cache eww-itemprop-cache
-                       eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
+  (cl-declare (special
+               eww-element-cache eww-id-cache
+               eww-property-cache eww-itemprop-cache
+               eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
   (when (listp dom)                     ; build cache
     (let ((id (dom-attr dom 'id))
           (class (dom-attr dom 'class))
@@ -978,7 +979,10 @@ Retain previously set punctuations  mode."
           (el (symbol-name (dom-tag dom)))
           (children (dom-children dom)))
       (when id (cl-pushnew id eww-id-cache :test #'string=))
-      (when class (cl-pushnew class eww-class-cache :test #'string=))
+      (when class
+        (let ((classes (split-string class " ")))
+          (cl-loop for c in classes do
+                   (cl-pushnew c eww-class-cache :test #'string=))))
       (when itemprop (cl-pushnew itemprop eww-itemprop-cache :test #'string=))
       (when role (cl-pushnew role eww-role-cache :test #'string=))
       (when property (cl-pushnew property eww-property-cache :test #'string=))
