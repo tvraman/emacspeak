@@ -240,7 +240,9 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (cl-declare (special pianobar-key-map))
   (cond
    ((and (stringp key)
-         (string= "'" key))
+         (or
+          (string= "\"" key)
+          (string= "'" key)))
     (emacspeak-pianobar-hide-or-show)
     (emacspeak-speak-mode-line))
    ((lookup-key pianobar-key-map key)
