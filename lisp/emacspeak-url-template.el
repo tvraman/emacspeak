@@ -1062,6 +1062,7 @@ JSON is retrieved from `url'."
  #'(lambda ()
      (with-demoted-errors
          (eww-display-dom-by-class "city-body"))
+     (goto-char (point-min))
      (emacspeak-speak-buffer))
  "Weather forecast from weather underground mobile.")
 
