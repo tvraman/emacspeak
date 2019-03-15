@@ -898,29 +898,6 @@ Optional prefix arg  avoids scraping  information from HTML."
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ Weather
-
-(emacspeak-websearch-set-searcher 'weather
-                                  'emacspeak-websearch-weather)
-(emacspeak-websearch-set-key ?w 'weather)
-
-(defvar emacspeak-websearch-weather-uri
-  "http://www.srh.noaa.gov/zipcity.php?inputstring="
-  "*URI for getting weather forecast.")
-
-;;;###autoload
-(defun emacspeak-websearch-weather (query)
-  "Get weather forecast for specified zip code."
-  (interactive
-   (list (emacspeak-websearch-read-query "City,State or Zip: ")))
-  (cl-declare (special emacspeak-websearch-weather-uri))
-  (emacspeak-we-extract-tables-by-match-list
-   (list "Area" "Humidity")
-   (concat emacspeak-websearch-weather-uri
-           (url-encode-url query))
-   'speak))
-
-;;}}}
 ;;{{{ wikipedia
 
 (emacspeak-websearch-set-searcher 'wikipedia
