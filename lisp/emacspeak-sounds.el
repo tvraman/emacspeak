@@ -241,8 +241,10 @@ Do not set this by hand;
 
 (defun emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME."
-  (cl-declare (special emacspeak-play-program emacspeak-play-args))
-  (let ((process-connection-type nil))
+  (cl-declare (special emacspeak-play-program emacspeak-play-args
+                       emacspeak-sounds-directory))
+  (let ((process-connection-type nil)
+        (default-directory emacspeak-sounds-directory))
     (if emacspeak-play-args
         (start-process
          emacspeak-play-program nil emacspeak-play-program
@@ -279,9 +281,11 @@ This uses SoX play and is specifically for use with headphones."
 
 (defun emacspeak-play-auditory-icon-list (icon-list)
   "Play list of icons."
-  (cl-declare (special emacspeak-play-program))
-  (apply #'start-process "APlay" nil emacspeak-play-program
-         (mapcar #'emacspeak-get-sound-filename icon-list)))
+  (cl-declare (special emacspeak-play-program
+                       emacspeak-sounds-directory))
+  (let ((default-directory  emacspeak-sounds-directory))
+    (apply #'start-process "APlay" nil emacspeak-play-program
+           (mapcar #'emacspeak-get-sound-filename icon-list))))
 
 ;;}}}
 ;;{{{  setup play function
