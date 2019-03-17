@@ -108,6 +108,7 @@ a rewrite rule even if one is already defined."
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point)))
     (unless url (error "Not on a link."))
+    (emacspeak-auditory-icon 'button)
     (cond
      ((functionp emacspeak-we-url-executor)
       (if prefix
