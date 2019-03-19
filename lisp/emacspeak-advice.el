@@ -1312,7 +1312,8 @@ icon."
 (defadvice comint-send-input (after emacspeak pre act comp)
   "Flush any ongoing speech."
   (when (ems-interactive-p)
-    (dtk-stop)))
+    (dtk-stop)
+    (emacspeak-auditory-icon 'close-object)))
 
 (defadvice comint-previous-prompt (after emacspeak pre act comp)
   "Provide spoken feedback."
