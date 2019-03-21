@@ -9154,7 +9154,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-next-face-chunk
 
-     Moves to the front of next chunk having current face.
+     Moves to the front of next chunk having current style.
      Speak that chunk after moving.
 
 12.174.1.63 emacspeak-speak-next-field

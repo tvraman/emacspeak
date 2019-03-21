@@ -2561,16 +2561,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.202.1.27 emacspeak-websearch-weather
-.......................................
-
- -- Command: emacspeak-websearch-weather (query)
-
-     Get weather forecast for specified zip code.
-
-     (fn QUERY)
-
-12.202.1.28 emacspeak-websearch-wikipedia-search
+12.202.1.27 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -2579,7 +2570,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.202.1.29 emacspeak-websearch-yahoo
+12.202.1.28 emacspeak-websearch-yahoo
 .....................................
 
  -- Command: emacspeak-websearch-yahoo (query)
@@ -2588,7 +2579,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.202.1.30 emacspeak-websearch-yahoo-historical-chart
+12.202.1.29 emacspeak-websearch-yahoo-historical-chart
 ......................................................
 
  -- Command: emacspeak-websearch-yahoo-historical-chart (ticker
@@ -2599,7 +2590,7 @@ This module provides utility functions for searching the WWW
 
      (fn TICKER &optional AS-HTML)
 
-12.202.1.31 emacspeak-websearch-youtube-search
+12.202.1.30 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
@@ -6354,7 +6345,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.235 URL Templates
 ====================
 
-This section documents a total of 88 URL Templates.
+This section documents a total of 87 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u C-; u <fn> u C-x
@@ -6664,10 +6655,6 @@ template.
    Washington Post
 
    Washington Post Contents
-
-   Weather Light From Wunderground
-
-   Light weight weather forecast
 
    Weather forecast from Weather Underground
 
