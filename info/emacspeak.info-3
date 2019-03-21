@@ -4019,8 +4019,10 @@ Contains various wizards for the Emacspeak desktop.
 ...........................................
 
  -- Command: emacspeak-wizards-noaa-weather (&optional ask)
+     ‘C-; w’
      ‘C-e x w’
      ‘<fn> x w’
+     ‘C-x @ h w’
 
      Display weather information using NOAA Weather API.
      Data is retrieved only once, subsequent calls switch to previously
@@ -4112,8 +4114,6 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-wizards-quick-weather
-     ‘C-; w’
-     ‘C-x @ h w’
 
      Bring up weather forecast for current location.
 
@@ -8066,14 +8066,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x e z:                            emacspeak-we.       (line  245)
 * <fn> x h:                              emacspeak-wizards.  (line  908)
 * <fn> x j:                              emacspeak-jabber.   (line   44)
-* <fn> x o:                              emacspeak-wizards.  (line 1117)
+* <fn> x o:                              emacspeak-wizards.  (line 1119)
 * <fn> x q:                              emacspeak-wizards.  (line 1203)
 * <fn> x s:                              emacspeak-wizards.  (line  103)
 * <fn> x SPC:                            emacspeak-jabber.   (line   53)
 * <fn> x t:                              emacspeak-wizards.  (line  302)
 * <fn> x u:                              emacspeak-wizards.  (line 1549)
 * <fn> x v:                              emacspeak-wizards.  (line 1565)
-* <fn> x w:                              emacspeak-wizards.  (line 1101)
+* <fn> x w:                              emacspeak-wizards.  (line 1102)
 * <fn> x |:                              emacspeak-wizards.  (line 1426)
 * <fn> [:                                emacspeak-speak.    (line  740)
 * <fn> \:                                emacspeak-speak.    (line 1273)
@@ -8162,13 +8162,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; l:                                 emacspeak-librivox. (line   32)
 * C-; N:                                 emacspeak-npr.      (line   30)
 * C-; n:                                 emacspeak-npr.      (line   52)
-* C-; p:                                 emacspeak-wizards.  (line 1131)
+* C-; p:                                 emacspeak-wizards.  (line 1133)
 * C-; s:                                 emacspeak-wizards.  (line 1259)
 * C-; SPC h:                             emacspeak-webspace. (line   36)
 * C-; SPC SPC:                           emacspeak-webspace. (line   45)
 * C-; u:                                 emacspeak-url-template.
                                                              (line   21)
-* C-; w:                                 emacspeak-wizards.  (line 1193)
+* C-; w:                                 emacspeak-wizards.  (line 1100)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
@@ -8471,14 +8471,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x e z:                             emacspeak-we.       (line  244)
 * C-e x h:                               emacspeak-wizards.  (line  907)
 * C-e x j:                               emacspeak-jabber.   (line   43)
-* C-e x o:                               emacspeak-wizards.  (line 1116)
+* C-e x o:                               emacspeak-wizards.  (line 1118)
 * C-e x q:                               emacspeak-wizards.  (line 1202)
 * C-e x s:                               emacspeak-wizards.  (line  102)
 * C-e x SPC:                             emacspeak-jabber.   (line   52)
 * C-e x t:                               emacspeak-wizards.  (line  301)
 * C-e x u:                               emacspeak-wizards.  (line 1548)
 * C-e x v:                               emacspeak-wizards.  (line 1564)
-* C-e x w:                               emacspeak-wizards.  (line 1100)
+* C-e x w:                               emacspeak-wizards.  (line 1101)
 * C-e x |:                               emacspeak-wizards.  (line 1425)
 * C-e [:                                 emacspeak-speak.    (line  739)
 * C-e \:                                 emacspeak-speak.    (line 1272)
@@ -8526,13 +8526,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h l:                             emacspeak-librivox. (line   33)
 * C-x @ h N:                             emacspeak-npr.      (line   31)
 * C-x @ h n:                             emacspeak-npr.      (line   53)
-* C-x @ h p:                             emacspeak-wizards.  (line 1132)
+* C-x @ h p:                             emacspeak-wizards.  (line 1134)
 * C-x @ h s:                             emacspeak-wizards.  (line 1260)
 * C-x @ h SPC h:                         emacspeak-webspace. (line   37)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   46)
 * C-x @ h u:                             emacspeak-url-template.
                                                              (line   23)
-* C-x @ h w:                             emacspeak-wizards.  (line 1194)
+* C-x @ h w:                             emacspeak-wizards.  (line 1103)
 * C-x @ s ':                             emacspeak-vlc.      (line   18)
 * C-x @ s .:                             emacspeak-wizards.  (line 1326)
 * C-x @ s a:                             emacspeak-wizards.  (line  685)

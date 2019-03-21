@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1225 commands and 912 options.
+This chapter documents a total of 1224 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1530,7 +1530,7 @@ s		emacspeak-wizards-shell
 t		twit
 u		emacspeak-url-template-fetch
 v		vdiff-magit-popup
-w		emacspeak-wizards-quick-weather
+w		emacspeak-wizards-noaa-weather
 
 SPC SPC		emacspeak-webspace-headlines-browse
 SPC h		emacspeak-webspace-headlines
@@ -16248,7 +16248,7 @@ Interactive prefix arg speaks buffer info.
 @findex emacspeak-speak-next-face-chunk
 
 @format
-Moves to the front of next chunk having current face.
+Moves to the front of next chunk having current style.
 Speak that chunk after moving.
 @end format
 @end deffn
@@ -20680,17 +20680,6 @@ Search SourceForge Site.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-weather
-@deffn {Command} emacspeak-websearch-weather  (query)
-@findex emacspeak-websearch-weather
-
-@format
-Get weather forecast for specified zip code.
-
-(fn QUERY)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-wikipedia-search
 @deffn {Command} emacspeak-websearch-wikipedia-search  (query)
 @findex emacspeak-websearch-wikipedia-search
@@ -22623,10 +22612,14 @@ Switch to next shell.
 @subsubsection emacspeak-wizards-noaa-weather
 @deffn {Command} emacspeak-wizards-noaa-weather  (&optional ask)
 @table @kbd
+@item C-; w
+@kindex C-; w
 @item C-e x w
 @kindex C-e x w
 @item <fn> x w
 @kindex <fn> x w
+@item C-x @@ h w
+@kindex C-x @@ h w
 @end table
 
 @findex emacspeak-wizards-noaa-weather
@@ -22746,13 +22739,6 @@ Switch to previous shell.
 
 @subsubsection emacspeak-wizards-quick-weather
 @deffn {Command} emacspeak-wizards-quick-weather   
-@table @kbd
-@item C-; w
-@kindex C-; w
-@item C-x @@ h w
-@kindex C-x @@ h w
-@end table
-
 @findex emacspeak-wizards-quick-weather
 
 @format
@@ -25549,7 +25535,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 88 URL Templates.
+This section documents a total of 87 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25867,10 +25853,6 @@ Display package tracking information from UPS.
 @b{Washington Post}
 
 Washington Post Contents
-
-@b{Weather Light From Wunderground}
-
-Light weight weather forecast
 
 @b{Weather forecast from Weather Underground}
 
