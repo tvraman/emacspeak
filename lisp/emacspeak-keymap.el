@@ -717,7 +717,7 @@ command that the key sequence executes."
     ("t" twit)
     ("u" emacspeak-url-template-fetch)
     ("v" vdiff-magit-popup)
-    ("w" emacspeak-wizards-quick-weather))
+    ("w" emacspeak-wizards-noaa-weather))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
 keys on your Linux PC keyboard into a `hyper' key on Linux by
