@@ -2360,7 +2360,7 @@ of the source buffer."
   (cl-declare (special emacspeak-wizards-project-shells))
   (unless emacspeak-wizards-project-shells (shell))
   (cl-loop
-   for pair in emacspeak-wizards-project-shells do
+   for pair in (reverse emacspeak-wizards-project-shells) do
    (let ((name (cl-first pair))
          (dir (cl-second pair)))
      (ems--shell-pushd-if-needed dir (shell name))
