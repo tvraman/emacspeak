@@ -148,7 +148,8 @@
      (t (push (list title url type) emacspeak-feeds)
         (let ((dtk-quiet t))
           (customize-save-variable 'emacspeak-feeds emacspeak-feeds))
-        (message "Added feed as %s" title)))))
+        (ems-with-messages-silenced
+            (message "Added feed as %s" title))))))
 
 (defvar emacspeak-feeds-archive-file
   (expand-file-name "feeds.el" emacspeak-resource-directory)
