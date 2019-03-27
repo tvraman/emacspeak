@@ -84,7 +84,7 @@
 
 (defun ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
-  (string-match  "^\*?[ckK]" prompt))
+  (string-match  "^\\*?[ckK]" prompt))
 
 (defvar emacspeak-fix-interactive-problematic-functions nil
   "Functions whose interactive prompt we will need to fix by hand
