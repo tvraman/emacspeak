@@ -100,6 +100,10 @@ clean:
 indent:
 	emacs -batch -q -no-site-file -l ../../utils/indent-files.el
 
+relint:
+	$(EMACS) -batch -f package-initialize -l relint.el -f relint-batch ./*.el 
+
+
 # }}}
 # {{{ end of file
 
