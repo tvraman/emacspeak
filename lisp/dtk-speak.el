@@ -132,7 +132,7 @@ Do not set this variable by hand, use command  `dtk-toggle-split-caps'
  bound to \\[dtk-toggle-split-caps].")
 (make-variable-buffer-local 'dtk-split-caps)
 
-(defcustom dtk-cleanup-patterns
+(defcustom dtk-cleanup-repeats
   (list
    "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
    "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>")
@@ -545,12 +545,12 @@ Argument MODE  specifies the current pronunciation mode."
     (goto-char (point-min))))
 
 (defun dtk-handle-repeating-patterns (mode)
-  (cl-declare (special dtk-cleanup-patterns))
+  (cl-declare (special dtk-cleanup-repeats))
   (goto-char (point-min))
   (mapc
    #'(lambda (str)
        (dtk-replace-duplicates str mode))
-   dtk-cleanup-patterns))
+   dtk-cleanup-repeats))
 
 (defvar dtk-null-char (format "%c" 0)
   "Null char.")
@@ -802,17 +802,17 @@ will say ``aw fifteen dot'' when speaking the string
 ``...............'' instead of ``period period period period
 ''"
   (interactive "P")
-  (cl-declare (special dtk-cleanup-patterns))
+  (cl-declare (special dtk-cleanup-repeats))
   (cond
    (delete
-    (setq dtk-cleanup-patterns
+    (setq dtk-cleanup-repeats
           (delete
            (read-from-minibuffer "Specify repeating pattern to delete: ")
-           dtk-cleanup-patterns)))
-   (t (setq dtk-cleanup-patterns
+           dtk-cleanup-repeats)))
+   (t (setq dtk-cleanup-repeats
             (cons
              (read-from-minibuffer "Specify repeating pattern: ")
-             dtk-cleanup-patterns)))))
+             dtk-cleanup-repeats)))))
 
 ;;}}}
 ;;{{{  Controlling how we produce  output

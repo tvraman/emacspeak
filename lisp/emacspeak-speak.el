@@ -918,7 +918,7 @@ with auditory icon `more'.  These can then be spoken using command
   (interactive "P")
   (cl-declare (special voice-animate voice-indent linum-mode
                        dtk-stop-immediately dtk-punctuation-mode
-                       dtk-cleanup-patterns
+                       dtk-cleanup-repeats
                        emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
                        emacspeak-speak-maximum-line-length emacspeak-show-point
                        emacspeak-decoration-rule emacspeak-horizontal-rule
@@ -926,11 +926,11 @@ with auditory icon `more'.  These can then be spoken using command
   (when (listp arg) (setq arg (car arg)))
   (when dtk-stop-immediately (dtk-stop))
   (let ((inhibit-field-text-motion t)
-        (dtk-cleanup-patterns
+        (dtk-cleanup-repeats
          (cond
           ((and emacspeak-show-point
                 (= ?\) (char-syntax (following-char)))))
-          (t dtk-cleanup-patterns)))
+          (t dtk-cleanup-repeats)))
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)

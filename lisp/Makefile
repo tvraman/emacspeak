@@ -581,12 +581,15 @@ emacspeak-setup.elc: emacspeak-setup.el
 loaddefs: emacspeak-loaddefs.elc
 
 # }}}
-# {{{Development  target: indent, tags
+# {{{Development  target: indent, tags, relint 
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
 
 elint:
 	$(EMACS) -batch -q -no-site-file -l ../utils/elint-files.el
+
+relint:
+	$(EMACS) -batch -f package-initialize -l relint.el -f relint-batch ./*.el 
 
 tags:
 	etags *.el g-client/*.el
