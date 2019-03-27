@@ -377,7 +377,7 @@ Optional argument FILENAME specifies the dictionary file."
   (let ((default (and (mark)
                       (< (count-lines (region-beginning)
                                       (region-end)) 2)
-                      (buffer-substring (region-beginning)
+                      (buffer-substring-no-properties (region-beginning)
                                         (region-end))))
         (emacspeak-pronounce-yank-word-point (point)))
     (setq emacspeak-pronounce-current-buffer (current-buffer))
