@@ -2084,7 +2084,7 @@ Warning: Running shell script cbox through this fails mysteriously."
   "Retrieve URL stored in `KEY'"
   (cl-declare (special emacspeak-eww-smart-tabs))
   (gethash key  emacspeak-eww-smart-tabs))
-
+;;;###autoload
 (defun emacspeak-eww-smart-tabs(number)
   "Open EWW tabson URL stored in `number'."
   (interactive "nTabsNumber:")
@@ -2093,13 +2093,13 @@ Warning: Running shell script cbox through this fails mysteriously."
     (cl-assert (stringp url) t "No URL stored in this location.")
     (eww url 'new)))
 
+;;;###autoload
 (defun emacspeak-eww-smart-tabs-add (number url )
   "Add a URL to the specified location in smart tabs."
   (interactive "nNumber:\nsURL:")
   (cl-declare (special emacspeak-eww-smart-tabs))
   (emacspeak-eww-smart-tabs-put number url))
 
-(global-set-key (kbd "C-c C-0") 'emacspeak-eww-smart-tabs-add)
 
 
 ;;}}}
