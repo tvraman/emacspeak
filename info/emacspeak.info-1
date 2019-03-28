@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 21, 2019.
+last updated on March 28, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2752,7 +2752,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1224 commands and 912 options.
+   This chapter documents a total of 1226 commands and 912 options.
 
 * Menu:
 
@@ -3587,7 +3587,7 @@ Defines the TTS interface.
 12.7.2 dtk-speak Options
 ------------------------
 
- -- Variable: User Option dtk-cleanup-patterns
+ -- Variable: User Option dtk-cleanup-repeats
      List of repeating patterns to clean up.  You can use command
      ‘dtk-add-cleanup-pattern’ bound to C-e d a to add more patterns.
      Specify patterns that people use to decorate their ASCII files, and
@@ -4076,7 +4076,9 @@ system.
      key             binding
      —             ——-
 
+     SPC		emacspeak-eww-smart-tabs
      ,		emacspeak-eldoc-speak-doc
+     0		emacspeak-eww-smart-tabs-add
      a		emacspeak-feeds-atom-display
      b		sox-binaural
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode

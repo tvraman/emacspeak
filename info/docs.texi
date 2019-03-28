@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1224 commands and 912 options.
+This chapter documents a total of 1226 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1060,7 +1060,7 @@ Speak version.
 
 @subsection dtk-speak Options
 
-@defvar {User Option} dtk-cleanup-patterns
+@defvar {User Option} dtk-cleanup-repeats
 List of repeating patterns to clean up.
 You can use  command  ‘dtk-add-cleanup-pattern’
  bound to C-e d a  to add more patterns.
@@ -1573,7 +1573,9 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 key             binding
 ---             -------
 
+SPC		emacspeak-eww-smart-tabs
 ,		emacspeak-eldoc-speak-doc
+0		emacspeak-eww-smart-tabs-add
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -8284,6 +8286,42 @@ Run specified shell command on URL at point.
 Warning: Running shell script cbox through this fails mysteriously.
 
 (fn &optional PREFIX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-smart-tabs
+@deffn {Command} emacspeak-eww-smart-tabs  (number)
+@table @kbd
+@item C-, SPC
+@kindex C-, SPC
+@item C-x @@ a SPC
+@kindex C-x @@ a SPC
+@end table
+
+@findex emacspeak-eww-smart-tabs
+
+@format
+Open EWW tabson URL stored in ‘number’.
+
+(fn NUMBER)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-smart-tabs-add
+@deffn {Command} emacspeak-eww-smart-tabs-add  (number url)
+@table @kbd
+@item C-, 0
+@kindex C-, 0
+@item C-x @@ a 0
+@kindex C-x @@ a 0
+@end table
+
+@findex emacspeak-eww-smart-tabs-add
+
+@format
+Add a URL to the specified location in smart tabs.
+
+(fn NUMBER URL)
 @end format
 @end deffn
 

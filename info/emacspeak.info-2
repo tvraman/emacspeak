@@ -2380,7 +2380,29 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.69.7.49 emacspeak-eww-speak-this-element
+12.69.7.49 emacspeak-eww-smart-tabs
+...................................
+
+ -- Command: emacspeak-eww-smart-tabs (number)
+     ‘C-, SPC’
+     ‘C-x @ a SPC’
+
+     Open EWW tabson URL stored in ‘number’.
+
+     (fn NUMBER)
+
+12.69.7.50 emacspeak-eww-smart-tabs-add
+.......................................
+
+ -- Command: emacspeak-eww-smart-tabs-add (number url)
+     ‘C-, 0’
+     ‘C-x @ a 0’
+
+     Add a URL to the specified location in smart tabs.
+
+     (fn NUMBER URL)
+
+12.69.7.51 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -2391,21 +2413,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.69.7.50 emacspeak-eww-tags-at-point
+12.69.7.52 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.69.7.51 emacspeak-eww-transcode
+12.69.7.53 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.69.7.52 emacspeak-eww-update-title
+12.69.7.54 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
