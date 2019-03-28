@@ -2069,6 +2069,40 @@ Warning: Running shell script cbox through this fails mysteriously."
     (shell-command (format "%s '%s'" cmd url))
     (emacspeak-auditory-icon 'task-done)))
 ;;}}}
+;;{{{Smart Tabs:
+
+(defvar emacspeak-eww-smart-tabs
+  (make-hash-table :test #'eq)
+  "Cache of  URL->Tabs mappings.")
+
+(defun emacspeak-eww-smart-tabs-put (key url)
+  " Add a  `URL'tou our smart tabs cache. "
+  (cl-declare (special emacspeak-eww-smart-tabs))
+  (puthash key url emacspeak-eww-smart-tabs))
+
+(defun emacspeak-eww-smart-tabs-get (key)
+  "Retrieve URL stored in `KEY'"
+  (cl-declare (special emacspeak-eww-smart-tabs))
+  (gethash key  emacspeak-eww-smart-tabs))
+
+(defun emacspeak-eww-smart-tabs(number)
+  "Open EWW tabson URL stored in `number'."
+  (interactive "nTabsNumber:")
+  (cl-declare (special emacspeak-eww-smart-tabs))
+  (let ((url (emacspeak-eww-smart-tabs-get number)))
+    (cl-assert (stringp url) t "No URL stored in this location.")
+    (eww url 'new)))
+
+(defun emacspeak-eww-smart-tabs-add (number url )
+  "Add a URL to the specified location in smart tabs."
+  (interactive "nNumber:\nsURL:")
+  (cl-declare (special emacspeak-eww-smart-tabs))
+  (emacspeak-eww-smart-tabs-put number url))
+
+(global-set-key (kbd "C-c C-0") 'emacspeak-eww-smart-tabs-add)
+
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
