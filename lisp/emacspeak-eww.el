@@ -2100,8 +2100,6 @@ Warning: Running shell script cbox through this fails mysteriously."
   (cl-declare (special emacspeak-eww-smart-tabs))
   (emacspeak-eww-smart-tabs-put number url))
 
-
-
 ;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
