@@ -619,6 +619,8 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-alt-keys 
   '(
     ("," emacspeak-eldoc-speak-doc)
+    ("0" emacspeak-eww-smart-tabs-add)
+    ("1" emacspeak-eww-smart-tabs)
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
