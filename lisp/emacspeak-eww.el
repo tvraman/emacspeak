@@ -2099,6 +2099,20 @@ emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
   (emacspeak-eww-smart-tabs-put char url)
   (emacspeak-auditory-icon 'close-object))
 
+
+;;;###autoload
+(defun emacspeak-eww-smart-tabs-save ()
+  "Save our smart tabs to a file for reloading."
+  (interactive )
+  (emacspeak--persist-variable 'emacspeak-eww-smart-tabs
+                               (expand-file-name "smart-eww-tabs" emacspeak-resource-directory)))
+
+;;;###autoload
+(defun emacspeak-eww-smart-tabs-load ()
+  "Load our smart tabsfrom a file."
+  (interactive )
+  (cl-declare (special emacspeak-resource-directory))
+  (load-file (expand-file-name "smart-eww-tabs" emacspeak-resource-directory)))
 ;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
