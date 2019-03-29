@@ -2110,9 +2110,12 @@ emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs-load ()
   "Load our smart tabsfrom a file."
-  (interactive )
+  (interactive)
   (cl-declare (special emacspeak-resource-directory))
-  (load-file (expand-file-name "smart-eww-tabs" emacspeak-resource-directory)))
+  (when (file-exists-p (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))
+    (load-file
+     (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
+
 ;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
