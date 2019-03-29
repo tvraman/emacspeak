@@ -2009,18 +2009,9 @@ interactive prefix arg `delete', delete that mark instead."
   "Save Emacspeak EWW marks."
   (interactive)
   (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
-  (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
-        (print-length nil)
-        (print-level nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (insert  ";;; Auto-generated.\n\n")
-      (insert "(setq emacspeak-eww-marks \n")
-      (pp emacspeak-eww-marks (current-buffer))
-      (insert ") ;;; set hash table\n\n")
-      (save-buffer))
-    (message "Saved Emacspeak EWW  marks.")
-    (emacspeak-auditory-icon 'save-object)))
+  (emacspeak--persist-variable 'emacspeak-eww-marks
+                               (expand-file-name "eww-marks"
+                                                 emacspeak-resource-directory)))
 
 (defvar emacspeak-eww-save-marks-timer nil
   "Idle timer for saving EWW marks.")

@@ -3658,6 +3658,27 @@ This command  is designed for use in a windowing environment like X."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
+
+;;{{{Utility: Persist variable to a file:
+(defun emacspeak--persist-variable (var file)
+  "Persist variable  `var' to file `FILE'.
+Arranges for `VAR' to be restored when `file' is loaded."
+  (interactive)
+  (let ((buffer (find-file-noselect file))
+        (print-length nil)
+        (print-level nil))
+    (cl-assert (boundp var) t "Unbound var cannot be saved")
+    (with-current-buffer buffer
+      (erase-buffer)
+      (insert ";;; Auto-generated.\n\n")
+      (insert (format "(setq %s \n" var))
+      (pp (symbol-value var) (current-buffer))
+      (insert (format ") ;;; set%s\n\n" var))
+      (save-buffer))
+    (message "Saved %s." var)
+    (emacspeak-auditory-icon 'save-object)))
+
+;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 
