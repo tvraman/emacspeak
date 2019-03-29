@@ -2083,6 +2083,11 @@ To associate a URL with achar, use command
 emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
   (interactive (list (read-char-exclusive "Tab:")))
   (cl-declare (special emacspeak-eww-smart-tabs))
+  (unless
+      (and
+       (bound-and-true-p emacspeak-eww-smart-tabs)
+       (not (hash-table-empty-p emacspeak-eww-smart-tabs)))
+    (emacspeak-eww-smart-tabs-load))
   (let ((url (emacspeak-eww-smart-tabs-get char)))
     (cl-assert (stringp url) t "No URL stored in this location.")
     (emacspeak-auditory-icon 'button)
@@ -2103,9 +2108,18 @@ emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs-save ()
   "Save our smart tabs to a file for reloading."
-  (interactive )
-  (emacspeak--persist-variable 'emacspeak-eww-smart-tabs
-                               (expand-file-name "smart-eww-tabs" emacspeak-resource-directory)))
+  (interactive)
+  (when
+      (and 
+       (bound-and-true-p emacspeak-eww-smart-tabs)
+       (not (hash-table-empty-p emacspeak-eww-smart-tabs)))
+    (emacspeak--persist-variable
+     'emacspeak-eww-smart-tabs
+     (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
+
+(add-hook
+ 'kill-emacs-hook
+ #'emacspeak-eww-smart-tabs-save)
 
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs-load ()
