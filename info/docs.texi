@@ -2331,54 +2331,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
-@defvar {User Option} voice-eww-form-checkbox
-Personality used for eww-form-checkbox
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-file
-Personality used for eww-form-file
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-select
-Personality used for eww-form-select
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-submit
-Personality used for eww-form-submit
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-text
-Personality used for eww-form-text
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-textarea
-Personality used for eww-form-textarea
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-invalid-certificate
-Personality used for eww-invalid-certificate
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-valid-certificate
-Personality used for eww-valid-certificate
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
 @defvar {User Option} voice-file-name-shadow
 Personality used for file-name-shadow
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
@@ -3816,18 +3768,6 @@ This personality uses  voice-monotone-medium whose  effect can be changed global
 @defvar {User Option} voice-shr-link
 Personality used for shr-link
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-shr-selected-link
-Personality used for shr-selected-link
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-shr-strike-through
-Personality used for shr-strike-through
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
@@ -8290,7 +8230,7 @@ Warning: Running shell script cbox through this fails mysteriously.
 @end deffn
 
 @subsubsection emacspeak-eww-smart-tabs
-@deffn {Command} emacspeak-eww-smart-tabs  (number)
+@deffn {Command} emacspeak-eww-smart-tabs  (char)
 @table @kbd
 @item C-, SPC
 @kindex C-, SPC
@@ -8301,16 +8241,18 @@ Warning: Running shell script cbox through this fails mysteriously.
 @findex emacspeak-eww-smart-tabs
 
 @format
-Open URL in EWW keyed by  ‘number’.
-To associate a URL with a number, use command
+:around advice: ‘ad-Advice-emacspeak-eww-smart-tabs’
+
+Open URL in EWW keyed by  ‘char’.
+To associate a URL with achar, use command
 emacspeak-eww-smart-tabs-add bound to C-x @@ a 0.
 
-(fn NUMBER)
+(fn CHAR)
 @end format
 @end deffn
 
 @subsubsection emacspeak-eww-smart-tabs-add
-@deffn {Command} emacspeak-eww-smart-tabs-add  (number url)
+@deffn {Command} emacspeak-eww-smart-tabs-add  (char url)
 @table @kbd
 @item C-, 0
 @kindex C-, 0
@@ -8321,9 +8263,11 @@ emacspeak-eww-smart-tabs-add bound to C-x @@ a 0.
 @findex emacspeak-eww-smart-tabs-add
 
 @format
+:around advice: ‘ad-Advice-emacspeak-eww-smart-tabs-add’
+
 Add a URL to the specified location in smart tabs.
 
-(fn NUMBER URL)
+(fn CHAR URL)
 @end format
 @end deffn
 
@@ -8378,6 +8322,66 @@ User Agent string that is  sent when masquerading is on.
 
 @defvar {User Option} emacspeak-eww-silence-images
 Set to nil if you want EWW to load images.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-checkbox
+Personality used for eww-form-checkbox
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-file
+Personality used for eww-form-file
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-select
+Personality used for eww-form-select
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-submit
+Personality used for eww-form-submit
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-text
+Personality used for eww-form-text
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-textarea
+Personality used for eww-form-textarea
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-invalid-certificate
+Personality used for eww-invalid-certificate
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-valid-certificate
+Personality used for eww-valid-certificate
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-shr-selected-link
+Personality used for shr-selected-link
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-shr-strike-through
+Personality used for shr-strike-through
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
