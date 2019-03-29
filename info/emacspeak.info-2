@@ -2387,7 +2387,9 @@ prefix arg to delete a previously created eww-mark.
      ‘C-, SPC’
      ‘C-x @ a SPC’
 
-     Open EWW tabson URL stored in ‘number’.
+     Open URL in EWW keyed by  ‘number’.
+     To associate a URL with a number, use command
+     emacspeak-eww-smart-tabs-add bound to C-x @ a 0.
 
      (fn NUMBER)
 
