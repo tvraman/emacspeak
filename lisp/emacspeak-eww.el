@@ -403,8 +403,6 @@
 (require 'dom)
 (require 'dom-addons)
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
-(eval-when-compile (require 'emacspeak-fix-interactive "emacspeak-fix-interactive"
-                            'no-error))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
@@ -2092,24 +2090,23 @@ Warning: Running shell script cbox through this fails mysteriously."
   "Open URL in EWW keyed by  `char'.
 To associate a URL with achar, use command
 emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
-  (interactive "cTab:")
+  (interactive (list (read-char-exclusive "Tab:")))
   (cl-declare (special emacspeak-eww-smart-tabs))
   (let ((url (emacspeak-eww-smart-tabs-get char)))
     (cl-assert (stringp url) t "No URL stored in this location.")
     (emacspeak-auditory-icon 'button)
     (eww url 'new)))
 
-(emacspeak-fix-interactive 'emacspeak-eww-smart-tabs)
-
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs-add (char url )
   "Add a URL to the specified location in smart tabs."
-  (interactive "cChar:\nsURL:")
+  (interactive
+   (list
+    (read-char-exclusive "Tab:")
+    (read-from-minibuffer "URL:")))
   (cl-declare (special emacspeak-eww-smart-tabs))
   (emacspeak-eww-smart-tabs-put char url)
   (emacspeak-auditory-icon 'close-object))
-
-(emacspeak-fix-interactive 'emacspeak-eww-smart-tabs-add)
 
 ;;}}}
 (provide 'emacspeak-eww)
