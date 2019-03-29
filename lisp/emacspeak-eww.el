@@ -403,6 +403,8 @@
 (require 'dom)
 (require 'dom-addons)
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
+(eval-when-compile (require 'emacspeak-fix-interactive "emacspeak-fix-interactive"
+                            'no-error))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
@@ -2085,22 +2087,26 @@ Warning: Running shell script cbox through this fails mysteriously."
   (cl-declare (special emacspeak-eww-smart-tabs))
   (gethash key  emacspeak-eww-smart-tabs))
 ;;;###autoload
-(defun emacspeak-eww-smart-tabs (number)
-  "Open URL in EWW keyed by  `number'.
-To associate a URL with a number, use command
+(defun emacspeak-eww-smart-tabs (char)
+  "Open URL in EWW keyed by  `char'.
+To associate a URL with achar, use command
 emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
-  (interactive "nTabsNumber:")
+  (interactive "cTab:")
   (cl-declare (special emacspeak-eww-smart-tabs))
-  (let ((url (emacspeak-eww-smart-tabs-get number)))
+  (let ((url (emacspeak-eww-smart-tabs-get char)))
     (cl-assert (stringp url) t "No URL stored in this location.")
     (eww url 'new)))
 
+(emacspeak-fix-interactive 'emacspeak-eww-smart-tabs)
+
 ;;;###autoload
-(defun emacspeak-eww-smart-tabs-add (number url )
+(defun emacspeak-eww-smart-tabs-add (char url )
   "Add a URL to the specified location in smart tabs."
-  (interactive "nNumber:\nsURL:")
+  (interactive "cChar:\nsURL:")
   (cl-declare (special emacspeak-eww-smart-tabs))
-  (emacspeak-eww-smart-tabs-put number url))
+  (emacspeak-eww-smart-tabs-put char url))
+
+(emacspeak-fix-interactive 'emacspeak-eww-smart-tabs-add)
 
 ;;}}}
 (provide 'emacspeak-eww)
