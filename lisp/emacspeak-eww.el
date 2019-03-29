@@ -2085,8 +2085,10 @@ Warning: Running shell script cbox through this fails mysteriously."
   (cl-declare (special emacspeak-eww-smart-tabs))
   (gethash key  emacspeak-eww-smart-tabs))
 ;;;###autoload
-(defun emacspeak-eww-smart-tabs(number)
-  "Open EWW tabson URL stored in `number'."
+(defun emacspeak-eww-smart-tabs (number)
+  "Open URL in EWW keyed by  `number'.
+To associate a URL with a number, use command
+emacspeak-eww-smart-tabs-add bound to \\[emacspeak-eww-smart-tabs-add]."
   (interactive "nTabsNumber:")
   (cl-declare (special emacspeak-eww-smart-tabs))
   (let ((url (emacspeak-eww-smart-tabs-get number)))
