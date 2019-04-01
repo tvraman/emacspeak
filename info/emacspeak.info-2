@@ -2385,42 +2385,31 @@ prefix arg to delete a previously created eww-mark.
 12.69.7.49 emacspeak-eww-smart-tabs
 ...................................
 
- -- Command: emacspeak-eww-smart-tabs (char)
+ -- Command: emacspeak-eww-smart-tabs (char &optional define)
      ‘C-, SPC’
      ‘C-x @ a SPC’
 
      Open URL in EWW keyed by  ‘char’.
-     To associate a URL with achar, use command
-     emacspeak-eww-smart-tabs-add bound to C-x @ a 0.
+     To associate a URL with a char, use this command
+     with an interactive prefix arg.
 
-     (fn CHAR)
+     (fn CHAR &optional DEFINE)
 
-12.69.7.50 emacspeak-eww-smart-tabs-add
-.......................................
-
- -- Command: emacspeak-eww-smart-tabs-add (char url)
-     ‘C-, 0’
-     ‘C-x @ a 0’
-
-     Add a URL to the specified location in smart tabs.
-
-     (fn CHAR URL)
-
-12.69.7.51 emacspeak-eww-smart-tabs-load
+12.69.7.50 emacspeak-eww-smart-tabs-load
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-load
 
      Load our smart tabsfrom a file.
 
-12.69.7.52 emacspeak-eww-smart-tabs-save
+12.69.7.51 emacspeak-eww-smart-tabs-save
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-save
 
      Save our smart tabs to a file for reloading.
 
-12.69.7.53 emacspeak-eww-speak-this-element
+12.69.7.52 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -2431,21 +2420,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.69.7.54 emacspeak-eww-tags-at-point
+12.69.7.53 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.69.7.55 emacspeak-eww-transcode
+12.69.7.54 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.69.7.56 emacspeak-eww-update-title
+12.69.7.55 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)

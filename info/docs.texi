@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 912 options.
+This chapter documents a total of 1228 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1575,7 +1575,6 @@ key             binding
 
 SPC		emacspeak-eww-smart-tabs
 ,		emacspeak-eldoc-speak-doc
-0		emacspeak-eww-smart-tabs-add
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -8290,7 +8289,7 @@ Warning: Running shell script cbox through this fails mysteriously.
 @end deffn
 
 @subsubsection emacspeak-eww-smart-tabs
-@deffn {Command} emacspeak-eww-smart-tabs  (char)
+@deffn {Command} emacspeak-eww-smart-tabs  (char &optional define)
 @table @kbd
 @item C-, SPC
 @kindex C-, SPC
@@ -8302,28 +8301,10 @@ Warning: Running shell script cbox through this fails mysteriously.
 
 @format
 Open URL in EWW keyed by  ‘char’.
-To associate a URL with achar, use command
-emacspeak-eww-smart-tabs-add bound to C-x @@ a 0.
+To associate a URL with a char, use this command
+with an interactive prefix arg. 
 
-(fn CHAR)
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-smart-tabs-add
-@deffn {Command} emacspeak-eww-smart-tabs-add  (char url)
-@table @kbd
-@item C-, 0
-@kindex C-, 0
-@item C-x @@ a 0
-@kindex C-x @@ a 0
-@end table
-
-@findex emacspeak-eww-smart-tabs-add
-
-@format
-Add a URL to the specified location in smart tabs.
-
-(fn CHAR URL)
+(fn CHAR &optional DEFINE)
 @end format
 @end deffn
 
