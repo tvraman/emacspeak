@@ -341,8 +341,11 @@
     <dt><kbd>C-a</kbd></dt>
     <dd>
       <p><code>emacspeak-feeds-atom-display</code> Display link
-      under point as an <code>ATOM</code> feed. item y
-      <code>emacspeak-m-player-youtube-player</code> Play link
+      under point as an <code>ATOM</code> feed.</p>
+    </dd>
+    <dt><kbd>y</kbd></dt>
+    <dd>
+      <p><code>emacspeak-m-player-youtube-player</code> Play link
       under point as a Youtube stream.</p>
     </dd>
   </dl><a name="Miscellaneous-Commands" id=
@@ -1532,7 +1535,8 @@ Warning: Running shell script cbox through this fails mysteriously.
   <dl>
     <dt><a name="index-emacspeak_002deww_002dsmart_002dtabs" id=
     "index-emacspeak_002deww_002dsmart_002dtabs"></a>Command:
-    <strong>emacspeak-eww-smart-tabs</strong> <em>(char)</em></dt>
+    <strong>emacspeak-eww-smart-tabs</strong> <em>(char
+    &amp;optional define)</em></dt>
     <dd>
       <dl compact="compact">
         <dt><kbd>C-, SPC</kbd></dt>
@@ -1544,51 +1548,54 @@ Warning: Running shell script cbox through this fails mysteriously.
       </dl><a name="index-emacspeak_002deww_002dsmart_002dtabs-1"
       id="index-emacspeak_002deww_002dsmart_002dtabs-1"></a>
       <div class="format">
-        <pre class="format">
-        :around advice: ‘ad-Advice-emacspeak-eww-smart-tabs’
+        <pre class="format">Open URL in EWW keyed by  ‘char’.
+To associate a URL with a char, use this command
+with an interactive prefix arg. 
 
-Open URL in EWW keyed by  ‘char’.
-To associate a URL with achar, use command
-emacspeak-eww-smart-tabs-add bound to C-x @ a 0.
-
-(fn CHAR)
+(fn CHAR &amp;optional DEFINE)
 </pre>
       </div>
     </dd>
-  </dl><a name="emacspeak_002deww_002dsmart_002dtabs_002dadd" id=
-  "emacspeak_002deww_002dsmart_002dtabs_002dadd"></a>
+  </dl><a name="emacspeak_002deww_002dsmart_002dtabs_002dload" id=
+  "emacspeak_002deww_002dsmart_002dtabs_002dload"></a>
   <h4 class="subsubsection">12.69.7.50
-  emacspeak-eww-smart-tabs-add</h4>
+  emacspeak-eww-smart-tabs-load</h4>
   <dl>
     <dt><a name=
-    "index-emacspeak_002deww_002dsmart_002dtabs_002dadd" id=
-    "index-emacspeak_002deww_002dsmart_002dtabs_002dadd"></a>Command:
-    <strong>emacspeak-eww-smart-tabs-add</strong> <em>(char
-    url)</em></dt>
+    "index-emacspeak_002deww_002dsmart_002dtabs_002dload" id=
+    "index-emacspeak_002deww_002dsmart_002dtabs_002dload"></a>Command:
+    <strong>emacspeak-eww-smart-tabs-load</strong></dt>
     <dd>
-      <dl compact="compact">
-        <dt><kbd>C-, 0</kbd></dt>
-        <dd><a name="index-C_002d_002c-0" id=
-        "index-C_002d_002c-0"></a></dd>
-        <dt><kbd>C-x @ a 0</kbd></dt>
-        <dd><a name="index-C_002dx-_0040-a-0" id=
-        "index-C_002dx-_0040-a-0"></a></dd>
-      </dl><a name=
-      "index-emacspeak_002deww_002dsmart_002dtabs_002dadd-1" id=
-      "index-emacspeak_002deww_002dsmart_002dtabs_002dadd-1"></a>
+      <a name=
+      "index-emacspeak_002deww_002dsmart_002dtabs_002dload-1" id=
+      "index-emacspeak_002deww_002dsmart_002dtabs_002dload-1"></a>
+      <div class="format">
+        <pre class="format">Load our smart tabsfrom a file.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002deww_002dsmart_002dtabs_002dsave" id=
+  "emacspeak_002deww_002dsmart_002dtabs_002dsave"></a>
+  <h4 class="subsubsection">12.69.7.51
+  emacspeak-eww-smart-tabs-save</h4>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dsmart_002dtabs_002dsave" id=
+    "index-emacspeak_002deww_002dsmart_002dtabs_002dsave"></a>Command:
+    <strong>emacspeak-eww-smart-tabs-save</strong></dt>
+    <dd>
+      <a name=
+      "index-emacspeak_002deww_002dsmart_002dtabs_002dsave-1" id=
+      "index-emacspeak_002deww_002dsmart_002dtabs_002dsave-1"></a>
       <div class="format">
         <pre class="format">
-        :around advice: ‘ad-Advice-emacspeak-eww-smart-tabs-add’
-
-Add a URL to the specified location in smart tabs.
-
-(fn CHAR URL)
+        Save our smart tabs to a file for reloading.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002deww_002dspeak_002dthis_002delement"
   id="emacspeak_002deww_002dspeak_002dthis_002delement"></a>
-  <h4 class="subsubsection">12.69.7.51
+  <h4 class="subsubsection">12.69.7.52
   emacspeak-eww-speak-this-element</h4>
   <dl>
     <dt><a name=
@@ -1612,7 +1619,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
     </dd>
   </dl><a name="emacspeak_002deww_002dtags_002dat_002dpoint" id=
   "emacspeak_002deww_002dtags_002dat_002dpoint"></a>
-  <h4 class="subsubsection">12.69.7.52
+  <h4 class="subsubsection">12.69.7.53
   emacspeak-eww-tags-at-point</h4>
   <dl>
     <dt><a name="index-emacspeak_002deww_002dtags_002dat_002dpoint"
@@ -1629,7 +1636,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
     </dd>
   </dl><a name="emacspeak_002deww_002dtranscode" id=
   "emacspeak_002deww_002dtranscode"></a>
-  <h4 class="subsubsection">12.69.7.53 emacspeak-eww-transcode</h4>
+  <h4 class="subsubsection">12.69.7.54 emacspeak-eww-transcode</h4>
   <dl>
     <dt><a name="index-emacspeak_002deww_002dtranscode" id=
     "index-emacspeak_002deww_002dtranscode"></a>Command:
@@ -1645,7 +1652,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
     </dd>
   </dl><a name="emacspeak_002deww_002dupdate_002dtitle" id=
   "emacspeak_002deww_002dupdate_002dtitle"></a>
-  <h4 class="subsubsection">12.69.7.54
+  <h4 class="subsubsection">12.69.7.55
   emacspeak-eww-update-title</h4>
   <dl>
     <dt><a name="index-emacspeak_002deww_002dupdate_002dtitle" id=
@@ -1667,8 +1674,8 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
   "emacspeak_002deww-Options"></a>
   <h4 class="subsection">12.69.8 emacspeak-eww Options</h4>
   <dl>
-    <dt><a name="index-User-Option-460" id=
-    "index-User-Option-460"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-470" id=
+    "index-User-Option-470"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-masquerade-as</em></dt>
     <dd>
       <p>User Agent string that is sent when masquerading is
@@ -1676,112 +1683,11 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
     </dd>
   </dl>
   <dl>
-    <dt><a name="index-User-Option-461" id=
-    "index-User-Option-461"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-471" id=
+    "index-User-Option-471"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-silence-images</em></dt>
     <dd>
       <p>Set to nil if you want EWW to load images.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-462" id=
-    "index-User-Option-462"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-form-checkbox</em></dt>
-    <dd>
-      <p>Personality used for eww-form-checkbox This personality
-      uses voice-monotone whose effect can be changed globally by
-      customizing voice-monotone-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-463" id=
-    "index-User-Option-463"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-form-file</em></dt>
-    <dd>
-      <p>Personality used for eww-form-file This personality uses
-      voice-lighten whose effect can be changed globally by
-      customizing voice-lighten-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-464" id=
-    "index-User-Option-464"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-form-select</em></dt>
-    <dd>
-      <p>Personality used for eww-form-select This personality uses
-      voice-annotate whose effect can be changed globally by
-      customizing voice-annotate-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-465" id=
-    "index-User-Option-465"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-form-submit</em></dt>
-    <dd>
-      <p>Personality used for eww-form-submit This personality uses
-      voice-animate whose effect can be changed globally by
-      customizing voice-animate-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-466" id=
-    "index-User-Option-466"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-form-text</em></dt>
-    <dd>
-      <p>Personality used for eww-form-text This personality uses
-      voice-lighten whose effect can be changed globally by
-      customizing voice-lighten-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-467" id=
-    "index-User-Option-467"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-form-textarea</em></dt>
-    <dd>
-      <p>Personality used for eww-form-textarea This personality
-      uses voice-brighten whose effect can be changed globally by
-      customizing voice-brighten-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-468" id=
-    "index-User-Option-468"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-invalid-certificate</em></dt>
-    <dd>
-      <p>Personality used for eww-invalid-certificate This
-      personality uses voice-bolden-and-animate whose effect can be
-      changed globally by customizing
-      voice-bolden-and-animate-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-469" id=
-    "index-User-Option-469"></a>Variable: <strong>User
-    Option</strong> <em>voice-eww-valid-certificate</em></dt>
-    <dd>
-      <p>Personality used for eww-valid-certificate This
-      personality uses voice-bolden whose effect can be changed
-      globally by customizing voice-bolden-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-470" id=
-    "index-User-Option-470"></a>Variable: <strong>User
-    Option</strong> <em>voice-shr-selected-link</em></dt>
-    <dd>
-      <p>Personality used for shr-selected-link This personality
-      uses voice-animate whose effect can be changed globally by
-      customizing voice-animate-settings.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt><a name="index-User-Option-471" id=
-    "index-User-Option-471"></a>Variable: <strong>User
-    Option</strong> <em>voice-shr-strike-through</em></dt>
-    <dd>
-      <p>Personality used for shr-strike-through This personality
-      uses voice-annotate whose effect can be changed globally by
-      customizing voice-annotate-settings.</p>
     </dd>
   </dl>
   <hr />
