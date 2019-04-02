@@ -1,6 +1,3 @@
-CIA World Fact Book Country Codes
-
-
 af Afghanistan
 ax Akrotiri
 al Albania
