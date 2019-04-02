@@ -2066,15 +2066,27 @@ Warning: Running shell script cbox through this fails mysteriously."
   (make-hash-table :test #'eq)
   "Cache of  URL->Tabs mappings.")
 
-(defun emacspeak-eww-smart-tabs-put (key url)
+(defsubst emacspeak-eww-smart-tabs-put (key url)
   " Add a  `URL'tou our smart tabs cache. "
   (cl-declare (special emacspeak-eww-smart-tabs))
   (puthash key url emacspeak-eww-smart-tabs))
 
-(defun emacspeak-eww-smart-tabs-get (key)
+(defsubst emacspeak-eww-smart-tabs-get (key)
   "Retrieve URL stored in `KEY'"
   (cl-declare (special emacspeak-eww-smart-tabs))
   (gethash key  emacspeak-eww-smart-tabs))
+
+;;;###autoload
+(defun emacspeak-eww-smart-tabs-add (char url )
+  "Add a URL to the specified location in smart tabs."
+  (interactive
+   (list
+    (read-char-exclusive "Tab:")
+    (read-from-minibuffer "URL:")))
+  (cl-declare (special emacspeak-eww-smart-tabs))
+  (emacspeak-eww-smart-tabs-put char url)
+  (emacspeak-auditory-icon 'close-object))
+
 
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs (char &optional define)
