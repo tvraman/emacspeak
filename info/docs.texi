@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 912 options.
+This chapter documents a total of 1229 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -8305,6 +8305,17 @@ To associate a URL with a char, use this command
 with an interactive prefix arg. 
 
 (fn CHAR &optional DEFINE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-smart-tabs-add
+@deffn {Command} emacspeak-eww-smart-tabs-add  (char url)
+@findex emacspeak-eww-smart-tabs-add
+
+@format
+Add a URL to the specified location in smart tabs.
+
+(fn CHAR URL)
 @end format
 @end deffn
 
