@@ -1662,6 +1662,19 @@ codes."
  #'ems--exchange-rates-to-org)
 
 ;;}}}
+;;{{{CIA World Fact Book:
+
+(emacspeak-url-template-define
+ "CIA World Fact Book"
+ "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/%s.html"
+ (list "2-Letter Country Code:")
+ #'(lambda nil
+     (search-forward "Page last updated")
+     (beginning-of-line)
+     (emacspeak-speak-rest-of-buffer))
+ "Open CIA World Fact Book For Specified Country.")
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
