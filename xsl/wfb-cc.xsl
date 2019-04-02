@@ -18,9 +18,9 @@ Extract country-code mappings from CIA World Fact Book
   </xsl:template>
 
   <xsl:template select="option">
-    <xsl:if test="string-length(@value) &gt; 0">
-      ("<xsl:copy-of  select="."/>"
-      "<xsl:value-of select="@data-place-code"/>")
+    <xsl:if test="@data-place-code>
+      ("<xsl:copy-of  select='.'/>"
+      "<xsl:value-of select='./@data-place-code'/>")
     </xsl:if>
   </xsl:template>
   <!-- } -->
