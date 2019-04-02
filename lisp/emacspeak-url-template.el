@@ -1666,12 +1666,10 @@ codes."
 
 (emacspeak-url-template-define
  "CIA World Fact Book"
- "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/%s.html"
+ "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/print_%s.html"
  (list "2-Letter Country Code:")
  #'(lambda nil
-     (search-forward "Page last updated")
-     (beginning-of-line)
-     (emacspeak-speak-rest-of-buffer))
+     (emacspeak-speak-buffer))
  "Open CIA World Fact Book For Specified Country.")
 
 ;;}}}
