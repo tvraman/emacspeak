@@ -19,6 +19,7 @@ Extract country-code mappings from CIA World Fact Book
   <xsl:template match="option">
     <xsl:if test="string-length(@data-place-code) &gt; 0">
       ("<xsl:value-of  select='normalize-space(.)'/>"
+.
       "<xsl:value-of select='@data-place-code'/>")
     </xsl:if>
   </xsl:template>

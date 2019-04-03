@@ -1678,7 +1678,7 @@ Builds up alist of codes if needed the first time."
              (emacspeak-xslt-url
               (emacspeak-xslt-get "wfb-cc.xsl")
               u))))
-    (cl-second
+    (cdr
      (assoc
       (completing-read "Country:"ems--wfb-cc-codes)
       ems--wfb-cc-codes))))
