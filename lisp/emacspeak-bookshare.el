@@ -405,7 +405,7 @@ Optional argument 'no-auth says we dont need a user auth."
 Interactive prefix arg filters search by category."
   (interactive
    (list
-    (url-encode-url
+    (url-hexify-string
      (read-from-minibuffer "author: "))
     current-prefix-arg))
   (cond
@@ -426,7 +426,7 @@ Interactive prefix arg filters search by category."
 Interactive prefix arg filters search by category."
   (interactive
    (list
-    (url-encode-url
+    (url-hexify-string
      (read-from-minibuffer "Title: "))
     current-prefix-arg))
   (cond

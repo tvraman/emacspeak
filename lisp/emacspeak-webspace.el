@@ -398,7 +398,7 @@ Optional interactive prefix arg forces a refresh."
   (format
    emacspeak-webspace-kg-rest-end-point
    "ids"
-   (url-encode-url (substring id 3))
+   (url-hexify-string (substring id 3))
    emacspeak-webspace-kg-key
    1))
 
@@ -409,7 +409,7 @@ Optional interactive prefix arg forces a refresh."
   (format
    emacspeak-webspace-kg-rest-end-point
    "query"
-   (url-encode-url query)
+   (url-hexify-string query)
    emacspeak-webspace-kg-key
    limit))
 
