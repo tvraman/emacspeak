@@ -8,7 +8,7 @@ Extract country-code mappings from CIA World Fact Book
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0" >
 
-  <xsl:output method="text" indent="yes" encoding="UTF-8"/>
+  <xsl:output method="text"  encoding="UTF-8"/>
 
   <!-- { output   -->
 
@@ -18,7 +18,7 @@ Extract country-code mappings from CIA World Fact Book
 
   <xsl:template match="option">
     <xsl:if test="string-length(@data-place-code) &gt; 0">
-      ("<xsl:copy-of  select='.'/>"
+      ("<xsl:value-of  select='normalize-space(.)'/>"
       "<xsl:value-of select='@data-place-code'/>")
     </xsl:if>
   </xsl:template>
