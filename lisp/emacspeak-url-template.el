@@ -1674,11 +1674,10 @@ Builds up alist of codes if needed the first time."
           "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/in.html"))
     (unless ems--wfb-cc-codes
       (setq ems--wfb-cc-codes
-            (read 
+            (read
              (emacspeak-xslt-url (emacspeak-xslt-get "wfb-cc.xsl")
                                  u))))
-    (cl-second (completing-read "Country:" cc))
-    ))
+    (cl-second (assoc (completing-read "Country:" cc) cc))))
 
 (emacspeak-url-template-define
  "CIA World Fact Book"
