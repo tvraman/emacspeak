@@ -16,7 +16,7 @@
 (defgroup touchpad-unprepare nil
   "disable mouse/touchpad in emacs"
   :group 'applications)
-(defcustom touchpad-device "11"
+(defcustom touchpad-device "12"
   "Device ID of touchpad.
 Set by locating it via xinput --list."
   :type 'string
