@@ -1677,7 +1677,10 @@ Builds up alist of codes if needed the first time."
             (read
              (emacspeak-xslt-url (emacspeak-xslt-get "wfb-cc.xsl")
                                  u))))
-    (cl-second (assoc (completing-read "Country:" cc) cc))))
+    (cl-second
+     (assoc
+      (completing-read "Country:"ems--wfb-cc-codes)
+      ems--wfb-cc-codes))))
 
 (emacspeak-url-template-define
  "CIA World Fact Book"
