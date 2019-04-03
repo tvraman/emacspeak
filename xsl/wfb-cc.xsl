@@ -27,7 +27,7 @@ Extract country-code mappings from CIA World Fact Book
 </xsl:stylesheet>
 <!--
     Local Variables:
-    mode: xae
+    mode: nxml
     sgml-indent-step: 2
     sgml-indent-data: t
     sgml-set-face: nil

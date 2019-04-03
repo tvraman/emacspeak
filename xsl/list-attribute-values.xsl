@@ -29,7 +29,7 @@ Param attr  specifies the attribute to list.
 </xsl:stylesheet>
 <!--
 Local Variables:
-mode: xae
+mode: nxml
 sgml-indent-step: 2
 sgml-indent-data: t
 sgml-set-face: nil

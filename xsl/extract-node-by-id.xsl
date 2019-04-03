@@ -33,7 +33,7 @@ Parameter base specifies base URL of source document.
 </xsl:stylesheet>
 <!--
 Local Variables:
-mode: xae
+mode: nxml
 sgml-indent-step: 2
 sgml-indent-data: t
 sgml-set-face: nil

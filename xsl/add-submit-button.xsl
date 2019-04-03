@@ -37,7 +37,7 @@ button so that one can submit such forms without Javascript.
 
 <!--
 Local Variables:
-mode: xae
+mode: nxml
 sgml-indent-step: 2
 sgml-indent-data: t
 sgml-set-face: nil

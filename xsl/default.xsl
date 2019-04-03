@@ -33,7 +33,7 @@ Embedded IFrame</a>
 
 <!--
 Local Variables:
-mode: xae
+mode: nxml
 sgml-indent-step: 2
 sgml-indent-data: t
 sgml-set-face: nil

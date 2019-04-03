@@ -127,7 +127,7 @@ used as the table-index for extract-tables.xsl.
 </xsl:stylesheet>
 <!--
 Local Variables:
-mode: xae
+mode: nxml
 sgml-indent-step: 2
 sgml-indent-data: t
 sgml-set-face: nil
