@@ -1670,8 +1670,8 @@ codes."
   "Return 2-letter country code using completing-read.
 Builds up alist of codes if needed the first time."
   (cl-declare (special ems--wfb-cc-codes))
-  (let* ((u
-          "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/in.html"))
+  (let*
+      ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
     (unless ems--wfb-cc-codes
       (setq ems--wfb-cc-codes
             (read
