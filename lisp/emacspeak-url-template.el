@@ -1675,8 +1675,9 @@ Builds up alist of codes if needed the first time."
     (unless ems--wfb-cc-codes
       (setq ems--wfb-cc-codes
             (read
-             (emacspeak-xslt-url (emacspeak-xslt-get "wfb-cc.xsl")
-                                 u))))
+             (emacspeak-xslt-url
+              (emacspeak-xslt-get "wfb-cc.xsl")
+              u))))
     (cl-second
      (assoc
       (completing-read "Country:"ems--wfb-cc-codes)
@@ -1685,12 +1686,9 @@ Builds up alist of codes if needed the first time."
 (emacspeak-url-template-define
  "CIA World Fact Book"
  "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/print_%s.html"
- 
- (list
-  #'(lambda nil (ems--get-wfb-cc-code)))
- #'(lambda nil
-     (emacspeak-speak-buffer))
- "Open CIA World Fact Book For Specified Country.")
+ (list #'(lambda nil (ems--get-wfb-cc-code)))
+     #'emacspeak-speak-buffer
+     "Open CIA World Fact Book For Specified Country.")
 
 ;;}}}
 (provide 'emacspeak-url-template)
