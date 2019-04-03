@@ -191,10 +191,11 @@ part of the libxslt package."
                        " "))))
     (setq command
           (format
-           "%s %s    --html --novalid %s '%s' %s"
+           "curl --silent %s | %s %s --html --novalid %s - %s"
+           url
            emacspeak-xslt-program
            (or parameters "")
-           xsl url
+           xsl
            (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
     (with-current-buffer result 
       (kill-all-local-variables)
