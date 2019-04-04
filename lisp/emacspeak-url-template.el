@@ -1663,6 +1663,7 @@ codes."
 
 ;;}}}
 ;;{{{CIA World Fact Book:
+
 (defvar ems--wfb-cc-codes nil
   "Association list  ofWorld Fact Book Country Codes.")
 
@@ -1670,12 +1671,11 @@ codes."
   "Get WFB CC Codes using XSLT."
   (cl-declare (special ems--wfb-cc-codes))
   (let ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
-    (unless ems--wfb-cc-codes
       (setq ems--wfb-cc-codes
             (read
              (emacspeak-xslt-url
               (emacspeak-xslt-get "wfb-cc.xsl")
-              u))))))
+              u)))))
 
 (declare-function dom-from-url "dom-addons" (url))
 
@@ -1683,20 +1683,19 @@ codes."
   "Get WFB CC Codes using Elisp."
   (cl-declare (special ems--wfb-cc-codes))
   (let ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
-    (unless ems--wfb-cc-codes
       (setq ems--wfb-cc-codes
             (cl-loop
              for  o in
              (dom-by-tag (dom-from-url u) 'option)
              when (dom-attr o 'data-place-code )
              collect
-             (cons (string-trim (dom-text o)) (dom-attr o 'data-place-code )))))))
+             (cons (string-trim (dom-text o)) (dom-attr o 'data-place-code ))))))
 
 (defun ems--get-wfb-cc-code ()
   "Return 2-letter country code using completing-read.
 Builds up alist of codes if needed the first time."
   (cl-declare (special ems--wfb-cc-codes))
-  (ems--el-wfb-cc)
+  (unless ems--wfb-cc-codes (ems--el-wfb-cc))
   (cdr
    (assoc
     (completing-read "Country:"ems--wfb-cc-codes)
