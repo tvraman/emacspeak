@@ -6345,7 +6345,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.235 URL Templates
 ====================
 
-This section documents a total of 87 URL Templates.
+This section documents a total of 88 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u C-; u <fn> u C-x
@@ -6435,6 +6435,10 @@ location and speaks the forecast.
 
    Lookup Stock Quote information on Bloomberg.  Ticker is of the form
 goog:us
+
+   CIA World Fact Book
+
+   Open CIA World Fact Book For Specified Country.
 
    CNN Content
 
