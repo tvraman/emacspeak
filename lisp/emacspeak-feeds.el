@@ -106,7 +106,8 @@
     ("BBC News"  "http://www.bbc.co.uk/syndication/feeds/news/ukfs_news/front_page/rss091.xml"  rss)
     ("CNet Tech News"  "http://feeds.feedburner.com/cnet/tcoc"  rss)
     )
-  "Table of RSS/Atom feeds."
+  "Table of RSS/Atom feeds.
+The feed list is persisted to file saved-feeds on exit."
   :type '(repeat
           (list :tag "Feed"
                 (string :tag "Title")
