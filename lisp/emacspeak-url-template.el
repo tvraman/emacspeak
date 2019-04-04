@@ -1703,6 +1703,19 @@ Builds up alist of codes if needed the first time."
      #'emacspeak-speak-buffer
      "Open CIA World Fact Book For Specified Country.")
 
+
+(emacspeak-url-template-define
+ "CIA Leaders Of The World"
+ "https://www.cia.gov/library/publications/resources/world-leaders-1/%s.html"
+ (list #'(lambda nil
+           (upcase (ems--read-wfb-cc-code))))
+ #'(lambda nil
+     (search-forward "Last Update")
+     (goto-char (line-end-position))
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
+     "Open CIA World Leaders  For Specified Country.")
+
 ;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
