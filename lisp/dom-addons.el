@@ -50,7 +50,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'dom)
-
+(require 'g-utils)
 ;;}}}
 ;;{{{ Additional helpers:
 (defun dom-alternate-links (dom)
@@ -145,6 +145,21 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defun dom-by-itemprop-list (dom match-list)
   "Return elements in DOM that have a itemprop name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'itemprop match-list))
+
+;;}}}
+;;{{{DOM From URL:
+(defun dom-from-url (url)
+  "Return DOM for HTML content at URL."
+  (cl-declare (special g-curl-program g-curl-common-options))
+  (g-using-scratch
+      (shell-command
+       (format "%s %s '%s'"
+               g-curl-program g-curl-common-options url)
+       (current-buffer))
+    (goto-char (point-min))
+    (xml-remove-comments (point-min) (point-max))
+    (libxml-parse-html-region (point-min) (point-max))))
+
 
 ;;}}}
 (provide 'dom-addons)
