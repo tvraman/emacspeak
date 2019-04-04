@@ -1694,10 +1694,7 @@ codes."
 Builds up alist of codes if needed the first time."
   (cl-declare (special ems--wfb-cc-codes))
   (unless ems--wfb-cc-codes (ems--el-wfb-cc))
-  (cdr
-   (assoc
-    (completing-read "Country:"ems--wfb-cc-codes)
-    ems--wfb-cc-codes)))
+  (cdr (assoc (completing-read "Country:"ems--wfb-cc-codes) ems--wfb-cc-codes)))
 
 (emacspeak-url-template-define
  "CIA World Fact Book"
