@@ -125,6 +125,16 @@
       (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
 
+
+(add-hook
+ 'kill-emacs-hook
+ #'(lambda nil
+     (when (bound-and-true-p emacspeak-feeds)
+       (emacspeak--persist-variable
+        'emacspeak-feeds
+        (expand-file-name "saved-feeds"
+                          emacspeak-resource-directory)))))
+
 (defun emacspeak-feeds-added-p (feed-url)
   "Check if this feed has been added before."
   (cl-declare (special emacspeak-feeds-feeds-table))
