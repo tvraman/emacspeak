@@ -54,7 +54,8 @@
 
 ;;}}}
 ;;{{{ required modules
-
+(require 'cl-lib)
+(eval-when-compile (require 'subr-x))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
@@ -62,8 +63,7 @@
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
-(eval-when-compile
-  (require 'calendar))
+(eval-when-compile (require 'calendar))
 ;;}}}
 ;;{{{ structures
 
