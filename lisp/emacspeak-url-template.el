@@ -1671,11 +1671,9 @@ codes."
   "Get WFB CC Codes using XSLT."
   (cl-declare (special ems--wfb-cc-codes))
   (let ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
-      (setq ems--wfb-cc-codes
-            (read
-             (emacspeak-xslt-url
-              (emacspeak-xslt-get "wfb-cc.xsl")
-              u)))))
+    (setq
+     ems--wfb-cc-codes
+     (read (emacspeak-xslt-url (emacspeak-xslt-get "wfb-cc.xsl") u)))))
 
 (declare-function dom-from-url "dom-addons" (url))
 
@@ -1683,15 +1681,15 @@ codes."
   "Get WFB CC Codes using Elisp."
   (cl-declare (special ems--wfb-cc-codes))
   (let ((u "https://www.cia.gov/library/publications/the-world-factbook/"))
-      (setq ems--wfb-cc-codes
-            (cl-loop
-             for  o in
-             (dom-by-tag (dom-from-url u) 'option)
-             when (dom-attr o 'data-place-code )
-             collect
-             (cons (string-trim (dom-text o)) (dom-attr o 'data-place-code ))))))
+    (setq
+     ems--wfb-cc-codes
+     (cl-loop
+      for  o in (dom-by-tag (dom-from-url u) 'option)
+      when (dom-attr o 'data-place-code )
+      collect
+      (cons (string-trim (dom-text o)) (dom-attr o 'data-place-code ))))))
 
-(defun ems--get-wfb-cc-code ()
+(defun ems--read-wfb-cc-code ()
   "Return 2-letter country code using completing-read.
 Builds up alist of codes if needed the first time."
   (cl-declare (special ems--wfb-cc-codes))
@@ -1704,7 +1702,7 @@ Builds up alist of codes if needed the first time."
 (emacspeak-url-template-define
  "CIA World Fact Book"
  "https://www.cia.gov/library/publications/resources/the-world-factbook/geos/print_%s.html"
- (list #'(lambda nil (ems--get-wfb-cc-code)))
+ (list #'(lambda nil (ems--read-wfb-cc-code)))
      #'emacspeak-speak-buffer
      "Open CIA World Fact Book For Specified Country.")
 
