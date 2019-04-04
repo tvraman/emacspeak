@@ -1531,6 +1531,7 @@ t		twit
 u		emacspeak-url-template-fetch
 v		vdiff-magit-popup
 w		emacspeak-wizards-noaa-weather
+y		yas-expand
 
 SPC SPC		emacspeak-webspace-headlines-browse
 SPC h		emacspeak-webspace-headlines
@@ -8536,6 +8537,7 @@ XSL stylesheet used for viewing Atom Feeds.
 
 @defvar {User Option} emacspeak-feeds
 Table of RSS/Atom feeds.
+The feed list is persisted to file saved-feeds on exit.
 
 @end defvar
 
@@ -25597,7 +25599,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 88 URL Templates.
+This section documents a total of 89 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25690,6 +25692,10 @@ Bing results as RSS feed.
 @b{Bloomberg Stock  Lookup}
 
 Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us
+
+@b{CIA Leaders Of The World}
+
+Open CIA World Leaders  For Specified Country.
 
 @b{CIA World Fact Book}
 

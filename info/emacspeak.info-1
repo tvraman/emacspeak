@@ -4034,6 +4034,7 @@ system.
      u		emacspeak-url-template-fetch
      v		vdiff-magit-popup
      w		emacspeak-wizards-noaa-weather
+     y		yas-expand
 
      SPC SPC		emacspeak-webspace-headlines-browse
      SPC h		emacspeak-webspace-headlines
