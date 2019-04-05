@@ -3643,7 +3643,7 @@ Optional interactive prefix arg shows  unprocessed results."
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)
-      (orgstruct-mode)
+      (org-mode)
       (insert (format "* Standings: %s\n\n" date))
       (cond
        (raw
