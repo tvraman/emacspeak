@@ -3676,8 +3676,7 @@ Arranges for `VAR' to be restored when `file' is loaded."
       (pp (symbol-value var) (current-buffer))
       (insert (format ") ;;; set%s\n\n" var))
       (save-buffer))
-    (message "Saved %s." var)
-    (emacspeak-auditory-icon 'save-object)))
+    (message "Saved %s." var)))
 
 ;;}}}
 (provide 'emacspeak-speak)
