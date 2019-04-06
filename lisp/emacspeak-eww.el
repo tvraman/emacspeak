@@ -2108,9 +2108,7 @@ with an interactive prefix arg. "
   (let ((url (emacspeak-eww-smart-tabs-get char)))
     (cl-assert (stringp url) t "No URL stored in this location.")
     (emacspeak-auditory-icon 'button)
-    (eww url 'new)))
-
-
+    (eww url)))
 
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs-save ()
