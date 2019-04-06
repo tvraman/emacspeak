@@ -3672,11 +3672,13 @@ Arranges for `VAR' to be restored when `file' is loaded."
       (erase-buffer)
       (insert ";;; Auto-generated.\n\n")
       (insert (format "(setq %s \n" var))
-       (if (listp (symbol-value var)) (insert "'"))
+      (if (listp (symbol-value var)) (insert "'"))
       (pp (symbol-value var) (current-buffer))
       (insert (format ") ;;; set%s\n\n" var))
       (save-buffer))
-    (message "Saved %s." var)))
+    (unless noninteractive
+      (emacspeak-auditory-icon 'save-object)
+      (message "Saved %s." var))))
 
 ;;}}}
 (provide 'emacspeak-speak)
