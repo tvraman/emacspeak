@@ -770,17 +770,9 @@ emacspeak-speak-filter-table)\n" k v)))
   "Persist emacspeak filter settings for future sessions."
   (cl-declare (special emacspeak-speak-filter-persistent-store
                        emacspeak-speak-filter-table))
-  (let ((print-level nil)
-        (print-length nil)
-        (buffer (find-file-noselect
-                 emacspeak-speak-filter-persistent-store)))
-    (save-current-buffer
-      (set-buffer buffer)
-      (erase-buffer)
-      (maphash 'emacspeak-speak-persist-filter-entry
-               emacspeak-speak-filter-table)
-      (save-buffer)
-      (kill-buffer buffer))))
+  (emacspeak--persist-variable
+   'emacspeak-speak-filter-table
+   emacspeak-speak-filter-persistent-store))
 
 (defun emacspeak-speak-load-filter-settings ()
   "Load emacspeak filter settings."
@@ -3664,19 +3656,19 @@ This command  is designed for use in a windowing environment like X."
   "Persist variable  `var' to file `FILE'.
 Arranges for `VAR' to be restored when `file' is loaded."
   (interactive)
-  (let ((buffer (find-file-noselect file))
-        (print-length nil)
-        (print-level nil))
-    (cl-assert (boundp var) t "Unbound var cannot be saved")
-    (with-current-buffer buffer
-      (erase-buffer)
-      (insert ";;; Auto-generated.\n\n")
-      (insert (format "(setq %s \n" var))
-      (if (listp (symbol-value var)) (insert "'"))
-      (pp (symbol-value var) (current-buffer))
-      (insert (format ") ;;; set%s\n\n" var))
-      (save-buffer))
-    (unless noninteractive
+  (when (and (not noninteractive) (boundp var))
+    (let ((buffer (find-file-noselect file))
+          (print-length nil)
+          (print-level nil))
+      (with-current-buffer buffer
+        (erase-buffer)
+        (insert ";;; Auto-generated.\n\n")
+        (insert (format "(setq %s \n" var))
+        (if (listp (symbol-value var)) (insert "'"))
+        (pp (symbol-value var) (current-buffer))
+        (insert (format ") ;;; set%s\n\n" var))
+        (save-buffer))
+
       (emacspeak-auditory-icon 'save-object)
       (message "Saved %s." var))))
 
