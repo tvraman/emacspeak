@@ -1271,14 +1271,14 @@ Optional interactive prefix arg ask-pwd prompts for password."
    (list
     (let ((completion-ignored-extensions nil))
       (expand-file-name
-       (read-file-name "PDF File: "
-                       nil default-directory
-                       t nil
-                       #'(lambda (name)
-                           (string-match ".pdf$" name)))))
+       (read-file-name
+        "PDF File: "
+        nil default-directory
+        t nil)))
     current-prefix-arg))
   (cl-declare (special emacspeak-wizards-pdf-to-text-options
                        emacspeak-wizards-pdf-to-text-program))
+  (cl-assert (string-match ".pdf$"filename) t "Not a PDF file.")
   (let ((passwd (when ask-pwd (read-passwd "User Password:")))
         (output-buffer
          (format "%s"
