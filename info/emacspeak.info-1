@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 4, 2019.
+last updated on April 13, 2019.
 
    The manual is divided into the following chapters:
 
@@ -820,9 +820,9 @@ working with program source.
      indentation.  Interactive PREFIX arg means toggle the global
      default value, and then set the current local value to the result.
      Specifying the method of indentation as ‘tones’ results in the
-     Dectalk producing a tone whose length is a function of the line’s
-     indentation.  Specifying ‘speak’ results in the number of initial
-     spaces being spoken.
+     speech-server producing a tone whose length is a function of the
+     line’s indentation.  Specifying ‘speak’ results in the number of
+     initial spaces being spoken.
 
      Indentation feedback style is set by option
      emacspeak-audio-indentation-method
