@@ -643,7 +643,7 @@ b Browse
     (if (fboundp handler) handler 'emacspeak-bookshare-recurse)))
 
 (defvar emacspeak-bookshare-response-elements
-  '(bookshare version metadata messages string status-code
+  '(bookshare debugInfo  version metadata messages string status-code
               book user string downloads-remaining
               id name value editable
               periodical list page num-pages limit result)
@@ -685,6 +685,7 @@ b Browse
   (mapc #'emacspeak-bookshare-apply-handler (dom-children response)))
 
 (defalias 'emacspeak-bookshare-version-handler 'ignore)
+(defalias 'emacspeak-bookshare-debugInfo-handler 'ignore)
 
 (defun emacspeak-bookshare-recurse (tree)
   "Recurse down tree."
