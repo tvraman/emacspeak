@@ -214,6 +214,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "forms" 'emacspeak-forms)
 (emacspeak-do-package-setup "generic" 'emacspeak-generic)
 (emacspeak-do-package-setup "geiser" 'emacspeak-geiser)
+(emacspeak-do-package-setup "github-explorer" 'emacspeak-gh-explorer)
 (emacspeak-do-package-setup "gtags" 'emacspeak-gtags)
 (emacspeak-do-package-setup "gnus" 'emacspeak-gnus)
 (emacspeak-do-package-setup "gnuplot" 'emacspeak-gnuplot)

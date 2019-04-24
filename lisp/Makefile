@@ -161,6 +161,7 @@ emacspeak-forge.elc \
 emacspeak-forms.elc \
 emacspeak-generic.elc \
 emacspeak-geiser.elc \
+emacspeak-gh-explorer.elc \
 emacspeak-gnuplot.elc \
 emacspeak-gnus.elc\
 emacspeak-go-mode.elc \
@@ -433,6 +434,7 @@ emacspeak-forge.elc: emacspeak-forge.el dtk-speak.elc voice-setup.elc
 emacspeak-forms.elc: emacspeak-forms.el dtk-speak.elc voice-setup.elc
 emacspeak-generic.elc: emacspeak-generic.el dtk-speak.elc voice-setup.elc
 emacspeak-geiser.elc: emacspeak-geiser.el dtk-speak.elc voice-setup.elc
+emacspeak-gh-explorer.elc: emacspeak-gh-explorer.el dtk-speak.elc voice-setup.elc
 emacspeak-gnuplot.elc: emacspeak-gnuplot.el dtk-speak.elc voice-setup.elc
 emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc voice-setup.elc
 emacspeak-google.elc: emacspeak-google.el dtk-speak.elc
