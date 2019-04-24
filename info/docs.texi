@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 912 options.
+This chapter documents a total of 1231 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -90,6 +90,7 @@ This chapter documents a total of 1229 commands and 912 options.
 * emacspeak-ftf::Speech-enable find-things-fast.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-generic::Speech enable  generic modes.
+* emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
 * emacspeak-gnus::Speech enable GNUS -- Fluent spoken access to imap, usenet.
 * emacspeak-go-mode::Speech-enable GO-MODE.
@@ -2255,78 +2256,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @defvar {User Option} voice-error
 Personality used for error
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-archive
-Personality used for eshell-ls-archive
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-backup
-Personality used for eshell-ls-backup
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-clutter
-Personality used for eshell-ls-clutter
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-directory
-Personality used for eshell-ls-directory
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-executable
-Personality used for eshell-ls-executable
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-missing
-Personality used for eshell-ls-missing
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-product
-Personality used for eshell-ls-product
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-readonly
-Personality used for eshell-ls-readonly
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-special
-Personality used for eshell-ls-special
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-symlink
-Personality used for eshell-ls-symlink
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-ls-unreadable
-Personality used for eshell-ls-unreadable
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eshell-prompt
-Personality used for eshell-prompt
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
@@ -6817,6 +6746,78 @@ personalities.
 
 @end defvar
 
+@defvar {User Option} voice-eshell-ls-archive
+Personality used for eshell-ls-archive
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-backup
+Personality used for eshell-ls-backup
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-clutter
+Personality used for eshell-ls-clutter
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-directory
+Personality used for eshell-ls-directory
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-executable
+Personality used for eshell-ls-executable
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-missing
+Personality used for eshell-ls-missing
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-product
+Personality used for eshell-ls-product
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-readonly
+Personality used for eshell-ls-readonly
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-special
+Personality used for eshell-ls-special
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-symlink
+Personality used for eshell-ls-symlink
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-ls-unreadable
+Personality used for eshell-ls-unreadable
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eshell-prompt
+Personality used for eshell-prompt
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @node emacspeak-ess
 @section emacspeak-ess
 
@@ -8914,6 +8915,32 @@ This module speech-enables generic.el so that modes
 defined using  define-generic-mode get voice locking
 support. Examples include apache-generic-mode and
 friends defined in generic-x.el
+
+@node emacspeak-gh-explorer
+@section emacspeak-gh-explorer
+
+GH-EXPLORER ==  GitHub Explorer 
+This module speech-enables Github Explorer.
+
+@subsection emacspeak-gh-explorer Commands
+
+@subsubsection emacspeak-gh-explorer-next
+@deffn {Command} emacspeak-gh-explorer-next   
+@findex emacspeak-gh-explorer-next
+
+@format
+Move forward and speak current entry.
+@end format
+@end deffn
+
+@subsubsection emacspeak-gh-explorer-previous
+@deffn {Command} emacspeak-gh-explorer-previous   
+@findex emacspeak-gh-explorer-previous
+
+@format
+Moveback and speak current entry.
+@end format
+@end deffn
 
 @node emacspeak-gnuplot
 @section emacspeak-gnuplot
