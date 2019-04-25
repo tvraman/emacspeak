@@ -73,25 +73,19 @@
 
 
 (defun ems--gh-explorer-nav (direction)
-     "Move forward/back based on `direction' and speak current entry."
-     (emacspeak-auditory-icon 'select-object)
-     (forward-line direction)
-     (let
-         ((path
-           (progn
-             (goto-char (line-beginning-position))
-             (cdr (assoc 'path (get-text-property (point) 'invisible)))))
-          (type
-           (progn
-             (goto-char (line-beginning-position))
-             (cdr (assoc 'type (get-text-property (point)
-                                                  'invisible))))))
-       (cond
-        ((null path) (emacspeak-speak-line))
-        (t
-         (dtk-speak
-          (propertize path 'personality
-                      (if (string= type "tree")  voice-bolden-medium)))))))
+  "Move forward/back based on `direction' and speak current entry."
+  (emacspeak-auditory-icon 'select-object)
+  (forward-line direction)
+  (save-excursion
+    (goto-char (line-beginning-position))
+    (let ((path (cdr (assoc 'path (get-text-property (point) 'invisible))))
+          (type (cdr (assoc 'type (get-text-property (point) 'invisible)))))
+      (cond
+       ((null path) (emacspeak-speak-line))
+       (t
+        (dtk-speak
+         (propertize path 'personality
+                     (when (string= type "tree") voice-bolden-medium))))))))
 
 (defun emacspeak-gh-explorer-next ()
   "Move forward and speak current entry."
@@ -101,7 +95,6 @@
 (defun emacspeak-gh-explorer-previous ()
      "Moveback and speak current entry."
      (interactive)
-     
      
      (ems--gh-explorer-nav -1))
 
