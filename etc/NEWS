@@ -32,6 +32,7 @@ companion for working with Git Forges like  Github and Gitlab.
 
 Transient is a new Hydra equivalent used by ~Magit~. Module
 ~emacspeak-transient~ speech-enables ~transient~.
+
 ** Navi-Mode
 
 Module ~emacspeak-navi-mode.el~ speech-enables ~navi-mode~.
