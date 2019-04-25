@@ -43,3 +43,7 @@ Module ~emacspeak-navi-mode.el~ speech-enables ~navi-mode~.
 Module ~emacspeak-eww~ implements /Smart Tabs/ for EWW, these let you
 persist and open  a URL with a single key-stroke. See command
 _emacspeak-eww-smart-tabs_ for usage instructions.
+
+** Github Explorer 
+
+Module ~emacspeak-gh-explorer~ speech-enables package ~github-explorer~.
