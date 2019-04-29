@@ -1580,8 +1580,9 @@ template."
  #'(lambda (_url)
      (let* ((u
              (or
+              (shr-url-at-point nil)
               (browse-url-url-at-point)
-              (shr-url-at-point nil)))
+              (read-from-minibuffer "URL:")))
             (url
              (if (string-prefix-p (emacspeak-google-result-url-prefix) u)
                  (emacspeak-google-canonicalize-result-url u)
