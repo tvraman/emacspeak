@@ -826,7 +826,7 @@ icon."
   :type 'boolean
   :group 'emacspeak-speak)
 
-;;;###autoload
+
 (defvar emacspeak-speak-signals t
   "Specifies if signalled messages are cued.")
 
