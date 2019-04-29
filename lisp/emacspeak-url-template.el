@@ -1578,7 +1578,10 @@ template."
  "" nil nil
  "Open RSS Feed for Reddit URL under point."
  #'(lambda (_url)
-     (let* ((u (shr-url-at-point nil))
+     (let* ((u
+             (or
+              (browse-url-url-at-point)
+              (shr-url-at-point nil)))
             (url
              (if (string-prefix-p (emacspeak-google-result-url-prefix) u)
                  (emacspeak-google-canonicalize-result-url u)
