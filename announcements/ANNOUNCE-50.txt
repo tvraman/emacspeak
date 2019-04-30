@@ -37,10 +37,13 @@ assistant-oriented social Internet cloud.
 This version *requires* emacs-26.1 or later. 
  1. Emacs 26 Support  🤻
  2. Updated URL templates 🕷
- 6. Updated websearch wizards 
- 7. Updated Bookshare support 📚
- 8. Updated EWW support  🕸
- 9. Updated DBus support 🚌
+ 3. Updated websearch wizards  🧙
+ 4. Updated Bookshare support 📚
+ 5. Updated EWW support  🕸
+ 6. Smart tabs for EWW 📑
+ 7. Updated DBus support 🚌
+ 8. Speech-enable Github-Explorer   🤯
+ 9. Speech-enabled navi-mode   🌲
 — And a lot more than will fit this margin. … 🗞
 
 * Establishing Liberty, Equality And Freedom:
@@ -112,6 +115,9 @@ Git  from GitHub  at
 [[https://github.com/tvraman/emacspeak][Emacspeak GitHub ]].
 
 * History:
+
+  - Emacspeak 50.0 (SageDog) embraces the wisdom of stability as
+    opposed to rapid change and the concomitant  creation of bugs.
   - Emacspeak 49.0 (WiseDog) leverages the wisdom gleaned from
     earlier releases to provide an enhanced  auditory experience.
   - Emacspeak 48.0  (ServiceDog) builds on earlier releases to provide
@@ -274,7 +280,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Emacspeak 49.0—WiseDog—Unleashed!
+#+TITLE:     Emacspeak 50.0—SageDog—Unleashed!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
