@@ -41,9 +41,11 @@ This version *requires* emacs-26.1 or later.
  4. Updated Bookshare support 📚
  5. Updated EWW support  🕸
  6. Smart tabs for EWW 📑
- 7. Updated DBus support 🚌
- 8. Speech-enable Github-Explorer   🤯
- 9. Speech-enabled navi-mode   🌲
+ 7. Speech-enables Forge  for software development  ䷑
+ 8. The ESpeak server now builds on the Mac 🔈
+ 9. Updated DBus support 🚌
+ 10. Speech-enable Github-Explorer   🤯
+ 11. Speech-enabled navi-mode   🌲
 — And a lot more than will fit this margin. … 🗞
 
 * Establishing Liberty, Equality And Freedom:
