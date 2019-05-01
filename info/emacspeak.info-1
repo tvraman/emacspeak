@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 24, 2019.
+last updated on May 1, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2752,7 +2752,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1231 commands and 912 options.
+   This chapter documents a total of 1232 commands and 912 options.
 
 * Menu:
 
@@ -6597,7 +6597,17 @@ Assuming you have correctly setup your API key:
 
      (fn &optional CATEGORY)
 
-12.24.4.7 emacspeak-bookshare-download-audio
+12.24.4.7 emacspeak-bookshare-debugInfo-handler
+...............................................
+
+ -- Command: emacspeak-bookshare-debugInfo-handler (&rest ignore)
+
+     Do nothing and return nil.
+     This function accepts any number of arguments, but ignores them.
+
+     (fn &rest IGNORE)
+
+12.24.4.8 emacspeak-bookshare-download-audio
 ............................................
 
  -- Command: emacspeak-bookshare-download-audio (id target)
@@ -6606,7 +6616,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.24.4.8 emacspeak-bookshare-download-audio-at-point
+12.24.4.9 emacspeak-bookshare-download-audio-at-point
 .....................................................
 
  -- Command: emacspeak-bookshare-download-audio-at-point
@@ -6614,8 +6624,8 @@ Assuming you have correctly setup your API key:
      Download audio version of book under point.
      Target location is generated from author and title.
 
-12.24.4.9 emacspeak-bookshare-download-brf
-..........................................
+12.24.4.10 emacspeak-bookshare-download-brf
+...........................................
 
  -- Command: emacspeak-bookshare-download-brf (id target)
 
@@ -6623,7 +6633,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.24.4.10 emacspeak-bookshare-download-brf-at-point
+12.24.4.11 emacspeak-bookshare-download-brf-at-point
 ....................................................
 
  -- Command: emacspeak-bookshare-download-brf-at-point
@@ -6631,7 +6641,7 @@ Assuming you have correctly setup your API key:
      Download Braille version of book under point.
      Target location is generated from author and title.
 
-12.24.4.11 emacspeak-bookshare-download-daisy
+12.24.4.12 emacspeak-bookshare-download-daisy
 .............................................
 
  -- Command: emacspeak-bookshare-download-daisy (id target)
@@ -6640,7 +6650,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.24.4.12 emacspeak-bookshare-download-daisy-at-point
+12.24.4.13 emacspeak-bookshare-download-daisy-at-point
 ......................................................
 
  -- Command: emacspeak-bookshare-download-daisy-at-point
@@ -6648,7 +6658,7 @@ Assuming you have correctly setup your API key:
      Download Daisy version of book under point.
      Target location is generated from author and title.
 
-12.24.4.13 emacspeak-bookshare-download-epub-3
+12.24.4.14 emacspeak-bookshare-download-epub-3
 ..............................................
 
  -- Command: emacspeak-bookshare-download-epub-3 (id target)
@@ -6657,7 +6667,7 @@ Assuming you have correctly setup your API key:
 
      (fn ID TARGET)
 
-12.24.4.14 emacspeak-bookshare-download-epub-3-at-point
+12.24.4.15 emacspeak-bookshare-download-epub-3-at-point
 .......................................................
 
  -- Command: emacspeak-bookshare-download-epub-3-at-point
@@ -6665,7 +6675,7 @@ Assuming you have correctly setup your API key:
      Download epub-3 version of book under point.
      Target location is generated from author and title.
 
-12.24.4.15 emacspeak-bookshare-download-internal
+12.24.4.16 emacspeak-bookshare-download-internal
 ................................................
 
  -- Command: emacspeak-bookshare-download-internal (url target)
@@ -6674,7 +6684,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL TARGET)
 
-12.24.4.16 emacspeak-bookshare-eww
+12.24.4.17 emacspeak-bookshare-eww
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
@@ -6683,7 +6693,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.24.4.17 emacspeak-bookshare-expand-at-point
+12.24.4.18 emacspeak-bookshare-expand-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-expand-at-point
@@ -6691,7 +6701,7 @@ Assuming you have correctly setup your API key:
      Expand entry at point by retrieving metadata.
      Once retrieved, memoize to avoid multiple retrievals.
 
-12.24.4.18 emacspeak-bookshare-extract-and-view
+12.24.4.19 emacspeak-bookshare-extract-and-view
 ...............................................
 
  -- Command: emacspeak-bookshare-extract-and-view (url)
@@ -6700,7 +6710,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.24.4.19 emacspeak-bookshare-extract-xml
+12.24.4.20 emacspeak-bookshare-extract-xml
 ..........................................
 
  -- Command: emacspeak-bookshare-extract-xml (url)
@@ -6709,7 +6719,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.24.4.20 emacspeak-bookshare-flush-lines
+12.24.4.21 emacspeak-bookshare-flush-lines
 ..........................................
 
  -- Command: emacspeak-bookshare-flush-lines (regexp)
@@ -6718,7 +6728,7 @@ Assuming you have correctly setup your API key:
 
      (fn REGEXP)
 
-12.24.4.21 emacspeak-bookshare-fulltext
+12.24.4.22 emacspeak-bookshare-fulltext
 .......................................
 
  -- Command: emacspeak-bookshare-fulltext (directory)
@@ -6728,7 +6738,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.24.4.22 emacspeak-bookshare-fulltext-search
+12.24.4.23 emacspeak-bookshare-fulltext-search
 ..............................................
 
  -- Command: emacspeak-bookshare-fulltext-search (query)
@@ -6737,14 +6747,14 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY)
 
-12.24.4.23 emacspeak-bookshare-get-more-results
+12.24.4.24 emacspeak-bookshare-get-more-results
 ...............................................
 
  -- Command: emacspeak-bookshare-get-more-results
 
      Get next page of results for last query.
 
-12.24.4.24 emacspeak-bookshare-id-search
+12.24.4.25 emacspeak-bookshare-id-search
 ........................................
 
  -- Command: emacspeak-bookshare-id-search (query)
@@ -6753,7 +6763,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY)
 
-12.24.4.25 emacspeak-bookshare-isbn-search
+12.24.4.26 emacspeak-bookshare-isbn-search
 ..........................................
 
  -- Command: emacspeak-bookshare-isbn-search (query)
@@ -6762,14 +6772,14 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY)
 
-12.24.4.26 emacspeak-bookshare-list-preferences
+12.24.4.27 emacspeak-bookshare-list-preferences
 ...............................................
 
  -- Command: emacspeak-bookshare-list-preferences
 
      Return preference list.
 
-12.24.4.27 emacspeak-bookshare-mode
+12.24.4.28 emacspeak-bookshare-mode
 ...................................
 
  -- Command: emacspeak-bookshare-mode
@@ -6840,28 +6850,28 @@ Assuming you have correctly setup your API key:
      this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.24.4.28 emacspeak-bookshare-next-result
+12.24.4.29 emacspeak-bookshare-next-result
 ..........................................
 
  -- Command: emacspeak-bookshare-next-result
 
      Move to next result.
 
-12.24.4.29 emacspeak-bookshare-periodical-list
+12.24.4.30 emacspeak-bookshare-periodical-list
 ..............................................
 
  -- Command: emacspeak-bookshare-periodical-list
 
      Return list of periodicals.
 
-12.24.4.30 emacspeak-bookshare-previous-result
+12.24.4.31 emacspeak-bookshare-previous-result
 ..............................................
 
  -- Command: emacspeak-bookshare-previous-result
 
      Move to previous result.
 
-12.24.4.31 emacspeak-bookshare-set-preference
+12.24.4.32 emacspeak-bookshare-set-preference
 .............................................
 
  -- Command: emacspeak-bookshare-set-preference (preference-id value)
@@ -6870,7 +6880,7 @@ Assuming you have correctly setup your API key:
 
      (fn PREFERENCE-ID VALUE)
 
-12.24.4.32 emacspeak-bookshare-since-search
+12.24.4.33 emacspeak-bookshare-since-search
 ...........................................
 
  -- Command: emacspeak-bookshare-since-search (query &optional category)
@@ -6880,7 +6890,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.24.4.33 emacspeak-bookshare-title-search
+12.24.4.34 emacspeak-bookshare-title-search
 ...........................................
 
  -- Command: emacspeak-bookshare-title-search (query &optional category)
@@ -6890,7 +6900,7 @@ Assuming you have correctly setup your API key:
 
      (fn QUERY &optional CATEGORY)
 
-12.24.4.34 emacspeak-bookshare-toc
+12.24.4.35 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
@@ -6899,7 +6909,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.24.4.35 emacspeak-bookshare-toc-at-point
+12.24.4.36 emacspeak-bookshare-toc-at-point
 ...........................................
 
  -- Command: emacspeak-bookshare-toc-at-point
@@ -6907,14 +6917,14 @@ Assuming you have correctly setup your API key:
      View TOC for book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.24.4.36 emacspeak-bookshare-unpack-at-point
+12.24.4.37 emacspeak-bookshare-unpack-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-unpack-at-point
 
      Unpack downloaded content if necessary.
 
-12.24.4.37 emacspeak-bookshare-url-executor
+12.24.4.38 emacspeak-bookshare-url-executor
 ...........................................
 
  -- Command: emacspeak-bookshare-url-executor (url)
@@ -6923,7 +6933,7 @@ Assuming you have correctly setup your API key:
 
      (fn URL)
 
-12.24.4.38 emacspeak-bookshare-version-handler
+12.24.4.39 emacspeak-bookshare-version-handler
 ..............................................
 
  -- Command: emacspeak-bookshare-version-handler (&rest ignore)
@@ -6933,7 +6943,7 @@ Assuming you have correctly setup your API key:
 
      (fn &rest IGNORE)
 
-12.24.4.39 emacspeak-bookshare-view
+12.24.4.40 emacspeak-bookshare-view
 ...................................
 
  -- Command: emacspeak-bookshare-view (directory)
@@ -6942,7 +6952,7 @@ Assuming you have correctly setup your API key:
 
      (fn DIRECTORY)
 
-12.24.4.40 emacspeak-bookshare-view-at-point
+12.24.4.41 emacspeak-bookshare-view-at-point
 ............................................
 
  -- Command: emacspeak-bookshare-view-at-point
@@ -6950,7 +6960,7 @@ Assuming you have correctly setup your API key:
      View book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.24.4.41 emacspeak-bookshare-view-page-range
+12.24.4.42 emacspeak-bookshare-view-page-range
 ..............................................
 
  -- Command: emacspeak-bookshare-view-page-range (url)

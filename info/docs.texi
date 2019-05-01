@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1231 commands and 912 options.
+This chapter documents a total of 1232 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4550,6 +4550,18 @@ Browse popular books.
 Optional interactive prefix arg prompts for a category to use as a filter.
 
 (fn &optional CATEGORY)
+@end format
+@end deffn
+
+@subsubsection emacspeak-bookshare-debugInfo-handler
+@deffn {Command} emacspeak-bookshare-debugInfo-handler  (&rest ignore)
+@findex emacspeak-bookshare-debugInfo-handler
+
+@format
+Do nothing and return nil.
+This function accepts any number of arguments, but ignores them.
+
+(fn &rest IGNORE)
 @end format
 @end deffn
 

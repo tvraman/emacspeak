@@ -118,6 +118,7 @@ customizations
 datetime
 dbus
 DBus
+debugInfo
 decl
 decrementing
 dectalk
@@ -255,6 +256,8 @@ GDB
 geiser
 GEISER
 geocoding
+gh
+GH
 Gitlab
 globbed
 gmail
@@ -595,6 +598,8 @@ transcoder
 Transcoder
 Treese
 trplayer
+tts
+TTS
 tty
 TuneIn
 tvr
