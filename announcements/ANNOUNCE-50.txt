@@ -10,8 +10,9 @@ San Jose, Calif., (May 4, 2019)
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 --- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/50.0/emacspeak-50.0.tar.bz2][Emacspeak 50.0]]
 (SageDog) --- a powerful audio desktop for leveraging today's evolving
-Data, Social and Assistant-Oriented Internet cloud.  Naturally
-Intelligent (NI)™ at how information is spoken, the system is entirely
+Data, Social and Assistant-Oriented Internet cloud.  
+
+⚠ Naturally Intelligent (NI)™ at how information is spoken, the system is entirely
 free of Artificial Ingredients (AI)™.
 
 * Investors Note:
@@ -284,7 +285,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Emacspeak 50.0—SageDog—Unleashed!
+#+TITLE:     Announcing Emacspeak 50.0—SageDog!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
