@@ -6343,7 +6343,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.236 URL Templates
 ====================
 
-This section documents a total of 88 URL Templates.
+This section documents a total of 87 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6491,145 +6491,142 @@ location and speaks the forecast.
   43. Google Trends
 
      Google Trends
-  44. Google Trends Compared
-
-     Display comparative trends.
-  45. Google Webmaster Page Analysis
+  44. Google Webmaster Page Analysis
 
      Page Analysis From Google Webmaster tools.
-  46. Guardian RSS Feeds Directory
+  45. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  47. MLB Scorecard
+  46. MLB Scorecard
 
      Show MLB Scorecard.
-  48. MLB standings
+  47. MLB standings
 
      Display MLB standings.
-  49. Money Headlines From CNN
+  48. Money Headlines From CNN
 
      Money Headlines From CNN
-  50. Multilingual dictionary via Google.
+  49. Multilingual dictionary via Google.
 
      Translate word using Google.  Source and target languages are
      specified as two-letter language codes, e.g.  en|de translates from
      English to German
-  51. NBA standings
+  50. NBA standings
 
      Display NBA standings.
-  52. NLS Bard Popular
+  51. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  53. NLS Bard Recent
+  52. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  54. NLS Bard Search
+  53. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  55. NY Times Mobile
+  54. NY Times Mobile
 
      NYTimes Mobile Site
-  56. NY Times RSS Feeds
+  55. NY Times RSS Feeds
 
      Display browsable list of NY Times RSS Feeds.
-  57. Old Time Radio
+  56. Old Time Radio
 
      This months Old Time Radio Programming
-  58. OpenLibrary
+  57. OpenLibrary
 
      Open Library Search
-  59. Patent Search From Google
+  58. Patent Search From Google
 
      Perform patent search via Google
-  60. PodCast CNet
+  59. PodCast CNet
 
      Play Podcast from CNET
-  61. RadioTime Browser
+  60. RadioTime Browser
 
      RadioTime Entry point.
-  62. RadioTime Categories
+  61. RadioTime Categories
 
      RadioTime Categories .
-  63. RadioTime Search
+  62. RadioTime Search
 
      RadioTime Search.
-  64. Reddit At Point.
+  63. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  65. RedditBy Topic.
+  64. RedditBy Topic.
 
      Open RSS Feed for Reddit Topic.
-  66. Seeking Alpha Stock Search
+  65. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  67. Sign in to Google
+  66. Sign in to Google
 
      Login to Google.
-  68. StreamWorld Radio
+  67. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  69. Tech News From CNet
+  68. Tech News From CNet
 
      Display tech news from CNET
-  70. Times Of India
+  69. Times Of India
 
      Retrieve Times Of India.
-  71. TuneIn Radio
+  70. TuneIn Radio
 
      Translate StreamId to playable stream.
-  72. UPS Packages
+  71. UPS Packages
 
      Display package tracking information from UPS.
-  73. Washington Post
+  72. Washington Post
 
      Washington Post Contents
-  74. Weather forecast from Weather Underground
+  73. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  75. Wiki Data Search
+  74. Wiki Data Search
 
      Search WikiData.
-  76. WordNet Search
+  75. WordNet Search
 
      Look up term in WordNet.
-  77. Yahoo RSS Feeds
+  76. Yahoo RSSNews
 
-     List Yahoo RSS Feeds.
-  78. Youtube News
+     News From Yahoo As RSS.
+  77. Youtube News
 
      News Headlines From Youtube
-  79. fedex packages
+  78. fedex packages
 
      Display package tracking information from Fedex.
-  80. html Google News Search
+  79. html Google News Search
 
      Search Google news.
-  81. html5IRC
+  80. html5IRC
 
      Show HTML5 IRC log.
-  82. rss weather from wunderground
+  81. rss weather from wunderground
 
      Pull RSS weather feed for specified state/city.
-  83. sourceforge Download
+  82. sourceforge Download
 
      Download specified file.
-  84. sourceforge browse mirrors
+  83. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  85. sourceforge project
+  84. sourceforge project
 
      Open specified project page at SourceForge.
-  86. w3c IRC Logs
+  85. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  87. w3c Lists
+  86. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  88. world CNN Content
+  87. world CNN Content
 
      Filter down to CNN content area.
 

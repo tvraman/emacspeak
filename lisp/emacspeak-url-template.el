@@ -642,13 +642,13 @@ from English to German")
 ;;}}}
 ;;{{{ yahoo daily news
 (emacspeak-url-template-define
- "Yahoo RSS Feeds"
+ "Yahoo RSSNews"
  "http://news.yahoo.com/rss"
  nil
  #'(lambda ()
      (emacspeak-pronounce-add-buffer-local-dictionary-entry
       "http://rss.news.yahoo.com/rss/" ""))
- "List Yahoo RSS Feeds."
+ "News  From Yahoo As RSS."
  #'emacspeak-feeds-rss-display)
 
 ;;}}}
@@ -1295,6 +1295,7 @@ before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
   (let ((completion-ignore-case t)
+        (case-fold-search  t)
         (name nil))
     (setq name
           (completing-read
@@ -1359,8 +1360,9 @@ prompts for a location and speaks the forecast. \n\n"
                  (where-is-internal
                   'emacspeak-url-template-fetch)
                  " ")))
-    (let
-        ((keys
+    (let*
+        ((case-fold-search  t)
+         (keys
           (sort
            (cl-loop for k being the hash-keys of emacspeak-url-template-table collect k)
            'string-lessp)))

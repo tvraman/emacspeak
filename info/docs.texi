@@ -25634,7 +25634,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 88 URL Templates.
+This section documents a total of 87 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25746,9 +25746,7 @@ Google Scholar Search@item @b{Google Transcoder}
 
 Transcode site via Google.@item @b{Google Trends}
 
-Google Trends@item @b{Google Trends Compared}
-
-Display comparative trends.@item @b{Google Webmaster Page Analysis}
+Google Trends@item @b{Google Webmaster Page Analysis}
 
 Page Analysis From Google Webmaster tools.@item @b{Guardian RSS Feeds Directory}
 
@@ -25819,9 +25817,9 @@ Weather forecast from weather underground mobile.@item @b{Wiki Data Search}
 
 Search WikiData.@item @b{WordNet Search}
 
-Look up term in WordNet.@item @b{Yahoo RSS Feeds}
+Look up term in WordNet.@item @b{Yahoo RSSNews}
 
-List Yahoo RSS Feeds.@item @b{Youtube News}
+News  From Yahoo As RSS.@item @b{Youtube News}
 
 News Headlines From Youtube@item @b{fedex packages}
 
