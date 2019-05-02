@@ -367,13 +367,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Google Trends"
  #'emacspeak-feeds-rss-display)
 
-(emacspeak-url-template-define
- "Google Trends Compared"
- "https://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
- (list "Comma Separated Keywords: ")
- nil
- "Display comparative trends."
- nil 'dont-escape)
+
 
 (emacspeak-url-template-define
  "Google Related Trends"
