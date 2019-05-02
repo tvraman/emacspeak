@@ -716,7 +716,7 @@ command that the key sequence executes."
     ("r" org-capture)
     ("s" emacspeak-wizards-shell)
     ("t" twit)
-    ("u" emacspeak-url-template-fetch)
+    ("u" list-unicode-display)
     ("v" vdiff-magit-popup)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand))
