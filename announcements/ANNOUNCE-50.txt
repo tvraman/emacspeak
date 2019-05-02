@@ -115,9 +115,8 @@ list request address emacspeak-request@cs.vassar.edu. The [[http://emacspeak.blo
 Blog]] is a good source for news about recent enhancements and how to
 use them.
 
-The latest development snapshot of Emacspeak is always available via
-Git  from GitHub  at 
-[[https://github.com/tvraman/emacspeak][Emacspeak GitHub ]].
+The latest development snapshot of Emacspeak is always available at
+[[https://github.com/tvraman/emacspeak][GitHub]].
 
 * History:
 
