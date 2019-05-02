@@ -1377,14 +1377,15 @@ prompts for a location and speaks the forecast. \n\n"
           (sort
            (cl-loop for k being the hash-keys of emacspeak-url-template-table collect k)
            'string-lessp)))
+      (insert "@enumerate \n\n")
       (cl-loop
        for key in keys do
        (insert
-        (format "@b{%s}\n\n" key))
+        (format "@item @b{%s}\n\n" key))
        (insert
         (emacspeak-url-template-documentation
-         (emacspeak-url-template-get key)))
-       (insert "\n\n")))))
+         (emacspeak-url-template-get key))))
+      (insert "\n\n@end enumerate\n\n"))))
 
 ;;}}}
 ;;{{{ wikiData:

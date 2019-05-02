@@ -1529,7 +1529,7 @@ p		emacspeak-wizards-pdf-open
 r		org-capture
 s		emacspeak-wizards-shell
 t		twit
-u		emacspeak-url-template-fetch
+u		list-unicode-display
 v		vdiff-magit-popup
 w		emacspeak-wizards-noaa-weather
 y		yas-expand
@@ -19265,12 +19265,8 @@ that are presently defined.
 @table @kbd
 @item C-e u
 @kindex C-e u
-@item C-; u
-@kindex C-; u
 @item <fn> u
 @kindex <fn> u
-@item C-x @@ h u
-@kindex C-x @@ h u
 @end table
 
 @findex emacspeak-url-template-fetch
@@ -25642,7 +25638,7 @@ This section documents a total of 89 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
- @kbd{C-e u C-; u <fn> u C-x @ h u}.
+ @kbd{C-e u <fn> u}.
 This command prompts for the name of the template, and completion
  is available via Emacs' minibuffer completion.
 Each URL template carries out the following steps:
@@ -25656,376 +25652,204 @@ Each URL template carries out the following steps:
 As an example, the URL template for weather forecasts
 prompts for a location and speaks the forecast. 
 
-@b{AQI: Air Quality Index}
+@enumerate 
 
-Return Air Quality for specified zip-code
+@item @b{AQI: Air Quality Index}
 
-@b{Air Traffic Control}
+Return Air Quality for specified zip-code@item @b{Air Traffic Control}
 
-Find live streams for Air Traffic Control.
+Find live streams for Air Traffic Control.@item @b{Airport conditions}
 
-@b{Airport conditions}
+Display airport conditions from the FAA.@item @b{Amazon Product Details By ASIN}
 
-Display airport conditions from the FAA.
+Retrieve product details from Amazon by either ISBN or ASIN.@item @b{Anonymize Google Search}
 
-@b{Amazon Product Details By ASIN}
+Logout from Google to do an anonymous search.@item @b{ArchWiki Search}
 
-Retrieve product details from Amazon by either ISBN or ASIN.
+Search Linux ArchWiki@item @b{BBC Genre Using IPlayer}
 
-@b{Anonymize Google Search}
+BBC iPlayer Genre@item @b{BBC Podcast Directory}
 
-Logout from Google to do an anonymous search.
+BBC PodCast Directory@item @b{BBC Program Guide}
 
-@b{ArchWiki Search}
+Display interactive BBC Program Guide.@item @b{BBC World News Summary}
 
-Search Linux ArchWiki
+BBC World News Summary@item @b{BBC iPlayer}
 
-@b{BBC Genre Using IPlayer}
+BBC iPlayer@item @b{Baseball Box Scores}
 
-BBC iPlayer Genre
+Display baseball Play By Play.@item @b{Baseball Game Details}
 
-@b{BBC Podcast Directory}
+Display baseball Play By Play.@item @b{Baseball Game Index}
 
-BBC PodCast Directory
+Display baseball Play By Play.@item @b{Baseball Highlights}
 
-@b{BBC Program Guide}
+Display baseball Video Highlights.@item @b{Baseball scores}
 
-Display interactive BBC Program Guide.
+Display baseball scores.@item @b{Bing News}
 
-@b{BBC World News Summary}
+Bing News results as RSS feed.@item @b{Bing Search}
 
-BBC World News Summary
+Bing results as RSS feed.@item @b{Bloomberg Stock  Lookup}
 
-@b{BBC iPlayer}
+Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us@item @b{CIA Leaders Of The World}
 
-BBC iPlayer
+Open CIA World Leaders  For Specified Country.@item @b{CIA World Fact Book}
 
-@b{Baseball Box Scores}
+Open CIA World Fact Book For Specified Country.@item @b{CNN Content}
 
-Display baseball Play By Play.
+Filter down to CNN content area.@item @b{CNN Headlines}
 
-@b{Baseball Game Details}
+News Headlines From CNN@item @b{CNN Market Data }
 
-Display baseball Play By Play.
+Market data filtered from CNN Money@item @b{CNN PodCasts}
 
-@b{Baseball Game Index}
-
-Display baseball Play By Play.
-
-@b{Baseball Highlights}
-
-Display baseball Video Highlights.
-
-@b{Baseball scores}
-
-Display baseball scores.
-
-@b{Bing News}
-
-Bing News results as RSS feed.
-
-@b{Bing Search}
-
-Bing results as RSS feed.
-
-@b{Bloomberg Stock  Lookup}
-
-Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us
-
-@b{CIA Leaders Of The World}
-
-Open CIA World Leaders  For Specified Country.
-
-@b{CIA World Fact Book}
-
-Open CIA World Fact Book For Specified Country.
-
-@b{CNN Content}
-
-Filter down to CNN content area.
-
-@b{CNN Headlines}
-
-News Headlines From CNN
-
-@b{CNN Market Data }
-
-Market data filtered from CNN Money
-
-@b{CNN PodCasts}
-
-List CNN Podcast media links.
-
-@b{Currency Converter}
+List CNN Podcast media links.@item @b{Currency Converter}
 
 Currency Converter. Currencies can be a comma-separated list of
-codes.
+codes.@item @b{Dictionary Lookup}
 
-@b{Dictionary Lookup}
+Dictionary Lookup@item @b{EmacsWiki Search}
 
-Dictionary Lookup
+EmacsWiki Search@item @b{Finance Google Search}
 
-@b{EmacsWiki Search}
+Display content from Google Finance.@item @b{FreeSound}
 
-EmacsWiki Search
-
-@b{Finance Google Search}
-
-Display content from Google Finance.
-
-@b{FreeSound}
-
-Search FreeSound.
-
-@b{GitHub Code Search}
+Search FreeSound.@item @b{GitHub Code Search}
 
 GitHub Code Search.
 Query can include filters such as:
 
 <term>: Query Term.
 extension:<ext> Filter by file extension
--filename:<pattern> Filter out files matching pattern.
+-filename:<pattern> Filter out files matching pattern.@item @b{GitHub Search}
 
-@b{GitHub Search}
+Perform a GitHub Search.@item @b{GoLang Browse}
 
-Perform a GitHub Search.
+Browse GoLang package documentation.@item @b{GoLang Lookup}
 
-@b{GoLang Browse}
+Lookup GoLang package documentation.@item @b{GoLang Search}
 
-Browse GoLang package documentation.
+Search GoLang package documentation.@item @b{Google Category News}
 
-@b{GoLang Lookup}
+Google News By Category.@item @b{Google Image Search}
 
-Lookup GoLang package documentation.
+Google Image Search@item @b{Google News Search}
 
-@b{GoLang Search}
+Search Google news.@item @b{Google Regional News}
 
-Search GoLang package documentation.
+Google News By Region.@item @b{Google Related Trends}
 
-@b{Google Category News}
+Display Related Query Trends.@item @b{Google Scholar}
 
-Google News By Category.
+Google Scholar Search@item @b{Google Transcoder}
 
-@b{Google Image Search}
+Transcode site via Google.@item @b{Google Trends}
 
-Google Image Search
+Google Trends@item @b{Google Trends Compared}
 
-@b{Google News Search}
+Display comparative trends.@item @b{Google Webmaster Page Analysis}
 
-Search Google news.
+Page Analysis From Google Webmaster tools.@item @b{Guardian RSS Feeds Directory}
 
-@b{Google Regional News}
+Guardian Feeds  Directory@item @b{MLB Scorecard}
 
-Google News By Region.
+Show MLB Scorecard.@item @b{MLB standings}
 
-@b{Google Related Trends}
+Display MLB standings.@item @b{Money Headlines From CNN}
 
-Display Related Query Trends.
-
-@b{Google Scholar}
-
-Google Scholar Search
-
-@b{Google Transcoder}
-
-Transcode site via Google.
-
-@b{Google Trends}
-
-Google Trends
-
-@b{Google Trends Compared}
-
-Display comparative trends.
-
-@b{Google Webmaster Page Analysis}
-
-Page Analysis From Google Webmaster tools.
-
-@b{Guardian RSS Feeds Directory}
-
-Guardian Feeds  Directory
-
-@b{MLB Scorecard}
-
-Show MLB Scorecard.
-
-@b{MLB standings}
-
-Display MLB standings.
-
-@b{Money Headlines From CNN}
-
-Money Headlines From CNN
-
-@b{Multilingual dictionary via Google.}
+Money Headlines From CNN@item @b{Multilingual dictionary via Google.}
 
 Translate word using Google.
 Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
-from English to German
+from English to German@item @b{NBA  standings}
 
-@b{NBA  standings}
-
-Display NBA standings.
-
-@b{NLS Bard Popular}
+Display NBA standings.@item @b{NLS Bard Popular}
 
 NLS Bard Catalog: Most Popular. Login once before using this
-template.
-
-@b{NLS Bard Recent}
+template.@item @b{NLS Bard Recent}
 
 NLS Bard Catalog: Recently Added. Login once before using this
-template.
+template.@item @b{NLS Bard Search}
 
-@b{NLS Bard Search}
+Search NLS Bard Catalog. Login once before using this template.@item @b{NY Times Mobile}
 
-Search NLS Bard Catalog. Login once before using this template.
+NYTimes Mobile Site@item @b{NY Times RSS Feeds}
 
-@b{NY Times Mobile}
+Display browsable list of NY Times RSS Feeds.@item @b{Old Time Radio}
 
-NYTimes Mobile Site
+This months Old Time Radio Programming@item @b{OpenLibrary}
 
-@b{NY Times RSS Feeds}
+Open Library Search@item @b{Patent Search From Google}
 
-Display browsable list of NY Times RSS Feeds.
+Perform patent search via Google@item @b{PodCast CNet}
 
-@b{Old Time Radio}
+Play Podcast from CNET@item @b{RadioTime Browser}
 
-This months Old Time Radio Programming
+RadioTime Entry point.@item @b{RadioTime Categories}
 
-@b{OpenLibrary}
+RadioTime Categories .@item @b{RadioTime Search}
 
-Open Library Search
+RadioTime Search.@item @b{Reddit At Point.}
 
-@b{Patent Search From Google}
+Open RSS Feed for Reddit URL under point.@item @b{RedditBy Topic.}
 
-Perform patent search via Google
+Open RSS Feed for Reddit Topic.@item @b{Seeking Alpha Stock Search}
 
-@b{PodCast CNet}
+Seeking Alpha search.@item @b{Sign in to Google}
 
-Play Podcast from CNET
-
-@b{RadioTime Browser}
-
-RadioTime Entry point.
-
-@b{RadioTime Categories}
-
-RadioTime Categories .
-
-@b{RadioTime Search}
-
-RadioTime Search.
-
-@b{Reddit At Point.}
-
-Open RSS Feed for Reddit URL under point.
-
-@b{RedditBy Topic.}
-
-Open RSS Feed for Reddit Topic.
-
-@b{Seeking Alpha Stock Search}
-
-Seeking Alpha search.
-
-@b{Sign in to Google}
-
-Login to Google.
-
-@b{StreamWorld Radio}
+Login to Google.@item @b{StreamWorld Radio}
 
 Play radio stream.
 Example: kcbsFM.
-Format is stationid+AM/FM.
+Format is stationid+AM/FM.@item @b{Structured Data Extractor}
 
-@b{Structured Data Extractor}
+Extract/Validate Structured Data.@item @b{Tech News From CNet}
 
-Extract/Validate Structured Data.
+Display tech news from CNET@item @b{Times Of India}
 
-@b{Tech News From CNet}
+Retrieve Times Of India.@item @b{TuneIn Radio}
 
-Display tech news from CNET
+Translate StreamId to playable stream.@item @b{UPS Packages}
 
-@b{Times Of India}
+Display package tracking information from UPS.@item @b{Washington Post}
 
-Retrieve Times Of India.
+Washington Post Contents@item @b{Weather forecast from Weather Underground}
 
-@b{TuneIn Radio}
+Weather forecast from weather underground mobile.@item @b{Wiki Data Search}
 
-Translate StreamId to playable stream.
+Search WikiData.@item @b{WordNet Search}
 
-@b{UPS Packages}
+Look up term in WordNet.@item @b{Yahoo RSS Feeds}
 
-Display package tracking information from UPS.
+List Yahoo RSS Feeds.@item @b{Youtube News}
 
-@b{Washington Post}
+News Headlines From Youtube@item @b{fedex packages}
 
-Washington Post Contents
+Display package tracking information from Fedex.@item @b{html Google News Search}
 
-@b{Weather forecast from Weather Underground}
+Search Google news.@item @b{html5IRC}
 
-Weather forecast from weather underground mobile.
+Show HTML5 IRC log.@item @b{rss weather from wunderground}
 
-@b{Wiki Data Search}
+Pull RSS weather feed for specified state/city.@item @b{sourceforge Download}
 
-Search WikiData.
+Download specified file.@item @b{sourceforge browse mirrors}
 
-@b{WordNet Search}
+Retrieve download page at Sourceforge for specified project.@item @b{sourceforge project}
 
-Look up term in WordNet.
-
-@b{Yahoo RSS Feeds}
-
-List Yahoo RSS Feeds.
-
-@b{Youtube News}
-
-News Headlines From Youtube
-
-@b{fedex packages}
-
-Display package tracking information from Fedex.
-
-@b{html Google News Search}
-
-Search Google news.
-
-@b{html5IRC}
-
-Show HTML5 IRC log.
-
-@b{rss weather from wunderground}
-
-Pull RSS weather feed for specified state/city.
-
-@b{sourceforge Download}
-
-Download specified file.
-
-@b{sourceforge browse mirrors}
-
-Retrieve download page at Sourceforge for specified project.
-
-@b{sourceforge project}
-
-Open specified project page at SourceForge.
-
-@b{w3c IRC Logs}
+Open specified project page at SourceForge.@item @b{w3c IRC Logs}
 
 Use this to pull up the
 archived logs from the W3C IRC. You need to know the exact
-name of the channel.
-
-@b{w3c Lists}
+name of the channel.@item @b{w3c Lists}
 
 Use this to pull up the
 archived mail from the W3C list. You need to know the exact
-name of the list.
-
-@b{world CNN Content}
+name of the list.@item @b{world CNN Content}
 
 Filter down to CNN content area.
+
+@end enumerate
 

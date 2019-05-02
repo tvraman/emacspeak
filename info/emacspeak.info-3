@@ -1400,9 +1400,7 @@ presently defined.
 
  -- Command: emacspeak-url-template-fetch (&optional documentation)
      ‘C-e u’
-     ‘C-; u’
      ‘<fn> u’
-     ‘C-x @ h u’
 
      Fetch a pre-defined resource.
      Use Emacs completion to obtain a list of available resources.
@@ -6348,10 +6346,10 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 This section documents a total of 89 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
-emacspeak-url-template-fetch’ normally bound to ‘C-e u C-; u <fn> u C-x
- h u’.  This command prompts for the name of the template, and
-completion is available via Emacs’ minibuffer completion.  Each URL
-template carries out the following steps:
+emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
+command prompts for the name of the template, and completion is
+available via Emacs’ minibuffer completion.  Each URL template carries
+out the following steps:
    • Prompt for the relevant information.
    • Fetch the resulting URL using an appropriate fetcher.
    • Set up the resulting resource with appropriate customizations.
@@ -6359,372 +6357,284 @@ template carries out the following steps:
    As an example, the URL template for weather forecasts prompts for a
 location and speaks the forecast.
 
-   AQI: Air Quality Index
+  1. AQI: Air Quality Index
 
-   Return Air Quality for specified zip-code
+     Return Air Quality for specified zip-code
+  2. Air Traffic Control
 
-   Air Traffic Control
+     Find live streams for Air Traffic Control.
+  3. Airport conditions
 
-   Find live streams for Air Traffic Control.
+     Display airport conditions from the FAA.
+  4. Amazon Product Details By ASIN
 
-   Airport conditions
+     Retrieve product details from Amazon by either ISBN or ASIN.
+  5. Anonymize Google Search
 
-   Display airport conditions from the FAA.
+     Logout from Google to do an anonymous search.
+  6. ArchWiki Search
 
-   Amazon Product Details By ASIN
+     Search Linux ArchWiki
+  7. BBC Genre Using IPlayer
 
-   Retrieve product details from Amazon by either ISBN or ASIN.
+     BBC iPlayer Genre
+  8. BBC Podcast Directory
 
-   Anonymize Google Search
+     BBC PodCast Directory
+  9. BBC Program Guide
 
-   Logout from Google to do an anonymous search.
+     Display interactive BBC Program Guide.
+  10. BBC World News Summary
 
-   ArchWiki Search
+     BBC World News Summary
+  11. BBC iPlayer
 
-   Search Linux ArchWiki
+     BBC iPlayer
+  12. Baseball Box Scores
 
-   BBC Genre Using IPlayer
+     Display baseball Play By Play.
+  13. Baseball Game Details
 
-   BBC iPlayer Genre
+     Display baseball Play By Play.
+  14. Baseball Game Index
 
-   BBC Podcast Directory
+     Display baseball Play By Play.
+  15. Baseball Highlights
 
-   BBC PodCast Directory
+     Display baseball Video Highlights.
+  16. Baseball scores
 
-   BBC Program Guide
+     Display baseball scores.
+  17. Bing News
 
-   Display interactive BBC Program Guide.
+     Bing News results as RSS feed.
+  18. Bing Search
 
-   BBC World News Summary
+     Bing results as RSS feed.
+  19. Bloomberg Stock Lookup
 
-   BBC World News Summary
+     Lookup Stock Quote information on Bloomberg.  Ticker is of the form
+     goog:us
+  20. CIA Leaders Of The World
 
-   BBC iPlayer
+     Open CIA World Leaders For Specified Country.
+  21. CIA World Fact Book
 
-   BBC iPlayer
+     Open CIA World Fact Book For Specified Country.
+  22. CNN Content
 
-   Baseball Box Scores
+     Filter down to CNN content area.
+  23. CNN Headlines
 
-   Display baseball Play By Play.
+     News Headlines From CNN
+  24. CNN Market Data
 
-   Baseball Game Details
+     Market data filtered from CNN Money
+  25. CNN PodCasts
 
-   Display baseball Play By Play.
+     List CNN Podcast media links.
+  26. Currency Converter
 
-   Baseball Game Index
+     Currency Converter.  Currencies can be a comma-separated list of
+     codes.
+  27. Dictionary Lookup
 
-   Display baseball Play By Play.
+     Dictionary Lookup
+  28. EmacsWiki Search
 
-   Baseball Highlights
+     EmacsWiki Search
+  29. Finance Google Search
 
-   Display baseball Video Highlights.
+     Display content from Google Finance.
+  30. FreeSound
 
-   Baseball scores
+     Search FreeSound.
+  31. GitHub Code Search
 
-   Display baseball scores.
+     GitHub Code Search.  Query can include filters such as:
 
-   Bing News
+     <term>: Query Term.  extension:<ext> Filter by file extension
+     -filename:<pattern> Filter out files matching pattern.
+  32. GitHub Search
 
-   Bing News results as RSS feed.
+     Perform a GitHub Search.
+  33. GoLang Browse
 
-   Bing Search
+     Browse GoLang package documentation.
+  34. GoLang Lookup
 
-   Bing results as RSS feed.
+     Lookup GoLang package documentation.
+  35. GoLang Search
 
-   Bloomberg Stock Lookup
+     Search GoLang package documentation.
+  36. Google Category News
 
-   Lookup Stock Quote information on Bloomberg.  Ticker is of the form
-goog:us
+     Google News By Category.
+  37. Google Image Search
 
-   CIA Leaders Of The World
+     Google Image Search
+  38. Google News Search
 
-   Open CIA World Leaders For Specified Country.
+     Search Google news.
+  39. Google Regional News
 
-   CIA World Fact Book
+     Google News By Region.
+  40. Google Related Trends
 
-   Open CIA World Fact Book For Specified Country.
+     Display Related Query Trends.
+  41. Google Scholar
 
-   CNN Content
+     Google Scholar Search
+  42. Google Transcoder
 
-   Filter down to CNN content area.
+     Transcode site via Google.
+  43. Google Trends
 
-   CNN Headlines
+     Google Trends
+  44. Google Trends Compared
 
-   News Headlines From CNN
+     Display comparative trends.
+  45. Google Webmaster Page Analysis
 
-   CNN Market Data
+     Page Analysis From Google Webmaster tools.
+  46. Guardian RSS Feeds Directory
 
-   Market data filtered from CNN Money
+     Guardian Feeds Directory
+  47. MLB Scorecard
 
-   CNN PodCasts
+     Show MLB Scorecard.
+  48. MLB standings
 
-   List CNN Podcast media links.
+     Display MLB standings.
+  49. Money Headlines From CNN
 
-   Currency Converter
+     Money Headlines From CNN
+  50. Multilingual dictionary via Google.
 
-   Currency Converter.  Currencies can be a comma-separated list of
-codes.
+     Translate word using Google.  Source and target languages are
+     specified as two-letter language codes, e.g.  en|de translates from
+     English to German
+  51. NBA standings
 
-   Dictionary Lookup
+     Display NBA standings.
+  52. NLS Bard Popular
 
-   Dictionary Lookup
+     NLS Bard Catalog: Most Popular.  Login once before using this
+     template.
+  53. NLS Bard Recent
 
-   EmacsWiki Search
+     NLS Bard Catalog: Recently Added.  Login once before using this
+     template.
+  54. NLS Bard Search
 
-   EmacsWiki Search
+     Search NLS Bard Catalog.  Login once before using this template.
+  55. NY Times Mobile
 
-   Finance Google Search
+     NYTimes Mobile Site
+  56. NY Times RSS Feeds
 
-   Display content from Google Finance.
+     Display browsable list of NY Times RSS Feeds.
+  57. Old Time Radio
 
-   FreeSound
+     This months Old Time Radio Programming
+  58. OpenLibrary
 
-   Search FreeSound.
+     Open Library Search
+  59. Patent Search From Google
 
-   GitHub Code Search
+     Perform patent search via Google
+  60. PodCast CNet
 
-   GitHub Code Search.  Query can include filters such as:
+     Play Podcast from CNET
+  61. RadioTime Browser
 
-   <term>: Query Term.  extension:<ext> Filter by file extension
--filename:<pattern> Filter out files matching pattern.
+     RadioTime Entry point.
+  62. RadioTime Categories
 
-   GitHub Search
+     RadioTime Categories .
+  63. RadioTime Search
 
-   Perform a GitHub Search.
+     RadioTime Search.
+  64. Reddit At Point.
 
-   GoLang Browse
+     Open RSS Feed for Reddit URL under point.
+  65. RedditBy Topic.
 
-   Browse GoLang package documentation.
+     Open RSS Feed for Reddit Topic.
+  66. Seeking Alpha Stock Search
 
-   GoLang Lookup
+     Seeking Alpha search.
+  67. Sign in to Google
 
-   Lookup GoLang package documentation.
+     Login to Google.
+  68. StreamWorld Radio
 
-   GoLang Search
+     Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
+  69. Structured Data Extractor
 
-   Search GoLang package documentation.
+     Extract/Validate Structured Data.
+  70. Tech News From CNet
 
-   Google Category News
+     Display tech news from CNET
+  71. Times Of India
 
-   Google News By Category.
+     Retrieve Times Of India.
+  72. TuneIn Radio
 
-   Google Image Search
+     Translate StreamId to playable stream.
+  73. UPS Packages
 
-   Google Image Search
+     Display package tracking information from UPS.
+  74. Washington Post
 
-   Google News Search
+     Washington Post Contents
+  75. Weather forecast from Weather Underground
 
-   Search Google news.
+     Weather forecast from weather underground mobile.
+  76. Wiki Data Search
 
-   Google Regional News
+     Search WikiData.
+  77. WordNet Search
 
-   Google News By Region.
+     Look up term in WordNet.
+  78. Yahoo RSS Feeds
 
-   Google Related Trends
+     List Yahoo RSS Feeds.
+  79. Youtube News
 
-   Display Related Query Trends.
+     News Headlines From Youtube
+  80. fedex packages
 
-   Google Scholar
+     Display package tracking information from Fedex.
+  81. html Google News Search
 
-   Google Scholar Search
+     Search Google news.
+  82. html5IRC
 
-   Google Transcoder
+     Show HTML5 IRC log.
+  83. rss weather from wunderground
 
-   Transcode site via Google.
+     Pull RSS weather feed for specified state/city.
+  84. sourceforge Download
 
-   Google Trends
+     Download specified file.
+  85. sourceforge browse mirrors
 
-   Google Trends
+     Retrieve download page at Sourceforge for specified project.
+  86. sourceforge project
 
-   Google Trends Compared
+     Open specified project page at SourceForge.
+  87. w3c IRC Logs
 
-   Display comparative trends.
+     Use this to pull up the archived logs from the W3C IRC. You need to
+     know the exact name of the channel.
+  88. w3c Lists
 
-   Google Webmaster Page Analysis
+     Use this to pull up the archived mail from the W3C list.  You need
+     to know the exact name of the list.
+  89. world CNN Content
 
-   Page Analysis From Google Webmaster tools.
-
-   Guardian RSS Feeds Directory
-
-   Guardian Feeds Directory
-
-   MLB Scorecard
-
-   Show MLB Scorecard.
-
-   MLB standings
-
-   Display MLB standings.
-
-   Money Headlines From CNN
-
-   Money Headlines From CNN
-
-   Multilingual dictionary via Google.
-
-   Translate word using Google.  Source and target languages are
-specified as two-letter language codes, e.g.  en|de translates from
-English to German
-
-   NBA standings
-
-   Display NBA standings.
-
-   NLS Bard Popular
-
-   NLS Bard Catalog: Most Popular.  Login once before using this
-template.
-
-   NLS Bard Recent
-
-   NLS Bard Catalog: Recently Added.  Login once before using this
-template.
-
-   NLS Bard Search
-
-   Search NLS Bard Catalog.  Login once before using this template.
-
-   NY Times Mobile
-
-   NYTimes Mobile Site
-
-   NY Times RSS Feeds
-
-   Display browsable list of NY Times RSS Feeds.
-
-   Old Time Radio
-
-   This months Old Time Radio Programming
-
-   OpenLibrary
-
-   Open Library Search
-
-   Patent Search From Google
-
-   Perform patent search via Google
-
-   PodCast CNet
-
-   Play Podcast from CNET
-
-   RadioTime Browser
-
-   RadioTime Entry point.
-
-   RadioTime Categories
-
-   RadioTime Categories .
-
-   RadioTime Search
-
-   RadioTime Search.
-
-   Reddit At Point.
-
-   Open RSS Feed for Reddit URL under point.
-
-   RedditBy Topic.
-
-   Open RSS Feed for Reddit Topic.
-
-   Seeking Alpha Stock Search
-
-   Seeking Alpha search.
-
-   Sign in to Google
-
-   Login to Google.
-
-   StreamWorld Radio
-
-   Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-
-   Structured Data Extractor
-
-   Extract/Validate Structured Data.
-
-   Tech News From CNet
-
-   Display tech news from CNET
-
-   Times Of India
-
-   Retrieve Times Of India.
-
-   TuneIn Radio
-
-   Translate StreamId to playable stream.
-
-   UPS Packages
-
-   Display package tracking information from UPS.
-
-   Washington Post
-
-   Washington Post Contents
-
-   Weather forecast from Weather Underground
-
-   Weather forecast from weather underground mobile.
-
-   Wiki Data Search
-
-   Search WikiData.
-
-   WordNet Search
-
-   Look up term in WordNet.
-
-   Yahoo RSS Feeds
-
-   List Yahoo RSS Feeds.
-
-   Youtube News
-
-   News Headlines From Youtube
-
-   fedex packages
-
-   Display package tracking information from Fedex.
-
-   html Google News Search
-
-   Search Google news.
-
-   html5IRC
-
-   Show HTML5 IRC log.
-
-   rss weather from wunderground
-
-   Pull RSS weather feed for specified state/city.
-
-   sourceforge Download
-
-   Download specified file.
-
-   sourceforge browse mirrors
-
-   Retrieve download page at Sourceforge for specified project.
-
-   sourceforge project
-
-   Open specified project page at SourceForge.
-
-   w3c IRC Logs
-
-   Use this to pull up the archived logs from the W3C IRC. You need to
-know the exact name of the channel.
-
-   w3c Lists
-
-   Use this to pull up the archived mail from the W3C list.  You need to
-know the exact name of the list.
-
-   world CNN Content
-
-   Filter down to CNN content area.
+     Filter down to CNN content area.
 
 
 File: emacspeak.info,  Node: Emacspeak Keyboard Commands,  Next: TTS Servers,  Prev: Emacspeak Commands And Options,  Up: Top
@@ -8020,7 +7930,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> T:                                emacspeak-wizards.  (line  394)
 * <fn> TAB:                              emacspeak-speak.    (line  131)
 * <fn> u:                                emacspeak-url-template.
-                                                             (line   22)
+                                                             (line   21)
 * <fn> V:                                emacspeak-speak.    (line 1079)
 * <fn> w:                                emacspeak-speak.    (line 1128)
 * <fn> W:                                emacspeak-tapestry. (line   41)
@@ -8175,8 +8085,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; s:                                 emacspeak-wizards.  (line 1259)
 * C-; SPC h:                             emacspeak-webspace. (line   36)
 * C-; SPC SPC:                           emacspeak-webspace. (line   45)
-* C-; u:                                 emacspeak-url-template.
-                                                             (line   21)
 * C-; w:                                 emacspeak-wizards.  (line 1100)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
@@ -8540,8 +8448,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h s:                             emacspeak-wizards.  (line 1260)
 * C-x @ h SPC h:                         emacspeak-webspace. (line   37)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   46)
-* C-x @ h u:                             emacspeak-url-template.
-                                                             (line   23)
 * C-x @ h w:                             emacspeak-wizards.  (line 1103)
 * C-x @ s ':                             emacspeak-vlc.      (line   18)
 * C-x @ s .:                             emacspeak-wizards.  (line 1326)

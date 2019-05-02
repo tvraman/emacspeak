@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 1, 2019.
+last updated on May 2, 2019.
 
    The manual is divided into the following chapters:
 
@@ -4032,7 +4032,7 @@ system.
      r		org-capture
      s		emacspeak-wizards-shell
      t		twit
-     u		emacspeak-url-template-fetch
+     u		list-unicode-display
      v		vdiff-magit-popup
      w		emacspeak-wizards-noaa-weather
      y		yas-expand
