@@ -25634,7 +25634,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 89 URL Templates.
+This section documents a total of 88 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25803,9 +25803,7 @@ Login to Google.@item @b{StreamWorld Radio}
 
 Play radio stream.
 Example: kcbsFM.
-Format is stationid+AM/FM.@item @b{Structured Data Extractor}
-
-Extract/Validate Structured Data.@item @b{Tech News From CNet}
+Format is stationid+AM/FM.@item @b{Tech News From CNet}
 
 Display tech news from CNET@item @b{Times Of India}
 
