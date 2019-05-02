@@ -43,7 +43,7 @@ This version *requires* emacs-26.1 or later.
  4. Updated Bookshare support 📚
  5. Updated EWW support  🕸
  6. Smart tabs for EWW 📑
- 7. Speech-enables Forge  for software development  ䷑
+ 7. Speech-enables Forge  for software development  👷
  8. The ESpeak server now builds on the Mac 🔈
  9. Updated DBus support 🚌
  10. Speech-enable Github-Explorer   🤯
