@@ -904,7 +904,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
             (cl-loop
              for f in fields
              collect
-             (concat (cl-first f) " " (cl-second f))))
+             (concat (cl-first f) " " (cl-second f) "\n ")))
       (tts-with-punctuations 'some
                              (dtk-speak-and-echo (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
