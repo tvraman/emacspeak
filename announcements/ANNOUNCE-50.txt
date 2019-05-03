@@ -13,7 +13,7 @@ Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 (SageDog) --- a powerful audio desktop for leveraging today's evolving
 Data, Social and Assistant-Oriented Internet cloud.  
 
-⚠ Naturally Intelligent (NI)™ at how information is spoken, Emacspeak
+🚭:  Naturally Intelligent (NI)™ at how information is spoken, Emacspeak
 is entirely free of Artificial Ingredients (AI)™.
 
 * Investors Note:
