@@ -3,17 +3,18 @@
 
 San Jose, Calif., (May 4, 2019)
 
-    🦮 Emacspeak 50.0 (SageDog) Unleashed! 
-    Advancing Accessibility In The Age Of User-Aware Interfaces
-    --- Zero cost of Ownership  makes priceless software Universally affordable!
+** 🦮 Emacspeak 50.0 (SageDog) Unleashed! 
+    
+Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
+cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 --- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/50.0/emacspeak-50.0.tar.bz2][Emacspeak 50.0]]
 (SageDog) --- a powerful audio desktop for leveraging today's evolving
 Data, Social and Assistant-Oriented Internet cloud.  
 
-⚠ Naturally Intelligent (NI)™ at how information is spoken, the system is entirely
-free of Artificial Ingredients (AI)™.
+⚠ Naturally Intelligent (NI)™ at how information is spoken, Emacspeak
+is entirely free of Artificial Ingredients (AI)™.
 
 * Investors Note:
 
