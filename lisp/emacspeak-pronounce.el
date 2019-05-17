@@ -574,6 +574,11 @@ See http://www.charm.net/~kmarsh/smiley.html. "
   :group 'emacspeak-pronounce)
 
 ;;}}}
+;;{{{Text Mode Entries:
+
+
+
+;;}}}
 ;;{{{ xml namespace uri's
 
 (defcustom emacspeak-pronounce-common-xml-namespace-uri-pronunciations
@@ -731,7 +736,21 @@ specified pronunciation dictionary key."
 ;;}}}
 ;;{{{ Helpers: pronouncers
 
-;;{{{ dates
+;;{{{ dates and numbers
+(defvar emacspeak-pronounce-number-pattern
+  "[0-9]+\\.?[0-9]+"
+  "Pattern that matches  nnnn.nnnn")
+
+(emacspeak-pronounce-add-dictionary-entry
+ 'text-mode
+ (concat "-" emacspeak-pronounce-number-pattern)
+ (cons
+  #'re-search-forward
+  #'(lambda (number)
+      (concat
+       " minus "
+       (substring number 1 )))))
+
 
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"

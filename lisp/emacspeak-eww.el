@@ -2136,6 +2136,18 @@ with an interactive prefix arg. "
      (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
 
 ;;}}}
+;;{{{Pronunciations:
+
+(emacspeak-pronounce-add-dictionary-entry
+ 'eww-mode
+ (concat "-" emacspeak-pronounce-number-pattern)
+ (cons
+  #'re-search-forward
+  #'(lambda (number)
+      (concat " minus " (substring number 1)))))
+
+;;}}}
+
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
