@@ -107,7 +107,11 @@ Values are alists containing string.pronunciation pairs.")
   "Add dictionary entry.
 This adds pronunciation pair
 STRING.PRONUNCIATION to the dictionary.
-Argument KEY specifies a dictionary key e.g. directory, mode etc."
+Argument KEY specifies a dictionary key e.g. directory, mode etc.
+Pronunciation can be a string or a cons-pair.
+If it is a string, that string is the new pronunciation.
+A cons-pair of the form (matcher . func) results  in 
+the match  being passed to the func which returns  the new pronunciation."
   (cl-declare (special emacspeak-pronounce-dictionaries))
   (let* ((dict (emacspeak-pronounce-get-dictionary key))
          (entry (and dict (assoc string dict))))
