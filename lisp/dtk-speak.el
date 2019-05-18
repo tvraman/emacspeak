@@ -246,18 +246,41 @@ has higher precedence than `face'."
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
   (cl-declare (special emacspeak-pronounce-pronunciation-personality))
-  (let ((words
-         (cl-loop for k being the hash-keys of pronunciation-table collect k)))
-    (cl-loop
-     for w in words do
-     (when w
-       (let ((pronunciation (gethash w pronunciation-table))
-             (pp nil))
-         (goto-char (point-min))
-         (cond
-          ((stringp pronunciation)
-           (while (search-forward w nil t)
+  (cl-loop
+   for w in
+   (cl-loop for k being the hash-keys of pronunciation-table collect k)
+   do
+   (when w
+     (let ((pronunciation (gethash w pronunciation-table))
+           (pp nil))
+       (goto-char (point-min))
+       (cond
+        ((stringp pronunciation)
+         (while (search-forward w nil t)
+           (setq pp (dtk-get-style))
+           (replace-match pronunciation t t)
+           (when (or pp emacspeak-pronounce-pronunciation-personality)
+             (put-text-property
+              (match-beginning 0)
+              (+ (match-beginning 0) (length pronunciation))
+              'personality
+              (cond
+               ((and emacspeak-pronounce-pronunciation-personality
+                     (listp pp))
+                (nconc pp
+                       (list emacspeak-pronounce-pronunciation-personality)))
+               (t pp))))))
+        ((consp pronunciation)
+         (let ((matcher (car pronunciation))
+               (pronouncer (cdr pronunciation))
+               (pronunciation ""))
+           (while (funcall matcher w nil t)
              (setq pp (dtk-get-style))
+             (setq pronunciation
+                   (save-match-data
+                     (funcall
+                      pronouncer
+                      (buffer-substring (match-beginning 0) (match-end 0)))))
              (replace-match pronunciation t t)
              (when (or pp emacspeak-pronounce-pronunciation-personality)
                (put-text-property
@@ -269,32 +292,8 @@ Modifies text and point in buffer."
                        (listp pp))
                   (nconc pp
                          (list emacspeak-pronounce-pronunciation-personality)))
-                 (t pp))))))
-          ((consp pronunciation)
-           (let ((matcher (car pronunciation))
-                 (pronouncer (cdr pronunciation))
-                 (pronunciation ""))
-             (while (funcall matcher w nil t)
-               (setq pp (dtk-get-style))
-               (setq pronunciation
-                     (save-match-data
-                       (funcall pronouncer
-                                (buffer-substring
-                                 (match-beginning 0)
-                                 (match-end 0)))))
-               (replace-match pronunciation t t)
-               (when (or pp emacspeak-pronounce-pronunciation-personality)
-                 (put-text-property
-                  (match-beginning 0)
-                  (+ (match-beginning 0) (length pronunciation))
-                  'personality
-                  (cond
-                   ((and emacspeak-pronounce-pronunciation-personality
-                         (listp pp))
-                    (nconc pp
-                           (list emacspeak-pronounce-pronunciation-personality)))
-                   (t pp)))))))
-          (t nil)))))))
+                 (t pp)))))))
+        (t nil))))))
 
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
