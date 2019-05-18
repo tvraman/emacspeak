@@ -504,6 +504,7 @@ ro
 rpmfind
 rss
 RSS
+RSSNews
 rst
 RST
 runtime
@@ -598,8 +599,6 @@ transcoder
 Transcoder
 Treese
 trplayer
-tts
-TTS
 tty
 TuneIn
 tvr
