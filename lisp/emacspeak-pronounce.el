@@ -742,7 +742,7 @@ specified pronunciation dictionary key."
 
 ;;{{{ dates and numbers
 (defvar emacspeak-pronounce-number-pattern
-  "[0-9]+\\.?[0-9]+"
+  "[0-9]+\\.?[0-9]+%?"
   "Pattern that matches  nnnn.nnnn")
 
 (emacspeak-pronounce-add-dictionary-entry
