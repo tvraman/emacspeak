@@ -3674,6 +3674,22 @@ Arranges for `VAR' to be restored when `file' is loaded."
       (message "Saved %s." var))))
 
 ;;}}}
+;;{{{Text Mode Pronunciations:
+
+(eval-after-load
+    "text-mode"
+  `(progn
+     (emacspeak-pronounce-add-dictionary-entry
+      'text-mode
+      (concat "-" emacspeak-pronounce-number-pattern)
+      (cons
+       #'re-search-forward
+       #'(lambda (number)
+           (concat
+            " minus "
+            (substring number 1)))))))
+
+;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 

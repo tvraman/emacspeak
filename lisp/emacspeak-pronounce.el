@@ -745,18 +745,7 @@ specified pronunciation dictionary key."
   "[0-9]+\\.?[0-9]+%?"
   "Pattern that matches  nnnn.nnnn")
 
-(eval-after-load
-    "text-mode"
-  `(progn
-     (emacspeak-pronounce-add-dictionary-entry
-      'text-mode
-      (concat "-" emacspeak-pronounce-number-pattern)
-      (cons
-       #'re-search-forward
-       #'(lambda (number)
-           (concat
-            " minus "
-            (substring number 1)))))))
+
 
 
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
