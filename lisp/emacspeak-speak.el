@@ -3681,7 +3681,7 @@ Arranges for `VAR' to be restored when `file' is loaded."
   `(progn
      (emacspeak-pronounce-add-dictionary-entry
       'text-mode
-      (concat "-" emacspeak-pronounce-number-pattern)
+      (concat " -" emacspeak-pronounce-number-pattern)
       (cons
        #'re-search-forward
        #'(lambda (number)
