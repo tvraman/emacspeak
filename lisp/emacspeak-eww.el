@@ -2140,7 +2140,7 @@ with an interactive prefix arg. "
 
 (emacspeak-pronounce-add-dictionary-entry
  'eww-mode
- (concat "-" emacspeak-pronounce-number-pattern)
+ (concat " -" emacspeak-pronounce-number-pattern)
  (cons
   #'re-search-forward
   #'(lambda (number)
