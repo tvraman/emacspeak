@@ -3676,10 +3676,7 @@ Arranges for `VAR' to be restored when `file' is loaded."
 ;;}}}
 ;;{{{Text Mode Pronunciations:
 
-(eval-after-load
-    "text-mode"
-  `(progn
-     (emacspeak-pronounce-add-dictionary-entry
+(emacspeak-pronounce-add-dictionary-entry
       'text-mode
       (concat " -" emacspeak-pronounce-number-pattern)
       (cons
@@ -3687,7 +3684,7 @@ Arranges for `VAR' to be restored when `file' is loaded."
        #'(lambda (number)
            (concat
             " minus "
-            (substring number 1)))))))
+            (substring number 1)))))
 
 ;;}}}
 (provide 'emacspeak-speak)
