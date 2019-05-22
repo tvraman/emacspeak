@@ -1300,8 +1300,7 @@ Optional interactive prefix arg displays documentation for specified resource."
     (setq name
           (completing-read
            "Resource: "
-           (sort (hash-table-keys  emacspeak-url-template-table)
-                 #'string-lessp)
+           (hash-table-keys  emacspeak-url-template-table)
            nil
            'must-match))
     (cond
