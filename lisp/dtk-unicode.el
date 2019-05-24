@@ -85,7 +85,9 @@
     (?– . " -- ")                       ; n-dash
     (?— . " --- ")                      ; m-dash
     (?  . " ")                          ; hair space
-    (?  . " ") ; thin space
+    (?﻿ . " ")                           ; zero-width  no-break space
+    (?​ . " ") ; zero-width space
+    (?  . " ")                          ; thin space
     (?― . "----")                       ; horizontal bar
     (?‖ . "||")                         ; vertical bar
     (?… . "...")                        ; ellipses
@@ -103,6 +105,7 @@
   :type '(alist
           :key-type (character :tag "character")
           :value-type (string :tag "replacement")))
+
 
 
 (defcustom dtk-unicode-process-utf8 t
