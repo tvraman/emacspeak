@@ -563,7 +563,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri-template
-  "www.google.com/search?source=hp&q="
+  "www.google.com/search?q="
   "*URI for Google search")
 
 (defun emacspeak-websearch-google-uri ()
@@ -644,7 +644,6 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
 ;;}}}
 
 (defvar emacspeak-websearch-accessible-google-url
-                                        ;"https://www.google.com/search?esrch=SearchLite::OptIn&site=&q=%s&num=25&gbv=1&sei=L8kNVI_kKJWpyATPv4Aw"
   "https://www.google.com/search?num=25&lite=90586&q=%s"
   "Using experimental Google Lite.")
 
