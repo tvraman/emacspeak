@@ -1688,9 +1688,6 @@ The %s is automatically spoken if there is no user activity."
         (kill-new  (emacspeak-google-canonicalize-result-url u))))))
 
 ;;}}}
-;;{{{ Masquerade
-
-;;}}}
 ;;{{{  Google Knowledge Card:
 
 (defun emacspeak-eww-google-knowledge-card ()
