@@ -4203,7 +4203,7 @@ external package."
   (interactive "sTeam:")
   (emacspeak-we-extract-by-class
    "xVDuB"
-   (format "https://www.google.com/search?source=hp&q=world cup+%s&num=25" team)
+   (format "https://www.google.com/search?q=world cup+%s&num=25" team)
    'speak))
 
 ;;}}}
