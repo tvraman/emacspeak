@@ -348,9 +348,8 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ google image search:
 
 (emacspeak-url-template-define
-
  "Google Image Search"
- "http://www.google.com/search?gbv=1&bih=&biw=&source=hp&hl=en&tbm=isch&btnG=Search+Images&q=%s"
+ "http://www.google.com/search?gbv=1&bih=&biw=&hl=en&tbm=isch&btnG=Search+Images&q=%s"
  (list "Search:")
  nil
  "Google Image Search"
