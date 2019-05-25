@@ -694,27 +694,6 @@ Optional prefix arg prompts for toolbelt options."
     (gweb-google-autocomplete "Google Lucky Search: ")))
   (emacspeak-websearch-google query '(16)))
 
-(emacspeak-websearch-set-searcher 'google-specialize
-                                  'emacspeak-websearch-google-specialize)
-
-(emacspeak-websearch-set-key ?, 'google-specialize)
-
-;;;###autoload
-(defun emacspeak-websearch-google-specialize (specialize query)
-  "Perform a specialized Google search. See the Google site for
-  what is possible here:
-https://www.google.com/options/specialsearches.html "
-  (interactive
-   (list
-    (emacspeak-websearch-read-query
-     "Specialize google Search On: ")
-    (emacspeak-websearch-read-query
-     "Google for:")))
-  (let ((emacspeak-websearch-google-uri-template
-         (format "www.google.com/%s?q="
-                 specialize)))
-    (emacspeak-websearch-google query)))
-
 ;;;###autoload
 (defun emacspeak-websearch-google-search-in-date-range ()
   "Use this from inside the calendar to do Google date-range searches."
