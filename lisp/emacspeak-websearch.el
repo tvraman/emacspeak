@@ -587,6 +587,9 @@ Optional second arg as-html processes the results as HTML rather than data."
   "Cache the query."
   (cl-declare (special emacspeak-google-query))
   (setq emacspeak-google-query ad-return-value))
+(defvar ems--websearch-google-filter
+  '("center_col" "nav" "rhs_block" )
+  "Ids of nodes we keep in Google results page.")
 
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
@@ -594,7 +597,9 @@ Optional second arg as-html processes the results as HTML rather than data."
 `flag' prompts for additional search options. Second interactive
 prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
   (interactive (list (gweb-google-autocomplete) current-prefix-arg))
-  (cl-declare (special emacspeak-google-query emacspeak-google-toolbelt
+  (cl-declare (special emacspeak-google-query
+                       emacspeak-google-toolbelt
+                       ems--websearch-google-filter
                        emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
@@ -622,7 +627,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
      (lucky (browse-url search-url))
      (t                                 ; always just show results
       (emacspeak-we-extract-by-id-list
-       '("center_col" "nav" "rhs_block" "main")
+       ems--websearch-google-filter
        search-url 'speak)))))
 
 ;;;###autoload
@@ -656,6 +661,7 @@ Optional prefix arg prompts for toolbelt options."
     (gweb-google-autocomplete "AGoogle: ")
     current-prefix-arg))
   (cl-declare (special emacspeak-eww-masquerade
+                       ems--websearch-google-filter
                        emacspeak-websearch-accessible-google-url emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
@@ -666,7 +672,7 @@ Optional prefix arg prompts for toolbelt options."
      (options (emacspeak-google-toolbelt-change))
      (t
       (emacspeak-we-extract-by-id-list
-       '("center_col" "nav" "rhs_block" "main")
+       ems--websearch-google-filter
        (format emacspeak-websearch-accessible-google-url query)
        'speak)))))
 
@@ -954,9 +960,10 @@ Results"
 (defun emacspeak-websearch-youtube-search (query)
   "YouTube search."
   (interactive (list (gweb-youtube-autocomplete)))
-  (cl-declare (special emacspeak-websearch-youtube-search-uri))
+  (cl-declare (special emacspeak-websearch-youtube-search-uri
+                       ems--websearch-google-filter))
   (emacspeak-we-extract-by-id-list
-   '("center_col" "nav" "rhs_block" "main")
+   ems--websearch-google-filter
    (format emacspeak-websearch-youtube-search-uri (url-hexify-string query))
    'speak))
 
