@@ -831,32 +831,6 @@ Optional prefix arg  avoids scraping  information from HTML."
      'speak-result))))
 
 ;;}}}
-;;{{{  Open Directory
-
-(emacspeak-websearch-set-searcher 'open-directory
-                                  'emacspeak-websearch-open-directory-search)
-(emacspeak-websearch-set-key ?o 'open-directory)
-
-(defvar emacspeak-websearch-open-directory-uri
-  "http://search.dmoz.org/cgi-bin/search?search="
-  "*URI for launching a Open Directory search")
-
-;;;###autoload
-(defun emacspeak-websearch-open-directory-search (query)
-  "Perform an Open Directory search"
-  (interactive
-   (list
-    (emacspeak-websearch-read-query
-     "Search Open Directory for: ")))
-  (cl-declare (special emacspeak-websearch-open-directory-uri))
-  (browse-url
-   (concat emacspeak-websearch-open-directory-uri
-           (url-hexify-string query)))
-  (emacspeak-webutils-post-process
-   "Search results"
-   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ Merriam Webster
 
 (emacspeak-websearch-set-searcher 'merriam-webster
