@@ -876,7 +876,7 @@ Retain previously set punctuations  mode."
       form blockquote              ; block-level
       a b it em span               ; in-line
       br hr                        ; separators
-      th tr table)
+      th td tr table)
  do
  (eval
   `
