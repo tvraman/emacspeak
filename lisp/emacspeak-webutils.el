@@ -171,7 +171,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
   "Check if this is a supported browser."
   (eq browse-url-browser-function 'eww-browse-url))
 
-(defun emacspeak-webutils-autospeak()
+(defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
   (let
