@@ -733,7 +733,7 @@ Optional prefix arg  avoids scraping  information from HTML."
 (emacspeak-websearch-set-searcher 'wikipedia
                                   'emacspeak-websearch-wikipedia-search)
 
-(emacspeak-websearch-set-key 23 'wikipedia)
+(emacspeak-websearch-set-key ?w 'wikipedia)
 
 ;;;###autoload
 (defun emacspeak-websearch-wikipedia-search (query)
