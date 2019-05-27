@@ -728,10 +728,11 @@ Optional prefix arg prompts for toolbelt options."
 ;;}}}
 ;;{{{ Google Category news:
 
+;;; Now always returns top-news, unbind.
 (emacspeak-websearch-set-searcher
  'google-category-news
  'emacspeak-websearch-google-category-news)
-(emacspeak-websearch-set-key ?u 'google-category-news)
+;(emacspeak-websearch-set-key ?u 'google-category-news)
 (emacspeak-websearch-set-key 14 'google-category-news)
 
 ;;;###autoload
