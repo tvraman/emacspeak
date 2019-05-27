@@ -843,12 +843,10 @@ Optional prefix arg  avoids scraping  information from HTML."
    (list
     (emacspeak-websearch-read-query "Lookup word in Webster:")))
   (cl-declare (special emacspeak-websearch-merriam-webster-uri))
+  (add-hook 'emacspeak-web-post-process-hook #'emacspeak-eww-next-h1 'at-end)
   (browse-url
    (concat emacspeak-websearch-merriam-webster-uri
-           (url-hexify-string query)))
-  (emacspeak-webutils-post-process
-   "Main Entry"
-   'emacspeak-speak-line))
+           (url-hexify-string query))))
 
 ;;}}}
 ;;{{{ wikipedia
