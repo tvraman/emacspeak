@@ -118,7 +118,7 @@
       (erase-buffer)
       (cl-loop
        for m in map do 
-       (insert  (format "%s:\t%s\n"
+       (insert (format "%s:\t%s\n"
                         (key-description (list (car m)))
                         (emacspeak-websearch-get-searcher (cdr m)))))
       (goto-char (point-min)))
