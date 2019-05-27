@@ -466,6 +466,8 @@ Optional second arg as-html processes the results as HTML rather than data."
 (defvar ems--websearch-google-filter
   '("center_col" "nav" "rhs_block" )
   "Ids of nodes we keep in Google results page.")
+(defvar emacspeak-websearch-google-number-of-results 25
+  "Number of Google search results.")
 
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
