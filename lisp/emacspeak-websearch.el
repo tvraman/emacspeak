@@ -107,25 +107,23 @@
 (defun emacspeak-websearch-help ()
   "Displays key mapping used by Emacspeak Websearch."
   (interactive)
-  (let ((map
-         (cl-loop for key being the hash-keys of emacspeak-websearch-keytable
-                  collect (cons key (gethash key emacspeak-websearch-keytable)))))
+  (let ((inhibit-read-only  t)
+        (map
+         (cl-loop
+          for key being the hash-keys of emacspeak-websearch-keytable
+          collect (cons key (gethash key emacspeak-websearch-keytable)))))
     (setq map
-          (sort map
-                #'(lambda (a b) (< (car a) (car b)))))
-    (with-output-to-temp-buffer "*Help*"
-        (cl-loop for m in map do
-                 (princ (key-description (list (car m))))
-                 (princ ": ")
-                 (princ (emacspeak-websearch-get-searcher (cdr m)))
-                 (princ "\n"))
-        (help-setup-xref
-         (list #'emacspeak-websearch-help)
-         (called-interactively-p 'interactive)))
-    (pop-to-buffer "*Help*")
-    (help-mode)
-    (goto-char (point-min))
-    (emacspeak-speak-line)
+          (sort map #'(lambda (a b) (< (car a) (car b)))))
+    (with-current-buffer (help-buffer)
+      (erase-buffer)
+      (cl-loop
+       for m in map do 
+       (insert  (format "%s:\t%s\n"
+                        (key-description (list (car m)))
+                        (emacspeak-websearch-get-searcher (cdr m)))))
+      (goto-char (point-min)))
+    (pop-to-buffer (help-buffer))
+    (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'help)))
 																								
 (emacspeak-websearch-set-searcher  'help
