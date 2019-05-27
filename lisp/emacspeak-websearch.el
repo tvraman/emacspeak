@@ -111,31 +111,26 @@
                       emacspeak-websearch-keytable
                       collect
                       (cons key (gethash key emacspeak-websearch-keytable)))))
-    (setq map (sort map
-                    #'(lambda (a b)
-                        (< (car a)
-                           (car b)))))
+    (setq map
+          (sort map
+                #'(lambda (a b) (< (car a) (car b)))))
     (with-output-to-temp-buffer "*Help*"
-      (save-excursion
-        (set-buffer "*Help*")
-        (princ "Websearch Keys:\n\n")
-        (cl-loop for m in map
-                 do
+        (cl-loop for m in map do
                  (princ (key-description (list (car m))))
-                 (move-to-column 16)
+                 (princ " ")
                  (princ "`")
                  (princ (emacspeak-websearch-get-searcher (cdr m)))
                  (princ "'")
                  (princ "\n"))
         (help-setup-xref
          (list #'emacspeak-websearch-help)
-         (called-interactively-p 'interactive))))
+         (called-interactively-p 'interactive)))
     (pop-to-buffer "*Help*")
     (help-mode)
     (goto-char (point-min))
-    (emacspeak-speak-line)
+    (emacspeak-speak-buffer)
     (emacspeak-auditory-icon 'help)))
-
+																								
 (emacspeak-websearch-set-searcher  'help
                                    'emacspeak-websearch-help)
 
