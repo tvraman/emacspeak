@@ -117,10 +117,9 @@
     (with-output-to-temp-buffer "*Help*"
         (cl-loop for m in map do
                  (princ (key-description (list (car m))))
-                 (princ " ")
-                 (princ "`")
+                 (princ ": ")
+                 
                  (princ (emacspeak-websearch-get-searcher (cdr m)))
-                 (princ "'")
                  (princ "\n"))
         (help-setup-xref
          (list #'emacspeak-websearch-help)
@@ -128,7 +127,7 @@
     (pop-to-buffer "*Help*")
     (help-mode)
     (goto-char (point-min))
-    (emacspeak-speak-buffer)
+    (emacspeak-speak-line)
     (emacspeak-auditory-icon 'help)))
 																								
 (emacspeak-websearch-set-searcher  'help
