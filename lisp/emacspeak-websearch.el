@@ -209,20 +209,16 @@ When using supported browsers,  this interface attempts to speak the most releva
 ;;{{{ CiteSeer Citation index
 
 (defvar emacspeak-websearch-citeseer-uri
-  "http://citeseer.nj.nec.com/cs?"
+  "https://citeseerx.ist.psu.edu/search?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s"
   "URI for searching CiteSeer index. ")
 
-(defvar emacspeak-websearch-citeseer-citation-options
-  "cs=1&submit=Search+Citations&cf=Any&co=Citations&cm=50"
-  "* Options for performing a citation search on CiteSeer.")
 
-(defvar emacspeak-websearch-citeseer-article-options
-  "cs=1&cf=Author&co=Citations&cm=50&submit=Search+Indexed+Articles&af=Any&ao=Citations&am=50"
-  "* Options for performing an article search on CiteSeer. ")
 
-(emacspeak-websearch-set-searcher 'citeseer
 
-                                  'emacspeak-websearch-citeseer-search)
+
+(emacspeak-websearch-set-searcher
+ 'citeseer
+ 'emacspeak-websearch-citeseer-search)
 
 (emacspeak-websearch-set-key 3 'citeseer)
 
@@ -230,33 +226,11 @@ When using supported browsers,  this interface attempts to speak the most releva
 (defun emacspeak-websearch-citeseer-search(term)
   "Perform a CiteSeer search. "
   (interactive
-   (list
-    (emacspeak-websearch-read-query
-     "Enter CiteSeer query term:")))
-  (cl-declare (special emacspeak-websearch-citeseer-uri
-                       emacspeak-websearch-citeseer-citation-options
-                       emacspeak-websearch-citeseer-article-options))
-  (let ((options nil)
-        (type-char
-         (read-char
-          "a Articles c Citations")))
-    (setq options
-          (cl-case type-char
-            (?a
-             emacspeak-websearch-citeseer-article-options)
-            (?c emacspeak-websearch-citeseer-citation-options)))
-    (browse-url
-     (concat emacspeak-websearch-citeseer-uri
-             "q="
-             (url-hexify-string term)
-             "&"
-             options))
-    (cond
-     ((char-equal type-char ?a)
-      (emacspeak-webutils-post-process "documents found"
-                                       'emacspeak-speak-line))
-     ((char-equal ?c type-char)
-      (emacspeak-webutils-post-process "citations found" 'emacspeak-speak-line)))))
+   (list (emacspeak-websearch-read-query "Enter CiteSeer query term:")))
+  (cl-declare (special emacspeak-websearch-citeseer-uri))
+  (browse-url
+   (format  emacspeak-websearch-citeseer-uri (url-hexify-string term)))
+  (emacspeak-webutils-post-process term  #'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ FolDoc
