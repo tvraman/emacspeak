@@ -733,7 +733,7 @@ Optional prefix arg prompts for toolbelt options."
  'google-category-news
  'emacspeak-websearch-google-category-news)
 ;(emacspeak-websearch-set-key ?u 'google-category-news)
-(emacspeak-websearch-set-key 14 'google-category-news)
+;(emacspeak-websearch-set-key 14 'google-category-news)
 
 ;;;###autoload
 (defun emacspeak-websearch-google-category-news ()
