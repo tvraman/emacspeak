@@ -522,13 +522,8 @@ Optional second arg as-html processes the results as HTML rather than data."
 (emacspeak-websearch-set-key ?g 'google)
 (emacspeak-websearch-set-searcher 'google-with-toolbelt
                                   'emacspeak-websearch-google-with-toolbelt)
-(emacspeak-websearch-set-key ?m 'google-mobile)
-(emacspeak-websearch-set-searcher 'google-mobile 'emacspeak-websearch-google-mobile)
 
-(defcustom emacspeak-websearch-google-number-of-results 25
-  "Number of results to return from google search."
-  :type 'number
-  :group 'emacspeak-websearch)
+
 
 (defvar emacspeak-websearch-google-uri-template
   "www.google.com/search?q="
@@ -599,14 +594,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
        search-url 'speak)))))
 
 ;;;###autoload
-(defun emacspeak-websearch-google-mobile (query &optional flag)
-  "Perform a Google Mobile search.  First optional interactive prefix arg
-`flag' prompts for additional search options. Second interactive
-prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
-  (interactive (list (gweb-google-autocomplete) current-prefix-arg))
-  (cl-declare (special emacspeak-websearch-google-options))
-  (let ((emacspeak-websearch-google-options "&deb=0mobile"))
-    (funcall-interactively #'emacspeak-websearch-google query flag)))
+
 
 ;;{{{ IMFA
 
