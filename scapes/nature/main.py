@@ -62,6 +62,7 @@ nightingales = [
     birds.nightingale_020, birds.nightingale_021]
 
 ia_birds = [
+    birds.lark_01, birds.lark_02,
     birds.wren_01,
     birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
     birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9, ]
