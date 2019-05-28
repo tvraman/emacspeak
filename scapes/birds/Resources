@@ -657,3 +657,17 @@ boodler.use: sound
 :mocker_80
 boodler.filename: 10-mocking-bird-035.aiff
 boodler.use: sound
+
+:blackbird_01
+boodler.filename: blackbird-01.aiff
+boodler.use: sound
+ 
+
+:blackbird_02
+boodler.filename: blackbird-02.aiff
+boodler.use: sound
+ 
+:blackbird_03
+boodler.filename: blackbird-03.aiff
+boodler.use: sound
+ 
