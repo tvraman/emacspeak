@@ -970,11 +970,7 @@ Signals beginning  of buffer."
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 
-(defcustom emacspeak-wizards-curl-program
-  (executable-find "curl")
-  "Name of curl executable."
-  :type 'string
-  :group 'emacspeak-wizards)
+
 (defcustom emacspeak-curl-cookie-store
   (expand-file-name "~/.curl-cookies")
   "Cookie store used by Curl."
@@ -985,12 +981,14 @@ Signals beginning  of buffer."
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with a browser ."
   (interactive "sURL: ")
-  (cl-declare (special emacspeak-wizards-curl-program
+  (cl-declare (special emacspeak-curl-program
                        emacspeak-curl-cookie-store))
   (with-temp-buffer
     (shell-command
      (format
-      "curl -s --location-trusted --cookie-jar %s --cookie %s '%s' 2>/dev/null"
+      "%s -s --location-trusted --cookie-jar %s --cookie %s '%s'
+2>/dev/null"
+      emacspea-curl-program
       emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
      (current-buffer))
     (browse-url-of-buffer)))

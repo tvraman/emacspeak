@@ -82,6 +82,10 @@
   "Directory holding XSL transformations.")
 
 ;;;###autoload
+(defvar emacspeak-curl-program (executable-find "curl")
+  "Name of CURL executable.")
+
+;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Directory containing miscellaneous files  for Emacspeak.")

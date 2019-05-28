@@ -142,7 +142,7 @@ This is used by the various Bookshare view commands to display
 ;;}}}
 ;;{{{ Variables:
 
-(defvar emacspeak-bookshare-curl-program (executable-find "curl")
+(defvar emacspeak-curl-program (executable-find "curl")
   "Curl executable.")
 
 (defvar emacspeak-bookshare-curl-common-options
@@ -302,7 +302,7 @@ Optional argument 'no-auth says we dont need a user auth."
   (emacspeak-bookshare-get-result
    (format
     "%s %s %s  %s 2>/dev/null"
-    emacspeak-bookshare-curl-program
+    emacspeak-curl-program
     emacspeak-bookshare-curl-common-options
     (if no-auth "" (emacspeak-bookshare-user-password))
     emacspeak-bookshare-last-action-uri)))
@@ -315,7 +315,7 @@ Optional argument 'no-auth says we dont need a user auth."
         (emacspeak-bookshare-page-rest-endpoint))
   (emacspeak-bookshare-get-result
    (format "%s %s %s  %s 2>/dev/null"
-           emacspeak-bookshare-curl-program
+           emacspeak-curl-program
            emacspeak-bookshare-curl-common-options
            (emacspeak-bookshare-user-password)
            emacspeak-bookshare-last-action-uri)))
@@ -513,7 +513,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (shell-command
    (format
     "%s %s %s  '%s' -o \"%s\""
-    emacspeak-bookshare-curl-program
+    emacspeak-curl-program
     emacspeak-bookshare-curl-common-options
     (emacspeak-bookshare-user-password)
     url
