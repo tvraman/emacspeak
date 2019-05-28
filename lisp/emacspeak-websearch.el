@@ -69,6 +69,7 @@
 
 ;;}}}
 ;;{{{ searcher table
+
 ;;;###autoload
 (defgroup emacspeak-websearch nil
   "Websearch tools for the Emacspeak desktop."
@@ -94,7 +95,7 @@
   (cl-declare (special emacspeak-websearch-keytable))
   (setf (gethash key emacspeak-websearch-keytable) engine))
 
-(defun emacspeak-websearch-get-engine (key)
+(defsubst emacspeak-websearch-get-engine (key)
   (cl-declare (special emacspeak-websearch-keytable))
   (gethash key emacspeak-websearch-keytable))
 
