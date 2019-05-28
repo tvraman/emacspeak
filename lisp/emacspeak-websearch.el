@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -101,6 +102,7 @@
 
 ;;}}}
 ;;{{{ top-level dispatch
+
 ;;;###autoload
 (defun emacspeak-websearch-help ()
   "Displays key mapping used by Emacspeak Websearch."
@@ -131,7 +133,7 @@
 ;;;###autoload
 (defun emacspeak-websearch-dispatch  ()
   " Press `?' to list available search engines.
-When using supported browsers,  this interface attempts to speak the most relevant information on the result page."
+   This interface attempts to speak the most relevant information on the result page."
   (interactive)
   (let ((engine nil)
         (searcher nil))
@@ -147,8 +149,6 @@ When using supported browsers,  this interface attempts to speak the most releva
       (error "I do not know how to search using %s" engine))))
 
 ;;}}}
-;;{{{ helpers
-
 ;;{{{ helpers to read the query
 
 (defvar emacspeak-websearch-history nil
@@ -167,13 +167,6 @@ When using supported browsers,  this interface attempts to speak the most releva
     answer))
 
 ;;}}}
-;;{{{ post processer hook
-
-;;}}}
-
-;;}}}
-;;{{{ websearch utilities
-
 ;;{{{ Computer Science Bibliography
 
 (emacspeak-websearch-set-searcher 'biblio
@@ -800,12 +793,6 @@ Results"
   (cl-declare (special emacspeak-websearch-amazon-search-form))
   (browse-url emacspeak-websearch-amazon-search-form))
 
-;;}}}
-;;{{{  site-specific search tools
-
-;;; Load site-specific searchers
-
-;;}}}
 ;;}}}
 (provide 'emacspeak-websearch)
 ;;{{{ end of file
