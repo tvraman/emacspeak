@@ -37,7 +37,15 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;{{{  Introduction:
+
+;;; Commentary:
+
+;;; This module provides utility functions for searching the WWW
+
+;;; Code:
+
+;;}}}
 ;;{{{ required modules
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -50,15 +58,6 @@
 (require 'gweb)
 (require  'emacspeak-we)
 (require 'calendar)
-
-;;}}}
-;;{{{  Introduction:
-
-;;; Commentary:
-
-;;; This module provides utility functions for searching the WWW
-
-;;; Code:
 
 ;;}}}
 ;;{{{ Forward Declarations:
