@@ -2391,7 +2391,7 @@ This module provides utility functions for searching the WWW
      ‘<fn> ?’
 
       Press ‘?’ to list available search engines.
-     When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
+        This interface attempts to speak the most relevant information on the result page.
 
 12.203.1.8 emacspeak-websearch-foldoc-search
 ............................................

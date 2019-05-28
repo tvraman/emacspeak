@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 27, 2019.
+last updated on May 28, 2019.
 
    The manual is divided into the following chapters:
 
@@ -1781,7 +1781,6 @@ Note that there is newer material at
 <http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html>
 and in *Note emacspeak-eww::.  For Emacs 24.4 and later, note that the
 built-in Web browser EWW is also the browser of choice for emacspeak.
-W3 still has its place, especially when working out with fill-out forms.
 
    — T. V. Raman, October 2014.
 
@@ -2226,16 +2225,19 @@ emacspeak websearch
 ===================
 
 ‘emacspeak-websearch’ provides more search options than you can shake a
-stick at.  ‘emacspeak-websearch’ provides search for dictionaries, news
+stick at; ‘emacspeak-websearch’ provides search for dictionaries, news
 sites, software sites, google tools, weather, currency converter and
 much more.  It can be accessed with the keystroke ‘C-e ?’.  At the
 prompt, you can enter another question mark to get a list of the
 available search options.  You will then be prompted for the necessary
-information.  One of the nice things about this package is that, when
-using w3 it attempts to jump to and read the most relevant information
-on the result page.
+information.  One of the nice things about this package is that it
+attempts to jump to and read the most relevant information on the result
+page.  Module ‘emacspeak-websearch’ is complemented by module
+‘emacspeak-url-template’; that module provides URL templates that prompt
+for and retrieve the relevant information from complex Web pages.
 
-   *Note emacspeak-websearch: emacspeak-websearch, for more information.
+   *Note emacspeak-websearch: emacspeak-websearch, and *Note
+emacspeak-url-template: emacspeak-url-template.  for more information.
 
 bmk-mgr
 =======
