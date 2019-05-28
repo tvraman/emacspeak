@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1232 commands and 912 options.
+This chapter documents a total of 1225 commands and 908 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -20558,28 +20558,6 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-cpan-search
-@deffn {Command} emacspeak-websearch-cpan-search  (query)
-@findex emacspeak-websearch-cpan-search
-
-@format
-Search CPAN  Comprehensive Perl Archive Network   Site. 
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-ctan-search
-@deffn {Command} emacspeak-websearch-ctan-search  (query)
-@findex emacspeak-websearch-ctan-search
-
-@format
-Search CTAN Comprehensive TeX Archive Network   Site. 
-
-(fn QUERY)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-dispatch
 @deffn {Command} emacspeak-websearch-dispatch   
 @table @kbd
@@ -20641,19 +20619,6 @@ Do a I’m Feeling Lucky Google search.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-google-mobile
-@deffn {Command} emacspeak-websearch-google-mobile  (query &optional flag)
-@findex emacspeak-websearch-google-mobile
-
-@format
-Perform a Google Mobile search.  First optional interactive prefix arg
-‘flag’ prompts for additional search options. Second interactive
-prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google. 
-
-(fn QUERY &optional FLAG)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-google-news
 @deffn {Command} emacspeak-websearch-google-news   
 @findex emacspeak-websearch-google-news
@@ -20678,19 +20643,6 @@ Browse Google News by region.
 
 @format
 Use this from inside the calendar to do Google date-range searches.
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-google-specialize
-@deffn {Command} emacspeak-websearch-google-specialize  (specialize query)
-@findex emacspeak-websearch-google-specialize
-
-@format
-Perform a specialized Google search. See the Google site for
-  what is possible here:
-https://www.google.com/options/specialsearches.html 
-
-(fn SPECIALIZE QUERY)
 @end format
 @end deffn
 
@@ -20748,37 +20700,6 @@ Optional prefix arg  avoids scraping  information from HTML.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-open-directory-search
-@deffn {Command} emacspeak-websearch-open-directory-search  (query)
-@findex emacspeak-websearch-open-directory-search
-
-@format
-Perform an Open Directory search
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-software-search
-@deffn {Command} emacspeak-websearch-software-search   
-@findex emacspeak-websearch-software-search
-
-@format
-Search SourceForge, Freshmeat and other sites. 
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-sourceforge-search
-@deffn {Command} emacspeak-websearch-sourceforge-search  (query)
-@findex emacspeak-websearch-sourceforge-search
-
-@format
-Search SourceForge Site. 
-
-(fn QUERY)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-wikipedia-search
 @deffn {Command} emacspeak-websearch-wikipedia-search  (query)
 @findex emacspeak-websearch-wikipedia-search
@@ -20825,11 +20746,6 @@ YouTube search.
 @end deffn
 
 @subsection emacspeak-websearch Options
-
-@defvar {User Option} emacspeak-websearch-google-number-of-results
-Number of results to return from google search.
-
-@end defvar
 
 @defvar {User Option} emacspeak-websearch-google-options
 Additional options to pass to Google e.g. &xx=yy...
@@ -23616,11 +23532,6 @@ Visit https://www.alphavantage.co/support/#api-key to get your key.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-curl-program
-Name of curl executable.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-dvi2txt-program
 Program for converting dvi  to txt.
 Set this to nil if you do not want to use the DVI wizard.
@@ -23943,11 +23854,6 @@ Options passed to xsltproc.
 
 @end defvar
 
-@defvar {User Option} emacspeak-xslt-program
-Name of XSLT transformation engine.
-
-@end defvar
-
 @node emacspeak-yaml
 @section emacspeak-yaml
 
@@ -24038,11 +23944,6 @@ Common options to pass to all Curl invocations.
 
 @defvar {User Option} g-curl-debug
 Set to T to see Curl stderr output.
-
-@end defvar
-
-@defvar {User Option} g-curl-program
-Name of CURL executable.
 
 @end defvar
 
