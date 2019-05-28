@@ -988,7 +988,7 @@ Signals beginning  of buffer."
      (format
       "%s -s --location-trusted --cookie-jar %s --cookie %s '%s'
 2>/dev/null"
-      emacspea-curl-program
+      emacspeak-curl-program
       emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
      (current-buffer))
     (browse-url-of-buffer)))

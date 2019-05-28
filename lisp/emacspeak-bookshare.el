@@ -142,15 +142,6 @@ This is used by the various Bookshare view commands to display
 ;;}}}
 ;;{{{ Variables:
 
-(defvar emacspeak-curl-program (executable-find "curl")
-  "Curl executable.")
-
-(defvar emacspeak-bookshare-curl-common-options
-  " --insecure --location "
-  "Common Curl options for Bookshare. Includes --insecure as per
-Bookshare docs."
-  )
-
 (defvar emacspeak-bookshare-api-base
   "https://api.bookshare.org"
   "Base end-point for Bookshare API  access.")
@@ -292,6 +283,10 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
 
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
+(defvar emacspeak-bookshare-curl-common-options
+  " --insecure --location "
+  "Common Curl options for Bookshare. Includes --insecure as per
+Bookshare docs.")
 
 (defun emacspeak-bookshare-api-call (operation operand &optional no-auth)
   "Make a Bookshare API  call and get the result.
