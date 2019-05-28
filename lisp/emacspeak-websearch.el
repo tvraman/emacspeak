@@ -66,6 +66,7 @@
 
 (declare-function gweb-google-autocomplete "gweb" (&optional prompt))
 (declare-function calendar-astro-date-string "cal-julian" (&optional date))
+
 ;;}}}
 ;;{{{ searcher table
 ;;;###autoload
@@ -79,7 +80,7 @@
   (cl-declare (special emacspeak-websearch-table))
   (setf (gethash engine emacspeak-websearch-table) searcher))
 
-(defun emacspeak-websearch-get-searcher (engine)
+(defsubst emacspeak-websearch-get-searcher (engine)
   (cl-declare (special emacspeak-websearch-table))
   (gethash engine emacspeak-websearch-table))
 
