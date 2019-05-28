@@ -842,14 +842,15 @@ Retain previously set punctuations  mode."
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
   (emacspeak-auditory-icon 'button)
-  (cond
-   ((and (ems-interactive-p)
-         (functionp emacspeak-we-url-executor)
-         (y-or-n-p "Use custom executor? "))
-    (let ((url (get-text-property (point) 'shr-url)))
-      (unless url (error "No URL  under point"))
-      (funcall emacspeak-we-url-executor url)))
-   (t ad-do-it)))
+  (let ((emacspeak-eww-masquerade t))
+    (cond
+     ((and (ems-interactive-p)
+           (functionp emacspeak-we-url-executor)
+           (y-or-n-p "Use custom executor? "))
+      (let ((url (get-text-property (point) 'shr-url)))
+        (unless url (error "No URL  under point"))
+        (funcall emacspeak-we-url-executor url)))
+     (t ad-do-it))))
 
 ;;}}}
 ;;{{{ xslt transform on request:
