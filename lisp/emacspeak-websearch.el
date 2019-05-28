@@ -62,9 +62,6 @@
 
 ;;}}}
 ;;{{{ Forward Declarations:
-(defvar emacspeak-websearch-curl-program
-  (executable-find "curl")
-  "Curl executable.")
 
 (defvar emacspeak-wizards-personal-portfolio)
 
@@ -334,7 +331,7 @@ Optional second arg as-html processes the results as HTML rather than data."
    (list
     (emacspeak-websearch-read-query "Stock ticker:")
     current-prefix-arg))
-  (cl-declare (special emacspeak-websearch-curl-program
+  (cl-declare (special emacspeak-curl-program
                        emacspeak-websearch-yahoo-charts-uri
                        emacspeak-websearch-yahoo-csv-charts-uri))
   (let ((start-month
@@ -376,7 +373,7 @@ Optional second arg as-html processes the results as HTML rather than data."
         (setq process
               (start-process   "curl"
                                results
-                               emacspeak-websearch-curl-program
+                               emacspeak-curl-program
                                "--silent" "--location"
                                uri))
         (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
