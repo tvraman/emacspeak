@@ -117,15 +117,15 @@
     (with-current-buffer (help-buffer)
       (erase-buffer)
       (cl-loop
-       for m in map do 
+       for m in map do
        (insert (format "%s:\t%s\n"
-                        (key-description (list (car m)))
-                        (emacspeak-websearch-get-searcher (cdr m)))))
+                       (key-description (list (car m)))
+                       (emacspeak-websearch-get-searcher (cdr m)))))
       (goto-char (point-min)))
     (pop-to-buffer (help-buffer))
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'help)))
-																								
+
 (emacspeak-websearch-set-searcher  'help
                                    'emacspeak-websearch-help)
 
@@ -198,10 +198,6 @@
 (defvar emacspeak-websearch-citeseer-uri
   "https://citeseerx.ist.psu.edu/search?t=doc&sort=rlv&s2=Semantic+Scholar&submit=Search&q=%s"
   "URI for searching CiteSeer index. ")
-
-
-
-
 
 (emacspeak-websearch-set-searcher
  'citeseer
@@ -416,22 +412,26 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 ;;}}}
 ;;{{{ google
+(emacspeak-websearch-set-searcher 'google-lucky
+                                  'emacspeak-websearch-google-feeling-lucky)
 
+(emacspeak-websearch-set-key ?\  'google-lucky)
 
+(emacspeak-websearch-set-searcher 'agoogle
+                                  'emacspeak-websearch-accessible-google)
 
-(emacspeak-websearch-set-searcher 'google
-                                  'emacspeak-websearch-google)
-(emacspeak-websearch-set-key ?g 'google)
+(emacspeak-websearch-set-key ?a 'agoogle)
+
 (emacspeak-websearch-set-key ?i 'google-with-toolbelt)
 (emacspeak-websearch-set-key ?g 'google)
+
+(emacspeak-websearch-set-searcher 'google 'emacspeak-websearch-google)
 (emacspeak-websearch-set-searcher 'google-with-toolbelt
                                   'emacspeak-websearch-google-with-toolbelt)
 
-
-
 (defvar emacspeak-websearch-google-uri-template
   "www.google.com/search?q="
-  "*URI for Google search")
+  "URI for Google search")
 
 (defun emacspeak-websearch-google-uri ()
   "Return URI end-point for Google search."
@@ -499,17 +499,6 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
        ems--websearch-google-filter
        search-url 'speak)))))
 
-
-
-
-;;{{{ IMFA
-
-(emacspeak-websearch-set-searcher 'agoogle
-                                  'emacspeak-websearch-accessible-google)
-
-(emacspeak-websearch-set-key ?a 'agoogle)
-;;}}}
-
 (defvar emacspeak-websearch-accessible-google-url
   "https://www.google.com/search?num=25&lite=90586&q=%s"
   "Using experimental Google Lite.")
@@ -543,10 +532,6 @@ Optional prefix arg prompts for toolbelt options."
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "AGoogle: ")))
   (emacspeak-websearch-accessible-google query 'use-toolbelt))
-(emacspeak-websearch-set-searcher 'google-lucky
-                                  'emacspeak-websearch-google-feeling-lucky)
-
-(emacspeak-websearch-set-key ?\  'google-lucky)
 
 ;;;###autoload
 (defun emacspeak-websearch-google-feeling-lucky (query)
@@ -600,8 +585,8 @@ Optional prefix arg prompts for toolbelt options."
 (emacspeak-websearch-set-searcher
  'google-category-news
  'emacspeak-websearch-google-category-news)
-;(emacspeak-websearch-set-key ?u 'google-category-news)
-;(emacspeak-websearch-set-key 14 'google-category-news)
+                                        ;(emacspeak-websearch-set-key ?u 'google-category-news)
+                                        ;(emacspeak-websearch-set-key 14 'google-category-news)
 
 ;;;###autoload
 (defun emacspeak-websearch-google-category-news ()
@@ -764,8 +749,6 @@ Results"
                                   'emacspeak-websearch-youtube-search)
 
 (emacspeak-websearch-set-key ?y 'youtube-search)
-
-
 
 ;;;###autoload
 (defun emacspeak-websearch-youtube-search (query)
