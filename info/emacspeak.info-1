@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 28, 2019.
+last updated on June 1, 2019.
 
    The manual is divided into the following chapters:
 
@@ -346,9 +346,11 @@ that package.
           doing:
                cd servers/native-espeak; make
         • ViaVoice Outloud (AKA Eloquent).  You need to purchase this
-          engine from the voxin.org site.  That purchase will give you
+          engine from the voxin site.  That purchase will give you
           install-ready packages for installing the speech engine as
-          well as Emacspeak.
+          well as Emacspeak.  See <https://voxin.oralux.net/rss.xml> for
+          the latest packages, and <https://voxin.oralux.net> for the
+          main Voxin Web site.
         • On the Mac, you can use the builtin Mac TTS engine — emacspeak
           comes with a speech server for that TTS engine written in
           Python.
@@ -388,7 +390,7 @@ Speech servers are located in the ‘emacspeak/servers’ directory.
      machines).  This is a TCL script that uses the library built in
      ‘servers/linux-outloud’.  Note that a checkout from GitHub gives
      you a prebuilt library — however you will need to purchase the TTS
-     engine from <http://voxin.org>.
+     engine from <http://voxin.oralux.net>.
    • Mac: ‘servers/mac’.  This is a Python script that binds to the
      native Mac TTS.
 
