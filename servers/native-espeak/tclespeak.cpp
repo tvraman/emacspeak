@@ -44,10 +44,6 @@
 #include <sys/time.h>
 #include <tcl.h>
 #include <string>
-#ifndef ESPEAK_API_REVISION
-#define ESPEAK_API_REVISION 1
-#endif
-
 #include <set>
 #include <string>
 #include <vector>
