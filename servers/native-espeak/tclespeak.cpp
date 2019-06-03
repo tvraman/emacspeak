@@ -91,20 +91,15 @@ void TclEspeakFree(ClientData handle) { espeak_Terminate(); }
 //<Tclespeak_init
 
 int Tclespeak_Init(Tcl_Interp *interp) {
-  int rc;
   void *handle = NULL;
-
   //<setup package, create tts handle
 
   if (Tcl_PkgProvide(interp, PACKAGENAME, PACKAGEVERSION) != TCL_OK) {
     Tcl_AppendResult(interp, "Error loading ", PACKAGENAME, NULL);
     return TCL_ERROR;
   }
-#if ESPEAK_API_REVISION == 1
-  espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 512, NULL);
-#else
-  espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 512, NULL, 0);
-#endif
+espeak_Initialize(AUDIO_OUTPUT_PLAYBACK, 512, NULL, 0);
+
 
   //>
   //<register tcl commands
@@ -133,14 +128,6 @@ int Tclespeak_Init(Tcl_Interp *interp) {
   //>
 
   initLanguage(interp);
-
-  //<set up index processing
-
-  rc = Tcl_Eval(interp,
-                "proc index x {global tts; \
-set tts(last_index) $x}");
-
-  //>
   return TCL_OK;
 }
 
