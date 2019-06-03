@@ -224,40 +224,8 @@ static bool closeTags(string input, string &output) {
 
 int Say(ClientData handle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
-  int i, rc, index, length;
+  int i;
   for (i = 1; i < objc; i++) {
-    // if string begins with -, assume it is an index value
-    char *txt = Tcl_GetStringFromObj(objv[i], &length);
-    if (Tcl_StringMatch(txt, "-reset")) {
-      // TBD
-      // 	  espeakReset (handle);
-      // 	  if ((espeakSetParam (handle, espeakInputType, 1) == -1)
-      // 	      || (espeakSetParam (handle, espeakSynthMode, 1) == -1)
-      // 	      || (espeakSetParam (handle, espeakSampleRate, 1) == -1))
-      // 	    {
-      // 	      Tcl_AppendResult (interp, "Could not re-initialized tts",
-      // NULL);
-      // 	      return TCL_ERROR;
-      // 	    }
-    } else if (Tcl_StringMatch(txt, "-index")) {
-      i++;
-      if (i == objc) {
-        Tcl_AppendResult(interp, "missing index parameter", TCL_STATIC);
-        return TCL_ERROR;
-      }
-      rc = Tcl_GetIntFromObj(interp, objv[i], &index);
-      if (rc != TCL_OK) return rc;
-      // TBD
-      // 	  rc = espeakInsertIndex (handle, index);
-      // 	  if (!rc)
-      // 	    {
-      // 	      Tcl_AppendResult (interp, "Could not insert index",
-      // TCL_STATIC);
-      // 	      return TCL_ERROR;
-      // 	    }
-    } else {
-      // TBD: need a forthcoming eSpeak service (a deffered espeak_Synth).
-
       char *a_text = (char *)Tcl_GetStringFromObj(objv[i], NULL);
       if (a_text) {
         string a_begin_ssml = a_text;
@@ -269,19 +237,7 @@ int Say(ClientData handle, Tcl_Interp *interp, int objc,
           espeak_Synth(a_ssml.c_str(), a_ssml.length() + 1, 0, POS_CHARACTER, 0,
                        espeakCHARS_UTF8 | espeakSSML, &unique_identifier, NULL);
         }
-        // TBD:: EE_BUFFER_FULL?
       }
-    }
-  }
-  // TBD
-  if (Tcl_StringMatch(Tcl_GetStringFromObj(objv[0], NULL), "synth")) {
-    // TBD: need a forthcoming eSpeak service.
-    //       rc = espeakSynthesize (handle);
-    //       if (!rc)
-    // 	{
-    // 	  Tcl_SetResult (interp, "Internal tts synth error", TCL_STATIC);
-    // 	  return TCL_ERROR;
-    // 	}
   }
   return TCL_OK;
 }
