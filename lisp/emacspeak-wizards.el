@@ -3383,11 +3383,13 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
     (completing-read "Stock Symbol: "
                      (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
-                       emacspeak-wizards-personal-portfolio
-                       g-curl-program))
-  (shell-command
-   (format "%s -s %s/stock/%s/price"
-           g-curl-program emacspeak-wizards-iex-base symbol)))
+                       emacspeak-wizards-personal-portfolio))
+  (message "%s"
+           (cdr
+            (assoc 'close
+                   (g-json-from-url
+                    (format "%s/stock/%s/quote"
+                            emacspeak-wizards-iex-base symbol))))))
 
 (defvar ems--wizards-iex-quotes-keymap
   (let ((map (make-sparse-keymap)))
