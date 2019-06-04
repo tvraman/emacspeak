@@ -3377,16 +3377,21 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
-  "Quick Quote: Just stock price from IEX Trading."
+  "Quick Quote: Just stock price and volume from IEX Trading."
   (interactive
    (list
     (completing-read "Stock Symbol: "
                      (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio))
-  (message "%s"
+  (message "%swith volume %s"
            (cdr
-            (assoc 'close
+            (assoc 'latestPrice
+                   (g-json-from-url
+                    (format "%s/stock/%s/quote"
+                            emacspeak-wizards-iex-base symbol))))
+           (cdr
+            (assoc 'latestVolume
                    (g-json-from-url
                     (format "%s/stock/%s/quote"
                             emacspeak-wizards-iex-base symbol))))))
