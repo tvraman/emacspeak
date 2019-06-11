@@ -38,7 +38,7 @@
 //<includes
 
 #include <assert.h>
-#include <espeak/speak_lib.h>
+#include <espeak-ng/speak_lib.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
