@@ -15,12 +15,10 @@ ifeq ($(shell uname -s), Darwin)
 else
   TCL_VERSION = 8.6
   TCL_INCLUDE= /usr/include/tcl$(TCL_VERSION)
-  LIBS= -ltcl$(TCL_VERSION) -lespeak
+  LIBS= -ltcl$(TCL_VERSION) -lespeak-ng
   TTS=tclespeak.so
   CXXFLAGS+=-I$(TCL_INCLUDE)
 endif
-
-
 
 all:   $(TTS)
 
