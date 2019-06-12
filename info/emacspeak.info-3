@@ -3797,7 +3797,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-, q’
      ‘C-x @ a q’
 
-     Quick Quote: Just stock price from IEX Trading.
+     Quick Quote: Just stock price and volume from IEX Trading.
 
      (fn SYMBOL)
 

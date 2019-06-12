@@ -8759,6 +8759,8 @@ to use  one of   three supported correction styles:
 @item popup:Use  up and down arrows to move through  corrections.
 @item helm: A helm interface for picking amongst  corrections.
 @end itemize
+See documentation for package flyspell-correct for additional
+details.
 
 Use Customization emacspeak-flyspell-correct to pick
 between ido, popup and helm.
@@ -22431,7 +22433,7 @@ Optional interactive prefix arg refreshes cache.
 @findex emacspeak-wizards-iex-show-price
 
 @format
-Quick Quote: Just stock price from IEX Trading.
+Quick Quote: Just stock price and volume from IEX Trading.
 
 (fn SYMBOL)
 @end format
