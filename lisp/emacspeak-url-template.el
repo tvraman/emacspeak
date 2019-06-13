@@ -319,7 +319,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'emacspeak-feeds-opml-display)
 
 (emacspeak-url-template-define
- "BBC Program Guide"
+ "BBC Program Guide (not maintained)"
  "http://downloads.bbc.co.uk/podcasts/ppg.xml"
  nil nil
  "Display interactive BBC Program Guide."
