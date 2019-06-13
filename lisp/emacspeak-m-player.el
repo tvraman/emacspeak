@@ -985,7 +985,9 @@ selected filter before it is applied."
 (defun emacspeak-m-player-clear-filters ()
   "Clear all active filters"
   (interactive)
-  (cl-declare (special emacspeak-m-player-process))
+  (cl-declare (special emacspeak-m-player-process
+                       emacspeak-m-player-active-filters))
+  (setq emacspeak-m-player-active-filters nil)
   (when (process-live-p emacspeak-m-player-process)
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-auditory-icon 'delete-object)))
