@@ -783,6 +783,12 @@ This affects pitch."
   "Decrease volume."
   (interactive)
   (emacspeak-m-player-dispatch "volume -1"))
+
+(defvar emacspeak-m-player-active-filters nil
+  "Caches filters that are active.")
+(make-variable-buffer-local 'emacspeak-m-player-active-filters)
+
+
 ;;;###autoload
 (defun emacspeak-m-player-volume-change (value)
   "Change volume to specified absolute value."
@@ -799,9 +805,6 @@ This affects pitch."
   (emacspeak-m-player-dispatch
    (format "balance %s"
            (read-from-minibuffer "Balance -- Between -1 and 1:"))))
-(defvar emacspeak-m-player-active-filters nil
-  "Caches filters that are active.")
-(make-variable-buffer-local 'emacspeak-m-player-active-filters)
 
 ;;;###autoload
 (defun emacspeak-m-player-slave-command (command)
