@@ -261,7 +261,7 @@ Date defaults to today."
 
 (defun emacspeak-bbc-chrome-action (button)
   "Play program  refered to by this button."
-  (browse-url-chromium (button-get  button 'link)))
+  (browse-url-chrome (button-get  button 'link)))
 
 ;;}}}
 ;;{{{ Generic Button Action:
