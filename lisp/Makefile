@@ -300,7 +300,7 @@ OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 # {{{  User level targets all
 
 all: $(OBJECTS)
-	cd g-client; $(MAKE)
+	cd g-client; $(MAKE) --no-print-directory
 
 muggles: emacspeak-muggles.elc emacspeak-muggles-autoloads.el
 

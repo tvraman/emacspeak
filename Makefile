@@ -46,7 +46,7 @@ README = README
 
 emacspeak:
 	@test -f  lisp/emacspeak-loaddefs.el || $(MAKE) config
-	@cd lisp && $(MAKE)
+	@cd lisp && $(MAKE)  --no-print-directory
 	@make   $(README)
 	@chmod 644 $(README)
 	@echo "See the NEWS file for a  summary of new features — Control e cap n in Emacs"
@@ -55,10 +55,10 @@ emacspeak:
 	@make install
 
 outloud: 
-	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
+	@cd servers/linux-outloud && $(MAKE) --no-print-directory || echo "Cant build Outloud server!"
 
 espeak: 
-	cd servers/native-espeak && $(MAKE) || echo "Cant build espeak server!"
+	@cd servers/native-espeak && $(MAKE) --no-print-directory  || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets   dist
@@ -79,9 +79,9 @@ dist:
 # {{{ User level target--  config
 
 config:
-	@cd etc && $(MAKE) config  
-	@cd lisp && $(MAKE) config
-	@cd lisp/g-client  && $(MAKE) config
+	@cd etc && $(MAKE) config   --no-print-directory
+	@cd lisp && $(MAKE) config --no-print-directory
+	@cd lisp/g-client  && $(MAKE) config --no-print-directory
 	@echo "Configured emacspeak in directory $(SRC)."
 
 # }}}
@@ -96,8 +96,8 @@ q:
 	make clean
 	make config 
 	make
-	cd lisp && make muggles
-	cd	 tvr && make
+	@cd lisp && make muggles --no-print-directory
+	@cd	 tvr && make  --no-print-directory
 
 qq:
 	make -s -j q 2>&1 |grep -v Loading 
@@ -106,7 +106,7 @@ qq:
 # {{{  user level target-- clean
 
 clean:
-	cd lisp &&  $(MAKE) clean
+	@cd lisp &&  $(MAKE) --no-print-directory clean
 
 # }}}
 # {{{ labeling releases
