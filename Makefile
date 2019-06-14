@@ -37,6 +37,7 @@
 # {{{ Configuration
 
 MAKE=make
+MAKEFLAGS=--no-print-directory
 prefix = /usr
 SRC = $(shell pwd)
 README = README
