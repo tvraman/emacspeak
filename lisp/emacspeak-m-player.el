@@ -130,7 +130,7 @@
     (unless (zerop (buffer-size))
       (buffer-substring-no-properties (point-min) (1-  (point-max))))))
 
-(defvar emacspeak-m-player-current-directory nil
+(defvar-local  emacspeak-m-player-current-directory nil
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
@@ -444,6 +444,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (file-list nil))
     (unless (string-match "^[a-z]+:"  resource) ; not a URL
       (setq resource (expand-file-name resource))
+      (setq emacspeak-m-player-current-directory nil) ;;; cleanup past
       (setq emacspeak-m-player-current-directory
             (file-name-directory resource)))
     (if (file-directory-p resource)
