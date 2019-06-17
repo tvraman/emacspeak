@@ -85,6 +85,10 @@
     ("#FFF3FF" "gold"))                 ; lavender blush
   "Alist of color pairs for days of the week")
 
+(defun bw ()
+  "set foreground to black"
+  (set-foreground-color "black"))
+
 (defun tvr-set-color-for-today ()
   "Return color pair for today."
   (interactive)
