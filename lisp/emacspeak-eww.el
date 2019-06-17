@@ -871,13 +871,13 @@ Retain previously set punctuations  mode."
 
 (cl-loop
  for  tag in
- '(h1 h2 h3 h4 h5 h6 div                    ; sectioning
-      ul ol dl                     ; Lists
-      li dt dd p                   ; block-level: bullets, paras
-      form blockquote              ; block-level
-      a b it em span               ; in-line
-      br hr                        ; separators
-      th td tr table)
+ '(h1 h2 h3 h4 h5 h6 div                ; sectioning
+      ul ol dl                          ; Lists
+      li dt dd p                        ; block-level: bullets, paras
+      form blockquote                   ; block-level
+      a b it em span                    ; in-line
+      br hr                             ; separators
+      table)
  do
  (eval
   `
