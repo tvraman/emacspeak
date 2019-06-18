@@ -2145,7 +2145,18 @@ with an interactive prefix arg. "
       (concat " minus " (substring number 1)))))
 
 ;;}}}
+;;{{{Enable Table Browsing:
 
+(defadvice shr-tag-table-1 (around emacspeak pre act comp)
+  "Cache pointer to table dom as a text property."
+  (let ((table-dom (ad-get-arg 0))
+        (start (point)))
+    ad-do-it
+    (put-text-property start (point) 'table-dom table-dom)
+    ad-return-value))
+
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
