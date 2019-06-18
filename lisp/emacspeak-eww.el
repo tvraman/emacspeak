@@ -2191,7 +2191,7 @@ Value is specified as a position in the list of table cells.")
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
-   (>= emacspeak-eww-table-current-cell
+   (< (+ 1 emacspeak-eww-table-current-cell)
        (length (emacspeak-eww-table-cells)))
    t "On last cell.")
   (goto-char (next-single-property-change (point) 'display))
@@ -2203,7 +2203,7 @@ Value is specified as a position in the list of table cells.")
   "Speak next cell after making it current."
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
-  (cl-assert (zerop emacspeak-eww-table-current-cell  ) t "On first cell.")
+  (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (goto-char (previous-single-property-change (point) 'display))
   (skip-syntax-backward " ")
   (cl-decf emacspeak-eww-table-current-cell)
