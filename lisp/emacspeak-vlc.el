@@ -271,7 +271,7 @@ The player is placed in a buffer in emacspeak-vlc-mode."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -167,7 +167,7 @@ ATTRIBUTE would typically be `class', `id' or the like."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

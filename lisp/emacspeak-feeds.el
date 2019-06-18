@@ -358,7 +358,7 @@ Argument `feed' is a feed structure (label url type)."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

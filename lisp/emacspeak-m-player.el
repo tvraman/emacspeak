@@ -1811,7 +1811,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

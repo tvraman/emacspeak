@@ -521,7 +521,7 @@ Useful in handling double-redirect from TuneIn."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

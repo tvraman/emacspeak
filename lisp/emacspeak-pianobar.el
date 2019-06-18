@@ -300,7 +300,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

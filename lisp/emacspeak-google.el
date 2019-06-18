@@ -631,7 +631,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -500,7 +500,7 @@ To use, configure variable gweb-my-address via M-x customize-variable."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
+;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
