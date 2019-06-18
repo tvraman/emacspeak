@@ -2171,7 +2171,9 @@ Value is specified as a position in the list of table cells.")
   "Returns memoized value of table cells as a list."
   (cl-declare (special emacspeak-eww-table-cells))
   (or emacspeak-eww-table-cells
-      (mapcar #'dom-text  (dom-by-tag (emacspeak-eww-current-dom) 'td))))
+      (setq
+       emacspeak-eww-table-cells
+       (mapcar #'dom-text  (dom-by-tag (emacspeak-eww-current-dom) 'td)))))
 
 
 (defun emacspeak-eww-table-cell-value ()
@@ -2187,11 +2189,10 @@ Value is specified as a position in the list of table cells.")
 (defun emacspeak-eww-table-next-cell ()
   "Speak next cell after making it current."
   (interactive)
-  (cl-declare (special emacspeak-eww-table-current-cell
-                       emacspeak-eww-table-cells))
+  (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
-   (>= emacspeak-eww-table-current-cell (length
-                                         emacspeak-eww-table-cells) )
+   (>= emacspeak-eww-table-current-cell
+       (length (emacspeak-eww-table-cells)))
    t "On last cell.")
   (goto-char (next-single-property-change (point) 'display))
   (skip-syntax-forward " ")
@@ -2201,10 +2202,8 @@ Value is specified as a position in the list of table cells.")
 (defun emacspeak-eww-table-previous-cell ()
   "Speak next cell after making it current."
   (interactive)
-  (cl-declare (special emacspeak-eww-table-current-cell
-                       emacspeak-eww-table-cells))
-  (cl-assert
-   (zerop emacspeak-eww-table-current-cell  ) t "On first cell.")
+  (cl-declare (special emacspeak-eww-table-current-cell))
+  (cl-assert (zerop emacspeak-eww-table-current-cell  ) t "On first cell.")
   (goto-char (previous-single-property-change (point) 'display))
   (skip-syntax-backward " ")
   (cl-decf emacspeak-eww-table-current-cell)
