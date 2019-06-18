@@ -280,7 +280,11 @@ gcs (%.2f seconds)>"
    (save-place-mode)
    (midnight-mode)
    (server-start)
-   (and (fboundp 'pinentry-start) (pinentry-start)))
+;;; Forge:
+
+   (with-eval-after-load 'magit
+       (require 'forge))
+   )
 
   ;;}}}
   ) ;end defun
