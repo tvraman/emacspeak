@@ -209,7 +209,7 @@ gcs (%.2f seconds)>"
    ;;{{{ Load  emacspeak
    (setq outloud-default-speech-rate 125 ; because we load custom at the end
          dectalk-default-speech-rate 485)
-   (load-library-if-available (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+   (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
