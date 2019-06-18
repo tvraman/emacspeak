@@ -5,6 +5,7 @@
 ;;; Keywords: Emacspeak, Audio Desktop eww
 ;;{{{ LCD Archive entry:
 
+
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
@@ -602,6 +603,9 @@ are available are cued by an auditory icon on the header line."
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
      ("C-t" emacspeak-eww-transcode)
+     ("M-<left>" emacspeak-eww-table-previous-cell)
+     ("M-<right>"  emacspeak-eww-table-next-cell)
+     ("M-." emacspeak-eww-table-speak-cell)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("I" eww-view-dom-having-id)
@@ -2155,6 +2159,56 @@ with an interactive prefix arg. "
     (put-text-property start (point) 'table-dom table-dom)
     ad-return-value))
 
+
+(defvar-local emacspeak-eww-table-current-cell 0
+  "Track current table cell to enable table navigation.
+Value is specified as a position in the list of table cells.")
+
+(defvar-local  emacspeak-eww-table-cells nil 
+  "Memoized list of table cells for current table.")
+
+(defun emacspeak-eww-table-cells ()
+  "Returns memoized value of table cells as a list."
+  (cl-declare (special emacspeak-eww-table-cells))
+  (or emacspeak-eww-table-cells
+      (mapcar #'dom-text  (dom-by-tag (emacspeak-eww-current-dom) 'td))))
+
+
+(defun emacspeak-eww-table-cell-value ()
+  "Return current cell value."
+  (cl-declare (special emacspeak-eww-table-current-cell))
+  (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))
+
+(defun emacspeak-eww-table-speak-cell ()
+  "Speak current cell."
+  (interactive)
+  (dtk-speak (emacspeak-eww-table-cell-value)))
+
+(defun emacspeak-eww-table-next-cell ()
+  "Speak next cell after making it current."
+  (interactive)
+  (cl-declare (special emacspeak-eww-table-current-cell
+                       emacspeak-eww-table-cells))
+  (cl-assert
+   (>= emacspeak-eww-table-current-cell (length
+                                         emacspeak-eww-table-cells) )
+   t "On last cell.")
+  (goto-char (next-single-property-change (point) 'display))
+  (skip-syntax-forward " ")
+  (cl-incf emacspeak-eww-table-current-cell)
+  (dtk-speak (emacspeak-eww-table-cell-value)))
+
+(defun emacspeak-eww-table-previous-cell ()
+  "Speak next cell after making it current."
+  (interactive)
+  (cl-declare (special emacspeak-eww-table-current-cell
+                       emacspeak-eww-table-cells))
+  (cl-assert
+   (zerop emacspeak-eww-table-current-cell  ) t "On first cell.")
+  (goto-char (previous-single-property-change (point) 'display))
+  (skip-syntax-backward " ")
+  (cl-decf emacspeak-eww-table-current-cell)
+  (dtk-speak (emacspeak-eww-table-cell-value)))
 
 ;;}}}
 (provide 'emacspeak-eww)
