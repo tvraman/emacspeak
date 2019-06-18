@@ -2173,7 +2173,8 @@ Value is specified as a position in the list of table cells.")
   (or emacspeak-eww-table-cells
       (setq
        emacspeak-eww-table-cells
-       (mapcar #'dom-text  (dom-by-tag (emacspeak-eww-current-dom) 'td)))))
+       (mapcar #'(lambda (node) (dom-texts node " "))
+               (dom-by-tag (emacspeak-eww-current-dom) 'td)))))
 
 
 (defun emacspeak-eww-table-cell-value ()
