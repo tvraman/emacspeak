@@ -2150,6 +2150,7 @@ with an interactive prefix arg. "
 
 ;;}}}
 ;;{{{Enable Table Browsing:
+;;; Only works for plain tables, not nested tables.
 
 (defadvice shr-tag-table-1 (around emacspeak pre act comp)
   "Cache pointer to table dom as a text property."
@@ -2164,13 +2165,11 @@ with an interactive prefix arg. "
   "Track current table cell to enable table navigation.
 Value is specified as a position in the list of table cells.")
 
-
-
-(defun emacspeak-eww-table-cells ()
+(defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
-  (let* ((table-dom (get-text-property (point) 'table-dom))
-         (cells (dom-by-tag table-dom 'td)))
-    (mapcar #'dom-text cells)))
+  (mapcar
+     #'dom-text
+     (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
 
 
 (defun emacspeak-eww-table-cell-value ()
