@@ -2177,6 +2177,7 @@ Value is specified as a position in the list of table cells.")
 (defun emacspeak-eww-table-speak-cell ()
   "Speak current cell."
   (interactive)
+  (cl-declare (special emacspeak-eww-table-current-cell))
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-next-cell ()
@@ -2184,7 +2185,7 @@ Value is specified as a position in the list of table cells.")
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
-   (< (+ 1 emacspeak-eww-table-current-cell)
+   (< (1+ emacspeak-eww-table-current-cell)
        (length (emacspeak-eww-table-cells)))
    t "On last cell.")
   (goto-char (next-single-property-change (point) 'display))
