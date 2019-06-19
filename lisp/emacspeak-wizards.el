@@ -3300,7 +3300,7 @@ access to the various functions provided by alpha-vantage."
            ticker)))
     (kill-new url)
     (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker))))
-;;;###autoload
+
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
