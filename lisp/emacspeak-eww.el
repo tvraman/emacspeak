@@ -2190,7 +2190,7 @@ Value is specified as a position in the list of table cells.")
    t "On last cell.")
   (goto-char (next-single-property-change (point) 'display))
   (skip-syntax-forward " ")
-  (cl-incf emacspeak-eww-table-current-cell)
+  (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-previous-cell ()
@@ -2200,7 +2200,7 @@ Value is specified as a position in the list of table cells.")
   (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (goto-char (previous-single-property-change (point) 'display))
   (skip-syntax-backward " ")
-  (cl-decf emacspeak-eww-table-current-cell)
+  (setq emacspeak-eww-table-current-cell (1- emacspeak-eww-table-current-cell))
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 ;;}}}
