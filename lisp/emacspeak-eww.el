@@ -2168,19 +2168,16 @@ Value is specified as a position in the list of table cells.")
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
   (mapcar
-     #'dom-text
-     (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
+   #'(lambda (node) (dom-texts node " "))
+   (cl-rest (dom-by-tag (get-text-property (point) 'table-dom) 'td))))
 
 
-(defun emacspeak-eww-table-cell-value ()
-  "Return current cell value."
-  (cl-declare (special emacspeak-eww-table-current-cell))
-  (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))
+
 
 (defun emacspeak-eww-table-speak-cell ()
   "Speak current cell."
   (interactive)
-  (dtk-speak (emacspeak-eww-table-cell-value)))
+  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-next-cell ()
   "Speak next cell after making it current."
@@ -2193,7 +2190,7 @@ Value is specified as a position in the list of table cells.")
   (goto-char (next-single-property-change (point) 'display))
   (skip-syntax-forward " ")
   (cl-incf emacspeak-eww-table-current-cell)
-  (dtk-speak (emacspeak-eww-table-cell-value)))
+  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-previous-cell ()
   "Speak next cell after making it current."
@@ -2203,7 +2200,7 @@ Value is specified as a position in the list of table cells.")
   (goto-char (previous-single-property-change (point) 'display))
   (skip-syntax-backward " ")
   (cl-decf emacspeak-eww-table-current-cell)
-  (dtk-speak (emacspeak-eww-table-cell-value)))
+  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 ;;}}}
 (provide 'emacspeak-eww)
