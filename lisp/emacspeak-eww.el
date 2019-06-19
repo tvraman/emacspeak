@@ -2180,7 +2180,7 @@ Value is specified as a position in the list of table cells.")
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
 Interactive prefix arg moves to the last cell in the table."
-  (interactive "p")
+  (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
    (< (1+ emacspeak-eww-table-current-cell)
@@ -2188,8 +2188,7 @@ Interactive prefix arg moves to the last cell in the table."
    t "On last cell.")
   (cond
    (prefix
-    (setq emacspeak-eww-table-current-cell (1- (length (emacspeak-eww-table-cells))))
-    (goto-char (next-single-property-change (point) 'table-dom)))
+    (setq emacspeak-eww-table-current-cell (1- (length (emacspeak-eww-table-cells)))))
    (t
     (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))
     (goto-char (next-single-property-change (point) 'display))))
@@ -2205,7 +2204,6 @@ With interactive prefix arg, move to the start of the table."
   (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (cond
    (prefix
-    (goto-char (previous-single-property-change (point) 'table-dom))
     (setq emacspeak-eww-table-current-cell 0))
    (t
     (goto-char (previous-single-property-change (point) 'display))
