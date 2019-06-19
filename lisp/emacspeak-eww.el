@@ -2164,17 +2164,13 @@ with an interactive prefix arg. "
   "Track current table cell to enable table navigation.
 Value is specified as a position in the list of table cells.")
 
-(defvar-local  emacspeak-eww-table-cells nil 
-  "Memoized list of table cells for current table.")
+
 
 (defun emacspeak-eww-table-cells ()
-  "Returns memoized value of table cells as a list."
-  (cl-declare (special emacspeak-eww-table-cells))
-  (or emacspeak-eww-table-cells
-      (setq
-       emacspeak-eww-table-cells
-       (mapcar #'(lambda (node) (dom-text node ))
-               (dom-by-tag (emacspeak-eww-current-dom) 'td)))))
+  "Returns value of table cells as a list."
+  (let* ((table-dom (get-text-property (point) 'table-dom))
+         (cells (dom-by-tag table-dom 'td)))
+    (mapcar #'dom-text cells)))
 
 
 (defun emacspeak-eww-table-cell-value ()
