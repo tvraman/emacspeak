@@ -2186,14 +2186,15 @@ Interactive prefix arg moves to the last cell in the table."
    (< (1+ emacspeak-eww-table-current-cell)
       (length (emacspeak-eww-table-cells)))
    t "On last cell.")
-  (if prefix
-      (goto-char (next-single-property-change (point) 'table-dom))
-    (goto-char (next-single-property-change (point) 'display)))
+  (cond
+   (prefix
+    (goto-char (next-single-property-change (point) 'table-dom))
+    (setq emacspeak-eww-table-current-cell (1- (length (emacspeak-eww-table-cells)))))
+   (t
+    (goto-char (next-single-property-change (point) 'display))
+    (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))))
   (skip-syntax-forward " ")
   (emacspeak-auditory-icon 'large-movement)
-  (if prefix
-      (setq emacspeak-eww-table-current-cell (1- (length emacspeak-eww-table-cells)))
-    (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell)))
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-previous-cell (&optional prefix)
@@ -2201,15 +2202,15 @@ Interactive prefix arg moves to the last cell in the table."
 With interactive prefix arg, move to the start of the table."
   (interactive "p")
   (cl-declare (special emacspeak-eww-table-current-cell))
-  (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first
-  cell."))
-  (if prefix
-      (goto-char (previous-single-property-change (point) 'table-dom))
-    (goto-char (previous-single-property-change (point) 'display)))
+  (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
+  (cond
+   (prefix
+    (goto-char (previous-single-property-change (point) 'table-dom))
+    (setq emacspeak-eww-table-current-cell 0))
+   (t
+    (goto-char (previous-single-property-change (point) 'display))
+    (setq emacspeak-eww-table-current-cell (1- emacspeak-eww-table-current-cell))))
   (skip-syntax-backward " ")
-  (if prefix
-      (setq emacspeak-eww-table-current-cell 0)
-    (setq emacspeak-eww-table-current-cell (1- emacspeak-eww-table-current-cell)))
   (emacspeak-auditory-icon 'large-movement)
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
