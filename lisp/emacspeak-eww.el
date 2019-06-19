@@ -2188,11 +2188,11 @@ Interactive prefix arg moves to the last cell in the table."
    t "On last cell.")
   (cond
    (prefix
-    (goto-char (next-single-property-change (point) 'table-dom))
-    (setq emacspeak-eww-table-current-cell (1- (length (emacspeak-eww-table-cells)))))
+    (setq emacspeak-eww-table-current-cell (1- (length (emacspeak-eww-table-cells))))
+    (goto-char (next-single-property-change (point) 'table-dom)))
    (t
-    (goto-char (next-single-property-change (point) 'display))
-    (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))))
+    (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))
+    (goto-char (next-single-property-change (point) 'display))))
   (skip-syntax-forward " ")
   (emacspeak-auditory-icon 'large-movement)
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
