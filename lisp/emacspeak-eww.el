@@ -2169,7 +2169,7 @@ Value is specified as a position in the list of table cells.")
   "Returns value of table cells as a list."
   (mapcar
    #'(lambda (node) (dom-texts node " "))
-   (cl-rest (dom-by-tag (get-text-property (point) 'table-dom) 'td))))
+   (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
 
 
 
