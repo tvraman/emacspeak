@@ -2200,7 +2200,6 @@ Interactive prefix arg moves to the last cell in the table."
    (t
     (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))
     (goto-char (next-single-property-change (point) 'display))))
-  (skip-syntax-forward " ")
   (emacspeak-auditory-icon 'large-movement)
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
@@ -2212,16 +2211,12 @@ With interactive prefix arg, move to the start of the table."
   (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (cond
    (prefix
-    (message "prefix is t")
     (setq emacspeak-eww-table-current-cell 0)
     (goto-char (get-text-property (point) 'table-start)))
    (t
-    (message "prefix is nil")
     (setq emacspeak-eww-table-current-cell (1-
                                             emacspeak-eww-table-current-cell))
-    (message "Cell is %d" emacspeak-eww-table-current-cell)
     (goto-char (previous-single-property-change (point) 'display))))
-  (skip-syntax-backward " ")
   (emacspeak-auditory-icon 'large-movement)
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
