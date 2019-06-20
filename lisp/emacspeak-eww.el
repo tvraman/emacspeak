@@ -2156,7 +2156,6 @@ with an interactive prefix arg. "
 (defadvice shr-tag-table-1 (around emacspeak pre act comp)
   "Cache pointer to table dom as a text property."
   (let ((table-dom (ad-get-arg 0))
-        (table-widths (ad-get-arg 1))
         (start (point)))
     ad-do-it
     (add-text-properties
@@ -2164,8 +2163,16 @@ with an interactive prefix arg. "
      (list
       'table-start start
       'table-end (1-  (point))
-      'table-widths table-widths 
       'table-dom table-dom))
+    ad-return-value))
+
+
+(defadvice shr-insert-table (around emacspeak pre act comp)
+  "Record table widths."
+  (let ((start (point))
+        (widths (ad-get-arg 1)))
+    ad-do-it
+    (put-text-property start (point) 'table-widths widths)
     ad-return-value))
 
 (defvar-local emacspeak-eww-table-current-cell 0
