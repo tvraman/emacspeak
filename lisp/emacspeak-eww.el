@@ -2156,6 +2156,7 @@ with an interactive prefix arg. "
 (defadvice shr-tag-table-1 (around emacspeak pre act comp)
   "Cache pointer to table dom as a text property."
   (let ((table-dom (ad-get-arg 0))
+        (table-widths (ad-get-arg 1))
         (start (point)))
     ad-do-it
     (add-text-properties
@@ -2163,6 +2164,7 @@ with an interactive prefix arg. "
      (list
       'table-start start
       'table-end (1-  (point))
+      'table-widths table-widths 
       'table-dom table-dom))
     ad-return-value))
 
