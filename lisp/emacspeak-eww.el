@@ -2185,7 +2185,7 @@ Value is specified as a position in the list of table cells.")
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
 Interactive prefix arg moves to the last cell in the table."
-  (interactive "p")
+  (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
    (< (1+ emacspeak-eww-table-current-cell)
