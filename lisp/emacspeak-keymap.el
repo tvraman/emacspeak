@@ -440,6 +440,7 @@ relief."
     ("." emacspeak-wizards-shell-directory-reset)
     ("," emacspeak-wizards-shell-directory-set)
     ("=" emacspeak-wizards-find-longest-line-in-region)
+    ("a" emacspeak-wizards-alpha-vantage-quotes)
     ("b" battery)
     ("C" emacspeak-wizards-colors)
     ("c" emacspeak-wizards-color-wheel)
