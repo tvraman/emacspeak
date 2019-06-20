@@ -147,12 +147,16 @@ instead you hear only the first screenful."
   (ems-with-messages-silenced ad-do-it)
   (emacspeak-auditory-icon 'news)
   (message "Gnus is ready "))
-
-(defadvice gnus-group-suspend (after emacspeak pre act com)
-  "Provide auditory contextual feedback."
-  (when (ems-interactive-p)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'close-object)))
+(cl-loop
+ for f in
+ '(gnus-group-suspend gnus-group-quit)
+ do
+ (eval
+  `(defadvice ,f(after emacspeak pre act com)
+    "Provide auditory contextual feedback."
+    (when (ems-interactive-p)
+      (emacspeak-speak-mode-line)
+      (emacspeak-auditory-icon 'close-object)))))
 
 ;;}}}
 ;;{{{  starting up:
