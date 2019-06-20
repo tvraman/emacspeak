@@ -2158,7 +2158,12 @@ with an interactive prefix arg. "
   (let ((table-dom (ad-get-arg 0))
         (start (point)))
     ad-do-it
-    (put-text-property start (point) 'table-dom table-dom)
+    (add-text-properties
+     start (point)
+     (list
+      'table-start start
+      'table-end (1-  (point))
+      'table-dom table-dom))
     ad-return-value))
 
 (defvar-local emacspeak-eww-table-current-cell 0
@@ -2180,7 +2185,7 @@ Value is specified as a position in the list of table cells.")
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
 Interactive prefix arg moves to the last cell in the table."
-  (interactive "P")
+  (interactive "p")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
    (< (1+ emacspeak-eww-table-current-cell)
@@ -2188,7 +2193,10 @@ Interactive prefix arg moves to the last cell in the table."
    t "On last cell.")
   (cond
    (prefix
-    (setq emacspeak-eww-table-current-cell (1- (length (emacspeak-eww-table-cells)))))
+    (setq
+     emacspeak-eww-table-current-cell
+     (1- (length (emacspeak-eww-table-cells))))
+    (goto-char (get-text-property (point) 'table-end)))
    (t
     (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))
     (goto-char (next-single-property-change (point) 'display))))
@@ -2197,17 +2205,22 @@ Interactive prefix arg moves to the last cell in the table."
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-previous-cell (&optional prefix)
-  "Speak next cell after making it current.
+  "Speak previous cell after making it current.
 With interactive prefix arg, move to the start of the table."
-  (interactive "p")
+  (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (cond
    (prefix
-    (setq emacspeak-eww-table-current-cell 0))
+    (message "prefix is t")
+    (setq emacspeak-eww-table-current-cell 0)
+    (goto-char (get-text-property (point) 'table-start)))
    (t
-    (goto-char (previous-single-property-change (point) 'display))
-    (setq emacspeak-eww-table-current-cell (1- emacspeak-eww-table-current-cell))))
+    (message "prefix is nil")
+    (setq emacspeak-eww-table-current-cell (1-
+                                            emacspeak-eww-table-current-cell))
+    (message "Cell is %d" emacspeak-eww-table-current-cell)
+    (goto-char (previous-single-property-change (point) 'display))))
   (skip-syntax-backward " ")
   (emacspeak-auditory-icon 'large-movement)
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
