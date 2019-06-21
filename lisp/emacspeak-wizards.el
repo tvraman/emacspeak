@@ -3304,6 +3304,22 @@ access to the various functions provided by alpha-vantage."
 
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
+;;; Moving from iextrading to iexcloud.
+;;; This service is the new iextrading, but needs an API key.
+;;; The service still has a free tier that should be sufficient for
+;;;Emacspeak users.
+;;; API Docs at https://iexcloud.io/docs/api/
+
+(defcustom emacspeak-iex-api-key nil
+  "Web API  key for IEX Finance access.
+See IEX Login Console   at
+https://iexcloud.io/cloud-login/
+for how to get  an API key. "
+  :type
+  '(choice :tag "Key"
+           (const :tag "Unspecified" nil)
+           (string :tag "API Key"))
+  :group 'emacspeak-wizards)
 
 (defcustom emacspeak-wizards-iex-quotes-row-filter
   '(0 " ask  " 2
@@ -3323,8 +3339,6 @@ access to the various functions provided by alpha-vantage."
   (expand-file-name "portfolio.json" emacspeak-resource-directory)
   "Local file cache of IEX API data.")
 
-;;; API: https://iextrading.com/developer/docs/
-
 (defconst ems--iex-types
   (mapconcat #'identity
              '("quote" "financials" "news" "stats")
@@ -3332,8 +3346,9 @@ access to the various functions provided by alpha-vantage."
   "Iex query types.")
 
 (defvar emacspeak-wizards-iex-base
-  "https://api.iextrading.com/1.0"
+  "https://cloud.iexapis.com/"
   "Rest End-Point For iex Stock API.")
+
 (defun ems--json-read-file (filename)
   "Use native json implementation if available to read json file."
   (cond
@@ -3352,17 +3367,19 @@ access to the various functions provided by alpha-vantage."
 
 (defun emacspeak-wizards-iex-uri (symbols)
   "Return URL for calling iex API."
-  (cl-declare (special emacspeak-wizards-iex-base ems--iex-types))
+  (cl-declare (special emacspeak-wizards-iex-base
+                       emacspeak-iex-api-key
+                       ems--iex-types))
   (format
-   "%s/stock/market/batch?symbols=%s&types=%s"
-   emacspeak-wizards-iex-base symbols ems--iex-types))
+   "%s/stock/market/batch?symbols=%s&types=%s&token=%s"
+   emacspeak-wizards-iex-base symbols ems--iex-types
+   emacspeak-iex-api-key))
 
 (defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
 Uses symbols set in `emacspeak-wizards-personal-portfolio '.
 Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
-  (cl-declare (special
-               emacspeak-wizards-iex-portfolio-file g-curl-program
+  (cl-declare (special emacspeak-wizards-iex-portfolio-file g-curl-program
                emacspeak-wizards-personal-portfolio emacspeak-wizards-iex-cache))
   (let* ((symbols
           (mapconcat
@@ -3384,22 +3401,15 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
                      (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio))
-  (message "%swith volume %s"
+  (message "%swith"
            (cdr
             (assoc 'latestPrice
                    (g-json-from-url
-                    (format "%s/stock/%s/quote"
-                            emacspeak-wizards-iex-base symbol))))
-           (cdr
-            (assoc 'latestVolume
-                   (g-json-from-url
-                    (format "%s/stock/%s/quote"
-                            emacspeak-wizards-iex-base symbol))))))
+                    (emacspeak-wizards-iex-uri symbol))))))
 
 (defvar ems--wizards-iex-quotes-keymap
   (let ((map (make-sparse-keymap)))
     (define-key map "F" 'emacspeak-wizards-iex-this-financials)
-    (define-key map "G" 'emacspeak-wizards-iex-this-google-finance)
     (define-key map "N" 'emacspeak-wizards-iex-this-news)
     (define-key map "P" 'emacspeak-wizards-iex-this-price)
     map)
@@ -3566,7 +3576,6 @@ Optional interactive prefix arg refreshes cache."
 
 Key:Action
 f: Financials
-G: finance Google Search
 n: News
 p: Price
 q: Quotes
@@ -3597,18 +3606,6 @@ q: Quotes
         (emacspeak-table-elements emacspeak-table)
         (emacspeak-table-current-row emacspeak-table))
        1)))))
-
-(defun emacspeak-wizards-iex-this-google-finance ()
-  "Lookup this ticker on Google Finance"
-  (interactive)
-  (cl-declare (special emacspeak-table))
-  (funcall-interactively
-   #'emacspeak-wizards-finance-google-search
-   (aref
-    (aref
-     (emacspeak-table-elements emacspeak-table)
-     (emacspeak-table-current-row emacspeak-table))
-    1)))
 
 ;;}}}
 ;;{{{ Sports API:
