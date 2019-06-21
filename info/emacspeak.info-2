@@ -2318,21 +2318,48 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.69.7.54 emacspeak-eww-tags-at-point
+12.69.7.54 emacspeak-eww-table-next-cell
+........................................
+
+ -- Command: emacspeak-eww-table-next-cell (&optional prefix)
+
+     Speak next cell after making it current.
+     Interactive prefix arg moves to the last cell in the table.
+
+     (fn &optional PREFIX)
+
+12.69.7.55 emacspeak-eww-table-previous-cell
+............................................
+
+ -- Command: emacspeak-eww-table-previous-cell (&optional prefix)
+
+     Speak previous cell after making it current.
+     With interactive prefix arg, move to the start of the table.
+
+     (fn &optional PREFIX)
+
+12.69.7.56 emacspeak-eww-table-speak-cell
+.........................................
+
+ -- Command: emacspeak-eww-table-speak-cell
+
+     Speak current cell.
+
+12.69.7.57 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.69.7.55 emacspeak-eww-transcode
+12.69.7.58 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.69.7.56 emacspeak-eww-update-title
+12.69.7.59 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1225 commands and 908 options.
+This chapter documents a total of 1228 commands and 908 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1308,8 +1308,8 @@ x		emacspeak-personal-keymap
 DEL		cd-tool
 C-SPC		emacspeak-speak-current-mark
 <(deletechar>	emacspeak-ssh-tts-restart
-<C-<left>	emacspeak-select-this-buffer-previous-display
-<C-<right>	emacspeak-select-this-buffer-next-display
+<C-left>	emacspeak-select-this-buffer-previous-display
+<C-right>	emacspeak-select-this-buffer-next-display
 <fn>	dtk-stop
 <delete>	emacspeak-ssh-tts-restart
 <down>		emacspeak-read-next-line
@@ -1326,6 +1326,7 @@ x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
 x C		emacspeak-wizards-colors
+x a		emacspeak-wizards-alpha-vantage-quotes
 x b		battery
 x c		emacspeak-wizards-color-wheel
 x e		emacspeak-we-xsl-map
@@ -8361,6 +8362,39 @@ Uses most recently navigated structural unit.
 Otherwise, prompts if content at point is enclosed by multiple elements.
 
 (fn ELEMENT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-table-next-cell
+@deffn {Command} emacspeak-eww-table-next-cell  (&optional prefix)
+@findex emacspeak-eww-table-next-cell
+
+@format
+Speak next cell after making it current.
+Interactive prefix arg moves to the last cell in the table.
+
+(fn &optional PREFIX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-table-previous-cell
+@deffn {Command} emacspeak-eww-table-previous-cell  (&optional prefix)
+@findex emacspeak-eww-table-previous-cell
+
+@format
+Speak previous cell after making it current.
+With interactive prefix arg, move to the start of the table.
+
+(fn &optional PREFIX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-table-speak-cell
+@deffn {Command} emacspeak-eww-table-speak-cell   
+@findex emacspeak-eww-table-speak-cell
+
+@format
+Speak current cell.
 @end format
 @end deffn
 
@@ -21406,10 +21440,10 @@ With optional interactive prefix arg ‘frame’, move to previous frame instead
 @subsubsection emacspeak-select-this-buffer-next-display
 @deffn {Command} emacspeak-select-this-buffer-next-display   
 @table @kbd
-@item C-e <C-<right>
-@kindex C-e <C-<right>
-@item <fn> <C-<right>
-@kindex <fn> <C-<right>
+@item C-e <C-right>
+@kindex C-e <C-right>
+@item <fn> <C-right>
+@kindex <fn> <C-right>
 @end table
 
 @findex emacspeak-select-this-buffer-next-display
@@ -21446,10 +21480,10 @@ the display to select.
 @subsubsection emacspeak-select-this-buffer-previous-display
 @deffn {Command} emacspeak-select-this-buffer-previous-display   
 @table @kbd
-@item C-e <C-<left>
-@kindex C-e <C-<left>
-@item <fn> <C-<left>
-@kindex <fn> <C-<left>
+@item C-e <C-left>
+@kindex C-e <C-left>
+@item <fn> <C-left>
+@kindex <fn> <C-left>
 @end table
 
 @findex emacspeak-select-this-buffer-previous-display
@@ -21723,6 +21757,13 @@ Default is to add autoload cookies to current file.
 
 @subsubsection emacspeak-wizards-alpha-vantage-quotes
 @deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
+@table @kbd
+@item C-e x a
+@kindex C-e x a
+@item <fn> x a
+@kindex <fn> x a
+@end table
+
 @findex emacspeak-wizards-alpha-vantage-quotes
 
 @format
@@ -25537,7 +25578,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 87 URL Templates.
+This section documents a total of 85 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25569,17 +25610,13 @@ Retrieve product details from Amazon by either ISBN or ASIN.@item @b{Anonymize G
 
 Logout from Google to do an anonymous search.@item @b{ArchWiki Search}
 
-Search Linux ArchWiki@item @b{BBC Genre Using IPlayer}
+Search Linux ArchWiki@item @b{BBC Podcast Directory}
 
-BBC iPlayer Genre@item @b{BBC Podcast Directory}
-
-BBC PodCast Directory@item @b{BBC Program Guide}
+BBC PodCast Directory@item @b{BBC Program Guide (not maintained)}
 
 Display interactive BBC Program Guide.@item @b{BBC World News Summary}
 
-BBC World News Summary@item @b{BBC iPlayer}
-
-BBC iPlayer@item @b{Baseball Box Scores}
+BBC World News Summary@item @b{Baseball Box Scores}
 
 Display baseball Play By Play.@item @b{Baseball Game Details}
 

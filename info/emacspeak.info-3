@@ -3051,8 +3051,8 @@ Contains various wizards for the Emacspeak desktop.
 .....................................................
 
  -- Command: emacspeak-select-this-buffer-next-display
-     ‘C-e <C-<right>’
-     ‘<fn> <C-<right>’
+     ‘C-e <C-right>’
+     ‘<fn> <C-right>’
 
      Select this buffer as displayed in a ‘next’ frame.
      See documentation for command
@@ -3083,8 +3083,8 @@ Contains various wizards for the Emacspeak desktop.
 .........................................................
 
  -- Command: emacspeak-select-this-buffer-previous-display
-     ‘C-e <C-<left>’
-     ‘<fn> <C-<left>’
+     ‘C-e <C-left>’
+     ‘<fn> <C-left>’
 
      Select this buffer as displayed in a ‘previous’ window.
      See documentation for command
@@ -3262,6 +3262,8 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-alpha-vantage-quotes (ticker &optional
           custom)
+     ‘C-e x a’
+     ‘<fn> x a’
 
      Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
      — a stock symbol. Optional interactive prefix arg ‘custom’ provides
@@ -6266,7 +6268,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.236 URL Templates
 ====================
 
-This section documents a total of 87 URL Templates.
+This section documents a total of 85 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6298,258 +6300,252 @@ location and speaks the forecast.
   6. ArchWiki Search
 
      Search Linux ArchWiki
-  7. BBC Genre Using IPlayer
-
-     BBC iPlayer Genre
-  8. BBC Podcast Directory
+  7. BBC Podcast Directory
 
      BBC PodCast Directory
-  9. BBC Program Guide
+  8. BBC Program Guide (not maintained)
 
      Display interactive BBC Program Guide.
-  10. BBC World News Summary
+  9. BBC World News Summary
 
      BBC World News Summary
-  11. BBC iPlayer
-
-     BBC iPlayer
-  12. Baseball Box Scores
+  10. Baseball Box Scores
 
      Display baseball Play By Play.
-  13. Baseball Game Details
+  11. Baseball Game Details
 
      Display baseball Play By Play.
-  14. Baseball Game Index
+  12. Baseball Game Index
 
      Display baseball Play By Play.
-  15. Baseball Highlights
+  13. Baseball Highlights
 
      Display baseball Video Highlights.
-  16. Baseball scores
+  14. Baseball scores
 
      Display baseball scores.
-  17. Bing News
+  15. Bing News
 
      Bing News results as RSS feed.
-  18. Bing Search
+  16. Bing Search
 
      Bing results as RSS feed.
-  19. Bloomberg Stock Lookup
+  17. Bloomberg Stock Lookup
 
      Lookup Stock Quote information on Bloomberg.  Ticker is of the form
      goog:us
-  20. CIA Leaders Of The World
+  18. CIA Leaders Of The World
 
      Open CIA World Leaders For Specified Country.
-  21. CIA World Fact Book
+  19. CIA World Fact Book
 
      Open CIA World Fact Book For Specified Country.
-  22. CNN Content
+  20. CNN Content
 
      Filter down to CNN content area.
-  23. CNN Headlines
+  21. CNN Headlines
 
      News Headlines From CNN
-  24. CNN Market Data
+  22. CNN Market Data
 
      Market data filtered from CNN Money
-  25. CNN PodCasts
+  23. CNN PodCasts
 
      List CNN Podcast media links.
-  26. Currency Converter
+  24. Currency Converter
 
      Currency Converter.  Currencies can be a comma-separated list of
      codes.
-  27. Dictionary Lookup
+  25. Dictionary Lookup
 
      Dictionary Lookup
-  28. EmacsWiki Search
+  26. EmacsWiki Search
 
      EmacsWiki Search
-  29. Finance Google Search
+  27. Finance Google Search
 
      Display content from Google Finance.
-  30. FreeSound
+  28. FreeSound
 
      Search FreeSound.
-  31. GitHub Code Search
+  29. GitHub Code Search
 
      GitHub Code Search.  Query can include filters such as:
 
      <term>: Query Term.  extension:<ext> Filter by file extension
      -filename:<pattern> Filter out files matching pattern.
-  32. GitHub Search
+  30. GitHub Search
 
      Perform a GitHub Search.
-  33. GoLang Browse
+  31. GoLang Browse
 
      Browse GoLang package documentation.
-  34. GoLang Lookup
+  32. GoLang Lookup
 
      Lookup GoLang package documentation.
-  35. GoLang Search
+  33. GoLang Search
 
      Search GoLang package documentation.
-  36. Google Category News
+  34. Google Category News
 
      Google News By Category.
-  37. Google Image Search
+  35. Google Image Search
 
      Google Image Search
-  38. Google News Search
+  36. Google News Search
 
      Search Google news.
-  39. Google Regional News
+  37. Google Regional News
 
      Google News By Region.
-  40. Google Related Trends
+  38. Google Related Trends
 
      Display Related Query Trends.
-  41. Google Scholar
+  39. Google Scholar
 
      Google Scholar Search
-  42. Google Transcoder
+  40. Google Transcoder
 
      Transcode site via Google.
-  43. Google Trends
+  41. Google Trends
 
      Google Trends
-  44. Google Webmaster Page Analysis
+  42. Google Webmaster Page Analysis
 
      Page Analysis From Google Webmaster tools.
-  45. Guardian RSS Feeds Directory
+  43. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  46. MLB Scorecard
+  44. MLB Scorecard
 
      Show MLB Scorecard.
-  47. MLB standings
+  45. MLB standings
 
      Display MLB standings.
-  48. Money Headlines From CNN
+  46. Money Headlines From CNN
 
      Money Headlines From CNN
-  49. Multilingual dictionary via Google.
+  47. Multilingual dictionary via Google.
 
      Translate word using Google.  Source and target languages are
      specified as two-letter language codes, e.g.  en|de translates from
      English to German
-  50. NBA standings
+  48. NBA standings
 
      Display NBA standings.
-  51. NLS Bard Popular
+  49. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  52. NLS Bard Recent
+  50. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  53. NLS Bard Search
+  51. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  54. NY Times Mobile
+  52. NY Times Mobile
 
      NYTimes Mobile Site
-  55. NY Times RSS Feeds
+  53. NY Times RSS Feeds
 
      Display browsable list of NY Times RSS Feeds.
-  56. Old Time Radio
+  54. Old Time Radio
 
      This months Old Time Radio Programming
-  57. OpenLibrary
+  55. OpenLibrary
 
      Open Library Search
-  58. Patent Search From Google
+  56. Patent Search From Google
 
      Perform patent search via Google
-  59. PodCast CNet
+  57. PodCast CNet
 
      Play Podcast from CNET
-  60. RadioTime Browser
+  58. RadioTime Browser
 
      RadioTime Entry point.
-  61. RadioTime Categories
+  59. RadioTime Categories
 
      RadioTime Categories .
-  62. RadioTime Search
+  60. RadioTime Search
 
      RadioTime Search.
-  63. Reddit At Point.
+  61. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  64. RedditBy Topic.
+  62. RedditBy Topic.
 
      Open RSS Feed for Reddit Topic.
-  65. Seeking Alpha Stock Search
+  63. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  66. Sign in to Google
+  64. Sign in to Google
 
      Login to Google.
-  67. StreamWorld Radio
+  65. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  68. Tech News From CNet
+  66. Tech News From CNet
 
      Display tech news from CNET
-  69. Times Of India
+  67. Times Of India
 
      Retrieve Times Of India.
-  70. TuneIn Radio
+  68. TuneIn Radio
 
      Translate StreamId to playable stream.
-  71. UPS Packages
+  69. UPS Packages
 
      Display package tracking information from UPS.
-  72. Washington Post
+  70. Washington Post
 
      Washington Post Contents
-  73. Weather forecast from Weather Underground
+  71. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  74. Wiki Data Search
+  72. Wiki Data Search
 
      Search WikiData.
-  75. WordNet Search
+  73. WordNet Search
 
      Look up term in WordNet.
-  76. Yahoo RSSNews
+  74. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  77. Youtube News
+  75. Youtube News
 
      News Headlines From Youtube
-  78. fedex packages
+  76. fedex packages
 
      Display package tracking information from Fedex.
-  79. html Google News Search
+  77. html Google News Search
 
      Search Google news.
-  80. html5IRC
+  78. html5IRC
 
      Show HTML5 IRC log.
-  81. rss weather from wunderground
+  79. rss weather from wunderground
 
      Pull RSS weather feed for specified state/city.
-  82. sourceforge Download
+  80. sourceforge Download
 
      Download specified file.
-  83. sourceforge browse mirrors
+  81. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  84. sourceforge project
+  82. sourceforge project
 
      Open specified project page at SourceForge.
-  85. w3c IRC Logs
+  83. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  86. w3c Lists
+  84. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  87. world CNN Content
+  85. world CNN Content
 
      Filter down to CNN content area.
 
@@ -7634,16 +7630,16 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <C-right>:                             emacspeak-wizards.  (line  180)
 * <C-up>:                                emacspeak-speak.    (line  101)
 * <f1> ":                                voice-setup.        (line   89)
-* <f1> ,:                                emacspeak-wizards.  (line  455)
-* <f1> =:                                emacspeak-wizards.  (line 1446)
-* <f1> C-e:                              emacspeak.          (line  431)
+* <f1> ,:                                emacspeak-wizards.  (line  457)
+* <f1> =:                                emacspeak-wizards.  (line 1448)
+* <f1> C-e:                              emacspeak.          (line  432)
 * <f1> C-l:                              emacspeak-wizards.  (line  138)
-* <f1> C-s:                              emacspeak-wizards.  (line  528)
+* <f1> C-s:                              emacspeak-wizards.  (line  530)
 * <f1> C-v:                              voice-setup.        (line   74)
 * <f1> M:                                emacspeak-wizards.  (line  290)
 * <f1> T:                                emacspeak-speak.    (line 1323)
 * <f1> TAB:                              emacspeak-info.     (line   38)
-* <f1> \:                                emacspeak-wizards.  (line  465)
+* <f1> \:                                emacspeak-wizards.  (line  467)
 * <fn> !:                                emacspeak-speak.    (line  915)
 * <fn> ":                                emacspeak-pianobar. (line   46)
 * <fn> # a:                              emacspeak-gridtext. (line   28)
@@ -7651,7 +7647,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> # s:                              emacspeak-gridtext. (line   50)
 * <fn> $:                                emacspeak-speak.    (line  240)
 * <fn> %:                                emacspeak-speak.    (line  427)
-* <fn> &:                                emacspeak-wizards.  (line 1312)
+* <fn> &:                                emacspeak-wizards.  (line 1314)
 * <fn> ':                                emacspeak-speak.    (line  976)
 * <fn> (:                                emacspeak-sounds.   (line   32)
 * <fn> ):                                emacspeak-sounds.   (line   76)
@@ -7672,11 +7668,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> ;:                                emacspeak-m-player. (line  755)
 * <fn> <:                                emacspeak-speak.    (line  854)
 * <fn> <(deletechar>:                    emacspeak-wizards.  (line  362)
-* <fn> <C-<left>:                        emacspeak-wizards.  (line  235)
-* <fn> <C-<right>:                       emacspeak-wizards.  (line  203)
+* <fn> <C-left>:                         emacspeak-wizards.  (line  235)
+* <fn> <C-right>:                        emacspeak-wizards.  (line  203)
 * <fn> <delete>:                         emacspeak-wizards.  (line  361)
 * <fn> <down>:                           emacspeak-speak.    (line  188)
-* <fn> <f11>:                            emacspeak-wizards.  (line 1345)
+* <fn> <f11>:                            emacspeak-wizards.  (line 1347)
 * <fn> <f1>:                             emacspeak-wizards.  (line  137)
 * <fn> <fn>:                             dtk-speak.          (line  264)
 * <fn> <insert>:                         emacspeak-wizards.  (line  101)
@@ -7703,7 +7699,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  559)
 * <fn> C-M-@:                            emacspeak-speak.    (line 1025)
-* <fn> C-M-b:                            emacspeak.          (line  478)
+* <fn> C-M-b:                            emacspeak.          (line  479)
 * <fn> C-M-l:                            emacspeak-speak.    (line  741)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line 1024)
 * <fn> C-n:                              emacspeak-speak.    (line  707)
@@ -7831,7 +7827,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M-u:                              emacspeak-feeds.    (line   17)
 * <fn> M-v:                              emacspeak-wizards.  (line  261)
 * <fn> M-w:                              emacspeak-speak.    (line 1108)
-* <fn> M-x:                              emacspeak-wizards.  (line  696)
+* <fn> M-x:                              emacspeak-wizards.  (line  698)
 * <fn> n:                                emacspeak-speak.    (line  905)
 * <fn> N:                                emacspeak-wizards.  (line  385)
 * <fn> o:                                emacspeak-speak.    (line 1216)
@@ -7851,21 +7847,22 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> V:                                emacspeak-speak.    (line 1079)
 * <fn> w:                                emacspeak-speak.    (line 1128)
 * <fn> W:                                emacspeak-tapestry. (line   41)
-* <fn> x ,:                              emacspeak-wizards.  (line 1335)
-* <fn> x .:                              emacspeak-wizards.  (line 1325)
-* <fn> x 0:                              emacspeak-wizards.  (line 1294)
-* <fn> x 1:                              emacspeak-wizards.  (line 1293)
-* <fn> x 2:                              emacspeak-wizards.  (line 1292)
-* <fn> x 3:                              emacspeak-wizards.  (line 1291)
-* <fn> x 4:                              emacspeak-wizards.  (line 1290)
-* <fn> x 5:                              emacspeak-wizards.  (line 1289)
-* <fn> x 6:                              emacspeak-wizards.  (line 1288)
-* <fn> x 7:                              emacspeak-wizards.  (line 1287)
-* <fn> x 8:                              emacspeak-wizards.  (line 1286)
-* <fn> x 9:                              emacspeak-wizards.  (line 1285)
-* <fn> x =:                              emacspeak-wizards.  (line  744)
-* <fn> x c:                              emacspeak-wizards.  (line  478)
-* <fn> x C:                              emacspeak-wizards.  (line  502)
+* <fn> x ,:                              emacspeak-wizards.  (line 1337)
+* <fn> x .:                              emacspeak-wizards.  (line 1327)
+* <fn> x 0:                              emacspeak-wizards.  (line 1296)
+* <fn> x 1:                              emacspeak-wizards.  (line 1295)
+* <fn> x 2:                              emacspeak-wizards.  (line 1294)
+* <fn> x 3:                              emacspeak-wizards.  (line 1293)
+* <fn> x 4:                              emacspeak-wizards.  (line 1292)
+* <fn> x 5:                              emacspeak-wizards.  (line 1291)
+* <fn> x 6:                              emacspeak-wizards.  (line 1290)
+* <fn> x 7:                              emacspeak-wizards.  (line 1289)
+* <fn> x 8:                              emacspeak-wizards.  (line 1288)
+* <fn> x 9:                              emacspeak-wizards.  (line 1287)
+* <fn> x =:                              emacspeak-wizards.  (line  746)
+* <fn> x a:                              emacspeak-wizards.  (line  414)
+* <fn> x c:                              emacspeak-wizards.  (line  480)
+* <fn> x C:                              emacspeak-wizards.  (line  504)
 * <fn> x e a:                            emacspeak-we.       (line  454)
 * <fn> x e b:                            emacspeak-we.       (line  321)
 * <fn> x e c:                            emacspeak-we.       (line   84)
@@ -7899,17 +7896,17 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x e X:                            emacspeak-we.       (line  222)
 * <fn> x e y:                            emacspeak-we.       (line   22)
 * <fn> x e z:                            emacspeak-we.       (line  245)
-* <fn> x h:                              emacspeak-wizards.  (line  908)
+* <fn> x h:                              emacspeak-wizards.  (line  910)
 * <fn> x j:                              emacspeak-jabber.   (line   44)
-* <fn> x o:                              emacspeak-wizards.  (line 1119)
-* <fn> x q:                              emacspeak-wizards.  (line 1203)
+* <fn> x o:                              emacspeak-wizards.  (line 1121)
+* <fn> x q:                              emacspeak-wizards.  (line 1205)
 * <fn> x s:                              emacspeak-wizards.  (line  103)
 * <fn> x SPC:                            emacspeak-jabber.   (line   53)
 * <fn> x t:                              emacspeak-wizards.  (line  302)
-* <fn> x u:                              emacspeak-wizards.  (line 1549)
-* <fn> x v:                              emacspeak-wizards.  (line 1565)
-* <fn> x w:                              emacspeak-wizards.  (line 1102)
-* <fn> x |:                              emacspeak-wizards.  (line 1426)
+* <fn> x u:                              emacspeak-wizards.  (line 1551)
+* <fn> x v:                              emacspeak-wizards.  (line 1567)
+* <fn> x w:                              emacspeak-wizards.  (line 1104)
+* <fn> x |:                              emacspeak-wizards.  (line 1428)
 * <fn> [:                                emacspeak-speak.    (line  750)
 * <fn> \:                                emacspeak-speak.    (line 1283)
 * <fn> ]:                                emacspeak-speak.    (line  764)
@@ -7918,16 +7915,16 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> {:                                emacspeak-speak.    (line  777)
 * <fn> |:                                emacspeak-speak.    (line  568)
 * <help> ":                              voice-setup.        (line   90)
-* <help> ,:                              emacspeak-wizards.  (line  456)
-* <help> =:                              emacspeak-wizards.  (line 1447)
-* <help> C-e:                            emacspeak.          (line  432)
+* <help> ,:                              emacspeak-wizards.  (line  458)
+* <help> =:                              emacspeak-wizards.  (line 1449)
+* <help> C-e:                            emacspeak.          (line  433)
 * <help> C-l:                            emacspeak-wizards.  (line  139)
-* <help> C-s:                            emacspeak-wizards.  (line  529)
+* <help> C-s:                            emacspeak-wizards.  (line  531)
 * <help> C-v:                            voice-setup.        (line   75)
 * <help> M:                              emacspeak-wizards.  (line  291)
 * <help> T:                              emacspeak-speak.    (line 1324)
 * <help> TAB:                            emacspeak-info.     (line   39)
-* <help> \:                              emacspeak-wizards.  (line  466)
+* <help> \:                              emacspeak-wizards.  (line  468)
 * <print>:                               emacspeak-muggles.  (line   50)
 * <S-down>:                              emacspeak-wizards.  (line  279)
 * <S-up>:                                emacspeak-wizards.  (line  269)
@@ -7935,74 +7932,74 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <silence>:                             emacspeak-speak.    (line  250)
 * C-&:                                   emacspeak-speak.    (line   90)
 * C-' ':                                 emacspeak-vlc.      (line   17)
-* C-' .:                                 emacspeak-wizards.  (line 1323)
-* C-' a:                                 emacspeak-wizards.  (line  684)
-* C-' C-n:                               emacspeak-wizards.  (line  880)
+* C-' .:                                 emacspeak-wizards.  (line 1325)
+* C-' a:                                 emacspeak-wizards.  (line  686)
+* C-' C-n:                               emacspeak-wizards.  (line  882)
 * C-' d:                                 emacspeak-dired.    (line   26)
 * C-' g:                                 emacspeak-google.   (line  277)
 * C-' h:                                 emacspeak-m-player. (line  303)
 * C-' l:                                 emacspeak-m-player. (line  365)
-* C-' m:                                 emacspeak-wizards.  (line 1625)
-* C-' n:                                 emacspeak-wizards.  (line  890)
-* C-' q:                                 emacspeak-wizards.  (line  957)
+* C-' m:                                 emacspeak-wizards.  (line 1627)
+* C-' n:                                 emacspeak-wizards.  (line  892)
+* C-' q:                                 emacspeak-wizards.  (line  959)
 * C-' R:                                 emacspeak-webspace. (line   17)
 * C-' r:                                 soundscape.         (line   95)
 * C-' s:                                 soundscape.         (line   49)
 * C-' S:                                 soundscape.         (line  109)
-* C-' SPC:                               emacspeak-wizards.  (line 1243)
+* C-' SPC:                               emacspeak-wizards.  (line 1245)
 * C-' t:                                 soundscape.         (line  128)
 * C-' u:                                 soundscape.         (line  140)
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
-* C-, c:                                 emacspeak-wizards.  (line 1626)
-* C-, i:                                 emacspeak-wizards.  (line 1004)
-* C-, n:                                 emacspeak-wizards.  (line  540)
+* C-, c:                                 emacspeak-wizards.  (line 1628)
+* C-, i:                                 emacspeak-wizards.  (line 1006)
+* C-, n:                                 emacspeak-wizards.  (line  542)
 * C-, o:                                 emacspeak-feeds.    (line   67)
-* C-, p:                                 emacspeak-wizards.  (line  549)
-* C-, q:                                 emacspeak-wizards.  (line  945)
+* C-, p:                                 emacspeak-wizards.  (line  551)
+* C-, q:                                 emacspeak-wizards.  (line  947)
 * C-, r:                                 emacspeak-feeds.    (line   86)
-* C-, s:                                 emacspeak-wizards.  (line 1530)
+* C-, s:                                 emacspeak-wizards.  (line 1532)
 * C-, SPC:                               emacspeak-eww.      (line  730)
-* C-, t:                                 emacspeak-wizards.  (line 1518)
+* C-, t:                                 emacspeak-wizards.  (line 1520)
 * C-, u:                                 emacspeak-m-player. (line  668)
 * C-, y:                                 emacspeak-m-player. (line  743)
 * C-. ':                                 emacspeak-vlc.      (line   16)
-* C-. .:                                 emacspeak-wizards.  (line 1322)
-* C-. a:                                 emacspeak-wizards.  (line  683)
-* C-. C-n:                               emacspeak-wizards.  (line  879)
+* C-. .:                                 emacspeak-wizards.  (line 1324)
+* C-. a:                                 emacspeak-wizards.  (line  685)
+* C-. C-n:                               emacspeak-wizards.  (line  881)
 * C-. d:                                 emacspeak-dired.    (line   25)
 * C-. g:                                 emacspeak-google.   (line  276)
 * C-. h:                                 emacspeak-m-player. (line  302)
 * C-. l:                                 emacspeak-m-player. (line  364)
-* C-. m:                                 emacspeak-wizards.  (line 1624)
-* C-. n:                                 emacspeak-wizards.  (line  889)
-* C-. q:                                 emacspeak-wizards.  (line  956)
+* C-. m:                                 emacspeak-wizards.  (line 1626)
+* C-. n:                                 emacspeak-wizards.  (line  891)
+* C-. q:                                 emacspeak-wizards.  (line  958)
 * C-. R:                                 emacspeak-webspace. (line   16)
 * C-. r:                                 soundscape.         (line   94)
 * C-. s:                                 soundscape.         (line   48)
 * C-. S:                                 soundscape.         (line  108)
-* C-. SPC:                               emacspeak-wizards.  (line 1242)
+* C-. SPC:                               emacspeak-wizards.  (line 1244)
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
 * C-; ':                                 emacspeak-m-player. (line  679)
-* C-; /:                                 emacspeak-wizards.  (line 1654)
-* C-; ::                                 emacspeak-wizards.  (line 1606)
+* C-; /:                                 emacspeak-wizards.  (line 1656)
+* C-; ::                                 emacspeak-wizards.  (line 1608)
 * C-; ;:                                 emacspeak-m-player. (line  690)
-* C-; a:                                 emacspeak-wizards.  (line 1455)
+* C-; a:                                 emacspeak-wizards.  (line 1457)
 * C-; C-u:                               emacspeak-feeds.    (line   47)
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-org.      (line   27)
-* C-; j:                                 emacspeak-wizards.  (line 1344)
+* C-; j:                                 emacspeak-wizards.  (line 1346)
 * C-; k:                                 emacspeak-webspace. (line   62)
 * C-; l:                                 emacspeak-librivox. (line   32)
 * C-; N:                                 emacspeak-npr.      (line   30)
 * C-; n:                                 emacspeak-npr.      (line   52)
-* C-; p:                                 emacspeak-wizards.  (line 1133)
-* C-; s:                                 emacspeak-wizards.  (line 1259)
+* C-; p:                                 emacspeak-wizards.  (line 1135)
+* C-; s:                                 emacspeak-wizards.  (line 1261)
 * C-; SPC h:                             emacspeak-webspace. (line   36)
 * C-; SPC SPC:                           emacspeak-webspace. (line   45)
-* C-; w:                                 emacspeak-wizards.  (line 1100)
+* C-; w:                                 emacspeak-wizards.  (line 1102)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
@@ -8055,7 +8052,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e # s:                               emacspeak-gridtext. (line   49)
 * C-e $:                                 emacspeak-speak.    (line  239)
 * C-e %:                                 emacspeak-speak.    (line  426)
-* C-e &:                                 emacspeak-wizards.  (line 1311)
+* C-e &:                                 emacspeak-wizards.  (line 1313)
 * C-e ':                                 emacspeak-speak.    (line  975)
 * C-e (:                                 emacspeak-sounds.   (line   31)
 * C-e ):                                 emacspeak-sounds.   (line   75)
@@ -8076,11 +8073,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e ;:                                 emacspeak-m-player. (line  754)
 * C-e <:                                 emacspeak-speak.    (line  853)
 * C-e <(deletechar>:                     emacspeak-wizards.  (line  360)
-* C-e <C-<left>:                         emacspeak-wizards.  (line  234)
-* C-e <C-<right>:                        emacspeak-wizards.  (line  202)
+* C-e <C-left>:                          emacspeak-wizards.  (line  234)
+* C-e <C-right>:                         emacspeak-wizards.  (line  202)
 * C-e <delete>:                          emacspeak-wizards.  (line  359)
 * C-e <down>:                            emacspeak-speak.    (line  187)
-* C-e <f11>:                             emacspeak-wizards.  (line 1343)
+* C-e <f11>:                             emacspeak-wizards.  (line 1345)
 * C-e <f1>:                              emacspeak-wizards.  (line  135)
 * C-e <fn>:                              dtk-speak.          (line  262)
 * C-e <insert>:                          emacspeak-wizards.  (line  100)
@@ -8107,7 +8104,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  558)
 * C-e C-M-@:                             emacspeak-speak.    (line 1023)
-* C-e C-M-b:                             emacspeak.          (line  477)
+* C-e C-M-b:                             emacspeak.          (line  478)
 * C-e C-M-l:                             emacspeak-speak.    (line  740)
 * C-e C-M-SPC:                           emacspeak-speak.    (line 1022)
 * C-e C-n:                               emacspeak-speak.    (line  706)
@@ -8235,7 +8232,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M-u:                               emacspeak-feeds.    (line   16)
 * C-e M-v:                               emacspeak-wizards.  (line  260)
 * C-e M-w:                               emacspeak-speak.    (line 1107)
-* C-e M-x:                               emacspeak-wizards.  (line  695)
+* C-e M-x:                               emacspeak-wizards.  (line  697)
 * C-e n:                                 emacspeak-speak.    (line  904)
 * C-e N:                                 emacspeak-wizards.  (line  384)
 * C-e o:                                 emacspeak-speak.    (line 1215)
@@ -8255,21 +8252,22 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e V:                                 emacspeak-speak.    (line 1078)
 * C-e w:                                 emacspeak-speak.    (line 1127)
 * C-e W:                                 emacspeak-tapestry. (line   40)
-* C-e x ,:                               emacspeak-wizards.  (line 1334)
-* C-e x .:                               emacspeak-wizards.  (line 1324)
-* C-e x 0:                               emacspeak-wizards.  (line 1284)
-* C-e x 1:                               emacspeak-wizards.  (line 1283)
-* C-e x 2:                               emacspeak-wizards.  (line 1282)
-* C-e x 3:                               emacspeak-wizards.  (line 1281)
-* C-e x 4:                               emacspeak-wizards.  (line 1280)
-* C-e x 5:                               emacspeak-wizards.  (line 1279)
-* C-e x 6:                               emacspeak-wizards.  (line 1278)
-* C-e x 7:                               emacspeak-wizards.  (line 1277)
-* C-e x 8:                               emacspeak-wizards.  (line 1276)
-* C-e x 9:                               emacspeak-wizards.  (line 1275)
-* C-e x =:                               emacspeak-wizards.  (line  743)
-* C-e x c:                               emacspeak-wizards.  (line  477)
-* C-e x C:                               emacspeak-wizards.  (line  501)
+* C-e x ,:                               emacspeak-wizards.  (line 1336)
+* C-e x .:                               emacspeak-wizards.  (line 1326)
+* C-e x 0:                               emacspeak-wizards.  (line 1286)
+* C-e x 1:                               emacspeak-wizards.  (line 1285)
+* C-e x 2:                               emacspeak-wizards.  (line 1284)
+* C-e x 3:                               emacspeak-wizards.  (line 1283)
+* C-e x 4:                               emacspeak-wizards.  (line 1282)
+* C-e x 5:                               emacspeak-wizards.  (line 1281)
+* C-e x 6:                               emacspeak-wizards.  (line 1280)
+* C-e x 7:                               emacspeak-wizards.  (line 1279)
+* C-e x 8:                               emacspeak-wizards.  (line 1278)
+* C-e x 9:                               emacspeak-wizards.  (line 1277)
+* C-e x =:                               emacspeak-wizards.  (line  745)
+* C-e x a:                               emacspeak-wizards.  (line  413)
+* C-e x c:                               emacspeak-wizards.  (line  479)
+* C-e x C:                               emacspeak-wizards.  (line  503)
 * C-e x e a:                             emacspeak-we.       (line  453)
 * C-e x e b:                             emacspeak-we.       (line  320)
 * C-e x e c:                             emacspeak-we.       (line   83)
@@ -8303,17 +8301,17 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x e X:                             emacspeak-we.       (line  221)
 * C-e x e y:                             emacspeak-we.       (line   21)
 * C-e x e z:                             emacspeak-we.       (line  244)
-* C-e x h:                               emacspeak-wizards.  (line  907)
+* C-e x h:                               emacspeak-wizards.  (line  909)
 * C-e x j:                               emacspeak-jabber.   (line   43)
-* C-e x o:                               emacspeak-wizards.  (line 1118)
-* C-e x q:                               emacspeak-wizards.  (line 1202)
+* C-e x o:                               emacspeak-wizards.  (line 1120)
+* C-e x q:                               emacspeak-wizards.  (line 1204)
 * C-e x s:                               emacspeak-wizards.  (line  102)
 * C-e x SPC:                             emacspeak-jabber.   (line   52)
 * C-e x t:                               emacspeak-wizards.  (line  301)
-* C-e x u:                               emacspeak-wizards.  (line 1548)
-* C-e x v:                               emacspeak-wizards.  (line 1564)
-* C-e x w:                               emacspeak-wizards.  (line 1101)
-* C-e x |:                               emacspeak-wizards.  (line 1425)
+* C-e x u:                               emacspeak-wizards.  (line 1550)
+* C-e x v:                               emacspeak-wizards.  (line 1566)
+* C-e x w:                               emacspeak-wizards.  (line 1103)
+* C-e x |:                               emacspeak-wizards.  (line 1427)
 * C-e [:                                 emacspeak-speak.    (line  749)
 * C-e \:                                 emacspeak-speak.    (line 1282)
 * C-e ]:                                 emacspeak-speak.    (line  763)
@@ -8322,66 +8320,66 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e {:                                 emacspeak-speak.    (line  775)
 * C-e |:                                 emacspeak-speak.    (line  567)
 * C-h ":                                 voice-setup.        (line   88)
-* C-h ,:                                 emacspeak-wizards.  (line  454)
-* C-h =:                                 emacspeak-wizards.  (line 1445)
-* C-h C-e:                               emacspeak.          (line  430)
+* C-h ,:                                 emacspeak-wizards.  (line  456)
+* C-h =:                                 emacspeak-wizards.  (line 1447)
+* C-h C-e:                               emacspeak.          (line  431)
 * C-h C-l:                               emacspeak-wizards.  (line  136)
-* C-h C-s:                               emacspeak-wizards.  (line  527)
+* C-h C-s:                               emacspeak-wizards.  (line  529)
 * C-h C-v:                               voice-setup.        (line   73)
 * C-h M:                                 emacspeak-wizards.  (line  289)
 * C-h T:                                 emacspeak-speak.    (line 1322)
 * C-h TAB:                               emacspeak-info.     (line   37)
-* C-h \:                                 emacspeak-wizards.  (line  464)
+* C-h \:                                 emacspeak-wizards.  (line  466)
 * C-M-y:                                 emacspeak-muggles.  (line  100)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
-* C-x @ a c:                             emacspeak-wizards.  (line 1627)
-* C-x @ a i:                             emacspeak-wizards.  (line 1005)
-* C-x @ a n:                             emacspeak-wizards.  (line  541)
+* C-x @ a c:                             emacspeak-wizards.  (line 1629)
+* C-x @ a i:                             emacspeak-wizards.  (line 1007)
+* C-x @ a n:                             emacspeak-wizards.  (line  543)
 * C-x @ a o:                             emacspeak-feeds.    (line   68)
-* C-x @ a p:                             emacspeak-wizards.  (line  550)
-* C-x @ a q:                             emacspeak-wizards.  (line  946)
+* C-x @ a p:                             emacspeak-wizards.  (line  552)
+* C-x @ a q:                             emacspeak-wizards.  (line  948)
 * C-x @ a r:                             emacspeak-feeds.    (line   87)
-* C-x @ a s:                             emacspeak-wizards.  (line 1531)
+* C-x @ a s:                             emacspeak-wizards.  (line 1533)
 * C-x @ a SPC:                           emacspeak-eww.      (line  731)
-* C-x @ a t:                             emacspeak-wizards.  (line 1519)
+* C-x @ a t:                             emacspeak-wizards.  (line 1521)
 * C-x @ a u:                             emacspeak-m-player. (line  669)
 * C-x @ a y:                             emacspeak-m-player. (line  744)
 * C-x @ h ':                             emacspeak-m-player. (line  680)
-* C-x @ h /:                             emacspeak-wizards.  (line 1655)
-* C-x @ h ::                             emacspeak-wizards.  (line 1607)
+* C-x @ h /:                             emacspeak-wizards.  (line 1657)
+* C-x @ h ::                             emacspeak-wizards.  (line 1609)
 * C-x @ h ;:                             emacspeak-m-player. (line  691)
-* C-x @ h a:                             emacspeak-wizards.  (line 1456)
+* C-x @ h a:                             emacspeak-wizards.  (line 1458)
 * C-x @ h C-u:                           emacspeak-feeds.    (line   49)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-org.      (line   28)
-* C-x @ h j:                             emacspeak-wizards.  (line 1346)
+* C-x @ h j:                             emacspeak-wizards.  (line 1348)
 * C-x @ h k:                             emacspeak-webspace. (line   63)
 * C-x @ h l:                             emacspeak-librivox. (line   33)
 * C-x @ h N:                             emacspeak-npr.      (line   31)
 * C-x @ h n:                             emacspeak-npr.      (line   53)
-* C-x @ h p:                             emacspeak-wizards.  (line 1134)
-* C-x @ h s:                             emacspeak-wizards.  (line 1260)
+* C-x @ h p:                             emacspeak-wizards.  (line 1136)
+* C-x @ h s:                             emacspeak-wizards.  (line 1262)
 * C-x @ h SPC h:                         emacspeak-webspace. (line   37)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   46)
-* C-x @ h w:                             emacspeak-wizards.  (line 1103)
+* C-x @ h w:                             emacspeak-wizards.  (line 1105)
 * C-x @ s ':                             emacspeak-vlc.      (line   18)
-* C-x @ s .:                             emacspeak-wizards.  (line 1326)
-* C-x @ s a:                             emacspeak-wizards.  (line  685)
-* C-x @ s C-n:                           emacspeak-wizards.  (line  881)
+* C-x @ s .:                             emacspeak-wizards.  (line 1328)
+* C-x @ s a:                             emacspeak-wizards.  (line  687)
+* C-x @ s C-n:                           emacspeak-wizards.  (line  883)
 * C-x @ s d:                             emacspeak-dired.    (line   27)
 * C-x @ s g:                             emacspeak-google.   (line  278)
 * C-x @ s h:                             emacspeak-m-player. (line  304)
 * C-x @ s l:                             emacspeak-m-player. (line  366)
-* C-x @ s m:                             emacspeak-wizards.  (line 1628)
-* C-x @ s n:                             emacspeak-wizards.  (line  891)
-* C-x @ s q:                             emacspeak-wizards.  (line  958)
+* C-x @ s m:                             emacspeak-wizards.  (line 1630)
+* C-x @ s n:                             emacspeak-wizards.  (line  893)
+* C-x @ s q:                             emacspeak-wizards.  (line  960)
 * C-x @ s R:                             emacspeak-webspace. (line   18)
 * C-x @ s r:                             soundscape.         (line   96)
 * C-x @ s s:                             soundscape.         (line   50)
 * C-x @ s S:                             soundscape.         (line  110)
-* C-x @ s SPC:                           emacspeak-wizards.  (line 1244)
+* C-x @ s SPC:                           emacspeak-wizards.  (line 1246)
 * C-x @ s t:                             soundscape.         (line  129)
 * C-x @ s u:                             soundscape.         (line  141)
 * C-x r e:                               emacspeak-eww.      (line  523)
@@ -8458,7 +8456,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * ESCAPE next:                           Reading.            (line  134)
 * ESCAPE prior:                          Reading.            (line  139)
 * ESCAPE up:                             Reading.            (line  124)
-* M-ESC ::                               emacspeak-wizards.  (line 1380)
+* M-ESC ::                               emacspeak-wizards.  (line 1382)
 * pause control e s:                     Miscellaneous.      (line   12)
 * s-;:                                   emacspeak-muggles.  (line  167)
 * s-m:                                   emacspeak-muggles.  (line   72)
