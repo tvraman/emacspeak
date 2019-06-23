@@ -3344,11 +3344,6 @@ for how to get  an API key. "
              '("quote" "financials" "news" "stats")
              ",")
   "Iex query types.")
-
-(defconst emacspeak-wizards-iex-base
-  "https://cloud.iexapis.com"
-  "Rest End-Point For iex Stock API.")
-
 (defun ems--json-read-file (filename)
   "Use native json implementation if available to read json file."
   (cond
@@ -3365,14 +3360,23 @@ for how to get  an API key. "
     (ems--json-read-file emacspeak-wizards-iex-portfolio-file))
   "Cache retrieved data to save API calls.")
 
-(defun emacspeak-wizards-iex-uri (symbols)
-  "Return URL for calling iex API."
+
+
+(defconst emacspeak-wizards-iex-base
+  "https://cloud.iexapis.com"
+  "Rest End-Point For iex Stock API.")
+
+
+(defun emacspeak-wizards-iex-uri (action symbols &optional types)
+  "Return URL for calling iex API.
+Parameter `action' specifies relative URL.
+Parameter `filter' specifies types to filter."
   (cl-declare (special emacspeak-wizards-iex-base
-                       emacspeak-iex-api-key
-                       ems--iex-types))
+                       emacspeak-iex-api-key))
   (format
-   "%s/stock/market/batch?symbols=%s&types=%s&token=%s"
-   emacspeak-wizards-iex-base symbols ems--iex-types
+   "%s/stable/%s?symbols=%s&token=%s%s"
+   emacspeak-wizards-iex-base action symbols
+   (if types (format "&types=%s" types) "")
    emacspeak-iex-api-key))
 
 (defun emacspeak-wizards-iex-refresh ()
@@ -3394,18 +3398,19 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
-  "Quick Quote: Just stock price and volume from IEX Trading."
+  "Quick Quote: Just stock price from IEXCloud."
   (interactive
    (list
-    (completing-read "Stock Symbol: "
-                     (split-string emacspeak-wizards-personal-portfolio))))
+    (completing-read "Stock Symbol: " (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio))
-  (message "%swith"
-           (cdr
-            (assoc 'latestPrice
-                   (g-json-from-url
-                    (emacspeak-wizards-iex-uri symbol))))))
+  (let-alist
+      (aref
+       (g-json-from-url (emacspeak-wizards-iex-uri  "tops/last" symbol))
+       0)
+    (message "%s" .price))
+  
+  )
 
 (defvar ems--wizards-iex-quotes-keymap
   (let ((map (make-sparse-keymap)))
