@@ -3345,7 +3345,7 @@ for how to get  an API key. "
              ",")
   "Iex query types.")
 
-(defvar emacspeak-wizards-iex-base
+(defconst emacspeak-wizards-iex-base
   "https://cloud.iexapis.com"
   "Rest End-Point For iex Stock API.")
 
