@@ -3405,7 +3405,9 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
                        emacspeak-wizards-personal-portfolio))
   (let-alist
       (aref
-       (g-json-from-url (emacspeak-wizards-iex-uri  "tops/last" symbol))
+       (g-json-from-url
+        (format "%s/stable/tops/last?symbols=%s&token=%s"
+        emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
        0)
     (message "%s at %s"
              .price
