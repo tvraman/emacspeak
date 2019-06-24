@@ -3404,7 +3404,14 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
     (completing-read "Stock Symbol: " (split-string emacspeak-wizards-personal-portfolio))))
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-wizards-personal-portfolio))
-  ...)
+  (let-alist
+      (aref
+       (g-json-from-url (emacspeak-wizards-iex-uri  "tops/last" symbol))
+       0)
+    (message "%s at %s"
+             .price
+             (format-time-string
+              "%_I %M %p" (seconds-to-time (/ .time 1000))))))
 
 (defvar ems--wizards-iex-quotes-keymap
   (let ((map (make-sparse-keymap)))
