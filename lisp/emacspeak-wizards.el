@@ -3389,7 +3389,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
           (mapconcat
            #'identity
            (split-string emacspeak-wizards-personal-portfolio) ","))
-         (url (emacspeak-wizards-iex-uri symbols)))
+         (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
     (kill-new url)
     (shell-command
      (format "%s -s -o %s '%s'"
