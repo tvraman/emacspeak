@@ -3367,17 +3367,16 @@ for how to get  an API key. "
   "Rest End-Point For iex Stock API.")
 
 
-(defun emacspeak-wizards-iex-uri (action symbols &optional types)
+(defun emacspeak-wizards-iex-uri (action symbols)
   "Return URL for calling iex API.
-Parameter `action' specifies relative URL.
-Parameter `filter' specifies types to filter."
+Parameter `action' specifies relative URL. '"
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-iex-api-key))
   (format
-   "%s/stable/%s?symbols=%s&token=%s%s"
+   "%s/stable/%s?symbols=%s&token=%s&types=%s"
    emacspeak-wizards-iex-base action symbols
-   (if types (format "&types=%s" types) "")
-   emacspeak-iex-api-key))
+   emacspeak-iex-api-key
+   ems--iex-types))
 
 (defun emacspeak-wizards-iex-refresh ()
   "Retrieve stock quote data from IEX Trading.
