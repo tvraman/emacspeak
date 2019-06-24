@@ -3340,10 +3340,10 @@ for how to get  an API key. "
   "Local file cache of IEX API data.")
 
 (defconst ems--iex-types
-  (mapconcat #'identity
-             '("quote" "financials" "news" "stats")
-             ",")
+                                        ;(mapconcat #'identity '("quote" "financials" "news" "stats") ",")
+  "quote"
   "Iex query types.")
+
 (defun ems--json-read-file (filename)
   "Use native json implementation if available to read json file."
   (cond
@@ -3391,7 +3391,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
          (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
     (kill-new url)
     (shell-command
-     (format "%s -s -o %s '%s'"
+     (format "%s -s -D /tmp/iex-headers -o %s '%s'"
              g-curl-program emacspeak-wizards-iex-portfolio-file url))
     (setq emacspeak-wizards-iex-cache (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
 
