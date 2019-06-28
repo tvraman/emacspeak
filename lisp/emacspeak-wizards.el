@@ -3324,10 +3324,8 @@ for how to get  an API key. "
 (defcustom emacspeak-wizards-iex-quotes-row-filter
   '(0 " ask  " 2
       " trading between   " 4 " and  " 5
-      " PE is " 12
-      " for a market cap of " 11
-      "the 52 week average is " 9
-      "and the 200 day moving average is " 10)
+      " PE is " 10
+      " For a market cap of " 9)
   "Template used to audio-format  rows."
   :type '(repeat
           (choice :tag "Entry"
@@ -3359,8 +3357,6 @@ for how to get  an API key. "
   (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
     (ems--json-read-file emacspeak-wizards-iex-portfolio-file))
   "Cache retrieved data to save API calls.")
-
-
 
 (defconst emacspeak-wizards-iex-base
   "https://cloud.iexapis.com"
@@ -3451,14 +3447,14 @@ P: Show live price for current stock."
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
            (let-alist i
-             `(,@.quote ,@.stats))))
+             `(,@.quote ))))
          (row nil)
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
            "lastTrade" "Open" "Low" "High" "Close"
-           "52WeekLow" "52WeekHigh" "52DayMovingAverage" "200DayMovingAverage"
-           "MarketCap" "PERatio" "DividentYield" "DividentRate"])
+           "52WeekLow" "52WeekHigh" 
+            "MarketCap" "PERatio" ])
     (cl-loop
      for r in results
      and i from 1 do
@@ -3469,8 +3465,8 @@ P: Show live price for current stock."
               (list
                .companyName .symbol
                .latestPrice .open .low .high .close
-               .week52Low .week52High .day50MovingAvg .day200MovingAvg
-               .marketcap .peRatio .dividendYield .dividendRate))))
+               .week52Low .week52High
+               .marketCap .peRatio))))
      (aset table i row))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
