@@ -3395,6 +3395,14 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
              g-curl-program emacspeak-wizards-iex-portfolio-file url))
     (setq emacspeak-wizards-iex-cache (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
 
+(defun emacspeak-wizards-iex-show-metadata ()
+  "Account metadata."
+  (interactive)
+  (cl-declare (special emacspeak-wizards-iex-base))
+  (message "%s"
+           (g-json-from-url
+            (format "%s/stable/account/metadata?token=%s" emacspeak-wizards-iex-base emacspeak-iex-api-key))))
+
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
   "Quick Quote: Just stock price from IEXCloud."
@@ -3407,7 +3415,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
       (aref
        (g-json-from-url
         (format "%s/stable/tops/last?symbols=%s&token=%s"
-        emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
+                emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
        0)
     (message "%s at %s"
              .price
@@ -3592,6 +3600,7 @@ q: Quotes
     (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
     (?p (call-interactively #'emacspeak-wizards-iex-show-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
+    (?m (call-interactively #'emacspeak-wizards-iex-show-metadata)) 
     (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))
     (otherwise (error "Invalid key"))))
 
