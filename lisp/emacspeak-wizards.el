@@ -3454,7 +3454,8 @@ P: Show live price for current stock."
           ["CompanyName" "Symbol"
            "lastTrade" "Open" "Low" "High" "Close"
            "52WeekLow" "52WeekHigh" 
-            "MarketCap" "PERatio" ])
+           "MarketCap" "PERatio"
+           "Previous Close" "Change" "Change %"])
     (cl-loop
      for r in results
      and i from 1 do
@@ -3466,7 +3467,8 @@ P: Show live price for current stock."
                .companyName .symbol
                .latestPrice .open .low .high .close
                .week52Low .week52High
-               .marketCap .peRatio))))
+               .marketCap .peRatio
+               .previousClose .change .changePercent))))
      (aset table i row))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
