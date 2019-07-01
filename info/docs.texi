@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 908 options.
+This chapter documents a total of 1229 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -22449,6 +22449,15 @@ Optional interactive prefix arg refreshes cache.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-iex-show-metadata
+@deffn {Command} emacspeak-wizards-iex-show-metadata   
+@findex emacspeak-wizards-iex-show-metadata
+
+@format
+Account metadata.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-iex-show-news
 @deffn {Command} emacspeak-wizards-iex-show-news  (symbol &optional refresh)
 @findex emacspeak-wizards-iex-show-news
@@ -22474,7 +22483,7 @@ Optional interactive prefix arg refreshes cache.
 @findex emacspeak-wizards-iex-show-price
 
 @format
-Quick Quote: Just stock price and volume from IEX Trading.
+Quick Quote: Just stock price from IEXCloud.
 
 (fn SYMBOL)
 @end format
@@ -22508,21 +22517,21 @@ P: Show live price for current stock.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-iex-show-tops
+@deffn {Command} emacspeak-wizards-iex-show-tops   
+@findex emacspeak-wizards-iex-show-tops
+
+@format
+Uses tops/last end-point to show brief portfolio quotes.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-iex-this-financials
 @deffn {Command} emacspeak-wizards-iex-this-financials   
 @findex emacspeak-wizards-iex-this-financials
 
 @format
 Show financials for symbol in current row
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iex-this-google-finance
-@deffn {Command} emacspeak-wizards-iex-this-google-finance   
-@findex emacspeak-wizards-iex-this-google-finance
-
-@format
-Lookup this ticker on Google Finance
 @end format
 @end deffn
 
@@ -22818,12 +22827,13 @@ Bring up weather forecast for current location.
 @format
 Top-level dispatch for looking up Stock Market information.
 
-Key:Action
-f: Financials
-G: finance Google Search
-n: News
-p: Price
-q: Quotes
+Key : Action
+f   :  Financials
+m   :  Account metadata 
+n   :  News
+p   :  Price
+q   :  Quotes
+t   :  tops/last 
 
 (fn &optional REFRESH)
 @end format
@@ -23549,6 +23559,14 @@ gets wedged for some reason,
 you can use command emacspeak-emergency-tts-restart
 to get speech back using the reliable TTS server.
 It’s useful to bind the above command to a convenient key.
+
+@end defvar
+
+@defvar {User Option} emacspeak-iex-api-key
+Web API  key for IEX Finance access.
+See IEX Login Console   at
+https://iexcloud.io/cloud-login/
+for how to get  an API key. 
 
 @end defvar
 
