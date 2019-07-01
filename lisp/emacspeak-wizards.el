@@ -3499,6 +3499,7 @@ P: Show live price for current stock."
           (format "%s/stable/tops/last?symbols=%s&token=%s"
                   emacspeak-wizards-iex-base symbols
                   emacspeak-iex-api-key))
+         (row nil)
          (results  (g-json-from-url url)))
     (kill-new url)
     (aset table 0
@@ -3510,8 +3511,7 @@ P: Show live price for current stock."
            (apply
             #'vector
             (let-alist r
-              (list
-               .symbol .price .time .size))))
+              (setq row (list .symbol .price .time .size)))))
      (aset table i row))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
