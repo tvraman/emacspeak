@@ -3490,6 +3490,7 @@ P: Show live price for current stock."
                        emacspeak-iex-api-key))
   (let* ((buff (get-buffer-create "*Brief Stock Quotes From IEXTrading*"))
          (inhibit-read-only t)
+         (i 1)
          (symbols
           (mapconcat #'identity
                      (split-string
@@ -3499,17 +3500,16 @@ P: Show live price for current stock."
           (format "%s/stable/tops/last?symbols=%s&token=%s"
                   emacspeak-wizards-iex-base symbols
                   emacspeak-iex-api-key))
-         (row nil)
          (results (g-json-from-url url)))
     (kill-new url)
     (aset table 0
           ["Symbol" "Price" "Size" "Time"])
     (cl-loop
-     for r in results
-     and i from 1 do
+     for r across results do
      (let-alist r
-       (setq row (list .symbol .price .time .size))
-       (aset table i row)))
+       (aset table i
+             (apply #'vector (list .symbol .price .time .size)))
+       (setq i (1+ i))))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
