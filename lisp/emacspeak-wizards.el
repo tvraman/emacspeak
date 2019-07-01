@@ -3494,13 +3494,14 @@ P: Show live price for current stock."
          (symbols
           (mapconcat #'identity
                      (split-string
-                      emacspeak-wizards-personal-portfolio) ","))
-         (table (make-vector (1+ (length symbols)) nil))
+                      emacspeak-wizards-personal-portfolio)
+                     ","))
          (url
           (format "%s/stable/tops/last?symbols=%s&token=%s"
                   emacspeak-wizards-iex-base symbols
                   emacspeak-iex-api-key))
-         (results (g-json-from-url url)))
+         (results (g-json-from-url url))
+         (table (make-vector (1+ (length results)) nil)))
     (kill-new url)
     (aset table 0
           ["Symbol" "Price" "Size" "Time"])
