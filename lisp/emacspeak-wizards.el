@@ -3485,7 +3485,7 @@ P: Show live price for current stock."
 
 (defun emacspeak-wizards-iex-show-tops ()
   "Uses tops/last end-point to show brief portfolio quotes."
-  (interactive )
+  (interactive)
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-iex-api-key))
   (let* ((buff (get-buffer-create "*Brief Stock Quotes From IEXTrading*"))
@@ -3500,19 +3500,16 @@ P: Show live price for current stock."
                   emacspeak-wizards-iex-base symbols
                   emacspeak-iex-api-key))
          (row nil)
-         (results  (g-json-from-url url)))
+         (results (g-json-from-url url)))
     (kill-new url)
     (aset table 0
-          ["Symbol" "Price" "Size" "Time" ])
+          ["Symbol" "Price" "Size" "Time"])
     (cl-loop
      for r in results
      and i from 1 do
-     (setq row
-           (apply
-            #'vector
-            (let-alist r
-              (setq row (list .symbol .price .time .size)))))
-     (aset table i row))
+     (let-alist r
+       (setq row (list .symbol .price .time .size))
+       (aset table i row)))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
