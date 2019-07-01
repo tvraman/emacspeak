@@ -3504,18 +3504,22 @@ P: Show live price for current stock."
          (table (make-vector (1+ (length results)) nil)))
     (kill-new url)
     (aset table 0
-          ["Symbol" "Price" "Size" "Time"])
+          ["Symbol" "Price"  "Time"])
     (cl-loop
      for r across results do
      (let-alist r
        (aset table i
-             (apply #'vector (list .symbol .price .time .size)))
+             (apply #'vector
+                    (list .symbol .price
+                          (format-time-string
+              "%_I %M %p" (seconds-to-time (/ .time 1000))))))
        (setq i (1+ i))))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
     (setq
-     emacspeak-table-speak-element 'emacspeak-table-speak-row-header-and-element
+     emacspeak-table-speak-row-filter '(0 "was" 1 " at " 2)
+     emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered
      header-line-format
      (format "Stock Quotes From IEXTrading"))
     (put-text-property
