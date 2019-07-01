@@ -3483,6 +3483,48 @@ P: Show live price for current stock."
      'keymap ems--wizards-iex-quotes-keymap)
     (funcall-interactively #'emacspeak-table-goto 1 2)))
 
+(defun emacspeak-wizards-iex-show-tops ()
+  "Uses tops/last end-point to show brief portfolio quotes."
+  (interactive )
+  (cl-declare (special emacspeak-wizards-iex-base
+                       emacspeak-iex-api-key))
+  (let* ((buff (get-buffer-create "*Brief Stock Quotes From IEXTrading*"))
+         (inhibit-read-only t)
+         (symbols
+          (mapconcat #'identity
+                     (split-string
+                      emacspeak-wizards-personal-portfolio) ","))
+         (table (make-vector (1+ (length symbols)) nil))
+         (url
+          (format "%s/stable/tops/last?symbols=%s&token=%s"
+                  emacspeak-wizards-iex-base symbols
+                  emacspeak-iex-api-key))
+         (results  (g-json-from-url url)))
+    (kill-new url)
+    (aset table 0
+          ["Symbol" "Price" "Size" "Time" ])
+    (cl-loop
+     for r in results
+     and i from 1 do
+     (setq row
+           (apply
+            #'vector
+            (let-alist r
+              (list
+               .symbol .price .time .size))))
+     (aset table i row))
+    (emacspeak-table-prepare-table-buffer
+     (emacspeak-table-make-table table) buff)
+    (funcall-interactively #'switch-to-buffer buff)
+    (setq
+     emacspeak-table-speak-element 'emacspeak-table-speak-row-header-and-element
+     header-line-format
+     (format "Stock Quotes From IEXTrading"))
+    (put-text-property
+     (point-min) (point-max)
+     'keymap ems--wizards-iex-quotes-keymap)
+    (funcall-interactively #'emacspeak-table-goto 1 2)))
+
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
   "Show news for specified ticker.
@@ -3599,7 +3641,9 @@ q: Quotes
     (?p (call-interactively #'emacspeak-wizards-iex-show-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
     (?m (call-interactively #'emacspeak-wizards-iex-show-metadata)) 
-    (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote refresh))
+    (?q (funcall-interactively #'emacspeak-wizards-iex-show-quote
+                               refresh))
+    (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
     (otherwise (error "Invalid key"))))
 
 (cl-loop
