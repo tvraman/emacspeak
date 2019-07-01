@@ -3631,11 +3631,13 @@ Optional interactive prefix arg refreshes cache."
 (defun emacspeak-wizards-quote (&optional refresh)
   "Top-level dispatch for looking up Stock Market information.
 
-Key:Action
-f: Financials
-n: News
-p: Price
-q: Quotes
+Key : Action
+f   :  Financials
+m   :  Account metadata 
+n   :  News
+p   :  Price
+q   :  Quotes
+t   :  tops/last 
 "
   (interactive "P")
   (cl-case (read-char "f: Financials, n: News, p: Price, q: Quotes")
