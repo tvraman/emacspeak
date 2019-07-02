@@ -3445,7 +3445,8 @@ P: Show live price for current stock."
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
-           (let-alist i .quote))) 
+           (let-alist i .quote)))
+         (i 1)
          (row nil)
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
@@ -3455,8 +3456,7 @@ P: Show live price for current stock."
            "MarketCap" "PERatio"
            "Previous Close" "Change" "Change %"])
     (cl-loop
-     for r in results
-     and i from 1 do
+     for r in results do
      (setq row
            (apply
             #'vector
@@ -3467,7 +3467,8 @@ P: Show live price for current stock."
                .week52Low .week52High
                .marketCap .peRatio
                .previousClose .change .changePercent))))
-     (aset table i row))
+     (aset table i row)
+     (setq i (1+ i)))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
