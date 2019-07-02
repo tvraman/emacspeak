@@ -3493,26 +3493,23 @@ P: Show live price for current stock."
          (i 1)
          (symbols
           (mapconcat #'identity
-                     (split-string
-                      emacspeak-wizards-personal-portfolio)
+                     (split-string emacspeak-wizards-personal-portfolio)
                      ","))
          (url
           (format "%s/stable/tops/last?symbols=%s&token=%s"
-                  emacspeak-wizards-iex-base symbols
-                  emacspeak-iex-api-key))
+                  emacspeak-wizards-iex-base symbols emacspeak-iex-api-key))
          (results (g-json-from-url url))
          (table (make-vector (1+ (length results)) nil)))
-    (kill-new url)
-    (aset table 0
-          ["Symbol" "Price"  "Time"])
+    (aset table 0 ["Symbol" "Price"  "Time"])
     (cl-loop
      for r across results do
      (let-alist r
        (aset table i
              (apply #'vector
-                    (list .symbol .price
-                          (format-time-string
-              "%_I %M %p" (seconds-to-time (/ .time 1000))))))
+                    (list
+                     .symbol .price
+                     (format-time-string
+                      "%_I %M %p" (seconds-to-time (/ .time 1000))))))
        (setq i (1+ i))))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
@@ -3521,11 +3518,11 @@ P: Show live price for current stock."
      emacspeak-table-speak-row-filter '(0 "was" 1 " at " 2)
      emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered
      header-line-format
-     (format "Stock Quotes From IEXTrading"))
+     (format "Brief Stock Quotes From IEXTrading"))
     (put-text-property
      (point-min) (point-max)
      'keymap ems--wizards-iex-quotes-keymap)
-    (funcall-interactively #'emacspeak-table-goto 1 2)))
+    (funcall-interactively #'emacspeak-table-goto 1 1)))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
