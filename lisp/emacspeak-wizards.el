@@ -4024,7 +4024,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
          (t (error "Unknown color %s" color))))
        (t
         (message
-         "Left/Right Switches primary, Up/Down increases/decrements.."))))))
+         "Left/Right Switches primary, Up/Down increases/decrements."))))))
 
 ;;}}}
 ;;{{{ Swap Foreground And Background:
