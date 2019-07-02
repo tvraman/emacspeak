@@ -3457,7 +3457,7 @@ P: Show live price for current stock."
            "Previous Close" "Change" "Change %"])
     (cl-loop
      for r in results do
-     (setq row
+     (aset table i
            (apply
             #'vector
             (let-alist r
@@ -3467,7 +3467,6 @@ P: Show live price for current stock."
                .week52Low .week52High
                .marketCap .peRatio
                .previousClose .change .changePercent))))
-     (aset table i row)
      (setq i (1+ i)))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table table) buff)
