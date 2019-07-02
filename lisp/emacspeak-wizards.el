@@ -3385,7 +3385,6 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
            #'identity
            (split-string emacspeak-wizards-personal-portfolio) ","))
          (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
-    (kill-new url)
     (shell-command
      (format "%s -s -D /tmp/iex-headers -o %s '%s'"
              g-curl-program emacspeak-wizards-iex-portfolio-file url))
