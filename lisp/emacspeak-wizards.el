@@ -3342,16 +3342,7 @@ for how to get  an API key. "
   "quote"
   "Iex query types.")
 
-(defun ems--json-read-file (filename)
-  "Use native json implementation if available to read json file."
-  (cond
-   ((fboundp 'json-parse-string)
-    (with-current-buffer (find-file-noselect filename)
-      (goto-char (point-min))
-      (prog1
-          (json-parse-buffer :object-type 'alist)
-        (kill-buffer ))))
-   (t (json-read-file filename))))
+
 
 (defvar emacspeak-wizards-iex-cache
   (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
