@@ -3438,49 +3438,7 @@ N: Show news for current stock.
 P: Show live price for current stock."
   (interactive "P")
   (cl-declare (special emacspeak-wizards-iex-cache))
-  (when (or refresh (null emacspeak-wizards-iex-cache))
-    (emacspeak-wizards-iex-refresh))
-  (let* ((buff (get-buffer-create "*Stock Quotes From IEXTrading*"))
-         (inhibit-read-only t)
-         (results
-          (cl-loop
-           for i in emacspeak-wizards-iex-cache collect
-           (let-alist i .quote)))
-         (i 1)
-         (row nil)
-         (table (make-vector (1+ (length results)) nil)))
-    (aset table 0
-          ["CompanyName" "Symbol"
-           "lastTrade" "Open" "Low" "High" "Close"
-           "52WeekLow" "52WeekHigh" 
-           "MarketCap" "PERatio"
-           "Previous Close" "Change" "Change %"])
-    (cl-loop
-     for r in results do
-     (setq row
-           (apply
-            #'vector
-            (let-alist r
-              (list
-               .companyName .symbol
-               .latestPrice .open .low .high .close
-               .week52Low .week52High
-               .marketCap .peRatio
-               .previousClose .change .changePercent))))
-     (aset table i row)
-     (setq i (1+ i)))
-    (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table table) buff)
-    (funcall-interactively #'switch-to-buffer buff)
-    (setq
-     emacspeak-table-speak-element 'emacspeak-table-speak-row-header-and-element
-     emacspeak-table-speak-row-filter emacspeak-wizards-iex-quotes-row-filter
-     header-line-format
-     (format "Stock Quotes From IEXTrading"))
-    (put-text-property
-     (point-min) (point-max)
-     'keymap ems--wizards-iex-quotes-keymap)
-    (funcall-interactively #'emacspeak-table-goto 1 2)))
+  ...)
 
 (defun emacspeak-wizards-iex-show-tops ()
   "Uses tops/last end-point to show brief portfolio quotes."
