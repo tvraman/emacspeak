@@ -3637,7 +3637,7 @@ t   :  tops/last
                                refresh))
     (?t (call-interactively #'emacspeak-wizards-iex-show-tops))
     (otherwise (error "Invalid key"))))
-
+;;; Define emacspeak-wizards-iex-this-news and friends
 (cl-loop
  for n in
  '(financials news price) do
