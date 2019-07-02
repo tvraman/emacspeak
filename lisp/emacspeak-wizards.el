@@ -3342,8 +3342,6 @@ for how to get  an API key. "
   "quote"
   "Iex query types.")
 
-
-
 (defvar emacspeak-wizards-iex-cache
   (when (file-exists-p emacspeak-wizards-iex-portfolio-file)
     (ems--json-read-file emacspeak-wizards-iex-portfolio-file))
