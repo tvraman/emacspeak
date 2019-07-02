@@ -3577,7 +3577,9 @@ Optional interactive prefix arg refreshes cache."
      "Symbol: "
      (split-string emacspeak-wizards-personal-portfolio))
     current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-iex-cache))
+  (cl-declare (special emacspeak-wizards-iex-cache
+                       emacspeak-wizards-iex-base
+                       emacspeak-iex-api-key))
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((buff (get-buffer-create (format "Financials For %s" symbol)))
@@ -3592,8 +3594,9 @@ Optional interactive prefix arg refreshes cache."
       (setq this
             (let-alist
                 (g-json-from-url
-                 (format "%s/stock/%s/financials"
-                         emacspeak-wizards-iex-base symbol))
+                 (format "%s/stable/stock/%s/financials?token=%s"
+                         emacspeak-wizards-iex-base symbol
+                         emacspeak-iex-api-key))
               .financials))))
     (cl-assert (arrayp this) t "Not an array.")
     (setq headers
