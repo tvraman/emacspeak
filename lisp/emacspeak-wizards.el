@@ -3532,7 +3532,8 @@ Optional interactive prefix arg refreshes cache."
      "Symbol: "
      (split-string emacspeak-wizards-personal-portfolio))
     current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-iex-cache))
+  (cl-declare (special emacspeak-wizards-iex-cache
+                       emacspeak-iex-api-key))
   (when (or refresh (null emacspeak-wizards-iex-cache))
     (emacspeak-wizards-iex-refresh))
   (let* ((inhibit-read-only t)
@@ -3549,8 +3550,9 @@ Optional interactive prefix arg refreshes cache."
       (unless this                      ; not in cache
         (setq this
               (g-json-from-url
-               (format "%s/stock/%s/news"
-                       emacspeak-wizards-iex-base symbol))))
+               (format "%s/stable/stock/%s/news?token=%s"
+                       emacspeak-wizards-iex-base symbol
+                       emacspeak-iex-api-key))))
       (mapc
        #'(lambda (n)
            (let-alist n
