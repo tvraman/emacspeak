@@ -3447,7 +3447,6 @@ P: Show live price for current stock."
            for i in emacspeak-wizards-iex-cache collect
            (let-alist i .quote)))
          (count 1)
-         (row nil)
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
           ["CompanyName" "Symbol"
