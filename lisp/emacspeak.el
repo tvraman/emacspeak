@@ -539,6 +539,12 @@ commands and options for details."
   (emacspeak-speak-buffer))
 
 ;;}}}
+;;{{{Advice find-func:
+(eval-after-load
+    "find-func"
+  `(progn
+     (emacspeak-fix-commands-loaded-from "find-func")))
+;;}}}
 (provide 'emacspeak)
 ;;{{{ end of file
 
