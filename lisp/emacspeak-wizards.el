@@ -3445,8 +3445,7 @@ P: Show live price for current stock."
          (results
           (cl-loop
            for i in emacspeak-wizards-iex-cache collect
-           (let-alist i
-             `(,@.quote )))) ;;; used to include .stats 
+           (let-alist i .quote))) 
          (row nil)
          (table (make-vector (1+ (length results)) nil)))
     (aset table 0
