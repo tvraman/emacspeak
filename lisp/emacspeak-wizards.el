@@ -3350,7 +3350,7 @@ for how to get  an API key. "
   "Cache retrieved data to save API calls.")
 
 (defconst emacspeak-wizards-iex-base
-  "https://cloud.iexapis.com"
+  "https://cloud.iexapis.com/stable"
   "Rest End-Point For iex Stock API.")
 
 
@@ -3360,7 +3360,7 @@ Parameter `action' specifies relative URL. '"
   (cl-declare (special emacspeak-wizards-iex-base
                        emacspeak-iex-api-key))
   (format
-   "%s/stable/%s?symbols=%s&token=%s&types=%s"
+   "%s/%s?symbols=%s&token=%s&types=%s"
    emacspeak-wizards-iex-base action symbols
    emacspeak-iex-api-key
    ems--iex-types))
@@ -3387,7 +3387,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (cl-declare (special emacspeak-wizards-iex-base))
   (message "%s"
            (g-json-from-url
-            (format "%s/stable/account/metadata?token=%s" emacspeak-wizards-iex-base emacspeak-iex-api-key))))
+            (format "%s/account/metadata?token=%s" emacspeak-wizards-iex-base emacspeak-iex-api-key))))
 
 ;;;###autoload
 (defun emacspeak-wizards-iex-show-price (symbol)
@@ -3400,7 +3400,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
   (let-alist
       (aref
        (g-json-from-url
-        (format "%s/stable/tops/last?symbols=%s&token=%s"
+        (format "%s/tops/last?symbols=%s&token=%s"
                 emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
        0)
     (message "%s at %s"
@@ -3484,7 +3484,7 @@ P: Show live price for current stock."
                      (split-string emacspeak-wizards-personal-portfolio)
                      ","))
          (url
-          (format "%s/stable/tops/last?symbols=%s&token=%s"
+          (format "%s/tops/last?symbols=%s&token=%s"
                   emacspeak-wizards-iex-base symbols emacspeak-iex-api-key))
          (results (g-json-from-url url))
          (table (make-vector (1+ (length results)) nil)))
@@ -3541,7 +3541,7 @@ Optional interactive prefix arg refreshes cache."
       (unless this                      ; not in cache
         (setq this
               (g-json-from-url
-               (format "%s/stable/stock/%s/news?token=%s"
+               (format "%s/stock/%s/news?token=%s"
                        emacspeak-wizards-iex-base symbol
                        emacspeak-iex-api-key))))
       (mapc
@@ -3585,7 +3585,7 @@ Optional interactive prefix arg refreshes cache."
       (setq this
             (let-alist
                 (g-json-from-url
-                 (format "%s/stable/stock/%s/financials?token=%s"
+                 (format "%s/stock/%s/financials?token=%s"
                          emacspeak-wizards-iex-base symbol
                          emacspeak-iex-api-key))
               .financials))))
