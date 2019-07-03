@@ -65,18 +65,48 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  deadgrep
-deadgrep-backward
-deadgrep-backward-match
-deadgrep-forward
-deadgrep-forward-match
-deadgrep-kill-process
-deadgrep-restart
-deadgrep-toggle-file-results
-deadgrep-visit-result
-deadgrep-visit-result-other-window
-)
+
+
+(defadvice deadgrep-toggle-file-results (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon
+     (if (get-text-property (1+ (line-end-position)) 'invisible) 'off 'on))))
+
+
+
+(defadvice deadgrep (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)))
+
+(cl-loop
+ for f in 
+ '(deadgrep-visit-result-other-window deadgrep-visit-result )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'open-object)))))
+
+
+(cl-loop
+ for f in 
+ '(
+   deadgrep-forward-match deadgrep-forward
+   deadgrep-backward-match deadgrep-backward)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 (provide 'emacspeak-deadgrep)
