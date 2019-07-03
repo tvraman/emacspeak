@@ -98,7 +98,7 @@
 (defsubst ems--json-read-file (filename)
   "Use native json implementation if available to read json file."
   (cond
-   ((fboundp 'json-parse-string)
+   ((fboundp 'json-parse-buffer)
     (with-current-buffer (find-file-noselect filename)
       (goto-char (point-min))
       (prog1
