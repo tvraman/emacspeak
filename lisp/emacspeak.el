@@ -179,6 +179,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "ecb" 'emacspeak-ecb)
 (emacspeak-do-package-setup "ein" 'emacspeak-ein)
 (emacspeak-do-package-setup "cus-edit" 'emacspeak-custom)
+(emacspeak-do-package-setup "deadgrep" 'emacspeak-deadgrep)
 (emacspeak-do-package-setup "desktop" 'emacspeak-desktop)
 (emacspeak-do-package-setup "diff-mode" 'emacspeak-diff-mode)
 (emacspeak-do-package-setup "dired" 'emacspeak-dired)
