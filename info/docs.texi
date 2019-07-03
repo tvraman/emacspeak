@@ -49,6 +49,7 @@ This chapter documents a total of 1229 commands and 909 options.
 * emacspeak-cperl::Speech enable CPerl Mode.
 * emacspeak-custom::Speech enable interactive Emacs customization.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
+* emacspeak-deadgrep::Speech-enable DEADGREP.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
@@ -5494,6 +5495,11 @@ key             binding
 
 @end format
 @end deffn
+
+@node emacspeak-deadgrep
+@section emacspeak-deadgrep
+
+DEADGREP ==  Front-end to ripgrep.
 
 @node emacspeak-desktop
 @section emacspeak-desktop

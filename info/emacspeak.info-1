@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 1, 2019.
+last updated on July 3, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2802,6 +2802,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-cperl::Speech enable CPerl Mode.
 * emacspeak-custom::Speech enable interactive Emacs customization.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
+* emacspeak-deadgrep::Speech-enable DEADGREP.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
@@ -7353,7 +7354,7 @@ emacspeak-widget.el which speech-enables the widget libraries.
      Jump to custom toolbar when in a customization buffer.
 
 
-File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-desktop,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-deadgrep,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
 
 12.42 emacspeak-dbus
 ====================
@@ -7456,9 +7457,17 @@ customized via appropriately named hook functions.
 
 
 
-File: emacspeak.info,  Node: emacspeak-desktop,  Next: emacspeak-dictionary,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-deadgrep,  Next: emacspeak-desktop,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
 
-12.43 emacspeak-desktop
+12.43 emacspeak-deadgrep
+========================
+
+DEADGREP == Front-end to ripgrep.
+
+
+File: emacspeak.info,  Node: emacspeak-desktop,  Next: emacspeak-dictionary,  Prev: emacspeak-deadgrep,  Up: Emacspeak Commands And Options
+
+12.44 emacspeak-desktop
 =======================
 
 advice desktop package
@@ -7466,7 +7475,7 @@ advice desktop package
 
 File: emacspeak.info,  Node: emacspeak-dictionary,  Next: emacspeak-diff-mode,  Prev: emacspeak-desktop,  Up: Emacspeak Commands And Options
 
-12.44 emacspeak-dictionary
+12.45 emacspeak-dictionary
 ==========================
 
 Speech-enables emacs client for accessing dictionary server at
@@ -7475,154 +7484,8 @@ dict.org:2628
 
 File: emacspeak.info,  Node: emacspeak-diff-mode,  Next: emacspeak-dired,  Prev: emacspeak-dictionary,  Up: Emacspeak Commands And Options
 
-12.45 emacspeak-diff-mode
+12.46 emacspeak-diff-mode
 =========================
 
 DIFF-MODE support.
-
-
-File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-ecb,  Prev: emacspeak-diff-mode,  Up: Emacspeak Commands And Options
-
-12.46 emacspeak-dired
-=====================
-
-This module speech enables dired.  It reduces the amount of speech you
-hear: Typically you hear the file names as you move through the dired
-buffer Voicification is used to indicate directories, marked files etc.
-
-12.46.1 emacspeak-dired Commands
---------------------------------
-
-12.46.1.1 emacspeak-dired-csv-open
-..................................
-
- -- Command: emacspeak-dired-csv-open
-
-     Open CSV file on current dired line.
-
-12.46.1.2 emacspeak-dired-downloads
-...................................
-
- -- Command: emacspeak-dired-downloads
-     ‘C-. d’
-     ‘C-' d’
-     ‘C-x @ s d’
-
-     Open Downloads directory.
-
-12.46.1.3 emacspeak-dired-epub-eww
-..................................
-
- -- Command: emacspeak-dired-epub-eww
-
-     Open epub on current line  in EWW
-
-12.46.1.4 emacspeak-dired-eww-open
-..................................
-
- -- Command: emacspeak-dired-eww-open
-
-     Open HTML file on current dired line.
-
-12.46.1.5 emacspeak-dired-label-fields
-......................................
-
- -- Command: emacspeak-dired-label-fields
-
-     Labels the fields of the listing in the dired buffer.
-     Currently is a no-op  unless
-     unless ‘dired-listing-switches’ contains -l
-
-12.46.1.6 emacspeak-dired-md-open
-.................................
-
- -- Command: emacspeak-dired-md-open
-
-     Preview markdown  file on current dired line.
-
-12.46.1.7 emacspeak-dired-open-this-file
-........................................
-
- -- Command: emacspeak-dired-open-this-file
-
-     Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd.
-
-12.46.1.8 emacspeak-dired-pdf-open
-..................................
-
- -- Command: emacspeak-dired-pdf-open
-
-     Open PDF file on current dired line.
-
-12.46.1.9 emacspeak-dired-show-file-type
-........................................
-
- -- Command: emacspeak-dired-show-file-type (&optional file
-          deref-symlinks)
-
-     Displays type of current file by running command file.
-     Like Emacs’ built-in dired-show-file-type but allows user to customize
-     options passed to command ‘file’.
-
-     (fn &optional FILE DEREF-SYMLINKS)
-
-12.46.1.10 emacspeak-dired-speak-file-access-time
-.................................................
-
- -- Command: emacspeak-dired-speak-file-access-time
-
-     Speak access time  of the current file.
-
-12.46.1.11 emacspeak-dired-speak-file-modification-time
-.......................................................
-
- -- Command: emacspeak-dired-speak-file-modification-time
-
-     Speak modification time  of the current file.
-
-12.46.1.12 emacspeak-dired-speak-file-permissions
-.................................................
-
- -- Command: emacspeak-dired-speak-file-permissions
-
-     Speak the permissions of the current file.
-
-12.46.1.13 emacspeak-dired-speak-file-size
-..........................................
-
- -- Command: emacspeak-dired-speak-file-size
-
-     Speak the size of the current file.
-     On a directory line, run du -s on the directory to speak its size.
-
-12.46.1.14 emacspeak-dired-speak-header-line
-............................................
-
- -- Command: emacspeak-dired-speak-header-line
-
-     Speak the header line of the dired buffer.
-
-12.46.1.15 emacspeak-dired-speak-symlink-target
-...............................................
-
- -- Command: emacspeak-dired-speak-symlink-target
-
-     Speaks the target of the symlink on the current line.
-
-12.46.1.16 emacspeak-locate-play-results-as-playlist
-....................................................
-
- -- Command: emacspeak-locate-play-results-as-playlist (&optional
-          shuffle)
-
-     Treat locate results as a play-list.
-     Optional interactive prefix arg shuffles playlist.
-
-     (fn &optional SHUFFLE)
-
-12.46.2 emacspeak-dired Options
--------------------------------
-
- -- Variable: User Option emacspeak-dired-file-cmd-options
-     Options passed to Unix builtin ‘file’ command.
 

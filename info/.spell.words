@@ -116,6 +116,8 @@ customizations
 datetime
 dbus
 DBus
+deadgrep
+DEADGREP
 debugInfo
 decl
 decrementing
@@ -289,6 +291,7 @@ IDO
 iedit
 IEDIT
 iex
+IEX
 iheart
 ILisp
 IM
@@ -597,8 +600,6 @@ transcoder
 Transcoder
 Treese
 trplayer
-tts
-TTS
 tty
 TuneIn
 tvr
