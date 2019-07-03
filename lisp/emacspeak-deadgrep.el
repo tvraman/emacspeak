@@ -1,7 +1,7 @@
-;;; emacspeak-<skeleton>.el --- Speech-enable <SKELETON>  -*- lexical-binding: t; -*-
+;;; emacspeak-deadgrep.el --- Speech-enable DEADGREP  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable <SKELETON> An Emacs Interface to <skeleton>
-;;; Keywords: Emacspeak,  Audio Desktop <skeleton>
+;;; Description:  Speech-enable DEADGREP An Emacs Interface to deadgrep
+;;; Keywords: Emacspeak,  Audio Desktop deadgrep
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -27,7 +27,7 @@
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITN<SKELETON> FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITNDEADGREP FOR A PARTICULAR PURPOSE.  See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
@@ -40,7 +40,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; <SKELETON> == 
+;;; DEADGREP ==  Front-end to ripgrep.
 
 ;;; Code:
 
@@ -54,36 +54,32 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(let ((print-length 0)
-      (faces (emacspeak-wizards-enumerate-unmapped-faces "^<skeleton>"))
-      (start (point)))
-  (insert "\n\n(voice-setup-add-map \n'(\n")
-  (cl-loop for f in faces do 
-           (insert (format "(%s)\n" f)))
-  (insert "\n)\n)")
-  (goto-char start)
-  (backward-sexp)
-  (kill-sexp)
-  (goto-char (search-forward "("))
-  (indent-pp-sexp))
+(voice-setup-add-map 
+'(
+(deadgrep-filename-face voice-bolden)
+(deadgrep-match-face voice-animate)
+(deadgrep-meta-face voice-smoothen)
+(deadgrep-regexp-metachar-face voice-lighten)
+(deadgrep-search-term-face voice-highlight)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
-(let ((print-length nil)
-      (start (point))
-      (commands (emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>")))
-  (insert "'(\n")
-  (cl-loop for c in commands do (insert (format "%s\n" c)))
-  (insert ")\n")
-  (goto-char start)
-  (backward-sexp)
-  (kill-sexp)
-  (goto-char (search-forward "("))
-  (indent-pp-sexp))
+'(
+  deadgrep
+deadgrep-backward
+deadgrep-backward-match
+deadgrep-forward
+deadgrep-forward-match
+deadgrep-kill-process
+deadgrep-restart
+deadgrep-toggle-file-results
+deadgrep-visit-result
+deadgrep-visit-result-other-window
+)
 
 ;;}}}
-(provide 'emacspeak-<skeleton>)
+(provide 'emacspeak-deadgrep)
 ;;{{{ end of file
 
 ;;; local variables:

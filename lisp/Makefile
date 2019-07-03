@@ -121,6 +121,7 @@ emacspeak-company.elc \
 emacspeak-cperl.elc \
 emacspeak-custom.elc \
 emacspeak-dbus.elc \
+emacspeak-deadgrep.elc \
 emacspeak-dictionary.elc \
 emacspeak-desktop.elc \
 emacspeak-diff-mode.elc \
@@ -392,7 +393,8 @@ emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
 emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
 emacspeak-epub.elc: emacspeak-epub.el dtk-speak.elc voice-setup.elc
-emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc 
+emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc
+emacspeak-deadgrep.elc: emacspeak-deadgrep.el dtk-speak.elc 
 emacspeak-desktop.elc: emacspeak-desktop.el dtk-speak.elc voice-setup.elc
 emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc voice-setup.elc
 emacspeak-diff-mode.elc: emacspeak-diff-mode.el dtk-speak.elc voice-setup.elc
