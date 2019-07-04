@@ -3501,7 +3501,7 @@ P: Show live price for current stock."
      (emacspeak-table-make-table table) buff)
     (funcall-interactively #'switch-to-buffer buff)
     (setq
-     emacspeak-table-speak-row-filter '(0 "was" 1 " at " 2)
+     emacspeak-table-speak-row-filter '(0  1 " at " 2)
      emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered
      header-line-format
      (format "Brief Stock Quotes From IEXTrading"))
