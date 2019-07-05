@@ -473,7 +473,7 @@ module provides URL templates that prompt for and retrieve  the relevant
 information from complex Web pages.
 
 @xref{emacspeak-websearch,emacspeak-websearch},
-and @xref{emacspeak-url-template, emacspeak-url-template}
+and @xref{emacspeak-url-template, emacspeak-url-template},
 for more information.
 
 @anchor{bmk-mgr}
