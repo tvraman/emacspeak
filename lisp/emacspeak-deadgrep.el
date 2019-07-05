@@ -100,8 +100,9 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
-       (emacspeak-speak-line)))))
+       (let ((emacspeak-show-point t))
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-line))))))
 
 
 ;;}}}

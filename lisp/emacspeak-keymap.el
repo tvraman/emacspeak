@@ -443,6 +443,7 @@ relief."
     ("a" emacspeak-wizards-alpha-vantage-quotes)
     ("b" battery)
     ("C" emacspeak-wizards-colors)
+    ("d" deadgrep)
     ("c" emacspeak-wizards-color-wheel)
     ("e" emacspeak-we-xsl-map)
     ("h" emacspeak-wizards-how-many-matches)
