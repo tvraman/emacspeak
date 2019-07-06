@@ -54,13 +54,13 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
-'(
-(deadgrep-filename-face voice-bolden)
-(deadgrep-match-face voice-animate)
-(deadgrep-meta-face voice-smoothen)
-(deadgrep-regexp-metachar-face voice-lighten)
-(deadgrep-search-term-face voice-highlight)))
+(voice-setup-add-map
+ '(
+   (deadgrep-filename-face voice-bolden)
+   (deadgrep-match-face voice-animate)
+   (deadgrep-meta-face voice-annotate)
+   (deadgrep-regexp-metachar-face voice-lighten)
+   (deadgrep-search-term-face voice-highlight)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
