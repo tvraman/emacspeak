@@ -3356,7 +3356,7 @@ for how to get  an API key. "
   "Return URL for calling iex API.
 Parameter `action' specifies relative URL. '"
   (cl-declare (special emacspeak-wizards-iex-base
-                       emacspeak-iex-api-key))
+                       ems--iex-types emacspeak-iex-api-key))
   (format
    "%s/%s?symbols=%s&token=%s&types=%s"
    emacspeak-wizards-iex-base action symbols
