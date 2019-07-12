@@ -125,7 +125,7 @@
     (when *tts-stop-immediately*
       (write-line "s"  i)
       (force-output i))
-    (write-line (format nil "q ~a\;d" text) i)
+    (write-line (format nil "q {~a}\;d" text) i)
     (force-output i)))
 
 (defun tts-serve-icon (filename)
