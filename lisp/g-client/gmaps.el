@@ -72,7 +72,6 @@
           (string :value ""))
   :group 'gmaps)
 
-
 ;;}}}
 ;;{{{ Address Structure 
 
@@ -292,7 +291,6 @@ Parameter `key' is the API  key."
     (cond
      ((string= "OK" .status) .routes)
      (t (error "Status %s from Maps" .status)))))
-
 
 ;;}}}
 ;;{{{ Maps UI:
@@ -953,7 +951,6 @@ Place details need to have been expanded first."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

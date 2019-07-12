@@ -190,7 +190,6 @@ Uses corpus found in gweb-completion-corpus"
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
