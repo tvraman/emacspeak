@@ -177,7 +177,6 @@ Summarize the form to welcome the user. "
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

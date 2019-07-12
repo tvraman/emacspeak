@@ -199,7 +199,6 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
 ;;{{{  end of file
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

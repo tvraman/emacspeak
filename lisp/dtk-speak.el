@@ -104,7 +104,6 @@ Particularly useful for web browsing."
   :group 'tts)
 (make-variable-buffer-local 'tts-strip-octals)
 
-
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
   "*Value of lowest tolerable speech rate."
@@ -342,7 +341,6 @@ Optional argument FORCE  flushes the command to the speech server."
       (dtk-interp-silence duration
                           (if force "\nd" "")))))
 
-
 (defcustom dtk-use-tones t
   "Allow tones to be turned off."
   :type 'boolean
@@ -473,7 +471,6 @@ specifies the current pronunciation mode --- See
      (t
       (while (re-search-forward dtk-bracket-regexp nil t)
         (replace-match " " nil t))))))
-
 
 (defcustom dtk-speak-nonprinting-chars nil
   "*Option that specifies handling of non-printing chars.
@@ -1644,7 +1641,6 @@ Optional interactive prefix arg restarts current TTS server."
 (defvar dtk-local-server-process nil
   "Local server process.")
 
-
 (defvar dtk-speech-server-program "speech-server"
   "Local speech server script.")
 (defvar dtk-local-server-port "2222"
@@ -2101,7 +2097,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 ;;; local variables:
 ;;; coding: utf-8
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -239,7 +239,6 @@ Date defaults to today."
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
-
 (defun emacspeak-bbc-get-iplayer-stream-pid (pid)
   "Stream using get_iplayer."
   (interactive "sPid ")
@@ -382,7 +381,6 @@ Interactive prefix arg filters  content by genre."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

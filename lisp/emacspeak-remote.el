@@ -183,7 +183,6 @@ Uses value returned by `emacspeak-remote-get-current-remote-hostname'."
            host port login)
    "remote-ssh"))
 
-
 (defcustom emacspeak-remote-default-ssh-server
   nil
   "Default ssh server to use for remote speech server."
@@ -246,7 +245,6 @@ port that that host is listening on for speech requests."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

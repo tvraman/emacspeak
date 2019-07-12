@@ -188,7 +188,6 @@ Also provide an auditory icon"
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

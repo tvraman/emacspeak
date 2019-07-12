@@ -272,7 +272,6 @@ to beginning of board before searching."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

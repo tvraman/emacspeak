@@ -970,7 +970,6 @@ Signals beginning  of buffer."
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 
-
 (defcustom emacspeak-curl-cookie-store
   (expand-file-name "~/.curl-cookies")
   "Cookie store used by Curl."
@@ -3301,7 +3300,6 @@ access to the various functions provided by alpha-vantage."
     (kill-new url)
     (emacspeak-table-view-csv-url url (format "%s Data For %s" method ticker))))
 
-
 ;;}}}
 ;;{{{ Stock Quotes from iextrading
 ;;; Moving from iextrading to iexcloud.
@@ -3350,7 +3348,6 @@ for how to get  an API key. "
 (defconst emacspeak-wizards-iex-base
   "https://cloud.iexapis.com/stable"
   "Rest End-Point For iex Stock API.")
-
 
 (defun emacspeak-wizards-iex-uri (action symbols)
   "Return URL for calling iex API.
@@ -4330,7 +4327,6 @@ external package."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -142,7 +142,6 @@ a rewrite rule even if one is already defined."
   "Emacspeak WebEdit"
   :group 'emacspeak)
 
-
 (defcustom emacspeak-we-xsl-p nil
   "T means we apply XSL before displaying HTML."
   :type 'boolean
@@ -165,7 +164,6 @@ Default is to apply sort-tables."
 ;;; and emacspeak-we-xsl-p
 ;;; need to be set at top-level since the page-rendering code is
 ;;; called asynchronously.
-
 
 (defcustom emacspeak-we-cleanup-bogus-quotes t
   "Clean up bogus Unicode chars for magic quotes."
@@ -631,7 +629,6 @@ buffer. Interactive use provides list of class values as completion."
                               url
                               (or (called-interactively-p 'interactive)
                                   speak))))
-
 
 ;;;###autoload
 (defun emacspeak-we-extract-speakable (url &optional speak)
@@ -1158,7 +1155,6 @@ used as well."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

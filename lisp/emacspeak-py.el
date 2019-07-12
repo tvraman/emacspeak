@@ -410,7 +410,6 @@ Provide contextual feedback when closing blocks"
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

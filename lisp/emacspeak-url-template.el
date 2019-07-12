@@ -300,8 +300,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Google Trends"
  #'emacspeak-feeds-rss-display)
 
-
-
 (emacspeak-url-template-define
  "Google Related Trends"
  "https://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
@@ -661,7 +659,6 @@ name of the list.")
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "News Headlines From CNN"
  #'emacspeak-feeds-rss-display)
-
 
 (emacspeak-url-template-define
  "Money Headlines From CNN"
@@ -1629,7 +1626,6 @@ Builds up alist of codes if needed the first time."
      #'emacspeak-speak-buffer
      "Open CIA World Fact Book For Specified Country.")
 
-
 (emacspeak-url-template-define
  "CIA Leaders Of The World"
  "https://www.cia.gov/library/publications/resources/world-leaders-1/%s.html"
@@ -1648,7 +1644,6 @@ Builds up alist of codes if needed the first time."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

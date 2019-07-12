@@ -505,7 +505,6 @@ Optional interactive prefix arg shuffles playlist."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -141,7 +141,6 @@ such as pronunciation dictionaries are stored. ")
       (load-source-file-function  nil))
   (load (expand-file-name "emacspeak.elc" emacspeak-lisp-directory)))
 
-
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
   "List of hooks to be run after starting up the speech server.
@@ -155,7 +154,6 @@ hook."
   "Default hook function run after TTS is started."
   (cl-declare (special dtk-program))
   (tts-configure-synthesis-setup dtk-program))
-
 
 (defcustom tts-notification-device
   (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))

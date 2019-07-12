@@ -92,7 +92,6 @@ emacspeak to speak the semantics of the line
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

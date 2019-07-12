@@ -71,7 +71,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)))))
 
-
 (defun ems--gh-explorer-nav (direction)
   "Move forward/back based on `direction' and speak current entry."
   (emacspeak-auditory-icon 'select-object)
@@ -112,7 +111,6 @@
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

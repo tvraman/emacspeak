@@ -61,8 +61,6 @@
     (emacspeak-toggle-audio-indentation))
   (emacspeak-speak-mode-line))
 
-
-
 (defadvice sh-indent-line (after emacspeak pre act comp)
   "Provide auditory feedback to indicate indentation."
   (when (ems-interactive-p)
@@ -127,7 +125,6 @@
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

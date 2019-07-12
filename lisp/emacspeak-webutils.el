@@ -142,7 +142,6 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
           (point) (point-max)
           (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
 
-
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
     ("&gt;" . ">")
@@ -521,7 +520,6 @@ Useful in handling double-redirect from TuneIn."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

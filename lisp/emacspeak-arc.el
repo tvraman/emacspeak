@@ -230,7 +230,6 @@ first initializing it if necessary."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

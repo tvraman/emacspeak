@@ -85,7 +85,6 @@
 (defvar emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine.")
 
-
 (defcustom emacspeak-xslt-options
   "--html --nonet --novalid --encoding utf-8"
   "Options passed to xsltproc."
@@ -415,7 +414,6 @@ part of the libxslt package."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

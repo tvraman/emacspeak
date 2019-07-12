@@ -73,7 +73,6 @@
   navi-export-dispatch
   navi-footnote-action
 
-
   navi-inc-effort
   navi-insert-drawer
   navi-insert-last-stored-link
@@ -146,7 +145,6 @@
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

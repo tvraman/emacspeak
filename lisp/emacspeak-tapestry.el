@@ -120,7 +120,6 @@ but quickly switch to a window by name."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

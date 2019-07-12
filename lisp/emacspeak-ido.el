@@ -224,7 +224,6 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

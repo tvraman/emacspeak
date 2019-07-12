@@ -715,7 +715,6 @@ remix - fade 0 4 .1 norm -1 channels 2"
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

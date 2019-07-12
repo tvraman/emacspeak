@@ -5,7 +5,6 @@
 ;;; Keywords: Emacspeak, Audio Desktop eww
 ;;{{{ LCD Archive entry:
 
-
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
@@ -2089,7 +2088,6 @@ Warning: Running shell script cbox through this fails mysteriously."
   (emacspeak-eww-smart-tabs-put char url)
   (emacspeak-auditory-icon 'close-object))
 
-
 ;;;###autoload
 (defun emacspeak-eww-smart-tabs (char &optional define)
   "Open URL in EWW keyed by  `char'.
@@ -2166,7 +2164,6 @@ with an interactive prefix arg. "
       'table-dom table-dom))
     ad-return-value))
 
-
 (defadvice shr-insert-table (around emacspeak pre act comp)
   "Record table widths."
   (let ((start (point))
@@ -2235,7 +2232,6 @@ With interactive prefix arg, move to the start of the table."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

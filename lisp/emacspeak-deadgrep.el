@@ -89,7 +89,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
 
-
 (cl-loop
  for f in 
  '(
@@ -104,14 +103,12 @@
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-line))))))
 
-
 ;;}}}
 (provide 'emacspeak-deadgrep)
 ;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

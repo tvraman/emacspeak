@@ -789,7 +789,6 @@ This affects pitch."
   "Caches filters that are active.")
 (make-variable-buffer-local 'emacspeak-m-player-active-filters)
 
-
 ;;;###autoload
 (defun emacspeak-m-player-volume-change (value)
   "Change volume to specified absolute value."
@@ -1811,7 +1810,6 @@ Check first if current buffer is in emacspeak-m-player-mode."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

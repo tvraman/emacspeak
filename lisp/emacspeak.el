@@ -426,7 +426,6 @@ caps."
 ;;}}}
 ;;{{{ Emacspeak:
 
-
 (defcustom emacspeak-play-emacspeak-startup-icon t
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
@@ -522,7 +521,6 @@ commands and options for details."
        emacspeak-version)))
     (emacspeak-play-startup-icon)))
 
-
 (defun emacspeak-info ()
   "Open Emacspeak Info Manual."
   (interactive)
@@ -551,7 +549,6 @@ commands and options for details."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

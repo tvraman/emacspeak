@@ -179,7 +179,6 @@
   "Epubs Digital  Books  for the Emacspeak desktop."
   :group 'emacspeak)
 
-
 (defcustom emacspeak-epub-library-directory
   (expand-file-name "~/EBooks/")
   "Directory under which we store Epubs."
@@ -1066,7 +1065,6 @@ Fetch if needed, or if refresh is T."
   :type 'directory
   :group 'emacspeak-epub)
 
-
 (defcustom   emacspeak-epub-calibre-sqlite
   (executable-find "sqlite3")
   "Path to sqlite3."
@@ -1288,7 +1286,6 @@ Letters do not insert themselves; instead, they are commands.
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

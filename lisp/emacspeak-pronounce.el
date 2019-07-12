@@ -580,8 +580,6 @@ See http://www.charm.net/~kmarsh/smiley.html. "
 ;;}}}
 ;;{{{Text Mode Entries:
 
-
-
 ;;}}}
 ;;{{{ xml namespace uri's
 
@@ -745,9 +743,6 @@ specified pronunciation dictionary key."
   "[0-9]+\\.?[0-9]+%?"
   "Pattern that matches  nnnn.nnnn")
 
-
-
-
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
   "Pattern that matches dates of the form mm-dd-[cc]yy.")
@@ -850,7 +845,6 @@ specified pronunciation dictionary key."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -347,7 +347,6 @@ Indicate  no movement if we did not move."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -249,7 +249,6 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (call-interactively (lookup-key pianobar-key-map key)))
    (t (pianobar-send-string  key))))
 
-
 (defcustom emacspeak-pianobar-max-preset 10
   "Number of presets."
   :type 'number
@@ -300,7 +299,6 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

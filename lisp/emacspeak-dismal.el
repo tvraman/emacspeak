@@ -396,7 +396,6 @@ end up building a template page first."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

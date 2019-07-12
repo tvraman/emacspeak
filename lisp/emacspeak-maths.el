@@ -596,7 +596,6 @@ For use on Wikipedia pages  for example."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

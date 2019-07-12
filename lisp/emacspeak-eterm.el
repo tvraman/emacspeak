@@ -1355,7 +1355,6 @@ emacspeak-eterm-remote-hostnames")
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

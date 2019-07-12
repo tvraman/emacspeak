@@ -200,7 +200,6 @@
         (forward-line 1))
       (nreverse values))))
 
-
 (defvar amixer-alsactl-config-file
   nil
   "Personal sound card settings. Copied from /var/lib/alsa/asound.state
@@ -332,7 +331,6 @@ Interactive prefix arg refreshes cache."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

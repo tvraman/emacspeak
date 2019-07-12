@@ -601,7 +601,6 @@ the words that were capitalized."
 ;;}}}
 ;;{{{ advice tabify:
 
-
 (defcustom emacspeak-untabify-fixes-non-breaking-space t
   "Advice untabify to change non-breaking space chars to space."
   :type 'boolean
@@ -820,12 +819,10 @@ icon."
 
 ;;{{{ advising signal
 
-
 (defcustom emacspeak-speak-errors t
   "Specifies if error messages are cued."
   :type 'boolean
   :group 'emacspeak-speak)
-
 
 (defvar emacspeak-speak-signals t
   "Specifies if signalled messages are cued.")
@@ -3003,7 +3000,6 @@ Produce auditory icons if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
-
 ;;}}}
 ;;{{{find-library:
 
@@ -3029,7 +3025,6 @@ Produce auditory icons if possible."
     (setq lv-emacspeak-cache (buffer-substring (point-min) (point-max)))
     (emacspeak-speak-buffer)))
 
-
 (defadvice lv-delete-window (after emacspeak pre act comp)
   "Provide auditory feedback."
   (dtk-stop)
@@ -3041,7 +3036,6 @@ Produce auditory icons if possible."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

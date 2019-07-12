@@ -160,14 +160,12 @@ ATTRIBUTE would typically be `class', `id' or the like."
     (xml-remove-comments (point-min) (point-max))
     (libxml-parse-html-region (point-min) (point-max))))
 
-
 ;;}}}
 (provide 'dom-addons)
 ;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

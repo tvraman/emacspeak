@@ -409,7 +409,6 @@ and when you have heard enough navigate easily  to move past the block."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

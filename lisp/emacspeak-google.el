@@ -386,7 +386,6 @@ This variable is buffer-local.")
 ;;}}}
 ;;{{{  URL Fixup
 
-
 ;;; prefix: https://www.google.com/url?q=
 ;;; Suffix: &sa=...
 
@@ -631,7 +630,6 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

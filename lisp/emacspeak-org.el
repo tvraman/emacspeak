@@ -715,7 +715,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

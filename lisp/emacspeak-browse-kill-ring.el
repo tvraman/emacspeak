@@ -145,7 +145,6 @@
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 (defadvice browse-kill-ring-search-forward (after

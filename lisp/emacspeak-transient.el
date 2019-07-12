@@ -83,7 +83,6 @@
 ;;}}}
 ;;{{{Map Faces:
 
-
 (voice-setup-set-voice-for-face 'transient-separator  'inaudible)
 
 (voice-setup-add-map 
@@ -161,8 +160,6 @@
   (local-set-key "q" 'bury-buffer)
   (local-set-key (kbd "C-c") 'transient-resume))
 
-
-
 (defvar emacspeak-transient-cache nil
   "Cache of the last Transient buffer contents.")
 
@@ -216,7 +213,6 @@ Press `C-c' to resume the suspended transient."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

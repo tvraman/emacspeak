@@ -259,7 +259,6 @@ emacspeak-speak-and-skip-extent-upto-char "
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -231,7 +231,6 @@
   "^Operate on everything in this buffer:"
   "Pattern that identifies toolbar section.")
 
-
 (defun emacspeak-custom-goto-toolbar ()
   "Jump to custom toolbar when in a customization buffer."
   (interactive)
@@ -268,7 +267,6 @@
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

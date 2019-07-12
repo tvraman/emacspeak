@@ -106,8 +106,6 @@
           :key-type (character :tag "character")
           :value-type (string :tag "replacement")))
 
-
-
 (defcustom dtk-unicode-process-utf8 t
   "Turn this off when working with TTS  engines that handle UTF8
 themselves, e.g., when using an Asian language."
@@ -336,7 +334,6 @@ Does nothing for unibyte buffers."
 ;;; local variables:
 ;;; coding: utf-8
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

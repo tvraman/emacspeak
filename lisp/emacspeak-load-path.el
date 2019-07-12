@@ -131,7 +131,6 @@ interactive command. Turn off the flag once used."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

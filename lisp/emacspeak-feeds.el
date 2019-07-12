@@ -126,7 +126,6 @@ The feed list is persisted to file saved-feeds on exit."
       (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
 
-
 (add-hook
  'kill-emacs-hook
  #'(lambda nil
@@ -358,7 +357,6 @@ Argument `feed' is a feed structure (label url type)."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

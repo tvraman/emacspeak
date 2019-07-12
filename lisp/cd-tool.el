@@ -162,7 +162,6 @@ cap C   Save clip to disk
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

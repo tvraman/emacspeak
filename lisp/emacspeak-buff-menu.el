@@ -261,7 +261,6 @@ and set up additional Emacspeak bindings."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end: 
 
 ;;}}}

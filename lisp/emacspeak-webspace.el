@@ -476,7 +476,6 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}

@@ -536,7 +536,6 @@ Value returned is compatible with `encode-time'."
 ;;}}}
 ;;{{{  url link pattern:
 
-
 (defcustom emacspeak-speak-embedded-url-pattern
   "<https?:[^ \t]*>"
   "Pattern to recognize embedded URLs."
@@ -1941,7 +1940,6 @@ The result is put in the kill ring for convenience."
 
 ;;}}}
 ;;{{{ Speak header-line
-
 
 (defcustom emacspeak-use-header-line t
   "Use default header line defined  by Emacspeak for buffers that
@@ -3706,7 +3704,6 @@ Arranges for `VAR' to be restored when `file' is loaded."
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: nil
 ;;; end:
 
 ;;}}}
