@@ -2988,7 +2988,7 @@ Optional interactive prefix arg `category' prompts for a category."
         (line-beginning-position) (line-end-position)
         (list
          'keymap emacspeak-wizards-iheart-map
-         'ihr-id (cl-second (split-string r ":"))))
+         'ihr-id (cl-second (split-string r "id:"))))
        (insert "\n"))
       (special-mode)
       (goto-char (point-min))
