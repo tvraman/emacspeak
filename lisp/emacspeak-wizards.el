@@ -2968,12 +2968,14 @@ Optional interactive prefix arg `category' prompts for a category."
         (inhibit-read-only t)
         (results nil)
         (hits nil)
-        (ihr (format "*IHeart Radio: Results For %s" q)))
+        (ihr (format "*IHeart Radio: Results For %s"
+                     (url-hexify-string q))))
     (unless (executable-find "iheart-url")
       (error "First install iheart-url from %s" ih-url))
     (setq results
           (split-string
-           (shell-command-to-string (format "iheart-url -s '%s'" q))
+           (shell-command-to-string (format "iheart-url -s '%s'"
+                                            (url-hexify-string q)))
            "\n"))
     (setq hits (split-string (pop results) ":"))
     (when (zerop (read (cl-second hits))) (error "No matches found."))
