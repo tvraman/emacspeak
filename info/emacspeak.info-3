@@ -6280,7 +6280,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 86 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6486,78 +6486,81 @@ location and speaks the forecast.
   61. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  62. RedditBy Topic.
+  62. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  63. Seeking Alpha Stock Search
+  63. Reddit Front Page.
+
+     Open Feed for Reddit Front Page.
+  64. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  64. Sign in to Google
+  65. Sign in to Google
 
      Login to Google.
-  65. StreamWorld Radio
+  66. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  66. Tech News From CNet
+  67. Tech News From CNet
 
      Display tech news from CNET
-  67. Times Of India
+  68. Times Of India
 
      Retrieve Times Of India.
-  68. TuneIn Radio
+  69. TuneIn Radio
 
      Translate StreamId to playable stream.
-  69. UPS Packages
+  70. UPS Packages
 
      Display package tracking information from UPS.
-  70. Washington Post
+  71. Washington Post
 
      Washington Post Contents
-  71. Weather forecast from Weather Underground
+  72. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  72. Wiki Data Search
+  73. Wiki Data Search
 
      Search WikiData.
-  73. WordNet Search
+  74. WordNet Search
 
      Look up term in WordNet.
-  74. Yahoo RSSNews
+  75. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  75. Youtube News
+  76. Youtube News
 
      News Headlines From Youtube
-  76. fedex packages
+  77. fedex packages
 
      Display package tracking information from Fedex.
-  77. html Google News Search
+  78. html Google News Search
 
      Search Google news.
-  78. html5IRC
+  79. html5IRC
 
      Show HTML5 IRC log.
-  79. rss weather from wunderground
+  80. rss weather from wunderground
 
      Pull RSS weather feed for specified state/city.
-  80. sourceforge Download
+  81. sourceforge Download
 
      Download specified file.
-  81. sourceforge browse mirrors
+  82. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  82. sourceforge project
+  83. sourceforge project
 
      Open specified project page at SourceForge.
-  83. w3c IRC Logs
+  84. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  84. w3c Lists
+  85. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  85. world CNN Content
+  86. world CNN Content
 
      Filter down to CNN content area.
 
