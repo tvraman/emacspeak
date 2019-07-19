@@ -1514,12 +1514,20 @@ template."
        (emacspeak-feeds-atom-display (concat url ".rss")))))
 
 (emacspeak-url-template-define
- "RedditBy Topic."
+ "Reddit By Topic."
  "https://www.reddit.com/r/%s/.rss"
  (list "Topic:")
  nil
  "Open RSS Feed for Reddit Topic."
  #'emacspeak-feeds-atom-display)
+
+(emacspeak-url-template-define
+ "Reddit Front Page."
+ "https://www.reddit.com/.rss"
+ nil
+ nil
+ "Open  Feed for Reddit  Front Page."
+ #'emacspeak-feeds-atom-display) 
 
 ;;}}}
 ;;{{{Youtube News:
