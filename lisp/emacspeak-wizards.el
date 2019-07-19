@@ -2942,6 +2942,7 @@ Optional interactive prefix arg `category' prompts for a category."
 (defun emacspeak-wizards-iheart-radio-play (id)
   "Play specified   station from IHeart Radio."
   (interactive "sId: ")
+  (cl-assert (numberp (read id)) t "Id %s is not a number" id)
   (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git "))
     (unless (executable-find "iheart-url")
       (error "First install iheart-url from %s" ih-url))
