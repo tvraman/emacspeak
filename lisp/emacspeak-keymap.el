@@ -719,7 +719,6 @@ command that the key sequence executes."
     ("s" emacspeak-wizards-shell)
     ("t" twit)
     ("u" list-unicode-display)
-    ("v" vdiff-magit-popup)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand))
   "*Specifies hyper key bindings for the audio desktop. Emacs can

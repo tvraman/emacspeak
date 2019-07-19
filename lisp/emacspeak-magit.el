@@ -105,11 +105,6 @@
    (magit-log-author voice-monotone)
    (magit-log-date voice-monotone)
    (magit-log-graph voice-monotone)
-   (magit-popup-argument voice-bolden)
-   (magit-popup-disabled-argument voice-monotone)
-   (magit-popup-heading voice-bolden)
-   (magit-popup-key voice-lighten)
-   (magit-popup-option-value voice-brighten)
    (magit-reflog-amend voice-animate)
    (magit-reflog-checkout voice-smoothen)
    (magit-reflog-cherry-pick voice-lighten)
@@ -232,23 +227,11 @@
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
 
-(defadvice magit-invoke-popup (after emacspeak pre act comp)
-  "Speech-enable  magit-popup."
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-buffer))
 
-(defadvice magit-invoke-popup-option (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-line)))
 
-(defadvice magit-invoke-popup-action (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (dtk-stop 'all)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+
+
+
 
 ;;}}}
 ;;{{{ Advice hide/show commands:
