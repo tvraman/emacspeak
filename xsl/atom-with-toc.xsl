@@ -34,6 +34,10 @@ only support the current Atom namespace.
         
         <xsl:if test="(count(atom:entry) > 1)
                       or (count(w3a:entry) > 1)">
+          <h2>Table Of Contents</h2>
+          <ol>
+            <xsl:apply-templates select="atom:entry|w3a:entry" mode="toc"/>
+          </ol>
         </xsl:if>
         <xsl:apply-templates select="atom:entry|w3a:entry"/>
         <h2>
@@ -87,6 +91,17 @@ only support the current Atom namespace.
       </xsl:if>
       <xsl:value-of select="atom:published|w3a:published"/>
     </p>
+  </xsl:template>
+  <xsl:template match="atom:entry|w3a:entry" mode="toc">
+    <li>
+      <a>
+        <xsl:attribute name="href">
+          #<xsl:value-of select="generate-id(.)"/> 
+        </xsl:attribute>
+        <xsl:value-of select="atom:title|w3a:title"
+                      disable-output-escaping="yes"/>
+      </a>
+    </li>
   </xsl:template>
   <xsl:template
       match="atom:content|atom:summary|w3a:content|w3a:summary">
