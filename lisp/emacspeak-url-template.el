@@ -959,17 +959,6 @@ JSON is retrieved from `url'."
 ;;{{{ weather underground
 
 (emacspeak-url-template-define
- "rss weather from wunderground"
- "http://www.wunderground.com/auto/rss_full/%s.xml?units=both"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "State/City:"
-                            (bound-and-true-p  gweb-my-zip))))
- nil
- "Pull RSS weather feed for specified state/city."
- #'emacspeak-feeds-rss-display)
-
-(emacspeak-url-template-define
  "Weather forecast from Weather Underground"
  "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
  (list
