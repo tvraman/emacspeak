@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 909 options.
+This chapter documents a total of 1229 commands and 904 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1533,7 +1533,6 @@ r		org-capture
 s		emacspeak-wizards-shell
 t		twit
 u		list-unicode-display
-v		vdiff-magit-popup
 w		emacspeak-wizards-noaa-weather
 y		yas-expand
 
@@ -11889,36 +11888,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @defvar {User Option} voice-magit-log-graph
 Personality used for magit-log-graph
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-argument
-Personality used for magit-popup-argument
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-disabled-argument
-Personality used for magit-popup-disabled-argument
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-heading
-Personality used for magit-popup-heading
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-key
-Personality used for magit-popup-key
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-option-value
-Personality used for magit-popup-option-value
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -25603,7 +25572,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 85 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25794,9 +25763,7 @@ Display package tracking information from Fedex.@item @b{html Google News Search
 
 Search Google news.@item @b{html5IRC}
 
-Show HTML5 IRC log.@item @b{rss weather from wunderground}
-
-Pull RSS weather feed for specified state/city.@item @b{sourceforge Download}
+Show HTML5 IRC log.@item @b{sourceforge Download}
 
 Download specified file.@item @b{sourceforge browse mirrors}
 

@@ -6280,7 +6280,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 85 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6540,27 +6540,24 @@ location and speaks the forecast.
   79. html5IRC
 
      Show HTML5 IRC log.
-  80. rss weather from wunderground
-
-     Pull RSS weather feed for specified state/city.
-  81. sourceforge Download
+  80. sourceforge Download
 
      Download specified file.
-  82. sourceforge browse mirrors
+  81. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  83. sourceforge project
+  82. sourceforge project
 
      Open specified project page at SourceForge.
-  84. w3c IRC Logs
+  83. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  85. w3c Lists
+  84. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  86. world CNN Content
+  85. world CNN Content
 
      Filter down to CNN content area.
 
@@ -7647,7 +7644,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> ":                                voice-setup.        (line   89)
 * <f1> ,:                                emacspeak-wizards.  (line  457)
 * <f1> =:                                emacspeak-wizards.  (line 1456)
-* <f1> C-e:                              emacspeak.          (line  433)
+* <f1> C-e:                              emacspeak.          (line  432)
 * <f1> C-l:                              emacspeak-wizards.  (line  138)
 * <f1> C-s:                              emacspeak-wizards.  (line  530)
 * <f1> C-v:                              voice-setup.        (line   74)
@@ -7714,7 +7711,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  559)
 * <fn> C-M-@:                            emacspeak-speak.    (line 1025)
-* <fn> C-M-b:                            emacspeak.          (line  480)
+* <fn> C-M-b:                            emacspeak.          (line  479)
 * <fn> C-M-l:                            emacspeak-speak.    (line  741)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line 1024)
 * <fn> C-n:                              emacspeak-speak.    (line  707)
@@ -7932,7 +7929,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> ":                              voice-setup.        (line   90)
 * <help> ,:                              emacspeak-wizards.  (line  458)
 * <help> =:                              emacspeak-wizards.  (line 1457)
-* <help> C-e:                            emacspeak.          (line  434)
+* <help> C-e:                            emacspeak.          (line  433)
 * <help> C-l:                            emacspeak-wizards.  (line  139)
 * <help> C-s:                            emacspeak-wizards.  (line  531)
 * <help> C-v:                            voice-setup.        (line   75)
@@ -8119,7 +8116,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  558)
 * C-e C-M-@:                             emacspeak-speak.    (line 1023)
-* C-e C-M-b:                             emacspeak.          (line  479)
+* C-e C-M-b:                             emacspeak.          (line  478)
 * C-e C-M-l:                             emacspeak-speak.    (line  740)
 * C-e C-M-SPC:                           emacspeak-speak.    (line 1022)
 * C-e C-n:                               emacspeak-speak.    (line  706)
@@ -8337,7 +8334,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h ":                                 voice-setup.        (line   88)
 * C-h ,:                                 emacspeak-wizards.  (line  456)
 * C-h =:                                 emacspeak-wizards.  (line 1455)
-* C-h C-e:                               emacspeak.          (line  432)
+* C-h C-e:                               emacspeak.          (line  431)
 * C-h C-l:                               emacspeak-wizards.  (line  136)
 * C-h C-s:                               emacspeak-wizards.  (line  529)
 * C-h C-v:                               voice-setup.        (line   73)

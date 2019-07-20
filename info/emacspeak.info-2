@@ -5475,31 +5475,6 @@ git://github.com/magit/magit.git
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
 
- -- Variable: User Option voice-magit-popup-argument
-     Personality used for magit-popup-argument This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-magit-popup-disabled-argument
-     Personality used for magit-popup-disabled-argument This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-magit-popup-heading
-     Personality used for magit-popup-heading This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-magit-popup-key
-     Personality used for magit-popup-key This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-magit-popup-option-value
-     Personality used for magit-popup-option-value This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
  -- Variable: User Option voice-magit-reflog-amend
      Personality used for magit-reflog-amend This personality uses
      voice-animate whose effect can be changed globally by customizing
