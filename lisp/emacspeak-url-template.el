@@ -392,18 +392,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ google translation service
 
-(emacspeak-url-template-define
- "Multilingual dictionary via Google."
- "https://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
- (list
-  "Word: "
-  "Translate from|To:")
- nil
- "Translate word using Google.
-Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German")
-
 ;;}}}
 ;;{{{ dictionary.com:
 (emacspeak-url-template-define
