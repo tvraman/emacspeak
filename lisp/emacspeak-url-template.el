@@ -465,20 +465,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Search Google news."
  #'emacspeak-url-template-google-atom-news-display)
 
-(defvar emacspeak-url-template--google-news-categories
-  '(
-    ("World".  "w")
-    ("U.S.".  "n")
-    ("Elections".  "el")
-    ("Business".  "b")
-    ("Technology".  "tc")
-    ("Entertainment".  "e")
-    ("Sports".  "s")
-    ("Science" .  "snc")
-    ("Health".  "m")
-    ("Spotlight"  . "ir"))
-  "Completion table for reading news category.")
-
 (defvar emacspeak-url-template-google-transcoder-url
   "https://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL for obtaining mobile transcoder page views.")
