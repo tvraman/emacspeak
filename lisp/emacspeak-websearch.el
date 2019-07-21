@@ -579,23 +579,6 @@ Optional prefix arg prompts for toolbelt options."
      (emacspeak-url-template-get name))))
 
 ;;}}}
-;;{{{ Google Category news:
-
-;;; Now always returns top-news, unbind.
-(emacspeak-websearch-set-searcher
- 'google-category-news
- 'emacspeak-websearch-google-category-news)
-                                        ;(emacspeak-websearch-set-key ?u 'google-category-news)
-                                        ;(emacspeak-websearch-set-key 14 'google-category-news)
-
-;;;###autoload
-(defun emacspeak-websearch-google-category-news ()
-  "Browse Google News by category."
-  (interactive)
-  (let ((name   "Google Category News"))
-    (emacspeak-url-template-open (emacspeak-url-template-get name))))
-
-;;}}}
 ;;{{{ Google Regional News:
 
 (emacspeak-websearch-set-searcher
