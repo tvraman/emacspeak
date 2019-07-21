@@ -2413,14 +2413,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.204.1.10 emacspeak-websearch-google-category-news
-....................................................
-
- -- Command: emacspeak-websearch-google-category-news
-
-     Browse Google News by category.
-
-12.204.1.11 emacspeak-websearch-google-feeling-lucky
+12.204.1.10 emacspeak-websearch-google-feeling-lucky
 ....................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
@@ -2429,28 +2422,28 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.12 emacspeak-websearch-google-news
+12.204.1.11 emacspeak-websearch-google-news
 ...........................................
 
  -- Command: emacspeak-websearch-google-news
 
      Invoke Google News url template.
 
-12.204.1.13 emacspeak-websearch-google-regional-news
+12.204.1.12 emacspeak-websearch-google-regional-news
 ....................................................
 
  -- Command: emacspeak-websearch-google-regional-news
 
      Browse Google News by region.
 
-12.204.1.14 emacspeak-websearch-google-search-in-date-range
+12.204.1.13 emacspeak-websearch-google-search-in-date-range
 ...........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.204.1.15 emacspeak-websearch-google-with-toolbelt
+12.204.1.14 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
@@ -2459,7 +2452,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.16 emacspeak-websearch-gutenberg
+12.204.1.15 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
@@ -2468,14 +2461,14 @@ This module provides utility functions for searching the WWW
 
      (fn TYPE QUERY)
 
-12.204.1.17 emacspeak-websearch-help
+12.204.1.16 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.204.1.18 emacspeak-websearch-merriam-webster-search
+12.204.1.17 emacspeak-websearch-merriam-webster-search
 ......................................................
 
  -- Command: emacspeak-websearch-merriam-webster-search (query)
@@ -2484,7 +2477,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.19 emacspeak-websearch-news-yahoo
+12.204.1.18 emacspeak-websearch-news-yahoo
 ..........................................
 
  -- Command: emacspeak-websearch-news-yahoo (query &optional rss)
@@ -2494,7 +2487,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional RSS)
 
-12.204.1.20 emacspeak-websearch-wikipedia-search
+12.204.1.19 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -2503,7 +2496,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.21 emacspeak-websearch-yahoo
+12.204.1.20 emacspeak-websearch-yahoo
 .....................................
 
  -- Command: emacspeak-websearch-yahoo (query)
@@ -2512,7 +2505,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.22 emacspeak-websearch-yahoo-historical-chart
+12.204.1.21 emacspeak-websearch-yahoo-historical-chart
 ......................................................
 
  -- Command: emacspeak-websearch-yahoo-historical-chart (ticker
@@ -2523,7 +2516,7 @@ This module provides utility functions for searching the WWW
 
      (fn TICKER &optional AS-HTML)
 
-12.204.1.23 emacspeak-websearch-youtube-search
+12.204.1.22 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)

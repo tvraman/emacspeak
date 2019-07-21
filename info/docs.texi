@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 904 options.
+This chapter documents a total of 1228 commands and 904 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -20608,15 +20608,6 @@ Perform a Google search.  First optional interactive prefix arg
 prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google. 
 
 (fn QUERY &optional FLAG)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-google-category-news
-@deffn {Command} emacspeak-websearch-google-category-news   
-@findex emacspeak-websearch-google-category-news
-
-@format
-Browse Google News by category.
 @end format
 @end deffn
 
