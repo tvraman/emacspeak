@@ -6280,7 +6280,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 83 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6395,169 +6395,160 @@ out the following steps:
   33. GoLang Search
 
      Search GoLang package documentation.
-  34. Google Category News
-
-     Google News By Category.
-  35. Google Image Search
+  34. Google Image Search
 
      Google Image Search
-  36. Google News Search
+  35. Google News Search
 
      Search Google news.
-  37. Google Regional News
-
-     Google News By Region.
-  38. Google Related Trends
-
-     Display Related Query Trends.
-  39. Google Scholar
+  36. Google Scholar
 
      Google Scholar Search
-  40. Google Transcoder
+  37. Google Transcoder
 
      Transcode site via Google.
-  41. Google Trends
+  38. Google Trends
 
      Google Trends
-  42. Google Webmaster Page Analysis
+  39. Google Webmaster Page Analysis
 
      Page Analysis From Google Webmaster tools.
-  43. Guardian RSS Feeds Directory
+  40. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  44. MLB Scorecard
+  41. MLB Scorecard
 
      Show MLB Scorecard.
-  45. MLB standings
+  42. MLB standings
 
      Display MLB standings.
-  46. Money Headlines From CNN
+  43. Money Headlines From CNN
 
      Money Headlines From CNN
-  47. Multilingual dictionary via Google.
+  44. Multilingual dictionary via Google.
 
      Translate word using Google.  Source and target languages are
      specified as two-letter language codes, e.g.  en|de translates from
      English to German
-  48. NBA standings
+  45. NBA standings
 
      Display NBA standings.
-  49. NLS Bard Popular
+  46. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  50. NLS Bard Recent
+  47. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  51. NLS Bard Search
+  48. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  52. NY Times Mobile
+  49. NY Times Mobile
 
      NYTimes Mobile Site
-  53. NY Times RSS Feeds
+  50. NY Times RSS Feeds
 
      Display browsable list of NY Times RSS Feeds.
-  54. Old Time Radio
+  51. Old Time Radio
 
      This months Old Time Radio Programming
-  55. OpenLibrary
+  52. OpenLibrary
 
      Open Library Search
-  56. Patent Search From Google
+  53. Patent Search From Google
 
      Perform patent search via Google
-  57. PodCast CNet
+  54. PodCast CNet
 
      Play Podcast from CNET
-  58. RadioTime Browser
+  55. RadioTime Browser
 
      RadioTime Entry point.
-  59. RadioTime Categories
+  56. RadioTime Categories
 
      RadioTime Categories .
-  60. RadioTime Search
+  57. RadioTime Search
 
      RadioTime Search.
-  61. Reddit At Point.
+  58. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  62. Reddit By Topic.
+  59. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  63. Reddit Front Page.
+  60. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  64. Reddit Search.
+  61. Reddit Search.
 
      Reddit Search Results Feed.
-  65. Seeking Alpha Stock Search
+  62. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  66. Sign in to Google
+  63. Sign in to Google
 
      Login to Google.
-  67. StreamWorld Radio
+  64. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  68. Tech News From CNet
+  65. Tech News From CNet
 
      Display tech news from CNET
-  69. Times Of India
+  66. Times Of India
 
      Retrieve Times Of India.
-  70. TuneIn Radio
+  67. TuneIn Radio
 
      Translate StreamId to playable stream.
-  71. UPS Packages
+  68. UPS Packages
 
      Display package tracking information from UPS.
-  72. Washington Post
+  69. Washington Post
 
      Washington Post Contents
-  73. Weather forecast from Weather Underground
+  70. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  74. Wiki Data Search
+  71. Wiki Data Search
 
      Search WikiData.
-  75. WordNet Search
+  72. WordNet Search
 
      Look up term in WordNet.
-  76. Yahoo RSSNews
+  73. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  77. Youtube News
+  74. Youtube News
 
      News Headlines From Youtube
-  78. fedex packages
+  75. fedex packages
 
      Display package tracking information from Fedex.
-  79. html Google News Search
+  76. html Google News Search
 
      Search Google news.
-  80. html5IRC
+  77. html5IRC
 
      Show HTML5 IRC log.
-  81. sourceforge Download
+  78. sourceforge Download
 
      Download specified file.
-  82. sourceforge browse mirrors
+  79. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  83. sourceforge project
+  80. sourceforge project
 
      Open specified project page at SourceForge.
-  84. w3c IRC Logs
+  81. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  85. w3c Lists
+  82. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  86. world CNN Content
+  83. world CNN Content
 
      Filter down to CNN content area.
 
