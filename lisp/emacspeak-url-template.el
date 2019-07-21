@@ -498,32 +498,6 @@ from English to German")
     ("Health".  "m")
     ("Spotlight"  . "ir"))
   "Completion table for reading news category.")
-(emacspeak-url-template-define
- "Google Category News"
- "https://news.google.com/news?hl=en&topic=%s&output=atom"
- (list
-  #'(lambda ()
-      (let* ((completion-ignore-case t)
-             (topic
-              (completing-read
-               "Category: "
-               emacspeak-url-template--google-news-categories
-               nil 'must-match)))
-        (cdr (assoc topic emacspeak-url-template--google-news-categories)))))
- nil
- "Google News By Category."
- #'emacspeak-url-template-google-atom-news-display)
-
-(emacspeak-url-template-define
- "Google Regional News"
- "https://news.google.com/news?hl=en&pz=1&geo=%s&output=atom"
- (list
-  #'(lambda ()
-      (read-from-minibuffer "City/Zip: "
-                            (bound-and-true-p gweb-my-zip))))
- nil
- "Google News By Region."
- #'emacspeak-url-template-google-atom-news-display)
 
 (defvar emacspeak-url-template-google-transcoder-url
   "https://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
