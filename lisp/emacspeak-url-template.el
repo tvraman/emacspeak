@@ -1271,9 +1271,7 @@ Each URL template carries out the following steps:
 @item Set up the resulting resource with appropriate
  customizations.
 @end itemize
-
-As an example, the URL template for weather forecasts
-prompts for a location and speaks the forecast. \n\n"
+"
       (mapconcat #'key-description
                  (where-is-internal
                   'emacspeak-url-template-fetch)
