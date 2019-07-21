@@ -1503,6 +1503,14 @@ template."
        (emacspeak-feeds-atom-display (concat url ".rss")))))
 
 (emacspeak-url-template-define
+ "Reddit Search."
+ "https://www.reddit.com/search.rss?q=%s&sort=new&t=all"
+ (list "Reddit Search:")
+ nil
+ "Reddit Search Results Feed."
+ #'emacspeak-feeds-atom-display)
+
+(emacspeak-url-template-define
  "Reddit By Topic."
  "https://www.reddit.com/r/%s/.rss"
  (list "Topic:")
