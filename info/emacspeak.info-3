@@ -6280,7 +6280,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 83 URL Templates.
+This section documents a total of 82 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6425,130 +6425,125 @@ out the following steps:
   43. Money Headlines From CNN
 
      Money Headlines From CNN
-  44. Multilingual dictionary via Google.
-
-     Translate word using Google.  Source and target languages are
-     specified as two-letter language codes, e.g.  en|de translates from
-     English to German
-  45. NBA standings
+  44. NBA standings
 
      Display NBA standings.
-  46. NLS Bard Popular
+  45. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  47. NLS Bard Recent
+  46. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  48. NLS Bard Search
+  47. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  49. NY Times Mobile
+  48. NY Times Mobile
 
      NYTimes Mobile Site
-  50. NY Times RSS Feeds
+  49. NY Times RSS Feeds
 
      Display browsable list of NY Times RSS Feeds.
-  51. Old Time Radio
+  50. Old Time Radio
 
      This months Old Time Radio Programming
-  52. OpenLibrary
+  51. OpenLibrary
 
      Open Library Search
-  53. Patent Search From Google
+  52. Patent Search From Google
 
      Perform patent search via Google
-  54. PodCast CNet
+  53. PodCast CNet
 
      Play Podcast from CNET
-  55. RadioTime Browser
+  54. RadioTime Browser
 
      RadioTime Entry point.
-  56. RadioTime Categories
+  55. RadioTime Categories
 
      RadioTime Categories .
-  57. RadioTime Search
+  56. RadioTime Search
 
      RadioTime Search.
-  58. Reddit At Point.
+  57. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  59. Reddit By Topic.
+  58. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  60. Reddit Front Page.
+  59. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  61. Reddit Search.
+  60. Reddit Search.
 
      Reddit Search Results Feed.
-  62. Seeking Alpha Stock Search
+  61. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  63. Sign in to Google
+  62. Sign in to Google
 
      Login to Google.
-  64. StreamWorld Radio
+  63. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  65. Tech News From CNet
+  64. Tech News From CNet
 
      Display tech news from CNET
-  66. Times Of India
+  65. Times Of India
 
      Retrieve Times Of India.
-  67. TuneIn Radio
+  66. TuneIn Radio
 
      Translate StreamId to playable stream.
-  68. UPS Packages
+  67. UPS Packages
 
      Display package tracking information from UPS.
-  69. Washington Post
+  68. Washington Post
 
      Washington Post Contents
-  70. Weather forecast from Weather Underground
+  69. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  71. Wiki Data Search
+  70. Wiki Data Search
 
      Search WikiData.
-  72. WordNet Search
+  71. WordNet Search
 
      Look up term in WordNet.
-  73. Yahoo RSSNews
+  72. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  74. Youtube News
+  73. Youtube News
 
      News Headlines From Youtube
-  75. fedex packages
+  74. fedex packages
 
      Display package tracking information from Fedex.
-  76. html Google News Search
+  75. html Google News Search
 
      Search Google news.
-  77. html5IRC
+  76. html5IRC
 
      Show HTML5 IRC log.
-  78. sourceforge Download
+  77. sourceforge Download
 
      Download specified file.
-  79. sourceforge browse mirrors
+  78. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  80. sourceforge project
+  79. sourceforge project
 
      Open specified project page at SourceForge.
-  81. w3c IRC Logs
+  80. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  82. w3c Lists
+  81. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  83. world CNN Content
+  82. world CNN Content
 
      Filter down to CNN content area.
 

@@ -25572,7 +25572,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 83 URL Templates.
+This section documents a total of 82 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25680,12 +25680,7 @@ Show MLB Scorecard.@item @b{MLB standings}
 
 Display MLB standings.@item @b{Money Headlines From CNN}
 
-Money Headlines From CNN@item @b{Multilingual dictionary via Google.}
-
-Translate word using Google.
-Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German@item @b{NBA  standings}
+Money Headlines From CNN@item @b{NBA  standings}
 
 Display NBA standings.@item @b{NLS Bard Popular}
 
