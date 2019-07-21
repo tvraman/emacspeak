@@ -5013,7 +5013,7 @@ Implements the Google Maps API
      ‘C-; e’
      ‘C-x @ h e’
 
-     :around advice: ‘ad-Advice-gmaps’
+     This function has :around advice: ‘ad-Advice-gmaps’.
 
      Google Maps Interaction.
 
@@ -5024,7 +5024,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-bicycling-directions (origin destination)
 
-     :around advice: ‘ad-Advice-gmaps-bicycling-directions’
+     This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
 
      Biking directions from Google Maps.
 
@@ -5044,7 +5044,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-driving-directions (origin destination)
 
-     :around advice: ‘ad-Advice-gmaps-driving-directions’
+     This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
 
      Driving directions from Google Maps.
 
@@ -5101,7 +5101,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-place-details
 
-     :around advice: ‘ad-Advice-gmaps-place-details’
+     This function has :around advice: ‘ad-Advice-gmaps-place-details’.
 
      Display details for place at point.
      Insert reviews if already displaying details.
@@ -5121,7 +5121,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-places-nearby (&optional clear-filter)
 
-     :around advice: ‘ad-Advice-gmaps-places-nearby’
+     This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
 
      Find places near current location.
      Uses default radius. optional interactive prefix arg clears any active filters.
@@ -5133,7 +5133,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-places-search (query &optional clear-filter)
 
-     :around advice: ‘ad-Advice-gmaps-places-search’
+     This function has :around advice: ‘ad-Advice-gmaps-places-search’.
 
      Perform a places search.
      Use this only if you dont know the locality  of the place you’re looking for.
@@ -5156,7 +5156,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-set-current-location (address)
 
-     :around advice: ‘ad-Advice-gmaps-set-current-location’
+     This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
 
       Set current location.
 
@@ -5167,7 +5167,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-set-current-radius (radius)
 
-     :around advice: ‘ad-Advice-gmaps-set-current-radius’
+     This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
 
      Set current radius
 
@@ -5178,7 +5178,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-transit-directions (origin destination)
 
-     :around advice: ‘ad-Advice-gmaps-transit-directions’
+     This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
 
      Transit directions from Google Maps.
 
@@ -5189,7 +5189,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-walking-directions (origin destination)
 
-     :around advice: ‘ad-Advice-gmaps-walking-directions’
+     This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
 
      Walking directions from Google Maps.
 
@@ -5541,7 +5541,7 @@ always work.  This module can be used independent of Emacspeak.
 
  -- Command: sox-delete-effect-at-point
 
-     :around advice: ‘ad-Advice-sox-delete-effect-at-point’
+     This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
 
      Delete effect at point.
 
@@ -5574,7 +5574,7 @@ always work.  This module can be used independent of Emacspeak.
 
  -- Command: sox-open-file (snd-file)
 
-     :around advice: ‘ad-Advice-sox-open-file’
+     This function has :around advice: ‘ad-Advice-sox-open-file’.
 
      Open specified snd-file on the Audio Workbench.
 
@@ -5592,7 +5592,7 @@ always work.  This module can be used independent of Emacspeak.
 
  -- Command: sox-refresh
 
-     :around advice: ‘ad-Advice-sox-refresh’
+     This function has :around advice: ‘ad-Advice-sox-refresh’.
 
      Redraw Audio Workbench.
 
@@ -6280,7 +6280,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.237 URL Templates
 ====================
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 86 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6492,72 +6492,75 @@ location and speaks the forecast.
   63. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  64. Seeking Alpha Stock Search
+  64. Reddit Search.
+
+     Reddit Search Results Feed.
+  65. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  65. Sign in to Google
+  66. Sign in to Google
 
      Login to Google.
-  66. StreamWorld Radio
+  67. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  67. Tech News From CNet
+  68. Tech News From CNet
 
      Display tech news from CNET
-  68. Times Of India
+  69. Times Of India
 
      Retrieve Times Of India.
-  69. TuneIn Radio
+  70. TuneIn Radio
 
      Translate StreamId to playable stream.
-  70. UPS Packages
+  71. UPS Packages
 
      Display package tracking information from UPS.
-  71. Washington Post
+  72. Washington Post
 
      Washington Post Contents
-  72. Weather forecast from Weather Underground
+  73. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  73. Wiki Data Search
+  74. Wiki Data Search
 
      Search WikiData.
-  74. WordNet Search
+  75. WordNet Search
 
      Look up term in WordNet.
-  75. Yahoo RSSNews
+  76. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  76. Youtube News
+  77. Youtube News
 
      News Headlines From Youtube
-  77. fedex packages
+  78. fedex packages
 
      Display package tracking information from Fedex.
-  78. html Google News Search
+  79. html Google News Search
 
      Search Google news.
-  79. html5IRC
+  80. html5IRC
 
      Show HTML5 IRC log.
-  80. sourceforge Download
+  81. sourceforge Download
 
      Download specified file.
-  81. sourceforge browse mirrors
+  82. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  82. sourceforge project
+  83. sourceforge project
 
      Open specified project page at SourceForge.
-  83. w3c IRC Logs
+  84. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  84. w3c Lists
+  85. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  85. world CNN Content
+  86. world CNN Content
 
      Filter down to CNN content area.
 

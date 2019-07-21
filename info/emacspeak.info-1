@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 20, 2019.
+last updated on July 21, 2019.
 
    The manual is divided into the following chapters:
 
@@ -3815,7 +3815,6 @@ system.
      |		emacspeak-speak-line-set-column-filter
      DEL		cd-tool
      C-SPC		emacspeak-speak-current-mark
-     <(deletechar>	emacspeak-ssh-tts-restart
      <C-left>	emacspeak-select-this-buffer-previous-display
      <C-right>	emacspeak-select-this-buffer-next-display
      <fn>	dtk-stop
@@ -3827,6 +3826,7 @@ system.
      <left>		emacspeak-speak-this-buffer-previous-display
      <right>		emacspeak-speak-this-buffer-next-display
      <up>		emacspeak-read-previous-line
+     <(deletechar>	emacspeak-ssh-tts-restart
 
      x SPC		emacspeak-jabber-speak-recent-message
      x ,		emacspeak-wizards-shell-directory-set

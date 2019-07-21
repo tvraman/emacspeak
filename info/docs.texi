@@ -1308,7 +1308,6 @@ x		emacspeak-personal-keymap
 |		emacspeak-speak-line-set-column-filter
 DEL		cd-tool
 C-SPC		emacspeak-speak-current-mark
-<(deletechar>	emacspeak-ssh-tts-restart
 <C-left>	emacspeak-select-this-buffer-previous-display
 <C-right>	emacspeak-select-this-buffer-next-display
 <fn>	dtk-stop
@@ -1320,6 +1319,7 @@ C-SPC		emacspeak-speak-current-mark
 <left>		emacspeak-speak-this-buffer-previous-display
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
+<(deletechar>	emacspeak-ssh-tts-restart
 
 x SPC		emacspeak-jabber-speak-recent-message
 x ,		emacspeak-wizards-shell-directory-set
@@ -24052,7 +24052,7 @@ Implements the Google Maps API
 @findex gmaps
 
 @format
-:around advice: ‘ad-Advice-gmaps’
+This function has :around advice: ‘ad-Advice-gmaps’.
 
 Google Maps Interaction.
 
@@ -24065,7 +24065,7 @@ Google Maps Interaction.
 @findex gmaps-bicycling-directions
 
 @format
-:around advice: ‘ad-Advice-gmaps-bicycling-directions’
+This function has :around advice: ‘ad-Advice-gmaps-bicycling-directions’.
 
 Biking directions from Google Maps.
 
@@ -24089,7 +24089,7 @@ Display  directions obtained from Google Maps.
 @findex gmaps-driving-directions
 
 @format
-:around advice: ‘ad-Advice-gmaps-driving-directions’
+This function has :around advice: ‘ad-Advice-gmaps-driving-directions’.
 
 Driving directions from Google Maps.
 
@@ -24154,7 +24154,7 @@ M-i		backward-button
 @findex gmaps-place-details
 
 @format
-:around advice: ‘ad-Advice-gmaps-place-details’
+This function has :around advice: ‘ad-Advice-gmaps-place-details’.
 
 Display details for place at point.
 Insert reviews if already displaying details.
@@ -24178,7 +24178,7 @@ Place details need to have been expanded first.
 @findex gmaps-places-nearby
 
 @format
-:around advice: ‘ad-Advice-gmaps-places-nearby’
+This function has :around advice: ‘ad-Advice-gmaps-places-nearby’.
 
 Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters.
@@ -24192,7 +24192,7 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 @findex gmaps-places-search
 
 @format
-:around advice: ‘ad-Advice-gmaps-places-search’
+This function has :around advice: ‘ad-Advice-gmaps-places-search’.
 
 Perform a places search.
 Use this only if you dont know the locality  of the place you’re looking for.
@@ -24219,7 +24219,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-location
 
 @format
-:around advice: ‘ad-Advice-gmaps-set-current-location’
+This function has :around advice: ‘ad-Advice-gmaps-set-current-location’.
 
  Set current location.
 
@@ -24232,7 +24232,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-radius
 
 @format
-:around advice: ‘ad-Advice-gmaps-set-current-radius’
+This function has :around advice: ‘ad-Advice-gmaps-set-current-radius’.
 
 Set current radius
 
@@ -24245,7 +24245,7 @@ Set current radius
 @findex gmaps-transit-directions
 
 @format
-:around advice: ‘ad-Advice-gmaps-transit-directions’
+This function has :around advice: ‘ad-Advice-gmaps-transit-directions’.
 
 Transit directions from Google Maps.
 
@@ -24258,7 +24258,7 @@ Transit directions from Google Maps.
 @findex gmaps-walking-directions
 
 @format
-:around advice: ‘ad-Advice-gmaps-walking-directions’
+This function has :around advice: ‘ad-Advice-gmaps-walking-directions’.
 
 Walking directions from Google Maps.
 
@@ -24680,7 +24680,7 @@ Adds  effect at the end of the effect list
 @findex sox-delete-effect-at-point
 
 @format
-:around advice: ‘ad-Advice-sox-delete-effect-at-point’
+This function has :around advice: ‘ad-Advice-sox-delete-effect-at-point’.
 
 Delete effect at point.
 
@@ -24719,7 +24719,7 @@ key             binding
 @findex sox-open-file
 
 @format
-:around advice: ‘ad-Advice-sox-open-file’
+This function has :around advice: ‘ad-Advice-sox-open-file’.
 
 Open specified snd-file on the Audio Workbench.
 
@@ -24741,7 +24741,7 @@ Play sound from current context.
 @findex sox-refresh
 
 @format
-:around advice: ‘ad-Advice-sox-refresh’
+This function has :around advice: ‘ad-Advice-sox-refresh’.
 
 Redraw Audio Workbench.
 
@@ -25572,7 +25572,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 86 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25729,7 +25729,9 @@ Open RSS Feed for Reddit URL under point.@item @b{Reddit By Topic.}
 
 Open RSS Feed for Reddit Topic.@item @b{Reddit Front Page.}
 
-Open  Feed for Reddit  Front Page.@item @b{Seeking Alpha Stock Search}
+Open  Feed for Reddit  Front Page.@item @b{Reddit Search.}
+
+Reddit Search Results Feed.@item @b{Seeking Alpha Stock Search}
 
 Seeking Alpha search.@item @b{Sign in to Google}
 
