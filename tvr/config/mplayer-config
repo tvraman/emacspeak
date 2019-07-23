@@ -1,3 +1,8 @@
+# This first option enables directory specific config files.
+# Directory specific config is called mplayer.conf,
+# And that file can set options, such as volume.
+
+use-filedir-conf=1
 lirc=no
 ao=alsa
 vo=null
