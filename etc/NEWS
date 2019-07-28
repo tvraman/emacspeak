@@ -12,7 +12,10 @@ This version requires Emacs-26.1 or later.
 Module ~emacspeak-deadgrep~ speech-enables ~deadgrep~, a front-end for
 using ~ripgrep~.
 
+** Speech-Enabled Nov.el 
 
+Module ~emacspeak-nov~ speech-enables ~nov.el~, an EPub reader for
+Emacs.
 ** Stock Quotes From IEXCloud 
 
 The stock quote wizard now uses the IEXCloud API, and needs an API key
