@@ -207,6 +207,7 @@ emacspeak-mspools.elc \
 emacspeak-navi-mode.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
+emacspeak-nov.elc \
 emacspeak-ocr.elc \
 emacspeak-org.elc \
 emacspeak-origami.elc \
@@ -484,7 +485,8 @@ emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
 emacspeak-muggles.elc: emacspeak-muggles.el dtk-speak.elc
 emacspeak-navi-mode.elc: emacspeak-navi-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
-emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc voice-setup.elc
+emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc
+emacspeak-nov.elc: emacspeak-nov.el dtk-speak.elc voice-setup.elc
 emacspeak-npr.elc: emacspeak-npr.el dtk-speak.elc voice-setup.elc
 emacspeak-nxml.elc: emacspeak-nxml.el dtk-speak.elc voice-setup.elc
 emacspeak-org.elc: emacspeak-org.el dtk-speak.elc voice-setup.elc

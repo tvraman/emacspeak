@@ -259,6 +259,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "navi-mode" 'emacspeak-navi-mode)
 (emacspeak-do-package-setup "net-utils" 'emacspeak-net-utils)
 (emacspeak-do-package-setup "newsticker" 'emacspeak-newsticker)
+(emacspeak-do-package-setup "nov" 'emacspeak-nov)
 (emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)
 (emacspeak-do-package-setup "org" 'emacspeak-org)
 (emacspeak-do-package-setup "origami" 'emacspeak-origami)
