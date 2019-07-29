@@ -87,6 +87,17 @@ nov-previous-document
        (dtk-speak (emacspeak-get-window-contents))))))
 
 ;;}}}
+;;{{{Mode Hook:
+
+(defun emacspeak-nov-mode-hook ()
+  "Load directory-specific speech settings."
+  (cl-declare (special emacspeak-speak-directory-settings))
+  (let((locals (locate-dominating-file default-directory emacspeak-speak-directory-settings)))
+       (when locals
+         (load (expand-file-name emacspeak-speak-directory-settings locals)))))
+
+(add-hook 'nov-mode-hook #'emacspeak-nov-mode-hook)
+;;}}}
 (provide 'emacspeak-nov)
 ;;{{{ end of file
 
