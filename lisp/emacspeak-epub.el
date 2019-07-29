@@ -931,6 +931,7 @@ Letters do not insert themselves; instead, they are commands.
  for k in
  '(
    ("/" emacspeak-epub-calibre-results)
+   ("O" emacspeak-epub-open-with-nov)
    ("A" emacspeak-epub-bookshelf-calibre-author)
    ("S" emacspeak-epub-bookshelf-calibre-search)
    ("T" emacspeak-epub-bookshelf-calibre-title)
@@ -1280,7 +1281,20 @@ Letters do not insert themselves; instead, they are commands.
     (locate-with-filter pattern ".epub$")))
 
 ;;}}}
+;;{{{Nov Integration:
 
+(defun emacspeak-epub-open-with-nov ()
+  "Open ebook at point in nov-mode."
+  (interactive)
+  (cl-assert (eq major-mode 'emacspeak-epub-mode)  nil  "Buffer is not
+in emacspeak-epub-mode")
+  (let ((epub (get-text-property (point) 'epub)))
+    (cl-assert epub nil "No epub  at point.")
+    (cl-assert (file-exists-p epub) nil "File does not exist")
+    (unless (locate-library "nov") nil "Package nov is  not installed.")
+    (funcall-interactively #'find-file epub)))
+
+;;}}}
 (provide 'emacspeak-epub)
 ;;{{{ end of file
 
