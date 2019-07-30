@@ -3415,7 +3415,8 @@ directory."
     (when
         (and res
              (file-exists-p (expand-file-name emacspeak-speak-directory-settings res)))
-      (load (expand-file-name emacspeak-speak-directory-settings res)))))
+      (load (expand-file-name emacspeak-speak-directory-settings res))
+      (emacspeak-auditory-icon 'task-done))))
 
 ;;}}}
 ;;{{{ silence:
