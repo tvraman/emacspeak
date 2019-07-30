@@ -759,7 +759,6 @@ Suitable for text searches."
            (shell-command-to-string
             (format "cd %s; pwd" 
                     (file-name-directory epub-file)))))
-         (locals (locate-dominating-file directory emacspeak-speak-directory-settings))
          (buffer (get-buffer-create "FullText EPub"))
          (files
           (split-string
@@ -768,8 +767,6 @@ Suitable for text searches."
            "\n" 'omit-nulls))
          (inhibit-read-only t)
          (command nil))
-    (when locals 
-      (setq locals (expand-file-name  emacspeak-speak-directory-settings locals)))
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
@@ -788,7 +785,7 @@ Suitable for text searches."
            (setq
             emacspeak-epub-this-epub epub-file
             default-directory directory)
-           (when (and locals (file-exists-p locals))(load locals))
+           (emacspeak-speak-load-directory-settings directory)
            (emacspeak-auditory-icon 'open-object)
            (emacspeak-speak-mode-line))
        'at-end)

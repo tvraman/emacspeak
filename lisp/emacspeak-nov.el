@@ -96,9 +96,7 @@ nov-previous-document
 (defun emacspeak-nov-mode-hook ()
   "Load directory-specific speech settings."
   (cl-declare (special emacspeak-speak-directory-settings))
-  (let((locals (locate-dominating-file default-directory emacspeak-speak-directory-settings)))
-       (when locals
-         (load (expand-file-name emacspeak-speak-directory-settings locals)))))
+  (emacspeak-speak-load-directory-settings default-directory))
 
 (add-hook 'nov-mode-hook #'emacspeak-nov-mode-hook)
 ;;}}}
