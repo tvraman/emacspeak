@@ -167,8 +167,22 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
+
+(defcustom emacspeak-org-table-after-movement-function
+  #'emacspeak-org-table-speak-current-element
+  "The function to call after moving in a table"
+  :type
+  '(choice
+    (const :tag "speak cell contents only" emacspeak-org-table-speak-current-element)
+    (const :tag "speak column header" emacspeak-org-table-speak-column-header)
+    (const :tag "speak row header" emacspeak-org-table-speak-row-header)
+    (const :tag "speak cell contents and column header" emacspeak-org-table-speak-column-header-and-element)
+    (const :tag "speak cell contents and row header" emacspeak-org-table-speak-row-header-and-element)
+    (const :tag "speak column contents and both headers" emacspeak-org-table-speak-both-headers-and-element))
+  :group 'emacspeak-org)
+
 ;;; orgalist-mode defines structured navigators that in turn call org-cycle.
-;;; Removing itneractive check in advice for org-cycle 
+;;; Removing itneractive check in advice for org-cycle
 ;;; to speech enable all such nav commands.
 ;;; Note that org itself produces the folded state via org-unlogged-message
 ;;; Which gets spoken by Emacspeak
@@ -181,9 +195,8 @@
      "Provide auditory feedback."
      (cond
       ((org-at-table-p 'any)
-       (emacspeak-org-table-speak-current-element))
+       (funcall emacspeak-org-table-after-movement-function))
       (t
-;;; org produces relevant feedback via org-unlogged-message (folded, children)
        (let ((dtk-stop-immediately nil))
          (emacspeak-speak-line)))))))
 
@@ -254,10 +267,10 @@
     ad-do-it
     (if (> (point) prior)
         (tts-with-punctuations
-         'all
-         (if (> (length (emacspeak-get-minibuffer-contents)) 0)
-             (dtk-speak (emacspeak-get-minibuffer-contents))
-           (emacspeak-speak-line)))
+            'all
+          (if (> (length (emacspeak-get-minibuffer-contents)) 0)
+              (dtk-speak (emacspeak-get-minibuffer-contents))
+            (emacspeak-speak-line)))
       (emacspeak-speak-completions-if-available))
     ad-return-value))
 
@@ -317,7 +330,7 @@
  for f in
  '(
    org-agenda-next-date-line org-agenda-previous-date-line
-   ;org-agenda-next-line org-agenda-previous-line
+                                        ;org-agenda-next-line org-agenda-previous-line
    org-agenda-goto-today
    )
  do
@@ -431,7 +444,7 @@
   (when (ems-interactive-p)
     (cond
      ((org-at-table-p 'any)
-      (emacspeak-org-table-speak-current-element))
+      (funcall emacspeak-org-table-after-movement-function))
      (t
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object)))))
@@ -591,7 +604,7 @@
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (emacspeak-org-table-speak-current-element))))
+     (funcall emacspeak-org-table-after-movement-function))))
 
 ;;}}}
 ;;{{{ Additional table function:
@@ -643,15 +656,15 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   "Speak prompt intelligently."
   (let ((prompt (ad-get-arg 0))
         (entries (ad-get-arg 2))
-        (first-key (ad-get-arg 4)) 
+        (first-key (ad-get-arg 4))
         (choices nil))
     (setq choices
           (cond
            ((null first-key) entries)
            (t                           ;third  is cl-caddr
             (cl-caddr (assoc first-key entries)))))
-    (dtk-notify-speak 
-     (mapconcat 
+    (dtk-notify-speak
+     (mapconcat
       #'(lambda (e)
           (format "%c: %s\n" (cl-first e) (cl-second e)))
       choices "\n"))
@@ -669,7 +682,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 ;;{{{ Edit Special Advice:
 
 (cl-loop
- for f in 
+ for f in
  '(org-edit-src-exit org-edit-src-abort)
  do
  (eval
