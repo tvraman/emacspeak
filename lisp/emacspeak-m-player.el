@@ -159,8 +159,6 @@ This is set to nil when playing Internet  streams.")
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (progn
-    (setq buffer-undo-list t)
-                                        ;(ansi-color-for-comint-mode-on)
     (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
@@ -443,8 +441,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
-    (setq emacspeak-m-player-current-directory nil
-     emacspeak-m-player-process nil))
+    (setq emacspeak-m-player-process nil))
   (let ((buffer (get-buffer-create "*M-Player*"))
         (alsa-device (getenv "ALSA_DEFAULT"))
         (process-connection-type nil)
@@ -456,8 +453,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (unless emacspeak-m-player-url-p    ; not a URL
       (setq
        resource (expand-file-name resource)
-       emacspeak-m-player-current-directory (file-name-directory resource))
-      (emacspeak-amark-load emacspeak-m-player-current-directory))
+       emacspeak-m-player-current-directory (file-name-directory resource)))
     (if (file-directory-p resource)
         (setq file-list (emacspeak-m-player-directory-files resource))
       (setq file-list (list resource)))
@@ -478,14 +474,15 @@ The player is placed in a buffer in emacspeak-m-player-mode."
             (nconc options (list resource)))))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
+      (emacspeak-m-player-mode)
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
       (set-process-filter  emacspeak-m-player-process
                            #'emacspeak-m-player-process-filter)
       (when emacspeak-m-player-current-directory
-        (cd emacspeak-m-player-current-directory))
-      (emacspeak-m-player-mode)
+        (cd emacspeak-m-player-current-directory)
+        (emacspeak-amark-load))
       (setq  emacspeak-m-player-file-list file-list)
       (emacspeak-auditory-icon 'progress)
       (when (called-interactively-p 'interactive)
