@@ -343,7 +343,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    ((fboundp 'directory-files-recursively)
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
-(defvar emacspeak-m-player-url-p nil
+(defvar-local emacspeak-m-player-url-p nil
   "Flag that records if we are playing a stream URL")
 ;;;###autoload
 (defun emacspeak-media-read-resource ()
@@ -413,6 +413,16 @@ Also cleanup ANSI escape sequences."
           (while (re-search-forward ansi-color-control-seq-regexp  (point-max) 'no-error)
             (delete-region (match-beginning 0) (match-end 0))))))))
 
+(defun emacspeak-m-player-amark-save ()
+  "Ensure that amarks are saved in the directory of the resource being
+played."
+  (interactive)
+  (when (process-live-p emacspeak-m-player-process)
+    (with-current-buffer
+        (process-buffer emacspeak-m-player-process)
+      (emacspeak-amark-save))))
+
+
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.  Optional prefix argument
@@ -442,8 +452,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
-    (unless (string-match "^[a-z]+:"  resource) ; not a URL
+    (unless emacspeak-m-player-url-p ; not a URL
       (setq resource (expand-file-name resource))
+      (emacspeak-amark-load (file-name-directory resource))
       (setq emacspeak-m-player-current-directory nil) ;;; cleanup past
       (setq emacspeak-m-player-current-directory
             (file-name-directory resource)))
@@ -475,7 +486,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (when emacspeak-m-player-current-directory
         (cd emacspeak-m-player-current-directory))
       (emacspeak-m-player-mode)
-      (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
       (emacspeak-auditory-icon 'progress)
       (when (called-interactively-p 'interactive)
@@ -760,10 +770,11 @@ This affects pitch."
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
         (with-current-buffer buffer
-          (unless (or ;;;dont amark streams
-                   (null emacspeak-m-player-url-p)
-                   (string-equal emacspeak-media-shortcuts-directory
-                                 (substring default-directory 0 -1)))
+          (unless
+              (or
+               (null emacspeak-m-player-url-p) ;;;dont amark streams
+               (string-equal emacspeak-media-shortcuts-directory
+                             (substring default-directory 0 -1)))
             (emacspeak-m-player-amark-add emacspeak-m-player-recent-amark-name)
             (emacspeak-amark-save))
           (emacspeak-m-player-dispatch "quit")
@@ -1219,7 +1230,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("P" emacspeak-m-player-apply-reverb-preset)
     ("Q" emacspeak-m-player-quit)
     ("R" emacspeak-m-player-edit-reverb)
-    ("S" emacspeak-amark-save)
+    ("S" emacspeak-m-player-amark-save)
     ("x" emacspeak-m-player-pan)
     ("w" emacspeak-m-player-write-clip)
     ("SPC" emacspeak-m-player-pause)
