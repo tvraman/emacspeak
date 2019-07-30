@@ -422,7 +422,6 @@ played."
 
 
 ;;;###autoload
-
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.  Optional prefix argument
 play-list interprets resource as a play-list.  Second interactive
@@ -773,7 +772,7 @@ This affects pitch."
         (with-current-buffer buffer
           (unless
               (or
-               (null emacspeak-m-player-url-p) ;;;dont amark streams
+               emacspeak-m-player-url-p ;;;dont amark streams
                (string-equal emacspeak-media-shortcuts-directory
                              (substring default-directory 0 -1)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
