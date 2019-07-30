@@ -480,7 +480,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
                     emacspeak-m-player-program options))
       (set-process-filter  emacspeak-m-player-process
                            #'emacspeak-m-player-process-filter)
-      (when emacspeak-m-player-current-directory
+      (when (and
+             emacspeak-m-player-current-directory
+             (file-exists-p emacspeak-m-player-current-directory))
         (cd emacspeak-m-player-current-directory)
         (emacspeak-amark-load))
       (setq  emacspeak-m-player-file-list file-list)
