@@ -693,10 +693,13 @@ This affects pitch."
   (interactive)
   (emacspeak-m-player-dispatch "pause"))
 
+(defvar ems--m-player-mark "LastStopped"
+  "Name used to  mark position where we quit a stream.")
+
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
-  (cl-declare (special emacspeak-amark-list emacspeak-m-player-recent-amark-name
+  (cl-declare (special emacspeak-amark-list ems--m-player-mark
                        emacspeak-m-player-url-p emacspeak-m-player-process))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
@@ -707,7 +710,7 @@ This affects pitch."
                (null emacspeak-m-player-url-p) ;;;dont amark streams
                (string-equal emacspeak-media-shortcuts-directory
                              (substring default-directory 0 -1)))
-            (emacspeak-m-player-amark-add emacspeak-m-player-recent-amark-name)
+            (emacspeak-m-player-amark-add ems--m-player-mark)
             (emacspeak-amark-save))
           (emacspeak-m-player-dispatch "quit")
           (emacspeak-auditory-icon 'close-object)
@@ -1271,10 +1274,7 @@ emacspeak-silence-hook."
 ;;}}}
 ;;{{{ AMarks:
 
-(defcustom emacspeak-m-player-recent-amark-name "LastStopped"
-  "Name used to  mark position where we quit a stream."
-  :type 'string
-  :group 'emacspeak-m-player)
+
 
 ;;;###autoload
 (defun emacspeak-m-player-amark-add (name &optional prompt-position)
