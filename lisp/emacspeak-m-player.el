@@ -451,34 +451,34 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
-    (unless emacspeak-m-player-url-p    ; not a URL
-      (setq
-       resource (expand-file-name resource)
-       emacspeak-m-player-current-directory (file-name-directory resource)))
-    (if (file-directory-p resource)
-        (setq file-list (emacspeak-m-player-directory-files resource))
-      (setq file-list (list resource)))
-    (when (and alsa-device (not (string= alsa-device "default")))
-      (setq options
-            (nconc options
-                   (list "-ao" (format "alsa:device=%s" alsa-device)))))
-    (setq options
-          (cond
-           ((and play-list  (listp play-list)(< 4   (car play-list)))
-            (nconc options
-                   (list "-allow-dangerous-playlist-parsing" "-playlist"
-                         resource)))
-           (playlist-p
-            (nconc options (list "-playlist" resource)))
-           (file-list (nconc options file-list))
-           (t
-            (nconc options (list resource)))))
     (with-current-buffer buffer
-      (setq buffer-undo-list t)
       (emacspeak-m-player-mode)
+      (unless emacspeak-m-player-url-p    ; not a URL
+              (setq
+               resource (expand-file-name resource)
+               emacspeak-m-player-current-directory (file-name-directory resource)))
+      (if (file-directory-p resource)
+          (setq file-list (emacspeak-m-player-directory-files resource))
+        (setq file-list (list resource)))
+      (when (and alsa-device (not (string= alsa-device "default")))
+        (setq options
+              (nconc options
+                     (list "-ao" (format "alsa:device=%s" alsa-device)))))
+      (setq options
+            (cond
+             ((and play-list  (listp play-list)(< 4   (car play-list)))
+              (nconc options
+                     (list "-allow-dangerous-playlist-parsing" "-playlist"
+                           resource)))
+             (playlist-p
+              (nconc options (list "-playlist" resource)))
+             (file-list (nconc options file-list))
+             (t
+              (nconc options (list resource)))))
+      (setq buffer-undo-list t)
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
-                   emacspeak-m-player-program options))
+                    emacspeak-m-player-program options))
       (set-process-filter  emacspeak-m-player-process
                            #'emacspeak-m-player-process-filter)
       (when emacspeak-m-player-current-directory
