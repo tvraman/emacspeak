@@ -44,6 +44,10 @@
 ;;; Package nov.el is an alternative to Emacspeak's built-in EPub
 ;;; reader.
 ;;; This module speech-enables nov.el
+;;; In addition, opening an epub using nov results in
+;;; directory-specific settings being loaded from file .espeak.el.
+;;;  That file can set book-specific settings such as speech-rate and
+;;; punctuation-mode.
 
 ;;; Code:
 
