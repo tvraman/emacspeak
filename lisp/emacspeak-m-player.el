@@ -443,7 +443,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit)
-    (setq emacspeak-m-player-process nil))
+    (setq emacspeak-m-player-current-directory nil
+     emacspeak-m-player-process nil))
   (let ((buffer (get-buffer-create "*M-Player*"))
         (alsa-device (getenv "ALSA_DEFAULT"))
         (process-connection-type nil)
@@ -452,12 +453,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
              (emacspeak-m-player-playlist-p resource)))
         (options (copy-sequence emacspeak-m-player-options))
         (file-list nil))
-    (unless emacspeak-m-player-url-p ; not a URL
-      (setq resource (expand-file-name resource))
-      (emacspeak-amark-load (file-name-directory resource))
-      (setq emacspeak-m-player-current-directory nil) ;;; cleanup past
-      (setq emacspeak-m-player-current-directory
-            (file-name-directory resource)))
+    (unless emacspeak-m-player-url-p    ; not a URL
+      (setq
+       resource (expand-file-name resource)
+       emacspeak-m-player-current-directory (file-name-directory resource))
+      (emacspeak-amark-load emacspeak-m-player-current-directory))
     (if (file-directory-p resource)
         (setq file-list (emacspeak-m-player-directory-files resource))
       (setq file-list (list resource)))
