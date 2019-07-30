@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 904 options.
+This chapter documents a total of 1229 commands and 905 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6549,6 +6549,7 @@ ESC		Prefix Command
 A		emacspeak-epub-bookshelf-calibre-author
 C		emacspeak-epub-gutenberg-catalog
 G		emacspeak-epub-google
+O		emacspeak-epub-open-with-nov
 S		emacspeak-epub-bookshelf-calibre-search
 T		emacspeak-epub-bookshelf-calibre-title
 a		emacspeak-epub-bookshelf-add-epub
@@ -6594,6 +6595,15 @@ Open specified Epub.
 Filename may need to  be shell-quoted when called from Lisp.
 
 (fn EPUB-FILE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-epub-open-with-nov
+@deffn {Command} emacspeak-epub-open-with-nov   
+@findex emacspeak-epub-open-with-nov
+
+@format
+Open ebook at point in nov-mode.
 @end format
 @end deffn
 
@@ -14049,6 +14059,11 @@ echoes row header and element
 
 @defvar {User Option} emacspeak-org-bookmark-key
 Key of template used for capturing  hot list.
+
+@end defvar
+
+@defvar {User Option} emacspeak-org-table-after-movement-function
+The function to call after moving in a table
 
 @end defvar
 

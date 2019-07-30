@@ -937,6 +937,7 @@ table of contents.
      A		emacspeak-epub-bookshelf-calibre-author
      C		emacspeak-epub-gutenberg-catalog
      G		emacspeak-epub-google
+     O		emacspeak-epub-open-with-nov
      S		emacspeak-epub-bookshelf-calibre-search
      T		emacspeak-epub-bookshelf-calibre-title
      a		emacspeak-epub-bookshelf-add-epub
@@ -979,14 +980,21 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.62.6.31 emacspeak-epub-previous
+12.62.6.31 emacspeak-epub-open-with-nov
+.......................................
+
+ -- Command: emacspeak-epub-open-with-nov
+
+     Open ebook at point in nov-mode.
+
+12.62.6.32 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.62.6.32 emacspeak-epub-url-executor
+12.62.6.33 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)
@@ -7348,6 +7356,9 @@ http://orgmode.org/
 
  -- Variable: User Option emacspeak-org-bookmark-key
      Key of template used for capturing hot list.
+
+ -- Variable: User Option emacspeak-org-table-after-movement-function
+     The function to call after moving in a table
 
 
 File: emacspeak.info,  Node: emacspeak-origami,  Next: emacspeak-outline,  Prev: emacspeak-org,  Up: Emacspeak Commands And Options
