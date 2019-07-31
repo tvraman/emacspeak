@@ -45,9 +45,10 @@
 ;;; reader.
 ;;; This module speech-enables nov.el
 ;;; In addition, opening an epub using nov results in
-;;; directory-specific settings being loaded from file .espeak.el.
+;;; directory-specific settings being loaded from file
+;;; @var{emacspeak-speak-directory-settings} ---
 ;;;  That file can set book-specific settings such as speech-rate and
-;;; punctuation-mode.
+;;; punctuation-mode among others.
 
 ;;; Code:
 
