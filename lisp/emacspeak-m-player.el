@@ -409,6 +409,7 @@ Also cleanup ANSI escape sequences."
 (defun emacspeak-m-player-amark-save ()
   "Ensure that amarks are saved in the directory of the resource ."
   (interactive)
+  (cl-declare (special emacspeak-m-player-process))
   (when (process-live-p emacspeak-m-player-process)
     (with-current-buffer
         (process-buffer emacspeak-m-player-process)
@@ -540,7 +541,6 @@ This will work if the soundcard is set to 48000."
     (call-interactively #'emacspeak-m-player)))
 
 ;;;###autoload
-
 (defun emacspeak-m-player-load (resource  &optional append)
   "Load specified resource into a running  m-player.
 Interactive prefix arg appends the new resource to what is playing."
