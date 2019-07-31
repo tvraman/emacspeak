@@ -118,9 +118,8 @@ given name, it is updated with path and position."
       (erase-buffer)
       (prin1  l (current-buffer)) 
       (save-buffer)
+      (message "Saved AMarks in %s" (buffer-file-name))
       (kill-buffer buff)
-      (message "Saved AMarks in %s"
-               (expand-file-name emacspeak-amark-file))
       (emacspeak-auditory-icon 'save-object))))
 
 (defun emacspeak-amark-load (&optional dir)
