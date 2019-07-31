@@ -411,8 +411,7 @@ Also cleanup ANSI escape sequences."
             (delete-region (match-beginning 0) (match-end 0))))))))
 
 (defun emacspeak-m-player-amark-save ()
-  "Ensure that amarks are saved in the directory of the resource being
-played."
+  "Ensure that amarks are saved in the directory of the resource ."
   (interactive)
   (when (process-live-p emacspeak-m-player-process)
     (with-current-buffer
@@ -778,7 +777,7 @@ This affects pitch."
                (string-equal emacspeak-media-shortcuts-directory
                              (substring default-directory 0 -1)))
             (emacspeak-m-player-amark-add ems--m-player-mark)
-            (emacspeak-amark-save))
+            (emacspeak-m-player-amark-save))
           (emacspeak-m-player-dispatch "quit")
           (emacspeak-auditory-icon 'close-object)
           (and (buffer-live-p buffer) (kill-buffer buffer))))
@@ -786,6 +785,7 @@ This affects pitch."
         (delete-process  emacspeak-m-player-process))
       (setq emacspeak-m-player-process nil)
       (emacspeak-speak-mode-line))))
+
 ;;;###autoload
 (defun emacspeak-m-player-volume-up ()
   "Increase volume."
