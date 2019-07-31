@@ -87,9 +87,9 @@
   title artist album info
   year comment track genre)
 
-(defvar emacspeak-m-player-metadata nil
+(defvar-local emacspeak-m-player-metadata nil
   "Instance of stream metadata for this buffer.")
-(make-variable-buffer-local 'emacspeak-m-player-metadata)
+
 
 (defun emacspeak-m-player-display-metadata ()
   "Display metadata after refreshing it if needed."
