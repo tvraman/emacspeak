@@ -113,7 +113,7 @@
 ;;{{{ define a derived mode for m-player interaction
 (defconst  emacspeak-media-shortcuts-directory
   (expand-file-name "media/radio" emacspeak-directory)
-  "*Directory where we organize  mp3  libraries and media shortcuts. ")
+  "*Directory where we organize   and media shortcuts. ")
 
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player.")
@@ -123,9 +123,8 @@
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (erase-buffer)
-    (process-send-string
-     emacspeak-m-player-process
-     (format "pausing_keep %s\n" command))
+    (process-send-string emacspeak-m-player-process
+                         (format "pausing_keep %s\n" command))
     (accept-process-output emacspeak-m-player-process 0.1)
     (unless (zerop (buffer-size))
       (buffer-substring-no-properties (point-min) (1-  (point-max))))))
@@ -135,14 +134,14 @@
 This is set to nil when playing Internet  streams.")
 
 (defun emacspeak-m-player-mode-line ()
-  "Meaningful mode-line."
+  "Meaningful mode-line for *M-Player* buffers."
   (cl-declare (special emacspeak-m-player-process))
   (cond
    ((eq 'run (process-status emacspeak-m-player-process))
     (let ((info (emacspeak-m-player-get-position)))
       (when info 
         (put-text-property 0 (length (cl-first info))
-                           'personality 'voice-smoothen (cl-first info))
+                           'personality 'voice-smoothen (cl-first info) )
         (dtk-speak-and-echo
          (concat (cl-first info) ":" (cl-second info))))))
    (t (message "Process MPlayer not running."))))
@@ -160,7 +159,7 @@ This is set to nil when playing Internet  streams.")
 \\{emacspeak-m-player-mode-map}"
   (progn
     (setq emacspeak-m-player-metadata (make-emacspeak-m-player-metadata))
-    (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
+    (setq buffer-undo-list t)))
 
 ;;}}}
 ;;{{{ emacspeak-m-player
