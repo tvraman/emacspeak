@@ -111,6 +111,7 @@
 
 ;;}}}
 ;;{{{ define a derived mode for m-player interaction
+
 (defconst  emacspeak-media-shortcuts-directory
   (expand-file-name "media/radio" emacspeak-directory)
   "*Directory where we organize   and media shortcuts. ")
@@ -165,7 +166,6 @@ This is set to nil when playing Internet  streams.")
 ;;{{{ emacspeak-m-player
 
 ;;;###autoload
-
 (defgroup emacspeak-m-player nil
   "Emacspeak media player settings."
   :group 'emacspeak)
@@ -175,6 +175,7 @@ This is set to nil when playing Internet  streams.")
   "Media player program."
   :type 'string
   :group 'emacspeak-m-player)
+
 (defvar emacspeak-m-player-openal-options
   '("-ao" "openal")
   "Additional options to use openal  --- this gives us hrtf for instance.")
@@ -221,7 +222,7 @@ on a specific directory."
            (set-default sym val)))
 
 (defvar emacspeak-media-directory-regexp
-  (regexp-opt '("mp3" "audio"))
+  (regexp-opt '("mp3" "audio" "music"))
   "Pattern matching locations where we store media.")
 
 ;;;###autoload
@@ -327,21 +328,17 @@ etc to be ignored when guessing directory.")
   (ems-with-messages-silenced
    (emacspeak-m-player url playlist-p)))
 
-;;;###autoload
-
-(defvar emacspeak-m-player-file-list nil
+(defvar-local  emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
-(make-variable-buffer-local 'emacspeak-m-player-file-list)
+
 (defun emacspeak-m-player-directory-files (directory)
-  "Return media files in directory.
-Searches recursively if `directory-files-recursively' is available (Emacs 25)."
+  "Return media files in directory by searching recursively. "
   (cl-declare (special emacspeak-media-extensions))
-  (cond
-   ((fboundp 'directory-files-recursively)
-    (directory-files-recursively directory emacspeak-media-extensions))
-   (t (directory-files  directory 'full emacspeak-media-extensions))))
+  (directory-files-recursively directory emacspeak-media-extensions))
+
 (defvar-local emacspeak-m-player-url-p nil
   "Flag that records if we are playing a stream URL")
+
 ;;;###autoload
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer with contextual smarts."
