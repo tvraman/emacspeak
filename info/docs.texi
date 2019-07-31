@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 905 options.
+This chapter documents a total of 1228 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4188,21 +4188,12 @@ Return matching AMark if found in buffer-local AMark list.
 @end format
 @end deffn
 
-@subsubsection emacspeak-amark-load
-@deffn {Command} emacspeak-amark-load   
-@findex emacspeak-amark-load
-
-@format
-Locate AMarks file from current directory, and load it.
-@end format
-@end deffn
-
 @subsubsection emacspeak-amark-save
 @deffn {Command} emacspeak-amark-save   
 @findex emacspeak-amark-save
 
 @format
-Save buffer-local AMarks in current directory.
+Save buffer-local AMarks in  directory of currently playing resource.
 @end format
 @end deffn
 
@@ -10675,6 +10666,15 @@ Jump to specified AMark.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-amark-save
+@deffn {Command} emacspeak-m-player-amark-save   
+@findex emacspeak-m-player-amark-save
+
+@format
+Ensure that amarks are saved in the directory of the resource .
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-apply-reverb-preset
 @deffn {Command} emacspeak-m-player-apply-reverb-preset  (preset)
 @findex emacspeak-m-player-apply-reverb-preset
@@ -11062,7 +11062,7 @@ O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
 Q		emacspeak-m-player-quit
 R		emacspeak-m-player-edit-reverb
-S		emacspeak-amark-save
+S		emacspeak-m-player-amark-save
 [		emacspeak-m-player-slower
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
@@ -11538,7 +11538,7 @@ O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
 Q		emacspeak-m-player-quit
 R		emacspeak-m-player-edit-reverb
-S		emacspeak-amark-save
+S		emacspeak-m-player-amark-save
 [		emacspeak-m-player-slower
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
@@ -11594,11 +11594,6 @@ Options passed to mplayer.
 
 @defvar {User Option} emacspeak-m-player-program
 Media player program.
-
-@end defvar
-
-@defvar {User Option} emacspeak-m-player-recent-amark-name
-Name used to  mark position where we quit a stream.
 
 @end defvar
 
@@ -16258,20 +16253,6 @@ the sense of the filter.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-load-directory-settings
-@deffn {Command} emacspeak-speak-load-directory-settings  (&optional directory)
-@findex emacspeak-speak-load-directory-settings
-
-@format
-Load a directory specific Emacspeak settings file.
-This is typically used to load up settings that are specific to
-an electronic book consisting of many files in the same
-directory.
-
-(fn &optional DIRECTORY)
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-message-again
 @deffn {Command} emacspeak-speak-message-again  (&optional from-message-cache)
 @table @kbd
@@ -17505,13 +17486,6 @@ The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
 by cut -c on UNIX.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-load-directory-settings-quietly
-User option that affects loading of directory specific settings.
-If set to T,Emacspeak will not prompt before loading
-directory specific settings.
 
 @end defvar
 
