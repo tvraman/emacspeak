@@ -6520,8 +6520,9 @@ File: emacspeak.info,  Node: emacspeak-nov,  Next: emacspeak-npr,  Prev: emacspe
 NOV == Yet Another EPub Reader Package nov.el is an alternative to
 Emacspeak’s built-in EPub reader.  This module speech-enables nov.el In
 addition, opening an epub using nov results in directory-specific
-settings being loaded from file .espeak.el.  That file can set
-book-specific settings such as speech-rate and punctuation-mode.
+settings being loaded from file EMACSPEAK-SPEAK-DIRECTORY-SETTINGS —
+That file can set book-specific settings such as speech-rate and
+punctuation-mode among others.
 
 
 File: emacspeak.info,  Node: emacspeak-npr,  Next: emacspeak-nxml,  Prev: emacspeak-nov,  Up: Emacspeak Commands And Options
