@@ -346,7 +346,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 ;;;###autoload
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special ido-work-directory-list emacspeak-m-player-url-p))
+  (cl-declare (special ido-work-directory-list ))
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
@@ -366,7 +366,6 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
            "Media Resource: "
            (emacspeak-media-guess-directory) ; default dir 
            default 'must-match))
-    (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
@@ -452,10 +451,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (file-list nil))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
-      (unless emacspeak-m-player-url-p    ; not a URL
-              (setq
-               resource (expand-file-name resource)
-               emacspeak-m-player-current-directory (file-name-directory resource)))
+      (setq emacspeak-m-player-url-p (string-match "^http" resource))
+      (unless emacspeak-m-player-url-p  ; not a URL
+        (setq
+         resource (expand-file-name resource)
+         emacspeak-m-player-current-directory (file-name-directory resource)))
       (if (file-directory-p resource)
           (setq file-list (emacspeak-m-player-directory-files resource))
         (setq file-list (list resource)))
@@ -477,7 +477,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (setq buffer-undo-list t)
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
-                    emacspeak-m-player-program options))
+                   emacspeak-m-player-program options))
       (set-process-filter  emacspeak-m-player-process
                            #'emacspeak-m-player-process-filter)
       (when (and
