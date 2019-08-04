@@ -227,6 +227,21 @@
      ((= 0 (length result)) nil)
      (t (substring result 0 -1)))))
 
+
+(defun emacspeak-epub-do-nav-files (file)
+  "Return ordered list of content files from navMap."
+  (let* ((this-epub (emacspeak-epub-make-epub file))
+         (toc (emacspeak-epub-toc this-epub))
+         (base (emacspeak-epub-base this-epub))
+         (ncx nil))
+    (with-current-buffer (emacspeak-epub-get-contents this-epub toc)
+      (setq ncx (libxml-parse-xml-region (point-min) (point-max)))
+      (cl-loop
+       for n in (dom-by-tag ncx 'content)
+       collect
+       (concat base
+               (cl-first (split-string (dom-attr n 'src) "#")))))))
+
 (defvar emacspeak-epub-opf-path-pattern
   ".opf$"
   "Pattern match for path component  to table of contents in an Epub.")
@@ -715,8 +730,7 @@ Filename may need to  be shell-quoted when called from Lisp."
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-epub-files-command
-                       emacspeak-speak-directory-settings
+  (cl-declare (special emacspeak-speak-directory-settings
                        emacspeak-epub-this-epub))
   (let* ((gc-cons-threshold 8000000)
          (directory
@@ -725,11 +739,7 @@ Filename may need to  be shell-quoted when called from Lisp."
             (format "cd %s; pwd" 
                     (file-name-directory epub-file)))))
          (buffer (get-buffer-create "FullText EPub"))
-         (files
-          (split-string
-           (shell-command-to-string
-            (format  emacspeak-epub-files-command epub-file))
-           "\n" 'omit-nulls))
+         (files (emacspeak-epub-do-nav-files epub-file))
          (inhibit-read-only t)
          (command nil))
     (with-current-buffer buffer
