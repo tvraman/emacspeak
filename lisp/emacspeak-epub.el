@@ -227,6 +227,18 @@
      ((= 0 (length result)) nil)
      (t (substring result 0 -1)))))
 
+;;; Helper: uniquify list:
+
+(defun ems--epub-uniquify-list (l)
+  "Return list uniquified."
+  (let ((h (make-hash-table :test 'equal))
+        (unique nil))
+  (cl-loop
+   for e in l do
+   (unless (gethash e h)
+     (push e unique)
+     (puthash e 1 h)))
+(nreverse unique)))
 
 (defun emacspeak-epub-do-nav-files (file)
   "Return ordered list of content files from navMap."
@@ -236,11 +248,15 @@
          (ncx nil))
     (with-current-buffer (emacspeak-epub-get-contents this-epub toc)
       (setq ncx (libxml-parse-xml-region (point-min) (point-max)))
-      (cl-loop
-       for n in (dom-by-tag ncx 'content)
-       collect
-       (concat base
-               (cl-first (split-string (dom-attr n 'src) "#")))))))
+      (prog1
+          (ems--epub-uniquify-list
+           (cl-loop
+            for n in (dom-by-tag ncx 'content)
+            collect
+            (concat
+             base
+             (cl-first (split-string (dom-attr n 'src) "#")))))
+        (kill-buffer)))))
 
 (defvar emacspeak-epub-opf-path-pattern
   ".opf$"
