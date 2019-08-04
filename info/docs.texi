@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 903 options.
+This chapter documents a total of 1227 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6205,8 +6205,6 @@ emacspeak-epub-eww
 emacspeak-epub-browse-files
 @item o               
 emacspeak-epub-open
-@item t               
-emacspeak-epub-fulltext
 @end table
 
 @subsection emacspeak-epub Commands
@@ -6458,18 +6456,6 @@ Display entire book  using EWW from EPub.
 @end format
 @end deffn
 
-@subsubsection emacspeak-epub-fulltext
-@deffn {Command} emacspeak-epub-fulltext  (epub-file)
-@findex emacspeak-epub-fulltext
-
-@format
-Display fulltext from EPub in a buffer.
-Suitable for text searches.
-
-(fn EPUB-FILE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-epub-google
 @deffn {Command} emacspeak-epub-google  (query)
 @findex emacspeak-epub-google
@@ -6555,7 +6541,6 @@ n		next-line
 o		emacspeak-epub-open
 p		previous-line
 r		emacspeak-epub-bookshelf-rename
-t		emacspeak-epub-fulltext
 
 M-s		emacspeak-epub-bookshelf-save
 

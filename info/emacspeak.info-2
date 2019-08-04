@@ -512,8 +512,6 @@ table of contents.
      emacspeak-epub-browse-files
 ‘o’
      emacspeak-epub-open
-‘t’
-     emacspeak-epub-fulltext
 
 12.62.6 emacspeak-epub Commands
 -------------------------------
@@ -718,17 +716,7 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.62.6.23 emacspeak-epub-fulltext
-..................................
-
- -- Command: emacspeak-epub-fulltext (epub-file)
-
-     Display fulltext from EPub in a buffer.
-     Suitable for text searches.
-
-     (fn EPUB-FILE)
-
-12.62.6.24 emacspeak-epub-google
+12.62.6.23 emacspeak-epub-google
 ................................
 
  -- Command: emacspeak-epub-google (query)
@@ -737,7 +725,7 @@ table of contents.
 
      (fn QUERY)
 
-12.62.6.25 emacspeak-epub-gutenberg-catalog
+12.62.6.24 emacspeak-epub-gutenberg-catalog
 ...........................................
 
  -- Command: emacspeak-epub-gutenberg-catalog (&optional refresh)
@@ -747,7 +735,7 @@ table of contents.
 
      (fn &optional REFRESH)
 
-12.62.6.26 emacspeak-epub-gutenberg-download
+12.62.6.25 emacspeak-epub-gutenberg-download
 ............................................
 
  -- Command: emacspeak-epub-gutenberg-download (book-id &optional
@@ -759,7 +747,7 @@ table of contents.
 
      (fn BOOK-ID &optional DOWNLOAD)
 
-12.62.6.27 emacspeak-epub-locate-epubs
+12.62.6.26 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
@@ -768,7 +756,7 @@ table of contents.
 
      (fn PATTERN)
 
-12.62.6.28 emacspeak-epub-mode
+12.62.6.27 emacspeak-epub-mode
 ..............................
 
  -- Command: emacspeak-epub-mode
@@ -806,7 +794,6 @@ table of contents.
      o		emacspeak-epub-open
      p		previous-line
      r		emacspeak-epub-bookshelf-rename
-     t		emacspeak-epub-fulltext
 
      M-s		emacspeak-epub-bookshelf-save
 
@@ -817,14 +804,14 @@ table of contents.
      this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.6.29 emacspeak-epub-next
+12.62.6.28 emacspeak-epub-next
 ..............................
 
  -- Command: emacspeak-epub-next
 
      Move to next book.
 
-12.62.6.30 emacspeak-epub-open
+12.62.6.29 emacspeak-epub-open
 ..............................
 
  -- Command: emacspeak-epub-open (epub-file)
@@ -834,21 +821,21 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.62.6.31 emacspeak-epub-open-with-nov
+12.62.6.30 emacspeak-epub-open-with-nov
 .......................................
 
  -- Command: emacspeak-epub-open-with-nov
 
      Open ebook at point in nov-mode.
 
-12.62.6.32 emacspeak-epub-previous
+12.62.6.31 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.62.6.33 emacspeak-epub-url-executor
+12.62.6.32 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)
