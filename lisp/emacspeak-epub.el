@@ -158,8 +158,6 @@
 ;;; emacspeak-epub-browse-files
 ;;; @item o               
 ;;; emacspeak-epub-open
-;;; @item t               
-;;; emacspeak-epub-fulltext
 ;;; @end table
 ;;}}}
 ;;{{{ Required Modules:
@@ -705,40 +703,7 @@ Filename may need to  be shell-quoted when called from Lisp."
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
 
-(defun emacspeak-epub-fulltext (epub-file)
-  "Display fulltext from EPub in a buffer.
-Suitable for text searches."
-  (interactive
-   (list
-    (or
-     (get-text-property (point) 'epub)
-     (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-epub-files-command))
-  (let ((buffer (get-buffer-create "FullText EPub"))
-        (files
-         (split-string
-          (shell-command-to-string
-           (format  emacspeak-epub-files-command epub-file))
-          "\n" 'omit-nulls))
-        (inhibit-read-only t)
-        (command nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (cl-loop for f in files
-               do
-               (setq command
-                     (format "unzip -c -qq %s %s | %s"
-                             epub-file 
-                             (shell-quote-argument f)
-                             emacspeak-epub-html-to-text-command))
-               (insert (shell-command-to-string command))
-               (goto-char (point-max)))
-      (setq buffer-read-only t)
-      (goto-char (point-min)))
-    (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+
 (defvar-local emacspeak-epub-this-epub nil
   "Buffer local variable that tracks epub being displayed.")
 
@@ -955,7 +920,6 @@ Letters do not insert themselves; instead, they are commands.
    ("o" emacspeak-epub-open)
    ("p" previous-line)
    ("r" emacspeak-epub-bookshelf-rename)
-   ("t" emacspeak-epub-fulltext)
    ("RET" emacspeak-epub-eww)
    )
  do
