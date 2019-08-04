@@ -747,6 +747,7 @@ Filename may need to  be shell-quoted when called from Lisp."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
+           (kill-buffer buffer)
            (setq
             emacspeak-epub-this-epub epub-file
             default-directory directory)
