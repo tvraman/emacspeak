@@ -911,9 +911,11 @@ Filename may need to  be shell-quoted when called from Lisp."
        emacspeak-epub-this-epub epub-file
        default-directory directory)
       (emacspeak-speak-load-directory-settings directory)
-      (rename-buffer (format "%s: %s"
-                             (emacspeak-epub-title this-epub)
-                             (emacspeak-epub-author this-epub)))
+      (rename-buffer
+       (format
+        "%s: %s"
+        (emacspeak-epub-title this-epub) (emacspeak-epub-author this-epub))
+       'unique)
       (goto-char (point-min))
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
