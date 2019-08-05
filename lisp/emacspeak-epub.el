@@ -876,7 +876,7 @@ Filename may need to  be shell-quoted when called from Lisp."
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-speak-directory-settings
+  (cl-declare (special emacspeak-speak-directory-settings eww-data
                        emacspeak-epub-this-epub))
   (let* ((gc-cons-threshold 8000000)
          (directory
@@ -885,6 +885,7 @@ Filename may need to  be shell-quoted when called from Lisp."
             (format "cd %s; pwd" 
                     (file-name-directory epub-file)))))
          (eww-epub (get-buffer-create "Full Text EPub"))
+         (this-epub (emacspeak-epub-make-epub epub-file))
          (files (emacspeak-epub-nav-files epub-file))
          (dom nil)
          (inhibit-read-only t)
@@ -903,15 +904,20 @@ Filename may need to  be shell-quoted when called from Lisp."
        (setq buffer-undo-list t)
        (goto-char (point-max))
        (shr-insert-document (dom-by-tag dom 'body))))
-     (with-current-buffer eww-epub
-       (eww-mode)
-       (setq
-        emacspeak-epub-this-epub epub-file
-        default-directory directory)
-       (emacspeak-speak-load-directory-settings directory)
-       (goto-char (point-min))
-       (emacspeak-auditory-icon 'open-object))
-     (funcall-interactively #'switch-to-buffer eww-epub)))
+    (with-current-buffer eww-epub
+      (eww-mode)
+      (setq
+       emacspeak-epub-this-epub epub-file
+       default-directory directory)
+      (emacspeak-speak-load-directory-settings directory)
+      (goto-char (point-min))
+      (plist-put eww-data :author (emacspeak-epub-author this-epub))
+      (plist-put eww-data :title (emacspeak-epub-title this-epub))
+      (emacspeak-auditory-icon 'open-object)
+      (rename-buffer (format "%s: %s"
+                             (emacspeak-epub-title this-epub)
+                             (emacspeak-epub-author this-epub))))
+    (funcall-interactively #'switch-to-buffer eww-epub)))
 
   (defvar emacspeak-epub-google-search-template
     "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
