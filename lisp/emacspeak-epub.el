@@ -192,8 +192,9 @@
   :group 'emacspeak-epub)
 
 (defvar emacspeak-epub-zip-extract
-  (cond ((executable-find "unzip") "unzip")
-        (t (message "unzip not found.")))
+  (cond ((executable-find "unzip") (executable-find "unzip") )
+        (t (message "unzip not found.")
+           nil))
   "Program to extract a zip file member.")
 
 (defvar emacspeak-epub-wget
@@ -866,6 +867,23 @@ Filename may need to  be shell-quoted when called from Lisp."
   "EPub handle.")
 
 (declare-function eww-update-header-line-format "eww" nil)
+;;; Helper: dom from file in archive
+
+(defun ems--dom-from-archive (epub-file file)
+  "Return DOM from specified file in epub archive."
+  (cl-declare (special emacspeak-epub-zip-extract))
+  (with-temp-buffer
+    (setq buffer-undo-list t)
+    (insert
+     (shell-command-to-string
+      (format
+       "%s -c -qq %s %s "
+       emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
+    (libxml-parse-xml-region (point-min) (point-max))))
+
+
+
+
 
 ;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
@@ -876,6 +894,7 @@ Filename may need to  be shell-quoted when called from Lisp."
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (cl-declare (special emacspeak-speak-directory-settings eww-data
+                       emacspeak-epub-zip-extract
                        epub-this-epub emacspeak-epub-this-epub))
   (let* ((directory
           (string-trim
@@ -886,18 +905,11 @@ Filename may need to  be shell-quoted when called from Lisp."
          (this-epub (emacspeak-epub-make-epub epub-file))
          (files (emacspeak-epub-nav-files epub-file))
          (dom nil)
-         (inhibit-read-only t)
-         (command nil))
+         (inhibit-read-only t))
     (cl-loop
      for f in files
      do
-     (with-temp-buffer
-       (setq buffer-undo-list t)
-       (setq command
-             (format "unzip -c -qq %s %s "
-                     epub-file (shell-quote-argument f)))
-       (insert (shell-command-to-string command))
-       (setq dom (libxml-parse-xml-region (point-min) (point-max))))
+     (setq dom (ems--dom-from-archive epub-file f))
      (with-current-buffer eww-epub
        (setq buffer-undo-list t)
        (goto-char (point-max))
