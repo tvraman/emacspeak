@@ -75,31 +75,31 @@
 ;;; Here is  a quick summary of commands for organizing, saving and opening  a bookshelf:
 ;;;
 ;;; @table @kbd
-;;; @item a               
+;;; @item a
 ;;; emacspeak-epub-bookshelf-add-epub
-;;; @item b               
+;;; @item b
 ;;; emacspeak-epub-bookshelf-open
-;;; @item c               
+;;; @item c
 ;;; emacspeak-epub-bookshelf-clear
-;;; @item d               
+;;; @item d
 ;;; emacspeak-epub-bookshelf-remove-this-book
-;;; @item r               
+;;; @item r
 ;;; emacspeak-epub-bookshelf-rename
 ;;; @item l
 ;;; emacspeak-epub-locate-epubs
-;;; @item C-a             
+;;; @item C-a
 ;;; emacspeak-epub-bookshelf-add-directory
-;;; @item C-d             
+;;; @item C-d
 ;;; emacspeak-epub-bookshelf-remove-directory
-;;; @item C-l             
+;;; @item C-l
 ;;; emacspeak-epub-bookshelf-redraw
-;;; @item C-o             
+;;; @item C-o
 ;;; emacspeak-epub-bookshelf-open-epub
-;;; @item M-s             
+;;; @item M-s
 ;;; emacspeak-epub-bookshelf-save
-;;; @item C-x C-q         
+;;; @item C-x C-q
 ;;; emacspeak-epub-bookshelf-refresh
-;;; @item C-x C-s         
+;;; @item C-x C-s
 ;;; emacspeak-epub-bookshelf-save
 ;;; @end table
 ;;;
@@ -150,13 +150,13 @@
 ;;; section listed in the table of contents.
 ;;;
 ;;; @table @kbd
-;;; @item RET             
+;;; @item RET
 ;;; emacspeak-epub-eww
-;;; @item e               
+;;; @item e
 ;;; emacspeak-epub-eww
-;;; @item f               
+;;; @item f
 ;;; emacspeak-epub-browse-files
-;;; @item o               
+;;; @item o
 ;;; emacspeak-epub-open
 ;;; @end table
 ;;}}}
@@ -282,30 +282,30 @@
   base ; directory in archive that holds toc.ncx
   opf ; path to content.opf
   ls ; list of files in archive
-title  author
+  title  author
   )
 
 (defun emacspeak-epub-make-epub  (epub-file)
   "Construct an epub object given an epub filename."
-(cl-declare (special emacspeak-epub-opf-xsl))
+  (cl-declare (special emacspeak-epub-opf-xsl))
   (let ((ls (emacspeak-epub-do-ls epub-file))
         (toc (emacspeak-epub-do-toc epub-file))
         (opf (emacspeak-epub-do-opf epub-file))
-(meta nil))
+        (meta nil))
     (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
     (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
-(setq meta 
-(split-string
-   (shell-command-to-string
-    (format "%s -c -qq %s %s |  %s --nonet --novalid %s -"
-            emacspeak-epub-zip-extract
-             (expand-file-name epub-file) opf
-            emacspeak-xslt-program emacspeak-epub-opf-xsl))
-   "\n" 'omit-nulls))
+    (setq meta
+          (split-string
+           (shell-command-to-string
+            (format "%s -c -qq %s %s |  %s --nonet --novalid %s -"
+                    emacspeak-epub-zip-extract
+                    (expand-file-name epub-file) opf
+                    emacspeak-xslt-program emacspeak-epub-opf-xsl))
+           "\n" 'omit-nulls))
     (make-emacspeak-epub
      :path (expand-file-name epub-file)
-:title (cl-first meta)
-:author (cl-second meta)
+     :title (cl-first meta)
+     :author (cl-second meta)
      :toc toc
      :base (file-name-directory toc)
      :opf opf
@@ -357,8 +357,6 @@ title  author
 
 (defvar-local emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
-
-
 
 (defun emacspeak-epub-browse-content (epub element _ffragment &optional style)
   "Browse content in specified element of EPub."
@@ -451,130 +449,130 @@ Useful if table of contents in toc.ncx is empty."
 ;;}}}
 ;;{{{ Epub Mode:
 
-  (defun emacspeak-epub-format-author (name)
-    "Format author name, abbreviating if needed."
-    (let ((len (length name))
-          (fields nil))
-      (cond
-       ((< len 16))
-       (t (setq  fields (split-string name))
-          (let ((count (length fields))
-                (result nil))
-            (cond
-             ((= 1 count))
-             (t
-              (setq result
-                    (cl-loop for i from 0 to(- count 2)
-                             collect
-                             (upcase (aref  (nth i fields) 0))))
-              (setq result
-                    (mapconcat
-                     #'(lambda (c) (format "%c" c))
-                     result ". "))
-              (setq name (format "%s. %s"
-                                 result
-                                 (nth (1- count) fields))))))))
-      (propertize name 'face 'font-lock-type-face)))
+(defun emacspeak-epub-format-author (name)
+  "Format author name, abbreviating if needed."
+  (let ((len (length name))
+        (fields nil))
+    (cond
+     ((< len 16))
+     (t (setq  fields (split-string name))
+        (let ((count (length fields))
+              (result nil))
+          (cond
+           ((= 1 count))
+           (t
+            (setq result
+                  (cl-loop for i from 0 to(- count 2)
+                           collect
+                           (upcase (aref  (nth i fields) 0))))
+            (setq result
+                  (mapconcat
+                   #'(lambda (c) (format "%c" c))
+                   result ". "))
+            (setq name (format "%s. %s"
+                               result
+                               (nth (1- count) fields))))))))
+    (propertize name 'face 'font-lock-type-face)))
 
-  (defun emacspeak-epub-insert-title-author (key epub)
-    "Insert a formatted line of the bookshelf of the form Title --- Author."
-    (let ((start (point)))
-      (insert
-       (format
-        "%-60s%s\n"
-        (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)
-        (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
-      (put-text-property start (point) 'epub key)))
+(defun emacspeak-epub-insert-title-author (key epub)
+  "Insert a formatted line of the bookshelf of the form Title --- Author."
+  (let ((start (point)))
+    (insert
+     (format
+      "%-60s%s\n"
+      (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)
+      (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
+    (put-text-property start (point) 'epub key)))
 
-  (defun emacspeak-epub-insert-author-title (key epub)
-    "Insert a formatted line of the bookshelf of the form Author --- Title ."
-    (let ((start (point)))
-      (insert
-       (format
-        "%-20s%s\n"
-        (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
-        (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)))
-      (put-text-property start (point) 'epub key)))
+(defun emacspeak-epub-insert-author-title (key epub)
+  "Insert a formatted line of the bookshelf of the form Author --- Title ."
+  (let ((start (point)))
+    (insert
+     (format
+      "%-20s%s\n"
+      (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
+      (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)))
+    (put-text-property start (point) 'epub key)))
 
-  (defun emacspeak-epub-bookshelf-redraw (&optional author-first)
-    "Redraw Bookshelf.
+(defun emacspeak-epub-bookshelf-redraw (&optional author-first)
+  "Redraw Bookshelf.
 Optional interactive prefix arg author-first prints author at the
   left."
-    (interactive "P")
-    (cl-declare (special  emacspeak-epub-db))
-    (let ((inhibit-read-only t)
-          (formatter (if author-first
-                         'emacspeak-epub-insert-author-title
-                       'emacspeak-epub-insert-title-author)))
-      (erase-buffer)
-      (maphash formatter emacspeak-epub-db)
-      (sort-lines nil (point-min) (point-max))
-      (goto-char (point-min)))
-    (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
+  (interactive "P")
+  (cl-declare (special  emacspeak-epub-db))
+  (let ((inhibit-read-only t)
+        (formatter (if author-first
+                       'emacspeak-epub-insert-author-title
+                     'emacspeak-epub-insert-title-author)))
+    (erase-buffer)
+    (maphash formatter emacspeak-epub-db)
+    (sort-lines nil (point-min) (point-max))
+    (goto-char (point-min)))
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
 
 ;;;###autoload
-  (defun emacspeak-epub-bookshelf-refresh ()
-    "Refresh and redraw bookshelf."
-    (interactive)
-    (unless (eq major-mode 'emacspeak-epub-mode)
-      (error "Not in the EPub Bookshelf."))
-    (emacspeak-epub-bookshelf-load)
-    (emacspeak-epub-bookshelf-update)
-    (emacspeak-epub-bookshelf-redraw)
-    (emacspeak-epub-bookshelf-save)
-    (emacspeak-auditory-icon 'task-done))
+(defun emacspeak-epub-bookshelf-refresh ()
+  "Refresh and redraw bookshelf."
+  (interactive)
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in the EPub Bookshelf."))
+  (emacspeak-epub-bookshelf-load)
+  (emacspeak-epub-bookshelf-update)
+  (emacspeak-epub-bookshelf-redraw)
+  (emacspeak-epub-bookshelf-save)
+  (emacspeak-auditory-icon 'task-done))
 
-  (define-derived-mode emacspeak-epub-mode special-mode
-    "EPub Interaction On The Emacspeak Audio Desktop"
-    "An EPub Front-end.
+(define-derived-mode emacspeak-epub-mode special-mode
+  "EPub Interaction On The Emacspeak Audio Desktop"
+  "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-epub-mode-map>
 \\{emacspeak-epub-mode-map}"
-    (setq buffer-undo-list t)
-    (setq header-line-format
-          (propertize "EPub Bookshelf" 'face 'bold))
-    (goto-char (point-min))
-    (cd-absolute emacspeak-epub-library-directory)
-    (emacspeak-epub-bookshelf-refresh))
+  (setq buffer-undo-list t)
+  (setq header-line-format
+        (propertize "EPub Bookshelf" 'face 'bold))
+  (goto-char (point-min))
+  (cd-absolute emacspeak-epub-library-directory)
+  (emacspeak-epub-bookshelf-refresh))
 
-  (cl-declaim (special emacspeak-epub-mode-map))
-  (cl-loop
-   for k in
-   '(
-     ("/" emacspeak-epub-calibre-results)
-     ("O" emacspeak-epub-open-with-nov)
-     ("A" emacspeak-epub-bookshelf-calibre-author)
-     ("S" emacspeak-epub-bookshelf-calibre-search)
-     ("T" emacspeak-epub-bookshelf-calibre-title)
-     ("C" emacspeak-epub-gutenberg-catalog)
-     ("G" emacspeak-epub-google)
-     ("\C-a" emacspeak-epub-bookshelf-add-directory)
-     ("\C-d" emacspeak-epub-bookshelf-remove-directory)
-     ("\C-k" emacspeak-epub-delete)
-     ("C-l" emacspeak-epub-bookshelf-redraw)
-     ("\C-m" emacspeak-epub-eww)
-     ("\C-o" emacspeak-epub-bookshelf-open-epub)
-     ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
-     ("\C-x\C-s" emacspeak-epub-bookshelf-save)
-     ("M-s" emacspeak-epub-bookshelf-save)
-     ("a" emacspeak-epub-bookshelf-add-epub)
-     ("b" emacspeak-epub-bookshelf-open)
-     ("c" emacspeak-epub-bookshelf-clear)
-     ("d" emacspeak-epub-bookshelf-remove-this-book)
-     ("e" emacspeak-epub-eww)
-     ("f" emacspeak-epub-browse-files)
-     ("g" emacspeak-epub-gutenberg-download)
-     ("l" emacspeak-epub-locate-epubs)
-     ("n" next-line)
-     ("o" emacspeak-epub-open)
-     ("p" previous-line)
-     ("r" emacspeak-epub-bookshelf-rename)
-     ("RET" emacspeak-epub-eww)
-     )
-   do
-   (emacspeak-keymap-update emacspeak-epub-mode-map k))
+(cl-declaim (special emacspeak-epub-mode-map))
+(cl-loop
+ for k in
+ '(
+   ("/" emacspeak-epub-calibre-results)
+   ("O" emacspeak-epub-open-with-nov)
+   ("A" emacspeak-epub-bookshelf-calibre-author)
+   ("S" emacspeak-epub-bookshelf-calibre-search)
+   ("T" emacspeak-epub-bookshelf-calibre-title)
+   ("C" emacspeak-epub-gutenberg-catalog)
+   ("G" emacspeak-epub-google)
+   ("\C-a" emacspeak-epub-bookshelf-add-directory)
+   ("\C-d" emacspeak-epub-bookshelf-remove-directory)
+   ("\C-k" emacspeak-epub-delete)
+   ("C-l" emacspeak-epub-bookshelf-redraw)
+   ("\C-m" emacspeak-epub-eww)
+   ("\C-o" emacspeak-epub-bookshelf-open-epub)
+   ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
+   ("\C-x\C-s" emacspeak-epub-bookshelf-save)
+   ("M-s" emacspeak-epub-bookshelf-save)
+   ("a" emacspeak-epub-bookshelf-add-epub)
+   ("b" emacspeak-epub-bookshelf-open)
+   ("c" emacspeak-epub-bookshelf-clear)
+   ("d" emacspeak-epub-bookshelf-remove-this-book)
+   ("e" emacspeak-epub-eww)
+   ("f" emacspeak-epub-browse-files)
+   ("g" emacspeak-epub-gutenberg-download)
+   ("l" emacspeak-epub-locate-epubs)
+   ("n" next-line)
+   ("o" emacspeak-epub-open)
+   ("p" previous-line)
+   ("r" emacspeak-epub-bookshelf-rename)
+   ("RET" emacspeak-epub-eww)
+   )
+ do
+ (emacspeak-keymap-update emacspeak-epub-mode-map k))
 
-  ;;}}}
+;;}}}
 ;;{{{ Bookshelf Implementation:
 (defcustom emacspeak-epub-bookshelf-directory
   (file-name-as-directory(expand-file-name "bsf" emacspeak-epub-library-directory))
@@ -882,7 +880,7 @@ Filename may need to  be shell-quoted when called from Lisp."
   (let* ((directory
           (string-trim
            (shell-command-to-string
-            (format "cd %s; pwd" 
+            (format "cd %s; pwd"
                     (file-name-directory epub-file)))))
          (eww-epub (get-buffer-create "Full Text EPub"))
          (this-epub (emacspeak-epub-make-epub epub-file))
@@ -906,10 +904,9 @@ Filename may need to  be shell-quoted when called from Lisp."
        (shr-insert-document (dom-by-tag dom 'body))))
     (with-current-buffer eww-epub
       (eww-mode)
-      (goto-char (point-min))
       (setq
        emacspeak-epub-this-epub epub-file
-       epub-this-epub this-epub 
+       epub-this-epub this-epub
        default-directory directory)
       (emacspeak-speak-load-directory-settings directory)
       (rename-buffer
@@ -920,55 +917,56 @@ Filename may need to  be shell-quoted when called from Lisp."
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
       (eww-update-header-line-format)
-      (emacspeak-auditory-icon 'open-object))
+      (emacspeak-auditory-icon 'open-object)
+      (goto-char (point-min)))
     (funcall-interactively #'switch-to-buffer eww-epub)))
 
-  (defvar emacspeak-epub-google-search-template
-    "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
-    "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
+(defvar emacspeak-epub-google-search-template
+  "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
+  "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
 
 ;;;###autoload
-  (defun emacspeak-epub-google (query)
-    "Search for Epubs from Google Books."
-    (interactive "sGoogle Books Query: ")
-    (cl-declare (special emacspeak-epub-google-search-template))
-    (emacspeak-feeds-atom-display
-     (format emacspeak-epub-google-search-template
-             (url-hexify-string query))))
+(defun emacspeak-epub-google (query)
+  "Search for Epubs from Google Books."
+  (interactive "sGoogle Books Query: ")
+  (cl-declare (special emacspeak-epub-google-search-template))
+  (emacspeak-feeds-atom-display
+   (format emacspeak-epub-google-search-template
+           (url-hexify-string query))))
 
-  (defun emacspeak-epub-next ()
-    "Move to next book."
-    (interactive)
-    (end-of-line)
-    (goto-char (next-single-property-change (point) 'epub))
-    (beginning-of-line)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object))
+(defun emacspeak-epub-next ()
+  "Move to next book."
+  (interactive)
+  (end-of-line)
+  (goto-char (next-single-property-change (point) 'epub))
+  (beginning-of-line)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-object))
 
-  (defun emacspeak-epub-previous ()
-    "Move to previous book."
-    (interactive)
-    (beginning-of-line)
-    (goto-char (previous-single-property-change (point) 'epub))
-    (beginning-of-line)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object))
+(defun emacspeak-epub-previous ()
+  "Move to previous book."
+  (interactive)
+  (beginning-of-line)
+  (goto-char (previous-single-property-change (point) 'epub))
+  (beginning-of-line)
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-object))
 
-  (defun emacspeak-epub-delete ()
-    "Delete EPub under point."
-    (interactive)
-    (let ((file (get-text-property (point) 'epub)))
-      (cond
-       ((null file) (error "No EPub under point."))
-       (t (when (y-or-n-p
-                 (format "Delete %s" file))
-            (delete-file file)
-            (emacspeak-epub-bookshelf-refresh)
-            (emacspeak-auditory-icon 'delete-object))))))
+(defun emacspeak-epub-delete ()
+  "Delete EPub under point."
+  (interactive)
+  (let ((file (get-text-property (point) 'epub)))
+    (cond
+     ((null file) (error "No EPub under point."))
+     (t (when (y-or-n-p
+               (format "Delete %s" file))
+          (delete-file file)
+          (emacspeak-epub-bookshelf-refresh)
+          (emacspeak-auditory-icon 'delete-object))))))
 
-  ;;}}}
-  
-  ;;{{{ Gutenberg Hookup:
+;;}}}
+
+;;{{{ Gutenberg Hookup:
 
 ;;; Offline Catalog:
 ;;; http://www.gutenberg.org/wiki/Gutenberg:Offline_Catalogs
@@ -976,335 +974,333 @@ Filename may need to  be shell-quoted when called from Lisp."
 ;;; Snapshot catalog, enable local searches, and pull desired book to local cache
 ;;; using appropriate recipe.
 ;;; http://www.gutenberg.org/ebooks/<bookid>.epub.?noimages?
-  (defcustom emacspeak-epub-gutenberg-mirror
-    "http://www.gutenberg.org/ebooks/"
-    "Base URL  for Gutenberg mirror."
-    :type 'string
-    :group 'emacspeak-epub)
+(defcustom emacspeak-epub-gutenberg-mirror
+  "http://www.gutenberg.org/ebooks/"
+  "Base URL  for Gutenberg mirror."
+  :type 'string
+  :group 'emacspeak-epub)
 
-  (defcustom emacspeak-epub-gutenberg-suffix ".epub.noimages"
-    "Suffix of book type we retrieve."
-    :type 'string
-    :group 'emacspeak-epub)
+(defcustom emacspeak-epub-gutenberg-suffix ".epub.noimages"
+  "Suffix of book type we retrieve."
+  :type 'string
+  :group 'emacspeak-epub)
 
-  (defun emacspeak-epub-gutenberg-download-uri (book-id)
-    "Return URL  for downloading Gutenberg EBook."
-    (cl-declare (special emacspeak-epub-gutenberg-suffix
-                         emacspeak-epub-gutenberg-mirror))
-    (format "%s%s%s"
-            emacspeak-epub-gutenberg-mirror
-            book-id
-            emacspeak-epub-gutenberg-suffix))
+(defun emacspeak-epub-gutenberg-download-uri (book-id)
+  "Return URL  for downloading Gutenberg EBook."
+  (cl-declare (special emacspeak-epub-gutenberg-suffix
+                       emacspeak-epub-gutenberg-mirror))
+  (format "%s%s%s"
+          emacspeak-epub-gutenberg-mirror
+          book-id
+          emacspeak-epub-gutenberg-suffix))
 
-  (defun emacspeak-epub-gutenberg-browse-uri (book-id)
-    "Return URL  for browsing Gutenberg EBook."
-    (cl-declare (emacspeak-epub-gutenberg-suffix emacspeak-epub-gutenberg-mirror))
-    (format "%s%s"
-            emacspeak-epub-gutenberg-mirror book-id))
+(defun emacspeak-epub-gutenberg-browse-uri (book-id)
+  "Return URL  for browsing Gutenberg EBook."
+  (cl-declare (emacspeak-epub-gutenberg-suffix emacspeak-epub-gutenberg-mirror))
+  (format "%s%s"
+          emacspeak-epub-gutenberg-mirror book-id))
 
 ;;;###autoload
-  (defun emacspeak-epub-gutenberg-download (book-id &optional download)
-    "Open web page for specified book.
+(defun emacspeak-epub-gutenberg-download (book-id &optional download)
+  "Open web page for specified book.
 Place download url for epub in kill ring.
 With interactive prefix arg `download', download the epub."
-    (interactive
-     (list (read-from-minibuffer "Book-Id:")
-           current-prefix-arg))
-    (let ((file
-           (expand-file-name
-            (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
-            emacspeak-epub-library-directory))
-          (browse (emacspeak-epub-gutenberg-browse-uri book-id))
-          (url (emacspeak-epub-gutenberg-download-uri book-id)))
-      (cond
-       ((file-exists-p file)
+  (interactive
+   (list (read-from-minibuffer "Book-Id:")
+         current-prefix-arg))
+  (let ((file
+         (expand-file-name
+          (format "%s%s" book-id emacspeak-epub-gutenberg-suffix)
+          emacspeak-epub-library-directory))
+        (browse (emacspeak-epub-gutenberg-browse-uri book-id))
+        (url (emacspeak-epub-gutenberg-download-uri book-id)))
+    (cond
+     ((file-exists-p file)
+      (browse-url browse)
+      (message "Book available locally as %s" file))
+     (t (kill-new   url)
         (browse-url browse)
-        (message "Book available locally as %s" file))
-       (t (kill-new   url)
-          (browse-url browse)
-          (when download
-            (shell-command
-             (format"%s -O %s '%s'"
-                    emacspeak-epub-wget file url))
-            (message "Downloaded content to %s" file))))))
+        (when download
+          (shell-command
+           (format"%s -O %s '%s'"
+                  emacspeak-epub-wget file url))
+          (message "Downloaded content to %s" file))))))
 
-  (defvar emacspeak-epub-gutenberg-catalog-url
-    "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
-    "URL to Gutenberg index.")
+(defvar emacspeak-epub-gutenberg-catalog-url
+  "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
+  "URL to Gutenberg index.")
 
-  (defvar emacspeak-epub-gutenberg-catalog-file
-    (expand-file-name "catalog/GUTINDEX.ALL" emacspeak-epub-library-directory)
-    "Local filename of catalog.")
+(defvar emacspeak-epub-gutenberg-catalog-file
+  (expand-file-name "catalog/GUTINDEX.ALL" emacspeak-epub-library-directory)
+  "Local filename of catalog.")
 
-  (defun emacspeak-epub-gutenberg-catalog (&optional refresh)
-    "Open Gutenberg catalog.
+(defun emacspeak-epub-gutenberg-catalog (&optional refresh)
+  "Open Gutenberg catalog.
 Fetch if needed, or if refresh is T."
-    (interactive "P")
-    (cl-declare (special emacspeak-epub-gutenberg-catalog-url
-                         emacspeak-epub-gutenberg-catalog-file
-                         emacspeak-epub-wget))
-    (unless emacspeak-epub-wget
-      (error "Please install wget. "))
-    (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
-      (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
-    (when (or refresh
-              (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
-      (call-process
-       emacspeak-epub-wget
-       nil nil nil
-       "-O"
-       emacspeak-epub-gutenberg-catalog-file
-       emacspeak-epub-gutenberg-catalog-url))
-    (view-file-other-window emacspeak-epub-gutenberg-catalog-file)
-    (emacspeak-auditory-icon 'task-done))
+  (interactive "P")
+  (cl-declare (special emacspeak-epub-gutenberg-catalog-url
+                       emacspeak-epub-gutenberg-catalog-file
+                       emacspeak-epub-wget))
+  (unless emacspeak-epub-wget
+    (error "Please install wget. "))
+  (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
+    (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
+  (when (or refresh
+            (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
+    (call-process
+     emacspeak-epub-wget
+     nil nil nil
+     "-O"
+     emacspeak-epub-gutenberg-catalog-file
+     emacspeak-epub-gutenberg-catalog-url))
+  (view-file-other-window emacspeak-epub-gutenberg-catalog-file)
+  (emacspeak-auditory-icon 'task-done))
 
-  ;;}}}
-  ;;{{{ Calibre Hookup:
+;;}}}
+;;{{{ Calibre Hookup:
 
 ;;; Inspired by https://github.com/whacked/calibre-mode.git
 
-  (defcustom emacspeak-epub-calibre-root-dir
-    (expand-file-name "calibre" emacspeak-epub-library-directory)
-    "Root of Calibre library."
-    :type 'directory
-    :group 'emacspeak-epub)
+(defcustom emacspeak-epub-calibre-root-dir
+  (expand-file-name "calibre" emacspeak-epub-library-directory)
+  "Root of Calibre library."
+  :type 'directory
+  :group 'emacspeak-epub)
 
-  (defcustom   emacspeak-epub-calibre-sqlite
-    (executable-find "sqlite3")
-    "Path to sqlite3."
-    :type 'string
-    :group 'emacspeak-epub)
+(defcustom   emacspeak-epub-calibre-sqlite
+  (executable-find "sqlite3")
+  "Path to sqlite3."
+  :type 'string
+  :group 'emacspeak-epub)
 
-  (defvar emacspeak-epub-calibre-db
-    (expand-file-name "metadata.db" emacspeak-epub-calibre-root-dir)
-    "Calibre database.")
+(defvar emacspeak-epub-calibre-db
+  (expand-file-name "metadata.db" emacspeak-epub-calibre-root-dir)
+  "Calibre database.")
 
 ;;; Record returned by queries:
 
-  (cl-defstruct emacspeak-epub-calibre-record
+(cl-defstruct emacspeak-epub-calibre-record
                                         ; "b.title,  b.author_sort, b.path,  d.format"
-    title author  path format)
+  title author  path format)
 
 ;;; Helper: Construct query
-  (defun emacspeak-epub-calibre-build-query (where &optional limit)
-    "Build a Calibre query as SQL statement.
+(defun emacspeak-epub-calibre-build-query (where &optional limit)
+  "Build a Calibre query as SQL statement.
 Argument  `where' is a simple SQL where clause."
-    (concat
-     "select "
-     "b.title,  b.author_sort, b.path,  d.format"
-     " from data as d "
-     "left outer join books as b on d.book = b.id "
-     " where "
-     where
-     (when limit (format "limit %s" limit))))
+  (concat
+   "select "
+   "b.title,  b.author_sort, b.path,  d.format"
+   " from data as d "
+   "left outer join books as b on d.book = b.id "
+   " where "
+   where
+   (when limit (format "limit %s" limit))))
 
-  (defun emacspeak-epub-calibre-query (pattern)
-    "Return  search query matching `pattern'.
+(defun emacspeak-epub-calibre-query (pattern)
+  "Return  search query matching `pattern'.
 Searches for matches in both  Title and Author."
-    (emacspeak-epub-calibre-build-query
-     (format
-      "lower(b.author_sort) LIKE '%%%s%%' OR lower(b.title) LIKE '%%%s%%' "
-      (downcase pattern) (downcase pattern))))
+  (emacspeak-epub-calibre-build-query
+   (format
+    "lower(b.author_sort) LIKE '%%%s%%' OR lower(b.title) LIKE '%%%s%%' "
+    (downcase pattern) (downcase pattern))))
 
-  (defun emacspeak-epub-calibre-title-query (pattern)
-    "Return title search query matching `pattern'."
-    (emacspeak-epub-calibre-build-query
-     (format "lower(b.title) like '%%%s%%' "
-             (downcase pattern))))
+(defun emacspeak-epub-calibre-title-query (pattern)
+  "Return title search query matching `pattern'."
+  (emacspeak-epub-calibre-build-query
+   (format "lower(b.title) like '%%%s%%' "
+           (downcase pattern))))
 
-  (defun emacspeak-epub-calibre-author-query (pattern)
-    "Return author search query matching `pattern'."
-    (emacspeak-epub-calibre-build-query
-     (format "lower(b.author_sort) like '%%%s%%' "
-             (downcase pattern))))
+(defun emacspeak-epub-calibre-author-query (pattern)
+  "Return author search query matching `pattern'."
+  (emacspeak-epub-calibre-build-query
+   (format "lower(b.author_sort) like '%%%s%%' "
+           (downcase pattern))))
 
-  (defun emacspeak-epub-calibre-get-results (query)
-    "Execute query against Calibre DB, and return parsed results."
-    (cl-declare (special emacspeak-epub-calibre-db emacspeak-epub-calibre-sqlite))
-    (let ((fields nil)
-          (result nil)
-          (calibre (get-buffer-create " *Calibre Results *")))
-      (with-current-buffer  calibre
-        (erase-buffer)
-        (setq buffer-undo-list t)
-        (shell-command
-         (format
-          "%s -list -separator '@@' %s \"%s\" 2>/dev/null"
-          emacspeak-epub-calibre-sqlite emacspeak-epub-calibre-db query)
-         calibre)
-        (goto-char (point-min))
-        (while (not (eobp))
-          (setq fields
-                (split-string
-                 (buffer-substring-no-properties (line-beginning-position)  (line-end-position))
-                 "@@"))
-          (when (= (length fields) 4)
-            (push
-             (make-emacspeak-epub-calibre-record
-              :title (cl-first fields)
-              :author (cl-second fields)
-              :path (cl-third fields)
-              :format (cl-fourth fields))
-             result))
-          (forward-line 1)))
-      result))
+(defun emacspeak-epub-calibre-get-results (query)
+  "Execute query against Calibre DB, and return parsed results."
+  (cl-declare (special emacspeak-epub-calibre-db emacspeak-epub-calibre-sqlite))
+  (let ((fields nil)
+        (result nil)
+        (calibre (get-buffer-create " *Calibre Results *")))
+    (with-current-buffer  calibre
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (shell-command
+       (format
+        "%s -list -separator '@@' %s \"%s\" 2>/dev/null"
+        emacspeak-epub-calibre-sqlite emacspeak-epub-calibre-db query)
+       calibre)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (setq fields
+              (split-string
+               (buffer-substring-no-properties (line-beginning-position)  (line-end-position))
+               "@@"))
+        (when (= (length fields) 4)
+          (push
+           (make-emacspeak-epub-calibre-record
+            :title (cl-first fields)
+            :author (cl-second fields)
+            :path (cl-third fields)
+            :format (cl-fourth fields))
+           result))
+        (forward-line 1)))
+    result))
 
-  ;;}}}
-  ;;{{{ Add  to bookshelf using calibre search:
+;;}}}
+;;{{{ Add  to bookshelf using calibre search:
 
-  (defvar emacspeak-epub-calibre-results nil
-    "Results from most recent Calibre search.")
+(defvar emacspeak-epub-calibre-results nil
+  "Results from most recent Calibre search.")
 
-  (defun emacspeak-epub-bookshelf-calibre-search (pattern)
-    "Add results of an title/author search to current bookshelf."
-    (interactive "sSearch For: ")
-    (cl-declare (special emacspeak-epub-calibre-root-dir 
-                         emacspeak-epub-calibre-results))
-    (unless (eq major-mode 'emacspeak-epub-mode)
-      (error "Not in an Emacspeak Epub Bookshelf."))
-    (let ((emacspeak-speak-messages nil)
-          (results 
-           (emacspeak-epub-calibre-get-results 
-            (emacspeak-epub-calibre-query pattern))))
-      (when (= 0 (length results)) (error "No results found, check query."))
-      (cl-loop 
-       for r in results 
-       do
-       (emacspeak-epub-bookshelf-add-directory
-        (expand-file-name (emacspeak-epub-calibre-record-path r)
-                          emacspeak-epub-calibre-root-dir)))
-      (setq emacspeak-epub-calibre-results results)
-      (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+(defun emacspeak-epub-bookshelf-calibre-search (pattern)
+  "Add results of an title/author search to current bookshelf."
+  (interactive "sSearch For: ")
+  (cl-declare (special emacspeak-epub-calibre-root-dir
+                       emacspeak-epub-calibre-results))
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in an Emacspeak Epub Bookshelf."))
+  (let ((emacspeak-speak-messages nil)
+        (results
+         (emacspeak-epub-calibre-get-results
+          (emacspeak-epub-calibre-query pattern))))
+    (when (= 0 (length results)) (error "No results found, check query."))
+    (cl-loop
+     for r in results
+     do
+     (emacspeak-epub-bookshelf-add-directory
+      (expand-file-name (emacspeak-epub-calibre-record-path r)
+                        emacspeak-epub-calibre-root-dir)))
+    (setq emacspeak-epub-calibre-results results)
+    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
-  (defun emacspeak-epub-bookshelf-calibre-author (pattern)
-    "Add results of an author search to current bookshelf."
-    (interactive "sAuthor: ")
-    (cl-declare (special emacspeak-epub-calibre-root-dir
-                         emacspeak-epub-calibre-results))
-    (unless (eq major-mode 'emacspeak-epub-mode)
-      (error "Not in an Emacspeak Epub Bookshelf."))
-    (let ((emacspeak-speak-messages nil)
-          (results 
-           (emacspeak-epub-calibre-get-results 
-            (emacspeak-epub-calibre-author-query pattern))))
-      (when (= 0 (length results)) (error "No results found, check query."))
-      (cl-loop 
-       for r in results 
-       do
-       (emacspeak-epub-bookshelf-add-directory
-        (expand-file-name (emacspeak-epub-calibre-record-path r)
-                          emacspeak-epub-calibre-root-dir)))
-      (setq emacspeak-epub-calibre-results results)
-      (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+(defun emacspeak-epub-bookshelf-calibre-author (pattern)
+  "Add results of an author search to current bookshelf."
+  (interactive "sAuthor: ")
+  (cl-declare (special emacspeak-epub-calibre-root-dir
+                       emacspeak-epub-calibre-results))
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in an Emacspeak Epub Bookshelf."))
+  (let ((emacspeak-speak-messages nil)
+        (results
+         (emacspeak-epub-calibre-get-results
+          (emacspeak-epub-calibre-author-query pattern))))
+    (when (= 0 (length results)) (error "No results found, check query."))
+    (cl-loop
+     for r in results
+     do
+     (emacspeak-epub-bookshelf-add-directory
+      (expand-file-name (emacspeak-epub-calibre-record-path r)
+                        emacspeak-epub-calibre-root-dir)))
+    (setq emacspeak-epub-calibre-results results)
+    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
-  (defun emacspeak-epub-bookshelf-calibre-title (pattern)
-    "Add results of an title search to current bookshelf."
-    (interactive "sTitle: ")
-    (cl-declare (special emacspeak-epub-calibre-root-dir
-                         emacspeak-epub-calibre-results))
-    (unless (eq major-mode 'emacspeak-epub-mode)
-      (error "Not in an Emacspeak Epub Bookshelf."))
-    (let ((emacspeak-speak-messages nil)
-          (results 
-           (emacspeak-epub-calibre-get-results 
-            (emacspeak-epub-calibre-title-query pattern))))
-      (when (= 0 (length results)) (error "No results found, check query."))
-      (cl-loop 
-       for r in results 
-       do
-       (emacspeak-epub-bookshelf-add-directory
-        (expand-file-name (emacspeak-epub-calibre-record-path r)
-                          emacspeak-epub-calibre-root-dir)))
-      (setq emacspeak-epub-calibre-results results)
-      (dtk-speak-and-echo  (format "Added %d books" (length results)))))
+(defun emacspeak-epub-bookshelf-calibre-title (pattern)
+  "Add results of an title search to current bookshelf."
+  (interactive "sTitle: ")
+  (cl-declare (special emacspeak-epub-calibre-root-dir
+                       emacspeak-epub-calibre-results))
+  (unless (eq major-mode 'emacspeak-epub-mode)
+    (error "Not in an Emacspeak Epub Bookshelf."))
+  (let ((emacspeak-speak-messages nil)
+        (results
+         (emacspeak-epub-calibre-get-results
+          (emacspeak-epub-calibre-title-query pattern))))
+    (when (= 0 (length results)) (error "No results found, check query."))
+    (cl-loop
+     for r in results
+     do
+     (emacspeak-epub-bookshelf-add-directory
+      (expand-file-name (emacspeak-epub-calibre-record-path r)
+                        emacspeak-epub-calibre-root-dir)))
+    (setq emacspeak-epub-calibre-results results)
+    (dtk-speak-and-echo  (format "Added %d books" (length results)))))
 
-  (define-derived-mode emacspeak-calibre-mode special-mode
-    "Calibre Interaction On The Emacspeak Audio Desktop"
-    "A Calibre Front-end.
+(define-derived-mode emacspeak-calibre-mode special-mode
+  "Calibre Interaction On The Emacspeak Audio Desktop"
+  "A Calibre Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\<emacspeak-calibre-mode-map>
 \\{emacspeak-calibre-mode-map}"
-    (setq buffer-undo-list t)
-    (setq header-line-format
-          (propertize "Calibre Results" 'face 'bold))
-    (goto-char (point-min))
-    (cd-absolute emacspeak-epub-library-directory))
+  (setq buffer-undo-list t)
+  (setq header-line-format
+        (propertize "Calibre Results" 'face 'bold))
+  (goto-char (point-min))
+  (cd-absolute emacspeak-epub-library-directory))
 
-  (defun emacspeak-epub-calibre-dired-at-point ()
-    "Open directory containing current result."
-    (interactive)
-    (unless (eq major-mode 'emacspeak-calibre-mode)
-      (error "Not in a Calibre Results buffer"))
-    (let ((path (get-text-property (point) 'path)))
-      (unless path (error "No valid result here"))
-      (dired (expand-file-name path emacspeak-epub-calibre-root-dir))
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-mode-line)))
+(defun emacspeak-epub-calibre-dired-at-point ()
+  "Open directory containing current result."
+  (interactive)
+  (unless (eq major-mode 'emacspeak-calibre-mode)
+    (error "Not in a Calibre Results buffer"))
+  (let ((path (get-text-property (point) 'path)))
+    (unless path (error "No valid result here"))
+    (dired (expand-file-name path emacspeak-epub-calibre-root-dir))
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
-  (cl-declaim (special emacspeak-calibre-mode-map))
-  (define-key emacspeak-calibre-mode-map "\C-m" 'emacspeak-epub-calibre-dired-at-point)
+(cl-declaim (special emacspeak-calibre-mode-map))
+(define-key emacspeak-calibre-mode-map "\C-m" 'emacspeak-epub-calibre-dired-at-point)
 
-  (defun emacspeak-epub-calibre-results ()
-    "Show most recent Calibre search results."
-    (interactive)
-    (cl-declare (special emacspeak-epub-calibre-results))
-    (let ((inhibit-read-only  t)
-          (buffer (get-buffer-create "*Calibre Results*"))
-          (start nil))
-      (with-current-buffer buffer
-        (erase-buffer)
-        (setq buffer-undo-list t)
-        (goto-char (point-min))
-        (insert "Calibre Results\n\n")
-        (cl-loop
-         for r in emacspeak-epub-calibre-results
-         do
-         (setq start (point))
-         (insert
-          (format "%s\t%s\t%s"
-                  (emacspeak-epub-calibre-record-title r)
-                  (emacspeak-epub-calibre-record-author r)
-                  (emacspeak-epub-calibre-record-format r)))
-         (put-text-property start (point)
-                            'path (emacspeak-epub-calibre-record-path r))
-         (insert "\n"))
-        (setq buffer-read-only t)
-        (emacspeak-calibre-mode)
-        (goto-char (point-min))
-        (forward-line 2))
-      (switch-to-buffer buffer)
-      (emacspeak-auditory-icon 'open-object)
-      (emacspeak-speak-line)))
+(defun emacspeak-epub-calibre-results ()
+  "Show most recent Calibre search results."
+  (interactive)
+  (cl-declare (special emacspeak-epub-calibre-results))
+  (let ((inhibit-read-only  t)
+        (buffer (get-buffer-create "*Calibre Results*"))
+        (start nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (goto-char (point-min))
+      (insert "Calibre Results\n\n")
+      (cl-loop
+       for r in emacspeak-epub-calibre-results
+       do
+       (setq start (point))
+       (insert
+        (format "%s\t%s\t%s"
+                (emacspeak-epub-calibre-record-title r)
+                (emacspeak-epub-calibre-record-author r)
+                (emacspeak-epub-calibre-record-format r)))
+       (put-text-property start (point)
+                          'path (emacspeak-epub-calibre-record-path r))
+       (insert "\n"))
+      (setq buffer-read-only t)
+      (emacspeak-calibre-mode)
+      (goto-char (point-min))
+      (forward-line 2))
+    (switch-to-buffer buffer)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
 
-  ;;}}}
-  ;;{{{ Locate epub using Locate:
-  (defun emacspeak-epub-locate-epubs (pattern)
-    "Locate epub files using locate."  (interactive "sSearch Pattern: ")
-    (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
-      (locate-with-filter pattern ".epub$")))
+;;}}}
+;;{{{ Locate epub using Locate:
+(defun emacspeak-epub-locate-epubs (pattern)
+  "Locate epub files using locate."  (interactive "sSearch Pattern: ")
+  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
+    (locate-with-filter pattern ".epub$")))
 
-  ;;}}}
-  ;;{{{Nov Integration:
+;;}}}
+;;{{{Nov Integration:
 
-  (defun emacspeak-epub-open-with-nov ()
-    "Open ebook at point in nov-mode."
-    (interactive)
-    (cl-assert (eq major-mode 'emacspeak-epub-mode)  nil  "Buffer is not
+(defun emacspeak-epub-open-with-nov ()
+  "Open ebook at point in nov-mode."
+  (interactive)
+  (cl-assert (eq major-mode 'emacspeak-epub-mode)  nil  "Buffer is not
 in emacspeak-epub-mode")
-    (let ((epub (get-text-property (point) 'epub)))
-      (cl-assert epub nil "No epub  at point.")
-      (cl-assert (file-exists-p epub) nil "File does not exist")
-      (unless (locate-library "nov") nil "Package nov is  not installed.")
-      (funcall-interactively #'find-file epub)))
+  (let ((epub (get-text-property (point) 'epub)))
+    (cl-assert epub nil "No epub  at point.")
+    (cl-assert (file-exists-p epub) nil "File does not exist")
+    (unless (locate-library "nov") nil "Package nov is  not installed.")
+    (funcall-interactively #'find-file epub)))
 
-  ;;}}}
-  (provide 'emacspeak-epub)
-  ;;{{{ end of file
+;;}}}
+(provide 'emacspeak-epub)
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; end:
 
-
-  ;;}}}
-  
+;;}}}
