@@ -864,6 +864,9 @@ Filename may need to  be shell-quoted when called from Lisp."
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
 
+(defvar-local epub-this-epub nil
+  "EPub handle.")
+
 (declare-function eww-update-header-line-format "eww" nil)
 
 ;;;###autoload
@@ -874,7 +877,8 @@ Filename may need to  be shell-quoted when called from Lisp."
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-speak-directory-settings eww-data
+  (cl-declare (special emacspeak-speak-directory-settings
+                       epub-this-epub eww-data
                        emacspeak-epub-this-epub))
   (let* ((gc-cons-threshold 8000000)
          (directory
@@ -905,7 +909,8 @@ Filename may need to  be shell-quoted when called from Lisp."
     (with-current-buffer eww-epub
       (eww-mode)
       (setq
-       emacspeak-epub-this-epub this-epub
+       emacspeak-epub-this-epub epub-file
+       epub-this-epub this-epub 
        default-directory directory)
       (emacspeak-speak-load-directory-settings directory)
       (rename-buffer
