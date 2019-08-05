@@ -881,10 +881,6 @@ Filename may need to  be shell-quoted when called from Lisp."
        emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
     (libxml-parse-xml-region (point-min) (point-max))))
 
-
-
-
-
 ;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
   "Display entire book  using EWW from EPub."
