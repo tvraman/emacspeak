@@ -240,23 +240,22 @@
      (puthash e 1 h)))
 (nreverse unique)))
 
-(defun emacspeak-epub-do-nav-files (file)
+(defun emacspeak-epub-nav-files (epub-file)
   "Return ordered list of content files from navMap."
-  (let* ((this-epub (emacspeak-epub-make-epub file))
+  (let* ((this-epub (emacspeak-epub-make-epub epub-file))
          (toc (emacspeak-epub-toc this-epub))
          (base (emacspeak-epub-base this-epub))
          (ncx nil))
     (with-current-buffer (emacspeak-epub-get-contents this-epub toc)
       (setq ncx (libxml-parse-xml-region (point-min) (point-max)))
-      (prog1
-          (ems--epub-uniquify-list
+      (kill-buffer))
+    (ems--epub-uniquify-list
            (cl-loop
             for n in (dom-by-tag ncx 'content)
             collect
             (concat
              base
-             (cl-first (split-string (dom-attr n 'src) "#")))))
-        (kill-buffer)))))
+             (cl-first (split-string (dom-attr n 'src) "#")))))))
 
 (defvar emacspeak-epub-opf-path-pattern
   ".opf$"
@@ -755,7 +754,7 @@ Filename may need to  be shell-quoted when called from Lisp."
             (format "cd %s; pwd" 
                     (file-name-directory epub-file)))))
          (buffer (get-buffer-create "FullText EPub"))
-         (files (emacspeak-epub-do-nav-files epub-file))
+         (files (emacspeak-epub-nav-files epub-file))
          (inhibit-read-only t)
          (command nil))
     (with-current-buffer buffer
