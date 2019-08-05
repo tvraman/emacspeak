@@ -56,10 +56,14 @@
 ;;}}}
 ;;{{{ helper functions:
 
-(defsubst tvr-time-it (start what)
+(defsubst tvr-time-it (what &optional start)
   "Time code."
+  (or start (setq start (current-time)))
   (message "<%s %.4f %d gcs %.4f>"
-           what (float-time (time-subtract (current-time) start))
+           (if (stringp what)
+               what
+             (format "%s" what))
+           (float-time (time-subtract (current-time) start))
            gcs-done gc-elapsed))
 
 (defun load-library-if-available (lib)
@@ -69,7 +73,7 @@
      (condition-case err
          (progn
            (load-library lib)
-           (tvr-time-it start lib))
+           (tvr-time-it lib start))
        (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
 ;;}}}
@@ -168,7 +172,7 @@
      (start-process
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
-     (tvr-time-it after-start "after-init"))))
+     (tvr-time-it "after-init" after-start))))
 
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
