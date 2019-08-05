@@ -282,17 +282,30 @@
   base ; directory in archive that holds toc.ncx
   opf ; path to content.opf
   ls ; list of files in archive
+title  author
   )
 
 (defun emacspeak-epub-make-epub  (epub-file)
   "Construct an epub object given an epub filename."
+(cl-declare (special emacspeak-epub-opf-xsl))
   (let ((ls (emacspeak-epub-do-ls epub-file))
         (toc (emacspeak-epub-do-toc epub-file))
-        (opf (emacspeak-epub-do-opf epub-file)))
+        (opf (emacspeak-epub-do-opf epub-file))
+(meta nil))
     (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
     (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
+(setq meta 
+(split-string
+   (shell-command-to-string
+    (format "%s -c -qq %s %s |  %s --nonet --novalid %s -"
+            emacspeak-epub-zip-extract
+             (expand-file-name epub-file) opf
+            emacspeak-xslt-program emacspeak-epub-opf-xsl))
+   "\n" 'omit-nulls))
     (make-emacspeak-epub
      :path (expand-file-name epub-file)
+:title (cl-first meta)
+:author (cl-second meta)
      :toc toc
      :base (file-name-directory toc)
      :opf opf
