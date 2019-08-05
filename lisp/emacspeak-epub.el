@@ -243,19 +243,24 @@
 (defun emacspeak-epub-nav-files (epub-file)
   "Return ordered list of content files from navMap."
   (let* ((this-epub (emacspeak-epub-make-epub epub-file))
+         (navs nil)
+         (hash (make-hash-table :test 'equal))
+         (value nil)
          (toc (emacspeak-epub-toc this-epub))
          (base (emacspeak-epub-base this-epub))
          (ncx nil))
     (with-current-buffer (emacspeak-epub-get-contents this-epub toc)
       (setq ncx (libxml-parse-xml-region (point-min) (point-max)))
       (kill-buffer))
-    (ems--epub-uniquify-list
-           (cl-loop
-            for n in (dom-by-tag ncx 'content)
-            collect
-            (concat
-             base
-             (cl-first (split-string (dom-attr n 'src) "#")))))))
+    (cl-loop
+     for n in (dom-by-tag ncx 'content)
+     do
+     (setq value
+           (concat base (cl-first (split-string (dom-attr n 'src) "#"))))
+     (unless (gethash value hash)
+       (puthash value 1 hash)
+       (push value navs)))
+    (nreverse navs)))
 
 (defvar emacspeak-epub-opf-path-pattern
   ".opf$"
