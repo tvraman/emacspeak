@@ -908,7 +908,6 @@ Filename may need to  be shell-quoted when called from Lisp."
      (setq dom (ems--dom-from-archive epub-file f))
      (with-current-buffer eww-epub
        (setq buffer-undo-list t)
-       (goto-char (point-max))
        (shr-insert-document (dom-by-tag dom 'body))))
     (with-current-buffer eww-epub
       (eww-mode)
