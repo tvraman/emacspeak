@@ -879,8 +879,7 @@ Filename may need to  be shell-quoted when called from Lisp."
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (cl-declare (special emacspeak-speak-directory-settings eww-data
                        epub-this-epub emacspeak-epub-this-epub))
-  (let* ((gc-cons-threshold 8000000)
-         (directory
+  (let* ((directory
           (string-trim
            (shell-command-to-string
             (format "cd %s; pwd" 
