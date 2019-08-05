@@ -912,7 +912,7 @@ Filename may need to  be shell-quoted when called from Lisp."
        (emacspeak-speak-load-directory-settings directory)
        (goto-char (point-min))
        (emacspeak-auditory-icon 'open-object))
-     (funcall-interactively #'switch-to-buffer eww-epub)))
+     (funcall-interactively #'switch-to-buffer eww-epub))))
 
   (defvar emacspeak-epub-google-search-template
     "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
@@ -1298,4 +1298,4 @@ in emacspeak-epub-mode")
 
 
   ;;}}}
-  )
+  
