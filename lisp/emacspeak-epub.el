@@ -924,10 +924,13 @@ Filename may need to  be shell-quoted when called from Lisp."
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
       (eww-update-header-line-format)
-      (emacspeak-auditory-icon 'open-object)
-      (when emacspeak-web-post-process-hook
-        (emacspeak-webutils-run-post-process-hook)))
-    (funcall-interactively #'switch-to-buffer eww-epub)))
+      (emacspeak-auditory-icon 'open-object))
+    (funcall-interactively #'switch-to-buffer eww-epub)
+    (cond
+     (emacspeak-web-post-process-hook
+      (emacspeak-webutils-run-post-process-hook))
+     
+     (t (goto-char (point-min))))))
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
