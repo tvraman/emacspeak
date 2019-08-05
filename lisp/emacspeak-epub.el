@@ -867,6 +867,7 @@ Filename may need to  be shell-quoted when called from Lisp."
 
 (defvar-local emacspeak-epub-this-epub nil
   "Buffer local variable that tracks epub being displayed.")
+(declare-function eww-update-header-line-format "eww" nil)
 
 ;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
@@ -910,13 +911,14 @@ Filename may need to  be shell-quoted when called from Lisp."
        emacspeak-epub-this-epub epub-file
        default-directory directory)
       (emacspeak-speak-load-directory-settings directory)
+      (rename-buffer (format "%s: %s"
+                             (emacspeak-epub-title this-epub)
+                             (emacspeak-epub-author this-epub)))
       (goto-char (point-min))
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
-      (emacspeak-auditory-icon 'open-object)
-      (rename-buffer (format "%s: %s"
-                             (emacspeak-epub-title this-epub)
-                             (emacspeak-epub-author this-epub))))
+      (eww-update-header-line-format)
+      (emacspeak-auditory-icon 'open-object))
     (funcall-interactively #'switch-to-buffer eww-epub)))
 
   (defvar emacspeak-epub-google-search-template
