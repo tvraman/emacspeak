@@ -758,33 +758,35 @@ Filename may need to  be shell-quoted when called from Lisp."
            (shell-command-to-string
             (format "cd %s; pwd" 
                     (file-name-directory epub-file)))))
-         (buffer (get-buffer-create "FullText EPub"))
+         (eww-epub (get-buffer-create "Full Text EPub"))
          (files (emacspeak-epub-nav-files epub-file))
+         (dom nil)
          (inhibit-read-only t)
          (command nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (cl-loop for f in files
-               do
-               (setq command
-                     (format "unzip -c -qq %s %s "
-                             epub-file 
-                             (shell-quote-argument f)))
-               (insert (shell-command-to-string command))
-               (goto-char (point-max)))
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (kill-buffer buffer)
-           (setq
-            emacspeak-epub-this-epub epub-file
-            default-directory directory)
-           (emacspeak-speak-load-directory-settings directory)
-           (emacspeak-auditory-icon 'open-object)
-           (emacspeak-speak-mode-line))
-       'at-end)
-      (browse-url-of-buffer))))
+    (cl-loop
+     for f in files
+     do
+     (with-temp-buffer
+       (setq buffer-undo-list t)
+       (setq command
+             (format "unzip -c -qq %s %s "
+                     epub-file (shell-quote-argument f)))
+       (insert (shell-command-to-string command))
+       (setq dom
+             (libxml-parse-xml-region (point-min) (point-max)))
+       )
+     (with-current-buffer eww-epub
+       (goto-char (point-max))
+       (shr-insert-document (dom-by-tag dom 'body))))
+    (with-current-buffer eww-epub
+      (eww-mode)
+      (setq
+       emacspeak-epub-this-epub epub-file
+       default-directory directory)
+      (emacspeak-speak-load-directory-settings directory)
+      (goto-char (point-min))
+      (emacspeak-auditory-icon 'open-object))
+    (funcall-interactively #'switch-to-buffer eww-epub)))
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
@@ -1292,5 +1294,6 @@ in emacspeak-epub-mode")
 ;;; local variables:
 ;;; folded-file: t
 ;;; end:
+
 
 ;;}}}
