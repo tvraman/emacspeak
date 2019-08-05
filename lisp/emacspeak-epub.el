@@ -355,10 +355,10 @@
             emacspeak-xslt-program emacspeak-epub-opf-xsl))
    "\n" 'omit-nulls))
 
-(defvar emacspeak-epub-this-epub nil
+(defvar-local emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
 
-(make-variable-buffer-local 'emacspeak-epub-this-epub)
+
 
 (defun emacspeak-epub-browse-content (epub element _ffragment &optional style)
   "Browse content in specified element of EPub."
