@@ -1986,8 +1986,9 @@ interactive prefix arg `delete', delete that mark instead."
       (cl-assert  type nil "Mark type is not set.")
       (cl-assert book nil "Book not set.")
       (cond
-       ((emacspeak-eww-jump-to-mark bm) t)
-       (t
+       ((emacspeak-eww-jump-to-mark bm) t) ;;; Found a buffer with
+;;; book open.
+       (t ;;; so we need to first open the book:
         (setq handler
               (cond
                ((eq type 'daisy) #'emacspeak-bookshare-eww)
