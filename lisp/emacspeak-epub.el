@@ -227,19 +227,6 @@
      ((= 0 (length result)) nil)
      (t (substring result 0 -1)))))
 
-;;; Helper: uniquify list:
-
-(defun ems--epub-uniquify-list (l)
-  "Return list uniquified."
-  (let ((h (make-hash-table :test 'equal))
-        (unique nil))
-  (cl-loop
-   for e in l do
-   (unless (gethash e h)
-     (push e unique)
-     (puthash e 1 h)))
-(nreverse unique)))
-
 (defun emacspeak-epub-nav-files (epub-file)
   "Return ordered list of content files from navMap."
   (let* ((this-epub (emacspeak-epub-make-epub epub-file))
