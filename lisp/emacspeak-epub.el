@@ -864,9 +864,6 @@ Filename may need to  be shell-quoted when called from Lisp."
   (let ((e (emacspeak-epub-make-epub epub-file)))
     (emacspeak-epub-browse-toc e)))
 
-
-(defvar-local emacspeak-epub-this-epub nil
-  "Buffer local variable that tracks epub being displayed.")
 (declare-function eww-update-header-line-format "eww" nil)
 
 ;;;###autoload
@@ -908,7 +905,7 @@ Filename may need to  be shell-quoted when called from Lisp."
     (with-current-buffer eww-epub
       (eww-mode)
       (setq
-       emacspeak-epub-this-epub epub-file
+       emacspeak-epub-this-epub this-epub
        default-directory directory)
       (emacspeak-speak-load-directory-settings directory)
       (rename-buffer
