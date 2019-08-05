@@ -767,7 +767,6 @@ Filename may need to  be shell-quoted when called from Lisp."
       (setq buffer-undo-list t)
       (cl-loop for f in files
                do
-               (insert (format "<!-- %s -->" f))
                (setq command
                      (format "unzip -c -qq %s %s "
                              epub-file 
