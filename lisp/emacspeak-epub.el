@@ -278,11 +278,13 @@
    (shell-command-to-string (format emacspeak-epub-ls-command file))))
 
 (cl-defstruct emacspeak-epub
-  path ; path to .epub file
-  toc ; path to .ncx file in archive
-  base ; directory in archive that holds toc.ncx
-  opf ; path to content.opf
-  ls ; list of files in archive
+  path                       ; path to .epub file
+  toc                        ; path to .ncx file in archive
+  base                       ; directory in archive that holds toc.ncx
+  opf                        ; path to content.opf
+  ls                         ; list of files in archive
+  html                       ; html files in archive
+  nav-files ; content files found from navMap
   title  author
   )
 
