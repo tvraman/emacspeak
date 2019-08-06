@@ -284,7 +284,7 @@
   opf                        ; path to content.opf
   ls                         ; list of files in archive
   html                       ; html files in archive
-  nav-files ; content files found from navMap
+  navs ; content files found from navMap
   title  author
   )
 
