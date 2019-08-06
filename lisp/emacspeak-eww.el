@@ -1809,7 +1809,6 @@ Warning, this is fragile, and depends on a stable id for the
 (defun emacspeak-eww-tags-at-point ()
   "Display tags at point."
   (interactive)
-  (emacspeak-eww-prepare-eww)
   (let ((props (text-properties-at (point)))
         (tags nil))
     (setq tags
