@@ -208,6 +208,18 @@
 
 ;;}}}
 ;;{{{ EPub Implementation:
+;;; Helper: dom from file in archive
+(defsubst ems--dom-from-archive (epub-file file)
+  "Return DOM from specified file in epub archive."
+  (cl-declare (special emacspeak-epub-zip-extract))
+  (with-temp-buffer
+    (setq buffer-undo-list t)
+    (insert
+     (shell-command-to-string
+      (format
+       "%s -c -qq %s %s "
+       emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
+    (libxml-parse-xml-region (point-min) (point-max))))
 
 (defvar emacspeak-epub-toc-path-pattern
   ".ncx$"
@@ -451,18 +463,6 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;}}}
 ;;{{{ Epub Mode:
-;;; Helper: dom from file in archive
-(defsubst ems--dom-from-archive (epub-file file)
-  "Return DOM from specified file in epub archive."
-  (cl-declare (special emacspeak-epub-zip-extract))
-  (with-temp-buffer
-    (setq buffer-undo-list t)
-    (insert
-     (shell-command-to-string
-      (format
-       "%s -c -qq %s %s "
-       emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
-    (libxml-parse-xml-region (point-min) (point-max))))
 
 (defun emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
@@ -1028,7 +1028,6 @@ Filename may need to  be shell-quoted when called from Lisp."
           (emacspeak-auditory-icon 'delete-object))))))
 
 ;;}}}
-
 ;;{{{ Gutenberg Hookup:
 
 ;;; Offline Catalog:
