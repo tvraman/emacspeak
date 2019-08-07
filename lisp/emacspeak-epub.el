@@ -324,7 +324,8 @@
      :toc toc
      :base (file-name-directory toc)
      :opf opf
-     :ls ls)))
+     :ls ls
+     :html (remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls))))
 
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
