@@ -1,4 +1,4 @@
-;;; emacspeak-epub.el --- epubs Front-end for emacspeak desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-epub.el --- On epubs emacspeak desktop  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-epub.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for EPUBS Talking Books
@@ -71,8 +71,10 @@
 ;;;
 ;;; In the simplest case, EBooks can be placed under a specific
 ;;; directory (with sub-directories as needed).
-;;; Customize   user option @code{emacspeak-epub-library-directory}     to point to this location.
-;;; Here is  a quick summary of commands for organizing, saving and opening  a bookshelf:
+;;; Customize   user option @code{emacspeak-epub-library-directory}
+;;; to point to this location.
+;;; Here is  a quick summary of commands for
+;;; organizing, saving and opening  a bookshelf:
 ;;;
 ;;; @table @kbd
 ;;; @item a
@@ -115,16 +117,20 @@
 ;;; @item g
 ;;; emacspeak-epub-gutenberg-download
 ;;; @end table
-;;; Once downloaded, these EBooks can be organized under  @code{emacspeak-epub-library-directory};
-;;; For  more advanced usage, see the next section on integrating with Calibre catalogs.
+;;; Once downloaded, these EBooks can be
+;;; organized under  @code{emacspeak-epub-library-directory}
+;;; For  more advanced usage, see the next section
+;;; on integrating with Calibre catalogs.
 ;;;
 ;;; @subsection Calibre Integration
 ;;;
-;;; Project Calibre  enables the indexing and searching of large EBook collections.
+;;; Project Calibre  enables the indexing and searching of
+;;; large EBook collections.
 ;;; Read the Calibre documentation for organizing and indexing your EBook library.
 ;;; See user options named @code{emacspeak-epub-calibre-*} for
 ;;; customizing  emacspeak to work with Calibre.
-;;; Once set up, Calibre integration provides the following commands from the @emph{bookshelf} buffer:
+;;; Once set up, Calibre integration provides
+;;; the following commands from the @emph{bookshelf} buffer:
 ;;;
 ;;; @table @kbd
 ;;; @item /
@@ -338,7 +344,8 @@
   "Return buffer containing contents of element from epub."
   (cl-declare (special emacspeak-epub-scratch))
   (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
-  (unless (member element (emacspeak-epub-ls epub)) (error "Element not found in EPub. "))
+  (unless (member element (emacspeak-epub-ls epub))
+    (error "Element not found in EPub. "))
   (let ((buffer (get-buffer-create emacspeak-epub-scratch)))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
@@ -429,7 +436,8 @@ Useful if table of contents in toc.ncx is empty."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda nil
-           (cl-declare (special emacspeak-we-url-executor emacspeak-epub-this-epub))
+           (cl-declare (special emacspeak-we-url-executor
+                                emacspeak-epub-this-epub))
            (setq emacspeak-epub-this-epub epub
                  emacspeak-we-url-executor 'emacspeak-epub-url-executor)
            (emacspeak-speak-buffer))
@@ -454,7 +462,8 @@ Useful if table of contents in toc.ncx is empty."
   (cond
    ((not (string-match "^http://" url)) ; relative url
     (when (string-match "^cid:" url) (setq url (substring url 4)))
-    (when (string-match "^file:" url) (setq url  (cl-second (split-string url  "/tmp/"))))
+    (when (string-match "^file:" url)
+      (setq url  (cl-second (split-string url  "/tmp/"))))
     (let* ((fields (split-string url "#"))
            (locator (cl-first fields))
            (fragment (cl-second fields)))
@@ -591,7 +600,8 @@ Letters do not insert themselves; instead, they are commands.
 ;;}}}
 ;;{{{ Bookshelf Implementation:
 (defcustom emacspeak-epub-bookshelf-directory
-  (file-name-as-directory(expand-file-name "bsf" emacspeak-epub-library-directory))
+  (file-name-as-directory
+   (expand-file-name "bsf" emacspeak-epub-library-directory))
   "Directory where we keep .bsf files defining various bookshelves."
   :type 'directory
   :group 'emacspeak-epub)
@@ -660,7 +670,8 @@ Interactive prefix arg `overwrite' will overwrite existing file."
   (interactive "sBookshelf Name: \nP")
   (cl-declare (special emacspeak-epub-bookshelf-directory))
   (setq name (format "%s.bsf" name))
-  (let ((bookshelf (expand-file-name ".bookshelf" emacspeak-epub-library-directory))
+  (let ((bookshelf
+         (expand-file-name ".bookshelf" emacspeak-epub-library-directory))
         (bsf (expand-file-name name emacspeak-epub-bookshelf-directory)))
     (when (and overwrite (file-exists-p bsf)) (delete-file bsf))
     (copy-file bookshelf bsf)
@@ -805,7 +816,8 @@ No book files are deleted."
       (print  emacspeak-epub-db  buff)
       (save-buffer buff)
       (kill-buffer buff)
-      (when (called-interactively-p 'interactive) (emacspeak-auditory-icon 'save-object)))))
+      (when (called-interactively-p 'interactive)
+        (emacspeak-auditory-icon 'save-object)))))
 
 (defun emacspeak-epub-bookshelf-load ()
   "Load bookshelf metadata from disk."
@@ -861,7 +873,9 @@ For detailed documentation, see \\[emacspeak-epub-mode]"
     (error "Please install zipinfo. "))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
     (unless (buffer-live-p buffer)
-      (with-current-buffer (get-buffer-create emacspeak-epub-interaction-buffer) (emacspeak-epub-mode)))
+      (with-current-buffer (get-buffer-create
+                            emacspeak-epub-interaction-buffer)
+        (emacspeak-epub-mode)))
     (pop-to-buffer emacspeak-epub-interaction-buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
@@ -987,7 +1001,8 @@ Filename may need to  be shell-quoted when called from Lisp."
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
-  "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
+  "REST  end-point for performing Google Books Search
+to find Epubs  having full viewability.")
 
 ;;;###autoload
 (defun emacspeak-epub-google (query)
@@ -1106,8 +1121,10 @@ Fetch if needed, or if refresh is T."
                        emacspeak-epub-wget))
   (unless emacspeak-epub-wget
     (error "Please install wget. "))
-  (unless (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
-    (make-directory (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
+  (unless
+      (file-exists-p (file-name-directory emacspeak-epub-gutenberg-catalog-file))
+    (make-directory
+     (file-name-directory emacspeak-epub-gutenberg-catalog-file) 'parents))
   (when (or refresh
             (not (file-exists-p emacspeak-epub-gutenberg-catalog-file)))
     (call-process
@@ -1143,7 +1160,7 @@ Fetch if needed, or if refresh is T."
 ;;; Record returned by queries:
 
 (cl-defstruct emacspeak-epub-calibre-record
-                                        ; "b.title,  b.author_sort, b.path,  d.format"
+;;; "b.title,  b.author_sort, b.path,  d.format"
   title author  path format)
 
 ;;; Helper: Construct query
@@ -1197,7 +1214,8 @@ Searches for matches in both  Title and Author."
       (while (not (eobp))
         (setq fields
               (split-string
-               (buffer-substring-no-properties (line-beginning-position)  (line-end-position))
+               (buffer-substring-no-properties
+                (line-beginning-position)  (line-end-position))
                "@@"))
         (when (= (length fields) 4)
           (push
@@ -1303,7 +1321,8 @@ Letters do not insert themselves; instead, they are commands.
     (emacspeak-speak-mode-line)))
 
 (cl-declaim (special emacspeak-calibre-mode-map))
-(define-key emacspeak-calibre-mode-map "\C-m" 'emacspeak-epub-calibre-dired-at-point)
+(define-key emacspeak-calibre-mode-map "\C-m"
+  'emacspeak-epub-calibre-dired-at-point)
 
 (defun emacspeak-epub-calibre-results ()
   "Show most recent Calibre search results."
