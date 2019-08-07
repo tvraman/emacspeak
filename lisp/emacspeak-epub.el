@@ -303,29 +303,27 @@
 (defun emacspeak-epub-make-epub  (epub-file)
   "Construct an epub object given an epub filename."
   (cl-declare (special emacspeak-epub-opf-xsl))
-  (let ((ls (emacspeak-epub-do-ls epub-file))
+  (let ((path (expand-file-name epub-file))
+        (ls (emacspeak-epub-do-ls epub-file))
         (toc (emacspeak-epub-do-toc epub-file))
         (opf (emacspeak-epub-do-opf epub-file))
-        (meta nil))
+        (opf-dom nil)
+        (title nil)
+        (author nil))
     (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
     (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
-    (setq meta
-          (split-string
-           (shell-command-to-string
-            (format "%s -c -qq %s %s |  %s --nonet --novalid %s -"
-                    emacspeak-epub-zip-extract
-                    (expand-file-name epub-file) opf
-                    emacspeak-xslt-program emacspeak-epub-opf-xsl))
-           "\n" 'omit-nulls))
+    (setq opf-dom (ems--dom-from-archive path opf))
+    (setq title (dom-text (dom-by-tag  opf-dom 'title))
+          author (dom-text (dom-by-tag  opf-dom 'creator)))
     (make-emacspeak-epub
-     :path (expand-file-name epub-file)
-     :title (cl-first meta)
-     :author (cl-second meta)
+     :path path
+     :title title
+     :author author
      :toc toc
      :base (file-name-directory toc)
      :opf opf
      :ls ls
-     :html (remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls))))
+     :html (cl-remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls))))
 
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
