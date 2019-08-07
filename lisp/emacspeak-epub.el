@@ -315,6 +315,8 @@
     (setq opf-dom (ems--dom-from-archive path opf))
     (setq title (dom-text (dom-by-tag  opf-dom 'title))
           author (dom-text (dom-by-tag  opf-dom 'creator)))
+    (when (zerop (length author)) (setq author "Unknown"))
+(when (zerop (length title)) (setq title "Untitled"))
     (make-emacspeak-epub
      :path path
      :title title
