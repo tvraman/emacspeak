@@ -631,16 +631,11 @@ Letters do not insert themselves; instead, they are commands.
      (unless
          (gethash filename emacspeak-epub-db)
        (setq updated t)
-       (let* ((fields
-               (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
-              (title (cl-first fields))
-              (author  (cl-second fields)))
-         (when (zerop (length title)) (setq title "Untitled"))
-         (when (zerop (length author)) (setq author "Unknown"))
+       (let* ((epub (emacspeak-epub-make-epub filename))
+              (title (emacspeak-epub-title epub))
+              (author  (emacspeak-epub-author epub)))
          (setf (gethash filename emacspeak-epub-db)
-               (make-emacspeak-epub-metadata
-                :title title
-                :author author)))))
+               (make-emacspeak-epub-metadata :title title :author author)))))
     (cl-loop for f being the hash-keys of emacspeak-epub-db
              do
              (setq filename (emacspeak-epub-shell-unquote f))
@@ -694,16 +689,11 @@ Interactive prefix arg searches recursively in directory."
      (unless
          (gethash filename emacspeak-epub-db)
        (cl-incf updated)
-       (let* ((fields
-               (emacspeak-epub-get-metadata (emacspeak-epub-make-epub filename)))
-              (title (cl-first fields))
-              (author  (cl-second fields)))
-         (when (zerop (length title)) (setq title "Untitled"))
-         (when (zerop (length author)) (setq author "Unknown"))
+       (let* ((epub (emacspeak-epub-make-epub filename))
+              (title (emacspeak-epub-title epub))
+              (author  (emacspeak-epub-author epub)))
          (setf (gethash filename emacspeak-epub-db)
-               (make-emacspeak-epub-metadata
-                :title title
-                :author author)))))
+               (make-emacspeak-epub-metadata :title title :author author)))))
     (unless (zerop updated)
       (emacspeak-epub-bookshelf-save)
       (emacspeak-epub-bookshelf-redraw)
