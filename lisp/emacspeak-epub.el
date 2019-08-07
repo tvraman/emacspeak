@@ -365,19 +365,6 @@
   (emacspeak-xslt-get "epub-opf.xsl")
   "XSL to extract Author/Title information from content.opf.")
 
-(defun emacspeak-epub-get-metadata (epub)
-  "Return list containing title/author metadata."
-  (cl-declare (special emacspeak-epub-zip-extract emacspeak-xslt-program
-                       emacspeak-epub-opf-xsl))
-  (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
-  (split-string
-   (shell-command-to-string
-    (format "%s -c -qq %s %s |  %s --nonet --novalid %s -"
-            emacspeak-epub-zip-extract
-            (emacspeak-epub-path epub) (emacspeak-epub-opf epub)
-            emacspeak-xslt-program emacspeak-epub-opf-xsl))
-   "\n" 'omit-nulls))
-
 (defvar-local emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
 
