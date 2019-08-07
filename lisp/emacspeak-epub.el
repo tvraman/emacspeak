@@ -926,21 +926,16 @@ Filename may need to  be shell-quoted when called from Lisp."
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-epub-files-command
-                       emacspeak-speak-directory-settings
+  (cl-declare (special emacspeak-speak-directory-settings
                        emacspeak-epub-this-epub))
-  (let* ((gc-cons-threshold 8000000)
-         (directory
+  (let* ((directory
           (string-trim
            (shell-command-to-string
             (format "cd %s; pwd" 
                     (file-name-directory epub-file)))))
          (buffer (get-buffer-create "FullText EPub"))
-         (files
-          (split-string
-           (shell-command-to-string
-            (format  emacspeak-epub-files-command epub-file))
-           "\n" 'omit-nulls))
+         (epub (emacspeak-epub-make-epub epub-file))
+         (files (emacspeak-epub-html epub))
          (inhibit-read-only t)
          (command nil))
     (with-current-buffer buffer
