@@ -451,6 +451,18 @@ Useful if table of contents in toc.ncx is empty."
 
 ;;}}}
 ;;{{{ Epub Mode:
+;;; Helper: dom from file in archive
+(defsubst ems--dom-from-archive (epub-file file)
+  "Return DOM from specified file in epub archive."
+  (cl-declare (special emacspeak-epub-zip-extract))
+  (with-temp-buffer
+    (setq buffer-undo-list t)
+    (insert
+     (shell-command-to-string
+      (format
+       "%s -c -qq %s %s "
+       emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
+    (libxml-parse-xml-region (point-min) (point-max))))
 
 (defun emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
@@ -869,67 +881,6 @@ Filename may need to  be shell-quoted when called from Lisp."
   "EPub handle.")
 
 (declare-function eww-update-header-line-format "eww" nil)
-;;; Helper: dom from file in archive
-
-(defun ems--dom-from-archive (epub-file file)
-  "Return DOM from specified file in epub archive."
-  (cl-declare (special emacspeak-epub-zip-extract))
-  (with-temp-buffer
-    (setq buffer-undo-list t)
-    (insert
-     (shell-command-to-string
-      (format
-       "%s -c -qq %s %s "
-       emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
-    (libxml-parse-xml-region (point-min) (point-max))))
-
-(defun emacspeak-epub-legacy-eww (epub-file)
-  "Display entire book  using EWW from EPub."
-  (interactive
-   (list
-    (or
-     (get-text-property (point) 'epub)
-     (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-epub-files-command
-                       emacspeak-speak-directory-settings
-                       emacspeak-epub-this-epub))
-  (let* ((gc-cons-threshold 8000000)
-         (directory
-          (string-trim
-           (shell-command-to-string
-            (format "cd %s; pwd" 
-                    (file-name-directory epub-file)))))
-         (buffer (get-buffer-create "FullText EPub"))
-         (files
-          (split-string
-           (shell-command-to-string
-            (format  emacspeak-epub-files-command epub-file))
-           "\n" 'omit-nulls))
-         (inhibit-read-only t)
-         (command nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (cl-loop for f in files
-               do
-               (insert (format "<!-- %s -->" f))
-               (setq command
-                     (format "unzip -c -qq %s %s "
-                             epub-file 
-                             (shell-quote-argument f)))
-               (insert (shell-command-to-string command))
-               (goto-char (point-max)))
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (setq
-            emacspeak-epub-this-epub epub-file
-            default-directory directory)
-           (emacspeak-speak-load-directory-settings directory)
-           (emacspeak-auditory-icon 'open-object)
-           (emacspeak-speak-mode-line))
-       'at-end)
-      (browse-url-of-buffer))))
 
 ;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
@@ -981,6 +932,57 @@ Filename may need to  be shell-quoted when called from Lisp."
       (emacspeak-webutils-run-post-process-hook))
      
      (t (goto-char (point-min))))))
+
+;;;###autoload
+(defun emacspeak-epub-legacy-eww (epub-file)
+  "Display entire book  using EWW from EPub."
+  (interactive
+   (list
+    (or
+     (get-text-property (point) 'epub)
+     (read-file-name "EPub: " emacspeak-epub-library-directory))))
+  (cl-declare (special emacspeak-epub-files-command
+                       emacspeak-speak-directory-settings
+                       emacspeak-epub-this-epub))
+  (let* ((gc-cons-threshold 8000000)
+         (directory
+          (string-trim
+           (shell-command-to-string
+            (format "cd %s; pwd" 
+                    (file-name-directory epub-file)))))
+         (buffer (get-buffer-create "FullText EPub"))
+         (files
+          (split-string
+           (shell-command-to-string
+            (format  emacspeak-epub-files-command epub-file))
+           "\n" 'omit-nulls))
+         (inhibit-read-only t)
+         (command nil))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (setq buffer-undo-list t)
+      (cl-loop for f in files
+               do
+               (insert (format "<!-- %s -->" f))
+               (setq command
+                     (format "unzip -c -qq %s %s "
+                             epub-file 
+                             (shell-quote-argument f)))
+               (insert (shell-command-to-string command))
+               (goto-char (point-max)))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (setq
+            emacspeak-epub-this-epub epub-file
+            default-directory directory)
+           (emacspeak-speak-load-directory-settings directory)
+           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-speak-mode-line))
+       'at-end)
+      (browse-url-of-buffer))))
+
+
 
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
