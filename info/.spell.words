@@ -44,8 +44,6 @@ Belikoff
 bg
 biblio
 bibtex
-binaural
-Binaural
 Bing
 Bloomberg
 bmk
@@ -95,9 +93,6 @@ CIEL
 citeseer
 clearlyu
 cli
-clojure
-Clojure
-CLOJURE
 cmd
 cmds
 cmuscheme
@@ -107,7 +102,6 @@ comint
 cp
 cperl
 CPerl
-CSS
 csv
 ctlx
 cueing
@@ -389,6 +383,7 @@ nav
 navi
 NAVI
 NCSA
+ncx
 NDash
 newsticker
 Newsticker
@@ -434,7 +429,6 @@ pdftotext
 PerlDB
 personalization
 phablets
-php
 pianobar
 Pianobar
 PIANOBAR
@@ -546,7 +540,6 @@ SPC
 speakable
 speedbar
 Speedbar
-sqlite
 src
 Stallman
 stationid
@@ -672,7 +665,6 @@ WinRing
 wip
 wishlist
 WordNet
-wunderground
 wvText
 xa
 xbacklight

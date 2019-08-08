@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 903 options.
+This chapter documents a total of 1227 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6452,13 +6452,16 @@ Delete EPub under point.
 @end deffn
 
 @subsubsection emacspeak-epub-eww
-@deffn {Command} emacspeak-epub-eww  (epub-file)
+@deffn {Command} emacspeak-epub-eww  (epub-file &optional broken-ncx)
 @findex emacspeak-epub-eww
 
 @format
 Display entire book  using EWW from EPub.
+Uses content listed in toc.ncx or  equivalent by default.
+Interactive prefix arg broken-ncx asks to use the list of html files
+in the epub file instead.
 
-(fn EPUB-FILE)
+(fn EPUB-FILE &optional BROKEN-NCX)
 @end format
 @end deffn
 
@@ -6495,17 +6498,6 @@ Place download url for epub in kill ring.
 With interactive prefix arg ‘download’, download the epub.
 
 (fn BOOK-ID &optional DOWNLOAD)
-@end format
-@end deffn
-
-@subsubsection emacspeak-epub-legacy-eww
-@deffn {Command} emacspeak-epub-legacy-eww  (epub-file)
-@findex emacspeak-epub-legacy-eww
-
-@format
-Display entire book  using EWW from EPub.
-
-(fn EPUB-FILE)
 @end format
 @end deffn
 
