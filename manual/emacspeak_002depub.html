@@ -180,7 +180,7 @@
     </dd>
   </dl>
   <p>Once downloaded, these EBooks can be organized under
-  <code>emacspeak-epub-library-directory</code>; For more advanced
+  <code>emacspeak-epub-library-directory</code> For more advanced
   usage, see the next section on integrating with Calibre
   catalogs.</p><a name="Calibre-Integration" id=
   "Calibre-Integration"></a>
@@ -712,15 +712,19 @@ Useful if table of contents in toc.ncx is empty.
   <dl>
     <dt><a name="index-emacspeak_002depub_002deww" id=
     "index-emacspeak_002depub_002deww"></a>Command:
-    <strong>emacspeak-epub-eww</strong> <em>(epub-file)</em></dt>
+    <strong>emacspeak-epub-eww</strong> <em>(epub-file
+    &amp;optional broken-ncx)</em></dt>
     <dd>
       <a name="index-emacspeak_002depub_002deww-1" id=
       "index-emacspeak_002depub_002deww-1"></a>
       <div class="format">
         <pre class="format">
         Display entire book  using EWW from EPub.
+Uses content listed in toc.ncx or  equivalent by default.
+Interactive prefix arg broken-ncx asks to use the list of html files
+in the epub file instead.
 
-(fn EPUB-FILE)
+(fn EPUB-FILE &amp;optional BROKEN-NCX)
 </pre>
       </div>
     </dd>
