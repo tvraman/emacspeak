@@ -879,7 +879,8 @@ in the epub file instead."
    (list
     (or
      (get-text-property (point) 'epub)
-     (read-file-name "EPub: " emacspeak-epub-library-directory))))
+     (read-file-name "EPub: " emacspeak-epub-library-directory))
+    current-prefix-arg))
   (cl-declare (special emacspeak-speak-directory-settings eww-data
                        emacspeak-epub-zip-extract
                        epub-this-epub emacspeak-epub-this-epub))
