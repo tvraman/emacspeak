@@ -246,6 +246,23 @@
      ((= 0 (length result)) nil)
      (t (substring result 0 -1)))))
 
+(defun emacspeak-epub-get-contents (epub element)
+  "Return buffer containing contents of element from epub."
+  (cl-declare (special emacspeak-epub-scratch))
+  (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
+  (unless (member element (emacspeak-epub-ls epub))
+    (error "Element not found in EPub. "))
+  (let ((buffer (get-buffer-create emacspeak-epub-scratch)))
+    (with-current-buffer buffer
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (call-process emacspeak-epub-zip-extract
+                    nil t nil
+                    "-c" "-qq"
+                    (emacspeak-epub-shell-unquote (emacspeak-epub-path epub))
+                    element))
+    buffer))
+
 (defun emacspeak-epub-nav-files (epub-file)
   "Return ordered list of content files from navMap."
   (let* ((this-epub (emacspeak-epub-make-epub epub-file))
@@ -340,22 +357,7 @@
   "Reverse effect of shell-quote-argument."
   (shell-command-to-string (format "echo -n %s" f)))
 
-(defun emacspeak-epub-get-contents (epub element)
-  "Return buffer containing contents of element from epub."
-  (cl-declare (special emacspeak-epub-scratch))
-  (unless   (emacspeak-epub-p epub) (error "Not an EPub object."))
-  (unless (member element (emacspeak-epub-ls epub))
-    (error "Element not found in EPub. "))
-  (let ((buffer (get-buffer-create emacspeak-epub-scratch)))
-    (with-current-buffer buffer
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (call-process emacspeak-epub-zip-extract
-                    nil t nil
-                    "-c" "-qq"
-                    (emacspeak-epub-shell-unquote (emacspeak-epub-path epub))
-                    element))
-    buffer))
+
 
 (defvar emacspeak-epub-metadata-xsl
   (emacspeak-xslt-get "epub-metadata.xsl")
