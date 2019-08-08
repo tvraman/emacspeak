@@ -471,8 +471,8 @@ desired epub for offline reading.
 ‘g’
      emacspeak-epub-gutenberg-download
    Once downloaded, these EBooks can be organized under
-‘emacspeak-epub-library-directory’; For more advanced usage, see the
-next section on integrating with Calibre catalogs.
+‘emacspeak-epub-library-directory’ For more advanced usage, see the next
+section on integrating with Calibre catalogs.
 
 12.62.4 Calibre Integration
 ---------------------------
@@ -747,7 +747,16 @@ table of contents.
 
      (fn BOOK-ID &optional DOWNLOAD)
 
-12.62.6.26 emacspeak-epub-locate-epubs
+12.62.6.26 emacspeak-epub-legacy-eww
+....................................
+
+ -- Command: emacspeak-epub-legacy-eww (epub-file)
+
+     Display entire book  using EWW from EPub.
+
+     (fn EPUB-FILE)
+
+12.62.6.27 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
@@ -756,7 +765,7 @@ table of contents.
 
      (fn PATTERN)
 
-12.62.6.27 emacspeak-epub-mode
+12.62.6.28 emacspeak-epub-mode
 ..............................
 
  -- Command: emacspeak-epub-mode
@@ -804,14 +813,14 @@ table of contents.
      this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.62.6.28 emacspeak-epub-next
+12.62.6.29 emacspeak-epub-next
 ..............................
 
  -- Command: emacspeak-epub-next
 
      Move to next book.
 
-12.62.6.29 emacspeak-epub-open
+12.62.6.30 emacspeak-epub-open
 ..............................
 
  -- Command: emacspeak-epub-open (epub-file)
@@ -821,21 +830,21 @@ table of contents.
 
      (fn EPUB-FILE)
 
-12.62.6.30 emacspeak-epub-open-with-nov
+12.62.6.31 emacspeak-epub-open-with-nov
 .......................................
 
  -- Command: emacspeak-epub-open-with-nov
 
      Open ebook at point in nov-mode.
 
-12.62.6.31 emacspeak-epub-previous
+12.62.6.32 emacspeak-epub-previous
 ..................................
 
  -- Command: emacspeak-epub-previous
 
      Move to previous book.
 
-12.62.6.32 emacspeak-epub-url-executor
+12.62.6.33 emacspeak-epub-url-executor
 ......................................
 
  -- Command: emacspeak-epub-url-executor (url)

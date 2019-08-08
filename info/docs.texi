@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1227 commands and 903 options.
+This chapter documents a total of 1228 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -68,7 +68,7 @@ This chapter documents a total of 1227 commands and 903 options.
 * emacspeak-entertain::Speech enable misc games.
 * emacspeak-epa::Speech-enable EasyPG Assistant.
 * emacspeak-eperiodic::Speech-enable Periodic Table.
-* emacspeak-epub::epubs Front-end for emacspeak desktop.
+* emacspeak-epub::On epubs emacspeak desktop.
 * emacspeak-erc::speech-enable erc irc client.
 * emacspeak-eshell::Speech-enable EShell - Emacs Shell.
 * emacspeak-ess::Speech-enable ESS: Emacs Speaks Statistics.
@@ -6118,35 +6118,37 @@ on the various commands and user options.
 
 In the simplest case, EBooks can be placed under a specific
 directory (with sub-directories as needed).
-Customize   user option @code{emacspeak-epub-library-directory}     to point to this location.
-Here is  a quick summary of commands for organizing, saving and opening  a bookshelf:
+Customize   user option @code{emacspeak-epub-library-directory}
+to point to this location.
+Here is  a quick summary of commands for
+organizing, saving and opening  a bookshelf:
 
 @table @kbd
-@item a               
+@item a
 emacspeak-epub-bookshelf-add-epub
-@item b               
+@item b
 emacspeak-epub-bookshelf-open
-@item c               
+@item c
 emacspeak-epub-bookshelf-clear
-@item d               
+@item d
 emacspeak-epub-bookshelf-remove-this-book
-@item r               
+@item r
 emacspeak-epub-bookshelf-rename
 @item l
 emacspeak-epub-locate-epubs
-@item C-a             
+@item C-a
 emacspeak-epub-bookshelf-add-directory
-@item C-d             
+@item C-d
 emacspeak-epub-bookshelf-remove-directory
-@item C-l             
+@item C-l
 emacspeak-epub-bookshelf-redraw
-@item C-o             
+@item C-o
 emacspeak-epub-bookshelf-open-epub
-@item M-s             
+@item M-s
 emacspeak-epub-bookshelf-save
-@item C-x C-q         
+@item C-x C-q
 emacspeak-epub-bookshelf-refresh
-@item C-x C-s         
+@item C-x C-s
 emacspeak-epub-bookshelf-save
 @end table
 
@@ -6162,16 +6164,20 @@ emacspeak-epub-gutenberg-catalog
 @item g
 emacspeak-epub-gutenberg-download
 @end table
-Once downloaded, these EBooks can be organized under  @code{emacspeak-epub-library-directory};
-For  more advanced usage, see the next section on integrating with Calibre catalogs.
+Once downloaded, these EBooks can be
+organized under  @code{emacspeak-epub-library-directory}
+For  more advanced usage, see the next section
+on integrating with Calibre catalogs.
 
 @subsection Calibre Integration
 
-Project Calibre  enables the indexing and searching of large EBook collections.
+Project Calibre  enables the indexing and searching of
+large EBook collections.
 Read the Calibre documentation for organizing and indexing your EBook library.
 See user options named @code{emacspeak-epub-calibre-*} for
 customizing  emacspeak to work with Calibre.
-Once set up, Calibre integration provides the following commands from the @emph{bookshelf} buffer:
+Once set up, Calibre integration provides
+the following commands from the @emph{bookshelf} buffer:
 
 @table @kbd
 @item /
@@ -6197,13 +6203,13 @@ well-constructed epub, this TOC should provide hyperlinks to each
 section listed in the table of contents.
 
 @table @kbd
-@item RET             
+@item RET
 emacspeak-epub-eww
-@item e               
+@item e
 emacspeak-epub-eww
-@item f               
+@item f
 emacspeak-epub-browse-files
-@item o               
+@item o
 emacspeak-epub-open
 @end table
 
@@ -6489,6 +6495,17 @@ Place download url for epub in kill ring.
 With interactive prefix arg ‘download’, download the epub.
 
 (fn BOOK-ID &optional DOWNLOAD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-epub-legacy-eww
+@deffn {Command} emacspeak-epub-legacy-eww  (epub-file)
+@findex emacspeak-epub-legacy-eww
+
+@format
+Display entire book  using EWW from EPub.
+
+(fn EPUB-FILE)
 @end format
 @end deffn
 
