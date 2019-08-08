@@ -870,8 +870,11 @@ Filename may need to  be shell-quoted when called from Lisp."
 (declare-function eww-update-header-line-format "eww" nil)
 
 ;;;###autoload
-(defun emacspeak-epub-eww (epub-file)
-  "Display entire book  using EWW from EPub."
+(defun emacspeak-epub-eww (epub-file &optional broken-ncx)
+  "Display entire book  using EWW from EPub.
+Uses content listed in toc.ncx or  equivalent by default.
+Interactive prefix arg broken-ncx asks to use the list of html files
+in the epub file instead."
   (interactive
    (list
     (or
@@ -888,10 +891,14 @@ Filename may need to  be shell-quoted when called from Lisp."
          (eww-epub (get-buffer-create "Full Text EPub"))
          (this-epub (emacspeak-epub-make-epub epub-file))
          (files (emacspeak-epub-nav-files epub-file))
+         (html nil)
          (dom nil)
          (inhibit-read-only t))
     (cl-loop
-     for f in files
+     for f in
+     (if broken-ncx
+         (emacspeak-epub-html this-epub)
+         files)
      do
      (setq dom (ems--dom-from-archive epub-file f))
      (with-current-buffer eww-epub
@@ -920,49 +927,8 @@ Filename may need to  be shell-quoted when called from Lisp."
      
      (t (goto-char (point-min))))))
 
-;;;###autoload
-(defun emacspeak-epub-legacy-eww (epub-file)
-  "Display entire book  using EWW from EPub."
-  (interactive
-   (list
-    (or
-     (get-text-property (point) 'epub)
-     (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (cl-declare (special emacspeak-speak-directory-settings
-                       emacspeak-epub-this-epub))
-  (let* ((directory
-          (string-trim
-           (shell-command-to-string
-            (format "cd %s; pwd" 
-                    (file-name-directory epub-file)))))
-         (buffer (get-buffer-create "FullText EPub"))
-         (epub (emacspeak-epub-make-epub epub-file))
-         (files (emacspeak-epub-html epub))
-         (inhibit-read-only t)
-         (command nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (cl-loop for f in files
-               do
-               (insert (format "<!-- %s -->" f))
-               (setq command
-                     (format "unzip -c -qq %s %s "
-                             epub-file 
-                             (shell-quote-argument f)))
-               (insert (shell-command-to-string command))
-               (goto-char (point-max)))
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (setq
-            emacspeak-epub-this-epub epub-file
-            default-directory directory)
-           (emacspeak-speak-load-directory-settings directory)
-           (emacspeak-auditory-icon 'open-object)
-           (emacspeak-speak-mode-line))
-       'at-end)
-      (browse-url-of-buffer))))
+
+
 
 
 
