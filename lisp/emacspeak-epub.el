@@ -891,7 +891,6 @@ in the epub file instead."
          (eww-epub (get-buffer-create "Full Text EPub"))
          (this-epub (emacspeak-epub-make-epub epub-file))
          (files (emacspeak-epub-nav-files epub-file))
-         (html nil)
          (dom nil)
          (inhibit-read-only t))
     (cl-loop
