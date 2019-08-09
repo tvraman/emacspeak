@@ -363,14 +363,6 @@
   "Reverse effect of shell-quote-argument."
   (shell-command-to-string (format "echo -n %s" f)))
 
-
-
-(defvar emacspeak-epub-metadata-xsl
-  (emacspeak-xslt-get "epub-metadata.xsl")
-  "XSL to extract Author/Title information.")
-
-
-
 (defvar-local emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
 
