@@ -220,13 +220,12 @@
   (cl-declare (special emacspeak-epub-zip-extract))
   (with-temp-buffer
     (setq buffer-undo-list t)
-    (insert
-     (shell-command-to-string
-      (format
-       "%s -c -qq %s %s "
-       emacspeak-epub-zip-extract epub-file (shell-quote-argument
-                                             file))))
-    
+    (shell-command
+     (format
+      "%s -c -qq %s %s "
+      emacspeak-epub-zip-extract epub-file (shell-quote-argument
+                                            file))
+     (current-buffer))
     (cond
      (xml-p (libxml-parse-xml-region (point-min) (point-max)))
      (t (libxml-parse-html-region (point-min) (point-max))))))
