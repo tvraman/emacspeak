@@ -215,7 +215,7 @@
 ;;}}}
 ;;{{{ EPub Implementation:
 ;;; Helper: dom from file in archive
-(defsubst ems--dom-from-archive (epub-file file)
+(defsubst ems--dom-from-archive (epub-file file &optional xml-p)
   "Return DOM from specified file in epub archive."
   (cl-declare (special emacspeak-epub-zip-extract))
   (with-temp-buffer
@@ -224,8 +224,12 @@
      (shell-command-to-string
       (format
        "%s -c -qq %s %s "
-       emacspeak-epub-zip-extract epub-file (shell-quote-argument file))))
-    (libxml-parse-xml-region (point-min) (point-max))))
+       emacspeak-epub-zip-extract epub-file (shell-quote-argument
+                                             file))))
+    
+    (cond
+     (xml-p (libxml-parse-xml-region (point-min) (point-max)))
+     (t (libxml-parse-html-region (point-min) (point-max))))))
 
 (defvar emacspeak-epub-toc-path-pattern
   ".ncx$"
@@ -334,7 +338,7 @@
         (author nil))
     (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
     (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
-    (setq opf-dom (ems--dom-from-archive path opf))
+    (setq opf-dom (ems--dom-from-archive path opf 'xml))
     (setq title (dom-text (dom-by-tag  opf-dom 'title))
           author (dom-text (dom-by-tag  opf-dom 'creator)))
     (when (zerop (length author)) (setq author "Unknown"))
