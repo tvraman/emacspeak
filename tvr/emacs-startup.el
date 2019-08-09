@@ -32,7 +32,7 @@
     "kbd-setup"
     "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" "elfeed-prepare"
     "lispy-prepare" "sp-prepare"        "vdiff-prepare" "iedit-prepare"
-    "auctex-prepare" "org-prepare" "nov-prepare"
+    "auctex-prepare" "org-prepare" 
                                         ;"use-emms"
     "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
