@@ -3628,7 +3628,8 @@ q   :  Quotes
 t   :  tops/last 
 "
   (interactive "P")
-  (cl-case (read-char "f: Financials, n: News, p: Price, q: Quotes")
+  (cl-case
+      (read-char "f: Financials, n: News, p: Price, q: Quotes, t: tops, m:metadata")
     (?f (call-interactively #'emacspeak-wizards-iex-show-financials))
     (?p (call-interactively #'emacspeak-wizards-iex-show-price))
     (?n (call-interactively #'emacspeak-wizards-iex-show-news))
