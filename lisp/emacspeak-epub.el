@@ -263,10 +263,9 @@
                     element))
     buffer))
 
-(defun emacspeak-epub-nav-files (epub-file)
+(defun emacspeak-epub-nav-files (this-epub)
   "Return ordered list of content files from navMap."
-  (let* ((this-epub (emacspeak-epub-make-epub epub-file))
-         (navs nil)
+  (let* ((navs nil)
          (hash (make-hash-table :test 'equal))
          (value nil)
          (toc (emacspeak-epub-toc this-epub))
@@ -325,8 +324,8 @@
 
 (defun emacspeak-epub-make-epub  (epub-file)
   "Construct an epub object given an epub filename."
-  (cl-declare (special emacspeak-epub-opf-xsl))
   (let ((path (expand-file-name epub-file))
+        (this nil)
         (ls (emacspeak-epub-do-ls epub-file))
         (toc (emacspeak-epub-do-toc epub-file))
         (opf (emacspeak-epub-do-opf epub-file))
@@ -339,16 +338,20 @@
     (setq title (dom-text (dom-by-tag  opf-dom 'title))
           author (dom-text (dom-by-tag  opf-dom 'creator)))
     (when (zerop (length author)) (setq author "Unknown"))
-(when (zerop (length title)) (setq title "Untitled"))
-    (make-emacspeak-epub
-     :path path
-     :title title
-     :author author
-     :toc toc
-     :base (file-name-directory toc)
-     :opf opf
-     :ls ls
-     :html (cl-remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls))))
+    (when (zerop (length title)) (setq title "Untitled"))
+    (setq this 
+          (make-emacspeak-epub
+           :path path
+           :title title
+           :author author
+           :toc toc
+           :base (file-name-directory toc)
+           :opf opf
+           :ls ls
+           :html (cl-remove-if-not #'(lambda (s) (string-match
+                                                  "\.html$" s)) ls)))
+    (setf (emacspeak-epub-navs this)  (emacspeak-epub-nav-files this))
+    this))
 
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
@@ -363,9 +366,7 @@
   (emacspeak-xslt-get "epub-metadata.xsl")
   "XSL to extract Author/Title information.")
 
-(defvar emacspeak-epub-opf-xsl
-  (emacspeak-xslt-get "epub-opf.xsl")
-  "XSL to extract Author/Title information from content.opf.")
+
 
 (defvar-local emacspeak-epub-this-epub nil
   "EPub associated with current buffer.")
