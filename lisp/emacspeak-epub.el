@@ -886,9 +886,9 @@ in the epub file instead."
      (read-file-name "EPub: " emacspeak-epub-library-directory))
     current-prefix-arg))
   (cl-declare (special emacspeak-speak-directory-settings eww-data
-                       emacspeak-epub-zip-extract
                        epub-this-epub emacspeak-epub-this-epub))
-  (let* ((directory
+  (let* ((emacspeak-speak-messages nil)
+         (directory
           (string-trim
            (shell-command-to-string
             (format "cd %s; pwd"
