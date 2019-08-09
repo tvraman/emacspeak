@@ -891,14 +891,13 @@ in the epub file instead."
                     (file-name-directory epub-file)))))
          (eww-epub (get-buffer-create "Full Text EPub"))
          (this-epub (emacspeak-epub-make-epub epub-file))
-         (files (emacspeak-epub-nav-files epub-file))
+         (navs (emacspeak-epub-navs this-epub))
+         (html (emacspeak-epub-html this-epub))
          (dom nil)
          (inhibit-read-only t))
     (cl-loop
      for f in
-     (if broken-ncx
-         (emacspeak-epub-html this-epub)
-         files)
+     (if broken-ncx html navs)
      do
      (setq dom (ems--dom-from-archive epub-file f))
      (with-current-buffer eww-epub
