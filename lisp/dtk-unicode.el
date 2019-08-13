@@ -86,7 +86,8 @@
     (?— . " --- ")                      ; m-dash
     (?  . " ")                          ; hair space
     (?﻿ . " ")                           ; zero-width  no-break space
-    (?​ . " ") ; zero-width space
+    (?‌ . "") ; zero width non-joiner
+    (?​ . " ")                           ; zero-width space
     (?  . " ")                          ; thin space
     (?― . "----")                       ; horizontal bar
     (?‖ . "||")                         ; vertical bar
