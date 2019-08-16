@@ -2638,7 +2638,7 @@ term if needed."
   "Build up alist of espeak voices."
   (cl-declare (special emacspeak-wizards-espeak-voices-alist))
   (with-temp-buffer
-    (shell-command "espeak --voices" (current-buffer))
+    (shell-command "espeak-ng  --voices" (current-buffer))
     (goto-char (point-min))
     (forward-line 1)
     (while (not (eobp))
