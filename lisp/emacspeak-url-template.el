@@ -334,6 +334,19 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Logout from Google to do an anonymous search.")
 
 ;;}}}
+;;{{{Basic Google:
+
+(emacspeak-url-template-define
+ "Google Basic"
+ "https://www.google.com/search?num=25&gbv=1&q=%s"
+ (list "Google: ")
+ #'(lambda nil
+     (search-forward "*")
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-rest-of-buffer))
+ "Light-weight Google search.")
+
+;;}}}
 ;;{{{ Calendar Mobile:
 
 ;;}}}
