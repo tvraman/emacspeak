@@ -88,8 +88,9 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback. "
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))))
+     (let ((emacspeak-speak-messages nil))
+       (when (ems-interactive-p)
+         (emacspeak-auditory-icon 'task-done))))))
 
 (add-hook
  'epa-key-list-mode-hook
