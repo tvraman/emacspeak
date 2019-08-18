@@ -105,7 +105,6 @@ This moves them into the Spam folder."
 (provide 'file-xoauth2)
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}

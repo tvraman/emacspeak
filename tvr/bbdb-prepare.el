@@ -1,6 +1,5 @@
 ;; -*- lexical-binding: nil; -*-
 
-
 ;(load-library "bbdb-autoloads")
 (eval-after-load "bbdb"
   `(progn

@@ -140,7 +140,6 @@
 (when (symbolp sudoku-level)
   (setq sudoku-level (symbol-name sudoku-level)))
 
-
 (defcustom sudoku-download nil
   "*Should sudoku download puzzles from the web?"
   :type  'boolean
@@ -154,9 +153,6 @@
 		(const "lynx")
 		(const "wget")))
 
-
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Non-customizable variables
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -167,12 +163,9 @@
 (defvar sudoku-mode-hooks 'nil)
 (make-variable-buffer-local 'sudoku-mode-hooks)
 
-
-
 (defconst blank-cell "_")
 
 (defconst sudoku-buffer-name "*sudoku*")
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Basic mode functions 
@@ -229,7 +222,6 @@ are: \\{sudoku-mode-map}"
     (define-key map [end] '(lambda () (interactive) 
 			     (sudoku-move-point-downmost) (sudoku-move-point-rightmost)))
 
-
     (define-key map "\C-d" 'sudoku-cell-erase)
     (define-key map "_" 'sudoku-cell-erase)
     (define-key map " " 'sudoku-cell-erase)
@@ -252,7 +244,6 @@ are: \\{sudoku-mode-map}"
     (define-key map "\M-h" 'sudoku-disabled-key)
     (define-key map "\M-<" 'sudoku-disabled-key)
     (define-key map "\M->" 'sudoku-disabled-key)
-
 
     ;;I want to figure out how to make it only go to valid cells, but
     ;;for the time being...
@@ -309,7 +300,6 @@ are: \\{sudoku-mode-map}"
 	       sudoku-download
 	       sudoku-download-method))]))
 
-
 (defun sudoku-new ()
   "Sets the \"current-board\" variable, using the
   \"sudoku-current-board\" function, and then runs
@@ -317,7 +307,6 @@ are: \\{sudoku-mode-map}"
   (interactive)
   (setq current-board (sudoku-current-board sudoku-level sudoku-download))
   (sudoku-initialize))
-
 
 (defun sudoku-initialize ()
   "Makes the board, based on the \"current board\" variable, and
@@ -333,7 +322,6 @@ are: \\{sudoku-mode-map}"
   (sudoku-goto-cell '(0 0))
   (when (null buffer-read-only)
       (setq buffer-read-only t)))
-
 
 (defun sudoku-current-board (level &optional download)
   "Checks both the \"sudoku-download\" variable, and the
@@ -365,7 +353,6 @@ are: \\{sudoku-mode-map}"
 (defun sudoku-quit-immediately ()
   "Quit without a prompt. Designed to be used by other functions."
   (kill-buffer sudoku-buffer-name))
-
 
 (defun sudoku-quit ()
   "Quit with confirmation."
@@ -457,11 +444,9 @@ already in the row, column, and subsquare containing it."
 
 	   
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Functions for displaying the board on-screen
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 (defconst sudoku-onscreen-instructions
   "
@@ -588,7 +573,6 @@ redraws the board."
       (next-line 1))
     (reverse point-list))))
 
-
 (defun sudoku-number-to-cell (num)
   "This takes the numbers from 0 to 80 and turns them into
  coords.\n TODO: Abstract this using (length board) to make this
@@ -660,7 +644,6 @@ redraws the board."
       (setq buffer-read-only t)))
     
 
-
 (defun sudoku-remaining-cells (board)
   "Tests to see how many cells are remaining"
   (let ((remaining 0))
@@ -695,7 +678,6 @@ victory, and then asks if you want to play again."
 	     (let ((last (int-to-string (car (sudoku-cell-possibles current-board cell-x cell-y)))))
 	     (setq string (concat string last)))
 	     (message "Possible values: %s" string))))))
-
 
 	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -745,7 +727,6 @@ bounds of the board."
   (interactive)
   (sudoku-move-point "leftmost"))
 
-
 (defun sudoku-move-point-right ()
   "Moves the point one cell right."
   (interactive)
@@ -775,7 +756,6 @@ bounds of the board."
   "Moves the point to the downmost cell."
   (interactive)
   (sudoku-move-point "downmost"))
-
 
 (defun sudoku-disabled-key ()
   (interactive)
@@ -857,8 +837,6 @@ and turns it into a list. Used by sudoku-download-new-puzzle."
       (url-retrieve source)
       (sudoku-html-to-list)))
 
-
-
 (defun cut-to-table ()
   "Cuts everything out but the html table containing the puzzle. Used by
 sudoku-download-new-puzzle."
@@ -894,7 +872,6 @@ sudoku-download-new-puzzle."
 	     (search-forward "VALUE=\"")
 	     (setq value (string-to-int (char-to-string (following-char))))))
       value)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Puzzles. About 200.
@@ -1530,7 +1507,6 @@ sudoku-download-new-puzzle."
 0 0 0 0 9) (7 0 0 0 9 0 0 0 2) (9 0 0 0 0 0 0 7 0) (0 6 0 8 2 0 0 0 0)
 (0 2 0 0 0 9 0 4 8) (5 8 0 0 6 3 0 0 0))))
 
-
 (setq easy-puzzles '( ((8 0 0 5 0 6 9 4 0) (0 6 0 0 9 0 5 3 0) (0 0 5
 7 0 4 0 0 6) (0 0 0 0 2 0 1 0 4) (0 0 0 1 0 8 0 0 0) (6 0 2 0 7 0 0 0
 0) (9 0 0 2 0 7 6 0 0) (0 2 6 0 5 0 0 7 0) (0 7 8 6 0 3 0 0 1))
@@ -1733,6 +1709,5 @@ sudoku-download-new-puzzle."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 (provide 'sudoku)

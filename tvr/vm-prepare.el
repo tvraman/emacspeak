@@ -70,8 +70,6 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (load-library "mspools")
 ))
 
-
-
 (eval-after-load
     "mspools"
   `(progn
