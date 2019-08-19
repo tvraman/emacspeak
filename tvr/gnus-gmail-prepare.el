@@ -102,6 +102,13 @@ This moves them into the Spam folder."
 ;;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
 ;;;(google-py-oauth2-cli "emacspeak@gmail.com" file-app-secrets)
 
+
+(defadvice auth-source-xoauth2--file-creds (around emacspeak pre act comp)
+  "Silence messages"
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it
+    ad-return-value))
+
 (provide 'file-xoauth2)
 ;;; local variables:
 ;;; folded-file: t
