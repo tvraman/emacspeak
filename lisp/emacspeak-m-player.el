@@ -362,8 +362,7 @@ etc to be ignored when guessing directory.")
            "Media Resource: "
            (emacspeak-media-guess-directory) ; default dir 
            default 'must-match
-           nil
-           #'(lambda (f) (string-match emacspeak-media-extensions f))))
+           ))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
