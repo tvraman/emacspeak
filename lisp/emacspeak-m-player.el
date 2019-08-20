@@ -113,7 +113,7 @@
 ;;{{{ define a derived mode for m-player interaction
 
 (defconst  emacspeak-media-shortcuts-directory
-  (expand-file-name "media/radio" emacspeak-directory)
+  (expand-file-name "media/radio/" emacspeak-directory)
   "*Directory where we organize   and media shortcuts. ")
 
 (defvar emacspeak-m-player-process nil
@@ -360,7 +360,10 @@ etc to be ignored when guessing directory.")
            (read-file-name
             "Media Resource: "
             dir  
-            default-filename 'must-match)))
+            default-filename 'must-match nil
+            #'(lambda (f)
+                (or (file-directory-p f)
+                    (string-match emacspeak-media-extensions f))))))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
