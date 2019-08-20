@@ -315,9 +315,9 @@ etc to be ignored when guessing directory.")
    ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
    (emacspeak-m-player-accelerator-p
     (expand-file-name  emacspeak-media-shortcuts-directory))
-   ((string-match emacspeak-media-directory-regexp  default-directory)
-    default-directory)
-   ((directory-files default-directory   nil emacspeak-media-extensions)
+   ((or ; media dir or contains media:
+     (string-match emacspeak-media-directory-regexp default-directory)
+     (directory-files default-directory   nil emacspeak-media-extensions))
     default-directory)
    (t (expand-file-name  emacspeak-media-shortcuts-directory))))
 
