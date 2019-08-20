@@ -276,6 +276,7 @@ Controls media playback when already playing a stream.
   (string-match emacspeak-m-player-playlist-pattern resource))
 
 ;;;###autoload
+
 (defun emacspeak-m-player-bind-accelerator (directory key)
   "Binds key to invoke m-player  on specified directory."
   (interactive
@@ -342,27 +343,24 @@ etc to be ignored when guessing directory.")
 ;;;###autoload
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special ido-work-directory-list emacspeak-m-player-url-p))
+  (cl-declare (special  emacspeak-m-player-url-p))
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
              #'read-file-name-default
            #'ido-read-file-name))
         (read-file-name-completion-ignore-case t)
-        (default
+        (default-filename
           (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
             (dired-get-filename nil 'no-error)))
-        (ido-work-directory-list
-         (cl-loop
-          for d in ido-work-directory-list
-          when (string-match  emacspeak-media-directory-regexp  d) collect d))
+        (dir (emacspeak-media-guess-directory))
         (result nil))
     (setq result
-          (read-file-name
-           "Media Resource: "
-           (emacspeak-media-guess-directory) ; default dir 
-           default 'must-match
-           ))
+          (expand-file-name
+           (read-file-name
+            "Media Resource: "
+            dir  
+            default-filename 'must-match)))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
