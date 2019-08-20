@@ -344,6 +344,7 @@ etc to be ignored when guessing directory.")
   "Read resource from minibuffer with contextual smarts."
   (cl-declare (special ido-work-directory-list ))
   (let ((completion-ignore-case t)
+        (default-dir (emacspeak-media-guess-directory))
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
              #'read-file-name-default
@@ -360,8 +361,10 @@ etc to be ignored when guessing directory.")
     (setq result
           (read-file-name
            "Media Resource: "
-           (emacspeak-media-guess-directory) ; default dir 
-           default 'must-match))
+           default-dir                  ; default dir 
+           default 'must-match
+           nil
+           #'(lambda (f) (string-match emacspeak-media-extensions f))))
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
