@@ -292,8 +292,11 @@ Controls media playback when already playing a stream.
                ()
              ,(format "Launch media from directory %s" directory)
              (interactive)
+             (cl-declare  (special emacspeak-m-player-current-directory))
+             (setq emacspeak-m-player-current-directory ,directory)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)))
+
 (defvar emacspeak-m-player-accelerator-p nil
   "Flag set by accelerators. Let-binding this causes default-directory
 etc to be ignored when guessing directory.")
@@ -450,8 +453,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (string-match "^http" resource)))
       (unless emacspeak-m-player-url-p  ; not a URL
         (setq
-         resource (expand-file-name resource)
-         emacspeak-m-player-current-directory (file-name-directory resource)))
+         resource (expand-file-name resource))
+        (setq emacspeak-m-player-current-directory (file-name-directory resource)))
       (if (file-directory-p resource)
           (setq file-list (emacspeak-m-player-directory-files resource))
         (setq file-list (list resource)))
