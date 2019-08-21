@@ -342,7 +342,6 @@ etc to be ignored when guessing directory.")
 ;;;###autoload
 (defun emacspeak-media-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-  (cl-declare (special  emacspeak-m-player-url-p))
   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
@@ -360,10 +359,6 @@ etc to be ignored when guessing directory.")
             "Media Resource: "
             dir  
             default-filename 'must-match)))
-    (setq emacspeak-m-player-url-p
-          (or
-           (string-match emacspeak-media-shortcuts-directory result )
-           (string-match "^http" result)))
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
@@ -449,7 +444,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
         (file-list nil))
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
-      (setq emacspeak-m-player-url-p (string-match "^http" resource))
+      (setq emacspeak-m-player-url-p
+          (or
+           (string-match emacspeak-media-shortcuts-directory resource )
+           (string-match "^http" resourceresult)))
       (unless emacspeak-m-player-url-p  ; not a URL
         (setq
          resource (expand-file-name resource)
