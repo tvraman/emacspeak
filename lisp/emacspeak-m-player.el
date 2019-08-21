@@ -356,15 +356,10 @@ etc to be ignored when guessing directory.")
         (result nil))
     (setq result
           (expand-file-name
-           (read-file-name
+           (funcall read-file-name-function
             "Media Resource: "
             dir  
-            default-filename 'must-match nil
-            #'(lambda (f)
-                (or
-                 (file-directory-p f)
-                 (string-match emacspeak-m-player-playlist-pattern f)
-                 (string-match emacspeak-media-extensions f))))))
+            default-filename 'must-match)))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
