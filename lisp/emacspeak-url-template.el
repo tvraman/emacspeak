@@ -341,7 +341,8 @@ dont-url-encode if true then url arguments are not url-encoded "
  "https://www.google.com/search?num=25&gbv=1&q=%s"
  (list "Google: ")
  #'(lambda nil
-     (search-forward "*")
+     (search-forward "Search Tools")
+     (forward-line 1)
      (emacspeak-auditory-icon 'open-object)
      (emacspeak-speak-rest-of-buffer))
  "Light-weight Google search.")
