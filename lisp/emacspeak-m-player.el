@@ -472,8 +472,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
               (nconc options (list resource)))))
       (setq buffer-undo-list t)
       (setq emacspeak-m-player-process
-            (apply 'start-process "MPLayer" buffer
-                   emacspeak-m-player-program options))
+            (apply
+             'start-process "MPLayer" buffer
+             emacspeak-m-player-program options))
       (set-process-filter  emacspeak-m-player-process
                            #'emacspeak-m-player-process-filter)
       (when (and
