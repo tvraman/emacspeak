@@ -360,7 +360,10 @@ etc to be ignored when guessing directory.")
             "Media Resource: "
             dir  
             default-filename 'must-match)))
-    (setq emacspeak-m-player-url-p (string-match "^http" result))
+    (setq emacspeak-m-player-url-p
+          (or
+           (string-match emacspeak-media-shortcuts-directory result )
+           (string-match "^http" result)))
     result))
 
 (defun emacspeak-m-player-refresh-metadata ()
