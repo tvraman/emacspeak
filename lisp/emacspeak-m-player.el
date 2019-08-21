@@ -314,13 +314,12 @@ etc to be ignored when guessing directory.")
                        emacspeak-m-player-accelerator-p))
   (cond
    ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
-   (emacspeak-m-player-accelerator-p
-    (expand-file-name  emacspeak-media-shortcuts-directory))
-   ((or ; media dir or contains media:
+   (emacspeak-m-player-accelerator-p   emacspeak-media-shortcuts-directory)
+   ((or ;  dir  contains media:
      (string-match emacspeak-media-directory-regexp default-directory)
      (directory-files default-directory   nil emacspeak-media-extensions))
     default-directory)
-   (t (expand-file-name  emacspeak-media-shortcuts-directory))))
+   (t   emacspeak-media-shortcuts-directory)))
 
 ;;;###autoload
 (defun emacspeak-m-player-url (url &optional playlist-p)
