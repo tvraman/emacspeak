@@ -361,8 +361,10 @@ etc to be ignored when guessing directory.")
             dir  
             default-filename 'must-match nil
             #'(lambda (f)
-                (or (file-directory-p f)
-                    (string-match emacspeak-media-extensions f))))))
+                (or
+                 (file-directory-p f)
+                 (string-match emacspeak-m-player-playlist-pattern f)
+                 (string-match emacspeak-media-extensions f))))))
     (setq emacspeak-m-player-url-p (string-match "^http" result))
     result))
 
