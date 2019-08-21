@@ -491,7 +491,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (emacspeak-auditory-icon 'progress)
       (when (called-interactively-p 'interactive)
         (message "MPlayer opened  %s"
-                 (abbreviate-file-name resource))))))
+                 (if (file-directory-p resource)
+                     (abbreviate-file-name resource)
+                   (file-name-nondirectory resource)))))))
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
