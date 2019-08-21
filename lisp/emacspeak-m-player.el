@@ -448,9 +448,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (with-current-buffer buffer
       (emacspeak-m-player-mode)
       (setq emacspeak-m-player-url-p
-          (or
-           (string-match emacspeak-media-shortcuts-directory resource )
-           (string-match "^http" resource)))
+            (and
+             (not emacspeak-m-player-accelerator-p)
+             (or
+              (string-match emacspeak-media-shortcuts-directory resource )
+              (string-match "^http" resource))))
       (unless emacspeak-m-player-url-p  ; not a URL
         (setq
          resource (expand-file-name resource))
