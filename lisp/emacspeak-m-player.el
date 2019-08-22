@@ -492,7 +492,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (when (called-interactively-p 'interactive)
         (message "MPlayer opened  %s"
                  (if (file-directory-p resource)
-                     (abbreviate-file-name resource)
+                     (car (last (split-string resource "/" t)))
                    (file-name-nondirectory resource)))))))
 
 ;;;###autoload
