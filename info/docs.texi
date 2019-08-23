@@ -1246,12 +1246,12 @@ C-y		emacspeak-clipboard-paste
 ESC		Prefix Command
 SPC		emacspeak-speak-header-line
 !		emacspeak-speak-run-shell-command
-"		emacspeak-pianobar
+"		emacspeak-speak-sexp
 #		emacspeak-gridtext
 $		emacspeak-shell-command
 %		emacspeak-speak-current-percentage
 &		emacspeak-wizards-shell-command-on-current-file
-'		emacspeak-speak-sexp
+'		emacspeak-pianobar
 (		emacspeak-audio-setup
 )		emacspeak-sounds-select-theme
 ,		emacspeak-speak-skim-buffer
@@ -14282,10 +14282,10 @@ keys from @code{pianobar-key-map}.
 @subsubsection emacspeak-pianobar
 @deffn {Command} emacspeak-pianobar   
 @table @kbd
-@item C-e "
-@kindex C-e "
-@item <fn> "
-@kindex <fn> "
+@item C-e '
+@kindex C-e '
+@item <fn> '
+@kindex <fn> '
 @end table
 
 @findex emacspeak-pianobar
@@ -16808,10 +16808,10 @@ Set punctuation mode for all buffers in current mode.
 @subsubsection emacspeak-speak-sexp
 @deffn {Command} emacspeak-speak-sexp  (&optional arg)
 @table @kbd
-@item C-e '
-@kindex C-e '
-@item <fn> '
-@kindex <fn> '
+@item C-e "
+@kindex C-e "
+@item <fn> "
+@kindex <fn> "
 @end table
 
 @findex emacspeak-speak-sexp
@@ -25560,7 +25560,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 82 URL Templates.
+This section documents a total of 83 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25648,7 +25648,9 @@ Browse GoLang package documentation.@item @b{GoLang Lookup}
 
 Lookup GoLang package documentation.@item @b{GoLang Search}
 
-Search GoLang package documentation.@item @b{Google Image Search}
+Search GoLang package documentation.@item @b{Google Basic}
+
+Light-weight Google search.@item @b{Google Image Search}
 
 Google Image Search@item @b{Google News Search}
 

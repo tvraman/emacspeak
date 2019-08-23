@@ -7435,8 +7435,8 @@ keys from ‘pianobar-key-map’.
 .............................
 
  -- Command: emacspeak-pianobar
-     ‘C-e "’
-     ‘<fn> "’
+     ‘C-e '’
+     ‘<fn> '’
 
      Start or control Emacspeak Pianobar player.
 
@@ -9420,8 +9420,8 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-sexp (&optional arg)
-     ‘C-e '’
-     ‘<fn> '’
+     ‘C-e "’
+     ‘<fn> "’
 
      Speak current sexp.
      With prefix ARG, speaks the rest of the sexp  from point.

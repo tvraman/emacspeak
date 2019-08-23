@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 8, 2019.
+last updated on August 22, 2019.
 
    The manual is divided into the following chapters:
 
@@ -3753,12 +3753,12 @@ system.
      ESC		Prefix Command
      SPC		emacspeak-speak-header-line
      !		emacspeak-speak-run-shell-command
-     "		emacspeak-pianobar
+     "		emacspeak-speak-sexp
      #		emacspeak-gridtext
      $		emacspeak-shell-command
      %		emacspeak-speak-current-percentage
      &		emacspeak-wizards-shell-command-on-current-file
-     ’		emacspeak-speak-sexp
+     ’		emacspeak-pianobar
      (		emacspeak-audio-setup
      )		emacspeak-sounds-select-theme
      ,		emacspeak-speak-skim-buffer
