@@ -730,6 +730,14 @@ icon."
   (when (and ad-return-value emacspeak-advice-progress-reporter)
     (emacspeak-auditory-icon 'progress)))
 
+
+(defadvice progress-reporter-done (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (ems-with-messages-silenced ad-do-it)
+  (when (and ad-return-value emacspeak-advice-progress-reporter)
+    (emacspeak-auditory-icon 'progress)
+    (dtk-speak (format "%s" ad-return-value))))
+
 (defvar inhibit-message)
 (cl-loop
  for f in '(minibuffer-message message display-message-or-buffer) do
