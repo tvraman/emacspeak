@@ -735,7 +735,7 @@ icon."
   "Provide auditory feedback."
   (ems-with-messages-silenced ad-do-it)
   (when (and ad-return-value emacspeak-advice-progress-reporter)
-    (emacspeak-auditory-icon 'progress)
+    (emacspeak-auditory-icon 'time)
     (dtk-speak (format "%s" ad-return-value))))
 
 (defvar inhibit-message)
