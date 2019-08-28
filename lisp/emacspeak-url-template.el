@@ -1500,7 +1500,7 @@ template."
   :group 'emacspeak-url-template)
 
 (defcustom emacspeak-url-template-currency-list
-  "EUR,INR,GBP"
+  "EUR,INR,GBP,USD,CAD"
   "List of currencies for which we request rates by default."
   :type 'string
   :group 'emacspeak-url-template)
