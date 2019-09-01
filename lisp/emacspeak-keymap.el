@@ -451,7 +451,7 @@ relief."
     ("j" emacspeak-jabber-popup-roster)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
-    ("p" paradox-list-packages)
+    ("p" package-list-packages)
     ("q" emacspeak-wizards-quote)
     ("w" emacspeak-wizards-noaa-weather)
     ("r" jabber-activity-switch-to)
