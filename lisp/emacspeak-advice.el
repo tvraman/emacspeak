@@ -695,6 +695,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
           (ad-get-arg 1))))
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak msg)
+    (sox-tones 2 2)
     (dtk-speak-list choices)))
 
 
