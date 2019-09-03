@@ -63,18 +63,6 @@
    (clojure-keyword-face voice-animate)))
 
 ;;}}}
-;;{{{ Advice Interactive Commands:
-
-'(
-  clojure-thread
-  clojure-thread-first-all
-  clojure-thread-last-all
-  clojure-unwind
-  clojure-unwind-all
-  clojure-update-ns
-  )
-
-;;}}}
 ;;{{{ Speech-enable Editing:
 
 (defadvice clojure-toggle-keyword-string (after emacspeak pre act comp)
