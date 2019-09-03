@@ -347,6 +347,19 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-speak-rest-of-buffer))
  "Light-weight Google search.")
 
+
+
+(emacspeak-url-template-define
+ "Google Weather"
+ (format "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
+         gweb-my-zip)
+ nil
+ #'(lambda nil
+     (search-forward "Search Tools")
+     (forward-line 1)
+     (emacspeak-auditory-icon 'open-object)
+     (emacspeak-speak-rest-of-buffer))
+ "Light-weight Google search.")
 ;;}}}
 ;;{{{ Calendar Mobile:
 
