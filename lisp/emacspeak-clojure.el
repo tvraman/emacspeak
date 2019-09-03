@@ -82,6 +82,19 @@
   (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
+
+(cl-loop
+ for f in 
+ '(clojure-cycle-not clojure-cycle-when)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)
+       (emacspeak-speak-line)))))
+
+
 (cl-loop
  for f in
  '(clojure-forward-logical-sexp clojure-backward-logical-sexp)
