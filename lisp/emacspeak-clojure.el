@@ -94,6 +94,20 @@
        (emacspeak-auditory-icon 'button)
        (emacspeak-speak-line)))))
 
+(cl-loop
+ for f in 
+ '(clojure-view-cheatsheet
+                   clojure-view-grimoire
+                   clojure-view-guide
+                   clojure-view-reference-section
+                   clojure-view-style-guide)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-buffer)))))
 
 (cl-loop
  for f in
