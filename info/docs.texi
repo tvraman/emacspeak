@@ -50,6 +50,7 @@ This chapter documents a total of 1227 commands and 903 options.
 * emacspeak-custom::Speech enable interactive Emacs customization.
 * emacspeak-dbus::DBus On Emacspeak Desktop.
 * emacspeak-deadgrep::Speech-enable DEADGREP.
+* emacspeak-debugger::Speech-enable DEBUGGER.
 * emacspeak-desktop::Speech-enable desktop.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
@@ -5492,6 +5493,12 @@ key             binding
 @section emacspeak-deadgrep
 
 DEADGREP ==  Front-end to ripgrep.
+
+@node emacspeak-debugger
+@section emacspeak-debugger
+
+DEBUGGER ==  Emacs Interactive Debugger.
+Speech-enable the debugger by speech-enabling interactive commands.
 
 @node emacspeak-desktop
 @section emacspeak-desktop
@@ -25560,7 +25567,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 83 URL Templates.
+This section documents a total of 84 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25660,7 +25667,9 @@ Google Scholar Search@item @b{Google Transcoder}
 
 Transcode site via Google.@item @b{Google Trends}
 
-Google Trends@item @b{Google Webmaster Page Analysis}
+Google Trends@item @b{Google Weather}
+
+Light-weight Google search.@item @b{Google Webmaster Page Analysis}
 
 Page Analysis From Google Webmaster tools.@item @b{Guardian RSS Feeds Directory}
 
