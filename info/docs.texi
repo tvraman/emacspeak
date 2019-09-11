@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1227 commands and 903 options.
+This chapter documents a total of 1228 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -22577,6 +22577,17 @@ Run Lacheck on current buffer.
 
 @format
 load file into emacs
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-midi-using-m-score
+@deffn {Command} emacspeak-wizards-midi-using-m-score  (midi-file)
+@findex emacspeak-wizards-midi-using-m-score
+
+@format
+Play midi file using mscore from musescore package.
+
+(fn MIDI-FILE)
 @end format
 @end deffn
 
