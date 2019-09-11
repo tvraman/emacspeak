@@ -4325,7 +4325,33 @@ external package."
       (dtk-speak prefix))))
 
 ;;}}}
+;;{{{Midi Playback Using MuseScore ==mscore:
 
+
+(defvar emacspeak-wizards-media-pipe
+  (expand-file-name "pipe.flac" emacspeak-resource-directory)
+  "Named socket for piped media streams.")
+
+;;;###autoload
+(defun emacspeak-wizards-midi-using-m-score (midi-file)
+  "Play midi file using mscore from musescore package."
+  (interactive "fMidi File:")
+  (cl-declare (special emacspeak-wizards-media-pipe))
+  (cl-assert (executable-find "mscore") t "Install mscore first")
+  (or (file-exists-p emacspeak-wizards-media-pipe)
+      (shell-command (format "mknod %s p"
+                             emacspeak-wizards-media-pipe)))
+  (cl-assert (file-exists-p emacspeak-wizards-media-pipe) t
+             "Error creating named socket")
+  (emacspeak-m-player emacspeak-wizards-media-pipe)
+  (message "converting %s to audio" midi-file)
+  (shell-command
+   (format "%s -o %s %s &"
+           (executable-find "mscore")
+           emacspeak-wizards-media-pipe midi-file)))
+
+;;}}}
+   
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
