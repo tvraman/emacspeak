@@ -398,6 +398,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (defconst emacspeak-dired-opener-table
   `(("\\.epub$"  emacspeak-dired-epub-eww)
+    ("\\.mid$"  emacspeak-dired-midi-play)
     ("\\.xhtml" emacspeak-dired-eww-open)
     ("\\.html" emacspeak-dired-eww-open)
     ("\\.htm" emacspeak-dired-eww-open)
@@ -445,6 +446,11 @@ On a directory line, run du -s on the directory to speak its size."
   "Open PDF file on current dired line."
   (interactive)
   (emacspeak-wizards-pdf-open (dired-get-filename current-prefix-arg)))
+
+(defun emacspeak-dired-midi-play ()
+  "Play midi  file on current dired line."
+  (interactive)
+  (emacspeak-wizards-midi-using-m-score (dired-get-filename current-prefix-arg)))
 
 (defun emacspeak-dired-epub-eww ()
   "Open epub on current line  in EWW"
