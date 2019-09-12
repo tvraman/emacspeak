@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1228 commands and 903 options.
+This chapter documents a total of 1229 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5588,6 +5588,15 @@ unless ‘dired-listing-switches’ contains -l
 
 @format
 Preview markdown  file on current dired line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dired-midi-play
+@deffn {Command} emacspeak-dired-midi-play   
+@findex emacspeak-dired-midi-play
+
+@format
+Play midi  file on current dired line.
 @end format
 @end deffn
 
