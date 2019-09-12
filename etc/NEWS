@@ -21,3 +21,7 @@ Emacs.
 The stock quote wizard now uses the IEXCloud API, and needs an API key
 from IEXCloud.
 
+
+** Speech-Enabled Emacs Debugger
+
+Finally:-) Shows how rarely one needs to debug ELisp:-)
