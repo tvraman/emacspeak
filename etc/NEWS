@@ -25,3 +25,9 @@ from IEXCloud.
 ** Speech-Enabled Emacs Debugger
 
 Finally:-) Shows how rarely one needs to debug ELisp:-)
+
+
+** Speech-Enable Package ~dumb-jump~
+
+Module ~emacspeak-dumb-jump~ speech-enables package ~dumb-jump~ for
+code navigation.
