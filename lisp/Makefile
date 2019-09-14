@@ -128,6 +128,7 @@ emacspeak-desktop.elc \
 emacspeak-diff-mode.elc \
 emacspeak-dired.elc \
 emacspeak-dismal.elc \
+emacspeak-dumb-jump.elc \
 emacspeak-epub.elc \
 emacspeak-ecb.elc \
 emacspeak-ein.elc \

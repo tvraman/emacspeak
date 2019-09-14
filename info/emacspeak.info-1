@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 11, 2019.
+last updated on September 14, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2808,6 +2808,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode – A powerful File Manager.
+* emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
 * emacspeak-ediary::Speech-enable ediary.
