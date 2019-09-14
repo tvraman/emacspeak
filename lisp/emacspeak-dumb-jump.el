@@ -71,7 +71,8 @@ dumb-jump-go-prompt
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))
        (emacspeak-auditory-icon 'large-movement)))))
 
 
