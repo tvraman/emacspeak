@@ -146,6 +146,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 ;;}}}
 ;;{{{ Setup package extensions
 
+(emacspeak-do-package-setup "abc-mode" 'emacspeak-abc-mode)
 (emacspeak-do-package-setup "add-log" 'emacspeak-add-log)
 (emacspeak-do-package-setup "analog" 'emacspeak-analog)
 (emacspeak-do-package-setup "ansi-color" 'emacspeak-ansi-color)

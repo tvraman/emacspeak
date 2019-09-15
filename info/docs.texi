@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 903 options.
+This chapter documents a total of 1229 commands and 905 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -17,6 +17,7 @@ This chapter documents a total of 1229 commands and 903 options.
 * dtk-unicode::Pronounce Unicode characters correctly.
 * emacspeak::The Complete Audio Desktop.
 * emacspeak-2048::Speech-enable 2048 Game.
+* emacspeak-abc-mode::Speech-enable ABC-MODE.
 * emacspeak-actions::Emacspeak actions -- callbacks that can be associated with portions of a buffer.
 * emacspeak-add-log::Speech-enable add-log.
 * emacspeak-advice::Advice Emacs Core.
@@ -2337,6 +2338,12 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
+@defvar {User Option} voice-fringe
+Personality used for fringe
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
 @defvar {User Option} voice-function-name-personality
 Personality used for font-lock-function-name-face
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
@@ -3741,6 +3748,12 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} voice-secondary-selection
+Personality used for secondary-selection
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
 @defvar {User Option} voice-shadow
 Personality used for shadow
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
@@ -4025,6 +4038,13 @@ Speak board.
 Speak board column-wise.
 @end format
 @end deffn
+
+@node emacspeak-abc-mode
+@section emacspeak-abc-mode
+
+ABC-MODE ==  Specialized mode for editing  ABC Music notation.
+See @url{http://www.lesession.co.uk/abc/abc_notation.htm} for details.
+This package speech-enables abc-mode.
 
 @node emacspeak-actions
 @section emacspeak-actions
