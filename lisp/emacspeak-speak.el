@@ -1165,7 +1165,7 @@ spelled out  instead of being spoken."
     ("7" . "seven")
     ("8" . "eight")
     ("9" . "nine")
-    ("0" ly-raw string "\"zero\"")
+    ("0"  "\"zero\"")
     ("a" . "alpha")
     ("b" . "bravo")
     ("c" . "charlie")
