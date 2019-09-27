@@ -1228,7 +1228,7 @@ char is assumed to be one of a--z."
     (or (cdr
          (assoc char-string emacspeak-char-to-phonetic-table))
         (dtk-unicode-full-name-for-char char)
-        " ")))
+        char-string)))
 
 ;;}}}
 ;;{{{ Speak Chars:
