@@ -66,7 +66,7 @@
 ;;; https://developers.google.com/places/
 
 (defcustom gmaps-api-key nil
-  "Places API  key --- goto  https://code.google.com/apis/console to get one."
+  "Maps  API  key --- goto  https://code.google.com/apis/console to get one."
   :type '(choice
           (const :tag "None" nil)
           (string :value ""))
