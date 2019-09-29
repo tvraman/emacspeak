@@ -347,8 +347,8 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-speak-rest-of-buffer))
  "Light-weight Google search.")
 
-
-
+;;; forward declaration:
+(defvar gweb-my-zip nil)
 (emacspeak-url-template-define
  "Google Weather"
  (format "https://www.google.com/search?num=25&gbv=1&q=weather+%s"

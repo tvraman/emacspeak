@@ -571,7 +571,7 @@ Info-mode:
 
     ("?"   Info-summary "Info summary")
     ("h"   Info-help "Info help")
-    ("q"   Info-exit "Info exit")
+    ("q"   quit-window "Info exit")
     ("C-g" nil "cancel" :color blue)))
 
 ;;}}}

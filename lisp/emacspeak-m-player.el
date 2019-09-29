@@ -169,7 +169,7 @@ This is set to nil when playing Internet  streams.")
 (defgroup emacspeak-m-player nil
   "Emacspeak media player settings."
   :group 'emacspeak)
-
+;;;###autoload
 (defcustom emacspeak-m-player-program
   (executable-find "mplayer")
   "Media player program."
