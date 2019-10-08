@@ -101,7 +101,7 @@
 ;;{{{ Helpers:
 
 (cl-loop
- for i in'(1 2 3) do
+ for i in'(0 1 2 3) do
  (eval
   `(defun  ,(intern  (format "emacspeak-threes-%s" i)) ()
      "Set next tile."
@@ -161,8 +161,8 @@
 
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
-  (cl-declare (special threes-mode-map))
-  (define-key threes-mode-map "1" 'emacspeak-threes-1)
+  (cl-declare (special threes-mode-map))(define-key threes-mode-map "1" 'emacspeak-threes-1)
+  (define-key threes-mode-map "0" 'emacspeak-threes-0)
   (define-key threes-mode-map "2" 'emacspeak-threes-2)
   (define-key threes-mode-map "3" 'emacspeak-threes-3)
   (define-key threes-mode-map "#" 'emacspeak-threes-prune-stack)
