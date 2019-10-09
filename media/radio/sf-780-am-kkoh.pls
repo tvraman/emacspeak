@@ -1,0 +1,12 @@
+[playlist]
+File1=http://16693.live.streamtheworld.com:80/KKOHAM_SC
+File2=http://16693.live.streamtheworld.com:3690/KKOHAM_SC
+File3=http://15363.live.streamtheworld.com:80/KKOHAM_SC
+File4=http://15363.live.streamtheworld.com:3690/KKOHAM_SC
+File5=http://18613.live.streamtheworld.com:80/KKOHAM_SC
+File6=http://18613.live.streamtheworld.com:3690/KKOHAM_SC
+Title1=KKOHAM_SC
+Title2=KKOHAM_SC-Bak
+Length1=-1
+NumberOfEntries=6
+Version=2
