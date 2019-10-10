@@ -9,7 +9,7 @@ http://downloads.bbc.co.uk/podcasts/ppg.xsd
 
 -->
 <xsl:stylesheet xmlns:ppg="http://bbc.co.uk/2007/7/ppg" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
+  <xsl:output encoding="UTF-8" method="html" indent="yes"/>
   <xsl:template match="/ppg:ppg">
     <html>
       <head>
