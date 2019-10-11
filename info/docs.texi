@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 905 options.
+This chapter documents a total of 1230 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -191,6 +191,7 @@ This chapter documents a total of 1229 commands and 905 options.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
+* emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Interpret tabulated information as a table.
@@ -1341,7 +1342,7 @@ x i		ibuffer
 x j		emacspeak-jabber-popup-roster
 x m		mspools-show
 x o		emacspeak-wizards-occur-header-lines
-x p		package-list-packages
+x p		paradox-list-packages
 x q		emacspeak-wizards-quote
 x r		jabber-activity-switch-to
 x s		emacspeak-emergency-tts-restart
@@ -3808,6 +3809,30 @@ This personality uses  voice-brighten-extra whose  effect can be changed globall
 
 @end defvar
 
+@defvar {User Option} voice-tab-bar
+Personality used for tab-bar
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-tab-bar-tab
+Personality used for tab-bar-tab
+This personality uses  voice-highlight whose  effect can be changed globally by customizing voice-highlight-settings.
+
+@end defvar
+
+@defvar {User Option} voice-tab-bar-tab-inactive
+Personality used for tab-bar-tab-inactive
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-tab-line
+Personality used for tab-line
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} voice-term-underline
 Personality used for term-underline
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
@@ -4570,14 +4595,14 @@ Optional interactive prefix arg prompts for a category to use as a filter.
 @end deffn
 
 @subsubsection emacspeak-bookshare-debugInfo-handler
-@deffn {Command} emacspeak-bookshare-debugInfo-handler  (&rest ignore)
+@deffn {Command} emacspeak-bookshare-debugInfo-handler  (&rest arguments)
 @findex emacspeak-bookshare-debugInfo-handler
 
 @format
 Do nothing and return nil.
-This function accepts any number of arguments, but ignores them.
+This function accepts any number of ARGUMENTS, but ignores them.
 
-(fn &rest IGNORE)
+(fn &rest ARGUMENTS)
 @end format
 @end deffn
 
@@ -4970,14 +4995,14 @@ Custom URL executor for use in Bookshare TOC.
 @end deffn
 
 @subsubsection emacspeak-bookshare-version-handler
-@deffn {Command} emacspeak-bookshare-version-handler  (&rest ignore)
+@deffn {Command} emacspeak-bookshare-version-handler  (&rest arguments)
 @findex emacspeak-bookshare-version-handler
 
 @format
 Do nothing and return nil.
-This function accepts any number of arguments, but ignores them.
+This function accepts any number of ARGUMENTS, but ignores them.
 
-(fn &rest IGNORE)
+(fn &rest ARGUMENTS)
 @end format
 @end deffn
 
@@ -12753,7 +12778,7 @@ The heads for the associated hydra are:
 "9":    ‘Info-nth-menu-item’,
 "?":    ‘Info-summary’,
 "h":    ‘Info-help’,
-"q":    ‘Info-exit’,
+"q":    ‘quit-window’,
 "C-g":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
@@ -17897,6 +17922,12 @@ Move to top-left corner of  sub-square above current one.
 
 Speech-enable supercite.
 
+@node emacspeak-tab-bar
+@section emacspeak-tab-bar
+
+tab-bar ==  tabs for window configuration.
+Speech-enable tab-bar interaction.
+
 @node emacspeak-table
 @section emacspeak-table
 
@@ -18972,6 +19003,15 @@ The next upcoming tile is spoken after the  current state of the board.
 You can use @kbd{SPC} and @kbd{/} to review the board.
 
 @subsection emacspeak-threes Commands
+
+@subsubsection emacspeak-threes-0
+@deffn {Command} emacspeak-threes-0   
+@findex emacspeak-threes-0
+
+@format
+Set next tile.
+@end format
+@end deffn
 
 @subsubsection emacspeak-threes-1
 @deffn {Command} emacspeak-threes-1   
@@ -24311,7 +24351,7 @@ Walking directions from Google Maps.
 @subsection gmaps Options
 
 @defvar {User Option} gmaps-api-key
-Places API  key --- goto  https://code.google.com/apis/console to get one.
+Maps  API  key --- goto  https://code.google.com/apis/console to get one.
 
 @end defvar
 
@@ -25276,10 +25316,10 @@ documentation for defvoice.
 @format
 Toggle voice lock mode.
 
-If called interactively, enable Voice-Lock mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is ‘toggle’; disable the mode otherwise.
+If called interactively, enable Voice-Lock mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is ‘toggle’; disable the mode otherwise.
 
 (fn &optional ARG)
 @end format

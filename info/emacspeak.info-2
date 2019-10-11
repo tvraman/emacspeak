@@ -12,6 +12,14 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-deadgrep,  Next: emacspeak-debugger,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
+
+12.44 emacspeak-deadgrep
+========================
+
+DEADGREP == Front-end to ripgrep.
+
+
 File: emacspeak.info,  Node: emacspeak-debugger,  Next: emacspeak-desktop,  Prev: emacspeak-deadgrep,  Up: Emacspeak Commands And Options
 
 12.45 emacspeak-debugger
@@ -6254,7 +6262,7 @@ binds ‘s’ to this command.
      "9":    ‘Info-nth-menu-item’,
      "?":    ‘Info-summary’,
      "h":    ‘Info-help’,
-     "q":    ‘Info-exit’,
+     "q":    ‘quit-window’,
      "C-g":    ‘nil’
 
      The body can be accessed via ‘emacspeak-muggles-info-summary/body’.

@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 14, 2019.
+last updated on October 11, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1229 commands and 905 options.
+   This chapter documents a total of 1230 commands and 909 options.
 
 * Menu:
 
@@ -2944,6 +2944,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
+* emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Interpret tabulated information as a table.
@@ -3848,7 +3849,7 @@ system.
      x j		emacspeak-jabber-popup-roster
      x m		mspools-show
      x o		emacspeak-wizards-occur-header-lines
-     x p		package-list-packages
+     x p		paradox-list-packages
      x q		emacspeak-wizards-quote
      x r		jabber-activity-switch-to
      x s		emacspeak-emergency-tts-restart
@@ -5935,6 +5936,26 @@ system.
      voice-brighten-extra whose effect can be changed globally by
      customizing voice-brighten-extra-settings.
 
+ -- Variable: User Option voice-tab-bar
+     Personality used for tab-bar This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-tab-bar-tab
+     Personality used for tab-bar-tab This personality uses
+     voice-highlight whose effect can be changed globally by customizing
+     voice-highlight-settings.
+
+ -- Variable: User Option voice-tab-bar-tab-inactive
+     Personality used for tab-bar-tab-inactive This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-tab-line
+     Personality used for tab-line This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option voice-term-underline
      Personality used for term-underline This personality uses
      voice-brighten-medium whose effect can be changed globally by
@@ -6623,12 +6644,12 @@ Assuming you have correctly setup your API key:
 12.25.4.7 emacspeak-bookshare-debugInfo-handler
 ...............................................
 
- -- Command: emacspeak-bookshare-debugInfo-handler (&rest ignore)
+ -- Command: emacspeak-bookshare-debugInfo-handler (&rest arguments)
 
      Do nothing and return nil.
-     This function accepts any number of arguments, but ignores them.
+     This function accepts any number of ARGUMENTS, but ignores them.
 
-     (fn &rest IGNORE)
+     (fn &rest ARGUMENTS)
 
 12.25.4.8 emacspeak-bookshare-download-audio
 ............................................
@@ -6959,12 +6980,12 @@ Assuming you have correctly setup your API key:
 12.25.4.39 emacspeak-bookshare-version-handler
 ..............................................
 
- -- Command: emacspeak-bookshare-version-handler (&rest ignore)
+ -- Command: emacspeak-bookshare-version-handler (&rest arguments)
 
      Do nothing and return nil.
-     This function accepts any number of arguments, but ignores them.
+     This function accepts any number of ARGUMENTS, but ignores them.
 
-     (fn &rest IGNORE)
+     (fn &rest ARGUMENTS)
 
 12.25.4.40 emacspeak-bookshare-view
 ...................................
@@ -7472,12 +7493,4 @@ customized via appropriately named hook functions.
      key             binding
      —             ——-
 
-
-
-File: emacspeak.info,  Node: emacspeak-deadgrep,  Next: emacspeak-debugger,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
-
-12.44 emacspeak-deadgrep
-========================
-
-DEADGREP == Front-end to ripgrep.
 
