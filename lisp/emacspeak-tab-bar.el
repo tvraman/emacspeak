@@ -68,10 +68,6 @@
 ;;{{{ Interactive Commands:
 
 '(
-  tab-bar-close-other-tabs
-tab-bar-close-tab
-tab-bar-close-tab-by-name
-
 tab-bar-list
 tab-bar-list-backup-unmark
 tab-bar-list-delete
@@ -97,6 +93,18 @@ tab-next
 tab-previous
 tab-select
 )
+
+(cl-loop
+ for f in 
+ '(tab-bar-close-other-tabs tab-bar-close-tab tab-bar-close-tab-by-name)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
+
 
 ;;}}}
 (provide 'emacspeak-tab-bar)
