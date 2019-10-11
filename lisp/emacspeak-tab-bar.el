@@ -63,20 +63,40 @@
   (tab-line voice-lighten)
   )
 )
+
 ;;}}}
 ;;{{{ Interactive Commands:
 
-(let ((print-length nil)
-      (start (point))
-      (commands (emacspeak-wizards-enumerate-uncovered-commands "^tab-bar")))
-  (insert "'(\n")
-  (cl-loop for c in commands do (insert (format "%s\n" c)))
-  (insert ")\n")
-  (goto-char start)
-  (backward-sexp)
-  (kill-sexp)
-  (goto-char (search-forward "("))
-  (indent-pp-sexp))
+'(
+  tab-bar-close-other-tabs
+tab-bar-close-tab
+tab-bar-close-tab-by-name
+
+tab-bar-list
+tab-bar-list-backup-unmark
+tab-bar-list-delete
+tab-bar-list-delete-backwards
+tab-bar-list-execute
+tab-bar-list-mode
+tab-bar-list-mouse-select
+tab-bar-list-next-line
+tab-bar-list-prev-line
+tab-bar-list-select
+tab-bar-list-unmark
+tab-bar-mode
+tab-bar-new-tab
+tab-bar-select-tab
+tab-bar-switch-to-next-tab
+tab-bar-switch-to-prev-tab
+tab-bar-switch-to-tab
+tab-close
+tab-close-other
+tab-list
+tab-new
+tab-next
+tab-previous
+tab-select
+)
 
 ;;}}}
 (provide 'emacspeak-tab-bar)
