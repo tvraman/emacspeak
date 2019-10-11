@@ -85,8 +85,7 @@ tab-bar-select-tab
 tab-bar-switch-to-next-tab
 tab-bar-switch-to-prev-tab
 tab-bar-switch-to-tab
-tab-close
-tab-close-other
+
 tab-list
 tab-new
 tab-next
@@ -96,7 +95,9 @@ tab-select
 
 (cl-loop
  for f in 
- '(tab-bar-close-other-tabs tab-bar-close-tab tab-bar-close-tab-by-name)
+ '(
+   tab-bar-close-other-tabs tab-bar-close-tab
+   tab-close tab-close-other)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -105,6 +106,12 @@ tab-select
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
+
+(defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak (message "Closed tab %s" (ad-get-arg  0)))
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
 (provide 'emacspeak-tab-bar)
