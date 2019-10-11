@@ -258,6 +258,7 @@ emacspeak-sql.elc \
 emacspeak-supercite.elc \
 emacspeak-sudoku.elc \
 emacspeak-etable.elc \
+emacspeak-tab-bar.elc \
 emacspeak-tapestry.elc \
 emacspeak-tar.elc \
 emacspeak-tcl.elc \
@@ -551,6 +552,7 @@ emacspeak-table.elc
 emacspeak-table.elc: emacspeak-table.el
 emacspeak-tabulate.elc: emacspeak-tabulate.el dtk-speak.elc voice-setup.elc
 emacspeak-etable.elc: emacspeak-etable.el dtk-speak.elc
+emacspeak-tab-bar.elc: emacspeak-tab-bar.el dtk-speak.elc voice-setup.elc
 emacspeak-tapestry.elc: emacspeak-tapestry.el dtk-speak.elc voice-setup.elc
 emacspeak-tar.elc: emacspeak-tar.el dtk-speak.elc voice-setup.elc
 emacspeak-tcl.elc: emacspeak-tcl.el dtk-speak.elc voice-setup.elc
