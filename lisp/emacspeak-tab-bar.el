@@ -69,9 +69,7 @@
 
 (defsubst emacspeak-tab-bar-current-tab-name ()
   "Return name of current tab."
-  (let ((tabs (tab-bar-tabs)))
-    (when tabs
-      (cdr (assoc 'name (assoc 'current-tab (tab-bar-tabs)))))))
+  (cdr (assoc 'name (tab-bar--current-tab))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
