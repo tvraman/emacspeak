@@ -75,31 +75,17 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-tab-bar-list
-tab-bar-list-backup-unmark
-tab-bar-list-delete
-tab-bar-list-delete-backwards
-tab-bar-list-execute
-tab-bar-list-mode
-tab-bar-list-mouse-select
-tab-bar-list-next-line
-tab-bar-list-prev-line
-tab-bar-list-select
-tab-bar-list-unmark
-tab-bar-mode
-tab-bar-new-tab
-tab-bar-select-tab
-tab-bar-switch-to-next-tab
-tab-bar-switch-to-prev-tab
-tab-bar-switch-to-tab
+(cl-loop
+ for f in 
+ '(tab-bar-select-tab tab-bar-switch-to-next-tab tab-bar-switch-to-prev-tab)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-tab-bar-speak-tab-name)))))
 
-tab-list
-tab-new
-tab-next
-tab-previous
-tab-select
-)
 
 (cl-loop
  for f in 
@@ -113,6 +99,12 @@ tab-select
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-tab-bar-speak-tab-name)))))
+
+(defadvice tab-bar-new-tab (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-tab-bar-speak-tab-name)))
 
 
 (defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
