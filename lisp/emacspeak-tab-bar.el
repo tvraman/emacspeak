@@ -105,12 +105,16 @@
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-tab-bar-speak-tab-name)))))
 
-(defadvice tab-bar-new-tab (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-tab-bar-speak-tab-name)))
-
+(cl-loop
+ for f in 
+ '(tab-new tab-bar-new-tab)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'new-object)
+       (emacspeak-tab-bar-speak-tab-name)))))
 
 (defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
   "Provide auditory feedback."
