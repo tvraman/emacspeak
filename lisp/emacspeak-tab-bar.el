@@ -67,9 +67,10 @@
 ;;}}}
 ;;{{{Helpers:
 
-(defsubst emacspeak-tab-bar-current-tab-name ()
-  "Return name of current tab."
-  (cdr (assoc 'name (tab-bar--current-tab))))
+(defsubst emacspeak-tab-bar-speak-tab-name ()
+  "Speak name of current tab."
+  (emacspeak-auditory-icon 'tick-tick)
+  (dtk-notify-speak (format "%s" (cdr (assoc 'name (tab-bar--current-tab))))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -111,7 +112,7 @@ tab-select
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
-       (emacspeak-speak-mode-line)))))
+       (emacspeak-tab-bar-speak-tab-name)))))
 
 
 (defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
