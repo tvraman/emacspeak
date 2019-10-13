@@ -67,17 +67,22 @@
 ;;}}}
 ;;{{{Helpers:
 
+
+
 (defsubst emacspeak-tab-bar-speak-tab-name ()
   "Speak name of current tab."
   (emacspeak-auditory-icon 'tick-tick)
-  (dtk-notify-speak (format "%s" (cdr (assoc 'name (tab-bar--current-tab))))))
+  (dtk-notify-speak
+   (format "%s" (cdr (assoc 'name (tab-bar--current-tab))))))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
 (cl-loop
  for f in 
- '(tab-bar-select-tab tab-bar-switch-to-next-tab tab-bar-switch-to-prev-tab)
+ '(
+   tab-next tab-previous tab-select
+   tab-bar-select-tab tab-bar-switch-to-next-tab tab-bar-switch-to-prev-tab)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
