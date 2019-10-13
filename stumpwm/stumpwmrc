@@ -59,7 +59,7 @@
   (declare (special *tts-window-icon*))
   (when new
     (tts-serve-icon *tts-window-icon*)
-    (tts-speak (window-name new))))
+    (tts-speak (format "Window ~a" (window-name new)))
 
 (defun speak-this-window (window)
   "Speak this window  information."
