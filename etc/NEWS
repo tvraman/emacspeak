@@ -31,3 +31,7 @@ Finally:-) Shows how rarely one needs to debug ELisp:-)
 
 Module ~emacspeak-dumb-jump~ speech-enables package ~dumb-jump~ for
 code navigation.
+
+** Speech-Enable Tabs 
+
+Speech-enable ~tab-bar~ as found in Emacs  27.
