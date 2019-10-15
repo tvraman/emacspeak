@@ -76,6 +76,18 @@
    (format "%s" (cdr (assoc 'name (tab-bar--current-tab))))))
 
 ;;}}}
+;;{{{Emacspeak Hook:
+
+(defun emacspeak-tab-bar-hook  ()
+  "Set up keybindings etc."
+  (let ((cmd
+         (if tab-bar-mode #'tab-bar-select-tab #'digit-argument)))
+    (dotimes (i 9)
+      (global-set-key (vector (list 'control (+ i ?0))) cmd))))
+
+(add-hook 'tab-bar-mode-hook 'emacspeak-tab-bar-hook)
+
+;;}}}
 ;;{{{ Interactive Commands:
 
 (cl-loop
