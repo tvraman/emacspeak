@@ -41,5 +41,4 @@
        (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
          (lispy-mode 1)))
      (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy)
-
      ))
