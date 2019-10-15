@@ -82,8 +82,9 @@
   "Set up keybindings etc."
   (let ((cmd
          (if tab-bar-mode #'tab-bar-select-tab #'digit-argument)))
-    (dotimes (i 9)
-      (global-set-key (vector (list 'control (+ i ?0))) cmd))))
+    (cl-loop
+     for i from 1 to 9 do
+     (global-set-key  (kbd (format "C-%d" i)) cmd))))
 
 (add-hook 'tab-bar-mode-hook 'emacspeak-tab-bar-hook)
 
