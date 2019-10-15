@@ -78,15 +78,9 @@
 ;;}}}
 ;;{{{Emacspeak Hook:
 
-(defun emacspeak-tab-bar-hook  ()
-  "Set up keybindings etc."
-  (let ((cmd
-         (if tab-bar-mode #'tab-bar-select-tab #'digit-argument)))
-    (cl-loop
-     for i from 0 to 8  do
-     (global-set-key  (vector (list 'control (+ i 1 ?0))) cmd))))
 
-(add-hook 'tab-bar-mode-hook 'emacspeak-tab-bar-hook)
+
+
 
 ;;}}}
 ;;{{{ Interactive Commands:
