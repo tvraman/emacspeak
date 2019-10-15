@@ -83,8 +83,8 @@
   (let ((cmd
          (if tab-bar-mode #'tab-bar-select-tab #'digit-argument)))
     (cl-loop
-     for i from 1 to 9 do
-     (global-set-key  (kbd (format "C-%d" i)) cmd))))
+     for i from 1 to 9  do
+     (global-set-key  (vector (list 'control (+ i 1 ?0))) cmd))))
 
 (add-hook 'tab-bar-mode-hook 'emacspeak-tab-bar-hook)
 
