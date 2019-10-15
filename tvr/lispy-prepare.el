@@ -2,9 +2,12 @@
     "lispy"
   `(progn
      (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
-     (dotimes (i 9)
-  (define-key lispy-mode-map-lispy (vector (list 'control (+ i 1 ?0))) 'digit-argument)
-  (define-key lispy-mode-map (vector (list 'control (+ i 1 ?0))) 'digit-argument))
+     (let ((cmd
+            (if tab-bar-mode 'tab-bar-select-tab 'digit-argument)))
+       (cl-loop
+        for i from 1 to 9 do
+        (define-key lispy-mode-map-lispy (vector (list 'control (+ i 1 ?0))) cmd)
+        (define-key lispy-mode-map (vector (list 'control (+ i 1 ?0))) cmd)))
      (define-key lispy-mode-map (kbd "M-m") nil)
      (define-key lispy-mode-map (kbd "C-y") 'emacspeak-muggles-yank-pop/yank)
      (define-key lispy-mode-map (kbd ";") 'self-insert-command)
