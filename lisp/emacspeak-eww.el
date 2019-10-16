@@ -738,7 +738,7 @@ Retain previously set punctuations  mode."
 
 (cl-loop
  for f in
- '(eww eww-reload eww-open-file)
+ '(eww eww-open-in-new-buffer eww-reload eww-open-file)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
