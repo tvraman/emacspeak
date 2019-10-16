@@ -1,0 +1,61 @@
+** Introduction 
+
+This blog article [[https://saurabhkukade.github.io/Meta-programming-In-Python/][Meta Programming In Python]] reminded me to write up
+the equivalent for Emacs Lisp.
+Decorators in Python enable you to modify the vehavior of existing
+functions without changing the original function; /Advice/ in Lisp
+which traces back to the 80's enables similar functionality ---
+incidentally, Advice was the inspiration behind Aspect Oriented
+Programming in Java.
+
+** Advice And Emacs Lisp 
+
+Advice came to Emacs lisp in the summer of 1994, when module
+~advice.el~ shipped as part of Emacs 23. A few weeks later, a
+colleague at work (Win Treese) wrote up a simple example that  added
+a _before_  advice to the _vc-checkin_ functions of the time to create 
+an ~RCS~ subdirectory if one did not exist.  This was such a neat
+trick that all of us in our Lab adopted it --- and having random
+RCS_*,v* files lying around in the working directory became history.
+
+** Emacspeak And Advice --- Fall 1994
+
+And then I decided to make Emacs  speak to me.
+Module ~advice.el~ provided the ability to add _before_, _after_, or
+_around_ advice. In brief, Emacspeak used these three classes of
+advice as follows:
+
+  1. Speak line moved to after ~next-line~ and ~previous-line~ --- add
+     an _after_ advice that called function ~emacspeak-speak-line~.
+  2. Speak character being deleted --- Add a _before_ advice that
+    speaks the character under point before it is deleted.
+  3. Get various types of completion spoken --- Add an _around_ advice
+     that remembers the current context, calls the original function
+     being adviced, and finally speak the current context that now
+     reflects the completion.
+
+The /rest of the story/ was written up a few years ago as [[http://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At
+Twenty]]. Fast-forwarding 25 years, present versions of Emacs still
+include module ~advice.el~ as well as an arguably simplified front-end
+implemented by module ~nadvice.el~ that enables the definition of
+custom functions that are then attached to existing code via advice.
+
+** References
+
+  1. [[http://emacspeak.sourceforge.net/turning-twenty.html][Emacspeak At Twenty, Looking Back, Looking Forward]].
+  2. [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][emacspeak: The Complete Audio Desktop]]. Chapter from the book
+     entitled /Beautiful Code/, OReilly.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Meta-Programming In Emacs Using *defadvice*
+#+date: <2019-10-16 Wed>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.0.50 (Org mode 9.2.6)
