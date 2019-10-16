@@ -11,7 +11,7 @@ Programming in Java.
 ** Advice And Emacs Lisp 
 
 Advice came to Emacs lisp in the summer of 1994, when module
-~advice.el~ shipped as part of Emacs 23. A few weeks later, a
+~advice.el~ shipped as part of Emacs 19.23. A few weeks later, a
 colleague at work (Win Treese) wrote up a simple example that  added
 a _before_  advice to the _vc-checkin_ functions of the time to create 
 an ~RCS~ subdirectory if one did not exist.  This was such a neat

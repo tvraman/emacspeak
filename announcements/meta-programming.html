@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-10-16 Wed 11:29 -->
+<!-- 2019-10-16 Wed 14:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Meta-Programming In Emacs Using <b>defadvice</b></title>
@@ -197,8 +197,8 @@
 <body>
 <div id="content">
 <h1 class="title">Meta-Programming In Emacs Using <b>defadvice</b></h1>
-<div id="outline-container-org235cac4" class="outline-2">
-<h2 id="org235cac4"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgea1d19b" class="outline-2">
+<h2 id="orgea1d19b"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This blog article <a href="https://saurabhkukade.github.io/Meta-programming-In-Python/">Meta Programming In Python</a> reminded me to write up
@@ -212,12 +212,12 @@ Programming in Java.
 </div>
 </div>
 
-<div id="outline-container-org9678bbc" class="outline-2">
-<h2 id="org9678bbc"><span class="section-number-2">2</span> Advice And Emacs Lisp</h2>
+<div id="outline-container-orgd7109ad" class="outline-2">
+<h2 id="orgd7109ad"><span class="section-number-2">2</span> Advice And Emacs Lisp</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Advice came to Emacs lisp in the summer of 1994, when module
-<code>advice.el</code> shipped as part of Emacs 23. A few weeks later, a
+<code>advice.el</code> shipped as part of Emacs 19.23. A few weeks later, a
 colleague at work (Win Treese) wrote up a simple example that  added
 a <span class="underline">before</span>  advice to the <span class="underline">vc-checkin</span> functions of the time to create 
 an <code>RCS</code> subdirectory if one did not exist.  This was such a neat
@@ -227,8 +227,8 @@ RCS<sub>*</sub>,v* files lying around in the working directory became history.
 </div>
 </div>
 
-<div id="outline-container-orgf204b7a" class="outline-2">
-<h2 id="orgf204b7a"><span class="section-number-2">3</span> Emacspeak And Advice &#x2014; Fall 1994</h2>
+<div id="outline-container-org1a103d6" class="outline-2">
+<h2 id="org1a103d6"><span class="section-number-2">3</span> Emacspeak And Advice &#x2014; Fall 1994</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 And then I decided to make Emacs  speak to me.
@@ -249,17 +249,17 @@ reflects the completion.</li>
 </ol>
 
 <p>
-The <i>rest of the story</i> was written up a few years ago as
-<a href="http://emacspeak.sourceforge.net/turning-twenty.html">Emacspeak At Twenty</a>. Fast-forwarding 25 years, present versions of
-Emacs still include module <code>advice.el</code> as well as an arguably
-simplified front-end that enables the  definition of custom functions
-that are then attached to existing code via advice.
+The <i>rest of the story</i> was written up a few years ago as <a href="http://emacspeak.sourceforge.net/turning-twenty.html">Emacspeak At
+Twenty</a>. Fast-forwarding 25 years, present versions of Emacs still
+include module <code>advice.el</code> as well as an arguably simplified front-end
+implemented by module <code>nadvice.el</code> that enables the definition of
+custom functions that are then attached to existing code via advice.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org385b1aa" class="outline-2">
-<h2 id="org385b1aa"><span class="section-number-2">4</span> References</h2>
+<div id="outline-container-org0ea164b" class="outline-2">
+<h2 id="org0ea164b"><span class="section-number-2">4</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><a href="http://emacspeak.sourceforge.net/turning-twenty.html">Emacspeak At Twenty, Looking Back, Looking Forward</a>.</li>
@@ -272,7 +272,7 @@ entitled <i>Beautiful Code</i>, OReilly.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-16 Wed 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2019-10-16 Wed 11:29</p>
+<p class="date">Created: 2019-10-16 Wed 14:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
