@@ -136,6 +136,7 @@
     (define-key pianobar-key-map [next] 'emacspeak-pianobar-volume-up)
     (use-local-map pianobar-key-map)
     (emacspeak-speak-mode-line)
+    (bury-buffer)
     (emacspeak-auditory-icon 'open-object)))
 
 ;;; Advice all actions to play a pre-auditory icon
