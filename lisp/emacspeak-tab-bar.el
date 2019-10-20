@@ -39,9 +39,12 @@
 
 ;;{{{  introduction
 
-;;; Commentary:
-;;; tab-bar ==  tabs for window configuration.
-;;; Speech-enable tab-bar interaction.
+;;; Commentary: tab-bar == tabs for window configuration.
+;;; Speech-enable tab-bar interaction.  If you have
+;;; @var{browse-url-new-window-flag} set to T to have EWW open Web
+;;; pages in a new buffer, then set
+;;; @var{eww-browse-url-new-window-is-tab} to nil to avoid leaking
+;;; tabs.
 
 ;;; Code:
 
@@ -76,14 +79,12 @@
    (format "%s" (cdr (assoc 'name (tab-bar--current-tab))))))
 
 ;;}}}
-;;{{{Emacspeak Hook:
-
-
-
-
-
-;;}}}
 ;;{{{ Interactive Commands:
+
+(defadvice tab-bar-switch-to-tab (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-tab-bar-speak-tab-name)))
 
 (cl-loop
  for f in 
@@ -128,6 +129,59 @@
   (when (ems-interactive-p)
     (dtk-speak (message "Closed tab %s" (ad-get-arg  0)))
     (emacspeak-auditory-icon 'close-object)))
+
+;;}}}
+;;{{{tab-list commands:
+
+(cl-loop
+ for f in 
+ '(tab-list tab-bar-list)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)))))
+
+(defadvice tab-bar-list-execute (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+(cl-loop
+ for f in 
+ '(tab-bar-list-prev-line tab-bar-list-next-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+(defadvice tab-bar-list-unmark (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'unmark-object)
+    (emacspeak-speak-line)))
+
+
+(cl-loop
+ for f in 
+ '(tab-bar-list-delete  tab-bar-list-delete-backwards)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'delete-object)
+       (emacspeak-speak-line)))))
+
+(defadvice tab-bar-list-select (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 
 ;;}}}
 (provide 'emacspeak-tab-bar)
