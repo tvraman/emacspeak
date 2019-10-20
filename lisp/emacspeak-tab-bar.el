@@ -123,7 +123,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'new-object)
+       (emacspeak-auditory-icon 'open-object)
        (emacspeak-tab-bar-speak-tab-name)))))
 
 (defadvice tab-bar-close-tab-by-name (after emacspeak pre act comp)
