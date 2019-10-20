@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 11, 2019.
+last updated on October 20, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2944,7 +2944,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
-* emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Interpret tabulated information as a table.

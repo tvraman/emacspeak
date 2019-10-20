@@ -191,7 +191,6 @@ This chapter documents a total of 1230 commands and 909 options.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
-* emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
 * emacspeak-tabulate::Interpret tabulated information as a table.
@@ -17921,12 +17920,6 @@ Move to top-left corner of  sub-square above current one.
 @section emacspeak-supercite
 
 Speech-enable supercite.
-
-@node emacspeak-tab-bar
-@section emacspeak-tab-bar
-
-tab-bar ==  tabs for window configuration.
-Speech-enable tab-bar interaction.
 
 @node emacspeak-table
 @section emacspeak-table
