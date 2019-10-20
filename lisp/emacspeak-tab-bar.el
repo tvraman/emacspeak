@@ -39,7 +39,9 @@
 
 ;;{{{  introduction
 
-;;; Commentary: tab-bar == tabs for window configuration.
+;;; Commentary:
+
+;;; tab-bar == tabs for window configuration.
 ;;; Speech-enable tab-bar interaction.  If you have
 ;;; @var{browse-url-new-window-flag} set to T to have EWW open Web
 ;;; pages in a new buffer, then set
