@@ -4054,7 +4054,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
   (interactive)
   (let ((buffer (get-buffer-create "*scratch*")))
     (with-current-buffer buffer (lisp-interaction-mode))
-    (funcall-interactively #'switch-to-buffer buffer)))
+    (funcall-interactively #'pop-to-buffer buffer)))
 
 ;;}}}
 ;;{{{ Customize Saved Settings  By Pattern:
