@@ -198,7 +198,8 @@
        (funcall emacspeak-org-table-after-movement-function))
       (t
        (let ((dtk-stop-immediately nil))
-         (emacspeak-speak-line)))))))
+         (when (ems-interactive-p)
+           (emacspeak-speak-line))))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
