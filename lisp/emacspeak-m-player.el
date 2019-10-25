@@ -1299,19 +1299,28 @@ flat classical club dance full-bass full-bass-and-treble
   :type 'string
   :group 'emacspeak-m-player)
 
-;;;###autoload
-
-(defun ems--m-p-get-yt-audio-fmt (url)
+(defun ems--m-p-get-yt-audio-first-fmt (url)
   "Get first available audio format code for   YT URL"
   (substring 
    (shell-command-to-string
     (format 
-     "%s -F '%s' | grep '^[0-9]'   | head -1 | cut -f 1 -d \' \'"
+     "%s -F '%s' | grep '^[0-9]'   |grep audio |  head -1 | cut -f 1 -d \' \'"
      emacspeak-m-player-youtube-dl url))
    0 -1))
 
-(defun emacspeak-m-player-youtube-player (url)
-  "Use youtube-dl and mplayer to stream the audio for YouTube content."
+(defun ems--m-p-get-yt-audio-last-fmt (url)
+  "Get last  available (best audio format code for   YT URL"
+  (substring 
+   (shell-command-to-string
+    (format 
+     "%s -F '%s' | grep '^[0-9]'   | grep audio |tail -1 | cut -f 1 -d \' \'"
+     emacspeak-m-player-youtube-dl url))
+   0 -1))
+
+(defun emacspeak-m-player-youtube-player (url &optional best)
+  "Use youtube-dl and mplayer to stream the audio for YouTube content.
+Default is to pick smallest (lowest quality) audio format.
+Optional prefix arg `best' chooses highest quality."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
@@ -1322,7 +1331,7 @@ flat classical club dance full-bass full-bass-and-treble
          (shell-command-to-string
           (format "%s -f %s -g '%s' 2> /dev/null"
                   emacspeak-m-player-youtube-dl
-                  (ems--m-p-get-yt-audio-fmt url)
+                  (ems--m-p-get-yt-audio-first-fmt url)
                   url))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (setq u (substring u 0 -1))
