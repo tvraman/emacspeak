@@ -1299,7 +1299,7 @@ flat classical club dance full-bass full-bass-and-treble
   :type 'string
   :group 'emacspeak-m-player)
 
-(defun ems--m-p-get-yt-audio-first-fmt (url)
+(defsubst ems--m-p-get-yt-audio-first-fmt (url)
   "Get first available audio format code for   YT URL"
   (substring 
    (shell-command-to-string
@@ -1308,7 +1308,7 @@ flat classical club dance full-bass full-bass-and-treble
      emacspeak-m-player-youtube-dl url))
    0 -1))
 
-(defun ems--m-p-get-yt-audio-last-fmt (url)
+(defsubst ems--m-p-get-yt-audio-last-fmt (url)
   "Get last  available (best audio format code for   YT URL"
   (substring 
    (shell-command-to-string
@@ -1323,7 +1323,8 @@ Default is to pick smallest (lowest quality) audio format.
 Optional prefix arg `best' chooses highest quality."
   (interactive
    (list
-    (emacspeak-webutils-read-this-url)))
+    (emacspeak-webutils-read-this-url)
+    current-prefix-arg))
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
@@ -1331,7 +1332,9 @@ Optional prefix arg `best' chooses highest quality."
          (shell-command-to-string
           (format "%s -f %s -g '%s' 2> /dev/null"
                   emacspeak-m-player-youtube-dl
-                  (ems--m-p-get-yt-audio-first-fmt url)
+                  (if best
+                      (ems--m-p-get-yt-audio-last-fmt url)
+                    (ems--m-p-get-yt-audio-first-fmt url))
                   url))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (setq u (substring u 0 -1))
