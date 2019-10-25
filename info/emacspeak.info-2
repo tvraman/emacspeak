@@ -5178,13 +5178,15 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.119.2.76 emacspeak-m-player-youtube-player
 .............................................
 
- -- Command: emacspeak-m-player-youtube-player (url)
+ -- Command: emacspeak-m-player-youtube-player (url &optional best)
      ‘C-, y’
      ‘C-x @ a y’
 
      Use youtube-dl and mplayer to stream the audio for YouTube content.
+     Default is to pick smallest (lowest quality) audio format.
+     Optional prefix arg ‘best’ chooses highest quality.
 
-     (fn URL)
+     (fn URL &optional BEST)
 
 12.119.2.77 emacspeak-multimedia
 ................................

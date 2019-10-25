@@ -11535,7 +11535,7 @@ Invoke mp3splt to clip selected range in current file.
 @end deffn
 
 @subsubsection emacspeak-m-player-youtube-player
-@deffn {Command} emacspeak-m-player-youtube-player  (url)
+@deffn {Command} emacspeak-m-player-youtube-player  (url &optional best)
 @table @kbd
 @item C-, y
 @kindex C-, y
@@ -11547,8 +11547,10 @@ Invoke mp3splt to clip selected range in current file.
 
 @format
 Use youtube-dl and mplayer to stream the audio for YouTube content.
+Default is to pick smallest (lowest quality) audio format.
+Optional prefix arg ‘best’ chooses highest quality.
 
-(fn URL)
+(fn URL &optional BEST)
 @end format
 @end deffn
 
