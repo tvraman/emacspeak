@@ -1796,8 +1796,8 @@ feature. Calling spec is like ‘emacspeak-m-player’.
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer" id=
     "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>Command:
-    <strong>emacspeak-m-player-youtube-player</strong>
-    <em>(url)</em></dt>
+    <strong>emacspeak-m-player-youtube-player</strong> <em>(url
+    &amp;optional best)</em></dt>
     <dd>
       <dl compact="compact">
         <dt><kbd>C-, y</kbd></dt>
@@ -1813,8 +1813,10 @@ feature. Calling spec is like ‘emacspeak-m-player’.
       <div class="format">
         <pre class=
         "format">Use youtube-dl and mplayer to stream the audio for YouTube content.
+Default is to pick smallest (lowest quality) audio format.
+Optional prefix arg ‘best’ chooses highest quality.
 
-(fn URL)
+(fn URL &amp;optional BEST)
 </pre>
       </div>
     </dd>
