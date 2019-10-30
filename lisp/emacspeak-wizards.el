@@ -3401,7 +3401,8 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
         (format "%s/tops/last?symbols=%s&token=%s"
                 emacspeak-wizards-iex-base symbol emacspeak-iex-api-key))
        0)
-    (message "%s at %s"
+    (message "%s: %s at %s"
+             symbol
              .price
              (format-time-string
               "%_I %M %p" (seconds-to-time (/ .time 1000))))))
