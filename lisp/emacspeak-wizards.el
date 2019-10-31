@@ -3403,6 +3403,10 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
        0)
     (message "%s: %s at %s"
              symbol .price
+=======
+             symbol
+             .price
+>>>>>>> 58816523823b44ef9a95d6ac952f59c0c2f4a31d
              (format-time-string
               "%_I %M %p" (seconds-to-time (/ .time 1000))))))
 
