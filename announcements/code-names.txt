@@ -53,6 +53,7 @@ Note that special releases are marked with an '*'.
 | 48.0 | May 2018       | ServiceDog     |
 | 49.0 | November 2018  | WiseDog        |
 | 50.0 | May 2019       | SageDog        |
+| 51.0 | November 2019  | AssistDog      |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt
