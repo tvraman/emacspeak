@@ -55,12 +55,14 @@
 (defun xbacklight-get ()
   "Get current brightness level."
   (interactive)
-  (let ((value (shell-command-to-string (format "%s -get " xbacklight-cmd))))
-    (cond
-     ((= 0 (length value)) (message "XBacklight not supported."))
-     ((numberp (read value))
-      (message "Brightness is %d" (round  (read value))))
-     (t (message "Brightness is %s" value)))))
+  (cl-declare (special xbacklight-cmd))
+  (when xbacklight-cmd
+    (let ((value (shell-command-to-string (format "%s -get " xbacklight-cmd))))
+      (cond
+       ((= 0 (length value)) (message "XBacklight not supported."))
+       ((numberp (read value))
+        (message "Brightness is %d" (round  (read value))))
+       (t (message "Brightness is %s" value))))))
 
 ;;; forward declaration:
 (defvar emacspeak-speak-messages)
@@ -70,10 +72,12 @@
   "Set brightness to  specified level.
 `brightness' is a percentage value."
   (interactive "nBrightness: ")
+  (cl-declare (special xbacklight-cmd))
   (ems-with-messages-silenced
-   (shell-command (format "%s -set %s"
-                          xbacklight-cmd brightness)))
-  (xbacklight-get))
+      (when xbacklight-cmd
+        (shell-command (format "%s -set %s"
+                               xbacklight-cmd brightness)))
+    (xbacklight-get)))
 
 (defgroup xbacklight nil
   "Control XBacklight from Emacs."
