@@ -2,6 +2,9 @@
 
 # Usage: nm_add ssid passwd name
 # Add a new wifi network
+# ssid: SSID Of network being added.
+# passwd: Network Password.
+# name: Name used as ID to refer to this network in later operations.
 
 function nm_add () {
     nmcli dev wifi con $1 password $2  name $3
@@ -9,5 +12,10 @@ function nm_add () {
 
 function nm_up () {
     nmcli conn up id $1
+}
+
+
+function nm_down () {
+    nmcli conn down id $1
 }
 
