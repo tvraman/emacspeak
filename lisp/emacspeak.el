@@ -439,8 +439,7 @@ caps."
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon if requested."
   (cl-declare (special emacspeak-play-emacspeak-startup-icon))
-  (let ((player  (or (executable-find "mplayer")
-                     (executable-find "play"))))
+  (let ((player   (executable-find "mplayer")))
     (when (and  emacspeak-play-emacspeak-startup-icon player)
       (start-process
        "mp3" nil
