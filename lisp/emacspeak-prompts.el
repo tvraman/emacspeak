@@ -60,8 +60,7 @@
   "Where pre-defined prompt files are located.")
 
 (defvar emacspeak-prompts-player
-  (or (executable-find "play")
-      (executable-find "mplayer"))
+      (executable-find "mplayer")
   "Player used to play pre-defined prompts.")
 ;;;###autoload 
 (defun emacspeak-prompt (name)
