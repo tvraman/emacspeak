@@ -296,7 +296,7 @@ class _ProtocolHandler:
     output = prefix + " " + output + " " + suffix
     writeDebugLog(4, "about to speak letter: " + output + "\n")
     # Send directly to TTS to avoid any line processing.
-    speechSynthesizer.startSpeakingString_(output)
+    speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
 
   def handleQueue(self, args):
     parseContent(args)
@@ -544,7 +544,7 @@ def processSpeechQueue():
       output = item[1].strip(" {}")
       if output:
         speechSynthesizer.setRate_(ttsState['speechRate'])
-        speechSynthesizer.startSpeakingString_(output)
+        speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
         writeDebugLog(2, "\nsay: " + output + "\nend\n")
       else:
         processSpeechQueue()
@@ -573,7 +573,7 @@ def processSpeechQueue():
       writeDebugLog(4, "rendering text clip" + str(output))
       speechSynthesizer.setRate_(ttsState['speechRate'])
       if not enableSox:
-        speechSynthesizer.startSpeakingString_(output)
+        speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
       else:
         if speechSynthesizer.startSpeakingString_toURL_(
 output, speechOutUrl) and output not in renderingBlacklist:
