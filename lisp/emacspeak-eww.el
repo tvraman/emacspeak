@@ -2095,7 +2095,7 @@ To associate a URL with a char, use this command
 with an interactive prefix arg. "
   (interactive
    (list
-    (read-char-exclusive "Tab:")
+    (read-char-exclusive "EWWTab:")
     current-prefix-arg))
   (cl-declare (special emacspeak-eww-smart-tabs))
   (unless
