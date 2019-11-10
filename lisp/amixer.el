@@ -201,11 +201,15 @@
       (nreverse values))))
 
 (defvar amixer-alsactl-config-file
-  nil
+  (cond
+   ((file-exists-p (expand-file-name "asound.state"
+                                     user-emacs-directory))
+    (expand-file-name "asound.state" user-emacs-directory))
+   ((file-exists-p "/var/lib/alsa/asound.state")
+    "/var/lib/alsa/asound.state"))
   "Personal sound card settings. Copied from /var/lib/alsa/asound.state
 to your ~/.emacs.d to avoid needing to run alsactl as root on first
-use."
-  )
+use.")
 
 (defun amixer-alsactl-setup ()
   "Set up alsactl sound state."
