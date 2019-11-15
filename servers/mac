@@ -313,6 +313,7 @@ class _ProtocolHandler:
 
     textClipPlayer.stop()
     del(speechQueue[:])
+    self.isProcessing = False
 
   def handleTone(self, args):
     frequency, length = args.split(' ')
