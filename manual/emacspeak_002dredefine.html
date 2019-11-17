@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.6, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -34,23 +34,14 @@
   <!--
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-  blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smalllisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
   pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -62,7 +53,7 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <a name="emacspeak_002dredefine" id="emacspeak_002dredefine"></a>
+  <span id="emacspeak_002dredefine"></span>
   <div class="header">
     <p>Next: <a href=
     "emacspeak_002dreftex.html#emacspeak_002dreftex" accesskey="n"
@@ -77,8 +68,7 @@
     "index">Index</a>]</p>
   </div>
   <hr />
-  <a name="emacspeak_002dredefine-1" id=
-  "emacspeak_002dredefine-1"></a>
+  <span id="emacspeak_002dredefine-1"></span>
   <h3 class="section">12.158 emacspeak-redefine</h3>
   <p>This module redefines a few vital functions, since advising
   them won’t help. Convention used: To redefine function fn: The
@@ -87,20 +77,16 @@
   emacspeak-fn In the case of backward-char, forward-char, and
   self-insert-command mere redefinition of the function will not
   do: We will need to bind the new functions explicitly to the
-  keys.</p><a name="emacspeak_002dredefine-Commands" id=
-  "emacspeak_002dredefine-Commands"></a>
+  keys.</p><span id="emacspeak_002dredefine-Commands"></span>
   <h4 class="subsection">12.158.1 emacspeak-redefine
-  Commands</h4><a name="emacspeak_002dbackward_002dchar" id=
-  "emacspeak_002dbackward_002dchar"></a>
+  Commands</h4><span id="emacspeak_002dbackward_002dchar"></span>
   <h4 class="subsubsection">12.158.1.1 emacspeak-backward-char</h4>
   <dl>
-    <dt><a name="index-emacspeak_002dbackward_002dchar" id=
-    "index-emacspeak_002dbackward_002dchar"></a>Command:
+    <dt id="index-emacspeak_002dbackward_002dchar">Command:
     <strong>emacspeak-backward-char</strong> <em>(&amp;optional
     arg)</em></dt>
     <dd>
-      <a name="index-emacspeak_002dbackward_002dchar-1" id=
-      "index-emacspeak_002dbackward_002dchar-1"></a>
+      <span id="index-emacspeak_002dbackward_002dchar-1"></span>
       <div class="format">
         <pre class=
         "format">Backward-char redefined to speak char moved to. 
@@ -109,17 +95,14 @@
 </pre>
       </div>
     </dd>
-  </dl><a name="emacspeak_002dforward_002dchar" id=
-  "emacspeak_002dforward_002dchar"></a>
+  </dl><span id="emacspeak_002dforward_002dchar"></span>
   <h4 class="subsubsection">12.158.1.2 emacspeak-forward-char</h4>
   <dl>
-    <dt><a name="index-emacspeak_002dforward_002dchar" id=
-    "index-emacspeak_002dforward_002dchar"></a>Command:
+    <dt id="index-emacspeak_002dforward_002dchar">Command:
     <strong>emacspeak-forward-char</strong> <em>(&amp;optional
     arg)</em></dt>
     <dd>
-      <a name="index-emacspeak_002dforward_002dchar-1" id=
-      "index-emacspeak_002dforward_002dchar-1"></a>
+      <span id="index-emacspeak_002dforward_002dchar-1"></span>
       <div class="format">
         <pre class=
         "format">Forward-char redefined to speak char moved to. 
@@ -128,19 +111,16 @@
 </pre>
       </div>
     </dd>
-  </dl><a name="emacspeak_002dself_002dinsert_002dcommand" id=
-  "emacspeak_002dself_002dinsert_002dcommand"></a>
+  </dl><span id="emacspeak_002dself_002dinsert_002dcommand"></span>
   <h4 class="subsubsection">12.158.1.3
   emacspeak-self-insert-command</h4>
   <dl>
-    <dt><a name="index-emacspeak_002dself_002dinsert_002dcommand"
-    id=
-    "index-emacspeak_002dself_002dinsert_002dcommand"></a>Command:
-    <strong>emacspeak-self-insert-command</strong>
+    <dt id="index-emacspeak_002dself_002dinsert_002dcommand">
+    Command: <strong>emacspeak-self-insert-command</strong>
     <em>(&amp;optional arg)</em></dt>
     <dd>
-      <a name="index-emacspeak_002dself_002dinsert_002dcommand-1"
-      id="index-emacspeak_002dself_002dinsert_002dcommand-1"></a>
+      <span id=
+      "index-emacspeak_002dself_002dinsert_002dcommand-1"></span>
       <div class="format">
         <pre class="format">Insert a character.
 Speaks the character if emacspeak-character-echo is true.

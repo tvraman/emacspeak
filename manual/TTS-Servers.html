@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.6, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,23 +32,14 @@
   <!--
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-  blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smalllisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
   pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -60,7 +51,7 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <a name="TTS-Servers" id="TTS-Servers"></a>
+  <span id="TTS-Servers"></span>
   <div class="header">
     <p>Next: <a href="Emacspeak-At-Twenty.html#Emacspeak-At-Twenty"
     accesskey="n" rel="next">Emacspeak At Twenty</a>, Previous:
@@ -74,7 +65,7 @@
     "index">Index</a>]</p>
   </div>
   <hr />
-  <a name="TTS-Servers-1" id="TTS-Servers-1"></a>
+  <span id="TTS-Servers-1"></span>
   <h2 class="chapter">14 TTS Servers</h2>
   <p>Emacspeak produces spoken output by communicating with one of
   many speech servers. This section documents the communication
@@ -89,8 +80,7 @@
     communication protocol</li>
     <li>Developers of other client applications who wish to use the
     various Emacspeak speech servers.</li>
-  </ul><a name="High_002dlevel-Overview" id=
-  "High_002dlevel-Overview"></a>
+  </ul><span id="High_002dlevel-Overview"></span>
   <h3 class="section">14.1 High-level Overview</h3>
   <p>The TTS server reads commands from standard input, and script
   <em>speech-server</em> can be used to cause a TTS server to
@@ -127,9 +117,8 @@
   <em>highly</em> responsive; Client applications can queue large
   amounts of text (typically queued a clause at a time to achieve
   the best prosody), ask the TTS server to start speaking, and
-  interrupt the spoken output at any time.</p><a name=
-  "Commands-That-Queue-Output_002e" id=
-  "Commands-That-Queue-Output_002e"></a>
+  interrupt the spoken output at any time.</p><span id=
+  "Commands-That-Queue-Output_002e"></span>
   <h4 class="subsection">14.1.1 Commands That Queue Output.</h4>
   <p>This section documents commands that either produce spoken
   output, or queue output to be produced on demand. Commands that
@@ -230,8 +219,7 @@
         </pre>
   </div>
   <p>Queues the specified duration of silence. Silence is specified
-  in milliseconds.</p><a name="Commands-That-Set-State" id=
-  "Commands-That-Set-State"></a>
+  in milliseconds.</p><span id="Commands-That-Set-State"></span>
   <h4 class="subsection">14.1.2 Commands That Set State</h4>
   <div class="example">
     <pre class="example">        tts_reset

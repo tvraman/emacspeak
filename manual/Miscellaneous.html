@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.6, http://www.gnu.org/software/texinfo/ -->
 <head>
   <meta name="generator" content=
   "HTML Tidy for HTML5 for Linux version 5.6.0" />
@@ -32,23 +32,14 @@
   <!--
   a.summary-letter {text-decoration: none}
   blockquote.indentedblock {margin-right: 0em}
-  blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-  blockquote.smallquotation {font-size: smaller}
   div.display {margin-left: 3.2em}
   div.example {margin-left: 3.2em}
   div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smalllisp {margin-left: 3.2em}
   kbd {font-style: oblique}
   pre.display {font-family: inherit}
   pre.format {font-family: inherit}
   pre.menu-comment {font-family: serif}
   pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
   span.nolinebreak {white-space: nowrap}
   span.roman {font-family: initial; font-weight: normal}
   span.sansserif {font-family: sans-serif; font-weight: normal}
@@ -60,7 +51,7 @@
   "http://www.w3.org/StyleSheets/Core/Modernist" />
 </head>
 <body lang="en" xml:lang="en">
-  <a name="Miscellaneous" id="Miscellaneous"></a>
+  <span id="Miscellaneous"></span>
   <div class="header">
     <p>Previous: <a href=
     "Speech-Output-Control.html#Speech-Output-Control" accesskey=
@@ -73,8 +64,7 @@
     "index">Index</a>]</p>
   </div>
   <hr />
-  <a name="Miscellaneous-Speech-Commands" id=
-  "Miscellaneous-Speech-Commands"></a>
+  <span id="Miscellaneous-Speech-Commands"></span>
   <h4 class="subsection">6.4.3 Miscellaneous Speech Commands</h4>
   <p>Speech can be stopped using command <code>dtk-stop</code> —
   though in normal use, the action of moving the cursor will stop
@@ -82,15 +72,13 @@
   for cases where the user wants to switch to a different server —
   or in the rare case to nuke a runaway speech server.</p>
   <dl compact="compact">
-    <dd><a name="index-dtk_002dstop" id="index-dtk_002dstop"></a>
-    <a name="index-pause-control-e-s" id=
-    "index-pause-control-e-s"></a></dd>
+    <dd><span id="index-dtk_002dstop"></span> <span id=
+    "index-pause-control-e-s"></span></dd>
     <dt><kbd>Control e s</kbd></dt>
     <dd>
-      <p>dtk-stop Stop speech now.</p><a name=
-      "index-dtk_002dtoggle_002dquiet" id=
-      "index-dtk_002dtoggle_002dquiet"></a> <a name=
-      "index-control-e-d-q" id="index-control-e-d-q"></a>
+      <p>dtk-stop Stop speech now.</p><span id=
+      "index-dtk_002dtoggle_002dquiet"></span> <span id=
+      "index-control-e-d-q"></span>
     </dd>
     <dt><kbd>control e d q</kbd></dt>
     <dd>
@@ -99,10 +87,9 @@
       using an Emacs session that has emacspeak loaded but wish to
       make the speech shut up. Optional argument PREFIX specifies
       whether speech is turned off in the current buffer or in all
-      buffers.</p><a name="index-dtk_002demergency_002drestart" id=
-      "index-dtk_002demergency_002drestart"></a> <a name=
-      "index-control-e-control-s" id=
-      "index-control-e-control-s"></a>
+      buffers.</p><span id=
+      "index-dtk_002demergency_002drestart"></span> <span id=
+      "index-control-e-control-s"></span>
     </dd>
     <dt><kbd>control e control s</kbd></dt>
     <dd>
@@ -115,9 +102,9 @@
   <p>Finally, here are the remaining commands available via the TTS
   related keymap <kbd>C-e d</kbd>.</p>
   <dl compact="compact">
-    <dd><a name="index-dtk_002dadd_002dcleanup_002dpattern" id=
-    "index-dtk_002dadd_002dcleanup_002dpattern"></a> <a name=
-    "index-control-e-d-a" id="index-control-e-d-a"></a></dd>
+    <dd><span id=
+    "index-dtk_002dadd_002dcleanup_002dpattern"></span> <span id=
+    "index-control-e-d-a"></span></dd>
     <dt><kbd>control e d a</kbd></dt>
     <dd>
       <p>dtk-add-cleanup-pattern Add this pattern to the list of
@@ -129,21 +116,17 @@
       repeating pattern ‘.’ (this is already added by default)
       emacspeak will say “aw fifteen dot” when speaking the string
       “...............” instead of “period period period period
-      ”.</p><a name="index-dtk_002dselect_002dserver" id=
-      "index-dtk_002dselect_002dserver"></a> <a name=
-      "index-control-e-d-d" id="index-control-e-d-d"></a>
+      ”.</p><span id="index-dtk_002dselect_002dserver"></span>
+      <span id="index-control-e-d-d"></span>
     </dd>
     <dt><kbd>control e d d</kbd></dt>
     <dd>
       <p>dtk-select-server Select a speech server interactively.
       This will be the server that is used when you next call
       either M-x dtk-initialize or C-e C-s. Argument PROGRAM
-      specifies the speech server program.</p><a name=
-      "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"
-      id=
-      "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"></a>
-      <a name="index-control-e-d-SPACE" id=
-      "index-control-e-d-SPACE"></a>
+      specifies the speech server program.</p><span id=
+      "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"></span>
+      <span id="index-control-e-d-SPACE"></span>
     </dd>
     <dt><kbd>control e d SPACE</kbd></dt>
     <dd>
@@ -160,11 +143,9 @@
       Splitting on white space makes emacspeak’s stop command
       responsive. However, when splitting on white space, the
       speech sounds choppy since the synthesizer is getting a word
-      at a time.</p><a name=
-      "index-dtk_002dset_002dchunk_002dseparator_002dsyntax" id=
-      "index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></a>
-      <a name="index-control-e-d-RETURN" id=
-      "index-control-e-d-RETURN"></a>
+      at a time.</p><span id=
+      "index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></span>
+      <span id="index-control-e-d-RETURN"></span>
     </dd>
     <dt><kbd>control e d RETURN</kbd></dt>
     <dd>
@@ -172,25 +153,22 @@
       is split in chunks. See the Emacs documentation on syntax
       tables for details on how characters are classified into
       various syntactic classes. Argument S specifies the syntax
-      class.</p><a name="index-emacspeak_002ddial_002ddtk" id=
-      "index-emacspeak_002ddial_002ddtk"></a> <a name=
-      "index-control-e-d-t" id="index-control-e-d-t"></a>
+      class.</p><span id="index-emacspeak_002ddial_002ddtk"></span>
+      <span id="index-control-e-d-t"></span>
     </dd>
     <dt><kbd>control e d t</kbd></dt>
     <dd>
       <p>emacspeak-dial-dtk Prompt for and dial a phone NUMBER with
-      the Dectalk.</p><a name=
-      "index-emacspeak_002ddtk_002dspeak_002dversion" id=
-      "index-emacspeak_002ddtk_002dspeak_002dversion"></a> <a name=
-      "index-control-e-d-cap-V" id="index-control-e-d-cap-V"></a>
+      the Dectalk.</p><span id=
+      "index-emacspeak_002ddtk_002dspeak_002dversion"></span>
+      <span id="index-control-e-d-cap-V"></span>
     </dd>
     <dt><kbd>control e d cap V</kbd></dt>
     <dd>
       <p>emacspeak-dtk-speak-version Use this to find out which
-      version of the TTS firmware you are running.</p><a name=
-      "index-emacspeak_002dzap_002ddtk" id=
-      "index-emacspeak_002dzap_002ddtk"></a> <a name=
-      "index-control-e-d-z" id="index-control-e-d-z"></a>
+      version of the TTS firmware you are running.</p><span id=
+      "index-emacspeak_002dzap_002ddtk"></span> <span id=
+      "index-control-e-d-z"></span>
     </dd>
     <dt><kbd>control e d z</kbd></dt>
     <dd>
