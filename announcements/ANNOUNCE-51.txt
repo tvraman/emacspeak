@@ -1,7 +1,7 @@
 #    -*- mode: org -*-
 * For Immediate Release:
 
-San Jose, CA, (Nov 26, 2019)
+San Jose, CA, (Nov 27, 2019)
 
 ** Emacspeak 51.0 (AssistDog) Unleashed! 
     
@@ -286,7 +286,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Announcing Emacspeak 51.0—AssistAnt!
+#+TITLE:     Announcing Emacspeak 51.0—AssistDog!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
