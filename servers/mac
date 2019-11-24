@@ -109,6 +109,8 @@ literalPunctuation = ["'", ","]
 voiceMap = dict([(NSSpeechSynthesizer.attributesForVoice_(v)['VoiceName'].lower(), v) 
                     for v in list(NSSpeechSynthesizer.availableVoices())])
 
+# A queue of inline codes waiting to be dispatched to NSSpeechSynthesizer.
+codeQueue = []
 # A queue of either text or audio filenames waiting to be dispatched to NSSpeechSynthesizer.
 speechQueue = []
 
@@ -128,7 +130,11 @@ class ServerDelegate(NSObject):
   # NSSpeechSynthesizerDelegate implementation.
   def speechSynthesizer_didFinishSpeaking_(self, synthesizer, success):
     global speechSynthesizer
-    if speechSynthesizer == synthesizer:
+    global speechDelegate
+
+    if synthesizer == speechSynthesizer:
+      speechSynthesizer = NSSpeechSynthesizer.alloc().init()
+      speechSynthesizer.setDelegate_(speechDelegate)
       processSpeechQueue()
 
   def speechSynthesizer_didEncounterErrorAtIndex_ofString_message_(self, synthesizer, index, text, message):
@@ -244,9 +250,9 @@ class _ProtocolHandler:
     # Maps a protocol id to a handler function.
     self.protocolIdToHandlerMap = { 'd':self.handleDispatch,
                                     'a':self.handleAuditoryIcon,
-                                    'c':self.handleQueue,
+                                    'c':self.handleQueueCode,
                                     'l':self.handleLetter,
-                                    'q':self.handleQueue,
+                                    'q':self.handleQueueSpeech,
                                     's':self.handleStopSpeaking,
                                     't':self.handleTone,
                                     'tts_say':self.handleTtsSay,
@@ -268,7 +274,6 @@ class _ProtocolHandler:
     if not self.isProcessing:
       processSpeechQueue()
       self.isProcessing = True
-
 
   # Play an auditory icon.
   # There may be a better way of doing this
@@ -298,8 +303,13 @@ class _ProtocolHandler:
     # Send directly to TTS to avoid any line processing.
     speechSynthesizer.startSpeakingString_(unicode(output, "utf-8"))
 
-  def handleQueue(self, args):
-    parseContent(args)
+  def handleQueueCode(self, args):
+    global codeQueue
+    parseContent(args, codeQueue)
+
+  def handleQueueSpeech(self, args):
+    global speechQueue
+    parseContent(args, speechQueue, extractCodesFromQueue())
 
   def handleStopSpeaking(self, args):
     global speechSynthesizer
@@ -368,7 +378,7 @@ class _ProtocolHandler:
                "chorus 0.5 0.9 50.0 0.4 0.25 2.0 -t 60.0 0.32 0.4 2.3 -t"]
     i = len(samples) - 1
     while i >= 0:
-      self.handleQueue("[{" + samples[i] + "}]" + "[[rate 200]] This is a test at index " + str(i) + "}")
+      self.handleQueueSpeech("[{" + samples[i] + "}]" + "[[rate 200]] This is a test at index " + str(i) + "}")
       i -= 1
       self.handleDispatch(args)
 
@@ -400,7 +410,6 @@ class _ProtocolHandler:
     writeDebugLog(6, "tts_sync: set punctuation level to: " + ttsState['punctuationLevel'] + " capitalize to " + str(ttsState['capitalize']) + " allcaps " + str(ttsState['allCaps']) + " splitCaps " + str(ttsState['splitCaps']) + " rate to: " + str(ttsState['speechRate']) + "\n")
 
   def dispatchRawTtsMessage(self, message):
-    self.isProcessing = False
     writeDebugLog(4, "dispatchRawTtsMessage")
     chunks = message.split('\n')
     for chunk in chunks:
@@ -466,7 +475,7 @@ class _ProtocolHandler:
 ProtocolHandler = _ProtocolHandler()
 
 # Parse all content into an ordered sequence of tokens.
-def parseContent(text):
+def parseContent(text, outQueue, codes=""):
   writeDebugLog(4, "Parsing content...")
   effects = []
   text = text.strip(' {}')
@@ -487,14 +496,14 @@ def parseContent(text):
     elif first:
       first = ProcessSpecialCharacters(first)
       while len(first) > 1024:
-        speechQueue.append(('text', first[:1024]))
+        outQueue.append(('text', codes + first[:1024]))
         first = first[1024:]
-      speechQueue.append(('text', first))
+      outQueue.append(('text', codes + first))
     writeDebugLog(
         8, "first: " + str(first) + "\neffects " + str(effects) + "\nrest " + str(rest))
 
     if num:
-      speechQueue.append(('text', processNumbers(num)))
+      outQueue.append(('text', codes + processNumbers(num)))
 
     if embed:
       embedArgs = embed.split(' ')
@@ -519,10 +528,14 @@ def parseContent(text):
     else:
       writeDebugLog(8, "Appending text")
       while len(text) > 1024:
-        speechQueue.append(("text", text[:1024]))
+        outQueue.append(("text", codes + text[:1024]))
         text = text[1024:]
-      speechQueue.append(("text", text))
+      outQueue.append(("text", codes + text))
 
+def extractCodesFromQueue():
+  ret = ''.join([item[1] for item in codeQueue])
+  del(codeQueue[:])
+  return ret
 
 # Processes speech objects.
 #  format is:
@@ -536,7 +549,9 @@ def processSpeechQueue():
       return
     speechLock.release()
 
-  if (len(speechQueue) > 0):
+  if len(speechQueue) == 0:
+    ProtocolHandler().isProcessing = False
+  elif (len(speechQueue) > 0):
     item = speechQueue.pop(0)
 
     #Text
