@@ -1,0 +1,38 @@
+#    -*- mode: org -*-
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 51 -- Emacspeak 51 User Visible Changes
+This version requires Emacs-26.1 or later.
+
+** Speech-Enable Deadgrep
+
+Module ~emacspeak-deadgrep~ speech-enables ~deadgrep~, a front-end for
+using ~ripgrep~.
+
+** Speech-Enabled Nov.el 
+
+Module ~emacspeak-nov~ speech-enables ~nov.el~, an EPub reader for
+Emacs.
+
+** Stock Quotes From IEXCloud 
+
+The stock quote wizard now uses the IEXCloud API, and needs an API key
+from IEXCloud.
+
+** Speech-Enabled Emacs Debugger
+
+Finally:-) Shows how rarely one needs to debug ELisp:-)
+
+
+** Speech-Enable Package ~dumb-jump~
+
+Module ~emacspeak-dumb-jump~ speech-enables package ~dumb-jump~ for
+code navigation.
+
+** Speech-Enable Tabs 
+
+Speech-enable ~tab-bar~ as found in Emacs  27.
