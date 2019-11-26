@@ -13,7 +13,7 @@ Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 (AssistDog) --- a powerful audio desktop for leveraging today's evolving
 Data, Social and Assistant-Oriented Internet cloud.  
 
-Gigger and more powerful than any smart assistAnt, AssistDog provides
+Bigger and more powerful than any smart assistAnt, AssistDog provides
 instant access to the most relevant information at all times.
 
 * Investors Note:
