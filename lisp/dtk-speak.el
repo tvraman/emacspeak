@@ -1857,10 +1857,10 @@ only speak upto the first ctrl-m."
         (dtk-interp-sync)
         (insert text)
         (dtk--delete-invisible-text)
+        (dtk-handle-repeating-patterns mode)
         (when pronunciation-table
           (tts-apply-pronunciations pronunciation-table))
         (dtk-unicode-replace-chars mode)
-        (dtk-handle-repeating-patterns mode)
         (dtk-quote mode)
         (goto-char (point-min))
         (skip-syntax-forward " ")       ;skip leading whitespace
