@@ -805,10 +805,8 @@ will say ``aw fifteen dot'' when speaking the string
           (delete
            (read-from-minibuffer "Specify repeating pattern to delete: ")
            dtk-cleanup-repeats)))
-   (t (setq dtk-cleanup-repeats
-            (cons
-             (read-from-minibuffer "Specify repeating pattern: ")
-             dtk-cleanup-repeats)))))
+   (t 
+    (cl-pushnew (read-from-minibuffer "Specify repeating pattern: ") dtk-cleanup-repeats))))
 
 ;;}}}
 ;;{{{  Controlling how we produce  output
