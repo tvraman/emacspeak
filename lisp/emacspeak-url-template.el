@@ -1440,7 +1440,7 @@ template."
      (emacspeak-we-extract-table-by-match "observed at" url 'speak)))
 
 ;;}}}
-;;{{{Reddit At Point:
+;;{{{Reddit Tools:
 
 (declare-function shr-url-at-point "shr" (image-url))
 (declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
@@ -1492,6 +1492,26 @@ template."
  #'emacspeak-feeds-atom-display) 
 
 ;;}}}
+;;{{{Hacker News:
+
+(emacspeak-url-template-define
+ "Hacker  News Frontpage"
+ "https://hnrss.org/frontpage"
+ nil nil
+ "Display Hacker News Front Page"
+ #'emacspeak-feeds-rss-display)
+
+
+(emacspeak-url-template-define
+ "Hacker  News Search"
+ "https://hnrss.org/newest?q=%s"
+ (list "Hacker News Search:")
+ nil
+ "Display Hacker News Front Page"
+ #'emacspeak-feeds-rss-display)
+
+
+;;}}}
 ;;{{{Youtube News:
 
 (declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
@@ -1506,6 +1526,7 @@ template."
 
 ;;}}}
 ;;{{{Currency Conversion:
+
 (defcustom emacspeak-url-template-currency-base
   "USD"
   "Currency to use as the base when doing currency conversion."
