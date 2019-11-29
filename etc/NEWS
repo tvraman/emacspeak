@@ -7,3 +7,9 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 52 -- Emacspeak 51 User Visible Changes
 This version requires Emacs-26.1 or later.
+
+
+** Hacker News
+
+Smart URL templates for Hacker News Frontpage and Hacker News search
+feeds.
