@@ -25660,7 +25660,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 84 URL Templates.
+This section documents a total of 86 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25766,7 +25766,11 @@ Light-weight Google search.@item @b{Google Webmaster Page Analysis}
 
 Page Analysis From Google Webmaster tools.@item @b{Guardian RSS Feeds Directory}
 
-Guardian Feeds  Directory@item @b{MLB Scorecard}
+Guardian Feeds  Directory@item @b{Hacker  News Frontpage}
+
+Display Hacker News Front Page@item @b{Hacker  News Search}
+
+Display Hacker News Front Page@item @b{MLB Scorecard}
 
 Show MLB Scorecard.@item @b{MLB standings}
 
