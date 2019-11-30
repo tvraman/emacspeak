@@ -528,10 +528,10 @@ Argument MODE  specifies the current pronunciation mode."
       (setq personality (dtk-get-style (match-beginning 0)))
       (setq replacement
             (if (eq 'all mode)
-                (format " aw %s %s"
-                        (/ (- (match-end 0) (match-beginning 0)) len)
-                        (if (string-equal " " pattern)
-                            " space " string))
+                (format
+                 " aw %s %s"
+                 (/ (- (match-end 0) (match-beginning 0)) len)
+                 (if (string-equal " " string) " space " string))
               ""))
       (replace-match replacement nil t)
       (setq start (- (point) (length replacement)))
