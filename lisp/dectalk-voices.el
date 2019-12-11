@@ -77,7 +77,7 @@
   (dtk-initialize))
 
 ;;;### autoload
-;(cl--defalias 'dtk-exp 'dectalk)
+
 
 ;;}}}
 ;;{{{ Forward declarations:
