@@ -56,7 +56,7 @@
 (require 'tts)
 (require 'dtk-interp)
 (require 'dtk-unicode)
-
+(eval-when-compile (require 'dectalk-voices))
 ;;}}}
 ;;{{{ Forward Declarations:
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
@@ -753,7 +753,7 @@ Arguments START and END specify region to speak."
           (dtk-interp-silence (get-text-property start 'pause) nil)))))))
 
 ;;;Force the speech.
-(defalias 'dtk-force 'dtk-interp-speak)
+(cl--defalias 'dtk-force 'dtk-interp-speak)
 
 ;;;Write out the string to the tts via TCL.
 ;;; No quoting is done,
@@ -1515,7 +1515,7 @@ available TTS servers.")
 ;;{{{  interactively selecting the server:
 
 ;;; will be reset on a per TTS engine basis.
-(defalias 'tts-get-voice-command 'dectalk-get-voice-command)
+(cl--defalias 'tts-get-voice-command 'dectalk-get-voice-command)
 
 (defun tts-voice-reset-code ()
   "Return voice reset code."

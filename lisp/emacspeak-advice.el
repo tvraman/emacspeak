@@ -85,7 +85,7 @@
 ;;}}}
 ;;{{{ Silence advice chatter:
 
-(defadvice ad--defalias-fset (around emacspeak pre act comp)
+(defadvice ad--cl--defalias-fset (around emacspeak pre act comp)
   "Silence chatter."
   (ems-with-messages-silenced ad-do-it))
 

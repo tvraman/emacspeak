@@ -212,7 +212,7 @@ Forward punctuation and rate  settings to resulting buffer."
   (unless (eq major-mode 'eww-mode)
     (error "This command cannot be used outside browser buffers.")))
 
-(defalias 'emacspeak-webutils-read-url 'emacspeak-webutils-read-this-url)
+(cl--defalias 'emacspeak-webutils-read-url 'emacspeak-webutils-read-this-url)
 
 (defun emacspeak-webutils-read-this-url ()
   "Return URL under point

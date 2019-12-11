@@ -442,7 +442,7 @@ Useful to do this before you listen to an entire buffer."
     (when (and p (not (eq p dtk-punctuation-mode)))
       (dtk-set-punctuations p))))
 
-(defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
+(cl--defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
 ;;;###autoload
 (defun emacspeak-speak-set-mode-punctuations (setting)
   "Set punctuation mode for all buffers in current mode."
@@ -1918,7 +1918,7 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
     (when copy-as-kill (kill-new info))
     (dtk-speak (concat info cs))))
 
-(defalias 'emacspeak-speak-line-number 'what-line)
+(cl--defalias 'emacspeak-speak-line-number 'what-line)
 
 ;;;###autoload
 (defun emacspeak-speak-buffer-filename (&optional filename)

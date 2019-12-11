@@ -679,8 +679,8 @@ b Browse
     (error "Does not look like a Bookshare response."))
   (mapc #'emacspeak-bookshare-apply-handler (dom-children response)))
 
-(defalias 'emacspeak-bookshare-version-handler 'ignore)
-(defalias 'emacspeak-bookshare-debugInfo-handler 'ignore)
+(cl--defalias 'emacspeak-bookshare-version-handler 'ignore)
+(cl--defalias 'emacspeak-bookshare-debugInfo-handler 'ignore)
 
 (defun emacspeak-bookshare-recurse (tree)
   "Recurse down tree."
