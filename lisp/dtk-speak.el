@@ -56,7 +56,7 @@
 (require 'tts)
 (require 'dtk-interp)
 (require 'dtk-unicode)
-(eval-when-compile (require 'dectalk-voices))
+
 ;;}}}
 ;;{{{ Forward Declarations:
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
