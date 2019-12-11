@@ -1515,7 +1515,7 @@ available TTS servers.")
 ;;{{{  interactively selecting the server:
 
 ;;; will be reset on a per TTS engine basis.
-(cl--defalias 'tts-get-voice-command 'dectalk-get-voice-command)
+(fset 'tts-get-voice-command 'dectalk-get-voice-command)
 
 (defun tts-voice-reset-code ()
   "Return voice reset code."
