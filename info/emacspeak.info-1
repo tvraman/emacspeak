@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 29, 2019.
+last updated on December 12, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1230 commands and 909 options.
+   This chapter documents a total of 1229 commands and 909 options.
 
 * Menu:
 
@@ -2794,6 +2794,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-calendar::Speech enable Emacs Calendar – maintain a diary and appointments.
 * emacspeak-cedet::Speech enable CEDET Development Environment.
 * emacspeak-checkdoc::Speech-enable checkdoc.
+* emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
 * emacspeak-ciel::Speech-enable CIEL.
 * emacspeak-clojure::Speech-enable CLOJURE Mode.
@@ -3159,13 +3160,6 @@ module is Dectalk specific.
  -- Command: dectalk
      ‘C-e d C-d’
      ‘<fn> d C-d’
-
-     Select Dectalk TTS server.
-
-12.4.1.2 dtk-exp
-................
-
- -- Command: dtk-exp
 
      Select Dectalk TTS server.
 
@@ -7195,7 +7189,7 @@ CEDET consists of speedbar semantic ede and friends.  This module speech
 enables new functionality in semantic, senator and friends
 
 
-File: emacspeak.info,  Node: emacspeak-checkdoc,  Next: emacspeak-cider,  Prev: emacspeak-cedet,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-checkdoc,  Next: emacspeak-chess,  Prev: emacspeak-cedet,  Up: Emacspeak Commands And Options
 
 12.34 emacspeak-checkdoc
 ========================
@@ -7203,14 +7197,28 @@ File: emacspeak.info,  Node: emacspeak-checkdoc,  Next: emacspeak-cider,  Prev: 
 Speech-enable checkdoc.el
 
 
-File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-checkdoc,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-chess,  Next: emacspeak-cider,  Prev: emacspeak-checkdoc,  Up: Emacspeak Commands And Options
 
-12.35 emacspeak-cider
+12.35 emacspeak-chess
+=====================
+
+CHESS == The Game Of Chess The Emacs Chess package enables a rich
+environment for playing and exploring Chess Games.  That package comes
+with a light-weight module that announces moves.  This module aims do do
+much more, including: Browse games via rich audio-formatted output.
+Speech-enable all interactive commands provided by the Chess package
+Enable various means of exploring the state of game, perhaps with a view
+to being able to spot patterns from listening to the output.
+
+
+File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
+
+12.36 emacspeak-cider
 =====================
 
 Speech-Enable CIDER — Clojure IDE CIDER ==
 
-12.35.1 emacspeak-cider Options
+12.36.1 emacspeak-cider Options
 -------------------------------
 
  -- Variable: User Option voice-cider-repl-stderr-facevoice-animate
@@ -7221,7 +7229,7 @@ Speech-Enable CIDER — Clojure IDE CIDER ==
 
 File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
 
-12.36 emacspeak-ciel
+12.37 emacspeak-ciel
 ====================
 
 Package ciel provides vim’s "copy inside" and "clear inside" commands.
@@ -7231,7 +7239,7 @@ speech-enables ciel.
 
 File: emacspeak.info,  Node: emacspeak-clojure,  Next: emacspeak-cmuscheme,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
 
-12.37 emacspeak-clojure
+12.38 emacspeak-clojure
 =======================
 
 CLOJURE-mode: Specialized mode for Clojure programming.
@@ -7239,7 +7247,7 @@ CLOJURE-mode: Specialized mode for Clojure programming.
 
 File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-clojure,  Up: Emacspeak Commands And Options
 
-12.38 emacspeak-cmuscheme
+12.39 emacspeak-cmuscheme
 =========================
 
 speech-enable scheme support
@@ -7247,7 +7255,7 @@ speech-enable scheme support
 
 File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-cmuscheme,  Up: Emacspeak Commands And Options
 
-12.39 emacspeak-company
+12.40 emacspeak-company
 =======================
 
 COMPANY -mode: Complete Anything Support for emacs.
@@ -7261,7 +7269,7 @@ settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
 to generate their own feedback.
 
-12.39.1 emacspeak-company Options
+12.40.1 emacspeak-company Options
 ---------------------------------
 
  -- Variable: User Option voice-company-echo
@@ -7297,24 +7305,24 @@ to generate their own feedback.
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
 
-12.40 emacspeak-compile
+12.41 emacspeak-compile
 =======================
 
 This module makes compiling code from inside Emacs speech friendly.  It
 is an example of how a little amount of code can make Emacspeak even
 better.
 
-12.40.1 emacspeak-compile Commands
+12.41.1 emacspeak-compile Commands
 ----------------------------------
 
-12.40.1.1 emacspeak-compilation-speak-error
+12.41.1.1 emacspeak-compilation-speak-error
 ...........................................
 
  -- Command: emacspeak-compilation-speak-error
 
      Speech feedback about the compilation error.
 
-12.40.2 emacspeak-compile Options
+12.41.2 emacspeak-compile Options
 ---------------------------------
 
  -- Variable: User Option voice-compilation-column-number
@@ -7360,7 +7368,7 @@ better.
 
 File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
 
-12.41 emacspeak-cperl
+12.42 emacspeak-cperl
 =====================
 
 Provide additional advice to CPerl mode
@@ -7368,23 +7376,23 @@ Provide additional advice to CPerl mode
 
 File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
 
-12.42 emacspeak-custom
+12.43 emacspeak-custom
 ======================
 
 Advise custom to speak.  most of the work is actually done by
 emacspeak-widget.el which speech-enables the widget libraries.
 
-12.42.1 emacspeak-custom Commands
+12.43.1 emacspeak-custom Commands
 ---------------------------------
 
-12.42.1.1 emacspeak-custom-goto-group
+12.43.1.1 emacspeak-custom-goto-group
 .....................................
 
  -- Command: emacspeak-custom-goto-group
 
      Jump to custom group when in a customization buffer.
 
-12.42.1.2 emacspeak-custom-goto-toolbar
+12.43.1.2 emacspeak-custom-goto-toolbar
 .......................................
 
  -- Command: emacspeak-custom-goto-toolbar
@@ -7394,14 +7402,14 @@ emacspeak-widget.el which speech-enables the widget libraries.
 
 File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-deadgrep,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
 
-12.43 emacspeak-dbus
+12.44 emacspeak-dbus
 ====================
 
 Loading this module sets up Emacspeak to respond to DBus notifications.
 This module needs to be loaded explicitly from the user’s init file
 after emacspeak has been started.
 
-12.43.1 Overview
+12.44.1 Overview
 ----------------
 
 This module provides integration via DBus for the following:
@@ -7422,17 +7430,17 @@ customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
 network/up-down can be separately enabled/disabled, and the actions
 customized via appropriately named hook functions.
 
-12.43.2 emacspeak-dbus Commands
+12.44.2 emacspeak-dbus Commands
 -------------------------------
 
-12.43.2.1 emacspeak-dbus-lock-screen
+12.44.2.1 emacspeak-dbus-lock-screen
 ....................................
 
  -- Command: emacspeak-dbus-lock-screen
 
      Lock screen using DBus.
 
-12.43.2.2 emacspeak-dbus-sleep-disable
+12.44.2.2 emacspeak-dbus-sleep-disable
 ......................................
 
  -- Command: emacspeak-dbus-sleep-disable
@@ -7440,14 +7448,14 @@ customized via appropriately named hook functions.
      Disable integration with login1 daemon. Does nothing if
      already disabled.
 
-12.43.2.3 emacspeak-dbus-sleep-enable
+12.44.2.3 emacspeak-dbus-sleep-enable
 .....................................
 
  -- Command: emacspeak-dbus-sleep-enable
 
      Enable integration with Login1. Does nothing if already enabled.
 
-12.43.2.4 emacspeak-dbus-udisks-disable
+12.44.2.4 emacspeak-dbus-udisks-disable
 .......................................
 
  -- Command: emacspeak-dbus-udisks-disable
@@ -7455,14 +7463,14 @@ customized via appropriately named hook functions.
      Disable integration with UDisks2 daemon. Does nothing if
      already disabled.
 
-12.43.2.5 emacspeak-dbus-udisks-enable
+12.44.2.5 emacspeak-dbus-udisks-enable
 ......................................
 
  -- Command: emacspeak-dbus-udisks-enable
 
      Enable integration with UDisks2. Does nothing if already enabled.
 
-12.43.2.6 emacspeak-dbus-upower-disable
+12.44.2.6 emacspeak-dbus-upower-disable
 .......................................
 
  -- Command: emacspeak-dbus-upower-disable
@@ -7470,14 +7478,14 @@ customized via appropriately named hook functions.
      Disable integration with UPower daemon. Does nothing if
      already disabled.
 
-12.43.2.7 emacspeak-dbus-upower-enable
+12.44.2.7 emacspeak-dbus-upower-enable
 ......................................
 
  -- Command: emacspeak-dbus-upower-enable
 
      Enable integration with UPower. Does nothing if already enabled.
 
-12.43.2.8 emacspeak-screen-saver-mode
+12.44.2.8 emacspeak-screen-saver-mode
 .....................................
 
  -- Command: emacspeak-screen-saver-mode

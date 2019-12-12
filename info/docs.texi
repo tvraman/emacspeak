@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1230 commands and 909 options.
+This chapter documents a total of 1229 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -41,6 +41,7 @@ This chapter documents a total of 1230 commands and 909 options.
 * emacspeak-calendar::Speech enable Emacs Calendar -- maintain a diary and appointments.
 * emacspeak-cedet::Speech enable CEDET Development Environment.
 * emacspeak-checkdoc::Speech-enable checkdoc.
+* emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
 * emacspeak-ciel::Speech-enable CIEL.
 * emacspeak-clojure::Speech-enable CLOJURE Mode.
@@ -423,15 +424,6 @@ This module is Dectalk specific.
 @end table
 
 @findex dectalk
-
-@format
-Select Dectalk TTS server.
-@end format
-@end deffn
-
-@subsubsection dtk-exp
-@deffn {Command} dtk-exp   
-@findex dtk-exp
 
 @format
 Select Dectalk TTS server.
@@ -5232,6 +5224,22 @@ senator and friends
 @section emacspeak-checkdoc
 
 Speech-enable checkdoc.el
+
+@node emacspeak-chess
+@section emacspeak-chess
+
+CHESS ==  The Game Of Chess 
+The Emacs Chess package enables a rich environment for playing and
+exploring Chess Games.
+That package comes with a light-weight module that announces
+moves.
+This module aims do do much more, including:
+Browse games via  rich audio-formatted   output.
+Speech-enable all interactive commands  provided by the Chess
+package
+Enable various means of exploring the state of game, perhaps with
+a view to being able to spot patterns   from listening to the
+output.
 
 @node emacspeak-cider
 @section emacspeak-cider
