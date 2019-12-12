@@ -166,6 +166,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
 (emacspeak-do-package-setup "semantic" 'emacspeak-cedet)
 (emacspeak-do-package-setup "checkdoc" 'emacspeak-checkdoc)
+(emacspeak-do-package-setup "chess" 'emacspeak-chess)
 (emacspeak-do-package-setup "cider" 'emacspeak-cider)
 (emacspeak-do-package-setup "clojure" 'emacspeak-clojure)
 (emacspeak-do-package-setup "cmuscheme" 'emacspeak-cmuscheme)

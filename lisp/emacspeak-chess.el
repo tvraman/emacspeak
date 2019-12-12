@@ -1,0 +1,159 @@
+;;; emacspeak-chess.el --- Speech-enable CHESS  -*- lexical-binding: t; -*-
+;;; $Author: tv.raman.tv $
+;;; Description:  Speech-enable CHESS An Emacs Interface to chess
+;;; Keywords: Emacspeak,  Audio Desktop chess
+;;{{{  LCD Archive entry:
+
+;;; LCD Archive Entry:
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;;; A speech interface to Emacs |
+;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
+;;;  $Revision: 4532 $ |
+;;; Location undetermined
+;;;
+
+;;}}}
+;;{{{  Copyright:
+;;;Copyright (C) 1995 -- 2007, 2019, T. V. Raman
+;;; All Rights Reserved.
+;;;
+;;; This file is not part of GNU Emacs, but the same permissions apply.
+;;;
+;;; GNU Emacs is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as published by
+;;; the Free Software Foundation; either version 2, or (at your option)
+;;; any later version.
+;;;
+;;; GNU Emacs is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNCHESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;;
+;;; You should have received a copy of the GNU General Public License
+;;; along with GNU Emacs; see the file COPYING.  If not, write to
+;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+;;}}}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;{{{  introduction
+
+;;; Commentary:
+;;; CHESS ==  The Game Of Chess 
+;;; The Emacs Chess package enables a rich environment for playing and
+;;; exploring Chess Games.
+;;; That package comes with a light-weight module that announces
+;;; moves.
+;;; This module aims do do much more, including:
+;;; Browse games via  rich audio-formatted   output.
+;;; Speech-enable all interactive commands  provided by the Chess
+;;; package
+;;; Enable various means of exploring the state of game, perhaps with
+;;; a view to being able to spot patterns   from listening to the
+;;; output.
+
+;;; Code:
+
+;;}}}
+;;{{{  Required modules
+
+(require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
+(require 'emacspeak-preamble)
+
+;;}}}
+;;{{{ Map Faces:
+
+(voice-setup-add-map 
+ '(
+   (chess-display-black-face voice-bolden)
+   (chess-display-white-face voice-lighten)
+   (chess-ics1-black-face voice-bolden)
+   (chess-ics1-highlight-face voice-animate)
+   (chess-ics1-white-face voice-lighten)
+   (chess-plain-black-face voice-bolden)
+   (chess-plain-highlight-face voice-animate)
+   (chess-plain-white-face voice-lighten)))
+
+;;}}}
+;;{{{ Interactive Commands:
+
+'(
+  chess
+chess-debug-position
+chess-display-abort
+chess-display-accept
+chess-display-annotate
+chess-display-call-flag
+chess-display-chat
+chess-display-check-autosave
+chess-display-clear-board
+chess-display-create
+chess-display-decline
+chess-display-draw
+chess-display-duplicate
+chess-display-edit-board
+chess-display-force
+chess-display-highlight-passed-pawns
+chess-display-invert
+chess-display-kill-board
+chess-display-list-buffers
+chess-display-manual-move
+chess-display-match
+chess-display-mode
+chess-display-mouse-select-piece
+chess-display-mouse-set-piece
+chess-display-move-backward
+chess-display-move-first
+chess-display-move-forward
+chess-display-move-last
+chess-display-move-menu
+chess-display-pass
+chess-display-quit
+chess-display-redraw
+chess-display-remote
+chess-display-resign
+chess-display-restore-board
+chess-display-retract
+chess-display-search
+chess-display-search-again
+chess-display-search-backward
+chess-display-search-delete
+chess-display-search-forward
+chess-display-search-key
+chess-display-select-piece
+chess-display-send-board
+chess-display-set-from-fen
+chess-display-set-piece
+chess-display-shuffle
+chess-display-undo
+chess-display-yank-board
+chess-ics
+chess-images-decrease-size
+chess-images-increase-size
+chess-images-set-directory
+chess-input-shortcut
+chess-input-shortcut-delete
+chess-link
+chess-pgn-complete-move
+chess-pgn-insert-and-show-position
+chess-pgn-mode
+chess-pgn-mouse-show-position
+chess-pgn-read
+chess-pgn-show-position
+chess-plain-customize
+chess-polyglot-book-close
+chess-puzzle
+chess-session
+chess-tutorial
+)
+
+;;}}}
+(provide 'emacspeak-chess)
+;;{{{ end of file
+
+;;; local variables:
+;;; folded-file: t
+;;; end:
+
+;;}}}
