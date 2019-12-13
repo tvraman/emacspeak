@@ -234,6 +234,12 @@
                        emacspeak-chess-map)
     (funcall-interactively #'emacspeak-chess-jump "a1")))
 
+(defadvice chess-display-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-chess-setup)))
+
+
 ;;}}}
 
 ;;{{{ Interactive Commands:
