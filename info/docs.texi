@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1229 commands and 909 options.
+This chapter documents a total of 1230 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1598,6 +1598,15 @@ y		emacspeak-m-player-youtube-player
 
 See the online documentation C-e TAB for individual
 commands and options for details.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-this-cell
+@deffn {Command} emacspeak-chess-speak-this-cell   
+@findex emacspeak-chess-speak-this-cell
+
+@format
+Speak cell under point.
 @end format
 @end deffn
 
@@ -5228,7 +5237,7 @@ Speech-enable checkdoc.el
 @node emacspeak-chess
 @section emacspeak-chess
 
-CHESS ==  The Game Of Chess 
+CHESS ==  The Game Of Chess
 The Emacs Chess package enables a rich environment for playing and
 exploring Chess Games.
 That package comes with a light-weight module that announces
