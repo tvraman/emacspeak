@@ -143,11 +143,21 @@
     (define-key map (kbd "]") 'emacspeak-chess-northeast)
     (define-key map (kbd "\\") 'emacspeak-chess-southeast)
     (define-key map (kbd "/") 'emacspeak-chess-southwest)
+    (define-key map (kbd "j") 'emacspeak-chess-jump)
     map)
   "Additional keymap used by Emacspeak in Chess displays.")
 
 ;;}}}
 ;;{{{Buffer Navigation:
+
+(defun emacspeak-chess-jump (coord)
+  "Jump to cell specified as coord."
+  (interactive "sCoord: ")
+  (goto-char
+   (chess-display-index-pos
+    (current-buffer) (chess-coord-to-index coord)))
+  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-chess-speak-this-cell))
 
 (defun emacspeak-chess-move (direction)
   "Move in direction by one step."
@@ -219,8 +229,10 @@
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
   (cl-declare (special emacspeak-chess-map))
-  (pop-to-buffer "*Chessboard*" )
-  (put-text-property (point-min) (point-max) 'keymap emacspeak-chess-map))
+  (chess-with-current-buffer  (get-buffer "*Chessboard*")
+    (put-text-property (point-min) (point-max) 'keymap
+                       emacspeak-chess-map)
+    (funcall-interactively #'emacspeak-chess-jump "a1")))
 
 ;;}}}
 
