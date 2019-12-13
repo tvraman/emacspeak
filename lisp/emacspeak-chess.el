@@ -183,6 +183,16 @@
   (emacspeak-chess-move chess-direction-east))
 
 ;;}}}
+
+;;{{{Emacspeak Setup:
+(defun emacspeak-chess-setup ()
+  "Emacspeak setup for Chess."
+  (cl-declare (special emacspeak-chess-map))
+    (pop-to-buffer "*Chessboard*" )
+    (put-text-property (point-min) (point-max) 'keymap emacspeak-chess-map))
+
+;;}}}
+
 ;;{{{ Interactive Commands:
 
 '(
