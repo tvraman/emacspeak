@@ -70,11 +70,41 @@
   <h3 class="section">12.35 emacspeak-chess</h3>
   <p>CHESS == The Game Of Chess The Emacs Chess package enables a
   rich environment for playing and exploring Chess Games. That
-  package comes with a light-weight module that announces moves.
-  This module aims do do much more, including: Browse games via
+  package comes with a light-weight module that announces
+  moves.</p>
+  <p>This module aims do do much more, including: Browse games via
   rich audio-formatted output. Speech-enable all interactive
   commands provided by the Chess package Enable various means of
   exploring the state of game, perhaps with a view to being able to
-  spot patterns from listening to the output.</p>
+  spot patterns from listening to the output.</p><span id=
+  "Board-Navigation_003a"></span>
+  <h4 class="subsection">12.35.1 Board Navigation:</h4>
+  <p>Arrow keys move to the appropriate cells on the board.</p>
+  <ul>
+    <li>Move North: <code>emacspeak-chess-north</code> bound to
+    <kbd>up</kbd>.</li>
+    <li>Move South: <code>emacspeak-chess-south</code> bound to
+    <kbd>down</kbd>.</li>
+    <li>Move West: <code>emacspeak-chess-west</code> bound to
+    <kbd>left</kbd>.</li>
+    <li>Move East: <code>emacspeak-chess-east</code> bound to
+    <kbd>right</kbd>.</li>
+  </ul>
+  <p>You can also move along the diagonals:</p>
+  <ul>
+    <li>Move Northeast: <code>emacspeak-chess-northeast</code>
+    bound to <kbd>[</kbd>.</li>
+    <li>Move Northwest: <code>emacspeak-chess-northwest</code>
+    bound to <kbd>]</kbd>.</li>
+    <li>Move Southwest: <code>emacspeak-chess-southwest</code>
+    bound to <kbd>/</kbd>.</li>
+    <li>Move Southeast: <code>emacspeak-chess-southeast</code>
+    bound to <kbd>\\</kbd>.</li>
+  </ul>
+  <p>You can also jump to a given board position by:</p>
+  <ul>
+    <li>Jump: <code>emacspeak-chess-jump</code> bound to
+    <kbd>j</kbd>.</li>
+  </ul>
 </body>
 </html>
