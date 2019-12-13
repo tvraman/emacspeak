@@ -139,6 +139,10 @@
     (define-key map (kbd "<down>") 'emacspeak-chess-south)
     (define-key map (kbd "<left>") 'emacspeak-chess-west)
     (define-key map (kbd "<right>") 'emacspeak-chess-east)
+    (define-key map (kbd "[") 'emacspeak-chess-northwest)
+    (define-key map (kbd "]") 'emacspeak-chess-northeast)
+    (define-key map (kbd "\\") 'emacspeak-chess-southeast)
+    (define-key map (kbd "/") 'emacspeak-chess-southwest)
     map)
   "Additional keymap used by Emacspeak in Chess displays.")
 
@@ -151,7 +155,7 @@
         (target nil))
     (cl-assert index t "Not on a valid cell.")
     (setq target (chess-next-index  index direction))
-    (cl-assert target t "Edge of Board")
+    (unless target (error "Edge of board"))
     (goto-char (chess-display-index-pos (current-buffer) target))
     (emacspeak-auditory-icon 'item)
     (emacspeak-chess-speak-this-cell)))
@@ -182,14 +186,41 @@
   (cl-declare (special chess-direction-east))
   (emacspeak-chess-move chess-direction-east))
 
+
+(defun emacspeak-chess-northwest ()
+  "Move northwest one step."
+  (interactive)
+  (cl-declare (special chess-direction-northwest))
+  (emacspeak-chess-move chess-direction-northwest))
+
+
+(defun emacspeak-chess-southwest ()
+  "Move southwest one step."
+  (interactive)
+  (cl-declare (special chess-direction-southwest))
+  (emacspeak-chess-move chess-direction-southwest))
+
+
+(defun emacspeak-chess-northeast ()
+  "Move northeast one step."
+  (interactive)
+  (cl-declare (special chess-direction-northeast))
+  (emacspeak-chess-move chess-direction-northeast))
+
+(defun emacspeak-chess-southeast ()
+  "Move southeast one step."
+  (interactive)
+  (cl-declare (special chess-direction-southeast))
+  (emacspeak-chess-move chess-direction-southeast))
+
 ;;}}}
 
 ;;{{{Emacspeak Setup:
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
   (cl-declare (special emacspeak-chess-map))
-    (pop-to-buffer "*Chessboard*" )
-    (put-text-property (point-min) (point-max) 'keymap emacspeak-chess-map))
+  (pop-to-buffer "*Chessboard*" )
+  (put-text-property (point-min) (point-max) 'keymap emacspeak-chess-map))
 
 ;;}}}
 
