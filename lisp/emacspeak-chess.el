@@ -132,20 +132,20 @@
 
 ;;}}}
 ;;{{{Emacspeak Chess Keymap
-(defvar emacspeak-chess-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map ";" 'emacspeak-chess-speak-this-cell)
-    (define-key map (kbd "<up>") 'emacspeak-chess-north)
-    (define-key map (kbd "<down>") 'emacspeak-chess-south)
-    (define-key map (kbd "<left>") 'emacspeak-chess-west)
-    (define-key map (kbd "<right>") 'emacspeak-chess-east)
-    (define-key map (kbd "[") 'emacspeak-chess-northwest)
-    (define-key map (kbd "]") 'emacspeak-chess-northeast)
-    (define-key map (kbd "\\") 'emacspeak-chess-southeast)
-    (define-key map (kbd "/") 'emacspeak-chess-southwest)
-    (define-key map (kbd "j") 'emacspeak-chess-jump)
-    map)
-  "Additional keymap used by Emacspeak in Chess displays.")
+
+(cl-declaim (special chess-display-mode-map))
+(define-key chess-display-mode-map ";" 'emacspeak-chess-speak-this-cell)
+(define-key chess-display-mode-map (kbd "<up>") 'emacspeak-chess-north)
+(define-key chess-display-mode-map (kbd "<down>") 'emacspeak-chess-south)
+(define-key chess-display-mode-map (kbd "<left>") 'emacspeak-chess-west)
+(define-key chess-display-mode-map (kbd "<right>") 'emacspeak-chess-east)
+(define-key chess-display-mode-map (kbd "[") 'emacspeak-chess-northwest)
+(define-key chess-display-mode-map (kbd "]") 'emacspeak-chess-northeast)
+(define-key chess-display-mode-map (kbd "\\") 'emacspeak-chess-southeast)
+(define-key chess-display-mode-map (kbd "/") 'emacspeak-chess-southwest)
+(define-key chess-display-mode-map (kbd "j") 'emacspeak-chess-jump)
+
+
 
 ;;}}}
 ;;{{{Buffer Navigation:
@@ -222,15 +222,11 @@
 ;;{{{Emacspeak Setup:
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
-  (cl-declare (special emacspeak-chess-map))
-  (chess-with-current-buffer (get-buffer "*Chessboard*")
-    (setq chess-default-modules
-          (cl-remove
-           '(chess-sound chess-announce)
-           chess-default-modules :test 'equal))
-    (cl-pushnew 'chess-emacspeak chess-default-modules)
-    (put-text-property (point-min) (point-max)
-                       'keymap emacspeak-chess-map)))
+  (cl-declare (special chess-default-modules))
+  (setq chess-default-modules
+        (cl-remove
+         '(chess-sound chess-announce)
+         chess-default-modules :test 'equal)) (cl-pushnew 'chess-emacspeak chess-default-modules))
 
 (defadvice chess-display-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -297,6 +293,7 @@
    ((eq event 'kibitz)
     (message (car args)))))
 
+(provide 'chess-emacspeak)
 ;;}}}
 ;;{{{ Interactive Commands:
 
