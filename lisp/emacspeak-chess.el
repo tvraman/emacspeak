@@ -80,22 +80,46 @@
 ;;}}}
 ;;{{{Helpers:
 
+(defvar emacspeak-chess-piece-names
+  '((?q . "queen")
+    (?k . "king")
+    (?b . "bishop")
+    (?n . "knight")
+    (?r . "rook")
+    (?p . "pawn")
+    (?\  . "empty"))
+  "Piece-char to piece-name mapping.")
+
+
+(defsubst emacspeak-chess-piece-name (char)
+  "Return piece name."
+  (cdr (assq (downcase char) emacspeak-chess-piece-names)))
+
 (defun emacspeak-chess-describe-cell (index)
   "Return an audio formatted description of cell at given index.
   Argument index is an integer between 0 and 63 as in package chess."
-  (cl-assert (eq major-mode 'chess-mode) t "Not in a chess  display.")
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not in a chess  display.")
   (let ((position (chess-display-position nil))
         (piece nil)
-        (color nil)
-        (square nil))
+        (white nil)
+        (light nil)
+        (rank nil)
+        (file nil)
+        (coord nil))
     (cl-assert position t "Could not retrieve game position.")
-    (setq piece (chess-pos-piece position index))
-    (setq color (memq piece '(?R ?N ?B ?K ?Q ?P)))
-    )
-    
-    
-  
-  )
+    (setq coord (chess-index-to-coord index)
+          piece (chess-pos-piece position index)
+          rank (chess-index-rank index)
+          file (chess-index-file index)
+          light                         ; square color 
+          (or 
+           (and (cl-evenp rank ) (cl-evenp file))
+           (and (cl-oddp rank) (cl-oddp file)))
+          white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white 
+          piece (emacspeak-chess-piece-name  piece))
+    (unless white (setq piece (propertize  piece 'personality voice-bolden)))
+    (unless light (setq coord (propertize  coord 'personality voice-bolden)))
+    (concat piece " on " coord)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
