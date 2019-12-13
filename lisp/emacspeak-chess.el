@@ -63,6 +63,7 @@
 (eval-when-compile
   (require 'chess-pos)
   (require 'chess-display))
+
 ;;}}}
 ;;{{{ Map Faces:
 
@@ -89,7 +90,6 @@
     (?p . "pawn")
     (?\  . "empty"))
   "Piece-char to piece-name mapping.")
-
 
 (defsubst emacspeak-chess-piece-name (char)
   "Return piece name."
@@ -130,6 +130,45 @@
     (cl-assert index t "Not in a valid cell.")
     (message (emacspeak-chess-describe-cell index))))
 
+;;}}}
+;;{{{Buffer Navigation:
+
+(defun emacspeak-chess-move (direction)
+  "Move in direction by one step."
+  (let ((index (get-text-property (point) 'chess-coord))
+        (target nil))
+    (cl-assert index t "Not on a valid cell.")
+    (setq target (chess-next-index  index direction))
+    (cl-assert target t "Edge of Board")
+    (goto-char (chess-display-index-pos (current-buffer) target))
+    (emacspeak-auditory-icon 'item)
+    (emacspeak-chess-speak-this-cell)))
+
+(defun emacspeak-chess-north ()
+  "Move north one step."
+  (interactive)
+  (cl-declare (special chess-direction-north))
+  (emacspeak-chess-move chess-direction-north))
+
+
+(defun emacspeak-chess-south ()
+  "Move south one step."
+  (interactive)
+  (cl-declare (special chess-direction-south))
+  (emacspeak-chess-move chess-direction-south))
+
+
+(defun emacspeak-chess-west ()
+  "Move west one step."
+  (interactive)
+  (cl-declare (special chess-direction-west))
+  (emacspeak-chess-move chess-direction-west))
+
+(defun emacspeak-chess-east ()
+  "Move east one step."
+  (interactive)
+  (cl-declare (special chess-direction-east))
+  (emacspeak-chess-move chess-direction-east))
 
 ;;}}}
 ;;{{{ Interactive Commands:
