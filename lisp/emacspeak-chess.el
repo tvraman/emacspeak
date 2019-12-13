@@ -134,11 +134,13 @@
 ;;{{{Emacspeak Chess Keymap
 (defvar emacspeak-chess-map
   (let ((map (make-sparse-keymap)))
-    (define-key map "<up>" 'emacspeak-chess-north)
-    (define-key map "<down>" 'emacspeak-chess-south)
-    (define-key map "<left>" 'emacspeak-chess-west)
-    (define-key map "<right>" 'emacspeak-chess-east)
-    map))
+    (define-key map ";" 'emacspeak-chess-speak-this-cell)
+    (define-key map (kbd "<up>") 'emacspeak-chess-north)
+    (define-key map (kbd "<down>") 'emacspeak-chess-south)
+    (define-key map (kbd "<left>") 'emacspeak-chess-west)
+    (define-key map (kbd "<right>") 'emacspeak-chess-east)
+    map)
+  "Additional keymap used by Emacspeak in Chess displays.")
 
 ;;}}}
 ;;{{{Buffer Navigation:
