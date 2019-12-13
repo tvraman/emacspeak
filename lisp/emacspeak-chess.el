@@ -39,7 +39,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; CHESS ==  The Game Of Chess 
+;;; CHESS ==  The Game Of Chess
 ;;; The Emacs Chess package enables a rich environment for playing and
 ;;; exploring Chess Games.
 ;;; That package comes with a light-weight module that announces
@@ -67,7 +67,7 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
    (chess-display-black-face voice-bolden)
    (chess-display-white-face voice-lighten)
@@ -111,11 +111,11 @@
           piece (chess-pos-piece position index)
           rank (chess-index-rank index)
           file (chess-index-file index)
-          light                         ; square color 
-          (or 
+          light                         ; square color
+          (or
            (and (cl-evenp rank ) (cl-evenp file))
            (and (cl-oddp rank) (cl-oddp file)))
-          white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white 
+          white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
     (unless white (setq piece (propertize  piece 'personality voice-bolden)))
     (unless light (setq coord (propertize  coord 'personality voice-bolden)))
@@ -125,7 +125,7 @@
   "Speak cell under point."
   (interactive)
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
-  
+
   (let ((index (get-text-property (point) 'chess-coord)))
     (cl-assert index t "Not in a valid cell.")
     (message (emacspeak-chess-describe-cell index))))
@@ -176,13 +176,11 @@
   (cl-declare (special chess-direction-north))
   (emacspeak-chess-move chess-direction-north))
 
-
 (defun emacspeak-chess-south ()
   "Move south one step."
   (interactive)
   (cl-declare (special chess-direction-south))
   (emacspeak-chess-move chess-direction-south))
-
 
 (defun emacspeak-chess-west ()
   "Move west one step."
@@ -196,20 +194,17 @@
   (cl-declare (special chess-direction-east))
   (emacspeak-chess-move chess-direction-east))
 
-
 (defun emacspeak-chess-northwest ()
   "Move northwest one step."
   (interactive)
   (cl-declare (special chess-direction-northwest))
   (emacspeak-chess-move chess-direction-northwest))
 
-
 (defun emacspeak-chess-southwest ()
   "Move southwest one step."
   (interactive)
   (cl-declare (special chess-direction-southwest))
   (emacspeak-chess-move chess-direction-southwest))
-
 
 (defun emacspeak-chess-northeast ()
   "Move northeast one step."
@@ -229,14 +224,19 @@
   "Emacspeak setup for Chess."
   (cl-declare (special emacspeak-chess-map))
   (chess-with-current-buffer (get-buffer "*Chessboard*")
+    (emacspeak-auditory-icon 'open-object)
     (put-text-property (point-min) (point-max)
                        'keymap emacspeak-chess-map)))
 
 (defadvice chess-display-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (cl-declare (special chess-default-modules))
   (when (ems-interactive-p)
-    (emacspeak-chess-setup)))
-
+    (setq chess-default-modules
+          (cl-remove
+           '(chess-sound chess-announce)
+           chess-default-modules :test 'equal))
+    (cl-pushnew 'chess-emacspeak chess-default-modules)))
 
 ;;}}}
 ;;{{{emacspeak Handler:
@@ -247,6 +247,7 @@
    ((eq event 'initialize)
     (emacspeak-chess-setup) t)
    ((eq event 'move)
+    (emacspeak-auditory-icon 'item)
     (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
            (pos (chess-ply-pos ply)))
       (unless
