@@ -44,6 +44,7 @@
 ;;; exploring Chess Games.
 ;;; That package comes with a light-weight module that announces
 ;;; moves.
+
 ;;; This module aims do do much more, including:
 ;;; Browse games via  rich audio-formatted   output.
 ;;; Speech-enable all interactive commands  provided by the Chess
@@ -51,7 +52,30 @@
 ;;; Enable various means of exploring the state of game, perhaps with
 ;;; a view to being able to spot patterns   from listening to the
 ;;; output.
-
+;;;
+;;; @subsection Board Navigation:
+;;; Arrow keys move to the appropriate cells on the board.  
+;;; @itemize  @bullet
+;;; @item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
+;;; @item  Move South: @code{emacspeak-chess-south} bound to
+;;; @kbd{down}.
+;;; @item  Move West: @code{emacspeak-chess-west} bound to @kbd{left}.
+;;; @item  Move East: @code{emacspeak-chess-east} bound to @kbd{right}.
+;;; @end itemize
+;;; You can also move along the diagonals:
+;;; @itemize @bullet
+;;; @item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{[}.
+;;; @item  Move Northwest: @code{emacspeak-chess-northwest} bound to
+;;; @kbd{]}.
+;;; @item  Move Southwest: @code{emacspeak-chess-southwest} bound to
+;;; @kbd{/}.
+;;; @item  Move Southeast: @code{emacspeak-chess-southeast} bound to
+;;; @kbd{\\}.
+;;; @end itemize
+;;; You can also jump to a given board position by:
+;;; @itemize @bullet
+;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
+;;; @end itemize
 ;;; Code:
 
 ;;}}}

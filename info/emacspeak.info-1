@@ -7211,11 +7211,29 @@ File: emacspeak.info,  Node: emacspeak-chess,  Next: emacspeak-cider,  Prev: ema
 
 CHESS == The Game Of Chess The Emacs Chess package enables a rich
 environment for playing and exploring Chess Games.  That package comes
-with a light-weight module that announces moves.  This module aims do do
-much more, including: Browse games via rich audio-formatted output.
-Speech-enable all interactive commands provided by the Chess package
-Enable various means of exploring the state of game, perhaps with a view
-to being able to spot patterns from listening to the output.
+with a light-weight module that announces moves.
+
+   This module aims do do much more, including: Browse games via rich
+audio-formatted output.  Speech-enable all interactive commands provided
+by the Chess package Enable various means of exploring the state of
+game, perhaps with a view to being able to spot patterns from listening
+to the output.
+
+12.35.1 Board Navigation:
+-------------------------
+
+Arrow keys move to the appropriate cells on the board.
+   • Move North: ‘emacspeak-chess-north’ bound to ‘up’.
+   • Move South: ‘emacspeak-chess-south’ bound to ‘down’.
+   • Move West: ‘emacspeak-chess-west’ bound to ‘left’.
+   • Move East: ‘emacspeak-chess-east’ bound to ‘right’.
+   You can also move along the diagonals:
+   • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘[’.
+   • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘]’.
+   • Move Southwest: ‘emacspeak-chess-southwest’ bound to ‘/’.
+   • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\\’.
+   You can also jump to a given board position by:
+   • Jump: ‘emacspeak-chess-jump’ bound to ‘j’.
 
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
