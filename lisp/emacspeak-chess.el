@@ -98,7 +98,7 @@
 (defun emacspeak-chess-describe-cell (index)
   "Return an audio formatted description of cell at given index.
   Argument index is an integer between 0 and 63 as in package chess."
-  (cl-assert (eq major-mode 'chess-display-mode) t "Not in a chess  display.")
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((position (chess-display-position nil))
         (piece nil)
         (white nil)
@@ -121,78 +121,88 @@
     (unless light (setq coord (propertize  coord 'personality voice-bolden)))
     (concat piece " on " coord)))
 
+(defun emacspeak-chess-speak-this-cell ()
+  "Speak cell under point."
+  (interactive)
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
+  
+  (let ((index (get-text-property (point) 'chess-coord)))
+    (cl-assert index t "Not in a valid cell.")
+    (message (emacspeak-chess-describe-cell index))))
+
+
 ;;}}}
 ;;{{{ Interactive Commands:
 
 '(
   chess
-chess-debug-position
-chess-display-abort
-chess-display-accept
-chess-display-annotate
-chess-display-call-flag
-chess-display-chat
-chess-display-check-autosave
-chess-display-clear-board
-chess-display-create
-chess-display-decline
-chess-display-draw
-chess-display-duplicate
-chess-display-edit-board
-chess-display-force
-chess-display-highlight-passed-pawns
-chess-display-invert
-chess-display-kill-board
-chess-display-list-buffers
-chess-display-manual-move
-chess-display-match
-chess-display-mode
-chess-display-mouse-select-piece
-chess-display-mouse-set-piece
-chess-display-move-backward
-chess-display-move-first
-chess-display-move-forward
-chess-display-move-last
-chess-display-move-menu
-chess-display-pass
-chess-display-quit
-chess-display-redraw
-chess-display-remote
-chess-display-resign
-chess-display-restore-board
-chess-display-retract
-chess-display-search
-chess-display-search-again
-chess-display-search-backward
-chess-display-search-delete
-chess-display-search-forward
-chess-display-search-key
-chess-display-select-piece
-chess-display-send-board
-chess-display-set-from-fen
-chess-display-set-piece
-chess-display-shuffle
-chess-display-undo
-chess-display-yank-board
-chess-ics
-chess-images-decrease-size
-chess-images-increase-size
-chess-images-set-directory
-chess-input-shortcut
-chess-input-shortcut-delete
-chess-link
-chess-pgn-complete-move
-chess-pgn-insert-and-show-position
-chess-pgn-mode
-chess-pgn-mouse-show-position
-chess-pgn-read
-chess-pgn-show-position
-chess-plain-customize
-chess-polyglot-book-close
-chess-puzzle
-chess-session
-chess-tutorial
-)
+  chess-debug-position
+  chess-display-abort
+  chess-display-accept
+  chess-display-annotate
+  chess-display-call-flag
+  chess-display-chat
+  chess-display-check-autosave
+  chess-display-clear-board
+  chess-display-create
+  chess-display-decline
+  chess-display-draw
+  chess-display-duplicate
+  chess-display-edit-board
+  chess-display-force
+  chess-display-highlight-passed-pawns
+  chess-display-invert
+  chess-display-kill-board
+  chess-display-list-buffers
+  chess-display-manual-move
+  chess-display-match
+  chess-display-mode
+  chess-display-mouse-select-piece
+  chess-display-mouse-set-piece
+  chess-display-move-backward
+  chess-display-move-first
+  chess-display-move-forward
+  chess-display-move-last
+  chess-display-move-menu
+  chess-display-pass
+  chess-display-quit
+  chess-display-redraw
+  chess-display-remote
+  chess-display-resign
+  chess-display-restore-board
+  chess-display-retract
+  chess-display-search
+  chess-display-search-again
+  chess-display-search-backward
+  chess-display-search-delete
+  chess-display-search-forward
+  chess-display-search-key
+  chess-display-select-piece
+  chess-display-send-board
+  chess-display-set-from-fen
+  chess-display-set-piece
+  chess-display-shuffle
+  chess-display-undo
+  chess-display-yank-board
+  chess-ics
+  chess-images-decrease-size
+  chess-images-increase-size
+  chess-images-set-directory
+  chess-input-shortcut
+  chess-input-shortcut-delete
+  chess-link
+  chess-pgn-complete-move
+  chess-pgn-insert-and-show-position
+  chess-pgn-mode
+  chess-pgn-mouse-show-position
+  chess-pgn-read
+  chess-pgn-show-position
+  chess-plain-customize
+  chess-polyglot-book-close
+  chess-puzzle
+  chess-session
+  chess-tutorial
+  )
 
 ;;}}}
 (provide 'emacspeak-chess)
