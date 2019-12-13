@@ -76,6 +76,26 @@
    (chess-plain-white-face voice-lighten)))
 
 ;;}}}
+;;{{{Helpers:
+
+(defun emacspeak-chess-describe-cell (index)
+  "Return an audio formatted description of cell at given index.
+  Argument index is an integer between 0 and 63 as in package chess."
+  (cl-assert (eq major-mode 'chess-mode) t "Not in a chess  display.")
+  (let ((position (chess-display-position nil))
+        (piece nil)
+        (color nil)
+        (square nil))
+    (cl-assert position t "Could not retrieve game position.")
+    (setq piece (chess-pos-piece position index))
+    (setq color (memq piece '(?R ?N ?B ?K ?Q ?P)))
+    )
+    
+    
+  
+  )
+
+;;}}}
 ;;{{{ Interactive Commands:
 
 '(
