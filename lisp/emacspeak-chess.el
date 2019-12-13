@@ -224,19 +224,18 @@
   "Emacspeak setup for Chess."
   (cl-declare (special emacspeak-chess-map))
   (chess-with-current-buffer (get-buffer "*Chessboard*")
+    (setq chess-default-modules
+          (cl-remove
+           '(chess-sound chess-announce)
+           chess-default-modules :test 'equal))
+    (cl-pushnew 'chess-emacspeak chess-default-modules)
     (put-text-property (point-min) (point-max)
                        'keymap emacspeak-chess-map)))
 
 (defadvice chess-display-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (cl-declare (special chess-default-modules))
-  (when (ems-interactive-p)
-    (emacspeak-chess-setup)
-    (setq chess-default-modules
-          (cl-remove
-           '(chess-sound chess-announce)
-           chess-default-modules :test 'equal))
-    (cl-pushnew 'chess-emacspeak chess-default-modules)))
+  (when (ems-interactive-p) (emacspeak-chess-setup)))
 
 ;;}}}
 ;;{{{emacspeak Handler:
