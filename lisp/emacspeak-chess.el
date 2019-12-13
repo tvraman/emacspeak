@@ -224,7 +224,6 @@
   (emacspeak-chess-move chess-direction-southeast))
 
 ;;}}}
-
 ;;{{{Emacspeak Setup:
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
@@ -240,7 +239,64 @@
 
 
 ;;}}}
+;;{{{emacspeak Handler:
 
+(defun chess-emacspeak-handler (game event &rest args)
+  "Speak the move."
+  (cond
+   ((eq event 'initialize)
+    (emacspeak-chess-setup) t)
+   ((eq event 'move)
+    (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
+           (pos (chess-ply-pos ply)))
+      (unless
+          (let* ((source (chess-ply-source ply))
+                 (target (chess-ply-target ply))
+                 (s-piece (and source (chess-pos-piece pos source)))
+                 (t-piece (and target (chess-pos-piece pos target)))
+                 (which (chess-ply-keyword ply :which))
+                 text)
+            (if which
+                (setq which (char-to-string which)))
+            (cond
+             ((chess-ply-keyword ply :castle)
+              (setq text (chess-string 'short-castle)))
+             ((chess-ply-keyword ply :long-castle)
+              (setq text (chess-string 'long-castle)))
+             ((and s-piece t-piece (= t-piece ? ) target)
+              (setq text
+                    (concat which
+                            (chess-string 'piece-moves
+                                          (emacspeak-chess-piece-name s-piece)
+                                          (chess-index-to-coord target)))))
+             ((and s-piece t-piece target)
+              (setq text
+                    (concat which
+                            (chess-string 'piece-takes
+                                          (emacspeak-chess-piece-name s-piece)
+                                          (emacspeak-chess-piece-name t-piece)
+                                          (chess-index-to-coord target))))))
+
+            (let ((promotion (chess-ply-keyword ply :promote)))
+              (if promotion
+                  (setq text
+                        (concat text ", "
+                                (chess-string 'promote
+                                              (emacspeak-chess-piece-name promotion))))))
+            (if (chess-ply-keyword ply :en-passant)
+                (setq text (concat text ", " (chess-string 'en-passant))))
+            (if (chess-ply-keyword ply :check)
+                (setq text (concat text ", " (chess-string 'check))))
+            (if (chess-ply-keyword ply :checkmate)
+                (setq text (concat text ", " (chess-string 'checkmate))))
+            (if (chess-ply-keyword ply :stalemate)
+                (setq text (concat text ", " (chess-string 'stalemate))))
+
+            (message text)))))
+   ((eq event 'kibitz)
+    (message (car args)))))
+
+;;}}}
 ;;{{{ Interactive Commands:
 
 '(
