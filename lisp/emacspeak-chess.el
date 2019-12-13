@@ -229,10 +229,9 @@
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
   (cl-declare (special emacspeak-chess-map))
-  (chess-with-current-buffer  (get-buffer "*Chessboard*")
-    (put-text-property (point-min) (point-max) 'keymap
-                       emacspeak-chess-map)
-    (funcall-interactively #'emacspeak-chess-jump "a1")))
+  (chess-with-current-buffer (get-buffer "*Chessboard*")
+    (put-text-property (point-min) (point-max)
+                       'keymap emacspeak-chess-map)))
 
 (defadvice chess-display-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
