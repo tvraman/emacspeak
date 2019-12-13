@@ -224,7 +224,6 @@
   "Emacspeak setup for Chess."
   (cl-declare (special emacspeak-chess-map))
   (chess-with-current-buffer (get-buffer "*Chessboard*")
-    (emacspeak-auditory-icon 'open-object)
     (put-text-property (point-min) (point-max)
                        'keymap emacspeak-chess-map)))
 
@@ -232,6 +231,7 @@
   "Provide auditory feedback."
   (cl-declare (special chess-default-modules))
   (when (ems-interactive-p)
+    (emacspeak-chess-setup)
     (setq chess-default-modules
           (cl-remove
            '(chess-sound chess-announce)
@@ -245,7 +245,8 @@
   "Speak the move."
   (cond
    ((eq event 'initialize)
-    (emacspeak-chess-setup) t)
+    (emacspeak-auditory-icon 'open-object)
+     t)
    ((eq event 'move)
     (emacspeak-auditory-icon 'item)
     (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
