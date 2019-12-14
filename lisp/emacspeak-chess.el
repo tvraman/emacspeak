@@ -165,7 +165,7 @@
     (emacspeak-auditory-icon 'open-object)
      t)
    ((eq event 'move)
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-auditory-icon 'close-object)
     (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
            (pos (chess-ply-pos ply)))
       (unless
@@ -218,31 +218,35 @@
 (provide 'chess-emacspeak)
 ;;}}}
 ;;{{{Emacspeak Setup:
+
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
-  (cl-declare (special chess-default-modules))
+  (cl-declare (special chess-default-modules
+                       chess-display-mode-map))
   (setq chess-default-modules
         (cl-remove
          '(chess-sound chess-announce)
-         chess-default-modules :test 'equal)) (cl-pushnew 'chess-emacspeak chess-default-modules))
+         chess-default-modules :test 'equal))
+  (cl-pushnew 'chess-emacspeak chess-default-modules)
+  (cl-loop
+   for binding in 
+   '(
+     ( ";" emacspeak-chess-speak-this-cell)
+     ("<up>" emacspeak-chess-north)
+     ("<down>" emacspeak-chess-south)
+     ("<left>" emacspeak-chess-west)
+     ("<right>" emacspeak-chess-east)
+     ("[" emacspeak-chess-northwest)
+     ("]" emacspeak-chess-northeast)
+     ("\\" emacspeak-chess-southeast)
+     ("/" emacspeak-chess-southwest)
+     ("j" emacspeak-chess-jump))
+   do
+   (emacspeak-keymap-update chess-display-mode-map binding)))
+
 ;;; Setup on load:
 
 (emacspeak-chess-setup)
-
-;;}}}
-;;{{{Additional Keybindings:
-
-(cl-declaim (special chess-display-mode-map))
-(define-key chess-display-mode-map ";" 'emacspeak-chess-speak-this-cell)
-(define-key chess-display-mode-map (kbd "<up>") 'emacspeak-chess-north)
-(define-key chess-display-mode-map (kbd "<down>") 'emacspeak-chess-south)
-(define-key chess-display-mode-map (kbd "<left>") 'emacspeak-chess-west)
-(define-key chess-display-mode-map (kbd "<right>") 'emacspeak-chess-east)
-(define-key chess-display-mode-map (kbd "[") 'emacspeak-chess-northwest)
-(define-key chess-display-mode-map (kbd "]") 'emacspeak-chess-northeast)
-(define-key chess-display-mode-map (kbd "\\") 'emacspeak-chess-southeast)
-(define-key chess-display-mode-map (kbd "/") 'emacspeak-chess-southwest)
-(define-key chess-display-mode-map (kbd "j") 'emacspeak-chess-jump)
 
 ;;}}}
 ;;{{{Buffer Navigation:
@@ -263,7 +267,6 @@
     (cl-assert index t "Not on a valid cell.")
     (setq target (chess-next-index  index direction))
     (unless target (error "Edge of board"))
-    (emacspeak-auditory-icon 'close-object)
     (goto-char (chess-display-index-pos (current-buffer) target))
     (emacspeak-auditory-icon 'item)
     (emacspeak-chess-speak-this-cell)))
