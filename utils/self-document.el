@@ -287,7 +287,7 @@
   (let ((name (self-document-name self))
         (file-name-handler-alist nil)
         (commands  nil))
-    (insert (format "@subsection %s Commands\n\n" name))
+    (insert (format "@subsection %s Commands\n\n" (capitalize name)))
     (setq commands
           (sort
            (self-document-commands self)
