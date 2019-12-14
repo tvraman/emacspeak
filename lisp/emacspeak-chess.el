@@ -66,7 +66,7 @@
 ;;; @itemize @bullet
 ;;; @item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{[}.
 ;;; @item  Move Northwest: @code{emacspeak-chess-northwest} bound to
-;;; @kbd{]}.
+;;; @kbd{[}.
 ;;; @item  Move Southwest: @code{emacspeak-chess-southwest} bound to
 ;;; @kbd{/}.
 ;;; @item  Move Southeast: @code{emacspeak-chess-southeast} bound to
