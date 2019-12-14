@@ -225,7 +225,9 @@
   (cl-declare (special chess-default-modules
                        chess-display-mode-map))
 ;;; silence commas for better intonation on blank squares
-  (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode "," "")
+  (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode ","
+                                            "")
+  (emacspeak-pronounce-refresh-pronunciations)
   (setq chess-default-modules
         (cl-remove
          '(chess-sound chess-announce)
