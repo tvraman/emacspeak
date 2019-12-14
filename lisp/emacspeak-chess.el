@@ -152,7 +152,7 @@
 
   (let ((index (get-text-property (point) 'chess-coord)))
     (cl-assert index t "Not in a valid cell.")
-    (message (emacspeak-chess-describe-cell index))))
+    (dtk-speak (emacspeak-chess-describe-cell index))))
 
 ;;}}}
 ;;{{{emacspeak Handler:
