@@ -7209,13 +7209,12 @@ File: emacspeak.info,  Node: emacspeak-chess,  Next: emacspeak-cider,  Prev: ema
 12.35 emacspeak-chess
 =====================
 
-The Emacs Chess package enables a rich environment for playing and
+The Emacs Chess package provides a rich environment for playing and
 exploring Chess Games.  That package comes with a light-weight module
 that announces moves.
 
    This module aims do do much more, including:
-   • Navigate the board along various axies with audio-formatted
-     output..
+   • Navigate the board along various axies with audio-formatted output.
    • Browse games via rich audio-formatted output.
    • Speech-enable all interactive commands provided by the Chess
      package.
