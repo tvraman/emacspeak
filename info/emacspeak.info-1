@@ -2810,6 +2810,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode – A powerful File Manager.
+* emacspeak-dismal::Speech enable Dismal – An Emacs Spreadsheet program.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
@@ -7246,7 +7247,7 @@ File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emac
 12.36 emacspeak-cider
 =====================
 
-Speech-Enable CIDER — Clojure IDE CIDER ==
+Speech-Enable CIDER — Clojure IDE
 
 12.36.1 emacspeak-cider Options
 -------------------------------
