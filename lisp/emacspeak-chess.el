@@ -39,17 +39,19 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; CHESS ==  The Game Of Chess
+;;;
 ;;; The Emacs Chess package enables a rich environment for playing and
 ;;; exploring Chess Games.
 ;;; That package comes with a light-weight module that announces
 ;;; moves.
-
+;;;
 ;;; This module aims do do much more, including:
-;;; Browse games via  rich audio-formatted   output.
-;;; Speech-enable all interactive commands  provided by the Chess
-;;; package
-;;; Enable various means of exploring the state of game, perhaps with
+;;; @itemize @bullet
+;;; @item Navigate the board along various axies with audio-formatted  output..
+;;;  @item Browse games via  rich audio-formatted   output.
+;;; @item Speech-enable all interactive commands  provided by the Chess
+;;; package.
+;;; @item Enable various means of exploring the state of game, perhaps with
 ;;; a view to being able to spot patterns   from listening to the
 ;;; output.
 ;;;
