@@ -40,7 +40,7 @@
 
 ;;; Commentary:
 ;;;
-;;; The Emacs Chess package enables a rich environment for playing and
+;;; The Emacs Chess package provides a rich environment for playing and
 ;;; exploring Chess Games.
 ;;; That package comes with a light-weight module that announces
 ;;; moves.
