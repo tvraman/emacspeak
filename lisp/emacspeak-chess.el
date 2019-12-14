@@ -143,8 +143,8 @@
           piece (emacspeak-chess-piece-name  piece))
     (unless white (setq piece (propertize  piece 'personality voice-bolden)))
     (if light
-        (setq coord (propertize  coord 'personality voice-lighten ))
-        (setq coord (propertize  coord 'personality voice-highlight )))
+        (setq coord (propertize  coord 'personality voice-lighten-extra ))
+        (setq coord (propertize  coord 'personality voice-monotone)))
     (list coord  piece)))
 
 (defun emacspeak-chess-speak-this-square ()
