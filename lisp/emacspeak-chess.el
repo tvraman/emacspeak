@@ -67,7 +67,7 @@
 ;;; @end itemize
 ;;; You can also move along the diagonals:
 ;;; @itemize @bullet
-;;; @item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{[}.
+;;; @item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{]}.
 ;;; @item  Move Northwest: @code{emacspeak-chess-northwest} bound to
 ;;; @kbd{[}.
 ;;; @item  Move Southwest: @code{emacspeak-chess-southwest} bound to
