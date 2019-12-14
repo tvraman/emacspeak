@@ -1601,12 +1601,12 @@ commands and options for details.
 @end format
 @end deffn
 
-@subsubsection emacspeak-chess-speak-this-cell
-@deffn {Command} emacspeak-chess-speak-this-cell   
-@findex emacspeak-chess-speak-this-cell
+@subsubsection emacspeak-chess-speak-this-square
+@deffn {Command} emacspeak-chess-speak-this-square   
+@findex emacspeak-chess-speak-this-square
 
 @format
-Speak cell under point.
+Speak square under point.
 @end format
 @end deffn
 
@@ -5252,7 +5252,10 @@ a view to being able to spot patterns   from listening to the
 output.
 
 @subsection Board Navigation:
-Arrow keys move to the appropriate cells on the board.  
+The board can be navigated along the 8 compass directions.
+Arrow keys move to the appropriate squares on the board.
+@kbd{/} and @kbd{\\} move down the diagonals.
+@kbd{[} and @kbd{]} move up the respective diagonals.
 @itemize  @bullet
 @item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
 @item  Move South: @code{emacspeak-chess-south} bound to
@@ -5274,6 +5277,7 @@ You can also jump to a given board position by:
 @itemize @bullet
 @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
 @end itemize
+finally, you can review the current square  with @kbd{;}.
 
 @node emacspeak-cider
 @section emacspeak-cider

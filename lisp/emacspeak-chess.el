@@ -54,7 +54,10 @@
 ;;; output.
 ;;;
 ;;; @subsection Board Navigation:
-;;; Arrow keys move to the appropriate squares on the board.  
+;;; The board can be navigated along the 8 compass directions.
+;;; Arrow keys move to the appropriate squares on the board.
+;;; @kbd{/} and @kbd{\\} move down the diagonals.
+;;; @kbd{[} and @kbd{]} move up the respective diagonals.
 ;;; @itemize  @bullet
 ;;; @item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
 ;;; @item  Move South: @code{emacspeak-chess-south} bound to
@@ -76,6 +79,8 @@
 ;;; @itemize @bullet
 ;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
 ;;; @end itemize
+;;; finally, you can review the current square  with @kbd{;}.
+
 ;;; Code:
 
 ;;}}}

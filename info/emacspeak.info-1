@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 13, 2019.
+last updated on December 14, 2019.
 
    The manual is divided into the following chapters:
 
@@ -4108,12 +4108,12 @@ system.
      See the online documentation C-e TAB for individual
      commands and options for details.
 
-12.9.1.2 emacspeak-chess-speak-this-cell
-........................................
+12.9.1.2 emacspeak-chess-speak-this-square
+..........................................
 
- -- Command: emacspeak-chess-speak-this-cell
+ -- Command: emacspeak-chess-speak-this-square
 
-     Speak cell under point.
+     Speak square under point.
 
 12.9.1.3 emacspeak-describe-emacspeak
 .....................................
@@ -7222,7 +7222,9 @@ to the output.
 12.35.1 Board Navigation:
 -------------------------
 
-Arrow keys move to the appropriate cells on the board.
+The board can be navigated along the 8 compass directions.  Arrow keys
+move to the appropriate squares on the board.  ‘/’ and ‘\\’ move down
+the diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Move North: ‘emacspeak-chess-north’ bound to ‘up’.
    • Move South: ‘emacspeak-chess-south’ bound to ‘down’.
    • Move West: ‘emacspeak-chess-west’ bound to ‘left’.
@@ -7234,6 +7236,7 @@ Arrow keys move to the appropriate cells on the board.
    • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\\’.
    You can also jump to a given board position by:
    • Jump: ‘emacspeak-chess-jump’ bound to ‘j’.
+   finally, you can review the current square with ‘;’.
 
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
