@@ -7223,8 +7223,8 @@ to the output.
 -------------------------
 
 The board can be navigated along the 8 compass directions.  Arrow keys
-move to the appropriate squares on the board.  ‘/’ and ‘\\’ move down
-the diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
+move to the appropriate squares on the board.  ‘/’ and ‘\’ move down the
+diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Move North: ‘emacspeak-chess-north’ bound to ‘up’.
    • Move South: ‘emacspeak-chess-south’ bound to ‘down’.
    • Move West: ‘emacspeak-chess-west’ bound to ‘left’.
@@ -7233,7 +7233,7 @@ the diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘]’.
    • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘[’.
    • Move Southwest: ‘emacspeak-chess-southwest’ bound to ‘/’.
-   • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\\’.
+   • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\’.
    You can also jump to a given board position by:
    • Jump: ‘emacspeak-chess-jump’ bound to ‘j’.
    finally, you can review the current square with ‘;’.
