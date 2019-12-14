@@ -8,6 +8,13 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 52 -- Emacspeak 51 User Visible Changes
 This version requires Emacs-26.1 or later.
 
+** Emacs Chess 
+
+Module ~emacspeak-chess~ speech-enables package Chess with full
+audio-formatting support, and works consistently across different
+Chess Display types.
+
+
 
 ** Hacker News
 
