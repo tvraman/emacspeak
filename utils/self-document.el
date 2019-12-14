@@ -145,7 +145,7 @@
     o))
 
 (defun self-document-map-command (f)
-  "Add this  this command symbol to our map."
+  "Add   this command symbol to our map."
   (cl-declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
@@ -299,8 +299,8 @@
   (let ((file-name-handler-alist nil))
 ;;; Only generate in non-degenerate case
   (when (or (self-document-commentary self)
-            (> 0 (length (self-document-commands self)))
-            (> 0 (length (self-document-options self))))
+            (null  (zerop (length (self-document-commands self))))
+            (null  (zerop (length (self-document-options self)))))
     (self-document-module-preamble self)
     (when (self-document-commands self) (self-document-module-commands self))
     (when (self-document-options self)(self-document-module-options self)))))
