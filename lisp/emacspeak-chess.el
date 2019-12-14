@@ -54,7 +54,7 @@
 ;;; @item Enable various means of exploring the state of game, perhaps with
 ;;; a view to being able to spot patterns   from listening to the
 ;;; output.
-;;;
+;;; @end itemize 
 ;;; @subsection Board Navigation:
 ;;; The board can be navigated along the 8 compass directions.
 ;;; Arrow keys move to the appropriate squares on the board.
