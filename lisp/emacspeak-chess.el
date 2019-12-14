@@ -160,9 +160,16 @@
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((index (get-text-property (point) 'chess-coord)))
     (cl-assert index t "Not on a valid square.")
-    
     (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
 
+
+(defun emacspeak-chess-speak-that-square (coord)
+  "Speak square at specified coord."
+  (interactive "sCoord: ")
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
+  (let ((index (chess-coord-to-index coord)))
+    (cl-assert index t "Not  a valid square.")
+    (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
 ;;}}}
 ;;{{{emacspeak Handler:
 
@@ -171,7 +178,7 @@
   (cond
    ((eq event 'initialize)
     (emacspeak-auditory-icon 'open-object)
-     t)
+    t)
    ((eq event 'move)
     (emacspeak-auditory-icon 'time)
     (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
@@ -194,22 +201,22 @@
               (setq text
                     (concat which
                             (format "%s to %s"
-                                          (emacspeak-chess-piece-name s-piece)
-                                          (chess-index-to-coord target)))))
+                                    (emacspeak-chess-piece-name s-piece)
+                                    (chess-index-to-coord target)))))
              ((and s-piece t-piece target)
               (setq text
                     (concat which
                             (format "%s takes %s at %s"
-                                          (emacspeak-chess-piece-name s-piece)
-                                          (emacspeak-chess-piece-name t-piece)
-                                          (chess-index-to-coord target))))))
+                                    (emacspeak-chess-piece-name s-piece)
+                                    (emacspeak-chess-piece-name t-piece)
+                                    (chess-index-to-coord target))))))
 
             (let ((promotion (chess-ply-keyword ply :promote)))
               (if promotion
                   (setq text
                         (concat text ", "
                                 (message "promotes  to %s"
-                                              (emacspeak-chess-piece-name promotion))))))
+                                         (emacspeak-chess-piece-name promotion))))))
             (if (chess-ply-keyword ply :en-passant)
                 (setq text (concat text ", " "on possont")))
             (if (chess-ply-keyword ply :check)
@@ -232,8 +239,7 @@
   (cl-declare (special chess-default-modules
                        chess-display-mode-map))
 ;;; silence commas for better intonation on blank squares
-  (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode ","
-                                            "")
+  (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode "," "")
   (emacspeak-pronounce-refresh-pronunciations)
   (setq chess-default-modules
         (cl-remove
@@ -252,6 +258,7 @@
      ("]" emacspeak-chess-northeast)
      ("\\" emacspeak-chess-southeast)
      ("/" emacspeak-chess-southwest)
+     ("t" emacspeak-chess-speak-that-square)
      ("j" emacspeak-chess-jump))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
