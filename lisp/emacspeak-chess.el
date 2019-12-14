@@ -142,7 +142,7 @@
           white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
     (unless white (setq piece (propertize  piece 'personality voice-bolden)))
-    (if light
+    (if light ;;; square color
         (setq coord (propertize  coord 'personality voice-lighten-extra ))
         (setq coord (propertize  coord 'personality voice-monotone)))
     (list coord  piece)))
