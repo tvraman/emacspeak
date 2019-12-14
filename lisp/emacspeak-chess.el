@@ -263,6 +263,7 @@
     (cl-assert index t "Not on a valid cell.")
     (setq target (chess-next-index  index direction))
     (unless target (error "Edge of board"))
+    (emacspeak-auditory-icon 'close-object)
     (goto-char (chess-display-index-pos (current-buffer) target))
     (emacspeak-auditory-icon 'item)
     (emacspeak-chess-speak-this-cell)))
