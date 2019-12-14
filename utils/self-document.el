@@ -299,8 +299,8 @@
   (let ((file-name-handler-alist nil))
 ;;; Only generate in non-degenerate case
   (when (or (self-document-commentary self)
-            (null  (zerop (length (self-document-commands self))))
-            (null  (zerop (length (self-document-options self)))))
+            (not  (zerop (length (self-document-commands self))))
+            (not  (zerop (length (self-document-options self)))))
     (self-document-module-preamble self)
     (when (self-document-commands self) (self-document-module-commands self))
     (when (self-document-options self)(self-document-module-options self)))))
