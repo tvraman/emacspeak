@@ -154,7 +154,7 @@
         (setq coord (propertize  coord 'personality voice-monotone)))
     (list coord  piece)))
 
-;;;###autoload
+
 (defun emacspeak-chess-speak-this-square ()
   "Speak square under point."
   (interactive)
@@ -272,7 +272,7 @@
 
 ;;}}}
 ;;{{{Board Navigation:
-;;;###autoload
+
 (defun emacspeak-chess-jump (coord)
   "Jump to square specified as coord."
   (interactive "sCoord: ")
