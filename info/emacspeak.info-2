@@ -12,32 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
-
-12.43 emacspeak-custom
-======================
-
-Advise custom to speak.  most of the work is actually done by
-emacspeak-widget.el which speech-enables the widget libraries.
-
-12.43.1 Emacspeak-Custom Commands
----------------------------------
-
-12.43.1.1 emacspeak-custom-goto-group
-.....................................
-
- -- Command: emacspeak-custom-goto-group
-
-     Jump to custom group when in a customization buffer.
-
-12.43.1.2 emacspeak-custom-goto-toolbar
-.......................................
-
- -- Command: emacspeak-custom-goto-toolbar
-
-     Jump to custom toolbar when in a customization buffer.
-
-
 File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-deadgrep,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
 
 12.44 emacspeak-dbus
@@ -8597,6 +8571,39 @@ File: emacspeak.info,  Node: emacspeak-sage,  Next: emacspeak-ses,  Prev: emacsp
 Speech-enable ‘sage-shell-mode’.  This is a major mode for interacting
 with ‘sage’, <http://www.sagemath.org/> An Open-source Mathematical
 Software System.
+
+12.170.1 Emacspeak-Sage Commands
+--------------------------------
+
+12.170.1.1 emacspeak-sage-describe-symbol
+.........................................
+
+ -- Command: emacspeak-sage-describe-symbol (s)
+
+     Describe Sage symbol at point.
+
+     (fn S)
+
+12.170.1.2 emacspeak-sage-get-output
+....................................
+
+ -- Command: emacspeak-sage-get-output
+
+     Return most recent Sage output
+
+12.170.1.3 emacspeak-sage-get-output-as-latex
+.............................................
+
+ -- Command: emacspeak-sage-get-output-as-latex
+
+     Return most recent Sage output as LaTeX markup.
+
+12.170.1.4 emacspeak-sage-speak-output
+......................................
+
+ -- Command: emacspeak-sage-speak-output
+
+     Speak last output from Sage.
 
 
 File: emacspeak.info,  Node: emacspeak-ses,  Next: emacspeak-setup,  Prev: emacspeak-sage,  Up: Emacspeak Commands And Options

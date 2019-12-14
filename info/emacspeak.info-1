@@ -4126,37 +4126,7 @@ system.
 
      Open Emacspeak Info Manual.
 
-12.9.1.4 emacspeak-sage-describe-symbol
-.......................................
-
- -- Command: emacspeak-sage-describe-symbol (s)
-
-     Describe Sage symbol at point.
-
-     (fn S)
-
-12.9.1.5 emacspeak-sage-get-output
-..................................
-
- -- Command: emacspeak-sage-get-output
-
-     Return most recent Sage output
-
-12.9.1.6 emacspeak-sage-get-output-as-latex
-...........................................
-
- -- Command: emacspeak-sage-get-output-as-latex
-
-     Return most recent Sage output as LaTeX markup.
-
-12.9.1.7 emacspeak-sage-speak-output
-....................................
-
- -- Command: emacspeak-sage-speak-output
-
-     Speak last output from Sage.
-
-12.9.1.8 emacspeak-submit-bug
+12.9.1.4 emacspeak-submit-bug
 .............................
 
  -- Command: emacspeak-submit-bug
@@ -7481,4 +7451,30 @@ File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: em
 =====================
 
 Provide additional advice to CPerl mode
+
+
+File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
+
+12.43 emacspeak-custom
+======================
+
+Advise custom to speak.  most of the work is actually done by
+emacspeak-widget.el which speech-enables the widget libraries.
+
+12.43.1 Emacspeak-Custom Commands
+---------------------------------
+
+12.43.1.1 emacspeak-custom-goto-group
+.....................................
+
+ -- Command: emacspeak-custom-goto-group
+
+     Jump to custom group when in a customization buffer.
+
+12.43.1.2 emacspeak-custom-goto-toolbar
+.......................................
+
+ -- Command: emacspeak-custom-goto-toolbar
+
+     Jump to custom toolbar when in a customization buffer.
 

@@ -1629,44 +1629,6 @@ Open Emacspeak Info Manual.
 @end format
 @end deffn
 
-@subsubsection emacspeak-sage-describe-symbol
-@deffn {Command} emacspeak-sage-describe-symbol  (s)
-@findex emacspeak-sage-describe-symbol
-
-@format
-Describe Sage symbol at point.
-
-(fn S)
-@end format
-@end deffn
-
-@subsubsection emacspeak-sage-get-output
-@deffn {Command} emacspeak-sage-get-output   
-@findex emacspeak-sage-get-output
-
-@format
-Return most recent Sage output
-@end format
-@end deffn
-
-@subsubsection emacspeak-sage-get-output-as-latex
-@deffn {Command} emacspeak-sage-get-output-as-latex   
-@findex emacspeak-sage-get-output-as-latex
-
-@format
-Return most recent Sage output as LaTeX markup.
-@end format
-@end deffn
-
-@subsubsection emacspeak-sage-speak-output
-@deffn {Command} emacspeak-sage-speak-output   
-@findex emacspeak-sage-speak-output
-
-@format
-Speak last output from Sage.
-@end format
-@end deffn
-
 @subsubsection emacspeak-submit-bug
 @deffn {Command} emacspeak-submit-bug   
 @table @kbd
@@ -15414,6 +15376,46 @@ Speech-enable @code{sage-shell-mode}.
 This is a major mode for interacting with @code{sage},
  @url{http://www.sagemath.org/}
 An Open-source  Mathematical Software System.
+
+@subsection Emacspeak-Sage Commands
+
+@subsubsection emacspeak-sage-describe-symbol
+@deffn {Command} emacspeak-sage-describe-symbol  (s)
+@findex emacspeak-sage-describe-symbol
+
+@format
+Describe Sage symbol at point.
+
+(fn S)
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-get-output
+@deffn {Command} emacspeak-sage-get-output   
+@findex emacspeak-sage-get-output
+
+@format
+Return most recent Sage output
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-get-output-as-latex
+@deffn {Command} emacspeak-sage-get-output-as-latex   
+@findex emacspeak-sage-get-output-as-latex
+
+@format
+Return most recent Sage output as LaTeX markup.
+@end format
+@end deffn
+
+@subsubsection emacspeak-sage-speak-output
+@deffn {Command} emacspeak-sage-speak-output   
+@findex emacspeak-sage-speak-output
+
+@format
+Speak last output from Sage.
+@end format
+@end deffn
 
 @node emacspeak-ses
 @section emacspeak-ses
