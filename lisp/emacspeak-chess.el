@@ -254,8 +254,7 @@
 
 (defadvice chess-display-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cl-declare (special chess-default-modules))
-  (when (ems-interactive-p) (emacspeak-chess-setup)))
+  (emacspeak-chess-setup))
 
 ;;}}}
 ;;{{{emacspeak Handler:
