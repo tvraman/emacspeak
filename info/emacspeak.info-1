@@ -7229,7 +7229,7 @@ Arrow keys move to the appropriate cells on the board.
    • Move East: ‘emacspeak-chess-east’ bound to ‘right’.
    You can also move along the diagonals:
    • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘[’.
-   • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘]’.
+   • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘[’.
    • Move Southwest: ‘emacspeak-chess-southwest’ bound to ‘/’.
    • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\\’.
    You can also jump to a given board position by:
