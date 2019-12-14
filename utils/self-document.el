@@ -499,7 +499,6 @@ This chapter documents a total of %d commands and %d options.\n\n"
 
 ;;; local variables:
 ;;; folded-file: t
-;;; byte-compile-dynamic: t
 ;;; end:
 
 ;;}}}
