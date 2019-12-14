@@ -86,6 +86,7 @@
 (require 'emacspeak-preamble)
 (eval-when-compile
   (require 'chess-pos)
+  (require 'chess-message)
   (require 'chess-display))
 
 ;;}}}
@@ -178,19 +179,19 @@
                 (setq which (char-to-string which)))
             (cond
              ((chess-ply-keyword ply :castle)
-              (setq text (chess-string 'short-castle)))
+              (setq text "short castle"))
              ((chess-ply-keyword ply :long-castle)
-              (setq text (chess-string 'long-castle)))
+              (setq text "long castle"))
              ((and s-piece t-piece (= t-piece ? ) target)
               (setq text
                     (concat which
-                            (chess-string 'piece-moves
+                            (format "%s to %s"
                                           (emacspeak-chess-piece-name s-piece)
                                           (chess-index-to-coord target)))))
              ((and s-piece t-piece target)
               (setq text
                     (concat which
-                            (chess-string 'piece-takes
+                            (format "%s takes %s at %s"
                                           (emacspeak-chess-piece-name s-piece)
                                           (emacspeak-chess-piece-name t-piece)
                                           (chess-index-to-coord target))))))
@@ -199,16 +200,16 @@
               (if promotion
                   (setq text
                         (concat text ", "
-                                (chess-string 'promote
+                                (message "promotes  to %s"
                                               (emacspeak-chess-piece-name promotion))))))
             (if (chess-ply-keyword ply :en-passant)
-                (setq text (concat text ", " (chess-string 'en-passant))))
+                (setq text (concat text ", " "on possont")))
             (if (chess-ply-keyword ply :check)
-                (setq text (concat text ", " (chess-string 'check))))
+                (setq text (concat text ", " "check")))
             (if (chess-ply-keyword ply :checkmate)
-                (setq text (concat text ", " (chess-string 'checkmate))))
+                (setq text (concat text ", " "checkmate ")))
             (if (chess-ply-keyword ply :stalemate)
-                (setq text (concat text ", " (chess-string 'stalemate))))
+                (setq text (concat text ", " "stalemate ")))
 
             (message text)))))
    ((eq event 'kibitz)
