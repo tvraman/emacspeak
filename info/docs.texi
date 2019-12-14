@@ -57,6 +57,7 @@ This chapter documents a total of 1230 commands and 909 options.
 * emacspeak-dictionary::speech-enable dictionaries.
 * emacspeak-diff-mode::Speech-enable DIFF-MODE.
 * emacspeak-dired::Speech enable Dired Mode -- A powerful File Manager.
+* emacspeak-dismal::Speech enable Dismal -- An Emacs Spreadsheet program.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
@@ -5795,6 +5796,163 @@ Optional interactive prefix arg shuffles playlist.
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
 Options passed to Unix builtin ‘file’ command.
+
+@end defvar
+
+@node emacspeak-dismal
+@section emacspeak-dismal
+
+### emacspeak-dismal: No Commentary
+
+@subsection emacspeak-dismal Commands
+
+@subsubsection emacspeak-dismal-backward-col-and-summarize
+@deffn {Command} emacspeak-dismal-backward-col-and-summarize  (cols)
+@findex emacspeak-dismal-backward-col-and-summarize
+
+@format
+Move backward by arg columns
+ (the previous column by default)and summarize it.
+
+(fn COLS)
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-backward-row-and-summarize
+@deffn {Command} emacspeak-dismal-backward-row-and-summarize  (rows)
+@findex emacspeak-dismal-backward-row-and-summarize
+
+@format
+Move backward by arg rows
+ (the previous row by default)and summarize it.
+
+(fn ROWS)
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-col-summarize
+@deffn {Command} emacspeak-dismal-col-summarize   
+@findex emacspeak-dismal-col-summarize
+
+@format
+Summarizes a col using the specification in list
+emacspeak-dismal-col-summarizer-list
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-display-cell-expression
+@deffn {Command} emacspeak-dismal-display-cell-expression   
+@findex emacspeak-dismal-display-cell-expression
+
+@format
+Display the expression in the message area
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-display-cell-value
+@deffn {Command} emacspeak-dismal-display-cell-value   
+@findex emacspeak-dismal-display-cell-value
+
+@format
+Display the cell value in the message area
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-display-cell-with-col-header
+@deffn {Command} emacspeak-dismal-display-cell-with-col-header   
+@findex emacspeak-dismal-display-cell-with-col-header
+
+@format
+Display current cell along with its column header.
+The ‘column header’ is the entry in row 0.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-display-cell-with-row-header
+@deffn {Command} emacspeak-dismal-display-cell-with-row-header   
+@findex emacspeak-dismal-display-cell-with-row-header
+
+@format
+Displays current cell along with its row header.
+The ‘row header’ is the entry in column 0.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-forward-col-and-summarize
+@deffn {Command} emacspeak-dismal-forward-col-and-summarize  (cols)
+@findex emacspeak-dismal-forward-col-and-summarize
+
+@format
+Move forward by arg columns
+ (the next column by default)and summarize it.
+
+(fn COLS)
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-forward-row-and-summarize
+@deffn {Command} emacspeak-dismal-forward-row-and-summarize  (rows)
+@findex emacspeak-dismal-forward-row-and-summarize
+
+@format
+Move forward by arg rows
+ (the next row by default)and summarize it.
+
+(fn ROWS)
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-row-summarize
+@deffn {Command} emacspeak-dismal-row-summarize   
+@findex emacspeak-dismal-row-summarize
+
+@format
+Summarizes a row using the specification in list
+emacspeak-dismal-row-summarizer-list
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-set-col-summarizer-list
+@deffn {Command} emacspeak-dismal-set-col-summarizer-list   
+@findex emacspeak-dismal-set-col-summarizer-list
+
+@format
+Specify or reset col summarizer list.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-set-row-summarizer-list
+@deffn {Command} emacspeak-dismal-set-row-summarizer-list   
+@findex emacspeak-dismal-set-row-summarizer-list
+
+@format
+Specify or reset row summarizer list.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-set-sheet-summarizer-list
+@deffn {Command} emacspeak-dismal-set-sheet-summarizer-list   
+@findex emacspeak-dismal-set-sheet-summarizer-list
+
+@format
+Specify or reset sheet summarizer list.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dismal-sheet-summarize
+@deffn {Command} emacspeak-dismal-sheet-summarize   
+@findex emacspeak-dismal-sheet-summarize
+
+@format
+Summarizes a sheet using the specification in list
+emacspeak-dismal-sheet-summarizer-list
+@end format
+@end deffn
+
+@subsection emacspeak-dismal Options
+
+@defvar {User Option} emacspeak-dismal-value-personality
+Personality used for speaking cell values in summaries.
 
 @end defvar
 
