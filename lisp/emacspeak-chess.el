@@ -233,6 +233,8 @@
 (provide 'chess-emacspeak)
 ;;}}}
 ;;{{{Emacspeak Setup:
+;;; Forward Declaration to help documentation builder.
+(defvar chess-default-modules)
 
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
