@@ -165,7 +165,7 @@
     (emacspeak-auditory-icon 'open-object)
      t)
    ((eq event 'move)
-    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-auditory-icon 'time)
     (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
            (pos (chess-ply-pos ply)))
       (unless
