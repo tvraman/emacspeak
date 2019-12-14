@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1230 commands and 909 options.
+This chapter documents a total of 1231 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1599,6 +1599,17 @@ y		emacspeak-m-player-youtube-player
 
 See the online documentation C-e TAB for individual
 commands and options for details.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-that-square
+@deffn {Command} emacspeak-chess-speak-that-square  (coord)
+@findex emacspeak-chess-speak-that-square
+
+@format
+Speak square at specified coord.
+
+(fn COORD)
 @end format
 @end deffn
 
