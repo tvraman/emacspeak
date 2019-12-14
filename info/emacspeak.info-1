@@ -3054,7 +3054,7 @@ a desired control, e.g., "master playback volume", and this displays a
 prompt with the current value.  Enter the new value and press <RETURN>.
 To reset all controls to their default values, Press ‘C-j’.
 
-12.2.1 amixer Commands
+12.2.1 Amixer Commands
 ----------------------
 
 12.2.1.1 amixer
@@ -3106,7 +3106,7 @@ check using rpmfind or from its home site at sunsite.unc.edu
 play or save clips from a CD if you have cdda2wav installed.  cdda2wav
 is a cd to wav converter.
 
-12.3.1 cd-tool Commands
+12.3.1 Cd-Tool Commands
 -----------------------
 
 12.3.1.1 cd-tool
@@ -3152,7 +3152,7 @@ File: emacspeak.info,  Node: dectalk-voices,  Next: dom-addons,  Prev: cd-tool, 
 This module defines the various voices used in voice-lock mode.  This
 module is Dectalk specific.
 
-12.4.1 dectalk-voices Commands
+12.4.1 Dectalk-Voices Commands
 ------------------------------
 
 12.4.1.1 dectalk
@@ -3197,7 +3197,7 @@ File: emacspeak.info,  Node: dtk-speak,  Next: dtk-unicode,  Prev: dtk-interp,  
 
 Defines the TTS interface.
 
-12.7.1 dtk-speak Commands
+12.7.1 Dtk-Speak Commands
 -------------------------
 
 12.7.1.1 dtk-add-cleanup-pattern
@@ -3641,7 +3641,7 @@ File: emacspeak.info,  Node: dtk-unicode,  Next: emacspeak,  Prev: dtk-speak,  U
 
 This Provides Unicode support to the speech layer.
 
-12.8.1 dtk-unicode Commands
+12.8.1 Dtk-Unicode Commands
 ---------------------------
 
 12.8.1.1 dtk-unicode-customize-char
@@ -3695,7 +3695,7 @@ Emacs to load package-specific Emacspeak modules as each package is
 loaded.  It implements function emacspeak which loads the rest of the
 system.
 
-12.9.1 emacspeak Commands
+12.9.1 Emacspeak Commands
 -------------------------
 
 12.9.1.1 emacspeak
@@ -6055,7 +6055,7 @@ File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-abc-mode,  Prev: e
 
 Speech-enable 2048 Game
 
-12.10.1 emacspeak-2048 Commands
+12.10.1 Emacspeak-2048 Commands
 -------------------------------
 
 12.10.1.1 emacspeak-2048-add-column
@@ -6247,7 +6247,7 @@ that this and subsequent versions of Emacspeak should not be run on
 versions of Emacs older than Emacs 21, And preferably only run on Emacs
 22.  This version of Emacspeak is only tested on Emacs 24 and later.
 
-12.14.1 emacspeak-advice Commands
+12.14.1 Emacspeak-Advice Commands
 ---------------------------------
 
 12.14.1.1 emacspeak-eldoc-speak-doc
@@ -6291,7 +6291,7 @@ time offset from start
    This library will be used from emacspeak-m-player, emacspeak-mplayer
 and friends to set and jump to bookmarks.
 
-12.15.1 emacspeak-amark Commands
+12.15.1 Emacspeak-Amark Commands
 --------------------------------
 
 12.15.1.1 emacspeak-amark-add
@@ -6329,7 +6329,7 @@ File: emacspeak.info,  Node: emacspeak-analog,  Next: emacspeak-ansi-color,  Pre
 
 Speech-enables package analog –convenient log analyzer
 
-12.16.1 emacspeak-analog Commands
+12.16.1 Emacspeak-Analog Commands
 ---------------------------------
 
 12.16.1.1 emacspeak-analog-backward-field-or-char
@@ -6400,7 +6400,7 @@ File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emac
 Auditory interface to archive mode This lets Emacs manipulate package
 files such as .zip and .jar files.
 
-12.19.1 emacspeak-arc Commands
+12.19.1 Emacspeak-Arc Commands
 ------------------------------
 
 12.19.1.1 emacspeak-arc-speak-file-modification-time
@@ -6459,7 +6459,7 @@ Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
 use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
 available.  For downloading a program etc., use Emacs package iplayer.
 
-12.21.1 emacspeak-bbc Commands
+12.21.1 Emacspeak-Bbc Commands
 ------------------------------
 
 12.21.1.1 emacspeak-bbc
@@ -6598,7 +6598,7 @@ Assuming you have correctly setup your API key:
    • Press ‘c’ to display the table of contents.
    • Now, use all of EWW *Note emacspeak-eww:: extensions and profit!
 
-12.25.4 emacspeak-bookshare Commands
+12.25.4 Emacspeak-Bookshare Commands
 ------------------------------------
 
 12.25.4.1 emacspeak-bookshare
@@ -7063,7 +7063,7 @@ File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: em
 
 speech-enable bs.el – an alternative to Emacs’ default list-buffers
 
-12.27.1 emacspeak-bs Commands
+12.27.1 Emacspeak-Bs Commands
 -----------------------------
 
 12.27.1.1 emacspeak-bs-speak-buffer-line
@@ -7081,7 +7081,7 @@ File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: ema
 
 Speech-enable buffer-menus.
 
-12.28.1 emacspeak-buff-menu Commands
+12.28.1 Emacspeak-Buff-Menu Commands
 ------------------------------------
 
 12.28.1.1 emacspeak-list-buffers-next-line
@@ -7125,7 +7125,7 @@ File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calc,  Prev: emacspea
 Make some of C and C++ mode more emacspeak friendly Works with both
 boring c-mode and the excellent cc-mode
 
-12.29.1 emacspeak-c Commands
+12.29.1 Emacspeak-C Commands
 ----------------------------
 
 12.29.1.1 emacspeak-c-speak-semantics
@@ -7163,7 +7163,7 @@ This module speech enables the Emacs Calendar.  Speech enabling is not
 the same as speaking the screen: This is an excellent example of the
 advantages of speech-enabled interaction.
 
-12.32.1 emacspeak-calendar Commands
+12.32.1 Emacspeak-Calendar Commands
 -----------------------------------
 
 12.32.1.1 emacspeak-appt-repeat-announcement
@@ -7352,7 +7352,7 @@ This module makes compiling code from inside Emacs speech friendly.  It
 is an example of how a little amount of code can make Emacspeak even
 better.
 
-12.41.1 emacspeak-compile Commands
+12.41.1 Emacspeak-Compile Commands
 ----------------------------------
 
 12.41.1.1 emacspeak-compilation-speak-error
@@ -7422,7 +7422,7 @@ File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: ema
 Advise custom to speak.  most of the work is actually done by
 emacspeak-widget.el which speech-enables the widget libraries.
 
-12.43.1 emacspeak-custom Commands
+12.43.1 Emacspeak-Custom Commands
 ---------------------------------
 
 12.43.1.1 emacspeak-custom-goto-group
@@ -7470,7 +7470,7 @@ customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
 network/up-down can be separately enabled/disabled, and the actions
 customized via appropriately named hook functions.
 
-12.44.2 emacspeak-dbus Commands
+12.44.2 Emacspeak-Dbus Commands
 -------------------------------
 
 12.44.2.1 emacspeak-dbus-lock-screen

@@ -24,7 +24,7 @@ addition to speech enabling all interactive commands.  Emacspeak also
 adds an Emacspeak environment specific entry point to speedbar
 –emacspeak-speedbar-goto-speedbar– and binds this
 
-12.183.1 emacspeak-speedbar Commands
+12.183.1 Emacspeak-Speedbar Commands
 ------------------------------------
 
 12.183.1.1 emacspeak-speedbar-click
@@ -86,7 +86,7 @@ Playing SuDoku using speech output.  Written to discover what type of
 feedback one needs for this task.  See
 http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
 
-12.185.1 emacspeak-sudoku Commands
+12.185.1 Emacspeak-Sudoku Commands
 ----------------------------------
 
 12.185.1.1 emacspeak-sudoku-board-columns-summarize
@@ -299,7 +299,7 @@ File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Pre
 
 User interface to tables
 
-12.189.1 emacspeak-table-ui Commands
+12.189.1 Emacspeak-Table-Ui Commands
 ------------------------------------
 
 12.189.1.1 emacspeak-table-copy-current-element-to-kill-ring
@@ -828,7 +828,7 @@ File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Pre
 This module is a simple table recognizer.  Can recognize the columns in
 tabulated output, e.g.  ps, ls output
 
-12.190.1 emacspeak-tabulate Commands
+12.190.1 Emacspeak-Tabulate Commands
 ------------------------------------
 
 12.190.1.1 emacspeak-tabulate-region
@@ -852,7 +852,7 @@ File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-tar,  Prev: em
 
 emacspeak extensions to speak window widnow layouts
 
-12.191.1 emacspeak-tapestry Commands
+12.191.1 Emacspeak-Tapestry Commands
 ------------------------------------
 
 12.191.1.1 emacspeak-speak-window-layout
@@ -901,7 +901,7 @@ File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tcl,  Prev: emacspe
 
 Auditory interface to tar mode
 
-12.192.1 emacspeak-tar Commands
+12.192.1 Emacspeak-Tar Commands
 -------------------------------
 
 12.192.1.1 emacspeak-tar-speak-file-date
@@ -961,7 +961,7 @@ File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-texinfo,  Prev: 
 
 Speech-enables tetris.
 
-12.196.1 emacspeak-tetris Commands
+12.196.1 Emacspeak-Tetris Commands
 ----------------------------------
 
 12.196.1.1 emacspeak-tetris-goto-bottom-row
@@ -1090,7 +1090,7 @@ well as getting a column-specific view of the board.
 is spoken after the current state of the board.  You can use ‘SPC’ and
 ‘/’ to review the board.
 
-12.198.1 emacspeak-threes Commands
+12.198.1 Emacspeak-Threes Commands
 ----------------------------------
 
 12.198.1.1 emacspeak-threes-0
@@ -1273,7 +1273,7 @@ displays a *transient-emacspeak* buffer that displays the contents of
 the most recently displayed transient choices.  Pressing ‘C-c’ resumes
 the transient; Pressing ‘C-q’ quits the transient.
 
-12.201.3 emacspeak-transient Commands
+12.201.3 Emacspeak-Transient Commands
 -------------------------------------
 
 12.201.3.1 emacspeak-transient-mode
@@ -1367,7 +1367,7 @@ broken.
 
    Advises interactive functions to speak
 
-12.202.1 emacspeak-twittering Commands
+12.202.1 Emacspeak-Twittering Commands
 --------------------------------------
 
 12.202.1.1 emacspeak-twittering-jump-to-following-url
@@ -1410,7 +1410,7 @@ values for the parametrized portions of the URL e.g.  the date.  See
 *Note URL Templates::, for details on the URL templates that are
 presently defined.
 
-12.204.1 emacspeak-url-template Commands
+12.204.1 Emacspeak-Url-Template Commands
 ----------------------------------------
 
 12.204.1.1 emacspeak-url-template-fetch
@@ -1489,7 +1489,7 @@ provides commands that speak the current hunk.  These are bound in
    • ‘emacspeak-vdiff-speak-other-hunk’ bound to ‘C-SPC’.
    • ‘emacspeak-vdiff-speak-other-line’ bound to ‘l’.
 
-12.205.1 emacspeak-vdiff Commands
+12.205.1 Emacspeak-Vdiff Commands
 ---------------------------------
 
 12.205.1.1 emacspeak-vdiff-speak-other-hunk
@@ -1534,7 +1534,7 @@ File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vlc,  Prev: emacsp
 
 Provide additional advice to view-mode
 
-12.206.1 emacspeak-view Commands
+12.206.1 Emacspeak-View Commands
 --------------------------------
 
 12.206.1.1 emacspeak-view-line-to-top
@@ -1552,7 +1552,7 @@ File: emacspeak.info,  Node: emacspeak-vlc,  Next: emacspeak-vm,  Prev: emacspea
 
 An Emacspeak Front-End For VLC Interaction.
 
-12.207.1 emacspeak-vlc Commands
+12.207.1 Emacspeak-Vlc Commands
 -------------------------------
 
 12.207.1.1 emacspeak-vlc
@@ -1716,7 +1716,7 @@ File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-wdired,  Prev: emacs
 This module extends the mail reader vm.  Uses voice locking for message
 headers and cited messages
 
-12.208.1 emacspeak-vm Commands
+12.208.1 Emacspeak-Vm Commands
 ------------------------------
 
 12.208.1.1 emacspeak-vm-browse-message
@@ -1835,7 +1835,7 @@ Emacs web browser EWW This module will use the abstraction provided by
 browse-url to handle Web pages.  Module emacspeak-webutils provides the
 needed additional abstractions not already covered by browse-url
 
-12.210.1 emacspeak-we Commands
+12.210.1 Emacspeak-We Commands
 ------------------------------
 
 12.210.1.1 emacspeak-we-class-filter-and-follow
@@ -2343,7 +2343,7 @@ File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-webspace,  Pr
 
 This module provides utility functions for searching the WWW
 
-12.211.1 emacspeak-websearch Commands
+12.211.1 Emacspeak-Websearch Commands
 -------------------------------------
 
 12.211.1.1 emacspeak-websearch-accessible-google
@@ -2557,7 +2557,7 @@ File: emacspeak.info,  Node: emacspeak-webspace,  Next: emacspeak-webutils,  Pre
 
 WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
-12.212.1 emacspeak-webspace Commands
+12.212.1 Emacspeak-Webspace Commands
 ------------------------------------
 
 12.212.1.1 emacspeak-webspace-feed-reader
@@ -2688,7 +2688,7 @@ File: emacspeak.info,  Node: emacspeak-webutils,  Next: emacspeak-widget,  Prev:
 
 This module provides common Web utilities for emacspeak.
 
-12.213.1 emacspeak-webutils Commands
+12.213.1 Emacspeak-Webutils Commands
 ------------------------------------
 
 12.213.1.1 emacspeak-webutils-curl-play-media-at-point
@@ -2796,7 +2796,7 @@ File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev:
 This module implements the necessary extensions to provide talking
 widgets.
 
-12.214.1 emacspeak-widget Commands
+12.214.1 Emacspeak-Widget Commands
 ----------------------------------
 
 12.214.1.1 emacspeak-widget-browse-widget-interactively
@@ -2869,7 +2869,7 @@ File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak-woman,  Prev: e
 
 Contains various wizards for the Emacspeak desktop.
 
-12.217.1 emacspeak-wizards Commands
+12.217.1 Emacspeak-Wizards Commands
 -----------------------------------
 
 12.217.1.1 emacspeak-annotate-add-annotation
@@ -4696,7 +4696,7 @@ File: emacspeak.info,  Node: emacspeak-xkcd,  Next: emacspeak-xml-shell,  Prev: 
 XKCD == XKCD In Emacs View XKCD comics in Emacs.  Speech enables package
 xkcd Augments it by displaying the alt text and the transcript.
 
-12.219.1 emacspeak-xkcd Commands
+12.219.1 Emacspeak-Xkcd Commands
 --------------------------------
 
 12.219.1.1 emacspeak-xkcd-open-explanation-browser
@@ -4716,7 +4716,7 @@ Use xmllint from package libxml2 to implement an XML browser.  Uses the
 interactive shell provided by xmllint to do the hard work.  Results of
 traversal are transformed using xsltproc from libxslt
 
-12.220.1 emacspeak-xml-shell Commands
+12.220.1 Emacspeak-Xml-Shell Commands
 -------------------------------------
 
 12.220.1.1 emacspeak-xml-shell
@@ -4832,7 +4832,7 @@ libxml and libxsl are XML libraries for GNOME. xsltproc is a xslt
 processor using libxsl this module defines routines for applying xsl
 transformations using xsltproc
 
-12.222.1 emacspeak-xslt Commands
+12.222.1 Emacspeak-Xslt Commands
 --------------------------------
 
 12.222.1.1 emacspeak-xslt-view
@@ -4912,7 +4912,7 @@ File: emacspeak.info,  Node: espeak-voices,  Next: g,  Prev: emacspeak-yasnippet
 This module defines the various voices used in voice-lock mode by the
 ESpeak TTS engine.
 
-12.225.1 espeak-voices Commands
+12.225.1 Espeak-Voices Commands
 -------------------------------
 
 12.225.1.1 espeak
@@ -4991,7 +4991,7 @@ File: emacspeak.info,  Node: gm-nnir,  Next: gmaps,  Prev: g-utils,  Up: Emacspe
 Makes search GMail more convenient.  IMap search operators, GMail search
 extensions.
 
-12.228.1 gm-nnir Commands
+12.228.1 Gm-Nnir Commands
 -------------------------
 
 12.228.1.1 gm-nnir-group-make-gmail-group
@@ -5023,7 +5023,7 @@ File: emacspeak.info,  Node: gmaps,  Next: ladspa,  Prev: gm-nnir,  Up: Emacspea
 
 Implements the Google Maps API
 
-12.229.1 gmaps Commands
+12.229.1 Gmaps Commands
 -----------------------
 
 12.229.1.1 gmaps
@@ -5242,7 +5242,7 @@ zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins rev-plugins
 mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
 invada-studio-plugins-ladspa fil-plugins
 
-12.230.1 ladspa Commands
+12.230.1 Ladspa Commands
 ------------------------
 
 12.230.1.1 ladspa
@@ -5322,7 +5322,7 @@ File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voi
 This module defines the various voices used in voice-lock mode.  This
 module is IBM ViaVoice Outloud specific.
 
-12.232.1 outloud-voices Commands
+12.232.1 Outloud-Voices Commands
 --------------------------------
 
 12.232.1.1 outloud
@@ -5399,7 +5399,7 @@ that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
 email, IM, ...  map to the same _mood_.
 
-12.234.1 soundscape Commands
+12.234.1 Soundscape Commands
 ----------------------------
 
 12.234.1.1 soundscape
@@ -5544,7 +5544,7 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-12.235.1 sox Commands
+12.235.1 Sox Commands
 ---------------------
 
 12.235.1.1 sox-add-effect
@@ -5731,7 +5731,7 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-12.236.2 sox-gen Commands
+12.236.2 Sox-Gen Commands
 -------------------------
 
 12.236.2.1 sox-beats-binaural
@@ -5909,7 +5909,7 @@ Define data structure and API for setting up, accessing and manipulating
 TTS environment.  When complete, this will be used by the various engine
 configuration functions to set everything in one structure.
 
-12.240.1 tts Commands
+12.240.1 Tts Commands
 ---------------------
 
 12.240.1.1 tts-set-chunk-separator
@@ -5997,7 +5997,7 @@ File: emacspeak.info,  Node: tts-cmds,  Next: voice-setup,  Prev: tts,  Up: Emac
 End-user TTS Commands implemented using tts-state.  If this works out,
 these will eventually replace the commands implemented in dtk-speak.el
 
-12.241.1 tts-cmds Commands
+12.241.1 Tts-Cmds Commands
 --------------------------
 
 12.241.1.1 tts-cmd-set-rate
@@ -6051,7 +6051,7 @@ available via custom.  new voices can be defined using CSS style
 specifications see special form defvoice Voices defined via defvoice can
 be customized via custom see the documentation for defvoice.
 
-12.242.1 voice-setup Commands
+12.242.1 Voice-Setup Commands
 -----------------------------
 
 12.242.1.1 voice-lock-mode
@@ -6240,7 +6240,7 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.243.1 xbacklight Commands
+12.243.1 Xbacklight Commands
 ----------------------------
 
 12.243.1.1 xbacklight-black

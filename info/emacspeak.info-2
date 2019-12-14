@@ -63,7 +63,7 @@ This module speech enables dired.  It reduces the amount of speech you
 hear: Typically you hear the file names as you move through the dired
 buffer Voicification is used to indicate directories, marked files etc.
 
-12.50.1 emacspeak-dired Commands
+12.50.1 Emacspeak-Dired Commands
 --------------------------------
 
 12.50.1.1 emacspeak-dired-csv-open
@@ -214,7 +214,7 @@ File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-dumb-jump,  Prev
 
 ### emacspeak-dismal: No Commentary
 
-12.51.1 emacspeak-dismal Commands
+12.51.1 Emacspeak-Dismal Commands
 ---------------------------------
 
 12.51.1.1 emacspeak-dismal-backward-col-and-summarize
@@ -355,7 +355,7 @@ File: emacspeak.info,  Node: emacspeak-ecb,  Next: emacspeak-eclim,  Prev: emacs
 
 The ECB is an Emacs Class Browser.  This module speech-enables ECB
 
-12.53.1 emacspeak-ecb Commands
+12.53.1 Emacspeak-Ecb Commands
 ------------------------------
 
 12.53.1.1 emacspeak-ecb-speak-window-directories
@@ -439,7 +439,7 @@ found in Emacs 19.29 and later.
 ediff-window-setup-function ’ediff-setup-windows-plain) so that Emacs
 always displays Ediff windows in a single frame.
 
-12.56.1 emacspeak-ediff Commands
+12.56.1 Emacspeak-Ediff Commands
 --------------------------------
 
 12.56.1.1 emacspeak-ediff-speak-current-difference
@@ -458,7 +458,7 @@ File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emac
 EIN == Emacs IPython Notebook You can install package EIN via ELPA This
 module speech-enables EIN
 
-12.57.1 emacspeak-ein Commands
+12.57.1 Emacspeak-Ein Commands
 ------------------------------
 
 12.57.1.1 emacspeak-ein-speak-current-cell
@@ -520,7 +520,7 @@ File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Pre
 ELFEED == Feed Reader for Emacs.  Install from elpa M-x package-install
 elfeed
 
-12.58.1 emacspeak-elfeed Commands
+12.58.1 Emacspeak-Elfeed Commands
 ---------------------------------
 
 12.58.1.1 emacspeak-elfeed-eww-entry-at-point
@@ -594,7 +594,7 @@ http://savannah.gnu.org/project/emms EMMS is under active development,
 to get the current CVS version, use Emacspeak command M-x
 emacspeak-cvs-gnu-get-project-snapshot RET emms RET
 
-12.62.1 emacspeak-emms Commands
+12.62.1 Emacspeak-Emms Commands
 -------------------------------
 
 12.62.1.1 emacspeak-emms-speak-current-track
@@ -612,7 +612,7 @@ File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Pr
 
 emacspeak extensions to voiceify rich text.
 
-12.63.1 emacspeak-enriched Commands
+12.63.1 Emacspeak-Enriched Commands
 -----------------------------------
 
 12.63.1.1 emacspeak-enriched-voiceify-faces
@@ -633,7 +633,7 @@ File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-epa,  Prev: e
 
 Auditory interface to misc games
 
-12.64.1 emacspeak-entertain Commands
+12.64.1 Emacspeak-Entertain Commands
 ------------------------------------
 
 12.64.1.1 emacspeak-hangman-speak-guess
@@ -686,7 +686,7 @@ File: emacspeak.info,  Node: emacspeak-eperiodic,  Next: emacspeak-epub,  Prev: 
 eperiodic produces an interactive periodic table of elements and can be
 found at http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
 
-12.66.1 emacspeak-eperiodic Commands
+12.66.1 Emacspeak-Eperiodic Commands
 ------------------------------------
 
 12.66.1.1 emacspeak-eperiodic-goto-property-section
@@ -849,7 +849,7 @@ table of contents.
 ‘o’
      emacspeak-epub-open
 
-12.67.6 emacspeak-epub Commands
+12.67.6 Emacspeak-Epub Commands
 -------------------------------
 
 12.67.6.1 emacspeak-calibre-mode
@@ -1217,7 +1217,7 @@ erc.el is a modern Emacs client for IRC including color and font locking
 support.  erc.el - an Emacs IRC client (by Alexander L. Belikoff)
 http://www.cs.cmu.edu/~berez/irc/erc.el
 
-12.68.1 emacspeak-erc Commands
+12.68.1 Emacspeak-Erc Commands
 ------------------------------
 
 12.68.1.1 emacspeak-erc-add-name-to-monitor
@@ -1384,7 +1384,7 @@ File: emacspeak.info,  Node: emacspeak-etable,  Next: emacspeak-eterm,  Prev: em
 table.el provides rich table editing for emacs.  this module
 speech-enables table.el
 
-12.71.1 emacspeak-etable Commands
+12.71.1 Emacspeak-Etable Commands
 ---------------------------------
 
 12.71.1.1 emacspeak-etable-speak-cell
@@ -1406,7 +1406,7 @@ present, the only documentation is the source level documentation.  This
 module uses Control-t as an additional prefix key to allow the user To
 move around the terminal and have different parts spoken.
 
-12.72.1 emacspeak-eterm Commands
+12.72.1 Emacspeak-Eterm Commands
 --------------------------------
 
 12.72.1.1 emacspeak-eterm-copy-region-to-register
@@ -1813,7 +1813,7 @@ File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-evil,  Prev: emacs
 EUDC –Emacs Universal Directory Client provides a unified interface to
 directory servers e.g.  ldap servers this module speech enables eudc
 
-12.73.1 emacspeak-eudc Commands
+12.73.1 Emacspeak-Eudc Commands
 -------------------------------
 
 12.73.1.1 emacspeak-eudc-send-mail
@@ -1837,7 +1837,7 @@ File: emacspeak.info,  Node: emacspeak-evil,  Next: emacspeak-eww,  Prev: emacsp
 
 EVIL == VIM In Emacs This is work-in-progress and is not complete.
 
-12.74.1 emacspeak-evil Commands
+12.74.1 Emacspeak-Evil Commands
 -------------------------------
 
 12.74.1.1 emacspeak-evil-toggle-evil
@@ -2178,7 +2178,7 @@ To open a previously created eww-mark, use command
 eww-mark name with completion.  Use this command with an interactive
 prefix arg to delete a previously created eww-mark.
 
-12.75.7 emacspeak-eww Commands
+12.75.7 Emacspeak-Eww Commands
 ------------------------------
 
 12.75.7.1 emacspeak-eww-add-mark
@@ -2727,7 +2727,7 @@ File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev
 
 This module provides Feeds support for Emacspeak
 
-12.77.1 emacspeak-feeds Commands
+12.77.1 Emacspeak-Feeds Commands
 --------------------------------
 
 12.77.1.1 emacspeak-feeds-add-feed
@@ -2843,7 +2843,7 @@ application of filters C: Provides commands for reverting to the
 original unfiltered text D: Provides commands for saving results from
 intermediate filters.
 
-12.78.1 emacspeak-filtertext Commands
+12.78.1 Emacspeak-Filtertext Commands
 -------------------------------------
 
 12.78.1.1 emacspeak-filtertext
@@ -2914,7 +2914,7 @@ will not help.  This module defines a function that solves this problem.
 emacspeak-fix-commands-that-use-interactive needs to be called To speech
 enable such functions.
 
-12.81.1 emacspeak-fix-interactive Commands
+12.81.1 Emacspeak-Fix-Interactive Commands
 ------------------------------------------
 
 12.81.1.1 emacspeak-fix-all-recent-commands
@@ -3088,7 +3088,7 @@ File: emacspeak.info,  Node: emacspeak-forms,  Next: emacspeak-ftf,  Prev: emacs
 
 Provide additional advice to forms-mode
 
-12.86.1 emacspeak-forms Commands
+12.86.1 Emacspeak-Forms Commands
 --------------------------------
 
 12.86.1.1 emacspeak-forms-find-file
@@ -3184,7 +3184,7 @@ File: emacspeak.info,  Node: emacspeak-gh-explorer,  Next: emacspeak-gnuplot,  P
 GH-EXPLORER == GitHub Explorer This module speech-enables Github
 Explorer.
 
-12.90.1 emacspeak-gh-explorer Commands
+12.90.1 Emacspeak-Gh-Explorer Commands
 --------------------------------------
 
 12.90.1.1 emacspeak-gh-explorer-next
@@ -3224,7 +3224,7 @@ to listen to news: You can read news mostly by using the four arrow
 keys.  By default all article headers are hidden, so you hear the real
 news.
 
-12.92.1 emacspeak-gnus Commands
+12.92.1 Emacspeak-Gnus Commands
 -------------------------------
 
 12.92.1.1 emacspeak-gnus-personal-gmail-last-week
@@ -3275,7 +3275,7 @@ File: emacspeak.info,  Node: emacspeak-gomoku,  Next: emacspeak-google,  Prev: e
 
 Auditory interface to gomoku
 
-12.94.1 emacspeak-gomoku Commands
+12.94.1 Emacspeak-Gomoku Commands
 ---------------------------------
 
 12.94.1.1 emacspeak-gomoku-display-statistics
@@ -3363,7 +3363,7 @@ pages that enables these tools via single keyboard commands.  Originally
 all options were available as tbs=p:v Now, some specialized searches,
 e.g.  blog search are tbm=
 
-12.95.1 emacspeak-google Commands
+12.95.1 Emacspeak-Google Commands
 ---------------------------------
 
 12.95.1.1 emacspeak-google-show-toolbelt
@@ -3665,7 +3665,7 @@ files and the output from programs that tabulate their output.  It’s
 also useful for handling multicolumn text.  The "grid" is specified as a
 list of (start end) tuples..
 
-12.96.1 emacspeak-gridtext Commands
+12.96.1 Emacspeak-Gridtext Commands
 -----------------------------------
 
 12.96.1.1 emacspeak-gridtext-apply
@@ -3741,7 +3741,7 @@ motivated by the need to flexibly hide quoted text in email but is
 designed to be more general.  the prefix parsing is inspired by
 filladapt.el
 
-12.100.1 emacspeak-hide Commands
+12.100.1 Emacspeak-Hide Commands
 --------------------------------
 
 12.100.1.1 emacspeak-hide-or-expose-all-blocks
@@ -3803,7 +3803,7 @@ File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: e
 Speech-enable package hydra: For uses of hydra see module *Note
 emacspeak-muggles::.
 
-12.102.1 emacspeak-hydra Commands
+12.102.1 Emacspeak-Hydra Commands
 ---------------------------------
 
 12.102.1.1 emacspeak-hydra-toggle-talkative
@@ -3821,7 +3821,7 @@ File: emacspeak.info,  Node: emacspeak-ibuffer,  Next: emacspeak-ido,  Prev: ema
 
 speech-enable ibuffer.el this is an alternative to buffer-menu
 
-12.103.1 emacspeak-ibuffer Commands
+12.103.1 Emacspeak-Ibuffer Commands
 -----------------------------------
 
 12.103.1.1 emacspeak-ibuffer-speak-buffer-line
@@ -3879,7 +3879,7 @@ File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-indium,  Prev: em
 
 Speech enable imenu and provide other useful navigation commands.
 
-12.106.1 emacspeak-imenu Commands
+12.106.1 Emacspeak-Imenu Commands
 ---------------------------------
 
 12.106.1.1 emacspeak-imenu-goto-next-index-position
@@ -3919,7 +3919,7 @@ File: emacspeak.info,  Node: emacspeak-info,  Next: emacspeak-ispell,  Prev: ema
 
 This module speech-enables the Emacs Info Reader.
 
-12.108.1 emacspeak-info Commands
+12.108.1 Emacspeak-Info Commands
 --------------------------------
 
 12.108.1.1 emacspeak-info-next-section
@@ -4066,7 +4066,7 @@ File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: ema
 emacs-jabber.el implements a jabber client for emacs emacs-jabber is
 hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 
-12.111.1 emacspeak-jabber Commands
+12.111.1 Emacspeak-Jabber Commands
 ----------------------------------
 
 12.111.1.1 emacspeak-jabber-chat-next-message
@@ -4185,7 +4185,7 @@ File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kite,  Prev: ema
 This module defines the emacspeak keybindings.  Note that the <fn> key
 found on laptops is denoted <fn>
 
-12.115.1 emacspeak-keymap Commands
+12.115.1 Emacspeak-Keymap Commands
 ----------------------------------
 
 12.115.1.1 emacspeak-keymap-bindings-from-org
@@ -4469,7 +4469,7 @@ prompts with the following choices:
    Search results are displayed in a Web page that provides controls for
 accessing the book.
 
-12.118.2 emacspeak-librivox Commands
+12.118.2 Emacspeak-Librivox Commands
 ------------------------------------
 
 12.118.2.1 emacspeak-librivox
@@ -4586,7 +4586,7 @@ for and sets the volume; When not in the ‘*M-Player*’ buffer, you can
 achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 ‘*M-Player*’ buffer to list ‘m-player’ keybindings.
 
-12.121.2 emacspeak-m-player Commands
+12.121.2 Emacspeak-M-Player Commands
 ------------------------------------
 
 12.121.2.1 emacspeak-m-player
@@ -5863,7 +5863,7 @@ File: emacspeak.info,  Node: emacspeak-man,  Next: emacspeak-markdown,  Prev: em
 
 Provide additional advice to man-mode
 
-12.124.1 emacspeak-man Commands
+12.124.1 Emacspeak-Man Commands
 -------------------------------
 
 12.124.1.1 emacspeak-man-browse-man-page
@@ -5969,7 +5969,7 @@ It is also displayed in a special buffer *Spoken Math*.  That buffer
 holds all previously generated output, And Emacs commands forward-page
 and backward-page can be used to move through each chunk of output.
 
-12.126.4 emacspeak-maths Commands
+12.126.4 Emacspeak-Maths Commands
 ---------------------------------
 
 12.126.4.1 emacspeak-maths-depth
@@ -6166,7 +6166,7 @@ related cells — neighbors are read left-to-right, top-to-bottom.  Moving
 to the left/right edge of the board produces an appropriate auditory
 icon.
 
-12.130.1 emacspeak-mines Commands
+12.130.1 Emacspeak-Mines Commands
 ---------------------------------
 
 12.130.1.1 emacspeak-mines-beginning-of-row
@@ -6288,7 +6288,7 @@ silence speaking of Hydra hints, Muggles can bind command
 ‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
 binds ‘s’ to this command.
 
-12.132.2 emacspeak-muggles Commands
+12.132.2 Emacspeak-Muggles Commands
 -----------------------------------
 
 12.132.2.1 emacspeak-muggles-brightness/body
@@ -6874,7 +6874,7 @@ completion.  Streams can be played from within the displayed listing.
 
    In all cases, streams are played using module ‘emacspeak-m-player’.
 
-12.138.2 emacspeak-npr Commands
+12.138.2 Emacspeak-Npr Commands
 -------------------------------
 
 12.138.2.1 emacspeak-npr-listing
@@ -6947,7 +6947,7 @@ File: emacspeak.info,  Node: emacspeak-nxml,  Next: emacspeak-ocr,  Prev: emacsp
 nxml-mode is a new XML mode for emacs by James Clark.
 http://www.thaiopensource.com/download/
 
-12.139.1 emacspeak-nxml Commands
+12.139.1 Emacspeak-Nxml Commands
 --------------------------------
 
 12.139.1.1 emacspeak-nxml-summarize-outline
@@ -7159,7 +7159,7 @@ files from scanner.  tiffcp to compress the tiff file.  working ocr
 executable by default this module assumes that the OCR executable is
 named "ocr"
 
-12.140.1 emacspeak-ocr Commands
+12.140.1 Emacspeak-Ocr Commands
 -------------------------------
 
 12.140.1.1 emacspeak-ocr
@@ -7459,7 +7459,7 @@ Speech-enable org — Org allows you to keep organized notes and todo
 lists.  Homepage: http://www.astro.uva.nl/~dominik/Tools/org/ or
 http://orgmode.org/
 
-12.141.1 emacspeak-org Commands
+12.141.1 Emacspeak-Org Commands
 -------------------------------
 
 12.141.1.1 emacspeak-org-bookmark
@@ -7564,7 +7564,7 @@ File: emacspeak.info,  Node: emacspeak-outline,  Next: emacspeak-package,  Prev:
 
 Provide additional advice to outline-mode
 
-12.143.1 emacspeak-outline Commands
+12.143.1 Emacspeak-Outline Commands
 -----------------------------------
 
 12.143.1.1 emacspeak-outline-speak-backward-heading
@@ -7621,7 +7621,7 @@ File: emacspeak.info,  Node: emacspeak-package,  Next: emacspeak-paradox,  Prev:
 PACKAGE == package.el Manage Emacs packages.  This module speech-enables
 package.el with a few convenience commands.
 
-12.144.1 emacspeak-package Commands
+12.144.1 Emacspeak-Package Commands
 -----------------------------------
 
 12.144.1.1 emacspeak-package-next-line
@@ -7655,7 +7655,7 @@ PARADOX == paradox.el Improved package management interface Manage Emacs
 packages.  This module speech-enables paradox.el with a few convenience
 commands.
 
-12.145.1 emacspeak-paradox Commands
+12.145.1 Emacspeak-Paradox Commands
 -----------------------------------
 
 12.145.1.1 emacspeak-paradox-summarize-line
@@ -7766,7 +7766,7 @@ buffer.  The most useful keys are ‘right’ for skipping tracks, ‘up’ and
 be controlled by pressing the Pianobar prefix key (‘C-e '’) followed by
 keys from ‘pianobar-key-map’.
 
-12.149.3 emacspeak-pianobar Commands
+12.149.3 Emacspeak-Pianobar Commands
 ------------------------------------
 
 12.149.3.1 emacspeak-pianobar
@@ -7861,7 +7861,7 @@ File: emacspeak.info,  Node: emacspeak-proced,  Next: emacspeak-projectile,  Pre
 PROCED == Process Editor A new Task Manager for Emacs.  Proced is part
 of emacs 23.
 
-12.151.1 emacspeak-proced Commands
+12.151.1 Emacspeak-Proced Commands
 ----------------------------------
 
 12.151.1.1 emacspeak-proced-jump-to-process
@@ -7971,7 +7971,7 @@ association lists defining the dictionary.  Users of this module can
 retrieve a dictionary made up of all applicable association lists for a
 given file.
 
-12.154.1 emacspeak-pronounce Commands
+12.154.1 Emacspeak-Pronounce Commands
 -------------------------------------
 
 12.154.1.1 emacspeak-pronounce-clear-dictionaries
@@ -8181,7 +8181,7 @@ backward-char, forward-char, and self-insert-command mere redefinition
 of the function will not do: We will need to bind the new functions
 explicitly to the keys.
 
-12.160.1 emacspeak-redefine Commands
+12.160.1 Emacspeak-Redefine Commands
 ------------------------------------
 
 12.160.1.1 emacspeak-backward-char
@@ -8242,7 +8242,7 @@ File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rg,  Prev: emacs
 In a running emacspeak session, nuke the running server and start
 talking to a remote speech server, after prompting for host and port
 
-12.163.1 emacspeak-remote Commands
+12.163.1 Emacspeak-Remote Commands
 ----------------------------------
 
 12.163.1.1 emacspeak-remote-connect-to-server
@@ -8329,7 +8329,7 @@ File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-rpm,  Prev: emacs
 
 emacspeak extensions to rmail
 
-12.165.1 emacspeak-rmail Commands
+12.165.1 Emacspeak-Rmail Commands
 ---------------------------------
 
 12.165.1.1 emacspeak-rmail-speak-current-message-labels
@@ -8478,7 +8478,7 @@ File: emacspeak.info,  Node: emacspeak-ses,  Next: emacspeak-setup,  Prev: emacs
 ses implements a simple spread sheet and is part of Emacs This module
 speech-enables ses
 
-12.171.1 emacspeak-ses Commands
+12.171.1 Emacspeak-Ses Commands
 -------------------------------
 
 12.171.1.1 emacspeak-ses-backward-column-and-summarize
@@ -8641,7 +8641,7 @@ File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev
 
 Auditory interface to solitaire
 
-12.180.1 emacspeak-solitaire Commands
+12.180.1 Emacspeak-Solitaire Commands
 -------------------------------------
 
 12.180.1.1 emacspeak-solitaire-show-column
@@ -8702,7 +8702,7 @@ As of Emacspeak 13.0, this module defines a themes architecture for
 auditory icons.  Sound files corresponding to a given theme are found in
 appropriate subdirectories of emacspeak-sounds-directory
 
-12.181.1 emacspeak-sounds Commands
+12.181.1 Emacspeak-Sounds Commands
 ----------------------------------
 
 12.181.1.1 emacspeak-audio-setup
@@ -8807,7 +8807,7 @@ This module defines the core speech services used by emacspeak.  It
 depends on the speech server interface modules It protects other parts
 of emacspeak from becoming dependent on the speech server modules
 
-12.182.1 emacspeak-speak Commands
+12.182.1 Emacspeak-Speak Commands
 ---------------------------------
 
 12.182.1.1 emacspeak–choose-completion
