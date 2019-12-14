@@ -41,7 +41,7 @@
 
 ;;; Commentary:
 ;;; Speech-Enable CIDER --- Clojure IDE
-;;; CIDER ==
+
 
 ;;; Code:
 
