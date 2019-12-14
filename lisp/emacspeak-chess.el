@@ -112,7 +112,7 @@
     (?n . "knight")
     (?r . "rook")
     (?p . "pawn")
-    (?\  . "empty"))
+    (?\  . " "))
   "Piece-char to piece-name mapping.")
 
 (defsubst emacspeak-chess-piece-name (char)
@@ -142,17 +142,19 @@
           white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
     (unless white (setq piece (propertize  piece 'personality voice-bolden)))
-    (unless light (setq coord (propertize  coord 'personality voice-bolden)))
-    (concat piece " on " coord)))
+    (if light
+        (setq coord (propertize  coord 'personality voice-lighten ))
+        (setq coord (propertize  coord 'personality voice-highlight )))
+    (list coord  piece)))
 
 (defun emacspeak-chess-speak-this-square ()
   "Speak square under point."
   (interactive)
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
-
   (let ((index (get-text-property (point) 'chess-coord)))
-    (cl-assert index t "Not in a valid square.")
-    (dtk-speak (emacspeak-chess-describe-square index))))
+    (cl-assert index t "Not on a valid square.")
+    
+    (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
 
 ;;}}}
 ;;{{{emacspeak Handler:
@@ -222,6 +224,8 @@
   "Emacspeak setup for Chess."
   (cl-declare (special chess-default-modules
                        chess-display-mode-map))
+;;; silence commas for better intonation on blank squares
+  (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode "," "")
   (setq chess-default-modules
         (cl-remove
          '(chess-sound chess-announce)
