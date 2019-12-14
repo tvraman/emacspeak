@@ -7230,7 +7230,7 @@ the diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Move West: ‘emacspeak-chess-west’ bound to ‘left’.
    • Move East: ‘emacspeak-chess-east’ bound to ‘right’.
    You can also move along the diagonals:
-   • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘[’.
+   • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘]’.
    • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘[’.
    • Move Southwest: ‘emacspeak-chess-southwest’ bound to ‘/’.
    • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\\’.
