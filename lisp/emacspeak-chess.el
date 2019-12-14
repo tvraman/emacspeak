@@ -80,6 +80,7 @@
 ;;; You can also jump to a given board position by:
 ;;; @itemize @bullet
 ;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
+;;; @item Review: @code{emacspeak-chess-speak-that-square} bound to @kbd{t}.
 ;;; @end itemize
 ;;; finally, you can review the current square  with @kbd{;}.
 
@@ -379,7 +380,7 @@
 ;;}}}
 ;;{{{Emacspeak Setup:
 ;;; Forward Declaration to help documentation builder.
-(defvar chess-default-modules)
+(defvar chess-default-modules nil)
 
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
@@ -388,27 +389,30 @@
 ;;; silence commas for better intonation on blank squares
   (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode "," "")
   (emacspeak-pronounce-refresh-pronunciations)
-  (setq chess-default-modules
-        (cl-remove
-         '(chess-sound chess-announce)
-         chess-default-modules :test 'equal))
-  (cl-pushnew 'chess-emacspeak chess-default-modules)
-  (cl-loop
-   for binding in 
-   '(
-     ( ";" emacspeak-chess-speak-this-square)
-     ("<up>" emacspeak-chess-north)
-     ("<down>" emacspeak-chess-south)
-     ("<left>" emacspeak-chess-west)
-     ("<right>" emacspeak-chess-east)
-     ("[" emacspeak-chess-northwest)
-     ("]" emacspeak-chess-northeast)
-     ("\\" emacspeak-chess-southeast)
-     ("/" emacspeak-chess-southwest)
-     ("t" emacspeak-chess-speak-that-square)
-     ("j" emacspeak-chess-jump))
-   do
-   (emacspeak-keymap-update chess-display-mode-map binding)))
+  (when (bound-and-true-p chess-default-modules)
+    (setq chess-default-modules
+          (cl-remove
+           '(chess-sound chess-announce)
+           chess-default-modules :test 'equal))
+    (cl-pushnew 'chess-emacspeak chess-default-modules))
+  (when (and (bound-and-true-p chess-display-mode-map)
+             (keymapp chess-display-mode-map))
+    (cl-loop
+     for binding in 
+     '(
+       ( ";" emacspeak-chess-speak-this-square)
+       ("<up>" emacspeak-chess-north)
+       ("<down>" emacspeak-chess-south)
+       ("<left>" emacspeak-chess-west)
+       ("<right>" emacspeak-chess-east)
+       ("[" emacspeak-chess-northwest)
+       ("]" emacspeak-chess-northeast)
+       ("\\" emacspeak-chess-southeast)
+       ("/" emacspeak-chess-southwest)
+       ("t" emacspeak-chess-speak-that-square)
+       ("j" emacspeak-chess-jump))
+     do
+     (emacspeak-keymap-update chess-display-mode-map binding))))
 
 ;;; Setup on load:
 
