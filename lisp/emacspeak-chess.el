@@ -54,7 +54,7 @@
 ;;; output.
 ;;;
 ;;; @subsection Board Navigation:
-;;; Arrow keys move to the appropriate cells on the board.  
+;;; Arrow keys move to the appropriate squares on the board.  
 ;;; @itemize  @bullet
 ;;; @item  Move North: @code{emacspeak-chess-north} bound to @kbd{up}.
 ;;; @item  Move South: @code{emacspeak-chess-south} bound to
@@ -119,8 +119,8 @@
   "Return piece name."
   (cdr (assq (downcase char) emacspeak-chess-piece-names)))
 
-(defun emacspeak-chess-describe-cell (index)
-  "Return an audio formatted description of cell at given index.
+(defun emacspeak-chess-describe-square (index)
+  "Return an audio formatted description of square at given index.
   Argument index is an integer between 0 and 63 as in package chess."
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((position (chess-display-position nil))
@@ -145,14 +145,14 @@
     (unless light (setq coord (propertize  coord 'personality voice-bolden)))
     (concat piece " on " coord)))
 
-(defun emacspeak-chess-speak-this-cell ()
-  "Speak cell under point."
+(defun emacspeak-chess-speak-this-square ()
+  "Speak square under point."
   (interactive)
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
 
   (let ((index (get-text-property (point) 'chess-coord)))
-    (cl-assert index t "Not in a valid cell.")
-    (dtk-speak (emacspeak-chess-describe-cell index))))
+    (cl-assert index t "Not in a valid square.")
+    (dtk-speak (emacspeak-chess-describe-square index))))
 
 ;;}}}
 ;;{{{emacspeak Handler:
@@ -230,7 +230,7 @@
   (cl-loop
    for binding in 
    '(
-     ( ";" emacspeak-chess-speak-this-cell)
+     ( ";" emacspeak-chess-speak-this-square)
      ("<up>" emacspeak-chess-north)
      ("<down>" emacspeak-chess-south)
      ("<left>" emacspeak-chess-west)
@@ -251,24 +251,24 @@
 ;;{{{Buffer Navigation:
 
 (defun emacspeak-chess-jump (coord)
-  "Jump to cell specified as coord."
+  "Jump to square specified as coord."
   (interactive "sCoord: ")
   (goto-char
    (chess-display-index-pos
     (current-buffer) (chess-coord-to-index coord)))
   (emacspeak-auditory-icon 'large-movement)
-  (emacspeak-chess-speak-this-cell))
+  (emacspeak-chess-speak-this-square))
 
 (defun emacspeak-chess-move (direction)
   "Move in direction by one step."
   (let ((index (get-text-property (point) 'chess-coord))
         (target nil))
-    (cl-assert index t "Not on a valid cell.")
+    (cl-assert index t "Not on a valid square.")
     (setq target (chess-next-index  index direction))
     (unless target (error "Edge of board"))
     (goto-char (chess-display-index-pos (current-buffer) target))
     (emacspeak-auditory-icon 'item)
-    (emacspeak-chess-speak-this-cell)))
+    (emacspeak-chess-speak-this-square)))
 
 (defun emacspeak-chess-north ()
   "Move north one step."
