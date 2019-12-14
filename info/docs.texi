@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1231 commands and 909 options.
+This chapter documents a total of 1240 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1602,6 +1602,80 @@ commands and options for details.
 @end format
 @end deffn
 
+@subsubsection emacspeak-chess-east
+@deffn {Command} emacspeak-chess-east   
+@findex emacspeak-chess-east
+
+@format
+Move east one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-jump
+@deffn {Command} emacspeak-chess-jump  (coord)
+@findex emacspeak-chess-jump
+
+@format
+Jump to square specified as coord.
+
+(fn COORD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-north
+@deffn {Command} emacspeak-chess-north   
+@findex emacspeak-chess-north
+
+@format
+Move north one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-northeast
+@deffn {Command} emacspeak-chess-northeast   
+@findex emacspeak-chess-northeast
+
+@format
+Move northeast one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-northwest
+@deffn {Command} emacspeak-chess-northwest   
+@findex emacspeak-chess-northwest
+
+@format
+Move northwest one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-south
+@deffn {Command} emacspeak-chess-south   
+@findex emacspeak-chess-south
+
+@format
+Move south one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-southeast
+@deffn {Command} emacspeak-chess-southeast   
+@findex emacspeak-chess-southeast
+
+@format
+Move southeast one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-southwest
+@deffn {Command} emacspeak-chess-southwest   
+@findex emacspeak-chess-southwest
+
+@format
+Move southwest one step.
+@end format
+@end deffn
+
 @subsubsection emacspeak-chess-speak-that-square
 @deffn {Command} emacspeak-chess-speak-that-square  (coord)
 @findex emacspeak-chess-speak-that-square
@@ -1619,6 +1693,15 @@ Speak square at specified coord.
 
 @format
 Speak square under point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-west
+@deffn {Command} emacspeak-chess-west   
+@findex emacspeak-chess-west
+
+@format
+Move west one step.
 @end format
 @end deffn
 
