@@ -540,10 +540,6 @@
      do
      (emacspeak-keymap-update chess-display-mode-map binding))))
 
-;;; Setup on load:
-
-;(emacspeak-chess-setup)
-
 ;;}}}
 (provide 'emacspeak-chess)
 ;;{{{ end of file
