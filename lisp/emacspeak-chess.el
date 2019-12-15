@@ -260,13 +260,11 @@
         (result nil)
         (squares nil))
     (cl-assert index t "Not on a valid square.")
+    (push (emacspeak-chess-describe-square index) squares)
     (setq target (chess-next-index  index direction))
     (while target 
-      (push
-       (emacspeak-chess-describe-square
-        (chess-display-index-pos (current-buffer) target))
-       squares)
-      (setq target (chess-next-index  index direction)))
+      (push (emacspeak-chess-describe-square target) squares)
+      (setq target (chess-next-index  target direction)))
     (setq result (nreverse squares))
     (flatten-list
      (cl-loop
