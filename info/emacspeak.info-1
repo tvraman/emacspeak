@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1240 commands and 909 options.
+   This chapter documents a total of 1248 commands and 909 options.
 
 * Menu:
 
@@ -7204,6 +7204,9 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Jump: ‘emacspeak-chess-jump’ bound to ‘j’.
    • Look: ‘emacspeak-chess-speak-that-square’ bound to ‘l’.
    • Review current square: ‘;’.
+   You can obtain views of the board along the rows and diagonals:
+   • Viewers: ‘v’ followed by the directional navigation keys speaks the
+     squares in that direction from the current square.
 
 12.35.2 Emacspeak-Chess Commands
 --------------------------------
@@ -7224,50 +7227,106 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
 
      (fn COORD)
 
-12.35.2.3 emacspeak-chess-north
-...............................
+12.35.2.3 emacspeak-chess-look-east
+...................................
+
+ -- Command: emacspeak-chess-look-east
+
+     Look east
+
+12.35.2.4 emacspeak-chess-look-north
+....................................
+
+ -- Command: emacspeak-chess-look-north
+
+     Look north
+
+12.35.2.5 emacspeak-chess-look-northeast
+........................................
+
+ -- Command: emacspeak-chess-look-northeast
+
+     Look northeast
+
+12.35.2.6 emacspeak-chess-look-northwest
+........................................
+
+ -- Command: emacspeak-chess-look-northwest
+
+     Look northwest
+
+12.35.2.7 emacspeak-chess-look-south
+....................................
+
+ -- Command: emacspeak-chess-look-south
+
+     Look south
+
+12.35.2.8 emacspeak-chess-look-southeast
+........................................
+
+ -- Command: emacspeak-chess-look-southeast
+
+     Look southeast
+
+12.35.2.9 emacspeak-chess-look-southwest
+........................................
+
+ -- Command: emacspeak-chess-look-southwest
+
+     Look southwest
+
+12.35.2.10 emacspeak-chess-look-west
+....................................
+
+ -- Command: emacspeak-chess-look-west
+
+     Look west
+
+12.35.2.11 emacspeak-chess-north
+................................
 
  -- Command: emacspeak-chess-north
 
      Move north one step.
 
-12.35.2.4 emacspeak-chess-northeast
-...................................
+12.35.2.12 emacspeak-chess-northeast
+....................................
 
  -- Command: emacspeak-chess-northeast
 
      Move northeast one step.
 
-12.35.2.5 emacspeak-chess-northwest
-...................................
+12.35.2.13 emacspeak-chess-northwest
+....................................
 
  -- Command: emacspeak-chess-northwest
 
      Move northwest one step.
 
-12.35.2.6 emacspeak-chess-south
-...............................
+12.35.2.14 emacspeak-chess-south
+................................
 
  -- Command: emacspeak-chess-south
 
      Move south one step.
 
-12.35.2.7 emacspeak-chess-southeast
-...................................
+12.35.2.15 emacspeak-chess-southeast
+....................................
 
  -- Command: emacspeak-chess-southeast
 
      Move southeast one step.
 
-12.35.2.8 emacspeak-chess-southwest
-...................................
+12.35.2.16 emacspeak-chess-southwest
+....................................
 
  -- Command: emacspeak-chess-southwest
 
      Move southwest one step.
 
-12.35.2.9 emacspeak-chess-speak-that-square
-...........................................
+12.35.2.17 emacspeak-chess-speak-that-square
+............................................
 
  -- Command: emacspeak-chess-speak-that-square (coord)
 
@@ -7275,14 +7334,14 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
 
      (fn COORD)
 
-12.35.2.10 emacspeak-chess-speak-this-square
+12.35.2.18 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.35.2.11 emacspeak-chess-west
+12.35.2.19 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west
@@ -7443,38 +7502,4 @@ better.
      Personality used for compilation-warning This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
-
-12.42 emacspeak-cperl
-=====================
-
-Provide additional advice to CPerl mode
-
-
-File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
-
-12.43 emacspeak-custom
-======================
-
-Advise custom to speak.  most of the work is actually done by
-emacspeak-widget.el which speech-enables the widget libraries.
-
-12.43.1 Emacspeak-Custom Commands
----------------------------------
-
-12.43.1.1 emacspeak-custom-goto-group
-.....................................
-
- -- Command: emacspeak-custom-goto-group
-
-     Jump to custom group when in a customization buffer.
-
-12.43.1.2 emacspeak-custom-goto-toolbar
-.......................................
-
- -- Command: emacspeak-custom-goto-toolbar
-
-     Jump to custom toolbar when in a customization buffer.
 

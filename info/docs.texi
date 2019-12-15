@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1240 commands and 909 options.
+This chapter documents a total of 1248 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5235,6 +5235,11 @@ You can also jump to a given board position by:
 @kbd{l}.
 @item  Review   current square: @kbd{;}.
 @end itemize
+You can obtain views of the board along the rows and diagonals:
+@itemize @bullet
+@item Viewers: @kbd{v} followed by the directional navigation keys
+speaks the squares in that direction from the current square.
+@end itemize 
 
 @subsection Emacspeak-Chess Commands
 
@@ -5255,6 +5260,78 @@ Move east one step.
 Jump to square specified as coord.
 
 (fn COORD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-east
+@deffn {Command} emacspeak-chess-look-east   
+@findex emacspeak-chess-look-east
+
+@format
+Look east 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-north
+@deffn {Command} emacspeak-chess-look-north   
+@findex emacspeak-chess-look-north
+
+@format
+Look north 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-northeast
+@deffn {Command} emacspeak-chess-look-northeast   
+@findex emacspeak-chess-look-northeast
+
+@format
+Look northeast 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-northwest
+@deffn {Command} emacspeak-chess-look-northwest   
+@findex emacspeak-chess-look-northwest
+
+@format
+Look northwest 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-south
+@deffn {Command} emacspeak-chess-look-south   
+@findex emacspeak-chess-look-south
+
+@format
+Look south 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-southeast
+@deffn {Command} emacspeak-chess-look-southeast   
+@findex emacspeak-chess-look-southeast
+
+@format
+Look southeast 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-southwest
+@deffn {Command} emacspeak-chess-look-southwest   
+@findex emacspeak-chess-look-southwest
+
+@format
+Look southwest 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-west
+@deffn {Command} emacspeak-chess-look-west   
+@findex emacspeak-chess-look-west
+
+@format
+Look west 
 @end format
 @end deffn
 

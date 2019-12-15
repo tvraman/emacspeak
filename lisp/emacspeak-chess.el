@@ -84,7 +84,11 @@
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
 ;;; @end itemize
-
+;;; You can obtain views of the board along the rows and diagonals:
+;;; @itemize @bullet
+;;; @item Viewers: @kbd{v} followed by the directional navigation keys
+;;;speaks the squares in that direction from the current square.
+;;; @end itemize 
 
 ;;; Code:
 
