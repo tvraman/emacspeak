@@ -374,21 +374,23 @@
 
 (defun emacspeak-chess-describe-move (game)
   "Speak the move by examining game."
-  (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
-         (pos (chess-ply-pos ply))
-         (text nil)
-         (source (chess-ply-source ply))
-         (target (chess-ply-target ply))
-         (s-piece (and source (chess-pos-piece pos source)))
-         (t-piece (and target (chess-pos-piece pos target)))
-         (which (chess-ply-keyword ply :which)))
+  (let*
+      ((ply (chess-game-ply game (1- (chess-game-index game))))
+       (pos (chess-ply-pos ply))
+       (text nil)
+       (source (chess-ply-source ply))
+       (target (chess-ply-target ply))
+       (s-piece (and source (chess-pos-piece pos source)))
+       (t-piece (and target (chess-pos-piece pos target)))
+       (which (chess-ply-keyword ply :which))
+(promotion (chess-ply-keyword ply :promote)))
     (if which (setq which (char-to-string which)))
     (cond
      ((chess-ply-keyword ply :castle)
       (setq text "short castle"))
      ((chess-ply-keyword ply :long-castle)
       (setq text "long castle"))
-     ((and s-piece t-piece (= t-piece ? ) target)
+     ((and s-piece t-piece (= t-piece ?\ ) target) ;;; target: empty square
       (setq text
             (concat which
                     (format "%s to %s"
@@ -401,12 +403,12 @@
                             (emacspeak-chess-piece-name s-piece)
                             (emacspeak-chess-piece-name t-piece)
                             (chess-index-to-coord target))))))
-    (let ((promotion (chess-ply-keyword ply :promote)))
-      (if promotion
+;;; additional consequences of move:
+    (if promotion
           (setq text
                 (concat text ", "
                         (format "promotes  to %s"
-                                (emacspeak-chess-piece-name promotion))))))
+                                (emacspeak-chess-piece-name promotion)))))
     (if (chess-ply-keyword ply :en-passant)
         (setq text (concat text ", " "on position")))
     (if (chess-ply-keyword ply :check)
