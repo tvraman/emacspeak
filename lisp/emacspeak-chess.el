@@ -251,6 +251,32 @@
   (emacspeak-chess-move chess-direction-southeast))
 
 ;;}}}
+;;{{{Examining the board:
+
+(defun emacspeak-chess-collect-squares (direction)
+  "Collect descriptions of squares along given direction from current position."
+  (let ((index (get-text-property (point) 'chess-coord))
+        (target nil)
+        (result nil)
+        (squares nil))
+    (cl-assert index t "Not on a valid square.")
+    (setq target (chess-next-index  index direction))
+    (while target 
+      (push
+       (emacspeak-chess-describe-square
+        (chess-display-index-pos (current-buffer) target))
+       squares)
+      (setq target (chess-next-index  index direction)))
+    (setq result (nreverse squares))
+    (flatten-list
+     (cl-loop
+      for s in result
+      when
+      (= (length s) 2)
+      collect s))))
+
+;;}}}
+
 ;;{{{ Interactive Commands:
 
 '(
