@@ -372,10 +372,14 @@
 ;;}}}
 ;;{{{Speaking Moves:
 
-(defun emacspeak-chess-describe-move (game)
-  "Speak the move by examining game."
+(defun emacspeak-chess-describe-move (game &optional move-index)
+  "Speak the move by examining game.  Optional argument `move-index'
+specifies index of move default is final index."
   (let*
-      ((ply (chess-game-ply game (1- (chess-game-index game))))
+      ((ply 
+        (chess-game-ply
+         game ;;; ply before specified game-index
+         (1- (or move-index (chess-game-index game)))))
        (pos (chess-ply-pos ply))
        (text nil)
        (source (chess-ply-source ply))
