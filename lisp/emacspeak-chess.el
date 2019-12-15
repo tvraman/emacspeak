@@ -128,8 +128,9 @@
   (cdr (assq (downcase char) emacspeak-chess-piece-names)))
 
 (defun emacspeak-chess-describe-square (index)
-  "Return an audio formatted description of square at given index.
-  Argument index is an integer between 0 and 63 as in package chess."
+  "Return an audio formatted description of square at given index
+  as a list.  Argument index is an integer between 0 and 63 as in
+  package chess."
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((position (chess-display-position nil))
         (piece nil)
@@ -149,11 +150,15 @@
            (and (cl-oddp rank) (cl-oddp file)))
           white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
-    (unless white (setq piece (propertize  piece 'personality voice-bolden)))
+    (unless
+        (and  white (zerop (length piece)))
+      (setq piece (propertize  piece 'personality voice-bolden)))
     (if light ;;; square color
         (setq coord (propertize  coord 'personality voice-monotone))
-        (setq coord (propertize  coord 'personality voice-lighten-extra )))
-    (list coord  piece)))
+      (setq coord (propertize  coord 'personality voice-lighten-extra )))
+    (if (zerop (length piece)) 
+        (list coord  )
+      (list coord  piece))))
 
 
 (defun emacspeak-chess-speak-this-square ()
@@ -162,7 +167,7 @@
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((index (get-text-property (point) 'chess-coord)))
     (cl-assert index t "Not on a valid square.")
-    (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
+    (dtk-speak-list  (emacspeak-chess-describe-square index))))
 
 
 (defun emacspeak-chess-speak-that-square (coord)
