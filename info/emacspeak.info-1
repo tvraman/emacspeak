@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 14, 2019.
+last updated on December 15, 2019.
 
    The manual is divided into the following chapters:
 
@@ -7202,8 +7202,8 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\’.
    You can also jump to a given board position by:
    • Jump: ‘emacspeak-chess-jump’ bound to ‘j’.
-   • Review: ‘emacspeak-chess-speak-that-square’ bound to ‘t’.
-   finally, you can review the current square with ‘;’.
+   • Look: ‘emacspeak-chess-speak-that-square’ bound to ‘l’.
+   • Review current square: ‘;’.
 
 12.35.2 Emacspeak-Chess Commands
 --------------------------------
