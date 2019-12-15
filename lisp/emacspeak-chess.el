@@ -157,8 +157,7 @@
            (and (cl-oddp rank) (cl-oddp file)))
           white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
-    (unless
-        (and  white (zerop (length piece)))
+    (unless white
       (setq piece (propertize  piece 'personality voice-bolden)))
     (if light ;;; square color
         (setq coord (propertize  coord 'personality voice-monotone))
