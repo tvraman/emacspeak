@@ -137,8 +137,9 @@
   "Return an audio formatted description of square at given index
   as a list.  Argument index is an integer between 0 and 63 as in
   package chess."
+  (cl-declare (special chess-module-game chess-display-index))
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
-  (let ((position (chess-display-position nil))
+  (let ((position (chess-game-pos chess-module-game chess-display-index))
         (piece nil)
         (white nil)
         (light nil)
