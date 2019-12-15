@@ -393,31 +393,35 @@
      ((and s-piece t-piece (= t-piece ?\ ) target) ;;; target: empty square
       (setq text
             (concat which
-                    (format "%s to %s"
-                            (emacspeak-chess-piece-name s-piece)
-                            (chess-index-to-coord target)))))
+                    (format 
+                     "%s to %s"
+                     (emacspeak-chess-piece-name s-piece)
+                     (chess-index-to-coord target)))))
      ((and s-piece t-piece target)
       (setq text
             (concat which
-                    (format "%s takes %s at %s"
-                            (emacspeak-chess-piece-name s-piece)
-                            (emacspeak-chess-piece-name t-piece)
-                            (chess-index-to-coord target))))))
+                    (format 
+                     "%s takes %s at %s"
+                     (emacspeak-chess-piece-name s-piece)
+                     (emacspeak-chess-piece-name t-piece)
+                     (chess-index-to-coord target))))))
 ;;; additional consequences of move:
     (if promotion
         (setq text
-              (concat text ", "
-                      (format "promotes  to %s"
-                              (emacspeak-chess-piece-name promotion)))))
+              (concat 
+               text ", "
+               (format 
+                "promotes  to %s"
+                (emacspeak-chess-piece-name promotion)))))
     (if (chess-ply-keyword ply :en-passant)
-        (setq text (concat text ", " "on position")))
+        (setq text (concat text ", " "en passant")))
     (if (chess-ply-keyword ply :check)
         (setq text (concat text ", " "check")))
     (if (chess-ply-keyword ply :checkmate)
         (setq text (concat text ", " "checkmate ")))
     (if (chess-ply-keyword ply :stalemate)
-        (setq text (concat text ", " "stalemate "))
-      text)))
+        (setq text (concat text ", " "stalemate ")))
+    text))
 
   ;;}}}
   
