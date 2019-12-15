@@ -383,7 +383,7 @@
        (s-piece (and source (chess-pos-piece pos source)))
        (t-piece (and target (chess-pos-piece pos target)))
        (which (chess-ply-keyword ply :which))
-(promotion (chess-ply-keyword ply :promote)))
+       (promotion (chess-ply-keyword ply :promote)))
     (if which (setq which (char-to-string which)))
     (cond
      ((chess-ply-keyword ply :castle)
@@ -405,10 +405,10 @@
                             (chess-index-to-coord target))))))
 ;;; additional consequences of move:
     (if promotion
-          (setq text
-                (concat text ", "
-                        (format "promotes  to %s"
-                                (emacspeak-chess-piece-name promotion)))))
+        (setq text
+              (concat text ", "
+                      (format "promotes  to %s"
+                              (emacspeak-chess-piece-name promotion)))))
     (if (chess-ply-keyword ply :en-passant)
         (setq text (concat text ", " "on position")))
     (if (chess-ply-keyword ply :check)
