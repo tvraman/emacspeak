@@ -324,8 +324,6 @@
   (cond
    ((eq event 'initialize)
     (emacspeak-auditory-icon 'open-object)
-    (with-current-buffer (get-buffer "*Chessboard*")
-      (emacspeak-pronounce-toggle-use-of-dictionaries t))
     (message "Buffer %s" (current-buffer))
     t)
    ((eq event 'move)
@@ -367,7 +365,7 @@
                                 (message "promotes  to %s"
                                          (emacspeak-chess-piece-name promotion))))))
             (if (chess-ply-keyword ply :en-passant)
-                (setq text (concat text ", " "on possont")))
+                (setq text (concat text ", " "on position")))
             (if (chess-ply-keyword ply :check)
                 (setq text (concat text ", " "check")))
             (if (chess-ply-keyword ply :checkmate)
@@ -389,8 +387,6 @@
   "Emacspeak setup for Chess."
   (cl-declare (special chess-default-modules
                        chess-display-mode-map))
-;;; silence commas for better intonation on blank squares
-  (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode "," "")
   (when (bound-and-true-p chess-default-modules)
     (setq chess-default-modules
           (cl-remove
