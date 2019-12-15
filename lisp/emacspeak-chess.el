@@ -324,6 +324,9 @@
   (cond
    ((eq event 'initialize)
     (emacspeak-auditory-icon 'open-object)
+    (with-current-buffer (get-buffer "*Chessboard*")
+      (emacspeak-pronounce-toggle-use-of-dictionaries t))
+    (message "Buffer %s" (current-buffer))
     t)
    ((eq event 'move)
     (emacspeak-auditory-icon 'time)
@@ -388,7 +391,6 @@
                        chess-display-mode-map))
 ;;; silence commas for better intonation on blank squares
   (emacspeak-pronounce-add-dictionary-entry 'chess-display-mode "," "")
-  (emacspeak-pronounce-refresh-pronunciations)
   (when (bound-and-true-p chess-default-modules)
     (setq chess-default-modules
           (cl-remove
