@@ -335,6 +335,24 @@
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southeast)
    2))
+(define-prefix-command 'emacspeak-chess-view-prefix
+  'emacspeak-chess-view-map)
+
+(cl-declaim (special emacspeak-chess-view-map))
+(cl-loop
+ for binding in
+ '(
+   ("<up>" emacspeak-chess-look-north)
+   ("<down>" emacspeak-chess-look-south)
+   ("<left>" emacspeak-chess-look-west)
+   ("<right>" emacspeak-chess-look-east)
+   ("[" emacspeak-chess-look-northwest)
+   ("]" emacspeak-chess-look-northeast)
+   ("\\" emacspeak-chess-look-southeast)
+   ("/" emacspeak-chess-look-southwest)
+   )
+ do
+ (emacspeak-keymap-update emacspeak-chess-view-map binding))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -492,6 +510,7 @@
      for binding in 
      '(
        ( ";" emacspeak-chess-speak-this-square)
+       ("v" emacspeak-chess-view-prefix)
        ("<up>" emacspeak-chess-north)
        ("<down>" emacspeak-chess-south)
        ("<left>" emacspeak-chess-west)
