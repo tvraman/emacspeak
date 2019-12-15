@@ -272,10 +272,12 @@
       when
       (= (length s) 2)
       collect s))))
+
 (defun emacspeak-chess-look-north ()
   "Look north "
   (interactive)
   (cl-declare (special chess-direction-north))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-north)
    2))
@@ -284,6 +286,7 @@
   "Look south "
   (interactive)
   (cl-declare (special chess-direction-south))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-south)
    2))
@@ -292,6 +295,7 @@
   "Look west "
   (interactive)
   (cl-declare (special chess-direction-west))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-west)
    2))
@@ -300,14 +304,16 @@
   "Look east "
   (interactive)
   (cl-declare (special chess-direction-east))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-east)
-                  2))
+   2))
 
 (defun emacspeak-chess-look-northwest ()
   "Look northwest "
   (interactive)
   (cl-declare (special chess-direction-northwest))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-northwest)
    2))
@@ -316,6 +322,7 @@
   "Look southwest "
   (interactive)
   (cl-declare (special chess-direction-southwest))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southwest)
    2))
@@ -324,6 +331,7 @@
   "Look northeast "
   (interactive)
   (cl-declare (special chess-direction-northeast))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-northeast)
    2))
@@ -332,9 +340,12 @@
   "Look southeast "
   (interactive)
   (cl-declare (special chess-direction-southeast))
+  (emacspeak-auditory-icon 'task-done) 
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southeast)
    2))
+
+
 (define-prefix-command 'emacspeak-chess-view-prefix
   'emacspeak-chess-view-map)
 
