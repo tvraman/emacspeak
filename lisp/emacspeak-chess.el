@@ -120,7 +120,7 @@
     (?n . "knight")
     (?r . "rook")
     (?p . "pawn")
-    (?\  . " "))
+    (?\  . ""))
   "Piece-char to piece-name mapping.")
 
 (defsubst emacspeak-chess-piece-name (char)
