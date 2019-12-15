@@ -370,6 +370,60 @@
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
 
 ;;}}}
+;;{{{Speaking Moves:
+
+(defun emacspeak-chess-describe-move (game)
+  "Speak the move by examining game."
+  (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
+         (pos (chess-ply-pos ply))
+         (text nil))
+    (unless
+        (let* ((source (chess-ply-source ply))
+               (target (chess-ply-target ply))
+               (s-piece (and source (chess-pos-piece pos source)))
+               (t-piece (and target (chess-pos-piece pos target)))
+               (which (chess-ply-keyword ply :which)))
+          (if which
+              (setq which (char-to-string which)))
+          (cond
+           ((chess-ply-keyword ply :castle)
+            (setq text "short castle"))
+           ((chess-ply-keyword ply :long-castle)
+            (setq text "long castle"))
+           ((and s-piece t-piece (= t-piece ? ) target)
+            (setq text
+                  (concat which
+                          (format "%s to %s"
+                                  (emacspeak-chess-piece-name s-piece)
+                                  (chess-index-to-coord target)))))
+           ((and s-piece t-piece target)
+            (setq text
+                  (concat which
+                          (format "%s takes %s at %s"
+                                  (emacspeak-chess-piece-name s-piece)
+                                  (emacspeak-chess-piece-name t-piece)
+                                  (chess-index-to-coord target))))))
+
+          (let ((promotion (chess-ply-keyword ply :promote)))
+            (if promotion
+                (setq text
+                      (concat text ", "
+                              (message "promotes  to %s"
+                                       (emacspeak-chess-piece-name promotion))))))
+          (if (chess-ply-keyword ply :en-passant)
+              (setq text (concat text ", " "on position")))
+          (if (chess-ply-keyword ply :check)
+              (setq text (concat text ", " "check")))
+          (if (chess-ply-keyword ply :checkmate)
+              (setq text (concat text ", " "checkmate ")))
+          (if (chess-ply-keyword ply :stalemate)
+              (setq text (concat text ", " "stalemate "))
+            text)))))
+
+  ;;}}}
+  
+
+;;}}}
 ;;{{{ Interactive Commands:
 
 '(
@@ -455,52 +509,7 @@
     t)
    ((eq event 'move)
     (emacspeak-auditory-icon 'time)
-    (let* ((ply (chess-game-ply game (1- (chess-game-index game))))
-           (pos (chess-ply-pos ply)))
-      (unless
-          (let* ((source (chess-ply-source ply))
-                 (target (chess-ply-target ply))
-                 (s-piece (and source (chess-pos-piece pos source)))
-                 (t-piece (and target (chess-pos-piece pos target)))
-                 (which (chess-ply-keyword ply :which))
-                 text)
-            (if which
-                (setq which (char-to-string which)))
-            (cond
-             ((chess-ply-keyword ply :castle)
-              (setq text "short castle"))
-             ((chess-ply-keyword ply :long-castle)
-              (setq text "long castle"))
-             ((and s-piece t-piece (= t-piece ? ) target)
-              (setq text
-                    (concat which
-                            (format "%s to %s"
-                                    (emacspeak-chess-piece-name s-piece)
-                                    (chess-index-to-coord target)))))
-             ((and s-piece t-piece target)
-              (setq text
-                    (concat which
-                            (format "%s takes %s at %s"
-                                    (emacspeak-chess-piece-name s-piece)
-                                    (emacspeak-chess-piece-name t-piece)
-                                    (chess-index-to-coord target))))))
-
-            (let ((promotion (chess-ply-keyword ply :promote)))
-              (if promotion
-                  (setq text
-                        (concat text ", "
-                                (message "promotes  to %s"
-                                         (emacspeak-chess-piece-name promotion))))))
-            (if (chess-ply-keyword ply :en-passant)
-                (setq text (concat text ", " "on position")))
-            (if (chess-ply-keyword ply :check)
-                (setq text (concat text ", " "check")))
-            (if (chess-ply-keyword ply :checkmate)
-                (setq text (concat text ", " "checkmate ")))
-            (if (chess-ply-keyword ply :stalemate)
-                (setq text (concat text ", " "stalemate ")))
-
-            (message text)))))
+    (dtk-speak  (emacspeak-chess-describe-move game)))
    ((eq event 'kibitz)
     (message (car args)))))
 
