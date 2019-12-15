@@ -449,6 +449,7 @@
   "Speak the move."
   (cond
    ((eq event 'initialize)
+    (emacspeak-chess-setup)
     (emacspeak-auditory-icon 'open-object)
     (message "Buffer %s" (current-buffer))
     t)
@@ -541,7 +542,7 @@
 
 ;;; Setup on load:
 
-(emacspeak-chess-setup)
+;(emacspeak-chess-setup)
 
 ;;}}}
 (provide 'emacspeak-chess)
