@@ -80,9 +80,11 @@
 ;;; You can also jump to a given board position by:
 ;;; @itemize @bullet
 ;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
-;;; @item Review: @code{emacspeak-chess-speak-that-square} bound to @kbd{t}.
+;;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
+;;;@kbd{l}.
+;;; @item  Review   current square: @kbd{;}.
 ;;; @end itemize
-;;; finally, you can review the current square  with @kbd{;}.
+
 
 ;;; Code:
 
@@ -412,7 +414,7 @@
        ("]" emacspeak-chess-northeast)
        ("\\" emacspeak-chess-southeast)
        ("/" emacspeak-chess-southwest)
-       ("t" emacspeak-chess-speak-that-square)
+       ("l" emacspeak-chess-speak-that-square)
        ("j" emacspeak-chess-jump))
      do
      (emacspeak-keymap-update chess-display-mode-map binding))))
