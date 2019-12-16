@@ -192,6 +192,7 @@
   (let ((index (chess-coord-to-index coord)))
     (cl-assert index t "Not  a valid square.")
     (dtk-speak-list  (emacspeak-chess-describe-square index) 2)))
+
 ;;}}}
 ;;{{{Board Navigation:
 
@@ -491,6 +492,14 @@ specifies index of move default is final index."
      (concat
       msg
       (emacspeak-chess-describe-move chess-module-game chess-display-index)))))
+
+(defadvice chess-display-undo  (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'progress)
+    (dtk-speak (emacspeak-chess-describe-move))
+    ))
+
 
 (defadvice chess-display-move-first (around emacspeak pre act comp)
   "Provide auditory feedback."
