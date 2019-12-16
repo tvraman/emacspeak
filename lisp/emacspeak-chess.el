@@ -431,7 +431,7 @@ specifies index of move default is final index."
 ;;{{{ Interactive Commands:
 
 '(
-  chess
+  
   chess-debug-position
   chess-display-abort
   chess-display-accept
@@ -452,13 +452,10 @@ specifies index of move default is final index."
   chess-display-list-buffers
   chess-display-manual-move
   chess-display-match
-  chess-display-mode
+  
   chess-display-mouse-select-piece
   chess-display-mouse-set-piece
-  chess-display-move-backward
-  chess-display-move-first
-  chess-display-move-forward
-  chess-display-move-last
+  
   chess-display-move-menu
   chess-display-pass
   chess-display-quit
@@ -499,6 +496,57 @@ specifies index of move default is final index."
   chess-session
   chess-tutorial
   )
+
+(defadvice chess-display-move-first (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (ems-with-messages-silenced
+        (emacspeak-auditory-icon 'left)
+        (message "At start of game"))))
+
+(defadvice chess-display-move-last (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (ems-with-messages-silenced
+        (emacspeak-auditory-icon 'right)
+      (dtk-speak  (emacspeak-chess-describe-move chess-module-game)))))
+
+
+(defadvice chess-display-move-backward (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cl-declare (special chess-display-index chess-module-game))
+  (when (ems-interactive-p)
+    (ems-with-messages-silenced
+        (emacspeak-auditory-icon 'left)
+      (let ((msg nil))
+        (setq
+         msg
+         (cond
+          ((= chess-display-index (chess-game-index chess-module-game))
+           "Current state  ")
+          ((= 0 chess-display-index)
+           "Start of game ")))
+        (dtk-speak-and-echo
+         (concat msg
+                 (emacspeak-chess-describe-move chess-module-game chess-display-index)))))))
+
+(defadvice chess-display-move-forward (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cl-declare (special chess-display-index chess-module-game))
+  (when (ems-interactive-p)
+    (ems-with-messages-silenced
+        (emacspeak-auditory-icon 'right)
+      (let ((msg nil))
+        (setq
+         msg
+         (cond
+          ((= chess-display-index (chess-game-index chess-module-game))
+           "Current state  ")
+          ((= 0 chess-display-index)
+           "Start of game ")))
+        (dtk-speak-and-echo
+         (concat msg
+                 (emacspeak-chess-describe-move chess-module-game chess-display-index)))))))
 
 ;;}}}
 ;;{{{emacspeak Handler:
