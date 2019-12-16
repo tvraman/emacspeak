@@ -427,9 +427,6 @@ specifies index of move default is final index."
         (setq text (concat text ", " "stalemate ")))
     text))
 
-  ;;}}}
-  
-
 ;;}}}
 ;;{{{ Interactive Commands:
 
