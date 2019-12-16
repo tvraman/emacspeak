@@ -581,31 +581,24 @@ specifies index of move default is final index."
   "Emacspeak setup for Chess."
   (cl-declare (special chess-default-modules
                        chess-display-mode-map))
-  (when (bound-and-true-p chess-default-modules)
-    (setq chess-default-modules
-          (cl-remove
-           '(chess-sound chess-announce)
-           chess-default-modules :test 'equal))
-    (cl-pushnew 'chess-emacspeak chess-default-modules))
-  (when (and (bound-and-true-p chess-display-mode-map)
-             (keymapp chess-display-mode-map))
-    (cl-loop
-     for binding in
-     '(
-       ( ";" emacspeak-chess-speak-this-square)
-       ("v" emacspeak-chess-view-prefix)
-       ("<up>" emacspeak-chess-north)
-       ("<down>" emacspeak-chess-south)
-       ("<left>" emacspeak-chess-west)
-       ("<right>" emacspeak-chess-east)
-       ("[" emacspeak-chess-northwest)
-       ("]" emacspeak-chess-northeast)
-       ("\\" emacspeak-chess-southeast)
-       ("/" emacspeak-chess-southwest)
-       ("l" emacspeak-chess-speak-that-square)
-       ("j" emacspeak-chess-jump))
-     do
-     (emacspeak-keymap-update chess-display-mode-map binding))))
+  (cl-pushnew 'chess-emacspeak chess-default-modules)
+  (cl-loop
+   for binding in
+   '(
+     ( ";" emacspeak-chess-speak-this-square)
+     ("v" emacspeak-chess-view-prefix)
+     ("<up>" emacspeak-chess-north)
+     ("<down>" emacspeak-chess-south)
+     ("<left>" emacspeak-chess-west)
+     ("<right>" emacspeak-chess-east)
+     ("[" emacspeak-chess-northwest)
+     ("]" emacspeak-chess-northeast)
+     ("\\" emacspeak-chess-southeast)
+     ("/" emacspeak-chess-southwest)
+     ("l" emacspeak-chess-speak-that-square)
+     ("j" emacspeak-chess-jump))
+   do
+   (emacspeak-keymap-update chess-display-mode-map binding)))
 
 ;;}}}
 (provide 'emacspeak-chess)
