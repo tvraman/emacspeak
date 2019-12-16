@@ -384,9 +384,7 @@ specifies index of move default is final index."
        (s-piece (and source (chess-pos-piece pos source)))
        (color (memq  s-piece '(?P ?N ?K ?B ?R)))
        (t-piece (and target (chess-pos-piece pos target)))
-       (which (chess-ply-keyword ply :which))
        (promotion (chess-ply-keyword ply :promote)))
-    (if which (setq which (char-to-string which)))
     (cond
      ((chess-ply-keyword ply :castle)
       (setq text "short castle"))
@@ -410,20 +408,20 @@ specifies index of move default is final index."
                      (emacspeak-chess-piece-name t-piece)
                      (chess-index-to-coord target))))))
 ;;; additional consequences of move:
-    (if promotion
+    (when promotion
         (setq text
               (concat
                text ", "
                (format
                 "promotes  to %s"
                 (emacspeak-chess-piece-name promotion)))))
-    (if (chess-ply-keyword ply :en-passant)
+    (when (chess-ply-keyword ply :en-passant)
         (setq text (concat text ", " "en passant")))
-    (if (chess-ply-keyword ply :check)
+    (when (chess-ply-keyword ply :check)
         (setq text (concat text ", " "check")))
-    (if (chess-ply-keyword ply :checkmate)
+    (when (chess-ply-keyword ply :checkmate)
         (setq text (concat text ", " "checkmate ")))
-    (if (chess-ply-keyword ply :stalemate)
+    (when (chess-ply-keyword ply :stalemate)
         (setq text (concat text ", " "stalemate ")))
     text))
 
