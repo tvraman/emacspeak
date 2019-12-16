@@ -139,12 +139,16 @@
 (defsubst emacspeak-chess-piece-name (char)
   "Return piece name."
   (cdr (assq (downcase char) emacspeak-chess-piece-names)))
+(defconst emacspeak-chess-whites
+  '(?R ?N ?B ?K ?Q ?P)
+  "White chess pieces.")
 
 (defun emacspeak-chess-describe-square (index)
   "Return an audio formatted description of square at given index
   as a list.  Argument index is an integer between 0 and 63 as in
   package chess."
-  (cl-declare (special chess-module-game chess-display-index))
+  (cl-declare (special chess-module-game chess-display-index
+                       emacspeak-chess-whites))
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
   (let ((position (chess-game-pos chess-module-game chess-display-index))
         (piece nil)
@@ -162,7 +166,7 @@
           (or
            (and (cl-evenp rank ) (cl-evenp file))
            (and (cl-oddp rank) (cl-oddp file)))
-          white (memq piece '(?R ?N ?B ?K ?Q ?P)) ;upper-case is white
+          white (memq piece emacspeak-chess-whites) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
     (unless white
       (setq piece (propertize  piece 'personality voice-bolden)))
@@ -379,6 +383,7 @@
 (defun emacspeak-chess-describe-move (game &optional move-index)
   "Speak the move by examining game.  Optional argument `move-index'
 specifies index of move default is final index."
+  (cl-declare (special emacspeak-chess-whites ))
   (let*
       ((ply
         (chess-game-ply
@@ -389,7 +394,7 @@ specifies index of move default is final index."
        (source (chess-ply-source ply))
        (target (chess-ply-target ply))
        (s-piece (and source (chess-pos-piece pos source)))
-       (color (memq  s-piece '(?P ?N ?K ?B ?R)))
+       (color (memq  s-piece emacspeak-chess-whites))
        (t-piece (and target (chess-pos-piece pos target)))
        (promotion (chess-ply-keyword ply :promote)))
     (cond
