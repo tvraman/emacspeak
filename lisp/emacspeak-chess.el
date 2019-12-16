@@ -531,8 +531,7 @@ specifies index of move default is final index."
   "Provide auditory feedback."
   (cond
    ((ems-interactive-p)
-    (let ((square (get-text-property (point) 'chess-coord))
-          (position (chess-display-position nil)))
+    (let ((square (get-text-property (point) 'chess-coord)))
       (cond
        ((and
          (consp chess-display-last-selected )
