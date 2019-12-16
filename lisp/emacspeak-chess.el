@@ -559,8 +559,9 @@ specifies index of move default is final index."
     (message "Buffer %s" (current-buffer))
     t)
    ((eq event 'move)
+    (dtk-speak  (emacspeak-chess-describe-move game))
     (emacspeak-auditory-icon 'time)
-    (dtk-speak  (emacspeak-chess-describe-move game)))
+    )
    ((eq event 'kibitz)
     (message (car args)))))
 
