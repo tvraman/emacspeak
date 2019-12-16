@@ -434,46 +434,19 @@ specifies index of move default is final index."
 ;;{{{ Interactive Commands:
 
 '(
-
-  chess-debug-position
-  chess-display-abort
-  chess-display-accept
-  chess-display-annotate
-  chess-display-call-flag
-  chess-display-chat
-  chess-display-check-autosave
-  chess-display-clear-board
-  chess-display-create
-  chess-display-decline
-  chess-display-draw
-  chess-display-duplicate
-  chess-display-edit-board
-  chess-display-force
-  chess-display-highlight-passed-pawns
-  chess-display-invert
-  chess-display-kill-board
-  chess-display-list-buffers
+  
   chess-display-manual-move
   chess-display-match
-
-  chess-display-mouse-select-piece
-  chess-display-mouse-set-piece
-
-  chess-display-move-menu
   chess-display-pass
   chess-display-quit
-  chess-display-redraw
-  chess-display-remote
-  chess-display-resign
-  chess-display-restore-board
-  chess-display-retract
+  
   chess-display-search
   chess-display-search-again
   chess-display-search-backward
   chess-display-search-delete
   chess-display-search-forward
   chess-display-search-key
-  chess-display-select-piece
+  
   chess-display-send-board
   chess-display-set-from-fen
   chess-display-set-piece
@@ -553,6 +526,24 @@ specifies index of move default is final index."
     (emacspeak-chess-state-speaker))
    (t ad-do-it))
   ad-return-value)
+
+(defadvice chess-display-select-piece (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (let ((square (get-text-property (point) 'chess-coord))
+          (position (chess-display-position nil)))
+      (cond
+       ((and
+         (consp chess-display-last-selected )
+         (= (point) (car chess-display-last-selected)))
+        (message "Deselected")
+        (emacspeak-auditory-icon 'deselect-object))
+       )
+      ad-do-it))
+   (t ad-do-it))
+  ad-return-value)
+
 
 ;;}}}
 ;;{{{emacspeak Handler:
