@@ -54,7 +54,7 @@
 ;;; @item Enable various means of exploring the state of game, perhaps with
 ;;; a view to being able to spot patterns   from listening to the
 ;;; output.
-;;; @end itemize 
+;;; @end itemize
 ;;; @subsection Board Navigation:
 ;;; The board can be navigated along the 8 compass directions.
 ;;; Arrow keys move to the appropriate squares on the board.
@@ -88,7 +88,7 @@
 ;;; @itemize @bullet
 ;;; @item Viewers: @kbd{v} followed by the directional navigation keys
 ;;;speaks the squares in that direction from the current square.
-;;; @end itemize 
+;;; @end itemize
 
 ;;; Code:
 
@@ -162,10 +162,9 @@
     (if light ;;; square color
         (setq coord (propertize  coord 'personality voice-monotone))
       (setq coord (propertize  coord 'personality voice-lighten-extra )))
-    (if (zerop (length piece)) 
+    (if (zerop (length piece))
         (list coord  )
       (list coord  piece))))
-
 
 (defun emacspeak-chess-speak-this-square ()
   "Speak square under point."
@@ -174,7 +173,6 @@
   (let ((index (get-text-property (point) 'chess-coord)))
     (cl-assert index t "Not on a valid square.")
     (dtk-speak-list  (emacspeak-chess-describe-square index))))
-
 
 (defun emacspeak-chess-speak-that-square (coord)
   "Speak square at specified coord."
@@ -266,7 +264,7 @@
     (cl-assert index t "Not on a valid square.")
     (push (emacspeak-chess-describe-square index) squares)
     (setq target (chess-next-index  index direction))
-    (while target 
+    (while target
       (push (emacspeak-chess-describe-square target) squares)
       (setq target (chess-next-index  target direction)))
     (setq result (nreverse squares))
@@ -281,7 +279,7 @@
   "Look north "
   (interactive)
   (cl-declare (special chess-direction-north))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-north)
    2))
@@ -290,7 +288,7 @@
   "Look south "
   (interactive)
   (cl-declare (special chess-direction-south))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-south)
    2))
@@ -299,7 +297,7 @@
   "Look west "
   (interactive)
   (cl-declare (special chess-direction-west))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-west)
    2))
@@ -308,7 +306,7 @@
   "Look east "
   (interactive)
   (cl-declare (special chess-direction-east))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-east)
    2))
@@ -317,7 +315,7 @@
   "Look northwest "
   (interactive)
   (cl-declare (special chess-direction-northwest))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-northwest)
    2))
@@ -326,7 +324,7 @@
   "Look southwest "
   (interactive)
   (cl-declare (special chess-direction-southwest))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southwest)
    2))
@@ -335,7 +333,7 @@
   "Look northeast "
   (interactive)
   (cl-declare (special chess-direction-northeast))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-northeast)
    2))
@@ -344,11 +342,10 @@
   "Look southeast "
   (interactive)
   (cl-declare (special chess-direction-southeast))
-  (emacspeak-auditory-icon 'task-done) 
+  (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list
    (emacspeak-chess-collect-squares chess-direction-southeast)
    2))
-
 
 (define-prefix-command 'emacspeak-chess-view-prefix
   'emacspeak-chess-view-map)
@@ -376,7 +373,7 @@
   "Speak the move by examining game.  Optional argument `move-index'
 specifies index of move default is final index."
   (let*
-      ((ply 
+      ((ply
         (chess-game-ply
          game ;;; ply before specified game-index
          (1- (or move-index (chess-game-index game)))))
@@ -385,6 +382,7 @@ specifies index of move default is final index."
        (source (chess-ply-source ply))
        (target (chess-ply-target ply))
        (s-piece (and source (chess-pos-piece pos source)))
+       (color (memq  s-piece '(?P ?N ?K ?B ?R)))
        (t-piece (and target (chess-pos-piece pos target)))
        (which (chess-ply-keyword ply :which))
        (promotion (chess-ply-keyword ply :promote)))
@@ -397,24 +395,26 @@ specifies index of move default is final index."
      ((and s-piece t-piece (= t-piece ?\ ) target) ;;; target: empty square
       (setq text
             (concat which
-                    (format 
-                     "%s to %s"
+                    (format
+                     "%s %s to %s"
+                     (if color "white " "black ")
                      (emacspeak-chess-piece-name s-piece)
                      (chess-index-to-coord target)))))
      ((and s-piece t-piece target)
       (setq text
             (concat which
-                    (format 
-                     "%s takes %s at %s"
+                    (format
+                     "%s %s takes %s at %s"
+                     (if color "white " "black ")
                      (emacspeak-chess-piece-name s-piece)
                      (emacspeak-chess-piece-name t-piece)
                      (chess-index-to-coord target))))))
 ;;; additional consequences of move:
     (if promotion
         (setq text
-              (concat 
+              (concat
                text ", "
-               (format 
+               (format
                 "promotes  to %s"
                 (emacspeak-chess-piece-name promotion)))))
     (if (chess-ply-keyword ply :en-passant)
@@ -431,7 +431,7 @@ specifies index of move default is final index."
 ;;{{{ Interactive Commands:
 
 '(
-  
+
   chess-debug-position
   chess-display-abort
   chess-display-accept
@@ -452,10 +452,10 @@ specifies index of move default is final index."
   chess-display-list-buffers
   chess-display-manual-move
   chess-display-match
-  
+
   chess-display-mouse-select-piece
   chess-display-mouse-set-piece
-  
+
   chess-display-move-menu
   chess-display-pass
   chess-display-quit
@@ -496,57 +496,60 @@ specifies index of move default is final index."
   chess-session
   chess-tutorial
   )
-
-(defadvice chess-display-move-first (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (ems-with-messages-silenced
-        (emacspeak-auditory-icon 'left)
-        (message "At start of game"))))
-
-(defadvice chess-display-move-last (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (ems-with-messages-silenced
-        (emacspeak-auditory-icon 'right)
-      (dtk-speak  (emacspeak-chess-describe-move chess-module-game)))))
-
-
-(defadvice chess-display-move-backward (after emacspeak pre act comp)
-  "Provide auditory feedback."
+(defun emacspeak-chess-state-speaker  ()
+  "Helper function that describes game state."
   (cl-declare (special chess-display-index chess-module-game))
-  (when (ems-interactive-p)
-    (ems-with-messages-silenced
-        (emacspeak-auditory-icon 'left)
-      (let ((msg nil))
-        (setq
-         msg
+  (let ((msg
          (cond
           ((= chess-display-index (chess-game-index chess-module-game))
            "Current state  ")
           ((= 0 chess-display-index)
-           "Start of game ")))
-        (dtk-speak-and-echo
-         (concat msg
-                 (emacspeak-chess-describe-move chess-module-game chess-display-index)))))))
+           "Start of game ")
+          (t (format "Move %d" chess-display-index)))))
+    (dtk-speak-and-echo
+     (concat
+      msg
+      (emacspeak-chess-describe-move chess-module-game chess-display-index)))))
 
-(defadvice chess-display-move-forward (after emacspeak pre act comp)
+(defadvice chess-display-move-first (around emacspeak pre act comp)
   "Provide auditory feedback."
-  (cl-declare (special chess-display-index chess-module-game))
-  (when (ems-interactive-p)
-    (ems-with-messages-silenced
-        (emacspeak-auditory-icon 'right)
-      (let ((msg nil))
-        (setq
-         msg
-         (cond
-          ((= chess-display-index (chess-game-index chess-module-game))
-           "Current state  ")
-          ((= 0 chess-display-index)
-           "Start of game ")))
-        (dtk-speak-and-echo
-         (concat msg
-                 (emacspeak-chess-describe-move chess-module-game chess-display-index)))))))
+  (cond
+   ((ems-interactive-p)
+    (ems-with-messages-silenced ad-do-it)
+    (emacspeak-chess-state-speaker)
+    (emacspeak-auditory-icon 'left))
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice chess-display-move-backward (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (ems-with-messages-silenced  ad-do-it)
+    (emacspeak-auditory-icon 'left)
+    (emacspeak-chess-state-speaker))
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice chess-display-move-forward (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (ems-with-messages-silenced ad-do-it)
+    (emacspeak-auditory-icon 'right)
+    (emacspeak-chess-state-speaker))
+   (t ad-do-it))
+  ad-return-value)
+
+(defadvice chess-display-move-last (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (ems-with-messages-silenced ad-do-it)
+    (emacspeak-auditory-icon 'right)
+    (emacspeak-chess-state-speaker))
+   (t ad-do-it))
+  ad-return-value)
 
 ;;}}}
 ;;{{{emacspeak Handler:
@@ -584,7 +587,7 @@ specifies index of move default is final index."
   (when (and (bound-and-true-p chess-display-mode-map)
              (keymapp chess-display-mode-map))
     (cl-loop
-     for binding in 
+     for binding in
      '(
        ( ";" emacspeak-chess-speak-this-square)
        ("v" emacspeak-chess-view-prefix)
