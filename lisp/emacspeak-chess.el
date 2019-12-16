@@ -392,37 +392,35 @@ specifies index of move default is final index."
       (setq text "long castle"))
      ((and s-piece t-piece (= t-piece ?\ ) target) ;;; target: empty square
       (setq text
-            (concat which
-                    (format
-                     "%s %s to %s"
-                     (if color "white " "black ")
-                     (emacspeak-chess-piece-name s-piece)
-                     (chess-index-to-coord target)))))
+            (format
+             "%s %s to %s"
+             (if color "white " "black ")
+             (emacspeak-chess-piece-name s-piece)
+             (chess-index-to-coord target))))
      ((and s-piece t-piece target)
       (setq text
-            (concat which
-                    (format
-                     "%s %s takes %s at %s"
-                     (if color "white " "black ")
-                     (emacspeak-chess-piece-name s-piece)
-                     (emacspeak-chess-piece-name t-piece)
-                     (chess-index-to-coord target))))))
+            (format
+             "%s %s takes %s at %s"
+             (if color "white " "black ")
+             (emacspeak-chess-piece-name s-piece)
+             (emacspeak-chess-piece-name t-piece)
+             (chess-index-to-coord target)))))
 ;;; additional consequences of move:
     (when promotion
-        (setq text
-              (concat
-               text ", "
-               (format
-                "promotes  to %s"
-                (emacspeak-chess-piece-name promotion)))))
+      (setq text
+            (concat
+             text ", "
+             (format
+              "promotes  to %s"
+              (emacspeak-chess-piece-name promotion)))))
     (when (chess-ply-keyword ply :en-passant)
-        (setq text (concat text ", " "en passant")))
+      (setq text (concat text ", " "en passant")))
     (when (chess-ply-keyword ply :check)
-        (setq text (concat text ", " "check")))
+      (setq text (concat text ", " "check")))
     (when (chess-ply-keyword ply :checkmate)
-        (setq text (concat text ", " "checkmate ")))
+      (setq text (concat text ", " "checkmate ")))
     (when (chess-ply-keyword ply :stalemate)
-        (setq text (concat text ", " "stalemate ")))
+      (setq text (concat text ", " "stalemate ")))
     text))
 
 ;;}}}
