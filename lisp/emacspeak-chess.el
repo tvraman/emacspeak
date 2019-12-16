@@ -55,7 +55,7 @@
 ;;; a view to being able to spot patterns   from listening to the
 ;;; output.
 ;;; @end itemize
-;;; @subsection Board Navigation:
+;;; @subsection Navigating And Examining The Board 
 ;;; The board can be navigated along the 8 compass directions.
 ;;; Arrow keys move to the appropriate squares on the board.
 ;;; @kbd{/} and @kbd{\} move down the diagonals.
@@ -89,6 +89,13 @@
 ;;; @item Viewers: @kbd{v} followed by the directional navigation keys
 ;;;speaks the squares in that direction from the current square.
 ;;; @end itemize
+;;; @subsection Examining Games
+
+;;; Package @emph{Chess} allows one to browse through a game using
+;;;@kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
+;;;@code{chess-display-move-forward}.  Emacspeak speech-enables these
+;;;commands to speak the move that led to the currently displayed
+;;;state of the game.
 
 ;;; Code:
 

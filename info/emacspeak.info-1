@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 15, 2019.
+last updated on December 16, 2019.
 
    The manual is divided into the following chapters:
 
@@ -7185,8 +7185,8 @@ that announces moves.
    • Enable various means of exploring the state of game, perhaps with a
      view to being able to spot patterns from listening to the output.
 
-12.35.1 Board Navigation:
--------------------------
+12.35.1 Navigating And Examining The Board
+------------------------------------------
 
 The board can be navigated along the 8 compass directions.  Arrow keys
 move to the appropriate squares on the board.  ‘/’ and ‘\’ move down the
@@ -7208,17 +7208,25 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
      squares in that direction from the current square.
 
-12.35.2 Emacspeak-Chess Commands
+12.35.2 Examining Games
+-----------------------
+
+Package _Chess_ allows one to browse through a game using ‘,’ and ‘.’ —
+‘chess-display-move-backward’ and ‘chess-display-move-forward’.
+Emacspeak speech-enables these commands to speak the move that led to
+the currently displayed state of the game.
+
+12.35.3 Emacspeak-Chess Commands
 --------------------------------
 
-12.35.2.1 emacspeak-chess-east
+12.35.3.1 emacspeak-chess-east
 ..............................
 
  -- Command: emacspeak-chess-east
 
      Move east one step.
 
-12.35.2.2 emacspeak-chess-jump
+12.35.3.2 emacspeak-chess-jump
 ..............................
 
  -- Command: emacspeak-chess-jump (coord)
@@ -7227,105 +7235,105 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
 
      (fn COORD)
 
-12.35.2.3 emacspeak-chess-look-east
+12.35.3.3 emacspeak-chess-look-east
 ...................................
 
  -- Command: emacspeak-chess-look-east
 
      Look east
 
-12.35.2.4 emacspeak-chess-look-north
+12.35.3.4 emacspeak-chess-look-north
 ....................................
 
  -- Command: emacspeak-chess-look-north
 
      Look north
 
-12.35.2.5 emacspeak-chess-look-northeast
+12.35.3.5 emacspeak-chess-look-northeast
 ........................................
 
  -- Command: emacspeak-chess-look-northeast
 
      Look northeast
 
-12.35.2.6 emacspeak-chess-look-northwest
+12.35.3.6 emacspeak-chess-look-northwest
 ........................................
 
  -- Command: emacspeak-chess-look-northwest
 
      Look northwest
 
-12.35.2.7 emacspeak-chess-look-south
+12.35.3.7 emacspeak-chess-look-south
 ....................................
 
  -- Command: emacspeak-chess-look-south
 
      Look south
 
-12.35.2.8 emacspeak-chess-look-southeast
+12.35.3.8 emacspeak-chess-look-southeast
 ........................................
 
  -- Command: emacspeak-chess-look-southeast
 
      Look southeast
 
-12.35.2.9 emacspeak-chess-look-southwest
+12.35.3.9 emacspeak-chess-look-southwest
 ........................................
 
  -- Command: emacspeak-chess-look-southwest
 
      Look southwest
 
-12.35.2.10 emacspeak-chess-look-west
+12.35.3.10 emacspeak-chess-look-west
 ....................................
 
  -- Command: emacspeak-chess-look-west
 
      Look west
 
-12.35.2.11 emacspeak-chess-north
+12.35.3.11 emacspeak-chess-north
 ................................
 
  -- Command: emacspeak-chess-north
 
      Move north one step.
 
-12.35.2.12 emacspeak-chess-northeast
+12.35.3.12 emacspeak-chess-northeast
 ....................................
 
  -- Command: emacspeak-chess-northeast
 
      Move northeast one step.
 
-12.35.2.13 emacspeak-chess-northwest
+12.35.3.13 emacspeak-chess-northwest
 ....................................
 
  -- Command: emacspeak-chess-northwest
 
      Move northwest one step.
 
-12.35.2.14 emacspeak-chess-south
+12.35.3.14 emacspeak-chess-south
 ................................
 
  -- Command: emacspeak-chess-south
 
      Move south one step.
 
-12.35.2.15 emacspeak-chess-southeast
+12.35.3.15 emacspeak-chess-southeast
 ....................................
 
  -- Command: emacspeak-chess-southeast
 
      Move southeast one step.
 
-12.35.2.16 emacspeak-chess-southwest
+12.35.3.16 emacspeak-chess-southwest
 ....................................
 
  -- Command: emacspeak-chess-southwest
 
      Move southwest one step.
 
-12.35.2.17 emacspeak-chess-speak-that-square
+12.35.3.17 emacspeak-chess-speak-that-square
 ............................................
 
  -- Command: emacspeak-chess-speak-that-square (coord)
@@ -7334,14 +7342,14 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
 
      (fn COORD)
 
-12.35.2.18 emacspeak-chess-speak-this-square
+12.35.3.18 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.35.2.19 emacspeak-chess-west
+12.35.3.19 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west
