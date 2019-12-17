@@ -314,6 +314,7 @@ See  \\{soundscape-default-theme} for details."
     ("BlopEchoes"  (elfeed-search-mode))
     ("Bonfire" (calendar-mode diary-mode))
     ("BuddhaLoop" (comint-mode))
+    ("BuddhaLoop" (chess-display-mode))
     ("RandomLoop" nil)
     ("LoopStew" (lisp-interaction-mode))
     ("Cavern" (prog-mode))
@@ -335,6 +336,7 @@ See  \\{soundscape-default-theme} for details."
     ("Still" (text-mode view-mode))
     ("BuddhaLoop" (org-mode))
     ("SurfWaves"  (eww-mode))
+    
     ("TonkSpace" (tabulated-list-mode))
     ("WaterFlow"  (dired-mode))
     )
