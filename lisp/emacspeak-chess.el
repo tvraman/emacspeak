@@ -497,8 +497,7 @@ specifies index of move default is final index."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'progress)
-    (dtk-speak (emacspeak-chess-describe-move))
-    ))
+    (dtk-speak (emacspeak-chess-describe-move chess-module-game))))
 
 
 (defadvice chess-display-move-first (around emacspeak pre act comp)
