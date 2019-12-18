@@ -1,0 +1,58 @@
+* Overview 
+
+** Research question: 
+
+   What type of spoken feedback does one need to:
+
+    1. Learn Chess.
+    2. Examine and learn from games.
+    3. Play effectively.
+    4. View the state of the game from different perspectives during a game.
+    5. Provide auditory feedback that is both succinct and maximally informative.
+    6. Arrive at  a spoken notation for speaking various game states
+       that is both expressive and time-efficient.
+
+
+** Speech-Enabling Chess In Emacspeak
+
+
+To answer some or all of the above questions, I speech-enabled Emacs
+Chess last weekend via module [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L41][emacspeak-chess.el]]  — see [[http://tvraman.github.io/emacspeak/manual/emacspeak_002dchess.html#emacspeak_002dchess][User Manual]]
+for complete end-user documentation.
+
+Module ~emacspeak-chess~ speech-enables Emacs Chess by:
+
+  1. Providing interactive commands that let the user navigate and browse the
+     chessboard along the eight compass directions from the current square.
+  2. Spoken output uses audio-formatting  — subtle changes in voice
+     characteristics backed up by auditory icons  — to indicate the
+     color of squares and pieces.
+  3. Speaking each  current  move as it happens.
+  4. Adding the same spoken output to ~emacs chess~ commands for
+     moving back and forth through a game.
+  
+
+In the above, all of the heavy lifting is done by three  functions:
+
+  - [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L146-L178][emacspeak-chess-describe-square]]: Speak state of current square.
+- [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L1-L269][emacspeak-chess-collect-squares]]: Collect squares along a given rank,
+  file, or diagonal, starting at and including the current square.
+  -  [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L146-L383][emacspeak-chess-describe-move]]: Describe current move.
+
+
+Share And Enjoy!
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak
+#+date: <2019-12-18 Wed>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.0.50 (Org mode 9.3)
