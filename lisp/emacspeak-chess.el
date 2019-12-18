@@ -584,8 +584,7 @@ specifies index of move default is final index."
 
 (defun emacspeak-chess-setup ()
   "Emacspeak setup for Chess."
-  (cl-declare (special chess-default-modules
-                       chess-display-mode-map))
+  (cl-declare (special chess-default-modules chess-display-mode-map))
   (cl-pushnew 'chess-emacspeak chess-default-modules)
   (cl-loop
    for binding in
@@ -603,7 +602,9 @@ specifies index of move default is final index."
      ("l" emacspeak-chess-speak-that-square)
      ("j" emacspeak-chess-jump))
    do
-   (emacspeak-keymap-update chess-display-mode-map binding)))
+   (emacspeak-keymap-update chess-display-mode-map binding))
+  (switch-to-buffer "*Chessboard*")
+  (emacspeak-chess-jump "a1"))
 
 ;;}}}
 (provide 'emacspeak-chess)
