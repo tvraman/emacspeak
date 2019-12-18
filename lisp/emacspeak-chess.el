@@ -140,7 +140,7 @@
   "Return piece name."
   (cdr (assq (downcase char) emacspeak-chess-piece-names)))
 (defconst emacspeak-chess-whites
-  '(?R ?N ?B ?K ?Q ?P)
+  '(?P ?R ?N ?B ?K ?Q)
   "White chess pieces.")
 
 (defun emacspeak-chess-describe-square (index)
