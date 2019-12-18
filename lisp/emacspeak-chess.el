@@ -564,17 +564,15 @@ specifies index of move default is final index."
 ;;{{{emacspeak Handler:
 
 (defun chess-emacspeak-handler (game event &rest args)
-  "Speak the move."
+  "Module chess-emacspeak handler."
   (cond
    ((eq event 'initialize)
     (emacspeak-chess-setup)
     (emacspeak-auditory-icon 'open-object)
-    (message "Buffer %s" (current-buffer))
     t)
    ((eq event 'move)
     (dtk-speak  (emacspeak-chess-describe-move game))
-    (emacspeak-auditory-icon 'time)
-    )
+    (emacspeak-auditory-icon 'time))
    ((eq event 'kibitz)
     (message (car args)))))
 
