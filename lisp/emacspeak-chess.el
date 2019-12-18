@@ -572,7 +572,8 @@ specifies index of move default is final index."
     t)
    ((eq event 'move)
     (dtk-speak  (emacspeak-chess-describe-move game))
-    (emacspeak-auditory-icon 'time))
+    (emacspeak-auditory-icon 'time)
+    t)
    ((eq event 'kibitz)
     (message (car args)))))
 
@@ -602,9 +603,7 @@ specifies index of move default is final index."
      ("l" emacspeak-chess-speak-that-square)
      ("j" emacspeak-chess-jump))
    do
-   (emacspeak-keymap-update chess-display-mode-map binding))
-  (switch-to-buffer "*Chessboard*")
-  (emacspeak-chess-jump "a1"))
+   (emacspeak-keymap-update chess-display-mode-map binding)))
 
 ;;}}}
 (provide 'emacspeak-chess)
