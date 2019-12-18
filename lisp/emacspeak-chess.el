@@ -427,7 +427,7 @@ specifies index of move default is final index."
               "promotes  to %s"
               (emacspeak-chess-piece-name promotion)))))
     (when (chess-ply-keyword ply :en-passant)
-      (setq text (concat text ", " "en passant")))
+      (setq text (concat text ", " "in passing ")))
     (when (chess-ply-keyword ply :check)
       (setq text (concat text ", " "check")))
     (when (chess-ply-keyword ply :checkmate)
