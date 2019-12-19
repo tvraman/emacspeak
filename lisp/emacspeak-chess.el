@@ -155,7 +155,7 @@
           white (memq piece emacspeak-chess-whites) ;upper-case is white
           piece (emacspeak-chess-piece-name  piece))
     (unless white
-      (setq piece (propertize  piece 'personality voice-bolden)))
+      (setq piece (propertize  piece 'personality voice-bolden-extra)))
     (if light ;;; square color
         (setq coord (propertize  coord 'personality voice-monotone))
       (setq coord (propertize  coord 'personality voice-lighten-extra )))
