@@ -388,10 +388,8 @@
         (squares nil))
     (cl-assert index t "Not on a valid square.")
     (cl-loop
-     for dir in emacspeak-chess-knight-moves 
-     
-     do
-     (setq target (+ index dir))
+     for dir in emacspeak-chess-knight-moves do
+     (setq target (chess-next-index  index dir))
      (push (emacspeak-chess-describe-square target) squares))
     (setq result (nreverse squares))
     (flatten-list
