@@ -393,7 +393,8 @@
     (cl-loop
      for dir in emacspeak-chess-knight-moves do
      (setq target (chess-next-index  index dir))
-     (push (emacspeak-chess-describe-square target) squares))
+     (when target
+       (push (emacspeak-chess-describe-square target) squares)))
     (setq result (nreverse squares))
     (flatten-list
      (cl-loop
