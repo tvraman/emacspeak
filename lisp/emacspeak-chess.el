@@ -361,9 +361,52 @@
    ("\\" emacspeak-chess-look-southeast)
    ("/" emacspeak-chess-look-southwest)
    ("v" emacspeak-chess-speak-this-square)
+   ("k" emacspeak-chess-look-knight)
    )
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
+
+
+(defconst emacspeak-chess-knight-moves
+  (list
+   chess-direction-north-northeast
+   chess-direction-east-northeast 
+   chess-direction-east-southeast 
+   chess-direction-south-southeast 
+   chess-direction-south-southwest 
+   chess-direction-west-southwest 
+   chess-direction-west-northwest 
+   chess-direction-north-northwest)
+  "Index offsets for knight moves.")
+
+(defun emacspeak-chess-collect-knight-squares ()
+  "List of non-empty squares a knight can reach from current position."
+  (cl-declare (special emacspeak-chess-knight-moves))
+  (let ((index (get-text-property (point) 'chess-coord))
+        (result nil)
+        (target nil)
+        (squares nil))
+    (cl-assert index t "Not on a valid square.")
+    (cl-loop
+     for dir in emacspeak-chess-knight-moves 
+     
+     do
+     (setq target (+ index dir))
+     (push (emacspeak-chess-describe-square target) squares))
+    (setq result (nreverse squares))
+    (flatten-list
+     (cl-loop
+      for s in result
+      when
+      (= (length s) 2)
+      collect s)))) 
+
+
+(defun emacspeak-chess-look-knight ()
+  "Look along non-empty squares reachable by a knight from current position. "
+  (interactive)
+  (emacspeak-auditory-icon 'task-done)
+  (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2))
 
 ;;}}}
 ;;{{{Speaking Moves:
