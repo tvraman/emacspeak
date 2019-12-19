@@ -361,7 +361,6 @@
    ("\\" emacspeak-chess-look-southeast)
    ("/" emacspeak-chess-look-southwest)
    ("v" emacspeak-chess-speak-this-square)
-   ("t" emacspeak-chess-speak-that-square)
    )
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
