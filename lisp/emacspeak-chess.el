@@ -84,10 +84,13 @@
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
 ;;; @end itemize
-;;; You can obtain views of the board along the rows and diagonals:
+;;; You can obtain views of the board along the rows and diagonals, as
+;;;well as a @emph{knight's perspective }:
 ;;; @itemize @bullet
 ;;; @item Viewers: @kbd{v} followed by the directional navigation keys
-;;;speaks the squares in that direction from the current square.
+;;;speaks the squares in that direction from the current
+;;;square. @kbd{vk} speaks the squares from a knight's perspective,
+;;;i.e. the squares the Knight would see  from the current position.
 ;;; @end itemize
 ;;; @subsection Examining Games
 
