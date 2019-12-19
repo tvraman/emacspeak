@@ -110,20 +110,6 @@
   (require 'chess-display nil 'noerror))
 
 ;;}}}
-;;{{{ Map Faces:
-
-(voice-setup-add-map
- '(
-   (chess-display-black-face voice-bolden)
-   (chess-display-white-face voice-lighten)
-   (chess-ics1-black-face voice-bolden)
-   (chess-ics1-highlight-face voice-animate)
-   (chess-ics1-white-face voice-lighten)
-   (chess-plain-black-face voice-bolden)
-   (chess-plain-highlight-face voice-animate)
-   (chess-plain-white-face voice-lighten)))
-
-;;}}}
 ;;{{{Helpers:
 
 (defvar emacspeak-chess-piece-names
