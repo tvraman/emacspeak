@@ -80,7 +80,7 @@
 ;;; You can also jump to a given board position by:
 ;;; @itemize @bullet
 ;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
-;;; @item Target: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
+;;; @item Target of last move: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
 ;;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
