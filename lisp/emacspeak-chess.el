@@ -191,6 +191,7 @@
   (interactive)
   (cl-declare (special emacspeak-chess-last-target))
   (emacspeak-auditory-icon 'large-movement)
+  (cl-assert emacspeak-chess-last-target t "No recent target")
   (goto-char
    (chess-display-index-pos
     (current-buffer)
@@ -481,7 +482,7 @@ specifies index of move, default is final index."
     (when (chess-ply-keyword ply :stalemate)
       (setq text (concat text ", " "stalemate ")))
     (when target
-        (setq emacspeak-chess-last-target target))
+      (setq emacspeak-chess-last-target target))
     text))
 
 ;;}}}
