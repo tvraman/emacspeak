@@ -412,11 +412,13 @@
 
 ;;}}}
 ;;{{{Speaking Moves:
+(defvar emacspeak-chess-last-target nil
+  "Target square of most recent move.")
 
 (defun emacspeak-chess-describe-move (game &optional move-index)
   "Speak the move by examining game.  Optional argument `move-index'
-specifies index of move default is final index."
-  (cl-declare (special emacspeak-chess-whites ))
+specifies index of move, default is final index."
+  (cl-declare (special emacspeak-chess-whites  emacspeak-chess-last-target))
   (let*
       ((ply
         (chess-game-ply
@@ -466,6 +468,8 @@ specifies index of move default is final index."
       (setq text (concat text ", " "checkmate ")))
     (when (chess-ply-keyword ply :stalemate)
       (setq text (concat text ", " "stalemate ")))
+    (when target
+        (setq emacspeak-chess-last-target target))
     text))
 
 ;;}}}
