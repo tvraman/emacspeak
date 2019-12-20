@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1248 commands and 909 options.
+This chapter documents a total of 1249 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1608,6 +1608,15 @@ commands and options for details.
 
 @format
 Move east one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-goto-target
+@deffn {Command} emacspeak-chess-goto-target   
+@findex emacspeak-chess-goto-target
+
+@format
+Jump to the most recent target square.
 @end format
 @end deffn
 
@@ -5406,6 +5415,7 @@ You can also move along the diagonals:
 You can also jump to a given board position by:
 @itemize @bullet
 @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
+@item Target of last move: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
 @item Look: @code{emacspeak-chess-speak-that-square} bound to
 @kbd{l}.
 @item  Review   current square: @kbd{;}.
