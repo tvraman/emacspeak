@@ -80,6 +80,7 @@
 ;;; You can also jump to a given board position by:
 ;;; @itemize @bullet
 ;;; @item  Jump: @code{emacspeak-chess-jump} bound to @kbd{j}.
+;;; @item Target: @code{emacspeak-chess-goto-target} bound to @kbd{t}.
 ;;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
@@ -184,6 +185,17 @@
 
 ;;}}}
 ;;{{{Board Navigation:
+
+(defun emacspeak-chess-goto-target ()
+  "Jump to the most recent target square."
+  (interactive)
+  (cl-declare (special emacspeak-chess-last-target))
+  (emacspeak-auditory-icon 'large-movement)
+  (goto-char
+   (chess-display-index-pos
+    (current-buffer)
+    emacspeak-chess-last-target))
+  (emacspeak-chess-speak-this-square))
 
 (defun emacspeak-chess-jump (coord)
   "Jump to square specified as coord."
@@ -636,10 +648,11 @@ specifies index of move, default is final index."
      ("\\" emacspeak-chess-southeast)
      ("/" emacspeak-chess-southwest)
      ("l" emacspeak-chess-speak-that-square)
-     ("j" emacspeak-chess-jump))
+     ("j" emacspeak-chess-jump)
+     ("t" emacspeak-chess-goto-target))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
-
+ 
 ;;}}}
 (provide 'emacspeak-chess)
 ;;{{{ end of file
