@@ -430,8 +430,7 @@
   "Return a description of where a given piece is on the board."
   (cl-declare (special chess-display-index chess-module-game))
   (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
-  (let* ((position (chess-game-pos chess-module-game
-                                   chess-display-index))
+  (let* ((position (chess-game-pos chess-module-game chess-display-index))
          (where (chess-pos-search position piece))
          (color (memq piece emacspeak-chess-whites)))
     (cl-assert where t "%s not on board." (emacspeak-chess-piece-name
