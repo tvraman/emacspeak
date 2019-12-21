@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1250 commands and 909 options.
+This chapter documents a total of 1251 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5196,7 +5196,8 @@ Package @emph{Chess} allows one to browse through a game using
 @kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
 @code{chess-display-move-forward}.  Emacspeak speech-enables these
 commands to speak the move that led to the currently displayed
-state of the game.
+state of the game. Finally, @kbd{m} speaks the @emph{current move}
+being displayed. 
 
 @subsection Emacspeak-Chess Commands
 
@@ -5372,6 +5373,15 @@ Move southwest one step.
 Speak square at specified coord.
 
 (fn COORD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-this-move
+@deffn {Command} emacspeak-chess-speak-this-move   
+@findex emacspeak-chess-speak-this-move
+
+@format
+Speak move at current display index.
 @end format
 @end deffn
 

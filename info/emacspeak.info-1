@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 20, 2019.
+last updated on December 21, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1250 commands and 909 options.
+   This chapter documents a total of 1251 commands and 909 options.
 
 * Menu:
 
@@ -7173,7 +7173,8 @@ well as a _knight’s perspective _:
 Package _Chess_ allows one to browse through a game using ‘,’ and ‘.’ —
 ‘chess-display-move-backward’ and ‘chess-display-move-forward’.
 Emacspeak speech-enables these commands to speak the move that led to
-the currently displayed state of the game.
+the currently displayed state of the game.  Finally, ‘m’ speaks the
+_current move_ being displayed.
 
 12.35.3 Emacspeak-Chess Commands
 --------------------------------
@@ -7315,14 +7316,21 @@ the currently displayed state of the game.
 
      (fn COORD)
 
-12.35.3.20 emacspeak-chess-speak-this-square
+12.35.3.20 emacspeak-chess-speak-this-move
+..........................................
+
+ -- Command: emacspeak-chess-speak-this-move
+
+     Speak move at current display index.
+
+12.35.3.21 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.35.3.21 emacspeak-chess-west
+12.35.3.22 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west
@@ -7491,30 +7499,4 @@ File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: em
 =====================
 
 Provide additional advice to CPerl mode
-
-
-File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
-
-12.43 emacspeak-custom
-======================
-
-Advise custom to speak.  most of the work is actually done by
-emacspeak-widget.el which speech-enables the widget libraries.
-
-12.43.1 Emacspeak-Custom Commands
----------------------------------
-
-12.43.1.1 emacspeak-custom-goto-group
-.....................................
-
- -- Command: emacspeak-custom-goto-group
-
-     Jump to custom group when in a customization buffer.
-
-12.43.1.2 emacspeak-custom-goto-toolbar
-.......................................
-
- -- Command: emacspeak-custom-goto-toolbar
-
-     Jump to custom toolbar when in a customization buffer.
 
