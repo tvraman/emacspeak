@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1249 commands and 909 options.
+   This chapter documents a total of 1250 commands and 909 options.
 
 * Menu:
 
@@ -4109,152 +4109,8 @@ system.
      See the online documentation C-e TAB for individual
      commands and options for details.
 
-12.9.1.2 emacspeak-chess-east
-.............................
-
- -- Command: emacspeak-chess-east
-
-     Move east one step.
-
-12.9.1.3 emacspeak-chess-goto-target
-....................................
-
- -- Command: emacspeak-chess-goto-target
-
-     Jump to the most recent target square.
-
-12.9.1.4 emacspeak-chess-jump
-.............................
-
- -- Command: emacspeak-chess-jump (coord)
-
-     Jump to square specified as coord.
-
-     (fn COORD)
-
-12.9.1.5 emacspeak-chess-look-east
-..................................
-
- -- Command: emacspeak-chess-look-east
-
-     Look east
-
-12.9.1.6 emacspeak-chess-look-north
-...................................
-
- -- Command: emacspeak-chess-look-north
-
-     Look north
-
-12.9.1.7 emacspeak-chess-look-northeast
-.......................................
-
- -- Command: emacspeak-chess-look-northeast
-
-     Look northeast
-
-12.9.1.8 emacspeak-chess-look-northwest
-.......................................
-
- -- Command: emacspeak-chess-look-northwest
-
-     Look northwest
-
-12.9.1.9 emacspeak-chess-look-south
-...................................
-
- -- Command: emacspeak-chess-look-south
-
-     Look south
-
-12.9.1.10 emacspeak-chess-look-southeast
-........................................
-
- -- Command: emacspeak-chess-look-southeast
-
-     Look southeast
-
-12.9.1.11 emacspeak-chess-look-southwest
-........................................
-
- -- Command: emacspeak-chess-look-southwest
-
-     Look southwest
-
-12.9.1.12 emacspeak-chess-look-west
-...................................
-
- -- Command: emacspeak-chess-look-west
-
-     Look west
-
-12.9.1.13 emacspeak-chess-north
-...............................
-
- -- Command: emacspeak-chess-north
-
-     Move north one step.
-
-12.9.1.14 emacspeak-chess-northeast
-...................................
-
- -- Command: emacspeak-chess-northeast
-
-     Move northeast one step.
-
-12.9.1.15 emacspeak-chess-northwest
-...................................
-
- -- Command: emacspeak-chess-northwest
-
-     Move northwest one step.
-
-12.9.1.16 emacspeak-chess-south
-...............................
-
- -- Command: emacspeak-chess-south
-
-     Move south one step.
-
-12.9.1.17 emacspeak-chess-southeast
-...................................
-
- -- Command: emacspeak-chess-southeast
-
-     Move southeast one step.
-
-12.9.1.18 emacspeak-chess-southwest
-...................................
-
- -- Command: emacspeak-chess-southwest
-
-     Move southwest one step.
-
-12.9.1.19 emacspeak-chess-speak-that-square
-...........................................
-
- -- Command: emacspeak-chess-speak-that-square (coord)
-
-     Speak square at specified coord.
-
-     (fn COORD)
-
-12.9.1.20 emacspeak-chess-speak-this-square
-...........................................
-
- -- Command: emacspeak-chess-speak-this-square
-
-     Speak square under point.
-
-12.9.1.21 emacspeak-chess-west
-..............................
-
- -- Command: emacspeak-chess-west
-
-     Move west one step.
-
-12.9.1.22 emacspeak-describe-emacspeak
-......................................
+12.9.1.2 emacspeak-describe-emacspeak
+.....................................
 
  -- Command: emacspeak-describe-emacspeak
      ‘C-h C-e’
@@ -4263,15 +4119,15 @@ system.
 
      Give a brief overview of emacspeak.
 
-12.9.1.23 emacspeak-info
-........................
+12.9.1.3 emacspeak-info
+.......................
 
  -- Command: emacspeak-info
 
      Open Emacspeak Info Manual.
 
-12.9.1.24 emacspeak-submit-bug
-..............................
+12.9.1.4 emacspeak-submit-bug
+.............................
 
  -- Command: emacspeak-submit-bug
      ‘C-e C-M-b’
@@ -5454,51 +5310,6 @@ system.
      Personality used for link-visited This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
-
- -- Variable: User Option voice-lispy-face-hint
-     Personality used for lispy-face-hint This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-lispy-face-key-nosel
-     Personality used for lispy-face-key-nosel This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-lispy-face-key-sel
-     Personality used for lispy-face-key-sel This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-lispy-face-opt-nosel
-     Personality used for lispy-face-opt-nosel This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-lispy-face-opt-sel
-     Personality used for lispy-face-opt-sel This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-lispy-face-req-nosel
-     Personality used for lispy-face-req-nosel This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-lispy-face-req-sel
-     Personality used for lispy-face-req-sel This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-lispy-face-rst-nosel
-     Personality used for lispy-face-rst-nosel This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-lispy-face-rst-sel
-     Personality used for lispy-face-rst-sel This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
 
  -- Variable: User Option voice-log-edit-header
      Personality used for log-edit-header This personality uses
@@ -7364,6 +7175,160 @@ Package _Chess_ allows one to browse through a game using ‘,’ and ‘.’ �
 Emacspeak speech-enables these commands to speak the move that led to
 the currently displayed state of the game.
 
+12.35.3 Emacspeak-Chess Commands
+--------------------------------
+
+12.35.3.1 emacspeak-chess-east
+..............................
+
+ -- Command: emacspeak-chess-east
+
+     Move east one step.
+
+12.35.3.2 emacspeak-chess-goto-target
+.....................................
+
+ -- Command: emacspeak-chess-goto-target
+
+     Jump to the most recent target square.
+
+12.35.3.3 emacspeak-chess-jump
+..............................
+
+ -- Command: emacspeak-chess-jump (coord)
+
+     Jump to square specified as coord.
+
+     (fn COORD)
+
+12.35.3.4 emacspeak-chess-look-east
+...................................
+
+ -- Command: emacspeak-chess-look-east
+
+     Look east
+
+12.35.3.5 emacspeak-chess-look-knight
+.....................................
+
+ -- Command: emacspeak-chess-look-knight
+
+     Look along non-empty squares reachable by a knight from current position.
+
+12.35.3.6 emacspeak-chess-look-north
+....................................
+
+ -- Command: emacspeak-chess-look-north
+
+     Look north
+
+12.35.3.7 emacspeak-chess-look-northeast
+........................................
+
+ -- Command: emacspeak-chess-look-northeast
+
+     Look northeast
+
+12.35.3.8 emacspeak-chess-look-northwest
+........................................
+
+ -- Command: emacspeak-chess-look-northwest
+
+     Look northwest
+
+12.35.3.9 emacspeak-chess-look-south
+....................................
+
+ -- Command: emacspeak-chess-look-south
+
+     Look south
+
+12.35.3.10 emacspeak-chess-look-southeast
+.........................................
+
+ -- Command: emacspeak-chess-look-southeast
+
+     Look southeast
+
+12.35.3.11 emacspeak-chess-look-southwest
+.........................................
+
+ -- Command: emacspeak-chess-look-southwest
+
+     Look southwest
+
+12.35.3.12 emacspeak-chess-look-west
+....................................
+
+ -- Command: emacspeak-chess-look-west
+
+     Look west
+
+12.35.3.13 emacspeak-chess-north
+................................
+
+ -- Command: emacspeak-chess-north
+
+     Move north one step.
+
+12.35.3.14 emacspeak-chess-northeast
+....................................
+
+ -- Command: emacspeak-chess-northeast
+
+     Move northeast one step.
+
+12.35.3.15 emacspeak-chess-northwest
+....................................
+
+ -- Command: emacspeak-chess-northwest
+
+     Move northwest one step.
+
+12.35.3.16 emacspeak-chess-south
+................................
+
+ -- Command: emacspeak-chess-south
+
+     Move south one step.
+
+12.35.3.17 emacspeak-chess-southeast
+....................................
+
+ -- Command: emacspeak-chess-southeast
+
+     Move southeast one step.
+
+12.35.3.18 emacspeak-chess-southwest
+....................................
+
+ -- Command: emacspeak-chess-southwest
+
+     Move southwest one step.
+
+12.35.3.19 emacspeak-chess-speak-that-square
+............................................
+
+ -- Command: emacspeak-chess-speak-that-square (coord)
+
+     Speak square at specified coord.
+
+     (fn COORD)
+
+12.35.3.20 emacspeak-chess-speak-this-square
+............................................
+
+ -- Command: emacspeak-chess-speak-this-square
+
+     Speak square under point.
+
+12.35.3.21 emacspeak-chess-west
+...............................
+
+ -- Command: emacspeak-chess-west
+
+     Move west one step.
+
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
 
@@ -7518,4 +7483,38 @@ better.
      Personality used for compilation-warning This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
+
+12.42 emacspeak-cperl
+=====================
+
+Provide additional advice to CPerl mode
+
+
+File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
+
+12.43 emacspeak-custom
+======================
+
+Advise custom to speak.  most of the work is actually done by
+emacspeak-widget.el which speech-enables the widget libraries.
+
+12.43.1 Emacspeak-Custom Commands
+---------------------------------
+
+12.43.1.1 emacspeak-custom-goto-group
+.....................................
+
+ -- Command: emacspeak-custom-goto-group
+
+     Jump to custom group when in a customization buffer.
+
+12.43.1.2 emacspeak-custom-goto-toolbar
+.......................................
+
+ -- Command: emacspeak-custom-goto-toolbar
+
+     Jump to custom toolbar when in a customization buffer.
 

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1249 commands and 909 options.
+This chapter documents a total of 1250 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1602,190 +1602,6 @@ commands and options for details.
 @end format
 @end deffn
 
-@subsubsection emacspeak-chess-east
-@deffn {Command} emacspeak-chess-east   
-@findex emacspeak-chess-east
-
-@format
-Move east one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-goto-target
-@deffn {Command} emacspeak-chess-goto-target   
-@findex emacspeak-chess-goto-target
-
-@format
-Jump to the most recent target square.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-jump
-@deffn {Command} emacspeak-chess-jump  (coord)
-@findex emacspeak-chess-jump
-
-@format
-Jump to square specified as coord.
-
-(fn COORD)
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-east
-@deffn {Command} emacspeak-chess-look-east   
-@findex emacspeak-chess-look-east
-
-@format
-Look east 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-north
-@deffn {Command} emacspeak-chess-look-north   
-@findex emacspeak-chess-look-north
-
-@format
-Look north 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-northeast
-@deffn {Command} emacspeak-chess-look-northeast   
-@findex emacspeak-chess-look-northeast
-
-@format
-Look northeast 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-northwest
-@deffn {Command} emacspeak-chess-look-northwest   
-@findex emacspeak-chess-look-northwest
-
-@format
-Look northwest 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-south
-@deffn {Command} emacspeak-chess-look-south   
-@findex emacspeak-chess-look-south
-
-@format
-Look south 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-southeast
-@deffn {Command} emacspeak-chess-look-southeast   
-@findex emacspeak-chess-look-southeast
-
-@format
-Look southeast 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-southwest
-@deffn {Command} emacspeak-chess-look-southwest   
-@findex emacspeak-chess-look-southwest
-
-@format
-Look southwest 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-look-west
-@deffn {Command} emacspeak-chess-look-west   
-@findex emacspeak-chess-look-west
-
-@format
-Look west 
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-north
-@deffn {Command} emacspeak-chess-north   
-@findex emacspeak-chess-north
-
-@format
-Move north one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-northeast
-@deffn {Command} emacspeak-chess-northeast   
-@findex emacspeak-chess-northeast
-
-@format
-Move northeast one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-northwest
-@deffn {Command} emacspeak-chess-northwest   
-@findex emacspeak-chess-northwest
-
-@format
-Move northwest one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-south
-@deffn {Command} emacspeak-chess-south   
-@findex emacspeak-chess-south
-
-@format
-Move south one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-southeast
-@deffn {Command} emacspeak-chess-southeast   
-@findex emacspeak-chess-southeast
-
-@format
-Move southeast one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-southwest
-@deffn {Command} emacspeak-chess-southwest   
-@findex emacspeak-chess-southwest
-
-@format
-Move southwest one step.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-speak-that-square
-@deffn {Command} emacspeak-chess-speak-that-square  (coord)
-@findex emacspeak-chess-speak-that-square
-
-@format
-Speak square at specified coord.
-
-(fn COORD)
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-speak-this-square
-@deffn {Command} emacspeak-chess-speak-this-square   
-@findex emacspeak-chess-speak-this-square
-
-@format
-Speak square under point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-chess-west
-@deffn {Command} emacspeak-chess-west   
-@findex emacspeak-chess-west
-
-@format
-Move west one step.
-@end format
-@end deffn
-
 @subsubsection emacspeak-describe-emacspeak
 @deffn {Command} emacspeak-describe-emacspeak   
 @table @kbd
@@ -3237,60 +3053,6 @@ This personality uses  voice-bolden-medium whose  effect can be changed globally
 @defvar {User Option} voice-link-visited
 Personality used for link-visited
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-hint
-Personality used for lispy-face-hint
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-key-nosel
-Personality used for lispy-face-key-nosel
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-key-sel
-Personality used for lispy-face-key-sel
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-opt-nosel
-Personality used for lispy-face-opt-nosel
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-opt-sel
-Personality used for lispy-face-opt-sel
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-req-nosel
-Personality used for lispy-face-req-nosel
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-req-sel
-Personality used for lispy-face-req-sel
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-rst-nosel
-Personality used for lispy-face-rst-nosel
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-lispy-face-rst-sel
-Personality used for lispy-face-rst-sel
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 
 @end defvar
 
@@ -5435,6 +5197,201 @@ Package @emph{Chess} allows one to browse through a game using
 @code{chess-display-move-forward}.  Emacspeak speech-enables these
 commands to speak the move that led to the currently displayed
 state of the game.
+
+@subsection Emacspeak-Chess Commands
+
+@subsubsection emacspeak-chess-east
+@deffn {Command} emacspeak-chess-east   
+@findex emacspeak-chess-east
+
+@format
+Move east one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-goto-target
+@deffn {Command} emacspeak-chess-goto-target   
+@findex emacspeak-chess-goto-target
+
+@format
+Jump to the most recent target square.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-jump
+@deffn {Command} emacspeak-chess-jump  (coord)
+@findex emacspeak-chess-jump
+
+@format
+Jump to square specified as coord.
+
+(fn COORD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-east
+@deffn {Command} emacspeak-chess-look-east   
+@findex emacspeak-chess-look-east
+
+@format
+Look east 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-knight
+@deffn {Command} emacspeak-chess-look-knight   
+@findex emacspeak-chess-look-knight
+
+@format
+Look along non-empty squares reachable by a knight from current position. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-north
+@deffn {Command} emacspeak-chess-look-north   
+@findex emacspeak-chess-look-north
+
+@format
+Look north 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-northeast
+@deffn {Command} emacspeak-chess-look-northeast   
+@findex emacspeak-chess-look-northeast
+
+@format
+Look northeast 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-northwest
+@deffn {Command} emacspeak-chess-look-northwest   
+@findex emacspeak-chess-look-northwest
+
+@format
+Look northwest 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-south
+@deffn {Command} emacspeak-chess-look-south   
+@findex emacspeak-chess-look-south
+
+@format
+Look south 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-southeast
+@deffn {Command} emacspeak-chess-look-southeast   
+@findex emacspeak-chess-look-southeast
+
+@format
+Look southeast 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-southwest
+@deffn {Command} emacspeak-chess-look-southwest   
+@findex emacspeak-chess-look-southwest
+
+@format
+Look southwest 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-look-west
+@deffn {Command} emacspeak-chess-look-west   
+@findex emacspeak-chess-look-west
+
+@format
+Look west 
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-north
+@deffn {Command} emacspeak-chess-north   
+@findex emacspeak-chess-north
+
+@format
+Move north one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-northeast
+@deffn {Command} emacspeak-chess-northeast   
+@findex emacspeak-chess-northeast
+
+@format
+Move northeast one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-northwest
+@deffn {Command} emacspeak-chess-northwest   
+@findex emacspeak-chess-northwest
+
+@format
+Move northwest one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-south
+@deffn {Command} emacspeak-chess-south   
+@findex emacspeak-chess-south
+
+@format
+Move south one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-southeast
+@deffn {Command} emacspeak-chess-southeast   
+@findex emacspeak-chess-southeast
+
+@format
+Move southeast one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-southwest
+@deffn {Command} emacspeak-chess-southwest   
+@findex emacspeak-chess-southwest
+
+@format
+Move southwest one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-that-square
+@deffn {Command} emacspeak-chess-speak-that-square  (coord)
+@findex emacspeak-chess-speak-that-square
+
+@format
+Speak square at specified coord.
+
+(fn COORD)
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-this-square
+@deffn {Command} emacspeak-chess-speak-this-square   
+@findex emacspeak-chess-speak-this-square
+
+@format
+Speak square under point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-west
+@deffn {Command} emacspeak-chess-west   
+@findex emacspeak-chess-west
+
+@format
+Move west one step.
+@end format
+@end deffn
 
 @node emacspeak-cider
 @section emacspeak-cider
@@ -10961,6 +10918,62 @@ turned on when at the end of an s-expression.
 @item  Produce auditory icon @code{left} or @code{right} to indicate point being at the beginning or end of current line.
 @item Indicate with an auditory icon if point did not move.
 @end itemize
+
+@subsection emacspeak-lispy Options
+
+@defvar {User Option} voice-lispy-face-hint
+Personality used for lispy-face-hint
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-key-nosel
+Personality used for lispy-face-key-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-key-sel
+Personality used for lispy-face-key-sel
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-opt-nosel
+Personality used for lispy-face-opt-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-opt-sel
+Personality used for lispy-face-opt-sel
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-req-nosel
+Personality used for lispy-face-req-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-req-sel
+Personality used for lispy-face-req-sel
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-rst-nosel
+Personality used for lispy-face-rst-nosel
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-lispy-face-rst-sel
+Personality used for lispy-face-rst-sel
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
 
 @node emacspeak-lua
 @section emacspeak-lua

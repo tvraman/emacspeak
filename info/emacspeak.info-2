@@ -12,40 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
-
-12.42 emacspeak-cperl
-=====================
-
-Provide additional advice to CPerl mode
-
-
-File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
-
-12.43 emacspeak-custom
-======================
-
-Advise custom to speak.  most of the work is actually done by
-emacspeak-widget.el which speech-enables the widget libraries.
-
-12.43.1 Emacspeak-Custom Commands
----------------------------------
-
-12.43.1.1 emacspeak-custom-goto-group
-.....................................
-
- -- Command: emacspeak-custom-goto-group
-
-     Jump to custom group when in a customization buffer.
-
-12.43.1.2 emacspeak-custom-goto-toolbar
-.......................................
-
- -- Command: emacspeak-custom-goto-toolbar
-
-     Jump to custom toolbar when in a customization buffer.
-
-
 File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-deadgrep,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
 
 12.44 emacspeak-dbus
@@ -4690,6 +4656,54 @@ following:
    • Produce auditory icon ‘left’ or ‘right’ to indicate point being at
      the beginning or end of current line.
    • Indicate with an auditory icon if point did not move.
+
+12.119.2 emacspeak-lispy Options
+--------------------------------
+
+ -- Variable: User Option voice-lispy-face-hint
+     Personality used for lispy-face-hint This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-lispy-face-key-nosel
+     Personality used for lispy-face-key-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-lispy-face-key-sel
+     Personality used for lispy-face-key-sel This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-lispy-face-opt-nosel
+     Personality used for lispy-face-opt-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-lispy-face-opt-sel
+     Personality used for lispy-face-opt-sel This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-lispy-face-req-nosel
+     Personality used for lispy-face-req-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-lispy-face-req-sel
+     Personality used for lispy-face-req-sel This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option voice-lispy-face-rst-nosel
+     Personality used for lispy-face-rst-nosel This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-lispy-face-rst-sel
+     Personality used for lispy-face-rst-sel This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-lua,  Next: emacspeak-m-player,  Prev: emacspeak-lispy,  Up: Emacspeak Commands And Options

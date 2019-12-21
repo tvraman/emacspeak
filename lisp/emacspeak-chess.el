@@ -382,18 +382,18 @@
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
 
-
-(defconst emacspeak-chess-knight-moves
-  (list
-   chess-direction-north-northeast
-   chess-direction-east-northeast 
-   chess-direction-east-southeast 
-   chess-direction-south-southeast 
-   chess-direction-south-southwest 
-   chess-direction-west-southwest 
-   chess-direction-west-northwest 
-   chess-direction-north-northwest)
-  "Index offsets for knight moves.")
+(when (featurep 'chess-pos)
+  (defconst emacspeak-chess-knight-moves
+    (list
+     chess-direction-north-northeast
+     chess-direction-east-northeast 
+     chess-direction-east-southeast 
+     chess-direction-south-southeast 
+     chess-direction-south-southwest 
+     chess-direction-west-southwest 
+     chess-direction-west-northwest 
+     chess-direction-north-northwest)
+    "Index offsets for knight moves."))
 
 (defun emacspeak-chess-collect-knight-squares ()
   "List of non-empty squares a knight can reach from current position."
