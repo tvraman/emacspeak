@@ -1937,7 +1937,7 @@ inserted.  Otherwise it is a number that specifies grouping"
            (setq count 1)
            (pop group)
            (if p
-               (insert (propertize "," 'personality p))
+               (insert (propertize ", " 'personality p))
              (insert ", ")))
           (t (cl-incf count)
              (insert " ")))))
