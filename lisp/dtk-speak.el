@@ -1942,7 +1942,8 @@ inserted.  Otherwise it is a number that specifies grouping"
           (t (cl-incf count)
              (insert " ")))))
       (setq contents (buffer-string)))
-    (tts-with-punctuations 'some (dtk-speak contents))))
+    (tts-with-punctuations 'some (dtk-speak contents))
+    t))
 
 (defun dtk-letter (letter)
   "Speak a LETTER."
