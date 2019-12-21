@@ -99,7 +99,8 @@
 ;;;@kbd{,} and @kbd{.}  --- @code{chess-display-move-backward} and
 ;;;@code{chess-display-move-forward}.  Emacspeak speech-enables these
 ;;;commands to speak the move that led to the currently displayed
-;;;state of the game.
+;;;state of the game. Finally, @kbd{m} speaks the @emph{current move}
+;;;being displayed. 
 
 ;;; Code:
 
@@ -485,48 +486,33 @@ specifies index of move, default is final index."
       (setq emacspeak-chess-last-target target))
     text))
 
+(defun emacspeak-chess-speak-this-move ()
+  "Speak move at current display index."
+  (interactive)
+  (cl-declare (special chess-module-game chess-display-index))
+  (dtk-speak (emacspeak-chess-describe-move chess-module-game
+                                            chess-display-index)))
+
+
 ;;}}}
 ;;{{{ Interactive Commands:
+(cl-loop
+ for f in
+ '(chess-display-search-forward chess-display-search-backward)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Provide auditory feedback."
+     (cond
+      ((ems-interactive-p)
+       (let ((orig chess-display-index))
+         ad-do-it
+         (when (not (= orig chess-display-index))
+           (emacspeak-auditory-icon 'search-hit)
+           (dtk-speak  (emacspeak-chess-describe-move chess-module-game chess-display-index)))))
+      (t ad-do-it))
+     ad-return-value)))
 
-'(
-  
-  chess-display-manual-move
-  chess-display-match
-  chess-display-pass
-  chess-display-quit
-  
-  chess-display-search
-  chess-display-search-again
-  chess-display-search-backward
-  chess-display-search-delete
-  chess-display-search-forward
-  chess-display-search-key
-  
-  chess-display-send-board
-  chess-display-set-from-fen
-  chess-display-set-piece
-  chess-display-shuffle
-  chess-display-undo
-  chess-display-yank-board
-  chess-ics
-  chess-images-decrease-size
-  chess-images-increase-size
-  chess-images-set-directory
-  chess-input-shortcut
-  chess-input-shortcut-delete
-  chess-link
-  chess-pgn-complete-move
-  chess-pgn-insert-and-show-position
-  chess-pgn-mode
-  chess-pgn-mouse-show-position
-  chess-pgn-read
-  chess-pgn-show-position
-  chess-plain-customize
-  chess-polyglot-book-close
-  chess-puzzle
-  chess-session
-  chess-tutorial
-  )
 (defun emacspeak-chess-state-speaker  ()
   "Helper function that describes game state."
   (cl-declare (special chess-display-index chess-module-game))
@@ -650,7 +636,8 @@ specifies index of move, default is final index."
      ("/" emacspeak-chess-southwest)
      ("l" emacspeak-chess-speak-that-square)
      ("j" emacspeak-chess-jump)
-     ("t" emacspeak-chess-goto-target))
+     ("t" emacspeak-chess-goto-target)
+     ("m" emacspeak-chess-speak-this-move))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
  
