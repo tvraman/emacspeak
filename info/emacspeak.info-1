@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1251 commands and 909 options.
+   This chapter documents a total of 1252 commands and 909 options.
 
 * Menu:
 
@@ -7160,6 +7160,7 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Target of last move: ‘emacspeak-chess-goto-target’ bound to ‘t’.
    • Look: ‘emacspeak-chess-speak-that-square’ bound to ‘l’.
    • Review current square: ‘;’.
+   • Locate pieces: ‘emacspeak-chess-speak-piece-squares’ bound to ‘s’.
    You can obtain views of the board along the rows and diagonals, as
 well as a _knight’s perspective _:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
@@ -7307,7 +7308,16 @@ _current move_ being displayed.
 
      Move southwest one step.
 
-12.35.3.19 emacspeak-chess-speak-that-square
+12.35.3.19 emacspeak-chess-speak-piece-squares
+..............................................
+
+ -- Command: emacspeak-chess-speak-piece-squares (piece)
+
+     Prompt for a piece (single char) and speak its locations on the board.
+
+     (fn PIECE)
+
+12.35.3.20 emacspeak-chess-speak-that-square
 ............................................
 
  -- Command: emacspeak-chess-speak-that-square (coord)
@@ -7316,21 +7326,21 @@ _current move_ being displayed.
 
      (fn COORD)
 
-12.35.3.20 emacspeak-chess-speak-this-move
+12.35.3.21 emacspeak-chess-speak-this-move
 ..........................................
 
  -- Command: emacspeak-chess-speak-this-move
 
      Speak move at current display index.
 
-12.35.3.21 emacspeak-chess-speak-this-square
+12.35.3.22 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.35.3.22 emacspeak-chess-west
+12.35.3.23 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west
@@ -7491,12 +7501,4 @@ better.
      Personality used for compilation-warning This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
-
-12.42 emacspeak-cperl
-=====================
-
-Provide additional advice to CPerl mode
 

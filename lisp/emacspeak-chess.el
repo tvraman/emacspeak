@@ -84,6 +84,8 @@
 ;;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
+;;; @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
+;;;bound to @kbd{s}.
 ;;; @end itemize
 ;;; You can obtain views of the board along the rows and diagonals, as
 ;;;well as a @emph{knight's perspective }:
@@ -424,6 +426,27 @@
   (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2))
 
+(defun emacspeak-chess-piece-squares (piece)
+  "Return a description of where a given piece is on the board."
+  (cl-declare (special chess-display-index chess-module-game))
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
+  (let* ((position (chess-game-pos chess-module-game
+                                   chess-display-index))
+         (where (chess-pos-search position piece))
+         (color (memq piece emacspeak-chess-whites)))
+    (cl-assert where t "%s not on board." (emacspeak-chess-piece-name
+                                           piece))
+    `(
+     ,(format "%s %s at"
+             (if color "White " "Black ")
+             (emacspeak-chess-piece-name piece))
+     ,@(sort (mapcar  #'chess-index-to-coord where ) #'string-lessp))))
+
+(defun emacspeak-chess-speak-piece-squares (piece)
+  "Prompt for a piece (single char) and speak its locations on the board."
+  (interactive (list (read-char  "Piece:")))
+  (dtk-speak-list (emacspeak-chess-piece-squares piece) 1))
+
 ;;}}}
 ;;{{{Speaking Moves:
 (defvar emacspeak-chess-last-target nil
@@ -637,6 +660,7 @@ specifies index of move, default is final index."
      ("l" emacspeak-chess-speak-that-square)
      ("j" emacspeak-chess-jump)
      ("t" emacspeak-chess-goto-target)
+     ("s" emacspeak-chess-speak-piece-squares)
      ("m" emacspeak-chess-speak-this-move))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))

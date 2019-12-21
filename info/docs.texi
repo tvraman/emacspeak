@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1251 commands and 909 options.
+This chapter documents a total of 1252 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5181,6 +5181,8 @@ You can also jump to a given board position by:
 @item Look: @code{emacspeak-chess-speak-that-square} bound to
 @kbd{l}.
 @item  Review   current square: @kbd{;}.
+@item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
+bound to @kbd{s}.
 @end itemize
 You can obtain views of the board along the rows and diagonals, as
 well as a @emph{knight's perspective }:
@@ -5362,6 +5364,17 @@ Move southeast one step.
 
 @format
 Move southwest one step.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-piece-squares
+@deffn {Command} emacspeak-chess-speak-piece-squares  (piece)
+@findex emacspeak-chess-speak-piece-squares
+
+@format
+Prompt for a piece (single char) and speak its locations on the board.
+
+(fn PIECE)
 @end format
 @end deffn
 
