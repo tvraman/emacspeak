@@ -426,6 +426,31 @@
   (emacspeak-auditory-icon 'task-done)
   (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2))
 
+(defun emacspeak-chess-square-name (index)
+  "Return an audio formatted name of square at given index
+    Argument index is an integer between 0 and 63 as in
+  package chess."
+  (cl-declare (special chess-module-game chess-display-index))
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
+  (let ((position (chess-game-pos chess-module-game chess-display-index))
+        (light nil)
+        (rank nil)
+        (file nil)
+        (coord nil))
+    (cl-assert position t "Could not retrieve game position.")
+    (setq
+     coord (chess-index-to-coord index)
+     rank (chess-index-rank index)
+     file (chess-index-file index)
+     light                              ; square color
+     (or
+      (and (cl-evenp rank ) (cl-evenp file))
+      (and (cl-oddp rank) (cl-oddp file))))
+    (if light ;;; square color
+        (setq coord (propertize  coord 'personality voice-monotone))
+      (setq coord (propertize  coord 'personality voice-lighten-extra )))
+    coord))
+
 (defun emacspeak-chess-piece-squares (piece)
   "Return a description of where a given piece is on the board."
   (cl-declare (special chess-display-index chess-module-game))
@@ -433,13 +458,13 @@
   (let* ((position (chess-game-pos chess-module-game chess-display-index))
          (where (chess-pos-search position piece))
          (color (memq piece emacspeak-chess-whites)))
-    (cl-assert where t "%s not on board." (emacspeak-chess-piece-name
-                                           piece))
+    (cl-assert
+     where t "%s not on board." (emacspeak-chess-piece-name piece))
     `(
-     ,(format "%s %s at"
-             (if color "White " "Black ")
-             (emacspeak-chess-piece-name piece))
-     ,@(sort (mapcar  #'chess-index-to-coord where ) #'string-lessp))))
+      ,(format "%s %s at"
+               (if color "White " "Black ")
+               (emacspeak-chess-piece-name piece))
+      ,@(sort (mapcar  #'emacspeak-chess-square-name where ) #'string-lessp))))
 
 (defun emacspeak-chess-speak-piece-squares (piece)
   "Prompt for a piece (single char) and speak its locations on the board."
