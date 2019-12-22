@@ -124,7 +124,9 @@
     <code>emacspeak-chess-speak-piece-squares</code> bound to
     <kbd>s</kbd>. Specify piece as a single char — <kbd>w</kbd>
     speaks all white pieces, <kbd>l</kbd> speaks all black pieces,
-    use SAN notation char for a specific piece.</li>
+    use SAN notation char for a specific piece. Use <kbd>a</kbd> to
+    hear entire board, this last is most useful when the game is an
+    end-state.</li>
   </ul>
   <p>You can obtain views of the board along the rows and
   diagonals, as well as a <em>knight’s perspective</em> :</p>
@@ -392,9 +394,24 @@
 </pre>
       </div>
     </dd>
+  </dl><span id="emacspeak_002dchess_002dspeak_002dboard"></span>
+  <h4 class="subsubsection">12.35.3.19
+  emacspeak-chess-speak-board</h4>
+  <dl>
+    <dt id="index-emacspeak_002dchess_002dspeak_002dboard">Command:
+    <strong>emacspeak-chess-speak-board</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002dchess_002dspeak_002dboard-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Speak complete board. Only useful in end-states.
+</pre>
+      </div>
+    </dd>
   </dl><span id=
   "emacspeak_002dchess_002dspeak_002dpiece_002dsquares"></span>
-  <h4 class="subsubsection">12.35.3.19
+  <h4 class="subsubsection">12.35.3.20
   emacspeak-chess-speak-piece-squares</h4>
   <dl>
     <dt id=
@@ -408,9 +425,9 @@
       <div class="format">
         <pre class=
         "format">Prompt for a piece (single char) and speak its locations on the
-  board.
-Piece is specified as a char using SAN notation. Use ‘w’ for all
-  whites pieces, and ‘l’ for all black pieces.
+  board.  Piece is specified as a char using SAN notation. Use
+  ‘w’ for all whites pieces,  ‘l’ for all black pieces,
+and ‘a’ for entire board..
 
 (fn PIECE)
 </pre>
@@ -418,7 +435,7 @@ Piece is specified as a char using SAN notation. Use ‘w’ for all
     </dd>
   </dl><span id=
   "emacspeak_002dchess_002dspeak_002dthat_002dsquare"></span>
-  <h4 class="subsubsection">12.35.3.20
+  <h4 class="subsubsection">12.35.3.21
   emacspeak-chess-speak-that-square</h4>
   <dl>
     <dt id=
@@ -437,7 +454,7 @@ Piece is specified as a char using SAN notation. Use ‘w’ for all
     </dd>
   </dl><span id=
   "emacspeak_002dchess_002dspeak_002dthis_002dmove"></span>
-  <h4 class="subsubsection">12.35.3.21
+  <h4 class="subsubsection">12.35.3.22
   emacspeak-chess-speak-this-move</h4>
   <dl>
     <dt id="index-emacspeak_002dchess_002dspeak_002dthis_002dmove">
@@ -452,7 +469,7 @@ Piece is specified as a char using SAN notation. Use ‘w’ for all
     </dd>
   </dl><span id=
   "emacspeak_002dchess_002dspeak_002dthis_002dsquare"></span>
-  <h4 class="subsubsection">12.35.3.22
+  <h4 class="subsubsection">12.35.3.23
   emacspeak-chess-speak-this-square</h4>
   <dl>
     <dt id=
@@ -468,7 +485,7 @@ Piece is specified as a char using SAN notation. Use ‘w’ for all
       </div>
     </dd>
   </dl><span id="emacspeak_002dchess_002dwest"></span>
-  <h4 class="subsubsection">12.35.3.23 emacspeak-chess-west</h4>
+  <h4 class="subsubsection">12.35.3.24 emacspeak-chess-west</h4>
   <dl>
     <dt id="index-emacspeak_002dchess_002dwest">Command:
     <strong>emacspeak-chess-west</strong></dt>
