@@ -533,6 +533,7 @@ and `a' for entire board.."
    (memq piece
          `(?w ?l 
               ,@emacspeak-chess-whites ,@emacspeak-chess-blacks))
+   t
    "Specify a piece char, or w for whites and l for blacks")
   (let* ((pos (chess-game-pos chess-module-game chess-display-index))
          (black (= piece ?l))
