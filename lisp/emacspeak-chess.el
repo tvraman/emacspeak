@@ -527,6 +527,7 @@ specifies index of move, default is final index."
              (emacspeak-chess-piece-name s-piece)
              (chess-index-to-coord target))))
      ((and s-piece t-piece target)
+      (emacspeak-auditory-icon 'close-object)
       (setq text
             (format
              "%s %s takes %s at %s"
