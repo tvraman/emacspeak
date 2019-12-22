@@ -451,17 +451,37 @@
 (defun emacspeak-chess-piece-squares (piece)
   "Return a description of where a given piece is on the board."
   (cl-declare (special chess-display-index chess-module-game))
-  (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
-  (let* ((position (chess-game-pos chess-module-game chess-display-index))
-         (where (chess-pos-search position piece))
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess
+display.")
+  (cl-assert
+   (memq piece
+         `(?w ?l
+           ,@emacspeak-chess-whites ,@(mapcar #'downcase emacspeak-chess-whites)))
+   t
+   "Specify a piece char, or w for whites and l for blacks")
+  (let* ((position (chess-game-pos chess-module-game
+                                   chess-display-index))
+         (black (= piece ?l))
+         (white (= piece ?w))
+         (where
+          (chess-pos-search
+           position
+           (cond
+            (black nil)
+            (white t)
+            (t piece))))
          (color (memq piece emacspeak-chess-whites)))
     (cl-assert
      where t "%s not on board." (emacspeak-chess-piece-name piece))
-    `(
-      ,(format "%s %s at"
-               (if color "White " "Black ")
-               (emacspeak-chess-piece-name piece))
-      ,@(mapcar  #'emacspeak-chess-square-name (sort where '<)))))
+    (cond
+     ((or white black)
+      (mapcar #'emacspeak-chess-describe-square (sort where '<)))
+     (t
+      `(
+        ,(format "%s %s at"
+                 (if color "White " "Black ")
+                 (emacspeak-chess-piece-name piece))
+        ,@(mapcar  #'emacspeak-chess-square-name (sort where '<)))))))
 
 (defun emacspeak-chess-speak-piece-squares (piece)
   "Prompt for a piece (single char) and speak its locations on the board."
