@@ -85,7 +85,9 @@
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
 ;;; @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
-;;;bound to @kbd{s}.
+;;;bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
+;;;all white pieces, @kbd{l} speaks all black pieces, use SAN notation
+;;; char for a specific piece. 
 ;;; @end itemize
 ;;; You can obtain views of the board along the rows and diagonals, as
 ;;;well as a @emph{knight's perspective }:
@@ -484,7 +486,10 @@ display.")
         ,@(mapcar  #'emacspeak-chess-square-name (sort where '<)))))))
 
 (defun emacspeak-chess-speak-piece-squares (piece)
-  "Prompt for a piece (single char) and speak its locations on the board."
+  "Prompt for a piece (single char) and speak its locations on the
+  board.
+Piece is specified as a char using SAN notation. Use `w' for all
+  whites pieces, and `l' for all black pieces."
   (interactive (list (read-char  "Piece:")))
   (dtk-speak-list (emacspeak-chess-piece-squares piece) 1))
 
