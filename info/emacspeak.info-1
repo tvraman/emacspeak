@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 21, 2019.
+last updated on December 22, 2019.
 
    The manual is divided into the following chapters:
 
@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1252 commands and 909 options.
+   This chapter documents a total of 1253 commands and 909 options.
 
 * Menu:
 
@@ -7163,7 +7163,8 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Locate pieces: ‘emacspeak-chess-speak-piece-squares’ bound to ‘s’.
      Specify piece as a single char — ‘w’ speaks all white pieces, ‘l’
      speaks all black pieces, use SAN notation char for a specific
-     piece.
+     piece.  Use ‘a’ to hear entire board, this last is most useful when
+     the game is an end-state.
    You can obtain views of the board along the rows and diagonals, as
 well as a _knight’s perspective _:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
@@ -7311,19 +7312,26 @@ _current move_ being displayed.
 
      Move southwest one step.
 
-12.35.3.19 emacspeak-chess-speak-piece-squares
+12.35.3.19 emacspeak-chess-speak-board
+......................................
+
+ -- Command: emacspeak-chess-speak-board
+
+     Speak complete board. Only useful in end-states.
+
+12.35.3.20 emacspeak-chess-speak-piece-squares
 ..............................................
 
  -- Command: emacspeak-chess-speak-piece-squares (piece)
 
      Prompt for a piece (single char) and speak its locations on the
-       board.
-     Piece is specified as a char using SAN notation. Use ‘w’ for all
-       whites pieces, and ‘l’ for all black pieces.
+       board.  Piece is specified as a char using SAN notation. Use
+       ‘w’ for all whites pieces,  ‘l’ for all black pieces,
+     and ‘a’ for entire board..
 
      (fn PIECE)
 
-12.35.3.20 emacspeak-chess-speak-that-square
+12.35.3.21 emacspeak-chess-speak-that-square
 ............................................
 
  -- Command: emacspeak-chess-speak-that-square (coord)
@@ -7332,21 +7340,21 @@ _current move_ being displayed.
 
      (fn COORD)
 
-12.35.3.21 emacspeak-chess-speak-this-move
+12.35.3.22 emacspeak-chess-speak-this-move
 ..........................................
 
  -- Command: emacspeak-chess-speak-this-move
 
      Speak move at current display index.
 
-12.35.3.22 emacspeak-chess-speak-this-square
+12.35.3.23 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.35.3.23 emacspeak-chess-west
+12.35.3.24 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west

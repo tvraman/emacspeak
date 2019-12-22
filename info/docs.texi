@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1252 commands and 909 options.
+This chapter documents a total of 1253 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5184,7 +5184,8 @@ You can also jump to a given board position by:
 @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
 bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
 all white pieces, @kbd{l} speaks all black pieces, use SAN notation
-char for a specific piece. 
+char for a specific piece.  Use @kbd{a} to hear entire board, this
+last is most useful when the game is an end-state.  
 @end itemize
 You can obtain views of the board along the rows and diagonals, as
 well as a @emph{knight's perspective }:
@@ -5369,15 +5370,24 @@ Move southwest one step.
 @end format
 @end deffn
 
+@subsubsection emacspeak-chess-speak-board
+@deffn {Command} emacspeak-chess-speak-board   
+@findex emacspeak-chess-speak-board
+
+@format
+Speak complete board. Only useful in end-states.
+@end format
+@end deffn
+
 @subsubsection emacspeak-chess-speak-piece-squares
 @deffn {Command} emacspeak-chess-speak-piece-squares  (piece)
 @findex emacspeak-chess-speak-piece-squares
 
 @format
 Prompt for a piece (single char) and speak its locations on the
-  board.
-Piece is specified as a char using SAN notation. Use ‘w’ for all
-  whites pieces, and ‘l’ for all black pieces.
+  board.  Piece is specified as a char using SAN notation. Use
+  ‘w’ for all whites pieces,  ‘l’ for all black pieces,
+and ‘a’ for entire board..
 
 (fn PIECE)
 @end format

@@ -87,7 +87,8 @@
 ;;; @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
 ;;;bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
 ;;;all white pieces, @kbd{l} speaks all black pieces, use SAN notation
-;;; char for a specific piece. 
+;;; char for a specific piece.  Use @kbd{a} to hear entire board, this
+;;;last is most useful when the game is an end-state.  
 ;;; @end itemize
 ;;; You can obtain views of the board along the rows and diagonals, as
 ;;;well as a @emph{knight's perspective }:
@@ -294,6 +295,25 @@
       (= (length s) 2)
       collect s))))
 
+(defun emacspeak-chess-collect-all-squares ()
+  "Collect description of all non-empty squares."
+  (let ((result nil)
+        (squares nil))
+    (cl-loop
+     for index  from 0 to 63  do
+     (push (emacspeak-chess-describe-square index) squares))
+    (setq result (nreverse squares))
+    (flatten-list
+     (cl-loop
+      for s in result
+      when (= (length s) 2)
+      collect s))))
+
+(defun emacspeak-chess-speak-board ()
+  "Speak complete board. Only useful in end-states."
+  (interactive)
+  (dtk-speak-list (emacspeak-chess-collect-all-squares) 2))
+
 (defun emacspeak-chess-look-north ()
   "Look north "
   (interactive)
@@ -458,13 +478,14 @@
   (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
   (cl-assert
    (memq piece
-         `(?w ?l
+         `(?w ?l ?a
               ,@emacspeak-chess-whites ,@(mapcar #'downcase emacspeak-chess-whites)))
    t
    "Specify a piece char, or w for whites and l for blacks")
   (let* ((pos (chess-game-pos chess-module-game chess-display-index))
          (black (= piece ?l))
          (white (= piece ?w))
+         (all (= piece ?a))
          (where
           (chess-pos-search
            pos
@@ -473,9 +494,11 @@
             (white t)
             (t piece))))
          (color (memq piece emacspeak-chess-whites)))
-    (cl-assert
-     where t "%s not on board." (emacspeak-chess-piece-name piece))
+    (unless all
+      (cl-assert
+       where t "%s not on board." (emacspeak-chess-piece-name piece)))
     (cond
+     (all (emacspeak-chess-collect-all-squares))
      ((or white black)
       (flatten-list (mapcar #'emacspeak-chess-describe-square (sort where '<))))
      (t
@@ -488,7 +511,8 @@
 (defun emacspeak-chess-speak-piece-squares (piece)
   "Prompt for a piece (single char) and speak its locations on the
   board.  Piece is specified as a char using SAN notation. Use
-  `w' for all whites pieces, and `l' for all black pieces."
+  `w' for all whites pieces,  `l' for all black pieces,
+and `a' for entire board.."
   (interactive (list (read-char  "Piece:")))
   (dtk-speak-list (emacspeak-chess-piece-squares piece)))
 
