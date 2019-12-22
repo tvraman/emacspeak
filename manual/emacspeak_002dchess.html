@@ -122,7 +122,9 @@
     <li>Review current square: <kbd>;</kbd>.</li>
     <li>Locate pieces:
     <code>emacspeak-chess-speak-piece-squares</code> bound to
-    <kbd>s</kbd>.</li>
+    <kbd>s</kbd>. Specify piece as a single char — <kbd>w</kbd>
+    speaks all white pieces, <kbd>l</kbd> speaks all black pieces,
+    use SAN notation char for a specific piece.</li>
   </ul>
   <p>You can obtain views of the board along the rows and
   diagonals, as well as a <em>knight’s perspective</em> :</p>
@@ -405,7 +407,10 @@
       </span>
       <div class="format">
         <pre class=
-        "format">Prompt for a piece (single char) and speak its locations on the board.
+        "format">Prompt for a piece (single char) and speak its locations on the
+  board.
+Piece is specified as a char using SAN notation. Use ‘w’ for all
+  whites pieces, and ‘l’ for all black pieces.
 
 (fn PIECE)
 </pre>
