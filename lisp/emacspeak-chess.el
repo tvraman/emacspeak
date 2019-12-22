@@ -430,14 +430,11 @@
   "Return an audio formatted name of square at given index
     Argument index is an integer between 0 and 63 as in
   package chess."
-  (cl-declare (special chess-module-game chess-display-index))
   (cl-assert (eq major-mode 'chess-display-mode) t "Not in a Chess  display.")
-  (let ((position (chess-game-pos chess-module-game chess-display-index))
-        (light nil)
+  (let ((light nil)
         (rank nil)
         (file nil)
         (coord nil))
-    (cl-assert position t "Could not retrieve game position.")
     (setq
      coord (chess-index-to-coord index)
      rank (chess-index-rank index)
