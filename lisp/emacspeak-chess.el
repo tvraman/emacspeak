@@ -488,7 +488,7 @@
   board.  Piece is specified as a char using SAN notation. Use
   `w' for all whites pieces, and `l' for all black pieces."
   (interactive (list (read-char  "Piece:")))
-  (dtk-speak-list (emacspeak-chess-piece-squares piece) 1))
+  (dtk-speak-list (emacspeak-chess-piece-squares piece)))
 
 ;;}}}
 ;;{{{Speaking Moves:
