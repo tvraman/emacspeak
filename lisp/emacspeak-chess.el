@@ -453,21 +453,19 @@
 (defun emacspeak-chess-piece-squares (piece)
   "Return a description of where a given piece is on the board."
   (cl-declare (special chess-display-index chess-module-game))
-  (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess
-display.")
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
   (cl-assert
    (memq piece
          `(?w ?l
-           ,@emacspeak-chess-whites ,@(mapcar #'downcase emacspeak-chess-whites)))
+              ,@emacspeak-chess-whites ,@(mapcar #'downcase emacspeak-chess-whites)))
    t
    "Specify a piece char, or w for whites and l for blacks")
-  (let* ((position (chess-game-pos chess-module-game
-                                   chess-display-index))
+  (let* ((pos (chess-game-pos chess-module-game chess-display-index))
          (black (= piece ?l))
          (white (= piece ?w))
          (where
           (chess-pos-search
-           position
+           pos
            (cond
             (black nil)
             (white t)
@@ -477,7 +475,8 @@ display.")
      where t "%s not on board." (emacspeak-chess-piece-name piece))
     (cond
      ((or white black)
-      (mapcar #'emacspeak-chess-describe-square (sort where '<)))
+      `(
+        ,@(mapcar #'emacspeak-chess-describe-square (sort where '<))))
      (t
       `(
         ,(format "%s %s at"
@@ -487,9 +486,8 @@ display.")
 
 (defun emacspeak-chess-speak-piece-squares (piece)
   "Prompt for a piece (single char) and speak its locations on the
-  board.
-Piece is specified as a char using SAN notation. Use `w' for all
-  whites pieces, and `l' for all black pieces."
+  board.  Piece is specified as a char using SAN notation. Use
+  `w' for all whites pieces, and `l' for all black pieces."
   (interactive (list (read-char  "Piece:")))
   (dtk-speak-list (emacspeak-chess-piece-squares piece) 1))
 
