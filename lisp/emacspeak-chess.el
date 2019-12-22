@@ -475,8 +475,7 @@
      where t "%s not on board." (emacspeak-chess-piece-name piece))
     (cond
      ((or white black)
-      `(
-        ,@(mapcar #'emacspeak-chess-describe-square (sort where '<))))
+      (mapcar #'emacspeak-chess-describe-square (sort where '<)))
      (t
       `(
         ,(format "%s %s at"
