@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1253 commands and 909 options.
+This chapter documents a total of 1254 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5185,7 +5185,10 @@ You can also jump to a given board position by:
 bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
 all white pieces, @kbd{l} speaks all black pieces, use SAN notation
 char for a specific piece.  Use @kbd{a} to hear entire board, this
-last is most useful when the game is an end-state.  
+last is most useful when the game is an end-state.
+@item Discover who targets a square:
+@code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
+@code{piece[ is similar to the previously listed command.]}
 @end itemize
 You can obtain views of the board along the rows and diagonals, as
 well as a @emph{knight's perspective }:
@@ -5419,6 +5422,19 @@ Speak move at current display index.
 
 @format
 Speak square under point.
+@end format
+@end deffn
+
+@subsubsection emacspeak-chess-speak-who-targets
+@deffn {Command} emacspeak-chess-speak-who-targets  (piece)
+@findex emacspeak-chess-speak-who-targets
+
+@format
+Speak description of squares that can target current square.
+Argument ‘piece’ specifies  piece-or-color as in command
+  emacspeak-chess-speak-piece-squares
+
+(fn PIECE)
 @end format
 @end deffn
 

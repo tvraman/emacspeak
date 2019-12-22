@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1253 commands and 909 options.
+   This chapter documents a total of 1254 commands and 909 options.
 
 * Menu:
 
@@ -7165,6 +7165,9 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
      speaks all black pieces, use SAN notation char for a specific
      piece.  Use ‘a’ to hear entire board, this last is most useful when
      the game is an end-state.
+   • Discover who targets a square: ‘emacspeak-chess-speak-who-targets’
+     bound to ‘w’.  Argument ‘piece[ is similar to the previously listed
+     command.]’
    You can obtain views of the board along the rows and diagonals, as
 well as a _knight’s perspective _:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
@@ -7354,7 +7357,18 @@ _current move_ being displayed.
 
      Speak square under point.
 
-12.35.3.24 emacspeak-chess-west
+12.35.3.24 emacspeak-chess-speak-who-targets
+............................................
+
+ -- Command: emacspeak-chess-speak-who-targets (piece)
+
+     Speak description of squares that can target current square.
+     Argument ‘piece’ specifies  piece-or-color as in command
+       emacspeak-chess-speak-piece-squares
+
+     (fn PIECE)
+
+12.35.3.25 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west

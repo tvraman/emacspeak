@@ -88,7 +88,10 @@
 ;;;bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
 ;;;all white pieces, @kbd{l} speaks all black pieces, use SAN notation
 ;;; char for a specific piece.  Use @kbd{a} to hear entire board, this
-;;;last is most useful when the game is an end-state.  
+;;;last is most useful when the game is an end-state.
+;;; @item Discover who targets a square:
+;;;@code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
+;;;@code{piece[ is similar to the previously listed command.]}
 ;;; @end itemize
 ;;; You can obtain views of the board along the rows and diagonals, as
 ;;;well as a @emph{knight's perspective }:
@@ -138,6 +141,11 @@
 (defconst emacspeak-chess-whites
   '(?P ?R ?N ?B ?K ?Q)
   "White chess pieces.")
+
+(defconst emacspeak-chess-blacks
+  (mapcar #'downcase emacspeak-chess-whites)
+  "Black chess pieces.")
+
 
 (defun emacspeak-chess-describe-square (index)
   "Return an audio formatted description of square at given index
@@ -474,12 +482,13 @@
 
 (defun emacspeak-chess-piece-squares (piece)
   "Return a description of where a given piece is on the board."
-  (cl-declare (special chess-display-index chess-module-game))
+  (cl-declare (special chess-display-index chess-module-game
+                       emacspeak-chess-whites emacspeak-chess-blacks))
   (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
   (cl-assert
    (memq piece
          `(?w ?l ?a
-              ,@emacspeak-chess-whites ,@(mapcar #'downcase emacspeak-chess-whites)))
+              ,@emacspeak-chess-whites ,@emacspeak-chess-blacks))
    t
    "Specify a piece char, or w for whites and l for blacks")
   (let* ((pos (chess-game-pos chess-module-game chess-display-index))
@@ -515,6 +524,44 @@
 and `a' for entire board.."
   (interactive (list (read-char  "Piece:")))
   (dtk-speak-list (emacspeak-chess-piece-squares piece)))
+
+(defun emacspeak-chess-target-squares (piece)
+  "Return a description of pieces that target  current square."
+  (cl-declare (special chess-display-index chess-module-game))
+  (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
+  (cl-assert
+   (memq piece
+         `(?w ?l 
+              ,@emacspeak-chess-whites ,@emacspeak-chess-blacks))
+   "Specify a piece char, or w for whites and l for blacks")
+  (let* ((pos (chess-game-pos chess-module-game chess-display-index))
+         (black (= piece ?l))
+         (white (= piece ?w))
+         (from
+          (chess-search-position
+           pos
+           (get-text-property (point) 'chess-coord)
+           (cond
+            (black nil)
+            (white t)
+            (t piece)))))
+    (cond
+     ((null from)
+      (message "Current square not a target for %s"
+               (cond
+                (black "black")
+                (white "white")
+                (t piece))))
+     (t
+      (flatten-list (mapcar #'emacspeak-chess-describe-square (sort from '<)))))))
+
+
+(defun emacspeak-chess-speak-who-targets (piece)
+  "Speak description of squares that can target current square.
+Argument `piece' specifies  piece-or-color as in command
+  emacspeak-chess-speak-piece-squares"
+  (interactive (list (read-char  "Piece:")))
+  (dtk-speak-list (emacspeak-chess-target-squares piece)))
 
 ;;}}}
 ;;{{{Speaking Moves:
@@ -731,7 +778,8 @@ specifies index of move, default is final index."
      ("j" emacspeak-chess-jump)
      ("t" emacspeak-chess-goto-target)
      ("s" emacspeak-chess-speak-piece-squares)
-     ("m" emacspeak-chess-speak-this-move))
+     ("m" emacspeak-chess-speak-this-move)
+     ("w" emacspeak-chess-speak-who-targets))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
  
