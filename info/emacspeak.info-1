@@ -7161,6 +7161,9 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Look: ‘emacspeak-chess-speak-that-square’ bound to ‘l’.
    • Review current square: ‘;’.
    • Locate pieces: ‘emacspeak-chess-speak-piece-squares’ bound to ‘s’.
+     Specify piece as a single char — ‘w’ speaks all white pieces, ‘l’
+     speaks all black pieces, use SAN notation char for a specific
+     piece.
    You can obtain views of the board along the rows and diagonals, as
 well as a _knight’s perspective _:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
@@ -7313,7 +7316,10 @@ _current move_ being displayed.
 
  -- Command: emacspeak-chess-speak-piece-squares (piece)
 
-     Prompt for a piece (single char) and speak its locations on the board.
+     Prompt for a piece (single char) and speak its locations on the
+       board.
+     Piece is specified as a char using SAN notation. Use ‘w’ for all
+       whites pieces, and ‘l’ for all black pieces.
 
      (fn PIECE)
 
