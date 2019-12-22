@@ -464,7 +464,7 @@
       ,(format "%s %s at"
                (if color "White " "Black ")
                (emacspeak-chess-piece-name piece))
-      ,@(sort (mapcar  #'emacspeak-chess-square-name where ) #'string-lessp))))
+      ,@(mapcar  #'emacspeak-chess-square-name (sort where '<)))))
 
 (defun emacspeak-chess-speak-piece-squares (piece)
   "Prompt for a piece (single char) and speak its locations on the board."
