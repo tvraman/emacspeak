@@ -585,13 +585,12 @@ Argument `piece' specifies  piece-or-color as in command
   (cl-declare (special last-input-event))
   (let ((f (and (>= last-input-event ?a) (<= last-input-event ?h)))
         (r (and (>= last-input-event ?1) (<= last-input-event ?8)))
-        (dir nil)
         (start nil))
-    (setq start 
-          (cond
-           (f  (format "%c1" last-input-event))
-           (r  (format "a%c" last-input-event))))
-    (setq start (chess-coord-to-index start))
+    (setq start
+          (chess-coord-to-index
+           (cond
+            (f  (format "%c1" last-input-event))
+            (r  (format "a%c" last-input-event)))))
     (goto-char (chess-display-index-pos (current-buffer) start))
     (cond
      (r (call-interactively #'emacspeak-chess-look-east))
