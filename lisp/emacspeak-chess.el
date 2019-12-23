@@ -100,6 +100,8 @@
 ;;;speaks the squares in that direction from the current
 ;;;square. @kbd{vk} speaks the squares from a knight's perspective,
 ;;;i.e. the squares the Knight would see  from the current position.
+;;; @kbd{v} followed by a rank-or-file char speaks that complete rank
+;;;or file.
 ;;; @end itemize
 ;;; @subsection Examining Games
 
@@ -415,6 +417,19 @@
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
 
+(cl-loop
+ for key    from 1 to 8 do
+ (emacspeak-keymap-update
+  emacspeak-chess-view-map
+  (list (format "%s" key) 'emacspeak-chess-view-rank-or-file)))
+
+(cl-loop
+ for key    from ?a to ?h do
+ (emacspeak-keymap-update
+  emacspeak-chess-view-map
+  (list (format "%c" key) 'emacspeak-chess-view-rank-or-file)))
+
+
 (when (featurep 'chess-pos)
   (defconst emacspeak-chess-knight-moves
     (list
@@ -563,6 +578,24 @@ Argument `piece' specifies  piece-or-color as in command
   emacspeak-chess-speak-piece-squares"
   (interactive (list (read-char  "Piece:")))
   (dtk-speak-list (emacspeak-chess-target-squares piece)))
+(defun emacspeak-chess-view-rank-or-file ()
+  "View a complete rank or file from white's perspective."
+  (interactive)
+  (cl-declare (special last-input-event))
+  (let ((f (and (>= last-input-event ?a) (<= last-input-event ?h)))
+        (r (and (>= last-input-event ?1) (<= last-input-event ?8)))
+        (dir nil)
+        (start nil))
+    (setq start 
+          (cond
+           (f  (format "%c1" last-input-event))
+           (r  (format "a%c" last-input-event))))
+    (setq start (chess-coord-to-index start))
+    (goto-char (chess-display-index-pos (current-buffer) start))
+    (cond
+     (r (call-interactively #'emacspeak-chess-look-east))
+     (f (call-interactively #'emacspeak-chess-look-north))
+     (t (error "Rank or file")))))
 
 ;;}}}
 ;;{{{Speaking Moves:
