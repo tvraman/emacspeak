@@ -412,9 +412,7 @@
    ("\\" emacspeak-chess-look-southeast)
    ("/" emacspeak-chess-look-southwest)
    ("v" emacspeak-chess-speak-this-square)
-   ("k" emacspeak-chess-look-knight)
-   ("z" emacspeak-chess-speak-board)
-   )
+   ("k" emacspeak-chess-look-knight))
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
 
@@ -813,7 +811,8 @@ specifies index of move, default is final index."
      ("t" emacspeak-chess-goto-target)
      ("s" emacspeak-chess-speak-piece-squares)
      ("m" emacspeak-chess-speak-this-move)
-     ("w" emacspeak-chess-speak-who-targets))
+     ("w" emacspeak-chess-speak-who-targets)
+     ("z" emacspeak-chess-speak-board))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
  
