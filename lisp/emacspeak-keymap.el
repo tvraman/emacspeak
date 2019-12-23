@@ -626,6 +626,7 @@ interactive command that the key sequence executes."
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
+    ("f" emacspeak-wizards-find-file-as-root)
     ("i" emacspeak-wizards-iheart)
     ("l" eww-open-file)
     ("m" magit-status)
