@@ -93,7 +93,7 @@
 ;;;last is most useful when the game is an end-state.
 ;;; @item Discover who targets a square:
 ;;;@code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
-;;;@code{piece[ is similar to the previously listed command.
+;;;@code{piece} is similar to the previously listed command.
 ;;; @end itemize
 ;;; You can obtain views of the board along the rows and diagonals, as
 ;;;well as a @emph{knight's perspective }:
