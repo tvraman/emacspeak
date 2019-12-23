@@ -7151,8 +7151,8 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Move West: ‘emacspeak-chess-west’ bound to ‘left’.
    • Move East: ‘emacspeak-chess-east’ bound to ‘right’.
    You can also move along the diagonals:
-   • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘]’.
    • Move Northwest: ‘emacspeak-chess-northwest’ bound to ‘[’.
+   • Move Northeast: ‘emacspeak-chess-northeast’ bound to ‘]’.
    • Move Southwest: ‘emacspeak-chess-southwest’ bound to ‘/’.
    • Move Southeast: ‘emacspeak-chess-southeast’ bound to ‘\’.
    You can also jump to a given board position by:
@@ -7168,8 +7168,8 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
      piece.  Use ‘a’ to hear entire board, this last is most useful when
      the game is an end-state.
    • Discover who targets a square: ‘emacspeak-chess-speak-who-targets’
-     bound to ‘w’.  Argument ‘piece[ is similar to the previously listed
-     command.]’
+     bound to ‘w’.  Argument ‘piece’ is similar to the previously listed
+     command.
    You can obtain views of the board along the rows and diagonals, as
 well as a _knight’s perspective _:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the

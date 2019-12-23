@@ -5152,7 +5152,7 @@ package.
 a view to being able to spot patterns   from listening to the
 output.
 @end itemize
-@subsection Navigating And Examining The Board 
+@subsection Navigating And Examining The Board
 The board can be navigated along the 8 compass directions.
 Arrow keys move to the appropriate squares on the board.
 @kbd{/} and @kbd{\} move down the diagonals.
@@ -5166,9 +5166,9 @@ Arrow keys move to the appropriate squares on the board.
 @end itemize
 You can also move along the diagonals:
 @itemize @bullet
-@item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{]}.
 @item  Move Northwest: @code{emacspeak-chess-northwest} bound to
 @kbd{[}.
+@item  Move Northeast: @code{emacspeak-chess-northeast} bound to  @kbd{]}.
 @item  Move Southwest: @code{emacspeak-chess-southwest} bound to
 @kbd{/}.
 @item  Move Southeast: @code{emacspeak-chess-southeast} bound to
@@ -5190,7 +5190,7 @@ char for a specific piece.  Use @kbd{a} to hear entire board, this
 last is most useful when the game is an end-state.
 @item Discover who targets a square:
 @code{emacspeak-chess-speak-who-targets} bound to @kbd{w}. Argument
-@code{piece[ is similar to the previously listed command.]}
+@code{piece} is similar to the previously listed command.
 @end itemize
 You can obtain views of the board along the rows and diagonals, as
 well as a @emph{knight's perspective }:
@@ -5209,7 +5209,7 @@ Package @emph{Chess} allows one to browse through a game using
 @code{chess-display-move-forward}.  Emacspeak speech-enables these
 commands to speak the move that led to the currently displayed
 state of the game. Finally, @kbd{m} speaks the @emph{current move}
-being displayed. 
+being displayed.
 
 @subsection Emacspeak-Chess Commands
 
