@@ -7160,6 +7160,8 @@ diagonals.  ‘[’ and ‘]’ move up the respective diagonals.
    • Target of last move: ‘emacspeak-chess-goto-target’ bound to ‘t’.
    • Look: ‘emacspeak-chess-speak-that-square’ bound to ‘l’.
    • Review current square: ‘;’.
+   • Review Board: ‘emacspeak-chess-speak-board’ bound to ‘z’.  Useful
+     in end-state.
    • Locate pieces: ‘emacspeak-chess-speak-piece-squares’ bound to ‘s’.
      Specify piece as a single char — ‘w’ speaks all white pieces, ‘l’
      speaks all black pieces, use SAN notation char for a specific
