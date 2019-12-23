@@ -413,6 +413,7 @@
    ("/" emacspeak-chess-look-southwest)
    ("v" emacspeak-chess-speak-this-square)
    ("k" emacspeak-chess-look-knight)
+   ("z" emacspeak-chess-speak-board)
    )
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
