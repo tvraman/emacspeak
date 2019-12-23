@@ -120,6 +120,8 @@
     <li>Look: <code>emacspeak-chess-speak-that-square</code> bound
     to <kbd>l</kbd>.</li>
     <li>Review current square: <kbd>;</kbd>.</li>
+    <li>Review Board: <code>emacspeak-chess-speak-board</code>
+    bound to <kbd>z</kbd>. Useful in end-state.</li>
     <li>Locate pieces:
     <code>emacspeak-chess-speak-piece-squares</code> bound to
     <kbd>s</kbd>. Specify piece as a single char — <kbd>w</kbd>
@@ -139,7 +141,8 @@
     navigation keys speaks the squares in that direction from the
     current square. <kbd>vk</kbd> speaks the squares from a
     knight’s perspective, i.e. the squares the Knight would see
-    from the current position.</li>
+    from the current position. <kbd>v</kbd> followed by a
+    rank-or-file char speaks that complete rank or file.</li>
   </ul><span id="Examining-Games"></span>
   <h4 class="subsection">12.35.2 Examining Games</h4>
   <p>Package <em>Chess</em> allows one to browse through a game
@@ -510,8 +513,27 @@ Argument ‘piece’ specifies  piece-or-color as in command
 </pre>
       </div>
     </dd>
+  </dl><span id=
+  "emacspeak_002dchess_002dview_002drank_002dor_002dfile"></span>
+  <h4 class="subsubsection">12.35.3.25
+  emacspeak-chess-view-rank-or-file</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002dchess_002dview_002drank_002dor_002dfile">
+    Command:
+    <strong>emacspeak-chess-view-rank-or-file</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002dchess_002dview_002drank_002dor_002dfile-1">
+      </span>
+      <div class="format">
+        <pre class=
+        "format">View a complete rank or file from white’s perspective.
+</pre>
+      </div>
+    </dd>
   </dl><span id="emacspeak_002dchess_002dwest"></span>
-  <h4 class="subsubsection">12.35.3.25 emacspeak-chess-west</h4>
+  <h4 class="subsubsection">12.35.3.26 emacspeak-chess-west</h4>
   <dl>
     <dt id="index-emacspeak_002dchess_002dwest">Command:
     <strong>emacspeak-chess-west</strong></dt>
