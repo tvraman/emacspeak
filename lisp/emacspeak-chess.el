@@ -55,7 +55,7 @@
 ;;; a view to being able to spot patterns   from listening to the
 ;;; output.
 ;;; @end itemize
-;;; @subsection Navigating And Examining The Board 
+;;; @subsection Navigating And Examining The Board
 ;;; The board can be navigated along the 8 compass directions.
 ;;; Arrow keys move to the appropriate squares on the board.
 ;;; @kbd{/} and @kbd{\} move down the diagonals.
@@ -112,7 +112,7 @@
 ;;;@code{chess-display-move-forward}.  Emacspeak speech-enables these
 ;;;commands to speak the move that led to the currently displayed
 ;;;state of the game. Finally, @kbd{m} speaks the @emph{current move}
-;;;being displayed. 
+;;;being displayed.
 
 ;;; Code:
 
@@ -149,7 +149,6 @@
 (defconst emacspeak-chess-blacks
   (mapcar #'downcase emacspeak-chess-whites)
   "Black chess pieces.")
-
 
 (defun emacspeak-chess-describe-square (index)
   "Return an audio formatted description of square at given index
@@ -430,17 +429,16 @@
   emacspeak-chess-view-map
   (list (format "%c" key) 'emacspeak-chess-view-rank-or-file)))
 
-
 (when (featurep 'chess-pos)
   (defconst emacspeak-chess-knight-moves
     (list
      chess-direction-north-northeast
-     chess-direction-east-northeast 
-     chess-direction-east-southeast 
-     chess-direction-south-southeast 
-     chess-direction-south-southwest 
-     chess-direction-west-southwest 
-     chess-direction-west-northwest 
+     chess-direction-east-northeast
+     chess-direction-east-southeast
+     chess-direction-south-southeast
+     chess-direction-south-southwest
+     chess-direction-west-southwest
+     chess-direction-west-northwest
      chess-direction-north-northwest)
     "Index offsets for knight moves."))
 
@@ -465,8 +463,7 @@
       for s in result
       when
       (= (length s) 2)
-      collect s)))) 
-
+      collect s))))
 
 (defun emacspeak-chess-look-knight ()
   "Look along non-empty squares reachable by a knight from current position. "
@@ -547,7 +544,7 @@ and `a' for entire board.."
   (cl-assert (eq major-mode 'chess-display-mode) t "Not  a Chess display.")
   (cl-assert
    (memq piece
-         `(?w ?l 
+         `(?w ?l
               ,@emacspeak-chess-whites ,@emacspeak-chess-blacks))
    t
    "Specify a piece char, or w for whites and l for blacks")
@@ -571,7 +568,6 @@ and `a' for entire board.."
                 (t piece))))
      (t
       (flatten-list (mapcar #'emacspeak-chess-describe-square (sort from '<)))))))
-
 
 (defun emacspeak-chess-speak-who-targets (piece)
   "Speak description of squares that can target current square.
@@ -667,7 +663,6 @@ specifies index of move, default is final index."
   (dtk-speak (emacspeak-chess-describe-move chess-module-game
                                             chess-display-index)))
 
-
 ;;}}}
 ;;{{{ Interactive Commands:
 (cl-loop
@@ -707,7 +702,6 @@ specifies index of move, default is final index."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'progress)
     (dtk-speak (emacspeak-chess-describe-move chess-module-game))))
-
 
 (defadvice chess-display-move-first (around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -767,7 +761,6 @@ specifies index of move, default is final index."
    (t ad-do-it))
   ad-return-value)
 
-
 ;;}}}
 ;;{{{emacspeak Handler:
 
@@ -817,7 +810,7 @@ specifies index of move, default is final index."
      ("z" emacspeak-chess-speak-board))
    do
    (emacspeak-keymap-update chess-display-mode-map binding)))
- 
+
 ;;}}}
 (provide 'emacspeak-chess)
 ;;{{{ end of file
