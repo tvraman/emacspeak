@@ -84,6 +84,8 @@
 ;;; @item Look: @code{emacspeak-chess-speak-that-square} bound to
 ;;;@kbd{l}.
 ;;; @item  Review   current square: @kbd{;}.
+;;; @item Review Board: @code{emacspeak-chess-speak-board} bound to
+;;;@kbd{z}. Useful in end-state.
 ;;; @item Locate pieces: @code{emacspeak-chess-speak-piece-squares}
 ;;;bound to @kbd{s}. Specify piece as a single char --- @kbd{w} speaks
 ;;;all white pieces, @kbd{l} speaks all black pieces, use SAN notation
