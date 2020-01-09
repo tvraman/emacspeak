@@ -1581,6 +1581,7 @@ a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
 e		eww
+f		emacspeak-wizards-find-file-as-root
 i		emacspeak-wizards-iheart
 l		eww-open-file
 m		magit-status
@@ -5197,7 +5198,7 @@ well as a @emph{knight's perspective }:
 @itemize @bullet
 @item Viewers: @kbd{v} followed by the directional navigation keys
 speaks the squares in that direction from the current
-square. @kbd{vk} speaks the squares from a knight's perspective,
+square. @kbd{vn} speaks the squares from a knight's perspective,
 i.e. the squares the Knight would see  from the current position.
 @kbd{v} followed by a rank-or-file char speaks that complete rank
 or file.
@@ -22714,6 +22715,13 @@ Like find-file, but binds default-directory to emacspeak-directory.
 
 @subsubsection emacspeak-wizards-find-file-as-root
 @deffn {Command} emacspeak-wizards-find-file-as-root  (file)
+@table @kbd
+@item C-, f
+@kindex C-, f
+@item C-x @@ a f
+@kindex C-x @@ a f
+@end table
+
 @findex emacspeak-wizards-find-file-as-root
 
 @format
