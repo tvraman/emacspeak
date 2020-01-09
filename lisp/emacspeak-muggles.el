@@ -160,7 +160,6 @@ Argument `k-map' is a symbol  that names a keymap."
 (global-set-key
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
-   :timeout 0.5
    (:body-pre
     (progn
       (emacspeak-hydra-toggle-talkative)
