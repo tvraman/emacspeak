@@ -160,14 +160,18 @@ Argument `k-map' is a symbol  that names a keymap."
 (global-set-key
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
-   (:body-pre (emacspeak-hydra-body-pre "Brightness")
-              :timeout 1.0
-              :pre emacspeak-hydra-pre
-              :post emacspeak-hydra-post)
+   :timeout 0.5
+   (:body-pre
+    (progn
+      (emacspeak-hydra-toggle-talkative)
+      (emacspeak-hydra-body-pre "brightness"))
+    :hint nil
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    "Brightness "
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
    ("s" xbacklight-set "set")
    ("g" xbacklight-get "Get")
+   ("t" emacspeak-hydra-toggle-talkative)
    ("<print>" xbacklight-black "black")
    ("0" xbacklight-black "black")
    ("1" xbacklight-white  "white")
