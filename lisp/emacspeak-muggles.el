@@ -162,7 +162,7 @@ Argument `k-map' is a symbol  that names a keymap."
  (defhydra emacspeak-muggles-brightness
    (:body-pre
     (progn
-      (emacspeak-hydra-toggle-talkative)
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
       (emacspeak-hydra-body-pre "brightness"))
     :hint nil
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
