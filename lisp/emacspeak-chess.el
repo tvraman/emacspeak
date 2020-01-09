@@ -100,7 +100,7 @@
 ;;; @itemize @bullet
 ;;; @item Viewers: @kbd{v} followed by the directional navigation keys
 ;;;speaks the squares in that direction from the current
-;;;square. @kbd{vk} speaks the squares from a knight's perspective,
+;;;square. @kbd{vn} speaks the squares from a knight's perspective,
 ;;;i.e. the squares the Knight would see  from the current position.
 ;;; @kbd{v} followed by a rank-or-file char speaks that complete rank
 ;;;or file.
@@ -413,7 +413,7 @@
    ("\\" emacspeak-chess-look-southeast)
    ("/" emacspeak-chess-look-southwest)
    ("v" emacspeak-chess-speak-this-square)
-   ("k" emacspeak-chess-look-knight))
+   ("n" emacspeak-chess-look-knight))
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
 
