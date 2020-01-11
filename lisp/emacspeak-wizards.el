@@ -4135,12 +4135,12 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (erase-buffer)
       (org-mode)
       (setq header-line-format (format "NOAA Weather For %s" address))
-      (insert (format "* Weather Forecast For %s\n\n" address))
 ;;; produce Daily forecast
       (let-alist (g-json-from-url (ems--noaa-url geo))
         (insert
-         (format "Updated on %s\n\n"
-                 (ems--noaa-time "%A %H:%M" .properties.updated)))
+         (format "*Forecast At %s For %s\n\n"
+                 (ems--noaa-time "%A %H:%M" .properties.updated)
+                 address))
         (cl-loop
          for p across .properties.periods do
          (let-alist p
