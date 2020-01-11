@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 8, 2020.
+last updated on January 10, 2020.
 
    The manual is divided into the following chapters:
 
@@ -7176,8 +7176,9 @@ well as a _knight’s perspective _:
    • Viewers: ‘v’ followed by the directional navigation keys speaks the
      squares in that direction from the current square.  ‘vn’ speaks the
      squares from a knight’s perspective, i.e.  the squares the Knight
-     would see from the current position.  ‘v’ followed by a
-     rank-or-file char speaks that complete rank or file.
+     would see from the current position.  similarly, ‘vk’ speaks the
+     non-empty squares seen by the King from the current position.  ‘v’
+     followed by a rank-or-file char speaks that complete rank or file.
 
 12.35.2 Examining Games
 -----------------------
@@ -7226,7 +7227,7 @@ _current move_ being displayed.
 
  -- Command: emacspeak-chess-look-knight
 
-     Look along non-empty squares reachable by a knight from current position.
+     Look along non-empty squares reachable by the king  from current position.
 
 12.35.3.6 emacspeak-chess-look-north
 ....................................

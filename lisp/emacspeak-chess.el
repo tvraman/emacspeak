@@ -101,7 +101,9 @@
 ;;; @item Viewers: @kbd{v} followed by the directional navigation keys
 ;;;speaks the squares in that direction from the current
 ;;;square. @kbd{vn} speaks the squares from a knight's perspective,
-;;;i.e. the squares the Knight would see  from the current position.
+;;;i.e. the squares the Knight would see  from the current
+;;;position. similarly, @kbd{vk} speaks the non-empty squares seen by the King
+;;;from the current position.
 ;;; @kbd{v} followed by a rank-or-file char speaks that complete rank
 ;;;or file.
 ;;; @end itemize
@@ -413,6 +415,7 @@
    ("\\" emacspeak-chess-look-southeast)
    ("/" emacspeak-chess-look-southwest)
    ("v" emacspeak-chess-speak-this-square)
+   ("k" emacspeak-chess-look-king)
    ("n" emacspeak-chess-look-knight))
  do
  (emacspeak-keymap-update emacspeak-chess-view-map binding))
@@ -470,6 +473,46 @@
   (interactive)
   (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2)
   (emacspeak-auditory-icon 'task-done))
+(when (featurep 'chess-pos)
+  (defconst emacspeak-chess-king-moves
+    (list
+     chess-direction-northwest chess-direction-north chess-direction-northeast
+     chess-direction-east
+     chess-direction-southeast chess-direction-south chess-direction-southwest
+     chess-direction-west)
+    "Index offsets for king moves."))
+
+(defun emacspeak-chess-collect-king-squares ()
+  "List of non-empty squares a king can reach from current position."
+  (cl-declare (special emacspeak-chess-king-moves))
+  (let ((index (get-text-property (point) 'chess-coord))
+        (result nil)
+        (target nil)
+        (squares nil))
+    (cl-assert index t "Not on a valid square.")
+    (cl-loop
+     for dir in emacspeak-chess-king-moves do
+     (setq target (chess-next-index  index dir))
+     (when target
+       (push target squares)))
+    (setq result
+          (mapcar #'emacspeak-chess-describe-square
+                  (nreverse (sort  squares '<))))
+    (flatten-list
+     (cl-loop
+      for s in result
+      when
+      (= (length s) 2)
+      collect s))))
+
+(defun emacspeak-chess-look-king ()
+  "Look along non-empty squares reachable by the king  from current position. "
+  (interactive)
+  (dtk-speak-list (emacspeak-chess-collect-king-squares) 2)
+  (emacspeak-auditory-icon 'task-done))
+
+
+
 
 (defun emacspeak-chess-square-name (index)
   "Return an audio formatted name of square at given index
