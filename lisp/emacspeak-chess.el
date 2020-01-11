@@ -468,8 +468,8 @@
 (defun emacspeak-chess-look-knight ()
   "Look along non-empty squares reachable by a knight from current position. "
   (interactive)
-  (emacspeak-auditory-icon 'task-done)
-  (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2))
+  (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2)
+  (emacspeak-auditory-icon 'task-done))
 
 (defun emacspeak-chess-square-name (index)
   "Return an audio formatted name of square at given index
