@@ -4123,6 +4123,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
   (let* ((buffer (get-buffer-create "*NOAA Weather*"))
          (inhibit-read-only t)
          (date nil)
+         (fmt "%A  %H:%M %h %d")
          (start (point-min))
          (address
           (if (and ask (= 16 (car ask)))
@@ -4139,7 +4140,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
       (let-alist (g-json-from-url (ems--noaa-url geo))
         (insert
          (format "*Forecast At %s For %s\n\n"
-                 (ems--noaa-time "%A %H:%M" .properties.updated)
+                 (ems--noaa-time fmt .properties.updated)
                  address))
         (cl-loop
          for p across .properties.periods do
@@ -4154,7 +4155,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
           (g-json-from-url (concat (ems--noaa-url geo) "/hourly"))
         (insert
          (format "\n* Hourly Forecast:Updated At %s \n"
-                 (ems--noaa-time "%c" .properties.updated)))
+                 (ems--noaa-time fmt .properties.updated)))
         (cl-loop
          for p across .properties.periods do
          (let-alist p
