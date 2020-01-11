@@ -4139,8 +4139,8 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
 ;;; produce Daily forecast
       (let-alist (g-json-from-url (ems--noaa-url geo))
         (insert
-         (format "Updated at %s\n\n"
-                 (ems--noaa-time "%c" .properties.updated)))
+         (format "Updated on %s\n\n"
+                 (ems--noaa-time "%A %H:%M" .properties.updated)))
         (cl-loop
          for p across .properties.periods do
          (let-alist p
