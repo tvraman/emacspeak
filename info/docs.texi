@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1255 commands and 909 options.
+This chapter documents a total of 1256 commands and 909 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5254,12 +5254,21 @@ Look east
 @end format
 @end deffn
 
+@subsubsection emacspeak-chess-look-king
+@deffn {Command} emacspeak-chess-look-king   
+@findex emacspeak-chess-look-king
+
+@format
+Look along non-empty squares reachable by the king  from current position. 
+@end format
+@end deffn
+
 @subsubsection emacspeak-chess-look-knight
 @deffn {Command} emacspeak-chess-look-knight   
 @findex emacspeak-chess-look-knight
 
 @format
-Look along non-empty squares reachable by the king  from current position. 
+Look along non-empty squares reachable by a knight from current position. 
 @end format
 @end deffn
 
@@ -13110,6 +13119,7 @@ The heads for the associated hydra are:
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
 "s":    ‘xbacklight-set’,
 "g":    ‘xbacklight-get’,
+"t":    ‘emacspeak-hydra-toggle-talkative’,
 "<print>":    ‘xbacklight-black’,
 "0":    ‘xbacklight-black’,
 "1":    ‘xbacklight-white’,

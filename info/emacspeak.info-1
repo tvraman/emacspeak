@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 10, 2020.
+last updated on January 13, 2020.
 
    The manual is divided into the following chapters:
 
@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1255 commands and 909 options.
+   This chapter documents a total of 1256 commands and 909 options.
 
 * Menu:
 
@@ -7222,112 +7222,119 @@ _current move_ being displayed.
 
      Look east
 
-12.35.3.5 emacspeak-chess-look-knight
+12.35.3.5 emacspeak-chess-look-king
+...................................
+
+ -- Command: emacspeak-chess-look-king
+
+     Look along non-empty squares reachable by the king  from current position.
+
+12.35.3.6 emacspeak-chess-look-knight
 .....................................
 
  -- Command: emacspeak-chess-look-knight
 
-     Look along non-empty squares reachable by the king  from current position.
+     Look along non-empty squares reachable by a knight from current position.
 
-12.35.3.6 emacspeak-chess-look-north
+12.35.3.7 emacspeak-chess-look-north
 ....................................
 
  -- Command: emacspeak-chess-look-north
 
      Look north
 
-12.35.3.7 emacspeak-chess-look-northeast
+12.35.3.8 emacspeak-chess-look-northeast
 ........................................
 
  -- Command: emacspeak-chess-look-northeast
 
      Look northeast
 
-12.35.3.8 emacspeak-chess-look-northwest
+12.35.3.9 emacspeak-chess-look-northwest
 ........................................
 
  -- Command: emacspeak-chess-look-northwest
 
      Look northwest
 
-12.35.3.9 emacspeak-chess-look-south
-....................................
+12.35.3.10 emacspeak-chess-look-south
+.....................................
 
  -- Command: emacspeak-chess-look-south
 
      Look south
 
-12.35.3.10 emacspeak-chess-look-southeast
+12.35.3.11 emacspeak-chess-look-southeast
 .........................................
 
  -- Command: emacspeak-chess-look-southeast
 
      Look southeast
 
-12.35.3.11 emacspeak-chess-look-southwest
+12.35.3.12 emacspeak-chess-look-southwest
 .........................................
 
  -- Command: emacspeak-chess-look-southwest
 
      Look southwest
 
-12.35.3.12 emacspeak-chess-look-west
+12.35.3.13 emacspeak-chess-look-west
 ....................................
 
  -- Command: emacspeak-chess-look-west
 
      Look west
 
-12.35.3.13 emacspeak-chess-north
+12.35.3.14 emacspeak-chess-north
 ................................
 
  -- Command: emacspeak-chess-north
 
      Move north one step.
 
-12.35.3.14 emacspeak-chess-northeast
+12.35.3.15 emacspeak-chess-northeast
 ....................................
 
  -- Command: emacspeak-chess-northeast
 
      Move northeast one step.
 
-12.35.3.15 emacspeak-chess-northwest
+12.35.3.16 emacspeak-chess-northwest
 ....................................
 
  -- Command: emacspeak-chess-northwest
 
      Move northwest one step.
 
-12.35.3.16 emacspeak-chess-south
+12.35.3.17 emacspeak-chess-south
 ................................
 
  -- Command: emacspeak-chess-south
 
      Move south one step.
 
-12.35.3.17 emacspeak-chess-southeast
+12.35.3.18 emacspeak-chess-southeast
 ....................................
 
  -- Command: emacspeak-chess-southeast
 
      Move southeast one step.
 
-12.35.3.18 emacspeak-chess-southwest
+12.35.3.19 emacspeak-chess-southwest
 ....................................
 
  -- Command: emacspeak-chess-southwest
 
      Move southwest one step.
 
-12.35.3.19 emacspeak-chess-speak-board
+12.35.3.20 emacspeak-chess-speak-board
 ......................................
 
  -- Command: emacspeak-chess-speak-board
 
      Speak complete board. Only useful in end-states.
 
-12.35.3.20 emacspeak-chess-speak-piece-squares
+12.35.3.21 emacspeak-chess-speak-piece-squares
 ..............................................
 
  -- Command: emacspeak-chess-speak-piece-squares (piece)
@@ -7339,7 +7346,7 @@ _current move_ being displayed.
 
      (fn PIECE)
 
-12.35.3.21 emacspeak-chess-speak-that-square
+12.35.3.22 emacspeak-chess-speak-that-square
 ............................................
 
  -- Command: emacspeak-chess-speak-that-square (coord)
@@ -7348,21 +7355,21 @@ _current move_ being displayed.
 
      (fn COORD)
 
-12.35.3.22 emacspeak-chess-speak-this-move
+12.35.3.23 emacspeak-chess-speak-this-move
 ..........................................
 
  -- Command: emacspeak-chess-speak-this-move
 
      Speak move at current display index.
 
-12.35.3.23 emacspeak-chess-speak-this-square
+12.35.3.24 emacspeak-chess-speak-this-square
 ............................................
 
  -- Command: emacspeak-chess-speak-this-square
 
      Speak square under point.
 
-12.35.3.24 emacspeak-chess-speak-who-targets
+12.35.3.25 emacspeak-chess-speak-who-targets
 ............................................
 
  -- Command: emacspeak-chess-speak-who-targets (piece)
@@ -7373,14 +7380,14 @@ _current move_ being displayed.
 
      (fn PIECE)
 
-12.35.3.25 emacspeak-chess-view-rank-or-file
+12.35.3.26 emacspeak-chess-view-rank-or-file
 ............................................
 
  -- Command: emacspeak-chess-view-rank-or-file
 
      View a complete rank or file from white’s perspective.
 
-12.35.3.26 emacspeak-chess-west
+12.35.3.27 emacspeak-chess-west
 ...............................
 
  -- Command: emacspeak-chess-west

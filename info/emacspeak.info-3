@@ -9486,8 +9486,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
-* C-c ,:                                 emacspeak-muggles.  (line  356)
-* C-c /:                                 emacspeak-muggles.  (line  503)
+* C-c ,:                                 emacspeak-muggles.  (line  357)
+* C-c /:                                 emacspeak-muggles.  (line  504)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -9520,13 +9520,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  146)
 * C-c e:                                 Running Terminal Based Applications.
                                                              (line  112)
-* C-c h:                                 emacspeak-muggles.  (line   80)
+* C-c h:                                 emacspeak-muggles.  (line   81)
 * C-c k:                                 Running Terminal Based Applications.
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  397)
-* C-c v:                                 emacspeak-muggles.  (line  425)
+* C-c o <1>:                             emacspeak-muggles.  (line  398)
+* C-c v:                                 emacspeak-muggles.  (line  426)
 * C-e !:                                 emacspeak-speak.    (line  901)
 * C-e ":                                 emacspeak-speak.    (line  962)
 * C-e # a:                               emacspeak-gridtext. (line   27)
@@ -9812,7 +9812,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h T:                                 emacspeak-speak.    (line 1309)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-h \:                                 emacspeak-wizards.  (line  466)
-* C-M-y:                                 emacspeak-muggles.  (line  100)
+* C-M-y:                                 emacspeak-muggles.  (line  101)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
@@ -9941,8 +9941,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * ESCAPE up:                             Reading.            (line  124)
 * M-ESC ::                               emacspeak-wizards.  (line 1401)
 * pause control e s:                     Miscellaneous.      (line   12)
-* s-;:                                   emacspeak-muggles.  (line  167)
-* s-m:                                   emacspeak-muggles.  (line   72)
-* s-n:                                   emacspeak-muggles.  (line  256)
-* s-SPC:                                 emacspeak-muggles.  (line  234)
+* s-;:                                   emacspeak-muggles.  (line  168)
+* s-m:                                   emacspeak-muggles.  (line   73)
+* s-n:                                   emacspeak-muggles.  (line  257)
+* s-SPC:                                 emacspeak-muggles.  (line  235)
 

@@ -6489,6 +6489,7 @@ binds ‘s’ to this command.
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
      "s":    ‘xbacklight-set’,
      "g":    ‘xbacklight-get’,
+     "t":    ‘emacspeak-hydra-toggle-talkative’,
      "<print>":    ‘xbacklight-black’,
      "0":    ‘xbacklight-black’,
      "1":    ‘xbacklight-white’,
