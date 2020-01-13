@@ -432,29 +432,21 @@
   emacspeak-chess-view-map
   (list (format "%c" key) 'emacspeak-chess-view-rank-or-file)))
 
-(when (featurep 'chess-pos)
-  (defconst emacspeak-chess-knight-moves
-    (list
-     chess-direction-north-northeast
-     chess-direction-east-northeast
-     chess-direction-east-southeast
-     chess-direction-south-southeast
-     chess-direction-south-southwest
-     chess-direction-west-southwest
-     chess-direction-west-northwest
-     chess-direction-north-northwest)
-    "Index offsets for knight moves."))
-
 (defun emacspeak-chess-collect-knight-squares ()
   "List of non-empty squares a knight can reach from current position."
-  (cl-declare (special emacspeak-chess-knight-moves))
   (let ((index (get-text-property (point) 'chess-coord))
+        (kd ;;; knight directions
+    (list
+     chess-direction-north-northeast chess-direction-east-northeast
+     chess-direction-east-southeast chess-direction-south-southeast
+     chess-direction-south-southwest chess-direction-west-southwest
+     chess-direction-west-northwest chess-direction-north-northwest))
         (result nil)
         (target nil)
         (squares nil))
     (cl-assert index t "Not on a valid square.")
     (cl-loop
-     for dir in emacspeak-chess-knight-moves do
+     for dir in kd do
      (setq target (chess-next-index  index dir))
      (when target
        (push target squares)))
@@ -473,25 +465,23 @@
   (interactive)
   (dtk-speak-list (emacspeak-chess-collect-knight-squares) 2)
   (emacspeak-auditory-icon 'task-done))
-(when (featurep 'chess-pos)
-  (defconst emacspeak-chess-king-moves
+
+(defun emacspeak-chess-collect-king-squares ()
+  "List of non-empty squares a king can reach from current position."
+  (let ((index (get-text-property (point) 'chess-coord))
+        (kd ;;; king directions
     (list
      chess-direction-northwest chess-direction-north chess-direction-northeast
      chess-direction-east
      chess-direction-southeast chess-direction-south chess-direction-southwest
      chess-direction-west)
-    "Index offsets for king moves."))
-
-(defun emacspeak-chess-collect-king-squares ()
-  "List of non-empty squares a king can reach from current position."
-  (cl-declare (special emacspeak-chess-king-moves))
-  (let ((index (get-text-property (point) 'chess-coord))
+    "Index offsets for king moves.")
         (result nil)
         (target nil)
         (squares nil))
     (cl-assert index t "Not on a valid square.")
     (cl-loop
-     for dir in emacspeak-chess-king-moves do
+     for dir in kd do
      (setq target (chess-next-index  index dir))
      (when target
        (push target squares)))
