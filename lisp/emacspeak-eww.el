@@ -1696,7 +1696,7 @@ The %s is automatically spoken if there is no user activity."
 
 (defun emacspeak-eww-google-knowledge-card ()
   "Show just the knowledge card.
-Warning, this is fragile, and depends on a stable id for the
+Warning, this is fragile, and depends on a stable id/class for the
   knowledge card."
   (interactive)
   (cl-declare (special
@@ -1709,13 +1709,13 @@ Warning, this is fragile, and depends on a stable id for the
     (error "This doesn't look like a Google results page."))
   (let*
       ((emacspeak-eww-rename-result-buffer nil)
-       (value "rhs_block")
-       (media "rg_meta")
+       (value "mod")
+       (media "rg_l")
        (inhibit-read-only t)
        (dom
         (eww-dom-remove-if
          (eww-dom-keep-if
-          (emacspeak-eww-current-dom) (eww-attribute-tester 'id value))
+          (emacspeak-eww-current-dom) (eww-attribute-tester 'class value))
          (eww-attribute-tester 'class media)))
        (shr-external-rendering-functions emacspeak-eww-shr-render-functions))
     (cond
