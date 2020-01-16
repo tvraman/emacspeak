@@ -1706,30 +1706,11 @@ Warning, this is fragile, and depends on a stable id/class for the
     (error "This command is only available in EWW"))
   (unless  emacspeak-google-toolbelt
     (error "This doesn't look like a Google results page."))
-  (let*
-      ((emacspeak-eww-rename-result-buffer nil)
-       (value "mod")
-       (media "rg_l")
-       (inhibit-read-only t)
-       (dom
-        (eww-dom-remove-if
-         (eww-dom-keep-if
-          (emacspeak-eww-current-dom) (eww-attribute-tester 'class value))
-         (eww-attribute-tester 'class media)))
-       (shr-external-rendering-functions emacspeak-eww-shr-render-functions))
-    (cond
-     (dom
-      (eww-save-history)
-      (erase-buffer)
-      (goto-char (point-min))
-      (shr-insert-document dom)
-      (set-buffer-modified-p nil)
-      (flush-lines "^ *$")
-      (goto-char (point-min))
-      (setq buffer-read-only t)
-      (emacspeak-speak-buffer))
-     (t (message "Knowledge Card not found.")))
-    (emacspeak-auditory-icon 'open-object)))
+  (let  ((dom (emacspeak-eww-current-dom)))
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes
+        (dom-by-class dom "mod" )
+        (emacspeak-eww-current-url)))))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 (define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
