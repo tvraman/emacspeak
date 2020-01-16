@@ -339,7 +339,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Google Basic"
  "https://www.google.com/search?num=25&gbv=1&q=%s"
- (list "Google: ")
+ (list #'gweb-google-autocomplete)
  #'(lambda nil
      (search-forward "Search Tools")
      (forward-line 1)
