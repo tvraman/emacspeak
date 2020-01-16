@@ -455,8 +455,11 @@ Optional second arg as-html processes the results as HTML rather than data."
   (cl-declare (special emacspeak-google-query))
   (setq emacspeak-google-query ad-return-value))
 (defvar ems--websearch-google-filter
-  '("center_col" "nav" "rhs_block" )
+  '("main")
+                                        ;'("center_col" "nav"}
+                                        ;"rhs_block" ) ;;; legacy
   "Ids of nodes we keep in Google results page.")
+
 (defvar emacspeak-websearch-google-number-of-results 25
   "Number of Google search results.")
 
@@ -495,9 +498,13 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
      (add-toolbelt (emacspeak-google-toolbelt-change))
      (lucky (browse-url search-url))
      (t                                 ; always just show results
+(add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (emacspeak-eww-next-h1  'speak)))      
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
-       search-url 'speak)))))
+       search-url)))))
 
 (defvar emacspeak-websearch-accessible-google-url
   "https://www.google.com/search?num=25&lite=90586&q=%s"
@@ -522,10 +529,13 @@ Optional prefix arg prompts for toolbelt options."
     (cond
      (options (emacspeak-google-toolbelt-change))
      (t
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (emacspeak-eww-next-h1  'speak)))
       (emacspeak-we-extract-by-id-list
        ems--websearch-google-filter
-       (format emacspeak-websearch-accessible-google-url query)
-       'speak)))))
+       (format emacspeak-websearch-accessible-google-url query))))))
 
 ;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
