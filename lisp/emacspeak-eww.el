@@ -410,6 +410,12 @@
 (require 'emacspeak-google)
 
 ;;}}}
+;;{{{defgroup:
+(defgroup emacspeak-eww nil
+  "EWW Customizations"
+  :group 'emacspeak)
+
+;;}}}
 ;;{{{ Helpers:
 ;;; Generate functions emacspeak-eww-current-title and friends:
 
