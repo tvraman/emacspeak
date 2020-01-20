@@ -6,9 +6,10 @@ Emacs.verticalScrollBars: off
 Emacs.toolBar:            off
 Emacs.cursorBlink:        off
 Emacs.cursorColor:        red
-! Updated font backend for Emacs 28 with cairo and harfbuzz 
+! HarfBuzz with cairo in Emacs 28
 Emacs.FontBackend:	ftcrhb,ftcr,x
-Emacs*font:	-adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
+Emacs*font:	-adobe-helvetica-medium-r-normal--25-*-100-100-p-130-iso8859-1
+!Emacs*font:	-adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
 !Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
 
 XTerm*Background:	black
