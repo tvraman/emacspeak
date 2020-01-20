@@ -1,8 +1,14 @@
-Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
-Emacs.FontBackend:	xft,x
-Emacs.menuBar:	off
-Emacs.toolBar:	off
-Emacs.verticalScrollBars:	off
+! XResources 
+
+Emacs.bitmapIcon:         off
+Emacs.menuBar:            off
+Emacs.verticalScrollBars: off
+Emacs.toolBar:            off
+Emacs.cursorBlink:        off
+Emacs.cursorColor:        red
+Emacs.FontBackend:	ftcrhb,ftcr,x
+Emacs*font:	-adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
+!Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
 
 XTerm*Background:	black
 XTerm*Foreground:	white
