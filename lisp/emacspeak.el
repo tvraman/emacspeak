@@ -433,10 +433,11 @@ caps."
 ;;{{{ Emacspeak:
 
 (defcustom emacspeak-play-emacspeak-startup-icon
-  (executable-find emacspeak-m-player-program)
+  t
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
+
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon if requested."
   (cl-declare (special emacspeak-play-emacspeak-startup-icon))
