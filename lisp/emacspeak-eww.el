@@ -556,11 +556,15 @@ are available are cued by an auditory icon on the header line."
    (emacspeak-eww-masquerade
     (setq ad-return-value emacspeak-eww-masquerade-as))
    (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
+(defcustom emacspeak-shr-inhibit-images nil
+  "Turn this on to avoid rendering images."
+  :type 'boolean
+  :group 'emacspeak-eww)
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (cl-declare (special eww-mode-map eww-link-keymap
-                       shr-inhibit-images
+                       shr-inhibit-images emacspeak-shr-inhibit-images
                        emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                        emacspeak-eww-masquerade
                        emacspeak-pronounce-load-pronunciations-on-startup))
@@ -571,8 +575,8 @@ are available are cued by an auditory icon on the header line."
      'eww-mode
      emacspeak-speak-rfc-3339-datetime-pattern
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
-;;; turn off images
-  (setq shr-inhibit-images t)
+;;; turn off images on request 
+  (setq shr-inhibit-images emacspeak-shr-inhibit-images)
 ;;; remove "I" "o" from eww-link-keymap
   (cl-loop
    for c in
