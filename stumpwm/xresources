@@ -7,7 +7,7 @@ Emacs.toolBar:            off
 Emacs.cursorBlink:        off
 Emacs.cursorColor:        red
 ! HarfBuzz with cairo in Emacs 28
-Emacs.FontBackend:	ftcrhb,ftcr,x
+Emacs.FontBackend:	ftcrhb,x
 Emacs*font:	-adobe-helvetica-medium-r-normal--25-*-100-100-p-130-iso8859-1
 !Emacs*font:	-adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
 !Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
