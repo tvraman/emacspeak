@@ -78,7 +78,9 @@
 (defcustom emacspeak-ido-typing-delay 0.15
   "How long we wait before speaking completions."
   :type 'float 
-  :group 'emacspeak-ido)(defadvice ido-exhibit (after emacspeak pre act comp)
+  :group 'emacspeak-ido)
+
+(defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
   (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
     (dtk-speak
