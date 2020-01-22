@@ -34,6 +34,7 @@
 
 # }}}
 # {{{make definitions
+.POSIX:
 
 # what emacs is called on your system
 EMACS = emacs

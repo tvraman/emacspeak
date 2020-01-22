@@ -35,7 +35,7 @@
 
 # }}}
 # {{{ Configuration
-
+.POSIX:
 MAKE=make
 MAKEFLAGS=--no-print-directory
 prefix = /usr

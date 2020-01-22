@@ -37,7 +37,7 @@
 
 # }}}
 # {{{make rules
-
+.POSIX:
 # what emacs is called on your system
 EMACS = emacs
 SRC=".."
