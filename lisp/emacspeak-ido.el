@@ -84,8 +84,10 @@
   "Speak ido minibuffer intelligently."
   (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
     (dtk-speak
-     (concat 
-      (minibuffer-contents)
+     (concat
+      (if (bound-and-true-p ido--overlay)
+          (overlay-get ido--overlay 'after-string)
+        (minibuffer-contents))
       (format " %d choices: " (length ido-matches))
       (if(or (null ido-current-directory)
              (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
