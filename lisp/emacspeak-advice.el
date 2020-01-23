@@ -753,7 +753,8 @@ icon."
 
 (defvar inhibit-message)
 (cl-loop
- for f in '(minibuffer-message message display-message-or-buffer) do
+ for f in '(minibuffer-message set-minibuffer-message
+            message display-message-or-buffer) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak the message."
@@ -762,7 +763,11 @@ icon."
      (let ((inhibit-read-only t)
            (m nil))
        ad-do-it
-       (setq m (current-message))
+       (setq m
+             (or 
+              (current-message)
+              (if (bound-and-true-p minibuffer-message-overlay)
+                  (overlay-get minibuffer-message-overlay 'after-string))))
        (when
            (and
             (null inhibit-message)
