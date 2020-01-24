@@ -142,6 +142,7 @@
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
   (cl-declare (special emacspeak-sounds-directory tvr-libs))
+  (desktop-read)
   (tvr-fastload
    (let ((after-start (current-time)))
      (dynamic-completion-mode 1)
