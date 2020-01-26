@@ -474,8 +474,7 @@
      chess-direction-northwest chess-direction-north chess-direction-northeast
      chess-direction-east
      chess-direction-southeast chess-direction-south chess-direction-southwest
-     chess-direction-west)
-    "Index offsets for king moves.")
+     chess-direction-west))
         (result nil)
         (target nil)
         (squares nil))
@@ -598,7 +597,7 @@ and `a' for entire board.."
                (cond
                 (black "black")
                 (white "white")
-                (t piece))))
+                (t (emacspeak-chess-piece-name piece)))))
      (t
       (flatten-list (mapcar #'emacspeak-chess-describe-square (sort from '<)))))))
 
@@ -608,6 +607,7 @@ Argument `piece' specifies  piece-or-color as in command
   emacspeak-chess-speak-piece-squares"
   (interactive (list (read-char  "Piece:")))
   (dtk-speak-list (emacspeak-chess-target-squares piece)))
+
 (defun emacspeak-chess-view-rank-or-file ()
   "View a complete rank or file from white's perspective."
   (interactive)
