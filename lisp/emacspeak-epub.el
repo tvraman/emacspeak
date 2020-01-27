@@ -1299,7 +1299,7 @@ Letters do not insert themselves; instead, they are commands.
   (interactive)
   (cl-assert (eq major-mode 'emacspeak-epub-mode)  nil  "Buffer is not
 in emacspeak-epub-mode")
-  (let ((epub (get-text-property (point) 'epub)))
+  (let ((epub (emacspeak-epub-shell-unquote (get-text-property (point) 'epub))))
     (cl-assert epub nil "No epub  at point.")
     (cl-assert (file-exists-p epub) nil "File does not exist")
     (unless (locate-library "nov") nil "Package nov is  not installed.")
