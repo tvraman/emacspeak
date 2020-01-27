@@ -142,7 +142,6 @@
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
   (cl-declare (special emacspeak-sounds-directory tvr-libs))
-  (desktop-read)
   (tvr-fastload
    (let ((after-start (current-time)))
      (dynamic-completion-mode 1)
@@ -170,6 +169,7 @@
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
      (emacspeak-wizards-project-shells-initialize)
+     (desktop-read)
      (start-process
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
