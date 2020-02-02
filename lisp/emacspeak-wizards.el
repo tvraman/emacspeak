@@ -4066,7 +4066,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 (defun emacspeak-wizards-customize-saved (pattern)
   "Customize saved options matching `pattern'.  This command enables
 updating custom settings for a specific package or group of packages."
-  (interactive "sFilter Regex: ")
+  (interactive "sFilter Pattrern: ")
   (let ((found nil))
     (mapatoms (lambda (symbol)
                 (and (string-match pattern (symbol-name symbol))
