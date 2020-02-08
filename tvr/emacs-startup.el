@@ -163,17 +163,17 @@
      (company-prescient-mode 1)
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
-       (nm-enable)
+       ; (nm-enable) ;;; commented out to avoud suspend bug on Lenovo 
        (emacspeak-dbus-sleep-enable)
        (emacspeak-dbus-udisks-enable)
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
      (emacspeak-wizards-project-shells-initialize)
-     (desktop-read)
      (start-process
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
-     (tvr-time-it "after-init" after-start))))
+     (tvr-time-it "after-init" after-start)
+     (desktop-read))))
 
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
