@@ -163,7 +163,7 @@
      (company-prescient-mode 1)
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
-       ; (nm-enable) ;;; commented out to avoud suspend bug on Lenovo 
+       (nm-enable)
        (emacspeak-dbus-sleep-enable)
        (emacspeak-dbus-udisks-enable)
        (emacspeak-dbus-upower-enable)
