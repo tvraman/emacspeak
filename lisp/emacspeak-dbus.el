@@ -222,8 +222,8 @@ already disabled."
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
-  (soundscape-listener-shutdown)
-  (save-some-buffers t))
+      (soundscape-listener-shutdown)
+    (save-some-buffers t))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
