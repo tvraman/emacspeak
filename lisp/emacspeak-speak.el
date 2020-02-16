@@ -54,6 +54,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'seq)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'ido)
