@@ -3461,7 +3461,10 @@ configure which media players get silenced or paused/resumed."
 (defun ems-get-active-network-interfaces ()
   "Return  names of active network interfaces."
   (when (fboundp 'network-interface-list)
-    (mapconcat #'car (network-interface-list) " ")))
+    (mapconcat
+     #'identity 
+     (seq-uniq (mapcar #'car (network-interface-list)))
+     " ")))
 
 (defun ems-get-ip-address (&optional dev)
   "get the IP-address for device DEV "
