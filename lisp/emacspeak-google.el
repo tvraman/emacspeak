@@ -491,6 +491,24 @@ This variable is buffer-local.")
   (let ((emacspeak-websearch-google-options "&tbo=1"))
     (emacspeak-websearch-google emacspeak-google-query)))
 
+(declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
+(declare-function shr-url-at-point "shr" (image-url))
+
+
+(defun emacspeak-google-open-link ()
+  "Open Google link under point."
+  (interactive)
+  (cl-declare (special ems--websearch-google-filter))
+  (let ((url (shr-url-at-point nil)))
+    (cl-assert url t "No link under point.")
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda ()
+         (emacspeak-eww-next-h1  'speak)))      
+    (emacspeak-we-extract-by-id-list
+     ems--websearch-google-filter
+     url)))
+
 ;;}}}
 ;;{{{ Sign in, Sign out:
 
@@ -528,6 +546,7 @@ This variable is buffer-local.")
    ("a" emacspeak-google-sign-out)
    ("c" emacspeak-webutils-google-extract-from-cache)
    ("g" emacspeak-websearch-google)
+   ("o" emacspeak-google-open-link)
    ("i" emacspeak-google-what-is-my-ip)
    ("l" emacspeak-webutils-google-who-links-to-this-page)
    ("s" emacspeak-webutils-google-similar-to-this-page)
