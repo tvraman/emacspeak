@@ -127,7 +127,7 @@ Initialize screen-saver buffer  if needed, and switch to  it."
 Startup  apps that need the network."
   (cl-declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list
-        (mapcar #'car (network-interface-list)))
+        (ems-get-active-network-interfaces))
   (run-at-time
    60 nil
    #'(lambda ()
