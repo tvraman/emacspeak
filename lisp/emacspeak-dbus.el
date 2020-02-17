@@ -131,13 +131,9 @@ Startup  apps that need the network."
   (run-at-time
    60 nil
    #'(lambda ()
-       (when (featurep 'xbacklight) (xbacklight-black))
-                                        ;(when (featurep 'jabber) (jabber-connect-all))
-                                        ;(when (featurep 'twittering-mode) (twittering-start))
-       ))
+       (when (featurep 'xbacklight) (xbacklight-black))))
   (emacspeak-play-auditory-icon 'network-up)
-  (soundscape-tickle)
-  (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
+  (soundscape-tickle))
 
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection.
