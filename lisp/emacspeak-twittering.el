@@ -214,30 +214,38 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
 
 ;;}}}
 ;;{{{Download: twarc
-(defun emacspeak-twittering-twarc ()
-  "Download data for signed-in user."
-  (interactive)
+(defun emacspeak-twittering-twarc (&optional whose)
+  "Download data using credentials  for signed-in user.
+Interactive prefix arg `whose' prompts for a username whose
+timeline we download. "
+  (interactive "P")
   (cl-declare (special 
                twittering-oauth-consumer-key 
                twittering-oauth-consumer-secret 
                twittering-oauth-access-token-alist))
   (cl-assert  (executable-find "twarc") t "twarc not installed.")
-  (shell-command
-   (format
-    "%s \
+  (let  ((whose
+          (cond
+           (whose (read-from-minibuffer "Whose data are we
+downloading:"))
+           (t 
+            (cdr  (assoc "screen_name" twittering-oauth-access-token-alist))))))
+    (shell-command
+     (format
+      "%s \
 --consumer_key %s \
 --consumer_secret %s \
 --access_token %s \
 --access_token_secret %s \
- timeline %s > %s.json"
-    (executable-find "twarc")
-    twittering-oauth-consumer-key
-    twittering-oauth-consumer-secret
-    (cdr  (assoc "oauth_token" twittering-oauth-access-token-alist))
-    (cdr  (assoc "oauth_token_secret"
-                 twittering-oauth-access-token-alist))
-    (cdr  (assoc "screen_name" twittering-oauth-access-token-alist))
-    (cdr  (assoc "screen_name" twittering-oauth-access-token-alist)))))
+ timeline %s > %s.json &"
+      (executable-find "twarc")
+      twittering-oauth-consumer-key
+      twittering-oauth-consumer-secret
+      (cdr  (assoc "oauth_token" twittering-oauth-access-token-alist))
+      (cdr  (assoc "oauth_token_secret"
+                   twittering-oauth-access-token-alist))
+      whose whose))
+    (message "downloading data in the background.")))
 
 
 ;;}}}
