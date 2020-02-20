@@ -2837,6 +2837,13 @@ broken.
 
      (fn &optional COPY-AS-KILL)
 
+12.202.1.3 emacspeak-twittering-twarc
+.....................................
+
+ -- Command: emacspeak-twittering-twarc
+
+     Download data for signed-in user.
+
 
 File: emacspeak.info,  Node: emacspeak-typo,  Next: emacspeak-url-template,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 

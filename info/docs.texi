@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1257 commands and 910 options.
+This chapter documents a total of 1258 commands and 910 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -19837,6 +19837,15 @@ Speak tweet under point.
 With interactive prefix arg ‘copy-as-kill’, copy it to kill ring as well.
 
 (fn &optional COPY-AS-KILL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-twittering-twarc
+@deffn {Command} emacspeak-twittering-twarc   
+@findex emacspeak-twittering-twarc
+
+@format
+Download data for signed-in user.
 @end format
 @end deffn
 
