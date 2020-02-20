@@ -214,7 +214,7 @@ With interactive prefix arg `copy-as-kill', copy it to kill ring as well."
 
 ;;}}}
 ;;{{{Download: twarc
-(defun twarc ()
+(defun emacspeak-twittering-twarc ()
   "Download data for signed-in user."
   (interactive)
   (cl-declare (special 
