@@ -2840,9 +2840,13 @@ broken.
 12.202.1.3 emacspeak-twittering-twarc
 .....................................
 
- -- Command: emacspeak-twittering-twarc
+ -- Command: emacspeak-twittering-twarc (&optional whose)
 
-     Download data for signed-in user.
+     Download data using credentials  for signed-in user.
+     Interactive prefix arg ‘whose’ prompts for a username whose
+     timeline we download.
+
+     (fn &optional WHOSE)
 
 
 File: emacspeak.info,  Node: emacspeak-typo,  Next: emacspeak-url-template,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options

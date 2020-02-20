@@ -19841,11 +19841,15 @@ With interactive prefix arg ‘copy-as-kill’, copy it to kill ring as well.
 @end deffn
 
 @subsubsection emacspeak-twittering-twarc
-@deffn {Command} emacspeak-twittering-twarc   
+@deffn {Command} emacspeak-twittering-twarc  (&optional whose)
 @findex emacspeak-twittering-twarc
 
 @format
-Download data for signed-in user.
+Download data using credentials  for signed-in user.
+Interactive prefix arg ‘whose’ prompts for a username whose
+timeline we download. 
+
+(fn &optional WHOSE)
 @end format
 @end deffn
 
