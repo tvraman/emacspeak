@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 6.6 from
+This is emacspeak.info, produced by makeinfo version 6.7 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -2342,7 +2342,7 @@ prefix arg to delete a previously created eww-mark.
  -- Command: emacspeak-eww-google-knowledge-card
 
      Show just the knowledge card.
-     Warning, this is fragile, and depends on a stable id for the
+     Warning, this is fragile, and depends on a stable id/class for the
        knowledge card.
 
 12.75.7.4 emacspeak-eww-links-rel
@@ -2841,6 +2841,9 @@ prefix arg to delete a previously created eww-mark.
 
 12.75.8 emacspeak-eww Options
 -----------------------------
+
+ -- Variable: User Option emacspeak-eww-inhibit-images
+     Turn this on to avoid rendering images.
 
  -- Variable: User Option emacspeak-eww-masquerade-as
      User Agent string that is sent when masquerading is on.
@@ -3503,252 +3506,259 @@ e.g.  blog search are tbm=
 12.95.1 Emacspeak-Google Commands
 ---------------------------------
 
-12.95.1.1 emacspeak-google-show-toolbelt
+12.95.1.1 emacspeak-google-open-link
+....................................
+
+ -- Command: emacspeak-google-open-link
+
+     Open Google link under point.
+
+12.95.1.2 emacspeak-google-show-toolbelt
 ........................................
 
  -- Command: emacspeak-google-show-toolbelt
 
      Reload search page with toolbelt showing.
 
-12.95.1.2 emacspeak-google-sign-in
+12.95.1.3 emacspeak-google-sign-in
 ..................................
 
  -- Command: emacspeak-google-sign-in
 
      Sign in to Google.
 
-12.95.1.3 emacspeak-google-sign-out
+12.95.1.4 emacspeak-google-sign-out
 ...................................
 
  -- Command: emacspeak-google-sign-out
 
      Sign out to Google.
 
-12.95.1.4 emacspeak-google-toolbelt-change
+12.95.1.5 emacspeak-google-toolbelt-change
 ..........................................
 
  -- Command: emacspeak-google-toolbelt-change
 
      Command to change values in the toolbelt and execute the query.
 
-12.95.1.5 emacspeak-google-toolbelt-change-Shopping
+12.95.1.6 emacspeak-google-toolbelt-change-Shopping
 ...................................................
 
  -- Command: emacspeak-google-toolbelt-change-Shopping
 
      Change  Shopping in the currently active toolbelt.
 
-12.95.1.6 emacspeak-google-toolbelt-change-blog
+12.95.1.7 emacspeak-google-toolbelt-change-blog
 ...............................................
 
  -- Command: emacspeak-google-toolbelt-change-blog
 
      Change  blog in the currently active toolbelt.
 
-12.95.1.7 emacspeak-google-toolbelt-change-books
+12.95.1.8 emacspeak-google-toolbelt-change-books
 ................................................
 
  -- Command: emacspeak-google-toolbelt-change-books
 
      Change  books in the currently active toolbelt.
 
-12.95.1.8 emacspeak-google-toolbelt-change-books-format
+12.95.1.9 emacspeak-google-toolbelt-change-books-format
 .......................................................
 
  -- Command: emacspeak-google-toolbelt-change-books-format
 
      Change  books-format in the currently active toolbelt.
 
-12.95.1.9 emacspeak-google-toolbelt-change-books-type
-.....................................................
+12.95.1.10 emacspeak-google-toolbelt-change-books-type
+......................................................
 
  -- Command: emacspeak-google-toolbelt-change-books-type
 
      Change  books-type in the currently active toolbelt.
 
-12.95.1.10 emacspeak-google-toolbelt-change-books-viewability
+12.95.1.11 emacspeak-google-toolbelt-change-books-viewability
 .............................................................
 
  -- Command: emacspeak-google-toolbelt-change-books-viewability
 
      Change  books-viewability in the currently active toolbelt.
 
-12.95.1.11 emacspeak-google-toolbelt-change-commercial
+12.95.1.12 emacspeak-google-toolbelt-change-commercial
 ......................................................
 
  -- Command: emacspeak-google-toolbelt-change-commercial
 
      Change  commercial in the currently active toolbelt.
 
-12.95.1.12 emacspeak-google-toolbelt-change-commercial-prices
+12.95.1.13 emacspeak-google-toolbelt-change-commercial-prices
 .............................................................
 
  -- Command: emacspeak-google-toolbelt-change-commercial-prices
 
      Change  commercial-prices in the currently active toolbelt.
 
-12.95.1.13 emacspeak-google-toolbelt-change-date-filter
+12.95.1.14 emacspeak-google-toolbelt-change-date-filter
 .......................................................
 
  -- Command: emacspeak-google-toolbelt-change-date-filter
 
      Change  date-filter in the currently active toolbelt.
 
-12.95.1.14 emacspeak-google-toolbelt-change-forums
+12.95.1.15 emacspeak-google-toolbelt-change-forums
 ..................................................
 
  -- Command: emacspeak-google-toolbelt-change-forums
 
      Change  forums in the currently active toolbelt.
 
-12.95.1.15 emacspeak-google-toolbelt-change-group-discussions
+12.95.1.16 emacspeak-google-toolbelt-change-group-discussions
 .............................................................
 
  -- Command: emacspeak-google-toolbelt-change-group-discussions
 
      Change  group-discussions in the currently active toolbelt.
 
-12.95.1.16 emacspeak-google-toolbelt-change-images
+12.95.1.17 emacspeak-google-toolbelt-change-images
 ..................................................
 
  -- Command: emacspeak-google-toolbelt-change-images
 
      Change  images in the currently active toolbelt.
 
-12.95.1.17 emacspeak-google-toolbelt-change-in-depth
+12.95.1.18 emacspeak-google-toolbelt-change-in-depth
 ....................................................
 
  -- Command: emacspeak-google-toolbelt-change-in-depth
 
      Change  in-depth in the currently active toolbelt.
 
-12.95.1.18 emacspeak-google-toolbelt-change-literal
+12.95.1.19 emacspeak-google-toolbelt-change-literal
 ...................................................
 
  -- Command: emacspeak-google-toolbelt-change-literal
 
      Change  literal in the currently active toolbelt.
 
-12.95.1.19 emacspeak-google-toolbelt-change-news
+12.95.1.20 emacspeak-google-toolbelt-change-news
 ................................................
 
  -- Command: emacspeak-google-toolbelt-change-news
 
      Change  news in the currently active toolbelt.
 
-12.95.1.20 emacspeak-google-toolbelt-change-non-commercial
+12.95.1.21 emacspeak-google-toolbelt-change-non-commercial
 ..........................................................
 
  -- Command: emacspeak-google-toolbelt-change-non-commercial
 
      Change  non-commercial in the currently active toolbelt.
 
-12.95.1.21 emacspeak-google-toolbelt-change-patents
+12.95.1.22 emacspeak-google-toolbelt-change-patents
 ...................................................
 
  -- Command: emacspeak-google-toolbelt-change-patents
 
      Change  patents in the currently active toolbelt.
 
-12.95.1.22 emacspeak-google-toolbelt-change-places
+12.95.1.23 emacspeak-google-toolbelt-change-places
 ..................................................
 
  -- Command: emacspeak-google-toolbelt-change-places
 
      Change  places in the currently active toolbelt.
 
-12.95.1.23 emacspeak-google-toolbelt-change-recent
+12.95.1.24 emacspeak-google-toolbelt-change-recent
 ..................................................
 
  -- Command: emacspeak-google-toolbelt-change-recent
 
      Change  recent in the currently active toolbelt.
 
-12.95.1.24 emacspeak-google-toolbelt-change-recipes
+12.95.1.25 emacspeak-google-toolbelt-change-recipes
 ...................................................
 
  -- Command: emacspeak-google-toolbelt-change-recipes
 
      Change  recipes in the currently active toolbelt.
 
-12.95.1.25 emacspeak-google-toolbelt-change-reviews
+12.95.1.26 emacspeak-google-toolbelt-change-reviews
 ...................................................
 
  -- Command: emacspeak-google-toolbelt-change-reviews
 
      Change  reviews in the currently active toolbelt.
 
-12.95.1.26 emacspeak-google-toolbelt-change-social
+12.95.1.27 emacspeak-google-toolbelt-change-social
 ..................................................
 
  -- Command: emacspeak-google-toolbelt-change-social
 
      Change  social in the currently active toolbelt.
 
-12.95.1.27 emacspeak-google-toolbelt-change-sort-by-date
+12.95.1.28 emacspeak-google-toolbelt-change-sort-by-date
 ........................................................
 
  -- Command: emacspeak-google-toolbelt-change-sort-by-date
 
      Change  sort-by-date in the currently active toolbelt.
 
-12.95.1.28 emacspeak-google-toolbelt-change-structured-snippets
+12.95.1.29 emacspeak-google-toolbelt-change-structured-snippets
 ...............................................................
 
  -- Command: emacspeak-google-toolbelt-change-structured-snippets
 
      Change  structured-snippets in the currently active toolbelt.
 
-12.95.1.29 emacspeak-google-toolbelt-change-timeline
+12.95.1.30 emacspeak-google-toolbelt-change-timeline
 ....................................................
 
  -- Command: emacspeak-google-toolbelt-change-timeline
 
      Change  timeline in the currently active toolbelt.
 
-12.95.1.30 emacspeak-google-toolbelt-change-timeline-high
+12.95.1.31 emacspeak-google-toolbelt-change-timeline-high
 .........................................................
 
  -- Command: emacspeak-google-toolbelt-change-timeline-high
 
      Change  timeline-high in the currently active toolbelt.
 
-12.95.1.31 emacspeak-google-toolbelt-change-timeline-low
+12.95.1.32 emacspeak-google-toolbelt-change-timeline-low
 ........................................................
 
  -- Command: emacspeak-google-toolbelt-change-timeline-low
 
      Change  timeline-low in the currently active toolbelt.
 
-12.95.1.32 emacspeak-google-toolbelt-change-video
+12.95.1.33 emacspeak-google-toolbelt-change-video
 .................................................
 
  -- Command: emacspeak-google-toolbelt-change-video
 
      Change  video in the currently active toolbelt.
 
-12.95.1.33 emacspeak-google-toolbelt-change-video-duration
+12.95.1.34 emacspeak-google-toolbelt-change-video-duration
 ..........................................................
 
  -- Command: emacspeak-google-toolbelt-change-video-duration
 
      Change  video-duration in the currently active toolbelt.
 
-12.95.1.34 emacspeak-google-toolbelt-change-web-history-not-visited
+12.95.1.35 emacspeak-google-toolbelt-change-web-history-not-visited
 ...................................................................
 
  -- Command: emacspeak-google-toolbelt-change-web-history-not-visited
 
      Change  web-history-not-visited in the currently active toolbelt.
 
-12.95.1.35 emacspeak-google-toolbelt-change-web-history-visited
+12.95.1.36 emacspeak-google-toolbelt-change-web-history-visited
 ...............................................................
 
  -- Command: emacspeak-google-toolbelt-change-web-history-visited
 
      Change  web-history-visited in the currently active toolbelt.
 
-12.95.1.36 emacspeak-google-tts
+12.95.1.37 emacspeak-google-tts
 ...............................
 
  -- Command: emacspeak-google-tts (text &optional lang)
@@ -3758,7 +3768,7 @@ e.g.  blog search are tbm=
 
      (fn TEXT &optional LANG)
 
-12.95.1.37 emacspeak-google-tts-region
+12.95.1.38 emacspeak-google-tts-region
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
@@ -3770,7 +3780,7 @@ e.g.  blog search are tbm=
 
      (fn START END &optional ASK-LANG)
 
-12.95.1.38 emacspeak-google-what-is-my-ip
+12.95.1.39 emacspeak-google-what-is-my-ip
 .........................................
 
  -- Command: emacspeak-google-what-is-my-ip
@@ -6437,12 +6447,11 @@ File: emacspeak.info,  Node: emacspeak-muggles,  Next: emacspeak-muse,  Prev: em
 12.132 emacspeak-muggles
 ========================
 
-MUGGLES == Emacspeak spells for power-users.
-
-   This module implements no new functionality — contrast with
-emacspeak-wizards.  Instead, it uses package hydra to provide
-convenience key-bindings that access existing Emacspeak functionality.
-You need to install package Hydra first: ‘M-x package-install hydra’.
+MUGGLES == Emacspeak spells for power-users.  This module implements no
+new functionality — contrast with emacspeak-wizards.  Instead, it uses
+package hydra to provide convenience key-bindings that access existing
+Emacspeak functionality.  You need to install package Hydra first: ‘M-x
+package-install hydra’.
 
    Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.
@@ -7878,14 +7887,13 @@ File: emacspeak.info,  Node: emacspeak-personality,  Next: emacspeak-php-mode,  
 12.147 emacspeak-personality
 ============================
 
-Implementation Notes From 2018:
-
-   After 3 years, variable emacspeak-personality-voiceify-faces has been
-removed, and the advice on put-text-property and friends removed.  This
-module nowlimits itself to mapping face/font-lock properties from
-overlays to the associated text-property (personality).  This mapping is
-done via emacspeak-personality-add.  The options for cumulative
-personalities have been removed.
+Implementation Notes From 2018: After 3 years, variable
+emacspeak-personality-voiceify-faces has been removed, and the advice on
+put-text-property and friends removed.  This module nowlimits itself to
+mapping face/font-lock properties from overlays to the associated
+text-property (personality).  This mapping is done via
+emacspeak-personality-add.  The options for cumulative personalities
+have been removed.
 
    Implementation Notes From 2015:
 
@@ -8813,11 +8821,10 @@ File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-smart-window,  Pr
 12.177 emacspeak-slime
 ======================
 
-;;; SLIME == Superior Lisp Interaction Mode For Emacs
-
-   Slime is a powerful IDE for developing in Common Lisp and Clojure.
-It’s similar but more modern than package ILisp that I used as a
-graduate student when developing AsTeR.
+SLIME == Superior Lisp Interaction Mode For Emacs Slime is a powerful
+IDE for developing in Common Lisp and Clojure.  It’s similar but more
+modern than package ILisp that I used as a graduate student when
+developing AsTeR.
 
 12.177.1 emacspeak-slime Options
 --------------------------------

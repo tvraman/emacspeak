@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1256 commands and 909 options.
+This chapter documents a total of 1257 commands and 910 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -264,7 +264,7 @@ represented in elisp as a structure.
 We will refer to this structure as a "speech style".  This
 structure needs to be mapped to device dependent codes to produce
 the desired effect.  This module forms a bridge between emacs
-packages    that wish to implement audio formatting 
+packages    that wish to implement audio formatting
 and Emacspeak's TTS module.  Emacspeak produces voice
 change effects by examining the value of text-property
 'personality.
@@ -4106,7 +4106,7 @@ Advice untabify to change non-breaking space chars to space.
 Structure emacspeak-amark holds a bookmark into an mp3 file
 path: fully qualified pathname  to file being marked
 name: Bookmark tag
-Position: time offset from start 
+Position: time offset from start
 
 This library will be used from emacspeak-m-player,
 emacspeak-mplayer and friends to set and jump to bookmarks.
@@ -4149,7 +4149,7 @@ Save buffer-local AMarks in  directory of currently playing resource.
 @node emacspeak-analog
 @section emacspeak-analog
 
-Speech-enables package analog --convenient log analyzer 
+Speech-enables package analog --convenient log analyzer
 
 @subsection Emacspeak-Analog Commands
 
@@ -4974,7 +4974,7 @@ Name of bookshare  XSL transform.
 @node emacspeak-browse-kill-ring
 @section emacspeak-browse-kill-ring
 
-Browse the kill ring using 
+Browse the kill ring using
 browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walters)
 
 @node emacspeak-bs
@@ -5070,7 +5070,7 @@ To fix all of calc's interactive functions
 @node emacspeak-calculator
 @section emacspeak-calculator
 
-Speech enable desktop calculator 
+Speech enable desktop calculator
 
 @node emacspeak-calendar
 @section emacspeak-calendar
@@ -5500,7 +5500,7 @@ CLOJURE-mode: Specialized mode for Clojure programming.
 @node emacspeak-cmuscheme
 @section emacspeak-cmuscheme
 
-speech-enable scheme support 
+speech-enable scheme support
 
 @node emacspeak-company
 @section emacspeak-company
@@ -5625,7 +5625,7 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node emacspeak-cperl
 @section emacspeak-cperl
 
-Provide additional advice to CPerl mode 
+Provide additional advice to CPerl mode
 
 @node emacspeak-custom
 @section emacspeak-custom
@@ -6382,7 +6382,7 @@ Speak entry at point.
 @section emacspeak-elisp-refs
 
 Speech-enable package elisp-refs.
-ELISP-REFS == 
+ELISP-REFS ==
 
 @node emacspeak-elpy
 @section emacspeak-elpy
@@ -6492,7 +6492,7 @@ Speech-enable all interactive commands.
 @section emacspeak-eperiodic
 
 eperiodic produces an interactive periodic table of elements
-and can be found at 
+and can be found at
 http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
 
 @subsection Emacspeak-Eperiodic Commands
@@ -7116,7 +7116,7 @@ Directory under which we store Epubs.
 @section emacspeak-erc
 
 erc.el is a modern Emacs client for IRC including color
-and font locking support. 
+and font locking support.
 erc.el - an Emacs IRC client (by Alexander L. Belikoff)
 http://www.cs.cmu.edu/~berez/irc/erc.el
 
@@ -7327,7 +7327,7 @@ Eterm is the new terminal emulator for Emacs.
 Use of emacspeak with eterm really needs an info page.
 At present, the only documentation is the source level documentation.
 This module uses Control-t as an additional prefix key to allow the user
-To move around the terminal and have different parts spoken. 
+To move around the terminal and have different parts spoken.
 
 @subsection Emacspeak-Eterm Commands
 
@@ -7816,10 +7816,10 @@ Personality to indicate terminal underlining.
 @node emacspeak-eudc
 @section emacspeak-eudc
 
-EUDC --Emacs Universal Directory Client 
+EUDC --Emacs Universal Directory Client
 provides a unified interface to directory servers
 e.g. ldap servers
-this module speech enables eudc 
+this module speech enables eudc
 
 @subsection Emacspeak-Eudc Commands
 
@@ -8273,7 +8273,7 @@ Interactively delete a mark with name ‘name’ at current position.
 
 @format
 Show just the knowledge card.
-Warning, this is fragile, and depends on a stable id for the
+Warning, this is fragile, and depends on a stable id/class for the
   knowledge card.
 @end format
 @end deffn
@@ -8894,6 +8894,11 @@ Interactively set title --- renames buffer, and sets header-line.
 
 @subsection emacspeak-eww Options
 
+@defvar {User Option} emacspeak-eww-inhibit-images
+Turn this on to avoid rendering images.
+
+@end defvar
+
 @defvar {User Option} emacspeak-eww-masquerade-as
 User Agent string that is  sent when masquerading is on.
 
@@ -9333,7 +9338,7 @@ This personality uses  voice-highlight whose  effect can be changed globally by 
 @node emacspeak-forms
 @section emacspeak-forms
 
-Provide additional advice to forms-mode 
+Provide additional advice to forms-mode
 
 @subsection Emacspeak-Forms Commands
 
@@ -9432,7 +9437,7 @@ friends defined in generic-x.el
 @node emacspeak-gh-explorer
 @section emacspeak-gh-explorer
 
-GH-EXPLORER ==  GitHub Explorer 
+GH-EXPLORER ==  GitHub Explorer
 This module speech-enables Github Explorer.
 
 @subsection Emacspeak-Gh-Explorer Commands
@@ -9467,7 +9472,7 @@ for inclusion in documents.
 @node emacspeak-gnus
 @section emacspeak-gnus
 
-This module advises gnus to speak. 
+This module advises gnus to speak.
 Updating support in 2014 (Emacspeak is nearly 20 years old)
 Updating in 2018 as I switch to gnus as my primary mail interface.
 These customizations to gnus make it convenient to listen to news:
@@ -9634,6 +9639,15 @@ Originally all options were available as tbs=p:v
 Now, some specialized searches, e.g. blog search are tbm=
 
 @subsection Emacspeak-Google Commands
+
+@subsubsection emacspeak-google-open-link
+@deffn {Command} emacspeak-google-open-link   
+@findex emacspeak-google-open-link
+
+@format
+Open Google link under point.
+@end format
+@end deffn
 
 @subsubsection emacspeak-google-show-toolbelt
 @deffn {Command} emacspeak-google-show-toolbelt   
@@ -10006,7 +10020,7 @@ efficiently access  content that is tabular in nature.
 That module also provides functions for inferring table
 structure where possible.
 Often, such structure is hard to infer automatically
---but might be known to the user 
+--but might be known to the user
 e.g. treat columns 1 through 30 as one column of a table
 and so on.
 This module allows the user to specify a conceptual grid
@@ -10282,7 +10296,7 @@ Speak upto start of next index entry
 @node emacspeak-indium
 @section emacspeak-indium
 
-INDIUM ==  Javascript IDE 
+INDIUM ==  Javascript IDE
 This module speech-enables Indium.
 
 @node emacspeak-info
@@ -10378,7 +10392,7 @@ many available corrections.
 @node emacspeak-ivy
 @section emacspeak-ivy
 
-IVY ==  One More Smart Completion Technique 
+IVY ==  One More Smart Completion Technique
 Speech-enable ivy-style completion.
 This is still experimental and preliminary.
 
@@ -10533,7 +10547,7 @@ Set to T if you want to hear presence alerts.
 @section emacspeak-jdee
 
 Speech enable Java IDE.
-The Java IDE --JDEE-- can be found at 
+The Java IDE --JDEE-- can be found at
 http://sunsite.auc.dk/jdee/
 
 @node emacspeak-js2
@@ -12632,7 +12646,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-man
 @section emacspeak-man
 
-Provide additional advice to man-mode 
+Provide additional advice to man-mode
 
 @subsection Emacspeak-Man Commands
 
@@ -12701,18 +12715,18 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @node emacspeak-maths
 @section emacspeak-maths
 
-@subsection Setup 
+@subsection Setup
 Do not try what follows until you have read  js/node/README.org
 and successfully set up nvm (Node Version Manager) as described there.
-@subsection Technical Overview 
+@subsection Technical Overview
 Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
 based speech-rule-engine for Mathematics as the backend for
 processing mathematical markup. The result of this processing is
 an annotated S-expression that is rendered via Emacspeak's speech
 facilities. Annotations follow Aural CSS as implemented in
 Emacspeak, This allows us to map these expressions to aural
-properties supported by specific TTS engines. 
-@subsection Basic Usage: 
+properties supported by specific TTS engines.
+@subsection Basic Usage:
 
 Start  the server/client: M-x emacspeak-maths-start. Once the server
 and client are started, you can browse any number of math
@@ -12942,7 +12956,7 @@ From the package README file:
 The package also provides a convenient emacs mode for
 editing and playing  midge files.
 Midge's homepage is at:
-http://www.dmriley.demon.co.uk/code/midge/ 
+http://www.dmriley.demon.co.uk/code/midge/
 
 @node emacspeak-mines
 @section emacspeak-mines
@@ -12956,7 +12970,7 @@ these additional interactive commands:
 @item @kbd{,} Speak number of marks
 @item @kbd{a} Move to beginning of row.
 @item @kbd{e} Move to end of row.
-@item @kbd{g} Move to specified cell 
+@item @kbd{g} Move to specified cell
 @item @kbd{s} Move to next uncovered cell.
 @item @kbd{/} Speak number of remaining uncovered cells.
 @item @kbd{'} Speaks entire board.
@@ -13063,7 +13077,6 @@ multiple maildrops
 @section emacspeak-muggles
 
 MUGGLES ==  Emacspeak spells for power-users.
-
 This module implements no new functionality --- contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak
@@ -13091,7 +13104,7 @@ attempt to automatically install package hydra if it is not found.
 @item outliner: <C-c .> Bindings from outline-minor-mode.
 @item Info-Summary: <?> in Info Info Summary Muggle
 @item Repeatable-Yank: <C-y> Smart yank
-@item SmartParens: <C-c ,> Smart Parens 
+@item SmartParens: <C-c ,> Smart Parens
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
@@ -13728,7 +13741,7 @@ Provides functionality similar to amphetadesk --but in pure elisp
 @node emacspeak-nov
 @section emacspeak-nov
 
-NOV == Yet Another EPub Reader 
+NOV == Yet Another EPub Reader
 Package nov.el is an alternative to Emacspeak's built-in EPub
 reader.
 This module speech-enables nov.el
@@ -14096,7 +14109,7 @@ Prerequisites:
 Sane installed and working.
 scanimage to generate tiff files from scanner.
 tiffcp to compress the tiff file.
-working ocr executable 
+working ocr executable
 by default this module assumes that the OCR executable
 is named "ocr"
 
@@ -14720,13 +14733,12 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @node emacspeak-perl
 @section emacspeak-perl
 
-Provide additional advice to perl-mode 
+Provide additional advice to perl-mode
 
 @node emacspeak-personality
 @section emacspeak-personality
 
 Implementation Notes From 2018:
-
 After 3 years, variable emacspeak-personality-voiceify-faces has
 been removed,
 and the advice on put-text-property and friends removed.
@@ -14767,9 +14779,8 @@ php-mode)
 @section emacspeak-pianobar
 
 @subsection PIANOBAR ==  Pandora Client for Emacs
-
 pianobar git://github.com/PromyLOPh/pianobar.git Ubuntu/Debian:
-sudo apt-get install pianobar 
+sudo apt-get install pianobar
 
 Pianobar Is a stand-alone client for Pandora Radio. pianobar.el
 available on the Emacs Wiki at
@@ -15556,7 +15567,7 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @node emacspeak-ruby
 @section emacspeak-ruby
 
-Provide additional advice to Ruby mode 
+Provide additional advice to Ruby mode
 
 @node emacspeak-sage
 @section emacspeak-sage
@@ -15717,7 +15728,7 @@ emacspeak extensions to sgml mode
 @node emacspeak-sh-script
 @section emacspeak-sh-script
 
-This module speech-enables sh-script.el 
+This module speech-enables sh-script.el
 
 @node emacspeak-shx
 @section emacspeak-shx
@@ -15732,8 +15743,7 @@ Speech-enables package sigbegone --voiceify sigs in email and news
 @node emacspeak-slime
 @section emacspeak-slime
 
- ;;; SLIME == Superior  Lisp Interaction Mode For Emacs
-
+SLIME == Superior  Lisp Interaction Mode For Emacs
 Slime is a powerful IDE for developing in Common Lisp and Clojure.
 It's similar but more modern than package ILisp that I used as a
 graduate student when developing AsTeR.
@@ -19236,7 +19246,7 @@ in the white-space.
 @node emacspeak-tapestry
 @section emacspeak-tapestry
 
-emacspeak extensions to speak window widnow layouts 
+emacspeak extensions to speak window widnow layouts
 
 @subsection Emacspeak-Tapestry Commands
 
@@ -19331,7 +19341,7 @@ Speak size of file current entry
 @node emacspeak-tcl
 @section emacspeak-tcl
 
-Provide additional advice to tcl-mode 
+Provide additional advice to tcl-mode
 
 @node emacspeak-tdtd
 @section emacspeak-tdtd
@@ -21696,7 +21706,7 @@ relative position.
 @node emacspeak-winring
 @section emacspeak-winring
 
-window configurations in emacs are very useful 
+window configurations in emacs are very useful
 you can display the same file in different windows,
 and have different  portions of the file displayed.
 winring allows you to manage window configurations,
@@ -24273,11 +24283,11 @@ Open explanation of current xkcd in default browser
 @node emacspeak-xml-shell
 @section emacspeak-xml-shell
 
-Use xmllint from package libxml2 to implement 
+Use xmllint from package libxml2 to implement
 an XML browser.
 Uses the interactive shell provided by xmllint to do the hard
 work.
-Results of traversal are transformed  using xsltproc from libxslt 
+Results of traversal are transformed  using xsltproc from libxslt
 
 @subsection Emacspeak-Xml-Shell Commands
 
@@ -24526,10 +24536,10 @@ Default speech rate for eSpeak.
 Top-level bootstrap module for Google Client.
 Loads in authentication module and sets up per-service
 modules:
-gmaps: Google Maps 
+gmaps: Google Maps
 gweb: Google Web Search
 gblogger: Blogger
-gphoto: Google Photos 
+gphoto: Google Photos
 
 @node g-utils
 @section g-utils
@@ -24875,9 +24885,9 @@ And invoke them easily from  Ladspa host applications such as MPlayer.
 See
 @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
 Some Ladspa Packages that provide plugins:
-sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins 
-swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa 
-ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins 
+sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins
+swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa
+ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins
 
 @subsection Ladspa Commands
 
@@ -25619,10 +25629,9 @@ destructive functions.
 @section toy-braille
 
 This is a bit of toy code to write in braille.
-
 To try this, load this file (`M-x load-file path/to/toy-braille.el'), then do:
 
-  M-: (get-toy-braille-string "just a test")
+M-: (get-toy-braille-string "just a test")
 
 That's just a toy, meant as an excuse and maybe a tool to learn a
 bit of braille, nothing more.
@@ -25631,19 +25640,19 @@ Unicode fonts are needed.
 
 You can try:
 
-  M-: (set-default-font "-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*")
+M-: (set-default-font "-*-unifont-*-*-*-*-*-*-*-*-*-*-*-*")
 
 or
 
-  M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
+M-: (set-default-font "-*-clearlyu-*-*-*-*-*-*-*-*-*-*-iso10646-*")
 
 (it will only work if the relative font is installed and properly configured).
 
 References:
 
-  http://www.nbp.org/ic/nbp/braille/index.html
+http://www.nbp.org/ic/nbp/braille/index.html
 
-  http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
+http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
 @node tts
 @section tts
@@ -25782,7 +25791,7 @@ documentation strings in another, and so on.
 Comments will be spoken in `voice-comment-personality'.
 Strings will be spoken in `voice-string-personality'.
 Function and variable names (in their defining forms) will be
- spoken in `voice-function-name-personality'.
+spoken in `voice-function-name-personality'.
 Reserved words will be spoken in `voice-keyword-personality'.
 
 To make the text you type be voiceified, use M-x voice-lock-mode.

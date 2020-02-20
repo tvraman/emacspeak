@@ -1,4 +1,4 @@
-This is emacspeak.info, produced by makeinfo version 6.6 from
+This is emacspeak.info, produced by makeinfo version 6.7 from
 emacspeak.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on January 13, 2020.
+last updated on February 19, 2020.
 
    The manual is divided into the following chapters:
 
@@ -2756,7 +2756,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1256 commands and 909 options.
+   This chapter documents a total of 1257 commands and 910 options.
 
 * Menu:
 
