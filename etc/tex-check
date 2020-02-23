@@ -1,0 +1,122 @@
+#!/usr/bin/perl
+
+
+#Initializations
+$, = ' ';		# set output field separator
+$\ = "\n";		# set output record separator
+#local function definitions
+
+sub tex_check {
+my ($file,$handle) = @_;
+        $handle++;  #generate unique handle 
+#print "Tex-checking $file";
+
+        open($handle, "$file") || return 0; 
+
+while (<$handle>) {
+    chomp;	# strip record separator
+    #ignore comments
+    next  if (/^\s*%/);
+    #warn if tabular environment is missing the head line
+    if (/\\begin{tabular}/) {
+      &print_message ("You may need a rule on  table. \n" .$_)
+         if (!(/\\hline/)
+                and (/\|/));
+    }
+    #warn about lines containing %at the end
+    #if the word preceding the% has no trailing space
+    #
+    if (/[a-zA-Z,.?!]%$/) {
+&print_message("You may need a space before %".$_);
+    }
+    #Missing space after ,
+    if(/,[a-zA-Z]/) {
+      &print_message("Possible missing space after comma ".$_);
+}
+    #warn if there is a space before an index entry
+    if (/\s\\index/){
+      &print_message (
+                      "Possible unnecessary space before index entry".$_);
+    }
+    #warn if space precedes a hyphen
+    if (/\s-[a-zA-Z]/) {
+      &print_message ("Possible unwanted space in hyphenated word ". $_);
+    }
+    #warn if space follows a hyphen
+    if (/[a-zA-Z]-\s+/) {
+      &print_message ("Possible unwanted space in hyphenated word ". $_);
+    }
+    #warn if hyphenated word in mixed case
+    if (/[a-z]-[A-Z]/) {
+      &print_message ("Mixed case in hyphenated word ". $_);
+    }
+    #warn if space missing after a close brace.
+    if (/}[a-zA-Z0-9]/) {
+  &print_message ("Possible missing space after close brace ".$_);
+}
+    #Unwanted blank lines
+#remember that blank line seen:
+    if (/^[ ]*$/) {
+	$blank = 1;
+    }
+#and if line after blank line starts in lower case: ...
+    if (/^[ ]*[a-z]/) {
+	if ($blank == 1) {
+	    &print_message("Check capitalization".$_);
+	    $blank = 0;
+	}
+    }
+    if (!/^[ ]*$/) {
+	$blank = 0;
+    }
+#recursively process  
+    #tex input files
+    if (/\\input\s?{\s?([-\/\w]+)\s?}/||/\\include\s?{\s?([-\/\w]+)\s?}/) {
+my $input_file = $1;
+$input_file = $input_file.".tex" unless ($input_file =~ /.+\.tex$/); 
+print "Checking $input_file";
+	&tex_check ($input_file, $handle); 
+    }
+    # Space before Punctuations: 
+    if (/\ +\./) {
+	&print_message('Space before period. ');
+	print $_;
+    }
+if (/\ +;/) {
+	&print_message('Space before semi colon. ');
+	print $_;
+    }
+    if (/\ +,/) {
+	&print_message('Space before comma. ');
+	print $_;
+    }
+    if (/\ +\?/) {
+	&print_message('Space before question-mark. ');
+	print $_;
+    }
+    if (/\ +:/) {print_message("Space before colon. ")}
+    if (/\ +;/) {print_message("Space before  semi-colon ")}
+    if (/\ +\!/) {print_message("Space before  exclamation-mark ")}
+    if (/[ a-z]\.[A-Z]/) {
+	&print_message('Space missing between sentences.');
+	print $_;
+    }
+    if (/[.!?]\ +[a-z]/) {
+	&print_message('Sentence does not start in upper case');
+	print $_;
+    }
+}
+close $handle; 
+}
+
+
+sub print_message {
+    my ($message_string) = @_;
+
+    #Print a message like grep -n
+    print $ARGV . ':' . $. . ':' . $message_string;
+}
+
+#top-level:
+$file = shift || print "Specify a filename to check. "; 
+&tex_check($file, 'fh00'); 
