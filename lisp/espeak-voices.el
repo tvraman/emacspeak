@@ -485,8 +485,7 @@ and TABLE gives the values along that dimension."
   "Configure TTS environment to use eSpeak."
   (cl-declare (special tts-default-speech-rate
                        espeak-default-speech-rate
-                       dtk-speaker-process
-                       emacspeak-unspeakable-rule))
+                       dtk-speaker-process))
   (fset 'tts-list-voices'espeak-list-voices)
   (fset 'tts-voice-defined-p 'espeak-voice-defined-p)
   (fset 'tts-get-voice-command 'espeak-get-voice-command)
