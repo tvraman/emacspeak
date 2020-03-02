@@ -1832,7 +1832,7 @@ Interactive prefix arg speaks buffer info."
      (t                                 ; main branch
       (let ((global-info (downcase (format-mode-line global-mode-string)))
             (window-count (length (window-list)))
-            (vc-state (when vc-mode (vc-state (buffer-file-name))))
+            (vc-state (when (and vc-mode (buffer-file-name)) (vc-state (buffer-file-name))))
             (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
             (recursion-info (emacspeak-get-voicefied-recursion-info (recursion-depth)))
             (dir-info
