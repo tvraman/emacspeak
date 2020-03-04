@@ -4353,7 +4353,17 @@ external package."
            emacspeak-wizards-media-pipe midi-file)))
 
 ;;}}}
-   
+;;{{{FreeGeoIP:
+
+(defun emacspeak-wizards-free-geo-ip ()
+  "Return list consisting of city and region_name."
+  (interactive)
+  (let-alist
+      (g-json-from-url "https://freegeoip.app/json")
+    (dtk-speak-list
+     (list  .city .region_name))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
