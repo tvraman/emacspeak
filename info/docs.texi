@@ -22885,11 +22885,14 @@ Display frame’s foreground/background color seetting.
 @end deffn
 
 @subsubsection emacspeak-wizards-free-geo-ip
-@deffn {Command} emacspeak-wizards-free-geo-ip   
+@deffn {Command} emacspeak-wizards-free-geo-ip  (&optional reverse-geocode)
 @findex emacspeak-wizards-free-geo-ip
 
 @format
 Return list consisting of city and region_name.
+Optional interactive prefix arg reverse-geocodes using Google Maps.
+
+(fn &optional REVERSE-GEOCODE)
 @end format
 @end deffn
 
