@@ -4355,13 +4355,17 @@ external package."
 ;;}}}
 ;;{{{FreeGeoIP:
 
-(defun emacspeak-wizards-free-geo-ip ()
-  "Return list consisting of city and region_name."
-  (interactive)
+(defun emacspeak-wizards-free-geo-ip (&optional reverse-geocode)
+  "Return list consisting of city and region_name.
+Optional interactive prefix arg reverse-geocodes using Google Maps."
+  (interactive "P")
   (let-alist
       (g-json-from-url "https://freegeoip.app/json")
-    (dtk-speak-list
-     (list  .city .region_name))))
+    (if reverse-geocode
+        (dtk-speak
+         (gmaps-reverse-geocode
+          `((lat . ,.latitude) (lng . ,.longitude ))))
+      (dtk-speak-list (list  .city .region_name)))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
