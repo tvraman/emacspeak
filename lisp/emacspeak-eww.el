@@ -1796,15 +1796,21 @@ Warning, this is fragile, and depends on a stable id/class for the
 ;;}}}
 ;;{{{ Tags At Point:
 
-(defun emacspeak-eww-tags-at-point ()
-  "Display tags at point."
-  (interactive)
+(defun ems--eww-tags-at-point  ()
+  "Helper: Compute tags at point."
   (let ((props (text-properties-at (point)))
         (tags nil))
     (setq tags
           (cl-loop
            for i from 0 to (length props) by 2
            if (eq 'eww-tag (elt  props (+ 1 i))) collect (elt props i)))
+    
+    tags))
+
+(defun emacspeak-eww-tags-at-point ()
+  "Display tags at point."
+  (interactive)
+  (let ((tags (ems--eww-tags-at-point)))
     (print tags)
     (dtk-speak-list tags)))
 
