@@ -1749,7 +1749,7 @@ Produce an auditory icon if possible."
     (emacspeak-speak-mode-line)))
 (cl-loop
  for f in
- '(kill-buffer quit-window)
+ '(kill-buffer kill-current-buffer quit-window)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
