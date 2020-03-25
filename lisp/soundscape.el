@@ -371,7 +371,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
 ;;{{{ Soundscape Remote Control
 
 (defvar soundscape--remote
-  (make-temp-name "/tmp/soundscape")
+  (make-temp-name (expand-file-name  "soundscape" temporary-file-directory))
   "Name of Unix Domain socket used to control Soundscape.")
 
 (defun soundscape-sentinel (proc _state)
