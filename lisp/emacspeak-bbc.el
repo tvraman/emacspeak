@@ -199,7 +199,8 @@ Date defaults to today."
 ;;}}}
 ;;{{{ Stream using get_iplayer:
 
-(defvar emacspeak-bbc-iplayer-handle "/tmp/iplayer-stream.mp3"
+(defvar emacspeak-bbc-iplayer-handle
+  (expand-file-name  "iplayer-stream.mp3" temporary-file-directory)
   "Location of named pipe used for streaming.")
 
 (defcustom emacspeak-bbc-get-iplayer (executable-find "get_iplayer")

@@ -3375,8 +3375,9 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
            (split-string emacspeak-wizards-personal-portfolio) ","))
          (url (emacspeak-wizards-iex-uri  "stock/market/batch" symbols)))
     (shell-command
-     (format "%s -s -D /tmp/iex-headers -o %s '%s'"
-             g-curl-program emacspeak-wizards-iex-portfolio-file url))
+     (format "%s -s -D %s/iex-headers -o %s '%s'"
+             g-curl-program temporary-file-directory
+             emacspeak-wizards-iex-portfolio-file url))
     (setq emacspeak-wizards-iex-cache (ems--json-read-file emacspeak-wizards-iex-portfolio-file))))
 
 (defun emacspeak-wizards-iex-show-metadata ()
