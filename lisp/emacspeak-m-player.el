@@ -1699,9 +1699,8 @@ Optional interactive prefix arg prompts for name to use for  player."
          "*Persisted-M-Player*")
        'unique))
     (when (called-interactively-p 'interactive)
-      (emacspeak-auditory-icon 'close-object)
-      (message
-       "persisted current process. You can now start another player."))))
+      (emacspeak-auditory-icon 'task-done)
+      (dtk-notify-say "persisted current process. You can now start another player."))))
 
 (defun emacspeak-m-player-restore-process ()
   "Restore emacspeak-m-player-process from current buffer.
