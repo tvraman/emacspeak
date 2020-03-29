@@ -1709,7 +1709,9 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (cl-declare (special emacspeak-m-player-process))
   (unless (eq major-mode 'emacspeak-m-player-mode)
     (error "This is not an MPlayer buffer."))
-  (let ((proc (get-buffer-process (current-buffer))))
+  (let ((proc
+         (or (get-buffer-process (current-buffer))
+             emacspeak-m-player-process)))
     (cond
      ((process-live-p proc)
       (setq emacspeak-m-player-process proc)
