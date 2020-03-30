@@ -215,6 +215,7 @@ This chapter documents a total of 1259 commands and 910 options.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
 * emacspeak-vlc::Speech-enable VLC.
 * emacspeak-vm::Speech enable VMMail.
+* emacspeak-vuiet::Speech-enable VUIET.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.
@@ -20344,6 +20345,12 @@ Executable that converts MSXL documents on standard input to HTML
  using xlhtml.
 
 @end defvar
+
+@node emacspeak-vuiet
+@section emacspeak-vuiet
+
+VUIET ==  Emacs Music Explorer And Player with last.fm integration
+This module speech-enables vuiet.
 
 @node emacspeak-wdired
 @section emacspeak-wdired

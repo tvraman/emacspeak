@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on March 15, 2020.
+last updated on March 30, 2020.
 
    The manual is divided into the following chapters:
 
@@ -2968,6 +2968,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.
 * emacspeak-vlc::Speech-enable VLC.
 * emacspeak-vm::Speech enable VMMail.
+* emacspeak-vuiet::Speech-enable VUIET.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.

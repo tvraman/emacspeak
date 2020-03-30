@@ -53,18 +53,18 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+(defadvice vuiet-update-mode-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (dtk-notify-speak (vuiet-playing-track-str)))
 
 '(
-  vuiet-album-info-search
-vuiet-artist-info
-vuiet-artist-info-search
-vuiet-artist-lastfm-page
+  
 vuiet-disable-scrobbling
 vuiet-enable-scrobbling
-vuiet-ivy-similar-artists
+
 vuiet-love-track
-vuiet-loved-tracks-info
-vuiet-mode
+
+
 vuiet-next
 vuiet-play-artist
 vuiet-play-artist-similar
@@ -92,6 +92,22 @@ vuiet-tag-info
 vuiet-unlove-track
 vuiet-update-mode-line
 )
+
+
+(cl-loop
+ for f in 
+ '(
+   vuiet-loved-tracks-info
+   vuiet-album-info-search vuiet-artist-info
+   vuiet-artist-info-search vuiet-artist-lastfm-page)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 (provide 'emacspeak-vuiet)
