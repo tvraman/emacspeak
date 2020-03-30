@@ -58,10 +58,6 @@
   (dtk-notify-speak (vuiet-playing-track-str)))
 
 '(
-  
-vuiet-disable-scrobbling
-vuiet-enable-scrobbling
-
 vuiet-love-track
 
 
@@ -90,7 +86,6 @@ vuiet-seek-forward
 vuiet-stop
 vuiet-tag-info
 vuiet-unlove-track
-vuiet-update-mode-line
 )
 
 
@@ -107,6 +102,20 @@ vuiet-update-mode-line
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in 
+ '(vuiet-disable-scrobbling vuiet-enable-scrobbling)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon
+        (if vuiet-scrobble-enabled 'on 'off))
+       (dtk-speak (format "Turned %s scrobbling"
+                          (if vuiet-scrobble-enabled "on" "off")))))))
+
 
 
 ;;}}}
