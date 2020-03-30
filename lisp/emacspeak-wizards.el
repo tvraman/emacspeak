@@ -2903,7 +2903,7 @@ mapped to voices."
            (process-live-p (get-buffer-process buffer)))))))
   (rename-buffer "*Media Player Buffers*" 'unique)
   (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
+  (emacspeak-speak-line))
 
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
