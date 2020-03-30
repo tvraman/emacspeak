@@ -91,6 +91,7 @@ vuiet-unlove-track
  for f in 
  '(
    vuiet-playing-track-lyrics vuiet-loved-tracks-info
+                              vuiet-playing-artist-info vuiet-playing-artist-lastfm-page
    vuiet-album-info-search vuiet-artist-info
    vuiet-artist-info-search vuiet-artist-lastfm-page)
  do
