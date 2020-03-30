@@ -57,41 +57,23 @@
   "Provide auditory feedback."
   (dtk-notify-speak (vuiet-playing-track-str)))
 
-'(
-vuiet-love-track
-vuiet-next
-vuiet-play-artist
-vuiet-play-artist-similar
-vuiet-play-loved-track
-vuiet-play-loved-tracks
-vuiet-play-loved-tracks-similar
-vuiet-play-pause
-vuiet-play-playing-artist
-vuiet-play-playing-artist-similar
-vuiet-play-playing-tags-similar
-vuiet-play-recent-track
-vuiet-play-tag-similar
-vuiet-play-track
-vuiet-play-track-by-lyrics
-vuiet-play-track-search
+(defadvice vuiet-love-track (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-notify-say "loved strack")))
 
 
-
-vuiet-playing-track-search-youtube
-vuiet-replay
-vuiet-seek-backward
-vuiet-seek-forward
-vuiet-stop
-vuiet-tag-info
-vuiet-unlove-track
-)
+(defadvice vuiet-unlove-track (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-notify-say "UnLoved strack")))
 
 
 (cl-loop
  for f in 
  '(
    vuiet-playing-track-lyrics vuiet-loved-tracks-info
-                              vuiet-playing-artist-info vuiet-playing-artist-lastfm-page
+   vuiet-playing-artist-info vuiet-playing-artist-lastfm-page
    vuiet-album-info-search vuiet-artist-info
    vuiet-artist-info-search vuiet-artist-lastfm-page)
  do
