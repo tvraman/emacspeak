@@ -59,8 +59,6 @@
 
 '(
 vuiet-love-track
-
-
 vuiet-next
 vuiet-play-artist
 vuiet-play-artist-similar
@@ -76,9 +74,9 @@ vuiet-play-tag-similar
 vuiet-play-track
 vuiet-play-track-by-lyrics
 vuiet-play-track-search
-vuiet-playing-artist-info
-vuiet-playing-artist-lastfm-page
-vuiet-playing-track-lyrics
+
+
+
 vuiet-playing-track-search-youtube
 vuiet-replay
 vuiet-seek-backward
@@ -92,7 +90,7 @@ vuiet-unlove-track
 (cl-loop
  for f in 
  '(
-   vuiet-loved-tracks-info
+   vuiet-playing-track-lyrics vuiet-loved-tracks-info
    vuiet-album-info-search vuiet-artist-info
    vuiet-artist-info-search vuiet-artist-lastfm-page)
  do
