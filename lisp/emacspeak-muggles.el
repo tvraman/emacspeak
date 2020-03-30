@@ -762,6 +762,30 @@ Also generates global keybindings if any."
     (message "Generated autoloads for muggles.")))
 
 ;;}}}
+;;{{{Vuiet:
+
+(global-set-key
+ (kbd "C-; v")
+ (defhydra emacspeak-muggles-vuiet
+   (:body-pre
+    (progn
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-body-pre "Vuiet Media Player"))
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+   
+   ("," vuiet-seek-backward)
+   ("." vuiet-seek-forward)
+   ("n" vuiet-next)
+   ("l" vuiet-love-track)
+   ("u" vuiet-unlove-track)
+   ("SPC" vuiet-play-pause)
+   ("a" vuiet-artist-info)
+   ("" vuiet-playing-track-lyrics)
+   ("L" vuiet-playing-artist-lastfm-page)
+   ("s" vuiet-stop)
+   ))
+
+;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
