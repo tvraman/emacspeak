@@ -772,18 +772,19 @@ Also generates global keybindings if any."
       (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
       (emacspeak-hydra-body-pre "Vuiet Media Player"))
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   
    ("," vuiet-seek-backward)
    ("." vuiet-seek-forward)
    ("n" vuiet-next)
    ("l" vuiet-love-track)
    ("u" vuiet-unlove-track)
    ("SPC" vuiet-play-pause)
+   (";" vuiet-playing-track-lyrics)
    ("a" vuiet-artist-info)
    ("" vuiet-playing-track-lyrics)
    ("L" vuiet-playing-artist-lastfm-page)
    ("s" vuiet-stop)
-   ))
+   ("r" vuiet-replay)
+   )))
 
 ;;}}}
 (provide 'emacspeak-muggles)
