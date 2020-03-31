@@ -17,6 +17,10 @@ audio-formatting support, and works consistently across different
 Chess Display types.
 
 
+** Vuiet --- Music Player And Explorer 
+
+Module ~emacspeak-vuiet~ speech-enables ~vuiet~,  a package that
+implements a last.fm powered music explorer and player.
 
 ** Hacker News
 
