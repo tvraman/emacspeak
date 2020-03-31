@@ -16,6 +16,8 @@
 (global-set-key [8388718] 'emacspeak-muggles-navigate/body)
 (autoload 'emacspeak-muggles-hideshow/body "emacspeak-muggles" "emacspeak-muggles-hideshow/body" t)
 (global-set-key [3 104] 'emacspeak-muggles-hideshow/body)
+(autoload 'emacspeak-muggles-vuiet/body "emacspeak-muggles" "emacspeak-muggles-vuiet/body" t)
+(global-set-key [24 64 104 118] 'emacspeak-muggles-vuiet/body)
 (autoload 'emacspeak-muggles-org-table/body "emacspeak-muggles" "emacspeak-muggles-org-table/body" t)
 (autoload 'emacspeak-muggles-maths-navigator/body "emacspeak-muggles" "emacspeak-muggles-maths-navigator/body" t)
 (global-set-key [8388640] 'emacspeak-muggles-maths-navigator/body)
