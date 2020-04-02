@@ -770,7 +770,7 @@ Also generates global keybindings if any."
    (:body-pre
     (progn
       (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "Vuiet  Player"))
+      (emacspeak-hydra-body-pre "Vuiet  Explorer"))
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    (";" vuiet-playing-track-lyrics)
    ("," vuiet-seek-backward)
