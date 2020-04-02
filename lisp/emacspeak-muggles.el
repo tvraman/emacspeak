@@ -786,7 +786,7 @@ Also generates global keybindings if any."
    ("s" vuiet-stop)
    ("t" vuiet-play-track)
    ("u" vuiet-unlove-track)
-   )))
+   ))
 
 ;;}}}
 (provide 'emacspeak-muggles)
