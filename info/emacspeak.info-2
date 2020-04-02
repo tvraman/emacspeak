@@ -6920,7 +6920,35 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.132.2.16 emacspeak-muggles-yank-pop/body
+12.132.2.16 emacspeak-muggles-vuiet/body
+........................................
+
+ -- Command: emacspeak-muggles-vuiet/body
+     ‘C-; v’
+     ‘C-x @ h v’
+
+     Call the body in the "emacspeak-muggles-vuiet" hydra.
+
+     The heads for the associated hydra are:
+
+     ";":    ‘vuiet-playing-track-lyrics’,
+     ",":    ‘vuiet-seek-backward’,
+     ".":    ‘vuiet-seek-forward’,
+     "C-s":    ‘vuiet-artist-info-search’,
+     "L":    ‘vuiet-playing-artist-lastfm-page’,
+     "SPC":    ‘vuiet-play-pause’,
+     "a":    ‘vuiet-artist-info’,
+     "l":    ‘vuiet-love-track’,
+     "n":    ‘vuiet-next’,
+     "p":    ‘vuiet-play-artist’,
+     "r":    ‘vuiet-replay’,
+     "s":    ‘vuiet-stop’,
+     "t":    ‘vuiet-play-track’,
+     "u":    ‘vuiet-unlove-track’
+
+     The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
+
+12.132.2.17 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -6939,7 +6967,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
-12.132.2.17 emacspeak-origami/body
+12.132.2.18 emacspeak-origami/body
 ..................................
 
  -- Command: emacspeak-origami/body
