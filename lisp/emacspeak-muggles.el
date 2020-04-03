@@ -773,6 +773,7 @@ Also generates global keybindings if any."
       (emacspeak-hydra-body-pre "Vuiet  Explorer"))
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    (";" vuiet-playing-track-lyrics)
+   ("'" vuiet-play-loved-tracks)
    ("," vuiet-seek-backward)
    ("." vuiet-seek-forward)
    ("C-s" vuiet-artist-info-search)
