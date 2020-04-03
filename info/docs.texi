@@ -13107,6 +13107,7 @@ attempt to automatically install package hydra if it is not found.
 @item Info-Summary: <?> in Info Info Summary Muggle
 @item Repeatable-Yank: <C-y> Smart yank
 @item SmartParens: <C-c ,> Smart Parens
+@item Vuiet Explorer: <s-v> Vuiet Music Explorer and Player
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
@@ -13639,6 +13640,7 @@ Call the body in the "emacspeak-muggles-vuiet" hydra.
 The heads for the associated hydra are:
 
 ";":    ‘vuiet-playing-track-lyrics’,
+"’":    ‘vuiet-play-loved-tracks’,
 ",":    ‘vuiet-seek-backward’,
 ".":    ‘vuiet-seek-forward’,
 "C-s":    ‘vuiet-artist-info-search’,
