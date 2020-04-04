@@ -550,14 +550,20 @@ the words that were capitalized."
 
 ;;; Large deletions also produce auditory icons if possible
 
-(defadvice kill-line (before emacspeak pre act comp)
-  "Speak line before killing it. "
-  (when (ems-interactive-p)
+(cl-loop
+ for f in 
+ '(kill-line kill-whole-line)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
+     "Speak line before killing it. "
+     (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
       (dtk-tone-deletion)
-      (emacspeak-speak-line 1))))
+      (emacspeak-speak-line 1))))))
+
 
 (defadvice kill-sexp (before emacspeak pre act comp)
   "Speak the sexp you killed."
