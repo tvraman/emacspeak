@@ -6475,7 +6475,7 @@ attempt to automatically install package hydra if it is not found.
    • Info-Summary: <?> in Info Info Summary Muggle
    • Repeatable-Yank: <C-y> Smart yank
    • SmartParens: <C-c ,> Smart Parens
-   • Vuiet Explorer: <s-v> Vuiet Music Explorer and Player
+   • Vuiet Explorer: <C-; v> Vuiet Music Explorer and Player
 
    Emacspeak automatically speaks Hydra hints when displayed.  To
 silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
