@@ -293,7 +293,6 @@ Argument `k-map' is a symbol  that names a keymap."
  (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
    (:body-pre (emacspeak-hydra-body-pre "Media Player")
-              :timeout 0.5
               :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    (";" emacspeak-m-player)
    ("+" emacspeak-m-player-volume-up)
