@@ -69,7 +69,7 @@
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
 ;;; @item Repeatable-Yank: <C-y> Smart yank
 ;;; @item SmartParens: <C-c ,> Smart Parens
-;;; @item Vuiet Explorer: <s-v> Vuiet Music Explorer and Player
+;;; @item Vuiet Explorer: <C-; v> Vuiet Music Explorer and Player
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
