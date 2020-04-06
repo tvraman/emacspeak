@@ -51,7 +51,7 @@
 ;;; Note that on newer versions of Emacs, loading this module will
 ;;; attempt to automatically install package hydra if it is not found.
 ;;; @subsection Using Hydras
-See the high-level documentation for the Hydra package by executing
+;;; See the high-level documentation for the Hydra package by executing
 ;;; @kbd {C-h C-j } hydra @kbd{RET}.
 ;;; The documentation in this section uses the same terminology as
 ;;; shown in the hydra package documentation.
