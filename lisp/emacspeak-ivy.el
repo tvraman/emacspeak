@@ -111,7 +111,7 @@
 (defadvice ivy--exhibit (after emacspeak pre act comp)
   "Speak updated Ivy list."
   (emacspeak-ivy-speak-selection)
-  (sit-for 1.5)
+  (sit-for 5)
   (emacspeak-speak-buffer))
 
 (defadvice ivy-read (before emacspeak pre act comp)
