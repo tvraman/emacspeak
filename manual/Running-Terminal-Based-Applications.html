@@ -65,20 +65,21 @@
   <h2 class="chapter">11 Running Terminal Based Applications.</h2>
   <p>You can use the terminal emulator mode to run arbitrary
   terminal-based programs from within Emacs. You open a terminal
-  emulator buffer using M-x term, with an extra carriage return to
-  accept the default shell (such as bash). (Incidentally, don’t
-  confuse this command with M-x terminal-emulator, which starts an
-  older terminal emulator mode not supported by Emacspeak.)</p>
+  emulator buffer using <kbd>M-x term</kbd>, with an extra carriage
+  return to accept the default shell (such as <code>bash</code>).
+  (Incidentally, don’t confuse this command with <kbd>M-x
+  terminal-emulator</kbd>, which starts an older terminal emulator
+  mode not supported by Emacspeak.)</p>
   <p>Three kinds of commands are used within the terminal emulator.
-  Normal term commands use a prefix of C-c. The emacspeak commands
-  for eterm mode use a prefix of C-t. Anything else is a normal
-  shell command.</p>
+  Normal term commands use a prefix of <kbd>C-c</kbd>. The
+  emacspeak commands for eterm mode use a prefix of <kbd>C-t</kbd>.
+  Anything else is a normal shell command.</p>
   <p>There are two sub-modes of term mode: char sub-mode and line
   sub-mode. In char sub-mode, emacspeak will only speak the final
   chunk of output — typically the last line displayed. Each
   character typed (except ‘term-escape-char‘) is sent immediately.
-  Use char sub-mode for screen oriented programs like vi or
-  pine.</p>
+  Use char sub-mode for screen oriented programs like
+  <code>vi</code> or <code>pine</code>.</p>
   <p>In line sub-mode, program output is spoken if user option
   <code>eterm-autospeak</code> is turned on. When you type a return
   at the end of the buffer, that line is sent as input, while
@@ -88,222 +89,231 @@
   similar to that obtained in regular <code>shell-mode</code>
   buffers.</p>
   <p>The default is char sub-mode. You can switch to line sub-mode
-  with C-c C-j (recall that control J is a linefeed), and back to
-  char sub-mode with C-c C-k (think of character spelled with a
-  K).</p>
+  with <kbd>C-c C-j</kbd> (recall that control J is a linefeed),
+  and back to char sub-mode with <kbd>C-c C-k</kbd> (think of
+  character spelled with a K).</p>
   <p>Note: Use char-mode with the terminal emulator for running
   screen-oriented programs like Lynx or Pine. For regular shell
-  interaction just use M-x shell instead of using the terminal
-  emulator.</p><span id="Char-Sub_002dmode-of-Term-Mode"></span>
+  interaction just use <kbd>M-x shell</kbd> instead of using the
+  terminal emulator.</p><span id=
+  "Char-Sub_002dmode-of-Term-Mode"></span>
   <h3 class="section">11.1 Char Sub-mode of Term Mode</h3>
   <p>In char sub-mode of term, each character you type is sent
   directly to the inferior process without intervention from emacs,
-  except for the escape character (usually C-c).</p>
+  except for the escape character (usually <kbd>C-c</kbd>).</p>
   <p>Here are some of the useful commands for the char sub-mode.
   Note that the usual commands for killing a buffer or switching
   buffers do not work in this mode, so new key bindings are
   supplied. The first five commands are different ways of leaving
   this mode.</p>
   <dl compact="compact">
-    <dt>‘<samp>C-c C-j</samp>’</dt>
+    <dt><kbd>C-c C-j</kbd></dt>
     <dd><span id="index-C_002dc-C_002dj"></span></dd>
-    <dt>‘<samp>M-x term-line-mode</samp>’</dt>
+    <dt><kbd>M-x term-line-mode</kbd></dt>
     <dd>
       <span id="index-M_002dx-term_002dline_002dmode"></span>
       <p>Switch to line sub-mode of term mode.</p>
     </dd>
-    <dt>‘<samp>C-c o</samp>’</dt>
+    <dt><kbd>C-c o</kbd></dt>
     <dd><span id="index-C_002dc-o"></span></dd>
-    <dt>‘<samp>M-x other-window</samp>’</dt>
+    <dt><kbd>M-x other-window</kbd></dt>
     <dd>
       <p>Select the next window on this frame. All windows on
       current frame are arranged in a cyclic order. This command
       selects the next window in that order. If there are no other
       windows, this command does nothing.</p>
     </dd>
-    <dt>‘<samp>C-c C-f</samp>’</dt>
+    <dt><kbd>C-c C-f</kbd></dt>
     <dd><span id="index-C_002dc-C_002df"></span></dd>
-    <dt>‘<samp>M-x find-file</samp>’</dt>
+    <dt><kbd>M-x find-file</kbd></dt>
     <dd>
       <p>Switch to a buffer visiting a file, creating one if none
       already exists.</p>
     </dd>
-    <dt>‘<samp>C-c 0</samp>’</dt>
+    <dt><kbd>C-c 0</kbd></dt>
     <dd><span id="index-C_002dc-0"></span></dd>
-    <dt>‘<samp>M-x delete-window</samp>’</dt>
+    <dt><kbd>M-x delete-window</kbd></dt>
     <dd>
       <p>Remove current window from the display.</p>
     </dd>
-    <dt>‘<samp>C-c k</samp>’</dt>
+    <dt><kbd>C-c k</kbd></dt>
     <dd><span id="index-C_002dc-k"></span></dd>
-    <dt>‘<samp>M-x kill-buffer</samp>’</dt>
+    <dt><kbd>M-x kill-buffer</kbd></dt>
     <dd>
       <p>Kill the current buffer.</p>
     </dd>
-    <dt>‘<samp>C-c C-x C-c</samp>’</dt>
+    <dt><kbd>C-c C-x C-c</kbd></dt>
     <dd><span id="index-C_002dc-C_002dx-C_002dc"></span></dd>
-    <dt>‘<samp>M-x save-buffers-kill-emacs</samp>’</dt>
+    <dt><kbd>M-x save-buffers-kill-emacs</kbd></dt>
     <dd>
       <p>Offer to save each buffer, then kill this Emacs
       process.</p>
     </dd>
-    <dt>‘<samp>C-c C-d</samp>’</dt>
+    <dt><kbd>C-c C-d</kbd></dt>
     <dd><span id="index-C_002dc-C_002dd"></span></dd>
-    <dt>‘<samp>M-x list-directory</samp>’</dt>
+    <dt><kbd>M-x list-directory</kbd></dt>
     <dd>
       <p>Display a list of files in or matching DIRNAME, a la ‘ls’.
       DIRNAME is globbed by the shell if necessary. Prefix arg
-      (C-u) means supply -l switch to ‘ls’. The list appears in a
-      second window.</p>
+      (<kbd>C-u</kbd>) means supply -l switch to <code>ls</code>.
+      The list appears in a second window.</p>
     </dd>
-    <dt>‘<samp>C-c 1</samp>’</dt>
+    <dt><kbd>C-c 1</kbd></dt>
     <dd><span id="index-C_002dc-1"></span></dd>
-    <dt>‘<samp>M-x delete-other-windows</samp>’</dt>
+    <dt><kbd>M-x delete-other-windows</kbd></dt>
     <dd>
       <p>Delete all other windows in the frame, making the current
       window fill its frame.</p>
     </dd>
-    <dt>‘<samp>C-c C-c</samp>’</dt>
+    <dt><kbd>C-c C-c</kbd></dt>
     <dd><span id="index-C_002dc-C_002dc"></span></dd>
-    <dt>‘<samp>M-x term-send-raw</samp>’</dt>
+    <dt><kbd>M-x term-send-raw</kbd></dt>
     <dd>
       <p>Send the last character typed through the
       terminal-emulator without any interpretation.</p>
     </dd>
-    <dt>‘<samp>C-c (</samp>’</dt>
+    <dt><kbd>C-c (</kbd></dt>
     <dd><span id="index-C_002dc-_0028"></span></dd>
-    <dt>‘<samp>M-x start-kbd-macro</samp>’</dt>
+    <dt><kbd>M-x start-kbd-macro</kbd></dt>
     <dd>
       <p>Record subsequent keyboard input, defining a keyboard
       macro. The commands are recorded even as they are executed.
-      Use C-c ) to finish recording and make the macro available.
-      Use M-x name-last-kbd-macro to give it a permanent name.
-      Prefix arg (C-u) means append to last macro defined; This
-      begins by re-executing that macro as if you had typed it
-      again.</p>
+      Use <kbd>C-c )</kbd> to finish recording and make the macro
+      available. Use <kbd>M-x name-last-kbd-macro</kbd> to give it
+      a permanent name. Prefix arg (<kbd>C-u</kbd>) means append to
+      last macro defined; This begins by re-executing that macro as
+      if you had typed it again.</p>
     </dd>
-    <dt>‘<samp>C-c )</samp>’</dt>
+    <dt><kbd>C-c )</kbd></dt>
     <dd><span id="index-C_002dc-_0029"></span></dd>
-    <dt>‘<samp>M-x end-kbd-macro</samp>’</dt>
+    <dt><kbd>M-x end-kbd-macro</kbd></dt>
     <dd>
       <p>Finish defining a keyboard macro. The definition was
-      started by C-c (. The macro is now available for use via C-c
-      e, or it can be given a name with M-x name-last-kbd-macro and
-      then invoked under that name.</p>
+      started by <kbd>C-c (</kbd>. The macro is now available for
+      use via <kbd>C-c e</kbd>, or it can be given a name with
+      <kbd>M-x name-last-kbd-macro</kbd> and then invoked under
+      that name.</p>
     </dd>
-    <dt>‘<samp>C-c e</samp>’</dt>
+    <dt><kbd>C-c e</kbd></dt>
     <dd><span id="index-C_002dc-e"></span></dd>
-    <dt>‘<samp>M-x call-last-kbd-macro</samp>’</dt>
+    <dt><kbd>M-x call-last-kbd-macro</kbd></dt>
     <dd>
-      <p>Call the last keyboard macro that you defined with C-c (.
-      A prefix argument serves as a repeat count. Zero means repeat
-      until error.</p>
+      <p>Call the last keyboard macro that you defined with
+      <kbd>C-c (</kbd>. A prefix argument serves as a repeat count.
+      Zero means repeat until error.</p>
     </dd>
   </dl>
   <p>You can get a list of all the key sequences with a C-c prefix
-  by typing C-c C-h while in this sub-mode. Some of those commands
-  are only available in the char sub-mode, while others are
-  generally available.</p><span id=
+  by typing <kbd>C-c C-h</kbd> while in this sub-mode. Some of
+  those commands are only available in the char sub-mode, while
+  others are generally available.</p><span id=
   "Line-Sub_002dmode-of-Term-Mode"></span>
   <h3 class="section">11.2 Line Sub-mode of Term Mode</h3>
   <p>In line sub-mode of term mode, emacs editing commands work
-  normally, until you type RET which sends the current line to the
-  inferior process.</p>
+  normally, until you type <tt class="key">RETURN</tt> which sends
+  the current line to the inferior process.</p>
   <p>Here are some of the useful commands for the line sub-mode of
   the term mode. In addition, the usual commands for handling a
-  buffer work in this mode (C-x o to switch windows, C-x k to kill
-  a buffer, C-x f to find a file, and so forth).</p>
+  buffer work in this mode (<kbd>C-x o</kbd> to switch windows,
+  <kbd>C-x k</kbd> to kill a buffer, <kbd>C-x f</kbd> to find a
+  file, and so forth).</p>
   <dl compact="compact">
-    <dt>‘<samp>C-c C-k</samp>’</dt>
+    <dt><kbd>C-c C-k</kbd></dt>
     <dd><span id="index-C_002dc-C_002dk"></span></dd>
-    <dt>‘<samp>M-x term-char-mode</samp>’</dt>
+    <dt><kbd>M-x term-char-mode</kbd></dt>
     <dd>
       <p>Switch to char sub-mode of term mode.</p>
     </dd>
-    <dt>‘<samp>C-c C-z</samp>’</dt>
+    <dt><kbd>C-c C-z</kbd></dt>
     <dd><span id="index-C_002dc-C_002dz"></span></dd>
-    <dt>‘<samp>M-x term-stop-subjob</samp>’</dt>
+    <dt><kbd>M-x term-stop-subjob</kbd></dt>
     <dd>
       <p>Stop the current subjob. Resume the subjob in the
-      foreground with the ordinary command fg, or run it in the
-      background with bg. WARNING: if there is no current subjob,
-      you can end up suspending the top-level process running in
-      the buffer. If you accidentally do this, use M-x
-      term-continue-subjob to resume the process. (This is not a
-      problem with with most shells, including bash, since they
-      ignore this signal.)</p>
+      foreground with the ordinary command <code>fg</code>, or run
+      it in the background with <code>bg</code>. WARNING: if there
+      is no current subjob, you can end up suspending the top-level
+      process running in the buffer. If you accidentally do this,
+      use <kbd>M-x term-continue-subjob</kbd> to resume the
+      process. (This is not a problem with most shells, including
+      <code>bash</code>, since they ignore this signal.)</p>
     </dd>
-    <dt>‘<samp>C-c C-\</samp>’</dt>
+    <dt><kbd>C-c C-\</kbd></dt>
     <dd><span id="index-C_002dc-C_002d_005c"></span></dd>
-    <dt>‘<samp>M-x term-quit-subjob</samp>’</dt>
+    <dt><kbd>M-x term-quit-subjob</kbd></dt>
     <dd>
       <p>Send quit signal to the current subjob.</p>
     </dd>
-    <dt>‘<samp>C-c C-c</samp>’</dt>
+    <dt><kbd>C-c C-c</kbd></dt>
     <dd><span id="index-C_002dc-C_002dc-1"></span></dd>
-    <dt>‘<samp>M-x term-interrupt-subjob</samp>’</dt>
+    <dt><kbd>M-x term-interrupt-subjob</kbd></dt>
     <dd>
       <p>Interrupt the current subjob.</p>
     </dd>
-    <dt>‘<samp>C-c C-w</samp>’</dt>
+    <dt><kbd>C-c C-w</kbd></dt>
     <dd><span id="index-C_002dc-C_002dw"></span></dd>
-    <dt>‘<samp>M-x backward-kill-word</samp>’</dt>
+    <dt><kbd>M-x backward-kill-word</kbd></dt>
     <dd>
       <p>Kill characters backward until encountering the end of a
       word.</p>
     </dd>
-    <dt>‘<samp>C-c C-u</samp>’</dt>
+    <dt><kbd>C-c C-u</kbd></dt>
     <dd><span id="index-C_002dc-C_002du"></span></dd>
-    <dt>‘<samp>M-x term-kill-input</samp>’</dt>
+    <dt><kbd>M-x term-kill-input</kbd></dt>
     <dd>
       <p>Kill all text from last stuff output by interpreter to
       point.</p>
     </dd>
-    <dt>‘<samp>C-c C-a</samp>’</dt>
+    <dt><kbd>C-c C-a</kbd></dt>
     <dd><span id="index-C_002dc-C_002da"></span></dd>
-    <dt>‘<samp>M-x term-bol</samp>’</dt>
+    <dt><kbd>M-x term-bol</kbd></dt>
     <dd>
       <p>Goes to the beginning of line, then skips past the prompt,
-      if any. If a prefix argument is given (C-u), then no prompt
-      skip — go straight to column 0.</p>
+      if any. If a prefix argument is given (<kbd>C-u</kbd>), then
+      no prompt skip — go straight to column 0.</p>
     </dd>
-    <dt>‘<samp>C-c C-d</samp>’</dt>
+    <dt><kbd>C-c C-d</kbd></dt>
     <dd><span id="index-C_002dc-C_002dd-1"></span></dd>
-    <dt>‘<samp>M-x term-send-eof</samp>’</dt>
+    <dt><kbd>M-x term-send-eof</kbd></dt>
     <dd>
       <p>Send an end of file character (EOF) to the current
       buffer’s process.</p>
     </dd>
   </dl>
-  <p>You can get a list of all the key sequences with a C-c prefix
-  by typing C-c C-h while in this sub-mode. Some of those commands
-  are only available in the line sub-mode, while others are
-  generally available.</p><span id="Eterm-Mode-Commands"></span>
+  <p>You can get a list of all the key sequences with a
+  <kbd>C-c</kbd> prefix by typing <kbd>C-c C-h</kbd> while in this
+  sub-mode. Some of those commands are only available in the line
+  sub-mode, while others are generally available.</p><span id=
+  "Eterm-Mode-Commands"></span>
   <h3 class="section">11.3 Eterm Mode Commands</h3>
   <p>The eterm mode maintains a pointer, which is not necessarily
   the same as the terminal’s cursor. It is intended to be used in
-  eterm’s char submode. In char submode, C-t , (that’s control-t
-  followed by comma) will tell you where the eterm pointer is. C-t
-  C-i will tell you where the terminal’s cursor is. The top left
-  corner of the window is "row 0 column 0".</p>
-  <p>The eterm pointer can be moved with C-t &lt; (to the top of
-  the screen), C-t &gt; (to the bottom of the screen), C-t n (to
-  the next line), C-t p (to the previous line), and C-t . (to the
-  cursor). Each of these also speaks the line the pointer moves to.
-  You can also search forward with C-t s.</p>
-  <p>These commands speak without moving the pointer: C-t l
-  (current line), C-t w (current word), C-t c (current character),
-  and C-t [space] (from eterm pointer to cursor).</p>
-  <p>You may enter review mode with C-t q. In review mode, you can
-  search the buffer and speak its contents, without disturbing the
-  terminal. Commands for moving the pointer are similar to normal
-  editing commands, but without a control key: n and p for next and
-  previous line, f and b for forward and back by characters, &lt;
-  and &gt; for the beginning or end of the buffer. c, w, and l
-  speak the current character, word, and line. s searches forward
-  (not incrementally). A comma speaks the pointer location. A
-  period moves the pointer to the terminal cursor. Return to normal
-  term mode by typing q.</p>
+  eterm’s char submode. In char submode, <kbd>C-t ,</kbd> (that’s
+  control-t followed by comma) will tell you where the eterm
+  pointer is. <kbd>C-t C-i</kbd> will tell you where the terminal’s
+  cursor is. The top left corner of the window is "row 0 column
+  0".</p>
+  <p>The eterm pointer can be moved with <kbd>C-t &lt;</kbd> (to
+  the top of the screen), <kbd>C-t &gt;</kbd> (to the bottom of the
+  screen), <kbd>C-t n</kbd> (to the next line), <kbd>C-t p</kbd>
+  (to the previous line), and <kbd>C-t .</kbd> (to the cursor).
+  Each of these also speaks the line the pointer moves to. You can
+  also search forward with <kbd>C-t s</kbd>.</p>
+  <p>These commands speak without moving the pointer: <kbd>C-t
+  l</kbd> (current line), <kbd>C-t w</kbd> (current word), <kbd>C-t
+  c</kbd> (current character), and <kbd>C-t <span class=
+  "key">SPACE</span></kbd> (from eterm pointer to cursor).</p>
+  <p>You may enter review mode with <kbd>C-t q</kbd>. In review
+  mode, you can search the buffer and speak its contents, without
+  disturbing the terminal. Commands for moving the pointer are
+  similar to normal editing commands, but without a control key:
+  <kbd>n</kbd> and <kbd>p</kbd> for next and previous line,
+  <kbd>f</kbd> and <kbd>b</kbd> for forward and back by characters,
+  <kbd>&lt;</kbd> and <kbd>&gt;</kbd> for the beginning or end of
+  the buffer. <kbd>c</kbd>, <kbd>w</kbd>, and <kbd>l</kbd> speak
+  the current character, word, and line. <kbd>s</kbd> searches
+  forward (not incrementally). A comma speaks the pointer location.
+  A period moves the pointer to the terminal cursor. Return to
+  normal term mode by typing <kbd>q</kbd>.</p>
   <hr />
   <div class="header">
     <p>Next: <a href="Emacspeak-Commands-And-Options.html"
