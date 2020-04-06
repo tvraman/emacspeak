@@ -1,6 +1,6 @@
 \input texinfo
 @c$Id$
-@setfilename./emacspeak.info 
+@setfilename./emacspeak.info
 @include style.texi
 @settitle Emacspeak User's Manual --- 2nd Edition.
 @dircategory Accessibility
@@ -14,26 +14,22 @@
 
 @titlepage
 
-     @title Emacspeak --- The Complete Audio Desktop
+@title Emacspeak --- The Complete Audio Desktop
 @subtitle User Manual
-@author T. V. Raman 
-     Last Updated:  @today{}
-     
-@page
-     @vskip 0pt plus 1filll
-     Copyright @copyright{} 1994--2018 T. V. Raman. All Rights Reserved.
+@author T. V. Raman
+Last Updated: @today{}
 
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 1994--2018 T. V. Raman. All Rights Reserved.
 
 Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
 notice are preserved on all copies.
 
-
 @summarycontents
 @contents
 @end titlepage
-
-
 
 @include preamble.texi
 @include copyright.texi
@@ -47,13 +43,13 @@ notice are preserved on all copies.
 @include online-help.texi
 @include packages.texi
 @include eterm.texi
-          @include docs.texi
-          @include keyboard.texi
+@include docs.texi
+@include keyboard.texi
 @include tts-server.texi
 @include inc-turning-twenty.texi
 @include acknowledge.texi
 @c trailer
-     
+
 @node Concept Index
 @chapter Concept Index
 @printindex cp
@@ -61,5 +57,5 @@ notice are preserved on all copies.
 @node Key Index
 @chapter Key Index
 @printindex ky
-     
-     @bye
+
+@bye
