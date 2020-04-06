@@ -6456,26 +6456,33 @@ package-install hydra’.
    Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.
 
-12.132.1 Implemented Muggles
+12.132.1 Using Hydras
+---------------------
+
+See the high-level documentation for the Hydra package by executing ‘C-h
+C-j ’ hydra ‘RET’.  The documentation in this section uses the same
+terminology as shown in the hydra package documentation.
+
+12.132.2 Implemented Muggles
 ----------------------------
 
-   • Brightness: <print> Control display brightness using xbacklight.
-   • View-Mode: <C-c v> Temporarily behave like view-mode.
-   • Navigate: <s-n> Navigate with ease.
-   • org-mode structure nav: <C-c C-SPC> Structure navigation for
+   • Brightness: ‘print’ Control display brightness using xbacklight.
+   • View-Mode: ‘C-c v’ Temporarily behave like view-mode.
+   • Navigate: ‘s-n’ Navigate with ease.
+   • org-mode structure nav: ‘C-c C-SPC’ Structure navigation for
      org-mode.
-   • org-mode tables: <C-c t> Table UI for org-mode tables.
-   • m-player: <s-m> Emacspeak-M-Player Commands
-   • m-player: <s-;> Emacspeak-M-Player muggle
-   • pianobar: <s-’> Emacspeak-M-pianobar Commands
+   • org-mode tables: ‘C-c t’ Table UI for org-mode tables.
+   • m-player: ‘s-m’ Emacspeak-M-Player Commands
+   • m-player: ‘s-;’ Emacspeak-M-Player muggle
+   • pianobar: ‘s-'’ Emacspeak-M-pianobar Commands
    • hideshow: C-c h Provide HideShow bindings.
    • origami: C-c / Origami bindings.
-   • toggle-option: <C-c o> Single binding for toggling options.
+   • toggle-option: ‘C-c o’ Single binding for toggling options.
    • outliner: <C-c .> Bindings from outline-minor-mode.
    • Info-Summary: <?> in Info Info Summary Muggle
-   • Repeatable-Yank: <C-y> Smart yank
-   • SmartParens: <C-c ,> Smart Parens
-   • Vuiet Explorer: <C-; v> Vuiet Music Explorer and Player
+   • Repeatable-Yank: ‘C-y’ Smart yank
+   • SmartParens: ‘C-c ,’ Smart Parens
+   • Vuiet Explorer: ‘C-; v’ Vuiet Music Explorer and Player
 
    Emacspeak automatically speaks Hydra hints when displayed.  To
 silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
@@ -6483,10 +6490,10 @@ silence speaking of Hydra hints, Muggles can bind command
 ‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
 binds ‘s’ to this command.
 
-12.132.2 Emacspeak-Muggles Commands
+12.132.3 Emacspeak-Muggles Commands
 -----------------------------------
 
-12.132.2.1 emacspeak-muggles-brightness/body
+12.132.3.1 emacspeak-muggles-brightness/body
 ............................................
 
  -- Command: emacspeak-muggles-brightness/body
@@ -6509,7 +6516,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
-12.132.2.2 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+12.132.3.2 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
 ............................................................
 
  -- Command: emacspeak-muggles-emacspeak-m-player-mode-map-cmd
@@ -6517,7 +6524,7 @@ binds ‘s’ to this command.
 
      Temporarily use keymap emacspeak-m-player-mode-map
 
-12.132.2.3 emacspeak-muggles-hideshow/body
+12.132.3.3 emacspeak-muggles-hideshow/body
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
@@ -6537,7 +6544,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
-12.132.2.4 emacspeak-muggles-ido-yank
+12.132.3.4 emacspeak-muggles-ido-yank
 .....................................
 
  -- Command: emacspeak-muggles-ido-yank
@@ -6545,7 +6552,7 @@ binds ‘s’ to this command.
 
      Pick what to yank using ido completion.
 
-12.132.2.5 emacspeak-muggles-info-summary/body
+12.132.3.5 emacspeak-muggles-info-summary/body
 ..............................................
 
  -- Command: emacspeak-muggles-info-summary/body
@@ -6597,14 +6604,14 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
-12.132.2.6 emacspeak-muggles-lispy-or-sp
+12.132.3.6 emacspeak-muggles-lispy-or-sp
 ........................................
 
  -- Command: emacspeak-muggles-lispy-or-sp
 
      Toggle between lispy and smartparens.
 
-12.132.2.7 emacspeak-muggles-m-player/body
+12.132.3.7 emacspeak-muggles-m-player/body
 ..........................................
 
  -- Command: emacspeak-muggles-m-player/body
@@ -6671,7 +6678,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
-12.132.2.8 emacspeak-muggles-maths-navigator/body
+12.132.3.8 emacspeak-muggles-maths-navigator/body
 .................................................
 
  -- Command: emacspeak-muggles-maths-navigator/body
@@ -6693,7 +6700,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 
-12.132.2.9 emacspeak-muggles-navigate/body
+12.132.3.9 emacspeak-muggles-navigate/body
 ..........................................
 
  -- Command: emacspeak-muggles-navigate/body
@@ -6721,7 +6728,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 
-12.132.2.10 emacspeak-muggles-org-nav/body
+12.132.3.10 emacspeak-muggles-org-nav/body
 ..........................................
 
  -- Command: emacspeak-muggles-org-nav/body
@@ -6741,7 +6748,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 
-12.132.2.11 emacspeak-muggles-org-table/body
+12.132.3.11 emacspeak-muggles-org-table/body
 ............................................
 
  -- Command: emacspeak-muggles-org-table/body
@@ -6763,7 +6770,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
-12.132.2.12 emacspeak-muggles-outliner/body
+12.132.3.12 emacspeak-muggles-outliner/body
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
@@ -6793,7 +6800,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.132.2.13 emacspeak-muggles-smartparens/body
+12.132.3.13 emacspeak-muggles-smartparens/body
 ..............................................
 
  -- Command: emacspeak-muggles-smartparens/body
@@ -6834,7 +6841,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.132.2.14 emacspeak-muggles-toggle-option/body
+12.132.3.14 emacspeak-muggles-toggle-option/body
 ................................................
 
  -- Command: emacspeak-muggles-toggle-option/body
@@ -6862,7 +6869,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.132.2.15 emacspeak-muggles-view/body
+12.132.3.15 emacspeak-muggles-view/body
 .......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -6921,7 +6928,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.132.2.16 emacspeak-muggles-vuiet/body
+12.132.3.16 emacspeak-muggles-vuiet/body
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
@@ -6950,7 +6957,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
 
-12.132.2.17 emacspeak-muggles-yank-pop/body
+12.132.3.17 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -6969,7 +6976,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
-12.132.2.18 emacspeak-origami/body
+12.132.3.18 emacspeak-origami/body
 ..................................
 
  -- Command: emacspeak-origami/body

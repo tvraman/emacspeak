@@ -13088,26 +13088,31 @@ You need to install package Hydra first:
 
 Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.
+@subsection Using Hydras
+See the high-level documentation for the Hydra package by executing
+@kbd {C-h C-j } hydra @kbd{RET}.
+The documentation in this section uses the same terminology as
+shown in the hydra package documentation.
 
 @subsection Implemented Muggles
 
 @itemize
-@item Brightness: <print> Control display brightness using xbacklight.
-@item View-Mode: <C-c v> Temporarily behave like view-mode.
-@item Navigate: <s-n> Navigate with ease.
-@item  org-mode structure nav: <C-c C-SPC> Structure navigation  for org-mode.
-@item  org-mode tables: <C-c t> Table UI for org-mode tables.
-@item m-player: <s-m> Emacspeak-M-Player Commands
-@item m-player: <s-;> Emacspeak-M-Player muggle
-@item pianobar: <s-'> Emacspeak-M-pianobar Commands
+@item Brightness: @kbd{print} Control display brightness using xbacklight.
+@item View-Mode: @kbd{C-c v} Temporarily behave like view-mode.
+@item Navigate: @kbd{s-n} Navigate with ease.
+@item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
+@item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
+@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
+@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
+@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
 @item hideshow: C-c h Provide HideShow bindings.
 @item origami: C-c / Origami   bindings.
-@item toggle-option:  <C-c o> Single binding for toggling options.
+@item toggle-option:  @kbd{C-c o} Single binding for toggling options.
 @item outliner: <C-c .> Bindings from outline-minor-mode.
 @item Info-Summary: <?> in Info Info Summary Muggle
-@item Repeatable-Yank: <C-y> Smart yank
-@item SmartParens: <C-c ,> Smart Parens
-@item Vuiet Explorer: <C-; v> Vuiet Music Explorer and Player
+@item Repeatable-Yank: @kbd{C-y} Smart yank
+@item SmartParens: @kbd{C-c ,} Smart Parens
+@item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
