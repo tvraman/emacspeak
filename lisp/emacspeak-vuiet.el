@@ -100,6 +100,28 @@
 
 
 ;;}}}
+;;{{{Additional Commands:
+
+;;; Will be removed once added to vuiet:
+(defun vuiet-play-artist-loved-tracks (artist random)
+  "Play all the tracks from the user loved tracks filtered by
+artist. If RANDOM is t, play the tracks at random, indefinitely. The
+user loved tracks list is the one associated with the username given
+in the setup of the lastfm.el package."
+  (interactive
+   (list
+    (read-from-minibuffer "Artist:")
+    (y-or-n-p "Play random? ")))
+  (vuiet-play
+   (cl-loop
+    for track in 
+    (lastfm-user-get-loved-tracks :limit vuiet-loved-tracks-limit)
+    when (string-match artist (car track))
+    collect track) :random random))
+
+
+;;}}}
+
 (provide 'emacspeak-vuiet)
 ;;{{{ end of file
 
