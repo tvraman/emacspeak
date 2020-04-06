@@ -93,21 +93,20 @@
    (format
     "%d: %s"
     ivy--length
-    (or (elt ivy--old-cands ivy--index)
-        ivy-text))))
+    (elt ivy--old-cands ivy--index))))
 
-;; (cl-loop
-;;  for f in
-;;  '(
-;;    ivy-beginning-of-buffer  ivy-end-of-buffer
-;;    ivy-next-line ivy-previous-line)
-;;  do
-;;  (eval
-;;   `(defadvice ,f (after emacspeak pre act comp)
-;;      "Speak selection."
-;;      (when (ems-interactive-p)
-;; (emacspeak-ivy-speak-selection)
-;;        (emacspeak-auditory-icon 'select-object)))))
+(cl-loop
+ for f in
+ '(
+   ivy-beginning-of-buffer  ivy-end-of-buffer
+   ivy-next-line ivy-previous-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak selection."
+     (when (ems-interactive-p)
+       (emacspeak-ivy-speak-selection)
+       (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ivy--exhibit (after emacspeak pre act comp)
   "Speak updated Ivy list."
