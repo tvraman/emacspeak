@@ -9077,7 +9077,7 @@ File: emacspeak.info,  Node: Concept Index,  Next: Key Index,  Prev: Acknowledgm
  [index ]
 * Menu:
 
-* Auctex:                                Creating Well-formatted Documents.
+* AUCTeX:                                Creating Well-formatted Documents.
                                                                (line 42)
 * Audio Desktop:                         Audio Desktop.        (line  6)
 * Audio Formatting:                      Context-Sensitive Interaction.
@@ -9522,31 +9522,31 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-c 1:                                 Running Terminal Based Applications.
                                                              (line   86)
 * C-c C-a:                               Running Terminal Based Applications.
-                                                             (line  162)
+                                                             (line  165)
 * C-c C-c:                               Running Terminal Based Applications.
                                                              (line   91)
 * C-c C-c <1>:                           Running Terminal Based Applications.
-                                                             (line  150)
+                                                             (line  153)
 * C-c C-d:                               Running Terminal Based Applications.
                                                              (line   80)
 * C-c C-d <1>:                           Running Terminal Based Applications.
-                                                             (line  168)
+                                                             (line  171)
 * C-c C-f:                               Running Terminal Based Applications.
                                                              (line   63)
 * C-c C-j:                               Running Terminal Based Applications.
                                                              (line   52)
 * C-c C-k:                               Running Terminal Based Applications.
-                                                             (line  132)
+                                                             (line  135)
 * C-c C-u:                               Running Terminal Based Applications.
-                                                             (line  158)
+                                                             (line  161)
 * C-c C-w:                               Running Terminal Based Applications.
-                                                             (line  154)
+                                                             (line  157)
 * C-c C-x C-c:                           Running Terminal Based Applications.
                                                              (line   76)
 * C-c C-z:                               Running Terminal Based Applications.
-                                                             (line  136)
+                                                             (line  139)
 * C-c C-\:                               Running Terminal Based Applications.
-                                                             (line  146)
+                                                             (line  149)
 * C-c e:                                 Running Terminal Based Applications.
                                                              (line  112)
 * C-c h:                                 emacspeak-muggles.  (line   81)
