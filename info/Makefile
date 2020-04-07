@@ -10,7 +10,10 @@ GH_PAGES=../../gh-pages-emacspeak/manual
 BATCH = -batch -q -no-site-file     \
 --eval '(setq file-name-handler-alist nil gc-cons-threshold 128000000)'
 FILES=*.texi
-
+INCLUDES= style.texi preamble.texi copyright.texi announce.texi emacspeak-significance.texi \
+introduction.texi install.texi using.texi audio-desktop.texi voices.texi online-help.texi \
+packages.texi eterm.texi docs.texi keyboard.texi tts-server.texi inc-turning-twenty.texi \
+acknowledge.texi intro-docs.texi documents.texi structure.texi web-browsing.texi tts.texi
 
 MAKEINFO = makeinfo 
 CSS=--css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
@@ -20,7 +23,7 @@ all: info  introducing-emacspeak.info turning-twenty.info emacspeak.pdf
 
 info: emacspeak.info
 
-emacspeak.info: *.texi
+emacspeak.info: emacspeak.texi $(INCLUDES)
 	$(MAKEINFO) emacspeak.texi
 
 introducing-emacspeak.info: introducing-emacspeak.texi
@@ -32,13 +35,13 @@ turning-twenty.info: turning-twenty.texi
 docs.texi: ../lisp/*.el
 	$(EMACS) $(BATCH) -l ../utils/self-document.el -f self-document-all-modules
 
-emacspeak.pdf: emacspeak.texi docs.texi
+emacspeak.pdf: emacspeak.texi $(INCLUDES)
 	makeinfo --pdf emacspeak.texi
 	\rm emacspeak.aux emacspeak.cp emacspeak.cps emacspeak.fn \
 emacspeak.fns emacspeak.ky emacspeak.kys emacspeak.log \
 emacspeak.toc  emacspeak.vr emacspeak.vrs
 
-man: emacspeak.texi 
+man: emacspeak.texi $(INCLUDES)
 	makeinfo -o ${GH_PAGES}  --html  ${CSS} emacspeak.texi
 	tidy -q -utf8 -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
 	@echo "Commit and push updated HTML files from gh-pages!"
