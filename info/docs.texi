@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1260 commands and 910 options.
+This chapter documents a total of 1261 commands and 910 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -13645,6 +13645,7 @@ Call the body in the "emacspeak-muggles-vuiet" hydra.
 The heads for the associated hydra are:
 
 ";":    ‘vuiet-playing-track-lyrics’,
+"A":    ‘vuiet-play-artist-loved-tracks’,
 "’":    ‘vuiet-play-loved-tracks’,
 ",":    ‘vuiet-seek-backward’,
 ".":    ‘vuiet-seek-forward’,
@@ -13652,6 +13653,7 @@ The heads for the associated hydra are:
 "L":    ‘vuiet-playing-artist-lastfm-page’,
 "SPC":    ‘vuiet-play-pause’,
 "a":    ‘vuiet-artist-info’,
+"i":    ‘emacspeak-vuiet-track-info’,
 "l":    ‘vuiet-love-track’,
 "n":    ‘vuiet-next’,
 "p":    ‘vuiet-play-artist’,
@@ -20394,6 +20396,17 @@ Executable that converts MSXL documents on standard input to HTML
 
 VUIET ==  Emacs Music Explorer And Player with last.fm integration
 This module speech-enables vuiet.
+
+@subsection Emacspeak-Vuiet Commands
+
+@subsubsection emacspeak-vuiet-track-info
+@deffn {Command} emacspeak-vuiet-track-info   
+@findex emacspeak-vuiet-track-info
+
+@format
+Speak current playing state.
+@end format
+@end deffn
 
 @node emacspeak-wdired
 @section emacspeak-wdired

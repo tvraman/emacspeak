@@ -3284,6 +3284,16 @@ File: emacspeak.info,  Node: emacspeak-vuiet,  Next: emacspeak-wdired,  Prev: em
 VUIET == Emacs Music Explorer And Player with last.fm integration This
 module speech-enables vuiet.
 
+12.209.1 Emacspeak-Vuiet Commands
+---------------------------------
+
+12.209.1.1 emacspeak-vuiet-track-info
+.....................................
+
+ -- Command: emacspeak-vuiet-track-info
+
+     Speak current playing state.
+
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-vuiet,  Up: Emacspeak Commands And Options
 
@@ -9516,7 +9526,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
 * C-c ,:                                 emacspeak-muggles.  (line  364)
-* C-c /:                                 emacspeak-muggles.  (line  540)
+* C-c /:                                 emacspeak-muggles.  (line  542)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.

@@ -6940,6 +6940,7 @@ binds ‘s’ to this command.
      The heads for the associated hydra are:
 
      ";":    ‘vuiet-playing-track-lyrics’,
+     "A":    ‘vuiet-play-artist-loved-tracks’,
      "’":    ‘vuiet-play-loved-tracks’,
      ",":    ‘vuiet-seek-backward’,
      ".":    ‘vuiet-seek-forward’,
@@ -6947,6 +6948,7 @@ binds ‘s’ to this command.
      "L":    ‘vuiet-playing-artist-lastfm-page’,
      "SPC":    ‘vuiet-play-pause’,
      "a":    ‘vuiet-artist-info’,
+     "i":    ‘emacspeak-vuiet-track-info’,
      "l":    ‘vuiet-love-track’,
      "n":    ‘vuiet-next’,
      "p":    ‘vuiet-play-artist’,
