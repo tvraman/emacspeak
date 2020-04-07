@@ -86,6 +86,17 @@
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-speak-mode-line))))))
 
+
+(cl-loop
+ for f in 
+ '(ivy-done ivy-alt-done ivy-immediate-done)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'close-object)))))
+
 (defun emacspeak-ivy-speak-selection ()
   "Speak current ivy selection."
   (cl-declare (special ivy--length ivy--old-cands ivy--index ivy-text))
@@ -112,7 +123,7 @@
   "Speak updated Ivy list."
   (emacspeak-ivy-speak-selection)
   (sit-for 5)
-  (emacspeak-speak-buffer))
+  (emacspeak-speak-rest-of-buffer))
 
 (defadvice ivy-read (before emacspeak pre act comp)
   "Speak prompt"
