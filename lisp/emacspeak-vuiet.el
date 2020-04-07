@@ -101,7 +101,15 @@
 
 ;;}}}
 ;;{{{Additional Commands:
-
+(defun emacspeak-vuiet-track-info ()
+  "Speak current playing state."
+  (interactive)
+  (cl-declare (special mode-line-misc-info))
+  (cond
+   ((null mode-line-misc-info) (dtk-notify-say "Nothing playing on
+vuiet?") )
+   (t
+    (dtk-speak (mapconcat #'identity mode-line-misc-info " ")))))
 
 
 
