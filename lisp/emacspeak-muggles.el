@@ -786,6 +786,7 @@ Also generates global keybindings if any."
    ("L" vuiet-playing-artist-lastfm-page)
    ("SPC" vuiet-play-pause)
    ("a" vuiet-artist-info)
+   ("i" emacspeak-vuiet-track-info)
    ("l" vuiet-love-track)
    ("n" vuiet-next)
    ("p" vuiet-play-artist)
