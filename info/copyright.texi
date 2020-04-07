@@ -2,15 +2,13 @@
 @node Copyright
 @chapter Copyright
 
-This manual documents  Emacspeak, a speech extension to Emacs. 
+This manual documents Emacspeak, a speech extension to Emacs. 
 
-Copyright (C)1994 -- 2018 T. V. Raman
+Copyright (C)1994 @NDash{} 2020 T. V. Raman
 All Rights Reserved. 
 
-
-
 Permission is granted to make and distribute verbatim copies of this
-manual without charge provided the copyright notice and this permission
-notice are preserved on all copies.  Sections of this manual are
-auto-generated from the source code, and the documentation inherits the
-same license as the original source code.
+manual without charge provided the copyright notice and this
+permission notice are preserved on all copies.  Sections of this
+manual are auto-generated from the source code, and the documentation
+inherits the same license as the original source code.
