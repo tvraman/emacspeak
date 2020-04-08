@@ -21,9 +21,9 @@ Emacspeak is available on the Internet at:
 @item Git Repository
 @url{https://github.com/tvraman/emacspeak}
 @item Mail List
-@url{mailto:emacspeak@@cs.vassar.edu}
+@email{emacspeak@@cs.vassar.edu}
 @item List Request
-@url{mailto:emacspeak-request@@cs.vassar.edu}
+@email{emacspeak-request@@cs.vassar.edu}
 @end table
 
 The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.  If
