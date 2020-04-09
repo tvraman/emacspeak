@@ -1,5 +1,5 @@
 @c $Id$
-@include style.texi
+
 @node Introduction
 @chapter Introduction
 
@@ -11,15 +11,15 @@ Emacs.
 In the past, screen reading programs have allowed visually impaired
 users to get feedback using synthesized speech.  Such programs have
 been commercially available for a long time.  Most of them originally
-ran on PC's under @acronym{DOS}, and have moved over to the Windows environment.
-However, screen-readers for the UNIX environment have been conspicuous
-in their absence.  Note that this is now changing with the
-availability of console-level Linux screenreaders such as
+ran on PC's under @acronym{DOS}, and have moved over to the Windows
+environment.  However, screen-readers for the UNIX environment have
+been conspicuous in their absence.  Note that this is now changing
+with the availability of console-level Linux screenreaders such as
 @command{speakup}.  Such Linux screenreaders provide the same level of
-@acronym{UNIX} accessibility provided in the late 80's by PC terminal emulators
-running a @acronym{DOS} screenreader.  This means that most visually impaired
-computer users face the additional handicap of being @acronym{DOS}-impaired
-@MDash{} a far more serious problem:-)
+@acronym{UNIX} accessibility provided in the late 80's by PC terminal
+emulators running a @acronym{DOS} screenreader.  This means that most
+visually impaired computer users face the additional handicap of being
+@acronym{DOS}-impaired @MDash{} a far more serious problem:-)
 
 Emacspeak is an emacs subsystem that provides complete speech access.
 It is @emph{not} a screen-reader @MDash{} rather, it is a complete
