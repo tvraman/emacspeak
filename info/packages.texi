@@ -4,8 +4,6 @@
 
 @cindex Emacs Packages
 
-@include style.texi
-
 Emacs @MDash{} The extensible, self-documenting editor, derives its
 functionality from its powerful extension mechanism.  This extension
 mechanism is used to implement many user-level applications such as mail
