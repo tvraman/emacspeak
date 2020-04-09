@@ -62,7 +62,7 @@ certain key bindings are established with which you can access
 Emacspeak commands that make it possible to read the rows and columns
 of the table and explore its structure efficiently.  To get a
 description of these key bindings, you can use W3 to visit the sample
-@acronum{HTML} file supplied as part of the Emacspeak distribution,
+@acronym{HTML} file supplied as part of the Emacspeak distribution,
 and, after having moved point onto the first row of the table, issue
 the command @kbd{C-h m} @code{describe-mode} to create a help buffer
 containing an explanation of the features offered by W3 mode.
