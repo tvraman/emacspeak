@@ -12,6 +12,69 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
+
+12.41 emacspeak-compile
+=======================
+
+This module makes compiling code from inside Emacs speech friendly.  It
+is an example of how a little amount of code can make Emacspeak even
+better.
+
+12.41.1 Emacspeak-Compile Commands
+----------------------------------
+
+12.41.1.1 emacspeak-compilation-speak-error
+...........................................
+
+ -- Command: emacspeak-compilation-speak-error
+
+     Speech feedback about the compilation error.
+
+12.41.2 emacspeak-compile Options
+---------------------------------
+
+ -- Variable: User Option voice-compilation-column-number
+     Personality used for compilation-column-number This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-compilation-error
+     Personality used for compilation-error This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option voice-compilation-info
+     Personality used for compilation-info This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-compilation-line-number
+     Personality used for compilation-line-number This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-compilation-mode-line-exit
+     Personality used for compilation-mode-line-exit This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
+
+ -- Variable: User Option voice-compilation-mode-line-fail
+     Personality used for compilation-mode-line-fail This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option voice-compilation-mode-line-run
+     Personality used for compilation-mode-line-run This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option voice-compilation-warning
+     Personality used for compilation-warning This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
 
 12.42 emacspeak-cperl
