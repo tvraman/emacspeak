@@ -34,8 +34,8 @@ use of @kbd{C-u} is indicated using the common Emacs terminology of
 
 @table @kbd
 @findex emacspeak-toggle-character-echo
-@kindex @kbd{C-e d k}
-@item @kbd{C-e d k}
+@kindex C-e d k
+@item C-e d k
 @code{emacspeak-toggle-character-echo}
 
 Toggle state of Emacspeak character echo.  Interactive PREFIX arg
@@ -43,8 +43,8 @@ means toggle the global default value, and then set the current local
 value to the result.
 
 @findex emacspeak-toggle-word-echo
-@kindex @kbd{C-e d w}
-@item @kbd{C-e d w}
+@kindex C-e d w
+@item C-e d w
 @code{emacspeak-toggle-word-echo}
 
 Toggle state of Emacspeak word echo.  Interactive PREFIX arg means
@@ -53,8 +53,8 @@ to the result.
 
 
 @findex emacspeak-toggle-line-echo
-@kindex @kbd{C-e d l}
-@item @kbd{C-e d l}
+@kindex C-e d l
+@item C-e d l
 @code{emacspeak-toggle-line-echo}
 
 Toggle state of Emacspeak line echo.  Interactive PREFIX arg means
@@ -79,8 +79,8 @@ all buffers by preceding these commands with @kbd{C-u}.
 @table @kbd
 
 @findex dtk-set-rate
-@kindex @kbd{C-e d r}
-@item @kbd{C-e d r}
+@kindex C-e d r
+@item C-e d r
 @code{dtk-set-rate}
 
 Set speaking RATE for the @acronym{TTS}.  Interactive PREFIX arg means set the
@@ -88,8 +88,8 @@ global default value, and then set the current local value to the
 result.
 
 @findex dtk-set-character-scale
-@kindex @kbd{C-e d f}
-@item @kbd{C-e d f}
+@kindex C-e d f
+@item C-e d f
 @code{dtk-set-character-scale}
 
 Set scale FACTOR for speech rate.  Speech rate is scaled by this
@@ -103,8 +103,8 @@ Before-advice `emacspeak-auto':
 Automatically defined advice to speak interactive prompts.
 
 @findex dtk-set-predefined-speech-rate
-@kindex @kbd{C-e d DIGIT}
-@item @kbd{C-e d DIGIT}
+@kindex C-e d DIGIT
+@item C-e d DIGIT
 @code{dtk-set-predefined-speech-rate}
 
 Set speech rate to one of nine predefined levels using digit keys
@@ -112,8 +112,8 @@ Set speech rate to one of nine predefined levels using digit keys
 globally.
 
 @findex dtk-set-punctuations
-@kindex @kbd{C-e d p}
-@item @kbd{C-e d p}
+@kindex C-e d p
+@item C-e d p
 @code{dtk-set-punctuations}
 
 Set punctuation mode to MODE.  Possible values are `some', `all', or
@@ -121,8 +121,8 @@ Set punctuation mode to MODE.  Possible values are `some', `all', or
 and then set the current local value to the result.
 
 @findex dtk-set-pronunciation-mode
-@kindex @kbd{C-e d m}
-@item @kbd{C-e d m}
+@kindex C-e d m
+@item C-e d m
 @code{dtk-set-pronunciation-mode}
 
 Set pronunciation MODE.  This command is valid only for newer
@@ -131,8 +131,8 @@ europe, spell', all of which can be turned on or off.  Argument STATE
 specifies new state.
 
 @findex dtk-toggle-split-caps
-@kindex @kbd{C-e d s}
-@item @kbd{C-e d s}
+@kindex C-e d s
+@item C-e d s
 @code{dtk-toggle-split-caps}
 
 Toggle split caps mode.  Split caps mode is useful when reading
@@ -141,8 +141,8 @@ means toggle the global default value, and then set the current local
 value to the result.
 
 @findex dtk-toggle-capitalization
-@kindex @kbd{C-e d c}
-@item @kbd{C-e d c}
+@kindex C-e d c
+@item C-e d c
 @code{dtk-toggle-capitalization}
 
 Toggle capitalization.  when set, capitalization is indicated by a
@@ -150,8 +150,8 @@ short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 
 @findex dtk-toggle-allcaps-beep
-@kindex @kbd{C-e d  cap C}
-@item @kbd{C-e d  cap C}
+@kindex C-e d  cap C
+@item C-e d  cap C
 @code{dtk-toggle-allcaps-beep}
 
 Toggle allcaps-beep.  When set, allcaps words are indicated by a short
@@ -167,8 +167,8 @@ when working with program source.
 
 @table @kbd
 @findex emacspeak-toggle-audio-indentation
-@kindex @kbd{C-e d i}
-@item @kbd{C-e d i}
+@kindex C-e d i
+@item C-e d i
 @code{emacspeak-toggle-audio-indentation}
 
 Toggle state of Emacspeak audio indentation.  Interactive PREFIX arg
@@ -201,15 +201,15 @@ case to nuke a runaway speech server.
 @table @kbd
 
 @findex dtk-stop
-@kindex @kbd{C-e s}
-@item @kbd{C-e s}
+@kindex C-e s
+@item C-e s
 dtk-stop
 
 Stop speech now.
 
 @findex dtk-toggle-quiet
-@kindex @kbd{C-e d q}
-@item @kbd{C-e d q}
+@kindex C-e d q
+@item C-e d q
 @code{dtk-toggle-quiet}
 
 Toggle state of the speech device between being quiet and talkative.
@@ -219,8 +219,8 @@ argument PREFIX specifies whether speech is turned off in the current
 buffer or in all buffers.
 
 @findex dtk-emergency-restart
-@kindex @kbd{C-e C-s}
-@item @kbd{C-e C-s}
+@kindex C-e C-s
+@item C-e C-s
 @code{dtk-emergency-restart}
 
 Use this to nuke the currently running dtk server and restart it.
@@ -234,8 +234,8 @@ Finally, here are the remaining commands available via the
 @table @kbd
 
 @findex dtk-add-cleanup-pattern
-@kindex @kbd{C-e d a}
-@item @kbd{C-e d a}
+@kindex C-e d a
+@item C-e d a
 @code{dtk-add-cleanup-pattern}
 
 Add this pattern to the list of repeating patterns that are cleaned
@@ -248,8 +248,8 @@ will say ``aw fifteen dot'' when speaking the string
 ``...............'' instead of ``period period period period''.
 
 @findex dtk-select-server
-@kindex @kbd{C-e d d}
-@item @kbd{C-e d d}
+@kindex C-e d d
+@item C-e d d
 @code{dtk-select-server}
 
 Select a speech server interactively.  This will be the server that is
@@ -257,8 +257,8 @@ used when you next call either M-x dtk-initialize or C-e C-s.
 Argument PROGRAM specifies the speech server program.
 
 @findex dtk-toggle-splitting-on-white-space
-@kindex @kbd{C-e d @key{SPACE}}
-@item @kbd{C-e d @key{SPACE}}
+@kindex C-e d @key{SPACE}
+@item C-e d @key{SPACE}
 @code{dtk-toggle-splitting-on-white-space}
 
 Toggle splitting of speech on white space.  This affects the internal
@@ -274,8 +274,8 @@ responsive.  However, when splitting on white space, the speech sounds
 choppy since the synthesizer is getting a word at a time.
 
 @findex dtk-set-chunk-separator-syntax
-@kindex @kbd{C-e d @key{RETURN}}
-@item @kbd{C-e d @key{RETURN}}
+@kindex C-e d @key{RETURN}
+@item C-e d @key{RETURN}
 @code{dtk-set-chunk-separator-syntax}
 
 Interactively set how text is split in chunks.  See the Emacs
@@ -284,23 +284,23 @@ classified into various syntactic classes.  Argument S specifies the
 syntax class.
 
 @findex emacspeak-dial-dtk
-@kindex @kbd{C-e d t}
-@item @kbd{C-e d t}
+@kindex C-e d t
+@item C-e d t
 @code{emacspeak-dial-dtk}
 
 Prompt for and dial a phone NUMBER with the Dectalk.
 
 @findex emacspeak-dtk-speak-version
-@kindex @kbd{C-e d  cap V}
-@item @kbd{C-e d  cap V}
+@kindex C-e d  cap V
+@item C-e d  cap V
 @code{emacspeak-dtk-speak-version}
 
 Use this to find out which version of the @acronym{TTS} firmware you
 are running.
 
 @findex emacspeak-zap-dtk
-@kindex @kbd{C-e d z}
-@item @kbd{C-e d z}
+@kindex C-e d z
+@item C-e d z
 @code{emacspeak-zap-dtk}
 
 Send this command to the @acronym{TTS} engine directly.
