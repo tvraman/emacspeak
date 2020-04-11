@@ -144,7 +144,9 @@ This is set to nil when playing Internet  streams.")
         (put-text-property 0 (length (cl-first info))
                            'personality 'voice-smoothen (cl-first info) )
         (dtk-speak-and-echo
-         (concat (cl-first info) ":" (cl-second info))))))
+         (concat
+          (cl-second info) " : " (cl-first info)
+          " of " (cl-third info))))))
    (t (message "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
@@ -603,10 +605,12 @@ necessary."
 ;;{{{ commands
 
 (defun emacspeak-m-player-get-position ()
-  "Return list suitable to use as an amark. --- see emacspeak-amark.el."
+  "Return list suitable to use as an amark. --- see
+  emacspeak-amark.el.
+Return value is of the form  (position filename length)."
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    ;;; dispatch command twice to avoid flakiness in mplayer
+;;; dispatch command twice to avoid flakiness in mplayer
     (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n")
     (let* ((output (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n") )
            (lines (split-string output "\n" 'omit-nulls))
@@ -615,7 +619,7 @@ necessary."
              for l in lines
              collect (cl-second (split-string l "=")))))
       (list
-       (format "%s" (cl-first fields))     ; position
+       (format "%s" (cl-first fields))  ; position
        (if (cl-second fields)
            (substring (cl-second  fields) 1 -1)
          "")))))
