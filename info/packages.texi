@@ -242,7 +242,7 @@ Here is a list of all emacspeak @acronym{OCR} commands along with their
 key-bindings and a brief description:
 
 @table @kbd
-@item digit
+@item @key{DIGIT}
 @dfn{emacspeak-ocr-page}
 Jumps to specified page in the @acronym{OCR} output.
 
@@ -257,7 +257,7 @@ session.
 image options.  Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
-@item spc
+@item @key{SPACE}
 @dfn{emacspeak-ocr-read-current-page}
 Speaks current page.
 
@@ -293,7 +293,7 @@ Launch @acronym{OCR} engine on a scanned image.
 @dfn{emacspeak-ocr-scan-image}
 Acquire an image using @code{scanimage}.
 
-@item RET
+@item @key{RETURN}
 @dfn{emacspeak-ocr-scan-and-recognize}
 Scan and recognize a page.
 
