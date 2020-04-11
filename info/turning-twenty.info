@@ -1,4 +1,4 @@
-This is turning-twenty.info, produced by makeinfo version 6.6 from
+This is turning-twenty.info, produced by makeinfo version 6.7 from
 turning-twenty.texi.
 
 INFO-DIR-SECTION Accessibility
@@ -12,7 +12,7 @@ File: turning-twenty.info,  Node: Copyright,  Next: Top
 1 Copyright
 ***********
 
-Copyright (C) T. V. Raman All Rights Reserved.
+Copyright © T. V. Raman All Rights Reserved.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
@@ -182,24 +182,35 @@ scratching the surface.
 
    • Audio formatting using voice-lock to provide aural syntax
      highlighting.
+
    • Succinct auditory icons to provide efficient feedback.
+
    • Emacs’ ability to navigate code structurally —
+
    as opposed to moving around by plain-text units such as characters,
 lines and words.  S-Expressions are a major win!
+
    • Emacs’ ability to specialize behavior based on major and minor
      modes.
+
    • Ability to browse program code using tags, and getting fluent
      spoken feedback.
+
    • Completion *everywhere*.
+
    • Everything is searchable — this is a huge win when you cannot see
      the screen.
+
    • Interactive spell-checking using ISpell with continuous spoken
      feedback augmented by aural highlights.
+
    • Running code compilation and being able to jump to errors with
      spoken feedback.
+
    • Ability to move through diff chunks when working with source code
      and source control systems; refined diffs as provided by the
      *ediff* package when speech-enabled is a major productivity win.
+
    • Ability to easily move between email, document authoring and
      programming — though this may appear trivial, it continues to be
      one of Emacs’ biggest wins.
@@ -233,11 +244,14 @@ other key features of the Emacspeak code-base:
   1. The code-base is extremely *bushy* rather than deeply hierarchical
      — this means that when a module breaks, it does not affect the rest
      of the system.
+
   2. Separation of concerns with respect to the various layers, a
      tightly knit core speech library interfaces with any one of many
      speech servers running as an external process.
+
   3. Audio formatting is abstracted by using the formalism defined in
      Aural CSS.
+
   4. Emacspeak integrates with Emacs’ user interface conventions by
      taking over a single prefix key *C-e* with _all_ Emacspeak commands
      accessed through that single keymap.  This helps embedding
@@ -434,6 +448,7 @@ browsing facilities — see the online Emacspeak documentation for details
 on Emacspeak’s table browsing functionality which continues to remain
 one of the richest collection of end-user affordances for working with
 two-dimensional data.
+
 * Menu:
 
 * Speech-Enabling Interactive Games::
@@ -647,10 +662,13 @@ following with respect to my own behavior on many popular sites:
 
   1. I opened a Web page that took a while to load (remember, I was
      still using Emacs-W3),
+
   2. I then searched through the page to find a form-field that I filled
      out, e.g., start and end destinations on Yahoo Maps,
+
   3. I hit *submit*, and once again waited for a heavy-weight HTML page
      to load,
+
   4. And finally, I hunted through the rendered content to find what I
      was looking for.
 
@@ -661,8 +679,11 @@ decided to automate away the pain by creating Emacspeak module
 *emacspeak-websearch* that did the following:
 
   1. Prompt via the minibuffer for the requisite fields,
+
   2. Consed up an HTTP GET URL,
+
   3. Retrieved this URL,
+
   4. And filtered out the specific portion of the HTML DOM that held the
      generated response.
 
@@ -719,12 +740,17 @@ many useful services, here are a few:
 
   1. Minibuffer completion for Google Search using Google Suggest to
      provide completions.
+
   2. Librivox for browsing and playing free audio books.
+
   3. NPR for browsing and playing NPR archived programs.
+
   4. BBC for playing a wide variety of streaming content available from
      the BBC.
+
   5. A Google Maps front-end that provides instantaneous access to
      directions and Places search.
+
   6. Access to Twitter via package *twittering-mode*.
 
    And a lot more than will fit this margin!  This is an example of
@@ -778,16 +804,21 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
    • Auditory User Interfaces
      (http://emacspeak.sourceforge.net/raman/aui/aui.html) Klewer
      Publishing, 1997.
-   • Advice An Emacs Lisp package by Hans Chalupsky
+
+   • Advice, An Emacs Lisp package by Hans Chalupsky
      (http://www.isi.edu/~hans/) that became part of Emacs 19.23.
+
    • Beautiful Code
      (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
      An overview of the Emacspeak architecture.
+
    • Speech-Enabled Applications
      (http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/)
      Emacspeak at CHI 1996.
-   • EWW Emacspeak extends EWW
+
+   • EWW, Emacspeak extends EWW
      (http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html).
+
    • In The Beginning Was The Command Line
      (http://artlung.com/smorgasborg/C_R_Y_P_T_O_N_O_M_I_C_O_N.shtml) By
      Neal Stephenson
@@ -796,26 +827,26 @@ File: turning-twenty.info,  Node: References,  Prev: Conclusion,  Up: Top
 
 Tag Table:
 Node: Copyright253
-Node: Top566
-Node: Introduction2153
-Node: Using UNIX With Speech Output — 19942830
-Node: Key Enabler — Emacs And Lisp Advice4652
-Node: Key Component — Text To Speech (TTS)5680
-Node: Emacspeak And Software Development8207
-Node: Programming Defensively10805
-Node: Emacspeak And Authoring Documents12063
-Node: Emacspeak And The Early Days Of The Web13621
-Node: Audio Formatting — Generalizing Aural CSS17052
-Node: Conversational Gestures For The Audio Desktop20103
-Node: Speech-Enabling Interactive Games23442
-Node: Accessing Media Streams25220
-Node: EBooks— Ubiquitous Access To Books27309
-Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29837
-Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31685
-Node: The RESTful Web — Web Wizards And URL Templates For Faster Access35150
-Node: Mashing It Up — Leveraging Evolving Web APIs38677
-Node: Conclusion41146
-Node: References42456
+Node: Top565
+Node: Introduction2152
+Node: Using UNIX With Speech Output — 19942829
+Node: Key Enabler — Emacs And Lisp Advice4651
+Node: Key Component — Text To Speech (TTS)5679
+Node: Emacspeak And Software Development8206
+Node: Programming Defensively10815
+Node: Emacspeak And Authoring Documents12076
+Node: Emacspeak And The Early Days Of The Web13634
+Node: Audio Formatting — Generalizing Aural CSS17065
+Node: Conversational Gestures For The Audio Desktop20116
+Node: Speech-Enabling Interactive Games23456
+Node: Accessing Media Streams25234
+Node: EBooks— Ubiquitous Access To Books27323
+Node: Leveraging Computational Tools — From SQL And R To IPython Notebooks29851
+Node: Social Web — EMail Instant Messaging Blogging And Tweeting Using Open Protocols31699
+Node: The RESTful Web — Web Wizards And URL Templates For Faster Access35164
+Node: Mashing It Up — Leveraging Evolving Web APIs38697
+Node: Conclusion41171
+Node: References42481
 
 End Tag Table
 

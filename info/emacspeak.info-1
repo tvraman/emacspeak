@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 8, 2020.
+last updated on April 11, 2020.
 
    The manual is divided into the following chapters:
 
@@ -2015,7 +2015,7 @@ emacs/w3 disadvantages
 
 Rendering can be slow.  Sometimes it can be painfully, excruciatingly
 slow.  That might be a slight exaggeration, but slow it is.  This is
-because it is written in lisp...  something I mentioned just above as a
+because it is written in lisp... something I mentioned just above as a
 strength.  It is a trade-off, but one that some see as worth it.  There
 are, however, some things that can be done to speed up the browsing
 process.  See *Note ‘emacspeak-w3-xsl-transform’: xsl-transform, for
@@ -2170,10 +2170,10 @@ commands are useful to access much google goodness.
 
    ‘Cap C’ extracts the current page from the google cache.  With a
 prefix argument it will extract the link under point.  This is useful
-for those times when a particular site is down...  maybe it is in the
-cache...  maybe it is not.  It can also be used for when particular
-pages are removed from a site like in the case of a government
-conspiracy.  Are we at war with Eurasia or East Asia?
+for those times when a particular site is down... maybe it is in the
+cache... maybe it is not.  It can also be used for when particular pages
+are removed from a site like in the case of a government conspiracy.
+Are we at war with Eurasia or East Asia?
 
    The slash key will search google for pages similar to the current
 page.
@@ -2585,7 +2585,7 @@ and text files.
    Here is a list of all emacspeak OCR commands along with their
 key-bindings and a brief description:
 
-‘digit’
+‘<DIGIT>’
      “emacspeak-ocr-page” Jumps to specified page in the OCR output.
 
 ‘c’
@@ -2598,7 +2598,7 @@ key-bindings and a brief description:
      image options.  Prompts with current setting in the minibuffer.
      Setting persists for current Emacs session.
 
-‘spc’
+‘<SPACE>’
      “emacspeak-ocr-read-current-page” Speaks current page.
 
 ‘s’
@@ -2629,7 +2629,7 @@ key-bindings and a brief description:
 ‘i’
      “emacspeak-ocr-scan-image” Acquire an image using ‘scanimage’.
 
-‘RET’
+‘<RETURN>’
      “emacspeak-ocr-scan-and-recognize” Scan and recognize a page.
 
 ‘w’
