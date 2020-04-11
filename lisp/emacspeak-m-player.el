@@ -607,9 +607,8 @@ necessary."
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     ;;; dispatch command twice to avoid flakiness in mplayer
-    (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\n")
-    (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\n")
-    (let* ((output  (buffer-substring-no-properties (point-min) (point-max)))
+    (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n")
+    (let* ((output (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\nget_time_length\n") )
            (lines (split-string output "\n" 'omit-nulls))
            (fields
             (cl-loop
