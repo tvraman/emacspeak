@@ -109,7 +109,7 @@
    ((null mode-line-misc-info) (dtk-notify-say "Nothing playing on
 vuiet?") )
    (t
-    (dtk-speak (mapconcat #'identity mode-line-misc-info " ")))))
+    (dtk-notify-speak (mapconcat #'identity mode-line-misc-info " ")))))
 
 
 
