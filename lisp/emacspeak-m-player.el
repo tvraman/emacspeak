@@ -134,6 +134,13 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
+(defsubst ems--seconds-string-to-time (sec)
+  "Return seconds formatted as time if valid, otherwise return as is."
+  (let ((v (read-from-string sec)))
+    (cond
+     ((numberp v) (format-time-string "%M:%S" v))
+     (t sec))))
+
 (defun emacspeak-m-player-mode-line ()
   "Meaningful mode-line for *M-Player* buffers."
   (cl-declare (special emacspeak-m-player-process))
@@ -145,8 +152,10 @@ This is set to nil when playing Internet  streams.")
                            'personality 'voice-smoothen (cl-first info) )
         (dtk-speak-and-echo
          (concat
-          (cl-second info) " : " (cl-first info)
-          " of " (cl-third info))))))
+          (cl-second info) " : "
+          (ems--seconds-string-to-time (cl-first info))
+          " of "
+          (ems--seconds-string-to-time (cl-third info)))))))
    (t (message "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
@@ -605,9 +614,8 @@ necessary."
 ;;{{{ commands
 
 (defun emacspeak-m-player-get-position ()
-  "Return list suitable to use as an amark. --- see
-  emacspeak-amark.el.
-Return value is of the form  (position filename length)."
+  "Return list suitable to use as an amark. --- see emacspeak-amark.el.
+Return value is of the form (position filename length)."
   (cl-declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
 ;;; dispatch command twice to avoid flakiness in mplayer
@@ -622,7 +630,8 @@ Return value is of the form  (position filename length)."
        (format "%s" (cl-first fields))  ; position
        (if (cl-second fields)
            (substring (cl-second  fields) 1 -1)
-         "")))))
+         "")
+       (format "%s" (cl-third fields))))))
 
 (defun emacspeak-m-player-current-filename ()
   "Return filename of currently playing track."
