@@ -106,8 +106,8 @@
   (interactive)
   (cl-declare (special mode-line-misc-info))
   (cond
-   ((null mode-line-misc-info) (dtk-notify-say "Nothing playing on
-vuiet?") )
+   ((null mode-line-misc-info)
+    (dtk-notify-say "Nothing playing on vuiet?") )
    (t
     (dtk-notify-speak (mapconcat #'identity mode-line-misc-info " ")))))
 
