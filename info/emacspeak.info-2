@@ -7003,6 +7003,8 @@ binds ‘s’ to this command.
      The heads for the associated hydra are:
 
      ";":    ‘vuiet-playing-track-lyrics’,
+     "=":    ‘vuiet-player-volume-inc’,
+     "-":    ‘vuiet-player-volume-dec’,
      "A":    ‘vuiet-play-artist-loved-tracks’,
      "’":    ‘vuiet-play-loved-tracks’,
      ",":    ‘vuiet-seek-backward’,

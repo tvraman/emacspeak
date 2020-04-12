@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 11, 2020.
+last updated on April 12, 2020.
 
    The manual is divided into the following chapters:
 
@@ -472,8 +472,8 @@ invoked to listen to chunks of text without moving.
 
 File: emacspeak.info,  Node: Overview,  Next: Working,  Up: Basic Usage
 
-6.1 Emacspeak Overview.
-=======================
+6.1 Emacspeak Overview
+======================
 
 Emacspeak provides a small number of core services around which the
 remainder of the audio interface is constructed.  These essential
@@ -518,8 +518,8 @@ operating system has been correctly configured *Note emacspeak-sounds::.
 
 File: emacspeak.info,  Node: Working,  Next: Reading,  Prev: Overview,  Up: Basic Usage
 
-6.2 Working In Emacs Buffers.
-=============================
+6.2 Using Emacs Buffers
+=======================
 
 While typing in an Emacs buffer, hitting space speaks the recently typed
 word.  I use completion all the time; so Emacspeak will speak the
@@ -573,8 +573,8 @@ Emacspeak is DECTalk specific.
 
 File: emacspeak.info,  Node: Reading,  Next: Speech System,  Prev: Working,  Up: Basic Usage
 
-6.3 Reading Without Moving.
-===========================
+6.3 Reading Without Moving
+==========================
 
 Emacspeak speaks information as you move around within a buffer.  How
 much text is spoken depends on how you move, thus, when you move by
@@ -1051,8 +1051,8 @@ supplied in the Emacs/W3 distribution.
 
 File: emacspeak.info,  Node: Status Information,  Prev: Voice-lock,  Up: Basic Usage
 
-6.6 Status Information Commands.
-================================
+6.6 Status Commands
+===================
 
 The following commands provide miscellaneous information.
 
@@ -1900,8 +1900,8 @@ content that is read-only e.g., online documentation.
 
 File: emacspeak.info,  Node: Web Browsing,  Next: Messaging,  Prev: Browsing Structure,  Up: Emacs Packages
 
-10.4 Web Browsing.
-==================
+10.4 Web Browsing
+=================
 
 Note that there is newer material at
 <http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html>

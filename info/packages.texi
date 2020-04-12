@@ -54,7 +54,7 @@ information @MDash{}  these are distinct from the tools described in
 with content that is read-only e.g., online documentation.
 
 @node Web Browsing
-@section Web Browsing.
+@section Web Browsing
 @cindex Web Browsing
 
 @include web-browsing.texi

@@ -28,7 +28,7 @@ invoked to listen to chunks of text without moving.
 @end menu
 
 @node Overview
-@section Emacspeak Overview.
+@section Emacspeak Overview
 
 Emacspeak provides a small number of core services around which the
 remainder of the audio interface is constructed.  These essential
@@ -72,7 +72,7 @@ which the operating system has been correctly configured
 @xref{emacspeak-sounds}.
 
 @node Working
-@section Working In Emacs Buffers.
+@section  Using Emacs Buffers
 
 While typing in an Emacs buffer, hitting space speaks the recently
 typed word.  I use completion all the time; so Emacspeak will speak
@@ -125,7 +125,7 @@ This info manual is only to get you started.  You can get a summary of
 Emacspeak's features by pressing @kbd{C-h C-e}
 
 @node Reading
-@section Reading Without Moving.
+@section Reading Without Moving
 
 Emacspeak speaks information as you move around within a buffer.  How
 much text is spoken depends on how you move, thus, when you move by
@@ -402,7 +402,7 @@ supplied in the Emacs/W3 distribution.
 
 
 @node Status Information
-@section Status Information Commands.
+@section Status  Commands
 
 
 The following commands provide miscellaneous information.
