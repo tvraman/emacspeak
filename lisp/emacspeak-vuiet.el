@@ -97,6 +97,16 @@
        (dtk-speak (format "Turned %s scrobbling"
                           (if vuiet-scrobble-enabled "on" "off")))))))
 
+(cl-loop
+ for f in 
+ '(vuiet-player-volume-inc vuiet-player-volume-dec)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (dtk-notify-say
+        (format "Volume %s" (vuiet-player-volume)))))))
 
 
 ;;}}}
