@@ -11,7 +11,7 @@
 @direntry
 * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 @end direntry
-
+@raggedright 
 @titlepage
 
 @title Emacspeak --- The Complete Audio Desktop
@@ -29,8 +29,9 @@ notice are preserved on all copies.
 
 @summarycontents
 @contents
-@end titlepage
 
+@end titlepage
+@end raggedright 
 @include preamble.texi
 @include copyright.texi
 @include announce.texi
