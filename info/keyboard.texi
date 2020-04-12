@@ -1,16 +1,16 @@
-@node Emacspeak Keyboard Commands 
+@node Emacspeak Keyboard Commands
 @chapter Emacspeak Keyboard Commands.
 
-@cindex Emacs Keyboard Commands 
+@cindex Emacs Keyboard Commands
 
-This chapter gives an overview of all the keymaps used by Emacspeak. For
-a complete reference, see @xref{emacspeak}. For basic usage, see
+This chapter gives an overview of all the keymaps used by Emacspeak.  For
+a complete reference, see @xref{emacspeak}.  For basic usage, see
 @xref{Basic Usage}.
 
 Emacspeak uses the following keymaps, each of which are invoked by a
-specific prefix key. 
+specific prefix key.
 @table @kbd
-@item C-e 
+@item C-e
 The main Emacspeak keymap.
 @item C-e d
 The text-to-speech keymap.
@@ -23,12 +23,12 @@ The Emacspeak alt keymap.
 @item C-.
 The Emacspeak super keymap.
 @item C-e x
-The emacspeak  @kbd{x} keymap.
+The emacspeak @kbd{x} keymap.
 @item C-e C-x
 The Emacspeak @kbd{C-x} keymap.
-@end table 
+@end table
 
-Primary Emacspeak commands start with @kbd{C-e}. Following @kbd{C-e}
+Primary Emacspeak commands start with @kbd{C-e}.  Following @kbd{C-e}
 with @kbd{d} invokes commands that control the text-to-speech engine.
 Note that silencing speech is an exception to this rule @MDash{} Speech
 silence commands are placed directly on the primary emacspeak-keymap
@@ -37,18 +37,18 @@ silence commands are placed directly on the primary emacspeak-keymap
 In addition, Emacspeak introduces five additional keymaps for binding
 its extensive set of facilities to convenient keystrokes.
 
-When running  under a windowing system, Emacs automatically receives
-keys @kbd{C-;}, @kbd{C-'}, @kbd{C-,} and @kbd{C-.}.
-When running on the Linux console, these keys become available after
-loading the custom Linux keymap found  in 
-@code{emacspeak/tvr/console-keymaps} after  checking out the emacspeak
-repository from @code{https://github.com/tvraman/emacspeak}.
+When running under a windowing system, Emacs automatically receives
+keys @kbd{C-;}, @kbd{C-'}, @kbd{C-,} and @kbd{C-.}.  When running on
+the Linux console, these keys become available after loading the
+custom Linux keymap found in @code{emacspeak/tvr/console-keymaps}
+after checking out the emacspeak repository from
+@url{https://github.com/tvraman/emacspeak}.
 
 Emacspeak defines personal keymaps accessible via @kbd{C-e x} and
-@kbd{C-e C-x}. For now, emacspeak does not bind any commands in keymap
+@kbd{C-e C-x}.  For now, emacspeak does not bind any commands in keymap
 @kbd{C-e C-x} @MDash{} this keymap is left for end-user personalization.
 
-Note  that the information presented in the following subsections
-can also be viewed via Emacs' built-in Help system; e.g., Press @kbd{C-;
-C-h} to  get a @code{*Help*} buffer    that displays all keys bound in
+Note that the information presented in the following subsections can
+also be viewed via Emacs' built-in Help system; e.g., Press @kbd{C-; 
+C-h} to get a @code{*Help*} buffer that displays all keys bound in
 @code{emacspeak-hyper-keymap}.

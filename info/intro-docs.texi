@@ -1,26 +1,32 @@
 @heading Overview
 
 This chapter documents the various Emacspeak modules and is
-auto-generated from the Emacspeak source code.
-It is meant to be a complete reference to the emacspeak implementation
-while also providing high-level usage summaries of  some of the larger
-Emacspeak modules.
+auto-generated from the Emacspeak source code.  It is meant to be a
+complete reference to the emacspeak implementation while also
+providing high-level usage summaries of some of the larger Emacspeak
+modules.
 
 Each section provides a high-level overview of that module, followed by
 detailed description of the commands and options defined in that module.
 
 Emacspeak modules can be classified as follows:
-@enumerate 
-@item  Modules that interface with various TTS engines,
+@enumerate
+@item
+Modules that interface with various TTS engines,
 e.g. @code{espeak-voices} and @code{dectalk-voices}.
-@item Modules that implement core Emacspeak functionality, e.g.,
-@code{emacspeak-speak}, @code{emacspeak-keymap}, @code{voice-lock} and @code{emacspeak-advice}.
-@item Emacspeak extensions that speech-enable various emacs packages,
- these are all named using the convention @code{emacspeak-<packagename>}.
-@end enumerate 
+
+@item
+Modules that implement core Emacspeak functionality, e.g.,
+@code{emacspeak-speak}, @code{emacspeak-keymap}, @code{voice-lock} and
+@code{emacspeak-advice}.
+
+@item
+Emacspeak extensions that speech-enable various emacs packages, these
+are all named using the convention @code{emacspeak-@var{<packagename>}}.
+@end enumerate
 
 The first two of the above are mostly of interest when extending
-Emacspeak, or to learn how things are implemented. The third category is
-useful in understanding how emacspeak works with a given package; thus,
-when learning to use the Emacs Web Browser (EWW), read the EWW
-documentation, then read @xref{emacspeak-eww}.
+Emacspeak, or to learn how things are implemented.  The third category
+is useful in understanding how emacspeak works with a given package;
+thus, when learning to use the Emacs Web Browser (@acronym{EWW}), read
+the @acronym{EWW} documentation, then read @xref{emacspeak-eww}.

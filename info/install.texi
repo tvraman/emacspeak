@@ -11,152 +11,163 @@ for configuring, installing and starting Emacspeak.
 * Building And Testing The Speech Server::
 @end menu
 
-
-
 @node Obtaining Emacspeak
 @section Obtaining Emacspeak
 
 Emacspeak is available on the Internet at:
 @table @b
 @item WWW
- http://emacspeak.sf.net
-@item WWW
- https://github.com/tvraman/emacspeak
+@url{http://emacspeak.sourceforge.net}
+@item Git Repository
+@url{https://github.com/tvraman/emacspeak}
 @item Mail List
-emacspeak@@cs.vassar.edu
+@email{emacspeak@@cs.vassar.edu}
 @item List Request
-emacspeak-request@@cs.vassar.edu
+@email{emacspeak-request@@cs.vassar.edu}
 @end table
 
- The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.  If you are using Emacspeak,
-you should join the list by sending mail to
-the request address.
+The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.  If
+you are using Emacspeak, you should join the list by sending mail to
+the request address, @url{mailto:emacspeak-request@@cs.vassar.edu}.
 
 @node Quick Installation
 @section Quick Installation
 
+Here are the quick installation instructions.  See the next section
+for detailed installation instructions.
 
-Here are the quick installation instructions.
-See the next section for detailed installation instructions.
-
-
-
-Packages for  Linux distributions such as Debian typically become
-available on the WWW a few weeks or months  after a new version is released.
-The instructions below are for building and installing Emacspeak from
-the source distribution. If you install one of the pre-packaged
-distributions, use the install instructions that come with that package.
-
+Packages for Linux distributions such as Debian typically become
+available on the WWW a few weeks or months after a new version is
+released.  The instructions below are for building and installing
+Emacspeak from the source distribution.  If you install one of the
+prepackaged distributions, use the install instructions that come
+with that package.
 
 @itemize @bullet
-@item 
-Obtain the source code @MDash{}   either by downloading the tar.bz2 file for the latest release @MDash{}  or by cloning the git repository.
-@samp{git clone https://github.com/tvraman/emacspeak}
+@item
+Obtain the source code @MDash{} either by downloading the tar.bz2 file
+for the latest release @MDash{} or by cloning the git repository.
+
+@example
+git clone https://github.com/tvraman/emacspeak
+@end example
+
 @item
 Change to the @code{emacspeak} directory.
- Type @samp{make config} to configure the sources.
+
 @item
- Type 
+Type @samp{make config} to configure the sources.
+
+@item
+Type @samp{make} to compile the files.
+
+@item
+Next, decide which text-to-speech engine you will be using, and
+proceed to install that engine.  Your choices are:
+
+@itemize @bullet
+@item
+Open Source ESpeak on Linux.  Install the ESpeak packages for your
+system, then compile the Emacspeak ESpeak server by doing:
+
 @example
+cd servers/native-espeak
 make
 @end example
- to compile the files.
-@item Next, decide which text-to-speech engine you will be using, and
-proceed to install that engine. Your choices are:
-@itemize @bullet
-@item Open Source ESpeak on Linux. Install the ESpeak packages for your
-system, then compile the Emacspeak ESpeak server by doing:
-@example
-cd servers/native-espeak; make
-@end example
-@item ViaVoice Outloud (AKA Eloquent). You need to purchase this engine
-from the voxin site. That purchase will give you install-ready
-packages for installing the speech engine as well as Emacspeak. See
+
+@item
+ViaVoice Outloud (AKA Eloquent).  You need to purchase this engine
+from the voxin site.  That purchase will give you install-ready
+packages for installing the speech engine as well as Emacspeak.  See
 @url{https://voxin.oralux.net/rss.xml} for the latest packages, and
 @url{https://voxin.oralux.net} for the main Voxin Web site.
-@item On the Mac, you can use the builtin Mac TTS engine  @MDash{}  emacspeak
-comes with a speech server for that TTS  engine written in Python.
+
+@item
+On the Mac, you can use the builtin Mac TTS engine @MDash{} emacspeak
+comes with a speech server for that TTS engine written in Python.
 @end itemize
-@item Having installed and configured the TTS engine of your choice, and
+
+@item
+Having installed and configured the TTS engine of your choice, and
 having built the associated speech server, set Emacspeak up to use that
-engine by setting environment variable @code{DTK_PROGRAM}. If using Bash
+engine by setting environment variable @env{DTK_PROGRAM}.  If using @command{bash}
 as your shell, add the line
+
 @example
-export DTK_PROGRAM=<engine-name>
+export DTK_PROGRAM=@var{<engine-name>}
 @end example
+
 to your @code{.bash_profile}.
+
 As an example, to use ESpeak, add
-@example 
+
+@example
 export DTK_PROGRAM=espeak
 @end example
+
 @item
- Run it by doing 
-@itemize @bullet
-@item
-Add the line
-@example
-(load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
-@end example
+Run it by adding the line
+
+@lisp
+(load-file "@var{<emacspeak-dir>}/lisp/emacspeak-setup.el")
+@end lisp
+
 to the top of your .emacs file.
+
+In the above, @var{<emacspeak-dir>} refers to the directory where you
+unpacked the sources.
 @end itemize
-In the above, @code{<emacspeak-dir>} refers to the directory where you unpacked
-the sources. 
-@end  itemize
 
 See the next section for details on building and testing the speech
 server.
 
-
 @node Building And Testing The Speech Server
 @section Building And Testing The Speech Server
-@subsection Speech Servers 
+@subsection Speech Servers
 
 Speech servers are located in the @code{emacspeak/servers} directory.
 
 @itemize @bullet
-@item ESpeak: servers/espeak. This is a TCL script that   uses  a
-library built in @code{servers/native-espeak/}.
-@item Dectalk:  @code{servers/dtk-exp}. This is a TCL script that does
-not depend on any native code.
-@item Outloud: @code{servers/outloud} or @code{servres/32-outloud} (for
-64-bit machines). This is a TCL script that uses the library built in
-@code{servers/linux-outloud}. Note that a checkout from GitHub gives you
-a prebuilt library @MDash{} 
- however you will need to purchase  the TTS engine
-from @url{http://voxin.oralux.net}.
-@item Mac: @code{servers/mac}. This is a Python script that binds to the
+@item
+ESpeak: @code{servers/espeak}.  This is a TCL script that uses a library built
+in @code{servers/native-espeak/}.
+
+@item
+Dectalk: @code{servers/dtk-exp}.  This is a TCL script that does not
+depend on any native code.
+
+@item
+Outloud: @code{servers/outloud} or @code{servers/32-outloud} (for
+64-bit machines).  This is a TCL script that uses the library built in
+@code{servers/linux-outloud}.  Note that a checkout from GitHub gives
+you a prebuilt library @MDash{} however you will need to purchase the
+TTS engine from @url{http://voxin.oralux.net}.
+
+@item
+Mac: @code{servers/mac}.  This is a Python script that binds to the
 native Mac TTS.
-@end itemize 
+@end itemize
 
 @subsubsection Testing The Selected Server.
 
-Once you have picked the TTS engine to use, 
-run  the selected server script at a shell prompt, e.g. for the
-@code{espeak} engine, do:
-@example 
+Once you have picked the TTS engine to use, run the selected server
+script at a shell prompt, e.g. for the @code{espeak} engine, execute:
+
+@example
 ./servers/espeak
 @end example
 
-This will result in a TCL prompt.
-Here, you can test the  TTS engine by:
+This will result in a TCL prompt.  Here, you can test the TTS engine
+by typing
 
-
-
-
-
-@itemize @bullet
-@item
 @example
 q "this is a test."
 d
 @end example
 
- You should hear the TTS engine  speak  the text.
-@item @samp{s}
- The above command stops speech.
- You should see a TCL prompt when you execute it.
-@end itemize
+You should hear the TTS engine speak the text.
 
-Quit this TCL
-session by typing @kbd{C-D}.
+Type @kbd{s} to stop speech.
+You should see a TCL prompt when you execute it.
 
+Quit this TCL session by typing @kbd{C-d} (an end-of-file character).

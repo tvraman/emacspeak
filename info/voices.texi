@@ -10,20 +10,21 @@ the years.
 @enumerate
 @item
 Emacspeak defines a number of voice overlays such as
-@samp{voice-bolden}, and @samp{voice-lighten} that can be applied to a
+@code{voice-bolden}, and @code{voice-lighten} that can be applied to a
 given voice to change what it sounds like.
 
 @item
-Voice overlays are defined in terms of Aural CSS (@uref{http://www.w3.org/tr/css2/aural.html, ACSS}) to
-keep them independent of a specific TTS engine.
+Voice overlays are defined in terms of Aural CSS
+(@uref{http://www.w3.org/tr/css2/aural.html, ACSS}) to keep them
+independent of a specific TTS engine.
 
 @item
 For each such overlay there is a corresponding
-@samp{<overlay-name>-settings} variable that can be customized via
+@code{@var{<overlay-name>}-settings} variable that can be customized via
 custom.
 
 @item
-The numbers in @samp{voice-bolden-settings as an example}:
+The numbers in @code{voice-bolden-settings} as an example:
 @end enumerate
 
 @multitable @columnfractions 0.5 0.5
@@ -35,44 +36,42 @@ The numbers in @samp{voice-bolden-settings as an example}:
 @item richness @tab nil
 @item punctuation @tab nil
 @end multitable
-Unset values (@samp{nil}) show up as ``unspecified'' in the customize
+
+Unset values (@code{nil}) show up as ``unspecified'' in the customize
 interface.
 
 @enumerate
 @item
-Do not directly customize @samp{voice-bolden} and friends, instead
-customize the corresponding @samp{voice-bolden-settings}, since that
+Do not directly customize @code{voice-bolden} and friends, instead
+customize the corresponding @code{voice-bolden-settings}, since that
 ensures that all voices that are defined in terms of
-@samp{voice-bolden} get correctly updated.
+@code{voice-bolden} get correctly updated.
 
 @item
 Discovering what to customize:
 @end enumerate
 
-Command @samp{emacspeak-show-personality-at-point} (bound by default
+Command @code{emacspeak-show-personality-at-point} (bound by default
 to C-e M-v) will show you the value of properties personality and
 face at point.  Describe-variable on these names should tell you
 what to customize; so as an example:
 
-Put point on a comment line, and hit @samp{C-e M-v}:
-you will hear
+Put point on a comment line, and hit @kbd{C-e M-v}: you will hear
 
 @example
 Personality emacspeak-voice-lock-comment-personality
 Face font-lock-comment-delimiter-face
 @end example
 
-Describe-variable of @samp{emacspeak-voice-lock-comment-personality} gives:
+Describe-variable of @code{emacspeak-voice-lock-comment-personality} gives:
 
 @example
 emacspeak-voice-lock-comment-personality's value is acss-p0-s0-all
 
-Documentation:
-Personality used for font-lock-comment-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
+Documentation: Personality used for font-lock-comment-face This
+personality uses voice-monotone whose effect can be changed globally
+by customizing voice-monotone-settings.
 @end example
-
 
 
 @menu
@@ -84,13 +83,13 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @section How It All Works
 
 Here is a brief explanation of the connection between
-@samp{voice-bolden} and its associated @samp{voice-bolden-settings}.
+@code{voice-bolden} and its associated @code{voice-bolden-settings}.
 
 
 @enumerate
 @item
-Voice  settings are initially in @samp{voice-bolden-settings} which is a list
-of numbers.
+Voice settings are initially in @code{voice-bolden-settings} which is
+a list of numbers.
 
 @item
 That list of numbers needs to be translated to appropriate
@@ -101,22 +100,23 @@ You do not want to do this translation @emph{each} time you
 speak something.
 
 @item
-So when @samp{voice-bolden} is defined, the definition happens in
+So when @code{voice-bolden} is defined, the definition happens in
 two steps:
-@end enumerate
 
 @itemize @bullet
 @item
 The list of settings is stored away in
-@samp{voice-bolden-settings},
+@code{voice-bolden-settings},
+
 @item
 A corresponding voice-name is generated  @MDash{} 
 @samp{acss-a<n>-p<n>-r<n>-s<n>} and the corresponding control codes to
 send to the device are stored away in a hash-table keyed by the above symbol.
 
 @item
-Finally, @samp{voice-bolden} is assigned the above symbol.
+Finally, @code{voice-bolden} is assigned the above symbol.
 @end itemize
+@end enumerate
 
 @node What this gives.
 @section What this gives 
@@ -124,10 +124,10 @@ Finally, @samp{voice-bolden} is assigned the above symbol.
 @enumerate
 @item
 The ability to customize the voice via custom by editing
-the list of numbers in @samp{voice-bolden-settings}
+the list of numbers in @code{voice-bolden-settings}
 
 @item
-When that list is edited, @samp{voice-bolden} is arranged to be
+When that list is edited, @code{voice-bolden} is arranged to be
 updated automatically.
 @end enumerate
 
@@ -136,19 +136,13 @@ are  useful when designing aural styles.
 @enumerate
 
 @item
-emacspeak-wizards-generate-voice-sampler
+@code{emacspeak-wizards-generate-voice-sampler}
 
 Generate a buffer containing text that demonstrates the effect of
 various aural settings.
 
-
-
-
-
-
 @item
-emacspeak-wizards-voice-sampler
-
+@code{emacspeak-wizards-voice-sampler}
 
 Applied specified aural style to text in current region.
 @end enumerate

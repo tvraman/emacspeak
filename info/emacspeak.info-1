@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 7, 2020.
+last updated on April 11, 2020.
 
    The manual is divided into the following chapters:
 
@@ -54,7 +54,7 @@ File: emacspeak.info,  Node: Copyright,  Next: Announce,  Prev: Top,  Up: Top
 
 This manual documents Emacspeak, a speech extension to Emacs.
 
-   Copyright (C)1994 – 2018 T. V. Raman All Rights Reserved.
+   Copyright (C)1994 – 2020 T. V. Raman All Rights Reserved.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
@@ -87,10 +87,10 @@ File: emacspeak.info,  Node: Contributing,  Next: Authoring Guidelines,  Up: Ann
 This manual is organized as a series of chapters, with each chapter in a
 separate file.  If you feel capable of contributing to a specific
 section, send out a message to the Emacspeak mailing list
-‘emacspeak@cs.vassar.edu’.  You can then start adding content to a local
-copy of the chapter to which you are contributing.  When you feel you
-have something to submit, mail out the file to the emacspeak mailing
-list — I’ll integrate new content as it comes in.
+<mailto:emacspeak@cs.vassar.edu>.  You can then start adding content to
+a local copy of the chapter to which you are contributing.  When you
+feel you have something to submit, mail out the file to the emacspeak
+mailing list — I’ll integrate new content as it comes in.
 
 
 File: emacspeak.info,  Node: Authoring Guidelines,  Next: Credits,  Prev: Contributing,  Up: Announce
@@ -139,16 +139,16 @@ impact of the work.
 
 * Menu:
 
-* Speech-Enabling Applicationss::
+* Speech-Enabling Applications::
 * Audio Formatting And Aural CSS::
 * Auditory Icons::
 * Summary::
 
 
-File: emacspeak.info,  Node: Speech-Enabling Applicationss,  Next: Audio Formatting And Aural CSS,  Up: Background
+File: emacspeak.info,  Node: Speech-Enabling Applications,  Next: Audio Formatting And Aural CSS,  Up: Background
 
-3.1 Speech-Enabling Applicationss
-=================================
+3.1 Speech-Enabling Applications
+================================
 
 The underlying thesis behind AsTeR (Audio System For Technical Readings)
 and later Emacspeak is that information is display-independent.  This
@@ -173,7 +173,7 @@ on Emacspeak in the OReilly publication entitled Beautiful Code
 (http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html).
 
 
-File: emacspeak.info,  Node: Audio Formatting And Aural CSS,  Next: Auditory Icons,  Prev: Speech-Enabling Applicationss,  Up: Background
+File: emacspeak.info,  Node: Audio Formatting And Aural CSS,  Next: Auditory Icons,  Prev: Speech-Enabling Applications,  Up: Background
 
 3.2 Audio Formatting And Aural CSS
 ==================================
@@ -306,17 +306,17 @@ File: emacspeak.info,  Node: Obtaining Emacspeak,  Next: Quick Installation,  Up
 
 Emacspeak is available on the Internet at:
 WWW
-     http://emacspeak.sf.net
-WWW
-     https://github.com/tvraman/emacspeak
+     <http://emacspeak.sourceforge.net>
+Git Repository
+     <https://github.com/tvraman/emacspeak>
 Mail List
-     emacspeak@cs.vassar.edu
+     <emacspeak@cs.vassar.edu>
 List Request
-     emacspeak-request@cs.vassar.edu
+     <emacspeak-request@cs.vassar.edu>
 
    The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.
 If you are using Emacspeak, you should join the list by sending mail to
-the request address.
+the request address, <mailto:emacspeak-request@cs.vassar.edu>.
 
 
 File: emacspeak.info,  Node: Quick Installation,  Next: Building And Testing The Speech Server,  Prev: Obtaining Emacspeak,  Up: Installation
@@ -331,44 +331,61 @@ detailed installation instructions.
 available on the WWW a few weeks or months after a new version is
 released.  The instructions below are for building and installing
 Emacspeak from the source distribution.  If you install one of the
-pre-packaged distributions, use the install instructions that come with
+prepackaged distributions, use the install instructions that come with
 that package.
 
    • Obtain the source code — either by downloading the tar.bz2 file for
-     the latest release — or by cloning the git repository.  ‘git clone
-     https://github.com/tvraman/emacspeak’
-   • Change to the ‘emacspeak’ directory.  Type ‘make config’ to
-     configure the sources.
-   • Type
-          make
-     to compile the files.
+     the latest release — or by cloning the git repository.
+
+          git clone https://github.com/tvraman/emacspeak
+
+   • Change to the ‘emacspeak’ directory.
+
+   • Type ‘make config’ to configure the sources.
+
+   • Type ‘make’ to compile the files.
+
    • Next, decide which text-to-speech engine you will be using, and
      proceed to install that engine.  Your choices are:
+
         • Open Source ESpeak on Linux.  Install the ESpeak packages for
           your system, then compile the Emacspeak ESpeak server by
           doing:
-               cd servers/native-espeak; make
+
+               cd servers/native-espeak
+               make
+
         • ViaVoice Outloud (AKA Eloquent).  You need to purchase this
           engine from the voxin site.  That purchase will give you
           install-ready packages for installing the speech engine as
           well as Emacspeak.  See <https://voxin.oralux.net/rss.xml> for
           the latest packages, and <https://voxin.oralux.net> for the
           main Voxin Web site.
+
         • On the Mac, you can use the builtin Mac TTS engine — emacspeak
           comes with a speech server for that TTS engine written in
           Python.
+
    • Having installed and configured the TTS engine of your choice, and
      having built the associated speech server, set Emacspeak up to use
      that engine by setting environment variable ‘DTK_PROGRAM’.  If
-     using Bash as your shell, add the line
-          export DTK_PROGRAM=<engine-name>
-     to your ‘.bash_profile’.  As an example, to use ESpeak, add
+     using ‘bash’ as your shell, add the line
+
+          export DTK_PROGRAM=<ENGINE-NAME>
+
+     to your ‘.bash_profile’.
+
+     As an example, to use ESpeak, add
+
           export DTK_PROGRAM=espeak
-   • Run it by doing
-        • Add the line
-               (load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
-          to the top of your .emacs file.
-     In the above, ‘<emacspeak-dir>’ refers to the directory where you
+
+   • Run it by adding the line
+
+          (load-file "<EMACSPEAK-DIR>/lisp/emacspeak-setup.el")
+
+     to the top of your .emacs file.
+
+     In the above, <EMACSPEAK-DIR> refers to the directory where you
      unpacked the sources.
 
    See the next section for details on building and testing the speech
@@ -385,15 +402,18 @@ File: emacspeak.info,  Node: Building And Testing The Speech Server,  Prev: Quic
 
 Speech servers are located in the ‘emacspeak/servers’ directory.
 
-   • ESpeak: servers/espeak.  This is a TCL script that uses a library
+   • ESpeak: ‘servers/espeak’.  This is a TCL script that uses a library
      built in ‘servers/native-espeak/’.
+
    • Dectalk: ‘servers/dtk-exp’.  This is a TCL script that does not
      depend on any native code.
-   • Outloud: ‘servers/outloud’ or ‘servres/32-outloud’ (for 64-bit
+
+   • Outloud: ‘servers/outloud’ or ‘servers/32-outloud’ (for 64-bit
      machines).  This is a TCL script that uses the library built in
      ‘servers/linux-outloud’.  Note that a checkout from GitHub gives
      you a prebuilt library — however you will need to purchase the TTS
      engine from <http://voxin.oralux.net>.
+
    • Mac: ‘servers/mac’.  This is a Python script that binds to the
      native Mac TTS.
 
@@ -401,20 +421,22 @@ Speech servers are located in the ‘emacspeak/servers’ directory.
 ....................................
 
 Once you have picked the TTS engine to use, run the selected server
-script at a shell prompt, e.g.  for the ‘espeak’ engine, do:
+script at a shell prompt, e.g.  for the ‘espeak’ engine, execute:
+
      ./servers/espeak
 
    This will result in a TCL prompt.  Here, you can test the TTS engine
-by:
+by typing
 
-   •      q "this is a test."
-          d
+     q "this is a test."
+     d
 
-     You should hear the TTS engine speak the text.
-   • ‘s’ The above command stops speech.  You should see a TCL prompt
-     when you execute it.
+   You should hear the TTS engine speak the text.
 
-   Quit this TCL session by typing ‘C-D’.
+   Type ‘s’ to stop speech.  You should see a TCL prompt when you
+execute it.
+
+   Quit this TCL session by typing ‘C-d’ (an end-of-file character).
 
 
 File: emacspeak.info,  Node: Basic Usage,  Next: Audio Desktop,  Prev: Installation,  Up: Top
@@ -502,8 +524,8 @@ File: emacspeak.info,  Node: Working,  Next: Reading,  Prev: Overview,  Up: Basi
 While typing in an Emacs buffer, hitting space speaks the recently typed
 word.  I use completion all the time; so Emacspeak will speak the
 completion just inserted as well as the next possible completion.  In
-Emacs, use ‘load-library ret completion ret’ for loading the completion
-package.
+Emacs, use ‘M-x load-library <RETURN> completion <RETURN>’ for loading
+the completion package.
 
    The standard Emacs prompting functions have also been speech-enabled.
 Emacs prompts with available lists of completions in response to partial
@@ -520,29 +542,30 @@ can be classified into types:
    • Emacspeak commands for listening to chunks of information.  The
      names of these commands all start with the common prefix
      ‘emacspeak-speak-’.  All Emacspeak commands are bound to the keymap
-     EMACSPEAK-KEYMAP and are accessed with the key ‘Control e’(1).
-     Thus, the Emacspeak command “emacspeak-speak-line” is bound to ‘l’
-     in keymap EMACSPEAK-KEYMAP and can be accessed with the keystroke
-     ‘Control-e l’.  If for some reason you wish to use some key other
-     than ‘control-e’ as the common keyboard prefix for all Emacspeak
-     commands, set the variable EMACSPEAK-PREFIX.
-   • 
-     The second category of commands provided by Emacspeak manipulate
+     EMACSPEAK-KEYMAP and are accessed with the key ‘C-e’(1).  Thus, the
+     Emacspeak command “emacspeak-speak-line” is bound to ‘l’ in keymap
+     EMACSPEAK-KEYMAP and can be accessed with the keystroke ‘C-e l’.
+     If for some reason you wish to use some key other than ‘C-e’ as the
+     common keyboard prefix for all Emacspeak commands, set the variable
+     EMACSPEAK-PREFIX.
+
+   • The second category of commands provided by Emacspeak manipulate
      the state of the speech device.  The names of these commands start
      with the common prefix ‘dtk-’ and are bound in keymap
-     EMACSPEAK-DTK-SUBMAP.  You can access these commands via the prefix
-     ‘Control-e d’(2).  Thus, the command “dtk-set-rate” is bound to ‘r’
-     in keymap EMACSPEAK-DTK-SUBMAP and can be executed by pressing
-     ‘Control e d r’.
+     EMACSPEAK-DTK-SUBMAP.
+
+     You can access these commands via the prefix ‘C-e d’ (2).  Thus,
+     the command “dtk-set-rate” is bound to ‘r’ in keymap
+     EMACSPEAK-DTK-SUBMAP and can be executed by pressing ‘C-e d r’.
 
    Emacs has extensive online help; so does emacspeak.  Please use it.
 
    This info manual is only to get you started.  You can get a summary
-of Emacspeak’s features by pressing ‘Control-h Control-e’
+of Emacspeak’s features by pressing ‘C-h C-e’
 
    ---------- Footnotes ----------
 
-   (1) Control e is mnemonic for Emacspeak.
+   (1) C-e is mnemonic for Emacspeak.
 
    (2) Historically, d was mnemonic for Dectalk; note that nothing in
 Emacspeak is DECTalk specific.
@@ -562,108 +585,138 @@ terminology for the editing cursor).
 
    Reading without moving point:
 
-‘control e c’
-     emacspeak-speak-char Speak character under point.  Pronounces
-     character phonetically unless called with a PREFIX arg.
+‘C-e c’
+     ‘emacspeak-speak-char’
 
-‘control e w’
-     emacspeak-speak-word Speak current word.  With prefix ARG, speaks
-     the rest of the word from point.  Negative prefix arg speaks from
-     start of word to point.  If executed on the same buffer position a
-     second time, the word is spelled instead of being spoken.
+     Speak character under point.  Pronounces character phonetically
+     unless called with a PREFIX arg.
 
-‘control e l’
-     emacspeak-speak-line Speaks current line.  With prefix ARG, speaks
-     the rest of the line from point.  Negative prefix optional arg
-     speaks from start of line to point.  Voicifies if option
-     ‘voice-lock-mode’ is on.  Indicates indentation with a tone or a
-     spoken cue if audio indentation is in use.  Indicates position of
-     point with an aural highlight if option ‘emacspeak-show-point’ is
-     turned on — see command ‘emacspeak-show-point’ bound to ‘C-e C-d’.
-     Lines that start hidden blocks of text, e.g.  outline header lines,
-     or header lines of blocks created by command
-     ‘emacspeak-hide-or-expose-block’ are indicated with auditory icon
-     ellipses.
+‘C-e w’
+     ‘emacspeak-speak-word’
 
-‘control e up’
-     emacspeak-read-previous-line Read previous line, specified by an
-     offset, without moving.  Default is to read the previous line.
+     Speak current word.  With prefix ARG, speaks the rest of the word
+     from point.  Negative prefix arg speaks from start of word to
+     point.  If executed on the same buffer position a second time, the
+     word is spelled instead of being spoken.
 
-‘control e down’
-     emacspeak-read-next-line Read next line, specified by an offset,
-     without moving.  Default is to read the next line.
+‘C-e l’
+     ‘emacspeak-speak-line’
 
-‘control e p’
-     emacspeak-speak-paragraph Speak paragraph.  With prefix arg, speaks
-     rest of current paragraph.  Negative prefix arg will read from
-     start of current paragraph to point.  If voice-lock-mode is on,
-     then it will use any defined personality.
+     Speaks current line.  With prefix ARG, speaks the rest of the line
+     from point.  Negative prefix optional arg speaks from start of line
+     to point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
+     indentation with a tone or a spoken cue if audio indentation is in
+     use.  Indicates position of point with an aural highlight if option
+     ‘emacspeak-show-point’ is turned on — see command
+     ‘emacspeak-show-point’ bound to ‘C-e C-d’.  Lines that start hidden
+     blocks of text, e.g.  outline header lines, or header lines of
+     blocks created by command ‘emacspeak-hide-or-expose-block’ are
+     indicated with auditory icon ellipses.
 
-‘control e r’
-     emacspeak-speak-region Speak current region delimited by “point”
-     and “mark”.  When called from a program, argument START and END
-     specify region to speak.
+‘C-e <UP>’
+     ‘emacspeak-read-previous-line’
 
-‘control e cap R’
-     emacspeak-speak-rectangle Speak a rectangle of text.  Rectangle is
-     delimited by point and mark.  When call from a program, arguments
-     specify the START and END of the rectangle.
+     Read previous line, specified by an offset, without moving.
+     Default is to read the previous line.
 
-‘control e b’
-     emacspeak-speak-buffer Speak current buffer contents.  With prefix
-     ARG, speaks the rest of the buffer from point.  Negative prefix arg
-     speaks from start of buffer to point.  If voice lock mode is on,
-     the paragraphs in the buffer are voice annotated first, see command
+‘C-e <DOWN>’
+     ‘emacspeak-read-next-line’
+
+     Read next line, specified by an offset, without moving.  Default is
+     to read the next line.
+
+‘C-e p’
+     ‘emacspeak-speak-paragraph’
+
+     Speak paragraph.  With prefix arg, speaks rest of current
+     paragraph.  Negative prefix arg will read from start of current
+     paragraph to point.  If voice-lock-mode is on, then it will use any
+     defined personality.
+
+‘C-e r’
+     ‘emacspeak-speak-region’
+
+     Speak current region delimited by “point” and “mark”.  When called
+     from a program, argument START and END specify region to speak.
+
+‘C-e cap R’
+     ‘emacspeak-speak-rectangle’
+
+     Speak a rectangle of text.  Rectangle is delimited by point and
+     mark.  When call from a program, arguments specify the START and
+     END of the rectangle.
+
+‘C-e b’
+     ‘emacspeak-speak-buffer’
+
+     Speak current buffer contents.  With prefix ARG, speaks the rest of
+     the buffer from point.  Negative prefix arg speaks from start of
+     buffer to point.  If voice lock mode is on, the paragraphs in the
+     buffer are voice annotated first, see command
      ‘emacspeak-speak-voice-annotate-paragraphs’.  This provides the
      auditory equivalent of _dropped caps_ from visual typography.
 
-‘control e n’
-     emacspeak-speak-rest-of-buffer Speak remainder of the buffer
-     starting at point
+‘C-e n’
+     ‘emacspeak-speak-rest-of-buffer’
 
-‘control e /’
-     emacspeak-speak-this-buffer-other-window-display Speak this buffer
-     as displayed in a different frame.  Emacs allows you to display the
-     same buffer in multiple windows or frames.  These different windows
-     can display different portions of the buffer.  This is equivalent
-     to leaving a book open at places at once.  This command allows you
-     to listen to the places where you have left the book open.  The
-     number used to invoke this command specifies which of the displays
-     you wish to speak.  Typically you will have two or at most three
-     such displays open.  The current display is 0, the next is 1, and
-     so on.  Optional argument ARG specifies the display to speak.
+     Speak remainder of the buffer starting at point
 
-‘control e left’
-     emacspeak-speak-this-buffer-previous-display Speak this buffer as
-     displayed in a ‘previous’ window.  See documentation for command
+‘C-e /’
+     ‘emacspeak-speak-this-buffer-other-window-display’
+
+     Speak this buffer as displayed in a different frame.  Emacs allows
+     you to display the same buffer in multiple windows or frames.
+     These different windows can display different portions of the
+     buffer.  This is equivalent to leaving a book open at places at
+     once.  This command allows you to listen to the places where you
+     have left the book open.  The number used to invoke this command
+     specifies which of the displays you wish to speak.  Typically you
+     will have two or at most three such displays open.  The current
+     display is 0, the next is 1, and so on.  Optional argument ARG
+     specifies the display to speak.
+
+‘C-e <LEFT>’
+     ‘emacspeak-speak-this-buffer-previous-display’
+
+     Speak this buffer as displayed in a ‘previous’ window.  See
+     documentation for command
      ‘emacspeak-speak-this-buffer-other-window-display’ for the meaning
      of ‘previous’.
 
-‘control e right’
-     emacspeak-speak-this-buffer-next-display Speak this buffer as
-     displayed in a ‘previous’ window.  See documentation for command
+‘C-e <RIGHT>’
+     ‘emacspeak-speak-this-buffer-next-display’
+
+     Speak this buffer as displayed in a ‘previous’ window.  See
+     documentation for command
      ‘emacspeak-speak-this-buffer-other-window-display’ for the meaning
      of ‘previous’.
 
-‘control e [’
-     emacspeak-speak-page Speak a page.  With prefix ARG, speaks rest of
-     current page.  Negative prefix arg will read from start of current
-     page to point.  If option ‘voice-lock-mode’ is on, then it will use
-     any defined personality.
+‘C-e [’
+     ‘emacspeak-speak-page’
 
-‘control e [0..9]’
-     emacspeak-speak-predefined-window Speak one of the first 10 windows
-     on the screen.  In general, you’ll never have Emacs split the
-     screen into more than two or three.  Argument ARG determines the
-     ’other’ window to speak.  Speaks entire window irrespective of
-     point.  Semantics of ‘other’ is the same as for the builtin Emacs
-     command ‘other-window’.
+     Speak a page.  With prefix ARG, speaks rest of current page.
+     Negative prefix arg will read from start of current page to point.
+     If option ‘voice-lock-mode’ is on, then it will use any defined
+     personality.
 
-‘control e control n’
-     emacspeak-speak-next-window Speak the next window.
+‘C-e DIGIT’
+     ‘emacspeak-speak-predefined-window’
 
-‘control e control p’
-     emacspeak-speak-previous-window Speak the previous window.
+     Speak one of the first 10 windows on the screen.  In general,
+     you’ll never have Emacs split the screen into more than two or
+     three.  Argument ARG determines the ’other’ window to speak.
+     Speaks entire window irrespective of point.  Semantics of ‘other’
+     is the same as for the builtin Emacs command ‘other-window’.
+
+‘C-e C-n’
+     ‘emacspeak-speak-next-window’
+
+     Speak the next window.
+
+‘C-e C-p’
+     ‘emacspeak-speak-previous-window’
+
+     Speak the previous window.
 
 ‘emacspeak-speak-other-window’
      Speak contents of ‘other’ window.  Speaks entire window
@@ -671,33 +724,37 @@ terminology for the editing cursor).
      builtin Emacs command ‘other-window’.  Optional argument ARG
      specifies ‘other’ window to speak.
 
-‘ESCAPE up’
-     emacspeak-owindow-previous-line Move to the next line in the other
-     window and speak it.  Numeric prefix arg COUNT specifies number of
-     lines to move.
+‘<ESCAPE> <UP>’
+     ‘emacspeak-owindow-previous-line’
 
-‘ESCAPE down’
-     emacspeak-owindow-next-line Move to the next line in the other
-     window and speak it.  Numeric prefix arg COUNT can specify number
-     of lines to move.
+     Move to the next line in the other window and speak it.  Numeric
+     prefix arg COUNT specifies number of lines to move.
 
-‘ESCAPE next’
-     emacspeak-owindow-scroll-up Scroll up the window that command
-     ‘other-window’ would move to.  Speak the window contents after
-     scrolling.
+‘<ESCAPE> <DOWN>’
+     ‘emacspeak-owindow-next-line’
 
-‘ESCAPE prior’
-     emacspeak-owindow-scroll-down Scroll down the window that command
-     ‘other-window’ would move to.  Speak the window contents after
-     scrolling.
+     Move to the next line in the other window and speak it.  Numeric
+     prefix arg COUNT can specify number of lines to move.
+
+‘<ESCAPE> next’
+     ‘emacspeak-owindow-scroll-up’
+
+     Scroll up the window that command ‘other-window’ would move to.
+     Speak the window contents after scrolling.
+
+‘<ESCAPE> prior’
+     ‘emacspeak-owindow-scroll-down’
+
+     Scroll down the window that command ‘other-window’ would move to.
+     Speak the window contents after scrolling.
 
 ‘emacspeak-speak-sexp’
      Speak current sexp.  With prefix ARG, speaks the rest of the sexp
      from point.  Negative prefix arg speaks from start of sexp to
      point.
 
-‘control e meta control @’
-     emacspeak-speak-spaces-at-point Speak the white space at point.
+‘C-e meta C-@’
+     ‘emacspeak-speak-spaces-at-point’ Speak the white space at point.
 
 
 File: emacspeak.info,  Node: Speech System,  Next: Voice-lock,  Prev: Reading,  Up: Basic Usage
@@ -732,20 +789,26 @@ Note that in the documentation below, this use of ‘C-u’ is indicated
 using the common Emacs terminology of _prefix arg_ or _interactive
 prefix arg_.
 
-‘control e d k’
-     emacspeak-toggle-character-echo Toggle state of Emacspeak character
-     echo.  Interactive PREFIX arg means toggle the global default
-     value, and then set the current local value to the result.
+‘C-e d k’
+     ‘emacspeak-toggle-character-echo’
 
-‘control e d w’
-     emacspeak-toggle-word-echo Toggle state of Emacspeak word echo.
-     Interactive PREFIX arg means toggle the global default value, and
-     then set the current local value to the result.
+     Toggle state of Emacspeak character echo.  Interactive PREFIX arg
+     means toggle the global default value, and then set the current
+     local value to the result.
 
-‘control e d l’
-     emacspeak-toggle-line-echo Toggle state of Emacspeak line echo.
-     Interactive PREFIX arg means toggle the global default value, and
-     then set the current local value to the result.
+‘C-e d w’
+     ‘emacspeak-toggle-word-echo’
+
+     Toggle state of Emacspeak word echo.  Interactive PREFIX arg means
+     toggle the global default value, and then set the current local
+     value to the result.
+
+‘C-e d l’
+     ‘emacspeak-toggle-line-echo’
+
+     Toggle state of Emacspeak line echo.  Interactive PREFIX arg means
+     toggle the global default value, and then set the current local
+     value to the result.
 
 
 File: emacspeak.info,  Node: Speech Output Control,  Next: Miscellaneous,  Prev: Controlling Echo,  Up: Speech System
@@ -763,74 +826,88 @@ mode for speaking mixed case words which is especially useful when
 programming.  These settings can be made locally in a given buffer or be
 applied to all buffers by preceding these commands with ‘C-u’.
 
-‘control e d r’
-     dtk-set-rate Set speaking RATE for the tts.  Interactive PREFIX arg
-     means set the global default value, and then set the current local
-     value to the result.
+‘C-e d r’
+     ‘dtk-set-rate’
 
-‘control e d f’
-     dtk-set-character-scale Set scale FACTOR for speech rate.  Speech
-     rate is scaled by this factor when speaking characters.
-     Interactive PREFIX arg means set the global default value, and then
-     set the current local value to the result.
+     Set speaking RATE for the TTS.  Interactive PREFIX arg means set
+     the global default value, and then set the current local value to
+     the result.
+
+‘C-e d f’
+     ‘dtk-set-character-scale’
+
+     Set scale FACTOR for speech rate.  Speech rate is scaled by this
+     factor when speaking characters.  Interactive PREFIX arg means set
+     the global default value, and then set the current local value to
+     the result.
 
      This function is advised.
 
      Before-advice ‘emacspeak-auto’: Automatically defined advice to
      speak interactive prompts.
 
-‘control e d 9 control e d 8 control e d 7 control e d 6 control e d 5 control e d 4 control e d 3 control e d 2 control e d 1 control e d 0’
-     dtk-set-predefined-speech-rate Set speech rate to one of nine
-     predefined levels.  Interactive PREFIX arg says to set the rate
+‘C-e d DIGIT’
+     ‘dtk-set-predefined-speech-rate’
+
+     Set speech rate to one of nine predefined levels using digit keys
+     ‘0’ through ‘9’.  Interactive PREFIX arg says to set the rate
      globally.
 
-‘control e d p’
-     dtk-set-punctuations Set punctuation mode to MODE. Possible values
-     are ‘some’, ‘all’, or ‘none’.  Interactive PREFIX arg means set the
-     global default value, and then set the current local value to the
-     result.
+‘C-e d p’
+     ‘dtk-set-punctuations’
 
-‘control e d m’
-     dtk-set-pronunciation-mode Set pronunciation MODE. This command is
-     valid only for newer Dectalks, e.g.  the Dectalk Express.  Possible
-     values are ‘math, name, europe, spell’, all of which can be turned
-     on or off.  Argument STATE specifies new state.
+     Set punctuation mode to MODE. Possible values are ‘some’, ‘all’, or
+     ‘none’.  Interactive PREFIX arg means set the global default value,
+     and then set the current local value to the result.
 
-‘control e d s’
-     dtk-toggle-split-caps Toggle split caps mode.  Split caps mode is
-     useful when reading Hungarian notation in program source code.
-     Interactive PREFIX arg means toggle the global default value, and
-     then set the current local value to the result.
+‘C-e d m’
+     ‘dtk-set-pronunciation-mode’
 
-‘control e d c’
-     dtk-toggle-capitalization Toggle capitalization.  when set,
-     capitalization is indicated by a short beep.  Interactive PREFIX
-     arg means toggle the global default value, and then set the current
+     Set pronunciation MODE. This command is valid only for newer
+     Dectalks, e.g.  the Dectalk Express.  Possible values are ‘math,
+     name, europe, spell’, all of which can be turned on or off.
+     Argument STATE specifies new state.
+
+‘C-e d s’
+     ‘dtk-toggle-split-caps’
+
+     Toggle split caps mode.  Split caps mode is useful when reading
+     Hungarian notation in program source code.  Interactive PREFIX arg
+     means toggle the global default value, and then set the current
      local value to the result.
 
-‘control e d cap C’
-     dtk-toggle-allcaps-beep Toggle allcaps-beep.  when set, allcaps
-     words are indicated by a short beep.  Interactive PREFIX arg means
-     toggle the global default value, and then set the current local
-     value to the result.  Note that allcaps-beep is a very useful thing
-     when programming.  However it is irritating to have it on when
-     reading documents.
+‘C-e d c’
+     ‘dtk-toggle-capitalization’
+
+     Toggle capitalization.  when set, capitalization is indicated by a
+     short beep.  Interactive PREFIX arg means toggle the global default
+     value, and then set the current local value to the result.
+
+‘C-e d cap C’
+     ‘dtk-toggle-allcaps-beep’
+
+     Toggle allcaps-beep.  When set, allcaps words are indicated by a
+     short beep.  Interactive PREFIX arg means toggle the global default
+     value, and then set the current local value to the result.  Note
+     that allcaps-beep is a very useful thing when programming.  However
+     it is irritating to have it on when reading documents.
 
    In addition, Emacspeak can convey the indentation of lines as they
-are spoken — this is relevant when programming and is the default when
+are spoken — This is relevant when programming and is the default when
 working with program source.
 
-‘control e d i’
-     emacspeak-toggle-audio-indentation Toggle state of Emacspeak audio
-     indentation.  Interactive PREFIX arg means toggle the global
-     default value, and then set the current local value to the result.
-     Specifying the method of indentation as ‘tones’ results in the
-     speech-server producing a tone whose length is a function of the
-     line’s indentation.  Specifying ‘speak’ results in the number of
-     initial spaces being spoken.
+‘C-e d i’
+     ‘emacspeak-toggle-audio-indentation’
+
+     Toggle state of Emacspeak audio indentation.  Interactive PREFIX
+     arg means toggle the global default value, and then set the current
+     local value to the result.  Specifying the method of indentation as
+     ‘tones’ results in the speech-server producing a tone whose length
+     is a function of the line’s indentation.  Specifying ‘speak’
+     results in the number of initial spaces being spoken.
 
      Indentation feedback style is set by option
-     emacspeak-audio-indentation-method
+     ‘emacspeak-audio-indentation-method’
 
      The default value is ‘"speak"’
 
@@ -849,72 +926,88 @@ server can be stopped and restarted for cases where the user wants to
 switch to a different server — or in the rare case to nuke a runaway
 speech server.
 
-‘Control e s’
-     dtk-stop Stop speech now.
+‘C-e s’
+     dtk-stop
 
-‘control e d q’
-     dtk-toggle-quiet Toggle state of the speech device between being
-     quiet and talkative.  Useful if you want to continue using an Emacs
-     session that has emacspeak loaded but wish to make the speech shut
-     up.  Optional argument PREFIX specifies whether speech is turned
-     off in the current buffer or in all buffers.
+     Stop speech now.
 
-‘control e control s’
-     dtk-emergency-restart Use this to nuke the currently running dtk
-     server and restart it.  Useful if you want to switch to another
-     synthesizer while emacspeak is running.  Also useful for emergency
-     stopping of speech.
+‘C-e d q’
+     ‘dtk-toggle-quiet’
+
+     Toggle state of the speech device between being quiet and
+     talkative.  Useful if you want to continue using an Emacs session
+     that has emacspeak loaded but wish to make the speech shut up.
+     Optional argument PREFIX specifies whether speech is turned off in
+     the current buffer or in all buffers.
+
+‘C-e C-s’
+     ‘dtk-emergency-restart’
+
+     Use this to nuke the currently running dtk server and restart it.
+     Useful if you want to switch to another synthesizer while emacspeak
+     is running.  Also useful for emergency stopping of speech.
 
    Finally, here are the remaining commands available via the TTS
 related keymap ‘C-e d’.
 
-‘control e d a’
-     dtk-add-cleanup-pattern Add this pattern to the list of repeating
-     patterns that are cleaned up.  Optional interactive prefix arg
-     deletes this pattern if previously added.  Cleaning up repeated
-     patterns results in emacspeak speaking the pattern followed by a
-     repeat count instead of speaking all the characters making up the
-     pattern.  Thus, by adding the repeating pattern ‘.’ (this is
-     already added by default) emacspeak will say “aw fifteen dot” when
-     speaking the string “...............” instead of “period period
-     period period ”.
+‘C-e d a’
+     ‘dtk-add-cleanup-pattern’
 
-‘control e d d’
-     dtk-select-server Select a speech server interactively.  This will
-     be the server that is used when you next call either M-x
-     dtk-initialize or C-e C-s.  Argument PROGRAM specifies the speech
-     server program.
+     Add this pattern to the list of repeating patterns that are cleaned
+     up.  Optional interactive prefix arg deletes this pattern if
+     previously added.  Cleaning up repeated patterns results in
+     emacspeak speaking the pattern followed by a repeat count instead
+     of speaking all the characters making up the pattern.  Thus, by
+     adding the repeating pattern ‘.’ (this is already added by default)
+     emacspeak will say “aw fifteen dot” when speaking the string
+     “...............” instead of “period period period period”.
 
-‘control e d SPACE’
-     dtk-toggle-splitting-on-white-space Toggle splitting of speech on
-     white space.  This affects the internal state of emacspeak that
-     decides if we split text purely by clause boundaries, or also
-     include whitespace.  By default, emacspeak sends a clause at a time
-     to the speech device.  This produces fluent speech for normal use.
-     However in modes such as ‘shell-mode’ and some programming language
-     modes, clause markers appear infrequently, and this can result in
-     large amounts of text being sent to the speech device at once,
-     making the system unresponsive when asked to stop talking.
-     Splitting on white space makes emacspeak’s stop command responsive.
-     However, when splitting on white space, the speech sounds choppy
-     since the synthesizer is getting a word at a time.
+‘C-e d d’
+     ‘dtk-select-server’
 
-‘control e d RETURN’
-     dtk-set-chunk-separator-syntax Interactively set how text is split
-     in chunks.  See the Emacs documentation on syntax tables for
-     details on how characters are classified into various syntactic
-     classes.  Argument S specifies the syntax class.
+     Select a speech server interactively.  This will be the server that
+     is used when you next call either M-x dtk-initialize or C-e C-s.
+     Argument PROGRAM specifies the speech server program.
 
-‘control e d t’
-     emacspeak-dial-dtk Prompt for and dial a phone NUMBER with the
-     Dectalk.
+‘C-e d <SPACE>’
+     ‘dtk-toggle-splitting-on-white-space’
 
-‘control e d cap V’
-     emacspeak-dtk-speak-version Use this to find out which version of
-     the TTS firmware you are running.
+     Toggle splitting of speech on white space.  This affects the
+     internal state of emacspeak that decides if we split text purely by
+     clause boundaries, or also include whitespace.  By default,
+     emacspeak sends a clause at a time to the speech device.  This
+     produces fluent speech for normal use.  However in modes such as
+     ‘shell-mode’ and some programming language modes, clause markers
+     appear infrequently, and this can result in large amounts of text
+     being sent to the speech device at once, making the system
+     unresponsive when asked to stop talking.  Splitting on white space
+     makes emacspeak’s stop command responsive.  However, when splitting
+     on white space, the speech sounds choppy since the synthesizer is
+     getting a word at a time.
 
-‘control e d z’
-     emacspeak-zap-dtk Send this command to the TTS engine directly.
+‘C-e d <RETURN>’
+     ‘dtk-set-chunk-separator-syntax’
+
+     Interactively set how text is split in chunks.  See the Emacs
+     documentation on syntax tables for details on how characters are
+     classified into various syntactic classes.  Argument S specifies
+     the syntax class.
+
+‘C-e d t’
+     ‘emacspeak-dial-dtk’
+
+     Prompt for and dial a phone NUMBER with the Dectalk.
+
+‘C-e d cap V’
+     ‘emacspeak-dtk-speak-version’
+
+     Use this to find out which version of the TTS firmware you are
+     running.
+
+‘C-e d z’
+     ‘emacspeak-zap-dtk’
+
+     Send this command to the TTS engine directly.
 
 
 File: emacspeak.info,  Node: Voice-lock,  Next: Status Information,  Prev: Speech System,  Up: Basic Usage
@@ -963,71 +1056,94 @@ File: emacspeak.info,  Node: Status Information,  Prev: Voice-lock,  Up: Basic U
 
 The following commands provide miscellaneous information.
 
-‘control e a’
-     emacspeak-speak-message-again Speak the last message from Emacs
-     once again.
+‘C-e a’
+     ‘emacspeak-speak-message-again’
 
-‘control e m’
-     emacspeak-speak-mode-line Speak the mode-line.
+     Speak the last message from Emacs once again.
 
-‘control e cap M’
-     emacspeak-speak-minor-mode-line Speak the minor mode-information.
+‘C-e m’
+     ‘emacspeak-speak-mode-line’
 
-‘control e SPC’
-     emacspeak-speak-header-line Speak the header-line.
+     Speak the mode-line.
 
-‘control e control w’
-     emacspeak-speak-window-information Speaks information about current
-     windows.
+‘C-e cap M’
+     ‘emacspeak-speak-minor-mode-line’
 
-‘control e t’
-     emacspeak-speak-time Speak the time.
+     Speak the minor mode-information.
 
-‘control e cap V’
-     emacspeak-speak-version Announce version information for running
-     emacspeak.
+‘C-e SPC’
+     ‘emacspeak-speak-header-line’
 
-‘control e f’
-     emacspeak-speak-buffer-filename Speak name of file being visited in
-     current buffer.  Speak default directory if invoked in a dired
-     buffer, or when the buffer is not visiting any file.
+     Speak the header-line.
 
-‘control e h’
-     emacspeak-speak-help Speak help buffer if one present.  With prefix
-     arg, speaks the rest of the buffer from point.  Negative prefix arg
-     speaks from start of buffer to point.
+‘C-e C-w’
+     ‘emacspeak-speak-window-information’
 
-‘control e k’
-     emacspeak-speak-current-kill Speak the current kill entry.  This is
-     the text that will be yanked in by the next C-y.  Prefix numeric
-     arg, COUNT, specifies that the text that will be yanked as a result
-     of a C-y followed by count-1 M-y be spoken.  The kill number that
-     is spoken says what numeric prefix arg to give to command ‘yank’.
+     Speaks information about current windows.
 
-‘control e v’
-     emacspeak-view-register Display the contents of a register, and
-     then speak it.
+‘C-e t’
+     ‘emacspeak-speak-time’
 
-‘control e control @’
-     emacspeak-speak-current-mark Speak the line containing the mark.
-     With no argument, speaks the line containing the mark — this is
-     where ‘exchange-point-and-mark’ C-x C-x would jump.  Numeric prefix
-     arg ’COUNT’ speaks line containing mark ’n’ where ’n’ is one less
-     than the number of times one has to jump using ‘set-mark-command’
-     to get to this marked position.  The location of the mark is
-     indicated by an aural highlight achieved by a change in voice
-     personality.
+     Speak the time.
 
-‘control e control l’
-     emacspeak-speak-line-number Speak the line number of the current
-     line.
+‘C-e cap V’
+     ‘emacspeak-speak-version’
 
-‘control e =’
-     emacspeak-speak-current-column Speak the current column.
+     Announce version information for running Emacspeak.
 
-‘control e %’
-     emacspeak-speak-current-percentage Announce the percentage into the
-     current buffer.
+‘C-e f’
+     ‘emacspeak-speak-buffer-filename’
+
+     Speak name of file being visited in current buffer.  Speak default
+     directory if invoked in a dired buffer, or when the buffer is not
+     visiting any file.
+
+‘C-e h’
+     ‘emacspeak-speak-help’
+
+     Speak help buffer if one present.  With prefix arg, speaks the rest
+     of the buffer from point.  Negative prefix arg speaks from start of
+     buffer to point.
+
+‘C-e k’
+     ‘emacspeak-speak-current-kill’
+
+     Speak the current kill entry.  This is the text that will be yanked
+     in by the next ‘C-y’.  Prefix numeric arg, COUNT, specifies that
+     the text that will be yanked as a result of a ‘C-y’ followed by
+     count-1 ‘M-y’ be spoken.  The kill number that is spoken says what
+     numeric prefix arg to give to command ‘yank’.
+
+‘C-e v’
+     ‘emacspeak-view-register’
+
+     Display the contents of a register, and then speak it.
+
+‘C-e C-@’
+     ‘emacspeak-speak-current-mark’
+
+     Speak the line containing the mark.  With no argument, speaks the
+     line containing the mark — this is where ‘exchange-point-and-mark’
+     C-x C-x would jump.  Numeric prefix arg ’COUNT’ speaks line
+     containing mark ’n’ where ’n’ is one less than the number of times
+     one has to jump using ‘set-mark-command’ to get to this marked
+     position.  The location of the mark is indicated by an aural
+     highlight achieved by a change in voice personality.
+
+‘C-e C-l’
+     ‘emacspeak-speak-line-number’
+
+     Speak the line number of the current line.
+
+‘C-e =’
+     ‘emacspeak-speak-current-column’
+
+     Speak the current column.
+
+‘C-e %’
+     ‘emacspeak-speak-current-percentage’
+
+     Announce the percentage into the current buffer.
 
 
 File: emacspeak.info,  Node: Audio Desktop,  Next: Voice Lock,  Prev: Basic Usage,  Up: Top
@@ -1040,20 +1156,21 @@ tricks for making use of many of Emacs’ powerful features.
 
    The desktop is the work area where you organize the tools of your
 trade and the information objects relevant to your current activities.
-In the conventional world of visual GUI-based computing, these tools and
-information objects manifest themselves as a collection of icons
-organized in a two-dimensional work-area — this organization is designed
-to place frequently used objects within easy reach.
+In the conventional world of visual GUI (Graphical User Interface)-based
+computing, these tools and information objects manifest themselves as a
+collection of icons organized in a two-dimensional work-area — this
+organization is designed to place frequently used objects within easy
+reach.
 
    Notice that organizing one’s work area in terms of visual icons
 arranged in a two-dimensional area where such an organization is
-optimized for the available "conversational gestures" of pointing and
+optimized for the available “conversational gestures” of pointing and
 clicking is an artifact of visual interaction.
 
    In the spirit of a truly speech-enabled application, Emacspeak does
 not simply provide you spoken access to a particular presentation of
-your work environment that was initially designed with the "sign
-language" of visual interaction in mind.  Instead, Emacspeak enables you
+your work environment that was initially designed with the “sign
+language” of visual interaction in mind.  Instead, Emacspeak enables you
 to work with documents and other information objects in a manner that is
 optimized to aural, eyes-free interaction.  A necessary consequence of
 this setup is that users accustomed to the purely visual manifestation
@@ -1078,13 +1195,13 @@ File: emacspeak.info,  Node: Desktop Objects,  Next: Object Oriented Desktop,  U
 7.1 Objects Making Up The Emacspeak Desktop
 ===========================================
 
-A "buffer" is the basic building block of the Emacs and hence the
+A “buffer” is the basic building block of the Emacs and hence the
 Emacspeak desktop.  Any information presented by Emacs is placed in a
-"buffer".  For example, when perusing this manual within Emacs, the
-"file" containing the documentation is presented in a "buffer".  All
+“buffer”.  For example, when perusing this manual within Emacs, the
+“file” containing the documentation is presented in a “buffer”.  All
 information objects such as WWW pages, email messages, output from user
 interaction with command-line shells etc., are presented by Emacs in
-individual "buffers".
+individual “buffers”.
 
    Buffers provide a base level of user interaction; Emacs derives its
 power by allowing applications to specialize buffers to enable specific
@@ -1097,14 +1214,15 @@ File: emacspeak.info,  Node: Object Oriented Desktop,  Next: Context-Sensitive I
 7.2 An Object-Oriented Desktop
 ==============================
 
-The basic "buffer object" can be specialized by Emacs applications to
+The basic “buffer object” can be specialized by Emacs applications to
 provide optimal interaction.  This kind of specialization makes the
 Emacs environment an object-oriented environment; thus, the basic
-conversational gesture of "move to the next statement" can be assigned
+conversational gesture of “move to the next statement” can be assigned
 behavior that is appropriate to the content that the user is currently
 navigating.  As an example of such specialization, Emacs provides
-"specialized modes" for working with English text, programming
-languages, markup source e.g.  HTML or LaTeX documents and so on.
+“specialized modes” for working with English text, programming
+languages, markup source e.g.  HTML (Hypertext Markup Language) or LaTeX
+documents and so on.
 
 
 File: emacspeak.info,  Node: Context-Sensitive Interaction,  Prev: Object Oriented Desktop,  Up: Audio Desktop
@@ -1131,11 +1249,11 @@ prior effort.
 ----------------------------
 
 Emacspeak takes advantage of the content-specific knowledge available
-within specialized buffers to produce "audio formatted" output designed
+within specialized buffers to produce “audio formatted” output designed
 to optimize user interaction.  A basic consequence of the above is
-"voice locking" in specialized modes; a more interesting consequence is
+“voice locking” in specialized modes; a more interesting consequence is
 the implementation of Aural Cascading Style Sheets (ACSS) in conjunction
-with the Emacs EWW and W3 Web browsers.
+with the Emacs EWW (Emacs Web Wowser) and W3 Web browsers.
 
 7.3.2 Structured Navigation:
 ----------------------------
@@ -1150,8 +1268,8 @@ in an eyes-free environment.
    Notable among such structured navigation is Emacs’ powerful outline
 feature.
 
-   An example of content-sensitive navigation is provided by the imenu
-package which dynamically creates a "table of contents" based on the
+   An example of content-sensitive navigation is provided by the ‘imenu’
+package which dynamically creates a “table of contents” based on the
 content that is being displayed in a given buffer.  Emacs “Selective
 Display” lets one easily hide and expose portions of a buffer based on
 indentation — this feature can be used to advantage when working with
@@ -1173,18 +1291,19 @@ features from dired and imenu round off the suite of navigational tools.
 Emacs derives one final advantage from using buffers as the basic
 building block for the entire desktop.  Every Emacs buffer is searchable
 via a uniform and powerful search interface.  Emacs’ incremental search
-works efficiently and consistently to enable you locate "objects" of
+works efficiently and consistently to enable you locate “objects” of
 interest either within a given document or to locate a given object from
 among the various objects that are currently open on the Emacspeak
-desktop.  This is very powerful — where a GUI user is typically limited
-to quickly locating an object from a relatively small collection — the
-size of the collection being a direct function of available display
-real-estate — the Emacspeak user can typically work with a far larger
-collection of objects.  This is well-suited to the eyes-free
-environment, where display real-estate has no meaning; so bringing up a
-list of currently open buffers and performing an incremental search to
-locate a specific buffer is just as efficient independent of whether you
-have a few dozen or a few hundred buffers open.
+desktop.  This is very powerful — where a GUI (Graphical User Interface)
+user is typically limited to quickly locating an object from a
+relatively small collection — the size of the collection being a direct
+function of available display real-estate — the Emacspeak user can
+typically work with a far larger collection of objects.  This is
+well-suited to the eyes-free environment, where display real-estate has
+no meaning; so bringing up a list of currently open buffers and
+performing an incremental search to locate a specific buffer is just as
+efficient independent of whether you have a few dozen or a few hundred
+buffers open.
 
    To illustrate the above, my typical working Emacs session lasts
 between two and three weeks — over that time I typically accumulate
@@ -1193,7 +1312,7 @@ from program source code to email messages and WWW pages.
 
    Ubiquitous search in the eyes-free environment is critical — as a
 comparison, when using a conventional, purely visual WWW browser, users
-have no means of easily "searching" for say the "submit" button on a WWW
+have no means of easily “searching” for say the “submit” button on a WWW
 page.  This inability is a minor annoyance in visual interaction, and
 the typical mouse-enabled user never uses the find dialog to find a
 submit button — it is simply more efficient to point at the submit
@@ -1223,10 +1342,10 @@ the years.
      a specific TTS engine.
 
   3. For each such overlay there is a corresponding
-     ‘<overlay-name>-settings’ variable that can be customized via
+     ‘<OVERLAY-NAME>-settings’ variable that can be customized via
      custom.
 
-  4. The numbers in ‘voice-bolden-settings as an example’:
+  4. The numbers in ‘voice-bolden-settings’ as an example:
 
 Setting                              Value
 family                               nil
@@ -1235,6 +1354,7 @@ pitch-range                          6
 stress                               6
 richness                             nil
 punctuation                          nil
+
    Unset values (‘nil’) show up as “unspecified” in the customize
 interface.
 
@@ -1260,10 +1380,9 @@ gives:
 
      emacspeak-voice-lock-comment-personality's value is acss-p0-s0-all
 
-     Documentation:
-     Personality used for font-lock-comment-face
-     This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
+     Documentation: Personality used for font-lock-comment-face This
+     personality uses voice-monotone whose effect can be changed globally
+     by customizing voice-monotone-settings.
 
 * Menu:
 
@@ -1291,13 +1410,15 @@ its associated ‘voice-bolden-settings’.
   4. So when ‘voice-bolden’ is defined, the definition happens in two
      steps:
 
-   • The list of settings is stored away in ‘voice-bolden-settings’,
-   • A corresponding voice-name is generated —
-     ‘acss-a<n>-p<n>-r<n>-s<n>’ and the corresponding control codes to
-     send to the device are stored away in a hash-table keyed by the
-     above symbol.
+        • The list of settings is stored away in
+          ‘voice-bolden-settings’,
 
-   • Finally, ‘voice-bolden’ is assigned the above symbol.
+        • A corresponding voice-name is generated —
+          ‘acss-a<n>-p<n>-r<n>-s<n>’ and the corresponding control codes
+          to send to the device are stored away in a hash-table keyed by
+          the above symbol.
+
+        • Finally, ‘voice-bolden’ is assigned the above symbol.
 
 
 File: emacspeak.info,  Node: What this gives.,  Prev: How It All Works.,  Up: Voice Lock
@@ -1314,12 +1435,12 @@ File: emacspeak.info,  Node: What this gives.,  Prev: How It All Works.,  Up: Vo
    The following additional commands from module *Note
 emacspeak-wizards::, are useful when designing aural styles.
 
-  1. emacspeak-wizards-generate-voice-sampler
+  1. ‘emacspeak-wizards-generate-voice-sampler’
 
      Generate a buffer containing text that demonstrates the effect of
      various aural settings.
 
-  2. emacspeak-wizards-voice-sampler
+  2. ‘emacspeak-wizards-voice-sampler’
 
      Applied specified aural style to text in current region.
 
@@ -1352,7 +1473,7 @@ far, you would achieve this by pressing ‘C-h k’ followed by ‘C-h C-h’.
    Emacspeak users should note that online help is typically displayed
 in a separate Emacs window.  Where it makes sense to do so, Emacspeak
 will automatically speak the displayed help.  Once you’ve asked for
-help, you can have the displayed documentation as many times as you wish
+help, you can hear the displayed documentation as many times as you wish
 using Emacspeak command ‘emacspeak-speak-help’ bound to ‘C-e h’.  If you
 want to move through the displayed help a line at a time, switch to the
 buffer where the help is displayed — the buffer is called ‘*Help*’.
@@ -1612,13 +1733,13 @@ File: emacspeak.info,  Node: Structured Editing,  Next: Browsing Structure,  Pre
 
 Editing documents based on the inherent structure present in the
 electronic encoding can be very efficient when using spoken interaction.
-We described mode _ auctex_ — a specialized interface to authoring LaTeX
+We described mode _AUCTeX_ — a specialized interface to authoring LaTeX
 documents as a special instance of such structured editing in *note
 Document Authoring::.
 
    The Emacspeak desktop allows the user to efficiently author and
 maintain an electronic document based either on the structure present in
-the markup (as in the case of mode auctex) or on special outlining
+the markup (as in the case of mode AUCTeX) or on special outlining
 constructs that allow the user to impose a desired logical structure on
 the document.  This section describes the effect of speech-enabling such
 editing tools and points out the advantages in using these in a speech
@@ -1651,7 +1772,7 @@ File: emacspeak.info,  Node: Outline Editing,  Next: Template-based Authoring,  
 ----------------------
 
 All of the various outline editing interfaces on the Emacs desktop allow
-the user to _ hide_ or _ show_ the contents at the different levels of a
+the user to _hide_ or _show_ the contents at the different levels of a
 possibly nested tree structure.  Components of this tree structure can
 be manipulated as a unit, e.g., entire subtrees can be deleted or
 copied.  Outline editing thus provides an efficient means of obtaining
@@ -1659,9 +1780,9 @@ quick overviews of a document.
 
    The visual interface displays such hidden content as a series of
 ellipses following the visible outline heading.  Emacspeak produces
-auditory icon _ ellipses_ when speaking such outline headings.
+auditory icon _ellipses_ when speaking such outline headings.
 
-   The basic _ outline mode_ allows the user to specify the syntax and
+   The basic _outline mode_ allows the user to specify the syntax and
 level of outline header lines as a regular expression.  This simple
 technique can be used to advantage in the structured navigation of large
 electronic texts such as those available on the Internet from online
@@ -1672,34 +1793,34 @@ separate nodes in the logical structure of the document.  The user can
 then hide the document body with a single keystroke, navigate the
 outline headings to find a particular act, and have that portion
 rendered either visually or aurally.  Hiding an outline level produces
-auditory icon _ close-object_; exposing a hidden level produces auditory
-icon _ open-object_.  For details on using mode ‘outline’, see the
+auditory icon _close-object_; exposing a hidden level produces auditory
+icon _open-object_.  For details on using mode ‘outline’, see the
 relevant section of the online Emacs info manual.
 
    The basic outline facility described above is applicable to all
 content being edited or browsed on the Emacspeak desktop.  In addition,
-Emacspeak has other specialized outline editing modes such as _ folding
-mode_ that provide extended outlining facilities.  In mode _ folding_,
-the user can create (possibly nested) _ folds_ — logical containers of
-content that are delimited by a special _ fold mark_.  The fold mark is
+Emacspeak has other specialized outline editing modes such as _folding
+mode_ that provide extended outlining facilities.  In mode _folding_,
+the user can create (possibly nested) _folds_ — logical containers of
+content that are delimited by a special _fold mark_.  The fold mark is
 typically a text string that is chosen based on the type of content that
-is being manipulated.  Thus, when _ folding_ a C~program source file,
-fold marks are created from C~comments.  The user can _ open_ or _
-close_ any or all folds in a document, and these actions are accompanied
-by auditory icons _ open-object_ and _ close-object_.  By entering a
-fold, all editing actions are restricted to the contents of that fold;
-this proves a simple yet convenient way of constraining editing actions
-such as search and replace to specific portions of large documents.
-Folds can be manipulated as a unit and can be deleted, copied or moved.
+is being manipulated.  Thus, when _folding_ a C~program source file,
+fold marks are created from C~comments.  The user can _open_ or _close_
+any or all folds in a document, and these actions are accompanied by
+auditory icons _open-object_ and _close-object_.  By entering a fold,
+all editing actions are restricted to the contents of that fold; this
+proves a simple yet convenient way of constraining editing actions such
+as search and replace to specific portions of large documents.  Folds
+can be manipulated as a unit and can be deleted, copied or moved.
 
-   Mode _ folding_ proves especially effective in maintaining large
+   Mode _folding_ proves especially effective in maintaining large
 software modules.  The technique can be used to advantage by creating
 folds for different sections in a module and by further placing each
-function appearing in a particular % section in a fold of its own.
+function appearing in a particular section in a fold of its own.
 Complex functions can themselves be folded into sections where each
 section reflects a different stage in the algorithm implemented by that
 function.  Thus, the technique of folding can be used as an effective
-aid in _ literate_ programming.  I typically write software modules by
+aid in _literate_ programming.  I typically write software modules by
 first creating an outline structure using folds that reflect the various
 components of that module.  Next, I populate each fold with the function
 signatures and documentation for the functions in each section.  When I
@@ -1714,26 +1835,26 @@ File: emacspeak.info,  Node: Template-based Authoring,  Next: Maintaining Struct
 -------------------------------
 
 Emacspeak supports two powerful template-based authoring subsystems that
-enable the user to quickly create and fill in templates.  _ Dmacro_
+enable the user to quickly create and fill in templates.  _Dmacro_
 (short for “dynamic macros”) allows the user to define and invoke
 template-based macros that are specialized for creating different types
 of content.  For example, when programming in C, the user can invoke
 dynamic macros that insert skeletons of standard C constructs with a few
 keystrokes.  This form of editing has numerous advantages in creating
 consistently structured code when developing large software modules.
-Emacspeak speech-enables mode _ dmacro_ to provide succinct spoken
+Emacspeak speech-enables mode _dmacro_ to provide succinct spoken
 feedback as templates are created and filled.  The user invokes _
-dmacro_ via command _ insert dmacro_, which is typically bound to a
+dmacro_ via command _insert dmacro_, which is typically bound to a
 single key.  This results in a dialog where the user is prompted to pick
 one of the dynamic macros available in the current context.  If the
 users choice can be uniquely completed, that completion is spoken;
 otherwise, the list of possible completions based on the available
-partial input is spoken, accompanied by auditory icon _ help_.
+partial input is spoken, accompanied by auditory icon _help_.
 
-   An alternative template-editing facility is provided by mode _ tempo_
+   An alternative template-editing facility is provided by mode _tempo_
 This mode is designed to be used in creating template-based editing
-tools for specific markup languages; a good example is mode _
-html-helper_, a mode for creating and updating HTML documents for
+tools for specific markup languages; a good example is mode
+_html-helper_, a mode for creating and updating HTML documents for
 publishing on the WWW (see *note Document Authoring::).
 
 
@@ -1742,17 +1863,17 @@ File: emacspeak.info,  Node: Maintaining Structured Data,  Prev: Template-based 
 10.2.3 Maintaining Structured Data
 ----------------------------------
 
-Consider the following entry from file ‘ /etc/passwd’ on my laptop.
+Consider the following entry from file ‘/etc/passwd’ on my laptop.
 
    ‘aster:KoUxwQ2:501:100:Aster Labrador:/home/aster:/bin/bash’
 
-   File ‘ /etc/passwd’ is a simple instance of a text file that stores
+   File ‘/etc/passwd’ is a simple instance of a text file that stores
 structured data records as a series of fields delimited by a special
-character.  Each item in the file acquires _ meaning_ from the _
-position_ in which it occurs for example, the fifth field contains the
-user name, Aster Labrador.  More generally, structured data where each
-field in a record has _ meaning_ is found throughout the desktop in
-applications ranging from entries in a rolodex to rows in a spreadsheet.
+character.  Each item in the file acquires _meaning_ from the _position_
+in which it occurs for example, the fifth field contains the user name,
+Aster Labrador.  More generally, structured data where each field in a
+record has _ meaning_ is found throughout the desktop in applications
+ranging from entries in a rolodex to rows in a spreadsheet.
 
    Typically, users do not directly edit the stored representation of
 the data.  Instead, application front-ends provide a more human-centric
@@ -1762,7 +1883,7 @@ as a two dimensional table that is automatically updated to reflect
 changes in the underlying data.  The two dimensional table is perhaps
 the most commonly found visual front-end to structured data tables with
 row and column headers prove a succinct way of implicitly displaying the
-_ meaning_ along with the _value_ of the fields making up each data
+_meaning_ along with the _value_ of the fields making up each data
 record.
 
 
@@ -2320,7 +2441,7 @@ File: emacspeak.info,  Node: Development Environment,  Next: Desktop Management,
 In addition to providing specialized editing modes for creating and
 maintaining program source, Emacs provides a rich set of software
 development tools that can be combined to create powerful Integrated
-Development Environments (IDE). These IDEs are speech-enabled by
+Development Environments (IDE).  These IDEs are speech-enabled by
 Emacspeak to provide a versatile and powerful environment for eyes-free
 software development.
 
@@ -2365,41 +2486,44 @@ to manipulate such data-driven documents ranging from simple cheque
 books and expense reports to complex investment portfolios.  Where the
 traditional visual interface to spreadsheets is typically independent of
 the semantics of the data stored in the spreadsheet, the speech-enabled
-interface is derived from the _ meaning_ of the various fields making up
+interface is derived from the _meaning_ of the various fields making up
 the data.  When presenting such information on a visual display,
 implicit visual layout can be used to cue the user to the meaning of
-different data fields.  On the other hand, in the case of an actively
-scrolling auditory display, the spoken output needs to explicitly convey
-both the value and interpretation of the different data items.  In
-addition, the interface needs to enable an active dialog between user
-and application where the user is able to query the system about the
-possible meaning of a particular item of data.  Finally, the aural
-interface needs to enable _ multiple_ views of the display.  In the
-visual interface, such _ multiple_ views are automatically enabled by
-the two dimensional layout combined with the eye’s ability to move
-rapidly around the layout structure.  Thus, while viewing any particular
-row of a portfolio, one can immediately see the current total value as
-well as the net gain or loss.  The Emacs spread-sheet package ‘dismal’
-can be retrieved from ‘ftp://cs.nyu.edu/pub/local/fox/dismal’.
+different data fields.
+
+   On the other hand, in the case of an actively scrolling auditory
+display, the spoken output needs to explicitly convey both the value and
+interpretation of the different data items.  In addition, the interface
+needs to enable an active dialog between user and application where the
+user is able to query the system about the possible meaning of a
+particular item of data.
+
+   Finally, the aural interface needs to enable _multiple_ views of the
+display.  In the visual interface, such _multiple_ views are
+automatically enabled by the two dimensional layout combined with the
+eye’s ability to move rapidly around the layout structure.  Thus, while
+viewing any particular row of a portfolio, one can immediately see the
+current total value as well as the net gain or loss.  The Emacs
+spread-sheet package ‘dismal’ can be retrieved from
+<ftp://cs.nyu.edu/pub/local/fox/dismal>.
 
 10.10.2 Forms Mode
 ------------------
 
-_ Forms_ mode an Emacs mode designed to edit structured data records
-like the line shown from file ‘ /etc/passwd’ presents a user-friendly
-visual interface that displays the field name along with the field
-value.  The user can edit the field value and save the file, at which
-point the data is written out using the underlying ‘ :’ delimited
-representation.  Mode _ forms_ provides a flexible interface to
-associating meaning to the fields of such structured data files.  For
-details on it use, see the forms-mode section of the online Emacs info
-documentation.
+_Forms_ mode an Emacs mode designed to edit structured data records like
+the line shown from file ‘/etc/passwd’ presents a user-friendly visual
+interface that displays the field name along with the field value.  The
+user can edit the field value and save the file, at which point the data
+is written out using the underlying ‘ :’ delimited representation.  Mode
+_forms_ provides a flexible interface to associating meaning to the
+fields of such structured data files.  For details on it use, see the
+forms-mode section of the online Emacs info documentation.
 
 10.10.3 OCR — Reading Print Documents
 -------------------------------------
 
-Module ‘emacspeak-ocr’ implements an OCR front-end for the Emacspeak
-desktop.
+Module ‘emacspeak-ocr’ implements an OCR (Optical Character Recognition)
+front-end for the Emacspeak desktop.
 
    Page image is acquired using tools from package ‘SANE’ (Scanner
 Access Now Easy).  The acquired image is run through the OCR engine if
@@ -2460,15 +2584,14 @@ and text files.
 
    Here is a list of all emacspeak OCR commands along with their
 key-bindings and a brief description:
+
 ‘digit’
      “emacspeak-ocr-page” Jumps to specified page in the OCR output.
 
 ‘c’
-     “emacspeak-ocr-set-compress-image-options”
-
-     Interactively update image compression options.  Prompts with
-     current setting in the minibuffer.  Setting persists for current
-     Emacs session.
+     “emacspeak-ocr-set-compress-image-options” Interactively update
+     image compression options.  Prompts with current setting in the
+     minibuffer.  Setting persists for current Emacs session.
 
 ‘i’
      “emacspeak-ocr-set-scan-image-options” Interactively update scan
@@ -2477,6 +2600,7 @@ key-bindings and a brief description:
 
 ‘spc’
      “emacspeak-ocr-read-current-page” Speaks current page.
+
 ‘s’
      “emacspeak-ocr-save-current-page” Saves current page as a text
      file.
@@ -2514,6 +2638,7 @@ key-bindings and a brief description:
 
 ‘q’
      “bury-buffer” Bury the OCR buffer.
+
 ‘c’
      “emacspeak-ocr-customize” Customize Emacspeak OCR settings.
 
@@ -2751,11 +2876,13 @@ module.
    Emacspeak modules can be classified as follows:
   1. Modules that interface with various TTS engines, e.g.
      ‘espeak-voices’ and ‘dectalk-voices’.
+
   2. Modules that implement core Emacspeak functionality, e.g.,
      ‘emacspeak-speak’, ‘emacspeak-keymap’, ‘voice-lock’ and
      ‘emacspeak-advice’.
+
   3. Emacspeak extensions that speech-enable various emacs packages,
-     these are all named using the convention ‘emacspeak-<packagename>’.
+     these are all named using the convention ‘emacspeak-<PACKAGENAME>’.
 
    The first two of the above are mostly of interest when extending
 Emacspeak, or to learn how things are implemented.  The third category
@@ -7494,67 +7621,4 @@ to generate their own feedback.
      Personality used for company-template-field This personality uses
      voice-smoothen whose effect can be changed globally by customizing
      voice-smoothen-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
-
-12.41 emacspeak-compile
-=======================
-
-This module makes compiling code from inside Emacs speech friendly.  It
-is an example of how a little amount of code can make Emacspeak even
-better.
-
-12.41.1 Emacspeak-Compile Commands
-----------------------------------
-
-12.41.1.1 emacspeak-compilation-speak-error
-...........................................
-
- -- Command: emacspeak-compilation-speak-error
-
-     Speech feedback about the compilation error.
-
-12.41.2 emacspeak-compile Options
----------------------------------
-
- -- Variable: User Option voice-compilation-column-number
-     Personality used for compilation-column-number This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-compilation-error
-     Personality used for compilation-error This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-compilation-info
-     Personality used for compilation-info This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-compilation-line-number
-     Personality used for compilation-line-number This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-compilation-mode-line-exit
-     Personality used for compilation-mode-line-exit This personality
-     uses voice-animate whose effect can be changed globally by
-     customizing voice-animate-settings.
-
- -- Variable: User Option voice-compilation-mode-line-fail
-     Personality used for compilation-mode-line-fail This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option voice-compilation-mode-line-run
-     Personality used for compilation-mode-line-run This personality
-     uses voice-annotate whose effect can be changed globally by
-     customizing voice-annotate-settings.
-
- -- Variable: User Option voice-compilation-warning
-     Personality used for compilation-warning This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
 
