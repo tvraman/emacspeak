@@ -46,7 +46,7 @@ productivity.
 @section Objects Making Up The Emacspeak Desktop
 @cindex Desktop Objects
 
-A ``buffer'' is the basic building block of the Emacs and hence the
+A ``buffer'' is the basic building block of  the
 Emacspeak desktop.  Any information presented by Emacs is placed in a
 ``buffer''.  For example, when perusing this manual within Emacs, the
 ``file'' containing the documentation is presented in a ``buffer''.  All

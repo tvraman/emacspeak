@@ -472,8 +472,8 @@ invoked to listen to chunks of text without moving.
 
 File: emacspeak.info,  Node: Overview,  Next: Working,  Up: Basic Usage
 
-6.1 Overview of Emacspeak
-=========================
+6.1 Emacspeak Overview.
+=======================
 
 Emacspeak provides a small number of core services around which the
 remainder of the audio interface is constructed.  These essential
@@ -573,8 +573,8 @@ Emacspeak is DECTalk specific.
 
 File: emacspeak.info,  Node: Reading,  Next: Speech System,  Prev: Working,  Up: Basic Usage
 
-6.3 Reading Without Moving The Cursor.
-======================================
+6.3 Reading Without Moving.
+===========================
 
 Emacspeak speaks information as you move around within a buffer.  How
 much text is spoken depends on how you move, thus, when you move by
@@ -813,8 +813,8 @@ prefix arg_.
 
 File: emacspeak.info,  Node: Speech Output Control,  Next: Miscellaneous,  Prev: Controlling Echo,  Up: Speech System
 
-6.4.2 Setting Various Characteristics Of Speech Output.
--------------------------------------------------------
+6.4.2 Setting TTS Characteristics.
+----------------------------------
 
 Emacspeak user commands can set different characteristics of the speech
 output such as speech rate and punctuations mode.
@@ -1051,8 +1051,8 @@ supplied in the Emacs/W3 distribution.
 
 File: emacspeak.info,  Node: Status Information,  Prev: Voice-lock,  Up: Basic Usage
 
-6.6 Commands For Speaking Status Information.
-=============================================
+6.6 Status Information Commands.
+================================
 
 The following commands provide miscellaneous information.
 
