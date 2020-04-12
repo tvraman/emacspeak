@@ -1195,13 +1195,13 @@ File: emacspeak.info,  Node: Desktop Objects,  Next: Object Oriented Desktop,  U
 7.1 Objects Making Up The Emacspeak Desktop
 ===========================================
 
-A “buffer” is the basic building block of the Emacs and hence the
-Emacspeak desktop.  Any information presented by Emacs is placed in a
-“buffer”.  For example, when perusing this manual within Emacs, the
-“file” containing the documentation is presented in a “buffer”.  All
-information objects such as WWW pages, email messages, output from user
-interaction with command-line shells etc., are presented by Emacs in
-individual “buffers”.
+A “buffer” is the basic building block of the Emacspeak desktop.  Any
+information presented by Emacs is placed in a “buffer”.  For example,
+when perusing this manual within Emacs, the “file” containing the
+documentation is presented in a “buffer”.  All information objects such
+as WWW pages, email messages, output from user interaction with
+command-line shells etc., are presented by Emacs in individual
+“buffers”.
 
    Buffers provide a base level of user interaction; Emacs derives its
 power by allowing applications to specialize buffers to enable specific
