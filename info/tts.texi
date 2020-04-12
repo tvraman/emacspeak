@@ -63,7 +63,7 @@ to the result.
 @end table
 
 @node Speech Output  Control
-@subsection Setting Various Characteristics Of Speech Output.
+@subsection Setting  TTS Characteristics.
 
 Emacspeak user commands can set different characteristics of the speech
 output such as speech rate and  punctuations mode.
