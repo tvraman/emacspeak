@@ -62,28 +62,30 @@
   <span id="How-It-All-Works"></span>
   <h3 class="section">8.1 How It All Works</h3>
   <p>Here is a brief explanation of the connection between
-  ‘<samp>voice-bolden</samp>’ and its associated
-  ‘<samp>voice-bolden-settings</samp>’.</p>
+  <code>voice-bolden</code> and its associated
+  <code>voice-bolden-settings</code>.</p>
   <ol>
     <li>Voice settings are initially in
-    ‘<samp>voice-bolden-settings</samp>’ which is a list of
+    <code>voice-bolden-settings</code> which is a list of
     numbers.</li>
     <li>That list of numbers needs to be translated to appropriate
     device-specific codes to send to the TTS engine.</li>
     <li>You do not want to do this translation <em>each</em> time
     you speak something.</li>
-    <li>So when ‘<samp>voice-bolden</samp>’ is defined, the
-    definition happens in two steps:</li>
+    <li>So when <code>voice-bolden</code> is defined, the
+    definition happens in two steps:
+      <ul>
+        <li>The list of settings is stored away in
+        <code>voice-bolden-settings</code>,</li>
+        <li>A corresponding voice-name is generated —
+        ‘<samp>acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</samp>’
+        and the corresponding control codes to send to the device
+        are stored away in a hash-table keyed by the above
+        symbol.</li>
+        <li>Finally, <code>voice-bolden</code> is assigned the
+        above symbol.</li>
+      </ul>
+    </li>
   </ol>
-  <ul>
-    <li>The list of settings is stored away in
-    ‘<samp>voice-bolden-settings</samp>’,</li>
-    <li>A corresponding voice-name is generated —
-    ‘<samp>acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</samp>’
-    and the corresponding control codes to send to the device are
-    stored away in a hash-table keyed by the above symbol.</li>
-    <li>Finally, ‘<samp>voice-bolden</samp>’ is assigned the above
-    symbol.</li>
-  </ul>
 </body>
 </html>

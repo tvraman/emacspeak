@@ -66,12 +66,13 @@
   <p>Speech servers are located in the
   <code>emacspeak/servers</code> directory.</p>
   <ul>
-    <li>ESpeak: servers/espeak. This is a TCL script that uses a
-    library built in <code>servers/native-espeak/</code>.</li>
+    <li>ESpeak: <code>servers/espeak</code>. This is a TCL script
+    that uses a library built in
+    <code>servers/native-espeak/</code>.</li>
     <li>Dectalk: <code>servers/dtk-exp</code>. This is a TCL script
     that does not depend on any native code.</li>
     <li>Outloud: <code>servers/outloud</code> or
-    <code>servres/32-outloud</code> (for 64-bit machines). This is
+    <code>servers/32-outloud</code> (for 64-bit machines). This is
     a TCL script that uses the library built in
     <code>servers/linux-outloud</code>. Note that a checkout from
     GitHub gives you a prebuilt library — however you will need to
@@ -84,24 +85,22 @@
   Server.</h4>
   <p>Once you have picked the TTS engine to use, run the selected
   server script at a shell prompt, e.g. for the <code>espeak</code>
-  engine, do:</p>
+  engine, execute:</p>
   <div class="example">
     <pre class="example">./servers/espeak
 </pre>
   </div>
   <p>This will result in a TCL prompt. Here, you can test the TTS
-  engine by:</p>
-  <ul>
-    <li>
-      <div class="example">
-        <pre class="example">q "this is a test."
+  engine by typing</p>
+  <div class="example">
+    <pre class="example">q "this is a test."
 d
 </pre>
-      </div>You should hear the TTS engine speak the text.
-    </li>
-    <li>‘<samp>s</samp>’ The above command stops speech. You should
-    see a TCL prompt when you execute it.</li>
-  </ul>
-  <p>Quit this TCL session by typing <kbd>C-D</kbd>.</p>
+  </div>
+  <p>You should hear the TTS engine speak the text.</p>
+  <p>Type <kbd>s</kbd> to stop speech. You should see a TCL prompt
+  when you execute it.</p>
+  <p>Quit this TCL session by typing <kbd>C-d</kbd> (an end-of-file
+  character).</p>
 </body>
 </html>

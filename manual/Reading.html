@@ -59,8 +59,8 @@
     "Concept-Index.html" title="Index" rel="index">Index</a>]</p>
   </div>
   <hr />
-  <span id="Reading-Without-Moving-The-Cursor_002e"></span>
-  <h3 class="section">6.3 Reading Without Moving The Cursor.</h3>
+  <span id="Reading-Without-Moving_002e"></span>
+  <h3 class="section">6.3 Reading Without Moving.</h3>
   <p>Emacspeak speaks information as you move around within a
   buffer. How much text is spoken depends on how you move, thus,
   when you move by words, you hear the current word; when you move
@@ -71,172 +71,181 @@
   <p>Reading without moving point:</p>
   <dl compact="compact">
     <dd><span id="index-emacspeak_002dspeak_002dchar"></span>
-    <span id="index-control-e-c"></span></dd>
-    <dt><kbd>control e c</kbd></dt>
+    <span id="index-C_002de-c"></span></dd>
+    <dt><kbd>C-e c</kbd></dt>
     <dd>
-      <p>emacspeak-speak-char Speak character under point.
-      Pronounces character phonetically unless called with a PREFIX
-      arg.</p><span id="index-emacspeak_002dspeak_002dword"></span>
-      <span id="index-control-e-w"></span>
+      <p><code>emacspeak-speak-char</code></p>
+      <p>Speak character under point. Pronounces character
+      phonetically unless called with a PREFIX arg.</p><span id=
+      "index-emacspeak_002dspeak_002dword"></span> <span id=
+      "index-C_002de-w"></span>
     </dd>
-    <dt><kbd>control e w</kbd></dt>
+    <dt><kbd>C-e w</kbd></dt>
     <dd>
-      <p>emacspeak-speak-word Speak current word. With prefix ARG,
-      speaks the rest of the word from point. Negative prefix arg
-      speaks from start of word to point. If executed on the same
-      buffer position a second time, the word is spelled instead of
-      being spoken.</p><span id=
+      <p><code>emacspeak-speak-word</code></p>
+      <p>Speak current word. With prefix ARG, speaks the rest of
+      the word from point. Negative prefix arg speaks from start of
+      word to point. If executed on the same buffer position a
+      second time, the word is spelled instead of being
+      spoken.</p><span id=
       "index-emacspeak_002dspeak_002dline"></span> <span id=
-      "index-control-e-l"></span>
+      "index-C_002de-l"></span>
     </dd>
-    <dt><kbd>control e l</kbd></dt>
+    <dt><kbd>C-e l</kbd></dt>
     <dd>
-      <p>emacspeak-speak-line Speaks current line. With prefix ARG,
-      speaks the rest of the line from point. Negative prefix
-      optional arg speaks from start of line to point. Voicifies if
-      option ‘voice-lock-mode’ is on. Indicates indentation with a
-      tone or a spoken cue if audio indentation is in use.
-      Indicates position of point with an aural highlight if option
-      ‘emacspeak-show-point’ is turned on — see command
-      <code>emacspeak-show-point</code> bound to <kbd>C-e
-      C-d</kbd>. Lines that start hidden blocks of text, e.g.
-      outline header lines, or header lines of blocks created by
-      command ‘emacspeak-hide-or-expose-block’ are indicated with
-      auditory icon ellipses.</p><span id=
+      <p><code>emacspeak-speak-line</code></p>
+      <p>Speaks current line. With prefix ARG, speaks the rest of
+      the line from point. Negative prefix optional arg speaks from
+      start of line to point. Voicifies if option ‘voice-lock-mode’
+      is on. Indicates indentation with a tone or a spoken cue if
+      audio indentation is in use. Indicates position of point with
+      an aural highlight if option ‘emacspeak-show-point’ is turned
+      on — see command <code>emacspeak-show-point</code> bound to
+      <kbd>C-e C-d</kbd>. Lines that start hidden blocks of text,
+      e.g. outline header lines, or header lines of blocks created
+      by command ‘emacspeak-hide-or-expose-block’ are indicated
+      with auditory icon ellipses.</p><span id=
       "index-emacspeak_002dread_002dprevious_002dline"></span>
-      <span id="index-control-e-up"></span>
+      <span id="index-C_002de-UP"></span>
     </dd>
-    <dt><kbd>control e up</kbd></dt>
+    <dt><kbd>C-e <span class="key">UP</span></kbd></dt>
     <dd>
-      <p>emacspeak-read-previous-line Read previous line, specified
-      by an offset, without moving. Default is to read the previous
-      line.</p><span id=
+      <p><code>emacspeak-read-previous-line</code></p>
+      <p>Read previous line, specified by an offset, without
+      moving. Default is to read the previous line.</p><span id=
       "index-emacspeak_002dread_002dnext_002dline"></span>
-      <span id="index-control-e-down"></span>
+      <span id="index-C_002de-DOWN"></span>
     </dd>
-    <dt><kbd>control e down</kbd></dt>
+    <dt><kbd>C-e <span class="key">DOWN</span></kbd></dt>
     <dd>
-      <p>emacspeak-read-next-line Read next line, specified by an
-      offset, without moving. Default is to read the next
-      line.</p><span id=
+      <p><code>emacspeak-read-next-line</code></p>
+      <p>Read next line, specified by an offset, without moving.
+      Default is to read the next line.</p><span id=
       "index-emacspeak_002dspeak_002dparagraph"></span> <span id=
-      "index-control-e-p"></span>
+      "index-C_002de-p"></span>
     </dd>
-    <dt><kbd>control e p</kbd></dt>
+    <dt><kbd>C-e p</kbd></dt>
     <dd>
-      <p>emacspeak-speak-paragraph Speak paragraph. With prefix
-      arg, speaks rest of current paragraph. Negative prefix arg
-      will read from start of current paragraph to point. If
-      voice-lock-mode is on, then it will use any defined
-      personality.</p><span id=
+      <p><code>emacspeak-speak-paragraph</code></p>
+      <p>Speak paragraph. With prefix arg, speaks rest of current
+      paragraph. Negative prefix arg will read from start of
+      current paragraph to point. If voice-lock-mode is on, then it
+      will use any defined personality.</p><span id=
       "index-emacspeak_002dspeak_002dregion"></span> <span id=
-      "index-control-e-r"></span>
+      "index-C_002de-r"></span>
     </dd>
-    <dt><kbd>control e r</kbd></dt>
+    <dt><kbd>C-e r</kbd></dt>
     <dd>
-      <p>emacspeak-speak-region Speak current region delimited by
-      <em>point</em> and <em>mark</em>. When called from a program,
-      argument START and END specify region to speak.</p><span id=
+      <p><code>emacspeak-speak-region</code></p>
+      <p>Speak current region delimited by <em>point</em> and
+      <em>mark</em>. When called from a program, argument START and
+      END specify region to speak.</p><span id=
       "index-emacspeak_002dspeak_002drectangle"></span> <span id=
-      "index-control-e-cap-R"></span>
+      "index-C_002de-cap-R"></span>
     </dd>
-    <dt><kbd>control e cap R</kbd></dt>
+    <dt><kbd>C-e cap R</kbd></dt>
     <dd>
-      <p>emacspeak-speak-rectangle Speak a rectangle of text.
-      Rectangle is delimited by point and mark. When call from a
-      program, arguments specify the START and END of the
-      rectangle.</p><span id=
+      <p><code>emacspeak-speak-rectangle</code></p>
+      <p>Speak a rectangle of text. Rectangle is delimited by point
+      and mark. When call from a program, arguments specify the
+      START and END of the rectangle.</p><span id=
       "index-emacspeak_002dspeak_002dbuffer"></span> <span id=
-      "index-control-e-b"></span>
+      "index-C_002de-b"></span>
     </dd>
-    <dt><kbd>control e b</kbd></dt>
+    <dt><kbd>C-e b</kbd></dt>
     <dd>
-      <p>emacspeak-speak-buffer Speak current buffer contents. With
-      prefix ARG, speaks the rest of the buffer from point.
-      Negative prefix arg speaks from start of buffer to point. If
-      voice lock mode is on, the paragraphs in the buffer are voice
-      annotated first, see command
-      ‘emacspeak-speak-voice-annotate-paragraphs’. This provides
-      the auditory equivalent of <em>dropped caps</em> from visual
-      typography.</p><span id=
+      <p><code>emacspeak-speak-buffer</code></p>
+      <p>Speak current buffer contents. With prefix ARG, speaks the
+      rest of the buffer from point. Negative prefix arg speaks
+      from start of buffer to point. If voice lock mode is on, the
+      paragraphs in the buffer are voice annotated first, see
+      command
+      <code>emacspeak-speak-voice-annotate-paragraphs</code>. This
+      provides the auditory equivalent of <em>dropped caps</em>
+      from visual typography.</p><span id=
       "index-emacspeak_002dspeak_002drest_002dof_002dbuffer"></span>
-      <span id="index-control-e-n"></span>
+      <span id="index-C_002de-n"></span>
     </dd>
-    <dt><kbd>control e n</kbd></dt>
+    <dt><kbd>C-e n</kbd></dt>
     <dd>
-      <p>emacspeak-speak-rest-of-buffer Speak remainder of the
-      buffer starting at point</p><span id=
+      <p><code>emacspeak-speak-rest-of-buffer</code></p>
+      <p>Speak remainder of the buffer starting at
+      point</p><span id=
       "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay"></span>
-      <span id="index-control-e-_002f"></span>
+      <span id="index-C_002de-_002f"></span>
     </dd>
-    <dt><kbd>control e /</kbd></dt>
+    <dt><kbd>C-e /</kbd></dt>
     <dd>
-      <p>emacspeak-speak-this-buffer-other-window-display Speak
-      this buffer as displayed in a different frame. Emacs allows
-      you to display the same buffer in multiple windows or frames.
-      These different windows can display different portions of the
-      buffer. This is equivalent to leaving a book open at places
-      at once. This command allows you to listen to the places
-      where you have left the book open. The number used to invoke
-      this command specifies which of the displays you wish to
-      speak. Typically you will have two or at most three such
-      displays open. The current display is 0, the next is 1, and
-      so on. Optional argument ARG specifies the display to
+      <p>
+      <code>emacspeak-speak-this-buffer-other-window-display</code></p>
+      <p>Speak this buffer as displayed in a different frame. Emacs
+      allows you to display the same buffer in multiple windows or
+      frames. These different windows can display different
+      portions of the buffer. This is equivalent to leaving a book
+      open at places at once. This command allows you to listen to
+      the places where you have left the book open. The number used
+      to invoke this command specifies which of the displays you
+      wish to speak. Typically you will have two or at most three
+      such displays open. The current display is 0, the next is 1,
+      and so on. Optional argument ARG specifies the display to
       speak.</p><span id=
       "index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay"></span>
-      <span id="index-control-e-left"></span>
+      <span id="index-C_002de-LEFT"></span>
     </dd>
-    <dt><kbd>control e left</kbd></dt>
+    <dt><kbd>C-e <span class="key">LEFT</span></kbd></dt>
     <dd>
-      <p>emacspeak-speak-this-buffer-previous-display Speak this
-      buffer as displayed in a ‘previous’ window. See documentation
-      for command
-      ‘emacspeak-speak-this-buffer-other-window-display’ for the
-      meaning of ‘previous’.</p><span id=
-      "index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay"></span>
-      <span id="index-control-e-right"></span>
-    </dd>
-    <dt><kbd>control e right</kbd></dt>
-    <dd>
-      <p>emacspeak-speak-this-buffer-next-display Speak this buffer
-      as displayed in a ‘previous’ window. See documentation for
-      command ‘emacspeak-speak-this-buffer-other-window-display’
+      <p>
+      <code>emacspeak-speak-this-buffer-previous-display</code></p>
+      <p>Speak this buffer as displayed in a ‘previous’ window. See
+      documentation for command
+      <code>emacspeak-speak-this-buffer-other-window-display</code>
       for the meaning of ‘previous’.</p><span id=
+      "index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay"></span>
+      <span id="index-C_002de-RIGHT"></span>
+    </dd>
+    <dt><kbd>C-e <span class="key">RIGHT</span></kbd></dt>
+    <dd>
+      <p><code>emacspeak-speak-this-buffer-next-display</code></p>
+      <p>Speak this buffer as displayed in a ‘previous’ window. See
+      documentation for command
+      <code>emacspeak-speak-this-buffer-other-window-display</code>
+      for the meaning of ‘previous’.</p><span id=
+      "index-emacspeak_002dspeak_002dpage"></span> <span id=
+      "index-C_002de-_005b"></span>
+    </dd>
+    <dt><kbd>C-e [</kbd></dt>
+    <dd>
+      <p><code>emacspeak-speak-page</code></p>
+      <p>Speak a page. With prefix ARG, speaks rest of current
+      page. Negative prefix arg will read from start of current
+      page to point. If option ‘voice-lock-mode’ is on, then it
+      will use any defined personality.</p><span id=
       "index-emacspeak_002dspeak_002dpredefined_002dwindow"></span>
-      <span id=
-      "index-control-e-9-control-e-8-control-e-7-control-e-6-control-e-5-control-e-4-control-e-3-control-e-2-control-e-1-control-e-0">
-      </span> <span id="index-emacspeak_002dspeak_002dpage"></span>
-      <span id="index-control-e-_005b"></span>
+      <span id="index-C_002de-DIGIT"></span>
     </dd>
-    <dt><kbd>control e [</kbd></dt>
+    <dt><kbd>C-e DIGIT</kbd></dt>
     <dd>
-      <p>emacspeak-speak-page Speak a page. With prefix ARG, speaks
-      rest of current page. Negative prefix arg will read from
-      start of current page to point. If option ‘voice-lock-mode’
-      is on, then it will use any defined personality.</p>
-    </dd>
-    <dt><kbd>control e [0..9]</kbd></dt>
-    <dd>
-      <p>emacspeak-speak-predefined-window Speak one of the first
-      10 windows on the screen. In general, you’ll never have Emacs
-      split the screen into more than two or three. Argument ARG
-      determines the ’other’ window to speak. Speaks entire window
-      irrespective of point. Semantics of ‘other’ is the same as
-      for the builtin Emacs command ‘other-window’.</p><span id=
+      <p><code>emacspeak-speak-predefined-window</code></p>
+      <p>Speak one of the first 10 windows on the screen. In
+      general, you’ll never have Emacs split the screen into more
+      than two or three. Argument ARG determines the ’other’ window
+      to speak. Speaks entire window irrespective of point.
+      Semantics of ‘other’ is the same as for the builtin Emacs
+      command ‘other-window’.</p><span id=
       "index-emacspeak_002dspeak_002dnext_002dwindow"></span>
-      <span id="index-control-e-control-n"></span>
+      <span id="index-C_002de-C_002dn"></span>
     </dd>
-    <dt><kbd>control e control n</kbd></dt>
+    <dt><kbd>C-e C-n</kbd></dt>
     <dd>
-      <p>emacspeak-speak-next-window Speak the next
-      window.</p><span id=
+      <p><code>emacspeak-speak-next-window</code></p>
+      <p>Speak the next window.</p><span id=
       "index-emacspeak_002dspeak_002dprevious_002dwindow"></span>
-      <span id="index-control-e-control-p"></span>
+      <span id="index-C_002de-C_002dp"></span>
     </dd>
-    <dt><kbd>control e control p</kbd></dt>
+    <dt><kbd>C-e C-p</kbd></dt>
     <dd>
-      <p>emacspeak-speak-previous-window Speak the previous
-      window.</p><span id=
+      <p><code>emacspeak-speak-previous-window</code></p>
+      <p>Speak the previous window.</p><span id=
       "index-emacspeak_002dspeak_002dother_002dwindow"></span>
     </dd>
     <dt><kbd>emacspeak-speak-other-window</kbd></dt>
@@ -246,37 +255,43 @@
       for the builtin Emacs command ‘other-window’. Optional
       argument ARG specifies ‘other’ window to speak.</p><span id=
       "index-emacspeak_002dowindow_002dprevious_002dline"></span>
-      <span id="index-ESCAPE-up"></span>
+      <span id="index-ESCAPE-UP"></span>
     </dd>
-    <dt><kbd>ESCAPE up</kbd></dt>
+    <dt><kbd><span class="key">ESCAPE</span> <span class=
+    "key">UP</span></kbd></dt>
     <dd>
-      <p>emacspeak-owindow-previous-line Move to the next line in
-      the other window and speak it. Numeric prefix arg COUNT
-      specifies number of lines to move.</p><span id=
+      <p><code>emacspeak-owindow-previous-line</code></p>
+      <p>Move to the next line in the other window and speak it.
+      Numeric prefix arg COUNT specifies number of lines to
+      move.</p><span id=
       "index-emacspeak_002dowindow_002dnext_002dline"></span>
-      <span id="index-ESCAPE-down"></span>
+      <span id="index-ESCAPE-DOWN"></span>
     </dd>
-    <dt><kbd>ESCAPE down</kbd></dt>
+    <dt><kbd><span class="key">ESCAPE</span> <span class=
+    "key">DOWN</span></kbd></dt>
     <dd>
-      <p>emacspeak-owindow-next-line Move to the next line in the
-      other window and speak it. Numeric prefix arg COUNT can
-      specify number of lines to move.</p><span id=
+      <p><code>emacspeak-owindow-next-line</code></p>
+      <p>Move to the next line in the other window and speak it.
+      Numeric prefix arg COUNT can specify number of lines to
+      move.</p><span id=
       "index-emacspeak_002dowindow_002dscroll_002dup"></span>
       <span id="index-ESCAPE-next"></span>
     </dd>
-    <dt><kbd>ESCAPE next</kbd></dt>
+    <dt><kbd><span class="key">ESCAPE</span> next</kbd></dt>
     <dd>
-      <p>emacspeak-owindow-scroll-up Scroll up the window that
-      command ‘other-window’ would move to. Speak the window
-      contents after scrolling.</p><span id=
+      <p><code>emacspeak-owindow-scroll-up</code></p>
+      <p>Scroll up the window that command ‘other-window’ would
+      move to. Speak the window contents after
+      scrolling.</p><span id=
       "index-emacspeak_002dowindow_002dscroll_002ddown"></span>
       <span id="index-ESCAPE-prior"></span>
     </dd>
-    <dt><kbd>ESCAPE prior</kbd></dt>
+    <dt><kbd><span class="key">ESCAPE</span> prior</kbd></dt>
     <dd>
-      <p>emacspeak-owindow-scroll-down Scroll down the window that
-      command ‘other-window’ would move to. Speak the window
-      contents after scrolling.</p><span id=
+      <p><code>emacspeak-owindow-scroll-down</code></p>
+      <p>Scroll down the window that command ‘other-window’ would
+      move to. Speak the window contents after
+      scrolling.</p><span id=
       "index-emacspeak_002dspeak_002dsexp"></span>
     </dd>
     <dt><kbd>emacspeak-speak-sexp</kbd></dt>
@@ -285,12 +300,12 @@
       the sexp from point. Negative prefix arg speaks from start of
       sexp to point.</p><span id=
       "index-emacspeak_002dspeak_002dspaces_002dat_002dpoint"></span>
-      <span id="index-control-e-meta-control-_0040"></span>
+      <span id="index-C_002de-meta-C_002d_0040"></span>
     </dd>
-    <dt><kbd>control e meta control @</kbd></dt>
+    <dt><kbd>C-e meta C-@</kbd></dt>
     <dd>
-      <p>emacspeak-speak-spaces-at-point Speak the white space at
-      point.</p>
+      <p><code>emacspeak-speak-spaces-at-point</code> Speak the
+      white space at point.</p>
     </dd>
   </dl>
   <hr />

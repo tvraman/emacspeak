@@ -62,10 +62,8 @@
     "Index" rel="index">Index</a>]</p>
   </div>
   <hr />
-  <span id=
-  "Setting-Various-Characteristics-Of-Speech-Output_002e"></span>
-  <h4 class="subsection">6.4.2 Setting Various Characteristics Of
-  Speech Output.</h4>
+  <span id="Setting-TTS-Characteristics_002e"></span>
+  <h4 class="subsection">6.4.2 Setting TTS Characteristics.</h4>
   <p>Emacspeak user commands can set different characteristics of
   the speech output such as speech rate and punctuations mode.</p>
   <p>Emacspeak provides a number of settings that affect how
@@ -77,112 +75,117 @@
   preceding these commands with <kbd>C-u</kbd>.</p>
   <dl compact="compact">
     <dd><span id="index-dtk_002dset_002drate"></span> <span id=
-    "index-control-e-d-r"></span></dd>
-    <dt><kbd>control e d r</kbd></dt>
+    "index-C_002de-d-r"></span></dd>
+    <dt><kbd>C-e d r</kbd></dt>
     <dd>
-      <p>dtk-set-rate Set speaking RATE for the tts. Interactive
-      PREFIX arg means set the global default value, and then set
-      the current local value to the result.</p><span id=
+      <p><code>dtk-set-rate</code></p>
+      <p>Set speaking RATE for the <acronym>TTS</acronym>.
+      Interactive PREFIX arg means set the global default value,
+      and then set the current local value to the
+      result.</p><span id=
       "index-dtk_002dset_002dcharacter_002dscale"></span> <span id=
-      "index-control-e-d-f"></span>
+      "index-C_002de-d-f"></span>
     </dd>
-    <dt><kbd>control e d f</kbd></dt>
+    <dt><kbd>C-e d f</kbd></dt>
     <dd>
-      <p>dtk-set-character-scale Set scale FACTOR for speech rate.
-      Speech rate is scaled by this factor when speaking
-      characters. Interactive PREFIX arg means set the global
-      default value, and then set the current local value to the
-      result.</p>
+      <p><code>dtk-set-character-scale</code></p>
+      <p>Set scale FACTOR for speech rate. Speech rate is scaled by
+      this factor when speaking characters. Interactive PREFIX arg
+      means set the global default value, and then set the current
+      local value to the result.</p>
       <p>This function is advised.</p>
       <p>Before-advice ‘emacspeak-auto’: Automatically defined
       advice to speak interactive prompts.</p><span id=
       "index-dtk_002dset_002dpredefined_002dspeech_002drate"></span>
-      <span id=
-      "index-control-e-d-9-control-e-d-8-control-e-d-7-control-e-d-6-control-e-d-5-control-e-d-4-control-e-d-3-control-e-d-2-control-e-d-1-control-e-d-0">
-      </span>
+      <span id="index-C_002de-d-DIGIT"></span>
     </dd>
-    <dt><kbd>control e d 9 control e d 8 control e d 7 control e d
-    6 control e d 5 control e d 4 control e d 3 control e d 2
-    control e d 1 control e d 0</kbd></dt>
+    <dt><kbd>C-e d DIGIT</kbd></dt>
     <dd>
-      <p>dtk-set-predefined-speech-rate Set speech rate to one of
-      nine predefined levels. Interactive PREFIX arg says to set
-      the rate globally.</p><span id=
+      <p><code>dtk-set-predefined-speech-rate</code></p>
+      <p>Set speech rate to one of nine predefined levels using
+      digit keys <kbd>0</kbd> through <kbd>9</kbd>. Interactive
+      PREFIX arg says to set the rate globally.</p><span id=
       "index-dtk_002dset_002dpunctuations"></span> <span id=
-      "index-control-e-d-p"></span>
+      "index-C_002de-d-p"></span>
     </dd>
-    <dt><kbd>control e d p</kbd></dt>
+    <dt><kbd>C-e d p</kbd></dt>
     <dd>
-      <p>dtk-set-punctuations Set punctuation mode to MODE.
-      Possible values are ‘some’, ‘all’, or ‘none’. Interactive
-      PREFIX arg means set the global default value, and then set
-      the current local value to the result.</p><span id=
-      "index-dtk_002dset_002dpronunciation_002dmode"></span>
-      <span id="index-control-e-d-m"></span>
-    </dd>
-    <dt><kbd>control e d m</kbd></dt>
-    <dd>
-      <p>dtk-set-pronunciation-mode Set pronunciation MODE. This
-      command is valid only for newer Dectalks, e.g. the Dectalk
-      Express. Possible values are ‘math, name, europe, spell’, all
-      of which can be turned on or off. Argument STATE specifies
-      new state.</p><span id=
-      "index-dtk_002dtoggle_002dsplit_002dcaps"></span> <span id=
-      "index-control-e-d-s"></span>
-    </dd>
-    <dt><kbd>control e d s</kbd></dt>
-    <dd>
-      <p>dtk-toggle-split-caps Toggle split caps mode. Split caps
-      mode is useful when reading Hungarian notation in program
-      source code. Interactive PREFIX arg means toggle the global
+      <p><code>dtk-set-punctuations</code></p>
+      <p>Set punctuation mode to MODE. Possible values are ‘some’,
+      ‘all’, or ‘none’. Interactive PREFIX arg means set the global
       default value, and then set the current local value to the
       result.</p><span id=
+      "index-dtk_002dset_002dpronunciation_002dmode"></span>
+      <span id="index-C_002de-d-m"></span>
+    </dd>
+    <dt><kbd>C-e d m</kbd></dt>
+    <dd>
+      <p><code>dtk-set-pronunciation-mode</code></p>
+      <p>Set pronunciation MODE. This command is valid only for
+      newer Dectalks, e.g. the Dectalk Express. Possible values are
+      ‘math, name, europe, spell’, all of which can be turned on or
+      off. Argument STATE specifies new state.</p><span id=
+      "index-dtk_002dtoggle_002dsplit_002dcaps"></span> <span id=
+      "index-C_002de-d-s"></span>
+    </dd>
+    <dt><kbd>C-e d s</kbd></dt>
+    <dd>
+      <p><code>dtk-toggle-split-caps</code></p>
+      <p>Toggle split caps mode. Split caps mode is useful when
+      reading Hungarian notation in program source code.
+      Interactive PREFIX arg means toggle the global default value,
+      and then set the current local value to the
+      result.</p><span id=
       "index-dtk_002dtoggle_002dcapitalization"></span> <span id=
-      "index-control-e-d-c"></span>
+      "index-C_002de-d-c"></span>
     </dd>
-    <dt><kbd>control e d c</kbd></dt>
+    <dt><kbd>C-e d c</kbd></dt>
     <dd>
-      <p>dtk-toggle-capitalization Toggle capitalization. when set,
-      capitalization is indicated by a short beep. Interactive
-      PREFIX arg means toggle the global default value, and then
-      set the current local value to the result.</p><span id=
+      <p><code>dtk-toggle-capitalization</code></p>
+      <p>Toggle capitalization. when set, capitalization is
+      indicated by a short beep. Interactive PREFIX arg means
+      toggle the global default value, and then set the current
+      local value to the result.</p><span id=
       "index-dtk_002dtoggle_002dallcaps_002dbeep"></span> <span id=
-      "index-control-e-d-cap-C"></span>
+      "index-C_002de-d-cap-C"></span>
     </dd>
-    <dt><kbd>control e d cap C</kbd></dt>
+    <dt><kbd>C-e d cap C</kbd></dt>
     <dd>
-      <p>dtk-toggle-allcaps-beep Toggle allcaps-beep. when set,
-      allcaps words are indicated by a short beep. Interactive
-      PREFIX arg means toggle the global default value, and then
-      set the current local value to the result. Note that
-      allcaps-beep is a very useful thing when programming. However
-      it is irritating to have it on when reading documents.</p>
+      <p><code>dtk-toggle-allcaps-beep</code></p>
+      <p>Toggle allcaps-beep. When set, allcaps words are indicated
+      by a short beep. Interactive PREFIX arg means toggle the
+      global default value, and then set the current local value to
+      the result. Note that allcaps-beep is a very useful thing
+      when programming. However it is irritating to have it on when
+      reading documents.</p>
     </dd>
   </dl>
   <p>In addition, Emacspeak can convey the indentation of lines as
-  they are spoken — this is relevant when programming and is the
+  they are spoken — This is relevant when programming and is the
   default when working with program source.</p>
   <dl compact="compact">
     <dd><span id=
     "index-emacspeak_002dtoggle_002daudio_002dindentation"></span>
-    <span id="index-control-e-d-i"></span></dd>
-    <dt><kbd>control e d i</kbd></dt>
+    <span id="index-C_002de-d-i"></span></dd>
+    <dt><kbd>C-e d i</kbd></dt>
     <dd>
-      <p>emacspeak-toggle-audio-indentation Toggle state of
-      Emacspeak audio indentation. Interactive PREFIX arg means
-      toggle the global default value, and then set the current
-      local value to the result. Specifying the method of
-      indentation as ‘tones’ results in the speech-server producing
-      a tone whose length is a function of the line’s indentation.
-      Specifying ‘speak’ results in the number of initial spaces
-      being spoken.</p>
+      <p><code>emacspeak-toggle-audio-indentation</code></p>
+      <p>Toggle state of Emacspeak audio indentation. Interactive
+      PREFIX arg means toggle the global default value, and then
+      set the current local value to the result. Specifying the
+      method of indentation as ‘tones’ results in the speech-server
+      producing a tone whose length is a function of the line’s
+      indentation. Specifying ‘speak’ results in the number of
+      initial spaces being spoken.</p><span id=
+      "index-emacspeak_002daudio_002dindentation_002dmethod"></span>
       <p>Indentation feedback style is set by option
-      emacspeak-audio-indentation-method <span id=
-      "index-emacspeak_002daudio_002dindentation_002dmethod"></span></p>
-      <p>The default value is <code>"speak"</code></p>
-      <p>See variable ‘emacspeak-audio-indentation-methods’ for
-      possible values. Automatically becomes local in any buffer
-      where it is set.</p>
+      <code>emacspeak-audio-indentation-method</code></p>
+      <p>The default value is <code>"speak"</code></p><span id=
+      "index-emacspeak_002daudio_002dindentation_002dmethods"></span>
+      <p>See variable
+      <code>emacspeak-audio-indentation-methods</code> for possible
+      values. Automatically becomes local in any buffer where it is
+      set.</p>
     </dd>
   </dl>
   <hr />

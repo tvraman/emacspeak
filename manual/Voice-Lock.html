@@ -70,17 +70,17 @@
   over the years.</p>
   <ol>
     <li>Emacspeak defines a number of voice overlays such as
-    ‘<samp>voice-bolden</samp>’, and ‘<samp>voice-lighten</samp>’
-    that can be applied to a given voice to change what it sounds
+    <code>voice-bolden</code>, and <code>voice-lighten</code> that
+    can be applied to a given voice to change what it sounds
     like.</li>
     <li>Voice overlays are defined in terms of Aural CSS (<a href=
     "http://www.w3.org/tr/css2/aural.html">ACSS</a>) to keep them
     independent of a specific TTS engine.</li>
     <li>For each such overlay there is a corresponding
-    ‘<samp>&lt;overlay-name&gt;-settings</samp>’ variable that can
-    be customized via custom.</li>
-    <li>The numbers in ‘<samp>voice-bolden-settings as an
-    example</samp>’:</li>
+    <code><var>&lt;overlay-name&gt;</var>-settings</code> variable
+    that can be customized via custom.</li>
+    <li>The numbers in <code>voice-bolden-settings</code> as an
+    example:</li>
   </ol>
   <table>
     <tr>
@@ -112,23 +112,23 @@
       <td width="50%">nil</td>
     </tr>
   </table>
-  <p>Unset values (‘<samp>nil</samp>’) show up as “unspecified” in
+  <p>Unset values (<code>nil</code>) show up as “unspecified” in
   the customize interface.</p>
   <ol>
-    <li>Do not directly customize ‘<samp>voice-bolden</samp>’ and
+    <li>Do not directly customize <code>voice-bolden</code> and
     friends, instead customize the corresponding
-    ‘<samp>voice-bolden-settings</samp>’, since that ensures that
-    all voices that are defined in terms of
-    ‘<samp>voice-bolden</samp>’ get correctly updated.</li>
+    <code>voice-bolden-settings</code>, since that ensures that all
+    voices that are defined in terms of <code>voice-bolden</code>
+    get correctly updated.</li>
     <li>Discovering what to customize:</li>
   </ol>
-  <p>Command ‘<samp>emacspeak-show-personality-at-point</samp>’
+  <p>Command <code>emacspeak-show-personality-at-point</code>
   (bound by default to C-e M-v) will show you the value of
   properties personality and face at point. Describe-variable on
   these names should tell you what to customize; so as an
   example:</p>
-  <p>Put point on a comment line, and hit ‘<samp>C-e M-v</samp>’:
-  you will hear</p>
+  <p>Put point on a comment line, and hit <kbd>C-e M-v</kbd>: you
+  will hear</p>
   <div class="example">
     <pre class=
     "example">Personality emacspeak-voice-lock-comment-personality
@@ -136,16 +136,14 @@ Face font-lock-comment-delimiter-face
 </pre>
   </div>
   <p>Describe-variable of
-  ‘<samp>emacspeak-voice-lock-comment-personality</samp>’
-  gives:</p>
+  <code>emacspeak-voice-lock-comment-personality</code> gives:</p>
   <div class="example">
     <pre class=
     "example">emacspeak-voice-lock-comment-personality's value is acss-p0-s0-all
 
-Documentation:
-Personality used for font-lock-comment-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
+Documentation: Personality used for font-lock-comment-face This
+personality uses voice-monotone whose effect can be changed globally
+by customizing voice-monotone-settings.
 </pre>
   </div>
   <table class="menu" border="0" cellspacing="0">

@@ -70,22 +70,21 @@
   become available on the WWW a few weeks or months after a new
   version is released. The instructions below are for building and
   installing Emacspeak from the source distribution. If you install
-  one of the pre-packaged distributions, use the install
+  one of the prepackaged distributions, use the install
   instructions that come with that package.</p>
   <ul>
     <li>Obtain the source code — either by downloading the tar.bz2
     file for the latest release — or by cloning the git repository.
-    ‘<samp>git clone
-    https://github.com/tvraman/emacspeak</samp>’</li>
-    <li>Change to the <code>emacspeak</code> directory. Type
-    ‘<samp>make config</samp>’ to configure the sources.</li>
-    <li>Type
       <div class="example">
-        <pre class="example">make
+        <pre class=
+        "example">git clone https://github.com/tvraman/emacspeak
 </pre>
       </div>
-      <p>to compile the files.</p>
     </li>
+    <li>Change to the <code>emacspeak</code> directory.</li>
+    <li>Type ‘<samp>make config</samp>’ to configure the
+    sources.</li>
+    <li>Type ‘<samp>make</samp>’ to compile the files.</li>
     <li>Next, decide which text-to-speech engine you will be using,
     and proceed to install that engine. Your choices are:
       <ul>
@@ -93,7 +92,8 @@
         packages for your system, then compile the Emacspeak ESpeak
         server by doing:
           <div class="example">
-            <pre class="example">cd servers/native-espeak; make
+            <pre class="example">cd servers/native-espeak
+make
 </pre>
           </div>
         </li>
@@ -113,31 +113,28 @@
     <li>Having installed and configured the TTS engine of your
     choice, and having built the associated speech server, set
     Emacspeak up to use that engine by setting environment variable
-    <code>DTK_PROGRAM</code>. If using Bash as your shell, add the
-    line
+    <code>DTK_PROGRAM</code>. If using <code>bash</code> as your
+    shell, add the line
       <div class="example">
-        <pre class="example">export DTK_PROGRAM=&lt;engine-name&gt;
+        <pre class=
+        "example">export DTK_PROGRAM=<var>&lt;engine-name&gt;</var>
 </pre>
       </div>
-      <p>to your <code>.bash_profile</code>. As an example, to use
-      ESpeak, add</p>
+      <p>to your <code>.bash_profile</code>.</p>
+      <p>As an example, to use ESpeak, add</p>
       <div class="example">
         <pre class="example">export DTK_PROGRAM=espeak
 </pre>
       </div>
     </li>
-    <li>Run it by doing
-      <ul>
-        <li>Add the line
-          <div class="example">
-            <pre class=
-            "example">(load-file "&lt;emacspeak-dir&gt;/lisp/emacspeak-setup.el")
+    <li>Run it by adding the line
+      <div class="lisp">
+        <pre class=
+        "lisp">(load-file "<var>&lt;emacspeak-dir&gt;</var>/lisp/emacspeak-setup.el")
 </pre>
-          </div>
-          <p>to the top of your .emacs file.</p>
-        </li>
-      </ul>
-      <p>In the above, <code>&lt;emacspeak-dir&gt;</code> refers to
+      </div>
+      <p>to the top of your .emacs file.</p>
+      <p>In the above, <var>&lt;emacspeak-dir&gt;</var> refers to
       the directory where you unpacked the sources.</p>
     </li>
   </ul>
