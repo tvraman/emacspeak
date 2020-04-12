@@ -1,5 +1,6 @@
 \input texinfo
 @c$Id$
+@finalout
 @setfilename./emacspeak.info
 @include style.texi
 @settitle Emacspeak User's Manual --- 2nd Edition.
