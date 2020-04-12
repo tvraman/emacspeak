@@ -123,7 +123,12 @@ Provide auditory feedback after formatting region"
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-read-previous-line)))
 
-(defadvice TeX-insert-quote(around emacspeak pre act com)
+(cl-loop
+ for f in 
+ '(TeX-insert-dollar TeX-insert-quote)
+ do
+ (eval
+  `(defadvice ,f(around emacspeak pre act com)
   "Speak quotes that were inserted."
   (cond
    ((ems-interactive-p)
@@ -131,7 +136,8 @@ Provide auditory feedback after formatting region"
       ad-do-it
       (emacspeak-speak-region orig (point))))
    (t ad-do-it))
-  ad-return-value)
+  ad-return-value)))
+
 
 ;;}}}
 ;;{{{  Inserting structures
