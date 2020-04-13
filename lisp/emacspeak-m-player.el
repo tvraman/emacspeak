@@ -138,7 +138,8 @@ This is set to nil when playing Internet  streams.")
   "Return seconds formatted as time if valid, otherwise return as is."
   (let ((v (car  (read-from-string sec))))
     (cond
-     ((numberp v) (format-time-string "%M:%S" v))
+     ((and (numberp v) (not (minusp v)))
+      (format-time-string "%M:%S" v))
      (t sec))))
 
 (defun emacspeak-m-player-mode-line ()
