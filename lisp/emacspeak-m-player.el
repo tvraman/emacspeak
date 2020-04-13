@@ -136,7 +136,7 @@ This is set to nil when playing Internet  streams.")
 
 (defsubst ems--seconds-string-to-time (sec)
   "Return seconds formatted as time if valid, otherwise return as is."
-  (let ((v (read-from-string sec)))
+  (let ((v (car  (read-from-string sec))))
     (cond
      ((numberp v) (format-time-string "%M:%S" v))
      (t sec))))
