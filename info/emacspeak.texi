@@ -12,10 +12,10 @@
 @direntry
 * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 @end direntry
-@raggedright 
+
 @titlepage
 
-@title Emacspeak --- The Complete Audio Desktop
+@title Emacspeak@*The Complete Audio Desktop
 @subtitle User Manual
 @author T. V. Raman
 Last Updated: @today{}
@@ -28,11 +28,11 @@ Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
 notice are preserved on all copies.
 
+@end titlepage
+
 @summarycontents
 @contents
 
-@end titlepage
-@end raggedright 
 @include preamble.texi
 @include copyright.texi
 @include announce.texi
