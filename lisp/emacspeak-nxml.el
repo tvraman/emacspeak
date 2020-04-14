@@ -47,7 +47,7 @@
 ;;{{{ Introduction:
 ;;; Commentary:
 ;;; nxml-mode is a new XML mode for emacs by James Clark.
-;;;  http://www.thaiopensource.com/download/
+;;;  Package nxml is available from the Emacs package archive.
 ;;; Code:
 ;;}}}
 ;;{{{ customization:

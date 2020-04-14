@@ -1749,10 +1749,10 @@ Ubuntu and Debian this is group `tty'."
   :type 'string
   :group 'emacspeak-wizards)
 
-(define-derived-mode emacspeak-wizards-vc-viewer-mode fundamental-mode
+(define-derived-mode emacspeak-wizards-vc-view-mode special-mode
   "VC Viewer  Interaction"
   "Major mode for interactively viewing virtual console contents.\n\n
-\\{emacspeak-wizards-vc-viewer-mode-map}")
+\\{emacspeak-wizards-vc-view-mode-map}")
 
 (defvar emacspeak-wizards-vc-console nil
   "Buffer local value specifying console we are viewing.")
@@ -1783,7 +1783,7 @@ Ubuntu and Debian this is group `tty'."
        (format "vc-%s.dump" console)
        temporary-file-directory))
      (set-buffer-modified-p nil)
-     (emacspeak-wizards-vc-viewer-mode)
+     (emacspeak-wizards-vc-view-mode)
      (setq emacspeak-wizards-vc-console console)
      (goto-char (point-min))
      (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
@@ -1794,7 +1794,7 @@ Ubuntu and Debian this is group `tty'."
   (interactive)
   (cl-declare (special emacspeak-wizards-vc-console))
   (unless (eq major-mode
-              'emacspeak-wizards-vc-viewer-mode)
+              'emacspeak-wizards-vc-view-mode)
     (error "Not viewing a virtual console."))
   (let ((console emacspeak-wizards-vc-console)
         (command
@@ -1816,7 +1816,7 @@ Ubuntu and Debian this is group `tty'."
       temporary-file-directory))
     (set-buffer-modified-p nil)
     (goto-char orig)
-    (emacspeak-wizards-vc-viewer-mode)
+    (emacspeak-wizards-vc-view-mode)
     (setq emacspeak-wizards-vc-console console)
     (when (called-interactively-p 'interactive)
       (emacspeak-speak-line))))
@@ -1830,9 +1830,9 @@ Ubuntu and Debian this is group `tty'."
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'open-object))
 
-(cl-declaim (special emacspeak-wizards-vc-viewer-mode-map))
+(cl-declaim (special emacspeak-wizards-vc-view-mode-map))
 
-(define-key emacspeak-wizards-vc-viewer-mode-map
+(define-key emacspeak-wizards-vc-view-mode-map
   "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}

@@ -394,16 +394,17 @@ Optional argument FILENAME specifies the dictionary file."
        now-map))))
 
 ;;;###autoload
-(defun emacspeak-pronounce-define-local-pronunciation (word pronunciation)
+(defun emacspeak-pronounce-define-local-pronunciation (word pron)
   "Define buffer local pronunciation.
-Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION."
+Argument `word' specified the word to be pronounced.
+Argument `pron' specifies the new pronunciation. "
   (interactive
    (list
     (emacspeak-pronounce-read-term 'buffer)
     (read-from-minibuffer
      (format "Pronounce as: "))))
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
-   word pronunciation))
+   word pron))
 
 (defun emacspeak-pronounce-get-key ()
   "Collect key from user.

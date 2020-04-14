@@ -1520,10 +1520,9 @@ File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emac
 12.184 emacspeak-sql
 ====================
 
-This module speech enables sql-mode– available from
-http://paddington.ic.uva.nl/public/sql-modes.zip sql-mode.el implemented
-by the above package sets up an Emacs to SQL interface where you can
-interactively evaluate SQL expressions.
+This module speech enables sql-mode– available from the Emacs package
+archive.  sql-mode.el implemented by the above package sets up an Emacs
+to SQL interface where you can interactively evaluate SQL expressions.
 
 
 File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev: emacspeak-sql,  Up: Emacspeak Commands And Options
@@ -5930,7 +5929,23 @@ Contains various wizards for the Emacspeak desktop.
 
      Accelerator for VC viewer.
 
-12.218.1.148 emacspeak-wizards-vc-viewer
+12.218.1.148 emacspeak-wizards-vc-view-mode
+...........................................
+
+ -- Command: emacspeak-wizards-vc-view-mode
+
+     Major mode for interactively viewing virtual console contents.
+
+     key             binding
+     —             ——-
+
+     C-l		emacspeak-wizards-vc-viewer-refresh
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as the final or penultimate step
+     during initialization.
+
+12.218.1.149 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -5940,21 +5955,6 @@ Contains various wizards for the Emacspeak desktop.
      View contents of specified virtual console.
 
      (fn CONSOLE)
-
-12.218.1.149 emacspeak-wizards-vc-viewer-mode
-.............................................
-
- -- Command: emacspeak-wizards-vc-viewer-mode
-
-     Major mode for interactively viewing virtual console contents.
-
-     key             binding
-     —             ——-
-
-     C-l		emacspeak-wizards-vc-viewer-refresh
-
-     This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final or penultimate step
-     during initialization.
 
 12.218.1.150 emacspeak-wizards-vc-viewer-refresh
 ................................................
@@ -9434,7 +9434,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x SPC:                            emacspeak-jabber.   (line   53)
 * <fn> x t:                              emacspeak-wizards.  (line  302)
 * <fn> x u:                              emacspeak-wizards.  (line 1580)
-* <fn> x v:                              emacspeak-wizards.  (line 1596)
+* <fn> x v:                              emacspeak-wizards.  (line 1612)
 * <fn> x w:                              emacspeak-wizards.  (line 1132)
 * <fn> x |:                              emacspeak-wizards.  (line 1457)
 * <fn> [:                                emacspeak-speak.    (line  737)
@@ -9469,7 +9469,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' g:                                 emacspeak-google.   (line  284)
 * C-' h:                                 emacspeak-m-player. (line  310)
 * C-' l:                                 emacspeak-m-player. (line  372)
-* C-' m:                                 emacspeak-wizards.  (line 1656)
+* C-' m:                                 emacspeak-wizards.  (line 1657)
 * C-' n:                                 emacspeak-wizards.  (line  904)
 * C-' q:                                 emacspeak-wizards.  (line  978)
 * C-' R:                                 emacspeak-webspace. (line   17)
@@ -9482,7 +9482,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
-* C-, c:                                 emacspeak-wizards.  (line 1657)
+* C-, c:                                 emacspeak-wizards.  (line 1658)
 * C-, f:                                 emacspeak-wizards.  (line  724)
 * C-, i:                                 emacspeak-wizards.  (line 1025)
 * C-, n:                                 emacspeak-wizards.  (line  542)
@@ -9503,7 +9503,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. g:                                 emacspeak-google.   (line  283)
 * C-. h:                                 emacspeak-m-player. (line  309)
 * C-. l:                                 emacspeak-m-player. (line  371)
-* C-. m:                                 emacspeak-wizards.  (line 1655)
+* C-. m:                                 emacspeak-wizards.  (line 1656)
 * C-. n:                                 emacspeak-wizards.  (line  903)
 * C-. q:                                 emacspeak-wizards.  (line  977)
 * C-. R:                                 emacspeak-webspace. (line   16)
@@ -9514,8 +9514,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
 * C-; ':                                 emacspeak-m-player. (line  686)
-* C-; /:                                 emacspeak-wizards.  (line 1685)
-* C-; ::                                 emacspeak-wizards.  (line 1637)
+* C-; /:                                 emacspeak-wizards.  (line 1686)
+* C-; ::                                 emacspeak-wizards.  (line 1638)
 * C-; ;:                                 emacspeak-m-player. (line  697)
 * C-; a:                                 emacspeak-wizards.  (line 1486)
 * C-; C-u:                               emacspeak-feeds.    (line   47)
@@ -9904,7 +9904,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x SPC:                             emacspeak-jabber.   (line   52)
 * C-e x t:                               emacspeak-wizards.  (line  301)
 * C-e x u:                               emacspeak-wizards.  (line 1579)
-* C-e x v:                               emacspeak-wizards.  (line 1595)
+* C-e x v:                               emacspeak-wizards.  (line 1611)
 * C-e x w:                               emacspeak-wizards.  (line 1131)
 * C-e x |:                               emacspeak-wizards.  (line 1456)
 * C-e [:                                 Reading.            (line  121)
@@ -9930,7 +9930,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
-* C-x @ a c:                             emacspeak-wizards.  (line 1658)
+* C-x @ a c:                             emacspeak-wizards.  (line 1659)
 * C-x @ a f:                             emacspeak-wizards.  (line  725)
 * C-x @ a i:                             emacspeak-wizards.  (line 1026)
 * C-x @ a n:                             emacspeak-wizards.  (line  543)
@@ -9944,8 +9944,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a u:                             emacspeak-m-player. (line  676)
 * C-x @ a y:                             emacspeak-m-player. (line  751)
 * C-x @ h ':                             emacspeak-m-player. (line  687)
-* C-x @ h /:                             emacspeak-wizards.  (line 1686)
-* C-x @ h ::                             emacspeak-wizards.  (line 1638)
+* C-x @ h /:                             emacspeak-wizards.  (line 1687)
+* C-x @ h ::                             emacspeak-wizards.  (line 1639)
 * C-x @ h ;:                             emacspeak-m-player. (line  698)
 * C-x @ h a:                             emacspeak-wizards.  (line 1487)
 * C-x @ h C-u:                           emacspeak-feeds.    (line   49)
@@ -9970,7 +9970,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s g:                             emacspeak-google.   (line  285)
 * C-x @ s h:                             emacspeak-m-player. (line  311)
 * C-x @ s l:                             emacspeak-m-player. (line  373)
-* C-x @ s m:                             emacspeak-wizards.  (line 1659)
+* C-x @ s m:                             emacspeak-wizards.  (line 1660)
 * C-x @ s n:                             emacspeak-wizards.  (line  905)
 * C-x @ s q:                             emacspeak-wizards.  (line  979)
 * C-x @ s R:                             emacspeak-webspace. (line   18)

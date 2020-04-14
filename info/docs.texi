@@ -6402,7 +6402,7 @@ Speech-enable interactive commands.
 @section emacspeak-emms
 
 Speech-enables EMMS --- the Emacs equivalent of XMMS
-See
+available from  the Emacs package archive.
 http://savannah.gnu.org/project/emms
 EMMS is under active development,
 to get the current CVS version, use Emacspeak command
@@ -10900,8 +10900,8 @@ speech-enables kmacro --- a kbd macro interface
 @node emacspeak-librivox
 @section emacspeak-librivox
 
-LIBRIVOX == http://www.librivox.org Free Audio Books
-API Info: https://librivox.org/api/info
+LIBRIVOX == @url{http://www.librivox.org} --- Free Audio Books.
+API Info: @url{https://librivox.org/api/info}
 It provides a simple Web  API
 This module implements an Emacspeak Librivox client.
 
@@ -13908,7 +13908,7 @@ Location where we cache NPR playlists.
 @section emacspeak-nxml
 
 nxml-mode is a new XML mode for emacs by James Clark.
- http://www.thaiopensource.com/download/
+ Package nxml is available from the Emacs package archive.
 
 @subsection Emacspeak-Nxml Commands
 
@@ -15100,14 +15100,15 @@ Clear all current pronunciation dictionaries.
 @end deffn
 
 @subsubsection emacspeak-pronounce-define-local-pronunciation
-@deffn {Command} emacspeak-pronounce-define-local-pronunciation  (word pronunciation)
+@deffn {Command} emacspeak-pronounce-define-local-pronunciation  (word pron)
 @findex emacspeak-pronounce-define-local-pronunciation
 
 @format
 Define buffer local pronunciation.
-Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
+Argument ‘word’ specified the word to be pronounced.
+Argument ‘pron’ specifies the new pronunciation. 
 
-(fn WORD PRONUNCIATION)
+(fn WORD PRON)
 @end format
 @end deffn
 
@@ -18232,7 +18233,7 @@ Personality used for speedbar tags
 
 This module speech enables sql-mode--
 available from
-http://paddington.ic.uva.nl/public/sql-modes.zip
+ the Emacs package archive.
 sql-mode.el implemented by the above package
 sets up an Emacs to SQL interface where you can
 interactively evaluate SQL expressions.
@@ -24005,6 +24006,24 @@ Accelerator for VC viewer.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-vc-view-mode
+@deffn {Command} emacspeak-wizards-vc-view-mode   
+@findex emacspeak-wizards-vc-view-mode
+
+@format
+Major mode for interactively viewing virtual console contents.
+
+key             binding
+---             -------
+
+C-l		emacspeak-wizards-vc-viewer-refresh
+
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as the final or penultimate step
+during initialization.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-vc-viewer
 @deffn {Command} emacspeak-wizards-vc-viewer  (console)
 @table @kbd
@@ -24020,23 +24039,6 @@ Accelerator for VC viewer.
 View contents of specified virtual console.
 
 (fn CONSOLE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-vc-viewer-mode
-@deffn {Command} emacspeak-wizards-vc-viewer-mode   
-@findex emacspeak-wizards-vc-viewer-mode
-
-@format
-Major mode for interactively viewing virtual console contents.
-
-key             binding
----             -------
-
-C-l		emacspeak-wizards-vc-viewer-refresh
-
-This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final or penultimate step
-during initialization.
 @end format
 @end deffn
 

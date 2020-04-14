@@ -42,7 +42,7 @@
 
 ;;; Commentary:
 ;;;Speech-enables EMMS --- the Emacs equivalent of XMMS
-;;; See
+;;; available from  the Emacs package archive.
 ;;; http://savannah.gnu.org/project/emms
 ;;; EMMS is under active development,
 ;;; to get the current CVS version, use Emacspeak command

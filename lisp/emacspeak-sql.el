@@ -49,7 +49,7 @@
 
 ;;; This module speech enables sql-mode--
 ;;; available from
-;;; http://paddington.ic.uva.nl/public/sql-modes.zip
+;;;  the Emacs package archive.
 ;;; sql-mode.el implemented by the above package
 ;;;sets up an Emacs to SQL interface where you can
 ;;;interactively evaluate SQL expressions.

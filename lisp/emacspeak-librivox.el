@@ -42,8 +42,8 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; LIBRIVOX == http://www.librivox.org Free Audio Books
-;;; API Info: https://librivox.org/api/info
+;;; LIBRIVOX == @url{http://www.librivox.org} --- Free Audio Books.
+;;; API Info: @url{https://librivox.org/api/info}
 ;;; It provides a simple Web  API
 ;;; This module implements an Emacspeak Librivox client.
 ;;;
