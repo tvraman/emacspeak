@@ -1,8 +1,8 @@
 ;;; emacspeak-ein.el --- Speech-enable EIN For IPython Notebooks   -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-ein.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable EIN An Emacs Interface to ein
-;;; Keywords: Emacspeak,  Audio Desktop ein
+;;; Description:  Speech-enable EIN An Emacs Interface to IPython Notebooks
+;;; Keywords: Emacspeak,  Audio Desktop IPython, Jupyter, Notebooks
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -42,7 +42,7 @@
 
 ;;; Commentary:
 ;;; EIN ==  Emacs IPython Notebook
-;;; You can install package EIN via ELPA
+;;; You can install package EIN via mELPA
 ;;; This module speech-enables EIN
 
 ;;}}}
