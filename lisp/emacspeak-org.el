@@ -645,7 +645,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 (defun org-eww-store-link ()
   "Store a link to a EWW buffer."
   (when (eq major-mode 'eww-mode)
-    (org-store-link-props
+    (org-link-store-props
      :type "eww"
      :link   (emacspeak-eww-current-url)
      :url (eww-current-url)
