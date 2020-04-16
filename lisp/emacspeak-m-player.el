@@ -138,7 +138,7 @@ This is set to nil when playing Internet  streams.")
   "Return seconds formatted as time if valid, otherwise return as is."
   (let ((v (car  (read-from-string sec))))
     (cond
-     ((and (numberp v) (not (minusp v)))
+     ((and (numberp v) (not (cl-minusp v)))
       (format-time-string "%M:%S" v))
      (t sec))))
 
