@@ -176,6 +176,7 @@
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'task-done)
                (emacspeak-speak-line)))))
+
 (cl-loop for f in
          '(
            ein:worksheet-goto-next-input
@@ -223,3 +224,22 @@
   ein:worksheet-toggle-cell-type-km
   ein:worksheet-toggle-output-km
   ein:worksheet-yank-cell-km)
+;;}}}
+;;{{{ Bind additional interactive commands
+(when (boundp 'ein:notebook-mode-map)
+  (cl-loop for k in
+           '(
+             ("\C-c." emacspeak-ein-speak-current-cell)
+             )
+           do
+           (emacspeak-keymap-update ein:notebook-mode-map k)))
+
+;;}}}
+(provide 'emacspeak-ein)
+;;{{{ end of file
+
+;;; local variables:
+;;; folded-file: t
+;;; end:
+
+;;}}}
