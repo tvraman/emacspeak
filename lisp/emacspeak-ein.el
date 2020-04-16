@@ -240,16 +240,22 @@
     (emacspeak-auditory-icon 'large-movement)))
 
 
-(defadvice ein:worksheet-toggle-output-km (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
+(cl-loop
+ for f in 
+ '(ein:worksheet-toggle-output-km ein:worksheet-set-output-visibility-all-km)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
     (let  ((state (slot-value (ein:worksheet-get-current-cell)
                             'collapsed )))
         (emacspeak-auditory-icon
          (if state 'close-object 'open-object))
       (dtk-speak
        (format "%s output"
-               (if state "Hid" "Showing"))))))
+               (if state "Hid" "Showing"))))))))
+
 
 
 '(  
@@ -259,7 +265,7 @@
   ein:worksheet-set-output-visibility-all-km
   ein:worksheet-split-cell-at-point-km
   
-  ein:worksheet-toggle-output-km
+  
   ein:worksheet-yank-cell-km)
 
 ;;}}}
