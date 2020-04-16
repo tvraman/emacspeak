@@ -115,7 +115,10 @@
   "Speak current cell."
   (interactive)
   (emacspeak-auditory-icon 'select-object)
-  (emacspeak-speak-region (point) (next-overlay-change (point))))
+  (let ( (start  (previous-overlay-change (point)))
+        (end  (next-overlay-change (point))))
+    
+    (emacspeak-speak-region start end)))
 
 ;;}}}
 ;;{{{Modules To Enable:
@@ -149,45 +152,41 @@
 ;;}}}
 ;;{{{ Worksheets:
 
-(cl-loop for f in
-         '(
-           ein:worksheet-clear-all-output
-           ein:worksheet-delete-cell
-           ein:worksheet-clear-output
-           ein:worksheet-kill-cell
-           )
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'delete-object)))))
+(cl-loop
+ for f in
+ '(
+   ein:worksheet-clear-all-output ein:worksheet-delete-cell
+   ein:worksheet-clear-output ein:worksheet-kill-cell) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'delete-object)))))
 
-(cl-loop for f in
-         '(
-           ein:worksheet-execute-all-cell
-           ein:worksheet-execute-cell-and-insert-below
-           ein:worksheet-execute-cell-and-goto-next
-           ein:worksheet-execute-cell)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'task-done)
-               (emacspeak-speak-line)))))
+(cl-loop
+ for f in
+ '(
+   ein:worksheet-execute-all-cell ein:worksheet-execute-cell-and-insert-below
+   ein:worksheet-execute-cell-and-goto-next ein:worksheet-execute-cell) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-line)))))
 
-(cl-loop for f in
-         '(
-           ein:worksheet-goto-next-input
-           ein:worksheet-goto-prev-input)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
-               (emacspeak-ein-speak-current-cell)))))
+(cl-loop
+ for f in
+ '(
+   ein:worksheet-goto-next-input-km ein:worksheet-goto-prev-input-km)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-ein-speak-current-cell)))))
 
 (cl-loop for f in
          '(
