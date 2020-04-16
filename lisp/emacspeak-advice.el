@@ -3063,6 +3063,17 @@ Produce auditory icons if possible."
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}
+;;{{{log-edit-done
+
+(defadvice log-edit-done (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'close-object)
+    ))
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
