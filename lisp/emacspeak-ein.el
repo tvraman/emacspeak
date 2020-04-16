@@ -166,7 +166,6 @@ ein:worksheet
 (cl-loop for f in
          '(
            ein:worksheet-execute-all-cell
-           ein:worksheet-execute-autoexec-cells
            ein:worksheet-execute-cell-and-insert-below
            ein:worksheet-execute-cell-and-goto-next
            ein:worksheet-execute-cell)
@@ -180,10 +179,7 @@ ein:worksheet
 (cl-loop for f in
          '(
            ein:worksheet-goto-next-input
-           ein:worksheet-goto-prev-input
-           ein:worksheet-next-input-history
-           ein:worksheet-previous-input-history
-           )
+           ein:worksheet-goto-prev-input)
          do
          (eval
           `(defadvice ,f (after emacspeak pre act comp)
