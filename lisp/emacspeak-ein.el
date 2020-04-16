@@ -121,30 +121,30 @@
 ;;{{{Modules To Enable:
 
 '(ein:debug
-ein:dev
-ein:file
-ein:header
-ein:ipdb
-ein:ipynb
-ein:jupyter
-ein:jupyterhub
-ein:log
-ein:login
-ein:markdown
-ein:notebook
-ein:notebooklist
-ein:pager
-ein:process
-ein:python
-ein:pytools
-ein:run
-ein:shared
-ein:stop
-ein:tb
-ein:traceback
-ein:version
-ein:worksheet
-)
+  ein:dev
+  ein:file
+  ein:header
+  ein:ipdb
+  ein:ipynb
+  ein:jupyter
+  ein:jupyterhub
+  ein:log
+  ein:login
+  ein:markdown
+  ein:notebook
+  ein:notebooklist
+  ein:pager
+  ein:process
+  ein:python
+  ein:pytools
+  ein:run
+  ein:shared
+  ein:stop
+  ein:tb
+  ein:traceback
+  ein:version
+  ein:worksheet
+  )
 
 ;;}}}
 ;;{{{ Worksheets:
