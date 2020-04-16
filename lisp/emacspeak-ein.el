@@ -188,34 +188,49 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-ein-speak-current-cell)))))
 
-(cl-loop for f in
-         '(
-           ein:worksheet-yank-cell
-           ein:worksheet-insert-cell-above
-           ein:worksheet-insert-cell-below)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'yank-object)
-               (emacspeak-speak-line)))))
+(cl-loop
+ for f in
+ '(
+   ein:worksheet-yank-cell
+   ein:worksheet-insert-cell-above
+   ein:worksheet-insert-cell-below)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'yank-object)
+       (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in 
+ '(ein:worksheet-toggle-cell-type ein ein:worksheet-change-cell-type )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)
+       (dtk-speak (ein:cell-type (ein:worksheet-get-current-cell)))))))
+
+
+
 
 
 '(  ein:worksheet-change-cell-type-km
-  ein:worksheet-copy-cell-km
-  ein:worksheet-execute-cell-and-insert-below-km
-  ein:worksheet-insert-cell-above-km
-  ein:worksheet-insert-cell-below-km
-  ein:worksheet-merge-cell-km
-  ein:worksheet-move-cell-down-km
-  ein:worksheet-move-cell-up-km
-  ein:worksheet-rename-sheet-km
-  ein:worksheet-set-output-visibility-all-km
-  ein:worksheet-split-cell-at-point-km
-  ein:worksheet-toggle-cell-type-km
-  ein:worksheet-toggle-output-km
-  ein:worksheet-yank-cell-km)
+    ein:worksheet-copy-cell-km
+    ein:worksheet-execute-cell-and-insert-below-km
+    ein:worksheet-insert-cell-above-km
+    ein:worksheet-insert-cell-below-km
+    ein:worksheet-merge-cell-km
+    ein:worksheet-move-cell-down-km
+    ein:worksheet-move-cell-up-km
+    ein:worksheet-rename-sheet-km
+    ein:worksheet-set-output-visibility-all-km
+    ein:worksheet-split-cell-at-point-km
+    ein:worksheet-toggle-cell-type-km
+    ein:worksheet-toggle-output-km
+    ein:worksheet-yank-cell-km)
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
