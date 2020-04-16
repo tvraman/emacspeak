@@ -201,6 +201,49 @@
                (emacspeak-auditory-icon 'yank-object)
                (emacspeak-speak-line)))))
 
+
+'(ein:worksheet-change-cell-type
+  ein:worksheet-change-cell-type-km
+  ein:worksheet-clear-all-output-km
+  ein:worksheet-clear-output-km
+  ein:worksheet-copy-cell
+  ein:worksheet-copy-cell-km
+  ein:worksheet-dedent-cell-text
+  ein:worksheet-execute-all-cells
+  ein:worksheet-execute-all-cells-above
+  ein:worksheet-execute-all-cells-below
+  ein:worksheet-execute-cell-and-goto-next-km
+  ein:worksheet-execute-cell-and-insert-below-km
+  ein:worksheet-execute-cell-km
+  ein:worksheet-goto-next-input-km
+  ein:worksheet-goto-prev-input-km
+  ein:worksheet-insert-cell-above-km
+  ein:worksheet-insert-cell-below-km
+  ein:worksheet-kernel-status
+  ein:worksheet-kill-cell-km
+  ein:worksheet-merge-cell
+  ein:worksheet-merge-cell-km
+  ein:worksheet-move-cell-down
+  ein:worksheet-move-cell-down-km
+  ein:worksheet-move-cell-up
+  ein:worksheet-move-cell-up-km
+  ein:worksheet-not-move-cell-down
+  ein:worksheet-not-move-cell-down-km
+  ein:worksheet-not-move-cell-up
+  ein:worksheet-not-move-cell-up-km
+  ein:worksheet-rename-sheet
+  ein:worksheet-rename-sheet-km
+  ein:worksheet-set-output-visibility-all
+  ein:worksheet-set-output-visibility-all-km
+  ein:worksheet-split-cell-at-point
+  ein:worksheet-split-cell-at-point-km
+  ein:worksheet-toggle-cell-type
+  ein:worksheet-toggle-cell-type-km
+  ein:worksheet-toggle-output
+  ein:worksheet-toggle-output-km
+  ein:worksheet-yank-cell-km)
+
+
 ;;}}}
 ;;{{{ Bind additional interactive commands
 
