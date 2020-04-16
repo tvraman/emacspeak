@@ -155,8 +155,8 @@
 (cl-loop
  for f in
  '(
-   ein:worksheet-clear-all-output ein:worksheet-delete-cell
-   ein:worksheet-clear-output ein:worksheet-kill-cell) do
+   ein:worksheet-clear-all-output-km ein:worksheet-delete-cell
+   ein:worksheet-clear-output-km ein:worksheet-kill-cell-km) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
@@ -168,7 +168,7 @@
  for f in
  '(
    ein:worksheet-execute-all-cell ein:worksheet-execute-cell-and-insert-below
-   ein:worksheet-execute-cell-and-goto-next ein:worksheet-execute-cell) do
+   ein:worksheet-execute-cell-and-goto-next-km ein:worksheet-execute-cell-km) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
@@ -203,17 +203,10 @@
 
 
 '(  ein:worksheet-change-cell-type-km
-  ein:worksheet-clear-all-output-km
-  ein:worksheet-clear-output-km
   ein:worksheet-copy-cell-km
-  ein:worksheet-execute-cell-and-goto-next-km
   ein:worksheet-execute-cell-and-insert-below-km
-  ein:worksheet-execute-cell-km
-  ein:worksheet-goto-next-input-km
-  ein:worksheet-goto-prev-input-km
   ein:worksheet-insert-cell-above-km
   ein:worksheet-insert-cell-below-km
-  ein:worksheet-kill-cell-km
   ein:worksheet-merge-cell-km
   ein:worksheet-move-cell-down-km
   ein:worksheet-move-cell-up-km
@@ -223,6 +216,7 @@
   ein:worksheet-toggle-cell-type-km
   ein:worksheet-toggle-output-km
   ein:worksheet-yank-cell-km)
+
 ;;}}}
 ;;{{{ Bind additional interactive commands
 (when (boundp 'ein:notebook-mode-map)
