@@ -118,70 +118,7 @@
   (emacspeak-speak-region (point) (next-overlay-change (point))))
 
 ;;}}}
-;;{{{ Advice completers:
 
-;; ein:completer-complete
-;; ein:completer-dot-complete
-;; ein:jedi-complete
-;; ein:jedi-dot-complete
-
-;;}}}
-;;{{{ Advice Tasks:
-
-;; ein:connect-to-notebook
-;; ein:connect-to-notebook-buffer
-;; ein:connect-to-notebook-command
-;; ein:console-open
-
-;;}}}
-;;{{{ Advice Notebook:
-
-;;}}}
-;;{{{ Advice NotebookList:
-
-;; ein:notebooklist-login
-;; ein:notebooklist-menu
-;; ein:notebooklist-new-notebook
-;; ein:notebooklist-new-notebook-with-name
-;; ein:notebooklist-next-item
-;; ein:notebooklist-open
-;; ein:notebooklist-open-notebook-by-file-name
-;; ein:notebooklist-open-notebook-global
-;; ein:notebooklist-prev-item
-;; ein:notebooklist-reload
-;; ein:junk-new
-;; ein:junk-rename
-
-;;}}}
-;;{{{   Commands:
-
-;; ein:header-line-delete-this-tab
-;; ein:header-line-insert-new-tab
-;; ein:header-line-insert-next-tab
-;; ein:header-line-insert-prev-tab
-;; ein:header-line-move-next-tab
-;; ein:header-line-move-prev-tab
-;; ein:header-line-pop-to-this-tab
-;; ein:header-line-switch-to-this-tab
-;; ein:iexec-mode
-;; ein:ipynb-mode
-
-;; ein:pager-goto-docstring-bset-loc
-;; ein:pytools-doctest
-;; ein:pytools-hierarchy
-;; ein:pytools-jump-back-command
-;; ein:pytools-jump-to-source-command
-;; ein:pytools-pandas-to-ses
-;; ein:pytools-request-help
-;; ein:pytools-request-tooltip
-;; ein:pytools-request-tooltip-or-help
-;; ein:pytools-whos
-;; ein:shared-output-eval-string
-;; ein:shared-output-pop-to-buffer
-;; ein:shared-output-show-code-cell-at-point
-;; ein:tb-show
-
-;;}}}
 ;;{{{ Worksheets:
 
 (cl-loop for f in
@@ -257,6 +194,7 @@
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
+
 (when (boundp 'ein:notebook-mode-map)
   (cl-loop for k in
            '(
