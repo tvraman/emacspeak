@@ -118,7 +118,35 @@
   (emacspeak-speak-region (point) (next-overlay-change (point))))
 
 ;;}}}
+;;{{{Modules To Enable:
 
+'(ein:debug
+ein:dev
+ein:file
+ein:header
+ein:ipdb
+ein:ipynb
+ein:jupyter
+ein:jupyterhub
+ein:log
+ein:login
+ein:markdown
+ein:notebook
+ein:notebooklist
+ein:pager
+ein:process
+ein:python
+ein:pytools
+ein:run
+ein:shared
+ein:stop
+ein:tb
+ein:traceback
+ein:version
+ein:worksheet
+)
+
+;;}}}
 ;;{{{ Worksheets:
 
 (cl-loop for f in
@@ -134,9 +162,6 @@
              "Provide auditory feedback."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'delete-object)))))
-;; ein:worksheet-change-cell-type
-;; ein:worksheet-copy-cell
-;; ein:worksheet-dedent-cell-text
 
 (cl-loop for f in
          '(
@@ -179,18 +204,6 @@
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'yank-object)
                (emacspeak-speak-line)))))
-
-;; ein:worksheet-merge-cell
-;; ein:worksheet-move-cell-down
-;; ein:worksheet-move-cell-up
-
-;; ein:worksheet-rename-sheet
-;; ein:worksheet-set-output-visibility-all
-;; ein:worksheet-split-cell-at-point
-;; ein:worksheet-toggle-autoexec
-;; ein:worksheet-toggle-cell-type
-;; ein:worksheet-toggle-output
-;; ein:worksheet-turn-on-autoexec
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
