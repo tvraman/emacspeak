@@ -239,13 +239,26 @@
     (dtk-speak "Moved cell down")
     (emacspeak-auditory-icon 'large-movement)))
 
+
+(defadvice ein:worksheet-toggle-output-km (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (let  ((state (slot-value (ein:worksheet-get-current-cell)
+                            'collapsed )))
+        (emacspeak-auditory-icon
+         (if state 'close-object 'open-object))
+      (dtk-speak
+       (format "%s output"
+               (if state "Hid" "Showing"))))))
+
+
 '(  
   ein:worksheet-copy-cell-km
   ein:worksheet-merge-cell-km
   ein:worksheet-rename-sheet-km
   ein:worksheet-set-output-visibility-all-km
   ein:worksheet-split-cell-at-point-km
-  ein:worksheet-toggle-cell-type-km
+  
   ein:worksheet-toggle-output-km
   ein:worksheet-yank-cell-km)
 
