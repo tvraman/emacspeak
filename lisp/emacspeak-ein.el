@@ -174,7 +174,8 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
-       (emacspeak-speak-line)))))
+       (forward-line 1)
+       (message "Press C-c . to hear the results.")))))
 
 (cl-loop
  for f in
@@ -213,24 +214,40 @@
        (emacspeak-auditory-icon 'button)
        (dtk-speak (ein:cell-type (ein:worksheet-get-current-cell)))))))
 
+(cl-loop
+ for f in 
+ '(ein:worksheet-insert-cell-below-km ein:worksheet-insert-cell-above-km)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+
+(defadvice ein:worksheet-move-cell-up-km (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak "Moved cell up")
+    (emacspeak-auditory-icon 'large-movement)
+    ))
 
 
+(defadvice ein:worksheet-move-cell-down-km (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak "Moved cell down")
+    (emacspeak-auditory-icon 'large-movement)))
 
-
-'(  ein:worksheet-change-cell-type-km
-    ein:worksheet-copy-cell-km
-    ein:worksheet-execute-cell-and-insert-below-km
-    ein:worksheet-insert-cell-above-km
-    ein:worksheet-insert-cell-below-km
-    ein:worksheet-merge-cell-km
-    ein:worksheet-move-cell-down-km
-    ein:worksheet-move-cell-up-km
-    ein:worksheet-rename-sheet-km
-    ein:worksheet-set-output-visibility-all-km
-    ein:worksheet-split-cell-at-point-km
-    ein:worksheet-toggle-cell-type-km
-    ein:worksheet-toggle-output-km
-    ein:worksheet-yank-cell-km)
+'(  
+  ein:worksheet-copy-cell-km
+  ein:worksheet-merge-cell-km
+  ein:worksheet-rename-sheet-km
+  ein:worksheet-set-output-visibility-all-km
+  ein:worksheet-split-cell-at-point-km
+  ein:worksheet-toggle-cell-type-km
+  ein:worksheet-toggle-output-km
+  ein:worksheet-yank-cell-km)
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
