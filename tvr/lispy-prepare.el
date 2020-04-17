@@ -11,6 +11,7 @@
      (define-key lispy-mode-map (kbd "M-m") nil)
      (define-key lispy-mode-map (kbd "C-y") 'emacspeak-muggles-yank-pop/yank)
      (define-key lispy-mode-map (kbd ";") 'self-insert-command)
+     (define-key lispy-mode-map (kbd ":") 'self-insert-command)
      (define-key lispy-mode-map (kbd "M-;") 'lispy-comment)
      (define-key lispy-mode-map (kbd "C-d") 'delete-char)
      (define-key lispy-mode-map (kbd "M-C-d") 'lispy-delete)
