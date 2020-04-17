@@ -121,6 +121,16 @@
     (emacspeak-speak-region start end)))
 
 ;;}}}
+;;{{{ Bind additional interactive commands
+(when (boundp 'ein:notebook-mode-map)
+  (cl-loop for k in
+           '(
+             ("\C-c." emacspeak-ein-speak-current-cell)
+             )
+           do
+           (emacspeak-keymap-update ein:notebook-mode-map k)))
+
+;;}}}
 ;;{{{Modules To Enable:
 
 '(ein:debug
@@ -264,27 +274,21 @@
 
 
 
-'(  
-  ein:worksheet-copy-cell-km
-  ein:worksheet-merge-cell-km
-  ein:worksheet-rename-sheet-km
-  ein:worksheet-set-output-visibility-all-km
-  ein:worksheet-split-cell-at-point-km
-  
-  
-  ein:worksheet-yank-cell-km)
+(defadvice ein:worksheet-split-cell-at-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+
+(defadvice ein:worksheet-merge-cell (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ Bind additional interactive commands
-(when (boundp 'ein:notebook-mode-map)
-  (cl-loop for k in
-           '(
-             ("\C-c." emacspeak-ein-speak-current-cell)
-             )
-           do
-           (emacspeak-keymap-update ein:notebook-mode-map k)))
 
-;;}}}
 (provide 'emacspeak-ein)
 ;;{{{ end of file
 
