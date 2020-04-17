@@ -333,14 +333,16 @@
 ;;}}}
 ;;{{{Notebooklists:
 
-'(
-  ein:notebooklist-login
-  ein:notebooklist-new-notebook
-  ein:notebooklist-new-notebook-with-name
-  ein:notebooklist-next-item
-  ein:notebooklist-open
-  ein:notebooklist-prev-item
-  ein:notebooklist-reload)
+(cl-loop
+ for f in 
+ '(ein:notebooklist-prev-item ein:notebooklist-next-item)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-ein)
