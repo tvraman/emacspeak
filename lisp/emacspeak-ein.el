@@ -59,7 +59,7 @@
  '(
    (ein:cell-input-area voice-lighten)
    (ein:cell-input-prompt voice-animate)
-   (ein:cell-output-area voice-smoothen)
+   (ein:cell-output-area voice-brighten)
    (ein:cell-output-area-error voice-monotone)
    (ein:cell-output-prompt voice-monotone voice-highlight)
    (ein:cell-output-stderr voice-monotone)
@@ -117,7 +117,6 @@
   (emacspeak-auditory-icon 'select-object)
   (let ( (start  (previous-overlay-change (point)))
         (end  (next-overlay-change (point))))
-    
     (emacspeak-speak-region start end)))
 
 ;;}}}
