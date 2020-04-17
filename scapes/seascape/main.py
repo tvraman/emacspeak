@@ -11,33 +11,39 @@ water = bimport('org.boodler.old.water')
 wavesounds = [
     water.waves_lapping, water.waves_light, water.waves_rough,
     water.waves_floopy, water.water_rushing, water.water_pouring,
-    water.water_rapids]
+    water.water_rapids
+]
 
 
 class SurfWaves(agent.Agent):
     """Orchestrate wave agents SurfWaveSounds and SurfBackgroundWaves"""
-
     def run(self):
 
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.1), stereo.shiftxy(0, 1.25)))
         ag = nature.Nightingales(
-            0, 30,  # Duration
-            0.1, 1.0,  # volume
+            0,
+            30,  # Duration
+            0.1,
+            1.0,  # volume
             1)
         self.sched_agent(ag, 0, bc)
 
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.3), stereo.shiftxy(0, -1.25)))
         ag = nature.Cuckoos(
-            0, 60,  # Duration
-            0.05, 0.75,  # volume
+            0,
+            60,  # Duration
+            0.05,
+            0.75,  # volume
             1)
 
         self.sched_agent(ag, 0, bc)
         ag = nature.FlMockingBirds(
-            0, 1200,  # Duration
-            0.05, 0.75,  # volume
+            0,
+            1200,  # Duration
+            0.05,
+            0.75,  # volume
             1)
 
         self.sched_agent(ag, 0, bc)
@@ -54,18 +60,19 @@ class SurfWaves(agent.Agent):
 
 
 class SurfWaveSounds(agent.Agent):
-
     def run(self):
-        ag = play.IntermittentSoundsList(
-            mindelay=1.0, maxdelay=8.0,
-            minpitch=0.2, maxpitch=1.0,
-            minvol=0.02, maxvol=0.5,
-            maxpan=1.25, sounds=wavesounds)
+        ag = play.IntermittentSoundsList(mindelay=1.0,
+                                         maxdelay=8.0,
+                                         minpitch=0.2,
+                                         maxpitch=1.0,
+                                         minvol=0.02,
+                                         maxvol=0.5,
+                                         maxpan=1.25,
+                                         sounds=wavesounds)
         self.sched_agent(ag)
 
 
 class SurfBackgroundWaves(agent.Agent):
-
     def run(self):
         p = random.uniform(0.2, 1.0)
         v = random.uniform(0.01, 0.5)
