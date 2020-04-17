@@ -284,7 +284,7 @@
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{Notebooks and Notebooklist:
+;;{{{Notebooks:
 
 (cl-loop
  for f in 
@@ -318,27 +318,23 @@
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
 
+(defadvice ein:notebook-jump-to-opened-notebook (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
+(defadvice ein:notebook-close-km (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
+;;}}}
+;;{{{Notebooklists:
 
-'(ein:notebook-close
-  ein:notebook-jump-to-opened-notebook
-  ein:notebook-kernel-interrupt-command
-  ein:notebook-kill-kernel-then-close-command
-  ein:notebook-open
-  ein:notebook-reconnect-kernel
-  ein:notebook-reconnect-session-command
-  ein:notebook-rename-command
-  ein:notebook-restart-session-command
-  
-  
-  ein:notebook-scratchsheet-open
-  ein:notebook-show-in-shared-output
-  ein:notebook-switch-kernel
-  ein:notebook-worksheet-delete
+'(
   ein:notebooklist-login
-  ein:notebooklist-menu
-  ein:notebooklist-mode
   ein:notebooklist-new-notebook
   ein:notebooklist-new-notebook-with-name
   ein:notebooklist-next-item
