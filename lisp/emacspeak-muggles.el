@@ -769,6 +769,7 @@ Also generates global keybindings if any."
 
 ;;}}}
 ;;{{{Vuiet:
+(declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
 
 (global-set-key
  (kbd "C-; v")
