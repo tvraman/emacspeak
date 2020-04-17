@@ -32,8 +32,8 @@ class Agents(agent.Agent):
 
     def trigger(self, scape):
         if (self.prevchannel != None and self.prevchannel.active):
-            self.sched_agent(builtin.FadeOutAgent(
-                self.fadetime), chan=self.prevchannel)
+            self.sched_agent(builtin.FadeOutAgent(self.fadetime),
+                             chan=self.prevchannel)
         self.prevchannel = self.new_channel(0)
         self.prevchannel.set_volume(1, self.fadetime)
         self.sched_agent(scape, chan=self.prevchannel)
@@ -45,7 +45,8 @@ class SoundscapePanel(agent.Agent):
 
     def init(self, *agents):
         if (len(agents) == 0):
-            raise Exception('SoundscapePanel requires at least one agent argument')
+            raise Exception(
+                'SoundscapePanel requires at least one agent argument')
         self.classlist = agents
         self.fadetime = 0.25
         self.pos = 0
