@@ -25,3 +25,8 @@ implements a last.fm powered music explorer and player.
 ** Hacker News
 
 Smart URL templates for Hacker News Frontpage and Hacker News search feeds.
+
+** Emacs IPython Notebooks
+
+Module ~emacspeak-ein~ has been refreshed to speech-enable the latest
+version of package ~ein~.
