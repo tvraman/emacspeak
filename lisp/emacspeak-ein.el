@@ -115,9 +115,7 @@
   "Speak current cell."
   (interactive)
   (emacspeak-auditory-icon 'select-object)
-  (let ( (start  (previous-overlay-change (point)))
-        (end  (next-overlay-change (point))))
-    (emacspeak-speak-region start end)))
+    (emacspeak-speak-region (point) (next-overlay-change (point))))
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
@@ -214,7 +212,7 @@
 
 (cl-loop
  for f in 
- '(ein:worksheet-toggle-cell-type ein ein:worksheet-change-cell-type )
+ '(ein:worksheet-toggle-cell-type ein ein:worksheet-change-cell-type-km )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
