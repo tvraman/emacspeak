@@ -140,8 +140,6 @@
   ein:log
   ein:login
   ein:markdown
-  ein:notebook
-  ein:notebooklist
   ein:pager
   ein:process
   ein:python
@@ -152,8 +150,22 @@
   ein:tb
   ein:traceback
   ein:version
-  ein:worksheet
   )
+
+;;}}}
+;;{{{pytools:
+
+(cl-loop
+ for f in 
+ '(ein:pytools-jump-back-command ein:pytools-jump-to-source-command)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 ;;{{{ Worksheets:
