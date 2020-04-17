@@ -53,9 +53,6 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
-(defadvice vuiet-update-mode-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (dtk-notify-speak (vuiet-playing-track-str)))
 
 (defadvice vuiet-love-track (after emacspeak pre act comp)
   "Provide auditory feedback."
