@@ -135,7 +135,6 @@
   ein:file
   ein:header
   ein:ipdb
-  ein:ipynb
   ein:jupyter
   ein:jupyterhub
   ein:log
@@ -285,7 +284,69 @@
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{Notebooks and Notebooklist:
 
+(cl-loop
+ for f in 
+ '(ein:notebook-save-to-command ein:notebook-save-notebook-command)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (message "Saving notebook")
+       (emacspeak-auditory-icon 'save-object)))))
+
+(cl-loop
+ for f in 
+ '(
+  ein:notebook-worksheet-insert-next ein:notebook-worksheet-insert-prev
+  ein:notebook-worksheet-move-next ein:notebook-worksheet-move-prev
+  ein:notebook-worksheet-open-1th ein:notebook-worksheet-open-2th
+  ein:notebook-worksheet-open-3th ein:notebook-worksheet-open-4th
+  ein:notebook-worksheet-open-5th ein:notebook-worksheet-open-6th
+  ein:notebook-worksheet-open-7th ein:notebook-worksheet-open-8th
+  ein:notebook-worksheet-open-last ein:notebook-worksheet-open-next
+  ein:notebook-worksheet-open-next-or-first
+  ein:notebook-worksheet-open-next-or-new
+  ein:notebook-worksheet-open-prev ein:notebook-worksheet-open-prev-or-last)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-mode-line)))))
+
+
+
+
+'(ein:notebook-close
+  ein:notebook-jump-to-opened-notebook
+  ein:notebook-kernel-interrupt-command
+  ein:notebook-kill-kernel-then-close-command
+  ein:notebook-open
+  ein:notebook-reconnect-kernel
+  ein:notebook-reconnect-session-command
+  ein:notebook-rename-command
+  ein:notebook-restart-session-command
+  
+  
+  ein:notebook-scratchsheet-open
+  ein:notebook-show-in-shared-output
+  ein:notebook-switch-kernel
+  ein:notebook-worksheet-delete
+  ein:notebooklist-login
+  ein:notebooklist-menu
+  ein:notebooklist-mode
+  ein:notebooklist-new-notebook
+  ein:notebooklist-new-notebook-with-name
+  ein:notebooklist-next-item
+  ein:notebooklist-open
+  ein:notebooklist-prev-item
+  ein:notebooklist-reload)
+
+;;}}}
 (provide 'emacspeak-ein)
 ;;{{{ end of file
 
