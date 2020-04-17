@@ -167,7 +167,7 @@
 (cl-loop
  for f in
  '(
-   ein:worksheet-execute-all-cell ein:worksheet-execute-cell-and-insert-below
+   ein:worksheet-execute-all-cells ein:worksheet-execute-cell-and-insert-below-km
    ein:worksheet-execute-cell-and-goto-next-km ein:worksheet-execute-cell-km) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -239,6 +239,12 @@
     (dtk-speak "Moved cell down")
     (emacspeak-auditory-icon 'large-movement)))
 
+
+(defadvice ein:worksheet-yank-cell (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-ein-speak-current-cell)
+    (emacspeak-auditory-icon 'yank-object)))
 
 (cl-loop
  for f in 
