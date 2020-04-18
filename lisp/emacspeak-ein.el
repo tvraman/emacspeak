@@ -130,15 +130,6 @@
 ;;}}}
 ;;{{{Modules To Enable:
 
-'(ein:debug
-  ein:dev
-  ein:header
-  ein:log
-  ein:shared
-  
-  ein:tb
-  )
-
 ;;}}}
 ;;{{{tb (traceback):
 
