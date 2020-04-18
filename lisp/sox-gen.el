@@ -133,7 +133,6 @@
   "Play specified command."
   (cl-declare (special sox-play sox-gen-p))
   (when sox-gen-p
-    
     (apply #'start-process "SoX" nil sox-play  (split-string cmd))))
 
 ;;}}}
