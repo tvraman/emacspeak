@@ -132,25 +132,36 @@
 
 '(ein:debug
   ein:dev
-  ein:file
   ein:header
-  ein:ipdb
-  ein:jupyter
-  ein:jupyterhub
   ein:log
-  ein:login
-  ein:markdown
-  ein:pager
-  ein:process
-  ein:python
-  ein:pytools
-  ein:run
   ein:shared
-  ein:stop
+  
   ein:tb
-  ein:traceback
-  ein:version
   )
+
+;;}}}
+;;{{{tb (traceback):
+
+(cl-loop
+ for f in 
+ '(ein:tb-jump-to-source-at-point-command
+ ein:tb-next-item ein:tb-prev-item)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
+
+
+(defadvice ein:tb-show-km (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+
 
 ;;}}}
 ;;{{{pytools:
