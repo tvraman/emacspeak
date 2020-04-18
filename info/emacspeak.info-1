@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 14, 2020.
+last updated on April 17, 2020.
 
    The manual is divided into the following chapters:
 
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1261 commands and 910 options.
+   This chapter documents a total of 1261 commands and 916 options.
 
 * Menu:
 
@@ -5238,6 +5238,61 @@ system.
      whose effect can be changed globally by customizing
      voice-animate-settings.
 
+ -- Variable: User Option voice-ivy-action
+     Personality used for ivy-action This personality uses voice-animate
+     whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-ivy-current-match
+     Personality used for ivy-current-match This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-ivy-cursor
+     Personality used for ivy-cursor This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-ivy-minibuffer-match-face-1
+     Personality used for ivy-minibuffer-match-face-1 This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-ivy-minibuffer-match-face-2
+     Personality used for ivy-minibuffer-match-face-2 This personality
+     uses voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-ivy-minibuffer-match-face-3
+     Personality used for ivy-minibuffer-match-face-3 This personality
+     uses voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option voice-ivy-minibuffer-match-face-4
+     Personality used for ivy-minibuffer-match-face-4 This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-ivy-modified-buffer
+     Personality used for ivy-modified-buffer This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option voice-ivy-remote
+     Personality used for ivy-remote This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-ivy-subdir
+     Personality used for ivy-subdir This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-ivy-virtual
+     Personality used for ivy-virtual This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option voice-jabber-chat-error
      Personality used for jabber-chat-error This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
@@ -7563,62 +7618,4 @@ File: emacspeak.info,  Node: emacspeak-clojure,  Next: emacspeak-cmuscheme,  Pre
 =======================
 
 CLOJURE-mode: Specialized mode for Clojure programming.
-
-
-File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-clojure,  Up: Emacspeak Commands And Options
-
-12.39 emacspeak-cmuscheme
-=========================
-
-speech-enable scheme support
-
-
-File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-cmuscheme,  Up: Emacspeak Commands And Options
-
-12.40 emacspeak-company
-=======================
-
-COMPANY -mode: Complete Anything Support for emacs.
-
-   This module provides an Emacspeak Company Front-end, And advises the
-needed interactive commands in Company.  It adds an emacspeak-specific
-front-end ‘emacspeak-company-frontend’ to the value of
-company-frontends.  Note that COMPANY-FRONTENDS is a user-customizable
-option and ends up getting saved by emacs along with other custom
-settings.  Function ‘emacspeak-company-frontend’ handles providing
-spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
-to generate their own feedback.
-
-12.40.1 emacspeak-company Options
----------------------------------
-
- -- Variable: User Option voice-company-echo
-     Personality used for company-echo This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-company-echo-common
-     Personality used for company-echo-common This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-company-preview
-     Personality used for company-preview This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-company-preview-common
-     Personality used for company-preview-common This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-company-preview-search
-     Personality used for company-preview-search This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-company-template-field
-     Personality used for company-template-field This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 

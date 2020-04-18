@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1261 commands and 910 options.
+This chapter documents a total of 1261 commands and 916 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -2803,6 +2803,72 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @defvar {User Option} voice-italic
 Personality used for italic
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-action
+Personality used for ivy-action
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-current-match
+Personality used for ivy-current-match
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-cursor
+Personality used for ivy-cursor
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-minibuffer-match-face-1
+Personality used for ivy-minibuffer-match-face-1
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-minibuffer-match-face-2
+Personality used for ivy-minibuffer-match-face-2
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-minibuffer-match-face-3
+Personality used for ivy-minibuffer-match-face-3
+This personality uses  voice-monotone-light whose  effect can be changed globally by customizing voice-monotone-light-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-minibuffer-match-face-4
+Personality used for ivy-minibuffer-match-face-4
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-modified-buffer
+Personality used for ivy-modified-buffer
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-remote
+Personality used for ivy-remote
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-subdir
+Personality used for ivy-subdir
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ivy-virtual
+Personality used for ivy-virtual
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
@@ -6262,7 +6328,7 @@ Speak the current difference
 @section emacspeak-ein
 
 EIN ==  Emacs IPython Notebook
-You can install package EIN via ELPA
+You can install package EIN via mELPA
 This module speech-enables EIN
 
 @subsection Emacspeak-Ein Commands
@@ -6278,30 +6344,6 @@ Speak current cell.
 
 @subsection emacspeak-ein Options
 
-@defvar {User Option} voice-ein:cell-heading-1
-Personality used for ein:cell-heading-1
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ein:cell-heading-2
-Personality used for ein:cell-heading-2
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ein:cell-heading-3
-Personality used for ein:cell-heading-3
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ein:cell-heading-4
-Personality used for ein:cell-heading-4
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
 @defvar {User Option} voice-ein:cell-input-area
 Personality used for ein:cell-input-area
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
@@ -6314,6 +6356,18 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} voice-ein:cell-output-area
+Personality used for ein:cell-output-area
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:cell-output-area-error
+Personality used for ein:cell-output-area-error
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
 @defvar {User Option} voice-ein:cell-output-prompt
 Personality used for ein:cell-output-prompt
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
@@ -6322,7 +6376,55 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @defvar {User Option} voice-ein:cell-output-stderr
 Personality used for ein:cell-output-stderr
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:markdown-header-face-1
+Personality used for ein:markdown-header-face-1
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:markdown-header-face-2
+Personality used for ein:markdown-header-face-2
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:markdown-header-face-3
+Personality used for ein:markdown-header-face-3
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:markdown-header-face-4
+Personality used for ein:markdown-header-face-4
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:markdown-header-face-5
+Personality used for ein:markdown-header-face-5
+This personality uses  voice-monotone-light whose  effect can be changed globally by customizing voice-monotone-light-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:markdown-header-face-6
+Personality used for ein:markdown-header-face-6
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:notification-tab-normal
+Personality used for ein:notification-tab-normal
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-ein:notification-tab-selected
+Personality used for ein:notification-tab-selected
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -10397,74 +10499,6 @@ many available corrections.
 IVY ==  One More Smart Completion Technique
 Speech-enable ivy-style completion.
 This is still experimental and preliminary.
-
-@subsection emacspeak-ivy Options
-
-@defvar {User Option} voice-ivy-action
-Personality used for ivy-action
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-current-match
-Personality used for ivy-current-match
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-cursor
-Personality used for ivy-cursor
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-minibuffer-match-face-1
-Personality used for ivy-minibuffer-match-face-1
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-minibuffer-match-face-2
-Personality used for ivy-minibuffer-match-face-2
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-minibuffer-match-face-3
-Personality used for ivy-minibuffer-match-face-3
-This personality uses  voice-monotone-light whose  effect can be changed globally by customizing voice-monotone-light-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-minibuffer-match-face-4
-Personality used for ivy-minibuffer-match-face-4
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-modified-buffer
-Personality used for ivy-modified-buffer
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-remote
-Personality used for ivy-remote
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-subdir
-Personality used for ivy-subdir
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-ivy-virtual
-Personality used for ivy-virtual
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
 
 @node emacspeak-jabber
 @section emacspeak-jabber

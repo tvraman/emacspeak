@@ -12,6 +12,64 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-clojure,  Up: Emacspeak Commands And Options
+
+12.39 emacspeak-cmuscheme
+=========================
+
+speech-enable scheme support
+
+
+File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-cmuscheme,  Up: Emacspeak Commands And Options
+
+12.40 emacspeak-company
+=======================
+
+COMPANY -mode: Complete Anything Support for emacs.
+
+   This module provides an Emacspeak Company Front-end, And advises the
+needed interactive commands in Company.  It adds an emacspeak-specific
+front-end ‘emacspeak-company-frontend’ to the value of
+company-frontends.  Note that COMPANY-FRONTENDS is a user-customizable
+option and ends up getting saved by emacs along with other custom
+settings.  Function ‘emacspeak-company-frontend’ handles providing
+spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
+to generate their own feedback.
+
+12.40.1 emacspeak-company Options
+---------------------------------
+
+ -- Variable: User Option voice-company-echo
+     Personality used for company-echo This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-company-echo-common
+     Personality used for company-echo-common This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-company-preview
+     Personality used for company-preview This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-company-preview-common
+     Personality used for company-preview-common This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option voice-company-preview-search
+     Personality used for company-preview-search This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-company-template-field
+     Personality used for company-template-field This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
 
 12.41 emacspeak-compile
@@ -655,7 +713,7 @@ File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emac
 12.57 emacspeak-ein
 ===================
 
-EIN == Emacs IPython Notebook You can install package EIN via ELPA This
+EIN == Emacs IPython Notebook You can install package EIN via mELPA This
 module speech-enables EIN
 
 12.57.1 Emacspeak-Ein Commands
@@ -671,26 +729,6 @@ module speech-enables EIN
 12.57.2 emacspeak-ein Options
 -----------------------------
 
- -- Variable: User Option voice-ein:cell-heading-1
-     Personality used for ein:cell-heading-1 This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-ein:cell-heading-2
-     Personality used for ein:cell-heading-2 This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ein:cell-heading-3
-     Personality used for ein:cell-heading-3 This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-ein:cell-heading-4
-     Personality used for ein:cell-heading-4 This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
  -- Variable: User Option voice-ein:cell-input-area
      Personality used for ein:cell-input-area This personality uses
      voice-lighten whose effect can be changed globally by customizing
@@ -701,6 +739,16 @@ module speech-enables EIN
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
 
+ -- Variable: User Option voice-ein:cell-output-area
+     Personality used for ein:cell-output-area This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-ein:cell-output-area-error
+     Personality used for ein:cell-output-area-error This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
  -- Variable: User Option voice-ein:cell-output-prompt
      Personality used for ein:cell-output-prompt This personality uses
      voice-monotone whose effect can be changed globally by customizing
@@ -708,8 +756,48 @@ module speech-enables EIN
 
  -- Variable: User Option voice-ein:cell-output-stderr
      Personality used for ein:cell-output-stderr This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-1
+     Personality used for ein:markdown-header-face-1 This personality
+     uses voice-lighten whose effect can be changed globally by
+     customizing voice-lighten-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-2
+     Personality used for ein:markdown-header-face-2 This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-3
+     Personality used for ein:markdown-header-face-3 This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-4
+     Personality used for ein:markdown-header-face-4 This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-5
+     Personality used for ein:markdown-header-face-5 This personality
+     uses voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-6
+     Personality used for ein:markdown-header-face-6 This personality
+     uses voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-ein:notification-tab-normal
+     Personality used for ein:notification-tab-normal This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-ein:notification-tab-selected
+     Personality used for ein:notification-tab-selected This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Prev: emacspeak-ein,  Up: Emacspeak Commands And Options
@@ -4208,64 +4296,6 @@ File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emac
 
 IVY == One More Smart Completion Technique Speech-enable ivy-style
 completion.  This is still experimental and preliminary.
-
-12.110.1 emacspeak-ivy Options
-------------------------------
-
- -- Variable: User Option voice-ivy-action
-     Personality used for ivy-action This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-ivy-current-match
-     Personality used for ivy-current-match This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ivy-cursor
-     Personality used for ivy-cursor This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-1
-     Personality used for ivy-minibuffer-match-face-1 This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-2
-     Personality used for ivy-minibuffer-match-face-2 This personality
-     uses voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-3
-     Personality used for ivy-minibuffer-match-face-3 This personality
-     uses voice-monotone-light whose effect can be changed globally by
-     customizing voice-monotone-light-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-4
-     Personality used for ivy-minibuffer-match-face-4 This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-ivy-modified-buffer
-     Personality used for ivy-modified-buffer This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-ivy-remote
-     Personality used for ivy-remote This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ivy-subdir
-     Personality used for ivy-subdir This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ivy-virtual
-     Personality used for ivy-virtual This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-jabber,  Next: emacspeak-jdee,  Prev: emacspeak-ivy,  Up: Emacspeak Commands And Options
@@ -9008,122 +9038,4 @@ Auditory interface to solitaire
  -- Command: emacspeak-solitaire-speak-stones
 
      Speak number of stones remaining.
-
-
-File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: emacspeak-solitaire,  Up: Emacspeak Commands And Options
-
-12.181 emacspeak-sounds
-=======================
-
-This module provides the interface for generating auditory icons in
-emacspeak.  Design goal: 1) Auditory icons should be used to provide
-additional feedback, not as a gimmick.  2) The interface should be
-usable at all times without the icons: e.g.  when on a machine without a
-sound card.  3) General principle for when to use an icon: Convey
-information about events taking place in parallel.  For instance, if
-making a selection automatically moves the current focus to the next
-choice, We speak the next choice, while indicating the fact that
-something was selected with a sound cue.  This interface will assume the
-availability of a shell command "play" that can take one or more sound
-files and play them.  This module will also provide a mapping between
-names in the elisp world and actual sound files.  Modules that wish to
-use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes architecture for
-auditory icons.  Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
-
-12.181.1 Emacspeak-Sounds Commands
-----------------------------------
-
-12.181.1.1 emacspeak-audio-setup
-................................
-
- -- Command: emacspeak-audio-setup (&optional prefix)
-     ‘C-e (’
-     ‘<fn> (’
-
-     Call appropriate audio environment set command.
-
-     (fn &optional PREFIX)
-
-12.181.1.2 emacspeak-set-auditory-icon-player
-.............................................
-
- -- Command: emacspeak-set-auditory-icon-player (player)
-     ‘C-e M-a’
-     ‘<fn> M-a’
-
-     Select  player used for producing auditory icons.
-     Recommended choices:
-
-     emacspeak-serve-auditory-icon for  the wave device.
-     emacspeak-queue-auditory-icon when using software TTS.
-
-     (fn PLAYER)
-
-12.181.1.3 emacspeak-sounds-reset-local-player
-..............................................
-
- -- Command: emacspeak-sounds-reset-local-player
-
-     Ask Emacspeak to use a local audio player.
-     This lets me have Emacspeak switch to using audioplay on
-     solaris after I’ve used it for a while from a remote session
-     where it would use the more primitive speech-server based
-     audio player.
-
-12.181.1.4 emacspeak-sounds-reset-sound
-.......................................
-
- -- Command: emacspeak-sounds-reset-sound
-
-     Reload sound drivers.
-
-12.181.1.5 emacspeak-sounds-select-theme
-........................................
-
- -- Command: emacspeak-sounds-select-theme (theme)
-     ‘C-e )’
-     ‘<fn> )’
-
-     Select theme for auditory icons.
-
-     (fn THEME)
-
-12.181.1.6 emacspeak-toggle-auditory-icons
-..........................................
-
- -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
-     ‘C-e C-a’
-     ‘<fn> C-a’
-
-     Toggle use of auditory icons.
-     Optional interactive PREFIX arg toggles global value.
-
-     (fn &optional PREFIX)
-
-12.181.2 emacspeak-sounds Options
----------------------------------
-
- -- Variable: User Option emacspeak-auditory-icon-function
-     *Function that plays auditory icons.  play : Launches play-program
-     to play.  Serve: Send a command to the speech-server to play.
-     Queue : Add auditory icon to speech queue.  soxplay: Use sox to
-     apply effect earwax for headphones.  Native : Use Emacs’ builtin
-     sound support.  Use Serve when working with remote speech servers.
-
- -- Variable: User Option emacspeak-play-args
-     Set this to nil if using paplay from pulseaudio.
-
- -- Variable: User Option emacspeak-play-program
-     Name of executable that plays sound files.
-
- -- Variable: User Option emacspeak-sounds-default-theme
-     Default theme for auditory icons.
-
- -- Variable: User Option emacspeak-sounds-reset-snd-module-command
-     Command to reset sound module.
-
- -- Variable: User Option emacspeak-soxplay-command
-     Name of play executable from SoX
 
