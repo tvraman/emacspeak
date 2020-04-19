@@ -111,11 +111,20 @@
 ;;}}}
 ;;{{{ Additional Interactive Commands:
 
+(defsubst emacspeak-ein-sox-gen (type)
+  "Generate a tone  that indicates markdown, code, or raw."
+  (let ((fade "fade h .1 .5 .4 gain -8 "))
+    (cond
+     ((eq 'raw type) (sox-sin .5 "%-5:%3"fade))
+     ((eq 'code type) (sox-sin .5 "%-1:%5" fade))
+     ((eq 'markdown type) (sox-sin .5 "%4:%8"fade)))))
+
 (defun emacspeak-ein-speak-current-cell ()
   "Speak current cell."
   (interactive)
+  (emacspeak-ein-sox-gen (ein:cell-type (ein:worksheet-get-current-cell)))
   (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-region (point) (next-overlay-change (point))))
+  (emacspeak-speak-region (point) (next-overlay-change (point))))
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
@@ -200,7 +209,8 @@
 (cl-loop
  for f in
  '(
-   ein:worksheet-goto-next-input-km ein:worksheet-goto-prev-input-km)
+   ein:worksheet-goto-next-input-km ein:worksheet-goto-prev-input-km
+   ein:worksheet-goto-next-input ein:worksheet-goto-prev-input)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
