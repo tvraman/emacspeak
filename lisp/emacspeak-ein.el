@@ -51,6 +51,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'sox-gen)
 
 ;;}}}
 ;;{{{  Face->Voice mappings
@@ -115,15 +116,18 @@
   "Generate a tone  that indicates markdown, code, or raw."
   (let ((fade "fade h .1 .5 .4 gain -8 "))
     (cond
-     ((eq 'raw type) (sox-sin .5 "%-5:%3"fade))
-     ((eq 'code type) (sox-sin .5 "%-1:%5" fade))
-     ((eq 'markdown type) (sox-sin .5 "%4:%8"fade)))))
+     ((string= "raw" type) (sox-sin .5 "%-5:%3"fade))
+     ((string= "code" type) (sox-sin .5 "%-1:%5" fade))
+     ((string= "markdown" type) (sox-sin .5 "%4:%8"fade)))))
+
+
+(declare-function ein:cell-type "ein-classes" (arg &rest args))
+(declare-function ein:worksheet-get-current-cell "ein-worksheet" (&rest --cl-rest--))
 
 (defun emacspeak-ein-speak-current-cell ()
   "Speak current cell."
   (interactive)
   (emacspeak-ein-sox-gen (ein:cell-type (ein:worksheet-get-current-cell)))
-  (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-region (point) (next-overlay-change (point))))
 
 ;;}}}
