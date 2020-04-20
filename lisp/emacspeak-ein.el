@@ -127,7 +127,6 @@
 (defun emacspeak-ein-speak-current-cell ()
   "Speak current cell."
   (interactive)
-  (emacspeak-ein-sox-gen (ein:cell-type (ein:worksheet-get-current-cell)))
   (emacspeak-speak-region (point) (next-overlay-change (point))))
 
 ;;}}}
@@ -245,7 +244,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'button)
+       (emacspeak-ein-sox-gen (ein:cell-type (ein:worksheet-get-current-cell)))
        (dtk-speak (ein:cell-type (ein:worksheet-get-current-cell)))))))
 
 (cl-loop
