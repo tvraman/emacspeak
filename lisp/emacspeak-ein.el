@@ -199,8 +199,10 @@
 (cl-loop
  for f in
  '(
-   ein:worksheet-execute-all-cells ein:worksheet-execute-cell-and-insert-below-km
-   ein:worksheet-execute-cell-and-goto-next-km ein:worksheet-execute-cell-km) do
+   ein:worksheet-execute-all-cells 
+   ein:worksheet-execute-cell-and-insert-below ein:worksheet-execute-cell-and-insert-below-km
+   ein:worksheet-execute-cell-and-goto-next-km ein:worksheet-execute-cell-and-goto-next
+   ein:worksheet-execute-cell ein:worksheet-execute-cell-km) do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
