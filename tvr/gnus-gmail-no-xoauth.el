@@ -9,8 +9,10 @@
 
      (require 'cl-lib)
      (require 'smtpmail)
+     (require 'auth-sources)
+     (pushnew (expand-file-name "~/.authinfo.gpg") auth-sources)
      ;;}}}
-;;{{{ Sending Mail:
+     ;;{{{ Sending Mail:
 
 ;;;  Set send-mail-function via custom.
      (setq
@@ -45,7 +47,7 @@
          (nnimap-user ,(format "%s@gmail.com" user))
          (nnimap-address "imap.gmail.com")
          (nnimap-server-port 993)
-         ;(nnimap-fetch-partial-articles "text/")
+                                        ;(nnimap-fetch-partial-articles "text/")
          (nnmail-expiry-wait immediate)
          (nnimap-streaming t)
          (nnimap-stream ssl)))
