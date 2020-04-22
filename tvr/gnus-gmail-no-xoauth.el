@@ -22,7 +22,7 @@
       smtpmail-smtp-service 465)
 
      ;;}}}
-     ;;{{{GMail Using xoauth2  and Gnus:
+     ;;{{{GMail Using app-specific passwords via authinfo 
 
      (cl-declaim (special gnus-select-method gnus-secondary-select-methods))
      (setq
@@ -32,7 +32,7 @@
         (nnimap-address "imap.gmail.com")
         (nnimap-server-port 993)
         (nnimap-user "raman@google.com")
-        ;(nnimap-fetch-partial-articles "text/")
+                                        ;(nnimap-fetch-partial-articles "text/")
         (nnimap-expunge always)
         (nnmail-expiry-wait immediate)
         (nnimap-streaming t)
