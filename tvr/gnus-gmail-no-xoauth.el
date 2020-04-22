@@ -10,7 +10,7 @@
      (require 'cl-lib)
      (require 'smtpmail)
      (require 'auth-source)
-     (pushnew (expand-file-name "~/.authinfo.gpg") auth-sources)
+     (cl-pushnew (expand-file-name "~/.authinfo.gpg") auth-sources)
      ;;}}}
      ;;{{{ Sending Mail:
 
