@@ -30,3 +30,9 @@ Smart URL templates for Hacker News Frontpage and Hacker News search feeds.
 
 Module ~emacspeak-ein~ has been refreshed to speech-enable the latest
 version of package ~ein~.
+
+** Sage Notebooks 
+
+Sage Notebooks from Sage version 9 now work well with Emacs Ipython
+Notebooks and Emacspeak.
+
