@@ -146,7 +146,6 @@
    (let ((after-start (current-time)))
      (dynamic-completion-mode 1)
      (jka-compr-install)
-     (auto-compression-mode t)
      (completion-initialize)
      (mapc
       (if (getenv "TVR_TIME_EMS")
