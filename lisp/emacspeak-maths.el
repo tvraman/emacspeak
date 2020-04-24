@@ -265,6 +265,7 @@ Expected: ((acss) string)."
 
 ;;}}}
 ;;{{{ Map Handlers:
+
 (cl-loop
  for f in
  '(exp pause text error welcome parse-error)
@@ -379,6 +380,7 @@ left for next run."
 
 ;;}}}
 ;;{{{ Navigators:
+
 (declare-function calc-kill "calc-yank" (flag no-delete))
 ;;; Guess expression from Calc:
 (defun emacspeak-maths-guess-calc ()
@@ -491,8 +493,7 @@ Tries to guess default based on context. "
   (interactive (list (emacspeak-maths-guess-input)))
   (cl-declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)
-  (when (string= "" latex)
-    (setq latex (emacspeak-maths-input emacspeak-maths)))
+  (when (string= "" latex) (error "Did not get any math expression"))
   (setf (emacspeak-maths-input emacspeak-maths) latex)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
