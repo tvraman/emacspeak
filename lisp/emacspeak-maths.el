@@ -482,21 +482,13 @@ Guess is based on context."
   (emacspeak-maths-guess-input)         ;guess based on context
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
-   (format "enter: %s"
-           (emacspeak-maths-input emacspeak-maths))))
+   (format "enter: %s" (emacspeak-maths-input emacspeak-maths))))
 
 ;;;###autoload
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server.
-Tries to guess default based on context.
-Uses guessed default if user enters an empty string."
-  (interactive
-   (list
-    (progn
-      (emacspeak-maths-guess-input)     ;guess based on context
-      (read-from-minibuffer "LaTeX: "
-                            nil nil nil nil
-                            (emacspeak-maths-input emacspeak-maths)))))
+Tries to guess default based on context. "
+  (interactive (list (emacspeak-maths-guess-input)))
   (cl-declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)
   (when (string= "" latex)
