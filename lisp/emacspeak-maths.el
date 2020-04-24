@@ -450,22 +450,27 @@ Set calc-language to tex to use this feature."
   "Examine current mode, text around point etc. to guess Math content to read."
   (cl-declare (special emacspeak-maths))
   (unless emacspeak-maths (emacspeak-maths-start))
-  (setf(emacspeak-maths-input emacspeak-maths)
-       (cond
-        ((eq major-mode 'calc-mode)
-         (emacspeak-maths-guess-calc))
-        ((eq major-mode 'sage-shell:sage-mode)
-         (emacspeak-maths-guess-sage))
-        ((and (memq major-mode '(tex-mode plain-tex-mode latex-mode ams-tex-mode))
-              (featurep 'texmathp))
-         (emacspeak-maths-guess-tex))
-        ((and
-          (eq major-mode 'eww-mode)
-          (not
-           (string-equal
-            (get-text-property (point) 'shr-alt)
-            "No image under point")))
-         (get-text-property (point) 'shr-alt)))))
+  (setf
+   (emacspeak-maths-input emacspeak-maths)
+   (cond
+    ((eq major-mode 'calc-mode)
+     (emacspeak-maths-guess-calc))
+    ((eq major-mode 'sage-shell:sage-mode)
+     (emacspeak-maths-guess-sage))
+    ((and (memq major-mode '(tex-mode plain-tex-mode latex-mode ams-tex-mode))
+          (featurep 'texmathp))
+     (emacspeak-maths-guess-tex))
+    ((and
+      (eq major-mode 'eww-mode)
+      (not
+       (string-equal
+        (get-text-property (point) 'shr-alt)
+        "No image under point")))
+     (get-text-property (point) 'shr-alt))
+    (t
+     (read-from-minibuffer
+      "Maths: " nil nil nil nil
+      (when mark-active (buffer-substring (region-beginning)(region-end))))))))
 
 ;;;###autoload
 (defun emacspeak-maths-enter-guess ()
@@ -473,18 +478,12 @@ Set calc-language to tex to use this feature."
 Guess is based on context."
   (interactive)
   (cl-declare (special emacspeak-maths))
+  (emacspeak-maths-ensure-server)        
   (emacspeak-maths-guess-input)         ;guess based on context
-  (emacspeak-maths-ensure-server)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s"
-           (or
-            (emacspeak-maths-input emacspeak-maths)
-            (read-from-minibuffer
-             "Maths: "
-             nil nil nil nil
-             (when mark-active
-               (buffer-substring (region-beginning)(region-end))))))))
+           (emacspeak-maths-input emacspeak-maths))))
 
 ;;;###autoload
 (defun emacspeak-maths-enter (latex)
