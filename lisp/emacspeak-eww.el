@@ -885,6 +885,7 @@ Retain previously set punctuations  mode."
 (cl-loop
  for  tag in
  '(h1 h2 h3 h4 h5 h6 div                ; sectioning
+      math ; mathml 
       ul ol dl                          ; Lists
       li dt dd p                        ; block-level: bullets, paras
       form blockquote                   ; block-level
@@ -909,6 +910,13 @@ Retain previously set punctuations  mode."
                            (quote ,tag) 'eww-tag)
         (when (memq (quote ,tag) '(h1 h2 h3 h4 h5 h6))
           (put-text-property start end 'h 'eww-tag)))))))
+;;; Handle MathML math element:
+
+(defun shr-tag-math (dom)
+  "Handle Math Nodes from MathML"
+  (shr-ensure-newline)
+      (shr-generic dom)
+      (shr-ensure-newline))
 
 ;;}}}
 ;;{{{ Advice readable
@@ -1019,6 +1027,7 @@ Retain previously set punctuations  mode."
     (form . eww-tag-form)
     (input . eww-tag-input)
     (textarea . eww-tag-textarea)
+    (math . shr-tag-math)
     (meta . eww-tag-meta)
     (button . eww-form-submit)
     (select . eww-tag-select)

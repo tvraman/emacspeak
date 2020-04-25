@@ -493,7 +493,8 @@ Tries to guess default based on context. "
   (interactive (list (emacspeak-maths-guess-input)))
   (cl-declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)
-  (when (string= "" latex) (error "Did not get any math expression"))
+  (when (or (null latex) (string= "" latex))
+    (setq latex (read-from-minibuffer "Enter expression:")))
   (setf (emacspeak-maths-input emacspeak-maths) latex)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
