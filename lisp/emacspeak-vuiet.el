@@ -54,6 +54,12 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
+(defadvice vuiet-stop (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)))
+
+
 (defadvice vuiet-love-track (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
