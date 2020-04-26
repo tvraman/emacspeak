@@ -51,6 +51,9 @@ If all goes well, you'll see an S-expression printed out. Hit _C-d_ to
 close client and server.
 
 ** Connect From Within Emacspeak
+
+  - First time: M-x package-install nvm  to configure Emacs to find
+    the right ~node~ executable.
   - M-x load-library emacspeak-maths
   - M-x emacspeak-maths-start --- start the server/client.
   - Invoke the /Maths Navigator/ AKA emacspeak-maths muggle using key
