@@ -3,7 +3,7 @@
 
 San Jose, CA, (May 4, 2020)
 
-** Emacspeak 52.0 (WorkAtHomeDog) Unleashed! 
+** Emacspeak 52.0 (WorkAtHomeDog) 🦮 Unleashed! 
        --- Making Telecommuting Great Again!
 
 Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
@@ -11,7 +11,7 @@ cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 --- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/52.0/emacspeak-52.0.tar.bz2][Emacspeak 52.0]]
-(WorkAtHomeDog) --- a powerful audio desktop that leverages today's evolving
+(WorkAtHomeDog) 🦮  --- a powerful audio desktop that leverages today's evolving
 Data, Social and Assistant-Oriented Internet cloud   to enable working
 effectively from anywhere!
 
@@ -20,7 +20,7 @@ effectively from anywhere!
 With several prominent tweeters expanding coverage of _#emacspeak_,
 NASDOG: ESPK has now been consistently trading over the social net at
 levels close to that once attained by DogCom high-fliers—and as of
-November  2019 is trading at levels close to that achieved by once
+May  2020 is trading at levels close to that achieved by once
 better known stocks in the tech sector.
 
 * What Is It?
