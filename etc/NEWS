@@ -7,7 +7,8 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 52 -- Emacspeak 51 User Visible Changes
+* Emacspeak 52 --- Emacspeak 52 User Visible Changes
+
 This version requires Emacs-26.1 or later.
 
 ** Emacs Chess 
@@ -36,3 +37,8 @@ version of package ~ein~.
 Sage Notebooks from Sage version 9 now work well with Emacs Ipython
 Notebooks and Emacspeak.
 
+
+** Mathematics On The Emacspeak Desktop 
+
+Module ~emacspeak-maths~ has been updated with the latest release of
+the ~Speech Rules Engine~ (SRE).
