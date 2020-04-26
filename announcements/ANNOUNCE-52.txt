@@ -11,8 +11,8 @@ cost of Ownership makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 --- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/52.0/emacspeak-52.0.tar.bz2][Emacspeak 52.0]]
-(WorkAtHomeDog) --- a powerful audio desktop for leveraging today's evolving
-Data, Social and Assistant-Oriented Internet cloud.  to work
+(WorkAtHomeDog) --- a powerful audio desktop that leverages today's evolving
+Data, Social and Assistant-Oriented Internet cloud   to enable working
 effectively from anywhere!
 
 * Investors Note:
