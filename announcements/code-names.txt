@@ -54,6 +54,7 @@ Note that special releases are marked with an '*'.
 | 49.0 | November 2018  | WiseDog        |
 | 50.0 | May 2019       | SageDog        |
 | 51.0 | November 2019  | AssistDog      |
+| 52.0 | May 2020       | WorkAtHomeDog  |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt
