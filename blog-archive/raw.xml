@@ -1,4 +1,42 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2019-11-26T10:32:27.874-08:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>160</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-3014288973531298515</id><published>2019-11-26T10:11:00.001-08:00</published><updated>2019-11-26T10:32:27.819-08:00</updated><title type='text'>Emacspeak 51.0 (AsssistDog) Unleashed!</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Announcing Emacspeak 51.0—AssistDog!&lt;/h1&gt;&lt;div id=&quot;outline-container-org1b796dd&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org1b796dd&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; For Immediate Release:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;San Jose, CA, (Nov 27, 2019)&lt;br /&gt;
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-02-28T19:47:44.216-08:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>161</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-3109879842057642962</id><published>2019-12-18T09:24:00.001-08:00</published><updated>2019-12-18T09:30:29.892-08:00</updated><title type='text'>Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak&lt;/h1&gt;&lt;div id=&quot;outline-container-orgc765764&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgc765764&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;/div&gt;&lt;div id=&quot;outline-container-orgde6f45e&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;orgde6f45e&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Research question:&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;&lt;p&gt;What type of spoken feedback does one need to:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Learn Chess.&lt;/li&gt;
+&lt;li&gt;Examine and learn from games.&lt;/li&gt;
+&lt;li&gt;Play effectively.&lt;/li&gt;
+&lt;li&gt;View the state of the game from different perspectives during a game.&lt;/li&gt;
+&lt;li&gt;Provide auditory feedback that is both succinct and maximally informative.&lt;/li&gt;
+&lt;li&gt;Arrive at  a spoken notation for speaking various game states&lt;br /&gt;
+that is both expressive and time-efficient.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org0baa7ae&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org0baa7ae&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.2&lt;/span&gt; Speech-Enabling Chess In Emacspeak&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;&lt;p&gt;To answer some or all of the above questions, I speech-enabled Emacs&lt;br /&gt;
+Chess last weekend via module &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L41&quot;&gt;emacspeak-chess.el&lt;/a&gt;  — see &lt;a href=&quot;http://tvraman.github.io/emacspeak/manual/emacspeak_002dchess.html#emacspeak_002dchess&quot;&gt;User Manual&lt;/a&gt;&lt;br /&gt;
+for complete end-user documentation.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Module &lt;code&gt;emacspeak-chess&lt;/code&gt; speech-enables Emacs Chess by:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Providing interactive commands that let the user navigate and browse the&lt;br /&gt;
+chessboard along the eight compass directions from the current square.&lt;/li&gt;
+&lt;li&gt;Spoken output uses audio-formatting  — subtle changes in voice&lt;br /&gt;
+characteristics backed up by auditory icons  — to indicate the&lt;br /&gt;
+color of squares and pieces.&lt;/li&gt;
+&lt;li&gt;Speaking each  current  move as it happens.&lt;/li&gt;
+&lt;li&gt;Adding the same spoken output to &lt;code&gt;emacs chess&lt;/code&gt; commands for&lt;br /&gt;
+moving back and forth through a game.&lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;In the above, all of the heavy lifting is done by three  functions:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L146-L178&quot;&gt;emacspeak-chess-describe-square&lt;/a&gt;: Speak state of current square.&lt;/li&gt;
+&lt;/ul&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L1-L269&quot;&gt;emacspeak-chess-collect-squares&lt;/a&gt;: Collect squares along a given rank,&lt;br /&gt;
+file, or diagonal, starting at and including the current square.&lt;br /&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-chess.el#L146-L383&quot;&gt;emacspeak-chess-describe-move&lt;/a&gt;: Describe current move.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;Share And Enjoy!&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3109879842057642962'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/3109879842057642962'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2019/12/speaking-of-chess-speech-enabling-emacs.html' title='Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-3014288973531298515</id><published>2019-11-26T10:11:00.001-08:00</published><updated>2019-11-26T10:32:27.819-08:00</updated><title type='text'>Emacspeak 51.0 (AsssistDog) Unleashed!</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Announcing Emacspeak 51.0—AssistDog!&lt;/h1&gt;&lt;div id=&quot;outline-container-org1b796dd&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org1b796dd&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; For Immediate Release:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;San Jose, CA, (Nov 27, 2019)&lt;br /&gt;
 &lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
 &lt;div id=&quot;outline-container-org8b40e99&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org8b40e99&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Emacspeak 51.0 (AssistDog) Unleashed!&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;&lt;p&gt;Advancing Accessibility In The Age Of User-Aware Interfaces &amp;#x2014; Zero&lt;br /&gt;
 cost of Ownership makes priceless software Universally affordable!&lt;br /&gt;
@@ -14103,33 +14141,4 @@ minibuffer.&lt;/li&gt;
 &lt;li&gt;Sit back and listen ...&lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-web-wizards-obtaining.html' title='Emacspeak Web Wizards: Obtaining Context From The Calendar '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113755198213159076</id><published>2006-01-17T18:39:00.000-08:00</published><updated>2006-01-17T18:39:42.490-08:00</updated><title type='text'>Viewing Atom Feeds Within Emacspeak </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;The most effective way of viewing Atom Feeds in Emacspeak is
-to use command &lt;code&gt;emacspeak-atom-display&lt;/code&gt; and specifying
-the URL of the feed when prompted. Thus, &lt;code&gt;M-x
-emacspeak-atom-display RET
-http://emacspeak.blogspot.com/atom.xml&lt;/code&gt; displays a Web page
-generated from the Emacspeak Blog.&lt;/p&gt;
-&lt;p&gt;Notice the following in the generated Web page:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It starts with a navigable table of contents.&lt;/li&gt;
-&lt;li&gt;Each Blog entry has a  link labeled &lt;code&gt;edit&lt;/code&gt; next to
-it.&lt;/li&gt;
-&lt;li&gt;Each Blog entry ends with a link labeled
-&lt;code&gt;Bookmark&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;There is a link labeled &lt;code&gt;Post&lt;/code&gt; at the top of the
-page.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The above links help you easily create and edit posts to the
-Blog if you have write access using commands provided by module
-&lt;code&gt;atom-blogger&lt;/code&gt;.
-Eventually, I may add commands to these hyperlinks to
-automatically invoke the appropriate command from
-&lt;code&gt;atom-blogger&lt;/code&gt;; for now, I find it  sufficiently
-convenient to copy the URL under point to the
-&lt;code&gt;kill-ring&lt;/code&gt; and later yank it back into the minibuffer
-when prompted by &lt;code&gt;atom-blogger&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Finally, note that this and subsequent posts to this Blog will
-show  up automatically on the &lt;a href=&quot;http://www.cs.vassar.edu/~priestdo/emacspeak/&quot;&gt;Emacspeak
-Mailing List&lt;/a&gt; at Vassar.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113755198213159076'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113755198213159076'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/viewing-atom-feeds-within-emacspeak.html' title='Viewing Atom Feeds Within Emacspeak '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
+    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-web-wizards-obtaining.html' title='Emacspeak Web Wizards: Obtaining Context From The Calendar '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
