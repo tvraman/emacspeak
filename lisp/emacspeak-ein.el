@@ -228,8 +228,8 @@
  for f in
  '(
    ein:worksheet-yank-cell
-   ein:worksheet-insert-cell-above
-   ein:worksheet-insert-cell-below)
+   ein:worksheet-insert-cell-above-km ein:worksheet-insert-cell-above
+   ein:worksheet-insert-cell-below-km ein:worksheet-insert-cell-below)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
