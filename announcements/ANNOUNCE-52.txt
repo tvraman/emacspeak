@@ -44,7 +44,8 @@ This version *requires* emacs-26.1 or later.
  3. Updated websearch wizards  🧙
  4. Updated EWW support  🕸
  5. Speech-enables Emacs Chess  ♕ ♔
- 6. Speech-enables package ~Vuiet~ for music discovery and playback  🎼
+ 6. Speech-enables package ~Vuiet~ for music discovery and playback
+    using LastFM   🎼
  7. Smart templates for accessing Hacker News  ⎔
  8. Updated support for Emacs Ipython Notebooks  📓
  9. Works fluently with Sage Notebooks   
