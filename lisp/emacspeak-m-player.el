@@ -134,12 +134,12 @@
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
 
-(defsubst ems--seconds-string-to-time (sec)
+(defsubst ems--seconds-string-to-duration (sec)
   "Return seconds formatted as time if valid, otherwise return as is."
   (let ((v (car  (read-from-string sec))))
     (cond
      ((and (numberp v) (not (cl-minusp v)))
-      (format-time-string "%H:%M:%S" v t))
+      (format-seconds "%h:%m:%s%z" v))
      (t sec))))
 
 (defun emacspeak-m-player-mode-line ()
@@ -154,9 +154,9 @@ This is set to nil when playing Internet  streams.")
         (dtk-speak-and-echo
          (concat
           (cl-second info) " : "
-          (ems--seconds-string-to-time (cl-first info))
+          (ems--seconds-string-to-duration (cl-first info))
           " of "
-          (ems--seconds-string-to-time (cl-third info)))))))
+          (ems--seconds-string-to-duration (cl-third info)))))))
    (t (message "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
