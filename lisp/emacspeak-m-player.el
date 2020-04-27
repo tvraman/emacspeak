@@ -678,8 +678,9 @@ This affects pitch."
 (defun emacspeak-m-player-play-tracks-jump (step)
   "Move within the play tree."
   (interactive"nSkip Tracks:")
-  (emacspeak-m-player-dispatch
-   (format "pt_step %d" step)))
+  (unless (zerop step)
+    (emacspeak-m-player-dispatch
+     (format "pt_step %d" step))))
 
 (defun emacspeak-m-player-previous-track ()
   "Move to previous track."
