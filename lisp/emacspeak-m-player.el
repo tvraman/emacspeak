@@ -139,7 +139,7 @@ This is set to nil when playing Internet  streams.")
   (let ((v (car  (read-from-string sec))))
     (cond
      ((and (numberp v) (not (cl-minusp v)))
-      (format-time-string "%M:%S" v))
+      (format-time-string "%H:%M:%S" v t))
      (t sec))))
 
 (defun emacspeak-m-player-mode-line ()
