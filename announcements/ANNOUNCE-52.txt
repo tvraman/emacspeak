@@ -9,6 +9,9 @@ San Jose, CA, (May 4, 2020)
 Advancing Accessibility In The Age Of User-Aware Interfaces --- Zero
 cost of Ownership makes priceless software Universally affordable!
 
+The enjoyment of one's tools is an essential ingredient of successful work.
+                                                        -- Donald E. Knuth
+
 Emacspeak Inc (NASDOG: ESPK) --- http://github.com/tvraman/emacspeak
 --- announces the immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/52.0/emacspeak-52.0.tar.bz2][Emacspeak 52.0]]
 (WorkAtHomeDog) 🦮  --- a powerful audio desktop that leverages today's evolving
