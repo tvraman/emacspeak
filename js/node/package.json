@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tvr/emacspeak.git"
+        "url": "git+https://github.com/tvraman/emacspeak.git"
     },
     "keywords": [
         "Maths",
