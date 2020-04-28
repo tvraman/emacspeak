@@ -258,7 +258,7 @@ Expected: ((acss) string)."
      (cond
       ((string= "38" msg) "Top of tree")
       ((string= "39" msg) "Last Node at this level")
-      ((string= "40" msg) "Bottom node")
+      ((string= "40" msg) "Bottom of tree")
       ((string= "37" msg) "First node at this level")
       (t msg)))))
   
