@@ -506,7 +506,7 @@ Tries to guess default based on context. "
  do
  (eval
   `(defun ,(intern (format "emacspeak-maths-%s" move)) ()
-     ,(format "Move %s in current Math expression." move)
+     ,(format "Move %s in current Math expression. (auto-generated)" move)
      (interactive)
      (cl-declare (special emacspeak-maths))
      (process-send-string
