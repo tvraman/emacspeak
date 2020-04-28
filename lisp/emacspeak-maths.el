@@ -253,15 +253,15 @@ Expected: ((acss) string)."
 
 (defun emacspeak-maths-handle-error (msg)
   "Display error message."
-  (message msg)
-  (message
+  (emacspeak-maths-flush-output)
+  (dtk-notify-say
    (cond
     ((string= "38" msg) "Top of tree")
     ((string= "39" msg) "Last Node at this level")
     ((string= "40" msg) "Bottom node")
     ((string= "37" msg) "First node at this level")
     (t msg))))
- 
+  
 (defun emacspeak-maths-handle-parse-error (contents)
   "Display parse-error message."
   (message "%s" contents))
