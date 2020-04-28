@@ -285,7 +285,7 @@ incomplete parse, that is expected to be caught by the caller."
 
 (defun emacspeak-maths-process-filter (proc string)
   "Handle process output from Node math-server.
-All complete chunks of output are consumed. Partial output is
+First complete chunk  of output is consumed. Partial output is
 left for next run."
   (cl-declare (special emacspeak-maths))
   (with-current-buffer (process-buffer proc)
@@ -307,10 +307,9 @@ left for next run."
               (while (not (eobp))
 ;;; Parse one complete chunk
                 (setq result (emacspeak-maths-read-output))
-;;; Todo: reverse later depending on how we use it.
                 (setf (emacspeak-maths-result emacspeak-maths) result)
                 (skip-syntax-forward " >")
-                (delete-region start (point))
+                (delete-region start (point)) ;;; delete what we consumed
                 (setq start (point)))
             (error nil))))
       (if moving (goto-char (process-mark proc))))))
