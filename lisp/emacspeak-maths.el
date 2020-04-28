@@ -368,6 +368,19 @@ left for next run."
   (when (called-interactively-p 'interactive)
     (message "Shutdown Maths server and client.")))
 
+
+(defun emacspeak-maths-flush-output ()
+  "Flush client buffer if things go out of sync."
+  (interactive)
+  (cl-declare (special emacspeak-maths))
+  (when
+      (process-live-p (emacspeak-maths-client-process emacspeak-maths))
+    (with-current-buffer
+        (process-buffer (emacspeak-maths-client-process emacspeak-maths))
+      (erase-buffer)))
+  (when (called-interactively-p 'interactive)
+    (message "Flushed client buffer.")))
+
 (defun emacspeak-maths-ensure-server ()
   "Start up Maths Server bridge if not already running."
   (cl-declare (special emacspeak-maths))
