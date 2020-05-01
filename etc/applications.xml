@@ -331,6 +331,9 @@ type="text/xsl"?>
       presets  for single click access to
       favorite streams.
     </application>
+    <application name="vuiet">
+      Discover and play music 
+    </application>
     <application name="sox">
       Audio workbench for the Emacspeak desktop.
     </application>
@@ -731,6 +734,8 @@ module emacspeak-vdiff.</application>
     <application name="kite">
       Interact with Chrome via the remote debugging API.
     </application>
+    <application name="sage-shell-mode">
+      Speech-enable SageMath interaction.</application>
     <application name="ein">
     IPython Notebook interaction from Emacs.</application>
 <application name="smartparens">
@@ -746,6 +751,9 @@ delimiters.
     </application>
 <application name="2048">
       Speech-enabled access to the 2048 game.
+</application>
+<application name="chess">
+      Speech-enabled access to  GNU Chess .
       </application>
 <application name="threes">
       Speech-enabled access to  the Threes puzzle.
