@@ -23,7 +23,7 @@
     },
     "homepage": "https://github.com/tvraman/emacspeak",
     "dependencies": {
-        "mathjax-node": ">= 1.3.0",
+        "mathjax": ">= 3.0.0",
         "net": ">=1.0.2",
         "speech-rule-engine": "v3.0.0-beta.10"
     }

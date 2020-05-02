@@ -38,7 +38,9 @@
 var net = require('net');
 
 // Initialize Math rendering system.
-var mjx = require('mathjax-node');
+
+let mjx = require('mathjax');
+let promise = mjx.init({loader: {load: ['input/tex']}});
 var sre = require('speech-rule-engine');
 sre.setupEngine(
     {markup: 'acss', domain: 'emacspeak', rules: ['EmacspeakRules']});
@@ -62,12 +64,10 @@ var handlers = {};
 
 // Accept a LaTeX math expression:
 handlers.enter = function(expr, socket) {
-  mjx.config({displayErrors: false});
-  mjx.typeset({math: expr, format: 'TeX', mml: true}, function(data) {
-    (data.errors && data.errors.length) ?
-        errorGen.mathjaxErrors(data.errors, socket) :
-        socket.write(sre.walk(data.mml));
-  });
+    promise.then((mjx) => {
+        let mml = mjx.tex2mml(expr, {display: true});
+        socket.write(sre.walk(mml));
+    });
 };
 
 // Implement Handlers:
