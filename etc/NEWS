@@ -41,4 +41,4 @@ Notebooks and Emacspeak.
 ** Mathematics On The Emacspeak Desktop 
 
 Module ~emacspeak-maths~ has been updated with the latest release of
-the ~Speech Rules Engine~ (SRE).
+the ~Speech Rules Engine~ (SRE) and now uses ~mathjax@3~.
