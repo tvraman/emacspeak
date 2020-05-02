@@ -35,13 +35,14 @@
 // Code:
 
 // Load the TCP Library
-var net = require('net');
+let net = require('net');
 
 // Initialize Math rendering system.
 
 let mjx = require('mathjax');
 let promise = mjx.init({loader: {load: ['input/tex']}});
-var sre = require('speech-rule-engine');
+
+let sre = require('speech-rule-engine');
 sre.setupEngine(
     {markup: 'acss', domain: 'emacspeak', rules: ['EmacspeakRules']});
 
