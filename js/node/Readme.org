@@ -17,8 +17,6 @@ First some terminology:
   - npm ::  Node Package Manager
   - node ::  Node executable 
 
-
-
 1. Install node and npm. You need a newer node than the default node (nodejs)
      installed in Ubuntu, use nvm (Node Version Manager) to manage the node installation. See
      file ~nvm-setup~ in this directory for instructions.
