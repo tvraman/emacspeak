@@ -5,13 +5,14 @@
 (defadvice outline-flag-region (around emacspeak pre act comp)
   "Reflect hide/show via property invisible as wel"
   (let  ((ems--voiceify-overlays  nil)
+         (beg (ad-get-arg 0))
+         (end (ad-get-arg 1))
          (inhibit-read-only t))
     ad-do-it
+    (when (zerop beg) (setq beg (point-min)))
     (with-silent-modifications
       (put-text-property
-       (ad-get-arg 0)
-       (ad-get-arg 1)
-       'invisible
+       beg end 'invisible
        (if (ad-get-arg 2) 'outline nil)))))
 
 ;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents  -*- lexical-binding: t; -*-
