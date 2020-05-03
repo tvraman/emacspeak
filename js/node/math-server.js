@@ -42,6 +42,7 @@ let net = require('net');
 let mjx = require('mathjax');
 let promise = mjx.init({loader: {load: ['input/tex']}});
 
+// Speech Rules Engine.
 let sre = require('speech-rule-engine');
 sre.setupEngine(
     {markup: 'acss', domain: 'emacspeak', rules: ['EmacspeakRules']});
