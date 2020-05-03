@@ -1,0 +1,44 @@
+#    -*- mode: org -*-
+'The enjoyment of one's tools is an essential ingredient of successful
+work.' -- Donald E. Knuth
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 52 --- Emacspeak 52 User Visible Changes
+
+This version requires Emacs-26.1 or later.
+
+** Emacs Chess 
+
+Module ~emacspeak-chess~ speech-enables package Chess with full
+audio-formatting support, and works consistently across different
+Chess Display types.
+
+
+** Vuiet --- Music Player And Explorer 
+
+Module ~emacspeak-vuiet~ speech-enables ~vuiet~,  a package that
+implements a last.fm powered music explorer and player.
+
+** Hacker News
+
+Smart URL templates for Hacker News Frontpage and Hacker News search feeds.
+
+** Emacs IPython Notebooks
+
+Module ~emacspeak-ein~ has been refreshed to speech-enable the latest
+version of package ~ein~.
+
+** Sage Notebooks 
+
+Sage Notebooks from Sage version 9 now work well with Emacs Ipython
+Notebooks and Emacspeak.
+
+
+** Mathematics On The Emacspeak Desktop 
+
+Module ~emacspeak-maths~ has been updated with the latest release of
+the ~Speech Rules Engine~ (SRE) and now uses ~mathjax@3~ --- Thanks Volker!
