@@ -5442,6 +5442,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-seek-absolute (pos)
 
      Seek  to absolute specified pos in seconds.
+     The time position can also be specified as HH:MM:SS.
 
      (fn POS)
 
@@ -5460,6 +5461,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
  -- Command: emacspeak-m-player-seek-relative (offset)
 
      Seek  by offset into stream from current position.
+     Time offset can be specified as a number of seconds, or as HH:MM:SS.
 
      (fn OFFSET)
 
@@ -6265,14 +6267,14 @@ and backward-page can be used to move through each chunk of output.
 
  -- Command: emacspeak-maths-depth
 
-     Move depth in current Math expression.
+     Move depth in current Math expression. (auto-generated)
 
 12.126.4.2 emacspeak-maths-down
 ...............................
 
  -- Command: emacspeak-maths-down
 
-     Move down in current Math expression.
+     Move down in current Math expression. (auto-generated)
 
 12.126.4.3 emacspeak-maths-enter
 ................................
@@ -6292,42 +6294,49 @@ and backward-page can be used to move through each chunk of output.
      Send the guessed  LaTeX expression to Maths server.
      Guess is based on context.
 
-12.126.4.5 emacspeak-maths-left
+12.126.4.5 emacspeak-maths-flush-output
+.......................................
+
+ -- Command: emacspeak-maths-flush-output
+
+     Flush client buffer if things go out of sync.
+
+12.126.4.6 emacspeak-maths-left
 ...............................
 
  -- Command: emacspeak-maths-left
 
-     Move left in current Math expression.
+     Move left in current Math expression. (auto-generated)
 
-12.126.4.6 emacspeak-maths-restart
+12.126.4.7 emacspeak-maths-restart
 ..................................
 
  -- Command: emacspeak-maths-restart
 
      Restart Node math-server if running. Otherwise starts a new one.
 
-12.126.4.7 emacspeak-maths-right
+12.126.4.8 emacspeak-maths-right
 ................................
 
  -- Command: emacspeak-maths-right
 
-     Move right in current Math expression.
+     Move right in current Math expression. (auto-generated)
 
-12.126.4.8 emacspeak-maths-root
+12.126.4.9 emacspeak-maths-root
 ...............................
 
  -- Command: emacspeak-maths-root
 
-     Move root in current Math expression.
+     Move root in current Math expression. (auto-generated)
 
-12.126.4.9 emacspeak-maths-shutdown
-...................................
+12.126.4.10 emacspeak-maths-shutdown
+....................................
 
  -- Command: emacspeak-maths-shutdown
 
      Shutdown client and server processes.
 
-12.126.4.10 emacspeak-maths-speak-alt
+12.126.4.11 emacspeak-maths-speak-alt
 .....................................
 
  -- Command: emacspeak-maths-speak-alt
@@ -6335,7 +6344,7 @@ and backward-page can be used to move through each chunk of output.
      Speak alt text as Maths.
      For use on Wikipedia pages  for example.
 
-12.126.4.11 emacspeak-maths-spoken-mode
+12.126.4.12 emacspeak-maths-spoken-mode
 .......................................
 
  -- Command: emacspeak-maths-spoken-mode
@@ -6362,26 +6371,26 @@ and backward-page can be used to move through each chunk of output.
      this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.126.4.12 emacspeak-maths-start
+12.126.4.13 emacspeak-maths-start
 .................................
 
  -- Command: emacspeak-maths-start
 
      Start Maths server bridge.
 
-12.126.4.13 emacspeak-maths-switch-to-output
+12.126.4.14 emacspeak-maths-switch-to-output
 ............................................
 
  -- Command: emacspeak-maths-switch-to-output
 
      Switch to output buffer.
 
-12.126.4.14 emacspeak-maths-up
+12.126.4.15 emacspeak-maths-up
 ..............................
 
  -- Command: emacspeak-maths-up
 
-     Move up in current Math expression.
+     Move up in current Math expression. (auto-generated)
 
 12.126.5 emacspeak-maths Options
 --------------------------------
@@ -6785,6 +6794,7 @@ binds ‘s’ to this command.
      "SPC":    ‘emacspeak-maths-enter’,
      "a":    ‘emacspeak-maths-speak-alt’,
      "d":    ‘emacspeak-maths-depth’,
+     "r":    ‘emacspeak-maths-root’,
      "<up>":    ‘emacspeak-maths-up’,
      "<down>":    ‘emacspeak-maths-down’,
      "<left>":    ‘emacspeak-maths-left’,
@@ -7024,8 +7034,6 @@ binds ‘s’ to this command.
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
-     ‘C-; v’
-     ‘C-x @ h v’
 
      Call the body in the "emacspeak-muggles-vuiet" hydra.
 
@@ -8991,50 +8999,4 @@ with user defined pairs this module speech-enables smartparens.
 Insertion of a matching delimiter is indicated by a short auditory icon.
 Structured navigation speaks the current line with the position of point
 aurally highlighted.
-
-
-File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-smartparens,  Up: Emacspeak Commands And Options
-
-12.180 emacspeak-solitaire
-==========================
-
-Auditory interface to solitaire
-
-12.180.1 Emacspeak-Solitaire Commands
--------------------------------------
-
-12.180.1.1 emacspeak-solitaire-show-column
-..........................................
-
- -- Command: emacspeak-solitaire-show-column
-
-     Audio format current column.
-
-12.180.1.2 emacspeak-solitaire-show-row
-.......................................
-
- -- Command: emacspeak-solitaire-show-row
-
-     Audio format current row.
-
-12.180.1.3 emacspeak-solitaire-speak-coordinates
-................................................
-
- -- Command: emacspeak-solitaire-speak-coordinates
-
-     Speak coordinates of current position
-
-12.180.1.4 emacspeak-solitaire-speak-row
-........................................
-
- -- Command: emacspeak-solitaire-speak-row
-
-     Speak current row.
-
-12.180.1.5 emacspeak-solitaire-speak-stones
-...........................................
-
- -- Command: emacspeak-solitaire-speak-stones
-
-     Speak number of stones remaining.
 

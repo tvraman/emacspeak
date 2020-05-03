@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1261 commands and 916 options.
+This chapter documents a total of 1262 commands and 916 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1532,7 +1532,6 @@ r		org-capture
 s		emacspeak-wizards-shell
 t		twit
 u		list-unicode-display
-v		emacspeak-muggles-vuiet/body
 w		emacspeak-wizards-noaa-weather
 y		yas-expand
 
@@ -11827,6 +11826,7 @@ Scale speed by specified factor.
 
 @format
 Seek  to absolute specified pos in seconds.
+The time position can also be specified as HH:MM:SS.
 
 (fn POS)
 @end format
@@ -11849,6 +11849,7 @@ Seek  to absolute specified pos in percent.
 
 @format
 Seek  by offset into stream from current position.
+Time offset can be specified as a number of seconds, or as HH:MM:SS.
 
 (fn OFFSET)
 @end format
@@ -12802,7 +12803,7 @@ used to move through each chunk of output.
 @findex emacspeak-maths-depth
 
 @format
-Move depth in current Math expression.
+Move depth in current Math expression. (auto-generated)
 @end format
 @end deffn
 
@@ -12811,7 +12812,7 @@ Move depth in current Math expression.
 @findex emacspeak-maths-down
 
 @format
-Move down in current Math expression.
+Move down in current Math expression. (auto-generated)
 @end format
 @end deffn
 
@@ -12837,12 +12838,21 @@ Guess is based on context.
 @end format
 @end deffn
 
+@subsubsection emacspeak-maths-flush-output
+@deffn {Command} emacspeak-maths-flush-output   
+@findex emacspeak-maths-flush-output
+
+@format
+Flush client buffer if things go out of sync.
+@end format
+@end deffn
+
 @subsubsection emacspeak-maths-left
 @deffn {Command} emacspeak-maths-left   
 @findex emacspeak-maths-left
 
 @format
-Move left in current Math expression.
+Move left in current Math expression. (auto-generated)
 @end format
 @end deffn
 
@@ -12860,7 +12870,7 @@ Restart Node math-server if running. Otherwise starts a new one.
 @findex emacspeak-maths-right
 
 @format
-Move right in current Math expression.
+Move right in current Math expression. (auto-generated)
 @end format
 @end deffn
 
@@ -12869,7 +12879,7 @@ Move right in current Math expression.
 @findex emacspeak-maths-root
 
 @format
-Move root in current Math expression.
+Move root in current Math expression. (auto-generated)
 @end format
 @end deffn
 
@@ -12944,7 +12954,7 @@ Switch to output buffer.
 @findex emacspeak-maths-up
 
 @format
-Move up in current Math expression.
+Move up in current Math expression. (auto-generated)
 @end format
 @end deffn
 
@@ -13394,6 +13404,7 @@ The heads for the associated hydra are:
 "SPC":    ‘emacspeak-maths-enter’,
 "a":    ‘emacspeak-maths-speak-alt’,
 "d":    ‘emacspeak-maths-depth’,
+"r":    ‘emacspeak-maths-root’,
 "<up>":    ‘emacspeak-maths-up’,
 "<down>":    ‘emacspeak-maths-down’,
 "<left>":    ‘emacspeak-maths-left’,
@@ -13663,13 +13674,6 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 @subsubsection emacspeak-muggles-vuiet/body
 @deffn {Command} emacspeak-muggles-vuiet/body   
-@table @kbd
-@item C-; v
-@kindex C-; v
-@item C-x @@ h v
-@kindex C-x @@ h v
-@end table
-
 @findex emacspeak-muggles-vuiet/body
 
 @format
