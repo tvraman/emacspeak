@@ -155,11 +155,12 @@ This is set to nil when playing Internet  streams.")
   (cl-declare (special emacspeak-m-player-process))
   (cond
    ((eq 'run (process-status emacspeak-m-player-process))
-    (let ((info (emacspeak-m-player-get-position)))
+    (let ((info (emacspeak-m-player-get-position))
+          (dtk-split-caps t))
       (when info 
         (put-text-property 0 (length (cl-first info))
                            'personality 'voice-smoothen (cl-first info) )
-        (dtk-speak-and-echo
+        (dtk-notify-speak
          (concat
           (cl-second info) " : "
           (ems--seconds-string-to-duration (cl-first info))
