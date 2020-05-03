@@ -142,6 +142,14 @@ This is set to nil when playing Internet  streams.")
       (format-seconds "%.2h:%.2m:%.2s%z" v))
      (t sec))))
 
+(defsubst ems--duration-to-seconds (d)
+  "Convert hh:mm:ss to seconds."
+  (let ((v (mapcar #'car (mapcar #'read-from-string (split-string d ":")))))
+    (+
+     (* 3600 (cl-first v))
+     (* 60 (cl-second v))
+     (cl-third v))))
+
 (defun emacspeak-m-player-mode-line ()
   "Meaningful mode-line for *M-Player* buffers."
   (cl-declare (special emacspeak-m-player-process))
@@ -709,12 +717,14 @@ This affects pitch."
    (format "alt_src_step %s" step)))
 
 (defun emacspeak-m-player-seek-relative (offset)
-  "Seek  by offset into stream from current position."
+  "Seek  by offset into stream from current position.
+Time offset can be specified as a number of seconds, or as HH:MM:SS."
   (interactive
    (list
     (read-from-minibuffer "Offset: ")))
-  (emacspeak-m-player-dispatch
-   (format "seek %s" offset)))
+  (when (string-match ":" offset)
+(setq offset (ems--duration-to-seconds offset)))
+  (emacspeak-m-player-dispatch (format "seek %s" offset)))
 
 (defun emacspeak-m-player-seek-percentage (pos)
   "Seek  to absolute specified pos in percent."
@@ -725,12 +735,14 @@ This affects pitch."
    (format "seek %s 1" pos)))
 
 (defun emacspeak-m-player-seek-absolute (pos)
-  "Seek  to absolute specified pos in seconds."
+  "Seek  to absolute specified pos in seconds.
+The time position can also be specified as HH:MM:SS."
   (interactive
    (list
     (read-from-minibuffer "Seek to pos in seconds: ")))
-  (emacspeak-m-player-dispatch
-   (format "seek %s 2" pos)))
+  (when (string-match ":" pos)
+    (setq pos (ems--duration-to-seconds pos)))
+  (emacspeak-m-player-dispatch (format "seek %s 2" pos)))
 
 (defun emacspeak-m-player-beginning-of-track()
   "Move to beginning of track."
@@ -1854,3 +1866,4 @@ Check first if current buffer is in emacspeak-m-player-mode."
 ;;; end:
 
 ;;}}}
+pushd ~/
