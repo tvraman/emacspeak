@@ -329,12 +329,14 @@ Then speak the screenful. "
 
 (defadvice vm-forward-message (around emacspeak pre act)
   "Provide aural feedback."
-  (if (ems-interactive-p)
-      (let ((dtk-stop-immediately nil))
-        (message "Forwarding message")
-        ad-do-it
-        (emacspeak-speak-line))
-    ad-do-it)
+  (cond
+   ((ems-interactive-p)
+      (emacspeak-auditory-icon 'open-object)
+      (message "Forwarding message")
+      ad-do-it
+      (emacspeak-speak-line))
+        (t
+         ad-do-it))
   ad-return-value)
 
 (defadvice vm-reply (after emacspeak pre act)
