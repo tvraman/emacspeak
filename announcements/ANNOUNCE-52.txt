@@ -127,7 +127,7 @@ The latest development snapshot of Emacspeak is always available at
 * History:
 
   - Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a pleasurable experience.
-  - Gigger and more powerful than any smart assistAnt, AssistDog provides
+  - Bigger and more powerful than any smart assistAnt, AssistDog provides
 instant access to the most relevant information at all times.
   - Emacspeak 50.0 (SageDog) embraces the wisdom of stability as
     opposed to rapid change and the concomitant  creation of bugs.🚭:  Naturally Intelligent (NI)™ at how information is spoken, Emacspeak
