@@ -90,7 +90,7 @@ property 'emacspeak on the function."
       (setq ems-called-interactively-p (ad-get-arg 0)))
     ad-do-it))
 
-(defun ems-interactive-p ()
+(defsubst ems-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
@@ -105,7 +105,7 @@ interactive command. Turn off the flag once used."
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
 
-(defun ems-debug-interactive-p ()
+(defsubst ems-debug-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
