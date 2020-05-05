@@ -61,10 +61,12 @@ COMPILE =  -f batch-byte-compile
 
 #The various modules:
 TTS_OBJECTS = acss-structure.elc \
+dtk-interp.elc dtk-unicode.elc \
 dtk-speak.elc		dectalk-voices.elc\
-tts.elc tts-cmds.elc  plain-voices.elc espeak-voices.elc \
-outloud-voices.elc  mac-voices.elc\
-dtk-interp.elc dtk-unicode.elc
+tts.elc tts-cmds.elc  \
+plain-voices.elc espeak-voices.elc \
+outloud-voices.elc  mac-voices.elc
+
 
 SPEAK_OBJECTS =   \
 emacspeak-speak.elc  \
@@ -72,7 +74,6 @@ emacspeak-prompts.elc \
 emacspeak-actions.elc \
 voice-setup.elc \
 emacspeak-personality.elc \
-emacspeak-popup.elc \
 emacspeak-pronounce.elc \
 emacspeak-sounds.elc
 
@@ -217,6 +218,7 @@ emacspeak-origami.elc \
 emacspeak-npr.elc \
 emacspeak-nxml.elc \
 emacspeak-outline.elc \
+emacspeak-popup.elc \
 emacspeak-package.elc \
 emacspeak-paradox.elc \
 emacspeak-perl.elc \
