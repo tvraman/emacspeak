@@ -368,7 +368,9 @@ emacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 nm.elc: nm.el
 amixer.elc: amixer.el
-emacspeak-actions.elc: emacspeak-actions.el
+
+# Core Modules 
+emacspeak-actions.elc: emacspeak-actions.el dtk-speak.elc
 emacspeak-abc-mode.elc: emacspeak-abc-mode.el dtk-speak.elc 
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
@@ -594,7 +596,7 @@ emacspeak-yasnippet.elc: emacspeak-yasnippet.el dtk-speak.elc
 
 emacspeak.elc: emacspeak.el
 emacspeak-setup.elc: emacspeak-setup.el
-loaddefs: emacspeak-loaddefs.elc
+loaddefs: emacspeak-loaddefs.el
 
 # }}}
 # {{{Development  target: indent, tags, relint 
