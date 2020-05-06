@@ -42,7 +42,7 @@ let net = require('net');
 let mjx = require('mathjax-full');
 let promise = mjx.init(
   {loader: {paths: {sre: 'mathjax-full/js/a11y/sre-node'},
-            load: ['input/tex-full', 'a11y/semantic-enrich']}});
+            load: ['input/tex-full', 'output/svg', 'a11y/semantic-enrich']}});
 
 // Speech Rules Engine.
 sre.setupEngine(
