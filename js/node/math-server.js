@@ -39,11 +39,12 @@ let net = require('net');
 
 // Initialize Math rendering system.
 
-let mjx = require('mathjax');
-let promise = mjx.init({loader: {load: ['input/tex']}});
+let mjx = require('mathjax-full');
+let promise = mjx.init(
+  {loader: {paths: {sre: 'mathjax-full/js/a11y/sre-node'},
+            load: ['input/tex-full', 'a11y/semantic-enrich']}});
 
 // Speech Rules Engine.
-let sre = require('speech-rule-engine');
 sre.setupEngine(
     {markup: 'acss', domain: 'emacspeak', rules: ['EmacspeakRules']});
 

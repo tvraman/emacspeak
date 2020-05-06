@@ -338,7 +338,7 @@ left for next run."
   (let ((server
          (make-comint
           "Server-Maths" emacspeak-maths-inferior-program nil
-          emacspeak-maths-server-program))
+          "-r" "esm" emacspeak-maths-server-program))
         (client nil))
     (accept-process-output (get-buffer-process server) 1.0 nil 'just-this-one)
     (setq client
