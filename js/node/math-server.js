@@ -40,7 +40,7 @@ let net = require('net');
 // Initialize Math rendering system.
 
 let mjx = require('mathjax');
-let promise = mjx.init({loader: {load: ['input/tex']}});
+let promise = mjx.init({loader: {load: ['input/tex-full', 'output/svg']}});
 
 // Speech Rules Engine.
 let sre = require('speech-rule-engine');
