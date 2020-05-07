@@ -32,5 +32,5 @@ make config && make
 #Run out of this directory.
 # Default to using  espeak unless DTK_PROGRAM is set.
 #
-:${DTK_PROGRAM} ? "Using ${DTK_PROGRAM}" : export DTK_PROGRAM="espeak"
+export DTK_PROGRAM="espeak"
 emacs -q -l ./lisp/emacspeak-setup.el -l $HOME/.emacs
