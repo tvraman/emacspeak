@@ -47,6 +47,7 @@
 
 (require 'cl-lib)
 (require 'autoload)
+(require 'cus-dep)
 ;;}}}
 ;;{{{ Variables
 
