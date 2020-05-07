@@ -215,7 +215,7 @@
 ;;}}}
 ;;{{{ EPub Implementation:
 ;;; Helper: dom from file in archive
-(defsubst ems--dom-from-archive (epub-file file &optional xml-p)
+(defsubst emacspeak-epub-dom-from-archive (epub-file file &optional xml-p)
   "Return DOM from specified file in epub archive."
   (cl-declare (special emacspeak-epub-zip-extract))
   (with-temp-buffer
@@ -337,7 +337,7 @@
         (author nil))
     (unless (> (length opf) 0) (error "No Package --- Not a valid EPub?"))
     (unless (> (length toc) 0) (error "No TOC --- Not a valid EPub?"))
-    (setq opf-dom (ems--dom-from-archive path opf 'xml))
+    (setq opf-dom (emacspeak-epub-dom-from-archive path opf 'xml))
     (setq title (dom-text (dom-by-tag  opf-dom 'title))
           author (dom-text (dom-by-tag  opf-dom 'creator)))
     (when (zerop (length author)) (setq author "Unknown"))
@@ -895,7 +895,7 @@ in the epub file instead."
      for f in
      (if broken-ncx html navs)
      do
-     (setq dom (ems--dom-from-archive epub-file f))
+     (setq dom (emacspeak-epub-dom-from-archive epub-file f))
      (with-current-buffer eww-epub
        (setq buffer-undo-list t)
        (shr-insert-document (dom-by-tag dom 'body))))
