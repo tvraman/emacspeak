@@ -65,11 +65,7 @@ Emacspeak.")
 ;;{{{ generate autoloads
 
 (defvar emacspeak-update-autoloads-from-directories
-  (cond
-   ((fboundp 'update-autoloads-from-directories)
-    'update-autoloads-from-directories)
-   ((fboundp  'update-directory-autoloads)
-    'update-directory-autoloads))
+    'update-directory-autoloads
   "Function used to extract autoloads.")
 
 (defun emacspeak-auto-generate-autoloads ()
