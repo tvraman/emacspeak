@@ -64,18 +64,12 @@ Emacspeak.")
 ;;}}}
 ;;{{{ generate autoloads
 
-(defvar emacspeak-update-autoloads-from-directories
-    'update-directory-autoloads
-  "Function used to extract autoloads.")
-
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
-  (cl-declare (special  emacspeak-auto-autoloads-file
-                        emacspeak-update-autoloads-from-directories emacspeak-lisp-directory))
+  (cl-declare (special  emacspeak-auto-autoloads-file emacspeak-lisp-directory))
   (let ((dtk-quiet t)
         (generated-autoload-file emacspeak-auto-autoloads-file))
-    (funcall emacspeak-update-autoloads-from-directories
-             emacspeak-lisp-directory)))
+    (update-directory-autoloads emacspeak-lisp-directory)))
 
 ;;}}}
 ;;{{{ custom dependencies:
