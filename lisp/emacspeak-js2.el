@@ -74,6 +74,15 @@
 
 ;;}}}
 ;;{{{ Advice new interactive commands:
+(defadvice js2-jump-to-definition (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (let ((emacspeak-show-point  t))
+      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-speak-line))
+    ))
+
+
 (defadvice js2-mark-defun  (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
