@@ -57,6 +57,9 @@
 
 (voice-setup-add-map
  '(
+   (js2-function-call  voice-annotate)
+   (js2-object-property  voice-smoothen)
+   (js2-object-property-access voice-lighten)
    (js2-error voice-bolden-extra)
    (js2-external-variable voice-animate) 
    (js2-function-param voice-lighten-extra)
