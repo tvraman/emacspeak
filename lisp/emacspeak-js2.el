@@ -99,8 +99,10 @@
           `(defadvice ,f (after emacspeak pre act comp)
              "Provide auditory feedback."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'large-movement)
-               (emacspeak-speak-line)))))
+               (let ((emacspeak-show-point t))
+                 (emacspeak-auditory-icon 'large-movement)
+                 (emacspeak-speak-line))))))
+
 (cl-loop for f in
          '(
            js2-beginning-of-line js2-indent-line
