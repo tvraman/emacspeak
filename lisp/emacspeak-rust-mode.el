@@ -39,7 +39,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Speech-enable rust-mode 
+;;; Speech-enable rust-mode
 
 ;;; Code:
 
@@ -53,29 +53,15 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
-'(
-(rust-builtin-formatting-macro-face voice-lighten)
-(rust-question-mark-face voice-smoothen)
-(rust-string-interpolation-face voice-lighten-medium)
-(rust-unsafe-face voice-animate)))
+(voice-setup-add-map
+ '(
+   (rust-builtin-formatting-macro-face voice-lighten)
+   (rust-question-mark-face voice-smoothen)
+   (rust-string-interpolation-face voice-lighten-medium)
+   (rust-unsafe-face voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
-'(
-
-rust-format-diff-buffer
-rust-goto-format-problem
-rust-mode
-rust-mode-indent-line
-rust-mode-reload
-rust-playpen-buffer
-rust-playpen-region
-rust-promote-module-into-dir
-rust-run
-rust-run-clippy
-rust-test
-)
 
 (defadvice rust-dbg-wrap-or-unwrap (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -86,16 +72,14 @@ rust-test
 (defadvice rust-format-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
-    ))
+    (emacspeak-auditory-icon 'task-done)))
 
-(defadvice rust-format-goto-problem (after emacspeak pre act comp)
+(defadvice rust-goto-format-problem (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'large-movement))
-    ))
+      (emacspeak-auditory-icon 'large-movement))))
 
 (defadvice rust-enable-format-on-save (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -110,10 +94,8 @@ rust-test
     (emacspeak-auditory-icon 'off)
     (dtk-notify-say "Disabled format on save")))
 
-
-
 (cl-loop
- for f in 
+ for f in
  '(rust-beginning-of-defun rust-end-of-defun)
  do
  (eval
@@ -122,7 +104,6 @@ rust-test
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
-
 
 ;;}}}
 (provide 'emacspeak-rust-mode)
