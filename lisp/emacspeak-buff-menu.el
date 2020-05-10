@@ -105,7 +105,7 @@
         (when this-buffer-modified-p (emacspeak-auditory-icon 'modified-object))
         (when this-buffer-read-only (emacspeak-auditory-icon 'unmodified-object))
         (dtk-speak
-         (format  "%s a %s  document  %s with size  %s"
+         (format  "%s a %s  buffer  %s with size  %s"
                   name this-buffer-mode-name
                   (if (or file this-buffer-directory)
                       (format "visiting %s"
