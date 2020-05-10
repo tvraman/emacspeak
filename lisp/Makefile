@@ -85,6 +85,7 @@ emacspeak-keymap.elc\
 emacspeak-fix-interactive.elc\
 emacspeak-re-builder.elc \
 emacspeak-rg.elc \
+emacspeak-rust-mode.elc \
 emacspeak-redefine.elc\
 emacspeak-table.elc \
 emacspeak-table-ui.elc \
@@ -520,6 +521,7 @@ emacspeak-elpy.elc: emacspeak-elpy.el dtk-speak.elc
 emacspeak-pydoc.elc: emacspeak-pydoc.el dtk-speak.elc
 emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
 emacspeak-rg.elc: emacspeak-rg.el dtk-speak.elc voice-setup.elc
+emacspeak-rust-mode.elc: emacspeak-rust-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-redefine.elc: emacspeak-redefine.el  dtk-speak.elc voice-setup.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
 emacspeak-rst.elc: emacspeak-rst.el dtk-speak.elc voice-setup.elc

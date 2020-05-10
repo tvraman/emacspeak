@@ -282,6 +282,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "racket-mode" 'emacspeak-racket)
 (emacspeak-do-package-setup "re-builder" 'emacspeak-re-builder)
 (emacspeak-do-package-setup "rg" 'emacspeak-rg)
+(emacspeak-do-package-setup "rust-mode" 'emacspeak-rust-mode)
 (emacspeak-do-package-setup "reftex" 'emacspeak-reftex)
 (emacspeak-do-package-setup "rst" 'emacspeak-rst)
 (emacspeak-do-package-setup "related" 'emacspeak-related)
