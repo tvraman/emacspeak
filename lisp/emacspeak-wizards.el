@@ -2846,6 +2846,17 @@ mapped to voices."
     (setenv "PATH" result)
     (message (setenv "PATH" result))))
 
+(defun emacspeak-wizards-exec-path-from-shell ()
+  "Update exec-path from shell path."
+  (interactive)
+  (emacspeak-wizards-cleanup-shell-path)
+  (let ((dirs (split-string (getenv "PATH") ":"))
+        (updated (copy-sequence exec-path)))
+    (cl-loop
+     for d in dirs do
+     (cl-pushnew d updated))
+    (setq exec-path updated)))
+
 ;;}}}
 ;;{{{ Run shell command on current file:
 
