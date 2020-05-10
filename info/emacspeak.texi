@@ -30,6 +30,9 @@ notice are preserved on all copies.
 
 @end titlepage
 
+This manual documents @strong{Emacspeak, The Complete Audio Desktop}
+and  was last updated on @today{}.
+
 @summarycontents
 @contents
 

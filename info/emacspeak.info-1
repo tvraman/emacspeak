@@ -11,16 +11,16 @@ START-INFO-DIR-ENTRY
 * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 END-INFO-DIR-ENTRY
 
+This manual documents *Emacspeak, The Complete Audio Desktop* and was
+last updated on May 10, 2020.
+
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
 
 Emacspeak
 *********
 
-This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 10, 2020.
-
-   The manual is divided into the following chapters:
+The manual is divided into the following chapters:
 
 * Menu:
 

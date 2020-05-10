@@ -11,6 +11,9 @@ START-INFO-DIR-ENTRY
 * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
 END-INFO-DIR-ENTRY
 
+This manual documents *Emacspeak, The Complete Audio Desktop* and was
+last updated on May 10, 2020.
+
 
 File: emacspeak.info,  Node: emacspeak-smart-window,  Next: emacspeak-smartparens,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
 
