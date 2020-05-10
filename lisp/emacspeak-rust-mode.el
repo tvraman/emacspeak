@@ -63,11 +63,7 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 '(
-rust-compile
-rust-dbg-wrap-or-unwrap
-rust-disable-format-on-save
-rust-enable-format-on-save
-rust-format-buffer
+
 rust-format-diff-buffer
 rust-goto-format-problem
 rust-mode
@@ -80,6 +76,40 @@ rust-run
 rust-run-clippy
 rust-test
 )
+
+(defadvice rust-dbg-wrap-or-unwrap (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-line)))
+
+(defadvice rust-format-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    ))
+
+(defadvice rust-format-goto-problem (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))
+    ))
+
+(defadvice rust-enable-format-on-save (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'on)
+    (dtk-notify-say "Enabled format on save")
+    ))
+
+(defadvice rust-disable-format-on-save (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'off)
+    (dtk-notify-say "Disabled format on save")))
+
 
 
 (cl-loop
