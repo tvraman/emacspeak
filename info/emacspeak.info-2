@@ -12,6 +12,24 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
+
+12.37 emacspeak-ciel
+====================
+
+Package ciel provides vim’s "copy inside" and "clear inside" commands.
+Emacspeak binds these commands to <Super i> and <Super o>.  This module
+speech-enables ciel.
+
+
+File: emacspeak.info,  Node: emacspeak-clojure,  Next: emacspeak-cmuscheme,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
+
+12.38 emacspeak-clojure
+=======================
+
+CLOJURE-mode: Specialized mode for Clojure programming.
+
+
 File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-clojure,  Up: Emacspeak Commands And Options
 
 12.39 emacspeak-cmuscheme
@@ -8787,7 +8805,7 @@ rst-mode.
      voice-lighten-settings.
 
 
-File: emacspeak.info,  Node: emacspeak-ruby,  Next: emacspeak-sage,  Prev: emacspeak-rst,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-ruby,  Next: emacspeak-rust-mode,  Prev: emacspeak-rst,  Up: Emacspeak Commands And Options
 
 12.169 emacspeak-ruby
 =====================
@@ -8795,19 +8813,27 @@ File: emacspeak.info,  Node: emacspeak-ruby,  Next: emacspeak-sage,  Prev: emacs
 Provide additional advice to Ruby mode
 
 
-File: emacspeak.info,  Node: emacspeak-sage,  Next: emacspeak-ses,  Prev: emacspeak-ruby,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-rust-mode,  Next: emacspeak-sage,  Prev: emacspeak-ruby,  Up: Emacspeak Commands And Options
 
-12.170 emacspeak-sage
+12.170 emacspeak-rust-mode
+==========================
+
+Speech-enable rust-mode
+
+
+File: emacspeak.info,  Node: emacspeak-sage,  Next: emacspeak-ses,  Prev: emacspeak-rust-mode,  Up: Emacspeak Commands And Options
+
+12.171 emacspeak-sage
 =====================
 
 Speech-enable ‘sage-shell-mode’.  This is a major mode for interacting
 with ‘sage’, <http://www.sagemath.org/> An Open-source Mathematical
 Software System.
 
-12.170.1 Emacspeak-Sage Commands
+12.171.1 Emacspeak-Sage Commands
 --------------------------------
 
-12.170.1.1 emacspeak-sage-describe-symbol
+12.171.1.1 emacspeak-sage-describe-symbol
 .........................................
 
  -- Command: emacspeak-sage-describe-symbol (s)
@@ -8816,21 +8842,21 @@ Software System.
 
      (fn S)
 
-12.170.1.2 emacspeak-sage-get-output
+12.171.1.2 emacspeak-sage-get-output
 ....................................
 
  -- Command: emacspeak-sage-get-output
 
      Return most recent Sage output
 
-12.170.1.3 emacspeak-sage-get-output-as-latex
+12.171.1.3 emacspeak-sage-get-output-as-latex
 .............................................
 
  -- Command: emacspeak-sage-get-output-as-latex
 
      Return most recent Sage output as LaTeX markup.
 
-12.170.1.4 emacspeak-sage-speak-output
+12.171.1.4 emacspeak-sage-speak-output
 ......................................
 
  -- Command: emacspeak-sage-speak-output
@@ -8840,44 +8866,44 @@ Software System.
 
 File: emacspeak.info,  Node: emacspeak-ses,  Next: emacspeak-setup,  Prev: emacspeak-sage,  Up: Emacspeak Commands And Options
 
-12.171 emacspeak-ses
+12.172 emacspeak-ses
 ====================
 
 ses implements a simple spread sheet and is part of Emacs This module
 speech-enables ses
 
-12.171.1 Emacspeak-Ses Commands
+12.172.1 Emacspeak-Ses Commands
 -------------------------------
 
-12.171.1.1 emacspeak-ses-backward-column-and-summarize
+12.172.1.1 emacspeak-ses-backward-column-and-summarize
 ......................................................
 
  -- Command: emacspeak-ses-backward-column-and-summarize
 
      Move to previous column and summarize.
 
-12.171.1.2 emacspeak-ses-backward-row-and-summarize
+12.172.1.2 emacspeak-ses-backward-row-and-summarize
 ...................................................
 
  -- Command: emacspeak-ses-backward-row-and-summarize
 
      Move to previous row  and summarize.
 
-12.171.1.3 emacspeak-ses-forward-column-and-summarize
+12.172.1.3 emacspeak-ses-forward-column-and-summarize
 .....................................................
 
  -- Command: emacspeak-ses-forward-column-and-summarize
 
      Move to next column and summarize.
 
-12.171.1.4 emacspeak-ses-forward-row-and-summarize
+12.172.1.4 emacspeak-ses-forward-row-and-summarize
 ..................................................
 
  -- Command: emacspeak-ses-forward-row-and-summarize
 
      Move to next row and summarize.
 
-12.171.1.5 emacspeak-ses-summarize-cell
+12.172.1.5 emacspeak-ses-summarize-cell
 .......................................
 
  -- Command: emacspeak-ses-summarize-cell (cell-name)
@@ -8886,7 +8912,7 @@ speech-enables ses
 
      (fn CELL-NAME)
 
-12.171.1.6 emacspeak-ses-summarize-current-cell
+12.172.1.6 emacspeak-ses-summarize-current-cell
 ...............................................
 
  -- Command: emacspeak-ses-summarize-current-cell (&rest ignore)
@@ -8898,7 +8924,7 @@ speech-enables ses
 
 File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev: emacspeak-ses,  Up: Emacspeak Commands And Options
 
-12.172 emacspeak-setup
+12.173 emacspeak-setup
 ======================
 
 Entry point for Emacspeak.  The simplest and most basic way to start
@@ -8908,7 +8934,7 @@ has been verified to work, You can add (load-library "emacspeak-setup")
 To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
 repository for my setup.
 
-12.172.1 emacspeak-setup Options
+12.173.1 emacspeak-setup Options
 --------------------------------
 
  -- Variable: User Option dtk-startup-hook
@@ -8927,7 +8953,7 @@ repository for my setup.
 
 File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
 
-12.173 emacspeak-sgml-mode
+12.174 emacspeak-sgml-mode
 ==========================
 
 emacspeak extensions to sgml mode
@@ -8935,7 +8961,7 @@ emacspeak extensions to sgml mode
 
 File: emacspeak.info,  Node: emacspeak-sh-script,  Next: emacspeak-shx,  Prev: emacspeak-sgml-mode,  Up: Emacspeak Commands And Options
 
-12.174 emacspeak-sh-script
+12.175 emacspeak-sh-script
 ==========================
 
 This module speech-enables sh-script.el
@@ -8943,7 +8969,7 @@ This module speech-enables sh-script.el
 
 File: emacspeak.info,  Node: emacspeak-shx,  Next: emacspeak-sigbegone,  Prev: emacspeak-sh-script,  Up: Emacspeak Commands And Options
 
-12.175 emacspeak-shx
+12.176 emacspeak-shx
 ====================
 
 SHX == Shell Extras For emacs
@@ -8951,7 +8977,7 @@ SHX == Shell Extras For emacs
 
 File: emacspeak.info,  Node: emacspeak-sigbegone,  Next: emacspeak-slime,  Prev: emacspeak-shx,  Up: Emacspeak Commands And Options
 
-12.176 emacspeak-sigbegone
+12.177 emacspeak-sigbegone
 ==========================
 
 Speech-enables package sigbegone –voiceify sigs in email and news
@@ -8959,7 +8985,7 @@ Speech-enables package sigbegone –voiceify sigs in email and news
 
 File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-smart-window,  Prev: emacspeak-sigbegone,  Up: Emacspeak Commands And Options
 
-12.177 emacspeak-slime
+12.178 emacspeak-slime
 ======================
 
 SLIME == Superior Lisp Interaction Mode For Emacs Slime is a powerful
@@ -8967,7 +8993,7 @@ IDE for developing in Common Lisp and Clojure.  It’s similar but more
 modern than package ILisp that I used as a graduate student when
 developing AsTeR.
 
-12.177.1 emacspeak-slime Options
+12.178.1 emacspeak-slime Options
 --------------------------------
 
  -- Variable: User Option voice-slime-apropos-label
@@ -8979,24 +9005,4 @@ developing AsTeR.
      Personality used for slime-apropos-symbol This personality uses
      voice-monotone-light whose effect can be changed globally by
      customizing voice-monotone-light-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-smart-window,  Next: emacspeak-smartparens,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
-
-12.178 emacspeak-smart-window
-=============================
-
-SMART-WINDOW == Smart Window switching for Emacs
-
-
-File: emacspeak.info,  Node: emacspeak-smartparens,  Next: emacspeak-solitaire,  Prev: emacspeak-smart-window,  Up: Emacspeak Commands And Options
-
-12.179 emacspeak-smartparens
-============================
-
-SMARTPARENS == Automatic insertion, wrapping and paredit-like navigation
-with user defined pairs this module speech-enables smartparens.
-Insertion of a matching delimiter is indicated by a short auditory icon.
-Structured navigation speaks the current line with the position of point
-aurally highlighted.
 

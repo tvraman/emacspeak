@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 6, 2020.
+last updated on May 10, 2020.
 
    The manual is divided into the following chapters:
 
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1262 commands and 916 options.
+   This chapter documents a total of 1262 commands and 919 options.
 
 * Menu:
 
@@ -3063,6 +3063,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
+* emacspeak-rust-mode::Speech-enable RUST-MODE.
 * emacspeak-sage::Speech-enable SAGE.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak environment –loaded to start Emacspeak.
@@ -5377,6 +5378,11 @@ system.
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
 
+ -- Variable: User Option voice-js2-function-call
+     Personality used for js2-function-call This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
  -- Variable: User Option voice-js2-function-param
      Personality used for js2-function-param This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -5416,6 +5422,16 @@ system.
      Personality used for js2-magic-paren This personality uses
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
+
+ -- Variable: User Option voice-js2-object-property
+     Personality used for js2-object-property This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-js2-object-property-access
+     Personality used for js2-object-property-access This personality
+     uses voice-lighten whose effect can be changed globally by
+     customizing voice-lighten-settings.
 
  -- Variable: User Option voice-js2-private-function-call
      Personality used for js2-private-function-call This personality
@@ -7599,22 +7615,4 @@ Speech-Enable CIDER — Clojure IDE
      Personality used for cider-repl-stderr-facevoice-animate This
      personality uses nil whose effect can be changed globally by
      customizing nil-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
-
-12.37 emacspeak-ciel
-====================
-
-Package ciel provides vim’s "copy inside" and "clear inside" commands.
-Emacspeak binds these commands to <Super i> and <Super o>.  This module
-speech-enables ciel.
-
-
-File: emacspeak.info,  Node: emacspeak-clojure,  Next: emacspeak-cmuscheme,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
-
-12.38 emacspeak-clojure
-=======================
-
-CLOJURE-mode: Specialized mode for Clojure programming.
 

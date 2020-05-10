@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1262 commands and 916 options.
+This chapter documents a total of 1262 commands and 919 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -176,6 +176,7 @@ This chapter documents a total of 1262 commands and 916 options.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
+* emacspeak-rust-mode::Speech-enable RUST-MODE.
 * emacspeak-sage::Speech-enable SAGE.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak environment --loaded to start Emacspeak.
@@ -2974,6 +2975,12 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} voice-js2-function-call
+Personality used for js2-function-call
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
 @defvar {User Option} voice-js2-function-param
 Personality used for js2-function-param
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -3018,6 +3025,18 @@ This personality uses  voice-lighten-medium whose  effect can be changed globall
 
 @defvar {User Option} voice-js2-magic-paren
 Personality used for js2-magic-paren
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-js2-object-property
+Personality used for js2-object-property
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-js2-object-property-access
+Personality used for js2-object-property-access
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
@@ -15654,6 +15673,11 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @section emacspeak-ruby
 
 Provide additional advice to Ruby mode
+
+@node emacspeak-rust-mode
+@section emacspeak-rust-mode
+
+Speech-enable rust-mode
 
 @node emacspeak-sage
 @section emacspeak-sage
