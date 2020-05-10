@@ -73,9 +73,9 @@
 (defconst self-document-files
   (append
    (list "emacspeak-maths.el" "emacspeak-muggles.el")
-   (directory-files self-document-lisp-directory nil ".elc$")
+   (directory-files self-document-lisp-directory nil "\\.elc$")
    (directory-files (expand-file-name "g-client" self-document-lisp-directory)
-                    nil ".elc$"))
+                    nil "\\.elc$"))
   "List of elisp modules  to document.")
 (defvar emacspeak-muggles-activate-p t)
 (defvar self-document-fn-key
