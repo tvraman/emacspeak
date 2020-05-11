@@ -4397,6 +4397,7 @@ Play current video in ytel when called interactively."
    #'emacspeak-m-player-youtube-player
    (format emacspeak-wizards-yt-url-pattern id)))
 (when (locate-library "ytel")
+  (define-key  ytel-mode-map (kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
   (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
 
 ;;}}}
