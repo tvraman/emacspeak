@@ -461,6 +461,7 @@ relief."
     ("u" emacspeak-wizards-units)
     ("v" emacspeak-wizards-vc-viewer)
     ("|" emacspeak-wizards-squeeze-blanks)
+    ("y" ytel)
     ("" desktop-clear)) 
   "*Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x

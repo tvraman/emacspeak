@@ -4405,10 +4405,16 @@ Play current video in ytel when called interactively."
     (and (locate-library "ytel")
          (boundp 'ytel-mode-map)
          (keymapp ytel-mode-map))
-    
   (cl-declaim (special ytel-mode-map))
   (define-key  ytel-mode-map (kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
   (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
+
+
+(defadvice ytel (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'opten-object)
+    (emacspeak-speak-line)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
