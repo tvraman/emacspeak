@@ -4381,10 +4381,14 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
 
 ;;}}}
 ;;{{{ytel via invideous:
+(declare-function ytel-get-current-video "ytel" nil)
+(declare-function ytel-video-id "ytel" (cl-x))
+
 
 (defvar emacspeak-wizards-yt-url-pattern
   "https://www.youtube.com/watch?v=%s"
   "Youtube URL pattern.")
+
 (defun emacspeak-wizards-ytel-play-at-point (id)
   "Play video. Argument `id' is the video-id.
 Play current video in ytel when called interactively."
@@ -4396,7 +4400,9 @@ Play current video in ytel when called interactively."
   (funcall-interactively
    #'emacspeak-m-player-youtube-player
    (format emacspeak-wizards-yt-url-pattern id)))
+
 (when (locate-library "ytel")
+  (cl-declaim (special ytel-mode-map))
   (define-key  ytel-mode-map (kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
   (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
 
