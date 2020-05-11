@@ -4380,6 +4380,26 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
       (dtk-speak-list (list  .city .region_name)))))
 
 ;;}}}
+;;{{{ytel via invideous:
+
+(defvar emacspeak-wizards-yt-url-pattern
+  "https://www.youtube.com/watch?v=%s"
+  "Youtube URL pattern.")
+(defun emacspeak-wizards-ytel-play-at-point (id)
+  "Play video. Argument `id' is the video-id.
+Play current video in ytel when called interactively."
+  (interactive
+   (list (ytel-video-id (ytel-get-current-video))))
+  (cl-declare (special emacspeak-wizards-yt-url-pattern))
+  (or (require 'ytel 'no-error)
+      (error "Install package ytel from melpa."))
+  (funcall-interactively
+   #'emacspeak-m-player-youtube-player
+   (format emacspeak-wizards-yt-url-pattern id)))
+(when (locate-library "ytel")
+  (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
