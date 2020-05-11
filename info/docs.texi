@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1262 commands and 919 options.
+This chapter documents a total of 1264 commands and 919 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -22817,6 +22817,15 @@ Display list of open EWW buffers.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-exec-path-from-shell
+@deffn {Command} emacspeak-wizards-exec-path-from-shell   
+@findex emacspeak-wizards-exec-path-from-shell
+
+@format
+Update exec-path from shell path.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-execute-asynchronously
 @deffn {Command} emacspeak-wizards-execute-asynchronously  (key)
 @table @kbd
@@ -24260,6 +24269,18 @@ Symbols are separated by whitespace.
 @format
 Display quotes using YQL API.
 Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-ytel-play-at-point
+@deffn {Command} emacspeak-wizards-ytel-play-at-point  (id)
+@findex emacspeak-wizards-ytel-play-at-point
+
+@format
+Play video. Argument ‘id’ is the video-id.
+Play current video in ytel when called interactively.
+
+(fn ID)
 @end format
 @end deffn
 
