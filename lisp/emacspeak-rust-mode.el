@@ -63,6 +63,17 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
+(cl-loop
+ for f in 
+ '(rust-compile  rust-run rust-test rust-run-clippy) do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done))))) 
+
+do
+
 (defadvice rust-dbg-wrap-or-unwrap (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
