@@ -61,7 +61,7 @@
    (rust-unsafe-face voice-animate)))
 
 ;;}}}
-;;{{{ Interactive Commands:
+;;{{{ Interactive Commands: (rust-mode
 
 (cl-loop
  for f in 
@@ -116,6 +116,23 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+
+;;}}}
+;;{{{Interactive Commands: rustic
+
+(cl-loop
+ for f in 
+ '(
+   rustic-beginning-of-defun rustic-end-of-defun
+                             rustic-beginning-of-function rustic-end-of-string)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-line))))))
 
 ;;}}}
 (provide 'emacspeak-rust-mode)
