@@ -162,10 +162,10 @@ This is set to nil when playing Internet  streams.")
                            'personality 'voice-smoothen (cl-first info) )
         (dtk-notify-speak
          (concat
-          (cl-second info) " : "
           (ems--seconds-string-to-duration (cl-first info))
           " of "
-          (ems--seconds-string-to-duration (cl-third info)))))))
+          (ems--seconds-string-to-duration (cl-third info))
+          " in " (cl-second info) )))))
    (t (message "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
