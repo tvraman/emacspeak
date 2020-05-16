@@ -150,7 +150,7 @@ This is set to nil when playing Internet  streams.")
      (* 60 (cl-second v))
      (cl-third v))))
 
-(defun emacspeak-m-player-speak-mode-line ()
+(defun emacspeak-m-player-mode-line ()
   "Meaningful mode-line for *M-Player* buffers."
   (interactive)
   (cl-declare (special emacspeak-m-player-process))
@@ -1276,7 +1276,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("j" emacspeak-m-player-amark-jump)
     ("k" emacspeak-m-player-quit)
     ("l" emacspeak-m-player-get-length)
-    ("m" emacspeak-m-player-speak-mode-line)
+    ("m" emacspeak-m-player-mode-line)
     ("n" emacspeak-m-player-next-track)
     ("o" emacspeak-m-player-customize-options)
     ("p" emacspeak-m-player-previous-track)
