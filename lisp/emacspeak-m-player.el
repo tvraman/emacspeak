@@ -160,20 +160,19 @@ This is set to nil when playing Internet  streams.")
       (when info 
         (put-text-property 0 (length (cl-first info))
                            'personality 'voice-smoothen (cl-first info) )
-        (dtk-notify-speak
          (concat
           (ems--seconds-string-to-duration (cl-first info))
           " of "
           (ems--seconds-string-to-duration (cl-third info))
-          " in " (cl-second info) )))))
-   (t (message "Process MPlayer not running."))))
+          " in " (cl-second info) ))))
+   (t (format "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
   "Speak mode line"
   (interactive)
   (tts-with-punctuations
    'all
-   (dtk-speak (emacspeak-m-player-mode-line))))
+   (dtk-notify-speak (emacspeak-m-player-mode-line))))
 
 (define-derived-mode emacspeak-m-player-mode comint-mode
   "M-Player Interaction"
