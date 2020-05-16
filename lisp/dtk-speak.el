@@ -2014,7 +2014,8 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (cond
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-speak text))
-   (t (dtk-speak text))))
+   (t (dtk-speak text)))
+  text)
 
 ;;;###autoload
 (defun dtk-notify-say (text &optional dont-log)
@@ -2025,7 +2026,8 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (cond
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-say text))
-   (t (dtk-say text))))
+   (t (dtk-say text)))
+  text)
 
 ;;;###autoload
 (defun dtk-notify-letter (letter)
