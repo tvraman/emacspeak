@@ -4389,6 +4389,7 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
   "https://www.youtube.com/watch?v=%s"
   "Youtube URL pattern.")
 
+;;;###autoload
 (defun emacspeak-wizards-ytel-play-at-point (id)
   "Play video. Argument `id' is the video-id.
 Play current video in ytel when called interactively."
