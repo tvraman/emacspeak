@@ -1867,4 +1867,4 @@ Check first if current buffer is in emacspeak-m-player-mode."
 ;;; end:
 
 ;;}}}
-pushd ~/
+
