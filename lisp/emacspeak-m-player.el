@@ -150,29 +150,25 @@ This is set to nil when playing Internet  streams.")
      (* 60 (cl-second v))
      (cl-third v))))
 
-(defun emacspeak-m-player-mode-line ()
+(defun emacspeak-m-player-speak-mode-line ()
   "Meaningful mode-line for *M-Player* buffers."
+  (interactive)
   (cl-declare (special emacspeak-m-player-process))
-  (cond
-   ((eq 'run (process-status emacspeak-m-player-process))
-    (let ((info (emacspeak-m-player-get-position))
-          (dtk-split-caps t))
-      (when info 
-        (put-text-property 0 (length (cl-first info))
-                           'personality 'voice-smoothen (cl-first info) )
+  (dtk-notify-speak
+   (cond
+    ((eq 'run (process-status emacspeak-m-player-process))
+     (let ((info (emacspeak-m-player-get-position)))
+       (when info 
+         (put-text-property 0 (length (cl-first info))
+                            'personality 'voice-smoothen (cl-first info))
          (concat
           (ems--seconds-string-to-duration (cl-first info))
           " of "
           (ems--seconds-string-to-duration (cl-third info))
-          " in " (cl-second info) ))))
-   (t (format "Process MPlayer not running."))))
+          " in " (cl-second info)))))
+    (t (format "Process MPlayer not running.")))))
 
-(defun emacspeak-m-player-speak-mode-line ()
-  "Speak mode line"
-  (interactive)
-  (tts-with-punctuations
-   'all
-   (dtk-notify-speak (emacspeak-m-player-mode-line))))
+
 
 (define-derived-mode emacspeak-m-player-mode comint-mode
   "M-Player Interaction"
