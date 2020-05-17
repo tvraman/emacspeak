@@ -4400,7 +4400,8 @@ Play current video in ytel when called interactively."
       (error "Install package ytel from melpa."))
   (funcall-interactively
    #'emacspeak-m-player-youtube-player
-   (format emacspeak-wizards-yt-url-pattern id)))
+   (format emacspeak-wizards-yt-url-pattern id)
+   'best))
 
 (when
     (and (locate-library "ytel")
