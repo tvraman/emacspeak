@@ -4395,7 +4395,9 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
 Play current video in ytel when called interactively.
 Optional interactive prefix arg `best' picks best audio format."
   (interactive
-   (list (ytel-video-id (ytel-get-current-video))))
+   (list
+    (ytel-video-id (ytel-get-current-video))
+    current-prefix-arg))
   (cl-declare (special emacspeak-wizards-yt-url-pattern))
   (or (require 'ytel 'no-error)
       (error "Install package ytel from melpa."))
@@ -4404,11 +4406,26 @@ Optional interactive prefix arg `best' picks best audio format."
    (format emacspeak-wizards-yt-url-pattern id)
    best))
 
+(defun emacspeak-wizards-ytel-download (id )
+  "Download video at point."
+  (interactive
+   (list (ytel-video-id (ytel-get-current-video))))
+  (cl-declare (special emacspeak-m-player-youtube-dl
+                       emacspeak-wizards-yt-url-pattern))
+  (or (require 'ytel 'no-error)
+      (error "Install package ytel from melpa."))
+  (let ((default-directory (expand-file-name "~/Downloads")))
+    (shell-command
+     (format "%s '%s' & "
+             emacspeak-m-player-youtube-dl
+             (format emacspeak-wizards-yt-url-pattern id)))))
+
 (when
     (and (locate-library "ytel")
          (boundp 'ytel-mode-map)
          (keymapp ytel-mode-map))
   (cl-declaim (special ytel-mode-map))
+  (define-key  ytel-mode-map (kbd "d") #'emacspeak-wizards-ytel-download)
   (define-key  ytel-mode-map (kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
   (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
 

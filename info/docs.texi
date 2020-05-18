@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1264 commands and 919 options.
+This chapter documents a total of 1265 commands and 919 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1534,6 +1534,7 @@ r		org-capture
 s		emacspeak-wizards-shell
 t		twit
 u		list-unicode-display
+v		emacspeak-muggles-vuiet/body
 w		emacspeak-wizards-noaa-weather
 y		yas-expand
 
@@ -11659,7 +11660,7 @@ i		emacspeak-m-player-stream-info
 j		emacspeak-m-player-amark-jump
 k		emacspeak-m-player-quit
 l		emacspeak-m-player-get-length
-m		emacspeak-m-player-speak-mode-line
+m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
@@ -11690,6 +11691,15 @@ M-l		emacspeak-m-player-load-playlist
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
 this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final or penultimate step
 during initialization.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-mode-line
+@deffn {Command} emacspeak-m-player-mode-line   
+@findex emacspeak-m-player-mode-line
+
+@format
+Meaningful mode-line for *M-Player* buffers.
 @end format
 @end deffn
 
@@ -11930,15 +11940,6 @@ This affects pitch.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-speak-mode-line
-@deffn {Command} emacspeak-m-player-speak-mode-line   
-@findex emacspeak-m-player-speak-mode-line
-
-@format
-Speak mode line
-@end format
-@end deffn
-
 @subsubsection emacspeak-m-player-stream-info
 @deffn {Command} emacspeak-m-player-stream-info  (&optional toggle-cue)
 @findex emacspeak-m-player-stream-info
@@ -12139,7 +12140,7 @@ i		emacspeak-m-player-stream-info
 j		emacspeak-m-player-amark-jump
 k		emacspeak-m-player-quit
 l		emacspeak-m-player-get-length
-m		emacspeak-m-player-speak-mode-line
+m		emacspeak-m-player-mode-line
 n		emacspeak-m-player-next-track
 o		emacspeak-m-player-customize-options
 p		emacspeak-m-player-previous-track
@@ -13694,6 +13695,13 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 @subsubsection emacspeak-muggles-vuiet/body
 @deffn {Command} emacspeak-muggles-vuiet/body   
+@table @kbd
+@item C-; v
+@kindex C-; v
+@item C-x @@ h v
+@kindex C-x @@ h v
+@end table
+
 @findex emacspeak-muggles-vuiet/body
 
 @format
@@ -24273,15 +24281,27 @@ Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-ytel-download
+@deffn {Command} emacspeak-wizards-ytel-download  (id)
+@findex emacspeak-wizards-ytel-download
+
+@format
+Download video at point.
+
+(fn ID)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-ytel-play-at-point
-@deffn {Command} emacspeak-wizards-ytel-play-at-point  (id)
+@deffn {Command} emacspeak-wizards-ytel-play-at-point  (id &optional best)
 @findex emacspeak-wizards-ytel-play-at-point
 
 @format
 Play video. Argument ‘id’ is the video-id.
 Play current video in ytel when called interactively.
+Optional interactive prefix arg ‘best’ picks best audio format.
 
-(fn ID)
+(fn ID &optional BEST)
 @end format
 @end deffn
 

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 11, 2020.
+last updated on May 18, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-smart-window,  Next: emacspeak-smartparens,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
@@ -6268,15 +6268,25 @@ Contains various wizards for the Emacspeak desktop.
      Display quotes using YQL API.
      Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 
-12.219.1.163 emacspeak-wizards-ytel-play-at-point
+12.219.1.163 emacspeak-wizards-ytel-download
+............................................
+
+ -- Command: emacspeak-wizards-ytel-download (id)
+
+     Download video at point.
+
+     (fn ID)
+
+12.219.1.164 emacspeak-wizards-ytel-play-at-point
 .................................................
 
- -- Command: emacspeak-wizards-ytel-play-at-point (id)
+ -- Command: emacspeak-wizards-ytel-play-at-point (id &optional best)
 
      Play video. Argument ‘id’ is the video-id.
      Play current video in ytel when called interactively.
+     Optional interactive prefix arg ‘best’ picks best audio format.
 
-     (fn ID)
+     (fn ID &optional BEST)
 
 12.219.2 emacspeak-wizards Options
 ----------------------------------
