@@ -4390,9 +4390,10 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
   "Youtube URL pattern.")
 
 ;;;###autoload
-(defun emacspeak-wizards-ytel-play-at-point (id)
+(defun emacspeak-wizards-ytel-play-at-point (id &optional best)
   "Play video. Argument `id' is the video-id.
-Play current video in ytel when called interactively."
+Play current video in ytel when called interactively.
+Optional interactive prefix arg `best' picks best audio format."
   (interactive
    (list (ytel-video-id (ytel-get-current-video))))
   (cl-declare (special emacspeak-wizards-yt-url-pattern))
@@ -4401,7 +4402,7 @@ Play current video in ytel when called interactively."
   (funcall-interactively
    #'emacspeak-m-player-youtube-player
    (format emacspeak-wizards-yt-url-pattern id)
-   'best))
+   best))
 
 (when
     (and (locate-library "ytel")
