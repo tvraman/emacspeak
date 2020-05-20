@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1265 commands and 919 options.
+This chapter documents a total of 1267 commands and 919 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -233,6 +233,7 @@ This chapter documents a total of 1265 commands and 919 options.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
 * emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
+* emacspeak-ytel::Speech-enable YTEL.
 * espeak-voices::Define  Espeak tags.
 * g::Google Client.
 * g-utils::Google Client Utilities.
@@ -24693,6 +24694,38 @@ This module speech-enables yaml-mode.
 @section emacspeak-yasnippet
 
 YASNIPPET ==  Template based editing using snippets.
+
+@node emacspeak-ytel
+@section emacspeak-ytel
+
+YTEL ==  Youtube From Elisp
+Install package ytel from Melpa.
+
+@subsection Emacspeak-Ytel Commands
+
+@subsubsection emacspeak-ytel-download
+@deffn {Command} emacspeak-ytel-download  (id)
+@findex emacspeak-ytel-download
+
+@format
+Download video at point.
+
+(fn ID)
+@end format
+@end deffn
+
+@subsubsection emacspeak-ytel-play-at-point
+@deffn {Command} emacspeak-ytel-play-at-point  (id &optional best)
+@findex emacspeak-ytel-play-at-point
+
+@format
+Play video. Argument ‘id’ is the video-id.
+Play current video in ytel when called interactively.
+Optional interactive prefix arg ‘best’ picks best audio format.
+
+(fn ID &optional BEST)
+@end format
+@end deffn
 
 @node espeak-voices
 @section espeak-voices
