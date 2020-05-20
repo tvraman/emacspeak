@@ -340,7 +340,7 @@ Argument `k-map' is a symbol  that names a keymap."
    ("g" emacspeak-m-player-seek-absolute)
    ("j" emacspeak-m-player-amark-jump)
    ("l" emacspeak-m-player-get-length)
-   ("m" emacspeak-m-player-speak-mode-line)
+   ("m" emacspeak-m-player-mode-line)
    ("n" emacspeak-m-player-next-track)
    ("o" emacspeak-m-player-customize-options)
    ("p" emacspeak-m-player-previous-track)
