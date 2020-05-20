@@ -337,6 +337,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "woman" 'emacspeak-woman)
 (emacspeak-do-package-setup "yasnippet" 'emacspeak-yasnippet)
 (emacspeak-do-package-setup "yaml-mode" 'emacspeak-yaml)
+(emacspeak-do-package-setup "ytel" 'emacspeak-ytel)
 ;;}}}
 ;;{{{  Submit bugs
 
