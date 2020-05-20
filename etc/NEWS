@@ -15,3 +15,9 @@ This version requires Emacs-26.1 or later.
 ** Speech-Enable rust-mode
 
 Module ~emacspeak-rust-mode~ speech-enables ~rust-mode~.
+
+
+** Speech-Enable YTEl
+
+Module ~emacspeak-ytel~ speech-enables package ~ytel~, an Elisp API
+bridge to YT.
