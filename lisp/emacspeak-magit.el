@@ -59,6 +59,21 @@
 ;;{{{ Map voices to faces:
 (voice-setup-add-map
  '(
+   (magit-blame-dimmed voice-smoothen)
+   (magit-blame-highlight voice-brighten)
+   (magit-branch-remote-head voice-bolden)
+   (magit-branch-upstream voice-animate)
+   (magit-diff-revision-summary voice-monotone)
+   (magit-diff-revision-summary-highlight voice-brighten)
+   (magit-diff-whitespace-warning voice-monotone-light)
+   (magit-header-line-key voice-bolden-extra)
+   (magit-header-line-log-select voice-highlight)
+   (magit-keyword-squash voice-monotone)
+   (magit-popup-argument voice-smoothen)
+   (magit-popup-disabled-argument voice-monotone)
+   (magit-popup-heading voice-bolden)
+   (magit-popup-key voice-lighten)
+   (magit-popup-option-value voice-brighten)
    (magit-bisect-bad voice-animate)
    (magit-bisect-good voice-lighten)
    (magit-bisect-skip voice-monotone)
@@ -138,7 +153,6 @@
    (magit-signature-revoked voice-bolden)
    (magit-signature-untrusted voice-bolden-and-animate)
    (magit-tag voice-animate)))
-
 ;;}}}
 ;;{{{ Pronunciations in Magit:
 (emacspeak-pronounce-add-dictionary-entry 'magit-mode
