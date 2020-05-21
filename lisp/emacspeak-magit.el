@@ -187,10 +187,7 @@
    magit-stash
    magit-unstage magit-unstage-all magit-unstage-file
    magit-stage magit-stage-file  magit-stage-modified
-   magit-ignore-item-locally
-   magit-goto-next-section magit-goto-previous-section
-   magit-goto-parent-section magit-goto-line
-   magit-goto-section magit-goto-section-at-path)
+   magit-ignore-item-locally)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
