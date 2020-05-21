@@ -87,13 +87,23 @@ Optional interactive prefix arg `best' picks best audio format."
              emacspeak-m-player-youtube-dl
              (format emacspeak-ytel-yt-url-pattern id)))))
 
+
+(defun emacspeak-ytel-yank (id )
+  "Yank youtube URL  for video at point."
+  (interactive
+   (list (ytel-video-id (ytel-get-current-video))))
+  (cl-declare (special emacspeak-ytel-yt-url-pattern))
+  (kill-new (message (format emacspeak-ytel-yt-url-pattern id))))
+
 (when
     (and (locate-library "ytel")
          (boundp 'ytel-mode-map)
          (keymapp ytel-mode-map))
   (cl-declaim (special ytel-mode-map))
   (define-key  ytel-mode-map (kbd "d") #'emacspeak-ytel-download)
-  (define-key  ytel-mode-map (kbd "RET") #'emacspeak-ytel-play-at-point)
+  (define-key  ytel-mode-map (kbd "RET")
+    #'emacspeak-ytel-play-at-point)
+  (define-key  ytel-mode-map (kbd "y") #'emacspeak-ytel-yank)
   (define-key  ytel-mode-map "." #'emacspeak-ytel-play-at-point))
 
 ;;}}}
