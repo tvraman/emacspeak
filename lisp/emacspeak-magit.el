@@ -224,7 +224,7 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon
-        (if   (magit-section-hidden-body (ad-get-arg 0)) 'close-object 'open-object))))))
+        (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
