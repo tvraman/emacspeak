@@ -163,15 +163,6 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
-(defadvice magit-toggle-section (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (let ((state (magit-section-hidden-body (magit-current-section))))
-      (cond
-       (state (emacspeak-auditory-icon 'close-object))
-       (t (emacspeak-auditory-icon 'open-object)))
-      (emacspeak-speak-line))))
-
 (cl-loop
  for f in
  '(
