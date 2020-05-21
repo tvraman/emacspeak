@@ -265,6 +265,13 @@
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
 
+(defadvice magit-display-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+
 ;;}}}
 ;;{{{ Advise process-sentinel:
 
