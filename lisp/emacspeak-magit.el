@@ -231,19 +231,7 @@
         (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
 ;;}}}
-
-
-
-
-
-
 ;;{{{ Additional commands to advice:
-
-(defadvice magit-display-process (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (message "Displayed process buffer in other window.")))
 
 (defadvice magit-refresh (after emacspeak pre act comp)
   "Provide auditory feedback."
