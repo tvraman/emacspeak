@@ -58,6 +58,7 @@
 
 ;;}}}
 ;;{{{ Map voices to faces:
+
 (voice-setup-add-map
  '(
    (magit-blame-dimmed voice-smoothen)
@@ -154,6 +155,7 @@
    (magit-signature-revoked voice-bolden)
    (magit-signature-untrusted voice-bolden-and-animate)
    (magit-tag voice-animate)))
+
 ;;}}}
 ;;{{{ Pronunciations in Magit:
 (emacspeak-pronounce-add-dictionary-entry 'magit-mode
@@ -258,28 +260,6 @@
          (emacspeak-speak-mode-line))))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
-    (emacspeak-speak-line)))
-
-;;}}}
-;;{{{ Branches:
-
-(defadvice magit-remove-branch (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
-    (emacspeak-speak-line)))
-
-(defadvice magit-remove-branch-in-remote-repo (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'delete-object)
-    (emacspeak-speak-line)))
-
-(defadvice magit-change-what-branch-tracks (after emacspeak pre
-                                                  act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
