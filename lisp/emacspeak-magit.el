@@ -161,7 +161,7 @@
                                                 'emacspeak-pronounce-sha-checksum))
 (emacspeak-pronounce-add-super 'magit-mode 'magit-commit-mode)
 (emacspeak-pronounce-add-super 'magit-mode 'magit-revision-mode)
-(emacspeak-pronounce-add-super 'magit-mode 'magit-log-mod)
+(emacspeak-pronounce-add-super 'magit-mode 'magit-log-mode)
 
 (add-hook
  'magit-mode-hook
