@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -202,6 +203,7 @@
 (cl-loop
  for f in
  '(
+   magit-show-commit
    magit-section-show-level-1  magit-section-show-level-2
    magit-section-show-level-3 magit-section-show-level-4
    magit-section-show-level-1-all magit-section-show-level-2-all
@@ -229,47 +231,12 @@
         (if   (oref (ad-get-arg 0) hidden) 'close-object 'open-object))))))
 
 ;;}}}
-;;{{{ Advice generator to advice generated  commands:
 
 
 
 
 
 
-
-;;}}}
-;;{{{ Advice hide/show commands:
-(cl-loop for f in
-         '(magit-show magit-show-branches magit-show-commit
-                      magit-show-branches-mode
-                      magit-show-item-or-scroll-down magit-show-item-or-scroll-up
-                      magit-show-level
-                      magit-show-level-1 magit-show-level-1-all
-                      magit-show-level-2 magit-show-level-2-all
-                      magit-show-level-3 magit-show-level-3-all
-                      magit-show-level-4 magit-show-level-4-all
-                      magit-show-only-files magit-show-only-files-all
-                      magit-expand-section magit-expand-collapse-section
-                      magit-show-section magit-show-stash)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-speak-line)
-               (emacspeak-auditory-icon 'open-object)))))
-
-(cl-loop for f in
-         '(magit-hide-section magit-collapse-section)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-speak-line)
-               (emacspeak-auditory-icon 'close-object)))))
-
-;;}}}
 ;;{{{ Additional commands to advice:
 
 (defadvice magit-display-process (after emacspeak pre act comp)
