@@ -218,6 +218,10 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
+(defadvice magit-section-cycle-global (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak "Cycling global visibility of sections")))
 
 (cl-loop
  for f in
