@@ -37,7 +37,7 @@
     "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare"
-    "erc-prepare" "jabber-prepare" "twittering-prepare"
+     "jabber-prepare" "twittering-prepare"
     "auth-source-xoauth2" )
   "Libraries to load.")
 
