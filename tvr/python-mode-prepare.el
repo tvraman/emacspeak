@@ -5,5 +5,4 @@
      (add-hook
       'python-mode-hook
       #'(lambda ()
-           ;(elpy-enable)
-           ))))
+          (elpy-enable)))))
