@@ -108,9 +108,7 @@
 
 (defsubst tvr-shell-bind-keys ()
   "Set up  shell mode keys."
-  (cl-declare (special shell-mode-map
-                       magit-file-mode-map))
-  (define-key magit-file-mode-map (kbd "C-c g") 'magit-file-dispatch)
+  (cl-declare (special shell-mode-map))
   (cl-loop
    for b in
    '(
