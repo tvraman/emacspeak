@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1267 commands and 919 options.
+This chapter documents a total of 1268 commands and 934 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12233,6 +12233,12 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 
 @end defvar
 
+@defvar {User Option} voice-magit-blame-dimmed
+Personality used for magit-blame-dimmed
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
 @defvar {User Option} voice-magit-blame-hash
 Personality used for magit-blame-hash
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
@@ -12242,6 +12248,12 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @defvar {User Option} voice-magit-blame-heading
 Personality used for magit-blame-heading
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-blame-highlight
+Personality used for magit-blame-highlight
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -12272,6 +12284,18 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 @defvar {User Option} voice-magit-branch-remote
 Personality used for magit-branch-remote
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-branch-remote-head
+Personality used for magit-branch-remote-head
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-branch-upstream
+Personality used for magit-branch-upstream
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -12407,6 +12431,18 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} voice-magit-diff-revision-summary
+Personality used for magit-diff-revision-summary
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-diff-revision-summary-highlight
+Personality used for magit-diff-revision-summary-highlight
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
 @defvar {User Option} voice-magit-diff-their
 Personality used for magit-diff-their
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
@@ -12416,6 +12452,12 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} voice-magit-diff-their-highlight
 Personality used for magit-diff-their-highlight
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-diff-whitespace-warning
+Personality used for magit-diff-whitespace-warning
+This personality uses  voice-monotone-light whose  effect can be changed globally by customizing voice-monotone-light-settings.
 
 @end defvar
 
@@ -12461,9 +12503,27 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
+@defvar {User Option} voice-magit-header-line-key
+Personality used for magit-header-line-key
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-header-line-log-select
+Personality used for magit-header-line-log-select
+This personality uses  voice-highlight whose  effect can be changed globally by customizing voice-highlight-settings.
+
+@end defvar
+
 @defvar {User Option} voice-magit-keyword
 Personality used for magit-keyword
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-keyword-squash
+Personality used for magit-keyword-squash
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
@@ -12482,6 +12542,36 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @defvar {User Option} voice-magit-log-graph
 Personality used for magit-log-graph
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-popup-argument
+Personality used for magit-popup-argument
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-popup-disabled-argument
+Personality used for magit-popup-disabled-argument
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-popup-heading
+Personality used for magit-popup-heading
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-popup-key
+Personality used for magit-popup-key
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-magit-popup-option-value
+Personality used for magit-popup-option-value
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -13388,7 +13478,7 @@ The heads for the associated hydra are:
 "g":    ‘emacspeak-m-player-seek-absolute’,
 "j":    ‘emacspeak-m-player-amark-jump’,
 "l":    ‘emacspeak-m-player-get-length’,
-"m":    ‘emacspeak-m-player-speak-mode-line’,
+"m":    ‘emacspeak-m-player-mode-line’,
 "n":    ‘emacspeak-m-player-next-track’,
 "o":    ‘emacspeak-m-player-customize-options’,
 "p":    ‘emacspeak-m-player-previous-track’,
@@ -24724,6 +24814,17 @@ Play current video in ytel when called interactively.
 Optional interactive prefix arg ‘best’ picks best audio format.
 
 (fn ID &optional BEST)
+@end format
+@end deffn
+
+@subsubsection emacspeak-ytel-yank
+@deffn {Command} emacspeak-ytel-yank  (id)
+@findex emacspeak-ytel-yank
+
+@format
+Yank youtube URL  for video at point.
+
+(fn ID)
 @end format
 @end deffn
 

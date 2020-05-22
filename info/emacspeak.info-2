@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 20, 2020.
+last updated on May 22, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
@@ -5770,6 +5770,11 @@ git://github.com/magit/magit.git
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
 
+ -- Variable: User Option voice-magit-blame-dimmed
+     Personality used for magit-blame-dimmed This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
  -- Variable: User Option voice-magit-blame-hash
      Personality used for magit-blame-hash This personality uses
      voice-monotone whose effect can be changed globally by customizing
@@ -5779,6 +5784,11 @@ git://github.com/magit/magit.git
      Personality used for magit-blame-heading This personality uses
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
+
+ -- Variable: User Option voice-magit-blame-highlight
+     Personality used for magit-blame-highlight This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
 
  -- Variable: User Option voice-magit-blame-name
      Personality used for magit-blame-name This personality uses
@@ -5804,6 +5814,16 @@ git://github.com/magit/magit.git
      Personality used for magit-branch-remote This personality uses
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
+
+ -- Variable: User Option voice-magit-branch-remote-head
+     Personality used for magit-branch-remote-head This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-magit-branch-upstream
+     Personality used for magit-branch-upstream This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option voice-magit-cherry-equivalent
      Personality used for magit-cherry-equivalent This personality uses
@@ -5915,6 +5935,16 @@ git://github.com/magit/magit.git
      uses voice-smoothen whose effect can be changed globally by
      customizing voice-smoothen-settings.
 
+ -- Variable: User Option voice-magit-diff-revision-summary
+     Personality used for magit-diff-revision-summary This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-magit-diff-revision-summary-highlight
+     Personality used for magit-diff-revision-summary-highlight This
+     personality uses voice-brighten whose effect can be changed
+     globally by customizing voice-brighten-settings.
+
  -- Variable: User Option voice-magit-diff-their
      Personality used for magit-diff-their This personality uses
      voice-animate whose effect can be changed globally by customizing
@@ -5924,6 +5954,11 @@ git://github.com/magit/magit.git
      Personality used for magit-diff-their-highlight This personality
      uses voice-bolden-and-animate whose effect can be changed globally
      by customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option voice-magit-diff-whitespace-warning
+     Personality used for magit-diff-whitespace-warning This personality
+     uses voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
 
  -- Variable: User Option voice-magit-diffstat-added
      Personality used for magit-diffstat-added This personality uses
@@ -5960,10 +5995,25 @@ git://github.com/magit/magit.git
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
 
+ -- Variable: User Option voice-magit-header-line-key
+     Personality used for magit-header-line-key This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option voice-magit-header-line-log-select
+     Personality used for magit-header-line-log-select This personality
+     uses voice-highlight whose effect can be changed globally by
+     customizing voice-highlight-settings.
+
  -- Variable: User Option voice-magit-keyword
      Personality used for magit-keyword This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
+
+ -- Variable: User Option voice-magit-keyword-squash
+     Personality used for magit-keyword-squash This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
 
  -- Variable: User Option voice-magit-log-author
      Personality used for magit-log-author This personality uses
@@ -5979,6 +6029,31 @@ git://github.com/magit/magit.git
      Personality used for magit-log-graph This personality uses
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
+
+ -- Variable: User Option voice-magit-popup-argument
+     Personality used for magit-popup-argument This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-magit-popup-disabled-argument
+     Personality used for magit-popup-disabled-argument This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-magit-popup-heading
+     Personality used for magit-popup-heading This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-magit-popup-key
+     Personality used for magit-popup-key This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-magit-popup-option-value
+     Personality used for magit-popup-option-value This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
 
  -- Variable: User Option voice-magit-reflog-amend
      Personality used for magit-reflog-amend This personality uses
@@ -6783,7 +6858,7 @@ binds ‘s’ to this command.
      "g":    ‘emacspeak-m-player-seek-absolute’,
      "j":    ‘emacspeak-m-player-amark-jump’,
      "l":    ‘emacspeak-m-player-get-length’,
-     "m":    ‘emacspeak-m-player-speak-mode-line’,
+     "m":    ‘emacspeak-m-player-mode-line’,
      "n":    ‘emacspeak-m-player-next-track’,
      "o":    ‘emacspeak-m-player-customize-options’,
      "p":    ‘emacspeak-m-player-previous-track’,
@@ -8925,89 +9000,4 @@ speech-enables ses
      Summarize current cell.
 
      (fn &rest IGNORE)
-
-
-File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev: emacspeak-ses,  Up: Emacspeak Commands And Options
-
-12.173 emacspeak-setup
-======================
-
-Entry point for Emacspeak.  The simplest and most basic way to start
-emacspeak is: emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el The
-above starts a vanilla Emacs with just Emacspeak loaded.  Once the above
-has been verified to work, You can add (load-library "emacspeak-setup")
-To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
-repository for my setup.
-
-12.173.1 emacspeak-setup Options
---------------------------------
-
- -- Variable: User Option dtk-startup-hook
-     List of hooks to be run after starting up the speech server.  Set
-     things like speech rate, punctuation mode etc in this hook.
-
- -- Variable: User Option emacspeak-startup-hook
-     Hook run after Emacspeak is started.
-
- -- Variable: User Option emacspeak-tts-use-notify-stream
-     Set to true to use a separate TTS stream for notifications.
-
- -- Variable: User Option tts-notification-device
-     Virtual ALSA device to use for notifications stream.
-
-
-File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
-
-12.174 emacspeak-sgml-mode
-==========================
-
-emacspeak extensions to sgml mode
-
-
-File: emacspeak.info,  Node: emacspeak-sh-script,  Next: emacspeak-shx,  Prev: emacspeak-sgml-mode,  Up: Emacspeak Commands And Options
-
-12.175 emacspeak-sh-script
-==========================
-
-This module speech-enables sh-script.el
-
-
-File: emacspeak.info,  Node: emacspeak-shx,  Next: emacspeak-sigbegone,  Prev: emacspeak-sh-script,  Up: Emacspeak Commands And Options
-
-12.176 emacspeak-shx
-====================
-
-SHX == Shell Extras For emacs
-
-
-File: emacspeak.info,  Node: emacspeak-sigbegone,  Next: emacspeak-slime,  Prev: emacspeak-shx,  Up: Emacspeak Commands And Options
-
-12.177 emacspeak-sigbegone
-==========================
-
-Speech-enables package sigbegone –voiceify sigs in email and news
-
-
-File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-smart-window,  Prev: emacspeak-sigbegone,  Up: Emacspeak Commands And Options
-
-12.178 emacspeak-slime
-======================
-
-SLIME == Superior Lisp Interaction Mode For Emacs Slime is a powerful
-IDE for developing in Common Lisp and Clojure.  It’s similar but more
-modern than package ILisp that I used as a graduate student when
-developing AsTeR.
-
-12.178.1 emacspeak-slime Options
---------------------------------
-
- -- Variable: User Option voice-slime-apropos-label
-     Personality used for slime-apropos-label This personality uses
-     voice-monotone-light whose effect can be changed globally by
-     customizing voice-monotone-light-settings.
-
- -- Variable: User Option voice-slime-apropos-symbol
-     Personality used for slime-apropos-symbol This personality uses
-     voice-monotone-light whose effect can be changed globally by
-     customizing voice-monotone-light-settings.
 

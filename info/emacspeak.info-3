@@ -12,7 +12,92 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 20, 2020.
+last updated on May 22, 2020.
+
+
+File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev: emacspeak-ses,  Up: Emacspeak Commands And Options
+
+12.173 emacspeak-setup
+======================
+
+Entry point for Emacspeak.  The simplest and most basic way to start
+emacspeak is: emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el The
+above starts a vanilla Emacs with just Emacspeak loaded.  Once the above
+has been verified to work, You can add (load-library "emacspeak-setup")
+To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
+repository for my setup.
+
+12.173.1 emacspeak-setup Options
+--------------------------------
+
+ -- Variable: User Option dtk-startup-hook
+     List of hooks to be run after starting up the speech server.  Set
+     things like speech rate, punctuation mode etc in this hook.
+
+ -- Variable: User Option emacspeak-startup-hook
+     Hook run after Emacspeak is started.
+
+ -- Variable: User Option emacspeak-tts-use-notify-stream
+     Set to true to use a separate TTS stream for notifications.
+
+ -- Variable: User Option tts-notification-device
+     Virtual ALSA device to use for notifications stream.
+
+
+File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
+
+12.174 emacspeak-sgml-mode
+==========================
+
+emacspeak extensions to sgml mode
+
+
+File: emacspeak.info,  Node: emacspeak-sh-script,  Next: emacspeak-shx,  Prev: emacspeak-sgml-mode,  Up: Emacspeak Commands And Options
+
+12.175 emacspeak-sh-script
+==========================
+
+This module speech-enables sh-script.el
+
+
+File: emacspeak.info,  Node: emacspeak-shx,  Next: emacspeak-sigbegone,  Prev: emacspeak-sh-script,  Up: Emacspeak Commands And Options
+
+12.176 emacspeak-shx
+====================
+
+SHX == Shell Extras For emacs
+
+
+File: emacspeak.info,  Node: emacspeak-sigbegone,  Next: emacspeak-slime,  Prev: emacspeak-shx,  Up: Emacspeak Commands And Options
+
+12.177 emacspeak-sigbegone
+==========================
+
+Speech-enables package sigbegone –voiceify sigs in email and news
+
+
+File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-smart-window,  Prev: emacspeak-sigbegone,  Up: Emacspeak Commands And Options
+
+12.178 emacspeak-slime
+======================
+
+SLIME == Superior Lisp Interaction Mode For Emacs Slime is a powerful
+IDE for developing in Common Lisp and Clojure.  It’s similar but more
+modern than package ILisp that I used as a graduate student when
+developing AsTeR.
+
+12.178.1 emacspeak-slime Options
+--------------------------------
+
+ -- Variable: User Option voice-slime-apropos-label
+     Personality used for slime-apropos-label This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option voice-slime-apropos-symbol
+     Personality used for slime-apropos-symbol This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-smart-window,  Next: emacspeak-smartparens,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
@@ -6639,6 +6724,15 @@ YTEL == Youtube From Elisp Install package ytel from Melpa.
 
      (fn ID &optional BEST)
 
+12.227.1.3 emacspeak-ytel-yank
+..............................
+
+ -- Command: emacspeak-ytel-yank (id)
+
+     Yank youtube URL  for video at point.
+
+     (fn ID)
+
 
 File: emacspeak.info,  Node: espeak-voices,  Next: g,  Prev: emacspeak-ytel,  Up: Emacspeak Commands And Options
 
@@ -9277,118 +9371,4 @@ mechanism.  The Web platform as originally defined around URLs is
 actually well-suited to this type of separation — though the full
 potential of this design pattern remains to be fully realized given
 today’s tight association of the Web to the Web Browser.
-
-
-File: emacspeak.info,  Node: Conclusion --- Turning Twenty,  Next: References,  Prev: Mashing It Up --- Leveraging Evolving Web APIs,  Up: Emacspeak At Twenty
-
-15.16 Conclusion — Turning Twenty
-=================================
-
-In 1996, I wrote an article entitled User Interface — A Means To An End
-(http://www.drdobbs.com/user-interface-a-means-to-an-end/184410453)
-pointing out that the size and shape of computers were determined by the
-keyboard and display.  This is even more true in today’s world of
-tablets, phablets and large-sized phones — with the only difference that
-the keyboard has been replaced by a touch screen.  The next generation
-in the evolution of *personal* devices is that they will become truly
-personal by being wearables — this once again forces a separation of the
-user interface peripherals from the underlying compute engine.  Imagine
-a variety of wearables that collectively connect to ones cell phone,
-which itself connects to the cloud for all its computational and
-information needs.  Such an environment is rich in possibilities for
-creating a wide variety of user experiences to a single underlying body
-of information; Eyes-Free interfaces as pioneered by systems like
-Emacspeak will come to play an increasingly vital role alongside visual
-interaction when this comes to pass.
-
-   –T.V. Raman, San Jose, CA, September 12, 2014
-
-
-File: emacspeak.info,  Node: References,  Prev: Conclusion --- Turning Twenty,  Up: Emacspeak At Twenty
-
-15.17 References
-================
-
-   • Auditory User Interfaces
-     (http://emacspeak.sourceforge.net/raman/aui/aui.html) Klewer
-     Publishing, 1997.
-   • Advice An Emacs Lisp package by Hans Chalupsky
-     (http://www.isi.edu/~hans/) that became part of Emacs 19.23.
-   • Beautiful Code
-     (http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html)
-     An overview of the Emacspeak architecture.
-   • Speech-Enabled Applications
-     (http://emacspeak.sourceforge.net/raman/publications/chi96-emacspeak/)
-     Emacspeak at CHI 1996.
-   • EWW Emacspeak extends EWW
-     (http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html).
-   • In The Beginning Was The Command Line
-     (http://artlung.com/smorgasborg/C_R_Y_P_T_O_N_O_M_I_C_O_N.shtml) By
-     Neal Stephenson
-
-
-File: emacspeak.info,  Node: Acknowledgments,  Next: Concept Index,  Prev: Emacspeak At Twenty,  Up: Top
-
-16 Acknowledgments.
-*******************
-
-Thanks.
-
-
-File: emacspeak.info,  Node: Concept Index,  Next: Key Index,  Prev: Acknowledgments,  Up: Top
-
-17 Concept Index
-****************
-
- [index ]
-* Menu:
-
-* AUCTeX:                                Creating Well-formatted Documents.
-                                                               (line 42)
-* Audio Desktop:                         Audio Desktop.        (line  6)
-* Audio Formatting:                      Context-Sensitive Interaction.
-                                                               (line 24)
-* Browsing Structure:                    Browsing Structure.   (line  6)
-* character echo:                        Controlling Echo.     (line  6)
-* Context-Sensitive Interaction:         Context-Sensitive Interaction.
-                                                               (line  6)
-* Desktop:                               Desktop Management.   (line  6)
-* Desktop Applications:                  Desktop Applications. (line  5)
-* Desktop Navigation:                    Context-Sensitive Interaction.
-                                                               (line 54)
-* Desktop Objects:                       Desktop Objects.      (line  6)
-* Document Authoring:                    Document Authoring.   (line  6)
-* Document Creation:                     Creating Well-formatted Documents.
-                                                               (line  6)
-* Emacs Keyboard Commands:               Emacspeak Keyboard Commands.
-                                                               (line  6)
-* Emacs Packages:                        Emacs Packages.       (line  6)
-* Finding:                               Context-Sensitive Interaction.
-                                                               (line 64)
-* Introduction:                          Introduction.         (line  6)
-* line echo:                             Controlling Echo.     (line  6)
-* Messaging:                             Messaging.            (line  6)
-* Object-Oriented Desktop:               Object Oriented Desktop.
-                                                               (line  6)
-* Online Help:                           Using Online Help.    (line  6)
-* Personal Information Management:       Personal Information Management.
-                                                               (line  6)
-* Programming:                           Editing Code.         (line  6)
-* Replace:                               Search replace and spell check.
-                                                               (line  6)
-* Search:                                Search replace and spell check.
-                                                               (line  6)
-* Searching:                             Context-Sensitive Interaction.
-                                                               (line 64)
-* Software Development:                  Development Environment.
-                                                               (line  6)
-* speech settings:                       Speech System.        (line  6)
-* speech system:                         Speech System.        (line  6)
-* Spell Check:                           Search replace and spell check.
-                                                               (line 52)
-* Structured Navigation:                 Context-Sensitive Interaction.
-                                                               (line 34)
-* TTS:                                   Speech System.        (line  6)
-* Web Browsing:                          Web Browsing.         (line  6)
-* word echo:                             Controlling Echo.     (line  6)
 
