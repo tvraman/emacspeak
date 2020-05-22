@@ -29,7 +29,6 @@
 
 (defvar tvr-libs
   '(
-    "kbd-setup"
     "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" "elfeed-prepare"
     "lispy-prepare" "sp-prepare"        "vdiff-prepare" "iedit-prepare"
     "auctex-prepare" "org-prepare" 
