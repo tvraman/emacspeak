@@ -128,16 +128,14 @@
    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
    (global-set-key (kbd "C-RET") 'hippie-expand)
    (tvr-set-color-for-today)
-   (when (file-exists-p custom-file) (load custom-file))
-   ))
+   (when (file-exists-p custom-file) (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
   (unless (featurep 'emacspeak-muggles)
     (make-thread
      #'(lambda ()
-         (tvr-fastload
-          (load "emacspeak-muggles"))))))
+         (tvr-fastload (load "emacspeak-muggles"))))))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
@@ -211,6 +209,7 @@ gcs (%.2f seconds)>"
                        outline-mode-prefix-map))
   (tvr-fastload
    ;;{{{ Load  emacspeak
+
    (setq outloud-default-speech-rate 125 ; because we load custom at the end
          dectalk-default-speech-rate 485)
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
@@ -218,7 +217,6 @@ gcs (%.2f seconds)>"
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
    ;;}}}
-
    ;;{{{ Basic Look And Feel:
 
    (setq inhibit-startup-echo-area-message user-login-name
@@ -278,6 +276,7 @@ gcs (%.2f seconds)>"
 
    ;;}}}
    ;;{{{ turn on modes:
+
    (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
    (add-hook 'text-mode-hook 'tvr-text-mode-hook)
    (savehist-mode)
@@ -287,8 +286,7 @@ gcs (%.2f seconds)>"
 ;;; Forge:
 
    (with-eval-after-load 'magit
-       (require 'forge))
-   )
+       (require 'forge)))
 
   ;;}}}
   ) ;end defun
