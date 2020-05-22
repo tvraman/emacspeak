@@ -127,6 +127,7 @@
    (setq-default custom-file (expand-file-name "~/.customize-emacs"))
    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
    (global-set-key (kbd "C-RET") 'hippie-expand)
+   (global-set-key (kbd "M-/") 'hippie-expand)
    (tvr-set-color-for-today)
    (when (file-exists-p custom-file) (load custom-file))))
 
