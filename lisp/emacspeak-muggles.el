@@ -93,6 +93,7 @@
 (require 'emacspeak-preamble)
 (cl-eval-when '(load)
   (when (locate-library "package")
+    (unless package--initialized (package-initialize))
     (unless (locate-library "hydra") (package-install 'hydra))))
 (require 'emacspeak-hydra)
 (require 'hideshow)
