@@ -54,8 +54,7 @@
 (require 'emacspeak-keymap)
 (eval-when-compile
   (condition-case nil
-      (unless (and package--initialized (not after-init-time))
-        (package-initialize))
+      (unless  package--initialized (package-initialize))
     (error "Check your elpa packages --- something is broken")))
 
 ;;}}}
