@@ -60,14 +60,14 @@
 
 ;;;@itemize
 ;;; @item Brightness: @kbd{print} Control display brightness using xbacklight.
-;;; @item View-Mode: @kbd{C-c v} Temporarily behave like view-mode.
+;;; @item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
 ;;; @item Navigate: @kbd{s-n} Navigate with ease.
 ;;;@item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
 ;;;@item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
 ;;;@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
 ;;;@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
 ;;;@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
-;;; @item hideshow: C-c h Provide HideShow bindings.
+;;; @item hideshow: C-, h Provide HideShow bindings.
 ;;; @item origami: C-, / Origami   bindings.
 ;;; @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
