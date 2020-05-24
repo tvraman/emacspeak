@@ -68,7 +68,7 @@
 ;;;@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
 ;;;@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
-;;; @item origami: C-c / Origami   bindings.
+;;; @item origami: C-, / Origami   bindings.
 ;;; @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
@@ -189,7 +189,7 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;{{{  View Mode:
 
 (global-set-key
- (kbd  "C-c v")
+ (kbd  "C-. v")
  (defhydra emacspeak-muggles-view
    (:body-pre
     (progn
@@ -360,7 +360,7 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;{{{ HideShow:
 
 (global-set-key
- (kbd "C-c h")
+ (kbd "C-, h")
  (defhydra  emacspeak-muggles-hideshow
    (
     :body-pre
@@ -440,7 +440,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 
 ;;; Cloned from Hydra Wiki:
 (global-set-key
- (kbd "C-c .")
+ (kbd "C-. o")
  (defhydra emacspeak-muggles-outliner
    (:body-pre
     (progn
@@ -629,7 +629,7 @@ Info-mode:
 ;;{{{ origami:
 
 (global-set-key
- (kbd "C-c /")
+ (kbd "C-, /")
  (defhydra emacspeak-origami
    (:color red
            :body-pre
