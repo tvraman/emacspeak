@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 23, 2020.
+last updated on May 24, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
@@ -6664,7 +6664,7 @@ terminology as shown in the hydra package documentation.
 ----------------------------
 
    • Brightness: ‘print’ Control display brightness using xbacklight.
-   • View-Mode: ‘C-c v’ Temporarily behave like view-mode.
+   • View-Mode: ‘C-. v’ Temporarily behave like view-mode.
    • Navigate: ‘s-n’ Navigate with ease.
    • org-mode structure nav: ‘C-c C-SPC’ Structure navigation for
      org-mode.
@@ -6672,8 +6672,8 @@ terminology as shown in the hydra package documentation.
    • m-player: ‘s-m’ Emacspeak-M-Player Commands
    • m-player: ‘s-;’ Emacspeak-M-Player muggle
    • pianobar: ‘s-'’ Emacspeak-M-pianobar Commands
-   • hideshow: C-c h Provide HideShow bindings.
-   • origami: C-c / Origami bindings.
+   • hideshow: C-, h Provide HideShow bindings.
+   • origami: C-, / Origami bindings.
    • toggle-option: ‘C-c o’ Single binding for toggling options.
    • outliner: <C-c .> Bindings from outline-minor-mode.
    • Info-Summary: <?> in Info Info Summary Muggle
@@ -6725,7 +6725,8 @@ binds ‘s’ to this command.
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
-     ‘C-c h’
+     ‘C-, h’
+     ‘C-x @ a h’
 
      Call the body in the "emacspeak-muggles-hideshow" hydra.
 
@@ -6972,6 +6973,9 @@ binds ‘s’ to this command.
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
+     ‘C-. o’
+     ‘C-' o’
+     ‘C-x @ s o’
 
      Call the body in the "emacspeak-muggles-outliner" hydra.
 
@@ -7071,7 +7075,9 @@ binds ‘s’ to this command.
 .......................................
 
  -- Command: emacspeak-muggles-view/body
-     ‘C-c v’
+     ‘C-. v’
+     ‘C-' v’
+     ‘C-x @ s v’
 
      Call the body in the "emacspeak-muggles-view" hydra.
 
@@ -7182,7 +7188,8 @@ binds ‘s’ to this command.
 ..................................
 
  -- Command: emacspeak-origami/body
-     ‘C-c /’
+     ‘C-, /’
+     ‘C-x @ a /’
 
      Call the body in the "emacspeak-origami" hydra.
 

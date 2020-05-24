@@ -1565,13 +1565,14 @@ j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
 n		emacspeak-wizards-google-news
-o		org-switchb
+o		emacspeak-muggles-outliner/body
 p		proced
 q		emacspeak-wizards-iex-show-quote
 r		soundscape-restart
 s		soundscape
 t		soundscape-toggle
 u		soundscape-update-mood
+v		emacspeak-muggles-view/body
 w		define-word
 
 .
@@ -1582,11 +1583,13 @@ key             binding
 
 SPC		emacspeak-eww-smart-tabs
 ,		emacspeak-eldoc-speak-doc
+/		emacspeak-origami/body
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
 e		eww
 f		emacspeak-wizards-find-file-as-root
+h		emacspeak-muggles-hideshow/body
 i		emacspeak-wizards-iheart
 l		eww-open-file
 m		magit-status
@@ -13253,15 +13256,15 @@ shown in the hydra package documentation.
 
 @itemize
 @item Brightness: @kbd{print} Control display brightness using xbacklight.
-@item View-Mode: @kbd{C-c v} Temporarily behave like view-mode.
+@item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
 @item Navigate: @kbd{s-n} Navigate with ease.
 @item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
 @item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
 @item m-player: @kbd{s-m} Emacspeak-M-Player Commands
 @item m-player: @kbd{s-;} Emacspeak-M-Player muggle
 @item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
-@item hideshow: C-c h Provide HideShow bindings.
-@item origami: C-c / Origami   bindings.
+@item hideshow: C-, h Provide HideShow bindings.
+@item origami: C-, / Origami   bindings.
 @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
 @item outliner: <C-c .> Bindings from outline-minor-mode.
 @item Info-Summary: <?> in Info Info Summary Muggle
@@ -13324,8 +13327,10 @@ Temporarily use keymap emacspeak-m-player-mode-map
 @subsubsection emacspeak-muggles-hideshow/body
 @deffn {Command} emacspeak-muggles-hideshow/body   
 @table @kbd
-@item C-c h
-@kindex C-c h
+@item C-, h
+@kindex C-, h
+@item C-x @@ a h
+@kindex C-x @@ a h
 @end table
 
 @findex emacspeak-muggles-hideshow/body
@@ -13608,6 +13613,15 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
 @subsubsection emacspeak-muggles-outliner/body
 @deffn {Command} emacspeak-muggles-outliner/body   
+@table @kbd
+@item C-. o
+@kindex C-. o
+@item C-' o
+@kindex C-' o
+@item C-x @@ s o
+@kindex C-x @@ s o
+@end table
+
 @findex emacspeak-muggles-outliner/body
 
 @format
@@ -13722,8 +13736,12 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
 @table @kbd
-@item C-c v
-@kindex C-c v
+@item C-. v
+@kindex C-. v
+@item C-' v
+@kindex C-' v
+@item C-x @@ s v
+@kindex C-x @@ s v
 @end table
 
 @findex emacspeak-muggles-view/body
@@ -13848,8 +13866,10 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 @subsubsection emacspeak-origami/body
 @deffn {Command} emacspeak-origami/body   
 @table @kbd
-@item C-c /
-@kindex C-c /
+@item C-, /
+@kindex C-, /
+@item C-x @@ a /
+@kindex C-x @@ a /
 @end table
 
 @findex emacspeak-origami/body
