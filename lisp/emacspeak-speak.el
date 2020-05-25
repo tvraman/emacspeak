@@ -1128,6 +1128,7 @@ spelled out  instead of being spoken."
     (let ((orig (point))
           (inhibit-point-motion-hooks t)
           (inhibit-modification-hooks t)
+          (inhibit-field-text-motion  t)
           (start nil)
           (end nil)
           (speaker 'dtk-speak))
