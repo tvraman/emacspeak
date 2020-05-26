@@ -642,8 +642,10 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (interactive)
   (org-store-link nil)
   (org-capture nil "h"))
+
 (defun org-eww-store-link ()
   "Store a link to a EWW buffer."
+  (interactive)
   (when (eq major-mode 'eww-mode)
     (org-link-store-props
      :type "eww"
