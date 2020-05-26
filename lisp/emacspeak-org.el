@@ -455,7 +455,11 @@
 
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
-  (cl-declare (special org-mode-map))
+  (cl-declare (special org-mode-map
+                       org-link-parameters))
+  (cl-pushnew
+ '("eww" :follow 'eww :store org-eww-store-link)
+ org-link-parameters)
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)
     (emacspeak-setup-programming-mode)))
@@ -645,12 +649,11 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 (defun org-eww-store-link ()
   "Store a link to a EWW buffer."
-  (interactive)
   (when (eq major-mode 'eww-mode)
     (org-link-store-props
      :type "eww"
-     :link   (emacspeak-eww-current-url)
-     :url (eww-current-url)
+     :link   (or (shr-url-at-point nil) (eww-current-url))
+     :url (or (shr-url-at-point nil) (eww-current-url))
      :description (emacspeak-eww-current-title))))
 
 ;;}}}
