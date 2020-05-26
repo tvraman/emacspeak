@@ -206,14 +206,14 @@ gcs (%.2f seconds)>"
   "Start up emacs."
   (cl-declare (special emacspeak-directory
                        outloud-default-speech-rate dectalk-default-speech-rate
-                       outline-mode-prefix-map))
+                       magit-mode-map outline-mode-prefix-map))
   (tvr-fastload
    ;;{{{ Load  emacspeak
 
    (setq outloud-default-speech-rate 125 ; because we load custom at the end
          dectalk-default-speech-rate 485)
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-   (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
+   (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
    ;;}}}
@@ -284,7 +284,7 @@ gcs (%.2f seconds)>"
    (save-place-mode)
    (midnight-mode)
    (server-start)
-;;; Forge:
+;;; Magit and Forge:
 
    (with-eval-after-load 'magit
      (require 'forge)))
