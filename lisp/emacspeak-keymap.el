@@ -717,7 +717,6 @@ command that the key sequence executes."
     ("n" emacspeak-npr-play-program)
     ("o" helm-mini)
     ("p" emacspeak-wizards-pdf-open)
-    ("r" org-capture)
     ("s" emacspeak-wizards-shell)
     ("t" twit)
     ("u" list-unicode-display)
