@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-28 Thu 09:48 -->
+<!-- 2020-05-28 Thu 09:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GitHub Standard Fork And Pull Request From Inside Emacs</title>
@@ -243,8 +243,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">GitHub Standard Fork And Pull Request From Inside Emacs</h1>
-<div id="outline-container-orgbf33bd3" class="outline-2">
-<h2 id="orgbf33bd3"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-org21d06c9" class="outline-2">
+<h2 id="org21d06c9"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Collaborating via GitHub (and similar platforms) requires
@@ -266,8 +266,8 @@ still need to resort to Chrome or Firefox to set up GitHub tokens etc.
 </div>
 </div>
 
-<div id="outline-container-org948f223" class="outline-2">
-<h2 id="org948f223"><span class="section-number-2">2</span> The <i>Standard</i> GitHub Workflow</h2>
+<div id="outline-container-org0040dfb" class="outline-2">
+<h2 id="org0040dfb"><span class="section-number-2">2</span> The <i>Standard</i> GitHub Workflow</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The GitHub collaboration workflow is documented (if somewhat sparsely)
@@ -287,8 +287,8 @@ buttons on the GitHub web site.
 </div>
 
 
-<div id="outline-container-org532eb1d" class="outline-2">
-<h2 id="org532eb1d"><span class="section-number-2">3</span> Collecting The Needed Tools</h2>
+<div id="outline-container-orgbf0cee8" class="outline-2">
+<h2 id="orgbf0cee8"><span class="section-number-2">3</span> Collecting The Needed Tools</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Here are the tools I needed to achieve the goal of achieving the above
@@ -312,8 +312,8 @@ catching up  fast.
 </div>
 </div>
 
-<div id="outline-container-orge25da79" class="outline-2">
-<h2 id="orge25da79"><span class="section-number-2">4</span> Implementing The GitHub Workflow</h2>
+<div id="outline-container-orga8acdcc" class="outline-2">
+<h2 id="orga8acdcc"><span class="section-number-2">4</span> Implementing The GitHub Workflow</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 I'll use a concrete example to avoid introducing additional confusing
@@ -323,8 +323,8 @@ used in a specialized sense.
 </p>
 </div>
 
-<div id="outline-container-orgb2325fa" class="outline-3">
-<h3 id="orgb2325fa"><span class="section-number-3">4.1</span> Task:</h3>
+<div id="outline-container-orgc182550" class="outline-3">
+<h3 id="orgc182550"><span class="section-number-3">4.1</span> Task:</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Create a Pull-Request to project <i>speech-rule-engine</i> from  user
@@ -386,21 +386,18 @@ commands. Either way, you now have a copy of the
 <i>speech-rule-engine</i> project under your list of GitHub
 repositories  &#x2014; in my case at <i><a href="https://github.com/tvraman/speech-rule-engine">https://github.com/tvraman/speech-rule-engine</a></i>.</li>
 </ul>
-<p>
-Clone :: Next, <i>git clone</i>  the fork you just created. This is just
-a  regular clone operation, in my case I did:
-</p>
+<dl class="org-dl">
+<dt>Clone</dt><dd>Next, <i>git clone</i>  the fork you just created. This is just a  regular clone operation, in my case I did:</dd>
+</dl>
 <pre class="example">
 mkdir -p ~/sources/tvraman; cd ~/sources/tvraman; git clone https://github.com/tvraman/speech-rule-engine
 </pre>
 
-<p>
-Create Your Changes :: Follow the steps from the earlier tutorials
+<dl class="org-dl">
+<dt>Create Your Changes</dt><dd>Follow the steps from the earlier tutorials
 to do your work, i.e., creating a feature-branch to hold your
 changes,etc. Note that all this work is being done in your fork,
-i.e., in this example, within <span class="underline">~/sources/tvraman/speech-rule-engine</span>.
-</p>
-<dl class="org-dl">
+i.e., in this example, within <span class="underline">~/sources/tvraman/speech-rule-engine</span>.</dd>
 <dt>Create Pull Request</dt><dd>When  ready, open the <i>magit-status</i> buffer
 for your fork, and create the pull-request using magit/forge &#x2014;
 in the  magit status buffer, type <i>'cp</i>.</dd>
@@ -427,7 +424,7 @@ project &#x2014; in this case in <span class="underline">zorkow/speech-rule-engi
 <div id="postamble" class="status">
 <p class="date">Date: 2020-05-28 Thu 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2020-05-28 Thu 09:48</p>
+<p class="date">Created: 2020-05-28 Thu 09:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
