@@ -1,0 +1,120 @@
+* Executive Summary 
+
+Collaborating via GitHub (and similar platforms) requires
+understanding and following a somewhat standardized fork, create, push
+workflow. Most of the gory details of this workflow typically get
+hidden by instructions of the form 
+: Sign in to GitHub in your browser and /push/ the button on the  top-left
+or something similar.
+I live exclusively in Emacs and use  Chrome as the weapon of
+last-resort, this article details  how to perform the afore-mentioned
+GitHub collaboration workflow  from within Emacs. Caveat --- you may
+still need to resort to Chrome or Firefox to set up GitHub tokens etc.
+
+* The /Standard/ GitHub Workflow
+
+The GitHub collaboration workflow is documented (if somewhat sparsely)
+on GitHub, and it's augmented by many excellent tutorials on the
+Web. I will avoid repeating that information, other than to link to
+them below and point out that reading those is essential to build a
+clear mental picture of how things work. The remainder of this article
+will focus on how to achieve the equivalent without having to /push/
+buttons on the GitHub web site.
+
+  - [[https://gist.github.com/Chaser324/ce0505fbed06b947d962][Tutorial: GitHub Standard Fork & Pull Request Workflow · GitHub]]
+  - [[https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork][GitHub Help Pages]]
+
+
+* Collecting The Needed Tools
+
+Here are the tools I needed to achieve the goal of achieving the above
+workflow from within Emacs and without resorting to a Web browser.
+
+  1. Package [[https://github.com/magit/magit][Magit]] from Melpa.
+  2. Package [[https://github.com/magit/forge][Magit/Forge]] from Melpa.
+  3. [[https://github.com/hub][Command-Line tool hub from GitHub]]
+  4. [[https://github.com/cli][Newer Command-Line tool gh from GitHub]].
+
+
+Command-line tools /gh/ and /hub/ are written in /go/ and implement
+the GitHub API.
+At the time of writing, /hub/ appears more complete, but /gh/ is
+catching up  fast.
+
+* Implementing The GitHub Workflow
+
+I'll use a concrete example to avoid introducing additional confusing
+terminology.  In my own learning journey, I often got confused by
+terminology such as /name/, /remote/, etc. each of which were being
+used in a specialized sense.
+
+** Task:
+
+Create a Pull-Request to project /speech-rule-engine/ from  user
+zorkow/ --- the project repository is 
+[[https://github.com/zorkow/speech-rule-engine][Speech Rule Engine from user zorkow]].
+
+
+  - Fork :: Fork the project you wish to contribute to. I found
+    multiple ways of doing this (eventually).
+     1. magit/forge inside emacs:
+: 'cf RET RET
+     This invokes command M-x forge-fork which prompts for two /name/
+     arguments. The meaning of those arguments are somewhat
+     non-obvious which is why I failed initially. To use it
+     successfully, set Forge Custom option  /forge-owned-accounts/ to
+     your GitHub user-id --- in my case /tvraman/. Note that this
+     variable can hold a list of GitHub user-ids that you use.
+: (setq forge-owned-accounts '(("tvraman")))
+      With the above in place, go to where you have the source
+      repository checked out, in my case:
+: cd ~/sources/zorkow/speech-rule-engine
+     and open the /magit status/ buffer by executing
+: M-x magit-status
+     and execute Emacs command /forge-fork/ --- by default
+     _magit/forge_ binds this to /'cf/. The minibuffer shows the
+     user-id you set up in forge-owned-accounts/ earlier as the
+     default, press /RET/ to accept the user-id value  for both the
+     /fork/ and /remote/ arguments.
+     - The above flow works once it's all set-up --- note however that
+       if you are happier to just do this at the shell, you can use
+       either /hub/ or /gh/ --- read the documentation for those
+       commands. Either way, you now have a copy of the
+       /speech-rule-engine/ project under your list of GitHub
+       repositories  --- in my case at /https://github.com/tvraman/speech-rule-engine/.
+  Clone :: Next, /git clone/  the fork you just created. This is just
+  a  regular clone operation, in my case I did:
+: mkdir -p ~/sources/tvraman; cd ~/sources/tvraman; git clone https://github.com/tvraman/speech-rule-engine
+  Create Your Changes :: Follow the steps from the earlier tutorials
+  to do your work, i.e., creating a feature-branch to hold your
+  changes,etc. Note that all this work is being done in your fork,
+  i.e., in this example, within _~/sources/tvraman/speech-rule-engine_.
+  - Create Pull Request :: When  ready, open the /magit-status/ buffer
+    for your fork, and create the pull-request using magit/forge ---
+    in the  magit status buffer, type /'cp/.
+  - Uploading The Pull Request :: Now, you need to send the
+    pull-request to the author of the project you are contributing to
+    --- this is again one of those steps that all the docs talk about
+    pushing a button on GitHub.com. The easiest means I found to do
+    this was via command-line tool _hub_:
+: cd ~/sources/tvraman/speech-rule-engine; hub pull-request 
+  Assuming you have emacsclient configured as your EDITOR, this opens
+  a standard  commit-like message buffer that lets you complete the
+  action. Result: a new, shiny pull-request shows up in the target
+  project --- in this case in _zorkow/speech-rule-engine_.
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title:  GitHub Standard Fork And Pull Request From Inside Emacs
+#+date: <2020-05-28 Thu>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3.6)
