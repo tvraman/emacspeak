@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-05-28 Thu 09:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GitHub Standard Fork And Pull Request From Inside Emacs</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">GitHub Standard Fork And Pull Request From Inside Emacs</h1>
+<div id="outline-container-org21d06c9" class="outline-2">
+<h2 id="org21d06c9"><span class="section-number-2">1</span> Executive Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Collaborating via GitHub (and similar platforms) requires
+understanding and following a somewhat standardized fork, create, push
+workflow. Most of the gory details of this workflow typically get
+hidden by instructions of the form 
+</p>
+<pre class="example">
+Sign in to GitHub in your browser and /push/ the button on the  top-left
+</pre>
+
+<p>
+or something similar.
+I live exclusively in Emacs and use  Chrome as the weapon of
+last-resort, this article details  how to perform the afore-mentioned
+GitHub collaboration workflow  from within Emacs. Caveat &#x2014; you may
+still need to resort to Chrome or Firefox to set up GitHub tokens etc.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0040dfb" class="outline-2">
+<h2 id="org0040dfb"><span class="section-number-2">2</span> The <i>Standard</i> GitHub Workflow</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The GitHub collaboration workflow is documented (if somewhat sparsely)
+on GitHub, and it's augmented by many excellent tutorials on the
+Web. I will avoid repeating that information, other than to link to
+them below and point out that reading those is essential to build a
+clear mental picture of how things work. The remainder of this article
+will focus on how to achieve the equivalent without having to <i>push</i>
+buttons on the GitHub web site.
+</p>
+
+<ul class="org-ul">
+<li><a href="https://gist.github.com/Chaser324/ce0505fbed06b947d962">Tutorial: GitHub Standard Fork &amp; Pull Request Workflow · GitHub</a></li>
+<li><a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork">GitHub Help Pages</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgbf0cee8" class="outline-2">
+<h2 id="orgbf0cee8"><span class="section-number-2">3</span> Collecting The Needed Tools</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Here are the tools I needed to achieve the goal of achieving the above
+workflow from within Emacs and without resorting to a Web browser.
+</p>
+
+<ol class="org-ol">
+<li>Package <a href="https://github.com/magit/magit">Magit</a> from Melpa.</li>
+<li>Package <a href="https://github.com/magit/forge">Magit/Forge</a> from Melpa.</li>
+<li><a href="https://github.com/hub">Command-Line tool hub from GitHub</a></li>
+<li><a href="https://github.com/cli">Newer Command-Line tool gh from GitHub</a>.</li>
+</ol>
+
+
+<p>
+Command-line tools <i>gh</i> and <i>hub</i> are written in <i>go</i> and implement
+the GitHub API.
+At the time of writing, <i>hub</i> appears more complete, but <i>gh</i> is
+catching up  fast.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga8acdcc" class="outline-2">
+<h2 id="orga8acdcc"><span class="section-number-2">4</span> Implementing The GitHub Workflow</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+I'll use a concrete example to avoid introducing additional confusing
+terminology.  In my own learning journey, I often got confused by
+terminology such as <i>name</i>, <i>remote</i>, etc. each of which were being
+used in a specialized sense.
+</p>
+</div>
+
+<div id="outline-container-orgc182550" class="outline-3">
+<h3 id="orgc182550"><span class="section-number-3">4.1</span> Task:</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Create a Pull-Request to project <i>speech-rule-engine</i> from  user
+zorkow/ &#x2014; the project repository is 
+<a href="https://github.com/zorkow/speech-rule-engine">Speech Rule Engine from user zorkow</a>.
+</p>
+
+
+<dl class="org-dl">
+<dt>Fork</dt><dd>Fork the project you wish to contribute to. I found
+multiple ways of doing this (eventually).
+<ol class="org-ol">
+<li>magit/forge inside emacs:</li>
+</ol></dd>
+</dl>
+<pre class="example">
+'cf RET RET
+</pre>
+
+<p>
+This invokes command M-x forge-fork which prompts for two <i>name</i>
+arguments. The meaning of those arguments are somewhat
+non-obvious which is why I failed initially. To use it
+successfully, set Forge Custom option  <i>forge-owned-accounts</i> to
+your GitHub user-id &#x2014; in my case <i>tvraman</i>. Note that this
+variable can hold a list of GitHub user-ids that you use.
+</p>
+<pre class="example">
+(setq forge-owned-accounts '(("tvraman")))
+</pre>
+
+<p>
+With the above in place, go to where you have the source
+repository checked out, in my case:
+</p>
+<pre class="example">
+cd ~/sources/zorkow/speech-rule-engine
+</pre>
+
+<p>
+and open the <i>magit status</i> buffer by executing
+</p>
+<pre class="example">
+M-x magit-status
+</pre>
+
+<p>
+and execute Emacs command <i>forge-fork</i> &#x2014; by default
+<span class="underline">magit/forge</span> binds this to <i>'cf</i>. The minibuffer shows the
+user-id you set up in forge-owned-accounts/ earlier as the
+default, press <i>RET</i> to accept the user-id value  for both the
+<i>fork</i> and <i>remote</i> arguments.
+</p>
+<ul class="org-ul">
+<li>The above flow works once it's all set-up &#x2014; note however that
+if you are happier to just do this at the shell, you can use
+either <i>hub</i> or <i>gh</i> &#x2014; read the documentation for those
+commands. Either way, you now have a copy of the
+<i>speech-rule-engine</i> project under your list of GitHub
+repositories  &#x2014; in my case at <i><a href="https://github.com/tvraman/speech-rule-engine">https://github.com/tvraman/speech-rule-engine</a></i>.</li>
+</ul>
+<dl class="org-dl">
+<dt>Clone</dt><dd>Next, <i>git clone</i>  the fork you just created. This is just a  regular clone operation, in my case I did:</dd>
+</dl>
+<pre class="example">
+mkdir -p ~/sources/tvraman; cd ~/sources/tvraman; git clone https://github.com/tvraman/speech-rule-engine
+</pre>
+
+<dl class="org-dl">
+<dt>Create Your Changes</dt><dd>Follow the steps from the earlier tutorials
+to do your work, i.e., creating a feature-branch to hold your
+changes,etc. Note that all this work is being done in your fork,
+i.e., in this example, within <span class="underline">~/sources/tvraman/speech-rule-engine</span>.</dd>
+<dt>Create Pull Request</dt><dd>When  ready, open the <i>magit-status</i> buffer
+for your fork, and create the pull-request using magit/forge &#x2014;
+in the  magit status buffer, type <i>'cp</i>.</dd>
+<dt>Uploading The Pull Request</dt><dd>Now, you need to send the
+pull-request to the author of the project you are contributing to
+&#x2014; this is again one of those steps that all the docs talk about
+pushing a button on GitHub.com. The easiest means I found to do
+this was via command-line tool <span class="underline">hub</span>:</dd>
+</dl>
+<pre class="example">
+cd ~/sources/tvraman/speech-rule-engine; hub pull-request 
+</pre>
+
+<p>
+Assuming you have emacsclient configured as your EDITOR, this opens
+a standard  commit-like message buffer that lets you complete the
+action. Result: a new, shiny pull-request shows up in the target
+project &#x2014; in this case in <span class="underline">zorkow/speech-rule-engine</span>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-05-28 Thu 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2020-05-28 Thu 09:54</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
