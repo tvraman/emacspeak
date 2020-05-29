@@ -1,4 +1,371 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-02-28T19:47:44.216-08:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>161</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-3109879842057642962</id><published>2019-12-18T09:24:00.001-08:00</published><updated>2019-12-18T09:30:29.892-08:00</updated><title type='text'>Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak&lt;/h1&gt;&lt;div id=&quot;outline-container-orgc765764&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgc765764&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;/div&gt;&lt;div id=&quot;outline-container-orgde6f45e&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;orgde6f45e&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Research question:&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;&lt;p&gt;What type of spoken feedback does one need to:&lt;br /&gt;
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-05-28T10:05:03.752-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>163</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-8930221260080669957</id><published>2020-05-28T10:05:00.000-07:00</published><updated>2020-05-28T10:05:03.674-07:00</updated><title type='text'>GitHub Standard Fork And Pull-Request Workflow From Emacs</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;br /&gt;
+&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;GitHub Standard Fork And Pull Request From Inside Emacs&lt;/h1&gt;&lt;div id=&quot;outline-container-org21d06c9&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org21d06c9&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Collaborating via GitHub (and similar platforms) requires&lt;br /&gt;
+understanding and following a somewhat standardized fork, create, push&lt;br /&gt;
+workflow. Most of the gory details of this workflow typically get&lt;br /&gt;
+hidden by instructions of the form &lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;Sign in to GitHub in your browser and /push/ the button on the  top-left
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;or something similar.&lt;br /&gt;
+I live exclusively in Emacs and use  Chrome as the weapon of&lt;br /&gt;
+last-resort, this article details  how to perform the afore-mentioned&lt;br /&gt;
+GitHub collaboration workflow  from within Emacs. Caveat &amp;#x2014; you may&lt;br /&gt;
+still need to resort to Chrome or Firefox to set up GitHub tokens etc.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org0040dfb&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org0040dfb&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; The &lt;i&gt;Standard&lt;/i&gt; GitHub Workflow&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;The GitHub collaboration workflow is documented (if somewhat sparsely)&lt;br /&gt;
+on GitHub, and it&#39;s augmented by many excellent tutorials on the&lt;br /&gt;
+Web. I will avoid repeating that information, other than to link to&lt;br /&gt;
+them below and point out that reading those is essential to build a&lt;br /&gt;
+clear mental picture of how things work. The remainder of this article&lt;br /&gt;
+will focus on how to achieve the equivalent without having to &lt;i&gt;push&lt;/i&gt;&lt;br /&gt;
+buttons on the GitHub web site.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;&lt;a href=&quot;https://gist.github.com/Chaser324/ce0505fbed06b947d962&quot;&gt;Tutorial: GitHub Standard Fork &amp;amp; Pull Request Workflow · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork&quot;&gt;GitHub Help Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgbf0cee8&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgbf0cee8&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Collecting The Needed Tools&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;Here are the tools I needed to achieve the goal of achieving the above&lt;br /&gt;
+workflow from within Emacs and without resorting to a Web browser.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Package &lt;a href=&quot;https://github.com/magit/magit&quot;&gt;Magit&lt;/a&gt; from Melpa.&lt;/li&gt;
+&lt;li&gt;Package &lt;a href=&quot;https://github.com/magit/forge&quot;&gt;Magit/Forge&lt;/a&gt; from Melpa.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hub&quot;&gt;Command-Line tool hub from GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cli&quot;&gt;Newer Command-Line tool gh from GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;Command-line tools &lt;i&gt;gh&lt;/i&gt; and &lt;i&gt;hub&lt;/i&gt; are written in &lt;i&gt;go&lt;/i&gt; and implement&lt;br /&gt;
+the GitHub API.&lt;br /&gt;
+At the time of writing, &lt;i&gt;hub&lt;/i&gt; appears more complete, but &lt;i&gt;gh&lt;/i&gt; is&lt;br /&gt;
+catching up  fast.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orga8acdcc&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orga8acdcc&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Implementing The GitHub Workflow&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;I&#39;ll use a concrete example to avoid introducing additional confusing&lt;br /&gt;
+terminology.  In my own learning journey, I often got confused by&lt;br /&gt;
+terminology such as &lt;i&gt;name&lt;/i&gt;, &lt;i&gt;remote&lt;/i&gt;, etc. each of which were being&lt;br /&gt;
+used in a specialized sense.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgc182550&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;orgc182550&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;4.1&lt;/span&gt; Task:&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-4-1&quot;&gt;&lt;p&gt;Create a Pull-Request to project &lt;i&gt;speech-rule-engine&lt;/i&gt; from  user&lt;br /&gt;
+zorkow/ &amp;#x2014; the project repository is &lt;br /&gt;
+&lt;a href=&quot;https://github.com/zorkow/speech-rule-engine&quot;&gt;Speech Rule Engine from user zorkow&lt;/a&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;dl class=&quot;org-dl&quot;&gt;&lt;dt&gt;Fork&lt;/dt&gt;&lt;dd&gt;Fork the project you wish to contribute to. I found
+multiple ways of doing this (eventually).
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;magit/forge inside emacs:&lt;/li&gt;
+&lt;/ol&gt;&lt;/dd&gt;
+&lt;/dl&gt;&lt;pre class=&quot;example&quot;&gt;&#39;cf RET RET
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;This invokes command M-x forge-fork which prompts for two &lt;i&gt;name&lt;/i&gt;&lt;br /&gt;
+arguments. The meaning of those arguments are somewhat&lt;br /&gt;
+non-obvious which is why I failed initially. To use it&lt;br /&gt;
+successfully, set Forge Custom option  &lt;i&gt;forge-owned-accounts&lt;/i&gt; to&lt;br /&gt;
+your GitHub user-id &amp;#x2014; in my case &lt;i&gt;tvraman&lt;/i&gt;. Note that this&lt;br /&gt;
+variable can hold a list of GitHub user-ids that you use.&lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;(setq forge-owned-accounts &#39;((&quot;tvraman&quot;)))
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;With the above in place, go to where you have the source&lt;br /&gt;
+repository checked out, in my case:&lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;cd ~/sources/zorkow/speech-rule-engine
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;and open the &lt;i&gt;magit status&lt;/i&gt; buffer by executing&lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;M-x magit-status
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;and execute Emacs command &lt;i&gt;forge-fork&lt;/i&gt; &amp;#x2014; by default&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;magit/forge&lt;/span&gt; binds this to &lt;i&gt;&#39;cf&lt;/i&gt;. The minibuffer shows the&lt;br /&gt;
+user-id you set up in forge-owned-accounts/ earlier as the&lt;br /&gt;
+default, press &lt;i&gt;RET&lt;/i&gt; to accept the user-id value  for both the&lt;br /&gt;
+&lt;i&gt;fork&lt;/i&gt; and &lt;i&gt;remote&lt;/i&gt; arguments.&lt;br /&gt;
+&lt;/p&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;The above flow works once it&#39;s all set-up &amp;#x2014; note however that&lt;br /&gt;
+if you are happier to just do this at the shell, you can use&lt;br /&gt;
+either &lt;i&gt;hub&lt;/i&gt; or &lt;i&gt;gh&lt;/i&gt; &amp;#x2014; read the documentation for those&lt;br /&gt;
+commands. Either way, you now have a copy of the&lt;br /&gt;
+&lt;i&gt;speech-rule-engine&lt;/i&gt; project under your list of GitHub&lt;br /&gt;
+repositories  &amp;#x2014; in my case at &lt;i&gt;&lt;a href=&quot;https://github.com/tvraman/speech-rule-engine&quot;&gt;https://github.com/tvraman/speech-rule-engine&lt;/a&gt;&lt;/i&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;dl class=&quot;org-dl&quot;&gt;&lt;dt&gt;Clone&lt;/dt&gt;&lt;dd&gt;Next, &lt;i&gt;git clone&lt;/i&gt;  the fork you just created. This is just a  regular clone operation, in my case I did:&lt;/dd&gt;
+&lt;/dl&gt;&lt;pre class=&quot;example&quot;&gt;mkdir -p ~/sources/tvraman; cd ~/sources/tvraman; git clone https://github.com/tvraman/speech-rule-engine
+&lt;/pre&gt;&lt;br /&gt;
+&lt;dl class=&quot;org-dl&quot;&gt;&lt;dt&gt;Create Your Changes&lt;/dt&gt;&lt;dd&gt;Follow the steps from the earlier tutorials
+to do your work, i.e., creating a feature-branch to hold your
+changes,etc. Note that all this work is being done in your fork,
+i.e., in this example, within &lt;span class=&quot;underline&quot;&gt;~/sources/tvraman/speech-rule-engine&lt;/span&gt;.&lt;/dd&gt;
+&lt;dt&gt;Create Pull Request&lt;/dt&gt;&lt;dd&gt;When  ready, open the &lt;i&gt;magit-status&lt;/i&gt; buffer
+for your fork, and create the pull-request using magit/forge &amp;#x2014;
+in the  magit status buffer, type &lt;i&gt;&#39;cp&lt;/i&gt;.&lt;/dd&gt;
+&lt;dt&gt;Uploading The Pull Request&lt;/dt&gt;&lt;dd&gt;Now, you need to send the
+pull-request to the author of the project you are contributing to
+&amp;#x2014; this is again one of those steps that all the docs talk about
+pushing a button on GitHub.com. The easiest means I found to do
+this was via command-line tool &lt;span class=&quot;underline&quot;&gt;hub&lt;/span&gt;:&lt;/dd&gt;
+&lt;/dl&gt;&lt;pre class=&quot;example&quot;&gt;cd ~/sources/tvraman/speech-rule-engine; hub pull-request 
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;Assuming you have emacsclient configured as your EDITOR, this opens&lt;br /&gt;
+a standard  commit-like message buffer that lets you complete the&lt;br /&gt;
+action. Result: a new, shiny pull-request shows up in the target&lt;br /&gt;
+project &amp;#x2014; in this case in &lt;span class=&quot;underline&quot;&gt;zorkow/speech-rule-engine&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8930221260080669957'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8930221260080669957'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/05/github-standard-fork-and-pull-request.html' title='GitHub Standard Fork And Pull-Request Workflow From Emacs'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-4327384258068744832</id><published>2020-05-03T10:56:00.000-07:00</published><updated>2020-05-03T10:56:00.189-07:00</updated><title type='text'>Emacspeak 52.0 (WorkAtHomeDog) Unleashed!</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Announcing Emacspeak 52.0—WorkAtHomeDog!&lt;/h1&gt;&lt;p&gt;The enjoyment of one&#39;s tools is an essential ingredient of successful work. &amp;#x2013; Donald E. Knuth&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org67bf370&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org67bf370&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; For Immediate Release:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;San Jose, CA, (May 4, 2020)&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org72f3e68&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org72f3e68&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Emacspeak 52.0 (WorkAtHomeDog) 🦮 Unleashed!&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;&lt;p&gt;&amp;#x2014; Making Telecommuting Great Again!&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Advancing Accessibility In The Age Of User-Aware Interfaces &amp;#x2014; Zero&lt;br /&gt;
+cost of Ownership makes priceless software Universally affordable!&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;Emacspeak Inc (NASDOG: ESPK) &amp;#x2014; &lt;a href=&quot;http://github.com/tvraman/emacspeak&quot;&gt;http://github.com/tvraman/emacspeak&lt;/a&gt;&lt;br /&gt;
+&amp;#x2014; announces the immediate world-wide availability of &lt;a href=&quot;https://github.com/tvraman/emacspeak/releases/download/52.0/emacspeak-52.0.tar.bz2&quot;&gt;Emacspeak 52.0&lt;/a&gt;&lt;br /&gt;
+(WorkAtHomeDog) 🦮  &amp;#x2014; a powerful audio desktop that leverages today&#39;s evolving&lt;br /&gt;
+Data, Social and Assistant-Oriented Internet cloud   to enable working&lt;br /&gt;
+effectively from anywhere!&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org0fafa87&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org0fafa87&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Investors Note:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;With several prominent tweeters expanding coverage of &lt;span class=&quot;underline&quot;&gt;#emacspeak&lt;/span&gt;,&lt;br /&gt;
+NASDOG: ESPK has now been consistently trading over the social net at&lt;br /&gt;
+levels close to that once attained by DogCom high-fliers—and as of&lt;br /&gt;
+May  2020 is trading at levels close to that achieved by once&lt;br /&gt;
+better known stocks in the tech sector.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgecb134e&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgecb134e&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; What Is It?&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;Emacspeak is a fully functional audio desktop that provides complete&lt;br /&gt;
+eyes-free access to all major 32 and 64 bit operating environments. By&lt;br /&gt;
+seamlessly blending live access to all aspects of the Internet such as&lt;br /&gt;
+ubiquitous assistance, Web-surfing, blogging, social computing and&lt;br /&gt;
+electronic messaging into the audio desktop, Emacspeak enables speech&lt;br /&gt;
+access to local and remote information with a consistent and&lt;br /&gt;
+well-integrated user interface. A rich suite of task-oriented tools&lt;br /&gt;
+provides efficient speech-enabled access to the evolving&lt;br /&gt;
+assistant-oriented social Internet cloud.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org753015b&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org753015b&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Major Enhancements:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;This version &lt;b&gt;requires&lt;/b&gt; emacs-26.1 or later. &lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Emacs 27 Support  🤻&lt;/li&gt;
+&lt;li&gt;Updated URL templates 🕷&lt;/li&gt;
+&lt;li&gt;Updated websearch wizards  🧙&lt;/li&gt;
+&lt;li&gt;Updated EWW support  🕸&lt;/li&gt;
+&lt;li&gt;Speech-enables Emacs Chess  ♕ ♔&lt;/li&gt;
+&lt;li&gt;Speech-enables package &lt;code&gt;Vuiet&lt;/code&gt; for music discovery and playback&lt;br /&gt;
+using LastFM   🎼&lt;/li&gt;
+&lt;li&gt;Smart templates for accessing Hacker News  ⎔&lt;/li&gt;
+&lt;li&gt;Updated support for Emacs Ipython Notebooks  📓&lt;/li&gt;
+&lt;li&gt;Works fluently with Sage Notebooks   &lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;— And a lot more than will fit this margin. … 🗞&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgfb3833c&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgfb3833c&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Establishing Liberty, Equality And Freedom:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;&lt;p&gt;  Never a toy system, Emacspeak is voluntarily bundled with all&lt;br /&gt;
+major Linux distributions. Though designed to be modular,&lt;br /&gt;
+distributors have freely chosen to bundle the fully integrated&lt;br /&gt;
+system without any undue pressure—a documented success for&lt;br /&gt;
+the integrated innovation embodied by Emacspeak. As the system&lt;br /&gt;
+evolves, both upgrades and downgrades continue to be available at&lt;br /&gt;
+the same zero-cost to all users. The integrity of the Emacspeak&lt;br /&gt;
+codebase is ensured by the reliable and secure Linux platform&lt;br /&gt;
+used to develop and distribute the software.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Extensive studies have shown that thanks to these features, users&lt;br /&gt;
+consider Emacspeak to be absolutely priceless. Thanks to this&lt;br /&gt;
+wide-spread user demand, the present version remains   priceless&lt;br /&gt;
+as ever—it is being made available at the same zero-cost as&lt;br /&gt;
+previous releases.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;At the same time, Emacspeak continues to innovate in the area of&lt;br /&gt;
+eyes-free Assistance and social interaction and carries forward the&lt;br /&gt;
+well-established Open Source tradition of introducing user interface&lt;br /&gt;
+features that eventually show up in luser environments.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;On this theme, when once challenged by a proponent of a crash-prone&lt;br /&gt;
+but well-marketed mousetrap with the assertion &quot;Emacs is a system from&lt;br /&gt;
+the 70&#39;s&quot;, the creator of Emacspeak evinced surprise at the unusual&lt;br /&gt;
+candor manifest in the assertion that it would take popular&lt;br /&gt;
+idiot-proven interfaces until the year 2070 to catch up to where the&lt;br /&gt;
+Emacspeak audio desktop is today. Industry experts welcomed this&lt;br /&gt;
+refreshing breath of Courage Certainty and Clarity (CCC) at a time&lt;br /&gt;
+when users are reeling from the Fear Uncertainty and Doubt (FUD)&lt;br /&gt;
+unleashed by complex software systems backed by even more convoluted&lt;br /&gt;
+press releases.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orge10fe1a&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orge10fe1a&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Independent Test Results:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;&lt;p&gt;Independent test results have proven that unlike some modern (and&lt;br /&gt;
+not so modern) software, Emacspeak can be safely uninstalled without&lt;br /&gt;
+adversely affecting the continued performance of the computer. These&lt;br /&gt;
+same tests also revealed that once uninstalled, the user stopped&lt;br /&gt;
+functioning altogether. Speaking with Aster Labrador, the creator of&lt;br /&gt;
+Emacspeak once pointed out that these results re-emphasize the&lt;br /&gt;
+user-centric design of Emacspeak; “It is the user &amp;#x2014; and not the&lt;br /&gt;
+computer&amp;#x2013; that stops functioning when Emacspeak is uninstalled!”.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgc6965ce&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;orgc6965ce&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;6.1&lt;/span&gt; Note from Aster,Bubbles and Tilden:&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-6-1&quot;&gt;&lt;p&gt;UnDoctored Videos Inc. is looking for volunteers to star in a&lt;br /&gt;
+video demonstrating such complete user failure.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org2db8e60&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org2db8e60&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;7&lt;/span&gt; Obtaining Emacspeak:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;&lt;p&gt;Emacspeak can be downloaded from GitHub &amp;#x2014; see&lt;br /&gt;
+&lt;a href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt; you can visit Emacspeak on the&lt;br /&gt;
+WWW at &lt;a href=&quot;http://emacspeak.sf.net&quot;&gt;http://emacspeak.sf.net&lt;/a&gt;. You can subscribe to the emacspeak&lt;br /&gt;
+mailing list — emacspeak@cs.vassar.edu — by sending mail to the&lt;br /&gt;
+list request address emacspeak-request@cs.vassar.edu. The &lt;a href=&quot;http://emacspeak.blogspot.com&quot;&gt;Emacspeak Blog&lt;/a&gt; is a good source for news about recent enhancements and how to&lt;br /&gt;
+use them.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;The latest development snapshot of Emacspeak is always available at&lt;br /&gt;
+&lt;a href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;GitHub&lt;/a&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgd9ad875&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgd9ad875&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;8&lt;/span&gt; History:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-8&quot;&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a pleasurable experience.&lt;/li&gt;
+&lt;li&gt;Gigger and more powerful than any smart assistAnt, AssistDog provides&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;instant access to the most relevant information at all times.&lt;br /&gt;
+&lt;/p&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;Emacspeak 50.0 (SageDog) embraces the wisdom of stability as&lt;br /&gt;
+opposed to rapid change and the concomitant  creation of bugs.🚭:  Naturally Intelligent (NI)™ at how information is spoken, Emacspeak&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;is entirely free of Artificial Ingredients (AI)™.&lt;br /&gt;
+&lt;/p&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;Emacspeak 49.0 (WiseDog) leverages the wisdom gleaned from&lt;br /&gt;
+earlier releases to provide an enhanced  auditory experience.&lt;/li&gt;
+&lt;li&gt;Emacspeak 48.0  (ServiceDog) builds on earlier releases to provide&lt;br /&gt;
+continued end-user value.&lt;/li&gt;
+&lt;li&gt;Emacspeak 47.0 (GentleDog) goes the next step in being helpful&lt;br /&gt;
+while letting users learn and grow.&lt;/li&gt;
+&lt;li&gt;Emacspeak 46.0 (HelpfulDog) heralds the  coming of Smart Assistants.&lt;/li&gt;
+&lt;li&gt;Emacspeak 45.0 (IdealDog) is named in recognition of Emacs&#39;&lt;br /&gt;
+excellent integration with various programming language&lt;br /&gt;
+environments &amp;#x2014; thanks to this, Emacspeak is the IDE of choice&lt;br /&gt;
+for eyes-free software engineering.&lt;/li&gt;
+&lt;li&gt;Emacspeak 44.0 continues the steady pace of innovation on the&lt;br /&gt;
+audio desktop.&lt;/li&gt;
+&lt;li&gt;Emacspeak  43.0 brings even more end-user efficiency by leveraging the&lt;br /&gt;
+ability to spatially place multiple audio streams to provide timely&lt;br /&gt;
+auditory feedback.&lt;/li&gt;
+&lt;li&gt;Emacspeak 42.0 while moving to GitHub from Google Code continues to&lt;br /&gt;
+innovate in the areas of auditory user interfaces and efficient,&lt;br /&gt;
+light-weight Internet access.&lt;/li&gt;
+&lt;li&gt;Emacspeak 41.0 continues to improve &lt;br /&gt;
+on  the desire to provide not just equal, but superior access —&lt;br /&gt;
+technology when correctly implemented can significantly enhance the&lt;br /&gt;
+human ability.&lt;/li&gt;
+&lt;li&gt;Emacspeak 40.0 goes back to Web basics by enabling&lt;br /&gt;
+&lt;a href=&quot;http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html&quot;&gt;efficient access&lt;/a&gt; to large amounts of readable Web content.&lt;/li&gt;
+&lt;li&gt;Emacspeak 39.0 continues the Emacspeak tradition of increasing the breadth of&lt;br /&gt;
+user tasks that are covered without introducing unnecessary&lt;br /&gt;
+bloatware.&lt;/li&gt;
+&lt;li&gt;Emacspeak 38.0 is the latest in a series of award-winning&lt;br /&gt;
+releases from Emacspeak Inc.&lt;/li&gt;
+&lt;li&gt;Emacspeak 37.0 continues the tradition of&lt;br /&gt;
+delivering robust software as reflected by its code-name.&lt;/li&gt;
+&lt;li&gt;Emacspeak 36.0 enhances the audio desktop with many new tools including full&lt;br /&gt;
+EPub support — hence the name EPubDog.&lt;/li&gt;
+&lt;li&gt;Emacspeak 35.0 is all about&lt;br /&gt;
+teaching a new dog old tricks — and is aptly code-named HeadDog in&lt;br /&gt;
+on  of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)&lt;br /&gt;
+established a new beach-head with respect to rapid task completion in&lt;br /&gt;
+an eyes-free environment.&lt;/li&gt;
+&lt;li&gt;Emacspeak-33.0 AKA StarDog brings&lt;br /&gt;
+unparalleled cloud access to the audio desktop.&lt;/li&gt;
+&lt;li&gt;Emacspeak 32.0 AKA&lt;br /&gt;
+LuckyDog continues to innovate via open technologies for better&lt;br /&gt;
+access.&lt;/li&gt;
+&lt;li&gt;Emacspeak 31.0 AKA TweetDog — adds tweeting to the Emacspeak&lt;br /&gt;
+desktop.&lt;/li&gt;
+&lt;li&gt;Emacspeak 30.0 AKA SocialDog brings the Social Web to the&lt;br /&gt;
+audio desktop—you cant but be social if you speak!&lt;/li&gt;
+&lt;li&gt;Emacspeak 29.0—AKAAbleDog—is a testament to the resilliance and innovation&lt;br /&gt;
+embodied by Open Source software—it would not exist without the&lt;br /&gt;
+thriving Emacs community that continues to ensure that Emacs remains&lt;br /&gt;
+one of the premier user environments despite perhaps also being one of&lt;br /&gt;
+the oldest.&lt;/li&gt;
+&lt;li&gt;Emacspeak 28.0—AKA PuppyDog—exemplifies the rapid pace of&lt;br /&gt;
+development evinced by Open Source software.&lt;/li&gt;
+&lt;li&gt;Emacspeak 27.0—AKA&lt;br /&gt;
+FastDog—is the latest in a sequence of upgrades that make previous&lt;br /&gt;
+releases obsolete and downgrades unnecessary.&lt;/li&gt;
+&lt;li&gt;Emacspeak 26—AKA&lt;br /&gt;
+LeadDog—continues the tradition of introducing innovative access&lt;br /&gt;
+solutions that are unfettered by the constraints inherent in&lt;br /&gt;
+traditional adaptive technologies.&lt;/li&gt;
+&lt;li&gt;Emacspeak 25 —AKA ActiveDog&lt;br /&gt;
+—re-activates open, unfettered access to online&lt;br /&gt;
+information.&lt;/li&gt;
+&lt;li&gt;Emacspeak-Alive —AKA LiveDog —enlivens open, unfettered&lt;br /&gt;
+information access with a series of live updates that once again&lt;br /&gt;
+demonstrate the power and agility of open source software&lt;br /&gt;
+development.&lt;/li&gt;
+&lt;li&gt;Emacspeak 23.0 &amp;#x2014; AKA Retriever—went the extra mile in&lt;br /&gt;
+fetching full access.&lt;/li&gt;
+&lt;li&gt;Emacspeak 22.0 —AKA GuideDog —helps users&lt;br /&gt;
+navigate the Web more effectively than ever before.&lt;/li&gt;
+&lt;li&gt;Emacspeak 21.0&lt;br /&gt;
+—AKA PlayDog —continued the &lt;br /&gt;
+Emacspeak tradition of relying on enhanced&lt;br /&gt;
+productivity to liberate users.&lt;/li&gt;
+&lt;li&gt;Emacspeak-20.0 —AKA LeapDog —continues&lt;br /&gt;
+the long established GNU/Emacs tradition of integrated innovation to&lt;br /&gt;
+create a pleasurable computing environment for eyes-free&lt;br /&gt;
+interaction.&lt;/li&gt;
+&lt;li&gt;emacspeak-19.0 &amp;#x2013;AKA WorkDog&amp;#x2013; is designed to enhance&lt;br /&gt;
+user productivity at work and leisure.&lt;/li&gt;
+&lt;li&gt;Emacspeak-18.0 &amp;#x2013;code named&lt;br /&gt;
+GoodDog&amp;#x2013; continued the Emacspeak tradition of enhancing user&lt;br /&gt;
+productivity and thereby reducing total cost of&lt;br /&gt;
+ownership.&lt;/li&gt;
+&lt;li&gt;Emacspeak-17.0 &amp;#x2013;code named HappyDog&amp;#x2013; enhances user&lt;br /&gt;
+productivity by exploiting today&#39;s evolving WWW&lt;br /&gt;
+standards.&lt;/li&gt;
+&lt;li&gt;Emacspeak-16.0 &amp;#x2013;code named CleverDog&amp;#x2013; the follow-up to&lt;br /&gt;
+SmartDog&amp;#x2013; continued the tradition of working better, faster,&lt;br /&gt;
+smarter.&lt;/li&gt;
+&lt;li&gt;Emacspeak-15.0 &amp;#x2013;code named SmartDog&amp;#x2013;followed up on TopDog&lt;br /&gt;
+as the next in a continuing  series of award-winning audio desktop&lt;br /&gt;
+releases from  Emacspeak Inc.&lt;/li&gt;
+&lt;li&gt;Emacspeak-14.0 &amp;#x2013;code named TopDog&amp;#x2013;was&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;the first release of this millennium. &lt;br /&gt;
+&lt;/p&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;Emacspeak-13.0 &amp;#x2013;codenamed&lt;br /&gt;
+YellowLab&amp;#x2013; was the closing release of the&lt;br /&gt;
+20th. century.&lt;/li&gt;
+&lt;li&gt;Emacspeak-12.0 &amp;#x2013;code named GoldenDog&amp;#x2013; began&lt;br /&gt;
+leveraging the evolving semantic WWW to provide task-oriented speech&lt;br /&gt;
+access to Webformation.&lt;/li&gt;
+&lt;li&gt;Emacspeak-11.0 &amp;#x2013;code named Aster&amp;#x2013; went the&lt;br /&gt;
+final step in making Linux a zero-cost Internet access solution for&lt;br /&gt;
+blind and visually impaired users.&lt;/li&gt;
+&lt;li&gt;Emacspeak-10.0 &amp;#x2013;(AKA&lt;br /&gt;
+Emacspeak-2000) code named WonderDog&amp;#x2013; continued the tradition of&lt;br /&gt;
+award-winning software releases designed to make eyes-free computing a&lt;br /&gt;
+productive and pleasurable experience.&lt;/li&gt;
+&lt;li&gt;Emacspeak-9.0 &amp;#x2013;(AKA&lt;br /&gt;
+Emacspeak 99) code named BlackLab&amp;#x2013; continued to innovate in the areas&lt;br /&gt;
+of speech interaction and interactive accessibility.&lt;/li&gt;
+&lt;li&gt;Emacspeak-8.0 &amp;#x2013;(AKA Emacspeak-98++) code named BlackDog&amp;#x2013; was a major upgrade to&lt;br /&gt;
+the speech output extension to Emacs.&lt;/li&gt;
+&lt;li&gt;Emacspeak-95 (code named Illinois) was released as OpenSource on&lt;br /&gt;
+the Internet in May 1995 as the first complete speech interface&lt;br /&gt;
+to UNIX workstations. The subsequent release, Emacspeak-96 (code&lt;br /&gt;
+named Egypt) made available in May 1996 provided significant&lt;br /&gt;
+enhancements to the interface. Emacspeak-97 (Tennessee) went&lt;br /&gt;
+further in providing a true audio desktop. Emacspeak-98&lt;br /&gt;
+integrated Internetworking into all aspects of the audio desktop&lt;br /&gt;
+to provide the first fully interactive speech-enabled WebTop.&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgddb0cc2&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgddb0cc2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;9&lt;/span&gt; About Emacspeak:&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-9&quot;&gt;&lt;p&gt;Originally based at Cornell (NY) —&lt;br /&gt;
+&lt;a href=&quot;http://www.cs.cornell.edu/home/raman&quot;&gt;http://www.cs.cornell.edu/home/raman&lt;/a&gt; —home to Auditory User&lt;br /&gt;
+Interfaces (AUI) on the WWW,  Emacspeak is now maintained on GitHub&lt;br /&gt;
+—&lt;a href=&quot;https://github.com/tvraman/emacspeak&quot;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt;. The system is mirrored&lt;br /&gt;
+world-wide by an international network of software archives and&lt;br /&gt;
+bundled voluntarily with all major Linux distributions. On Monday,&lt;br /&gt;
+April 12, 1999, Emacspeak became part of the &lt;a href=&quot;http://tvraman.github.io/emacspeak/blog/smithsonian-study.html&quot;&gt;Smithsonian&#39;s Permanent&lt;br /&gt;
+Research Collection&lt;/a&gt; on Information Technology at the Smithsonian&#39;s&lt;br /&gt;
+National Museum of American History.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;The Emacspeak mailing list is archived at Vassar &amp;#x2013;the home of the&lt;br /&gt;
+Emacspeak mailing list&amp;#x2013; thanks to Greg Priest-Dorman, and provides a&lt;br /&gt;
+valuable knowledge base for new users.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org5b7ecc4&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org5b7ecc4&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;10&lt;/span&gt; Press/Analyst Contact: Tilden Labrador&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-10&quot;&gt;&lt;p&gt;Going forward, Tilden acknowledges his exclusive monopoly on&lt;br /&gt;
+setting the direction of the Emacspeak Audio Desktop (🦮) and&lt;br /&gt;
+promises to exercise this freedom to innovate and her resulting&lt;br /&gt;
+power responsibly (as before) in the interest of all dogs.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;*About This Release:&lt;br /&gt;
+&lt;/p&gt;&lt;hr /&gt;&lt;br /&gt;
+&lt;p&gt;Windows-Free (WF) is a favorite battle-cry of The League Against&lt;br /&gt;
+Forced Fenestration (LAFF).  &amp;#x2013;see&lt;br /&gt;
+&lt;a href=&quot;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&quot;&gt;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&lt;/a&gt; for details on&lt;br /&gt;
+the ill-effects of Forced Fenestration.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;CopyWrite )C( Aster, Hubbell and Tilden Labrador. All Writes Reserved.&lt;br /&gt;
+HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered&lt;br /&gt;
+Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to&lt;br /&gt;
+their respective owners.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;&lt;p class=&quot;author&quot;&gt;Author: T.V Raman&lt;/p&gt;&lt;p class=&quot;date&quot;&gt;Created: 2020-04-27 Mon 08:27&lt;/p&gt;&lt;p class=&quot;validation&quot;&gt;&lt;a href=&quot;http://validator.w3.org/check?uri=referer&quot;&gt;Validate&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4327384258068744832'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4327384258068744832'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/05/emacspeak-520-workathomedog-unleashed.html' title='Emacspeak 52.0 (WorkAtHomeDog) Unleashed!'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-3109879842057642962</id><published>2019-12-18T09:24:00.001-08:00</published><updated>2019-12-18T09:30:29.892-08:00</updated><title type='text'>Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Speaking Of Chess: Speech-Enabling Emacs Chess In Emacspeak&lt;/h1&gt;&lt;div id=&quot;outline-container-orgc765764&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgc765764&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;/div&gt;&lt;div id=&quot;outline-container-orgde6f45e&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;orgde6f45e&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Research question:&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;&lt;p&gt;What type of spoken feedback does one need to:&lt;br /&gt;
 &lt;/p&gt;&lt;br /&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Learn Chess.&lt;/li&gt;
 &lt;li&gt;Examine and learn from games.&lt;/li&gt;
@@ -14098,47 +14465,4 @@ than to the program stream itself.&lt;/p&gt;
 BBC Web site --- channel and genre names are not hard-wired into
 Emacspeak since these can change over time with channels and
 genres being added or renamed.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/bbc-channels-on-emacspeak.html' title='BBC Channels On Emacspeak '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113832891320852876</id><published>2006-01-26T18:28:00.000-08:00</published><updated>2006-01-26T18:28:33.273-08:00</updated><title type='text'>Emacspeak World Clock For Timezone Travel </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Command &lt;code&gt;emacspeak-speak-time&lt;/code&gt; bound to &lt;code&gt;C-e
-t&lt;/code&gt; speaks the current time. 
-An additional convenience offered by this keystroke is to get the
-time at a specified time zone using Emacs&#39; completion
-facility. &lt;/p&gt;
-&lt;p&gt;To use this feature, simply precede  the keystroke with an
-&lt;code&gt;interactive prefix arg&lt;/code&gt; i.e., use &lt;code&gt;C-u C-e
-t&lt;/code&gt;.
-This will prompt for the timezone in the minibuffer. Using two
-&lt;code&gt;C-u C-u&lt;/code&gt; will set the  default timezone after
-speaking the time --- a useful way of avoiding jet-lag as you travel.&lt;/p&gt;
-
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113832891320852876'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113832891320852876'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-world-clock-for-timezone.html' title='Emacspeak World Clock For Timezone Travel '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113795676485627531</id><published>2006-01-22T11:06:00.000-08:00</published><updated>2006-01-22T11:06:05.263-08:00</updated><title type='text'>Emacspeak Web Wizards: Obtaining Context From The Calendar </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Emacspeak implements a number of &lt;code&gt;smart URLs&lt;/code&gt; in
-module &lt;code&gt;emacspeak-url-template.el&lt;/code&gt; --- see earlier
-post on &lt;a href=&quot;http://emacspeak.blogspot.com/2005/12/emacspeak-web-tricks-web-command-line.html&quot;&gt;Web
-Command Line&lt;/a&gt;. Many of these &lt;code&gt;smart URLs&lt;/code&gt; prompt
-the user for the date, e.g. you can use &lt;code&gt;smart URL&lt;/code&gt;
-&lt;em&gt;NPR On Demand&lt;/em&gt; to play  archived NPR shows.
-&lt;/p&gt;
-&lt;p&gt;The most intuitive means of specifying a date is of course
-using a &lt;code&gt;calendar&lt;/code&gt; that functions as a
-&lt;em&gt;date-picker&lt;/em&gt;, and Emacs has a very powerful built-in
-calendar. Emacspeak ties these two together by arranging for
-commands that prompt for a date to use the &lt;em&gt;current date&lt;/em&gt;
-in the  Emacs Calendar as the default. So the easiest way to play
-&lt;em&gt;NPR Morning Edition&lt;/em&gt; for  &lt;em&gt;Monday, January 2, 2006&lt;/em&gt;
-is to do the following:
-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Switch to the Emacs Calendar and move to the desired date
-&lt;em&gt;Monday January 2, 2006&lt;/em&gt; by pressing &lt;code&gt;gd&lt;/code&gt;.
-&lt;/li&gt;
-&lt;li&gt;Invoke the &lt;em&gt;NPR On Demand&lt;/em&gt; &lt;code&gt;smart URL&lt;/code&gt; by
-pressing &lt;code&gt;C-e u RET NPR  RET&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Specify the program code for &lt;em&gt;Morning Edition&lt;/em&gt; by
-pressing &lt;code&gt;me RET &lt;/code&gt;&lt;/li&gt;
-&lt;li&gt; Hit enter to pick the default date that is offered in the
-minibuffer.&lt;/li&gt;
-&lt;li&gt;Sit back and listen ...&lt;/li&gt;
-&lt;/ul&gt;
-
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-web-wizards-obtaining.html' title='Emacspeak Web Wizards: Obtaining Context From The Calendar '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
+    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/bbc-channels-on-emacspeak.html' title='BBC Channels On Emacspeak '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
