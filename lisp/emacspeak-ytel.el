@@ -121,17 +121,11 @@ Optional interactive prefix arg `best' picks best audio format."
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice ytel-search (around emacspeak pre act comp)
+(defadvice ytel-search (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cond
-   ((ems-interactive-p)
-    (let ((orig (point-max)))
-      ad-do-it
-      (goto-char orig)
-      (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'task-done)))
-   (t ad-do-it))
-  ad-return-value)
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
 (provide 'emacspeak-ytel)
