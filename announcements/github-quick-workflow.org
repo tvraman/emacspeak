@@ -1,0 +1,32 @@
+The [[https://emacspeak.blogspot.com/2020/05/github-standard-fork-and-pull-request.html][previous article]] covered   the fork/create-pullreq workflow for
+GitHub without using a browser.
+It turns out that in learning by doing, I had made a few mis-steps
+that made things a lot more convoluted. Here is a quick cheat-sheet on
+how to do this exclusively   with Magit/Forge.
+
+  1. Run _M-x magit-status_  on your Git clone of the project   to
+     which you wish to contribute.
+  2. Add your GitHub user-id _"tvraman"_ in my case to forge custom
+     option  _forge-owned-accounts_.
+  3. In the _magit-status_ buffer above, type _'cf_ to create the fork
+     and answer the prompts with the defaults as they appear in the minibuffer.
+  4. Create your feature branch, add your contribution and check-in.
+  5. In the _magit-status_ buffer, type _'cp_ to create the
+     pull-request.
+
+Share And Enjoy!
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Magit/Forge Fork And Create Pull-Request Cheat-Sheet For GitHub
+#+date: <2020-05-30 Sat>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3.6)
