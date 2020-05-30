@@ -116,6 +116,19 @@ Assumes that point is at the front of a field value."
 
 ;;}}}
 ;;{{{ Advise interactive  commands
+(cl-loop
+ for f in 
+ '(forms-search-forward forms-search-backward)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'search-hit)
+       (emacspeak-speak-line)))))
+
+
+
 
 (defadvice forms-next-record (after emacspeak pre act comp)
   "Provide auditory feedback."
