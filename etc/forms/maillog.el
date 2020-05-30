@@ -48,7 +48,7 @@
 
 
 (setq forms-read-file-filter
-      'emacspeak-forms-flush-unwanted-records)
+      #'emacspeak-forms-flush-unwanted-records)
 (setq forms-number-of-fields 9)
 (setq forms-read-only nil)
 (setq forms-field-sep
