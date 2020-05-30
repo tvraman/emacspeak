@@ -1,4 +1,4 @@
-;;; emacspeak/maillog.el --- Speech friendly interface to /var/adm/maillog  -*- lexical-binding: t; -*-
+;;; emacspeak/maillog.el --- Speech friendly interface to /var/log/maillog  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author$
 ;;; Description:  Emacspeak extension to speech enable maillog
@@ -43,8 +43,8 @@
 
 (setq forms-file
       (read-file-name  "maillog  file: "
-                       "/var/adm/"
-                       "/var/adm/maillog"))
+                       "/var/log/"
+                       "/var/log/maillog"))
 
 
 (setq forms-read-file-filter

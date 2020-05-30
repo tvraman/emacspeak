@@ -1,4 +1,4 @@
-;;; emacspeak/forms.el --- Speech friendly interface to /var/adm/messages  -*- lexical-binding: t; -*-
+;;; emacspeak/forms.el --- Speech friendly interface to /var/log/messages  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author$
 ;;; Description:  Emacspeak extension to speech enable sql-mode
@@ -42,8 +42,8 @@
 (setq forms-read-only t)
 (setq forms-file
       (read-file-name  "Messages file: "
-                       "/var/adm/"
-                       "/var/adm/messages"))
+                       "/var/log/"
+                       "/var/log/messages"))
 
 
 (setq forms-read-file-filter 'emacspeak-forms-flush-unwanted-records)
@@ -67,7 +67,6 @@
 
 ;;; local variables:
 ;;; folded-file: t
-
 ;;; end:
 
 ;;}}}
