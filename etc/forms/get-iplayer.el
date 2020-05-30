@@ -8,6 +8,6 @@
 (setq forms-format-list
       (list
        "Id: "  1
-       "Name: " 2
+       "Name: " 3
        "Episode: " 4
        "Description: "  12 "\n"))
