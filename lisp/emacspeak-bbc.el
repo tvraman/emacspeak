@@ -58,6 +58,10 @@
 ;;; get_iplayer: We use a named pipe, and cannot seek,
 ;;; but the rest of emacspeak-m-player is available.
 ;;; For downloading a program etc., use Emacs package iplayer.
+;;; Note that as of May 2020 package iplayer.el is broken and hasn't
+;;; been updated since 2016.
+;;; Use emacspeak-bbc-schedule to browse get_iplayer retrieved radio
+;;; program cache.
 
 ;;; Code:
 
@@ -67,6 +71,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-forms)
 (require 'button)
 (require 'emacspeak-webutils)
 (require 'g-utils)
@@ -74,9 +79,8 @@
 ;;}}}
 ;;{{{ Helpers:
 
-(defvar emacspeak-bbc-json nil
+(defvar-local emacspeak-bbc-json nil
   "Buffer local variable to store API results.")
-(make-variable-buffer-local 'emacspeak-bbc-json)
 
 (defvar emacspeak-bbc-json-schedules-template
   "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
@@ -287,6 +291,7 @@ on user preference."
 ;;}}}
 ;;{{{ BBC IPlayer Interaction
 
+;;; Warning: Schedule  URLs have moved or changed
 ;;;###autoload
 (defun emacspeak-bbc (&optional genre)
   "Launch BBC Interaction.
