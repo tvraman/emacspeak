@@ -377,6 +377,18 @@ Interactive prefix arg filters  content by genre."
     (put-text-property  orig (point) 'show show)))
 
 ;;}}}
+;;{{{get_iplayer catalog 
+;;; Run get_iplayer regularly to refresh ~/.get_iplayer/radio.cache.
+;;; This command then helps you view that listing using emacs
+;;forms-mode.
+
+(defun emacspeak-bbc-schedule ()
+  "Browse BBC Schedule from get_iplayer radio cache"
+  (interactive)
+  (funcall-interactively #'emacspeak-forms-find-file (expand-file-name "forms/get-iplayer.el" emacspeak-etc-directory)))
+
+
+;;}}}
 (provide 'emacspeak-bbc)
 ;;{{{ end of file
 
