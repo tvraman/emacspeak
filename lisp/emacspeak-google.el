@@ -639,8 +639,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
 (defun emacspeak-google-what-is-my-ip ()
   "Show my public IP"
   (interactive)
-  (browse-url
-   "https://www.google.com/search?q=what+is+my+ip" 'speak))
+  (emacspeak-websearch-google "what+is+my+ip"))
 
 ;;}}}
 (provide 'emacspeak-google)
