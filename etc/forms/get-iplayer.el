@@ -7,7 +7,7 @@
 (setq forms-field-sep "|")
 (setq forms-format-list
       (list
-       "Id: "  1
-       "Name: " 3
-       "Episode: " 4
+       "Id: "  1 "\t"
+       "Name: " 3 "\n"
+       "Episode: " 4 "\t"
        "Description: "  12 "\n"))
