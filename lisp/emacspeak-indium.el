@@ -54,6 +54,7 @@
 
 ;;}}}
 ;;{{{ Map Faces:
+
 (voice-setup-add-map
  '(
    (indium-keyword-face voice-animate)
@@ -125,6 +126,7 @@
 
 ;;}}}
 ;;{{{ Advice indium-repl.el
+
 (defadvice indium-repl-return (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
