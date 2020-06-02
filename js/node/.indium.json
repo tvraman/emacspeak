@@ -1,10 +1,11 @@
 {
     "configurations": [
         {
-            "name": "math-server",
-            "type": "node",
+            "inspect-brk": true,
             "program": "node",
-            "inspect-brk": true
+            "type": "node",
+            "args": "./math-server.js",
+            "name": "math-server"
         }
     ]
 }
