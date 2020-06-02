@@ -1,1 +1,10 @@
-web-indium.json
+{
+    "configurations": [
+        {
+            "name": "Web project",
+            "type": "chrome",
+          "url" : "https://github.com/tvraman"
+        }
+    ]
+}
+
