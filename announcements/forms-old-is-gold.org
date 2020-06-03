@@ -1,0 +1,75 @@
+* Executive Summary 
+
+Given a file containing data records made up of multiple fields, you
+can easily view them using Emacs' ~forms~ library.
+
+* Background: BBC Program Listings 
+
+I use Perl utility ~get_player~ to fetch details of BBC Radio
+programs. When I was using this frequently, I had installed package
+~iplayer.el~ from Melpa --- that package presented the data as   a 
+nicely organized  Org document. Time passed,  and I somehow stopped
+using it, until ... last week. Then I discovered that package
+~iplayer~ on Melpa hadn't been updated in a few years, and worse had
+broken because package ~org~ no longer includes now obsoleted
+sub-module ~orgstruct~.
+
+
+*Task: Viewing BBC Program Listings 
+
+When I realized package ~iplayer~ was broken, I tried to make up for
+its loss for a few days by using shell-level utilities like ~cut~. But
+then I missed the convenience of being able to work with the data with
+all of Emacs' power and was initially tempted to write a new package
+--- after all, how hard is it to take a record, split it into fields
+and display it in a desired form? Fortunately, I remembered another of
+my favorite edicts from the creator of Perl (Larry Wall) 
+: Lazy Programmer Is A Good Programmer
+
+At the same time I had a strong sense of dejavu --- in the early daysa
+of Emacspeak (approx 1995), I remembered demonstrating the power of
+Emacs to manipulate and display data records by using  file
+_/etc/passwd_ as an example.
+
+* The Free Solution 
+
+So the completely free (AKA zero-work) solution I used was to leverage
+Emacs' built-in ~forms~ library --- the solution
+as created  
+in
+[[https://github.com/tvraman/emacspeak/blob/master/etc/forms/get-iplayer.el#L3][get-iplayer.el]] is below:
+
+
+
+#+BEGIN_SRC emacs-lisp
+(setq forms-read-only t)
+(setq forms-file (expand-file-name "~/.get_iplayer/radio.cache"))
+(setq forms-number-of-fields 16)
+(setq forms-field-sep "|")
+(setq forms-format-list
+      (list
+       "Id: "  1 "\t" "Name: " 3 "\n"
+       "Episode: " 4 "\t" "Description: "  12 "\n"))
+#+END_SRC
+
+
+With the above in place, you can:
+
+  1. M-x forms-find-file RET get-iplayer.el
+  2. This  displays one record at  a time as specified by ~forms-format-list~.
+  3. You can  search through records etc.
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Viewing Data Records As Forms: Old Is Gold!
+#+date: <2020-06-03 Wed>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3.7)
