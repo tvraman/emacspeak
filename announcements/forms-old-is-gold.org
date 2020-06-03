@@ -15,7 +15,7 @@ broken because package ~org~ no longer includes now obsoleted
 sub-module ~orgstruct~.
 
 
-*Task: Viewing BBC Program Listings 
+* Task: Viewing BBC Program Listings 
 
 When I realized package ~iplayer~ was broken, I tried to make up for
 its loss for a few days by using shell-level utilities like ~cut~. But
