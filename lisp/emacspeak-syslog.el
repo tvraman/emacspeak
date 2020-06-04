@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;;; All Rights Reserved.
 ;;;
@@ -116,7 +117,6 @@
 ;;{{{keymap setup:
 (defun emacspeak-syslog-setup ()
   "Setup keybindings."
-  (interactive "P")
   (cl-declare (special syslog-mode-map))
   (define-key syslog-mode-map ","  'emacspeak-speak-previous-field)
   (define-key syslog-mode-map "."  'emacspeak-speak-next-field))
