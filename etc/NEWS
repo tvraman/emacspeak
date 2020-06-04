@@ -16,6 +16,11 @@ This version requires Emacs-26.1 or later.
 Speech-enable ~syslog~ for working with log files.
 This replaces the now very old ~analog~ in my regular work-flow.
 
+** Speech-enable Package ~hide-lines~
+
+A light-weight package for hide/show matching lines.
+
+
 ** Speech-Enable rust-mode
 
 Module ~emacspeak-rust-mode~ speech-enables ~rust-mode~.

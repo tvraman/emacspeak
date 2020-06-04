@@ -179,6 +179,7 @@ emacspeak-gud.elc \
 emacspeak-helm.elc \
 emacspeak-hide.elc \
 emacspeak-hideshow.elc \
+emacspeak-hide-lines.elc  \
 emacspeak-hydra.elc \
 emacspeak-ibuffer.elc \
 emacspeak-ido.elc \
@@ -465,6 +466,7 @@ emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc voice-setup.elc
 emacspeak-helm.elc: emacspeak-helm.el dtk-speak.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
 emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc voice-setup.elc
+emacspeak-hide-lines.elc: emacspeak-hide-lines.el dtk-speak.elc voice-setup.elc
 emacspeak-hydra.elc: emacspeak-hydra.el dtk-speak.elc
 emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc voice-setup.elc
 emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
