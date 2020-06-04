@@ -299,6 +299,8 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "smart-window" 'emacspeak-smart-window)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
+
+(emacspeak-do-package-setup "syslog" 'emacspeak-syslog)
 (emacspeak-do-package-setup "ses" 'emacspeak-ses)
 (emacspeak-do-package-setup "sql-mode" 'emacspeak-sql)
 (emacspeak-do-package-setup "sql" 'emacspeak-sql)

@@ -11,6 +11,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 This version requires Emacs-26.1 or later.
 
+** Speech-Enable Package Syslog
+
+Speech-enable ~syslog~ for working with log files.
+This replaces the now very old ~analog~ in my regular work-flow.
 
 ** Speech-Enable rust-mode
 

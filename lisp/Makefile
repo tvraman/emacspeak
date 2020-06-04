@@ -253,6 +253,7 @@ emacspeak-smartparens.elc \
 emacspeak-smart-window.elc \
 emacspeak-solitaire.elc \
 emacspeak-speedbar.elc \
+emacspeak-syslog.elc \
 ladspa.elc \
 sox.elc \
 soundscape.elc \
@@ -548,6 +549,7 @@ emacspeak-sounds.elc: emacspeak-sounds.el
 emacspeak-prompts.elc: emacspeak-prompts.el 
 emacspeak-speak.elc: emacspeak-speak.el dtk-speak.elc voice-setup.elc
 emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc voice-setup.elc
+emacspeak-syslog.elc: emacspeak-syslog.el dtk-speak.elc voice-setup.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
 ladspa.elc: ladspa.el 
 sox.elc: sox.el ladspa.elc
