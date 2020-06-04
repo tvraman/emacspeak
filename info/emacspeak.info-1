@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 24, 2020.
+last updated on June 4, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1268 commands and 934 options.
+   This chapter documents a total of 1270 commands and 943 options.
 
 * Menu:
 
@@ -2994,6 +2994,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-gud::Speech enable Emacs’ debugger interface –covers GDB, JDB, and PerlDB.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
+* emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
@@ -3081,6 +3082,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
+* emacspeak-syslog::Speech-enable SYSLOG-MODE.
 * emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
@@ -4174,7 +4176,6 @@ system.
      n		emacspeak-npr-play-program
      o		helm-mini
      p		emacspeak-wizards-pdf-open
-     r		org-capture
      s		emacspeak-wizards-shell
      t		twit
      u		list-unicode-display
@@ -6580,6 +6581,9 @@ https://github.com/get-iplayer/get_iplayer.git get_player vs Chrome:
 Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
 use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
 available.  For downloading a program etc., use Emacs package iplayer.
+Note that as of May 2020 package iplayer.el is broken and hasn’t been
+updated since 2016.  Use emacspeak-bbc-schedule to browse get_iplayer
+retrieved radio program cache.
 
 12.21.1 Emacspeak-Bbc Commands
 ------------------------------
@@ -6620,6 +6624,13 @@ available.  For downloading a program etc., use Emacs package iplayer.
      Stream using get_iplayer.
 
      (fn URL)
+
+12.21.1.5 emacspeak-bbc-schedule
+................................
+
+ -- Command: emacspeak-bbc-schedule
+
+     Browse BBC Schedule from get_iplayer radio cache
 
 12.21.2 emacspeak-bbc Options
 -----------------------------
@@ -7605,20 +7616,4 @@ _current move_ being displayed.
  -- Command: emacspeak-chess-west
 
      Move west one step.
-
-
-File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
-
-12.36 emacspeak-cider
-=====================
-
-Speech-Enable CIDER — Clojure IDE
-
-12.36.1 emacspeak-cider Options
--------------------------------
-
- -- Variable: User Option voice-cider-repl-stderr-facevoice-animate
-     Personality used for cider-repl-stderr-facevoice-animate This
-     personality uses nil whose effect can be changed globally by
-     customizing nil-settings.
 

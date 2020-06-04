@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1268 commands and 934 options.
+This chapter documents a total of 1270 commands and 943 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -107,6 +107,7 @@ This chapter documents a total of 1268 commands and 934 options.
 * emacspeak-gud::Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
+* emacspeak-hide-lines::Speech-enable HIDE-LINES.
 * emacspeak-hideshow::speech-enable hideshow.
 * emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
@@ -194,6 +195,7 @@ This chapter documents a total of 1268 commands and 934 options.
 * emacspeak-sql::Speech enable sql-mode.
 * emacspeak-sudoku::Play SuDoku.
 * emacspeak-supercite::Speech enable supercite.
+* emacspeak-syslog::Speech-enable SYSLOG-MODE.
 * emacspeak-tab-bar::Speech-enable tab-bar.
 * emacspeak-table::Implements data model for table browsing.
 * emacspeak-table-ui::Table Navigation UI.
@@ -1531,7 +1533,6 @@ m		vm
 n		emacspeak-npr-play-program
 o		helm-mini
 p		emacspeak-wizards-pdf-open
-r		org-capture
 s		emacspeak-wizards-shell
 t		twit
 u		list-unicode-display
@@ -4380,6 +4381,10 @@ Chrome: Has the UI for seeking in the stream.
 get_iplayer: We use a named pipe, and cannot seek,
 but the rest of emacspeak-m-player is available.
 For downloading a program etc., use Emacs package iplayer.
+Note that as of May 2020 package iplayer.el is broken and hasn't
+been updated since 2016.
+Use emacspeak-bbc-schedule to browse get_iplayer retrieved radio
+program cache.
 
 @subsection Emacspeak-Bbc Commands
 
@@ -4425,6 +4430,15 @@ Stream using get_iplayer.
 Stream using get_iplayer.
 
 (fn URL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-bbc-schedule
+@deffn {Command} emacspeak-bbc-schedule   
+@findex emacspeak-bbc-schedule
+
+@format
+Browse BBC Schedule from get_iplayer radio cache
 @end format
 @end deffn
 
@@ -10307,6 +10321,11 @@ and when you have heard enough navigate easily  to move past the block.
 Personality used to identify header lines of blocks.
 
 @end defvar
+
+@node emacspeak-hide-lines
+@section emacspeak-hide-lines
+
+HIDE-LINES ==  hide/show lines from melpa
 
 @node emacspeak-hideshow
 @section emacspeak-hideshow
@@ -18655,6 +18674,79 @@ Move to top-left corner of  sub-square above current one.
 @section emacspeak-supercite
 
 Speech-enable supercite.
+
+@node emacspeak-syslog
+@section emacspeak-syslog
+
+SYSLOG-MODE ==  Working with various log files.
+Install package syslog-mode from melpa.
+
+@subsection Emacspeak-Syslog Commands
+
+@subsubsection emacspeak-syslog-setup
+@deffn {Command} emacspeak-syslog-setup   
+@findex emacspeak-syslog-setup
+
+@format
+Setup keybindings.
+@end format
+@end deffn
+
+@subsection emacspeak-syslog Options
+
+@defvar {User Option} voice-syslog-debug
+Personality used for syslog-debug
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-error
+Personality used for syslog-error
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-file
+Personality used for syslog-file
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-hide
+Personality used for syslog-hide
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-hour
+Personality used for syslog-hour
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-info
+Personality used for syslog-info
+This personality uses  voice-highlight whose  effect can be changed globally by customizing voice-highlight-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-ip
+Personality used for syslog-ip
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-su
+Personality used for syslog-su
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-syslog-warn
+Personality used for syslog-warn
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
 
 @node emacspeak-tab-bar
 @section emacspeak-tab-bar
