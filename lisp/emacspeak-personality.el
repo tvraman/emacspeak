@@ -166,12 +166,12 @@ end in object. "
            (end (overlay-end o))
            (voice (dtk-get-voice-for-face (overlay-get o 'face)))
            (invisible (overlay-get o 'invisible)))
-      (when  (and  voice buffer)
+      (when  (and  start end voice buffer)
         (with-current-buffer buffer
           (save-restriction
             (widen)
             (emacspeak-personality-remove start end voice buffer))))
-      (when  invisible
+      (when  (and start end invisible)
         (with-silent-modifications
           (put-text-property start end 'invisible nil))))))
 
