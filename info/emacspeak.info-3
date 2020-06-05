@@ -2058,17 +2058,7 @@ File: emacspeak.info,  Node: emacspeak-syslog,  Next: emacspeak-tab-bar,  Prev: 
 SYSLOG-MODE == Working with various log files.  Install package
 syslog-mode from melpa.
 
-12.189.1 Emacspeak-Syslog Commands
-----------------------------------
-
-12.189.1.1 emacspeak-syslog-setup
-.................................
-
- -- Command: emacspeak-syslog-setup
-
-     Setup keybindings.
-
-12.189.2 emacspeak-syslog Options
+12.189.1 emacspeak-syslog Options
 ---------------------------------
 
  -- Variable: User Option voice-syslog-debug

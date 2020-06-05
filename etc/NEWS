@@ -20,6 +20,10 @@ This replaces the now very old ~analog~ in my regular work-flow.
 
 A light-weight package for hide/show matching lines.
 
+** Speech-Enable Racer
+
+Module ~emacspeak-racer~ speech-enables ~racer~ for Rust documentation
+and completion.
 
 ** Speech-Enable rust-mode
 

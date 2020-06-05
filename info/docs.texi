@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1270 commands and 943 options.
+This chapter documents a total of 1269 commands and 943 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -18680,17 +18680,6 @@ Speech-enable supercite.
 
 SYSLOG-MODE ==  Working with various log files.
 Install package syslog-mode from melpa.
-
-@subsection Emacspeak-Syslog Commands
-
-@subsubsection emacspeak-syslog-setup
-@deffn {Command} emacspeak-syslog-setup   
-@findex emacspeak-syslog-setup
-
-@format
-Setup keybindings.
-@end format
-@end deffn
 
 @subsection emacspeak-syslog Options
 
