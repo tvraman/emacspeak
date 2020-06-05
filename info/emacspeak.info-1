@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1269 commands and 943 options.
+   This chapter documents a total of 1269 commands and 944 options.
 
 * Menu:
 
@@ -3052,6 +3052,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-py::Speech enable Python development environment.
 * emacspeak-pydoc::Speech-enable PYDOC.
 * emacspeak-python::Speech enable Python development environment.
+* emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
 * emacspeak-redefine::Redefines some key Emacs builtins to speak.

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1269 commands and 943 options.
+This chapter documents a total of 1269 commands and 944 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -165,6 +165,7 @@ This chapter documents a total of 1269 commands and 943 options.
 * emacspeak-py::Speech enable Python development environment.
 * emacspeak-pydoc::Speech-enable PYDOC.
 * emacspeak-python::Speech enable Python development environment.
+* emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
 * emacspeak-redefine::Redefines some key Emacs builtins to speak.
@@ -15461,6 +15462,19 @@ PYDOC ==  Python Documentation Viewer
 @section emacspeak-python
 
 This speech-enables python-mode bundled with Emacs
+
+@node emacspeak-racer
+@section emacspeak-racer
+
+RACER ==  Rust documentation and completion
+
+@subsection emacspeak-racer Options
+
+@defvar {User Option} voice-racer-tooltip
+Personality used for racer-tooltip
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
 
 @node emacspeak-racket
 @section emacspeak-racket
