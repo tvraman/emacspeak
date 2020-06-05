@@ -616,6 +616,9 @@ module emacspeak-vdiff.</application>
     <application name="clojure-mode">
       Support for editing Clojure source.
     </application>
+    <application name="rust">
+      Speech-enable a suite of modules  that provide an IDE for rust
+      development --- <em>rust-mode</em>, <em>rustic</em> and <em>racer</em>.</application>
     <application name="cider">
       A powerful IDE for Clojure development.
     </application>
