@@ -1341,7 +1341,7 @@ Returns a cons cell where the car is email, and the cdr is password."
 
 (emacspeak-url-template-define
  "NLS Bard Search"
- "https://nlsbard.loc.gov:443/nlsbardprod/search_collection/collection/page/1/sort/s/srch/%s/local/0"
+ "https://nlsbard.loc.gov/nlsbardprod/search/collection/page/1/sort/s/srch/%s/local/0"
  (list "Search For: ")
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
