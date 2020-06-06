@@ -144,9 +144,13 @@ This is set to nil when playing Internet  streams.")
 
 (defsubst ems--duration-to-seconds (d)
   "Convert hh:mm:ss to seconds."
-  (let ((sign (string-match "^-" d))
-        (v (mapcar #'car (mapcar #'read-from-string (split-string d
-                                                                  ":")))))
+  (let*
+      ((sign (string-match "^-" d))
+       (v
+        (mapcar
+         #'car
+         (mapcar
+          #'read-from-string (split-string (if sign (substring d 1) d) ":")))))
     (* (if sign -1 1)
        (+
         (* 3600 (cl-first v))
