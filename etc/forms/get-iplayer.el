@@ -11,3 +11,11 @@
        "Name: " 3 "\n"
        "Episode: " 4 "\t"
        "Description: "  12 "\n"))
+
+(defun ems--get-iplayer-download ()
+  (interactive)
+  (shell-command
+   (format
+    " cd ~/Downloads; get_iplayer %s --get --type=radio best"
+    (nth  1 forms-fields))))
+(define-key forms-mode-map "d" 'ems--get-iplayer-download)
