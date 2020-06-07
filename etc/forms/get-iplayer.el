@@ -14,8 +14,9 @@
 
 (defun ems--get-iplayer-download ()
   (interactive)
-  (shell-command
-   (format
-    " cd ~/Downloads; get_iplayer %s --get --type=radio best"
-    (nth  1 forms-fields))))
+  (let ((default-directory (expand-file-name "~/Downloads")))
+    (shell-command
+     (format "get_iplayer %s --get --type=radio&" (nth  1
+                                                              forms-fields)))))
+
 (define-key forms-mode-map "d" 'ems--get-iplayer-download)
