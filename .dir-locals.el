@@ -11,7 +11,9 @@
   (mode . whitespace))
  (emacs-lisp-mode
   (folded-file . t)
-  (indent-tabs-mode))
+  (bug-reference-url-format
+   . "https://github.com/tvraman/emacspeak/issues/%s")
+  (indent-tabs-mode . nil))
  (log-edit-mode
   (log-edit-font-lock-gnu-style . t)
   (log-edit-setup-add-author . t))
