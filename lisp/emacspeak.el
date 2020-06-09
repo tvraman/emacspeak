@@ -191,6 +191,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "ediary" 'emacspeak-ediary)
 (emacspeak-do-package-setup "ediff" 'emacspeak-ediff)
 (emacspeak-do-package-setup "ediff-mult" 'emacspeak-ediff)
+(emacspeak-do-package-setup "eglot" 'emacspeak-eglot)
 (emacspeak-do-package-setup "elisp-refs" 'emacspeak-elisp-refs)
 (emacspeak-do-package-setup "elscreen" 'emacspeak-elscreen)
 (emacspeak-do-package-setup "xkcd" 'emacspeak-xkcd)

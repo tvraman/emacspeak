@@ -138,6 +138,7 @@ emacspeak-ecb.elc \
 emacspeak-ein.elc \
 emacspeak-ediary.elc \
 emacspeak-ediff.elc \
+emacspeak-eglot.elc \
 emacspeak-elisp-refs.elc \
 emacspeak-elscreen.elc \
 emacspeak-eww.elc \
