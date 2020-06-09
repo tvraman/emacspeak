@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1269 commands and 944 options.
+This chapter documents a total of 1269 commands and 945 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -63,6 +63,7 @@ This chapter documents a total of 1269 commands and 944 options.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
 * emacspeak-ediary::Speech-enable ediary.
 * emacspeak-ediff::Speech enable Emacs interface to diff and merge.
+* emacspeak-eglot::Speech-enable EGLOT.
 * emacspeak-ein::Speech-enable EIN For IPython Notebooks.
 * emacspeak-elfeed::Speech-enable ELFEED, A Feed Reader.
 * emacspeak-elisp-refs::Speech-enable ELISP-REFS.
@@ -6362,6 +6363,19 @@ so that Emacs always displays Ediff windows in a single frame.
 Speak the current difference
 @end format
 @end deffn
+
+@node emacspeak-eglot
+@section emacspeak-eglot
+
+EGLOT ==  LSP Support for emacs
+
+@subsection emacspeak-eglot Options
+
+@defvar {User Option} voice-eglot-mode-line
+Personality used for eglot-mode-line
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
 
 @node emacspeak-ein
 @section emacspeak-ein

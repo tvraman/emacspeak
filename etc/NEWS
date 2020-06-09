@@ -24,6 +24,10 @@ A light-weight package for hide/show matching lines.
 
 Module ~emacspeak-racer~ speech-enables ~racer~ for Rust documentation
 and completion.
+** Speech-Enable Eglot
+
+
+Module ~emacspeak-eglot~ speech-enables ~eglot~ for lsp  support.
 
 ** Speech-Enable rust-mode
 
