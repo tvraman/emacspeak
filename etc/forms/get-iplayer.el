@@ -18,5 +18,5 @@
     (shell-command
      (format "get_iplayer %s --get --type=radio&" (nth  1
                                                               forms-fields)))))
-
-(define-key forms-mode-map "d" 'ems--get-iplayer-download)
+(when (and forms-mode-map (keymapp forms-mode-map))
+  (define-key forms-mode-map "d" 'ems--get-iplayer-download))
