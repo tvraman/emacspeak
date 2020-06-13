@@ -122,7 +122,9 @@
   (cl-declare (special rust-mode-map))
   (when (and (bound-and-true-p rust-mode-map)
              (keymapp rust-mode-map))
-    (define-key rust-mode-map (kbd "C-c C-c")'rust-compile)))
+    (define-key rust-mode-map (kbd "C-c C-c")'rust-compile)
+    (define-key rust-mode-map (kbd "C-c C-r")'rust-run)
+    (define-key rust-mode-map (kbd "C-c C-t")'rust-test)))
 
 (eval-when '(load) (emacspeak-rust-mode-setup))
 
