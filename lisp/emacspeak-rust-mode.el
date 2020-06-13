@@ -126,7 +126,7 @@
     (define-key rust-mode-map (kbd "C-c C-r")'rust-run)
     (define-key rust-mode-map (kbd "C-c C-t")'rust-test)))
 
-(eval-when '(load) (emacspeak-rust-mode-setup))
+(cl-eval-when '(load) (emacspeak-rust-mode-setup))
 
 ;;}}}
 ;;{{{Interactive Commands: rustic
