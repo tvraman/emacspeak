@@ -116,6 +116,16 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
+
+(defun emacspeak-rust-mode-setup ()
+  "Setup additional keys etc."
+  (cl-declare (special rust-mode-map))
+  (when (and (bound-and-true-p rust-mode-map)
+             (keymapp rust-mode-map))
+    (define-key rust-mode-map (kbd "C-c C-c")'rust-compile)))
+
+(eval-when '(load) (emacspeak-rust-mode-setup))
+
 ;;}}}
 ;;{{{Interactive Commands: rustic
 
