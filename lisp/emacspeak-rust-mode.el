@@ -97,14 +97,13 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'on)
-    (dtk-notify-say "Enabled format on save")
-    ))
+    (message "Enabled format on save")))
 
 (defadvice rust-disable-format-on-save (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'off)
-    (dtk-notify-say "Disabled format on save")))
+    (message "Disabled format on save")))
 
 (cl-loop
  for f in
