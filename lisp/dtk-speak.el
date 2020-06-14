@@ -134,7 +134,7 @@ Do not set this variable by hand, use command  `dtk-toggle-split-caps'
 (defcustom dtk-cleanup-repeats
   (list
    ". " "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
-   "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>")
+   "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>" "^")
   "List of repeating patterns to clean up.
 You can use  command  `dtk-add-cleanup-pattern'
  bound to \\[dtk-add-cleanup-pattern]  to add more patterns.
