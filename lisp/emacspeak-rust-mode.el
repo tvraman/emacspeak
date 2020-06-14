@@ -83,8 +83,11 @@
 
 (defadvice rust-format-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+  (cond
+   ((buffer-live-p (get-buffer rust-rustfmt-buffername))
+    (emacspeak-auditory-icon 'open-object))
+   
+   (t (emacspeak-auditory-icon 'task-done))))
 
 (defadvice rust-goto-format-problem (after emacspeak pre act comp)
   "Provide auditory feedback."
