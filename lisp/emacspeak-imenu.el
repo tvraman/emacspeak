@@ -65,20 +65,21 @@
   ;; Third argument PREFIX is for internal use only.
   (cl-declare (special imenu-level-separator))
   (mapcan
-    #'(lambda (item)
-      (let* ((name (car item))
-             (pos (cdr item))
-             (new-prefix (and concat-names
-                              (if prefix
-                                  (concat prefix imenu-level-separator name)
-                                name))))
-        (cond
-         ((or (markerp pos) (numberp pos)
-              (overlayp pos))
-          (list (cons new-prefix pos)))
-         (t
-          (emacspeak-imenu-flatten-index-alist pos
-                                               new-prefix)))))
+   #'(lambda (item)
+       (when (listp item)
+         (let* ((name (car item))
+                (pos (cdr item))
+                (new-prefix (and concat-names
+                                 (if prefix
+                                     (concat prefix imenu-level-separator name)
+                                   name))))
+           (cond
+            ((or (markerp pos) (numberp pos)
+                 (overlayp pos))
+             (list (cons new-prefix pos)))
+            (t
+             (emacspeak-imenu-flatten-index-alist pos
+                                                  new-prefix))))))
    index-alist))
 
 (defadvice imenu--make-index-alist (after emacspeak pre act comp)
