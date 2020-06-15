@@ -63,11 +63,9 @@
   ;; If optional CONCAT-NAMES is non-nil, then a nested index has its
   ;; name and a space concatenated to the names of the children.
   ;; Third argument PREFIX is for internal use only.
-
   (cl-declare (special imenu-level-separator))
   (mapcan
-   (function
-    (lambda (item)
+    #'(lambda (item)
       (let* ((name (car item))
              (pos (cdr item))
              (new-prefix (and concat-names
@@ -80,7 +78,7 @@
           (list (cons new-prefix pos)))
          (t
           (emacspeak-imenu-flatten-index-alist pos
-                                               new-prefix))))))
+                                               new-prefix)))))
    index-alist))
 
 (defadvice imenu--make-index-alist (after emacspeak pre act comp)
