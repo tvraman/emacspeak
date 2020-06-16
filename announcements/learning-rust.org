@@ -1,0 +1,123 @@
+* Overview 
+
+This [[https://github.com/tvraman/pick-sticks][directory]] contains an implementation of the /Pick Up Sticks/ game
+described in my paper [[http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html][Thinking Of Mathematics (Section 5)]].
+
+It's an interesting experience writing it in Rust as I learn the
+language. The original implementation described in my paper was
+written in 1987 in Fortran-77, and consisted of one single
+function. Though that style of programming would be frowned upon today
+and is clearly not advisable for programming in the large, it's
+interesting to observe that a more structured implementation as seen
+in this Rust implementation qrequires a lot more fore-thought with
+respect to code organization.
+
+* Programming Environment 
+
+here is a short overview of  the programming environment  used:
+
+  1. Emacs 28.0.50 with emacspeak 52.0.
+  2. Package  ~eglot~ for managing the project with an  LSP server.
+  3. Rust Language Server [[https://github.com/rust-lang-nursery/rls][(RLS)]] as the LSP server.
+  4. Package ~company~ for completion.
+  5. Package ~yasnippet~ for code templates.
+  6. Package ~rust-mode~ for Rust editing smarts.
+  7. Package ~racer~ for additional cross-referencing and
+     documentation support.
+  8. Package ~cargo~ for cargo integration from inside Emacs.
+
+In the process of setting up my Rust environment, I also
+speech-enabled Emacs packages ~rust-mode~, ~racer~ and ~cargo~ for Emacspeak.
+
+
+* Books 
+
+I  downloaded  /The Rust Programming Language (2018)/ from Bookshare
+and it's what I am still using as I write this. Note that this book is
+also available in the Rust distribution. The version in the Rust
+distribution is a little less usable since it's split into multiple
+smaller HTML files with each file repeating a lot of navigational
+boiler-plate at the top.
+
+* Experience Learning Rust 
+
+I usually find that I learn a language better if I write some code as
+I learn the language.
+In this instance, I decided to program the pick-up-sticks game --- a
+simple game that I programmed in 1987 for the final class project for
+CS-101 at IIT-Bombay. Here are the rules of the game:
+
+  1. This is a two-player game  and the game starts with $n$ sticks.
+  2. The first player can pick at most $n-1$  sticks.
+  3. Assume a player picks $k$ sticks. At the  subsequent turn, opponent
+      can pick at most  $2 * k$ sticks.
+  4. The player who is able to /clean-up/ the remaining sticks while
+     adhering to the rules is the winner.
+     
+Read  [[http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html][Thinking Of Mathematics (Section 5)]] for a description of an
+algorithm that is guaranteed to win.
+
+* The Implementation 
+
+Learning Rust's ownership rules for memory management, and learning to
+use references  the Rust way were some of the things that were unique
+to this learning experience.
+Rust has some unique features including declaring lifetimes that are
+typically needed in more advanced cases; however in my initial
+attempts, not doing things the Rust way caused compile-time errors
+that initially guided me toward using and declaring
+lifetimes. Eventually, all of those declarations became unnecessary.
+More generally, the Rust compiler turns out to be a very good Rust
+teacher.
+
+* Crux Of The Implementation
+
+See module ~game.rs~ for the implementation. The core of the
+implementation is still a handful of lines to implement the winning
+strategy of:
+
+  1. If the number of sticks at the start is a Fibonacci number, ask
+     the opponent to play first.
+  2. At each turn, force the opponent toward the closest Fibonacci number.
+  3. Do above while respecting the limit rule, i.e. if you pick $k$
+     sticks, the opponent can pick up to $2k$ sticks, so never pick  $k$
+     where $3k >= n$.
+  4. The result of (3) is to subdivide the game into smaller games
+     when playing with larger values of $n$ --- see the _while_ loop in
+     method    ~my_move~.
+* Closing Thoughts 
+
+  1. The computing environment I now have is far more sophisticated
+     than what I had in 1987.
+  2. Today, I have interactive completion, source-code
+     cross-references, on-the-fly access to documentation, and a fully
+     accessible book where I can look up things whenever I want.
+  3. In 1987, I did most of my thinking and problem-solving in my
+     dorm-room with no computer to hand. When ready with the solution,
+     I made a few notes in Braille using a [[https://www.google.com/search?num=25&lite=90586&q=braille+pocket+slate][pocket-slate and stylus]],
+     then went to the computer room with a volunteer reader and typed
+     up the program, with the student volunteer providing high-quality
+     interactive spoken feedback.
+  4. Interestingly, I think it took me less time  from memory to
+     implement the solution in 1987 --- perhaps this is time shrinking
+     with number of years passed.
+  5. Either way, the primary take-away is that it pays to analyse a
+     problem before one actually starts writing code. Writing code is
+     always fun, and today, even more so given the excellent array of
+     tools --- but unless one focuses on the problem at hand, one can
+     spend a lot of time /sharpening one's pencils/ as opposed to
+     writing something useful.
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Learning Rust: The Pick-Up Sticks Game
+#+date: <2020-06-14 Sun>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3.7)
