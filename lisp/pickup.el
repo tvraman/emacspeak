@@ -55,13 +55,13 @@
 (cl-defstruct pickup
   "Game structure."
   sticks current limit
-  move fib-base fibonacci)
+  move fib-base fibs)
 
 (defun pickup-update (game move)
   "Update game state."
   )
 
-(defun pickup-update-base (game)
+(defun pickup-update-fib-base (game)
   "Update fib-base in game state."
   )
 
@@ -72,8 +72,6 @@
 (defun  pickup-you (game)
   "Make your move."
   )
-
-
 
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
@@ -86,14 +84,20 @@
   "Predicate to check if n is a Fibonacci number"
   (seq-find #'(lambda (f) (= f n)) fibonacci))
 
-(defun pickup-sticks (sticks)
+(defun pickup-play (sticks)
   "Play the pickup sticks game with `sticks' sticks."
   (interactive "nSticks: ")
   (let* ((fibonacci (pickup-fibonacci sticks))
          (fib-base (elt fibonacci (- (length fibonacci) 2)))
-        (current sticks)
-        (move 0))
-    ))
+         (game
+          (make-pickup
+           :sticks sticks
+           :current sticks
+           :limit (- sticks 1)
+           :move 0
+           :fibs fibonacci
+           :fib-base fib-base)))
+    game))
 
 ;;}}}
  
