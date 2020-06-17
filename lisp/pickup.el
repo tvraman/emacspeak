@@ -70,7 +70,8 @@
   (when (zerop (pickup-current game))
     (setf (pickup-current game) (pickup-sticks game)))
   (pickup-update-fib-base game)
-  (message "Picked %d" move))
+  (message "Picked %d, %d left"
+           move (pickup-sticks game)))
 
 (defun pickup-update-fib-base (game)
   "Update fib-base in game state."
@@ -97,7 +98,7 @@
         (setf (pickup-current game) next-move)
         (pickup-update-fib-base game)
         (setq next-move (- (pickup-current game) (pickup-fib-base game))))
-      (pickup-update next-move)))))
+      (pickup-update game next-move)))))
 
 (defun  pickup-you (game)
   "Make your move."
