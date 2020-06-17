@@ -97,7 +97,11 @@
            :move 0
            :fibs fibonacci
            :fib-base fib-base)))
-    game))
+    (when (pickup-fibonacci-p fibonacci sticks) (pickup-me game))
+    (while (> (pickup-sticks game) 0)
+      (pickup-you game)
+      (pickup-me game))))
+
 
 ;;}}}
  
