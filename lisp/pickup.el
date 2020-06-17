@@ -57,6 +57,24 @@
   sticks current limit
   move fib-base fibonacci)
 
+(defun pickup-update (game move)
+  "Update game state."
+  )
+
+(defun pickup-update-base (game)
+  "Update fib-base in game state."
+  )
+
+(defun pickup-me (game)
+  "Make my move."
+  )
+
+(defun  pickup-you (game)
+  "Make your move."
+  )
+
+
+
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
   (let ((result '(2 1)))
