@@ -75,7 +75,7 @@
 
 (defun pickup-update-fib-base (game)
   "Update fib-base in game state."
-  (let ( (base nil)
+  (let ( (base 1)
          (current (pickup-current game)))
     (cl-loop
      for f across (pickup-fibs game) do
