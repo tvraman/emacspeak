@@ -67,7 +67,8 @@
 (defun pickup-sticks (sticks)
   "Play the pickup sticks game with `sticks' sticks."
   (interactive "nSticks: ")
-  (let ((fibonacci (pickup-fibonacci sticks))
+  (let* ((fibonacci (pickup-fibonacci sticks))
+         (fib-base (seq-elt fibonacci (- (length fibonacci) 2)))
         (current sticks)
         (move 0))
     ))
