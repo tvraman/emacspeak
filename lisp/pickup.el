@@ -83,7 +83,21 @@
 
 (defun pickup-me (game)
   "Make my move."
-  )
+  (cond
+   ((<= (pickup-sticks game) (pickup-limit game))
+    (message "I pick %s and win!"
+             (pickup-sticks game)))
+   ((and
+     (> (pickup-current game) 0)
+     (<= (pickup-current game) (pickup-limit game)))
+    (pickup-update game (pickup-current game)))
+   (t ;;; push opponent to closest fib within 3k < n rule:
+    (let ((next-move (- (pickup-current game) (pickup-fib-base game))))
+      (while (>= (* 3 next-move) (pickup-current game))
+        (setf (pickup-current game) next-move)
+        (pickup-update-fib-base game)
+        (setq next-move (- (pickup-current game) (pickup-fib-base game))))
+      (pickup-update next-move)))))
 
 (defun  pickup-you (game)
   "Make your move."
