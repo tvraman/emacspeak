@@ -94,7 +94,10 @@
     (pickup-update game (pickup-current game)))
    (t ;;; push opponent to closest fib within 3k < n rule:
     (let ((next-move (- (pickup-current game) (pickup-fib-base game))))
-      (while (>= (* 3 next-move) (pickup-current game))
+      (while
+          (or
+           (> next-move (pickup-limit game))
+           (>= (* 3 next-move) (pickup-current game)))
         (setf (pickup-current game) next-move)
         (pickup-update-fib-base game)
         (setq next-move (- (pickup-current game) (pickup-fib-base game))))
