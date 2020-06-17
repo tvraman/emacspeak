@@ -60,6 +60,9 @@
 (defun pickup-update (game move)
   "Update game state."
   (cl-assert
+   (not (zerop move)) t
+   "Cannot pick 0 sticks")
+  (cl-assert
    (<= move (pickup-limit game)) t
    "Cannot pick more than %s" (pickup-limit game))
   (setf
