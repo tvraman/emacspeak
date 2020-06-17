@@ -59,7 +59,18 @@
 
 (defun pickup-update (game move)
   "Update game state."
-  )
+  (cl-assert
+   (<= move (pickup-limit game)) t
+   "Cannot pick more than %s" (pickup-limit game))
+  (setf
+   (pickup-move game) move
+   (pickup-sticks game) (- (pickup-sticks game) move)
+   (pickup-current game) (- (pickup-current game) move)
+   (pickup-limit game) (* 2 move))
+  (when (zerop (pickup-current game))
+    (setf (pickup-current game) (pickup-sticks game)))
+  (pickup-update-fib-base game)
+  (message "Picked %d" move))
 
 (defun pickup-update-fib-base (game)
   "Update fib-base in game state."
@@ -76,7 +87,12 @@
 
 (defun  pickup-you (game)
   "Make your move."
-  )
+  (pickup-update game
+                 (read-number
+                  (format "You can pick between 1 and %s sticks:"
+                          (pickup-limit game))))
+  (when (zerop (pickup-sticks game))
+                    (message "You won!")))
 
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
