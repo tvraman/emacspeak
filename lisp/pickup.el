@@ -63,7 +63,12 @@
 
 (defun pickup-update-fib-base (game)
   "Update fib-base in game state."
-  )
+  (let ( (base nil)
+         (current (pickup-current game)))
+    (cl-loop
+     for f across (pickup-fibs game) do
+     (when (< f current) (setq base f)))
+    (setf (pickup-fib-base game) base)))
 
 (defun pickup-me (game)
   "Make my move."
@@ -102,9 +107,8 @@
       (pickup-you game)
       (pickup-me game))))
 
-
 ;;}}}
- 
+
 (provide 'pickup)
 ;;{{{ end of file
 
