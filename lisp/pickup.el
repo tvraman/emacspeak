@@ -54,7 +54,8 @@
 ;;{{{Functions:
 (cl-defstruct pickup
   "Game structure."
-  sticks current move fib-base fibonacci)
+  sticks current limit
+  move fib-base fibonacci)
 
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
