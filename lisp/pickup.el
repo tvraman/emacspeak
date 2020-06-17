@@ -52,6 +52,9 @@
 
 ;;}}}
 ;;{{{Functions:
+(cl-defstruct pickup
+  "Game structure."
+  sticks current move fib-base fibonacci)
 
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
@@ -68,7 +71,7 @@
   "Play the pickup sticks game with `sticks' sticks."
   (interactive "nSticks: ")
   (let* ((fibonacci (pickup-fibonacci sticks))
-         (fib-base (seq-elt fibonacci (- (length fibonacci) 2)))
+         (fib-base (elt fibonacci (- (length fibonacci) 2)))
         (current sticks)
         (move 0))
     ))
