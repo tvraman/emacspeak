@@ -57,7 +57,7 @@
   sticks current limit
   move fib-base fibs)
 
-(defun pickup-update (game move)
+(defun pickup-update (game move &optional prompt)
   "Update game state."
   (cl-assert
    (not (zerop move)) t
@@ -73,8 +73,10 @@
   (when (zerop (pickup-current game))
     (setf (pickup-current game) (pickup-sticks game)))
   (pickup-update-fib-base game)
-  (message "Picked %d, %d left"
-           move (pickup-sticks game)))
+  (if prompt
+      (message prompt)
+    (message "Picked %d, %d left"
+             move (pickup-sticks game))))
 
 (defun pickup-update-fib-base (game)
   "Update fib-base in game state."
