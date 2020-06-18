@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2007, 2019, T. V. Raman
 ;;; All Rights Reserved.
 ;;;
@@ -93,7 +94,7 @@
    ((<= (pickup-sticks game) (pickup-limit game))
     (pickup-update game (pickup-sticks game))
     (message "I pick %s and win!"
-             (pickup-sticks game)))
+             (pickup-move game)))
    ((and
      (> (pickup-current game) 0)
      (<= (pickup-current game) (pickup-limit game)))
