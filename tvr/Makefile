@@ -3,6 +3,7 @@
 EMACS=emacs
 BATCH = -batch -q -no-site-file    
 COMPILE =  -f batch-byte-compile
+pickup.elc: pickup.el
 
 SETUP = emacs-startup.elc kbd-setup.elc  \
 sp-prepare.elc lispy-prepare.elc folding-prepare.elc \
