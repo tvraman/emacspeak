@@ -91,6 +91,7 @@
   "Make my move."
   (cond
    ((<= (pickup-sticks game) (pickup-limit game))
+    (pickup-update game (pickup-sticks game))
     (message "I pick %s and win!"
              (pickup-sticks game)))
    ((and
@@ -110,12 +111,14 @@
 
 (defun  pickup-you (game)
   "Make your move."
-  (pickup-update game
-                 (read-number
-                  (format "You can pick between 1 and %s sticks:"
-                          (pickup-limit game))))
-  (when (zerop (pickup-sticks game))
-    (message "You won!")))
+  (cond
+   ((zerop (pickup-sticks game))
+    (message "You win!"))
+   (t
+    (pickup-update game
+                   (read-number
+                    (format "You can pick between 1 and %s sticks:"
+                            (pickup-limit game)))))))
 
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
@@ -126,7 +129,7 @@
 
 (defun pickup-fibonacci-p (game n)
   "Predicate to check if n is a Fibonacci number"
-  (seq-find #'(lambda (f) (= f n)) (pickup-fibonacci game)))
+  (seq-find #'(lambda (f) (= f n)) (pickup-fibs game)))
 
 (defun pickup-build (sticks)
   "Build and return  a  pickup game."
@@ -143,7 +146,7 @@
   "Play the pickup sticks game with `sticks' sticks."
   (interactive "nSticks: ")
   (let ((game (pickup-build sticks)))
-    (when (pickup-fibonacci-p game sticks) (pickup-me game))
+    (unless (pickup-fibonacci-p game sticks) (pickup-me game))
     (while (> (pickup-sticks game) 0)
       (pickup-you game)
       (pickup-me game))))
