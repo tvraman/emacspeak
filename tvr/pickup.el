@@ -77,7 +77,8 @@
   (if prompt
       (message prompt)
     (message "Picked %d, %d left"
-             move (pickup-sticks game))))
+             move (pickup-sticks game)))
+  (sit-for 1))
 
 (defun pickup-update-fib-base (game)
   "Update fib-base in game."
