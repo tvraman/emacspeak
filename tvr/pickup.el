@@ -79,7 +79,7 @@
              move (pickup-sticks game))))
 
 (defun pickup-update-fib-base (game)
-  "Update fib-base in game state."
+  "Update fib-base in game."
   (let ( (base 1)
          (current (pickup-current game)))
     (cl-loop
@@ -115,7 +115,7 @@
                   (format "You can pick between 1 and %s sticks:"
                           (pickup-limit game))))
   (when (zerop (pickup-sticks game))
-                    (message "You won!")))
+    (message "You won!")))
 
 (defun pickup-fibonacci (max)
   "Return vector  of Fibonacci numbers upto max."
@@ -124,24 +124,26 @@
       (push  (+ (cl-first result) (cl-second result)) result))
     (apply 'vector (reverse result))))
 
-(defun pickup-fibonacci-p (fibonacci n)
+(defun pickup-fibonacci-p (game n)
   "Predicate to check if n is a Fibonacci number"
-  (seq-find #'(lambda (f) (= f n)) fibonacci))
+  (seq-find #'(lambda (f) (= f n)) (pickup-fibonacci game)))
+
+(defun pickup-build (sticks)
+  "Build and return  a  pickup game."
+  (let ((fibonacci (pickup-fibonacci sticks)))
+    (make-pickup
+     :sticks sticks
+     :current sticks
+     :limit (- sticks 1)
+     :move 0
+     :fibs fibonacci
+     :fib-base (aref fibonacci (- (length fibonacci) 2)))))
 
 (defun pickup-play (sticks)
   "Play the pickup sticks game with `sticks' sticks."
   (interactive "nSticks: ")
-  (let* ((fibonacci (pickup-fibonacci sticks))
-         (fib-base (elt fibonacci (- (length fibonacci) 2)))
-         (game
-          (make-pickup
-           :sticks sticks
-           :current sticks
-           :limit (- sticks 1)
-           :move 0
-           :fibs fibonacci
-           :fib-base fib-base)))
-    (when (pickup-fibonacci-p fibonacci sticks) (pickup-me game))
+  (let ((game (pickup-build sticks)))
+    (when (pickup-fibonacci-p game sticks) (pickup-me game))
     (while (> (pickup-sticks game) 0)
       (pickup-you game)
       (pickup-me game))))
