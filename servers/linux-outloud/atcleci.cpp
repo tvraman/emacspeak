@@ -636,7 +636,10 @@ int Atcleci_Init(Tcl_Interp *interp) {
   rc = Tcl_Eval(interp,
                 "proc index x {global tts; \
 set tts(last_index) $x}");
-
+if (rc == -1) {
+    Tcl_AppendResult(interp, "Could not set index", TCL_STATIC);
+    return TCL_ERROR;
+  }
   //>
   return TCL_OK;
 }
