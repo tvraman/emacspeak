@@ -68,8 +68,8 @@
 #define ALSA_PCM_NEW_SW_PARAMS_API
 #include <alsa/asoundlib.h>
 
-#include <tcl.h>
 #include "langswitch.h"
+#include <tcl.h>
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
@@ -161,15 +161,18 @@ int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int SetLanguage(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int alsa_close();
 int alsa_retry();
-int eciCallback(void *, int, long, void *);
+int eciCallback(void * /*eciHandle*/, int /*msg*/, long /*lparam*/, void * /*data*/);
 
 //>
 //<alsa: set hw and sw params
 
 static size_t alsa_configure(void) {
   //<init:
-  size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
-  snd_pcm_uframes_t period_size, buffer_size = 0;
+  size_t chunk_bytes;
+  size_t bits_per_sample;
+  size_t bits_per_frame = 0;
+  snd_pcm_uframes_t period_size;
+  snd_pcm_uframes_t buffer_size = 0;
   snd_pcm_hw_params_t *params;
   unsigned int rate = DEFAULT_SPEED;
   int err;
@@ -298,8 +301,9 @@ static void suspend(void) {
 
   fprintf(stderr, "Suspended. Trying resume. ");
   fflush(stderr);
-  while ((res = snd_pcm_resume(AHandle)) == -EAGAIN)
+  while ((res = snd_pcm_resume(AHandle)) == -EAGAIN) {
     sleep(1); /* wait until suspend flag is  released */
+}
   if (res < 0) {
     fprintf(stderr, "Failed. Restarting stream. ");
     fflush(stderr);
@@ -666,7 +670,9 @@ int eciCallback(void *eciHandle, int msg, long lparam, void *data) {
 
 int GetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
             Tcl_Obj *CONST objv[]) {
-  int rc, rate, voice;
+  int rc;
+  int rate;
+  int voice;
   if (objc != 2) {
     Tcl_AppendResult(interp, "Usage: getRate voiceCode  ", TCL_STATIC);
     return TCL_ERROR;
@@ -680,7 +686,9 @@ int GetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
 
 int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
             Tcl_Obj *CONST objv[]) {
-  int rc, rate, voice;
+  int rc;
+  int rate;
+  int voice;
   if (objc != 3) {
     Tcl_AppendResult(interp, "Usage: setRate voiceCode speechRate ",
                      TCL_STATIC);
@@ -706,7 +714,10 @@ int SetRate(ClientData eciHandle, Tcl_Interp *interp, int objc,
 
 int Say(ClientData eciHandle, Tcl_Interp *interp, int objc,
         Tcl_Obj *CONST objv[]) {
-  int i, rc, index, length;
+  int i;
+  int rc;
+  int index;
+  int length;
   for (i = 1; i < objc; i++) {
     // if string begins with -, assume it is an index value
     char *txt = Tcl_GetStringFromObj(objv[i], &length);
