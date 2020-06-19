@@ -21,6 +21,10 @@ atcleci.so: langswitch.o atcleci.o
 clean:
 	rm -f *.so *.o 
 
+tidy:
+	clang-tidy -header-filter=.*-checks='*' -fix-errors langswitch.cpp -- -std=c++11 -I/usr/include/tcl8.6 
+	clang-tidy -header-filter=.*-checks='*' -fix-errors atcleci.cpp -- -std=c++11 -I/usr/include/tcl8.6 
+
 install: atcleci.so
 	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
 	$(INSTALL) $< $(DESTDIR)$(LIBDIR)
