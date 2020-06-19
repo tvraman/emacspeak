@@ -28,6 +28,9 @@ $(TTS): tclespeak.o
 clean:
 	rm -f *.so *.o
 
+tidy:
+	clang-tidy -header-filter=.*-checks='*' -fix-errors tclespeak.cpp -- -std=c++11 -I/usr/include/tcl8.6 
+
 install: $(TTS)
 	$(INSTALL) -d $(DESTDIR)$(LIBDIR)
 	$(INSTALL) $< $(DESTDIR)$(LIBDIR)
