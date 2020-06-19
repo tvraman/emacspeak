@@ -2,25 +2,27 @@
 #include <stdlib.h>
 #define MAX_SIZE 15
 int next_move(int fibs[], int n, int limit) {
+  int current = n;
   int base, k;
   for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
-    if (fibs[i] < n) {
+    if (fibs[i] < current) {
       base = fibs[i];
     } else {
       break;
     }
   } /*  done updating base  */
-  k = n - base;
+  k = current - base;
   /*  check for 3k <n rule */
-  while ((3 * k >= n) || (k > limit)) {  /*  reduce game */
+  while ((3 * k >= current) || (k > limit)) { /*  reduce game */
+    current = k;
     for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
-      if (fibs[i] < k) {
+      if (fibs[i] < current) {
         base = fibs[i];
       } else {
         break;
       }
     }
-    k = k - base;
+    k = current - base;
   } /*  done reducing game */
   return k;
 }
