@@ -25,3 +25,4 @@ servers/native-espeak/tclespeak.so
 .build.log
 lisp/sudoku.el
 .cask/
+/etc/pickup-c/pickup
