@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_SIZE 15
-int next_move(int fibs[], int n, int limit) {
+int next_move(const int fibs[], int n, int limit) {
   int current = n;
-  int base, k;
+  int base;
+  int k;
   for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
     if (fibs[i] < current) {
       base = fibs[i];
@@ -28,7 +29,8 @@ int next_move(int fibs[], int n, int limit) {
 }
 int main() {
   printf("Pick number of sticks (>2) \n");
-  int n, k;
+  int n;
+  int k;
   scanf("%d", &n);
   printf("Playing with %d sticks.\n", n);
   int fibs[MAX_SIZE];
