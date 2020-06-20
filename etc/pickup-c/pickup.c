@@ -37,7 +37,7 @@ int main() {
   } /*  done populating fibonacci numbers */
   int k;
   int n;
-  printf("Pick number of sticks between 2 and %d.\n", fibs[MAX_SIZE - 1]);
+  printf("Pick number of sticks between 2 and %d.\n", fibs[MAX_SIZE - 1] -7);
   scanf("%d", &n);
   if (fibs[MAX_SIZE - 1] < n) {
     printf("Pick  n < %d to avoid boredom.\n" , fibs[MAX_SIZE -1]);
