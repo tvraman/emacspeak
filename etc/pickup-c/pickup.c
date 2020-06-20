@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_SIZE 15
-int next_move(const int fibs[], int n, int limit) {
-  int current = n;
+
+int fib_base (const int fibs [], int current) {
   int base;
-  int k;
   for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
     if (fibs[i] < current) {
       base = fibs[i];
@@ -12,25 +11,27 @@ int next_move(const int fibs[], int n, int limit) {
       break;
     }
   } /*  done updating base  */
+  return base;
+}
+
+int next_move(const int fibs[], int n, int limit) {
+  int current = n;
+  int k;
+  int base = fib_base(fibs, current);
   k = current - base;
   /*  check for 3k <n rule */
   while ((3 * k >= current) || (k > limit)) { /*  reduce game */
     current = k;
-    for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
-      if (fibs[i] < current) {
-        base = fibs[i];
-      } else {
-        break;
-      }
-    }
+    base=fib_base(fibs, current);
     k = current - base;
   } /*  done reducing game */
   return k;
 }
+
 int main() {
   printf("Pick number of sticks (>2) \n");
-  uint n;
-  uint k;
+  int n;
+  int k;
   scanf("%d", &n);
   printf("Playing with %d sticks.\n", n);
   int fibs[MAX_SIZE];
@@ -63,8 +64,8 @@ int main() {
   while (n > 0) { /*  take turns */
     printf("How many sticks do you pick?\n");
     scanf("%d", &k);
-    if (k > limit) {
-      printf("You cannot   pick more than %d.\n", limit);
+    if (k > limit || k <  0) {
+      printf("You can only pick between 1 and %d.\n", limit);
       continue;
     }
     n -= k;
