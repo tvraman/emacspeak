@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MAX_SIZE 16
 
-int fib_base (const int fibs [], int current) {
+int fib_base(const int fibs[], int current) {
   int base = 0;
   for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
     if (fibs[i] < current) {
@@ -22,7 +22,7 @@ int next_move(const int fibs[], int n, int limit) {
   /*  check for 3k <n rule */
   while ((3 * k >= current) || (k > limit)) { /*  reduce game */
     current = k;
-    base=fib_base(fibs, current);
+    base = fib_base(fibs, current);
     k = current - base;
   } /*  done reducing game */
   return k;
@@ -32,17 +32,17 @@ int main() {
   int fibs[MAX_SIZE];
   fibs[0] = 1;
   fibs[1] = 2;
-  for (int index = 2; index <MAX_SIZE; index ++){
+  for (int index = 2; index < MAX_SIZE; index++) {
     fibs[index] = fibs[index - 1] + fibs[index - 2];
   } /*  done populating fibonacci numbers */
   int k;
   int n;
-  printf("Pick number of sticks between 2 and %d.\n", fibs[MAX_SIZE - 1] -7);
+  printf("Pick number of sticks between 2 and %d.\n", fibs[MAX_SIZE - 1] - 7);
   scanf("%d", &n);
   if (fibs[MAX_SIZE - 1] < n) {
-    printf("Pick  n < %d to avoid boredom.\n" , fibs[MAX_SIZE -1]);
+    printf("Pick  n < %d to avoid boredom.\n", fibs[MAX_SIZE - 1]);
     exit(0);
-}
+  }
 
   printf("Playing with %d sticks.\n", n);
   int limit = n - 1;
@@ -63,7 +63,7 @@ int main() {
   while (n > 0) { /*  take turns */
     printf("How many sticks do you pick?\n");
     scanf("%d", &k);
-    if (k > limit || k <  0) {
+    if (k > limit || k < 0) {
       printf("You can only pick between 1 and %d.\n", limit);
       continue;
     }
