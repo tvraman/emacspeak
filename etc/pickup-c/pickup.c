@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_SIZE 15
+#define MAX_SIZE 16
 
 int fib_base (const int fibs [], int current) {
-  int base;
+  int base = 0;
   for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
     if (fibs[i] < current) {
       base = fibs[i];
@@ -29,23 +29,22 @@ int next_move(const int fibs[], int n, int limit) {
 }
 
 int main() {
-  printf("Pick number of sticks (>2) \n");
-  int n;
-  int k;
-  scanf("%d", &n);
-  printf("Playing with %d sticks.\n", n);
   int fibs[MAX_SIZE];
   fibs[0] = 1;
   fibs[1] = 2;
-  int index = 2;
-  while (fibs[index - 1] < n) {
+  for (int index = 2; index <MAX_SIZE; index ++){
     fibs[index] = fibs[index - 1] + fibs[index - 2];
-    if (index == MAX_SIZE) {
-      printf("Pick a smaller number to avoid boredom\n");
-      exit(0);
-    }
-    index++;
   } /*  done populating fibonacci numbers */
+  int k;
+  int n;
+  printf("Pick number of sticks between 2 and %d.\n", fibs[MAX_SIZE - 1]);
+  scanf("%d", &n);
+  if (fibs[MAX_SIZE - 1] < n) {
+    printf("Pick  n < %d to avoid boredom.\n" , fibs[MAX_SIZE -1]);
+    exit(0);
+}
+
+  printf("Playing with %d sticks.\n", n);
   int limit = n - 1;
   int fib_p = 0;
   for (int i = 0; i < MAX_SIZE; i++) {
