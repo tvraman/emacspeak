@@ -14,7 +14,7 @@ int fib_base(const int fibs[], const int current) {
   return base;
 }
 
-int next_move(const int fibs[], int n, int limit) {
+int next_move(const int fibs[], const int n, const int limit) {
   int current = n;
   int k;
   int base = fib_base(fibs, current);
