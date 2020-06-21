@@ -948,18 +948,19 @@ icon."
              (substring ,(symbol-name f) 5))))))))
 
 (defadvice read-char-choice (before emacspeak pre act comp)
-  "Speak the prompt"
-  (let ((prompt (ad-get-arg 0))
-        (chars (ad-get-arg 1)))
+  "Speak the prompt.
+Caches it in kill ring for later perusal."
+  (let* ((prompt (ad-get-arg 0))
+         (chars (ad-get-arg 1))
+         (message
+          (format
+           "%s: %s"
+           prompt
+           (mapconcat #'(lambda (c) (format "%c" c)) chars ", "))))
+    (kill-new message)
     (tts-with-punctuations
-     'all
-     (dtk-speak
-      (format "%s: %s"
-              prompt
-              (mapconcat
-               #'(lambda (c) (format "%c" c))
-               chars
-               ", "))))))
+        'all
+      (dtk-speak message))))
 
 ;;}}}
 ;;{{{ advice completion functions to speak:
