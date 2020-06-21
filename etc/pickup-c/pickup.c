@@ -40,7 +40,7 @@ int main() {
   printf("Pick number of sticks between 2 and 2000.\n");
   scanf("%d", &n);
   if ((n < 2) || (2000 < n)) {
-    printf("Pick  a number between 2 and 2000.\n", fibs[MAX_SIZE - 1]);
+    printf("Pick  a number between 2 and 2000.\n");
     exit(0);
   }
 
