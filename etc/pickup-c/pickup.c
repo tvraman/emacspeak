@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define MAX_SIZE 16
 
-int fib_base(const int fibs[], int current) {
+int fib_base(const int fibs[], const int current) {
   int base = 0;
   for (int i = 0; i < MAX_SIZE; i++) { /*  update base */
     if (fibs[i] < current) {
@@ -37,10 +37,10 @@ int main() {
   } /*  done populating fibonacci numbers */
   int k;
   int n;
-  printf("Pick number of sticks between 2 and %d.\n", fibs[MAX_SIZE - 1] - 7);
+  printf("Pick number of sticks between 2 and 2000.\n");
   scanf("%d", &n);
-  if (fibs[MAX_SIZE - 1] < n) {
-    printf("Pick  n < %d to avoid boredom.\n", fibs[MAX_SIZE - 1]);
+  if ((n < 2) || (2000 < n)) {
+    printf("Pick  a number between 2 and 2000.\n", fibs[MAX_SIZE - 1]);
     exit(0);
   }
 
