@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 13, 2020.
+last updated on June 22, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1269 commands and 945 options.
+   This chapter documents a total of 1266 commands and 945 options.
 
 * Menu:
 
@@ -3047,6 +3047,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
+* emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-prompts::Pre-Defined Speech  PROMPTS.
 * emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.

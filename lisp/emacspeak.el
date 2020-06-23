@@ -271,6 +271,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "pianobar" 'emacspeak-pianobar)
 (emacspeak-do-package-setup "proced" 'emacspeak-proced)
 (emacspeak-do-package-setup "popup" 'emacspeak-popup)
+(emacspeak-do-package-setup "project" 'emacspeak-project)
 (emacspeak-do-package-setup "projectile" 'emacspeak-projectile)
 (emacspeak-do-package-setup "php-mode" 'emacspeak-php-mode)
 (emacspeak-do-package-setup "package"'emacspeak-package)

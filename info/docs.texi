@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1269 commands and 945 options.
+This chapter documents a total of 1266 commands and 945 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -160,6 +160,7 @@ This chapter documents a total of 1269 commands and 945 options.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
+* emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-prompts::Pre-Defined Speech  PROMPTS.
 * emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.
@@ -10426,35 +10427,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 Speech enable imenu and provide other useful navigation commands.
 
-@subsection Emacspeak-Imenu Commands
-
-@subsubsection emacspeak-imenu-goto-next-index-position
-@deffn {Command} emacspeak-imenu-goto-next-index-position   
-@findex emacspeak-imenu-goto-next-index-position
-
-@format
-Goto the next index position in current buffer
-@end format
-@end deffn
-
-@subsubsection emacspeak-imenu-goto-previous-index-pos
-@deffn {Command} emacspeak-imenu-goto-previous-index-pos   
-@findex emacspeak-imenu-goto-previous-index-pos
-
-@format
-Goto the previous index pos in current buffer
-@end format
-@end deffn
-
-@subsubsection emacspeak-imenu-speak-this-section
-@deffn {Command} emacspeak-imenu-speak-this-section   
-@findex emacspeak-imenu-speak-this-section
-
-@format
-Speak upto start of next index entry
-@end format
-@end deffn
-
 @node emacspeak-indium
 @section emacspeak-indium
 
@@ -15267,6 +15239,11 @@ Speak field at specified column --- defaults to current column.
 (fn &optional POSITION)
 @end format
 @end deffn
+
+@node emacspeak-project
+@section emacspeak-project
+
+Speech-enable project.el
 
 @node emacspeak-projectile
 @section emacspeak-projectile

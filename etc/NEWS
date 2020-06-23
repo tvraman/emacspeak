@@ -28,6 +28,10 @@ and completion.
 
 
 Module ~emacspeak-eglot~ speech-enables ~eglot~ for lsp  support.
+** speech-Enable project.el
+
+Module ~emacspeak-project~ speech-enables package ~project~.
+
 
 ** Speech-Enable rust-mode
 
