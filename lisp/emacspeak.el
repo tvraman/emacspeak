@@ -265,6 +265,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "nov" 'emacspeak-nov)
 (emacspeak-do-package-setup "nxml-mode" 'emacspeak-nxml)
 (emacspeak-do-package-setup "org" 'emacspeak-org)
+(emacspeak-do-package-setup "orgalistorg" 'emacspeak-orgalist)
 (emacspeak-do-package-setup "origami" 'emacspeak-origami)
 (emacspeak-do-package-setup "outline" 'emacspeak-outline)
 (emacspeak-do-package-setup "perl-mode" 'emacspeak-perl)
