@@ -13,8 +13,6 @@
 (autoload 'calc-embedded-activate  "calc" "Activate =>'s in buffer" t)
 (autoload 'calc-grab-region	   "calc" "Grab region of Calc data" t)
 (autoload 'calc-grab-rectangle	   "calc" "Grab rectangle of data" t)
-
-(global-set-key "\e#" 'calc-dispatch)
 ;;; End of Calc autoloads.
 ;;; Calc mode settings:
 ;;; Mode settings stored by Calc on Fri Mar 27 11:24:23 1992
