@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 22, 2020.
+last updated on June 24, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3037,6 +3037,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
+* emacspeak-orgalist::Speech-enable ORGALIST.
 * emacspeak-origami::Speech-enable ORIGAMI.
 * emacspeak-outline::
 * emacspeak-package::Speech-enable PACKAGE.

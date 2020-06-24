@@ -150,6 +150,7 @@ This chapter documents a total of 1266 commands and 945 options.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
+* emacspeak-orgalist::Speech-enable ORGALIST.
 * emacspeak-origami::Speech-enable ORIGAMI.
 * emacspeak-outline::
 * emacspeak-package::Speech-enable PACKAGE.
@@ -14821,6 +14822,11 @@ Key of template used for capturing  hot list.
 The function to call after moving in a table
 
 @end defvar
+
+@node emacspeak-orgalist
+@section emacspeak-orgalist
+
+Speech-enable orgalist --- create org-like lists everywhere.
 
 @node emacspeak-origami
 @section emacspeak-origami
