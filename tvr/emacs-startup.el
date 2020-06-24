@@ -186,7 +186,8 @@ gcs (%.2f seconds)>"
   "TVR:text-mode"
   (auto-correct-mode 1)
   (auto-fill-mode)
-  (abbrev-mode 1))
+  (abbrev-mode 1)
+  (orgalist-mode 1))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
