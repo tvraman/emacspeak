@@ -189,8 +189,7 @@ gcs (%.2f seconds)>"
   (auto-correct-mode 1)
   (auto-fill-mode)
   (abbrev-mode 1)
-  (unless (eq major-mode 'org-mode)
-(orgalist-mode 1)))
+  (unless (eq major-mode 'org-mode) (orgalist-mode 1)))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
