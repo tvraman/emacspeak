@@ -148,7 +148,8 @@
      (completion-initialize)
      (mapc
       (if (getenv "TVR_TIME_EMS")
-          #'load-library-if-available #'load)
+          #'load-library-if-available
+        #'load)
       tvr-libs)
      (run-with-idle-timer 0.1 nil #'tvr-defer-muggles)
      (tvr-customize)
