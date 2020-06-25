@@ -19,6 +19,7 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (setq ad-redefinition-action 'accept)
+(setq outline-minor-mode-prefix "\M-#")
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
@@ -187,7 +188,8 @@ gcs (%.2f seconds)>"
   (auto-correct-mode 1)
   (auto-fill-mode)
   (abbrev-mode 1)
-  (orgalist-mode 1))
+  (unless (eq major-mode 'org-mode)
+(orgalist-mode 1)))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"

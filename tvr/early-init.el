@@ -1,4 +1,4 @@
-(defvar outline-minor-mode-prefix "\M-#")
+
 (setq
                                         ; package-quickstart t
  gc-cons-threshold 64000000
