@@ -24,3 +24,4 @@
     (setq calc-auto-why 1)
 ;;; End of mode settings
 
+(global-set-key "\M-#" 'calc-dispatch)
