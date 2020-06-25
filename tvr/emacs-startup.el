@@ -18,7 +18,9 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
+(cl-declaim (special outline-minor-mode-prefix ad-redefinition-action))
 (setq ad-redefinition-action 'accept)
+
 (setq outline-minor-mode-prefix (kbd "C-o"))
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
