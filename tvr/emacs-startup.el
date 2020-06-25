@@ -19,7 +19,6 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (setq ad-redefinition-action 'accept)
-(defvar  outline-minor-mode-prefix "M-#")
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
