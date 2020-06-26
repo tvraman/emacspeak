@@ -1805,7 +1805,9 @@ only speak upto the first ctrl-m."
       (or dtk-quiet (not dtk-speak-server-initialized)
           (null text) (zerop (length text)))
 ;;; flush previous speech if asked to
-    (when dtk-stop-immediately (dtk-stop))
+    (when dtk-stop-immediately
+      (dtk-notify-stop)
+      (dtk-stop))
     (when selective-display
       (let ((ctrl-m (string-match "\015" text)))
         (and ctrl-m (setq text (substring text 0 ctrl-m))
