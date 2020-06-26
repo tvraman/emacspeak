@@ -763,8 +763,9 @@ icon."
 
 (defvar inhibit-message)
 (cl-loop
- for f in '(minibuffer-message set-minibuffer-message
-            message display-message-or-buffer) do
+ for f in
+ '( minibuffer-message set-minibuffer-message
+    message display-message-or-buffer) do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak the message."
