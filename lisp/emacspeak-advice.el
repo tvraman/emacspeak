@@ -784,7 +784,7 @@ icon."
             (null inhibit-message)
             m ; our message
             emacspeak-speak-messages    ; speaking messages
-            (< 0.3 (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
+            (< 0.1 (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
          (setq emacspeak-lazy-message-time (current-time)
                emacspeak-last-message (ansi-color-apply m))
          ;;; so we really need to speak it
