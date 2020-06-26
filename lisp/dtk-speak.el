@@ -1969,7 +1969,9 @@ inserted.  Otherwise it is a number that specifies grouping"
         (eq 'open (process-status dtk-speaker-process))
         (dtk-initialize))
     (when dtk-speak-server-initialized
-      (and dtk-stop-immediately (dtk-stop))
+      (when dtk-stop-immediately
+        (dtk-notify-stop)
+        (dtk-stop))
       (dtk-interp-say words))))
 
 ;;}}}
