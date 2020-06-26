@@ -782,11 +782,12 @@ icon."
        (when
            (and
             (null inhibit-message)
-            m emacspeak-speak-messages  ; speaking messages
-            (< 0.1 (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
+            m ; our message
+            emacspeak-speak-messages    ; speaking messages
+            (< 0.3 (float-time (time-subtract (current-time) emacspeak-lazy-message-time))))
          (setq emacspeak-lazy-message-time (current-time)
                emacspeak-last-message (ansi-color-apply m))
-         ;; so we really need to speak it
+         ;;; so we really need to speak it
          (tts-with-punctuations 'all
            (dtk-notify-speak m 'dont-log)))
        ad-return-value))))
