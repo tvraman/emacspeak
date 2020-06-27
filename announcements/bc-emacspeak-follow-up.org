@@ -6,10 +6,11 @@ them effectively to the human reader; this essay expresses the art of
 programming as a means of effectively communicating one's intention to
 the machine.
 
-In 2007, I wrote a [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] for the book [[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code
+In 2007, I wrote a [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] for the book
+[[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code
 from OReilly]]. About a year later, I wrote an article called [[http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/][Thinking
-Of Mathematics]]. This article is being written over 10 years later as
-a consolidated follow-up to the afore-mentioned publications. The goal
+Of Mathematics]]. This article is being written over 10 years later as a
+consolidated follow-up to the afore-mentioned publications. The goal
 is to further crystalize some of the lessons learnt over the duration
 of project Emacspeak, while stepping back to think more broadly about
 Software Engineering in the context of eyes-free interaction.
@@ -39,13 +40,16 @@ very few additional requirements  creeping in over time.
      interchange across different activities; e.g., email a code
      fragment; cut-and-paste a code fragment  from an e-book to
      a source file.
-  7. Writing prose ↔  communicating with humans; 
+  7. Time to task-completion shall be the over-riding goal  in all
+     cases with response latency reduced to a minimum.
+  8. Writing prose ↔  communicating with humans; 
      Writing code  ↔ communicating with machines. 
      Design a user interface that treats these consistently.
-  8. Editing and browsing content (prose and code)shall use structure-based navigation using a
+  9. Editing and browsing content (prose and code)shall use structure-based navigation using a
      consistent set of key-bindings.
-  9. The auditory interface shall  enable hierarchical views of all
-     forms of content.
+  10. The auditory interface shall  enable hierarchical views of all
+      forms of content with the ability to expand and collapse all
+      types of content.
   
 
 * Leverage Structure To Create And Organize Information
