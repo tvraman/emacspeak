@@ -17,9 +17,9 @@
        (forward-line 0)
        (insert "  1.  "))
 
-;;; add these to outline-minor-mode-map  
-     (define-key outline-minor-mode-map "i" 'tvr-org-itemize)
-     (define-key outline-minor-mode-map "e" 'tvr-org-enumerate)
+;;; add these to outline-mode-map  
+     (define-key outline-mode-map (kbd "C-o i") 'tvr-org-itemize)
+     (define-key outline-mode-map (kbd "C-o e") 'tvr-org-enumerate)
      
      (define-key global-map "\C-cl" 'org-store-link)
      (define-key global-map "\C-cb" 'org-switchb)
