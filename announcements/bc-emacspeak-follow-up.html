@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-04 Wed 13:57 -->
+<!-- 2020-06-27 Sat 12:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thinking Of Software Engineering: An Essay On Eyes-Free Computing</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -180,6 +193,52 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
 </head>
 <body>
 <div id="content">
@@ -188,19 +247,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgac46720">1. Background</a></li>
-<li><a href="#orgf0c5f40">2. Emacspeak: High-Level Goals</a></li>
-<li><a href="#org0801c9e">3. Leverage Structure To Create And Organize Information</a></li>
-<li><a href="#org0f7cc8b">4. Developing Robust Software Over  Time</a></li>
-<li><a href="#org841f0c3">5. Bushy Vs Deep Trees In Source Code</a></li>
-<li><a href="#org30a1fdb">6. Avoiding The Least Common Denominator Effect</a></li>
-<li><a href="#org511a4f7">7. Defensive Coding To Maintain Long-Term Sanity</a></li>
-<li><a href="#org185bf0d">8. References</a></li>
+<li><a href="#orgd2c9df2">1. Abstract</a></li>
+<li><a href="#orgd7b747a">2. Emacspeak: High-Level Goals</a></li>
+<li><a href="#orgf4eee34">3. Leverage Structure To Create And Organize Information</a></li>
+<li><a href="#org507aa3c">4. Developing Robust Software Over  Time</a></li>
+<li><a href="#orgbbfccc6">5. Avoiding The Least Common Denominator Effect</a></li>
+<li><a href="#orgeb845b7">6. Defensive Coding To Maintain Long-Term Sanity</a></li>
+<li><a href="#org8988ee0">7. References</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgac46720" class="outline-2">
-<h2 id="orgac46720"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-orgd2c9df2" class="outline-2">
+<h2 id="orgd2c9df2"><span class="section-number-2">1</span> Abstract</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Expressing one's thoughts in the form of a logically structured
@@ -211,19 +269,24 @@ the machine.
 </p>
 
 <p>
-In 2007, I wrote a <a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a> for the book <a href="http://shop.oreilly.com/product/9780596510046.do">Beautiful Code
+In 2007, I wrote a <a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a> for the book
+<a href="http://shop.oreilly.com/product/9780596510046.do">Beautiful Code
 from OReilly</a>. About a year later, I wrote an article called <a href="http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/">Thinking
-Of Mathematics</a>. This article is being written over 10 years later as
-a consolidated follow-up to the afore-mentioned publications. The goal
+Of Mathematics</a>. This article is being written over 10 years later as a
+consolidated follow-up to the afore-mentioned publications. The goal
 is to further crystalize some of the lessons learnt over the duration
 of project Emacspeak, while stepping back to think more broadly about
-Software Engineering in the context of eyes-free interaction.
+</p>
+
+<p>
+the lessons learnt over 25 years of Software Engineering in the
+context of eyes-free interaction.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf0c5f40" class="outline-2">
-<h2 id="orgf0c5f40"><span class="section-number-2">2</span> Emacspeak: High-Level Goals</h2>
+<div id="outline-container-orgd7b747a" class="outline-2">
+<h2 id="orgd7b747a"><span class="section-number-2">2</span> Emacspeak: High-Level Goals</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 This section enumerates the high-level goals that motivated Emacspeak
@@ -240,7 +303,7 @@ very few additional requirements  creeping in over time.
 synchronized non-speech auditory icons.</li>
 <li>Auditory feedback is context-sensitive and designed to reduce
 cognitive load on the listener while increasing the overall
-band-width of communication.</li>
+band-width of man-machine communication.</li>
 <li>Rich auditory feedback  is generated by <i>audio formatting</i>
 structured information objects along with their surrounding context.</li>
 <li>Leverage all aspects of the auditory display to efficiently and
@@ -251,43 +314,45 @@ structure and semantics.</li>
 interchange across different activities; e.g., email a code
 fragment; cut-and-paste a code fragment  from an e-book to
 a source file.</li>
+<li>Speed of task-completion shall be the over-riding goal with
+response latency reduced to a minimum.</li>
 <li>Writing prose ↔  communicating with humans; 
 Writing code  ↔ communicating with machines. 
 Design a user interface that treats these consistently.</li>
-<li>Editing and browsing content (prose and code)shall use structure-based navigation using a
+<li>Editing and browsing content (prose and code)shall both use structure-based navigation using a
 consistent set of key-bindings.</li>
 <li>The auditory interface shall  enable hierarchical views of all
-forms of content.</li>
+forms of content with the ability to expand and collapse
+different 
+types of content.</li>
 </ol>
 </div>
 </div>
 
 
-<div id="outline-container-org0801c9e" class="outline-2">
-<h2 id="org0801c9e"><span class="section-number-2">3</span> Leverage Structure To Create And Organize Information</h2>
+<div id="outline-container-orgf4eee34" class="outline-2">
+<h2 id="orgf4eee34"><span class="section-number-2">3</span> Leverage Structure To Create And Organize Information</h2>
 </div>
 
-<div id="outline-container-org0f7cc8b" class="outline-2">
-<h2 id="org0f7cc8b"><span class="section-number-2">4</span> Developing Robust Software Over  Time</h2>
+<div id="outline-container-org507aa3c" class="outline-2">
+<h2 id="org507aa3c"><span class="section-number-2">4</span> Developing Robust Software Over  Time</h2>
 </div>
 
-<div id="outline-container-org841f0c3" class="outline-2">
-<h2 id="org841f0c3"><span class="section-number-2">5</span> Bushy Vs Deep Trees In Source Code</h2>
-</div>
-
-<div id="outline-container-org30a1fdb" class="outline-2">
-<h2 id="org30a1fdb"><span class="section-number-2">6</span> Avoiding The Least Common Denominator Effect</h2>
+<div id="outline-container-orgbbfccc6" class="outline-2">
+<h2 id="orgbbfccc6"><span class="section-number-2">5</span> Avoiding The Least Common Denominator Effect</h2>
 </div>
 
 
-<div id="outline-container-org511a4f7" class="outline-2">
-<h2 id="org511a4f7"><span class="section-number-2">7</span> Defensive Coding To Maintain Long-Term Sanity</h2>
+<div id="outline-container-orgeb845b7" class="outline-2">
+<h2 id="orgeb845b7"><span class="section-number-2">6</span> Defensive Coding To Maintain Long-Term Sanity</h2>
 </div>
 
-<div id="outline-container-org185bf0d" class="outline-2">
-<h2 id="org185bf0d"><span class="section-number-2">8</span> References</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-org8988ee0" class="outline-2">
+<h2 id="org8988ee0"><span class="section-number-2">7</span> References</h2>
+<div class="outline-text-2" id="text-7">
 <ol class="org-ol">
+<li><a href="http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html">chapter on Emacspeak</a>  from Beautiful Code, OReilly</li>
+<li><a href="http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/">Thinking Of Mathematics</a></li>
 <li><a href="https://www.johndcook.com/blog/2015/06/18/most-important-skill-in-software/">Organisational Skills When Developing Software</a></li>
 </ol>
 </div>
@@ -297,7 +362,7 @@ forms of content.</li>
 <p class="date">Date: 2017-01-03 Tue 00:00</p>
 <p class="author">Author: T.V Raman</p>
 <p class="email">Email: <a href="mailto:raman@google.com">raman@google.com</a></p>
-<p class="date">Created: 2018-04-04 Wed 13:57</p>
+<p class="date">Created: 2020-06-27 Sat 12:23</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
