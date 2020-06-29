@@ -1806,7 +1806,7 @@ only speak upto the first ctrl-m."
           (null text) (zerop (length text)))
 ;;; flush previous speech if asked to
     (when dtk-stop-immediately
-      (dtk-notify-stop)
+      (when (process-live-p dtk-notify-process) (dtk-notify-stop))
       (dtk-stop))
     (when selective-display
       (let ((ctrl-m (string-match "\015" text)))
@@ -1970,7 +1970,7 @@ inserted.  Otherwise it is a number that specifies grouping"
         (dtk-initialize))
     (when dtk-speak-server-initialized
       (when dtk-stop-immediately
-        (dtk-notify-stop)
+        (when (process-live-p dtk-notify-process) (dtk-notify-stop))
         (dtk-stop))
       (dtk-interp-say words))))
 
