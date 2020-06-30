@@ -46,7 +46,7 @@ static struct langInfo TheLanguages[] = {
     {eciStandardJapaneseSJIS, "ja_JP", "shiftjis", "8.0", "Japanese"},
     {eciStandardJapaneseUCS, "ja_JP", "UCS2", "8.0.8", "Japanese"},
     {eciStandardFinnish, "fi_FI", "iso8859-1", "9.0", "Finnish"},
-    {eciStandardKoreanUHC, NULL, NULL, NULL},
+    {eciStandardKoreanUHC, NULL, NULL, NULL, NULL},
     {eciStandardKoreanUCS, NULL, NULL, NULL, NULL},
     {eciStandardCantoneseGB, NULL, NULL, NULL, NULL},
     {eciStandardCantoneseUCS, NULL, NULL, NULL, NULL},
