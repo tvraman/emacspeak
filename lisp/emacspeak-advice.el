@@ -702,8 +702,18 @@ see option emacspeak-untabify-fixes-non-breaking-space."
           #'(lambda (c)
               (format "%c: %s"
                       (cl-first c) (cl-second c)))
+          (ad-get-arg 1)))
+        (details 
+         (mapcar
+          #'(lambda (c)
+              (format "%c: %s: %s"
+                      (cl-first c) (cl-second c)
+                      (or (cl-third c) "")))
           (ad-get-arg 1))))
     (emacspeak-auditory-icon 'open-object)
+    (ems--log-message
+     (concat msg
+             (mapconcat #'identity details "\n ")))
     (dtk-speak msg)
     (sox-tones 2 2)
     (dtk-speak-list choices)))
