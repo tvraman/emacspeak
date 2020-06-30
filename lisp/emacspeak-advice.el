@@ -926,6 +926,7 @@ icon."
 
 ;;}}}
 ;;{{{ advice various input functions to speak:
+
 (defadvice read-passwd (before emacspeak pre act comp)
   "Provide auditory feedback."
   (emacspeak-prompt "pwd"))
@@ -960,9 +961,8 @@ icon."
            "%s: %s"
            prompt
            (mapconcat #'(lambda (c) (format "%c" c)) chars ", "))))
-    (tts-with-punctuations
-        'all
-      (dtk-speak message))))
+    (ems--log-message m)
+    (tts-with-punctuations 'all (dtk-speak message))))
 
 ;;}}}
 ;;{{{ advice completion functions to speak:
