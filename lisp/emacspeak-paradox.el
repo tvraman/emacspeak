@@ -60,6 +60,7 @@
 (voice-setup-add-map
  '(
    (paradox-name-face voice-bolden)
+   (paradox-download-face voice-smoothen)
    (paradox-description-face voice-monotone)
    (paradox-description-face-multiline voice-monotone)
    (paradox-comment-face voice-lighten)
