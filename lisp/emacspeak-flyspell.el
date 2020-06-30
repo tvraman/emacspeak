@@ -130,13 +130,14 @@ fly spell checking."
 ;;; flyspell-correct is available on melpa:
 
 (when (locate-library "flyspell-correct")
-  (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic)
+  (define-key flyspell-mode-map (kbd "C-x .") 'flyspell-correct-at-point)
+  (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous)
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
   (require emacspeak-flyspell-correct))
 
 (cl-loop
  for f in
- '(flyspell-correct-word-generic flyspell-correct-previous-word-generic)
+ '(flyspell-correct-next flyspell-correct-previous flyspell-correct-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
