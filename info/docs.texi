@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1266 commands and 945 options.
+This chapter documents a total of 1266 commands and 948 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -90,6 +90,7 @@ This chapter documents a total of 1266 commands and 945 options.
 * emacspeak-find-func::Speech enable emacs' code finder.
 * emacspeak-fix-interactive::Make  Emacs' builtin prompts   speak.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
+* emacspeak-flymake::Speech-enable FLYMAKE.
 * emacspeak-flyspell::Speech enable flyspell.
 * emacspeak-folding::Speech enable Folding Mode -- enables structured editing.
 * emacspeak-forge::Speech-enable FORGE.
@@ -9406,6 +9407,31 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @defvar {User Option} voice-flycheck-warning
 Personality used for flycheck-warning
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@node emacspeak-flymake
+@section emacspeak-flymake
+
+Speech-enable flymake
+
+@subsection emacspeak-flymake Options
+
+@defvar {User Option} voice-flymake-error
+Personality used for flymake-error
+This personality uses  voice-highlight whose  effect can be changed globally by customizing voice-highlight-settings.
+
+@end defvar
+
+@defvar {User Option} voice-flymake-note
+Personality used for flymake-note
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-flymake-warning
+Personality used for flymake-warning
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
