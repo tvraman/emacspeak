@@ -163,6 +163,7 @@ emacspeak-find-dired.elc \
 emacspeak-ftf.elc \
 emacspeak-find-func.elc \
 emacspeak-flycheck.elc \
+emacspeak-flymake.elc \
 emacspeak-flyspell.elc \
 emacspeak-folding.elc \
 emacspeak-forge.elc \
@@ -452,6 +453,7 @@ emacspeak-ftf.elc: emacspeak-ftf.el dtk-speak.elc
 emacspeak-find-func.elc: emacspeak-find-func.el dtk-speak.elc voice-setup.elc
 emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-setup.elc
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc
+emacspeak-flymake.elc: emacspeak-flymake.el dtk-speak.elc voice-setup.elc
 emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc voice-setup.elc
 emacspeak-folding.elc: emacspeak-folding.el dtk-speak.elc voice-setup.elc
 emacspeak-forge.elc: emacspeak-forge.el dtk-speak.elc voice-setup.elc
