@@ -53,6 +53,7 @@
 
 ;;}}}
 ;;{{{ Map faces
+
 (voice-setup-add-map
  '(
    (flycheck-warning voice-animate)
@@ -71,8 +72,7 @@
 
 (cl-loop
  for  f in
- '(flycheck-next-error flycheck-previous-error
-                       flycheck-first-error)
+ '(flycheck-next-error flycheck-previous-error flycheck-first-error)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -92,6 +92,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Checking buffer.")))
+
 (defadvice flycheck-clear (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
