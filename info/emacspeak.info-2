@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 30, 2020.
+last updated on July 1, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
@@ -1218,6 +1218,8 @@ table of contents.
      ‘<fn> g’
 
      EPub  Interaction.
+     When opened, displays a bookshelf consisting of  epubs found at the
+     root directory.
      For detailed documentation, see M-x emacspeak-epub-mode
 
 12.68.6.3 emacspeak-epub-bookshelf-add-directory
@@ -1443,7 +1445,6 @@ table of contents.
 
      An EPub Front-end.
      Letters do not insert themselves; instead, they are commands.
-
      key             binding
      —             ——-
 

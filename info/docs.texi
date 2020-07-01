@@ -74,7 +74,7 @@ This chapter documents a total of 1266 commands and 948 options.
 * emacspeak-entertain::Speech enable misc games.
 * emacspeak-epa::Speech-enable EasyPG Assistant.
 * emacspeak-eperiodic::Speech-enable Periodic Table.
-* emacspeak-epub::On epubs emacspeak desktop.
+* emacspeak-epub::epubs On emacspeak desktop.
 * emacspeak-erc::speech-enable erc irc client.
 * emacspeak-eshell::Speech-enable EShell - Emacs Shell.
 * emacspeak-ess::Speech-enable ESS: Emacs Speaks Statistics.
@@ -6870,6 +6870,8 @@ during initialization.
 
 @format
 EPub  Interaction.
+When opened, displays a bookshelf consisting of  epubs found at the
+root directory.
 For detailed documentation, see M-x emacspeak-epub-mode
 @end format
 @end deffn
@@ -7142,7 +7144,6 @@ Locate epub files using locate.
 @format
 An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
-
 key             binding
 ---             -------
 

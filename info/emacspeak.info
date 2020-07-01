@@ -12,360 +12,360 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 30, 2020.
+last updated on July 1, 2020.
 
 
 Indirect:
-emacspeak.info-1: 429
-emacspeak.info-2: 301053
-emacspeak.info-3: 601353
-emacspeak.info-4: 903791
+emacspeak.info-1: 428
+emacspeak.info-2: 301051
+emacspeak.info-3: 601443
+emacspeak.info-4: 903880
 
 Tag Table:
 (Indirect)
-Node: Top429
-Node: Copyright1249
-Node: Announce1806
-Node: Contributing2306
-Node: Authoring Guidelines2941
-Node: Credits3838
-Node: Background4202
-Node: Speech-Enabling Applications4947
-Node: Audio Formatting And Aural CSS6445
-Node: Auditory Icons7632
-Node: Summary8335
-Node: Introduction8825
-Ref: Introduction-Footnote-111332
-Node: Installation11434
-Node: Obtaining Emacspeak11877
-Node: Quick Installation12470
-Node: Building And Testing The Speech Server15108
-Node: Basic Usage16654
-Node: Overview18002
-Node: Working20476
-Ref: Working-Footnote-122715
-Ref: Working-Footnote-222754
-Node: Reading22856
-Node: Speech System29667
-Node: Controlling Echo30132
-Node: Speech Output Control31609
-Node: Miscellaneous35647
-Node: Voice-lock39250
-Node: Status Information40994
-Node: Audio Desktop43640
-Node: Desktop Objects45662
-Node: Object Oriented Desktop46513
-Node: Context-Sensitive Interaction47296
-Node: Voice Lock52479
-Node: How It All Works.54769
-Node: What this gives.55811
-Node: Using Online Help56538
-Node: Emacs Packages60726
-Node: Document Authoring61961
-Node: Creating Well-formatted Documents62654
-Node: Search replace and spell check66101
-Node: Structured Editing71328
-Node: Outline Editing73342
-Node: Template-based Authoring77052
-Node: Maintaining Structured Data78683
-Node: Browsing Structure80141
-Node: Web Browsing80573
-Node: Intro81499
-Node: emacs-w383961
-Ref: w3 transcode93098
-Ref: xsl-transform95462
-Node: Add-ons99651
-Ref: emacspeak url template99865
-Ref: rss100897
-Ref: bmk-mgr102377
-Node: Conclusion103031
-Node: Messaging103826
-Node: Editing Code104366
-Node: Development Environment105341
-Node: Desktop Management105889
-Node: Personal Information Management106661
-Node: Desktop Applications107011
-Node: Running Terminal Based Applications113802
-Node: Emacspeak Commands And Options122348
-Node: acss-structure137289
-Node: amixer138943
-Node: cd-tool140447
-Node: dectalk-voices141658
-Node: dom-addons142280
-Node: dtk-interp142475
-Node: dtk-speak142878
-Node: dtk-unicode155680
-Node: emacspeak157103
-Node: emacspeak-2048257299
-Node: emacspeak-abc-mode259831
-Node: emacspeak-actions260188
-Node: emacspeak-add-log260487
-Node: emacspeak-advice262547
-Node: emacspeak-amark264298
-Node: emacspeak-analog265522
-Node: emacspeak-ansi-color266909
-Node: emacspeak-apt-sources267323
-Node: emacspeak-arc267672
-Node: emacspeak-auctex268782
-Node: emacspeak-bbc269103
-Node: emacspeak-bbdb271582
-Node: emacspeak-bibtex272549
-Node: emacspeak-bookmark272768
-Node: emacspeak-bookshare272985
-Node: emacspeak-browse-kill-ring287516
-Node: emacspeak-bs287839
-Node: emacspeak-buff-menu288327
-Node: emacspeak-c289438
-Node: emacspeak-calc289936
-Node: emacspeak-calculator290300
-Node: emacspeak-calendar290529
-Node: emacspeak-cedet291902
-Node: emacspeak-checkdoc292219
-Node: emacspeak-chess292433
-Node: emacspeak-cider301053
-Node: emacspeak-ciel301565
-Node: emacspeak-clojure301909
-Node: emacspeak-cmuscheme302153
-Node: emacspeak-company302377
-Node: emacspeak-compile304553
-Node: emacspeak-cperl307055
-Node: emacspeak-custom307277
-Node: emacspeak-dbus308016
-Node: emacspeak-deadgrep311463
-Node: emacspeak-debugger311687
-Node: emacspeak-desktop311989
-Node: emacspeak-dictionary312205
-Node: emacspeak-diff-mode312482
-Node: emacspeak-dired312697
-Node: emacspeak-dismal316943
-Node: emacspeak-dumb-jump320790
-Node: emacspeak-ecb321080
-Node: emacspeak-eclim322482
-Node: emacspeak-ediary322892
-Node: emacspeak-ediff323163
-Node: emacspeak-eglot324314
-Node: emacspeak-ein324800
-Node: emacspeak-elfeed328661
-Node: emacspeak-elisp-refs329883
-Node: emacspeak-elpy330126
-Node: emacspeak-elscreen330376
-Node: emacspeak-emms330639
-Node: emacspeak-enriched331330
-Node: emacspeak-entertain331878
-Node: emacspeak-epa333197
-Node: emacspeak-eperiodic333482
-Node: emacspeak-epub335021
-Node: emacspeak-erc349075
-Node: emacspeak-eshell351656
-Node: emacspeak-ess354898
-Node: emacspeak-etable355133
-Node: emacspeak-eterm355612
-Node: emacspeak-eudc367864
-Node: emacspeak-evil368607
-Node: emacspeak-eww370491
-Node: emacspeak-facemenu397683
-Node: emacspeak-feeds397923
-Node: emacspeak-filtertext400694
-Node: emacspeak-find-dired402474
-Node: emacspeak-find-func402779
-Node: emacspeak-fix-interactive403022
-Node: emacspeak-flycheck404338
-Node: emacspeak-flymake407067
-Node: emacspeak-flyspell407984
-Node: emacspeak-folding408887
-Node: emacspeak-forge409318
-Node: emacspeak-forms411195
-Node: emacspeak-ftf412912
-Node: emacspeak-geiser413201
-Node: emacspeak-generic413623
-Node: emacspeak-gh-explorer414002
-Node: emacspeak-gnuplot414685
-Node: emacspeak-gnus415062
-Node: emacspeak-go-mode416743
-Node: emacspeak-gomoku416968
-Node: emacspeak-google419205
-Node: emacspeak-gridtext428648
-Node: emacspeak-gtags430344
-Node: emacspeak-gud430654
-Node: emacspeak-helm430892
-Node: emacspeak-hide431307
-Node: emacspeak-hide-lines433266
-Node: emacspeak-hideshow433505
-Node: emacspeak-hydra433726
-Node: emacspeak-ibuffer434241
-Node: emacspeak-ido434749
-Node: emacspeak-iedit435497
-Node: emacspeak-imenu436274
-Node: emacspeak-indium436522
-Node: emacspeak-info436765
-Node: emacspeak-ispell438225
-Node: emacspeak-ivy439285
-Node: emacspeak-jabber439586
-Node: emacspeak-jdee441408
-Node: emacspeak-js2441677
-Node: emacspeak-jss441991
-Node: emacspeak-keymap443785
-Node: emacspeak-kite449471
-Node: emacspeak-kmacro454946
-Node: emacspeak-librivox455180
-Node: emacspeak-lispy457731
-Node: emacspeak-lua460765
-Node: emacspeak-m-player460983
-Node: emacspeak-magit486292
-Node: emacspeak-make-mode507524
-Node: emacspeak-man508689
-Node: emacspeak-markdown509324
-Node: emacspeak-maths511080
-Node: emacspeak-message516838
-Node: emacspeak-metapost517249
-Node: emacspeak-midge517569
-Node: emacspeak-mines518234
-Node: emacspeak-mspools520860
-Node: emacspeak-muggles521125
-Node: emacspeak-muse542282
-Node: emacspeak-navi-mode544300
-Node: emacspeak-net-utils544546
-Node: emacspeak-newsticker544785
-Node: emacspeak-nov545115
-Node: emacspeak-npr545667
-Node: emacspeak-nxml548003
-Node: emacspeak-ocr557390
-Node: emacspeak-org567319
-Node: emacspeak-orgalist570108
-Node: emacspeak-origami570359
-Node: emacspeak-outline570639
-Node: emacspeak-package572369
-Node: emacspeak-paradox573240
-Node: emacspeak-perl574359
-Node: emacspeak-personality574584
-Node: emacspeak-php-mode575800
-Node: emacspeak-pianobar576071
-Node: emacspeak-popup579534
-Node: emacspeak-proced580036
-Node: emacspeak-project582055
-Node: emacspeak-projectile582273
-Node: emacspeak-prompts582555
-Node: emacspeak-pronounce582865
-Node: emacspeak-py588461
-Node: emacspeak-pydoc588703
-Node: emacspeak-python588919
-Node: emacspeak-racer589154
-Node: emacspeak-racket589658
-Node: emacspeak-re-builder589910
-Node: emacspeak-redefine591165
-Node: emacspeak-reftex592643
-Node: emacspeak-related592974
-Node: emacspeak-remote593249
-Node: emacspeak-rg595920
-Node: emacspeak-rmail596132
-Node: emacspeak-rpm596812
-Node: emacspeak-rpm-spec597173
-Node: emacspeak-rst597417
-Node: emacspeak-ruby601353
-Node: emacspeak-rust-mode601572
-Node: emacspeak-sage601787
-Node: emacspeak-ses602886
-Node: emacspeak-setup604440
-Node: emacspeak-sgml-mode605572
-Node: emacspeak-sh-script605803
-Node: emacspeak-shx606038
-Node: emacspeak-sigbegone606251
-Node: emacspeak-slime606510
-Node: emacspeak-smart-window607466
-Node: emacspeak-smartparens607723
-Node: emacspeak-solitaire608237
-Node: emacspeak-sounds609393
-Node: emacspeak-speak613472
-Node: emacspeak-speedbar657890
-Node: emacspeak-sql659742
-Node: emacspeak-sudoku660136
-Node: emacspeak-supercite665443
-Node: emacspeak-syslog665663
-Node: emacspeak-tab-bar667867
-Node: emacspeak-table668298
-Node: emacspeak-table-ui668567
-Node: emacspeak-tabulate685428
-Node: emacspeak-tapestry686231
-Node: emacspeak-tar687737
-Node: emacspeak-tcl688535
-Node: emacspeak-tdtd688745
-Node: emacspeak-tempo689081
-Node: emacspeak-tetris689458
-Node: emacspeak-texinfo691700
-Node: emacspeak-threes691933
-Node: emacspeak-tide695395
-Node: emacspeak-todo-mode696355
-Node: emacspeak-transient696686
-Node: emacspeak-twittering701722
-Node: emacspeak-typo703114
-Node: emacspeak-url-template703458
-Node: emacspeak-vdiff705731
-Node: emacspeak-view707615
-Node: emacspeak-vlc708057
-Node: emacspeak-vm712496
-Node: emacspeak-vuiet715695
-Node: emacspeak-wdired716196
-Node: emacspeak-we716446
-Node: emacspeak-websearch732534
-Node: emacspeak-webspace738277
-Node: emacspeak-webutils741869
-Node: emacspeak-widget745271
-Node: emacspeak-windmove746765
-Node: emacspeak-winring747071
-Node: emacspeak-wizards747501
-Node: emacspeak-woman802974
-Node: emacspeak-xkcd803201
-Node: emacspeak-xml-shell803802
-Node: emacspeak-xref807022
-Node: emacspeak-xslt807303
-Node: emacspeak-yaml809057
-Node: emacspeak-yasnippet809312
-Node: emacspeak-ytel809555
-Node: espeak-voices810539
-Node: g811135
-Node: g-utils811458
-Node: gm-nnir812685
-Node: gmaps813565
-Node: ladspa818753
-Node: mac-voices820709
-Node: outloud-voices821082
-Node: plain-voices821870
-Node: soundscape822225
-Node: sox827118
-Node: sox-gen830028
-Node: stack-f836466
-Node: tetris836754
-Node: toy-braille836895
-Node: tts837729
-Node: tts-cmds839732
-Node: voice-setup840241
-Node: xbacklight848152
-Node: URL Templates849616
-Node: Emacspeak Keyboard Commands856082
-Node: TTS Servers858140
-Node: Emacspeak At Twenty864896
-Node: Turning Twenty866599
-Node: Using UNIX With Speech Output --- 1994867287
-Node: Key Enabler --- Emacs And Lisp Advice869128
-Node: Key Component --- Text To Speech (TTS)870173
-Node: Emacspeak And Software Development872717
-Node: Programming Defensively875333
-Node: Emacspeak And Authoring Documents876592
-Node: Emacspeak And The Early Days Of The Web878167
-Node: Audio Formatting --- Generalizing Aural CSS881615
-Node: Conversational Gestures For The Audio Desktop884683
-Node: Speech-Enabling Interactive Games888038
-Node: Accessing Media Streams889815
-Node: EBooks --- Ubiquitous Access To Books891922
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks894470
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols896336
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access899818
-Node: Mashing It Up --- Leveraging Evolving Web APIs903791
-Node: Conclusion --- Turning Twenty906296
-Node: References907678
-Node: Acknowledgments908608
-Node: Concept Index908766
-Node: Key Index912409
+Node: Top428
+Node: Copyright1248
+Node: Announce1805
+Node: Contributing2305
+Node: Authoring Guidelines2940
+Node: Credits3837
+Node: Background4201
+Node: Speech-Enabling Applications4946
+Node: Audio Formatting And Aural CSS6444
+Node: Auditory Icons7631
+Node: Summary8334
+Node: Introduction8824
+Ref: Introduction-Footnote-111331
+Node: Installation11433
+Node: Obtaining Emacspeak11876
+Node: Quick Installation12469
+Node: Building And Testing The Speech Server15107
+Node: Basic Usage16653
+Node: Overview18001
+Node: Working20475
+Ref: Working-Footnote-122714
+Ref: Working-Footnote-222753
+Node: Reading22855
+Node: Speech System29666
+Node: Controlling Echo30131
+Node: Speech Output Control31608
+Node: Miscellaneous35646
+Node: Voice-lock39249
+Node: Status Information40993
+Node: Audio Desktop43639
+Node: Desktop Objects45661
+Node: Object Oriented Desktop46512
+Node: Context-Sensitive Interaction47295
+Node: Voice Lock52478
+Node: How It All Works.54768
+Node: What this gives.55810
+Node: Using Online Help56537
+Node: Emacs Packages60725
+Node: Document Authoring61960
+Node: Creating Well-formatted Documents62653
+Node: Search replace and spell check66100
+Node: Structured Editing71327
+Node: Outline Editing73341
+Node: Template-based Authoring77051
+Node: Maintaining Structured Data78682
+Node: Browsing Structure80140
+Node: Web Browsing80572
+Node: Intro81498
+Node: emacs-w383960
+Ref: w3 transcode93097
+Ref: xsl-transform95461
+Node: Add-ons99650
+Ref: emacspeak url template99864
+Ref: rss100896
+Ref: bmk-mgr102376
+Node: Conclusion103030
+Node: Messaging103825
+Node: Editing Code104365
+Node: Development Environment105340
+Node: Desktop Management105888
+Node: Personal Information Management106660
+Node: Desktop Applications107010
+Node: Running Terminal Based Applications113801
+Node: Emacspeak Commands And Options122347
+Node: acss-structure137288
+Node: amixer138942
+Node: cd-tool140446
+Node: dectalk-voices141657
+Node: dom-addons142279
+Node: dtk-interp142474
+Node: dtk-speak142877
+Node: dtk-unicode155679
+Node: emacspeak157102
+Node: emacspeak-2048257298
+Node: emacspeak-abc-mode259830
+Node: emacspeak-actions260187
+Node: emacspeak-add-log260486
+Node: emacspeak-advice262546
+Node: emacspeak-amark264297
+Node: emacspeak-analog265521
+Node: emacspeak-ansi-color266908
+Node: emacspeak-apt-sources267322
+Node: emacspeak-arc267671
+Node: emacspeak-auctex268781
+Node: emacspeak-bbc269102
+Node: emacspeak-bbdb271581
+Node: emacspeak-bibtex272548
+Node: emacspeak-bookmark272767
+Node: emacspeak-bookshare272984
+Node: emacspeak-browse-kill-ring287515
+Node: emacspeak-bs287838
+Node: emacspeak-buff-menu288326
+Node: emacspeak-c289437
+Node: emacspeak-calc289935
+Node: emacspeak-calculator290299
+Node: emacspeak-calendar290528
+Node: emacspeak-cedet291901
+Node: emacspeak-checkdoc292218
+Node: emacspeak-chess292432
+Node: emacspeak-cider301051
+Node: emacspeak-ciel301563
+Node: emacspeak-clojure301907
+Node: emacspeak-cmuscheme302151
+Node: emacspeak-company302375
+Node: emacspeak-compile304551
+Node: emacspeak-cperl307053
+Node: emacspeak-custom307275
+Node: emacspeak-dbus308014
+Node: emacspeak-deadgrep311461
+Node: emacspeak-debugger311685
+Node: emacspeak-desktop311987
+Node: emacspeak-dictionary312203
+Node: emacspeak-diff-mode312480
+Node: emacspeak-dired312695
+Node: emacspeak-dismal316941
+Node: emacspeak-dumb-jump320788
+Node: emacspeak-ecb321078
+Node: emacspeak-eclim322480
+Node: emacspeak-ediary322890
+Node: emacspeak-ediff323161
+Node: emacspeak-eglot324312
+Node: emacspeak-ein324798
+Node: emacspeak-elfeed328659
+Node: emacspeak-elisp-refs329881
+Node: emacspeak-elpy330124
+Node: emacspeak-elscreen330374
+Node: emacspeak-emms330637
+Node: emacspeak-enriched331328
+Node: emacspeak-entertain331876
+Node: emacspeak-epa333195
+Node: emacspeak-eperiodic333480
+Node: emacspeak-epub335019
+Node: emacspeak-erc349166
+Node: emacspeak-eshell351747
+Node: emacspeak-ess354989
+Node: emacspeak-etable355224
+Node: emacspeak-eterm355703
+Node: emacspeak-eudc367955
+Node: emacspeak-evil368698
+Node: emacspeak-eww370582
+Node: emacspeak-facemenu397774
+Node: emacspeak-feeds398014
+Node: emacspeak-filtertext400785
+Node: emacspeak-find-dired402565
+Node: emacspeak-find-func402870
+Node: emacspeak-fix-interactive403113
+Node: emacspeak-flycheck404429
+Node: emacspeak-flymake407158
+Node: emacspeak-flyspell408075
+Node: emacspeak-folding408978
+Node: emacspeak-forge409409
+Node: emacspeak-forms411286
+Node: emacspeak-ftf413003
+Node: emacspeak-geiser413292
+Node: emacspeak-generic413714
+Node: emacspeak-gh-explorer414093
+Node: emacspeak-gnuplot414776
+Node: emacspeak-gnus415153
+Node: emacspeak-go-mode416834
+Node: emacspeak-gomoku417059
+Node: emacspeak-google419296
+Node: emacspeak-gridtext428739
+Node: emacspeak-gtags430435
+Node: emacspeak-gud430745
+Node: emacspeak-helm430983
+Node: emacspeak-hide431398
+Node: emacspeak-hide-lines433357
+Node: emacspeak-hideshow433596
+Node: emacspeak-hydra433817
+Node: emacspeak-ibuffer434332
+Node: emacspeak-ido434840
+Node: emacspeak-iedit435588
+Node: emacspeak-imenu436365
+Node: emacspeak-indium436613
+Node: emacspeak-info436856
+Node: emacspeak-ispell438316
+Node: emacspeak-ivy439376
+Node: emacspeak-jabber439677
+Node: emacspeak-jdee441499
+Node: emacspeak-js2441768
+Node: emacspeak-jss442082
+Node: emacspeak-keymap443876
+Node: emacspeak-kite449562
+Node: emacspeak-kmacro455037
+Node: emacspeak-librivox455271
+Node: emacspeak-lispy457822
+Node: emacspeak-lua460856
+Node: emacspeak-m-player461074
+Node: emacspeak-magit486383
+Node: emacspeak-make-mode507615
+Node: emacspeak-man508780
+Node: emacspeak-markdown509415
+Node: emacspeak-maths511171
+Node: emacspeak-message516929
+Node: emacspeak-metapost517340
+Node: emacspeak-midge517660
+Node: emacspeak-mines518325
+Node: emacspeak-mspools520951
+Node: emacspeak-muggles521216
+Node: emacspeak-muse542373
+Node: emacspeak-navi-mode544391
+Node: emacspeak-net-utils544637
+Node: emacspeak-newsticker544876
+Node: emacspeak-nov545206
+Node: emacspeak-npr545758
+Node: emacspeak-nxml548094
+Node: emacspeak-ocr557481
+Node: emacspeak-org567410
+Node: emacspeak-orgalist570199
+Node: emacspeak-origami570450
+Node: emacspeak-outline570730
+Node: emacspeak-package572460
+Node: emacspeak-paradox573331
+Node: emacspeak-perl574450
+Node: emacspeak-personality574675
+Node: emacspeak-php-mode575891
+Node: emacspeak-pianobar576162
+Node: emacspeak-popup579625
+Node: emacspeak-proced580127
+Node: emacspeak-project582146
+Node: emacspeak-projectile582364
+Node: emacspeak-prompts582646
+Node: emacspeak-pronounce582956
+Node: emacspeak-py588552
+Node: emacspeak-pydoc588794
+Node: emacspeak-python589010
+Node: emacspeak-racer589245
+Node: emacspeak-racket589749
+Node: emacspeak-re-builder590001
+Node: emacspeak-redefine591256
+Node: emacspeak-reftex592734
+Node: emacspeak-related593065
+Node: emacspeak-remote593340
+Node: emacspeak-rg596011
+Node: emacspeak-rmail596223
+Node: emacspeak-rpm596903
+Node: emacspeak-rpm-spec597264
+Node: emacspeak-rst597508
+Node: emacspeak-ruby601443
+Node: emacspeak-rust-mode601662
+Node: emacspeak-sage601877
+Node: emacspeak-ses602976
+Node: emacspeak-setup604530
+Node: emacspeak-sgml-mode605662
+Node: emacspeak-sh-script605893
+Node: emacspeak-shx606128
+Node: emacspeak-sigbegone606341
+Node: emacspeak-slime606600
+Node: emacspeak-smart-window607556
+Node: emacspeak-smartparens607813
+Node: emacspeak-solitaire608327
+Node: emacspeak-sounds609483
+Node: emacspeak-speak613562
+Node: emacspeak-speedbar657980
+Node: emacspeak-sql659832
+Node: emacspeak-sudoku660226
+Node: emacspeak-supercite665533
+Node: emacspeak-syslog665753
+Node: emacspeak-tab-bar667957
+Node: emacspeak-table668388
+Node: emacspeak-table-ui668657
+Node: emacspeak-tabulate685518
+Node: emacspeak-tapestry686321
+Node: emacspeak-tar687827
+Node: emacspeak-tcl688625
+Node: emacspeak-tdtd688835
+Node: emacspeak-tempo689171
+Node: emacspeak-tetris689548
+Node: emacspeak-texinfo691790
+Node: emacspeak-threes692023
+Node: emacspeak-tide695485
+Node: emacspeak-todo-mode696445
+Node: emacspeak-transient696776
+Node: emacspeak-twittering701812
+Node: emacspeak-typo703204
+Node: emacspeak-url-template703548
+Node: emacspeak-vdiff705821
+Node: emacspeak-view707705
+Node: emacspeak-vlc708147
+Node: emacspeak-vm712586
+Node: emacspeak-vuiet715785
+Node: emacspeak-wdired716286
+Node: emacspeak-we716536
+Node: emacspeak-websearch732624
+Node: emacspeak-webspace738367
+Node: emacspeak-webutils741959
+Node: emacspeak-widget745361
+Node: emacspeak-windmove746855
+Node: emacspeak-winring747161
+Node: emacspeak-wizards747591
+Node: emacspeak-woman803064
+Node: emacspeak-xkcd803291
+Node: emacspeak-xml-shell803892
+Node: emacspeak-xref807112
+Node: emacspeak-xslt807393
+Node: emacspeak-yaml809147
+Node: emacspeak-yasnippet809402
+Node: emacspeak-ytel809645
+Node: espeak-voices810629
+Node: g811225
+Node: g-utils811548
+Node: gm-nnir812775
+Node: gmaps813655
+Node: ladspa818843
+Node: mac-voices820799
+Node: outloud-voices821172
+Node: plain-voices821960
+Node: soundscape822315
+Node: sox827208
+Node: sox-gen830118
+Node: stack-f836556
+Node: tetris836844
+Node: toy-braille836985
+Node: tts837819
+Node: tts-cmds839822
+Node: voice-setup840331
+Node: xbacklight848242
+Node: URL Templates849706
+Node: Emacspeak Keyboard Commands856172
+Node: TTS Servers858230
+Node: Emacspeak At Twenty864986
+Node: Turning Twenty866689
+Node: Using UNIX With Speech Output --- 1994867377
+Node: Key Enabler --- Emacs And Lisp Advice869218
+Node: Key Component --- Text To Speech (TTS)870263
+Node: Emacspeak And Software Development872807
+Node: Programming Defensively875423
+Node: Emacspeak And Authoring Documents876682
+Node: Emacspeak And The Early Days Of The Web878257
+Node: Audio Formatting --- Generalizing Aural CSS881705
+Node: Conversational Gestures For The Audio Desktop884773
+Node: Speech-Enabling Interactive Games888128
+Node: Accessing Media Streams889905
+Node: EBooks --- Ubiquitous Access To Books892012
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks894560
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols896426
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access899908
+Node: Mashing It Up --- Leveraging Evolving Web APIs903880
+Node: Conclusion --- Turning Twenty906385
+Node: References907767
+Node: Acknowledgments908697
+Node: Concept Index908855
+Node: Key Index912498
 
 End Tag Table
 
