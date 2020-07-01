@@ -610,7 +610,7 @@ Letters do not insert themselves; instead, they are commands.
         (filename nil))
     (cl-loop
      for f in
-     (directory-files emacspeak-epub-library-directory  'full "epub")
+     (directory-files emacspeak-epub-library-directory  'full "\\.epub$")
      do
      (setq filename (shell-quote-argument f))
      (unless
