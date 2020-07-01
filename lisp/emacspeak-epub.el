@@ -536,7 +536,6 @@ Optional interactive prefix arg author-first prints author at the
   "EPub Interaction On The Emacspeak Audio Desktop"
   "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
-\\<emacspeak-epub-mode-map>
 \\{emacspeak-epub-mode-map}"
   (setq buffer-undo-list t)
   (setq header-line-format
@@ -830,6 +829,8 @@ No book files are deleted."
 ;;;###autoload
 (defun emacspeak-epub ()
   "EPub  Interaction.
+When opened, displays a bookshelf consisting of  epubs found at the
+root directory.
 For detailed documentation, see \\[emacspeak-epub-mode]"
   (interactive)
   (cl-declare (special emacspeak-epub-interaction-buffer
