@@ -1,4 +1,4 @@
-;;; emacspeak-epub.el --- On epubs emacspeak desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-epub.el --- epubs On emacspeak desktop  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-epub.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for EPUBS Talking Books
