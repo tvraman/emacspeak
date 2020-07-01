@@ -92,8 +92,7 @@
      ((string= state "obsolete") (emacspeak-auditory-icon 'deselect-object))
      ((string= state "incompat") (emacspeak-auditory-icon 'alert-user))
      (t (emacspeak-auditory-icon 'item)))
-    (dtk-speak-and-echo  (concat name ": "desc
-                                 stars))))
+    (dtk-speak-and-echo  (concat name ": "desc stars))))
 
 (defun emacspeak-paradox-mode-hook ()
   "Emacspeak setup hook for paradox-mode."
