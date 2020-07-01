@@ -841,8 +841,8 @@ For detailed documentation, see \\[emacspeak-epub-mode]"
     (error "Please install zipinfo. "))
   (let ((buffer (get-buffer emacspeak-epub-interaction-buffer)))
     (unless (buffer-live-p buffer)
-      (with-current-buffer (get-buffer-create
-                            emacspeak-epub-interaction-buffer)
+      (with-current-buffer
+          (get-buffer-create emacspeak-epub-interaction-buffer)
         (emacspeak-epub-mode)))
     (pop-to-buffer emacspeak-epub-interaction-buffer)
     (emacspeak-auditory-icon 'open-object)
