@@ -966,13 +966,13 @@ icon."
   "Speak the prompt. "
   (let* ((prompt (ad-get-arg 0))
          (chars (ad-get-arg 1))
-         (message
+         (m
           (format
            "%s: %s"
            prompt
            (mapconcat #'(lambda (c) (format "%c" c)) chars ", "))))
     (ems--log-message m)
-    (tts-with-punctuations 'all (dtk-speak message))))
+    (tts-with-punctuations 'all (dtk-speak m))))
 
 ;;}}}
 ;;{{{ advice completion functions to speak:
