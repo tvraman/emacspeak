@@ -1910,9 +1910,9 @@ current coding system, then we return an empty string."
     (propertize (format "%s" buffer-file-coding-system) 'personality voice-lighten)))
 
 ;;;###autoload
-(defun emacspeak-speak-minor-mode-line (&optional copy-as-kill)
+(defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
-Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring."
+Optional  interactive prefix arg `log-msg' logs spoken info to *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
   (force-mode-line-update)
@@ -1926,7 +1926,7 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
                                                       "")))
                                               minor-mode-alist
                                               " ")))
-    (when copy-as-kill (kill-new info))
+    (when log-msg (ems--log-message info))
     (dtk-speak (concat info cs))))
 
 (cl--defalias 'emacspeak-speak-line-number 'what-line)
