@@ -66,7 +66,7 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
          (nnimap-authenticator xoauth2)
          (nnimap-address "imap.gmail.com")
          (nnimap-server-port 993)
-         ;(nnimap-fetch-partial-articles "text/")
+                                        ;(nnimap-fetch-partial-articles "text/")
          (nnmail-expiry-wait immediate)
          (nnimap-streaming t)
          (nnimap-stream ssl)))
@@ -83,8 +83,11 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
        "Report the current or marked mails as spam.
 This moves them into the Spam folder."
        (interactive)
-       (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam")
-       (emacspeak-auditory-icon 'task-done))
+       (make-thread
+        #'(lambda ()
+            (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam")
+            (emacspeak-auditory-icon 'task-done))))
+     
      (define-key gnus-summary-mode-map "$" 'gmail-report-spam)
      ;;}}}
      ))
