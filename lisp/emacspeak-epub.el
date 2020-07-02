@@ -380,7 +380,10 @@
     (add-hook
      'emacspeak-web-post-process-hook
      #'(lambda nil
-         (cl-declare (special emacspeak-we-url-executor emacspeak-epub-this-epub))
+         (cl-declare (special emacspeak-we-url-executor
+                              emacspeak-epub-this-epub
+                              emacspeak-speak-directory-settings))
+         (load-file emacspeak-speak-directory-settings)
          (setq emacspeak-epub-this-epub epub
                emacspeak-we-url-executor 'emacspeak-epub-url-executor)
          (emacspeak-speak-rest-of-buffer))
@@ -442,7 +445,8 @@ Useful if table of contents in toc.ncx is empty."
 (defun emacspeak-epub-url-executor (url)
   "Custom URL executor for use in EPub Mode."
   (interactive "sURL: ")
-  (cl-declare (special emacspeak-epub-this-epub))
+  (cl-declare (special emacspeak-epub-this-epub
+                       emacspeak-speak-directory-settings))
   (unless emacspeak-epub-this-epub (error "Not an EPub document."))
   (cond
    ((not (string-match "^http://" url)) ; relative url
@@ -453,6 +457,8 @@ Useful if table of contents in toc.ncx is empty."
            (locator (cl-first fields))
            (fragment (cl-second fields)))
       (when fragment (setq fragment (format "#%s" fragment)))
+      (add-hook 'emacspeak-web-post-process-hook
+                #'(lambda nil (load-file emacspeak-speak-directory-settings)))
       (emacspeak-epub-browse-content emacspeak-epub-this-epub locator fragment)))
    (t (browse-url url))))
 
