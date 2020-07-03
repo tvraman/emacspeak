@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 1, 2020.
+last updated on July 3, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ruby,  Next: emacspeak-rust-mode,  Prev: emacspeak-rst,  Up: Emacspeak Commands And Options
@@ -1041,14 +1041,14 @@ of emacspeak from becoming dependent on the speech server modules
 12.189.1.60 emacspeak-speak-minor-mode-line
 ...........................................
 
- -- Command: emacspeak-speak-minor-mode-line (&optional copy-as-kill)
+ -- Command: emacspeak-speak-minor-mode-line (&optional log-msg)
      ‘C-e M’
      ‘<fn> M’
 
      Speak the minor mode-information.
-     Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill ring.
+     Optional  interactive prefix arg ‘log-msg’ logs spoken info to *Messages*.
 
-     (fn &optional COPY-AS-KILL)
+     (fn &optional LOG-MSG)
 
 12.189.1.61 emacspeak-speak-mode-line
 .....................................
