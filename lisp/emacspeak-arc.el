@@ -208,7 +208,7 @@ first initializing it if necessary."
       (message "No file on this line"))
      (t
       (setq mode
-            (archive-int-to-mode
+            (file-modes-number-to-symbolic
              (aref entry 3)))
       (message  "Permissions  %s "
                 mode)))))
