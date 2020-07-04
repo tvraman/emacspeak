@@ -296,7 +296,7 @@
   (format "%s -1 %%s | grep %s"
           emacspeak-epub-zip-info
           emacspeak-epub-opf-path-pattern)
-  "Command that returns location of .ncx file in an epub archive.")
+  "Command that returns location of .opf file in an epub archive.")
 
 (defun emacspeak-epub-do-opf (file)
   "Return location of .opf file within epub archive."
