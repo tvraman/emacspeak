@@ -312,9 +312,10 @@
   toc                        ; path to .ncx file in archive
   base                       ; directory in archive that holds toc.ncx
   opf                        ; path to content.opf
-  ls                         ; list of files in archive
-  html                       ; html files in archive
-  navs ; content files found from navMap
+  opf-dom ; parsed content of content.opf
+  ls                                 ; list of files in archive
+  html                               ; html files in archive
+  navs                               ; content files found from navMap
   title  author
   )
 
@@ -343,6 +344,7 @@
            :toc toc
            :base (file-name-directory toc)
            :opf opf
+           :opf-dom opf-dom
            :ls ls
            :html
            (cl-remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls)))
