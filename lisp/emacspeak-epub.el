@@ -871,7 +871,7 @@ Filename may need to  be shell-quoted when called from Lisp."
 (defun emacspeak-epub-eww (epub-file &optional broken-ncx)
   "Display entire book  using EWW from EPub.
 Uses content listed in toc.ncx or  equivalent by default.
-Interactive prefix arg broken-ncx asks to use the list of html files
+Interactive prefix arg broken-ncx asks to use the sorted list of html files
 in the epub file instead."
   (interactive
    (list
