@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 3, 2020.
+last updated on July 4, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
@@ -1542,9 +1542,6 @@ table of contents.
 
  -- Variable: User Option emacspeak-epub-gutenberg-suffix
      Suffix of book type we retrieve.
-
- -- Variable: User Option emacspeak-epub-html-to-text-command
-     Command to convert html to text on stdin.
 
  -- Variable: User Option emacspeak-epub-library-directory
      Directory under which we store Epubs.
