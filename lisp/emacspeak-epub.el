@@ -189,14 +189,6 @@
   :type 'directory
   :group 'emacspeak-epub)
 
-(defcustom emacspeak-epub-html-to-text-command
-  "lynx -dump -stdin"
-  "Command to convert html to text on stdin."
-
-  :type '(choice
-          (const :tag "lynx"  "lynx -dump -stdin"))
-  :group 'emacspeak-epub)
-
 (defvar emacspeak-epub-zip-extract
   (cond ((executable-find "unzip") (executable-find "unzip") )
         (t (message "unzip not found.")
