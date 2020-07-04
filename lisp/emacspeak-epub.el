@@ -1300,7 +1300,7 @@ Letters do not insert themselves; instead, they are commands.
     (locate-with-filter pattern ".epub$")))
 
 ;;}}}
-;;{{{Nov Integration:
+;;{{{ nov Integration:
 
 (defun emacspeak-epub-open-with-nov ()
   "Open ebook at point in nov-mode."
