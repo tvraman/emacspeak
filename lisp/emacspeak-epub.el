@@ -916,13 +916,13 @@ in the epub file instead."
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
       (eww-update-header-line-format)
-      (emacspeak-auditory-icon 'open-object))
-    (funcall-interactively #'switch-to-buffer eww-epub)
-    (cond
+      (cond
      (emacspeak-web-post-process-hook
       (emacspeak-webutils-run-post-process-hook))
      
-     (t (goto-char (point-min))))))
+     (t (goto-char (point-min))))
+      (emacspeak-auditory-icon 'open-object))
+    (funcall-interactively #'switch-to-buffer eww-epub)))
 
 
 
