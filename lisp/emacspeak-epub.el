@@ -223,8 +223,7 @@
     (shell-command
      (format
       "%s -c -qq %s %s "
-      emacspeak-epub-zip-extract epub-file (shell-quote-argument
-                                            file))
+      emacspeak-epub-zip-extract epub-file (shell-quote-argument file))
      (current-buffer))
     (cond
      (xml-p (libxml-parse-xml-region (point-min) (point-max)))
