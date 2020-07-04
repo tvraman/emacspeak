@@ -306,11 +306,11 @@
    0 -1))
 
 (defvar emacspeak-epub-ls-command
-  (format "%s -1 %%s " emacspeak-epub-zip-info)
-  "Shell command that returns list of files in an epub archive.")
+  (format "%s -1 %%s | sort" emacspeak-epub-zip-info)
+  "Shell command that returns sorted list of files in an epub archive.")
 
 (defun emacspeak-epub-do-ls (file)
-  "Return list of files in an epub archive."
+  "Return sorted list of files in an epub archive."
   (cl-declare (special emacspeak-epub-ls-command))
   (split-string
    (shell-command-to-string (format emacspeak-epub-ls-command file))))
