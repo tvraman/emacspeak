@@ -352,8 +352,8 @@
            :base (file-name-directory toc)
            :opf opf
            :ls ls
-           :html (cl-remove-if-not #'(lambda (s) (string-match
-                                                  "\.html$" s)) ls)))
+           :html
+           (cl-remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls)))
     (setf (emacspeak-epub-navs this)  (emacspeak-epub-nav-files this))
     this))
 
