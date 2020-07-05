@@ -388,12 +388,8 @@
         (emacspeak-xslt-region style   (point-min) (point-max)))
       (browse-url-of-buffer))))
 
-(defvar emacspeak-epub-files-command
-  (format "%s -1 %%s | grep .html*$ | sort" emacspeak-epub-zip-info)
-  "Command to list out HTML files.")
-
 (defun emacspeak-epub-browse-files (epub)
-  "Browse list of HTML files in an EPub.
+  "Browse list of HTML files in  EPub.
 Useful if table of contents in toc.ncx is empty."
   (interactive
    (list
@@ -401,13 +397,8 @@ Useful if table of contents in toc.ncx is empty."
      (or
       (get-text-property (point) 'epub)
       (read-file-name "EPub File: ")))))
-  (cl-declare (special emacspeak-epub-scratch
-                       emacspeak-epub-files-command))
-  (let ((files
-         (split-string
-          (shell-command-to-string
-           (format  emacspeak-epub-files-command (emacspeak-epub-path epub)))
-          "\n" 'omit-nulls)))
+  (cl-declare (special emacspeak-epub-scratch))
+  (let ((files (emacspeak-epub-html epub)))
     (with-current-buffer (get-buffer-create emacspeak-epub-scratch)
       (erase-buffer)
       (insert  "<ol>\n")
