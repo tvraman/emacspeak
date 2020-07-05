@@ -168,6 +168,14 @@
          do
          (emacspeak-keymap-update help-map binding))
 
+(cl-loop for binding in
+         '(
+           ("[" backward-page)
+           ("]" forward-page))
+         do
+         (emacspeak-keymap-update help-mode-map binding))
+
+
 ;;; emacspeak-keymap bindings:
 (cl-loop
  for binding in
