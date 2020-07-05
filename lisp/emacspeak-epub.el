@@ -347,7 +347,7 @@
            :opf-dom opf-dom
            :ls ls
            :html
-           (cl-remove-if-not #'(lambda (s) (string-match "\.html$" s)) ls)))
+           (cl-remove-if-not #'(lambda (s) (string-match "\\.x?html$" s)) ls)))
     (setf (emacspeak-epub-navs this)  (emacspeak-epub-nav-files this))
     this))
 
@@ -389,7 +389,7 @@
       (browse-url-of-buffer))))
 
 (defvar emacspeak-epub-files-command
-  (format "%s -1 %%s | grep \.html*$ | sort" emacspeak-epub-zip-info)
+  (format "%s -1 %%s | grep .html*$ | sort" emacspeak-epub-zip-info)
   "Command to list out HTML files.")
 
 (defun emacspeak-epub-browse-files (epub)
