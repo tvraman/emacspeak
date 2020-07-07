@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 4, 2020.
+last updated on July 7, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
@@ -1360,7 +1360,7 @@ table of contents.
 
  -- Command: emacspeak-epub-browse-files (epub)
 
-     Browse list of HTML files in an EPub.
+     Browse list of HTML files in  EPub.
      Useful if table of contents in toc.ncx is empty.
 
      (fn EPUB)
@@ -1393,7 +1393,7 @@ table of contents.
 
      Display entire book  using EWW from EPub.
      Uses content listed in toc.ncx or  equivalent by default.
-     Interactive prefix arg broken-ncx asks to use the list of html files
+     Interactive prefix arg broken-ncx asks to use the sorted list of html files
      in the epub file instead.
 
      (fn EPUB-FILE &optional BROKEN-NCX)

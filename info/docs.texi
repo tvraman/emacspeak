@@ -7038,7 +7038,7 @@ Save bookshelf metadata.
 @findex emacspeak-epub-browse-files
 
 @format
-Browse list of HTML files in an EPub.
+Browse list of HTML files in  EPub.
 Useful if table of contents in toc.ncx is empty.
 
 (fn EPUB)
@@ -7079,7 +7079,7 @@ Delete EPub under point.
 @format
 Display entire book  using EWW from EPub.
 Uses content listed in toc.ncx or  equivalent by default.
-Interactive prefix arg broken-ncx asks to use the list of html files
+Interactive prefix arg broken-ncx asks to use the sorted list of html files
 in the epub file instead.
 
 (fn EPUB-FILE &optional BROKEN-NCX)
@@ -23887,14 +23887,15 @@ of the source buffer.
 @findex emacspeak-wizards-shell-by-key
 
 @format
-Switch to shell buffer by key. This provides a predictable means for
-  switching to a specific shell buffer. When invoked from a
-  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-  shell to change to the value of ‘default-directory’ --- if called with  a
-  prefix-arg. When already in a shell buffer,
-  interactive prefix arg ‘prefix’ causes this shell to be re-keyed if
-  appropriate --- see M-x emacspeak-wizards-shell-re-key for an
-  explanation of how re-keying works.
+Switch to shell buffer by key. This provides a predictable
+  means for switching to a specific shell buffer. When invoked
+  from a non-shell-mode buffer that is a dired-buffer or is
+  visiting a file, invokes ‘cd ’ in the shell to change to the
+  value of ‘default-directory’ --- if called with a
+  prefix-arg. When already in a shell buffer, interactive prefix
+  arg ‘prefix’ causes this shell to be re-keyed if appropriate
+  --- see M-x emacspeak-wizards-shell-re-key for an explanation
+  of how re-keying works.
 
 (fn &optional PREFIX)
 @end format
