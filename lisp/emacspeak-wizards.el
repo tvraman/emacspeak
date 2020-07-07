@@ -2311,14 +2311,15 @@ of the source buffer."
 
 ;;;###autoload
 (defun emacspeak-wizards-shell-by-key (&optional prefix)
-  "Switch to shell buffer by key. This provides a predictable means for
-  switching to a specific shell buffer. When invoked from a
-  non-shell-mode buffer that is visiting a file, invokes `cd ' in the
-  shell to change to the value of `default-directory' --- if called with  a
-  prefix-arg. When already in a shell buffer,
-  interactive prefix arg `prefix' causes this shell to be re-keyed if
-  appropriate --- see \\[emacspeak-wizards-shell-re-key] for an
-  explanation of how re-keying works."
+  "Switch to shell buffer by key. This provides a predictable
+  means for switching to a specific shell buffer. When invoked
+  from a non-shell-mode buffer that is a dired-buffer or is
+  visiting a file, invokes `cd ' in the shell to change to the
+  value of `default-directory' --- if called with a
+  prefix-arg. When already in a shell buffer, interactive prefix
+  arg `prefix' causes this shell to be re-keyed if appropriate
+  --- see \\[emacspeak-wizards-shell-re-key] for an explanation
+  of how re-keying works."
   (interactive "P")
   (cl-declare (special last-input-event emacspeak-wizards--shells-table
                        major-mode default-directory))
@@ -2336,7 +2337,9 @@ of the source buffer."
              (read (format "%c" last-input-event))
              (length (hash-table-keys emacspeak-wizards--shells-table))))
            (buffer (gethash key emacspeak-wizards--shells-table)))
-      (when (and prefix buffer-file-name) ;  source determines target directory
+      (when
+          (and prefix
+               (or (eq major-mode 'dired-mode) buffer-file-name)) ;  source determines target directory
         (ems--shell-pushd-if-needed directory buffer))
       (funcall-interactively #'pop-to-buffer buffer)))))
 
