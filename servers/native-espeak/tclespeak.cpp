@@ -170,7 +170,7 @@ int SetRate(ClientData handle, Tcl_Interp *interp, int objc,
 
 static bool closeTags(string input, string &output) {
   char *tag_orig = (char *)malloc(sizeof(char) * (input.size() + 1));
-  strcpy(tag_orig, input.c_str());
+  strncpy(tag_orig, input.c_str(), input.size());
   output = "";
 
   // check that a text (non whitespace) is present
@@ -355,8 +355,9 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
 
   // TBD: need a forthcoming eSpeak service.
 
+  const char *path = (char *)malloc(16);
   char *version = (char *)malloc(16);
-  strcpy(version, "????");
+  strncpy(version, espeak_Info(&path), 16);
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
 }
