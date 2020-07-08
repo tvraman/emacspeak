@@ -150,7 +150,7 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
 
   if (aCurrentLanguage != NODEFINEDCODESET) {
     char buffer_i[3];
-    snprintf(buffer_i, 3, "%d", aCurrentLangIndex);
+    snprintf(buffer_i, 3, "%d", MIN(aCurrentLangIndex, LANG_INFO_MAX));
     Tcl_SetVar2(interp, "langsynth", "current", buffer_i, 0);
   }
 
