@@ -107,7 +107,6 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
     int aLang = 0;
     char buffer_i[3];
     char buffer_j[3];
-    fprintf(stderr,"max is %d\n",LANG_INFO_MAX);
     for (aLang = 0; aLang < LANG_INFO_MAX; aLang++) {
       if (TheLanguages[aLang].lang == aLanguages[i]) break;
     }
