@@ -180,9 +180,6 @@ proc list_langalias {} {
 
 
 proc version {} {
-
-    SHOW "proc version"
-
     q " eSpeak [ttsVersion]"
     d
 }
@@ -535,8 +532,7 @@ load $tclTTS/tclespeak[info sharedlibextension]
 if {[file exists /proc/asound]} {
     set tts(play) /usr/bin/aplay
 }
-synth {<voice xml:lang="en" variant="1">eSpeak.}
-
+synth "<voice>eSpeak  [ttsVersion]"
 service
 
 #Start the main command loop:

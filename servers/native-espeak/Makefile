@@ -5,7 +5,8 @@ PREFIX = /usr
 LIBPARENTDIR = ${PREFIX}/share/emacs/site-lisp
 LIBDIR =$(LIBPARENTDIR)/emacspeak/servers/native-espeak
 
-CXXFLAGS+= -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall -Wno-long-long
+CXXFLAGS+= -g    -O2 -fPIC  -DPIC  -pedantic -ansi \
+-Wall -Wno-long-long --std=c++11
 
 ifeq ($(shell uname -s), Darwin)
 
