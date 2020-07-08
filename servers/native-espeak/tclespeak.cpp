@@ -351,11 +351,9 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
 
-  // TBD: need a forthcoming eSpeak service.
-
-  const char *path = (char *)malloc(16);
+  const char *_path = (char *)malloc(16);
   char *version = (char *)malloc(16);
-  strncpy(version, espeak_Info(&path), 16);
+  strncpy(version, espeak_Info(&_path), 16);
   Tcl_SetResult(interp, version, TCL_STATIC);
   return TCL_OK;
 }
