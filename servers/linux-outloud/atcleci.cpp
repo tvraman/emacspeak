@@ -68,8 +68,8 @@
 #define ALSA_PCM_NEW_SW_PARAMS_API
 #include <alsa/asoundlib.h>
 
-#include "langswitch.h"
 #include <tcl.h>
+#include "langswitch.h"
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
@@ -161,7 +161,8 @@ int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int SetLanguage(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int alsa_close();
 int alsa_retry();
-int eciCallback(void * /*eciHandle*/, int /*msg*/, long /*lparam*/, void * /*data*/);
+int eciCallback(void * /*eciHandle*/, int /*msg*/, long /*lparam*/,
+                void * /*data*/);
 
 //>
 //<alsa: set hw and sw params
@@ -269,12 +270,12 @@ static size_t alsa_configure(void) {
 //   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_RUNNING) {
 //     // DMIX appears to be in a confused state, attempt to restore sanity.
 //     if ((res = snd_pcm_prepare(AHandle)) < 0) {
-//       // Attempt to fix failed! 
+//       // Attempt to fix failed!
 //       fprintf(stderr, "XRUN: prepare error: %s", snd_strerror(res));
 //       alsa_close();
 //       exit(EXIT_FAILURE);
 //     }
-//     return; // ready to continue 
+//     return; // ready to continue
 //   }
 //   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
 //     struct timeval now, diff, tstamp;
@@ -303,7 +304,7 @@ static void suspend(void) {
   fflush(stderr);
   while ((res = snd_pcm_resume(AHandle)) == -EAGAIN) {
     sleep(1); /* wait until suspend flag is  released */
-}
+  }
   if (res < 0) {
     fprintf(stderr, "Failed. Restarting stream. ");
     fflush(stderr);
@@ -354,8 +355,8 @@ static ssize_t pcm_write(short *data, size_t count) {
 //<alsa_reset
 
 void alsa_reset() {
-  snd_pcm_drop(AHandle); // flush all frames
-  snd_pcm_prepare(AHandle); 
+  snd_pcm_drop(AHandle);  // flush all frames
+  snd_pcm_prepare(AHandle);
 }
 
 //>
@@ -385,8 +386,8 @@ static size_t alsa_init() {
 int alsa_close() {
   // shut down alsa
   if (AHandle) {
-                snd_pcm_close(AHandle);
-                }
+    snd_pcm_close(AHandle);
+  }
   free(waveBuffer);
   return TCL_OK;
 }
@@ -569,7 +570,7 @@ int Atcleci_Init(Tcl_Interp *interp) {
 
   fprintf(stderr, "allocating %d 16 bit samples, %f seconds of audio.\n",
           (int)chunk_bytes, (chunk_bytes / (float)DEFAULT_SPEED));
-  //waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
+  // waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
   waveBuffer = (short *)calloc(chunk_bytes, sizeof(short));
   waveBufferBytes = (chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
@@ -636,7 +637,7 @@ int Atcleci_Init(Tcl_Interp *interp) {
   rc = Tcl_Eval(interp,
                 "proc index x {global tts; \
 set tts(last_index) $x}");
-if (rc == -1) {
+  if (rc == -1) {
     Tcl_AppendResult(interp, "Could not set index", TCL_STATIC);
     return TCL_ERROR;
   }
@@ -789,7 +790,7 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
          Tcl_Obj *CONST objv[]) {
   if (_eciStop(eciHandle)) {
     alsa_reset();
-    memset(waveBuffer, 0,waveBufferBytes);
+    memset(waveBuffer, 0, waveBufferBytes);
     usleep(10);
     return TCL_OK;
   }
