@@ -8,6 +8,7 @@
 #include "langswitch.h"
 #include <stdlib.h>
 #include <string.h>
+#define MIN(a,b) (((a)<(b))?(a):(b))
 // >
 // <decls and function prototypes
 
@@ -101,12 +102,12 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
   int aCurrentLangIndex = 0;
   int aEnglishLangIndex = 0;
   int aFirstLangIndex = 0;
-
+  
   for (i = 0; i < nLanguages; i++) {
     int aLang = 0;
     char buffer_i[3];
     char buffer_j[3];
-
+    fprintf(stderr,"max is %d\n",LANG_INFO_MAX);
     for (aLang = 0; aLang < LANG_INFO_MAX; aLang++) {
       if (TheLanguages[aLang].lang == aLanguages[i]) break;
     }
@@ -115,8 +116,9 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
       continue;
     }
 
-    snprintf(buffer_i, 3, "%d", aLang);
-    snprintf(buffer_j, 3, "%d", j++);
+    snprintf(buffer_i, 3, "%d", MIN(aLang, LANG_INFO_MAX));
+    snprintf(buffer_j, 3, "%d", MIN(j, LANG_INFO_MAX));
+             j++;
     Tcl_SetVar2(interp, "langsynth", buffer_j, buffer_i, 0);
 
     if (aCurrentLanguage == NODEFINEDCODESET) {
