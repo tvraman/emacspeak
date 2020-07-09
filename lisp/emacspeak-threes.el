@@ -125,7 +125,8 @@
   "Speak the board."
   (interactive)
   (cl-declare (special threes-cells threes-next-number
-                       emacspeak-threes-rows-max))
+                       threes-game-over-p emacspeak-threes-rows-max))
+  (when threes-game-over-p (emacspeak-auditory-icon 'task-done))
   (emacspeak-threes-sox-gen threes-next-number)
   (let ((cells (copy-sequence threes-cells)))
     (nconc
@@ -183,6 +184,7 @@
 
 (defadvice threes (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (setq threes-game-over-p nil)
   (random t)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
