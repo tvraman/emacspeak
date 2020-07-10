@@ -126,7 +126,7 @@
   (interactive)
   (cl-declare (special threes-cells threes-next-number
                        threes-game-over-p emacspeak-threes-rows-max))
-  (when threes-game-over-p (emacspeak-auditory-icon 'task-done))
+  (when threes-game-over-p (emacspeak-auditory-icon 'alarm))
   (emacspeak-threes-sox-gen threes-next-number)
   (let ((cells (copy-sequence threes-cells)))
     (nconc
