@@ -1,10 +1,14 @@
 * Overview 
 
-[[https://github.com/atlas-engineer/next][Next]] is a  web-browser written in Common Lisp atop Webkit.
-Nextalk aims to speech-enable Next 
+[[https://github.com/atlas-engineer/nyxt][Nyxt]] is a  web-browser written in Common Lisp atop Webkit.
+Nextalk aims to speech-enable nyxt 
 : emacs::emacspeak <->  Next::Nextalk.
 
-* Building Next
+* Building Nyxt
+
+Note: Some of these steps below are taken care of by Nyxt as of
+version 2.0.
+
 
 On my Debian box, I needed to:
 
@@ -14,10 +18,10 @@ On my Debian box, I needed to:
   3. with the above, the browser builds and runs cleanly under SBCL.
   4. Create a symlink in _quicklisp/local_ to the _tts_ directory
      found here.
-  5. Symlink _.config/next/init.lisp_ to the _init.lisp_ found here.
+  5. Symlink _.config/nyxt/init.lisp_ to the _init.lisp_ found here.
 
 * Component Overview 
 
-  - init.lisp :: My  _~/.config/next/init.lisp_ file.
+  - init.lisp :: My  _~/.config/nyxt/init.lisp_ file.
   - tts :: TTS module connecting CL to Emacspeak TTS servers. 
 

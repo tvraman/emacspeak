@@ -4,7 +4,7 @@
 (require :asdf)
 
 (asdf:load-asd
- (format nil "~a/sourceforge/next/next.asd"
+ (format nil "~a/sourceforge/nyxt/nyxt.asd"
          (uiop:getenv "HOME")))
-(ql:quickload :next)
-(next:start)
+(ql:quickload :nyxt)
+(nyxt:start)
