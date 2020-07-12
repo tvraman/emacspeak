@@ -11,4 +11,8 @@
      (slime-setup)
      (slime-autodoc--disable)
      (setq slime-use-autodoc-mode nil)
+     (setq slime-lisp-implementations
+           `((sbcl ("sbcl"
+                    "--core"
+                    ,(expand-file-name "sbcl.core-for-slime" "~/.emacs.d")))))
      ))
