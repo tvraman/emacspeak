@@ -1,4 +1,4 @@
-(in-package :next)
+(in-package :nyxt)
 
 (ql:quickload "tts")
 (tts:init)
