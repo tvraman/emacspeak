@@ -742,7 +742,7 @@ Time offset can be specified as a number of seconds, or as HH:MM:SS."
 The time position can also be specified as HH:MM:SS."
   (interactive
    (list
-    (read-from-minibuffer "Seek to pos in seconds: ")))
+    (read-from-minibuffer "Seek to time position: ")))
   (when (string-match ":" pos)
     (setq pos (ems--duration-to-seconds pos)))
   (emacspeak-m-player-dispatch (format "seek %s 2" pos)))
