@@ -1,5 +1,5 @@
-;;; Load Next into a running Lisp.
-;;; This is what I use with Slime to run Next from Source:
+;;; Load Nyxt into a running Lisp.
+;;; This is what I use with Slime to run Nyxt from Source:
 
 (require :asdf)
 
