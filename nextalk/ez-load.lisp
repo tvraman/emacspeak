@@ -6,5 +6,10 @@
 (asdf:load-asd
  (format nil "~a/sourceforge/nyxt/nyxt.asd"
          (uiop:getenv "HOME")))
-(ql:quickload :nyxt)
+
+(load
+ (format nil "~a/sourceforge/nyxt/quicklisp-client/setup.lisp"
+         (uiop:getenv "HOME")))
+
+(ql:quickload "nyxt")
 (nyxt:start)
