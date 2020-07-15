@@ -95,11 +95,12 @@ This moves them into the Spam folder."
 
 (defun google-py-oauth2-cli (user app-secret)
   "generate command-line for pasting into a shell."
-  (format
-   "python oauth2.py --user %s --client_id %s --client_secret %s   --generate_oauth2_token"
-   user
-   (plist-get app-secret :client-id)
-   (plist-get app-secret :client-secret)))
+  (kill-new
+   (format
+    "python oauth2.py --user %s --client_id %s --client_secret %s   --generate_oauth2_token"
+    user
+    (plist-get app-secret :client-id)
+    (plist-get app-secret :client-secret))))
 
 ;;; Usage:
 ;;;(google-py-oauth2-cli "tv.raman.tv@gmail.com" file-app-secrets)
