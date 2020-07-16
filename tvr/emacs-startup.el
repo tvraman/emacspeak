@@ -153,6 +153,7 @@
           #'load-library-if-available
         #'load)
       tvr-libs)
+     (with-eval-after-load "dired" (require 'dired-x))
      (run-with-idle-timer 0.1 nil #'tvr-defer-muggles)
      (tvr-customize)
      (soundscape-toggle)
