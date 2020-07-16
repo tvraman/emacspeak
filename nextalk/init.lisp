@@ -1,5 +1,6 @@
 (ql:quickload "tts")
 (tts:init)
+(ql:quickload :aweb)
 (tts:speak "Welcome To The Next In Browsers!")
 (define-configuration buffer
     ((default-modes (append '(emacs-mode) %slot-default))))
