@@ -41,6 +41,18 @@
 (in-package :aweb)
 
 ;;}}}
+;;{{{Grab Document Body:
+
+(in-package :nyxt)
+(defun  write-html-to-temp ()
+  "dump html to /tmp"
+  (within-renderer-thread 
+    (with-result
+        (body (with-current-buffer (current-buffer) (document-get-body)))
+      (with-open-file  (out "/tmp/dump.html" :direction :output) 
+        (write-string body out)))))
+
+;;}}}
 ;;{{{ end of file
 
 ;;; local variables:
