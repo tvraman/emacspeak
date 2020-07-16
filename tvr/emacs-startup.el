@@ -266,6 +266,7 @@ gcs (%.2f seconds)>"
    (global-set-key (kbd "C-c <tab>") 'hs-toggle-hiding)
 ;;; Smarten up ctl-x-map
    (define-key ctl-x-map "c" 'compile)
+   (define-key ctl-x-map "\C-d" 'dired-jump)
    (define-key ctl-x-map "\C-n" 'forward-page)
    (define-key ctl-x-map "\C-p" 'backward-page)
 
