@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: nil; -*-
-;(define-key ctl-x-map "j" jabber-global-keymap)
+(define-key ctl-x-map "j" jabber-global-keymap)
+(define-key ctl-x-map "\C-j" jabber-global-keymap)
 
 (setq fsm-debug nil)
 (add-hook 'jabber-roster-mode-hook
