@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: nil; -*-
+(define-key ctl-x-map "j" jabber-global-keymap)
 
-;(load-library "jabber-autoloads")
 (setq fsm-debug nil)
 (add-hook 'jabber-roster-mode-hook
           #'(lambda nil
