@@ -14,8 +14,8 @@
 (ql:quickload "nyxt")
 
 
-(nyxt:start
- '(:verbose t
-   :with-path ("history" "/tmp/nyxt/history.lisp"))
- "https://emacspeak.sf.net" "https://en.wikipedia.org")
+;; (nyxt:start
+;;  '(:verbose t
+;;    :with-path ("history" "/tmp/nyxt/history.lisp"))
+;;  "https://emacspeak.sf.net" "https://en.wikipedia.org")
 
