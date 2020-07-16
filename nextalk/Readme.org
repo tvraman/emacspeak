@@ -25,3 +25,6 @@ On my Debian box, I needed to:
   - init.lisp :: My  _~/.config/nyxt/init.lisp_ file.
   - tts :: TTS module connecting CL to Emacspeak TTS servers. 
 
+* AWeb: Audio Web
+
+Implement a speech-extension to nyxt.
