@@ -9,7 +9,6 @@
 README
 etc/emacspeak.sh
 lisp/emacspeak-cus-load.el
-lisp/emacspeak-finder-inf.el
 lisp/emacspeak-loaddefs.el
 lisp/TAGS
 info/TAGS
@@ -23,7 +22,6 @@ js/node/auto/
 servers/linux-outloud/atcleci.so
 servers/native-espeak/tclespeak.so
 .build.log
-lisp/sudoku.el
 .cask/
 /etc/pickup-c/pickup
 /.ccls-cache/
