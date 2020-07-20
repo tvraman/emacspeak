@@ -309,7 +309,7 @@ emacspeak-yasnippet.elc
 
 ADDON_OBJECTS = \
 nm.elc \
-tapestry.elc   stack-f.elc  \
+tapestry.elc     \
 dom-addons.elc \
 xbacklight.elc  toy-braille.elc tetris.elc cd-tool.elc 
 

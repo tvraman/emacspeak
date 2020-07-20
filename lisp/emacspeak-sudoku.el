@@ -52,7 +52,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'stack-f)
 (require 'sudoku "sudoku" 'no-error)
 ;;}}}
 ;;{{{Forward Decl:
@@ -394,11 +393,7 @@ See
   (interactive)
   (cl-declare (special emacspeak-sudoku-history-stack
                        current-board))
-  (unless emacspeak-sudoku-history-stack
-    (setq emacspeak-sudoku-history-stack
-          (stack-create)))
-  (stack-push emacspeak-sudoku-history-stack
-              current-board)
+  (push current-board emacspeak-sudoku-history-stack)
   (emacspeak-auditory-icon 'mark-object)
   (message "Saved state on history stack."))
 
@@ -411,14 +406,13 @@ See
                        current-board))
   (let ((original (sudoku-get-cell-from-point (point))))
     (cond
-     ((stack-empty emacspeak-sudoku-history-stack) ;start board
+     ((null emacspeak-sudoku-history-stack) ;start board
       (setq current-board start-board))
      (t (setq current-board
-              (stack-pop emacspeak-sudoku-history-stack))))
+              (pop emacspeak-sudoku-history-stack))))
     (setq buffer-read-only nil)
     (erase-buffer)
-    (sudoku-board-print current-board
-                        sudoku-onscreen-instructions)
+    (sudoku-board-print current-board sudoku-onscreen-instructions)
     (sudoku-goto-cell original)
     (setq buffer-read-only t)
     (emacspeak-auditory-icon 'yank-object)
