@@ -6,7 +6,6 @@
  (change-log-mode . ((add-log-time-zone-rule . t)
                      (fill-column . 74)))
  (diff-mode . ((mode . whitespace)))
- (dired-mode . ((dired-omit-mode . t)))
  (emacs-lisp-mode . ((folded-file . t)
                      (bug-reference-url-format . "https://github.com/tvraman/emacspeak/issues/%s")
                      (indent-tabs-mode . nil)))
