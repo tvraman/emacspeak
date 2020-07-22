@@ -19,7 +19,7 @@ def validate_callsign(cs):
 	if not cs.endswith('AAC'):
 		cs = cs + 'AAC'
 	band = cs[-5:-3]
-	if band != 'AM' and band != 'FM' and band != 'D1' and band != 'D2':
+	if band != 'AM' and band != 'FM':
 		raise ValueError('callsign \'%s\' is missing \'FM\' or \'AM\'.' % cs)
 	return cs
 
@@ -103,6 +103,6 @@ if __name__ == '__main__':
 	urls = create_stream_urls(result)
 	if len(urls) > 0:
 		u = choice(urls)
-                print u
 		sys.exit(start_mplayer(u))
 	sys.exit(1)
+
