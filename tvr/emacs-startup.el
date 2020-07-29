@@ -34,7 +34,7 @@
   '(
     "vm-prepare" "gnus-gmail-no-xoauth" "bbdb-prepare" "elfeed-prepare"
     "lispy-prepare" "sp-prepare"        "vdiff-prepare" "iedit-prepare"
-    "auctex-prepare" "org-prepare"  "sdcv-prepare"
+    "auctex-prepare" "org-prepare"  
                                         ;"use-emms"
     "calc-prepare" "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
