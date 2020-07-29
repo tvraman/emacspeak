@@ -40,6 +40,12 @@
 
 ;;; Commentary:
 ;;; SDCV ==  Stardict  Dictionary Interface
+;;; This module sets up Emacspeak for use with sdcv.
+;;; You need to have  command-line sdcv installed.
+;;; You can install additional stardict dictionaries, see
+;;;  https://wiki.archlinux.org/index.php/sdcv
+;;; This module sets up Emacs module sdcv to use all the installed
+;;; dictionaries found on the system.
 
 ;;; Code:
 
