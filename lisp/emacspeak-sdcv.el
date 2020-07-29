@@ -112,8 +112,8 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
-
-(emacspeak-sdcv-setup)
+(when (bound-and-true-p sdcv-mode-map)
+  (emacspeak-sdcv-setup))
 
 ;;}}}
 (provide 'emacspeak-sdcv)

@@ -310,6 +310,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "ses" 'emacspeak-ses)
 (emacspeak-do-package-setup "sql-mode" 'emacspeak-sql)
 (emacspeak-do-package-setup "sql" 'emacspeak-sql)
+(emacspeak-do-package-setup "sdcv" 'emacspeak-sdcv)
 (emacspeak-do-package-setup "supercite" 'emacspeak-supercite)
 (emacspeak-do-package-setup "sudoku" 'emacspeak-sudoku)
 (emacspeak-do-package-setup "table" 'emacspeak-etable)

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 18, 2020.
+last updated on July 29, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3071,6 +3071,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-ruby::Speech enable Ruby Mode.
 * emacspeak-rust-mode::Speech-enable RUST-MODE.
 * emacspeak-sage::Speech-enable SAGE.
+* emacspeak-sdcv::Speech-enable SDCV.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak environment –loaded to start Emacspeak.
 * emacspeak-sgml-mode::Speech enable SGML mode.
@@ -3140,7 +3141,6 @@ documentation, then read *Note emacspeak-eww::.
 * soundscape::Soundscapes for The Emacspeak Desktop.
 * sox::An Audio Work-Bench.
 * sox-gen::Binaural Beats And More Using SoX.
-* stack-f::
 * tetris::implementation of Tetris for Emacs.
 * toy-braille::
 * tts::Engine-specific TTS Environment.
@@ -4184,6 +4184,7 @@ system.
      s		emacspeak-wizards-shell
      t		twit
      u		list-unicode-display
+     v		emacspeak-muggles-vuiet/body
      w		emacspeak-wizards-noaa-weather
      y		yas-expand
 
@@ -4213,13 +4214,14 @@ system.
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode
      n		emacspeak-wizards-google-news
-     o		org-switchb
+     o		emacspeak-muggles-outliner/body
      p		proced
      q		emacspeak-wizards-iex-show-quote
      r		soundscape-restart
      s		soundscape
      t		soundscape-toggle
      u		soundscape-update-mood
+     v		emacspeak-muggles-view/body
      w		define-word
 
      .
@@ -4230,11 +4232,13 @@ system.
 
      SPC		emacspeak-eww-smart-tabs
      ,		emacspeak-eldoc-speak-doc
+     /		emacspeak-origami/body
      a		emacspeak-feeds-atom-display
      b		sox-binaural
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
      e		eww
      f		emacspeak-wizards-find-file-as-root
+     h		emacspeak-muggles-hideshow/body
      i		emacspeak-wizards-iheart
      l		eww-open-file
      m		magit-status

@@ -264,6 +264,7 @@ ladspa.elc \
 sox.elc \
 soundscape.elc \
 sox-gen.elc \
+emacspeak-sdcv.elc \
 emacspeak-sql.elc \
 emacspeak-supercite.elc \
 emacspeak-sudoku.elc \
@@ -566,6 +567,7 @@ ladspa.elc: ladspa.el
 sox.elc: sox.el ladspa.elc
 soundscape.elc: soundscape.el
 sox-gen.elc: sox-gen.el sox.elc
+emacspeak-sdcv.elc: emacspeak-sdcv.el dtk-speak.elc voice-setup.elc
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
 emacspeak-sudoku.elc: emacspeak-sudoku.el dtk-speak.elc
 emacspeak-table-ui.elc: emacspeak-table-ui.el emacspeak-tabulate.elc  \
