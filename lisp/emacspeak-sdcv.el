@@ -60,6 +60,20 @@
 ;;{{{ Interactive Commands:
 
 (cl-loop
+ for f in 
+ '(sdcv-
+   search-input sdcv-search-input+ sdcv-search-pointer sdcv-search-pointer+)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-mode-line)))))
+
+
+
+(cl-loop
  for f in
  '(sdcv-previous-dictionary sdcv-next-dictionary)
  do
