@@ -4,6 +4,7 @@ EMACS=emacs
 BATCH = -batch -q -no-site-file    
 COMPILE =  -f batch-byte-compile
 SETUP = emacs-startup.elc kbd-setup.elc  \
+sdcv-prepare.elc \
 sp-prepare.elc lispy-prepare.elc folding-prepare.elc \
  vm-prepare.elc \
 gnus-gmail-no-xoauth.elc \
