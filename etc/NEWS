@@ -42,3 +42,9 @@ Module ~emacspeak-rust-mode~ speech-enables ~rust-mode~.
 
 Module ~emacspeak-ytel~ speech-enables package ~ytel~, an Elisp API
 bridge to YT.
+
+** Emacspeak-sdcv --- speech-Enable Stardict Interaction
+
+
+Module ~emacspeak-sdcv~ speech-enables emacs package ~sdcv~ to enable
+interaction with Stardict dictionaries.
