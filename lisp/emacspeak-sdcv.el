@@ -53,6 +53,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(require 'let-alist)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
@@ -93,21 +94,21 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)))))
 
+
+
+
 (defun emacspeak-sdcv-update-dictionary-list ()
   "Update sdcv dictionary lists if necessary by examining
 /usr/share/sdcv/dict"
   (cl-declare (special sdcv-dictionary-simple-list))
-  (let ((installed (split-string (shell-command-to-string "sdcv -l") "\n"))
-        (dictionaires nil))
-    (pop installed)                     ; nuke header line
-    (setq dictionaires
-          (cl-loop
-           for d in installed collect
-           (split-string d " " 'omit-nulls " ")))
+  (let ((installed
+         (json-parse-string
+          (shell-command-to-string "sdcv -j -l")
+          :object-type 'alist)))
     (setq sdcv-dictionary-simple-list
           (cl-loop
-           for d in dictionaires collect
-           (mapconcat #'identity (butlast d) " ")))))
+           for d across installed collect 
+           (let-alist d  .name)))))
 
 (defun emacspeak-sdcv-setup ()
   "Setup Emacspeak for SDCV."
