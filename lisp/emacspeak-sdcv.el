@@ -103,7 +103,7 @@
   (cl-declare (special sdcv-dictionary-simple-list))
   (let ((installed
          (json-parse-string
-          (shell-command-to-string "sdcv -j -l")
+          (shell-command-to-string "sdcv -jnl ")
           :object-type 'alist)))
     (setq sdcv-dictionary-simple-list
           (cl-loop
