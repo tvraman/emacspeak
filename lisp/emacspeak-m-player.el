@@ -998,6 +998,12 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "ladspa=tap_autopan:tap_autopan:.0016:100:1,"
     "ladspa=tap_autopan:tap_autopan:.016:33:1")))
 
+(defun emacspeak-m-player-add-autosat ()
+  "Add predefined ZamAutoSat (auto saturation) effect."
+  (interactive)
+  (emacspeak-m-player-add-filter
+   "ladspa=ZamAutoSat-ladspa.so:ZamAutoSat:"))
+
 (defun emacspeak-m-player-add-filter (filter-name &optional edit)
   "Adds specified filter. Prompts with one of several pre-defined
 filters. Optional interactive prefix arg `edit' enables editing the
@@ -1294,6 +1300,7 @@ flat classical club dance full-bass full-bass-and-treble
     ("t" emacspeak-m-player-play-tracks-jump)
     ("u" emacspeak-m-player-url)
     ("v" emacspeak-m-player-volume-change)
+    ("z" emacspeak-m-player-add-autosat)
     ("{" emacspeak-m-player-half-speed)
     ("}" emacspeak-m-player-double-speed)
     )
