@@ -1782,7 +1782,9 @@ Check first if current buffer is in emacspeak-m-player-mode."
    (mapconcat #'ladspa-control-value (ladspa-plugin-controls plugin) ":")))
 ;;;###autoload
 (defun emacspeak-m-player-add-ladspa ()
-  "Apply plugin to running MPlayer."
+  "Apply plugin to running MPlayer.
+Copies  invocation string to kill-ring so it can be added easily to
+our pre-defined filters if appropriate."
   (interactive)
   (cl-declare (special emacspeak-m-player-process))
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
@@ -1798,11 +1800,13 @@ Check first if current buffer is in emacspeak-m-player-mode."
          #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
       (ladspa-instantiate))
     (setq args (emacspeak-m-player-ladspa-cmd plugin))
+    (kill-new args)
     (setq result
           (emacspeak-m-player-dispatch (format "af_add %s" args)))
     (when (called-interactively-p 'interactive)
       (message   "%s"
                  (or result "Waiting")))))
+
 ;;;###autoload
 (defun emacspeak-m-player-delete-ladspa ()
   "Delete plugin from  running MPlayer."
