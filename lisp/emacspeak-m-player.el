@@ -166,8 +166,6 @@ This is set to nil when playing Internet  streams.")
     ((eq 'run (process-status emacspeak-m-player-process))
      (let ((info (emacspeak-m-player-get-position)))
        (when info 
-         (put-text-property 0 (length (cl-first info))
-                            'personality 'voice-smoothen (cl-first info))
          (concat
           (ems--seconds-string-to-duration (cl-first info))
           " of "
