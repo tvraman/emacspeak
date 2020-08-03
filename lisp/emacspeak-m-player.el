@@ -168,9 +168,10 @@ This is set to nil when playing Internet  streams.")
        (when info 
          (concat
           (ems--seconds-string-to-duration (cl-first info))
-          " of "
+          (propertize " of " 'personality voice-smoothen-extra)
           (ems--seconds-string-to-duration (cl-third info))
-          " in " (cl-second info)))))
+          (propertize " in " 'personality voice-smoothen-extra)
+          (cl-second info)))))
     (t (format "Process MPlayer not running.")))))
 
 
