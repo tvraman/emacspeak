@@ -161,8 +161,9 @@
 ;;; prescient and company:
      (when (locate-library "prescient")
        (load-library "prescient")
-       (prescient-persist-mode 1))
-     (company-prescient-mode 1)
+       (prescient-persist-mode 1)
+       (company-prescient-mode 1))
+     
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
        (nm-enable)
