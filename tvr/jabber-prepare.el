@@ -13,3 +13,10 @@
               ))
               (defalias 'assoc-ignore-case 'assoc)
               (setq buffer-undo-list t)))
+
+(setq jabber-account-list
+      `((
+         ,(concat (user-login-name) "@" (or mail-host-address (system-name)))
+         (:network-server . "talk.google.com")
+         (:port . 5223)
+         (:connection-type . ssl))))
