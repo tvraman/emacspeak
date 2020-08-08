@@ -8,6 +8,7 @@ sdcv-prepare.elc \
 sp-prepare.elc lispy-prepare.elc folding-prepare.elc \
  vm-prepare.elc \
 gnus-gmail-no-xoauth.elc \
+laptop-local.elc \
 gnus-gmail-prepare.elc bbdb-prepare.elc \
 laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
 auctex-prepare.elc reftex-prepare.elc \
