@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1266 commands and 947 options.
+This chapter documents a total of 1267 commands and 947 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1593,6 +1593,7 @@ SPC		emacspeak-eww-smart-tabs
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
+d		sdcv-search-input
 e		eww
 f		emacspeak-wizards-find-file-as-root
 h		emacspeak-muggles-hideshow/body
@@ -11214,6 +11215,15 @@ Add predefined autopan effect.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-add-autosat
+@deffn {Command} emacspeak-m-player-add-autosat   
+@findex emacspeak-m-player-add-autosat
+
+@format
+Add predefined ZamAutoSat (auto saturation) effect.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-add-equalizer
 @deffn {Command} emacspeak-m-player-add-equalizer  (&optional reset)
 @findex emacspeak-m-player-add-equalizer
@@ -11246,6 +11256,8 @@ selected filter before it is applied.
 
 @format
 Apply plugin to running MPlayer.
+Copies  invocation string to kill-ring so it can be added easily to
+our pre-defined filters if appropriate.
 @end format
 @end deffn
 
@@ -11705,6 +11717,7 @@ u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
 w		emacspeak-m-player-write-clip
 x		emacspeak-m-player-pan
+z		emacspeak-m-player-add-autosat
 @{		emacspeak-m-player-half-speed
 @}		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed
@@ -12185,6 +12198,7 @@ u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
 w		emacspeak-m-player-write-clip
 x		emacspeak-m-player-pan
+z		emacspeak-m-player-add-autosat
 @{		emacspeak-m-player-half-speed
 @}		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed

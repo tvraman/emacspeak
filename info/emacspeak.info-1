@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on July 29, 2020.
+last updated on August 9, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1266 commands and 947 options.
+   This chapter documents a total of 1267 commands and 947 options.
 
 * Menu:
 
@@ -4236,6 +4236,7 @@ system.
      a		emacspeak-feeds-atom-display
      b		sox-binaural
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
+     d		sdcv-search-input
      e		eww
      f		emacspeak-wizards-find-file-as-root
      h		emacspeak-muggles-hideshow/body
