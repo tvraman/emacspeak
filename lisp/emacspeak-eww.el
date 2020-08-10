@@ -1876,15 +1876,31 @@ Warning, this is fragile, and depends on a stable id/class for the
 ;;; Bookmarks for use in reading ebooks with EWW:
 ;;; They are called eww-marks to distinguish them from web bookmarks
 
+
+(defvar emacspeak-eww-marks-file
+  (expand-file-name "eww-marks" emacspeak-resource-directory)
+  "File where we save EWW marks.")
 (cl-defstruct emacspeak-eww-mark
-  type ; daisy, epub, epub-3
-  book ; pointer to book --- type-specific
-  point ; location in book
-  name ; name of mark
+  type                             ; daisy, epub, epub-3
+  book                             ; pointer to book --- type-specific
+  point                            ; location in book
+  name                             ; name of mark
   )
 
-(defvar emacspeak-eww-marks (make-hash-table :test #'equal)
+(defvar emacspeak-eww-marks
+  (cond
+   ((file-exists-p emacspeak-eww-marks-file)
+    (emacspeak-eww-marks-load))
+   (t
+    (make-hash-table :test #'equal)))
   "Stores   EWW-marks.")
+
+(defun emacspeak-eww-marks-load ()
+  "Load saved marks."
+  (interactive)
+  (cl-declare (special emacspeak-eww-marks-file))
+  (when (file-exists-p emacspeak-eww-marks-file)
+    (load-file emacspeak-eww-marks-file)))
 
 (defun emacspeak-eww-add-mark (name)
   "Interactively add a mark with name title+`name' at current position."
@@ -1952,8 +1968,6 @@ Warning, this is fragile, and depends on a stable id/class for the
   (emacspeak-auditory-icon 'delete-object)
   (message "Removed Emacspeak EWW mark %s" name))
 
-(defvar emacspeak-eww-marks-loaded-p nil
-  "Record if EWW Marks are loaded.")
 ;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)
   "Open specified EWW marked location. If the content is already being
@@ -1962,7 +1976,6 @@ interactive prefix arg `delete', delete that mark instead."
   (interactive
    (list
     (progn
-      (unless emacspeak-eww-marks-loaded-p (emacspeak-eww-marks-load))
       (when (hash-table-empty-p emacspeak-eww-marks)
         (error "No Emacspeak EWW Marks found."))
       (completing-read "Mark: " emacspeak-eww-marks))
@@ -1998,28 +2011,15 @@ interactive prefix arg `delete', delete that mark instead."
            'at-end))
         (funcall handler book)))))))
 
-(defvar emacspeak-eww-marks-file
-  (expand-file-name "eww-marks" emacspeak-resource-directory)
-  "File where we save EWW marks.")
-
 (defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
   (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
-  (emacspeak--persist-variable 'emacspeak-eww-marks
-                               (expand-file-name "eww-marks"
-                                                 emacspeak-resource-directory)))
+  (emacspeak--persist-variable 'emacspeak-eww-marks emacspeak-eww-marks-file))
 
-(defvar emacspeak-eww-save-marks-timer nil
+(defvar emacspeak-eww-marks-save-timer
+  (run-at-time 1800 1800 #'emacspeak-eww-marks-save)
   "Idle timer for saving EWW marks.")
-
-(defun emacspeak-eww-marks-load ()
-  "Load saved marks."
-  (interactive)
-  (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks-loaded-p))
-  (when (file-exists-p emacspeak-eww-marks-file)
-    (load-file emacspeak-eww-marks-file)
-    (setq emacspeak-eww-marks-loaded-p t)))
 
 ;;}}}
 ;;{{{ quick setup for reading:
