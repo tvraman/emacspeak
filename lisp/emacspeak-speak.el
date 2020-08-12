@@ -3642,7 +3642,7 @@ This command  is designed for use in a windowing environment like X."
 ;;}}}
 
 ;;{{{Utility: Persist variable to a file:
-(defun emacspeak--persist-variable (var file)
+(defun emacspeak--persist-variable (var file &optional interactive)
   "Persist variable  `var' to file `FILE'.
 Arranges for `VAR' to be restored when `file' is loaded."
   (interactive)
@@ -3658,9 +3658,9 @@ Arranges for `VAR' to be restored when `file' is loaded."
         (pp (symbol-value var) (current-buffer))
         (insert (format ") ;;; set%s\n\n" var))
         (save-buffer))
-
-      (emacspeak-auditory-icon 'save-object)
-      (message "Saved %s." var))))
+      (when interactive
+        (emacspeak-auditory-icon 'save-object)
+        (message "Saved %s." var)))))
 
 ;;}}}
 ;;{{{Text Mode Pronunciations:
