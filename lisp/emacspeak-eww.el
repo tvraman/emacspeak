@@ -1887,6 +1887,13 @@ Warning, this is fragile, and depends on a stable id/class for the
   name                             ; name of mark
   )
 
+(defun emacspeak-eww-marks-load ()
+  "Load saved marks."
+  (interactive)
+  (cl-declare (special emacspeak-eww-marks-file))
+  (when (file-exists-p emacspeak-eww-marks-file)
+    (load-file emacspeak-eww-marks-file)))
+
 (defvar emacspeak-eww-marks
   (cond
    ((file-exists-p emacspeak-eww-marks-file)
@@ -1895,12 +1902,7 @@ Warning, this is fragile, and depends on a stable id/class for the
     (make-hash-table :test #'equal)))
   "Stores   EWW-marks.")
 
-(defun emacspeak-eww-marks-load ()
-  "Load saved marks."
-  (interactive)
-  (cl-declare (special emacspeak-eww-marks-file))
-  (when (file-exists-p emacspeak-eww-marks-file)
-    (load-file emacspeak-eww-marks-file)))
+
 
 (defun emacspeak-eww-add-mark (name)
   "Interactively add a mark with name title+`name' at current position."
