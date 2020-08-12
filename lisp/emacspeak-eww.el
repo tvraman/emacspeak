@@ -2020,7 +2020,7 @@ interactive prefix arg `delete', delete that mark instead."
   (emacspeak--persist-variable 'emacspeak-eww-marks emacspeak-eww-marks-file))
 
 (defvar emacspeak-eww-marks-save-timer
-  (run-at-time 1800 1800 #'emacspeak-eww-marks-save)
+  (run-at-time 3600 3600  #'emacspeak-eww-marks-save)
   "Idle timer for saving EWW marks.")
 
 ;;}}}
