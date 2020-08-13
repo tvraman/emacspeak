@@ -629,7 +629,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "Money Headlines From CNN"
- "https://money.cnn.com"
+ "https://cnn.com/business"
  nil
  #'(lambda nil
      (cl-declare (special emacspeak-we-url-executor))
