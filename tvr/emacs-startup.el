@@ -49,6 +49,7 @@
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
   `(let ((emacspeak-advice-progress-reporter nil)
+         (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil)
          (inhibit-message t)
          (file-name-handler-alist nil)
