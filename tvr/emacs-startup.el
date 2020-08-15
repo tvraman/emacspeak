@@ -177,8 +177,6 @@
 ;;;restore what we are about to steal
        (define-key outline-mode-prefix-map "o" 'open-line)
        (global-set-key "\C-o" outline-mode-prefix-map)))
-  (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
-  (add-hook 'text-mode-hook 'tvr-text-mode-hook)
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
