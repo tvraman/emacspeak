@@ -123,7 +123,7 @@
   "Customize my emacs."
   (cl-declare (special custom-file))
 ;;; basic look and feel
-  
+
   (put 'list-timers 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
@@ -131,12 +131,57 @@
   (put 'eval-expression 'disabled nil)
   (put 'timer-list 'disabled nil)
   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
+
+  (prefer-coding-system 'utf-8-emacs)
+  (cl-loop
+   for key in
+   '(
+     ("<f3>" bury-buffer)
+     ("<f4>" emacspeak-kill-buffer-quietly)
+     ("M--" undo-only)
+     ("<f11>" shell)
+     ("<f12>" vm)
+     ("M-r" replace-string)
+     ("M-e" emacspeak-wizards-end-of-word)
+     ("M-C-j" imenu)
+     ("M-C-c" calendar)
+     ("C-RET" hippie-expand))
+   do
+   (global-set-key (kbd (cl-first key)) (cl-second key)))
+
+  (cl-loop                              ; shell wizard
+   for i from 0 to 9 do
+   (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
+  (global-set-key (kbd "C-c <tab>") 'hs-toggle-hiding)
+;;; Smarten up ctl-x-map
+  (define-key ctl-x-map "c" 'compile)
+  (define-key ctl-x-map "\C-d" 'dired-jump)
+  (define-key ctl-x-map "\C-n" 'forward-page)
+  (define-key ctl-x-map "\C-p" 'backward-page)
+
+;;; Shell mode bindings:
+  (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
+
+;;; Outline Setup:
+
+  (eval-after-load 'outline
+    `(progn
+;;;restore what we are about to steal
+       (define-key outline-mode-prefix-map "o" 'open-line)
+       (global-set-key "\C-o" outline-mode-prefix-map)))
+  (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
+  (add-hook 'text-mode-hook 'tvr-text-mode-hook)
+  (server-start)
+  (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
   (global-set-key "\M-#" 'calc-dispatch)
   (global-set-key (kbd "C-RET") 'hippie-expand)
   (global-set-key (kbd "M-/") 'hippie-expand)
   (tvr-set-color-for-today)
   (when (file-exists-p custom-file)
+    (dynamic-completion-mode 1)
+    (jka-compr-install)
+    (completion-initialize)
     (tvr-fastload (load custom-file))))
 
 (defun tvr-defer-muggles ()
@@ -148,28 +193,17 @@
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
+  ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special emacspeak-sounds-directory tvr-libs))
   (tvr-fastload
-   (let ((after-start (current-time)))
-     (dynamic-completion-mode 1)
-     (jka-compr-install)
-     (completion-initialize)
+   (let ((after-start (current-time))) ;;; to time after-init at the end
      (mapc
-      (if (getenv "TVR_TIME_EMS")
-          #'load-library-if-available
-        #'load)
-      tvr-libs)
+      (if (getenv "TVR_TIME_EMS") #'load-library-if-available #'load)
+      tvr-libs) ;;; loaded  settings   not  customizable via custom.
      (with-eval-after-load "dired" (require 'dired-x))
      (run-with-idle-timer 0.1 nil #'tvr-defer-muggles)
-     (tvr-customize)
+     (tvr-customize) ;;; customizations
      (soundscape-toggle)
-     (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
-;;; prescient and company:
-     (when (locate-library "prescient")
-       (load-library "prescient")
-       (prescient-persist-mode 1)
-       (company-prescient-mode 1))
-
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
        (nm-enable)
@@ -181,8 +215,8 @@
      (start-process
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
-     (tvr-time-it "after-init" after-start)
-     (desktop-read))))
+     (desktop-read)
+     (tvr-time-it "after-init" after-start))))
 
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
@@ -221,63 +255,14 @@ gcs (%.2f seconds)>"
   "Start up emacs."
   (cl-declare (special emacspeak-directory
                        outloud-default-speech-rate dectalk-default-speech-rate
-                       magit-mode-map outline-mode-prefix-map))
+                       outline-mode-prefix-map))
+  (setq outloud-default-speech-rate 125 ; because we load custom at the end
+        dectalk-default-speech-rate 485)
   (tvr-fastload
-   (setq outloud-default-speech-rate 125 ; because we load custom at the end
-         dectalk-default-speech-rate 485)
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
 
-   (prefer-coding-system 'utf-8-emacs)
-   (cl-loop
-    for key in
-    '(
-      ("<f3>" bury-buffer)
-      ("<f4>" emacspeak-kill-buffer-quietly)
-      ("M--" undo-only)
-      ("<f11>" shell)
-      ("<f12>" vm)
-      ("M-r" replace-string)
-      ("M-e" emacspeak-wizards-end-of-word)
-      ("M-C-j" imenu)
-      ("M-C-c" calendar)
-      ("C-RET" hippie-expand))
-    do
-    (global-set-key (kbd (cl-first key)) (cl-second key)))
-
-   (cl-loop                             ; shell wizard
-    for i from 0 to 9 do
-    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-   (global-set-key (kbd "C-c <tab>") 'hs-toggle-hiding)
-;;; Smarten up ctl-x-map
-   (define-key ctl-x-map "c" 'compile)
-   (define-key ctl-x-map "\C-d" 'dired-jump)
-   (define-key ctl-x-map "\C-n" 'forward-page)
-   (define-key ctl-x-map "\C-p" 'backward-page)
-
-;;; Shell mode bindings:
-   (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
-
-;;; Outline Setup:
-
-   (eval-after-load 'outline
-     `(progn
-;;;restore what we are about to steal
-        (define-key outline-mode-prefix-map "o" 'open-line)
-        (global-set-key "\C-o" outline-mode-prefix-map)))
-
-;;; turn on modes:
-
-   (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
-   (add-hook 'text-mode-hook 'tvr-text-mode-hook)
-   (savehist-mode)
-   (save-place-mode)
-   (midnight-mode)
-   (server-start)
-;;; Magit and Forge:
-
-   (with-eval-after-load 'magit (require 'forge))
    )) ;end defun tvr-emacs
 
 ;;}}}
