@@ -11,12 +11,12 @@ gnus-gmail-no-xoauth.elc \
 laptop-local.elc \
 gnus-gmail-prepare.elc bbdb-prepare.elc \
 laptop-local.elc touchpad-disable.elc elfeed-prepare.elc \
-auctex-prepare.elc reftex-prepare.elc \
-calc-prepare.elc js-prepare.elc tcl-prepare.elc \
+ reftex-prepare.elc \
+calc-prepare.elc js-prepare.elc  \
 slime-prepare.elc  python-mode-prepare.elc \
   sp-prepare.elc org-prepare.elc erc-prepare.elc \
 jabber-prepare.elc twittering-prepare.elc \
-helm-prepare.elc vdiff-prepare.elc \
+ vdiff-prepare.elc \
 projectile-prepare.elc  yasnippet-prepare.elc 
 
 all: $(SETUP)

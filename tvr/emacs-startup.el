@@ -34,10 +34,9 @@
   '(
     "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" 
     "lispy-prepare" "sp-prepare"       ; "vdiff-prepare"; "iedit-prepare"
-     "org-prepare"  
-                                        ;"use-emms"
+     "org-prepare" ;"use-emms"
     "calc-prepare"; "helm-prepare"
-    "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
+    "js-prepare"  "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare"
      "jabber-prepare" "twittering-prepare"
     "auth-source-xoauth2" )
