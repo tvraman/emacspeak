@@ -27,7 +27,7 @@
     "vm-prepare" "gnus-gmail-prepare"
     "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare"
     "jabber-prepare"  )
-  "Libraries to load.")
+  "Libraries that need extra setup.")
 
 ;;}}}
 ;;{{{ Fixups:
