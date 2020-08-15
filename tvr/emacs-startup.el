@@ -25,8 +25,7 @@
 (defvar tvr-libs
   '(
     "vm-prepare" "gnus-gmail-prepare" 
-    "lispy-prepare" "sp-prepare" "org-prepare"
-      "slime-prepare" "yasnippet-prepare"
+    "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare" 
     "jabber-prepare"  )
   "Libraries to load.")
 
