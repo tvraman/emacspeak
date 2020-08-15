@@ -54,7 +54,6 @@
          (file-name-handler-alist nil)
          (load-source-file-function nil)
          (inhibit-message t)
-         (emacspeak-speak-messages nil)
          (gc-cons-threshold 64000000))
      ,@body))
 
@@ -163,7 +162,7 @@
      (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
 ;;; prescient and company:
      (when (locate-library "prescient")
-       (load-library "prescient")
+       ;(load-library "prescient")
        (prescient-persist-mode 1)
        (company-prescient-mode 1))
      
