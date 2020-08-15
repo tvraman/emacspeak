@@ -49,7 +49,7 @@
          (file-name-handler-alist nil)
          (load-source-file-function nil)
          (inhibit-message t)
-         (gc-cons-threshold 64000000))
+         (gc-cons-threshold 128000000))
      ,@body))
 
 ;;}}}
@@ -215,8 +215,8 @@
      (start-process
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
-     (desktop-read)
-     (tvr-time-it "after-init" after-start))))
+     (tvr-time-it "after-init" after-start)
+     (desktop-read))))
 
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
