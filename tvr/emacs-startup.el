@@ -117,7 +117,13 @@
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
-;;{{{ Handlers: Custom, after-init-hook
+;;{{{ Hook Functions: Custom, after-init-hook
+(defun tvr-emacs-startup-hook ()
+  "Emacs startup hook."
+  (delete-other-windows)
+  (message
+   "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
+   user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
 
 (defun tvr-customize ()
   "Customize my emacs."
@@ -257,13 +263,7 @@ Emacs customization and library configuration happens via the after-init-hook. "
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
    (setq gc-cons-threshold 64000000))
   (add-hook 'after-init-hook #'tvr-after-init)
-  (add-hook
-   'emacs-startup-hook
-   #'(lambda ()
-       (delete-other-windows)
-       (message
-        "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
-        user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)))) ;end defun tvr-emacs
+  (add-hook 'emacs-startup-hook 'tvr-emacs-startup-hook)) ;end defun tvr-emacs
 
 ;;}}}
 (tvr-emacs)
