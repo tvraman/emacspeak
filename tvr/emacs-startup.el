@@ -120,31 +120,24 @@
 ;;{{{ Handlers: Custom, after-init-hook
 
 (defun tvr-customize ()
-  "Load my customizations."
+  "Customize my emacs."
   (cl-declare (special custom-file))
-  ;;; basic look and feel
-  (setq inhibit-startup-echo-area-message user-login-name
-        initial-scratch-message ""
-        initial-buffer-choice t)
-  (tooltip-mode -1)
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (fringe-mode 0)
+;;; basic look and feel
+  
   (put 'list-timers 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil)
   (put 'eval-expression 'disabled nil)
   (put 'timer-list 'disabled nil)
-  (tvr-fastload
-   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
-   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
-   (global-set-key "\M-#" 'calc-dispatch)
-   (global-set-key (kbd "C-RET") 'hippie-expand)
-   (global-set-key (kbd "M-/") 'hippie-expand)
-   (tvr-set-color-for-today)
-   (when (file-exists-p custom-file) (load custom-file))))
+  (setq-default custom-file (expand-file-name "~/.customize-emacs"))
+  (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+  (global-set-key "\M-#" 'calc-dispatch)
+  (global-set-key (kbd "C-RET") 'hippie-expand)
+  (global-set-key (kbd "M-/") 'hippie-expand)
+  (tvr-set-color-for-today)
+  (when (file-exists-p custom-file)
+    (tvr-fastload (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
