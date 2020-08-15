@@ -27,8 +27,7 @@
     "vm-prepare" "gnus-gmail-prepare" 
     "lispy-prepare" "sp-prepare" "org-prepare"
       "slime-prepare" "yasnippet-prepare"
-    "jabber-prepare" "twittering-prepare"
-    "auth-source-xoauth2" )
+    "jabber-prepare" "auth-source-xoauth2" )
   "Libraries to load.")
 
 ;;}}}
