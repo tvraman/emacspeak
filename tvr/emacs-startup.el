@@ -7,13 +7,6 @@
 ;;; September 2017: Optimized and Cleaned Up
 
 ;;}}}
-;;{{{ Fix system-users:
-
-(defadvice system-users (around fix pre act comp)
-  "Just return user real name."
-  (list user-real-login-name))
-
-;;}}}
 ;;{{{  lib
 
 (require 'cl-lib)
@@ -41,6 +34,13 @@
      "jabber-prepare" "twittering-prepare"
     "auth-source-xoauth2" )
   "Libraries to load.")
+
+;;}}}
+;;{{{ Fix system-users:
+
+(defadvice system-users (around fix pre act comp)
+  "Just return user real name."
+  (list user-real-login-name))
 
 ;;}}}
 ;;{{{ Macro: tvr-fastload:
