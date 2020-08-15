@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: nil; -*-
 (defalias 'epa--decode-coding-string 'decode-coding-string)
 (setq twittering-use-master-password t)
-(setq epa-protocol 'OpenPGP)
+
 (eval-after-load "twittering-mode"
 `(progn
    (require 'epa)

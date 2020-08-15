@@ -32,11 +32,11 @@
 
 (defvar tvr-libs
   '(
-    "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" "elfeed-prepare"
-    "lispy-prepare" "sp-prepare"        "vdiff-prepare"; "iedit-prepare"
-    "auctex-prepare" "org-prepare"  
+    "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" 
+    "lispy-prepare" "sp-prepare"       ; "vdiff-prepare"; "iedit-prepare"
+     "org-prepare"  
                                         ;"use-emms"
-    "calc-prepare" "helm-prepare"
+    "calc-prepare"; "helm-prepare"
     "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare"
      "jabber-prepare" "twittering-prepare"
