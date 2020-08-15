@@ -25,11 +25,9 @@
 (defvar tvr-libs
   '(
     "vm-prepare" "gnus-gmail-prepare" 
-    "lispy-prepare" "sp-prepare"       ; "vdiff-prepare"; "iedit-prepare"
-    "org-prepare" ;"use-emms"
-    "calc-prepare"; "helm-prepare"
-    "js-prepare"  "slime-prepare" "yasnippet-prepare"
-    "python-mode-prepare"
+    "lispy-prepare" "sp-prepare" "org-prepare"
+    "calc-prepare"
+      "slime-prepare" "yasnippet-prepare"
     "jabber-prepare" "twittering-prepare"
     "auth-source-xoauth2" )
   "Libraries to load.")
