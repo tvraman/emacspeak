@@ -59,6 +59,8 @@
 
 (voice-setup-add-map
  '(
+   (dired-set-id  voice-animate)
+   (dired-special voice-lighten)
    (dired-header voice-smoothen)
    (dired-mark voice-lighten)
    (dired-perm-write voice-lighten-extra)
