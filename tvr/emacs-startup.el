@@ -224,6 +224,8 @@ gcs (%.2f seconds)>"
   (abbrev-mode 1))
 
 ;;}}}
+;;{{{tvr-emacs:
+
 (defun tvr-emacs ()
   "Start up emacs."
   (cl-declare (special emacspeak-directory
@@ -235,7 +237,6 @@ gcs (%.2f seconds)>"
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-
 
    (prefer-coding-system 'utf-8-emacs)
    (cl-loop
@@ -267,7 +268,7 @@ gcs (%.2f seconds)>"
 ;;; Shell mode bindings:
    (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
-   ;;; Outline Setup:
+;;; Outline Setup:
 
    (eval-after-load 'outline
      `(progn
@@ -275,8 +276,7 @@ gcs (%.2f seconds)>"
         (define-key outline-mode-prefix-map "o" 'open-line)
         (global-set-key "\C-o" outline-mode-prefix-map)))
 
-
-    ;;; turn on modes:
+;;; turn on modes:
 
    (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
    (add-hook 'text-mode-hook 'tvr-text-mode-hook)
@@ -286,10 +286,10 @@ gcs (%.2f seconds)>"
    (server-start)
 ;;; Magit and Forge:
 
-   (with-eval-after-load 'magit (require 'forge)))
+   (with-eval-after-load 'magit (require 'forge))
+   )) ;end defun tvr-emacs
 
-
-  ) ;end defun
+;;}}}
 (tvr-emacs)
 ;;{{{ Forward Function Declarations:
 
