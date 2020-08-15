@@ -211,12 +211,12 @@
        (emacspeak-dbus-udisks-enable)
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
-     (emacspeak-wizards-project-shells-initialize)
+     (make-thread  #'emacspeak-wizards-project-shells-initialize)
      (start-process
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
      (tvr-time-it "after-init" after-start)
-     (desktop-read))))
+     (make-thread #' desktop-read))))
 
 (add-hook 'after-init-hook #'tvr-after-init)
 (add-hook
