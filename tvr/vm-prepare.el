@@ -38,12 +38,12 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
      (load "vm-autoloads")
 (when (require 'bbdb)
 (bbdb-insinuate-vm))
-(add-hook 'vm-quit-hook #'vm-expunge-folder)
+
 ;(global-set-key "\C-xm" 'vm-mail)
 
-(setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
+;(setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
 
-(setq vm-auto-displayed-mime-content-type-exceptions nil)
+;(setq vm-auto-displayed-mime-content-type-exceptions nil)
 (defun vm-mime-display-internal-shr-text/html (start end layout)
   "Use shr to inline HTML mails in the VM presentation buffer."
     (shr-render-region start (1- end))
