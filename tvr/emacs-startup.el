@@ -126,10 +126,10 @@
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
 
 (defun tvr-customize ()
-  "Customize my emacs."
+  "Customize my emacs.
+Use Custom to customize where possible. "
   (cl-declare (special custom-file))
   (setq outline-minor-mode-prefix (kbd "C-o"))
-  (setq ad-redefinition-action 'accept)
 ;;; basic look and feel
 
   (put 'list-timers 'disabled nil)
@@ -139,11 +139,11 @@
   (put 'eval-expression 'disabled nil)
   (put 'timer-list 'disabled nil)
   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
-
   (prefer-coding-system 'utf-8-emacs)
-  (cl-loop
+  (cl-loop ;;; global key-bindings
    for key in
    '(
+     ( "M-#" calc-dispatch)
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
      ("M--" undo-only)
@@ -153,14 +153,15 @@
      ("M-e" emacspeak-wizards-end-of-word)
      ("M-C-j" imenu)
      ("M-C-c" calendar)
+     ("C-c <tab>"  hs-toggle-hiding)
      ("C-RET" hippie-expand))
    do
    (global-set-key (kbd (cl-first key)) (cl-second key)))
 
-  (cl-loop                              ; shell wizard
+  (cl-loop                              ;;; shell wizard
    for i from 0 to 9 do
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-  (global-set-key (kbd "C-c <tab>") 'hs-toggle-hiding)
+
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "\C-d" 'dired-jump)
@@ -168,19 +169,18 @@
   (define-key ctl-x-map "\C-p" 'backward-page)
 
 ;;; Shell mode bindings:
-  (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
+  (with-eval-after-load "shell"  (tvr-shell-bind-keys))
 
 ;;; Outline Setup:
 
-  (eval-after-load 'outline
-    `(progn
-;;;restore what we are about to steal
-       (define-key outline-mode-prefix-map "o" 'open-line)
-       (global-set-key "\C-o" outline-mode-prefix-map)))
+  (with-eval-after-load 'outline
+    (progn ;;;restore what we are about to steal
+      (define-key outline-mode-prefix-map "o" 'open-line)
+      (global-set-key "\C-o" outline-mode-prefix-map)))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
-  (global-set-key "\M-#" 'calc-dispatch)
+
   (global-set-key (kbd "C-RET") 'hippie-expand)
   (global-set-key (kbd "M-/") 'hippie-expand)
   (tvr-set-color-for-today)
