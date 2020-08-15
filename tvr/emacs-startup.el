@@ -121,6 +121,7 @@
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook."
   (delete-other-windows)
+  (setq gc-cons-threshold 64000000)
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
@@ -216,11 +217,11 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
      (make-thread  #'emacspeak-wizards-project-shells-initialize)
+     (tvr-time-it "after-init" after-start)
+     (make-thread #' (lambda nil (tvr-fastload (desktop-read))))
      (start-process
       "play" nil "aplay"
-      (expand-file-name "highbells.au" emacspeak-sounds-directory))
-     (tvr-time-it "after-init" after-start)
-     (make-thread #' (lambda nil (tvr-fastload (desktop-read)))))))
+      (expand-file-name "highbells.au" emacspeak-sounds-directory)))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
@@ -256,8 +257,7 @@ Emacs customization and library configuration happens via the after-init-hook. "
   (tvr-fastload ;;; load emacspeak:
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
-     (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-   (setq gc-cons-threshold 64000000))
+     (push (expand-file-name "tvr/" emacspeak-directory) load-path)))
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook 'tvr-emacs-startup-hook)) ;end defun tvr-emacs
 
