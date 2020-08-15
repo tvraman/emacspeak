@@ -24,7 +24,7 @@
 
 (defvar tvr-libs
   '(
-    "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare"
+    "vm-prepare" "gnus-gmail-prepare" 
     "lispy-prepare" "sp-prepare"       ; "vdiff-prepare"; "iedit-prepare"
     "org-prepare" ;"use-emms"
     "calc-prepare"; "helm-prepare"
