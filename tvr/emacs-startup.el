@@ -24,13 +24,13 @@
 
 (defvar tvr-libs
   '(
-    "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare" 
+    "vm-prepare" "gnus-gmail-prepare" "bbdb-prepare"
     "lispy-prepare" "sp-prepare"       ; "vdiff-prepare"; "iedit-prepare"
-     "org-prepare" ;"use-emms"
+    "org-prepare" ;"use-emms"
     "calc-prepare"; "helm-prepare"
     "js-prepare"  "slime-prepare" "yasnippet-prepare"
     "python-mode-prepare"
-     "jabber-prepare" "twittering-prepare"
+    "jabber-prepare" "twittering-prepare"
     "auth-source-xoauth2" )
   "Libraries to load.")
 
@@ -125,6 +125,21 @@
 (defun tvr-customize ()
   "Load my customizations."
   (cl-declare (special custom-file))
+  ;;; basic look and feel
+  (setq inhibit-startup-echo-area-message user-login-name
+        initial-scratch-message ""
+        initial-buffer-choice t)
+  (tooltip-mode -1)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (fringe-mode 0)
+  (put 'list-timers 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil)
+  (put 'eval-expression 'disabled nil)
+  (put 'timer-list 'disabled nil)
   (tvr-fastload
    (setq-default custom-file (expand-file-name "~/.customize-emacs"))
    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
@@ -163,7 +178,7 @@
        (load-library "prescient")
        (prescient-persist-mode 1)
        (company-prescient-mode 1))
-     
+
      (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
        (nm-enable)
@@ -215,31 +230,12 @@ gcs (%.2f seconds)>"
                        outloud-default-speech-rate dectalk-default-speech-rate
                        magit-mode-map outline-mode-prefix-map))
   (tvr-fastload
-   
    (setq outloud-default-speech-rate 125 ; because we load custom at the end
          dectalk-default-speech-rate 485)
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-   ;;{{{ Basic Look And Feel:
 
-   (setq inhibit-startup-echo-area-message user-login-name
-         initial-scratch-message ""
-         initial-buffer-choice t)
-   (tooltip-mode -1)
-   (menu-bar-mode -1)
-   (tool-bar-mode -1)
-   (scroll-bar-mode -1)
-   (fringe-mode 0)
-   (put 'list-timers 'disabled nil)
-   (put 'upcase-region 'disabled nil)
-   (put 'downcase-region 'disabled nil)
-   (put 'narrow-to-region 'disabled nil)
-   (put 'eval-expression 'disabled nil)
-   (put 'timer-list 'disabled nil)
-
-   ;;}}}
-   ;;{{{  set up terminal codes and global keys
 
    (prefer-coding-system 'utf-8-emacs)
    (cl-loop
@@ -271,8 +267,7 @@ gcs (%.2f seconds)>"
 ;;; Shell mode bindings:
    (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
-   ;;}}}
-   ;;{{{ outline mode setup:
+   ;;; Outline Setup:
 
    (eval-after-load 'outline
      `(progn
@@ -280,8 +275,8 @@ gcs (%.2f seconds)>"
         (define-key outline-mode-prefix-map "o" 'open-line)
         (global-set-key "\C-o" outline-mode-prefix-map)))
 
-   ;;}}}
-   ;;{{{ turn on modes:
+
+    ;;; turn on modes:
 
    (add-hook 'prog-mode-hook 'tvr-prog-mode-hook)
    (add-hook 'text-mode-hook 'tvr-text-mode-hook)
@@ -291,10 +286,9 @@ gcs (%.2f seconds)>"
    (server-start)
 ;;; Magit and Forge:
 
-   (with-eval-after-load 'magit
-     (require 'forge)))
+   (with-eval-after-load 'magit (require 'forge)))
 
-  ;;}}}
+
   ) ;end defun
 (tvr-emacs)
 ;;{{{ Forward Function Declarations:
