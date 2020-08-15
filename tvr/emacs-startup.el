@@ -162,7 +162,7 @@
      (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
 ;;; prescient and company:
      (when (locate-library "prescient")
-       ;(load-library "prescient")
+       (load-library "prescient")
        (prescient-persist-mode 1)
        (company-prescient-mode 1))
      
