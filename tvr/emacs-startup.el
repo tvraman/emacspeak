@@ -24,18 +24,17 @@
 
 (defvar tvr-libs
   '(
-    "vm-prepare" "gnus-gmail-prepare" 
-    "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare" 
+    "vm-prepare" "gnus-gmail-prepare"
+    "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare"
     "jabber-prepare"  )
   "Libraries to load.")
 
 ;;}}}
-;;{{{ Fixups: 
+;;{{{ Fixups:
 
 (defadvice system-users (around fix pre act comp)
   "Just return user real name."
   (list user-real-login-name))
-
 
 ;;; for twittering-mode:
 (defalias 'epa--decode-coding-string 'decode-coding-string)
