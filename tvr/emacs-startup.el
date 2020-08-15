@@ -220,7 +220,7 @@ Use Custom to customize where possible. "
       "play" nil "aplay"
       (expand-file-name "highbells.au" emacspeak-sounds-directory))
      (tvr-time-it "after-init" after-start)
-     (make-thread #' desktop-read))))
+     (make-thread #' (lambda nil (tvr-fastload (desktop-read)))))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
