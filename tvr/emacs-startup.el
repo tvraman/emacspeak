@@ -218,16 +218,6 @@
      (tvr-time-it "after-init" after-start)
      (make-thread #' desktop-read))))
 
-(add-hook 'after-init-hook #'tvr-after-init)
-(add-hook
- 'emacs-startup-hook
- #'(lambda ()
-     (delete-other-windows)
-     (message
-      "<Successfully initialized Emacs for %s in %.2f  seconds with %s
-gcs (%.2f seconds)>"
-      user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)))
-
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-correct-mode 1)
@@ -252,18 +242,28 @@ gcs (%.2f seconds)>"
 ;;{{{tvr-emacs:
 
 (defun tvr-emacs ()
-  "Start up emacs."
+  "Start up emacs.
+This function loads Emacspeak.
+Emacs customization and library configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory
                        outloud-default-speech-rate dectalk-default-speech-rate
                        outline-mode-prefix-map))
   (setq outloud-default-speech-rate 125 ; because we load custom at the end
         dectalk-default-speech-rate 485)
-  (tvr-fastload
+  (tvr-fastload ;;; load emacspeak:
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-
-   )) ;end defun tvr-emacs
+   (setq gc-cons-threshold 64000000))
+  (add-hook 'after-init-hook #'tvr-after-init)
+  (add-hook
+   'emacs-startup-hook
+   #'(lambda ()
+       (delete-other-windows)
+       (message
+        "<Successfully initialized Emacs for %s in %.2f  seconds with %s
+gcs (%.2f seconds)>"
+        user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)))) ;end defun tvr-emacs
 
 ;;}}}
 (tvr-emacs)
