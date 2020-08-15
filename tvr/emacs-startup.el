@@ -7,13 +7,12 @@
 ;;; September 2017: Optimized and Cleaned Up
 
 ;;}}}
-;;{{{  lib
+;;{{{  libs, vars:
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (cl-declaim (special outline-minor-mode-prefix ad-redefinition-action))
 (setq ad-redefinition-action 'accept)
-
 (setq outline-minor-mode-prefix (kbd "C-o"))
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
@@ -47,8 +46,7 @@
 
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
-  `(let ((emacspeak-advice-progress-reporter nil)
-         (emacspeak-use-auditory-icons nil)
+  `(let ((emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil)
          (inhibit-message t)
          (file-name-handler-alist nil)
@@ -81,7 +79,7 @@
        (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
 ;;}}}
-;;{{{ Weekday Colors:
+;;{{{Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
   '(("light sky blue" "#6FBD87")        ; silver tree
@@ -217,15 +215,12 @@ gcs (%.2f seconds)>"
                        outloud-default-speech-rate dectalk-default-speech-rate
                        magit-mode-map outline-mode-prefix-map))
   (tvr-fastload
-   ;;{{{ Load  emacspeak
-
+   
    (setq outloud-default-speech-rate 125 ; because we load custom at the end
          dectalk-default-speech-rate 485)
    (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
-
-   ;;}}}
    ;;{{{ Basic Look And Feel:
 
    (setq inhibit-startup-echo-area-message user-login-name
