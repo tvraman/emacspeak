@@ -195,9 +195,7 @@
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
   (unless (featurep 'emacspeak-muggles)
-    (make-thread
-     #'(lambda ()
-         (tvr-fastload (load "emacspeak-muggles"))))))
+    (make-thread #'(lambda () (tvr-fastload (load "emacspeak-muggles"))))))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
@@ -209,7 +207,7 @@
       (if (getenv "TVR_TIME_EMS") #'load-library-if-available #'load)
       tvr-libs) ;;; loaded  settings   not  customizable via custom.
      (with-eval-after-load "dired" (require 'dired-x))
-     (run-with-idle-timer 0.1 nil #'tvr-defer-muggles)
+     (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
      (tvr-customize) ;;; customizations
      (soundscape-toggle)
      (require 'emacspeak-dbus)
