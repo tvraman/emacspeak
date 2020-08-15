@@ -5,6 +5,7 @@
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
 ;;; September 2017: Optimized and Cleaned Up
+;;; August 2020: Limit code at top-level.
 
 ;;}}}
 ;;{{{  libs, vars:
@@ -12,8 +13,7 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (cl-declaim (special outline-minor-mode-prefix ad-redefinition-action))
-(setq ad-redefinition-action 'accept)
-(setq outline-minor-mode-prefix (kbd "C-o"))
+
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
@@ -122,6 +122,8 @@
 (defun tvr-customize ()
   "Customize my emacs."
   (cl-declare (special custom-file))
+  (setq outline-minor-mode-prefix (kbd "C-o"))
+  (setq ad-redefinition-action 'accept)
 ;;; basic look and feel
 
   (put 'list-timers 'disabled nil)
@@ -246,8 +248,7 @@
 This function loads Emacspeak.
 Emacs customization and library configuration happens via the after-init-hook. "
   (cl-declare (special emacspeak-directory
-                       outloud-default-speech-rate dectalk-default-speech-rate
-                       outline-mode-prefix-map))
+                       outloud-default-speech-rate dectalk-default-speech-rate))
   (setq outloud-default-speech-rate 125 ; because we load custom at the end
         dectalk-default-speech-rate 485)
   (tvr-fastload ;;; load emacspeak:
@@ -261,8 +262,7 @@ Emacs customization and library configuration happens via the after-init-hook. "
    #'(lambda ()
        (delete-other-windows)
        (message
-        "<Successfully initialized Emacs for %s in %.2f  seconds with %s
-gcs (%.2f seconds)>"
+        "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
         user-login-name (read (emacs-init-time)) gcs-done gc-elapsed)))) ;end defun tvr-emacs
 
 ;;}}}
