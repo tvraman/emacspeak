@@ -259,7 +259,7 @@ Emacs customization and library configuration happens via the after-init-hook. "
    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
      (push (expand-file-name "tvr/" emacspeak-directory) load-path)))
   (add-hook 'after-init-hook #'tvr-after-init)
-  (add-hook 'emacs-startup-hook 'tvr-emacs-startup-hook)) ;end defun tvr-emacs
+  (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook)) ;end defun tvr-emacs
 
 ;;}}}
 (tvr-emacs)
