@@ -31,12 +31,15 @@
   "Libraries to load.")
 
 ;;}}}
-;;{{{ Fix system-users:
+;;{{{ Fixups: 
 
 (defadvice system-users (around fix pre act comp)
   "Just return user real name."
   (list user-real-login-name))
 
+
+;;; for twittering-mode:
+(defalias 'epa--decode-coding-string 'decode-coding-string)
 ;;}}}
 ;;{{{ Macro: tvr-fastload:
 
