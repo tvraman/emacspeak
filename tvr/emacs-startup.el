@@ -26,7 +26,6 @@
   '(
     "vm-prepare" "gnus-gmail-prepare" 
     "lispy-prepare" "sp-prepare" "org-prepare"
-    "calc-prepare"
       "slime-prepare" "yasnippet-prepare"
     "jabber-prepare" "twittering-prepare"
     "auth-source-xoauth2" )
@@ -141,6 +140,7 @@
   (tvr-fastload
    (setq-default custom-file (expand-file-name "~/.customize-emacs"))
    (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+   (global-set-key "\M-#" 'calc-dispatch)
    (global-set-key (kbd "C-RET") 'hippie-expand)
    (global-set-key (kbd "M-/") 'hippie-expand)
    (tvr-set-color-for-today)
