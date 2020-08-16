@@ -12,7 +12,7 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-
+(require 'dbus)
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
@@ -33,7 +33,6 @@
 (declare-function emacspeak-wizards-color-diff-at-point "emacspeak-wizards" (&optional set))
 (declare-function completion-initialize "completion" nil)
 (declare-function soundscape-toggle "soundscape" nil)
-(declare-function dbus-list-known-names "dbus" (bus))
 (declare-function nm-enable "nm" nil)
 (declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-dbus-watch-screen-lock "emacspeak-dbus" nil)
