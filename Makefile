@@ -101,7 +101,7 @@ q:
 	@cd	 tvr && make  --no-print-directory
 
 qq:
-	make -s q 2>&1 |grep -v Loading 
+	make -s q 2>&1 |grep -v Loading  | grep -v package-quickstart
 
 # }}}
 # {{{  user level target-- clean
