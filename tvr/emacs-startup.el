@@ -12,7 +12,7 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-(cl-declaim (special outline-minor-mode-prefix ad-redefinition-action))
+
 
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
@@ -99,8 +99,7 @@
   (let ((pair
          (elt tvr-weekday-to-color-alist (read (format-time-string "%w")))))
     (set-background-color (cl-first pair))
-    (set-foreground-color (cl-second pair)))
-  (call-interactively #'emacspeak-wizards-color-diff-at-point))
+    (set-foreground-color (cl-second pair))))
 
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
@@ -129,7 +128,8 @@
 (defun tvr-customize ()
   "Customize my emacs.
 Use Custom to customize where possible. "
-  (cl-declare (special custom-file))
+  (cl-declare (special custom-file
+                       outline-mode-prefix-map outline-minor-mode-prefix))
   (setq outline-minor-mode-prefix (kbd "C-o"))
 ;;; basic look and feel
 
@@ -216,7 +216,7 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-udisks-enable)
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
-     (make-thread  #'emacspeak-wizards-project-shells-initialize)
+     (make-thread  #'(lambda nil (run-with-idle-timer 0.5 nil (emacspeak-wizards-project-shells-initialize))))
      (tvr-time-it "after-init" after-start)
      (make-thread #' (lambda nil (tvr-fastload (desktop-read))))
      (start-process
