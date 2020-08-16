@@ -54,9 +54,9 @@
 ;;}}}
 ;;{{{ Forward Decls:
 
-(declare-function vm-from-of "vm-message" (msg))
-(declare-function  vm-subject-of "vm-message" (msg))
-(declare-function  vm-to-of "vm-message" (msg))
+(defsubst ems--ems--vm-from-of (message) (aref (aref message 3) 8))
+(defsubst ems--ems--vm-subject-of (message) (aref (aref message 3) 11))
+(defsubst ems--vm-to-of (message) (aref (aref message 3) 13))
 (declare-function  vm-su-full-name "vm-summary" (msg))
 (declare-function  vm-su-from "vm-summary" (msg))
 (declare-function vm-su-subject "vm-summary" (msg))
@@ -64,7 +64,7 @@
 (declare-function  vm-su-to "vm-summary" (msg))
 (declare-function  vm-su-line-count "vm-summary" (msg))
 (declare-function vm-decode-mime-encoded-words-in-string "vm-mime" (s))
-(declare-function  vm-labels-of "vm-message" (msg))
+(defsubst vm-labels-of (message) (aref (aref message 4) 3))
 (declare-function  vm-goto-message "vm-message" (msg))
 (declare-function vm-delete-message "vm-message" (msg))
 (declare-function  u-vm-color-fontify-buffer "u-vm-color" nil)
@@ -148,9 +148,9 @@ Note that some badly formed mime messages  cause trouble."
    (vm-message-pointer
     (dtk-stop)
     (let*  ((message (car vm-message-pointer))
-            (from (vm-from-of message))
-            (subject (vm-subject-of  message))
-            (to (vm-to-of message))
+            (from (ems--vm-from-of message))
+            (subject (ems--vm-subject-of  message))
+            (to (ems--vm-to-of message))
             (url  (browse-url-url-at-point))
             (header nil))
       (while (not header)
