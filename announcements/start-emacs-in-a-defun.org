@@ -3,8 +3,9 @@
 This is a follow-up to my earlier article titled [[https://emacspeak.blogspot.com/2017/08/emacs-start-up-speeding-it-up.html][Speeding Up Emacs
 Startup]] from August 2017. Three years later, I once again spent time
 cleaning up and refactoring the results as described below. The
-end-result is to once again speed up Emacs startup, while  making the
-setup cleaner and easier to maintain than before.
+end-result is to once again speed up Emacs startup, (about 25% faster
+on my laptop)while making the setup cleaner and easier to maintain
+than before.
 
 * Start Emacs In A Defun 
 
