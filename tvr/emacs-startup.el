@@ -147,6 +147,7 @@ Use Custom to customize where possible. "
                custom-file outline-mode-prefix-map outline-minor-mode-prefix))
   (setq outline-minor-mode-prefix (kbd "C-o"))
 ;;; basic look and feel
+  (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
 
   (put 'list-timers 'disabled nil)
   (put 'upcase-region 'disabled nil)
