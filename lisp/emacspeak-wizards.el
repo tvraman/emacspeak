@@ -2361,10 +2361,11 @@ of the source buffer."
   (unless emacspeak-wizards-project-shells (shell))
   (cl-loop
    for pair in (reverse emacspeak-wizards-project-shells) do
-   (let ((name (cl-first pair))
-   (default-directory (cl-second pair)))
+   (let* ((name (cl-first pair))
+          (dir (cl-second pair))
+          (default-directory dir))
      (with-current-buffer (shell name)
-       (setq emacspeak-wizards--project-shell-directory default-directory))))
+       (setq emacspeak-wizards--project-shell-directory dir))))
      (emacspeak-wizards--build-shells-table))
 
 ;;;###autoload
