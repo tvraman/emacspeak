@@ -583,15 +583,36 @@ Leave point at front of decoded attachment."
   )
 
 ;;}}}
-
 ;;{{{ configure and customize vm
 
 ;;; This is how I customize VM
+;;; First, Configure VM into using shr instead of w3m:
+
+(defun vm-mime-display-internal-shr-text/html (start end _layout)
+  "Use shr to inline HTML mails in the VM presentation buffer."
+    (shr-render-region start (1- end))
+    (put-text-property start end 'text-rendered-by-shr t))
+     
+;;; has to be done indirectly
+;;; Fake emacs-w3m, though we actually use shr
+     (defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
+
+(defun vm-chromium ()
+       "Run Chromium on current link."
+       (interactive)
+       (let ((url (browse-url-url-at-point)))
+         (unless url (error "No link here."))
+         (dtk-stop)
+         (browse-url-chrome url)
+         (message "Opening url with Chrome")))
+
+     
 
 (defcustom emacspeak-vm-use-raman-settings t
   "Should VM  use the customizations used by the author of Emacspeak."
   :type 'boolean
   :group 'emacspeak-vm)
+
 (defvar emacspeak-vm-demote-html-attachments
   '(
     favorite-internal  "text/plain" "text/enriched"
@@ -609,25 +630,18 @@ Leave point at front of decoded attachment."
 Emacspeak."
   (cl-declare (special emacspeak-vm-demote-html-attachments
                        emacspeak-vm-promote-html-attachments
-                       vm-mime-charset-converter-alist
-                       vm-mime-default-face-charsets
-                       vm-frame-per-folder
-                       vm-frame-per-composition
-                       vm-frame-per-edit
-                       vm-frame-per-help
-                       vm-frame-per-summary
-                       vm-index-file-suffix
-                       vm-primary-inbox
-                       vm-folder-directory
-                       vm-forwarding-subject-format
-                       vm-startup-with-summary
-                       vm-inhibit-startup-message
-                       vm-visible-headers
-                       vm-delete-after-saving
-                       vm-url-browser
-                       vm-confirm-new-folders
-                       vm-mime-alternative-select-method
-                       vm-move-after-deleting))
+                       vm-mime-charset-converter-alist vm-mime-default-face-charsets
+                       vm-frame-per-folder vm-frame-per-composition
+                       vm-frame-per-edit vm-frame-per-help
+                       vm-frame-per-summary vm-index-file-suffix
+                       vm-primary-inbox vm-folder-directory
+                       vm-forwarding-subject-format vm-startup-with-summary
+                       vm-inhibit-startup-message vm-visible-headers
+                       vm-delete-after-saving vm-url-browser
+                       vm-confirm-new-folders vm-mime-alternative-select-method
+                       vm-mime-text/html-handler vm-move-after-deleting))
+  (setq vm-mime-text/html-handler'emacs-w3m  )
+  (define-key vm-mode-map "C" 'vm-chromium)
   (setq vm-mime-alternative-select-method
         emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist
