@@ -30,20 +30,31 @@
   "Libraries that need extra setup.")
 
 ;;}}}
-;;{{{ Fixups:
+;;{{{ Forward Function Declarations:
 
-(defadvice system-users (around fix pre act comp)
-  "Just return user real name."
-  (list user-real-login-name))
+(declare-function emacspeak-wizards-color-diff-at-point "emacspeak-wizards" (&optional set))
+(declare-function completion-initialize "completion" nil)
+(declare-function soundscape-toggle "soundscape" nil)
+(declare-function dbus-list-known-names "dbus" (bus))
+(declare-function nm-enable "nm" nil)
+(declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-watch-screen-lock "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-udisks-enable "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-upower-enable "emacspeak-dbus" nil)
+(declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
+(declare-function auto-correct-mode "auto-correct" (&optional arg))
+(declare-function company-mode "company" (&optional arg))
+(declare-function smartparens-mode "smartparens" (&optional arg))
+(declare-function  company-prescient-mode "emacs-startup" t)
+(declare-function prescient-persist-mode "prescient" (&optional arg))
+(declare-function yas-minor-mode "yasnippet" (&optional arg))
 
-;;; for twittering-mode:
-(defalias 'epa--decode-coding-string 'decode-coding-string)
 ;;}}}
 ;;{{{ Macro: tvr-fastload:
 
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
-  `(let ((emacspeak-use-auditory-icons nil)
+  `(let (; (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil)
          (inhibit-message t)
          (file-name-handler-alist nil)
@@ -52,6 +63,16 @@
          (gc-cons-threshold 128000000))
      ,@body))
 
+;;}}}
+;;{{{ Fixups:
+
+(defadvice system-users (around fix pre act comp)
+  "Just return user real name."
+  (ignore ad--addoit-function)
+  (setq ad-return-value (list user-real-login-name)))
+
+;;; for twittering-mode:
+(defalias 'epa--decode-coding-string 'decode-coding-string)
 ;;}}}
 ;;{{{ helper functions:
 
@@ -263,26 +284,6 @@ Emacs customization and library configuration happens via the after-init-hook. "
 
 ;;}}}
 (tvr-emacs)
-;;{{{ Forward Function Declarations:
-
-(declare-function emacspeak-wizards-color-diff-at-point "emacspeak-wizards" (&optional set))
-(declare-function completion-initialize "completion" nil)
-(declare-function soundscape-toggle "soundscape" nil)
-(declare-function dbus-list-known-names "dbus" (bus))
-(declare-function nm-enable "nm" nil)
-(declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
-(declare-function emacspeak-dbus-watch-screen-lock "emacspeak-dbus" nil)
-(declare-function emacspeak-dbus-udisks-enable "emacspeak-dbus" nil)
-(declare-function emacspeak-dbus-upower-enable "emacspeak-dbus" nil)
-(declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
-(declare-function auto-correct-mode "auto-correct" (&optional arg))
-(declare-function company-mode "company" (&optional arg))
-(declare-function smartparens-mode "smartparens" (&optional arg))
-(declare-function  company-prescient-mode "emacs-startup" t)
-(declare-function prescient-persist-mode "prescient" (&optional arg))
-(declare-function yas-minor-mode "yasnippet" (&optional arg))
-
-;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 
