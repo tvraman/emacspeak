@@ -216,8 +216,7 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-udisks-enable)
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
-     (make-thread  #'(lambda () (run-with-idle-timer 0.5 nil
-                                                     (emacspeak-wizards-project-shells-initialize) t)))
+     (make-thread  #'emacspeak-wizards-project-shells-initialize)
      (tvr-time-it "after-init" after-start)
      (make-thread #' (lambda nil (tvr-fastload (desktop-read))))
      (start-process
