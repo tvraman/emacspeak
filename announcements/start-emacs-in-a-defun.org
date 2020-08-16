@@ -1,0 +1,82 @@
+* Summary 
+
+This is a follow-up to my earlier article titled [[https://emacspeak.blogspot.com/2017/08/emacs-start-up-speeding-it-up.html][Speeding Up Emacs
+Startup]] from August 2017. Three years later, I once again spent time
+cleaning up and refactoring the results as described below. The
+end-result is to once again speed up Emacs startup, while  making the
+setup cleaner and easier to maintain than before.
+
+* Start Emacs In A Defun 
+
+This [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#start-of-content][startup file]] is set up with the following goals:
+
+1. Speed up emacs startup --- setting environment variable
+  [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L247-L311][~TVR_TIME_EMS~]] before starting emacs produces detailed timing
+   information in the *Messages* buffer.
+2. Customize packages via Custom  as far as possible.
+3. Keep the  [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311][custom settings]]  in a separate file, with a later goal of
+  turning that into a  theme.
+4. After converting to a theme, Move machine-specific custom settings
+   into a separate host-specific custom file, thus making the earlier
+   theme host-independent.  Place host-specific non-customizable bits
+   in default.el (not done yet).
+5. Define package-specific settings not available via Custom in a package-specific <package>-prepare.el file.
+6. Install everything from elpa/melpa as far as possible. (vm is an
+   exception at present) --- I have nearly 200 packages activated.
+7. The startup file is a collection of functions with entry-point [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311][tvr-emacs]].
+8. The only top-level call is [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311][(tvr-emacs)]].
+9. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
+   - after-init-hook to do the bulk of the work.
+   - emacs-startup-hook to set up  initial window configuration.
+10. Function [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311][tvr-after-init-hook]] on after-init-hook does the following:
+    - Load package-specific prepare.el files.
+    - Load the custom settings file.
+    - Starts up things like the emacs server.
+    - Some of these tasks are done on a separate thread using make-thread.
+11. The work of loading files etc., is done within macro [[https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311][tvr-fastload]]
+which sets up an efficient environment for loading files.
+
+* Conclusion 
+
+With this setup, ~M-x emacs-init-time~ shows  init-time as
+: 1.288381225 seconds
+on my laptop with an SSD.  Setting ~package-quickstart~ to ~T~ is a
+major win when running with a spinning-disk instead of an SSD. But the
+biggest win is that I no longer have to go hunting to find out where
+something in emacs got configured a given way --- AKA, there are a
+limited number of places I need to look.
+
+* Wish-List 
+
+  1. Remembering  the name of a custom-setting  you set up a while ago
+     is still  a challenge, You cant find it unless you remember its
+     approximate name.
+  2. Command ~emacspeak-wizards-customize-saved~ bound to ~C-h C-s~
+    helps some in this regard but is a stop-gap solution.
+  3. Custom themes are  not  easy to use.
+  4. I keep my ~custom-file~ checked into a local Git repository and
+     is the only part of my setup that I cannot publish --- since that
+     file tends to hoover up information that you shouldn't publish,
+     e.g., aPI keys and other private/personal bits.
+  5. Perhaps Emacs needs at least two custom-files, a public and a
+     private custom-file.
+
+
+
+
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Start Emacs In A Defun
+#+date: <2020-08-16 Sun>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3.7)

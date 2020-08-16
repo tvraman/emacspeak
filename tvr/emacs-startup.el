@@ -198,7 +198,7 @@ Use Custom to customize where possible. "
      ("M-C-j" imenu)
      ("M-C-c" calendar)
      ("C-c <tab>"  hs-toggle-hiding)
-     ("M-/" 'hippie-expand)
+     ("M-/" hippie-expand)
      ("C-RET" hippie-expand))
    do
    (global-set-key (kbd (cl-first key)) (cl-second key)))
