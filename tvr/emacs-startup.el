@@ -46,9 +46,7 @@
 
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
-  `(let (; (emacspeak-use-auditory-icons nil)
-         (emacspeak-speak-messages nil)
-         (inhibit-message t)
+  `(let ((emacspeak-speak-messages nil)
          (file-name-handler-alist nil)
          (load-source-file-function nil)
          (inhibit-message t)
@@ -65,6 +63,7 @@
 
 ;;; for twittering-mode:
 (defalias 'epa--decode-coding-string 'decode-coding-string)
+
 ;;}}}
 ;;{{{ helper functions:
 
@@ -106,7 +105,7 @@
   (set-foreground-color "black"))
 
 (defun tvr-set-color-for-today ()
-  "Return color pair for today."
+  "Set color pair for today."
   (interactive)
   (cl-declare (special tvr-weekday-to-color-alist))
   (let ((pair
@@ -129,11 +128,15 @@
    (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
-;;{{{ Hook Functions: Custom, after-init-hook
+;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook."
+  (cl-declare (special emacspeak-sounds-directory))
   (delete-other-windows)
   (setq gc-cons-threshold 64000000)
+  (start-process
+   "play" nil "aplay"
+   (expand-file-name "highbells.au" emacspeak-sounds-directory))
   (message
    "<Emacs started for %s in %.2f  seconds with %s gcs (%.2f seconds)>"
    user-login-name (read (emacs-init-time)) gcs-done gc-elapsed))
@@ -141,8 +144,8 @@
 (defun tvr-customize ()
   "Customize my emacs.
 Use Custom to customize where possible. "
-  (cl-declare (special custom-file
-                       outline-mode-prefix-map outline-minor-mode-prefix))
+  (cl-declare (special
+               custom-file outline-mode-prefix-map outline-minor-mode-prefix))
   (setq outline-minor-mode-prefix (kbd "C-o"))
 ;;; basic look and feel
 
@@ -168,11 +171,12 @@ Use Custom to customize where possible. "
      ("M-C-j" imenu)
      ("M-C-c" calendar)
      ("C-c <tab>"  hs-toggle-hiding)
+     ("M-/" 'hippie-expand)
      ("C-RET" hippie-expand))
    do
    (global-set-key (kbd (cl-first key)) (cl-second key)))
 
-  (cl-loop                              ;;; shell wizard
+  (cl-loop ;;; shell wizard
    for i from 0 to 9 do
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 
@@ -183,7 +187,7 @@ Use Custom to customize where possible. "
   (define-key ctl-x-map "\C-p" 'backward-page)
 
 ;;; Shell mode bindings:
-  (with-eval-after-load "shell"  (tvr-shell-bind-keys))
+  (with-eval-after-load 'shell  (tvr-shell-bind-keys))
 
 ;;; Outline Setup:
 
@@ -195,14 +199,11 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 
-  (global-set-key (kbd "C-RET") 'hippie-expand)
-  (global-set-key (kbd "M-/") 'hippie-expand)
   (tvr-set-color-for-today)
-  (when (file-exists-p custom-file)
-    (dynamic-completion-mode 1)
-    (jka-compr-install)
-    (completion-initialize)
-    (tvr-fastload (load custom-file))))
+  (dynamic-completion-mode 1)
+  (completion-initialize)
+  (jka-compr-install)
+  (when (file-exists-p custom-file) (tvr-fastload (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
@@ -211,7 +212,7 @@ Use Custom to customize where possible. "
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
-  ;;; load  library-specific settings, customize, then start things.
+;;; load  library-specific settings, customize, then start things.
   (cl-declare (special emacspeak-sounds-directory tvr-libs))
   (tvr-fastload
    (let ((after-start (current-time))) ;;; to time after-init at the end
@@ -222,8 +223,8 @@ Use Custom to customize where possible. "
      (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
      (tvr-customize) ;;; customizations
      (soundscape-toggle)
-     (require 'emacspeak-dbus)
      (when (dbus-list-known-names :session)
+       (require 'emacspeak-dbus)
        (nm-enable)
        (emacspeak-dbus-sleep-enable)
        (emacspeak-dbus-udisks-enable)
@@ -231,10 +232,7 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-watch-screen-lock))
      (make-thread  #'emacspeak-wizards-project-shells-initialize)
      (tvr-time-it "after-init" after-start)
-     (make-thread #' (lambda nil (tvr-fastload (desktop-read))))
-     (start-process
-      "play" nil "aplay"
-      (expand-file-name "highbells.au" emacspeak-sounds-directory)))))
+     (make-thread #' (lambda nil (tvr-fastload (desktop-read)))))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
