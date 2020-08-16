@@ -13,20 +13,18 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 
-
 (defvar emacspeak-speak-messages)
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
 
 (when (file-exists-p emacs-personal-library)
-  (cl-pushnew emacs-personal-library load-path))
+  (push emacs-personal-library load-path))
 
 (defvar tvr-libs
   '(
-    "vm-prepare" "gnus-gmail-prepare"
-    "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare"
-    "jabber-prepare"  )
+    "vm-prepare" "gnus-gmail-prepare" "jabber-prepare"
+    "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare")
   "Libraries that need extra setup.")
 
 ;;}}}
@@ -42,12 +40,6 @@
 (declare-function emacspeak-dbus-udisks-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-dbus-upower-enable "emacspeak-dbus" nil)
 (declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
-(declare-function auto-correct-mode "auto-correct" (&optional arg))
-(declare-function company-mode "company" (&optional arg))
-(declare-function smartparens-mode "smartparens" (&optional arg))
-(declare-function  company-prescient-mode "emacs-startup" t)
-(declare-function prescient-persist-mode "prescient" (&optional arg))
-(declare-function yas-minor-mode "yasnippet" (&optional arg))
 
 ;;}}}
 ;;{{{ Macro: tvr-fastload:
