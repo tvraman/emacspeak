@@ -148,13 +148,9 @@ Use Custom to customize where possible. "
   (setq outline-minor-mode-prefix (kbd "C-o"))
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
-
-  (put 'list-timers 'disabled nil)
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-  (put 'narrow-to-region 'disabled nil)
-  (put 'eval-expression 'disabled nil)
-  (put 'timer-list 'disabled nil)
+  (mapc
+   #'(lambda (f) (put f 'disabled nil))
+   '(list-timers upcase-region downcase-region narrow-to-region eval-expression ))
   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
   (prefer-coding-system 'utf-8-emacs)
   (cl-loop ;;; global key-bindings
