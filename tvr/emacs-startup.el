@@ -8,6 +8,35 @@
 ;;; August 2020: Limit code at top-level.
 
 ;;}}}
+;;{{{ Introduction:
+
+;;; Commentary:
+;;; This startup file is set up with the following goals:
+
+;;; 1. Customize packages via a custom file as far as possible.
+;;; 2. Keep the  custom settings  in a separate file, with a later goal of
+;;;   turning that into a theme.
+;;; 3. After converting to a theme, Move machine-specific custom settings
+;;;    into a separate host-specific custom file.
+;;; 4. Define package-specific settings not available via Custom in a
+;;;    package-specific <package>-prepare.el file.
+;;; 5. Install everything from elpa/melpa as far as possible. (vm is an
+;;;    exception at present)
+;;; 6. The startup file is a collection of functions with entry-point tvr-emacs.
+;;; 7. The only top-level call is (tvr-emacs)
+;;; 8. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
+;;;    - after-init-hook to do the bulk of the work.
+;;;    - emacs-startup-hook to set up  initial window configuration.
+;;; 9. Function tvr-after-init-hook on after-init-hook does the following:
+;;;    - Load package-specific prepare.el files.
+;;;    - Load the custom settings file.
+;;;    - Start up things like the emacs server.
+;;;    - Some of these tasks are done on a separate thread using
+;;; make-thread.
+  ;;; - The work of loading files etc., is done within macro tvr-fastload
+  ;;; which sets up an efficient environment for loading files.
+
+;;}}}
 ;;{{{  libs, vars:
 
 (require 'cl-lib)
