@@ -54,7 +54,7 @@
 ;;}}}
 ;;{{{ Forward Decls:
 
-(defsubst ems--ems--vm-from-of (message) (aref (aref message 3) 8))
+(defsubst ems--vm-from-of (message) (aref (aref message 3) 8))
 (defsubst ems--ems--vm-subject-of (message) (aref (aref message 3) 11))
 (defsubst ems--vm-to-of (message) (aref (aref message 3) 13))
 (declare-function  vm-su-full-name "vm-summary" (msg))
