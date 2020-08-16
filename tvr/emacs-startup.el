@@ -20,7 +20,7 @@
 ;;;   turning that into a  theme.
 ;;; 4. After converting to a theme, Move machine-specific custom settings
 ;;;    into a separate host-specific custom file, thus making the
-;;; earlier theme host-independent.
+;;; earlier theme host-independent.  Place host-specific non-customizable bits in default.el.
 ;;; 4. Define package-specific settings not available via Custom in a
 ;;;    package-specific <package>-prepare.el file.
 ;;; 5. Install everything from elpa/melpa as far as possible. (vm is an
