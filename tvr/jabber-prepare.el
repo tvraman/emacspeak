@@ -18,7 +18,7 @@
       jabber-network-server "talk.google.com"
       jabber-account-list
       `((
-         ,(concat (user-login-name) "@" (or mail-host-address (system-name)))
+         "raman@google.com" ;;; hard-wired for now 
          (:network-server . "talk.google.com")
          (:port . 5223)
          (:connection-type . ssl))))
