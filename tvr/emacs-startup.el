@@ -181,7 +181,7 @@ Use Custom to customize where possible. "
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
    #'(lambda (f) (put f 'disabled nil))
-   '(list-timers upcase-region downcase-region narrow-to-region eval-expression ))
+   '(upcase-region downcase-region narrow-to-region eval-expression ))
   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
   (prefer-coding-system 'utf-8-emacs)
   (cl-loop ;;; global key-bindings
