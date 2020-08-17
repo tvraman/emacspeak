@@ -61,7 +61,7 @@
 ;;}}}
 ;;{{{ Forward Function Declarations:
 
-(declare-function emacspeak-wizards-color-diff-at-point "emacspeak-wizards" (&optional set))
+
 (declare-function completion-initialize "completion" nil)
 (declare-function soundscape-toggle "soundscape" nil)
 (declare-function nm-enable "nm" nil)
