@@ -580,8 +580,7 @@ Returns a string with appropriate personality."
          ((and (eq major-mode 'eww-mode)
                emacspeak-webutils-url-at-point
                (funcall emacspeak-webutils-url-at-point)
-               emacspeak-we-url-executor
-               (boundp 'emacspeak-we-url-executor)
+               (bound-and-true-p emacspeak-we-url-executor)
                (functionp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)
           (call-interactively 'emacspeak-we-url-expand-and-execute))
