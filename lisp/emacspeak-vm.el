@@ -407,6 +407,7 @@ Then speak the screenful. "
   (cl-declaim  (special
                 vm-mode-map
                 global-map emacspeak-prefix emacspeak-keymap))
+  (define-key vm-mode-map "C" 'vm-chromium)
   (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
   (define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
   (define-key vm-mode-map  "j" 'emacspeak-hide-or-expose-all-blocks)
@@ -641,7 +642,6 @@ Emacspeak."
                        vm-confirm-new-folders vm-mime-alternative-select-method
                        vm-mime-text/html-handler vm-move-after-deleting))
   (setq vm-mime-text/html-handler'emacs-w3m  )
-  (define-key vm-mode-map "C" 'vm-chromium)
   (setq vm-mime-alternative-select-method
         emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist

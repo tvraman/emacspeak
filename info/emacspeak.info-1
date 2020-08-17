@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 9, 2020.
+last updated on August 16, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1267 commands and 947 options.
+   This chapter documents a total of 1267 commands and 949 options.
 
 * Menu:
 
@@ -4620,6 +4620,16 @@ system.
      Personality used for dired-perm-write This personality uses
      voice-lighten-extra whose effect can be changed globally by
      customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-dired-set-id
+     Personality used for dired-set-id This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-dired-special
+     Personality used for dired-special This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option voice-dired-symlink
      Personality used for dired-symlink This personality uses

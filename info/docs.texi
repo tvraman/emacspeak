@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1267 commands and 947 options.
+This chapter documents a total of 1267 commands and 949 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -2061,6 +2061,18 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @defvar {User Option} voice-dired-perm-write
 Personality used for dired-perm-write
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-dired-set-id
+Personality used for dired-set-id
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-dired-special
+Personality used for dired-special
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
