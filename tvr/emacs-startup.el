@@ -182,26 +182,25 @@ Use Custom to customize where possible. "
   (mapc
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
-                  downcase-region
-                  narrow-to-region eval-expression ))
+                  downcase-region  narrow-to-region eval-expression ))
   (setq-default custom-file (expand-file-name "~/.customize-emacs"))
   (prefer-coding-system 'utf-8-emacs)
   (cl-loop ;;; global key-bindings
    for key in
    '(
-     ( "M-#" calc-dispatch)
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
-     ("M--" undo-only)
      ("<f11>" shell)
      ("<f12>" vm)
-     ("M-r" replace-string)
-     ("M-e" emacspeak-wizards-end-of-word)
-     ("M-C-j" imenu)
-     ("M-C-c" calendar)
+     ("C-RET" hippie-expand)
      ("C-c <tab>"  hs-toggle-hiding)
+     ("M--" undo-only)
      ("M-/" hippie-expand)
-     ("C-RET" hippie-expand))
+     ("M-C-c" calendar)
+     ("M-C-j" imenu)
+     ("M-e" emacspeak-wizards-end-of-word)
+     ("M-r" replace-string)
+     ( "M-#" calc-dispatch))
    do
    (global-set-key (kbd (cl-first key)) (cl-second key)))
 
