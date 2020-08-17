@@ -183,56 +183,7 @@ Use Custom to customize where possible. "
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region
-                  narrow-to-region eval-expression ))
-  (setq-default custom-file (expand-file-name "~/.customize-emacs"))
-  (prefer-coding-system 'utf-8-emacs)
-  (cl-loop ;;; global key-bindings
-   for key in
-   '(
-     ( "M-#" calc-dispatch)
-     ("<f3>" bury-buffer)
-     ("<f4>" emacspeak-kill-buffer-quietly)
-     ("M--" undo-only)
-     ("<f11>" shell)
-     ("<f12>" vm)
-     ("M-r" replace-string)
-     ("M-e" emacspeak-wizards-end-of-word)
-     ("M-C-j" imenu)
-     ("M-C-c" calendar)
-     ("C-c <tab>"  hs-toggle-hiding)
-     ("M-/" hippie-expand)
-     ("C-RET" hippie-expand))
-   do
-   (global-set-key (kbd (cl-first key)) (cl-second key)))
-
-  (cl-loop ;;; shell wizard
-   for i from 0 to 9 do
-   (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-
-;;; Smarten up ctl-x-map
-  (define-key ctl-x-map "c" 'compile)
-  (define-key ctl-x-map "\C-d" 'dired-jump)
-  (define-key ctl-x-map "\C-n" 'forward-page)
-  (define-key ctl-x-map "\C-p" 'backward-page)
-
-;;; Shell mode bindings:
-  (with-eval-after-load 'shell  (tvr-shell-bind-keys))
-
-;;; Outline Setup:
-
-  (with-eval-after-load 'outline
-    (progn ;;;restore what we are about to steal
-      (define-key outline-mode-prefix-map "o" 'open-line)
-      (global-set-key "\C-o" outline-mode-prefix-map)))
-  (server-start)
-  (with-eval-after-load 'magit (require 'forge))
-  (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
-
-  (tvr-set-color-for-today)
-  (dynamic-completion-mode 1)
-  (completion-initialize)
-  (jka-compr-install)
-  (when (file-exists-p custom-file) (tvr-fastload (load custom-file))))
+                  narrow-to-region eval-expression )) (setq-default custom-file (expand-file-name "~/.customize-emacs")) (prefer-coding-system 'utf-8-emacs) (cl-loop ;;; global key-bindings for key in '(( "M-#" calc-dispatch) ("<f3>" bury-buffer) ("<f4>" emacspeak-kill-buffer-quietly) ("M--" undo-only) ("<f11>" shell) ("<f12>" vm) ("M-r" replace-string) ("M-e" emacspeak-wizards-end-of-word) ("M-C-j" imenu) ("M-C-c" calendar) ("C-c <tab>"  hs-toggle-hiding) ("M-/" hippie-expand) ("C-RET" hippie-expand)) do (global-set-key (kbd (cl-first key)) (cl-second key))) (cl-loop ;;; shell wizard for i from 0 to 9 do (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key)) ;;; Smarten up ctl-x-map (define-key ctl-x-map "c" 'compile) (define-key ctl-x-map "\C-d" 'dired-jump) (define-key ctl-x-map "\C-n" 'forward-page) (define-key ctl-x-map "\C-p" 'backward-page) ;;; Shell mode bindings: (with-eval-after-load 'shell  (tvr-shell-bind-keys)) ;;; Outline Setup: (with-eval-after-load 'outline (progn ;;;restore what we are about to steal (define-key outline-mode-prefix-map "o" 'open-line) (global-set-key "\C-o" outline-mode-prefix-map))) (server-start) (with-eval-after-load 'magit (require 'forge)) (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result) (tvr-set-color-for-today) (dynamic-completion-mode 1) (completion-initialize) (jka-compr-install) (when (file-exists-p custom-file) (tvr-fastload (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
