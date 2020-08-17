@@ -37,7 +37,7 @@
 ;;;    - Some of these tasks are done on a separate thread using make-thread.
 ;;;   - The work of loading files etc., is done within macro tvr-fastload
 ;;;   which sets up an efficient environment for loading files.
- 
+
 ;;}}}
 ;;{{{  libs, vars:
 
@@ -61,7 +61,6 @@
 ;;}}}
 ;;{{{ Forward Function Declarations:
 
-
 (declare-function completion-initialize "completion" nil)
 (declare-function soundscape-toggle "soundscape" nil)
 (declare-function nm-enable "nm" nil)
@@ -76,6 +75,7 @@
 
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
+  (declare (indent 1) (debug t))
   `(let ((emacspeak-speak-messages nil)
          (file-name-handler-alist nil)
          (load-source-file-function nil)
