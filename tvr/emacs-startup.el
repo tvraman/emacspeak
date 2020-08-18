@@ -55,7 +55,7 @@
 (defvar tvr-libs
   '(
     "vm-prepare" "gnus-gmail-prepare" "jabber-prepare"
-    "helm-prepare" "use-emms"
+    "helm-prepare" ; "use-emms"
     "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare")
   "Libraries that need extra setup.")
 
