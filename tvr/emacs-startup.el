@@ -220,13 +220,11 @@ Use Custom to customize where possible. "
 ;;; Outline Setup:
 
   (with-eval-after-load 'outline
-    (progn ;;;restore what we are about to steal
-      (define-key outline-mode-prefix-map "o" 'open-line)
-      (global-set-key "\C-o" outline-mode-prefix-map)))
+      (define-key outline-mode-prefix-map "o" 'open-line) ;;;restore 
+      (global-set-key "\C-o" outline-mode-prefix-map))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
-
   (tvr-set-color-for-today)
   (dynamic-completion-mode 1)
   (completion-initialize)
