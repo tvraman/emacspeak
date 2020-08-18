@@ -408,15 +408,12 @@ so it can be passed to subprocesses."
 Turns on audio indentation and sets
 punctuation mode to all, activates the dictionary and turns on split
 caps."
-  (cl-declare (special dtk-split-caps
-                       emacspeak-audio-indentation))
+  (cl-declare (special dtk-split-caps emacspeak-audio-indentation))
   (ems-with-messages-silenced
    (dtk-set-punctuations 'all)
-   (or dtk-split-caps
-       (dtk-toggle-split-caps))
+   (or dtk-split-caps (dtk-toggle-split-caps))
    (emacspeak-pronounce-refresh-pronunciations)
-   (or emacspeak-audio-indentation
-       (emacspeak-toggle-audio-indentation))))
+   (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
