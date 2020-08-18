@@ -1,9 +1,9 @@
 ;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
 (push (expand-file-name "vm/lisp/" emacs-personal-library) load-path)
 (load-library "vm-autoloads")
+(global-set-key "\M-\C-v" 'vm-visit-folder)
 (eval-after-load "vm"
   `(progn
-     (global-set-key "\M-\C-v" 'vm-visit-folder)
      (global-set-key "\C-xm" 'vm-mail)
      (define-key vm-mode-map "o" 'mspools-show)
      (when (require 'bbdb) (bbdb-insinuate-vm))
