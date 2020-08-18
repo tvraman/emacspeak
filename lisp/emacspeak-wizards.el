@@ -4083,7 +4083,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 updating custom settings for a specific package or group of packages."
   (interactive "sFilter Pattrern: ")
   (let ((found nil))
-    (mapatoms (lambda (symbol)
+    (mapatoms #'(lambda (symbol)
                 (and (string-match pattern (symbol-name symbol))
                      (or (get symbol 'saved-value)
                          (get symbol 'saved-variable-comment))
