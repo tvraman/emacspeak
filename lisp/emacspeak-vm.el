@@ -371,12 +371,17 @@ Then speak the screenful. "
   (when  (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
-(defadvice vm-mail (after emacspeak pre act)
-  "Provide aural feedback."
-  (when (ems-interactive-p)
-    (let ((dtk-stop-immediately nil))
-      (message "Composing a message")
-      (emacspeak-speak-line))))
+(cl-loop
+ for f in
+ '(vm-mail vm-mail-from-folder)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act)
+     "Provide auditory  feedback."
+     (when (ems-interactive-p)
+       (let ((dtk-stop-immediately nil))
+         (message "Composing a message")
+         (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{ quitting
