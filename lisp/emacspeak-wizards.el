@@ -750,7 +750,7 @@ emacspeak-emergency-tts-server."
   (funcall-interactively #'dtk-select-server emacspeak-emergency-tts-server))
 
 (defcustom emacspeak-ssh-tts-server
-  "ssh-dtk-exp"
+  "ssh-outloud"
   "SSH TTS server to use by default."
   :type 'string
   :group 'emacspeak)
