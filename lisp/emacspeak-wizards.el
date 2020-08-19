@@ -4084,15 +4084,20 @@ updating custom settings for a specific package or group of packages."
   (interactive "sFilter Pattrern: ")
   (let ((found nil))
     (mapatoms #'(lambda (symbol)
-                (and (string-match pattern (symbol-name symbol))
-                     (or (get symbol 'saved-value)
-                         (get symbol 'saved-variable-comment))
-                     (boundp symbol)
-                     (push (list symbol 'custom-variable) found))))
-    (when (not found) (user-error "No saved user options matching %s" pattern))
-    (custom-buffer-create
-     (custom-sort-items found t nil)
-     (format "*Customize %d Saved options Matching %s*" (length found) pattern))
+                  (and (string-match pattern (symbol-name symbol))
+                       (or (get symbol 'saved-value)
+                           (get symbol 'saved-variable-comment))
+                       (boundp symbol)
+                       (push (list symbol 'custom-variable) found))))
+    (when (not found) (user-error "No saved user options matching %s"
+                                  pattern))
+    (ems-with-messages-silenced
+        (emacspeak-auditory-icon 'progress)
+      (custom-buffer-create
+       (custom-sort-items found t nil)
+       (format "*Customize %d Saved options Matching %s*" (length
+                                                           found) pattern)))
+    (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
 ;;}}}
