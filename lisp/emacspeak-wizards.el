@@ -730,7 +730,7 @@ the emacspeak table clipboard instead."
 ;;{{{ emergency tts restart
 
 (defcustom emacspeak-emergency-tts-server
-  "dtk-exp"
+  "outloud"
   "TTS server to use in an emergency.
 Set this to a TTS server that is known to work at all times.
 If you are debugging another speech server and that server
