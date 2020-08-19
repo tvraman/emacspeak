@@ -1425,21 +1425,6 @@ template."
  "Search Linux ArchWiki")
 
 ;;}}}
-;;{{{Air Quality Index:
-
-(emacspeak-url-template-define
- "AQI: Air Quality Index"
- "https://www.airnow.gov/index.cfm?action=airnow.local_city&zipcode=%s&submit=Go"
- (list
-  #'(lambda nil
-      (read-from-minibuffer "State/City:"
-                            (bound-and-true-p  gweb-my-zip))))
- nil
- "Return Air Quality for specified zip-code"
- #'(lambda (url)
-     (emacspeak-we-extract-table-by-match "observed at" url 'speak)))
-
-;;}}}
 ;;{{{Reddit Tools:
 
 (declare-function shr-url-at-point "shr" (image-url))
