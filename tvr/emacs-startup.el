@@ -246,9 +246,9 @@ Use Custom to customize where possible. "
      (mapc
       (if (getenv "TVR_TIME_EMS") #'load-library-if-available #'load)
       tvr-libs) ;;; loaded  settings   not  customizable via custom.
+     (tvr-customize) ;;; customizations
      (with-eval-after-load "dired" (require 'dired-x))
      (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
-     (tvr-customize) ;;; customizations
      (soundscape-toggle)
      (when (dbus-list-known-names :session)
        (require 'emacspeak-dbus)

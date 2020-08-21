@@ -3,9 +3,6 @@
 
 (eval-after-load "org"
   `(progn
-;;;  List creation commands:
-
-     
      (define-key global-map "\C-cl" 'org-store-link)
      (define-key global-map "\C-cb" 'org-switchb)
      (define-key global-map "\C-cc" 'org-capture)
