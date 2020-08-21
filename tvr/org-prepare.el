@@ -31,8 +31,6 @@
      (define-key global-map "\C-cl" 'org-store-link)
      (define-key global-map "\C-cb" 'org-switchb)
      (define-key global-map "\C-cc" 'org-capture)
-     (setq org-directory "~/.org/")
-     (setq org-default-notes-file (expand-file-name "notes.org"  org-directory))
      (require 'emacspeak-muggles-autoloads)
      (define-key org-mode-map (kbd "C-c C-SPC") 'emacspeak-muggles-org-nav/body)
      (define-key org-mode-map (kbd "C-c t") 'emacspeak-muggles-org-table/body)
