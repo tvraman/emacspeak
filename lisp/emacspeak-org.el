@@ -728,7 +728,32 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
         (message state)))))
 
 ;;}}}
+;;{{{TVR: Conveniences
 
+(defun tvr-org-itemize ()
+  "Start a numbered  list."
+  (interactive)
+  (forward-line 0)
+  (insert "  -  ")
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'item))
+
+(defun tvr-org-enumerate ()
+  "Start a numbered  list."
+  (interactive)
+  (forward-line 0)
+  (insert "  1.  ")
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'item))
+
+;;; add these to outline-minor-mode-map
+     ;;; will work in both org and orgalist when loaded 
+
+
+(define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
+(define-key outline-minor-mode-map (kbd "C-o e") 'tvr-org-enumerate)
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 

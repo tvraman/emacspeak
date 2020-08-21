@@ -5,28 +5,6 @@
   `(progn
 ;;;  List creation commands:
 
-     (defun tvr-org-itemize ()
-       "Start a numbered  list."
-       (interactive)
-       (forward-line 0)
-       (insert "  -  ")
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'item))
-
-     (defun tvr-org-enumerate ()
-       "Start a numbered  list."
-       (interactive)
-       (forward-line 0)
-       (insert "  1.  ")
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'item))
-
-;;; add these to outline-minor-mode-map
-     ;;; will work in both org and orgalist when loaded 
-     
-     
-     (define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
-     (define-key outline-minor-mode-map (kbd "C-o e") 'tvr-org-enumerate)
      
      (define-key global-map "\C-cl" 'org-store-link)
      (define-key global-map "\C-cb" 'org-switchb)
