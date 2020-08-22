@@ -4,6 +4,7 @@
 (global-set-key "\M-\C-v" 'vm-visit-folder)
 (eval-after-load "vm"
   `(progn
+     (setq vm-mime-auto-displayed-content-type-exceptions nil)
      (global-set-key "\C-xm" 'vm-mail)
      (define-key vm-mode-map "o" 'mspools-show)
      (when (require 'bbdb) (bbdb-insinuate-vm))
