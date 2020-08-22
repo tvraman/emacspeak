@@ -1615,6 +1615,25 @@ Builds up alist of codes if needed the first time."
      "Open CIA World Leaders  For Specified Country.")
 
 ;;}}}
+;;{{{Air Quality From Wunderground
+
+(emacspeak-url-template-define
+ "AQI From Wunderground"
+ "https://www.wunderground.com/health/us/%s"
+ (list
+  #'(lambda ()
+      (read-from-minibuffer "state/city/zip: " "ca/san-jose/95123")))
+ nil
+ "Air quality from Wunderground"
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class
+      "small-6" url 'speak))
+ 'dont-encode)
+
+;;}}}
+
+
+
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
