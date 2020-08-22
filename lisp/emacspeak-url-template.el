@@ -486,7 +486,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google News Search"
- "https://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
+ "https://news.google.com/atom/search?hl=en-US&q=%s&btnG=Google+Search&gl=US&ceid=US:en "
  (list #'gweb-news-autocomplete)
  nil
  "Search Google news."
