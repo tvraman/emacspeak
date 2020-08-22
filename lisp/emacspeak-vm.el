@@ -632,8 +632,7 @@ Leave point at front of decoded attachment."
   "Setting that prefers  alternatives  html/xhtml over text/plain.")
 
 (defun emacspeak-vm-use-raman-settings ()
-  "Customization settings for VM used by the author of
-Emacspeak."
+  "Customization settings for VM used by the author of Emacspeak."
   (cl-declare (special emacspeak-vm-demote-html-attachments
                        emacspeak-vm-promote-html-attachments
                        vm-mime-charset-converter-alist vm-mime-default-face-charsets
@@ -647,35 +646,32 @@ Emacspeak."
                        vm-confirm-new-folders vm-mime-alternative-select-method
                        vm-mime-text/html-handler vm-move-after-deleting))
   (setq vm-mime-text/html-handler'emacs-w3m  )
-  (setq vm-mime-alternative-select-method
-        emacspeak-vm-demote-html-attachments)
+  (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist
         '(
-          ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
-          )
-        )
+          ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")))
   (setq vm-mime-default-face-charsets t)
   (setq vm-frame-per-folder nil
         vm-frame-per-composition nil
         vm-frame-per-edit nil
         vm-frame-per-help nil
         vm-frame-per-summary nil)
-
   (setq vm-index-file-suffix ".idx"
         vm-primary-inbox "~/mbox"
         vm-folder-directory "~/Mail/"
+        vm-crash-box "mbox.crash"
         vm-forwarding-subject-format "[%s]"
         vm-startup-with-summary nil
         vm-inhibit-startup-message t
         vm-visible-headers '("From:" "To:" "Subject:" "Date:" "Cc:")
         vm-delete-after-saving t
-        vm-url-browser 'browse-url
+        vm-url-browser 'eww-browse-url
         vm-confirm-new-folders t
         vm-move-after-deleting nil)
   t)
 
 (defun emacspeak-vm-toggle-html-mime-demotion ()
-  "Toggle state of HTML Mime Demotion."
+  "Toggle state of HTML Mime promotion/Demotion."
   (interactive)
   (cl-declare (special emacspeak-vm-demote-html-attachments
                        emacspeak-vm-promote-html-attachments
