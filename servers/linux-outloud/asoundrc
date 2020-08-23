@@ -13,7 +13,7 @@ pcm.media  {
         pcm "hw:0,0"
         period_size 1024
         buffer_size 8192
-        format S24_3LE 
+        format S32_LE 
 #        rate 96000 
     }
 }
@@ -21,7 +21,7 @@ pcm.media  {
 pcm.!default {
     type asym
     playback.pcm "plug:media"
-    capture.pcm "sysdefault:CARD=PCH"
+    capture.pcm "plug:dsnoop"
 }
 
 ctl.!default {
@@ -35,6 +35,7 @@ ctl.!default {
 # See /usr/share/doc/bs2b-ladspa/asound.conf.example for inspiration
 
 pcm.crossfeed {
+hint.description "Crossfeed output using  bs2b ladspa plugin."
     type plug
     slave.pcm {
         type ladspa
