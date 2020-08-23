@@ -328,7 +328,9 @@ Interactive prefix arg refreshes cache."
      "-f"amixer-alsactl-config-file
      "store")
     (emacspeak-auditory-icon 'task-done)
-    (message "Persisted amixer state.")))
+    (message "Persisted amixer state to %s."
+             amixer-alsactl-config-file)))
+
 ;;}}}
 (provide 'amixer)
 ;;{{{ end of file
