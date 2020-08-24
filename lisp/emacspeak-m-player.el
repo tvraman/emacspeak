@@ -167,7 +167,7 @@ This is set to nil when playing Internet  streams.")
      (let ((info (emacspeak-m-player-get-position)))
        (when info
          (concat
-          "At "
+          (propertize "At " 'pause 60)
           (ems--seconds-string-to-duration (cl-first info))
           (propertize " of " 'personality voice-smoothen-extra)
           (ems--seconds-string-to-duration (cl-third info))
