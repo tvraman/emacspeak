@@ -1359,7 +1359,7 @@ icon."
   "Flush any ongoing speech."
   (when (ems-interactive-p)
     (dtk-stop)
-    (emacspeak-auditory-icon 'button)))
+    (emacspeak-auditory-icon 'progress)))
 
 (defadvice comint-previous-prompt (after emacspeak pre act comp)
   "Provide spoken feedback."
