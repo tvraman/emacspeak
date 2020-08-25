@@ -20658,7 +20658,7 @@ Move point to the message body.
 @findex emacspeak-vm-toggle-html-mime-demotion
 
 @format
-Toggle state of HTML Mime Demotion.
+Toggle state of HTML Mime promotion/Demotion.
 @end format
 @end deffn
 
@@ -26329,6 +26329,9 @@ positive, and disable it if ARG is zero or negative.  If called
 from Lisp, also enable the mode if ARG is omitted or nil, and
 toggle it if ARG is ‘toggle’; disable the mode otherwise.
 
+The mode’s hook is called both when the mode is enabled and when
+it is disabled.
+
 (fn &optional ARG)
 @end format
 @end deffn
@@ -26678,9 +26681,9 @@ Each URL template carries out the following steps:
 @end itemize
 @enumerate 
 
-@item @b{AQI: Air Quality Index}
+@item @b{AQI From Wunderground}
 
-Return Air Quality for specified zip-code@item @b{Air Traffic Control}
+Air quality from Wunderground@item @b{Air Traffic Control}
 
 Find live streams for Air Traffic Control.@item @b{Airport conditions}
 

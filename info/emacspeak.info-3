@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 16, 2020.
+last updated on August 25, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ruby,  Next: emacspeak-rust-mode,  Prev: emacspeak-rst,  Up: Emacspeak Commands And Options
@@ -3685,7 +3685,7 @@ headers and cited messages
 
  -- Command: emacspeak-vm-toggle-html-mime-demotion
 
-     Toggle state of HTML Mime Demotion.
+     Toggle state of HTML Mime promotion/Demotion.
 
 12.217.1.8 emacspeak-vm-yank-header
 ...................................
@@ -8072,6 +8072,9 @@ be customized via custom see the documentation for defvoice.
      from Lisp, also enable the mode if ARG is omitted or nil, and
      toggle it if ARG is ‘toggle’; disable the mode otherwise.
 
+     The mode’s hook is called both when the mode is enabled and when
+     it is disabled.
+
      (fn &optional ARG)
 
 12.252.1.2 voice-lock-toggle
@@ -8317,9 +8320,9 @@ out the following steps:
    • Fetch the resulting URL using an appropriate fetcher.
    • Set up the resulting resource with appropriate customizations.
 
-  1. AQI: Air Quality Index
+  1. AQI From Wunderground
 
-     Return Air Quality for specified zip-code
+     Air quality from Wunderground
   2. Air Traffic Control
 
      Find live streams for Air Traffic Control.

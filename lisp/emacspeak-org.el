@@ -458,8 +458,16 @@
   (cl-declare (special org-mode-map
                        org-link-parameters))
   (cl-pushnew
- '("eww" :follow 'eww :store org-eww-store-link)
- org-link-parameters)
+   '("eww" :follow 'eww :store org-eww-store-link)
+   org-link-parameters)
+  ;;; add these to outline-minor-mode-map
+     ;;; will work in both org and orgalist when loaded 
+
+(define-key org-mode-map (kbd "C-o e") 'tvr-org-enumerate)
+(define-key org-mode-map (kbd "C-o i") 'tvr-org-itemize)
+(define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
+(define-key outline-minor-mode-map (kbd "C-o e") 'tvr-org-enumerate)
+
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)
     (emacspeak-setup-programming-mode)))
@@ -746,12 +754,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'item))
 
-;;; add these to outline-minor-mode-map
-     ;;; will work in both org and orgalist when loaded 
-
-
-(define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
-(define-key outline-minor-mode-map (kbd "C-o e") 'tvr-org-enumerate)
 
 ;;}}}
 (provide 'emacspeak-org)
