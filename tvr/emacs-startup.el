@@ -211,33 +211,29 @@ Use Custom to customize where possible. "
      ( "M-#" calc-dispatch))
    do
    (global-set-key (kbd (cl-first key)) (cl-second key)))
-
   (cl-loop ;;; shell wizard
    for i from 0 to 9 do
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
-
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "\C-d" 'dired-jump)
   (define-key ctl-x-map "\C-n" 'forward-page)
   (define-key ctl-x-map "\C-p" 'backward-page)
-
 ;;; Shell mode bindings:
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
-
 ;;; Outline Setup:
-
   (with-eval-after-load 'outline
-      (define-key outline-mode-prefix-map "o" 'open-line) ;;;restore 
-      (global-set-key "\C-o" outline-mode-prefix-map))
+    (define-key outline-mode-prefix-map "o" 'open-line) ;;;restore 
+    (global-set-key "\C-o" outline-mode-prefix-map))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
   (dynamic-completion-mode 1)
-  (completion-initialize)
   (jka-compr-install)
-  (when (file-exists-p custom-file) (tvr-fastload (load custom-file))))
+  (tvr-fastload
+      (completion-initialize)
+    (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
