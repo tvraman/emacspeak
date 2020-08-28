@@ -167,6 +167,7 @@
 
 ;;}}}
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
+
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook."
   (cl-declare (special emacspeak-sounds-directory))
@@ -228,9 +229,9 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
-  (dynamic-completion-mode 1)
   (jka-compr-install)
   (tvr-fastload
+      (dynamic-completion-mode 1)
       (completion-initialize)
     (when (file-exists-p custom-file)  (load custom-file))))
 
@@ -250,7 +251,7 @@ Use Custom to customize where possible. "
       tvr-libs) ;;; loaded  settings   not  customizable via custom.
      (tvr-customize) ;;; customizations
      (require 'dired-x)
-     (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
+     (run-with-idle-timer 1.0 nil #'tvr-defer-muggles)
      (soundscape-toggle)
      (when (dbus-list-known-names :session)
        (require 'emacspeak-dbus)
@@ -261,22 +262,21 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-watch-screen-lock))
      (emacspeak-wizards-project-shells-initialize)
      (tvr-time-it "after-init" after-start)
-     (make-thread #' (lambda nil (tvr-fastload (desktop-read))))
-     )))
+     (make-thread #' (lambda nil (tvr-fastload (desktop-read)))))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
   (auto-correct-mode 1)
-  (auto-fill-mode)
+  (auto-fill-mode 1)
   (abbrev-mode 1)
   (unless (eq major-mode 'org-mode) (orgalist-mode 1)))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
-  (local-set-key "\C-m" 'newline-and-indent)
+  (local-set-key (kbd "C-m") 'newline-and-indent)
   (company-mode 1)
   (hs-minor-mode 1)
-  (auto-fill-mode)
+  (auto-fill-mode 1)
   (cond
    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
     (lispy-mode 1))
