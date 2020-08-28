@@ -170,7 +170,6 @@
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook."
   (cl-declare (special emacspeak-sounds-directory))
-  (delete-other-windows)
   (setq gc-cons-threshold 64000000)
   (start-process
    "play" nil "aplay"
