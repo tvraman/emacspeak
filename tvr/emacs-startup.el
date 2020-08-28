@@ -251,7 +251,7 @@ Use Custom to customize where possible. "
       tvr-libs) ;;; loaded  settings   not  customizable via custom.
      (tvr-customize) ;;; customizations
      (require 'dired-x)
-     (run-with-idle-timer 1.0 nil #'tvr-defer-muggles)
+     (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
      (soundscape-toggle)
      (when (dbus-list-known-names :session)
        (require 'emacspeak-dbus)
