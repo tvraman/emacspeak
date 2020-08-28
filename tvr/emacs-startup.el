@@ -230,8 +230,8 @@ Use Custom to customize where possible. "
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
   (jka-compr-install)
+  (dynamic-completion-mode 1)
   (tvr-fastload
-      (dynamic-completion-mode 1)
       (completion-initialize)
     (when (file-exists-p custom-file)  (load custom-file))))
 
