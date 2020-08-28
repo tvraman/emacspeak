@@ -9,7 +9,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 53 --- Emacspeak 53 User Visible Changes
 
-This version requires Emacs-26.1 or later.
+This version requires Emacs-27.1 or later.
 
 ** Speech-Enable Package Syslog
 
