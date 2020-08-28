@@ -51,11 +51,12 @@
 
 (when (file-exists-p emacs-personal-library)
   (push emacs-personal-library load-path))
+(push (expand-file-name "vm/lisp/" emacs-personal-library) load-path)
 
 (defvar tvr-libs
   '(
-    "vm-prepare" "gnus-gmail-prepare" "jabber-prepare"
-    "helm-prepare" ; "use-emms"
+    "vm-autoloads" "vm-prepare" "gnus-gmail-prepare" "jabber-prepare"
+    ; "helm-prepare"                      ; "use-emms"
     "lispy-prepare" "sp-prepare" "slime-prepare" "org-prepare")
   "Libraries that need extra setup.")
 
