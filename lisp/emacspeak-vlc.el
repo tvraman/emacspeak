@@ -168,6 +168,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   (interactive)
   (emacspeak-vlc-dispatch "quit")
   (emacspeak-auditory-icon 'close-object))
+(declare-function emacspeak-media-read-resource "emacspeak-m-player" nil)
 
 ;;;###autoload
 (defun emacspeak-vlc-player (resource)
