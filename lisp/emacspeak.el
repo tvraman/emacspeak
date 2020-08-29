@@ -110,9 +110,6 @@ the Emacspeak desktop.")
   :group 'accessibility)
 
 ;;;###autoload
-(defvar emacspeak-media-player 'emacspeak-m-player
-  "Default media player to use.
-This is a Lisp function that takes a resource locator.")
 
 ;;}}}
 ;;{{{ Package Setup Helper
@@ -536,7 +533,7 @@ commands and options for details."
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
-    (require 'emacspeak-m-player)
+    ;(require 'emacspeak-m-player)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations
         'some
