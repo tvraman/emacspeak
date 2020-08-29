@@ -456,7 +456,18 @@ caps."
       (start-process
        "mp3" nil
        player
-       (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))))
+       (expand-file-name "emacspeak.mp3"
+                         emacspeak-sounds-directory)))))
+(defvar emacspeak-startup-message
+  (format
+   "  Press %s to get an   overview of emacspeak  %s \
+ I am  completely operational,  and all my circuits are functioning perfectly!"
+   (substitute-command-keys
+    "\\[emacspeak-describe-emacspeak]")
+   emacspeak-version)
+  "Emacspeak startup message.")
+
+
 ;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
@@ -521,21 +532,15 @@ commands and options for details."
     (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
     (when emacspeak-pronounce-load-pronunciations-on-startup
       (emacspeak-pronounce-load-dictionaries
-       emacspeak-pronounce-dictionaries-file))
+       emacspeak-pronounce-dictionaries-file)
+      (add-hook  'after-change-major-mode-hook #'emacspeak-pronounce-refresh-pronunciations))
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
-    (require 'emacspeak-m-player)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations
-     'some
-     (dtk-speak-and-echo
-      (format
-       "  Press %s to get an   overview of emacspeak  %s \
- I am  completely operational,  and all my circuits are functioning perfectly!"
-       (substitute-command-keys
-        "\\[emacspeak-describe-emacspeak]")
-       emacspeak-version)))
+        'some
+      (dtk-speak-and-echo emacspeak-startup-message))
     (emacspeak-play-startup-icon)))
 
 (defun emacspeak-info ()
