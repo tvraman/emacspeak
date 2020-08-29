@@ -209,7 +209,8 @@ Use Custom to customize where possible. "
      ("M-C-j" imenu)
      ("M-e" emacspeak-wizards-end-of-word)
      ("M-r" replace-string)
-     ( "M-#" calc-dispatch))
+     ( "M-#" calc-dispatch)
+     ("M-C-v" vm-visit-folder))
    do
    (global-set-key (kbd (cl-first key)) (cl-second key)))
   (cl-loop ;;; shell wizard
