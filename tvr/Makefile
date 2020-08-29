@@ -7,8 +7,13 @@ SETUP = emacs-startup.elc \
 sp-prepare.elc lispy-prepare.elc  \
 vm-prepare.elc gnus-gmail-prepare.elc  \
 laptop-local.elc touchpad-disable.elc   slime-prepare.elc   \
-org-prepare.elc  \
-jabber-prepare.elc 
+org-prepare.elc jabber-prepare.elc 
+
+ALL= vm-prepare.el gnus-gmail-prepare.el jabber-prepare.el \
+sp-prepare.el lispy-prepare.el slime-prepare.el org-prepare.el
+
+all-prepare.el: $(ALL)
+	cat $(ALL) > all-prepare.el
 
 all: $(SETUP)
 
