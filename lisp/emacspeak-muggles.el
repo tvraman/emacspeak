@@ -294,7 +294,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 ;;}}}
 ;;{{{ Media Player:
-
+(declare-function emacspeak-amark-save "emacspeak-muggles" t)
 (global-set-key
  (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
