@@ -639,7 +639,7 @@ Leave point at front of decoded attachment."
                        vm-frame-per-folder vm-frame-per-composition
                        vm-frame-per-edit vm-frame-per-help
                        vm-frame-per-summary vm-index-file-suffix
-                       vm-primary-inbox vm-folder-directory
+                       vm-crash-box vm-primary-inbox vm-folder-directory
                        vm-forwarding-subject-format vm-startup-with-summary
                        vm-inhibit-startup-message vm-visible-headers
                        vm-delete-after-saving vm-url-browser
