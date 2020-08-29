@@ -463,7 +463,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     (message "Playing media  URL under point")
     (kill-new url)
     (push (list url (if playlist-p t nil)) emacspeak-webutils-media-history)
-    (funcall  emacspeak-media-player  url  playlist-p)))
+    (emacspeak-m-player  url  playlist-p)))
 
 (defun emacspeak-webutils-curl-play-media-at-point ()
   "Use Curl to pull a URL, then pass
@@ -480,7 +480,7 @@ Useful in handling double-redirect from TuneIn."
             (shell-command-to-string (format "curl --silent '%s'" url))
             "\n")))
     (message "Playing redirected media  URL under point: %s" url)
-    (funcall  emacspeak-media-player  url t)))
+    (emacspeak-m-player url t)))
 
 ;;;###autoload
 

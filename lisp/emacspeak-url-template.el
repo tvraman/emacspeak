@@ -535,7 +535,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Play Podcast from CNET"
  #'(lambda (url)
-     (funcall emacspeak-media-player url)))
+     (emacspeak-m-player url)))
 
 ;;}}}
 ;;{{{ yahoo daily news

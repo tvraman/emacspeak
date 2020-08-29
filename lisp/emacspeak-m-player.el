@@ -299,7 +299,7 @@ Controls media playback when already playing a stream.
   (cl-declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
 
-
+;;;###autoload
 (defun emacspeak-m-player-bind-accelerator (directory key)
   "Binds key to invoke m-player  on specified directory."
   (interactive

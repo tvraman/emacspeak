@@ -146,7 +146,7 @@
   (cl-declare (special emacspeak-eperiodic-media-location))
   (let ((e (eperiodic-element-at)))
     (unless e  (error "No element under point."))
-    (funcall emacspeak-media-player 
+    (emacspeak-m-player
              (format  emacspeak-eperiodic-media-location
                       (eperiodic-get-element-property e 'symbol))
              nil)))
