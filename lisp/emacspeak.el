@@ -423,6 +423,7 @@ caps."
        (add-hook hook #'emacspeak-setup-programming-mode))
    '(
      conf-unix-mode-hook html-helper-mode-hook
+                         special-mode-hook
      markdown-mode-hook muse-mode-hook
      sgml-mode-hook xml-mode-hook nxml-mode-hook xsl-mode-hook
      TeX-mode-hook LaTeX-mode-hook bibtex-mode-hook)))
