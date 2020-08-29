@@ -67,6 +67,22 @@
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
 ;;}}}
+;;{{{Smarter Spool-Size:
+;;; Smarter sppol-size compute functions.
+;;; These show the number of messages in a spool.
+
+(defun mspools-compute-size (file)
+  (let ((message-log-max nil)
+        (inhibit-message t)
+        (emacspeak-speak-messages nil)))
+  (read (shell-command-to-string (format "grep '^From ' %s | wc -l" file))))
+
+(defun mspools-size-folder (spool)
+  "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
+  (let ((size (mspools-compute-size (expand-file-name  spool mspools-folder-directory))))
+    (unless (zerop size) (cons spool size))))
+
+;;}}}
 ;;{{{ keymaps
 (cl-declaim (special mspools-mode-map))
 (cl-eval-when (load)
