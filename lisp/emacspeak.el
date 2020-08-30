@@ -529,7 +529,7 @@ commands and options for details."
     (when emacspeak-pronounce-load-pronunciations-on-startup
       (emacspeak-pronounce-load-dictionaries
        emacspeak-pronounce-dictionaries-file)
-      (add-hook  'after-change-major-mode-hook #'emacspeak-pronounce-refresh-pronunciations))
+      (add-hook  'messages-buffer-mode-hook #'emacspeak-pronounce-refresh-pronunciations))
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
