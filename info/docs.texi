@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1267 commands and 949 options.
+This chapter documents a total of 1262 commands and 947 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -147,7 +147,6 @@ This chapter documents a total of 1267 commands and 949 options.
 * emacspeak-net-utils::Speech enable net-utils.
 * emacspeak-newsticker::Speech-enable newsticker.
 * emacspeak-nov::Speech-enable NOV.
-* emacspeak-npr::Speech-enabled  NPR client.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
@@ -1521,7 +1520,6 @@ SPC		emacspeak-webspace
 ;		emacspeak-m-player-using-openal
 B		eww-list-bookmarks
 F		rg-dwim
-N		emacspeak-npr-listing
 a		emacspeak-wizards-term
 b		eww-list-buffers
 c		browse-url-chrome
@@ -1535,7 +1533,6 @@ j		emacspeak-wizards-shell-toggle
 k		emacspeak-webspace-knowledge-search
 l		emacspeak-librivox
 m		vm
-n		emacspeak-npr-play-program
 o		helm-mini
 p		emacspeak-wizards-pdf-open
 s		emacspeak-wizards-shell
@@ -14029,111 +14026,6 @@ directory-specific settings being loaded from file
 @var{emacspeak-speak-directory-settings} ---
  That file can set book-specific settings such as speech-rate and
 punctuation-mode among others.
-
-@node emacspeak-npr
-@section emacspeak-npr
-
-NPR == http://www.npr.org National Public Radio in the US.
-It provides a simple Web  API documented at http://www.npr.org/api/index.
-This module implements an Emacspeak Npr client.
-Users will need to get their own API key.
-
-@subsection Usage
-
-Command: @code{emacspeak-npr-play-program} @kbd{C-; n}
---- Play current or past program with completion for program name.
-
-@code{emacspeak-npr-listing} @kbd{C-; N}
---- List NPR programs, blogs, etc with completion.
-Streams can be played from within the displayed listing.
-
-In all cases, streams are played using module @code{emacspeak-m-player}.
-
-@subsection Emacspeak-Npr Commands
-
-@subsubsection emacspeak-npr-listing
-@deffn {Command} emacspeak-npr-listing  (&optional search)
-@table @kbd
-@item C-; N
-@kindex C-; N
-@item C-x @@ h N
-@kindex C-x @@ h N
-@end table
-
-@findex emacspeak-npr-listing
-
-@format
-Display specified listing.
-Interactive prefix arg prompts for search.
-
-(fn &optional SEARCH)
-@end format
-@end deffn
-
-@subsubsection emacspeak-npr-listing-url-executor
-@deffn {Command} emacspeak-npr-listing-url-executor  (url &optional get-date)
-@findex emacspeak-npr-listing-url-executor
-
-@format
-Special executor for use in NPR  listings.
-Optional prefix arg prompts for date.
-
-(fn URL &optional GET-DATE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-npr-play-program
-@deffn {Command} emacspeak-npr-play-program  (pid &optional get-date)
-@table @kbd
-@item C-; n
-@kindex C-; n
-@item C-x @@ h n
-@kindex C-x @@ h n
-@end table
-
-@findex emacspeak-npr-play-program
-
-@format
-Play specified NPR program.
-Optional interactive prefix arg prompts for a date.
-
-(fn PID &optional GET-DATE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-npr-refresh-program-table
-@deffn {Command} emacspeak-npr-refresh-program-table  (&optional force)
-@findex emacspeak-npr-refresh-program-table
-
-@format
-Refresh program table cache if needed.
-
-(fn &optional FORCE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-npr-search
-@deffn {Command} emacspeak-npr-search  (query)
-@findex emacspeak-npr-search
-
-@format
-Search NPR
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsection emacspeak-npr Options
-
-@defvar {User Option} emacspeak-npr-api-key
-Web API  key for this application.
-
-@end defvar
-
-@defvar {User Option} emacspeak-npr-local-cache
-Location where we cache NPR playlists.
-
-@end defvar
 
 @node emacspeak-nxml
 @section emacspeak-nxml

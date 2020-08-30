@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 29, 2020.
+last updated on August 30, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1267 commands and 949 options.
+   This chapter documents a total of 1262 commands and 947 options.
 
 * Menu:
 
@@ -3034,7 +3034,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-net-utils::Speech enable net-utils.
 * emacspeak-newsticker::Speech-enable newsticker.
 * emacspeak-nov::Speech-enable NOV.
-* emacspeak-npr::Speech-enabled  NPR client.
 * emacspeak-nxml::Speech enable nxml mode.
 * emacspeak-ocr::ocr Front-end for emacspeak desktop.
 * emacspeak-org::Speech-enable org.
@@ -4164,7 +4163,6 @@ system.
      ;		emacspeak-m-player-using-openal
      B		eww-list-bookmarks
      F		rg-dwim
-     N		emacspeak-npr-listing
      a		emacspeak-wizards-term
      b		eww-list-buffers
      c		browse-url-chrome
@@ -4178,7 +4176,6 @@ system.
      k		emacspeak-webspace-knowledge-search
      l		emacspeak-librivox
      m		vm
-     n		emacspeak-npr-play-program
      o		helm-mini
      p		emacspeak-wizards-pdf-open
      s		emacspeak-wizards-shell
