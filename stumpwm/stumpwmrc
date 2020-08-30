@@ -69,10 +69,6 @@
   "Speak current window  information."
   (tts-speak (window-name (current-window))))
 
-
-
-
-
 (defvar *tts-speak-messages* nil
   "Switch messages on and off.
 Off by default to avoid a stumpwm crash on startup.
