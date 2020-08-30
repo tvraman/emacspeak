@@ -290,6 +290,9 @@
 
 ;;}}}
 ;;{{{ Additional Commands:
+
+(declare-function evil-mode "evil-core" (&optional flag))
+
 ;;;###autoload
 (defun emacspeak-evil-toggle-evil ()
   "Interactively toggle evil-mode."
