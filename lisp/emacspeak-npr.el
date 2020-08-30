@@ -43,7 +43,8 @@
 
 ;;; Commentary:
 ;;; NPR == http://www.npr.org National Public Radio in the US.
-;;; It provides a simple Web  API documented at http://www.npr.org/api/index.
+;;; Aug 29, 2020: NPR API has changed. Updating to:
+;;; NPR One API documented at https://dev.npr.org/
 ;;; This module implements an Emacspeak Npr client.
 ;;; Users will need to get their own API key.
 ;;;
