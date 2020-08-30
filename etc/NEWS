@@ -48,3 +48,10 @@ bridge to YT.
 
 Module ~emacspeak-sdcv~ speech-enables emacs package ~sdcv~ to enable
 interaction with Stardict dictionaries.
+
+** Module ~emacspeak-npr~ Is Marked Obsolete 
+
+
+The API used by module ~emacspeak-npr~ has been retired by  [[npr.org]] in
+favor of their newer NPR-One API. Module ~emacspeak-npr~ is therefore
+obsolete and no longer supported.
