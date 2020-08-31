@@ -2,12 +2,10 @@
       x-wait-for-event-timeout 0
       mail-host-address "google.com"
       user-mail-address "raman@google.com")
-;;; To disable touchpad in all apps:
-
 
 (defvar touchpad-device "12"
   "Device ID of touchpad.
-Set by locating it via xinput --list.")
+Set by locating it via xinput list | grep -i touchpad ")
 
 (defun turn-off-touchpad (&optional frame)
   (interactive)
@@ -23,10 +21,5 @@ Set by locating it via xinput --list.")
     "xinput" "set-prop" touchpad-device "Device Enabled" "1")
   (message "Enabled touchpad"))
 
-(when (fboundp 'global-disable-mouse-mode)
-  (global-disable-mouse-mode)
-  (setq disable-mouse-command 'dtk-stop))
 (turn-off-touchpad)
-
-
 (provide 'laptop-local)
