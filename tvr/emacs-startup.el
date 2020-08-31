@@ -80,7 +80,7 @@
          (load-source-file-function nil)
          (inhibit-message t)
          (gc-cons-threshold 128000000)
-         (gc-cons-percentage 0.6))
+         (gc-cons-percentage 0.8))
      ,@body))
 
 ;;}}}
