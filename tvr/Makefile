@@ -16,8 +16,7 @@ all: all-prepare.elc emacs-startup.elc
 all-prepare.el: $(ALL)
 	cat $(ALL) > all-prepare.el
 
-
-
+laptop-local.elc: laptop-local.el
 %.elc: %.el
 	$(EMACS) $(BATCH) -f package-initialize  $(COMPILE)  $<
 clean:
