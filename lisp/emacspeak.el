@@ -515,7 +515,6 @@ commands and options for details."
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
-                                        ;(require 'emacspeak-m-player)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations
         'some
