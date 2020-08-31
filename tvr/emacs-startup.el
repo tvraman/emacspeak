@@ -120,7 +120,7 @@
     (tvr-fastload
      (condition-case err
          (progn
-           (load-library lib)
+           (load lib)
            (tvr-time-it lib start))
        (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
@@ -197,9 +197,6 @@ Use Custom to customize where possible. "
    '(
      ("<f3>" bury-buffer)
      ("<f4>" emacspeak-kill-buffer-quietly)
-     ("<f11>" shell)
-     ("<f12>" vm)
-     ("C-RET" hippie-expand)
      ("C-c <tab>"  hs-toggle-hiding)
      ("M--" undo-only)
      ("M-/" hippie-expand)
@@ -229,7 +226,6 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
-  (jka-compr-install)
   (dynamic-completion-mode 1)
   (tvr-fastload
       (completion-initialize)
