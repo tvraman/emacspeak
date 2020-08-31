@@ -260,8 +260,7 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
      (emacspeak-wizards-project-shells-initialize)
-     (tvr-time-it "after-init" after-start)
-     (make-thread #' (lambda nil (tvr-fastload (desktop-read)))))))
+     (tvr-time-it "after-init" after-start))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
