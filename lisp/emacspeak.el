@@ -446,7 +446,7 @@ caps."
     "\\[emacspeak-describe-emacspeak]")
    emacspeak-version)
   "Emacspeak startup message.")
-
+;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
 Use Emacs as you normally would,
