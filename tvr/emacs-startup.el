@@ -250,7 +250,6 @@ Use Custom to customize where possible. "
       (if (getenv "TVR_TIME_EMS") #'load-library-if-available #'load)
       tvr-libs) ;;; loaded  settings   not  customizable via custom.
      (tvr-customize) ;;; customizations
-     (require 'dired-x)
      (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
      (soundscape-toggle)
      (when (dbus-list-known-names :session)
