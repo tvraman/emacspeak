@@ -64,10 +64,10 @@
 (unless noninteractive
   (let ((file-name-handler-alist nil)
         (load-source-file-function  nil))
-  (mapc
-   #'load 
-'("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
-  
+    (mapc
+     #'load
+     '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
+
 ;;}}}
 ;;{{{  Customize groups
 
@@ -108,36 +108,31 @@ the Emacspeak desktop.")
   :group 'applications
   :group 'accessibility)
 
-;;;###autoload
-
 ;;}}}
 ;;{{{ Package Setup Helper
 
 (defun emacspeak-do-package-setup (package module)
-  "Setup Emacspeak extension for a specific PACKAGE.  This function adds
-the appropriate form to `after-load-alist' to set up Emacspeak support
-for a given package.  Argument MODULE (a symbol)specifies the emacspeak module
-that implements the speech-enabling extensions for `package' (a string)."
-  (eval-after-load package
-    `(progn
-       (require ',module)
-       (emacspeak-fix-commands-loaded-from ,(format "%s" module))
-       (emacspeak-fix-commands-loaded-from ,package))))
+  "Setup Emacspeak extension for a specific PACKAGE.
+This function adds the appropriate form to `after-load-alist' to
+set up Emacspeak support for a given package.  Argument MODULE (a
+symbol)specifies the emacspeak module that implements the
+speech-enabling extensions for `package' (a string)."
+  (with-eval-after-load package
+    (require module)
+    (emacspeak-fix-commands-loaded-from package)))
 
 ;;; DocView
 (declare-function doc-view-open-text "doc-view")
-(eval-after-load "doc-view"
-  `(add-hook 'doc-view-mode-hook #'doc-view-open-text))
+(with-eval-after-load "doc-view"
+  (add-hook 'doc-view-mode-hook #'doc-view-open-text))
 
 ;;; find-func:
-(eval-after-load  "find-func"
-  `(progn
-     (emacspeak-fix-commands-loaded-from "find-func")))
+(with-eval-after-load  "find-func"
+  (emacspeak-fix-commands-loaded-from "find-func"))
 
 ;;; subr.el
-(eval-after-load  "subr"
-  `(progn
-     (emacspeak-fix-commands-loaded-from "find-func")))
+(with-eval-after-load  "subr"
+  (emacspeak-fix-commands-loaded-from "find-func"))
 
 ;;}}}
 ;;{{{ Setup package extensions
@@ -343,6 +338,7 @@ that implements the speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "yasnippet" 'emacspeak-yasnippet)
 (emacspeak-do-package-setup "yaml-mode" 'emacspeak-yaml)
 (emacspeak-do-package-setup "ytel" 'emacspeak-ytel)
+
 ;;}}}
 ;;{{{  Submit bugs
 
@@ -406,10 +402,10 @@ punctuation mode to all, activates the dictionary and turns on split
 caps."
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation))
   (ems-with-messages-silenced
-   (dtk-set-punctuations 'all)
-   (or dtk-split-caps (dtk-toggle-split-caps))
-   (emacspeak-pronounce-refresh-pronunciations)
-   (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
+      (dtk-set-punctuations 'all)
+    (or dtk-split-caps (dtk-toggle-split-caps))
+    (emacspeak-pronounce-refresh-pronunciations)
+    (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
@@ -422,17 +418,6 @@ caps."
      markdown-mode-hook muse-mode-hook
      sgml-mode-hook xml-mode-hook nxml-mode-hook xsl-mode-hook
      TeX-mode-hook LaTeX-mode-hook bibtex-mode-hook)))
-
-;;}}}
-;;{{{ set up after-init-hook to fix interactive functions
-
-(add-hook 'after-init-hook 'emacspeak-fix-commands-that-use-interactive)
-(run-at-time 10 nil #'emacspeak-fix-commands-that-use-interactive)
-;;}}}
-;;{{{ set up after-init-hook to fix interactive functions
-
-(add-hook 'after-init-hook 'emacspeak-fix-commands-that-use-interactive)
-                                        ;(add-hook 'after-init-hook 'emacspeak-keymap-refresh)
 
 ;;}}}
 ;;{{{ Emacspeak:
@@ -462,8 +447,6 @@ caps."
    emacspeak-version)
   "Emacspeak startup message.")
 
-
-;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
 Use Emacs as you normally would,
@@ -532,7 +515,7 @@ commands and options for details."
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
-    ;(require 'emacspeak-m-player)
+                                        ;(require 'emacspeak-m-player)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations
         'some
@@ -555,12 +538,6 @@ commands and options for details."
   (dtk-set-punctuations 'all)
   (emacspeak-speak-buffer))
 
-;;}}}
-;;{{{Advice find-func:
-(eval-after-load
-    "find-func"
-  `(progn
-     (emacspeak-fix-commands-loaded-from "find-func")))
 ;;}}}
 (provide 'emacspeak)
 ;;{{{ end of file
