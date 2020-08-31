@@ -1,4 +1,3 @@
-;; -*- lexical-binding: nil; -*-
 (with-eval-after-load "slime"
   (setq inferior-lisp-program (executable-find "sbcl"))
   (setq common-lisp-hyperspec-root
