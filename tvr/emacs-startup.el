@@ -54,8 +54,8 @@
 (push (expand-file-name "vm/lisp/" emacs-personal-library) load-path)
 
 (defvar tvr-libs
-  '("vm-autoloads" "all-prepare")
-  "Libraries that need extra setup.")
+   "all-prepare"
+   "Libraries that need extra setup.")
 
 ;;}}}
 ;;{{{ Forward Function Declarations:
@@ -242,11 +242,14 @@ Use Custom to customize where possible. "
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
   (tvr-fastload
-   (let ((after-start (current-time))) ;;; to time after-init at the end
-     (mapc
-      (if (getenv "TVR_TIME_EMS") #'load-library-if-available #'load)
-      tvr-libs) ;;; loaded  settings   not  customizable via custom.
+   (let ((start (current-time))) 
+     (load tvr-libs) ;;; loaded  settings   not  customizable via
+;;; custom.
+     (tvr-time-it "libs" start)
+     (setq start (current-time))
      (tvr-customize) ;;; customizations
+     (tvr-time-it "Custom" start)
+     (setq start (current-time))
      (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
      (soundscape-toggle)
      (when (dbus-list-known-names :session)
@@ -257,7 +260,7 @@ Use Custom to customize where possible. "
        (emacspeak-dbus-upower-enable)
        (emacspeak-dbus-watch-screen-lock))
      (emacspeak-wizards-project-shells-initialize)
-     (tvr-time-it "after-init" after-start))))
+     (tvr-time-it "services" start))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"

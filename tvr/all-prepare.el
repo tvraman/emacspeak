@@ -1,8 +1,11 @@
 ;;; vm-prepare.l :  -*- lexical-binding: nil; -*-
+
+(autoload 'vm "vm" "vm mail reader" t nil)
+(autoload 'vm-visit-folder "vm" "Open VM folder" t nil)
 (with-eval-after-load "vm"
-     (global-set-key (kbd "C-x m") 'vm-mail)
-     (when (require 'bbdb) (bbdb-insinuate-vm))
-     (load-library "mspools"))
+  (global-set-key (kbd "C-x m") 'vm-mail)
+  (when (require 'bbdb) (bbdb-insinuate-vm))
+  (load-library "mspools"))
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;;; Uses auth-source-xoauth2:
@@ -57,7 +60,6 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
         (nnimap-server-port 993)
         (nnimap-user "raman@google.com")
         (nnimap-authenticator xoauth2)
-        ;(nnimap-fetch-partial-articles "text/")
         (nnimap-expunge always)
         (nnmail-expiry-wait immediate)
         (nnimap-streaming t)
@@ -71,7 +73,6 @@ This file should be GPG encrypted --- Emacs will  decrypt on load.")
          (nnimap-authenticator xoauth2)
          (nnimap-address "imap.gmail.com")
          (nnimap-server-port 993)
-                                        ;(nnimap-fetch-partial-articles "text/")
          (nnmail-expiry-wait immediate)
          (nnimap-streaming t)
          (nnimap-stream ssl)))
