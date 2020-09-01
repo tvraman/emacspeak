@@ -3091,6 +3091,10 @@ Produce auditory icons if possible."
 
 
 ;;}}}
+;;{{{Messages mode
+(add-hook 'messages-buffer-mode-hook #'emacspeak-pronounce-refresh-pronunciations)
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 

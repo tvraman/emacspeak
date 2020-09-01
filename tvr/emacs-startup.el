@@ -243,13 +243,12 @@ Use Custom to customize where possible. "
   (cl-declare (special  tvr-libs))
   (tvr-fastload
    (let ((start (current-time))) 
-     (load tvr-libs) ;;; loaded  settings   not  customizable via
-;;; custom.
+     (load tvr-libs) ;;; load  settings   not  customizable via custom.
      (tvr-time-it "libs" start)
      (setq start (current-time))
      (tvr-customize) ;;; customizations
-     (tvr-time-it "Custom" start)
-     (setq start (current-time))
+     (tvr-time-it "tvr-Custom" start)
+     (setq start (current-time)) ;;; services
      (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
      (soundscape-toggle)
      (when (dbus-list-known-names :session)
