@@ -488,7 +488,6 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
   (cl-declare (special
-               ad-redefinition-action
                emacspeak-pronounce-load-pronunciations-on-startup line-move-visual
                emacspeak-info-directory
                use-dialog-box emacspeak-pronounce-dictionaries-file
@@ -509,16 +508,12 @@ commands and options for details."
     (require 'emacspeak-advice)
     (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
     (when emacspeak-pronounce-load-pronunciations-on-startup
-      (emacspeak-pronounce-load-dictionaries
-       emacspeak-pronounce-dictionaries-file)
-      (add-hook  'messages-buffer-mode-hook #'emacspeak-pronounce-refresh-pronunciations))
+      (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
     (run-hooks 'emacspeak-startup-hook)
-    (tts-with-punctuations
-        'some
-      (dtk-speak-and-echo emacspeak-startup-message))
+    (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
     (emacspeak-play-startup-icon)))
 
 (defun emacspeak-info ()
