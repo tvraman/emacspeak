@@ -167,6 +167,7 @@
 ;;}}}
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
+
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook."
   (cl-declare (special emacspeak-sounds-directory))
@@ -239,7 +240,7 @@ Use Custom to customize where possible. "
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
-  (cl-declare (special emacspeak-sounds-directory tvr-libs))
+  (cl-declare (special  tvr-libs))
   (tvr-fastload
    (let ((after-start (current-time))) ;;; to time after-init at the end
      (mapc
