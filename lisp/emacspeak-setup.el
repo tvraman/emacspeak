@@ -123,7 +123,7 @@ such as pronunciation dictionaries are stored. ")
       'parens)
      "$"))
   "Extensions that match media files.")
-
+;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
    (regexp-opt

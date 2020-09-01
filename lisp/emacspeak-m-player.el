@@ -286,14 +286,6 @@ Controls media playback when already playing a stream.
   (call-interactively
    (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
 
-;;;###Autoload
-(defvar  emacspeak-m-player-playlist-pattern
-  (concat
-   (regexp-opt
-    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
-   "$")
-  "Pattern for matching playlists.")
-
 (defun emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
   (cl-declare (special emacspeak-m-player-playlist-pattern))
