@@ -422,7 +422,7 @@ relief."
 
 (defun emacspeak-keymap-refresh ()
   "Load emacspeak-keymap module."
-  (load-library "emacspeak-keymap"))
+  (load "emacspeak-keymap"))
 
 ;;}}}
 ;;{{{ Create a personal keymap for c-e x

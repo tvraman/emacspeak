@@ -220,7 +220,7 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
      (let ((file-name-handler-alist nil)
            (load-source-file-function  nil))
        (unless emacspeak-info-already-loaded
-         (load-library "emacspeak-info"))
+         (load "emacspeak-info"))
        (setq emacspeak-info-already-loaded t))))
 
 ;;}}}

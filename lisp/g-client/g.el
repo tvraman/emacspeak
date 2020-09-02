@@ -67,9 +67,10 @@
 
 ;;}}}
 ;;{{{ pull in autoloads
-
-(load-library "g-loaddefs")
-(load-library "g-cus-load")
+(let ((file-name-handler-alist nil)
+      (load-source-file-function  nil))
+  (load "g-loaddefs")
+  (load-library "g-cus-load"))
 
 ;;}}}
 (provide 'g)

@@ -295,7 +295,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 
 (provide 'emacspeak-pianobar)
 ;;; reload pianobar to fix our vol-change commands.
-(load-library "pianobar")
+(load "pianobar")
 ;;{{{ end of file
 
 ;;; local variables:
