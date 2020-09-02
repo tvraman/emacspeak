@@ -137,9 +137,14 @@ such as pronunciation dictionaries are stored. ")
 (push emacspeak-lisp-directory load-path)
 (push (expand-file-name "g-client" emacspeak-lisp-directory) load-path)
 
-(let ((file-name-handler-alist nil)
-      (load-source-file-function  nil))
-  (load (expand-file-name "emacspeak.elc" emacspeak-lisp-directory)))
+(unless noninteractive
+  (let ((file-name-handler-alist nil)
+        (load-source-file-function  nil))
+    (mapc
+     #'load
+     '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
+
+
 
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)

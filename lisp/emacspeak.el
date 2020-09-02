@@ -59,16 +59,6 @@
 (require 'emacspeak-fix-interactive)
 
 ;;}}}
-;;{{{ autoloads
-
-(unless noninteractive
-  (let ((file-name-handler-alist nil)
-        (load-source-file-function  nil))
-    (mapc
-     #'load
-     '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
-
-;;}}}
 ;;{{{  Customize groups
 
 (defgroup emacspeak nil
