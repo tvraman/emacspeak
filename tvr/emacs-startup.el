@@ -262,9 +262,10 @@ Use Custom to customize where possible. "
         (setq start (current-time))
         (tvr-dbus-setup)
         (tvr-time-it "dbus" start)
+        (setq start (current-time))
         (soundscape-toggle)
-        (make-thread #'emacspeak-wizards-project-shells-initialize)
-        (tvr-time-it "Misc" start))))
+        (emacspeak-wizards-project-shells-initialize)
+        (tvr-time-it "Finishing Up" start))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
