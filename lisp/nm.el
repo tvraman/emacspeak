@@ -27,16 +27,14 @@
   (member "org.freedesktop.NetworkManager" (dbus-list-known-names :system)))
 
 (defun nm-connected-p()
-  "Returns nil if NetworkManager service indicates that network
-is down, t otherwise. This means that this function will return t
-both when NetworkManager service is *not* available on system
-bus (network is assumed to be up) or when available service
-indicates network is up."
-  (or (not (nm-service-p))
-      (equal 70 (dbus-get-property
-                 :system
-                 "org.freedesktop.NetworkManager" "/org/freedesktop/NetworkManager"
-                 "org.freedesktop.NetworkManager" "State"))))
+  "Returns nil if NetworkManager service indicates that network is down, t otherwise. "
+  (and
+   (nm-service-p)
+   (equal 70
+          (dbus-get-property :system
+                             "org.freedesktop.NetworkManager"
+                             "/org/freedesktop/NetworkManager"
+                             "org.freedesktop.NetworkManager" "State"))))
 
 (defvar nm-dbus-registration nil
   "Record if registered with NM.")
