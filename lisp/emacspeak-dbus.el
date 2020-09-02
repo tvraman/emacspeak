@@ -77,6 +77,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'amixer)
 (eval-when-compile
   (require 'derived)
   (require 'dbus))
@@ -209,7 +210,7 @@ already disabled."
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
-      (soundscape-listener-shutdown)
+  (soundscape-listener-shutdown)
     (save-some-buffers t))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
