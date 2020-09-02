@@ -1542,10 +1542,7 @@ available TTS servers.")
        (string-match "^ssh" tts-name)   ;remote server
        (string-match "^cloud" tts-name) ; cloud
        (string-match "^log" tts-name))
-    (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
-  (let ((file-name-handler-alist nil)
-        (load-source-file-function nil))
-    (load "voice-setup")))
+    (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)))
 
 (defvar tts-device "default"
   "Name of current sound device in use.")
