@@ -3464,18 +3464,14 @@ configure which media players get silenced or paused/resumed."
 ;;}}}
 ;;{{{ Network interface utils:
 
-(defvar emacspeak-speak-network-interfaces-list
-  (when (fboundp 'network-interface-list)
-    (mapcar 'car (network-interface-list)))
-  "Used when prompting for an interface to query.")
-
 (defun ems-get-active-network-interfaces ()
   "Return  names of active network interfaces."
   (when (fboundp 'network-interface-list)
-    (mapconcat
-     #'identity 
-     (seq-uniq (mapcar #'car (network-interface-list)))
-     " ")))
+     (seq-uniq (mapcar #'car (network-interface-list)))))
+
+(defvar emacspeak-speak-network-interfaces-list
+  (ems-get-active-network-interfaces)
+  "Used when prompting for an interface to query.")
 
 (defun ems-get-ip-address (&optional dev)
   "get the IP-address for device DEV "
