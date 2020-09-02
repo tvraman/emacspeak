@@ -100,7 +100,8 @@ OCR engine for optical character recognition."
   :type 'string
   :group 'emacspeak-ocr)
 
-(defcustom emacspeak-ocr-engine "ocr"
+(defcustom emacspeak-ocr-engine
+  (expand-file-name "tesseract.pl" emacspeak-etc-directory)
   "OCR engine to process acquired image."
   :type 'string
   :group 'emacspeak-ocr)
