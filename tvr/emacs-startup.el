@@ -236,30 +236,35 @@ Use Custom to customize where possible. "
   "Defered muggles loader."
   (unless (featurep 'emacspeak-muggles)
     (make-thread #'(lambda () (tvr-fastload (load "emacspeak-muggles"))))))
+(defsubst  tvr-dbus-setup ()
+  "Configure DBus Services"
+  (when (dbus-list-known-names :session)
+       (require 'emacspeak-dbus)
+       (nm-enable)
+       (emacspeak-dbus-sleep-enable)
+       (emacspeak-dbus-udisks-enable)
+       (emacspeak-dbus-upower-enable)
+       (emacspeak-dbus-watch-screen-lock)))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
   (tvr-fastload
-   (let ((start (current-time))) 
-     (load tvr-libs) ;;; load  settings   not  customizable via custom.
-     (tvr-time-it "libs" start)
-     (setq start (current-time))
-     (tvr-customize) ;;; customizations
-     (tvr-time-it "tvr-Custom" start)
-     (setq start (current-time)) ;;; services
-     (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
-     (soundscape-toggle)
-     (when (dbus-list-known-names :session)
-       (require 'emacspeak-dbus)
-       (nm-enable)
-       (emacspeak-dbus-sleep-enable)
-       (emacspeak-dbus-udisks-enable)
-       (emacspeak-dbus-upower-enable)
-       (emacspeak-dbus-watch-screen-lock))
-     (emacspeak-wizards-project-shells-initialize)
-     (tvr-time-it "services" start))))
+      (let ((start (current-time))) 
+        (load tvr-libs) ;;; load  settings   not  customizable via custom.
+        (tvr-time-it "libs" start)
+        (setq start (current-time))
+        (tvr-customize) ;;; customizations
+        (tvr-time-it "tvr-Custom" start)
+        (setq start (current-time)) 
+        (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
+        (setq start (current-time))
+        (tvr-dbus-setup)
+        (tvr-time-it "dbus" start)
+        (soundscape-toggle)
+        (make-thread #'emacspeak-wizards-project-shells-initialize)
+        (tvr-time-it "Misc" start))))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
