@@ -86,7 +86,9 @@
   (interactive)
   (cl-declare (special gmaps-locations-file))
   (when (file-exists-p gmaps-locations-file)
-    (load-file gmaps-locations-file)))
+    (let ((file-name-handler-alist nil)
+          (load-source-file-function  nil))
+      (load gmaps-locations-file))))
 
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
   "Hash table that memoizes geolocation.")
