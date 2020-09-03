@@ -492,7 +492,6 @@ commands and options for details."
       (push emacspeak-info-directory Info-directory-list))
     (require 'emacspeak-personality)
     (dtk-initialize)
-    (tts-configure-synthesis-setup)
     (require 'emacspeak-keymap)
     (require 'emacspeak-redefine)
     (require 'emacspeak-advice)
