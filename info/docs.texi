@@ -1539,7 +1539,6 @@ p		emacspeak-wizards-pdf-open
 s		emacspeak-wizards-shell
 t		twit
 u		list-unicode-display
-v		emacspeak-muggles-vuiet/body
 w		emacspeak-wizards-noaa-weather
 y		yas-expand
 
@@ -1569,14 +1568,13 @@ j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
 n		emacspeak-wizards-google-news
-o		emacspeak-muggles-outliner/body
+o		org-switchb
 p		proced
 q		emacspeak-wizards-iex-show-quote
 r		soundscape-restart
 s		soundscape
 t		soundscape-toggle
 u		soundscape-update-mood
-v		emacspeak-muggles-view/body
 w		define-word
 
 .
@@ -1587,14 +1585,12 @@ key             binding
 
 SPC		emacspeak-eww-smart-tabs
 ,		emacspeak-eldoc-speak-doc
-/		emacspeak-origami/body
 a		emacspeak-feeds-atom-display
 b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
 d		sdcv-search-input
 e		eww
 f		emacspeak-wizards-find-file-as-root
-h		emacspeak-muggles-hideshow/body
 i		emacspeak-wizards-iheart
 l		eww-open-file
 m		magit-status
@@ -12863,13 +12859,6 @@ Temporarily use keymap emacspeak-m-player-mode-map
 
 @subsubsection emacspeak-muggles-hideshow/body
 @deffn {Command} emacspeak-muggles-hideshow/body   
-@table @kbd
-@item C-, h
-@kindex C-, h
-@item C-x @@ a h
-@kindex C-x @@ a h
-@end table
-
 @findex emacspeak-muggles-hideshow/body
 
 @format
@@ -13150,15 +13139,6 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
 @subsubsection emacspeak-muggles-outliner/body
 @deffn {Command} emacspeak-muggles-outliner/body   
-@table @kbd
-@item C-. o
-@kindex C-. o
-@item C-' o
-@kindex C-' o
-@item C-x @@ s o
-@kindex C-x @@ s o
-@end table
-
 @findex emacspeak-muggles-outliner/body
 
 @format
@@ -13272,15 +13252,6 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
-@table @kbd
-@item C-. v
-@kindex C-. v
-@item C-' v
-@kindex C-' v
-@item C-x @@ s v
-@kindex C-x @@ s v
-@end table
-
 @findex emacspeak-muggles-view/body
 
 @format
@@ -13341,13 +13312,6 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 @subsubsection emacspeak-muggles-vuiet/body
 @deffn {Command} emacspeak-muggles-vuiet/body   
-@table @kbd
-@item C-; v
-@kindex C-; v
-@item C-x @@ h v
-@kindex C-x @@ h v
-@end table
-
 @findex emacspeak-muggles-vuiet/body
 
 @format
@@ -13402,13 +13366,6 @@ The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
 @subsubsection emacspeak-origami/body
 @deffn {Command} emacspeak-origami/body   
-@table @kbd
-@item C-, /
-@kindex C-, /
-@item C-x @@ a /
-@kindex C-x @@ a /
-@end table
-
 @findex emacspeak-origami/body
 
 @format
