@@ -1545,7 +1545,7 @@ available TTS servers.")
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)
     (let ((file-name-handler-alist nil)
           (load-source-file-function  nil))
-      (load-library "voice-setup"))))
+      (load "voice-setup"))))
 
 (defvar tts-device "default"
   "Name of current sound device in use.")

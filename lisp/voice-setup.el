@@ -87,7 +87,7 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-
+(eval-when-compile (require 'easy-mmode))
 (require 'custom)
 (require 'acss-structure)
 (require 'tts)
@@ -104,24 +104,6 @@
   :group 'emacspeak)
 
 (declare-function tts-list-voices "dectalk-voices")
-
-(defcustom voice-lock-global-modes t
-  "Modes for which Voice Lock mode is automagically turned on.
-Global Voice Lock mode is controlled by the command `global-voice-lock-mode'.
-If nil, means no modes have Voice Lock mode automatically turned on.
-If t, all modes that support Voice Lock mode have it automatically turned on.
-If a list, it should be a list of `major-mode' symbol names for which Voice Lock
-mode should be automatically turned on.  The sense of the list is negated if it
-begins with `not'.  For example:
- (c-mode c++-mode)
-means that Voice Lock mode is turned on for buffers in C and C++ modes only."
-  :type '(choice (const :tag "none" nil)
-                 (const :tag "all" t)
-                 (set :menu-tag "mode specific" :tag "modes"
-                      :value (not)
-                      (const :tag "Except" not)
-                      (repeat :inline t (symbol :tag "mode"))))
-  :group 'voice-lock)
 
 ;;}}}
 ;;{{{  helper for voice custom items:
