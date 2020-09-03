@@ -177,6 +177,38 @@ Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
 ;;}}}
+;;{{{Echo Typing Chars:
+
+(defun emacspeak-post-self-insert-hook ()
+  "Speaks the character if emacspeak-character-echo is true.
+See  command emacspeak-toggle-word-echo bound to
+\\[emacspeak-toggle-word-echo].
+Speech flushes as you type."
+  (cl-declare (special last-command-event 
+                       emacspeak-character-echo emacspeak-word-echo))
+  (when buffer-read-only (dtk-speak "Buffer is read-only. "))
+  (when
+      (and (eq (preceding-char) last-command-event) ; Sanity check.
+           (not executing-kbd-macro)
+           (not noninteractive))
+    (let ((display (get-char-property (1- (point)) 'display)))
+      (dtk-stop)
+      (cond
+       ((stringp display) (dtk-say display))
+       ((and emacspeak-word-echo
+             (= (char-syntax last-command-event)32))
+        (save-excursion
+          (condition-case nil
+              (forward-word -1)
+            (error nil))
+          (emacspeak-speak-word)))
+       (emacspeak-character-echo
+        (emacspeak-speak-this-char (preceding-char)))))))
+
+(add-hook 'post-self-insert-hook 'emacspeak-post-self-insert-hook)
+
+
+;;}}}
 ;;{{{ Shell Command Helper:
 
 (defcustom emacspeak-speak-messages t
