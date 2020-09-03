@@ -473,7 +473,7 @@ command \\[customize-variable] on <personality>-settings. "
   "Turn on Voice Lock mode ."
   (interactive)
   (voice-lock-mode))
-
+;;;###autoload
 (define-globalized-minor-mode global-voice-lock-mode
   voice-lock-mode
   voice-lock-mode--turn-on
