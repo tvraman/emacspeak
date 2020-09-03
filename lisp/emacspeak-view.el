@@ -290,8 +290,7 @@
 keybindings for view mode")
 
 (defvar emacspeak-view-edit-commands
-  (list 'emacspeak-self-insert-command
-        'completion-separator-self-insert-autofilling
+  (list ''completion-separator-self-insert-autofilling
         'completion-separator-self-insert-command
         'delete-char
         'completion-kill-region
