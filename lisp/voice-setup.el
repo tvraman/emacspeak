@@ -471,30 +471,6 @@ command \\[customize-variable] on <personality>-settings. "
         (emacspeak-auditory-icon state)))))
 
 ;;;###autoload
-(defun turn-on-voice-lock ()
-  "Turn on Voice Lock mode ."
-  (interactive)
-  (unless voice-lock-mode (voice-lock-mode)))
-
-;;;###autoload
-(defun turn-off-voice-lock ()
-  "Turn off Voice Lock mode ."
-  (interactive)
-  (when voice-lock-mode (voice-lock-mode -1)))
-
-;;;### autoload
-(defun voice-lock-toggle ()
-  "Interactively toggle voice lock."
-  (interactive)
-  (if voice-lock-mode
-      (turn-off-voice-lock)
-    (turn-on-voice-lock))
-  (when (called-interactively-p 'interactive)
-    (message "Turned %s voice lock mode in buffer. " 
-             (if voice-lock-mode " on " " off "))
-    (emacspeak-auditory-icon (if voice-lock-mode 'on 'off))))
-
-;;;###autoload
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")
 
