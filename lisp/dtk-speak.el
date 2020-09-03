@@ -1533,6 +1533,9 @@ available TTS servers.")
    (t (plain-configure-tts)))
   (dtk-set-rate tts-default-speech-rate t)
   (dtk-interp-sync)
+  (let ((file-name-handler-alist nil)
+        (load-source-file-function nil))
+    (load-library "voice-setup"))
   (when
       (or
        (string-match "^ssh" tts-name)   ;remote server
