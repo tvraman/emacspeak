@@ -477,10 +477,9 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
-  (cl-declare (special line-move-visual
-               emacspeak-info-directory
-               use-dialog-box emacspeak-pronounce-dictionaries-file
-               emacspeak-play-program emacspeak-sounds-directory))
+  (cl-declare (special line-move-visual emacspeak-info-directory
+                       use-dialog-box emacspeak-pronounce-dictionaries-file
+                       emacspeak-play-program emacspeak-sounds-directory))
   (let ((ad-redefinition-action 'accept)
         (file-name-handler-alist nil)
         (load-source-file-function  nil))
@@ -502,14 +501,6 @@ commands and options for details."
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
     (emacspeak-play-startup-icon)))
-
-(defun emacspeak-info ()
-  "Open Emacspeak Info Manual."
-  (interactive)
-  (funcall-interactively
-   #'info
-   (expand-file-name "info/emacspeak.info" emacspeak-directory)
-   "*Emacspeak Info*"))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
