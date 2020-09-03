@@ -377,10 +377,6 @@ Emacs initialization file:
 (global-voice-lock-mode -1)
 @end lisp
 
-Note that the list of major modes in which
-@code{global-voice-lock-mode} will provide automatic activation is
-specified in the variable @var{voice-lock-global-modes}
-@xref{Voice Lock}.
 
 The characteristics of the different voice personalities used by voice
 lock mode vary according to the capabilities of the speech
