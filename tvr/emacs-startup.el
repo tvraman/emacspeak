@@ -131,6 +131,7 @@
   "Set up my tab-bar."
   (tab-new)
   (tab-rename "Books")
+  (emacspeak-epub)
   (tab-next)
   (tab-rename "Home"))
 

@@ -491,7 +491,6 @@ commands and options for details."
     (require 'emacspeak-personality)
     (dtk-initialize)
     (require 'emacspeak-keymap)
-    (require 'emacspeak-redefine)
     (require 'emacspeak-advice)
     (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
       (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
