@@ -812,11 +812,9 @@ icon."
 
 (declare-function emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
 
-(eval-after-load "eldoc"
-  `(progn
-     (global-eldoc-mode -1)
-     (setq eldoc-idle-delay 3)
-     (message "Turning off global-eldoc-mode")))
+(with-eval-after-load "eldoc"
+  (global-eldoc-mode -1)
+  (setq eldoc-idle-delay 3))
 
 (defvar emacspeak-eldoc-speak-explicitly
   (not (emacspeak-tts-use-notify-stream-p))
