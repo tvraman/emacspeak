@@ -334,7 +334,7 @@
    ("p" dtk-set-punctuations)
    ("r" dtk-set-rate)
    ("s" dtk-toggle-split-caps)
-   ("v" voice-lock-toggle)
+   ("v" global-voice-lock-mode)
    ("w" emacspeak-toggle-word-echo)
    ("z" emacspeak-zap-tts)
    ("C-n" dtk-notify-initialize)

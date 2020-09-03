@@ -502,6 +502,7 @@ commands and options for details."
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)
+    (global-voice-lock-mode)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
     (emacspeak-play-startup-icon)))

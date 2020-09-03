@@ -467,19 +467,22 @@ command \\[customize-variable] on <personality>-settings. "
   t nil nil
   (when (called-interactively-p 'interactive)
     (let ((state (if voice-lock-mode 'on 'off)))
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon state)))))
+        (emacspeak-auditory-icon state))))
 
-;;;###autoload
-(defvar global-voice-lock-mode t
-  "Global value of voice-lock-mode.")
+(defun voice-lock-mode--turn-on ()
+  "Turn on Voice Lock mode ."
+  (interactive)
+  (voice-lock-mode))
 
 (define-globalized-minor-mode global-voice-lock-mode
-  voice-lock-mode turn-on-voice-lock
-  :initialize 'custom-initialize-delay
-  :init-value (not (or noninteractive emacs-basic-display))
+  voice-lock-mode
+  voice-lock-mode--turn-on
+  :init-value t
   :group 'voice-lock
-  :version "24.1")
+  (when (called-interactively-p 'interactive)
+    (let ((state (if global-voice-lock-mode 'on 'off)))
+        (emacspeak-auditory-icon state)))
+  )
 
 ;; Install ourselves:
 (cl-declaim (special text-property-default-nonsticky))
