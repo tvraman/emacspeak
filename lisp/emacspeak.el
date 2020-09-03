@@ -122,7 +122,7 @@ speech-enabling extensions for `package' (a string)."
 
 ;;; subr.el
 (with-eval-after-load  "subr"
-  (emacspeak-fix-commands-loaded-from "find-func"))
+  (emacspeak-fix-commands-loaded-from "subr"))
 
 ;;}}}
 ;;{{{ Setup package extensions
