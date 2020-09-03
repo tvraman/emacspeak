@@ -206,12 +206,7 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
   :type 'hook
   :group 'emacspeak)
 
-(add-hook
- 'Info-mode-hook
- #'(lambda ()
-     (let ((file-name-handler-alist nil)
-           (load-source-file-function  nil))
-       (load "emacspeak-info"))))
+
 
 ;;}}}
 ;;; Start emacspeak if emacs   is interactive:
