@@ -316,6 +316,7 @@
    ("S" dtk-set-language)
    ("SPC" dtk-toggle-splitting-on-white-space)
    ("V" global-voice-lock-mode)
+   ("C-v" voice-lock-mode)
    ("\C-c" dtk-cloud)
    ("\C-d" dectalk)
    ("\C-e" espeak)
