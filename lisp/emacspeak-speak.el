@@ -3473,14 +3473,16 @@ configure which media players get silenced or paused/resumed."
   (ems-get-active-network-interfaces)
   "Used when prompting for an interface to query.")
 
-(defun ems-get-ip-address (&optional dev)
+(defun ems-get-ip-address (dev)
   "get the IP-address for device DEV "
+  (setq dev
+        (or dev
+            (completing-read
+             "Device: "
+             (ems-get-active-network-interfaces) nil t)))
   (format-network-address
-   (car
-    (network-interface-info
-     (or dev
-         (completing-read "Device: "
-                          (split-string (ems-get-active-network-interfaces)) nil t)))) t))
+   (car (network-interface-info dev))
+   'omit-port))
 
 ;;}}}
 ;;{{{ Show active network interfaces
@@ -3501,8 +3503,10 @@ also copied to the kill ring for convenient yanking."
   (kill-new
    (message
     (if address
-        (ems-get-ip-address)
-      (ems-get-active-network-interfaces)))))
+        (ems-get-ip-address nil)
+      (mapconcat #'identity 
+                 (ems-get-active-network-interfaces)
+                 " ")))))
 
 ;;}}}
 ;;{{{ Smart date prompers:
