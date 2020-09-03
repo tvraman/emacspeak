@@ -190,9 +190,10 @@ hook."
   "Starts up a notification stream if current synth supports  multiple invocations.
 TTS engine should use ALSA for this to be usable."
   (cl-declare (special dtk-program dtk-notify-process))
-  (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
-  (when (emacspeak-tts-multistream-p dtk-program)
-    (dtk-notify-initialize)))
+  (unless noninteractive 
+    (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
+    (when (emacspeak-tts-multistream-p dtk-program)
+      (dtk-notify-initialize))))
 
 ;;;###autoload
 (defun emacspeak-setup-header-line ()
