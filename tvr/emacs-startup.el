@@ -125,6 +125,16 @@
        (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
 ;;}}}
+;;{{{ tvr-tabs:
+
+(defun tvr-tabs ()
+  "Set up my tab-bar."
+  (tab-new)
+  (tab-rename "Books")
+  (tab-next)
+  (tab-rename "Home"))
+
+;;}}}
 ;;{{{Weekday Colors:
 
 (defconst tvr-weekday-to-color-alist
@@ -256,6 +266,7 @@ Use Custom to customize where possible. "
         (tvr-time-it "libs" start)
         (setq start (current-time))
         (tvr-customize) ;;; customizations
+        (tvr-tabs)
         (tvr-time-it "tvr-Custom" start)
         (setq start (current-time)) 
         (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
