@@ -1027,10 +1027,6 @@ Emacs initialization file:
 
      (global-voice-lock-mode -1)
 
-   Note that the list of major modes in which ‘global-voice-lock-mode’
-will provide automatic activation is specified in the variable
-VOICE-LOCK-GLOBAL-MODES *Note Voice Lock::.
-
    The characteristics of the different voice personalities used by
 voice lock mode vary according to the capabilities of the speech
 synthesizer.  The definitions applicable to the Dectalk family of
