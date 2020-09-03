@@ -103,7 +103,12 @@
     <strong>voice-lock-mode</strong> <em>(&amp;optional
     arg)</em></dt>
     <dd>
-      <span id="index-voice_002dlock_002dmode-1"></span>
+      <dl compact="compact">
+        <dt><kbd>C-e d C-v</kbd></dt>
+        <dd><span id="index-C_002de-d-C_002dv"></span></dd>
+        <dt><kbd>&lt;fn&gt; d C-v</kbd></dt>
+        <dd><span id="index-_003cfn_003e-d-C_002dv"></span></dd>
+      </dl><span id="index-voice_002dlock_002dmode-1"></span>
       <div class="format">
         <pre class="format">Toggle voice lock mode.
 
@@ -119,20 +124,17 @@ it is disabled.
 </pre>
       </div>
     </dd>
-  </dl><span id="voice_002dlock_002dtoggle"></span>
-  <h4 class="subsubsection">12.251.1.2 voice-lock-toggle</h4>
+  </dl><span id=
+  "voice_002dlock_002dmode_002d_002dturn_002don"></span>
+  <h4 class="subsubsection">12.251.1.2 voice-lock-mode–turn-on</h4>
   <dl>
-    <dt id="index-voice_002dlock_002dtoggle">Command:
-    <strong>voice-lock-toggle</strong></dt>
+    <dt id="index-voice_002dlock_002dmode_002d_002dturn_002don">
+    Command: <strong>voice-lock-mode--turn-on</strong></dt>
     <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e d v</kbd></dt>
-        <dd><span id="index-C_002de-d-v"></span></dd>
-        <dt><kbd>&lt;fn&gt; d v</kbd></dt>
-        <dd><span id="index-_003cfn_003e-d-v"></span></dd>
-      </dl><span id="index-voice_002dlock_002dtoggle-1"></span>
+      <span id=
+      "index-voice_002dlock_002dmode_002d_002dturn_002don-1"></span>
       <div class="format">
-        <pre class="format">Interactively toggle voice lock.
+        <pre class="format">Turn on Voice Lock mode .
 </pre>
       </div>
     </dd>
@@ -330,22 +332,6 @@ take effect.
   </dl>
   <dl>
     <dt id="index-User-Option-931">Variable: <strong>User
-    Option</strong> <em>voice-lock-global-modes</em></dt>
-    <dd>
-      <p>Modes for which Voice Lock mode is automagically turned
-      on. Global Voice Lock mode is controlled by the command
-      ‘global-voice-lock-mode’. If nil, means no modes have Voice
-      Lock mode automatically turned on. If t, all modes that
-      support Voice Lock mode have it automatically turned on. If a
-      list, it should be a list of ‘major-mode’ symbol names for
-      which Voice Lock mode should be automatically turned on. The
-      sense of the list is negated if it begins with ‘not’. For
-      example: (c-mode c++-mode) means that Voice Lock mode is
-      turned on for buffers in C and C++ modes only.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-932">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-0-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 0 of ACSS structure to
@@ -353,7 +339,7 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-933">Variable: <strong>User
+    <dt id="index-User-Option-932">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-1-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 1 of ACSS structure to
@@ -361,7 +347,7 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-934">Variable: <strong>User
+    <dt id="index-User-Option-933">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-2-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 2 of ACSS structure to
@@ -369,7 +355,7 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-935">Variable: <strong>User
+    <dt id="index-User-Option-934">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-3-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 3 of ACSS structure to
@@ -377,21 +363,21 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-936">Variable: <strong>User
+    <dt id="index-User-Option-935">Variable: <strong>User
     Option</strong> <em>voice-monotone-light-settings</em></dt>
     <dd>
       <p>Turns current voice into a light monotone.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-937">Variable: <strong>User
+    <dt id="index-User-Option-936">Variable: <strong>User
     Option</strong> <em>voice-monotone-medium-settings</em></dt>
     <dd>
       <p>Turns current voice into a medium monotone.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-938">Variable: <strong>User
+    <dt id="index-User-Option-937">Variable: <strong>User
     Option</strong> <em>voice-monotone-settings</em></dt>
     <dd>
       <p>Turns current voice into a monotone and speaks all
@@ -399,7 +385,7 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-939">Variable: <strong>User
+    <dt id="index-User-Option-938">Variable: <strong>User
     Option</strong> <em>voice-punctuations-all-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks all
@@ -407,7 +393,7 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-940">Variable: <strong>User
+    <dt id="index-User-Option-939">Variable: <strong>User
     Option</strong> <em>voice-punctuations-none-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks no
@@ -415,7 +401,7 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-941">Variable: <strong>User
+    <dt id="index-User-Option-940">Variable: <strong>User
     Option</strong> <em>voice-punctuations-some-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks some
@@ -423,35 +409,35 @@ take effect.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-942">Variable: <strong>User
+    <dt id="index-User-Option-941">Variable: <strong>User
     Option</strong> <em>voice-setup-sample-text</em></dt>
     <dd>
       <p>Sample text used when displaying available voices.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-943">Variable: <strong>User
+    <dt id="index-User-Option-942">Variable: <strong>User
     Option</strong> <em>voice-smoothen-extra-settings</em></dt>
     <dd>
       <p>Extra smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-944">Variable: <strong>User
+    <dt id="index-User-Option-943">Variable: <strong>User
     Option</strong> <em>voice-smoothen-medium-settings</em></dt>
     <dd>
       <p>Add medium smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-945">Variable: <strong>User
+    <dt id="index-User-Option-944">Variable: <strong>User
     Option</strong> <em>voice-smoothen-settings</em></dt>
     <dd>
       <p>Smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-946">Variable: <strong>User
+    <dt id="index-User-Option-945">Variable: <strong>User
     Option</strong> <em>voice-womanize-1-settings</em></dt>
     <dd>
       <p>Apply first female voice.</p>
