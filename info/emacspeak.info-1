@@ -4289,26 +4289,6 @@ system.
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
      If set to T, emacspeak plays its icon as it launches.
 
- -- Variable: User Option voice-Info-quoted
-     Personality used for Info-quoted This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-Man-overstrike
-     Personality used for Man-overstrike This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-Man-reverse
-     Personality used for Man-reverse This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-Man-underline
-     Personality used for Man-underline This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
  -- Variable: User Option voice-bold
      Personality used for bold This personality uses voice-bolden whose
      effect can be changed globally by customizing
@@ -4318,11 +4298,6 @@ system.
      Personality used for bold-italic This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-buffer-menu-buffer
-     Personality used for buffer-menu-buffer This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
 
  -- Variable: User Option voice-builtin-personality
      Personality used for font-lock-builtin-face This personality uses
@@ -4334,21 +4309,6 @@ system.
      voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
 
- -- Variable: User Option voice-calendar-today
-     Personality used for calendar-today This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-comint-highlight-input
-     Personality used for comint-highlight-input This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-comint-highlight-prompt
-     Personality used for comint-highlight-prompt This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
  -- Variable: User Option voice-comment-delimiter-personality
      Personality used for font-lock-comment-delimiter-face This
      personality uses voice-smoothen-medium whose effect can be changed
@@ -4359,460 +4319,20 @@ system.
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
 
- -- Variable: User Option voice-completions-annotations
-     Personality used for completions-annotations This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-completions-common-part
-     Personality used for completions-common-part This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-completions-first-difference
-     Personality used for completions-first-difference This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
  -- Variable: User Option voice-constant-personality
      Personality used for font-lock-constant-face This personality uses
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
-
- -- Variable: User Option voice-custom-button
-     Personality used for custom-button This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-custom-button-mouse
-     Personality used for custom-button-mouse This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-custom-button-pressed
-     Personality used for custom-button-pressed This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-custom-button-pressed-unraised
-     Personality used for custom-button-pressed-unraised This
-     personality uses voice-bolden-extra whose effect can be changed
-     globally by customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-custom-button-unraised
-     Personality used for custom-button-unraised This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-changed
-     Personality used for custom-changed This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-comment
-     Personality used for custom-comment This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-custom-comment-tag
-     Personality used for custom-comment-tag This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-custom-documentation
-     Personality used for custom-documentation This personality uses
-     voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-custom-face-tag
-     Personality used for custom-face-tag This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-custom-group-subtitle
-     Personality used for custom-group-subtitle This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-group-tag
-     Personality used for custom-group-tag This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-custom-group-tag-1
-     Personality used for custom-group-tag-1 This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-custom-invalid
-     Personality used for custom-invalid This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-custom-link
-     Personality used for custom-link This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-custom-modified
-     Personality used for custom-modified This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-custom-rogue
-     Personality used for custom-rogue This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-custom-saved
-     Personality used for custom-saved This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-custom-set
-     Personality used for custom-set This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-custom-state
-     Personality used for custom-state This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-custom-themed
-     Personality used for custom-themed This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-custom-variable-button
-     Personality used for custom-variable-button This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-custom-variable-tag
-     Personality used for custom-variable-tag This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-custom-visibility
-     Personality used for custom-visibility This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-diary
-     Personality used for diary This personality uses voice-bolden whose
-     effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-diff-added
-     Personality used for diff-added This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-diff-changed
-     Personality used for diff-changed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-diff-context
-     Personality used for diff-context This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-diff-file-header
-     Personality used for diff-file-header This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-diff-function
-     Personality used for diff-function This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-diff-header
-     Personality used for diff-header This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-diff-hunk-header
-     Personality used for diff-hunk-header This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-diff-index
-     Personality used for diff-index This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-diff-indicator-added
-     Personality used for diff-indicator-added This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-diff-indicator-changed
-     Personality used for diff-indicator-changed This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-diff-indicator-removed
-     Personality used for diff-indicator-removed This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-diff-nonexistent
-     Personality used for diff-nonexistent This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-diff-refine-added
-     Personality used for diff-refine-added This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-diff-refine-changed
-     Personality used for diff-refine-changed This personality uses
-     voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-diff-refine-removed
-     Personality used for diff-refine-removed This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-diff-removed
-     Personality used for diff-removed This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-dired-directory
-     Personality used for dired-directory This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-dired-flagged
-     Personality used for dired-flagged This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-dired-header
-     Personality used for dired-header This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-dired-ignored
-     Personality used for dired-ignored This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-dired-mark
-     Personality used for dired-mark This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-dired-marked
-     Personality used for dired-marked This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-dired-perm-write
-     Personality used for dired-perm-write This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-dired-set-id
-     Personality used for dired-set-id This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-dired-special
-     Personality used for dired-special This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-dired-symlink
-     Personality used for dired-symlink This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-dired-warning
-     Personality used for dired-warning This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
 
  -- Variable: User Option voice-doc-personality
      Personality used for font-lock-doc-face This personality uses
      voice-monotone-medium whose effect can be changed globally by
      customizing voice-monotone-medium-settings.
 
- -- Variable: User Option voice-ediff-current-diff-A
-     Personality used for ediff-current-diff-A This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-current-diff-Ancestor
-     Personality used for ediff-current-diff-Ancestor This personality
-     uses voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-ediff-current-diff-B
-     Personality used for ediff-current-diff-B This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-current-diff-C
-     Personality used for ediff-current-diff-C This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ediff-even-diff-A
-     Personality used for ediff-even-diff-A This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-even-diff-Ancestor
-     Personality used for ediff-even-diff-Ancestor This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ediff-even-diff-B
-     Personality used for ediff-even-diff-B This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-even-diff-C
-     Personality used for ediff-even-diff-C This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-A
-     Personality used for ediff-fine-diff-A This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-Ancestor
-     Personality used for ediff-fine-diff-Ancestor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-B
-     Personality used for ediff-fine-diff-B This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-fine-diff-C
-     Personality used for ediff-fine-diff-C This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-A
-     Personality used for ediff-odd-diff-A This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-Ancestor
-     Personality used for ediff-odd-diff-Ancestor This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-B
-     Personality used for ediff-odd-diff-B This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ediff-odd-diff-C
-     Personality used for ediff-odd-diff-C This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-eldoc-highlight-function-argument
-     Personality used for eldoc-highlight-function-argument This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option voice-epa-field-body
-     Personality used for epa-field-body This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-epa-field-name
-     Personality used for epa-field-name This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-epa-mark
-     Personality used for epa-mark This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-epa-string
-     Personality used for epa-string This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-epa-validity-disabled
-     Personality used for epa-validity-disabled This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-epa-validity-high
-     Personality used for epa-validity-high This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-epa-validity-low
-     Personality used for epa-validity-low This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-epa-validity-medium
-     Personality used for epa-validity-medium This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
  -- Variable: User Option voice-error
      Personality used for error This personality uses voice-animate
      whose effect can be changed globally by customizing
      voice-animate-settings.
-
- -- Variable: User Option voice-eww-form-checkbox
-     Personality used for eww-form-checkbox This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-eww-form-file
-     Personality used for eww-form-file This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-eww-form-select
-     Personality used for eww-form-select This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-eww-form-submit
-     Personality used for eww-form-submit This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-eww-form-text
-     Personality used for eww-form-text This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-eww-form-textarea
-     Personality used for eww-form-textarea This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-eww-invalid-certificate
-     Personality used for eww-invalid-certificate This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-eww-valid-certificate
-     Personality used for eww-valid-certificate This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
 
  -- Variable: User Option voice-file-name-shadow
      Personality used for file-name-shadow This personality uses
@@ -4824,16 +4344,6 @@ system.
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
 
- -- Variable: User Option voice-flyspell-duplicate
-     Personality used for flyspell-duplicate This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-flyspell-incorrect
-     Personality used for flyspell-incorrect This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
  -- Variable: User Option voice-fringe
      Personality used for fringe This personality uses
      voice-monotone-medium whose effect can be changed globally by
@@ -4843,271 +4353,6 @@ system.
      Personality used for font-lock-function-name-face This personality
      uses voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-gnus-cite-1
-     Personality used for gnus-cite-1 This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-gnus-cite-10
-     Personality used for gnus-cite-10 This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-gnus-cite-11
-     Personality used for gnus-cite-11 This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-gnus-cite-2
-     Personality used for gnus-cite-2 This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-gnus-cite-3
-     Personality used for gnus-cite-3 This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-gnus-cite-4
-     Personality used for gnus-cite-4 This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-gnus-cite-5
-     Personality used for gnus-cite-5 This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-gnus-cite-6
-     Personality used for gnus-cite-6 This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-gnus-cite-7
-     Personality used for gnus-cite-7 This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-gnus-cite-8
-     Personality used for gnus-cite-8 This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-cite-9
-     Personality used for gnus-cite-9 This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-gnus-emphasis-bold
-     Personality used for gnus-emphasis-bold This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-gnus-emphasis-highlight-words
-     Personality used for gnus-emphasis-highlight-words This personality
-     uses voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-gnus-emphasis-italic
-     Personality used for gnus-emphasis-italic This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-gnus-emphasis-strikethru
-     Personality used for gnus-emphasis-strikethru This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-emphasis-underline
-     Personality used for gnus-emphasis-underline This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-gnus-group-mail-1-empty
-     Personality used for gnus-group-mail-1-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-mail-2-empty
-     Personality used for gnus-group-mail-2-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-mail-3-empty
-     Personality used for gnus-group-mail-3-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-mail-low-empty
-     Personality used for gnus-group-mail-low-empty This personality
-     uses voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-1-empty
-     Personality used for gnus-group-news-1-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-2-empty
-     Personality used for gnus-group-news-2-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-3-empty
-     Personality used for gnus-group-news-3-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-4-empty
-     Personality used for gnus-group-news-4-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-5-empty
-     Personality used for gnus-group-news-5-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-6-empty
-     Personality used for gnus-group-news-6-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-group-news-low-empty
-     Personality used for gnus-group-news-low-empty This personality
-     uses voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-header-content
-     Personality used for gnus-header-content This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-header-from
-     Personality used for gnus-header-from This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-header-name
-     Personality used for gnus-header-name This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-gnus-header-newsgroups
-     Personality used for gnus-header-newsgroups This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-header-subject
-     Personality used for gnus-header-subject This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-server-agent
-     Personality used for gnus-server-agent This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-server-closed
-     Personality used for gnus-server-closed This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-gnus-server-denied
-     Personality used for gnus-server-denied This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-server-offline
-     Personality used for gnus-server-offline This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-gnus-server-opened
-     Personality used for gnus-server-opened This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-gnus-signature
-     Personality used for gnus-signature This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-gnus-summary-cancelled
-     Personality used for gnus-summary-cancelled This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-high-ancient
-     Personality used for gnus-summary-high-ancient This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-high-read
-     Personality used for gnus-summary-high-read This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-summary-high-ticked
-     Personality used for gnus-summary-high-ticked This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-high-unread
-     Personality used for gnus-summary-high-unread This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-low-ancient
-     Personality used for gnus-summary-low-ancient This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-low-read
-     Personality used for gnus-summary-low-read This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-gnus-summary-low-ticked
-     Personality used for gnus-summary-low-ticked This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-low-undownloaded
-     Personality used for gnus-summary-low-undownloaded This personality
-     uses voice-bolden-and-animate whose effect can be changed globally
-     by customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-gnus-summary-low-unread
-     Personality used for gnus-summary-low-unread This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-gnus-summary-normal-ancient
-     Personality used for gnus-summary-normal-ancient This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-normal-read
-     Personality used for gnus-summary-normal-read This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-gnus-summary-normal-ticked
-     Personality used for gnus-summary-normal-ticked This personality
-     uses voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-gnus-summary-normal-undownloaded
-     Personality used for gnus-summary-normal-undownloaded This
-     personality uses voice-bolden-and-animate whose effect can be
-     changed globally by customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-gnus-summary-selected
-     Personality used for gnus-summary-selected This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
 
  -- Variable: User Option voice-header-line
      Personality used for header-line This personality uses voice-bolden
@@ -5123,11 +4368,6 @@ system.
      Personality used for highlight This personality uses voice-animate
      whose effect can be changed globally by customizing
      voice-animate-settings.
-
- -- Variable: User Option voice-holiday
-     Personality used for holiday This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
  -- Variable: User Option voice-hydra-face-amaranth
      Personality used for hydra-face-amaranth This personality uses
@@ -5154,96 +4394,6 @@ system.
      voice-lighten-medium whose effect can be changed globally by
      customizing voice-lighten-medium-settings.
 
- -- Variable: User Option voice-ido-first-match
-     Personality used for ido-first-match This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ido-incomplete-regexp
-     Personality used for ido-incomplete-regexp This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-ido-indicator
-     Personality used for ido-indicator This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-ido-only-match
-     Personality used for ido-only-match This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-ido-subdir
-     Personality used for ido-subdir This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ido-virtual
-     Personality used for ido-virtual This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-info-header-node
-     Personality used for info-header-node This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-info-header-xref
-     Personality used for info-header-xref This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-info-index-match
-     Personality used for info-index-match This personality uses
-     ’voice-bolden-medium whose effect can be changed globally by
-     customizing ’voice-bolden-medium-settings.
-
- -- Variable: User Option voice-info-menu-header
-     Personality used for info-menu-header This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-info-menu-star
-     Personality used for info-menu-star This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-info-node
-     Personality used for info-node This personality uses voice-monotone
-     whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-info-title-1
-     Personality used for info-title-1 This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-info-title-2
-     Personality used for info-title-2 This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-info-title-3
-     Personality used for info-title-3 This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-info-title-4
-     Personality used for info-title-4 This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-info-xref
-     Personality used for info-xref This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-info-xref-visited
-     Personality used for info-xref-visited This personality uses
-     voice-animate-medium whose effect can be changed globally by
-     customizing voice-animate-medium-settings.
-
  -- Variable: User Option voice-isearch
      Personality used for isearch This personality uses voice-bolden
      whose effect can be changed globally by customizing
@@ -5259,275 +4409,10 @@ system.
      whose effect can be changed globally by customizing
      voice-animate-settings.
 
- -- Variable: User Option voice-ivy-action
-     Personality used for ivy-action This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-ivy-current-match
-     Personality used for ivy-current-match This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ivy-cursor
-     Personality used for ivy-cursor This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-1
-     Personality used for ivy-minibuffer-match-face-1 This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-2
-     Personality used for ivy-minibuffer-match-face-2 This personality
-     uses voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-3
-     Personality used for ivy-minibuffer-match-face-3 This personality
-     uses voice-monotone-light whose effect can be changed globally by
-     customizing voice-monotone-light-settings.
-
- -- Variable: User Option voice-ivy-minibuffer-match-face-4
-     Personality used for ivy-minibuffer-match-face-4 This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-ivy-modified-buffer
-     Personality used for ivy-modified-buffer This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-ivy-remote
-     Personality used for ivy-remote This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-ivy-subdir
-     Personality used for ivy-subdir This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-ivy-virtual
-     Personality used for ivy-virtual This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-jabber-chat-error
-     Personality used for jabber-chat-error This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-jabber-chat-prompt-foreign
-     Personality used for jabber-chat-prompt-foreign This personality
-     uses voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-jabber-chat-prompt-local
-     Personality used for jabber-chat-prompt-local This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-jabber-chat-prompt-system
-     Personality used for jabber-chat-prompt-system This personality
-     uses voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-jabber-chat-text-local
-     Personality used for jabber-chat-text-local This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-jabber-roster-user-away
-     Personality used for jabber-roster-user-away This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-jabber-roster-user-chatty
-     Personality used for jabber-roster-user-chatty This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option voice-jabber-roster-user-dnd
-     Personality used for jabber-roster-user-dnd This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-jabber-roster-user-error
-     Personality used for jabber-roster-user-error This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-jabber-roster-user-offline
-     Personality used for jabber-roster-user-offline This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-jabber-roster-user-online
-     Personality used for jabber-roster-user-online This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option voice-jabber-roster-user-xa
-     Personality used for jabber-roster-user-xa This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-jabber-title-large
-     Personality used for jabber-title-large This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-jabber-title-medium
-     Personality used for jabber-title-medium This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-jabber-title-small
-     Personality used for jabber-title-small This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-js2-error
-     Personality used for js2-error This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-js2-external-variable
-     Personality used for js2-external-variable This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-js2-function-call
-     Personality used for js2-function-call This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-js2-function-param
-     Personality used for js2-function-param This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-js2-instance-member
-     Personality used for js2-instance-member This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-js2-jsdoc-html-tag-delimiter
-     Personality used for js2-jsdoc-html-tag-delimiter This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-js2-jsdoc-html-tag-name
-     Personality used for js2-jsdoc-html-tag-name This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-js2-jsdoc-tag
-     Personality used for js2-jsdoc-tag This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-js2-jsdoc-type
-     Personality used for js2-jsdoc-type This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-js2-jsdoc-value
-     Personality used for js2-jsdoc-value This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-js2-magic-paren
-     Personality used for js2-magic-paren This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-js2-object-property
-     Personality used for js2-object-property This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-js2-object-property-access
-     Personality used for js2-object-property-access This personality
-     uses voice-lighten whose effect can be changed globally by
-     customizing voice-lighten-settings.
-
- -- Variable: User Option voice-js2-private-function-call
-     Personality used for js2-private-function-call This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-js2-private-member
-     Personality used for js2-private-member This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-js2-warning
-     Personality used for js2-warning This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
  -- Variable: User Option voice-keyword-personality
      Personality used for font-lock-keyword-face This personality uses
      voice-animate-extra whose effect can be changed globally by
      customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-latex-bold-personality
-     Personality used for font-latex-bold-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-latex-doctex-documentation-personality
-     Personality used for font-latex-doctex-documentation-face This
-     personality uses voice-monotone-medium whose effect can be changed
-     globally by customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-latex-doctex-preprocessor-personality
-     Personality used for font-latex-doctex-preprocessor-face This
-     personality uses voice-brighten-medium whose effect can be changed
-     globally by customizing voice-brighten-medium-settings.
-
- -- Variable: User Option voice-latex-italic-personality
-     Personality used for font-latex-italic-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-latex-math-personality
-     Personality used for font-latex-math-face This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-latex-sedate-personality
-     Personality used for font-latex-sedate-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-latex-string-personality
-     Personality used for font-latex-string-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-latex-subscript-personality
-     Personality used for font-latex-subscript-face This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-latex-superscript-personality
-     Personality used for font-latex-superscript-face This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option voice-latex-verbatim-personality
-     Personality used for font-latex-verbatim-face This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-latex-warning-personality
-     Personality used for font-latex-warning-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
 
  -- Variable: User Option voice-link
      Personality used for link This personality uses voice-bolden-medium
@@ -5539,375 +4424,15 @@ system.
      voice-bolden whose effect can be changed globally by customizing
      voice-bolden-settings.
 
- -- Variable: User Option voice-log-edit-header
-     Personality used for log-edit-header This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-log-edit-summary
-     Personality used for log-edit-summary This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-log-edit-unknown-header
-     Personality used for log-edit-unknown-header This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
  -- Variable: User Option voice-match
      Personality used for match This personality uses voice-lighten
      whose effect can be changed globally by customizing
      voice-lighten-settings.
 
- -- Variable: User Option voice-message-cited-text
-     Personality used for message-cited-text This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-message-header-cc
-     Personality used for message-header-cc This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-message-header-name
-     Personality used for message-header-name This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-message-header-newsgroups
-     Personality used for message-header-newsgroups This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option voice-message-header-other
-     Personality used for message-header-other This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-message-header-subject
-     Personality used for message-header-subject This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-message-header-to
-     Personality used for message-header-to This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-message-header-xheader
-     Personality used for message-header-xheader This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-message-mml
-     Personality used for message-mml This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-message-separator
-     Personality used for message-separator This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-minibuffer-prompt
-     Personality used for minibuffer-prompt This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
  -- Variable: User Option voice-negation-char-personality
      Personality used for font-lock-negation-char-face This personality
      uses voice-brighten-extra whose effect can be changed globally by
      customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-org-agenda-calendar-event
-     Personality used for org-agenda-calendar-event This personality
-     uses voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-org-agenda-calendar-sexp
-     Personality used for org-agenda-calendar-sexp This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-agenda-column-dateline
-     Personality used for org-agenda-column-dateline This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-org-agenda-diary
-     Personality used for org-agenda-diary This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-agenda-done
-     Personality used for org-agenda-done This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-agenda-filter-category
-     Personality used for org-agenda-filter-category This personality
-     uses voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-org-agenda-filter-tags
-     Personality used for org-agenda-filter-tags This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-org-agenda-restriction-lock
-     Personality used for org-agenda-restriction-lock This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-org-agenda-structure
-     Personality used for org-agenda-structure This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-archived
-     Personality used for org-archived This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-beamer-tag
-     Personality used for org-beamer-tag This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-block
-     Personality used for org-block This personality uses voice-monotone
-     whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-block-background
-     Personality used for org-block-background This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-checkbox
-     Personality used for org-checkbox This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-clock-overlay
-     Personality used for org-clock-overlay This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-code
-     Personality used for org-code This personality uses voice-monotone
-     whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-column
-     Personality used for org-column This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-org-column-title
-     Personality used for org-column-title This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-org-date
-     Personality used for org-date This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-date-selected
-     Personality used for org-date-selected This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-default
-     Personality used for org-default This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-org-document-info
-     Personality used for org-document-info This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-org-document-info-keyword
-     Personality used for org-document-info-keyword This personality
-     uses voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-org-document-title
-     Personality used for org-document-title This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-done
-     Personality used for org-done This personality uses voice-monotone
-     whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-drawer
-     Personality used for org-drawer This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-org-ellipsis
-     Personality used for org-ellipsis This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-org-footnote
-     Personality used for org-footnote This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-org-formula
-     Personality used for org-formula This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-org-headline-done
-     Personality used for org-headline-done This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-org-hide
-     Personality used for org-hide This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-org-indent
-     Personality used for org-indent This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-org-inlinetask
-     Personality used for org-inlinetask This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-org-latex-and-export-specials
-     Personality used for org-latex-and-export-specials This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-org-level-1
-     Personality used for org-level-1 This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-org-level-2
-     Personality used for org-level-2 This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-level-3
-     Personality used for org-level-3 This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-level-4
-     Personality used for org-level-4 This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-level-5
-     Personality used for org-level-5 This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-org-level-6
-     Personality used for org-level-6 This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-org-level-7
-     Personality used for org-level-7 This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-org-level-8
-     Personality used for org-level-8 This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-org-link
-     Personality used for org-link This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-meta-line
-     Personality used for org-meta-line This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option voice-org-property-value
-     Personality used for org-property-value This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-scheduled
-     Personality used for org-scheduled This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-scheduled-previously
-     Personality used for org-scheduled-previously This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-org-scheduled-today
-     Personality used for org-scheduled-today This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-org-sexp-date
-     Personality used for org-sexp-date This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-special-keyword
-     Personality used for org-special-keyword This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-org-table
-     Personality used for org-table This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-org-tag
-     Personality used for org-tag This personality uses voice-smoothen
-     whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-org-target
-     Personality used for org-target This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-org-time-grid
-     Personality used for org-time-grid This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-org-todo
-     Personality used for org-todo This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-org-upcoming-deadline
-     Personality used for org-upcoming-deadline This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-org-verbatim
-     Personality used for org-verbatim This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-org-warning
-     Personality used for org-warning This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
 
  -- Variable: User Option voice-outline-1
      Personality used for outline-1 This personality uses
@@ -5938,76 +4463,6 @@ system.
      Personality used for outline-6 This personality uses voice-lighten
      whose effect can be changed globally by customizing
      voice-lighten-settings.
-
- -- Variable: User Option voice-package-description
-     Personality used for package-description This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-package-help-section-name
-     Personality used for package-help-section-name This personality
-     uses voice-lighten whose effect can be changed globally by
-     customizing voice-lighten-settings.
-
- -- Variable: User Option voice-package-name
-     Personality used for package-name This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-package-status-avail-obso
-     Personality used for package-status-avail-obso This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-package-status-available
-     Personality used for package-status-available This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-package-status-built-in
-     Personality used for package-status-built-in This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-package-status-dependency
-     Personality used for package-status-dependency This personality
-     uses voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-package-status-disabled
-     Personality used for package-status-disabled This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-package-status-external
-     Personality used for package-status-external This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-package-status-held
-     Personality used for package-status-held This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-package-status-incompat
-     Personality used for package-status-incompat This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-package-status-installed
-     Personality used for package-status-installed This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-package-status-new
-     Personality used for package-status-new This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-package-status-unsigned
-     Personality used for package-status-unsigned This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
 
  -- Variable: User Option voice-preprocessor-personality
      Personality used for font-lock-preprocessor-face This personality
@@ -6049,31 +4504,6 @@ system.
      whose effect can be changed globally by customizing
      voice-bolden-settings.
 
- -- Variable: User Option voice-shr-selected-link
-     Personality used for shr-selected-link This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-shr-strike-through
-     Personality used for shr-strike-through This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-sp-show-pair-enclosing
-     Personality used for sp-show-pair-enclosing This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-sp-wrap-overlay-closing-pair
-     Personality used for sp-wrap-overlay-closing-pair This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option voice-sp-wrap-overlay-opening-pair
-     Personality used for sp-wrap-overlay-opening-pair This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
  -- Variable: User Option voice-string-personality
      Personality used for font-lock-string-face This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -6083,31 +4513,6 @@ system.
      Personality used for success This personality uses
      voice-brighten-extra whose effect can be changed globally by
      customizing voice-brighten-extra-settings.
-
- -- Variable: User Option voice-tab-bar
-     Personality used for tab-bar This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-tab-bar-tab
-     Personality used for tab-bar-tab This personality uses
-     voice-highlight whose effect can be changed globally by customizing
-     voice-highlight-settings.
-
- -- Variable: User Option voice-tab-bar-tab-inactive
-     Personality used for tab-bar-tab-inactive This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-tab-line
-     Personality used for tab-line This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-term-underline
-     Personality used for term-underline This personality uses
-     voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
 
  -- Variable: User Option voice-type-personality
      Personality used for font-lock-type-face This personality uses
@@ -6133,56 +4538,6 @@ system.
      Personality used for font-lock-warning-face This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-widget-button
-     Personality used for widget-button This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-widget-button-pressed
-     Personality used for widget-button-pressed This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option voice-widget-documentation
-     Personality used for widget-documentation This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-widget-field
-     Personality used for widget-field This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-widget-inactive
-     Personality used for widget-inactive This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-widget-single-line-field
-     Personality used for widget-single-line-field This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-woman-bold
-     Personality used for woman-bold This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-woman-edition
-     Personality used for woman-edition This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option voice-woman-italic
-     Personality used for woman-italic This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-woman-unknown
-     Personality used for woman-unknown This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-2048,  Next: emacspeak-abc-mode,  Prev: emacspeak,  Up: Emacspeak Commands And Options
@@ -6415,6 +4770,56 @@ versions of Emacs older than Emacs 21, And preferably only run on Emacs
  -- Variable: User Option emacspeak-untabify-fixes-non-breaking-space
      Advice untabify to change non-breaking space chars to space.
 
+ -- Variable: User Option voice-comint-highlight-input
+     Personality used for comint-highlight-input This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-comint-highlight-prompt
+     Personality used for comint-highlight-prompt This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-completions-annotations
+     Personality used for completions-annotations This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option voice-completions-common-part
+     Personality used for completions-common-part This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-completions-first-difference
+     Personality used for completions-first-difference This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option voice-eldoc-highlight-function-argument
+     Personality used for eldoc-highlight-function-argument This
+     personality uses voice-bolden whose effect can be changed globally
+     by customizing voice-bolden-settings.
+
+ -- Variable: User Option voice-log-edit-header
+     Personality used for log-edit-header This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-log-edit-summary
+     Personality used for log-edit-summary This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-log-edit-unknown-header
+     Personality used for log-edit-unknown-header This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-minibuffer-prompt
+     Personality used for minibuffer-prompt This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-amark,  Next: emacspeak-analog,  Prev: emacspeak-advice,  Up: Emacspeak Commands And Options
 
@@ -6576,6 +4981,64 @@ File: emacspeak.info,  Node: emacspeak-auctex,  Next: emacspeak-bbc,  Prev: emac
 
 Speech-enables the AucTeX package.  AucTeX, now available from ELPA, has
 been my authoring environment of choice for writing LaTeX since 1991.
+
+12.20.1 emacspeak-auctex Options
+--------------------------------
+
+ -- Variable: User Option voice-latex-bold-personality
+     Personality used for font-latex-bold-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-latex-doctex-documentation-personality
+     Personality used for font-latex-doctex-documentation-face This
+     personality uses voice-monotone-medium whose effect can be changed
+     globally by customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-latex-doctex-preprocessor-personality
+     Personality used for font-latex-doctex-preprocessor-face This
+     personality uses voice-brighten-medium whose effect can be changed
+     globally by customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option voice-latex-italic-personality
+     Personality used for font-latex-italic-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-latex-math-personality
+     Personality used for font-latex-math-face This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option voice-latex-sedate-personality
+     Personality used for font-latex-sedate-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-latex-string-personality
+     Personality used for font-latex-string-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-latex-subscript-personality
+     Personality used for font-latex-subscript-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-latex-superscript-personality
+     Personality used for font-latex-superscript-face This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option voice-latex-verbatim-personality
+     Personality used for font-latex-verbatim-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-latex-warning-personality
+     Personality used for font-latex-warning-face This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-auctex,  Up: Emacspeak Commands And Options
@@ -7263,6 +5726,14 @@ Speech-enable buffer-menus.
 
      Speak the name of the buffer on this line
 
+12.28.2 emacspeak-buff-menu Options
+-----------------------------------
+
+ -- Variable: User Option voice-buffer-menu-buffer
+     Personality used for buffer-menu-buffer This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calc,  Prev: emacspeak-buff-menu,  Up: Emacspeak Commands And Options
 
@@ -7342,6 +5813,21 @@ advantages of speech-enabled interaction.
 
  -- Variable: User Option emacspeak-calendar-mark-personality
      Personality to use when showing marked calendar entries.
+
+ -- Variable: User Option voice-calendar-today
+     Personality used for calendar-today This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-diary
+     Personality used for diary This personality uses voice-bolden whose
+     effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-holiday
+     Personality used for holiday This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-cedet,  Next: emacspeak-checkdoc,  Prev: emacspeak-calendar,  Up: Emacspeak Commands And Options
@@ -7630,4 +6116,2007 @@ _current move_ being displayed.
  -- Command: emacspeak-chess-west
 
      Move west one step.
+
+
+File: emacspeak.info,  Node: emacspeak-cider,  Next: emacspeak-ciel,  Prev: emacspeak-chess,  Up: Emacspeak Commands And Options
+
+12.36 emacspeak-cider
+=====================
+
+Speech-Enable CIDER — Clojure IDE
+
+12.36.1 emacspeak-cider Options
+-------------------------------
+
+ -- Variable: User Option voice-cider-repl-stderr-facevoice-animate
+     Personality used for cider-repl-stderr-facevoice-animate This
+     personality uses nil whose effect can be changed globally by
+     customizing nil-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-clojure,  Prev: emacspeak-cider,  Up: Emacspeak Commands And Options
+
+12.37 emacspeak-ciel
+====================
+
+Package ciel provides vim’s "copy inside" and "clear inside" commands.
+Emacspeak binds these commands to <Super i> and <Super o>.  This module
+speech-enables ciel.
+
+
+File: emacspeak.info,  Node: emacspeak-clojure,  Next: emacspeak-cmuscheme,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
+
+12.38 emacspeak-clojure
+=======================
+
+CLOJURE-mode: Specialized mode for Clojure programming.
+
+
+File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-clojure,  Up: Emacspeak Commands And Options
+
+12.39 emacspeak-cmuscheme
+=========================
+
+speech-enable scheme support
+
+
+File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-cmuscheme,  Up: Emacspeak Commands And Options
+
+12.40 emacspeak-company
+=======================
+
+COMPANY -mode: Complete Anything Support for emacs.
+
+   This module provides an Emacspeak Company Front-end, And advises the
+needed interactive commands in Company.  It adds an emacspeak-specific
+front-end ‘emacspeak-company-frontend’ to the value of
+company-frontends.  Note that COMPANY-FRONTENDS is a user-customizable
+option and ends up getting saved by emacs along with other custom
+settings.  Function ‘emacspeak-company-frontend’ handles providing
+spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
+to generate their own feedback.
+
+12.40.1 emacspeak-company Options
+---------------------------------
+
+ -- Variable: User Option voice-company-echo
+     Personality used for company-echo This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-company-echo-common
+     Personality used for company-echo-common This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-company-preview
+     Personality used for company-preview This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-company-preview-common
+     Personality used for company-preview-common This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option voice-company-preview-search
+     Personality used for company-preview-search This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-company-template-field
+     Personality used for company-template-field This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
+
+12.41 emacspeak-compile
+=======================
+
+This module makes compiling code from inside Emacs speech friendly.  It
+is an example of how a little amount of code can make Emacspeak even
+better.
+
+12.41.1 Emacspeak-Compile Commands
+----------------------------------
+
+12.41.1.1 emacspeak-compilation-speak-error
+...........................................
+
+ -- Command: emacspeak-compilation-speak-error
+
+     Speech feedback about the compilation error.
+
+12.41.2 emacspeak-compile Options
+---------------------------------
+
+ -- Variable: User Option voice-compilation-column-number
+     Personality used for compilation-column-number This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-compilation-error
+     Personality used for compilation-error This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option voice-compilation-info
+     Personality used for compilation-info This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-compilation-line-number
+     Personality used for compilation-line-number This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-compilation-mode-line-exit
+     Personality used for compilation-mode-line-exit This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
+
+ -- Variable: User Option voice-compilation-mode-line-fail
+     Personality used for compilation-mode-line-fail This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option voice-compilation-mode-line-run
+     Personality used for compilation-mode-line-run This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option voice-compilation-warning
+     Personality used for compilation-warning This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
+
+12.42 emacspeak-cperl
+=====================
+
+Provide additional advice to CPerl mode
+
+
+File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
+
+12.43 emacspeak-custom
+======================
+
+Advise custom to speak.  most of the work is actually done by
+emacspeak-widget.el which speech-enables the widget libraries.
+
+12.43.1 Emacspeak-Custom Commands
+---------------------------------
+
+12.43.1.1 emacspeak-custom-goto-group
+.....................................
+
+ -- Command: emacspeak-custom-goto-group
+
+     Jump to custom group when in a customization buffer.
+
+12.43.1.2 emacspeak-custom-goto-toolbar
+.......................................
+
+ -- Command: emacspeak-custom-goto-toolbar
+
+     Jump to custom toolbar when in a customization buffer.
+
+12.43.2 emacspeak-custom Options
+--------------------------------
+
+ -- Variable: User Option voice-custom-button
+     Personality used for custom-button This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-custom-button-mouse
+     Personality used for custom-button-mouse This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-custom-button-pressed
+     Personality used for custom-button-pressed This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option voice-custom-button-pressed-unraised
+     Personality used for custom-button-pressed-unraised This
+     personality uses voice-bolden-extra whose effect can be changed
+     globally by customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option voice-custom-button-unraised
+     Personality used for custom-button-unraised This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-custom-changed
+     Personality used for custom-changed This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-custom-comment
+     Personality used for custom-comment This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-custom-comment-tag
+     Personality used for custom-comment-tag This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-custom-documentation
+     Personality used for custom-documentation This personality uses
+     voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option voice-custom-face-tag
+     Personality used for custom-face-tag This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-custom-group-subtitle
+     Personality used for custom-group-subtitle This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-custom-group-tag
+     Personality used for custom-group-tag This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-custom-group-tag-1
+     Personality used for custom-group-tag-1 This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option voice-custom-invalid
+     Personality used for custom-invalid This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option voice-custom-link
+     Personality used for custom-link This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-custom-modified
+     Personality used for custom-modified This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option voice-custom-rogue
+     Personality used for custom-rogue This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option voice-custom-saved
+     Personality used for custom-saved This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-custom-set
+     Personality used for custom-set This personality uses
+     voice-smoothen-medium whose effect can be changed globally by
+     customizing voice-smoothen-medium-settings.
+
+ -- Variable: User Option voice-custom-state
+     Personality used for custom-state This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-custom-themed
+     Personality used for custom-themed This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-custom-variable-button
+     Personality used for custom-variable-button This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-custom-variable-tag
+     Personality used for custom-variable-tag This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-custom-visibility
+     Personality used for custom-visibility This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-deadgrep,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
+
+12.44 emacspeak-dbus
+====================
+
+Loading this module sets up Emacspeak to respond to DBus notifications.
+This module needs to be loaded explicitly from the user’s init file
+after emacspeak has been started.
+
+12.44.1 Overview
+----------------
+
+This module provides integration via DBus for the following:
+   • Respond to network coming up or going down — ‘(nm-enable)’.
+   • Respond to screen getting locked/unlocked by gnome-screen-saver —
+     ‘(emacspeak-dbus-watch-screen-lock)’.
+   • Respond to laptop going to sleep or waking up —
+     ‘(emacspeak-dbus-sleep-enable)’.
+   • Respond to insertion/ejection of removable storage —
+     ‘(emacspeak-dbus-udisks-enable)’.
+   • Watch for power devices — ‘(emacspeak-dbus-upower-enable)’.
+   • An interactive command ‘emacspeak-dbus-lock-screen’ bound to ‘C-,
+     C-d’ to lock the screen using DBus.  Note: this key-binding is
+     available only if this module is loaded.
+   Add calls to the desired functions from the above list to the emacs
+startup file after this module has been loaded.  See relevant hooks for
+customizing behavior.  Note that each of the sleep/wake-up, UDisks2 and
+network/up-down can be separately enabled/disabled, and the actions
+customized via appropriately named hook functions.
+
+12.44.2 Emacspeak-Dbus Commands
+-------------------------------
+
+12.44.2.1 emacspeak-dbus-lock-screen
+....................................
+
+ -- Command: emacspeak-dbus-lock-screen
+
+     Lock screen using DBus.
+
+12.44.2.2 emacspeak-dbus-sleep-disable
+......................................
+
+ -- Command: emacspeak-dbus-sleep-disable
+
+     Disable integration with login1 daemon. Does nothing if
+     already disabled.
+
+12.44.2.3 emacspeak-dbus-sleep-enable
+.....................................
+
+ -- Command: emacspeak-dbus-sleep-enable
+
+     Enable integration with Login1. Does nothing if already enabled.
+
+12.44.2.4 emacspeak-dbus-udisks-disable
+.......................................
+
+ -- Command: emacspeak-dbus-udisks-disable
+
+     Disable integration with UDisks2 daemon. Does nothing if
+     already disabled.
+
+12.44.2.5 emacspeak-dbus-udisks-enable
+......................................
+
+ -- Command: emacspeak-dbus-udisks-enable
+
+     Enable integration with UDisks2. Does nothing if already enabled.
+
+12.44.2.6 emacspeak-dbus-upower-disable
+.......................................
+
+ -- Command: emacspeak-dbus-upower-disable
+
+     Disable integration with UPower daemon. Does nothing if
+     already disabled.
+
+12.44.2.7 emacspeak-dbus-upower-enable
+......................................
+
+ -- Command: emacspeak-dbus-upower-enable
+
+     Enable integration with UPower. Does nothing if already enabled.
+
+12.44.2.8 emacspeak-screen-saver-mode
+.....................................
+
+ -- Command: emacspeak-screen-saver-mode
+
+     A light-weight mode for the ‘*Emacspeak Screen Saver *’ buffer.
+     This is a hidden buffer that is made current so we automatically
+     switch to a screen-saver soundscape.
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-screen-saver-mode-hook’, as the final or penultimate step
+     during initialization.
+
+     key             binding
+     —             ——-
+
+
+
+File: emacspeak.info,  Node: emacspeak-deadgrep,  Next: emacspeak-debugger,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
+
+12.45 emacspeak-deadgrep
+========================
+
+DEADGREP == Front-end to ripgrep.
+
+
+File: emacspeak.info,  Node: emacspeak-debugger,  Next: emacspeak-desktop,  Prev: emacspeak-deadgrep,  Up: Emacspeak Commands And Options
+
+12.46 emacspeak-debugger
+========================
+
+DEBUGGER == Emacs Interactive Debugger.  Speech-enable the debugger by
+speech-enabling interactive commands.
+
+
+File: emacspeak.info,  Node: emacspeak-desktop,  Next: emacspeak-dictionary,  Prev: emacspeak-debugger,  Up: Emacspeak Commands And Options
+
+12.47 emacspeak-desktop
+=======================
+
+advice desktop package
+
+
+File: emacspeak.info,  Node: emacspeak-dictionary,  Next: emacspeak-diff-mode,  Prev: emacspeak-desktop,  Up: Emacspeak Commands And Options
+
+12.48 emacspeak-dictionary
+==========================
+
+Speech-enables emacs client for accessing dictionary server at
+dict.org:2628
+
+
+File: emacspeak.info,  Node: emacspeak-diff-mode,  Next: emacspeak-dired,  Prev: emacspeak-dictionary,  Up: Emacspeak Commands And Options
+
+12.49 emacspeak-diff-mode
+=========================
+
+DIFF-MODE support.
+
+12.49.1 emacspeak-diff-mode Options
+-----------------------------------
+
+ -- Variable: User Option voice-diff-added
+     Personality used for diff-added This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-diff-changed
+     Personality used for diff-changed This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-diff-context
+     Personality used for diff-context This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-diff-file-header
+     Personality used for diff-file-header This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-diff-function
+     Personality used for diff-function This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-diff-header
+     Personality used for diff-header This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option voice-diff-hunk-header
+     Personality used for diff-hunk-header This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-diff-index
+     Personality used for diff-index This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-diff-indicator-added
+     Personality used for diff-indicator-added This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option voice-diff-indicator-changed
+     Personality used for diff-indicator-changed This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option voice-diff-indicator-removed
+     Personality used for diff-indicator-removed This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-diff-nonexistent
+     Personality used for diff-nonexistent This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-diff-refine-added
+     Personality used for diff-refine-added This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-diff-refine-changed
+     Personality used for diff-refine-changed This personality uses
+     voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option voice-diff-refine-removed
+     Personality used for diff-refine-removed This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-diff-removed
+     Personality used for diff-removed This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-dired,  Next: emacspeak-dismal,  Prev: emacspeak-diff-mode,  Up: Emacspeak Commands And Options
+
+12.50 emacspeak-dired
+=====================
+
+This module speech enables dired.  It reduces the amount of speech you
+hear: Typically you hear the file names as you move through the dired
+buffer Voicification is used to indicate directories, marked files etc.
+
+12.50.1 Emacspeak-Dired Commands
+--------------------------------
+
+12.50.1.1 emacspeak-dired-csv-open
+..................................
+
+ -- Command: emacspeak-dired-csv-open
+
+     Open CSV file on current dired line.
+
+12.50.1.2 emacspeak-dired-downloads
+...................................
+
+ -- Command: emacspeak-dired-downloads
+     ‘C-. d’
+     ‘C-' d’
+     ‘C-x @ s d’
+
+     Open Downloads directory.
+
+12.50.1.3 emacspeak-dired-epub-eww
+..................................
+
+ -- Command: emacspeak-dired-epub-eww
+
+     Open epub on current line  in EWW
+
+12.50.1.4 emacspeak-dired-eww-open
+..................................
+
+ -- Command: emacspeak-dired-eww-open
+
+     Open HTML file on current dired line.
+
+12.50.1.5 emacspeak-dired-label-fields
+......................................
+
+ -- Command: emacspeak-dired-label-fields
+
+     Labels the fields of the listing in the dired buffer.
+     Currently is a no-op  unless
+     unless ‘dired-listing-switches’ contains -l
+
+12.50.1.6 emacspeak-dired-md-open
+.................................
+
+ -- Command: emacspeak-dired-md-open
+
+     Preview markdown  file on current dired line.
+
+12.50.1.7 emacspeak-dired-midi-play
+...................................
+
+ -- Command: emacspeak-dired-midi-play
+
+     Play midi  file on current dired line.
+
+12.50.1.8 emacspeak-dired-open-this-file
+........................................
+
+ -- Command: emacspeak-dired-open-this-file
+
+     Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd.
+
+12.50.1.9 emacspeak-dired-pdf-open
+..................................
+
+ -- Command: emacspeak-dired-pdf-open
+
+     Open PDF file on current dired line.
+
+12.50.1.10 emacspeak-dired-show-file-type
+.........................................
+
+ -- Command: emacspeak-dired-show-file-type (&optional file
+          deref-symlinks)
+
+     Displays type of current file by running command file.
+     Like Emacs’ built-in dired-show-file-type but allows user to customize
+     options passed to command ‘file’.
+
+     (fn &optional FILE DEREF-SYMLINKS)
+
+12.50.1.11 emacspeak-dired-speak-file-access-time
+.................................................
+
+ -- Command: emacspeak-dired-speak-file-access-time
+
+     Speak access time  of the current file.
+
+12.50.1.12 emacspeak-dired-speak-file-modification-time
+.......................................................
+
+ -- Command: emacspeak-dired-speak-file-modification-time
+
+     Speak modification time  of the current file.
+
+12.50.1.13 emacspeak-dired-speak-file-permissions
+.................................................
+
+ -- Command: emacspeak-dired-speak-file-permissions
+
+     Speak the permissions of the current file.
+
+12.50.1.14 emacspeak-dired-speak-file-size
+..........................................
+
+ -- Command: emacspeak-dired-speak-file-size
+
+     Speak the size of the current file.
+     On a directory line, run du -s on the directory to speak its size.
+
+12.50.1.15 emacspeak-dired-speak-header-line
+............................................
+
+ -- Command: emacspeak-dired-speak-header-line
+
+     Speak the header line of the dired buffer.
+
+12.50.1.16 emacspeak-dired-speak-symlink-target
+...............................................
+
+ -- Command: emacspeak-dired-speak-symlink-target
+
+     Speaks the target of the symlink on the current line.
+
+12.50.1.17 emacspeak-locate-play-results-as-playlist
+....................................................
+
+ -- Command: emacspeak-locate-play-results-as-playlist (&optional
+          shuffle)
+
+     Treat locate results as a play-list.
+     Optional interactive prefix arg shuffles playlist.
+
+     (fn &optional SHUFFLE)
+
+12.50.2 emacspeak-dired Options
+-------------------------------
+
+ -- Variable: User Option emacspeak-dired-file-cmd-options
+     Options passed to Unix builtin ‘file’ command.
+
+ -- Variable: User Option voice-dired-directory
+     Personality used for dired-directory This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-dired-flagged
+     Personality used for dired-flagged This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option voice-dired-header
+     Personality used for dired-header This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-dired-ignored
+     Personality used for dired-ignored This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-dired-mark
+     Personality used for dired-mark This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-dired-marked
+     Personality used for dired-marked This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-dired-perm-write
+     Personality used for dired-perm-write This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-dired-set-id
+     Personality used for dired-set-id This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-dired-special
+     Personality used for dired-special This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-dired-symlink
+     Personality used for dired-symlink This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option voice-dired-warning
+     Personality used for dired-warning This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-dumb-jump,  Prev: emacspeak-dired,  Up: Emacspeak Commands And Options
+
+12.51 emacspeak-dismal
+======================
+
+### emacspeak-dismal: No Commentary
+
+12.51.1 Emacspeak-Dismal Commands
+---------------------------------
+
+12.51.1.1 emacspeak-dismal-backward-col-and-summarize
+.....................................................
+
+ -- Command: emacspeak-dismal-backward-col-and-summarize (cols)
+
+     Move backward by arg columns
+      (the previous column by default)and summarize it.
+
+     (fn COLS)
+
+12.51.1.2 emacspeak-dismal-backward-row-and-summarize
+.....................................................
+
+ -- Command: emacspeak-dismal-backward-row-and-summarize (rows)
+
+     Move backward by arg rows
+      (the previous row by default)and summarize it.
+
+     (fn ROWS)
+
+12.51.1.3 emacspeak-dismal-col-summarize
+........................................
+
+ -- Command: emacspeak-dismal-col-summarize
+
+     Summarizes a col using the specification in list
+     emacspeak-dismal-col-summarizer-list
+
+12.51.1.4 emacspeak-dismal-display-cell-expression
+..................................................
+
+ -- Command: emacspeak-dismal-display-cell-expression
+
+     Display the expression in the message area
+
+12.51.1.5 emacspeak-dismal-display-cell-value
+.............................................
+
+ -- Command: emacspeak-dismal-display-cell-value
+
+     Display the cell value in the message area
+
+12.51.1.6 emacspeak-dismal-display-cell-with-col-header
+.......................................................
+
+ -- Command: emacspeak-dismal-display-cell-with-col-header
+
+     Display current cell along with its column header.
+     The ‘column header’ is the entry in row 0.
+
+12.51.1.7 emacspeak-dismal-display-cell-with-row-header
+.......................................................
+
+ -- Command: emacspeak-dismal-display-cell-with-row-header
+
+     Displays current cell along with its row header.
+     The ‘row header’ is the entry in column 0.
+
+12.51.1.8 emacspeak-dismal-forward-col-and-summarize
+....................................................
+
+ -- Command: emacspeak-dismal-forward-col-and-summarize (cols)
+
+     Move forward by arg columns
+      (the next column by default)and summarize it.
+
+     (fn COLS)
+
+12.51.1.9 emacspeak-dismal-forward-row-and-summarize
+....................................................
+
+ -- Command: emacspeak-dismal-forward-row-and-summarize (rows)
+
+     Move forward by arg rows
+      (the next row by default)and summarize it.
+
+     (fn ROWS)
+
+12.51.1.10 emacspeak-dismal-row-summarize
+.........................................
+
+ -- Command: emacspeak-dismal-row-summarize
+
+     Summarizes a row using the specification in list
+     emacspeak-dismal-row-summarizer-list
+
+12.51.1.11 emacspeak-dismal-set-col-summarizer-list
+...................................................
+
+ -- Command: emacspeak-dismal-set-col-summarizer-list
+
+     Specify or reset col summarizer list.
+
+12.51.1.12 emacspeak-dismal-set-row-summarizer-list
+...................................................
+
+ -- Command: emacspeak-dismal-set-row-summarizer-list
+
+     Specify or reset row summarizer list.
+
+12.51.1.13 emacspeak-dismal-set-sheet-summarizer-list
+.....................................................
+
+ -- Command: emacspeak-dismal-set-sheet-summarizer-list
+
+     Specify or reset sheet summarizer list.
+
+12.51.1.14 emacspeak-dismal-sheet-summarize
+...........................................
+
+ -- Command: emacspeak-dismal-sheet-summarize
+
+     Summarizes a sheet using the specification in list
+     emacspeak-dismal-sheet-summarizer-list
+
+12.51.2 emacspeak-dismal Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-dismal-value-personality
+     Personality used for speaking cell values in summaries.
+
+
+File: emacspeak.info,  Node: emacspeak-dumb-jump,  Next: emacspeak-ecb,  Prev: emacspeak-dismal,  Up: Emacspeak Commands And Options
+
+12.52 emacspeak-dumb-jump
+=========================
+
+DUMB-JUMP == Jump to imputed cross-references in source code.  This
+module speech-enables dumb-jump
+
+
+File: emacspeak.info,  Node: emacspeak-ecb,  Next: emacspeak-eclim,  Prev: emacspeak-dumb-jump,  Up: Emacspeak Commands And Options
+
+12.53 emacspeak-ecb
+===================
+
+The ECB is an Emacs Class Browser.  This module speech-enables ECB
+
+12.53.1 Emacspeak-Ecb Commands
+------------------------------
+
+12.53.1.1 emacspeak-ecb-speak-window-directories
+................................................
+
+ -- Command: emacspeak-ecb-speak-window-directories
+
+     Speak contents of directories window.
+
+12.53.1.2 emacspeak-ecb-speak-window-history
+............................................
+
+ -- Command: emacspeak-ecb-speak-window-history
+
+     Speak contents of history window.
+
+12.53.1.3 emacspeak-ecb-speak-window-methods
+............................................
+
+ -- Command: emacspeak-ecb-speak-window-methods
+
+     Speak contents of methods window.
+
+12.53.1.4 emacspeak-ecb-speak-window-sources
+............................................
+
+ -- Command: emacspeak-ecb-speak-window-sources
+
+     Speak contents of sources window.
+
+12.53.1.5 emacspeak-ecb-tree-backspace
+......................................
+
+ -- Command: emacspeak-ecb-tree-backspace
+
+     Back up during incremental search in tree buffers.
+
+12.53.1.6 emacspeak-ecb-tree-clear
+..................................
+
+ -- Command: emacspeak-ecb-tree-clear
+
+     Clear search pattern during incremental search in tree buffers.
+
+
+File: emacspeak.info,  Node: emacspeak-eclim,  Next: emacspeak-ediary,  Prev: emacspeak-ecb,  Up: Emacspeak Commands And Options
+
+12.54 emacspeak-eclim
+=====================
+
+ECLIM == Eclipse/Vim integration.  http://www.eclim.org turns Eclipse
+into a headless server that can be called from other programs.  Package
+Emacs-Eclim connects Emacs to Eclim.  Package emacspeak-eclim
+speech-enables emacs-eclim.
+
+
+File: emacspeak.info,  Node: emacspeak-ediary,  Next: emacspeak-ediff,  Prev: emacspeak-eclim,  Up: Emacspeak Commands And Options
+
+12.55 emacspeak-ediary
+======================
+
+ediary is a special mode for editing your.diary file.  This module
+speech-enables ediary
+
+
+File: emacspeak.info,  Node: emacspeak-ediff,  Next: emacspeak-eglot,  Prev: emacspeak-ediary,  Up: Emacspeak Commands And Options
+
+12.56 emacspeak-ediff
+=====================
+
+Ediff provides a nice visual interface to diff.  ;;;Comparing and
+patching files is easy with ediff when you can see the screen.  This
+module provides Emacspeak extensions to work fluently with ediff.  Try
+it out, it’s an excellent example of why Emacspeak is better than a
+traditional screenreader.  This module was originally written to
+interface to the old ediff.el bundled with GNU Emacs 19.28 and earlier.
+It has been updated to work with the newer and much larger ediff system
+found in Emacs 19.29 and later.
+
+   When using under modern versions of Emacs, I recommend setting (setq
+ediff-window-setup-function ’ediff-setup-windows-plain) so that Emacs
+always displays Ediff windows in a single frame.
+
+12.56.1 Emacspeak-Ediff Commands
+--------------------------------
+
+12.56.1.1 emacspeak-ediff-speak-current-difference
+..................................................
+
+ -- Command: emacspeak-ediff-speak-current-difference
+
+     Speak the current difference
+
+12.56.2 emacspeak-ediff Options
+-------------------------------
+
+ -- Variable: User Option voice-ediff-current-diff-A
+     Personality used for ediff-current-diff-A This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-ediff-current-diff-Ancestor
+     Personality used for ediff-current-diff-Ancestor This personality
+     uses voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-ediff-current-diff-B
+     Personality used for ediff-current-diff-B This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-ediff-current-diff-C
+     Personality used for ediff-current-diff-C This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-ediff-even-diff-A
+     Personality used for ediff-even-diff-A This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-ediff-even-diff-Ancestor
+     Personality used for ediff-even-diff-Ancestor This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-ediff-even-diff-B
+     Personality used for ediff-even-diff-B This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-ediff-even-diff-C
+     Personality used for ediff-even-diff-C This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-ediff-fine-diff-A
+     Personality used for ediff-fine-diff-A This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-ediff-fine-diff-Ancestor
+     Personality used for ediff-fine-diff-Ancestor This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-ediff-fine-diff-B
+     Personality used for ediff-fine-diff-B This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-ediff-fine-diff-C
+     Personality used for ediff-fine-diff-C This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-ediff-odd-diff-A
+     Personality used for ediff-odd-diff-A This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-ediff-odd-diff-Ancestor
+     Personality used for ediff-odd-diff-Ancestor This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-ediff-odd-diff-B
+     Personality used for ediff-odd-diff-B This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-ediff-odd-diff-C
+     Personality used for ediff-odd-diff-C This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-eglot,  Next: emacspeak-ein,  Prev: emacspeak-ediff,  Up: Emacspeak Commands And Options
+
+12.57 emacspeak-eglot
+=====================
+
+EGLOT == LSP Support for emacs
+
+12.57.1 emacspeak-eglot Options
+-------------------------------
+
+ -- Variable: User Option voice-eglot-mode-line
+     Personality used for eglot-mode-line This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-ein,  Next: emacspeak-elfeed,  Prev: emacspeak-eglot,  Up: Emacspeak Commands And Options
+
+12.58 emacspeak-ein
+===================
+
+EIN == Emacs IPython Notebook You can install package EIN via mELPA This
+module speech-enables EIN
+
+12.58.1 Emacspeak-Ein Commands
+------------------------------
+
+12.58.1.1 emacspeak-ein-speak-current-cell
+..........................................
+
+ -- Command: emacspeak-ein-speak-current-cell
+
+     Speak current cell.
+
+12.58.2 emacspeak-ein Options
+-----------------------------
+
+ -- Variable: User Option voice-ein:cell-input-area
+     Personality used for ein:cell-input-area This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-ein:cell-input-prompt
+     Personality used for ein:cell-input-prompt This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-ein:cell-output-area
+     Personality used for ein:cell-output-area This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-ein:cell-output-area-error
+     Personality used for ein:cell-output-area-error This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-ein:cell-output-prompt
+     Personality used for ein:cell-output-prompt This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-ein:cell-output-stderr
+     Personality used for ein:cell-output-stderr This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-1
+     Personality used for ein:markdown-header-face-1 This personality
+     uses voice-lighten whose effect can be changed globally by
+     customizing voice-lighten-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-2
+     Personality used for ein:markdown-header-face-2 This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-3
+     Personality used for ein:markdown-header-face-3 This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-4
+     Personality used for ein:markdown-header-face-4 This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-5
+     Personality used for ein:markdown-header-face-5 This personality
+     uses voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option voice-ein:markdown-header-face-6
+     Personality used for ein:markdown-header-face-6 This personality
+     uses voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-ein:notification-tab-normal
+     Personality used for ein:notification-tab-normal This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-ein:notification-tab-selected
+     Personality used for ein:notification-tab-selected This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-elfeed,  Next: emacspeak-elisp-refs,  Prev: emacspeak-ein,  Up: Emacspeak Commands And Options
+
+12.59 emacspeak-elfeed
+======================
+
+ELFEED == Feed Reader for Emacs.  Install from elpa M-x package-install
+elfeed
+
+12.59.1 Emacspeak-Elfeed Commands
+---------------------------------
+
+12.59.1.1 emacspeak-elfeed-eww-entry-at-point
+.............................................
+
+ -- Command: emacspeak-elfeed-eww-entry-at-point
+
+     Display current article in EWW.
+
+12.59.1.2 emacspeak-elfeed-filter-entry-at-point
+................................................
+
+ -- Command: emacspeak-elfeed-filter-entry-at-point
+
+     Display current article after filtering.
+
+12.59.1.3 emacspeak-elfeed-next-entry
+.....................................
+
+ -- Command: emacspeak-elfeed-next-entry
+
+     Move to next entry and speak it.
+
+12.59.1.4 emacspeak-elfeed-previous-entry
+.........................................
+
+ -- Command: emacspeak-elfeed-previous-entry
+
+     Move to previous entry and speak it.
+
+12.59.1.5 emacspeak-elfeed-speak-entry-at-point
+...............................................
+
+ -- Command: emacspeak-elfeed-speak-entry-at-point
+
+     Speak entry at point.
+
+
+File: emacspeak.info,  Node: emacspeak-elisp-refs,  Next: emacspeak-elpy,  Prev: emacspeak-elfeed,  Up: Emacspeak Commands And Options
+
+12.60 emacspeak-elisp-refs
+==========================
+
+Speech-enable package elisp-refs.  ELISP-REFS ==
+
+
+File: emacspeak.info,  Node: emacspeak-elpy,  Next: emacspeak-elscreen,  Prev: emacspeak-elisp-refs,  Up: Emacspeak Commands And Options
+
+12.61 emacspeak-elpy
+====================
+
+ELPY == Emacs Lisp Python IDE Speech-enables all aspects of elpy.
+
+
+File: emacspeak.info,  Node: emacspeak-elscreen,  Next: emacspeak-emms,  Prev: emacspeak-elpy,  Up: Emacspeak Commands And Options
+
+12.62 emacspeak-elscreen
+========================
+
+ELSCREEN == Emacs Window Session Manager Speech-enable interactive
+commands.
+
+
+File: emacspeak.info,  Node: emacspeak-emms,  Next: emacspeak-enriched,  Prev: emacspeak-elscreen,  Up: Emacspeak Commands And Options
+
+12.63 emacspeak-emms
+====================
+
+Speech-enables EMMS — the Emacs equivalent of XMMS available from the
+Emacs package archive.  http://savannah.gnu.org/project/emms EMMS is
+under active development, to get the current CVS version, use Emacspeak
+command M-x emacspeak-cvs-gnu-get-project-snapshot RET emms RET
+
+12.63.1 Emacspeak-Emms Commands
+-------------------------------
+
+12.63.1.1 emacspeak-emms-speak-current-track
+............................................
+
+ -- Command: emacspeak-emms-speak-current-track
+
+     Speak current track.
+
+
+File: emacspeak.info,  Node: emacspeak-enriched,  Next: emacspeak-entertain,  Prev: emacspeak-emms,  Up: Emacspeak Commands And Options
+
+12.64 emacspeak-enriched
+========================
+
+emacspeak extensions to voiceify rich text.
+
+12.64.1 Emacspeak-Enriched Commands
+-----------------------------------
+
+12.64.1.1 emacspeak-enriched-voiceify-faces
+...........................................
+
+ -- Command: emacspeak-enriched-voiceify-faces (start end)
+
+     Map base fonts to voices.
+     Useful in voiceifying rich text.
+
+     (fn START END)
+
+
+File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-epa,  Prev: emacspeak-enriched,  Up: Emacspeak Commands And Options
+
+12.65 emacspeak-entertain
+=========================
+
+Auditory interface to misc games
+
+12.65.1 Emacspeak-Entertain Commands
+------------------------------------
+
+12.65.1.1 emacspeak-hangman-speak-guess
+.......................................
+
+ -- Command: emacspeak-hangman-speak-guess
+
+     Speak current guessed string.
+
+12.65.1.2 emacspeak-hangman-speak-statistics
+............................................
+
+ -- Command: emacspeak-hangman-speak-statistics
+
+     Speak statistics.
+
+12.65.2 emacspeak-entertain Options
+-----------------------------------
+
+ -- Variable: User Option voice-mpuz-solved
+     Personality used for mpuz-solved This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-mpuz-trivial
+     Personality used for mpuz-trivial This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-mpuz-unsolved
+     Personality used for mpuz-unsolved This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-epa,  Next: emacspeak-eperiodic,  Prev: emacspeak-entertain,  Up: Emacspeak Commands And Options
+
+12.66 emacspeak-epa
+===================
+
+EPA == EasyPG Assistant Integrate GPG functionality into Emacs.
+Speech-enable all interactive commands.
+
+12.66.1 emacspeak-epa Options
+-----------------------------
+
+ -- Variable: User Option voice-epa-field-body
+     Personality used for epa-field-body This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-epa-field-name
+     Personality used for epa-field-name This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-epa-mark
+     Personality used for epa-mark This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-epa-string
+     Personality used for epa-string This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-epa-validity-disabled
+     Personality used for epa-validity-disabled This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-epa-validity-high
+     Personality used for epa-validity-high This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-epa-validity-low
+     Personality used for epa-validity-low This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-epa-validity-medium
+     Personality used for epa-validity-medium This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-eperiodic,  Next: emacspeak-epub,  Prev: emacspeak-epa,  Up: Emacspeak Commands And Options
+
+12.67 emacspeak-eperiodic
+=========================
+
+eperiodic produces an interactive periodic table of elements and can be
+found at http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
+
+12.67.1 Emacspeak-Eperiodic Commands
+------------------------------------
+
+12.67.1.1 emacspeak-eperiodic-goto-property-section
+...................................................
+
+ -- Command: emacspeak-eperiodic-goto-property-section
+
+     Mark position and jump to properties section.
+
+12.67.1.2 emacspeak-eperiodic-next-line
+.......................................
+
+ -- Command: emacspeak-eperiodic-next-line
+
+     Move to next row and speak element.
+
+12.67.1.3 emacspeak-eperiodic-play-description
+..............................................
+
+ -- Command: emacspeak-eperiodic-play-description
+
+     Play audio description from WebElements.
+
+12.67.1.4 emacspeak-eperiodic-previous-line
+...........................................
+
+ -- Command: emacspeak-eperiodic-previous-line
+
+     Move to next row and speak element.
+
+12.67.1.5 emacspeak-eperiodic-speak-current-element
+...................................................
+
+ -- Command: emacspeak-eperiodic-speak-current-element
+
+     Speak element at point.
+
+12.67.2 emacspeak-eperiodic Options
+-----------------------------------
+
+ -- Variable: User Option emacspeak-eperiodic-media-location
+     Location of streaming media describing elements.
+
+
+File: emacspeak.info,  Node: emacspeak-epub,  Next: emacspeak-erc,  Prev: emacspeak-eperiodic,  Up: Emacspeak Commands And Options
+
+12.68 emacspeak-epub
+====================
+
+12.68.1 Introduction
+--------------------
+
+This module implements the Emacspeak EPub Bookshelf — a unified
+interface for organizing, locating and reading EPub EBooks on the
+emacspeak Audio Desktop.  The epub reader is built using the Emacs Web
+Browser (EWW), and all of emacspeak’s EWW conveniences are available
+when reading EBooks — see *Note emacspeak-eww:: for useful tools
+including bookmarking and structured navigation.  For now it supports
+epub2 — it will support epub3 some time in the future.
+
+   The main entry point is command ‘emacspeak-epub’ bound to ‘C-e g’.
+This command opens a new bookshelf buffer unless the user has previously
+opened a specific bookshelf.  A _bookshelf_ is a buffer that lists books
+placed on a given bookshelf — these are listed by _title_ and _author_.
+The bookshelf buffer is in a special mode that provides single-key
+commands for adding, removing and finding books, as well as for opening
+the selected book using Emacs’ built-in Web browser (‘eww’).
+
+   The next few sections give a high-level overview of the emacspeak
+Bookshelf and EPub interaction, followed by detailed documentation on
+the various commands and user options.
+
+12.68.2 Organizing EBooks On The Emacspeak Desktop
+--------------------------------------------------
+
+In the simplest case, EBooks can be placed under a specific directory
+(with sub-directories as needed).  Customize user option
+‘emacspeak-epub-library-directory’ to point to this location.  Here is a
+quick summary of commands for organizing, saving and opening a
+bookshelf:
+
+‘a’
+     emacspeak-epub-bookshelf-add-epub
+‘b’
+     emacspeak-epub-bookshelf-open
+‘c’
+     emacspeak-epub-bookshelf-clear
+‘d’
+     emacspeak-epub-bookshelf-remove-this-book
+‘r’
+     emacspeak-epub-bookshelf-rename
+‘l’
+     emacspeak-epub-locate-epubs
+‘C-a’
+     emacspeak-epub-bookshelf-add-directory
+‘C-d’
+     emacspeak-epub-bookshelf-remove-directory
+‘C-l’
+     emacspeak-epub-bookshelf-redraw
+‘C-o’
+     emacspeak-epub-bookshelf-open-epub
+‘M-s’
+     emacspeak-epub-bookshelf-save
+‘C-x C-q’
+     emacspeak-epub-bookshelf-refresh
+‘C-x C-s’
+     emacspeak-epub-bookshelf-save
+
+12.68.3 Integrating With Project Gutenberg
+------------------------------------------
+
+Gutenberg integration provides one-shot commands for downloading the
+latest copy of the Gutenberg catalog and finding and downloading the
+desired epub for offline reading.
+
+‘C’
+     emacspeak-epub-gutenberg-catalog
+‘g’
+     emacspeak-epub-gutenberg-download
+   Once downloaded, these EBooks can be organized under
+‘emacspeak-epub-library-directory’ For more advanced usage, see the next
+section on integrating with Calibre catalogs.
+
+12.68.4 Calibre Integration
+---------------------------
+
+Project Calibre enables the indexing and searching of large EBook
+collections.  Read the Calibre documentation for organizing and indexing
+your EBook library.  See user options named ‘emacspeak-epub-calibre-*’
+for customizing emacspeak to work with Calibre.  Once set up, Calibre
+integration provides the following commands from the _bookshelf_ buffer:
+
+‘/’
+     emacspeak-epub-calibre-results
+‘A’
+     emacspeak-epub-bookshelf-calibre-author
+‘S’
+     emacspeak-epub-bookshelf-calibre-search
+‘T’
+     emacspeak-epub-bookshelf-calibre-title
+
+12.68.5 Reading EBooks From The Bookshelf
+-----------------------------------------
+
+The most efficient means to read an EBook is to have EWW render the
+entire book — this works well even for very large EBooks given that EWW
+is efficient at rendering HTML. Rendering the entire book means that all
+of the contents are available for searching.  To view an EBook in its
+entirety, use command ‘emacspeak-epub-eww’.  You can open the EPub table
+of contents with command ‘emacspeak-epub-open’; for a well-constructed
+epub, this TOC should provide hyperlinks to each section listed in the
+table of contents.
+
+‘RET’
+     emacspeak-epub-eww
+‘e’
+     emacspeak-epub-eww
+‘f’
+     emacspeak-epub-browse-files
+‘o’
+     emacspeak-epub-open
+
+12.68.6 Emacspeak-Epub Commands
+-------------------------------
+
+12.68.6.1 emacspeak-calibre-mode
+................................
+
+ -- Command: emacspeak-calibre-mode
+
+     A Calibre Front-end.
+     Letters do not insert themselves; instead, they are commands.
+
+     key             binding
+     —             ——-
+
+     RET		emacspeak-epub-calibre-dired-at-point
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
+     during initialization.
+
+12.68.6.2 emacspeak-epub
+........................
+
+ -- Command: emacspeak-epub
+     ‘C-e g’
+     ‘<fn> g’
+
+     EPub  Interaction.
+     When opened, displays a bookshelf consisting of  epubs found at the
+     root directory.
+     For detailed documentation, see M-x emacspeak-epub-mode
+
+12.68.6.3 emacspeak-epub-bookshelf-add-directory
+................................................
+
+ -- Command: emacspeak-epub-bookshelf-add-directory (directory &optional
+          recursive)
+
+     Add EPubs found in specified directory to the bookshelf.
+     Interactive prefix arg searches recursively in directory.
+
+     (fn DIRECTORY &optional RECURSIVE)
+
+12.68.6.4 emacspeak-epub-bookshelf-add-epub
+...........................................
+
+ -- Command: emacspeak-epub-bookshelf-add-epub (epub-file)
+
+     Add epub file to current bookshelf.
+
+     (fn EPUB-FILE)
+
+12.68.6.5 emacspeak-epub-bookshelf-calibre-author
+.................................................
+
+ -- Command: emacspeak-epub-bookshelf-calibre-author (pattern)
+
+     Add results of an author search to current bookshelf.
+
+     (fn PATTERN)
+
+12.68.6.6 emacspeak-epub-bookshelf-calibre-search
+.................................................
+
+ -- Command: emacspeak-epub-bookshelf-calibre-search (pattern)
+
+     Add results of an title/author search to current bookshelf.
+
+     (fn PATTERN)
+
+12.68.6.7 emacspeak-epub-bookshelf-calibre-title
+................................................
+
+ -- Command: emacspeak-epub-bookshelf-calibre-title (pattern)
+
+     Add results of an title search to current bookshelf.
+
+     (fn PATTERN)
+
+12.68.6.8 emacspeak-epub-bookshelf-clear
+........................................
+
+ -- Command: emacspeak-epub-bookshelf-clear
+
+     Clear all books from bookshelf.
+
+12.68.6.9 emacspeak-epub-bookshelf-load
+.......................................
+
+ -- Command: emacspeak-epub-bookshelf-load
+
+     Load bookshelf metadata from disk.
+
+12.68.6.10 emacspeak-epub-bookshelf-open
+........................................
+
+ -- Command: emacspeak-epub-bookshelf-open (bookshelf)
+
+     Load bookshelf metadata from specified bookshelf.
+
+     (fn BOOKSHELF)
+
+12.68.6.11 emacspeak-epub-bookshelf-open-epub
+.............................................
+
+ -- Command: emacspeak-epub-bookshelf-open-epub (epub-file)
+
+     Open epub file and add it to current bookshelf.
+
+     (fn EPUB-FILE)
+
+12.68.6.12 emacspeak-epub-bookshelf-redraw
+..........................................
+
+ -- Command: emacspeak-epub-bookshelf-redraw (&optional author-first)
+
+     Redraw Bookshelf.
+     Optional interactive prefix arg author-first prints author at the
+       left.
+
+     (fn &optional AUTHOR-FIRST)
+
+12.68.6.13 emacspeak-epub-bookshelf-refresh
+...........................................
+
+ -- Command: emacspeak-epub-bookshelf-refresh
+
+     Refresh and redraw bookshelf.
+
+12.68.6.14 emacspeak-epub-bookshelf-remove-directory
+....................................................
+
+ -- Command: emacspeak-epub-bookshelf-remove-directory (directory
+          &optional recursive)
+
+     Remove EPubs found in specified directory from the bookshelf.
+     Interactive prefix arg searches recursively in directory.
+
+     (fn DIRECTORY &optional RECURSIVE)
+
+12.68.6.15 emacspeak-epub-bookshelf-remove-this-book
+....................................................
+
+ -- Command: emacspeak-epub-bookshelf-remove-this-book
+
+     Remove the book on current line from this bookshelf.
+     No book files are deleted.
+
+12.68.6.16 emacspeak-epub-bookshelf-rename
+..........................................
+
+ -- Command: emacspeak-epub-bookshelf-rename (name &optional overwrite)
+
+     Saves current bookshelf to  specified name.
+     Interactive prefix arg ‘overwrite’ will overwrite existing file.
+
+     (fn NAME &optional OVERWRITE)
+
+12.68.6.17 emacspeak-epub-bookshelf-save
+........................................
+
+ -- Command: emacspeak-epub-bookshelf-save
+
+     Save bookshelf metadata.
+
+12.68.6.18 emacspeak-epub-browse-files
+......................................
+
+ -- Command: emacspeak-epub-browse-files (epub)
+
+     Browse list of HTML files in  EPub.
+     Useful if table of contents in toc.ncx is empty.
+
+     (fn EPUB)
+
+12.68.6.19 emacspeak-epub-calibre-dired-at-point
+................................................
+
+ -- Command: emacspeak-epub-calibre-dired-at-point
+
+     Open directory containing current result.
+
+12.68.6.20 emacspeak-epub-calibre-results
+.........................................
+
+ -- Command: emacspeak-epub-calibre-results
+
+     Show most recent Calibre search results.
+
+12.68.6.21 emacspeak-epub-delete
+................................
+
+ -- Command: emacspeak-epub-delete
+
+     Delete EPub under point.
+
+12.68.6.22 emacspeak-epub-eww
+.............................
+
+ -- Command: emacspeak-epub-eww (epub-file &optional broken-ncx)
+
+     Display entire book  using EWW from EPub.
+     Uses content listed in toc.ncx or  equivalent by default.
+     Interactive prefix arg broken-ncx asks to use the sorted list of html files
+     in the epub file instead.
+
+     (fn EPUB-FILE &optional BROKEN-NCX)
+
+12.68.6.23 emacspeak-epub-google
+................................
+
+ -- Command: emacspeak-epub-google (query)
+
+     Search for Epubs from Google Books.
+
+     (fn QUERY)
+
+12.68.6.24 emacspeak-epub-gutenberg-catalog
+...........................................
+
+ -- Command: emacspeak-epub-gutenberg-catalog (&optional refresh)
+
+     Open Gutenberg catalog.
+     Fetch if needed, or if refresh is T.
+
+     (fn &optional REFRESH)
+
+12.68.6.25 emacspeak-epub-gutenberg-download
+............................................
+
+ -- Command: emacspeak-epub-gutenberg-download (book-id &optional
+          download)
+
+     Open web page for specified book.
+     Place download url for epub in kill ring.
+     With interactive prefix arg ‘download’, download the epub.
+
+     (fn BOOK-ID &optional DOWNLOAD)
+
+12.68.6.26 emacspeak-epub-locate-epubs
+......................................
+
+ -- Command: emacspeak-epub-locate-epubs (pattern)
+
+     Locate epub files using locate.
+
+     (fn PATTERN)
+
+12.68.6.27 emacspeak-epub-mode
+..............................
+
+ -- Command: emacspeak-epub-mode
+
+     An EPub Front-end.
+     Letters do not insert themselves; instead, they are commands.
+     key             binding
+     —             ——-
+
+     C-a		emacspeak-epub-bookshelf-add-directory
+     C-d		emacspeak-epub-bookshelf-remove-directory
+     C-k		emacspeak-epub-delete
+     C-l		emacspeak-epub-bookshelf-redraw
+     RET		emacspeak-epub-eww
+     C-o		emacspeak-epub-bookshelf-open-epub
+     C-x		Prefix Command
+     ESC		Prefix Command
+     /		emacspeak-epub-calibre-results
+     A		emacspeak-epub-bookshelf-calibre-author
+     C		emacspeak-epub-gutenberg-catalog
+     G		emacspeak-epub-google
+     O		emacspeak-epub-open-with-nov
+     S		emacspeak-epub-bookshelf-calibre-search
+     T		emacspeak-epub-bookshelf-calibre-title
+     a		emacspeak-epub-bookshelf-add-epub
+     b		emacspeak-epub-bookshelf-open
+     c		emacspeak-epub-bookshelf-clear
+     d		emacspeak-epub-bookshelf-remove-this-book
+     e		emacspeak-epub-eww
+     f		emacspeak-epub-browse-files
+     g		emacspeak-epub-gutenberg-download
+     l		emacspeak-epub-locate-epubs
+     n		next-line
+     o		emacspeak-epub-open
+     p		previous-line
+     r		emacspeak-epub-bookshelf-rename
+
+     M-s		emacspeak-epub-bookshelf-save
+
+     C-x C-q		emacspeak-epub-bookshelf-refresh
+     C-x C-s		emacspeak-epub-bookshelf-save
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
+     during initialization.
+
+12.68.6.28 emacspeak-epub-next
+..............................
+
+ -- Command: emacspeak-epub-next
+
+     Move to next book.
+
+12.68.6.29 emacspeak-epub-open
+..............................
+
+ -- Command: emacspeak-epub-open (epub-file)
+
+     Open specified Epub.
+     Filename may need to  be shell-quoted when called from Lisp.
+
+     (fn EPUB-FILE)
+
+12.68.6.30 emacspeak-epub-open-with-nov
+.......................................
+
+ -- Command: emacspeak-epub-open-with-nov
+
+     Open ebook at point in nov-mode.
+
+12.68.6.31 emacspeak-epub-previous
+..................................
+
+ -- Command: emacspeak-epub-previous
+
+     Move to previous book.
+
+12.68.6.32 emacspeak-epub-url-executor
+......................................
+
+ -- Command: emacspeak-epub-url-executor (url)
+
+     Custom URL executor for use in EPub Mode.
+
+     (fn URL)
+
+12.68.7 emacspeak-epub Options
+------------------------------
+
+ -- Variable: User Option emacspeak-epub-bookshelf-directory
+     Directory where we keep .bsf files defining various bookshelves.
+
+ -- Variable: User Option emacspeak-epub-calibre-root-dir
+     Root of Calibre library.
+
+ -- Variable: User Option emacspeak-epub-calibre-sqlite
+     Path to sqlite3.
+
+ -- Variable: User Option emacspeak-epub-gutenberg-mirror
+     Base URL for Gutenberg mirror.
+
+ -- Variable: User Option emacspeak-epub-gutenberg-suffix
+     Suffix of book type we retrieve.
+
+ -- Variable: User Option emacspeak-epub-library-directory
+     Directory under which we store Epubs.
+
+
+File: emacspeak.info,  Node: emacspeak-erc,  Next: emacspeak-eshell,  Prev: emacspeak-epub,  Up: Emacspeak Commands And Options
+
+12.69 emacspeak-erc
+===================
+
+erc.el is a modern Emacs client for IRC including color and font locking
+support.  erc.el - an Emacs IRC client (by Alexander L. Belikoff)
+http://www.cs.cmu.edu/~berez/irc/erc.el
+
+12.69.1 Emacspeak-Erc Commands
+------------------------------
+
+12.69.1.1 emacspeak-erc-add-name-to-monitor
+...........................................
+
+ -- Command: emacspeak-erc-add-name-to-monitor (name &optional
+          quiten-pronunciation)
+
+     Add people to monitor in this room.
+     Optional interactive prefix  arg defines a pronunciation that
+       silences speaking of this perso’s name.
+
+     (fn NAME &optional QUITEN-PRONUNCIATION)
+
+12.69.1.2 emacspeak-erc-delete-name-from-monitor
+................................................
+
+ -- Command: emacspeak-erc-delete-name-from-monitor (name)
+
+     Remove name to monitor in this room.
+
+     (fn NAME)
+
+12.69.1.3 emacspeak-erc-setup-cricket-rules
+...........................................
+
+ -- Command: emacspeak-erc-setup-cricket-rules
+
+     Set up #cricket channels.
+
+12.69.1.4 emacspeak-erc-toggle-my-monitor
+.........................................
+
+ -- Command: emacspeak-erc-toggle-my-monitor (&optional prefix)
+
+     Toggle state of ERC  monitor of my messages.
+     Interactive PREFIX arg means toggle the global default value, and then
+     set the current local value to the result.
+
+12.69.1.5 emacspeak-erc-toggle-room-monitor
+...........................................
+
+ -- Command: emacspeak-erc-toggle-room-monitor (&optional prefix)
+
+     Toggle state of ERC room monitor.
+     Interactive
+     PREFIX arg means toggle the global default value, and then
+     set the current local value to the result.
+
+12.69.1.6 emacspeak-erc-toggle-speak-all-participants
+.....................................................
+
+ -- Command: emacspeak-erc-toggle-speak-all-participants (&optional
+          prefix)
+
+     Toggle state of ERC speak all participants..
+     Interactive
+     PREFIX arg means toggle the global default value, and then
+     set the current local value to the result.
+
+12.69.2 emacspeak-erc Options
+-----------------------------
+
+ -- Variable: User Option emacspeak-erc-ignore-notices
+     Set to T if you dont want to see notification messages from the
+     server.
+
+ -- Variable: User Option emacspeak-erc-my-nick
+     My IRC nick.
+
+ -- Variable: User Option emacspeak-erc-speak-all-participants
+     Speak all things said if t.
 

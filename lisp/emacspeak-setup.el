@@ -224,8 +224,7 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
        (setq emacspeak-info-already-loaded t))))
 
 ;;}}}
-
-(emacspeak)
+(unless noninteractive (emacspeak))
 
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables

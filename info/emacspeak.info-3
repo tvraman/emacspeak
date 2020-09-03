@@ -15,105 +15,6 @@ This manual documents *Emacspeak, The Complete Audio Desktop* and was
 last updated on September 2, 2020.
 
 
-File: emacspeak.info,  Node: emacspeak-sdcv,  Next: emacspeak-ses,  Prev: emacspeak-sage,  Up: Emacspeak Commands And Options
-
-12.177 emacspeak-sdcv
-=====================
-
-SDCV == Stardict Dictionary Interface This module sets up Emacspeak for
-use with sdcv.  You need to have command-line sdcv installed.  You can
-install additional stardict dictionaries, see
-https://wiki.archlinux.org/index.php/sdcv This module sets up Emacs
-module sdcv to use all the installed dictionaries found on the system.
-
-
-File: emacspeak.info,  Node: emacspeak-ses,  Next: emacspeak-setup,  Prev: emacspeak-sdcv,  Up: Emacspeak Commands And Options
-
-12.178 emacspeak-ses
-====================
-
-ses implements a simple spread sheet and is part of Emacs This module
-speech-enables ses
-
-12.178.1 Emacspeak-Ses Commands
--------------------------------
-
-12.178.1.1 emacspeak-ses-backward-column-and-summarize
-......................................................
-
- -- Command: emacspeak-ses-backward-column-and-summarize
-
-     Move to previous column and summarize.
-
-12.178.1.2 emacspeak-ses-backward-row-and-summarize
-...................................................
-
- -- Command: emacspeak-ses-backward-row-and-summarize
-
-     Move to previous row  and summarize.
-
-12.178.1.3 emacspeak-ses-forward-column-and-summarize
-.....................................................
-
- -- Command: emacspeak-ses-forward-column-and-summarize
-
-     Move to next column and summarize.
-
-12.178.1.4 emacspeak-ses-forward-row-and-summarize
-..................................................
-
- -- Command: emacspeak-ses-forward-row-and-summarize
-
-     Move to next row and summarize.
-
-12.178.1.5 emacspeak-ses-summarize-cell
-.......................................
-
- -- Command: emacspeak-ses-summarize-cell (cell-name)
-
-     Summarize specified  cell.
-
-     (fn CELL-NAME)
-
-12.178.1.6 emacspeak-ses-summarize-current-cell
-...............................................
-
- -- Command: emacspeak-ses-summarize-current-cell (&rest ignore)
-
-     Summarize current cell.
-
-     (fn &rest IGNORE)
-
-
-File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev: emacspeak-ses,  Up: Emacspeak Commands And Options
-
-12.179 emacspeak-setup
-======================
-
-Entry point for Emacspeak.  The simplest and most basic way to start
-emacspeak is: emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el The
-above starts a vanilla Emacs with just Emacspeak loaded.  Once the above
-has been verified to work, You can add (load-library "emacspeak-setup")
-To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
-repository for my setup.
-
-12.179.1 emacspeak-setup Options
---------------------------------
-
- -- Variable: User Option dtk-startup-hook
-     List of hooks to be run after starting up the speech server.  Set
-     things like speech rate, punctuation mode etc in this hook.
-
- -- Variable: User Option emacspeak-startup-hook
-     Hook run after Emacspeak is started.
-
- -- Variable: User Option emacspeak-tts-use-notify-stream
-     Set to true to use a separate TTS stream for notifications.
-
- -- Variable: User Option tts-notification-device
-     Virtual ALSA device to use for notifications stream.
-
-
 File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
 
 12.180 emacspeak-sgml-mode
@@ -188,6 +89,24 @@ with user defined pairs this module speech-enables smartparens.
 Insertion of a matching delimiter is indicated by a short auditory icon.
 Structured navigation speaks the current line with the position of point
 aurally highlighted.
+
+12.186.1 emacspeak-smartparens Options
+--------------------------------------
+
+ -- Variable: User Option voice-sp-show-pair-enclosing
+     Personality used for sp-show-pair-enclosing This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-sp-wrap-overlay-closing-pair
+     Personality used for sp-wrap-overlay-closing-pair This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-sp-wrap-overlay-opening-pair
+     Personality used for sp-wrap-overlay-opening-pair This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-smartparens,  Up: Emacspeak Commands And Options
@@ -2128,6 +2047,29 @@ tab-bar == tabs for window configuration.  Speech-enable tab-bar
 interaction.  If you have BROWSE-URL-NEW-WINDOW-FLAG set to T to have
 EWW open Web pages in a new buffer, then set
 EWW-BROWSE-URL-NEW-WINDOW-IS-TAB to nil to avoid leaking tabs.
+
+12.195.1 emacspeak-tab-bar Options
+----------------------------------
+
+ -- Variable: User Option voice-tab-bar
+     Personality used for tab-bar This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-tab-bar-tab
+     Personality used for tab-bar-tab This personality uses
+     voice-highlight whose effect can be changed globally by customizing
+     voice-highlight-settings.
+
+ -- Variable: User Option voice-tab-bar-tab-inactive
+     Personality used for tab-bar-tab-inactive This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-tab-line
+     Personality used for tab-line This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-table,  Next: emacspeak-table-ui,  Prev: emacspeak-tab-bar,  Up: Emacspeak Commands And Options
@@ -4718,6 +4660,39 @@ widgets.
 
      (fn POS)
 
+12.223.2 emacspeak-widget Options
+---------------------------------
+
+ -- Variable: User Option voice-widget-button
+     Personality used for widget-button This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-widget-button-pressed
+     Personality used for widget-button-pressed This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option voice-widget-documentation
+     Personality used for widget-documentation This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-widget-field
+     Personality used for widget-field This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-widget-inactive
+     Personality used for widget-inactive This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-widget-single-line-field
+     Personality used for widget-single-line-field This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-windmove,  Next: emacspeak-winring,  Prev: emacspeak-widget,  Up: Emacspeak Commands And Options
 
@@ -6604,6 +6579,29 @@ File: emacspeak.info,  Node: emacspeak-woman,  Next: emacspeak-xkcd,  Prev: emac
 ======================
 
 WOMAN == Man pages implemented in Emacs Lisp
+
+12.227.1 emacspeak-woman Options
+--------------------------------
+
+ -- Variable: User Option voice-woman-bold
+     Personality used for woman-bold This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-woman-edition
+     Personality used for woman-edition This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option voice-woman-italic
+     Personality used for woman-italic This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-woman-unknown
+     Personality used for woman-unknown This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-xkcd,  Next: emacspeak-xml-shell,  Prev: emacspeak-woman,  Up: Emacspeak Commands And Options
