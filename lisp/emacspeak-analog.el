@@ -129,7 +129,7 @@ Speak field or char moved to."
      (fields (emacspeak-analog-next-field fields)
              (emacspeak-analog-speak-field fields)
              (emacspeak-auditory-icon 'large-movement))
-     (t (call-interactively 'emacspeak-forward-char)))))
+     (t (call-interactively 'forward-char)))))
 
 (defun emacspeak-analog-backward-field-or-char ()
   "Move back to next field if field specification is available.
@@ -141,7 +141,7 @@ Speak field or char moved to."
      (fields (emacspeak-analog-previous-field fields)
              (emacspeak-analog-speak-field fields)
              (emacspeak-auditory-icon 'large-movement))
-     (t (call-interactively 'emacspeak-backward-char)))))
+     (t (call-interactively 'backward-char)))))
 
 (defun emacspeak-analog-speak-field (fields)
   "Speak field containing point."
