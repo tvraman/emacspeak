@@ -179,10 +179,6 @@ Do not modify this variable directly; use command  `dtk-set-rate'
  bound to \\[dtk-set-rate].")
 
 (make-variable-buffer-local 'dtk-speech-rate)
-
-;;;declared here to help compilation
-(defvar voice-lock-mode nil)
-
 ;;}}}
 ;;{{{Style Helper:
 
