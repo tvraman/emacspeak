@@ -566,15 +566,13 @@ are available are cued by an auditory icon on the header line."
   (cl-declare (special eww-mode-map eww-link-keymap
                        shr-inhibit-images emacspeak-eww-inhibit-images
                        emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                       emacspeak-eww-masquerade
-                       emacspeak-pronounce-load-pronunciations-on-startup))
-  (when emacspeak-pronounce-load-pronunciations-on-startup
+                       emacspeak-eww-masquerade))
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
     (emacspeak-pronounce-add-dictionary-entry
      'eww-mode
      emacspeak-speak-rfc-3339-datetime-pattern
-     (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
+     (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
 ;;; turn off images on request 
   (setq shr-inhibit-images emacspeak-eww-inhibit-images)
 ;;; remove "I" "o" from eww-link-keymap

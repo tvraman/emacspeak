@@ -477,8 +477,7 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
-  (cl-declare (special
-               emacspeak-pronounce-load-pronunciations-on-startup line-move-visual
+  (cl-declare (special line-move-visual
                emacspeak-info-directory
                use-dialog-box emacspeak-pronounce-dictionaries-file
                emacspeak-play-program emacspeak-sounds-directory))
@@ -496,8 +495,7 @@ commands and options for details."
     (require 'emacspeak-redefine)
     (require 'emacspeak-advice)
     (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
-    (when emacspeak-pronounce-load-pronunciations-on-startup
-      (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file))
+      (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
     (emacspeak-fix-commands-that-use-interactive)

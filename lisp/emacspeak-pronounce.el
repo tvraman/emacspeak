@@ -275,10 +275,7 @@ applied."
   :type '(file :tag "Dictionary File ")
   :group 'emacspeak-pronounce)
 
-(defcustom emacspeak-pronounce-load-pronunciations-on-startup t
-  "Says if user dictionaries loaded on emacspeak startup."
-  :type 'boolean
-  :group 'emacspeak-pronounce)
+
 ;;;###autoload
 (defun emacspeak-pronounce-save-dictionaries ()
   "Writes out the persistent emacspeak pronunciation dictionaries."
