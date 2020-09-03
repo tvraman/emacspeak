@@ -70,11 +70,6 @@
 (add-to-list
  'load-path
  (expand-file-name "../../site-lisp" (file-name-directory load-file-name)))
-(let ((file-name-handler-alist nil)
-      (load-source-file-function  nil))
-  (mapc
-   #'load
-   '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load")))
 
 (defconst self-document-files
   (append
@@ -355,7 +350,6 @@
   (cl-declare (special self-document-map))
   (let ((file-name-handler-alist nil)
         (load-source-file-function  nil)
-        (emacspeak-speak-messages nil)
         (output (find-file-noselect "docs.texi"))
         (keys nil))
     (self-document-load-modules)
