@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 31, 2020.
+last updated on September 2, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2890,7 +2890,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1262 commands and 947 options.
+   This chapter documents a total of 1262 commands and 946 options.
 
 * Menu:
 
@@ -4078,6 +4078,7 @@ system.
      d C-n		dtk-notify-initialize
      d C-o		outloud
      d C-s		dtk-notify-shutdown
+     d C-v		voice-lock-mode
      d SPC		dtk-toggle-splitting-on-white-space
      d ,		dtk-toggle-punctuation-mode
      d 0 .. d 9	dtk-set-predefined-speech-rate
@@ -4101,7 +4102,7 @@ system.
      d p		dtk-set-punctuations
      d r		dtk-set-rate
      d s		dtk-toggle-split-caps
-     d v		voice-lock-toggle
+     d v		global-voice-lock-mode
      d w		emacspeak-toggle-word-echo
      d z		emacspeak-zap-tts
 

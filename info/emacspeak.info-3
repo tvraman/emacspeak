@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on August 31, 2020.
+last updated on September 2, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-sdcv,  Next: emacspeak-ses,  Prev: emacspeak-sage,  Up: Emacspeak Commands And Options
@@ -8005,6 +8005,8 @@ be customized via custom see the documentation for defvoice.
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
+     ‘C-e d C-v’
+     ‘<fn> d C-v’
 
      Toggle voice lock mode.
 
@@ -8018,14 +8020,12 @@ be customized via custom see the documentation for defvoice.
 
      (fn &optional ARG)
 
-12.251.1.2 voice-lock-toggle
-............................
+12.251.1.2 voice-lock-mode–turn-on
+..................................
 
- -- Command: voice-lock-toggle
-     ‘C-e d v’
-     ‘<fn> d v’
+ -- Command: voice-lock-mode--turn-on
 
-     Interactively toggle voice lock.
+     Turn on Voice Lock mode .
 
 12.251.1.3 voice-setup-describe-personality
 ...........................................
@@ -8119,18 +8119,6 @@ be customized via custom see the documentation for defvoice.
 
  -- Variable: User Option voice-lighten-settings
      Lighten current voice.
-
- -- Variable: User Option voice-lock-global-modes
-     Modes for which Voice Lock mode is automagically turned on.  Global
-     Voice Lock mode is controlled by the command
-     ‘global-voice-lock-mode’.  If nil, means no modes have Voice Lock
-     mode automatically turned on.  If t, all modes that support Voice
-     Lock mode have it automatically turned on.  If a list, it should be
-     a list of ‘major-mode’ symbol names for which Voice Lock mode
-     should be automatically turned on.  The sense of the list is
-     negated if it begins with ‘not’.  For example: (c-mode c++-mode)
-     means that Voice Lock mode is turned on for buffers in C and C++
-     modes only.
 
  -- Variable: User Option voice-lock-overlay-0-settings
      Overlay voice that sets dimension 0 of ACSS structure to 8.

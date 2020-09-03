@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1262 commands and 947 options.
+This chapter documents a total of 1262 commands and 946 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1435,6 +1435,7 @@ d RET		dtk-set-chunk-separator-syntax
 d C-n		dtk-notify-initialize
 d C-o		outloud
 d C-s		dtk-notify-shutdown
+d C-v		voice-lock-mode
 d SPC		dtk-toggle-splitting-on-white-space
 d ,		dtk-toggle-punctuation-mode
 d 0 .. d 9	dtk-set-predefined-speech-rate
@@ -1458,7 +1459,7 @@ d o		dtk-toggle-strip-octals
 d p		dtk-set-punctuations
 d r		dtk-set-rate
 d s		dtk-toggle-split-caps
-d v		voice-lock-toggle
+d v		global-voice-lock-mode
 d w		emacspeak-toggle-word-echo
 d z		emacspeak-zap-tts
 
@@ -26211,6 +26212,13 @@ documentation for defvoice.
 
 @subsubsection voice-lock-mode
 @deffn {Command} voice-lock-mode  (&optional arg)
+@table @kbd
+@item C-e d C-v
+@kindex C-e d C-v
+@item <fn> d C-v
+@kindex <fn> d C-v
+@end table
+
 @findex voice-lock-mode
 
 @format
@@ -26228,19 +26236,12 @@ it is disabled.
 @end format
 @end deffn
 
-@subsubsection voice-lock-toggle
-@deffn {Command} voice-lock-toggle   
-@table @kbd
-@item C-e d v
-@kindex C-e d v
-@item <fn> d v
-@kindex <fn> d v
-@end table
-
-@findex voice-lock-toggle
+@subsubsection voice-lock-mode--turn-on
+@deffn {Command} voice-lock-mode--turn-on   
+@findex voice-lock-mode--turn-on
 
 @format
-Interactively toggle voice lock.
+Turn on Voice Lock mode .
 @end format
 @end deffn
 
@@ -26386,19 +26387,6 @@ Add medium lightness to  current voice.
 
 @defvar {User Option} voice-lighten-settings
 Lighten current voice.
-
-@end defvar
-
-@defvar {User Option} voice-lock-global-modes
-Modes for which Voice Lock mode is automagically turned on.
-Global Voice Lock mode is controlled by the command ‘global-voice-lock-mode’.
-If nil, means no modes have Voice Lock mode automatically turned on.
-If t, all modes that support Voice Lock mode have it automatically turned on.
-If a list, it should be a list of ‘major-mode’ symbol names for which Voice Lock
-mode should be automatically turned on.  The sense of the list is negated if it
-begins with ‘not’.  For example:
- (c-mode c++-mode)
-means that Voice Lock mode is turned on for buffers in C and C++ modes only.
 
 @end defvar
 
