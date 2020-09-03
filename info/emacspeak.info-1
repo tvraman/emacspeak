@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1261 commands and 945 options.
+   This chapter documents a total of 1258 commands and 945 options.
 
 * Menu:
 
@@ -3054,7 +3054,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-racer::Speech-enable RACER.
 * emacspeak-racket::Speech-enable RACKET.
 * emacspeak-re-builder::speech-enable re-builder.
-* emacspeak-redefine::Redefines some key Emacs builtins to speak.
 * emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
@@ -4177,7 +4176,6 @@ system.
      s		emacspeak-wizards-shell
      t		twit
      u		list-unicode-display
-     v		emacspeak-muggles-vuiet/body
      w		emacspeak-wizards-noaa-weather
      y		yas-expand
 
@@ -4207,14 +4205,13 @@ system.
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode
      n		emacspeak-wizards-google-news
-     o		emacspeak-muggles-outliner/body
+     o		org-switchb
      p		proced
      q		emacspeak-wizards-iex-show-quote
      r		soundscape-restart
      s		soundscape
      t		soundscape-toggle
      u		soundscape-update-mood
-     v		emacspeak-muggles-view/body
      w		define-word
 
      .
@@ -4225,14 +4222,12 @@ system.
 
      SPC		emacspeak-eww-smart-tabs
      ,		emacspeak-eldoc-speak-doc
-     /		emacspeak-origami/body
      a		emacspeak-feeds-atom-display
      b		sox-binaural
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
      d		sdcv-search-input
      e		eww
      f		emacspeak-wizards-find-file-as-root
-     h		emacspeak-muggles-hideshow/body
      i		emacspeak-wizards-iheart
      l		eww-open-file
      m		magit-status

@@ -5869,8 +5869,6 @@ binds ‘s’ to this command.
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
-     ‘C-, h’
-     ‘C-x @ a h’
 
      Call the body in the "emacspeak-muggles-hideshow" hydra.
 
@@ -6117,9 +6115,6 @@ binds ‘s’ to this command.
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
-     ‘C-. o’
-     ‘C-' o’
-     ‘C-x @ s o’
 
      Call the body in the "emacspeak-muggles-outliner" hydra.
 
@@ -6219,9 +6214,6 @@ binds ‘s’ to this command.
 .......................................
 
  -- Command: emacspeak-muggles-view/body
-     ‘C-. v’
-     ‘C-' v’
-     ‘C-x @ s v’
 
      Call the body in the "emacspeak-muggles-view" hydra.
 
@@ -6280,8 +6272,6 @@ binds ‘s’ to this command.
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
-     ‘C-; v’
-     ‘C-x @ h v’
 
      Call the body in the "emacspeak-muggles-vuiet" hydra.
 
@@ -6332,8 +6322,6 @@ binds ‘s’ to this command.
 ..................................
 
  -- Command: emacspeak-origami/body
-     ‘C-, /’
-     ‘C-x @ a /’
 
      Call the body in the "emacspeak-origami" hydra.
 
@@ -8025,7 +8013,7 @@ File: emacspeak.info,  Node: emacspeak-racket,  Next: emacspeak-re-builder,  Pre
 racket-mode implements an IDE for racket, a dialect of scheme.
 
 
-File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-redefine,  Prev: emacspeak-racket,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-re-builder,  Next: emacspeak-reftex,  Prev: emacspeak-racket,  Up: Emacspeak Commands And Options
 
 12.164 emacspeak-re-builder
 ===========================
@@ -8057,57 +8045,9 @@ setting up outline regexp wizards
      customizing voice-lock-overlay-3-settings.
 
 
-File: emacspeak.info,  Node: emacspeak-redefine,  Next: emacspeak-reftex,  Prev: emacspeak-re-builder,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-re-builder,  Up: Emacspeak Commands And Options
 
-12.165 emacspeak-redefine
-=========================
-
-This module redefines a few vital functions, since advising them won’t
-help.  Convention used: To redefine function fn: The original function
-will be renamed to Orig-fn.  A new function called emacspeak-fn will be
-defined.  Finally, we will fset fn to emacspeak-fn In the case of
-backward-char, forward-char, and self-insert-command mere redefinition
-of the function will not do: We will need to bind the new functions
-explicitly to the keys.
-
-12.165.1 Emacspeak-Redefine Commands
-------------------------------------
-
-12.165.1.1 emacspeak-backward-char
-..................................
-
- -- Command: emacspeak-backward-char (&optional arg)
-
-     Backward-char redefined to speak char moved to.
-
-     (fn &optional ARG)
-
-12.165.1.2 emacspeak-forward-char
-.................................
-
- -- Command: emacspeak-forward-char (&optional arg)
-
-     Forward-char redefined to speak char moved to.
-
-     (fn &optional ARG)
-
-12.165.1.3 emacspeak-self-insert-command
-........................................
-
- -- Command: emacspeak-self-insert-command (&optional arg)
-
-     Insert a character.
-     Speaks the character if emacspeak-character-echo is true.
-     See  command emacspeak-toggle-word-echo bound to
-     C-e d w.
-     Speech flushes as you type.
-
-     (fn &optional ARG)
-
-
-File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-redefine,  Up: Emacspeak Commands And Options
-
-12.166 emacspeak-reftex
+12.165 emacspeak-reftex
 =======================
 
 This module speech-enables refteex – reftex is a minor mode that makes
@@ -8116,7 +8056,7 @@ navigation of TeX documents possible via a table of contents buffer.
 
 File: emacspeak.info,  Node: emacspeak-related,  Next: emacspeak-remote,  Prev: emacspeak-reftex,  Up: Emacspeak Commands And Options
 
-12.167 emacspeak-related
+12.166 emacspeak-related
 ========================
 
 RELATED == Switch among related buffers (melpa).  Speech-enable
@@ -8125,16 +8065,16 @@ interactive commands.
 
 File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-rg,  Prev: emacspeak-related,  Up: Emacspeak Commands And Options
 
-12.168 emacspeak-remote
+12.167 emacspeak-remote
 =======================
 
 In a running emacspeak session, nuke the running server and start
 talking to a remote speech server, after prompting for host and port
 
-12.168.1 Emacspeak-Remote Commands
+12.167.1 Emacspeak-Remote Commands
 ----------------------------------
 
-12.168.1.1 emacspeak-remote-connect-to-server
+12.167.1.1 emacspeak-remote-connect-to-server
 .............................................
 
  -- Command: emacspeak-remote-connect-to-server (host port)
@@ -8148,7 +8088,7 @@ talking to a remote speech server, after prompting for host and port
 
      (fn HOST PORT)
 
-12.168.1.2 emacspeak-remote-edit-current-remote-hostname
+12.167.1.2 emacspeak-remote-edit-current-remote-hostname
 ........................................................
 
  -- Command: emacspeak-remote-edit-current-remote-hostname
@@ -8156,7 +8096,7 @@ talking to a remote speech server, after prompting for host and port
      Interactively set up where we came from.
      Value is persisted for use with ssh servers.
 
-12.168.1.3 emacspeak-remote-home
+12.167.1.3 emacspeak-remote-home
 ................................
 
  -- Command: emacspeak-remote-home
@@ -8164,7 +8104,7 @@ talking to a remote speech server, after prompting for host and port
      Open ssh session to where we came from.
      Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
 
-12.168.1.4 emacspeak-remote-quick-connect-to-server
+12.167.1.4 emacspeak-remote-quick-connect-to-server
 ...................................................
 
  -- Command: emacspeak-remote-quick-connect-to-server
@@ -8174,7 +8114,7 @@ talking to a remote speech server, after prompting for host and port
      that appear as defaults when prompting. Use this once you are
      sure the guesses are usually correct.
 
-12.168.1.5 emacspeak-remote-quick-connect-via-ssh
+12.167.1.5 emacspeak-remote-quick-connect-via-ssh
 .................................................
 
  -- Command: emacspeak-remote-quick-connect-via-ssh
@@ -8182,7 +8122,7 @@ talking to a remote speech server, after prompting for host and port
      Connect via ssh to remote Emacspeak server.
      Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
 
-12.168.1.6 emacspeak-remote-ssh-to-server
+12.167.1.6 emacspeak-remote-ssh-to-server
 .........................................
 
  -- Command: emacspeak-remote-ssh-to-server (login host port)
@@ -8191,7 +8131,7 @@ talking to a remote speech server, after prompting for host and port
 
      (fn LOGIN HOST PORT)
 
-12.168.2 emacspeak-remote Options
+12.167.2 emacspeak-remote Options
 ---------------------------------
 
  -- Variable: User Option emacspeak-remote-default-ssh-server
@@ -8205,7 +8145,7 @@ talking to a remote speech server, after prompting for host and port
 
 File: emacspeak.info,  Node: emacspeak-rg,  Next: emacspeak-rmail,  Prev: emacspeak-remote,  Up: Emacspeak Commands And Options
 
-12.169 emacspeak-rg
+12.168 emacspeak-rg
 ===================
 
 RG == Emacs front-end to ripgrep (rg).
@@ -8213,22 +8153,22 @@ RG == Emacs front-end to ripgrep (rg).
 
 File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-rpm,  Prev: emacspeak-rg,  Up: Emacspeak Commands And Options
 
-12.170 emacspeak-rmail
+12.169 emacspeak-rmail
 ======================
 
 emacspeak extensions to rmail
 
-12.170.1 Emacspeak-Rmail Commands
+12.169.1 Emacspeak-Rmail Commands
 ---------------------------------
 
-12.170.1.1 emacspeak-rmail-speak-current-message-labels
+12.169.1.1 emacspeak-rmail-speak-current-message-labels
 .......................................................
 
  -- Command: emacspeak-rmail-speak-current-message-labels
 
      Speak labels of current message
 
-12.170.1.2 emacspeak-rmail-summarize-current-message
+12.169.1.2 emacspeak-rmail-summarize-current-message
 ....................................................
 
  -- Command: emacspeak-rmail-summarize-current-message
@@ -8238,7 +8178,7 @@ emacspeak extensions to rmail
 
 File: emacspeak.info,  Node: emacspeak-rpm,  Next: emacspeak-rpm-spec,  Prev: emacspeak-rmail,  Up: Emacspeak Commands And Options
 
-12.171 emacspeak-rpm
+12.170 emacspeak-rpm
 ====================
 
 This module speech-enables rpm.el rpm.el can be downloaded from
@@ -8248,7 +8188,7 @@ a nice interface to managing and browsing rpm.
 
 File: emacspeak.info,  Node: emacspeak-rpm-spec,  Next: emacspeak-rst,  Prev: emacspeak-rpm,  Up: Emacspeak Commands And Options
 
-12.172 emacspeak-rpm-spec
+12.171 emacspeak-rpm-spec
 =========================
 
 speech-enable rpm-spec-mode –part of Emacs 21 on RH 7.3
@@ -8256,13 +8196,13 @@ speech-enable rpm-spec-mode –part of Emacs 21 on RH 7.3
 
 File: emacspeak.info,  Node: emacspeak-rst,  Next: emacspeak-ruby,  Prev: emacspeak-rpm-spec,  Up: Emacspeak Commands And Options
 
-12.173 emacspeak-rst
+12.172 emacspeak-rst
 ====================
 
 RST == rst-mode for editing rst text files.  This module speech-enables
 rst-mode.
 
-12.173.1 emacspeak-rst Options
+12.172.1 emacspeak-rst Options
 ------------------------------
 
  -- Variable: User Option voice-rst-adornment
@@ -8343,7 +8283,7 @@ rst-mode.
 
 File: emacspeak.info,  Node: emacspeak-ruby,  Next: emacspeak-rust-mode,  Prev: emacspeak-rst,  Up: Emacspeak Commands And Options
 
-12.174 emacspeak-ruby
+12.173 emacspeak-ruby
 =====================
 
 Provide additional advice to Ruby mode
@@ -8351,7 +8291,7 @@ Provide additional advice to Ruby mode
 
 File: emacspeak.info,  Node: emacspeak-rust-mode,  Next: emacspeak-sage,  Prev: emacspeak-ruby,  Up: Emacspeak Commands And Options
 
-12.175 emacspeak-rust-mode
+12.174 emacspeak-rust-mode
 ==========================
 
 Speech-enable rust-mode
@@ -8359,17 +8299,17 @@ Speech-enable rust-mode
 
 File: emacspeak.info,  Node: emacspeak-sage,  Next: emacspeak-sdcv,  Prev: emacspeak-rust-mode,  Up: Emacspeak Commands And Options
 
-12.176 emacspeak-sage
+12.175 emacspeak-sage
 =====================
 
 Speech-enable ‘sage-shell-mode’.  This is a major mode for interacting
 with ‘sage’, <http://www.sagemath.org/> An Open-source Mathematical
 Software System.
 
-12.176.1 Emacspeak-Sage Commands
+12.175.1 Emacspeak-Sage Commands
 --------------------------------
 
-12.176.1.1 emacspeak-sage-describe-symbol
+12.175.1.1 emacspeak-sage-describe-symbol
 .........................................
 
  -- Command: emacspeak-sage-describe-symbol (s)
@@ -8378,21 +8318,21 @@ Software System.
 
      (fn S)
 
-12.176.1.2 emacspeak-sage-get-output
+12.175.1.2 emacspeak-sage-get-output
 ....................................
 
  -- Command: emacspeak-sage-get-output
 
      Return most recent Sage output
 
-12.176.1.3 emacspeak-sage-get-output-as-latex
+12.175.1.3 emacspeak-sage-get-output-as-latex
 .............................................
 
  -- Command: emacspeak-sage-get-output-as-latex
 
      Return most recent Sage output as LaTeX markup.
 
-12.176.1.4 emacspeak-sage-speak-output
+12.175.1.4 emacspeak-sage-speak-output
 ......................................
 
  -- Command: emacspeak-sage-speak-output
@@ -8402,7 +8342,7 @@ Software System.
 
 File: emacspeak.info,  Node: emacspeak-sdcv,  Next: emacspeak-ses,  Prev: emacspeak-sage,  Up: Emacspeak Commands And Options
 
-12.177 emacspeak-sdcv
+12.176 emacspeak-sdcv
 =====================
 
 SDCV == Stardict Dictionary Interface This module sets up Emacspeak for
@@ -8414,44 +8354,44 @@ module sdcv to use all the installed dictionaries found on the system.
 
 File: emacspeak.info,  Node: emacspeak-ses,  Next: emacspeak-setup,  Prev: emacspeak-sdcv,  Up: Emacspeak Commands And Options
 
-12.178 emacspeak-ses
+12.177 emacspeak-ses
 ====================
 
 ses implements a simple spread sheet and is part of Emacs This module
 speech-enables ses
 
-12.178.1 Emacspeak-Ses Commands
+12.177.1 Emacspeak-Ses Commands
 -------------------------------
 
-12.178.1.1 emacspeak-ses-backward-column-and-summarize
+12.177.1.1 emacspeak-ses-backward-column-and-summarize
 ......................................................
 
  -- Command: emacspeak-ses-backward-column-and-summarize
 
      Move to previous column and summarize.
 
-12.178.1.2 emacspeak-ses-backward-row-and-summarize
+12.177.1.2 emacspeak-ses-backward-row-and-summarize
 ...................................................
 
  -- Command: emacspeak-ses-backward-row-and-summarize
 
      Move to previous row  and summarize.
 
-12.178.1.3 emacspeak-ses-forward-column-and-summarize
+12.177.1.3 emacspeak-ses-forward-column-and-summarize
 .....................................................
 
  -- Command: emacspeak-ses-forward-column-and-summarize
 
      Move to next column and summarize.
 
-12.178.1.4 emacspeak-ses-forward-row-and-summarize
+12.177.1.4 emacspeak-ses-forward-row-and-summarize
 ..................................................
 
  -- Command: emacspeak-ses-forward-row-and-summarize
 
      Move to next row and summarize.
 
-12.178.1.5 emacspeak-ses-summarize-cell
+12.177.1.5 emacspeak-ses-summarize-cell
 .......................................
 
  -- Command: emacspeak-ses-summarize-cell (cell-name)
@@ -8460,7 +8400,7 @@ speech-enables ses
 
      (fn CELL-NAME)
 
-12.178.1.6 emacspeak-ses-summarize-current-cell
+12.177.1.6 emacspeak-ses-summarize-current-cell
 ...............................................
 
  -- Command: emacspeak-ses-summarize-current-cell (&rest ignore)
@@ -8472,7 +8412,7 @@ speech-enables ses
 
 File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev: emacspeak-ses,  Up: Emacspeak Commands And Options
 
-12.179 emacspeak-setup
+12.178 emacspeak-setup
 ======================
 
 Entry point for Emacspeak.  The simplest and most basic way to start
@@ -8482,7 +8422,7 @@ has been verified to work, You can add (load-library "emacspeak-setup")
 To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
 repository for my setup.
 
-12.179.1 emacspeak-setup Options
+12.178.1 emacspeak-setup Options
 --------------------------------
 
  -- Variable: User Option dtk-startup-hook
@@ -8497,4 +8437,60 @@ repository for my setup.
 
  -- Variable: User Option tts-notification-device
      Virtual ALSA device to use for notifications stream.
+
+
+File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
+
+12.179 emacspeak-sgml-mode
+==========================
+
+emacspeak extensions to sgml mode
+
+
+File: emacspeak.info,  Node: emacspeak-sh-script,  Next: emacspeak-shx,  Prev: emacspeak-sgml-mode,  Up: Emacspeak Commands And Options
+
+12.180 emacspeak-sh-script
+==========================
+
+This module speech-enables sh-script.el
+
+
+File: emacspeak.info,  Node: emacspeak-shx,  Next: emacspeak-sigbegone,  Prev: emacspeak-sh-script,  Up: Emacspeak Commands And Options
+
+12.181 emacspeak-shx
+====================
+
+SHX == Shell Extras For emacs
+
+
+File: emacspeak.info,  Node: emacspeak-sigbegone,  Next: emacspeak-slime,  Prev: emacspeak-shx,  Up: Emacspeak Commands And Options
+
+12.182 emacspeak-sigbegone
+==========================
+
+Speech-enables package sigbegone –voiceify sigs in email and news
+
+
+File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-smart-window,  Prev: emacspeak-sigbegone,  Up: Emacspeak Commands And Options
+
+12.183 emacspeak-slime
+======================
+
+SLIME == Superior Lisp Interaction Mode For Emacs Slime is a powerful
+IDE for developing in Common Lisp and Clojure.  It’s similar but more
+modern than package ILisp that I used as a graduate student when
+developing AsTeR.
+
+12.183.1 emacspeak-slime Options
+--------------------------------
+
+ -- Variable: User Option voice-slime-apropos-label
+     Personality used for slime-apropos-label This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option voice-slime-apropos-symbol
+     Personality used for slime-apropos-symbol This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
 
