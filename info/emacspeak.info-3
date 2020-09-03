@@ -8003,8 +8003,8 @@ be customized via custom see the documentation for defvoice.
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
-     ‘C-e d C-v’
-     ‘<fn> d C-v’
+     ‘C-e d v’
+     ‘<fn> d v’
 
      Toggle voice lock mode.
 

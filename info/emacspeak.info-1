@@ -4074,7 +4074,7 @@ system.
      d C-n		dtk-notify-initialize
      d C-o		outloud
      d C-s		dtk-notify-shutdown
-     d C-v		voice-lock-mode
+     d C-v		global-voice-lock-mode
      d SPC		dtk-toggle-splitting-on-white-space
      d ,		dtk-toggle-punctuation-mode
      d 0 .. d 9	dtk-set-predefined-speech-rate
@@ -4084,7 +4084,6 @@ system.
      d P		dtk-set-previous-language
      d R		dtk-reset-state
      d S		dtk-set-language
-     d V		global-voice-lock-mode
      d a		dtk-add-cleanup-pattern
      d c		dtk-toggle-capitalization
      d d		dtk-select-server
@@ -4098,7 +4097,7 @@ system.
      d p		dtk-set-punctuations
      d r		dtk-set-rate
      d s		dtk-toggle-split-caps
-     d v		global-voice-lock-mode
+     d v		voice-lock-mode
      d w		emacspeak-toggle-word-echo
      d z		emacspeak-zap-tts
 

@@ -1435,7 +1435,7 @@ d RET		dtk-set-chunk-separator-syntax
 d C-n		dtk-notify-initialize
 d C-o		outloud
 d C-s		dtk-notify-shutdown
-d C-v		voice-lock-mode
+d C-v		global-voice-lock-mode
 d SPC		dtk-toggle-splitting-on-white-space
 d ,		dtk-toggle-punctuation-mode
 d 0 .. d 9	dtk-set-predefined-speech-rate
@@ -1445,7 +1445,6 @@ d N		dtk-set-next-language
 d P		dtk-set-previous-language
 d R		dtk-reset-state
 d S		dtk-set-language
-d V		global-voice-lock-mode
 d a		dtk-add-cleanup-pattern
 d c		dtk-toggle-capitalization
 d d		dtk-select-server
@@ -1459,7 +1458,7 @@ d o		dtk-toggle-strip-octals
 d p		dtk-set-punctuations
 d r		dtk-set-rate
 d s		dtk-toggle-split-caps
-d v		global-voice-lock-mode
+d v		voice-lock-mode
 d w		emacspeak-toggle-word-echo
 d z		emacspeak-zap-tts
 
@@ -26198,10 +26197,10 @@ documentation for defvoice.
 @subsubsection voice-lock-mode
 @deffn {Command} voice-lock-mode  (&optional arg)
 @table @kbd
-@item C-e d C-v
-@kindex C-e d C-v
-@item <fn> d C-v
-@kindex <fn> d C-v
+@item C-e d v
+@kindex C-e d v
+@item <fn> d v
+@kindex <fn> d v
 @end table
 
 @findex voice-lock-mode
