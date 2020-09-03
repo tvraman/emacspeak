@@ -132,19 +132,19 @@ such as pronunciation dictionaries are stored. ")
   "Pattern for matching playlists.")
 
 ;;}}}
-;;{{{ Hooks
+;;{{{Load-path:
 
-(push emacspeak-lisp-directory load-path)
-(push (expand-file-name "g-client" emacspeak-lisp-directory) load-path)
+(cl-pushnew emacspeak-lisp-directory load-path)
+(cl-pushnew (expand-file-name "g-client" emacspeak-lisp-directory) load-path)
 
+;;}}}
+;;{{{ autoloads, Hooks
 
 (let ((file-name-handler-alist nil)
         (load-source-file-function  nil))
     (mapc
      #'load
      '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load")))
-
-
 
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
@@ -170,13 +170,13 @@ hook."
 (defun emacspeak-tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
   (and
-   (member tts-engine '("outloud" "32-outloud" "cloud-outloud"))
+   (member tts-engine '("outloud"  "cloud-outloud"))
    (not (string= (dtk-get-notify-alsa-device) "default"))))
 
 (defcustom emacspeak-tts-use-notify-stream
   (when
-      (and (not noninteractive)
-           (emacspeak-tts-multistream-p dtk-program)) t)
+      (and (not noninteractive) (emacspeak-tts-multistream-p dtk-program))
+    t)
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
@@ -195,14 +195,6 @@ TTS engine should use ALSA for this to be usable."
     (when (emacspeak-tts-multistream-p dtk-program)
       (dtk-notify-initialize))))
 
-;;;###autoload
-(defun emacspeak-setup-header-line ()
-  "Set up Emacspeak to speak a default header line."
-  (cl-declare (special emacspeak-use-header-line
-                       header-line-format emacspeak-header-line-format))
-  (when emacspeak-use-header-line
-    (setq header-line-format emacspeak-header-line-format)))
-
 (defun emacspeak-turn-off-visual-line-mode ()
   "This function turns off visual line mode globally.
 It's placed by default on customizable option `emacspeak-startup-hook'."
@@ -214,19 +206,16 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
   :type 'hook
   :group 'emacspeak)
 
-(defvar emacspeak-info-already-loaded nil
-  "Track info support load.")
-
 (add-hook
  'Info-mode-hook
  #'(lambda ()
      (let ((file-name-handler-alist nil)
            (load-source-file-function  nil))
-       (unless emacspeak-info-already-loaded
-         (load "emacspeak-info"))
-       (setq emacspeak-info-already-loaded t))))
+       (load "emacspeak-info"))))
 
 ;;}}}
+;;; Start emacspeak if emacs   is interactive:
+
 (unless noninteractive (emacspeak))
 
 (provide 'emacspeak-setup)
