@@ -70,8 +70,7 @@
 (defun emacspeak-should-i-fix-interactive-p  (sym)
   "Predicate to test if this function should be fixed. "
   (and
-   (not (string-match emacspeak-commands-dont-fix-regexp
-                      (symbol-name sym)))
+   (not (string-match emacspeak-commands-dont-fix-regexp (symbol-name sym)))
    (commandp sym)
    (not (get  sym 'emacspeak-checked-interactive))
    (not (eq 'byte-compile-obsolete (get sym 'byte-compile)))
@@ -138,7 +137,7 @@ use the minibuffer."
       (message "Not auto-advising %s" sym))))
   t)
 
-;;; inline function for use from other modules:
+
 ;;;###autoload
 (defun  emacspeak-fix-interactive-command-if-necessary (command)
   "Fix command if necessary."
