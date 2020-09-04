@@ -856,12 +856,8 @@ current local  value to the result.
 @table @kbd
 @item C-e s
 @kindex C-e s
-@item C-e <fn>
-@kindex C-e <fn>
 @item <fn> s
 @kindex <fn> s
-@item <fn> <fn>
-@kindex <fn> <fn>
 @end table
 
 @findex dtk-stop
@@ -1311,7 +1307,6 @@ DEL		cd-tool
 C-SPC		emacspeak-speak-current-mark
 <C-left>	emacspeak-select-this-buffer-previous-display
 <C-right>	emacspeak-select-this-buffer-next-display
-<fn>	dtk-stop
 <delete>	emacspeak-ssh-tts-restart
 <down>		emacspeak-read-next-line
 <f1>		emacspeak-learn-emacs-mode
@@ -2657,7 +2652,6 @@ This module implements an Emacspeak Bookshare client.
 @itemize
 @item You need to get your own API key
 @item You need Emacs built with libxml2 support
-@item You need Emacs 24.1 or higher.
 @end itemize
 
 @subsection Usage
@@ -10127,7 +10121,7 @@ lets you switch the prefix to something else.  This is a useful thing
 to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
-relief.
+relief. Note: I’ve not used this in over 20 years.
 
 (fn PREFIX-KEY)
 @end format

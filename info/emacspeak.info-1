@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 3, 2020.
+last updated on September 4, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3588,9 +3588,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Command: dtk-stop (&optional all)
      ‘C-e s’
-     ‘C-e <fn>’
      ‘<fn> s’
-     ‘<fn> <fn>’
 
      Stop speech now.
      Optional arg ‘all’ or interactive call   silences notification stream as well.
@@ -3951,7 +3949,6 @@ system.
      C-SPC		emacspeak-speak-current-mark
      <C-left>	emacspeak-select-this-buffer-previous-display
      <C-right>	emacspeak-select-this-buffer-next-display
-     <fn>	dtk-stop
      <delete>	emacspeak-ssh-tts-restart
      <down>		emacspeak-read-next-line
      <f1>		emacspeak-learn-emacs-mode
@@ -5161,7 +5158,6 @@ Bookshare client.
 
    • You need to get your own API key
    • You need Emacs built with libxml2 support
-   • You need Emacs 24.1 or higher.
 
 12.25.2 Usage
 -------------

@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 3, 2020.
+last updated on September 4, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eshell,  Next: emacspeak-ess,  Prev: emacspeak-erc,  Up: Emacspeak Commands And Options
@@ -3543,7 +3543,7 @@ found on laptops is denoted <fn>
      to do if you run emacspeak on a remote machine from inside a terminal
      that is running inside a local emacspeak session.  You can have the
      remote emacspeak use a different control key to give your fingers some
-     relief.
+     relief. Note: I’ve not used this in over 20 years.
 
      (fn PREFIX-KEY)
 
