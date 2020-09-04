@@ -1796,10 +1796,10 @@ only speak upto the first ctrl-m."
           (inherit-speaker-process dtk-speaker-process)
           (pronunciation-table emacspeak-pronounce-pronunciation-table)
           (use-auditory-icons emacspeak-use-auditory-icons)
-          (inherit-chunk-separator-syntax dtk-chunk-separator-syntax)
+          (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)
-          (complement-separator (dtk-complement-chunk-separator-syntax))
+          (complement-sep (dtk-complement-chunk-separator-syntax))
           (speech-rate dtk-speech-rate)
           (capitalize dtk-capitalize)
           (all-caps dtk-allcaps-beep)
@@ -1808,14 +1808,14 @@ only speak upto the first ctrl-m."
           (start 1)
           (end nil)
           (mode dtk-punctuation-mode)
-          (voice-lock voice-lock-mode))
+          (voice-lock voice-lock-mode)) ; done snapshotting 
       (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
 ;;; inherit environment
         (setq
          buffer-invisibility-spec invisibility-spec
-         dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+         dtk-chunk-separator-syntax chunk-sep
          dtk-speaker-process inherit-speaker-process
          dtk-speech-rate speech-rate
          emacspeak-use-auditory-icons use-auditory-icons
@@ -1828,20 +1828,19 @@ only speak upto the first ctrl-m."
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
         (dtk-interp-sync)
-        (insert text)
+        (insert text)                   ; insert and pre-process text
         (dtk--delete-invisible-text)
         (dtk-handle-repeating-patterns mode)
         (when pronunciation-table
           (tts-apply-pronunciations pronunciation-table))
         (dtk-unicode-replace-chars mode)
         (dtk-quote mode)
-        (goto-char (point-min))
-        (skip-syntax-forward "- ")       ;skip leading whitespace
+        (goto-char (point-min))         ; text is ready to be spoken
+        (skip-syntax-forward "- ")      ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
-                    (dtk-move-across-a-chunk
-                     inherit-chunk-separator-syntax complement-separator))
-          (unless ; speak this chunk if appropriate 
+                    (dtk-move-across-a-chunk chunk-sep complement-sep))
+          (unless                   ; speak this chunk if appropriate 
               (and (char-after (point))
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
@@ -1853,7 +1852,7 @@ only speak upto the first ctrl-m."
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
           (setq start (point))
-          (dtk-format-text-and-speak start (point-max)))))
+          (unless (eobp) (dtk-format-text-and-speak start (point-max))))))
     (dtk-force)))
 
 ;;; forward Declaration:
