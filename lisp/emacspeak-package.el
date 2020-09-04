@@ -60,7 +60,7 @@
  '(
    (package-help-section-name voice-lighten)
    (package-name voice-bolden)
-   (package-description voice-monotone)
+   (package-description voice-lighten)
    (package-status-built-in voice-monotone-medium)
    (package-status-external voice-animate)
    (package-status-available voice-annotate)
