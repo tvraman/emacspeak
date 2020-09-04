@@ -1840,12 +1840,11 @@ only speak upto the first ctrl-m."
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk chunk-sep complement-sep))
-                                        ; speak this chunk if appropriate 
             (skip-syntax-forward "-")   ;skip  trailing whitespace
             (setq end (point))
             (dtk-format-text-and-speak start end)
             (setq start end))          ; end while
-                                        ; process trailing text
+;;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
           (setq start (point))
