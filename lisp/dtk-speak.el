@@ -1841,11 +1841,11 @@ only speak upto the first ctrl-m."
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk
                      inherit-chunk-separator-syntax complement-separator))
-          (unless
+          (unless ; speak this chunk if appropriate 
               (and (char-after (point))
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
-            (skip-syntax-forward "-")   ;skip  whitespace
+            (skip-syntax-forward "-")   ;skip  trailing whitespace
             (setq end (point))
             (dtk-format-text-and-speak start end)
             (setq start end)))          ; end while
