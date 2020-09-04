@@ -735,8 +735,8 @@ Arguments START and END specify region to speak."
            (< start end)
            (setq last (dtk-next-style-change start end)))
         (if personality
-            (dtk-speak-using-voice personality (buffer-substring start last))
-          (dtk-interp-queue (buffer-substring start last)))
+            (dtk-speak-using-voice personality (buffer-substring-no-properties start last))
+          (dtk-interp-queue (buffer-substring-no-properties start last)))
         (setq
          start last
          personality (dtk-get-style last))
@@ -1804,7 +1804,6 @@ only speak upto the first ctrl-m."
           (capitalize dtk-capitalize)
           (all-caps dtk-allcaps-beep)
           (split-caps dtk-split-caps)
-          (inherit-enable-multibyte-characters enable-multibyte-characters)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
           (start 1)
           (end nil)
@@ -1828,7 +1827,6 @@ only speak upto the first ctrl-m."
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
-        (set-buffer-multibyte inherit-enable-multibyte-characters)
         (dtk-interp-sync)
         (insert text)
         (dtk--delete-invisible-text)
