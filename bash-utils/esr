@@ -1,5 +1,5 @@
 #!/bin/bash 
 
 # Emergency SR
-# Use espeak to speak output from shell commands:
-"$@" 2>&1 | espeak 
+# Use espeak-ng to speak output from shell commands:
+"$@" 2>&1 | espeak-ng 
