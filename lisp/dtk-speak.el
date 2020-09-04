@@ -571,7 +571,7 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; or a parenthesis grouping start or end
 ;;; leaves point at the end of the chunk.
 ;;; returns  distance moved; nil if stationery
-(defvar dtk-chunk-separator-syntax ".>)$\""
+(defvar dtk-chunk-separator-syntax ">)$\""
   "Syntax string to identify chunks when splitting text.")
 
 ;;; make it buffer local:
