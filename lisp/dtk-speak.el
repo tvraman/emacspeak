@@ -43,7 +43,7 @@
 
 ;;; Commentary:
 ;;;Defines the TTS interface.
-
+;;; Here, prefix dtk is synonymous with tts.
 ;;; Code:
 ;;
 
