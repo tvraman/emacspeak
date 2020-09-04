@@ -186,7 +186,8 @@ Do not modify this variable directly; use command  `dtk-set-rate'
        (cdr value)))
 
 ;;; Helper: Get face->voice mapping
-;;;###autoload
+
+
 (defun dtk-get-voice-for-face (value)
   "Compute face->voice mapping."
   (when value 
