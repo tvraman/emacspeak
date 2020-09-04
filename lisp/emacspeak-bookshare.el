@@ -50,7 +50,6 @@
 ;;; @itemize
 ;;; @item You need to get your own API key
 ;;; @item You need Emacs built with libxml2 support
-;;; @item You need Emacs 24.1 or higher.
 ;;; @end itemize
 ;;;
 ;;; @subsection Usage
