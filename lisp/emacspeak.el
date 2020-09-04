@@ -56,6 +56,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-sounds)
+
 ;;}}}
 ;;{{{  Customize groups
 
@@ -359,19 +360,6 @@ speech-enabling extensions for `package' (a string)."
        "Description of Problem:"))))
 
 ;;}}}
-;;{{{ exporting emacspeak environment to subprocesses
-
-(defun emacspeak-export-environment ()
-  "Export shell environment.
-This exports emacspeak's system variables to the environment
-so it can be passed to subprocesses."
-  (cl-declare (special emacspeak-directory emacspeak-play-program
-                       emacspeak-sounds-directory))
-  (setenv "EMACSPEAK_DIR" emacspeak-directory)
-  (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
-  (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program))
-
-;;}}}
 ;;{{{ setup programming modes
 
 ;;; turn on automatic voice locking , split caps and punctuations in
@@ -403,24 +391,37 @@ caps."
      TeX-mode-hook LaTeX-mode-hook bibtex-mode-hook)))
 
 ;;}}}
+;;{{{ exporting emacspeak environment to subprocesses
+
+(defun emacspeak-export-environment ()
+  "Export shell environment.
+This exports emacspeak's system variables to the environment
+so it can be passed to subprocesses."
+  (cl-declare (special emacspeak-directory emacspeak-play-program
+                       emacspeak-sounds-directory))
+  (setenv "EMACSPEAK_DIR" emacspeak-directory)
+  (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
+  (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program))
+
+;;}}}
 ;;{{{ Emacspeak:
 
-(defcustom emacspeak-play-emacspeak-startup-icon
-  t
+(defcustom emacspeak-play-emacspeak-startup-icon t
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
 
 (defsubst emacspeak-play-startup-icon ()
   "Play startup icon if requested."
-  (cl-declare (special emacspeak-play-emacspeak-startup-icon))
-  (let ((player   (executable-find "mplayer")))
-    (when (and  emacspeak-play-emacspeak-startup-icon player)
+  (cl-declare (special emacspeak-play-emacspeak-startup-icon
+                       emacspeak-m-player-program))
+  (when (and  emacspeak-play-emacspeak-startup-icon emacspeak-m-player-program)
       (start-process
        "mp3" nil
-       player
+       emacspeak-m-player-program
        (expand-file-name "emacspeak.mp3"
-                         emacspeak-sounds-directory)))))
+                         emacspeak-sounds-directory))))
+
 (defvar emacspeak-startup-message
   (format
    "  Press %s to get an   overview of emacspeak  %s \
