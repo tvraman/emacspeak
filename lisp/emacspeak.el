@@ -56,8 +56,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-sounds)
-(require 'emacspeak-fix-interactive)
-
 ;;}}}
 ;;{{{  Customize groups
 
@@ -115,10 +113,6 @@ speech-enabling extensions for `package' (a string)."
 (declare-function doc-view-open-text "doc-view")
 (with-eval-after-load "doc-view"
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
-
-;;; find-func:
-(with-eval-after-load  "find-func"
-  (emacspeak-fix-commands-loaded-from "find-func"))
 
 ;;; subr.el
 (with-eval-after-load  "subr"
@@ -496,7 +490,6 @@ commands and options for details."
       (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
-    (emacspeak-fix-commands-that-use-interactive)
     (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
     (emacspeak-play-startup-icon)))
