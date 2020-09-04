@@ -166,7 +166,7 @@ split caps Do not set this variable by hand, use command
 
 (defconst dtk-punctuation-mode-alist
   '("some" "all" "none")
-  "Alist of valid punctuation modes.")
+  "Alist of valid punctuation modes, values are strings..")
 
 (defvar dtk-speech-rate
   (if (string-match "dtk" dtk-program)
