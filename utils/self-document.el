@@ -95,10 +95,8 @@
   (cl-declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
   (let ((file-name-handler-alist nil))
-    (package-initialize) ; bootstrap emacs package system
-    ;;; Bootstrap Emacspeak
-    (load-library "emacspeak-load-path")
-    (load-library "plain-voices")
+    (package-initialize)              ; bootstrap emacs package system
+;;; Bootstrap Emacspeak
     (load-library "emacspeak-setup")
 ;;; Load all Emacspeak modules:
     (cl-loop
@@ -107,7 +105,7 @@
                                         ;(condition-case nil
        (load-library f)
                                         ;(error (message  "check %s" f)))
-     ))))
+       ))))
 
 (defconst self-document-patterns
   (concat "^"
