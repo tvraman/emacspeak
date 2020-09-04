@@ -106,8 +106,7 @@ set up Emacspeak support for a given package.  Argument MODULE (a
 symbol)specifies the emacspeak module that implements the
 speech-enabling extensions for `package' (a string)."
   (with-eval-after-load package
-    (require module)
-    (emacspeak-fix-commands-loaded-from package)))
+    (require module)))
 
 ;;; DocView
 (declare-function doc-view-open-text "doc-view")
