@@ -89,12 +89,14 @@
 
 (cl-defstruct self-document name commentary commands options)
 (defvar emacspeak-play-emacspeak-startup-icon nil)
-(defvar dtk-program "log-null")
+
 (defun self-document-load-modules ()
   "Load all modules"
   (cl-declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
-  (let ((file-name-handler-alist nil))
+  (let ((file-name-handler-alist nil)
+        (load-source-file-function  nil)
+        (dtk-program "log-null"))
     (package-initialize)              ; bootstrap emacs package system
 ;;; Bootstrap Emacspeak
     (load-library "emacspeak-setup")
