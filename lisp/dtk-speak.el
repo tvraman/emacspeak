@@ -62,7 +62,6 @@
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
-;;;###autoload
 (defvar dtk-program
   (cond
    ((getenv "DTK_PROGRAM") (getenv "DTK_PROGRAM"))
@@ -762,7 +761,7 @@ Arguments START and END specify region to speak."
     (when dtk-speak-server-initialized
       (dtk-interp-say string))))
 
-;;;###autoload
+
 (defun dtk-stop (&optional all)
   "Stop speech now.
 Optional arg `all' or interactive call   silences notification stream as well."
@@ -779,7 +778,7 @@ Optional arg `all' or interactive call   silences notification stream as well."
 ;;}}}
 ;;{{{  adding cleanup patterns:
 
-;;;###autoload
+
 (defun dtk-add-cleanup-pattern (&optional delete)
   "Add this pattern to the list of repeating patterns that
 are cleaned up.  Optional interactive prefix arg deletes
@@ -816,7 +815,6 @@ will say ``aw fifteen dot'' when speaking the string
 
 ;;}}}
 ;;{{{ helper --generate state switcher:
-
 ;;;###autoload
 (defun ems-generate-switcher (command switch documentation)
   "Generate desired command to switch the specified state."
@@ -847,7 +845,6 @@ will say ``aw fifteen dot'' when speaking the string
 ;;}}}
 ;;{{{  sending commands
 
-;;;###autoload
 (defun dtk-set-rate (rate &optional prefix)
   "Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
@@ -875,7 +872,6 @@ current local  value to the result."
                rate
                (if prefix "" "locally")))))
 
-;;;###autoload
 (defun dtk-set-predefined-speech-rate (&optional prefix)
   "Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
@@ -907,7 +903,6 @@ speech rate:")))
                    level
                    (if prefix "" "locally")))))))
 
-;;;###autoload
 (defun dtk-set-character-scale (factor &optional prefix)
   "Set scale FACTOR for   speech rate.
 Speech rate is scaled by this factor
@@ -974,7 +969,6 @@ value, and then set the current local value to the result.
 Note that allcaps-beep is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
-;;;###autoload
 (defun dtk-set-punctuations (mode &optional prefix)
   "Set punctuation mode to MODE.
 Possible values are `some', `all', or `none'.
@@ -1004,21 +998,18 @@ current local  value to the result."
                mode
                (if prefix "" "locally")))))
 
-;;;###autoload
 (defun dtk-set-punctuations-to-all (&optional prefix)
   "Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
   (dtk-set-punctuations 'all prefix))
 
-;;;###autoload
 (defun dtk-set-punctuations-to-some (&optional prefix)
   "Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally."
   (interactive "P")
   (dtk-set-punctuations 'some prefix))
 
-;;;###autoload
 (defun dtk-toggle-punctuation-mode (&optional prefix)
   "Toggle punctuation mode between \"some\" and \"all\".
 Interactive PREFIX arg makes the new setting global."
@@ -1034,7 +1025,6 @@ Interactive PREFIX arg makes the new setting global."
              dtk-punctuation-mode
              (if prefix "" "locally"))))
 
-;;;###autoload
 (defun dtk-reset-state ()
   "Restore sanity to the Dectalk.
 Typically used after the Dectalk has been power   cycled."
@@ -1044,7 +1034,6 @@ Typically used after the Dectalk has been power   cycled."
   (when dtk-speak-server-initialized
     (dtk-interp-reset-state)))
 
-;;;###autoload
 (defun tts-speak-version ()
   "Speak version."
   (interactive)
@@ -1515,7 +1504,6 @@ available TTS servers.")
   "Return voice reset code."
   (tts-get-voice-command tts-default-voice))
 
-;;;###autoload
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
   (cl-declare (special dtk-program emacspeak-auditory-icon-function))
@@ -1554,7 +1542,6 @@ available TTS servers.")
            (:const "cloud-mac" :tag "Mac Variants")))
   :group 'dtk)
 
-;;;###autoload
 (defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
 When called interactively, restarts speech server.
@@ -1588,7 +1575,6 @@ ALSA_DEFAULT to specified device before starting the server."
             (emacspeak-tts-multistream-p dtk-program))
       (dtk-initialize))))
 
-;;;###autoload
 (defun dtk-cloud ()
   "Select preferred Cloud TTS server."
   (interactive)
@@ -1609,7 +1595,6 @@ ALSA_DEFAULT to specified device before starting the server."
                   (string)))
   :group 'dtk)
 
-;;;###autoload
 (defun tts-cycle-device (&optional restart)
   "Cycle through available ALSA devices.
 Optional interactive prefix arg restarts current TTS server."
@@ -1629,7 +1614,6 @@ Optional interactive prefix arg restarts current TTS server."
       (message "ALSA_DEFAULT: %s" tts-device)
       (when restart (tts-restart))))))
 
-;;;###autoload
 (defvar dtk-local-server-process nil
   "Local server process.")
 
@@ -1637,7 +1621,6 @@ Optional interactive prefix arg restarts current TTS server."
   "Local speech server script.")
 (defvar dtk-local-server-port "2222"
   "Port where we run our local server.")
-;;;###autoload
 
 (defcustom dtk-local-engine "outloud"
   "Engine we use  for our local TTS  server."
@@ -1706,7 +1689,6 @@ program. Port defaults to dtk-local-server-port"
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
       (run-hooks 'dtk-startup-hook)))))
-;;;###autoload
 (defun tts-shutdown ()
   "Shutdown TTS servers."
   (cl-declare (special dtk-speaker-process dtk-notify-process))
@@ -1715,19 +1697,16 @@ program. Port defaults to dtk-local-server-port"
   (when (processp dtk-notify-process)
     (delete-process dtk-notify-process)))
 
-;;;###autoload
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
   (interactive)
   (dtk-initialize)
   (dtk-interp-sync))
 
-;;;###autoload
 
 ;;}}}
 ;;{{{  interactively select how text is split:
 
-;;;###autoload
 (defun dtk-toggle-splitting-on-white-space ()
   "Toggle splitting of speech on white space.
 This affects the internal state of emacspeak that decides if we split
@@ -1753,7 +1732,6 @@ since the synthesizer is getting a word at a time."
       (when (called-interactively-p 'interactive)
         (message "Text split  at clause boundaries")))))
 
-;;;###autoload
 (defun dtk-set-chunk-separator-syntax (s)
   "Interactively set how text is split in chunks.
 See the Emacs documentation on syntax tables for details on how characters are
@@ -1987,7 +1965,6 @@ Returns nil if the result would not be a valid process handle."
           (t dtk-speaker-process))))
     (when (process-live-p result) result)))
 
-;;;###autoload
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
   (interactive)
@@ -2001,7 +1978,6 @@ Applies func to text with dtk-speaker-process bound to the  notification stream.
     (funcall func text)))
 (declare-function emacspeak-log-notification "emacspeak-speak" (text))
 
-;;;###autoload
 (defun dtk-notify-speak (text &optional dont-log)
   "Speak text on notification stream.
 Fall back to dtk-speak if notification stream not available.
@@ -2015,7 +1991,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    (t (dtk-speak text)))
   text)
 
-;;;###autoload
 (defun dtk-notify-say (text &optional dont-log)
   "Say text on notification stream. "
   (cl-declare (special dtk-speaker-process emacspeak-last-message))
@@ -2027,7 +2002,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    (t (dtk-say text)))
   text)
 
-;;;###autoload
 (defun dtk-notify-letter (letter)
   "Speak letter on notification stream. "
   (cond
@@ -2035,7 +2009,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
     (dtk-notify-apply #'dtk-letter letter))
    (t (dtk-letter letter))))
 
-;;;###autoload
 (defun dtk-notify-icon (icon)
   "Play icon  on notification stream. "
   (cond
@@ -2051,7 +2024,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
   (or tts-notification-device
       (getenv "ALSA_DEFAULT")))
 
-;;;###autoload
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
@@ -2073,7 +2045,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
       (setenv "ALSA_DEFAULT" save-device)
       (setq dtk-notify-process new-process))))
 
-;;;###autoload
 (defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
   (unless dont-log (emacspeak-log-notification text))
@@ -2083,7 +2054,6 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
       (dtk-speak-using-voice voice text)
       (dtk-force))))
 
-;;;###autoload
 (defun dtk-notify-shutdown ()
   "Shutdown notification TTS stream."
   (interactive)
