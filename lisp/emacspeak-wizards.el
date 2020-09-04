@@ -779,7 +779,7 @@ emacspeak-emergency-tts-server."
 (defun emacspeak-show-style-at-point ()
   "Show value of property personality (and possibly face) at point."
   (interactive)
-  (let ((f (get-char-property (point) 'face))
+  (let ((f (get-text-property (point) 'face))
         (style (dtk-get-style))
         (msg nil))
     (setq msg
