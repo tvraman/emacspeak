@@ -1501,10 +1501,13 @@ available TTS servers.")
 (defun tts-voice-reset-code ()
   "Return voice reset code."
   (tts-get-voice-command tts-default-voice))
+(defvar tts-configured-engines nil
+  "Record TTS engines that   have been configured in this emacs session.")
 
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
-  (cl-declare (special dtk-program emacspeak-auditory-icon-function))
+  (cl-declare (special dtk-program emacspeak-auditory-icon-function
+                       tts-configured-engines))
   (unless tts-name (setq tts-name dtk-program))
   (cond
                                         ;viavoice outloud family
@@ -1519,7 +1522,9 @@ available TTS servers.")
   (dtk-interp-sync)
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
-    (load-library "voice-setup"))
+    (unless (member tts-name tts-configured-engines)
+      (cl-pushnew tts-name tts-configured-engines)
+      (load-library "voice-setup")))
   (when
       (or
        (string-match "^ssh" tts-name)   ;remote server
