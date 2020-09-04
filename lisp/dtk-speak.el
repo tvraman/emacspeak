@@ -96,12 +96,9 @@ mac for MAC TTS (default on Mac)")
   :group 'emacspeak
   :prefix "dtk-")
 
-(defcustom tts-strip-octals nil
+(defvar tts-strip-octals nil
   "Set to T to strip all octal chars before speaking.
-Particularly useful for web browsing."
-  :type 'boolean
-  :group 'dtk
-  :group 'tts)
+Particularly useful for web browsing.")
 (make-variable-buffer-local 'tts-strip-octals)
 
 (defcustom dtk-speech-rate-base
