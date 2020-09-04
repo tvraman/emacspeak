@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1258 commands and 945 options.
+   This chapter documents a total of 1258 commands and 944 options.
 
 * Menu:
 
@@ -3333,7 +3333,7 @@ File: emacspeak.info,  Node: dtk-speak,  Next: dtk-unicode,  Prev: dtk-interp,  
 12.7 dtk-speak
 ==============
 
-Defines the TTS interface.
+Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
 12.7.1 Dtk-Speak Commands
 -------------------------
@@ -3767,10 +3767,6 @@ Defines the TTS interface.
  -- Variable: User Option tts-device-list
      List of ALSA sound devices we can use.
 
- -- Variable: User Option tts-strip-octals
-     Set to T to strip all octal chars before speaking.  Particularly
-     useful for web browsing.
-
 
 File: emacspeak.info,  Node: dtk-unicode,  Next: emacspeak,  Prev: dtk-speak,  Up: Emacspeak Commands And Options
 
@@ -4176,6 +4172,7 @@ system.
      s		emacspeak-wizards-shell
      t		twit
      u		list-unicode-display
+     v		emacspeak-muggles-vuiet/body
      w		emacspeak-wizards-noaa-weather
      y		yas-expand
 
@@ -4205,13 +4202,14 @@ system.
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode
      n		emacspeak-wizards-google-news
-     o		org-switchb
+     o		emacspeak-muggles-outliner/body
      p		proced
      q		emacspeak-wizards-iex-show-quote
      r		soundscape-restart
      s		soundscape
      t		soundscape-toggle
      u		soundscape-update-mood
+     v		emacspeak-muggles-view/body
      w		define-word
 
      .
@@ -4222,12 +4220,14 @@ system.
 
      SPC		emacspeak-eww-smart-tabs
      ,		emacspeak-eldoc-speak-doc
+     /		emacspeak-origami/body
      a		emacspeak-feeds-atom-display
      b		sox-binaural
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
      d		sdcv-search-input
      e		eww
      f		emacspeak-wizards-find-file-as-root
+     h		emacspeak-muggles-hideshow/body
      i		emacspeak-wizards-iheart
      l		eww-open-file
      m		magit-status

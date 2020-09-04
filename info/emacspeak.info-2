@@ -5869,6 +5869,8 @@ binds ‘s’ to this command.
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
+     ‘C-, h’
+     ‘C-x @ a h’
 
      Call the body in the "emacspeak-muggles-hideshow" hydra.
 
@@ -6115,6 +6117,9 @@ binds ‘s’ to this command.
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
+     ‘C-. o’
+     ‘C-' o’
+     ‘C-x @ s o’
 
      Call the body in the "emacspeak-muggles-outliner" hydra.
 
@@ -6214,6 +6219,9 @@ binds ‘s’ to this command.
 .......................................
 
  -- Command: emacspeak-muggles-view/body
+     ‘C-. v’
+     ‘C-' v’
+     ‘C-x @ s v’
 
      Call the body in the "emacspeak-muggles-view" hydra.
 
@@ -6272,6 +6280,8 @@ binds ‘s’ to this command.
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
+     ‘C-; v’
+     ‘C-x @ h v’
 
      Call the body in the "emacspeak-muggles-vuiet" hydra.
 
@@ -6322,6 +6332,8 @@ binds ‘s’ to this command.
 ..................................
 
  -- Command: emacspeak-origami/body
+     ‘C-, /’
+     ‘C-x @ a /’
 
      Call the body in the "emacspeak-origami" hydra.
 
