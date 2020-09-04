@@ -99,7 +99,7 @@
 (defvar emacspeak-prefix (kbd "C-e")
   "Default prefix key used for emacspeak. ")
 
-;;;###autoload
+
 (defvar emacspeak-keymap nil
   "Primary keymap used by emacspeak. ")
 
@@ -119,7 +119,6 @@
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
 ;;; One-finger use on laptop:
 (global-set-key (kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
-(define-key emacspeak-keymap  (kbd "<XF86WakeUp>") 'dtk-stop)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (kbd "C-t")  'emacspeak-table-submap-command)
 
