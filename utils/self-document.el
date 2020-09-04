@@ -66,11 +66,10 @@
 (add-to-list
  'load-path
  (expand-file-name "g-client" self-document-lisp-directory))
-
 (add-to-list
  'load-path
  (expand-file-name "../../site-lisp" (file-name-directory load-file-name)))
-
+(load "emacspeak-loaddefs")
 (defconst self-document-files
   (append
    (list "emacspeak-maths.el" "emacspeak-muggles.el")
@@ -349,7 +348,6 @@
   "Generate documentation for all modules."
   (cl-declare (special self-document-map))
   (let ((file-name-handler-alist nil)
-        (load-source-file-function  nil)
         (output (find-file-noselect "docs.texi"))
         (keys nil))
     (self-document-load-modules)
