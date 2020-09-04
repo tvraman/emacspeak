@@ -80,7 +80,7 @@
   "Auto advises interactive commands to speak prompts."
   (mapatoms 'emacspeak-fix-interactive-command-if-necessary))
 
-;;}}}
+
 
 (defun ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
