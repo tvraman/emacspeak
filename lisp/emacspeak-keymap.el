@@ -167,14 +167,6 @@
          do
          (emacspeak-keymap-update help-map binding))
 
-(cl-loop for binding in
-         '(
-           ("[" backward-page)
-           ("]" forward-page))
-         do
-         (emacspeak-keymap-update help-mode-map binding))
-
-
 ;;; emacspeak-keymap bindings:
 (cl-loop
  for binding in
@@ -379,12 +371,12 @@
 (global-set-key  (kbd "C-.") 'emacspeak-super-keymap)
 (global-set-key  (kbd "C-;") 'emacspeak-hyper-keymap)
 ;;; Our very own silence key on the console
-;;; I use the Windows key.
 (global-set-key '[silence] 'emacspeak-silence)
 (global-set-key '[search] 'emacspeak-search)
 
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
+
 ;;;###autoload
 (defun emacspeak-keymap-choose-new-emacspeak-prefix (prefix-key)
   "Interactively select a new prefix key to use for all emacspeak
@@ -393,7 +385,7 @@ lets you switch the prefix to something else.  This is a useful thing
 to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
-relief."
+relief. Note: I've not used this in over 20 years."
   (interactive (list (read-key-sequence "Emacspeak Prefix: ")))
   (cl-declare (special emacspeak-prefix))
   (let ((current-use (lookup-key  global-map prefix-key)))
@@ -403,24 +395,6 @@ relief."
       (message "Use %s %s to execute %s since %s is now the emacspeak prefix"
                prefix-key prefix-key current-use
                prefix-key))))
-
-;;}}}
-;;{{{  removing emacspeak-self-insert-command in non-edit modes.
-
-;;;###autoload
-(defun emacspeak-keymap-remove-emacspeak-edit-commands
-    (keymap)
-  "We define keys that invoke editing commands to be undefined"
-  (cl-loop for k in
-           (where-is-internal 'emacspeak-self-insert-command
-                              (list keymap))
-           do
-           (define-key keymap k 'undefined)
-           ))
-
-(defun emacspeak-keymap-refresh ()
-  "Load emacspeak-keymap module."
-  (load "emacspeak-keymap"))
 
 ;;}}}
 ;;{{{ Create a personal keymap for c-e x
@@ -545,9 +519,6 @@ interactive command that the key sequence executes."
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
 
-;;; I use the right windows menu key for super
-;;on
-;;; Adding keys using custom:
 (defvar  emacspeak-super-keymap nil
   "Emacspeak super keymap")
 
@@ -611,17 +582,12 @@ interactive command that the key sequence executes."
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(global-set-key "\C-x@s"
-                'emacspeak-super-keymap)
+(global-set-key "\C-x@s" 'emacspeak-super-keymap)
 
 ;;}}}
 ;;{{{ Create a alt keymap that users can put personal commands
 
-;;; I use the "pause" key to produce C-x@a -- which gives alt-
-;;on
-;;; Adding keys using custom:
-(defvar  emacspeak-alt-keymap nil
-  "Emacspeak alt keymap")
+(defvar  emacspeak-alt-keymap nil "Emacspeak alt keymap")
 
 (define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
 
@@ -686,9 +652,6 @@ command that the key sequence executes."
 ;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
 
-;;; I use the windows key for hyper
-;;on
-;;; Adding keys using custom:
 (defvar  emacspeak-hyper-keymap nil
   "Emacspeak hyper keymap")
 
@@ -761,11 +724,11 @@ interactive command that the key sequence executes."
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (global-set-key (kbd "C-&") 'emacspeak-launch-application)
-(global-set-key "\C-x@h"
-                'emacspeak-hyper-keymap)
-(define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
-;;}}}
+(global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
 
+(define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
+
+;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
 
 ;;; This makes it easy to consolidate personal bindings across machines.
@@ -818,6 +781,7 @@ interactive command that the key sequence executes."
 
 ;;}}}
 ;;{{{ Global Bindings From Other Modules:
+
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
