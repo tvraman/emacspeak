@@ -585,13 +585,13 @@ Argument MODE  specifies the current pronunciation mode."
 (defun dtk-chunk-on-white-space-and-punctuations ()
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
-        (concat dtk-chunk-separator-syntax " ")))
+        (concat dtk-chunk-separator-syntax "-")))
 
 (defun dtk-chunk-only-on-punctuations ()
   (cl-declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
         (cl-delete-if
-         #'(lambda (x) (= x 32))
+         #'(lambda (x) (= x ?-))
          dtk-chunk-separator-syntax)))
 
 ;;; invariance: looking at complement
