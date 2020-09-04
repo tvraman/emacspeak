@@ -1845,7 +1845,7 @@ only speak upto the first ctrl-m."
               (and (char-after (point))
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
-            (skip-syntax-forward " ")   ;skip  whitespace
+            (skip-syntax-forward "-")   ;skip  whitespace
             (setq end (point))
             (dtk-format-text-and-speak start end)
             (setq start end)))          ; end while
