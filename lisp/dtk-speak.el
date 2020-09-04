@@ -1836,7 +1836,7 @@ only speak upto the first ctrl-m."
         (dtk-unicode-replace-chars mode)
         (dtk-quote mode)
         (goto-char (point-min))
-        (skip-syntax-forward " ")       ;skip leading whitespace
+        (skip-syntax-forward "- ")       ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk
