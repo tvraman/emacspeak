@@ -180,9 +180,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 
 (defsubst dtk-plain-cons-p (value)
   "Help identify (a . b)."
-  (and (consp value)
-       (equal value (last value))
-       (cdr value)))
+  (and (consp value) (not (proper-list-p value))))
 
 ;;; Helper: Get face->voice mapping
 
