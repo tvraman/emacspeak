@@ -194,6 +194,17 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
   t)
 
 ;;}}}
+;;{{{Enumerate commands that are fixed:
+(defun emacspeak-fix-interactive-commands-that-are-fixed ()
+  "Return list of commands that are auto-advised."
+  (let ((result nil))
+    (mapatoms
+     #'(lambda (sym)
+         (when (get sym 'emacspeak-auto-advised)
+           (cl-pushnew sym result))))
+    result))
+
+;;}}}
 (provide 'emacspeak-fix-interactive)
 ;;{{{  end of file
 ;;; local variables:
