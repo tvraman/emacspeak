@@ -44,6 +44,7 @@
 (require 'advice)
 (require 'dtk-speak)
 ;;{{{  Introduction:
+
 ;;; Commentary:
 ;;; Emacs commands that use the 'interactive spec
 ;;; to read interactive arguments are a problem for Emacspeak.
@@ -55,6 +56,7 @@
 ;;; emacspeak-fix-commands-that-use-interactive needs to be called
 ;;; To speech enable such functions.
 ;;; Code:
+
 ;;}}}
 ;;{{{  functions that are  fixed.
 
@@ -79,8 +81,6 @@
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advises interactive commands to speak prompts."
   (mapatoms 'emacspeak-fix-interactive-command-if-necessary))
-
-
 
 (defun ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
