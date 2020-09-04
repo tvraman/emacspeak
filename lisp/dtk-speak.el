@@ -1727,7 +1727,7 @@ since the synthesizer is getting a word at a time."
   (interactive)
   (cl-declare (special dtk-chunk-separator-syntax))
   (cond
-   ((not (string-match " " dtk-chunk-separator-syntax))
+   ((not (string-match "-" dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
     (when (called-interactively-p 'interactive)
       (message "Text will be split at punctuations and white space when speaking")))
