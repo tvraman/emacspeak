@@ -1825,11 +1825,10 @@ only speak upto the first ctrl-m."
         (skip-syntax-forward "- ")      ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
-                    (dtk-move-across-a-chunk chunk-sep
-                                             complement-sep))
+                    (dtk-move-across-a-chunk chunk-sep complement-sep))
           (unless
               (and (char-after (point))
-                   (= (char-syntax (preceding-char)) ?.)
+                   (= ?. (char-syntax (preceding-char)))
                    (not (= 32 (char-syntax (following-char))))) ;;; this handles the embedded punctuation case.
               (skip-syntax-forward "-") ;skip  trailing whitespace
             (setq end (point))
@@ -1838,8 +1837,7 @@ only speak upto the first ctrl-m."
 ;;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
-          (setq start (point))
-          (unless (eobp) (dtk-format-text-and-speak start (point-max))))))
+          (unless (eobp) (dtk-format-text-and-speak (point) (point-max))))))
     (dtk-force)))
 
 ;;; forward Declaration:
