@@ -319,7 +319,7 @@ Modifies text and point in buffer."
           (setq start (point)))))))
 
 ;;}}}
-;;{{{  define inline functions first
+;;{{{  Tones, Language etc.
 
 (defun dtk-silence (duration &optional force)
   "Produce silence.
