@@ -805,9 +805,6 @@ will say ``aw fifteen dot'' when speaking the string
 ;;; Uses the syntax table belonging to the buffer that owns the text
 ;;; to parse and speak the text intelligently.
 
-(defvar dtk-speak-treat-embedded-punctuations-specially t
-  "*If T then speech not split at embedded punctuations.")
-
 ;;}}}
 ;;{{{ helper --generate state switcher:
 ;;;###autoload
@@ -1760,7 +1757,6 @@ only speak upto the first ctrl-m."
                        inhibit-modification-hooks
                        dtk-speak-server-initialized emacspeak-use-auditory-icons
                        dtk-speech-rate dtk-speak-nonprinting-chars
-                       dtk-speak-treat-embedded-punctuations-specially
                        dtk-quiet dtk-chunk-separator-syntax
                        voice-lock-mode dtk-punctuation-mode
                        dtk-split-caps dtk-capitalize dtk-allcaps-beep
