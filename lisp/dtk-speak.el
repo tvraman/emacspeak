@@ -800,12 +800,6 @@ will say ``aw fifteen dot'' when speaking the string
     (cl-pushnew (read-from-minibuffer "Specify repeating pattern: ") dtk-cleanup-repeats))))
 
 ;;}}}
-;;{{{  Controlling how we produce  output
-
-;;; Uses the syntax table belonging to the buffer that owns the text
-;;; to parse and speak the text intelligently.
-
-;;}}}
 ;;{{{ helper --generate state switcher:
 ;;;###autoload
 (defun ems-generate-switcher (command switch documentation)
