@@ -288,15 +288,15 @@ Use Custom to customize where possible. "
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (local-set-key (kbd "C-m") 'newline-and-indent)
-  (company-mode 1)
-  (hs-minor-mode 1)
-  (auto-fill-mode 1)
+  (company-mode)
+  (hs-minor-mode)
+  (auto-fill-mode)
   (cond
    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
-    (lispy-mode 1))
-   (t (smartparens-mode 1)))
-  (yas-minor-mode 1)
-  (abbrev-mode 1))
+    (lispy-mode ))
+   (t (smartparens-mode)))
+  (yas-minor-mode)
+  (abbrev-mode))
 
 ;;}}}
 ;;{{{tvr-emacs:
