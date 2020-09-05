@@ -319,7 +319,7 @@ Modifies text and point in buffer."
           (setq start (point)))))))
 
 ;;}}}
-;;{{{  Tones, Language etc.
+;;{{{  Tones, Language, formatting speech etc.
 
 (defun dtk-silence (duration &optional force)
   "Produce silence.
@@ -727,7 +727,7 @@ Arguments START and END specify region to speak."
   (when (get-text-property start 'pause)
     (dtk-interp-silence (get-text-property start 'pause) nil))
   (cond
-   ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end)))
+   ((not voice-lock-mode) (dtk-interp-queue (buffer-substring-no-properties start end)))
    (t                                   ; voiceify as we go
     (let ((last nil)
           (personality (dtk-get-style start)))
@@ -777,7 +777,6 @@ Optional arg `all' or interactive call   silences notification stream as well."
 ;;}}}
 ;;{{{  adding cleanup patterns:
 
-
 (defun dtk-add-cleanup-pattern (&optional delete)
   "Add this pattern to the list of repeating patterns that
 are cleaned up.  Optional interactive prefix arg deletes
@@ -802,6 +801,7 @@ will say ``aw fifteen dot'' when speaking the string
 
 ;;}}}
 ;;{{{ helper --generate state switcher:
+
 ;;;###autoload
 (defun ems-generate-switcher (command switch documentation)
   "Generate desired command to switch the specified state."
