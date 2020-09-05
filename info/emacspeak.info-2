@@ -7447,8 +7447,8 @@ package.el with a few convenience commands.
 
  -- Variable: User Option voice-package-description
      Personality used for package-description This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option voice-package-help-section-name
      Personality used for package-help-section-name This personality

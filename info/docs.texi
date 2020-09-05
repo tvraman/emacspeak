@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1258 commands and 944 options.
+This chapter documents a total of 1259 commands and 944 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -510,6 +510,15 @@ will say ‘‘aw fifteen dot’’ when speaking the string
 
 @format
 Select preferred Cloud TTS server.
+@end format
+@end deffn
+
+@subsubsection dtk-list-languages
+@deffn {Command} dtk-list-languages   
+@findex dtk-list-languages
+
+@format
+Say the available languages.
 @end format
 @end deffn
 
@@ -14689,7 +14698,7 @@ Succinct Summary.
 
 @defvar {User Option} voice-package-description
 Personality used for package-description
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
