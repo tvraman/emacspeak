@@ -53,6 +53,7 @@
 
 ;;}}}
 ;;{{{dtk-debug-speak-buffer
+;;;###autoload
 (defun dtk--debug-speak-buffer (text)
   "Return the buffer that dtk-speak would have created as its scratch buffer."
   (cl-declare (special 
@@ -114,7 +115,7 @@
         (set-syntax-table syntax-table)
         (set-buffer-multibyte inherit-enable-multibyte-characters)
         (insert text)
-        ;(dtk--delete-invisible-text)
+                                        ;(dtk--delete-invisible-text)
         (when pronunciation-table
           (tts-apply-pronunciations pronunciation-table))
         (dtk-unicode-replace-chars mode)
