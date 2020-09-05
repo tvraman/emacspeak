@@ -2194,7 +2194,7 @@ Seconds value is also placed in the kill-ring."
       "")))
 
 (defvar emacspeak-version
-  (concat "52.0  " emacspeak-codename)
+  (concat "52.0,   " emacspeak-codename)
   "Version number for Emacspeak.")
 
 ;;;###autoload
