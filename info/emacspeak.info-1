@@ -3730,6 +3730,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 ...........................
 
  -- Command: tts-speak-version
+     ‘C-e d V’
+     ‘<fn> d V’
 
      Speak version.
 
@@ -4083,6 +4085,7 @@ system.
      d P		dtk-set-previous-language
      d R		dtk-reset-state
      d S		dtk-set-language
+     d V		tts-speak-version
      d a		dtk-add-cleanup-pattern
      d c		dtk-toggle-capitalization
      d d		dtk-select-server
