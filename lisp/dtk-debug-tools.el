@@ -1,4 +1,4 @@
-;;; emacspeak-dtk-debug-tools.el --- Speech-enable DTK-DEBUG-TOOLS  -*- lexical-binding: t; -*-
+;;; emacspeak-dtk-debug-tools.el ---  DTK-DEBUG-TOOLS  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable DTK-DEBUG-TOOLS An Emacs Interface to dtk-debug-tools
 ;;; Keywords: Emacspeak,  Audio Desktop dtk-debug-tools
