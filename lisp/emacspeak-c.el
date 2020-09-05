@@ -305,8 +305,7 @@ and their meanings. ")
   "Speak the C semantics of this line. "
   (interactive)
   (cl-declare (special emacspeak-c-syntactic-table))
-  (let  ((semantics (mapcar 'car
-                            (c-guess-basic-syntax)))
+  (let  ((semantics (mapcar 'car (c-guess-basic-syntax)))
          (description ""))
     (setq description
           (mapconcat
@@ -339,8 +338,7 @@ and their meanings. ")
                                  (forward-line 0))
                             (setq start (point))
                             (end-of-line)
-                            (buffer-substring start
-                                              (point))))))))
+                            (buffer-substring start (point))))))))
       (error nil))
     (dtk-speak description)
     description))
