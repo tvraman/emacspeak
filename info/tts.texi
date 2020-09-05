@@ -290,10 +290,10 @@ syntax class.
 
 Prompt for and dial a phone NUMBER with the Dectalk.
 
-@findex emacspeak-dtk-speak-version
+@findex tts-speak-version
 @kindex C-e d  cap V
 @item C-e d  cap V
-@code{emacspeak-dtk-speak-version}
+@code{tts-speak-version}
 
 Use this to find out which version of the @acronym{TTS} firmware you
 are running.
