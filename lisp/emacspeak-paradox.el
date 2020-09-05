@@ -135,6 +135,19 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
+
+(cl-loop
+ for f in
+ '(
+   paradox-sort-by-package paradox-sort-by-status
+   paradox-sort-by-version paradox-sort-by-★) do
+ (eval
+  `(defadvice ,f  (after emacspeak pre act comp)
+     "Speak after done."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'task-done)))))
+
 ;;}}}
 (provide 'emacspeak-paradox)
 ;;{{{ end of file
