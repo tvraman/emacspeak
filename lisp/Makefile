@@ -515,8 +515,8 @@ emacspeak-orgalist.elc: emacspeak-orgalist.el dtk-speak.elc voice-setup.elc
 emacspeak-origami.elc: emacspeak-origami.el dtk-speak.elc voice-setup.elc
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
-emacspeak-package.elc: emacspeak-package.el dtk-speak.elc
-emacspeak-paradox.elc: emacspeak-paradox.el dtk-speak.elc
+emacspeak-package.elc: emacspeak-package.el dtk-speak.elc voice-setup.elc
+emacspeak-paradox.elc: emacspeak-paradox.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
 emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pianobar.elc: emacspeak-pianobar.el dtk-speak.elc voice-setup.elc
