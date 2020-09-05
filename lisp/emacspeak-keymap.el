@@ -299,6 +299,7 @@
  for binding in
  '(
    ("," dtk-toggle-punctuation-mode)
+   ("V" tts-speak-version)
    ("C" dtk-toggle-allcaps-beep)
    ("L" dtk-local-server)
    ("N" dtk-set-next-language)

@@ -999,7 +999,7 @@ related keymap ‘C-e d’.
      Prompt for and dial a phone NUMBER with the Dectalk.
 
 ‘C-e d cap V’
-     ‘emacspeak-dtk-speak-version’
+     ‘tts-speak-version’
 
      Use this to find out which version of the TTS firmware you are
      running.
