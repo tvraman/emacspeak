@@ -389,8 +389,9 @@ will set \"en_GB\".
   (when dtk-speak-server-initialized
     (dtk-interp-preferred-language alias lang)))
 
-(defun dtk-list-language ()
+(defun dtk-list-languages ()
   "Say the available languages."
+  (interactive)
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
   (unless dtk-quiet
@@ -403,7 +404,7 @@ will set \"en_GB\".
 ;;; Fix brackets by changing to text.
 ;;; This is necessary because
 ;;;  [] marks dtk commands; {} is special to tcl
-;;; Optionally post-process the text with cleanup function if one is specified.
+
 (defconst dtk-bracket-regexp
   "[][{}<>\\|`#\n]"
   "Brackets and other chars  that are special to dtk and tcl.
@@ -496,7 +497,7 @@ Set this once per emacspeak session for efficiency.")
          (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
 
-;;; Takes a string, and replaces occurences of this pattern
+;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
 ;;; string\". Second argument, mode, is the pronunciation
 ;;; mode being used to speak.  Removing repeated chars, and
@@ -565,18 +566,18 @@ Argument MODE  specifies the current pronunciation mode."
     (replace-match " backslash " nil t)))
 
 ;;; Moving  across a chunk of text.
-;;; A chunk  is specified by a punctuation followed by whitespace
+;;; A chunk  is specified by a punctuation (todo? followed by whitespace)
 ;;; or  multiple blank lines
 ;;; or a comment start or end
 ;;; or a parenthesis grouping start or end
 ;;; leaves point at the end of the chunk.
 ;;; returns  distance moved; nil if stationery
 (defvar dtk-chunk-separator-syntax ">)$\""
-  "Syntax string to identify chunks when splitting text.")
+  "Syntax classes  to identify chunks when splitting text.")
 
 ;;; make it buffer local:
 (make-variable-buffer-local 'dtk-chunk-separator-syntax)
-(defun dtk-complement-chunk-separator-syntax ()
+(defsubst dtk-complement-chunk-separator-syntax ()
   "Return complement of syntactic class that splits clauses."
   (cl-declare (special dtk-chunk-separator-syntax))
   (concat "^" dtk-chunk-separator-syntax))
