@@ -128,11 +128,10 @@
                        threes-game-over-p emacspeak-threes-rows-max))
   (when threes-game-over-p (emacspeak-auditory-icon 'alarm))
   (emacspeak-threes-sox-gen threes-next-number)
-  (let ((cells (copy-sequence threes-cells)))
-    (nconc
-     cells
-     (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
-    (dtk-speak-list   cells)
+  (let ((cells (apply #'append (copy-sequence threes-cells)))
+        (next (list (propertize (format "%s" threes-next-number) 'personality voice-bolden))))
+    (dtk-speak-list
+     (append cells next) 4)
     (emacspeak-auditory-icon 'select-object)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
       (emacspeak-auditory-icon 'item))))
