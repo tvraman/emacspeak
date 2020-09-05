@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 4, 2020.
+last updated on September 5, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1259 commands and 944 options.
+   This chapter documents a total of 1257 commands and 943 options.
 
 * Menu:
 
@@ -2910,7 +2910,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-apt-sources::speech-enable APT’s sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode – a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX – a powerful TeX/LaTeX authoring environment.
-* emacspeak-bbc::Speech-enabled  BBC client.
+* emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB – a powerful address manager.
 * emacspeak-bibtex::Speech enable bibtex – Supports maintaining bibliographies in bibtex format.
 * emacspeak-bookmark::Speech enable Emacs’ builtin bookmarks.
@@ -5036,45 +5036,14 @@ File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacsp
 12.21 emacspeak-bbc
 ===================
 
-BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
-to implement a native Emacs client for browsing and listening to BBC
-programs.
-
-   See http://www.bbc.co.uk/programmes/developers The BBC API helps
-locate a PID for a given program stream.  We then construct the BBC
-IPlayer URL for that PID, And either hand that link off to Chrome, Or
-stream it via get_iplayer and mplayer.  get_iplayer:
-https://github.com/get-iplayer/get_iplayer.git get_player vs Chrome:
-Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
-use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
-available.  For downloading a program etc., use Emacs package iplayer.
-Note that as of May 2020 package iplayer.el is broken and hasn’t been
-updated since 2016.  Use emacspeak-bbc-schedule to browse get_iplayer
-retrieved radio program cache.
+BBC developer API (backstage) is now history.  that implementation is in
+obsolete/emacspeak-bbc-backstage.el This module contains a light-weight
+client.
 
 12.21.1 Emacspeak-Bbc Commands
 ------------------------------
 
-12.21.1.1 emacspeak-bbc
-.......................
-
- -- Command: emacspeak-bbc (&optional genre)
-
-     Launch BBC Interaction.
-     See http://www.bbc.co.uk/radio/stations for full list of stations.
-     See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
-     Interactive prefix arg filters  content by genre.
-
-     (fn &optional GENRE)
-
-12.21.1.2 emacspeak-bbc-genre
-.............................
-
- -- Command: emacspeak-bbc-genre
-
-     Launch BBC Interaction for specified Genre.
-
-12.21.1.3 emacspeak-bbc-get-iplayer-stream-pid
+12.21.1.1 emacspeak-bbc-get-iplayer-stream-pid
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
@@ -5083,7 +5052,7 @@ retrieved radio program cache.
 
      (fn PID)
 
-12.21.1.4 emacspeak-bbc-get-iplayer-stream-url
+12.21.1.2 emacspeak-bbc-get-iplayer-stream-url
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
@@ -5092,7 +5061,7 @@ retrieved radio program cache.
 
      (fn URL)
 
-12.21.1.5 emacspeak-bbc-schedule
+12.21.1.3 emacspeak-bbc-schedule
 ................................
 
  -- Command: emacspeak-bbc-schedule
@@ -5101,10 +5070,6 @@ retrieved radio program cache.
 
 12.21.2 emacspeak-bbc Options
 -----------------------------
-
- -- Variable: User Option emacspeak-bbc-button-action
-     Action to use for BBC iPlayer buttons.  get-iplayer: use
-     get_iplayer.  chrome: Hand off URL to Chrome.
 
  -- Variable: User Option emacspeak-bbc-get-iplayer
      Name of get_iplayer executable.
@@ -8108,4 +8073,80 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 
  -- Variable: User Option emacspeak-erc-speak-all-participants
      Speak all things said if t.
+
+
+File: emacspeak.info,  Node: emacspeak-eshell,  Next: emacspeak-ess,  Prev: emacspeak-erc,  Up: Emacspeak Commands And Options
+
+12.70 emacspeak-eshell
+======================
+
+EShell is a shell implemented entirely in Emacs Lisp.  It is part of
+emacs 21 –and can also be used under Emacs 20.  This module
+speech-enables EShell
+
+12.70.1 emacspeak-eshell Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-eshell-ls-use-personalities
+     Indicates if ls in eshell uses different voice personalities.
+
+ -- Variable: User Option voice-eshell-ls-archive
+     Personality used for eshell-ls-archive This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-eshell-ls-backup
+     Personality used for eshell-ls-backup This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-eshell-ls-clutter
+     Personality used for eshell-ls-clutter This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option voice-eshell-ls-directory
+     Personality used for eshell-ls-directory This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-eshell-ls-executable
+     Personality used for eshell-ls-executable This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option voice-eshell-ls-missing
+     Personality used for eshell-ls-missing This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-eshell-ls-product
+     Personality used for eshell-ls-product This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option voice-eshell-ls-readonly
+     Personality used for eshell-ls-readonly This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-eshell-ls-special
+     Personality used for eshell-ls-special This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-eshell-ls-symlink
+     Personality used for eshell-ls-symlink This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option voice-eshell-ls-unreadable
+     Personality used for eshell-ls-unreadable This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option voice-eshell-prompt
+     Personality used for eshell-prompt This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 

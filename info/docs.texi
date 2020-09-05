@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1259 commands and 944 options.
+This chapter documents a total of 1257 commands and 943 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -27,7 +27,7 @@ This chapter documents a total of 1259 commands and 944 options.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment.
-* emacspeak-bbc::Speech-enabled  BBC client.
+* emacspeak-bbc::Light-Weight BBC Client.
 * emacspeak-bbdb::Speech enable BBDB -- a powerful address manager.
 * emacspeak-bibtex::Speech enable bibtex -- Supports maintaining bibliographies in bibtex format.
 * emacspeak-bookmark::Speech enable Emacs' builtin bookmarks.
@@ -2531,51 +2531,11 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-bbc
 @section emacspeak-bbc
 
-BBC: http://www.bbc.co.uk
-This module uses
-publicly available REST APIs to implement a native Emacs
-client for browsing and listening to BBC programs.
-
-See http://www.bbc.co.uk/programmes/developers
-The BBC API helps locate a PID for a given program stream.
-We then construct the BBC IPlayer URL for that  PID,
-And either hand that link off to Chrome,
-Or stream it via get_iplayer and mplayer.
-get_iplayer: https://github.com/get-iplayer/get_iplayer.git
-get_player vs Chrome: Pro/Con:
-Chrome: Has the UI for seeking in the stream.
-get_iplayer: We use a named pipe, and cannot seek,
-but the rest of emacspeak-m-player is available.
-For downloading a program etc., use Emacs package iplayer.
-Note that as of May 2020 package iplayer.el is broken and hasn't
-been updated since 2016.
-Use emacspeak-bbc-schedule to browse get_iplayer retrieved radio
-program cache.
+BBC developer API (backstage) is now history.
+that implementation is in obsolete/emacspeak-bbc-backstage.el
+This module contains a light-weight client.
 
 @subsection Emacspeak-Bbc Commands
-
-@subsubsection emacspeak-bbc
-@deffn {Command} emacspeak-bbc  (&optional genre)
-@findex emacspeak-bbc
-
-@format
-Launch BBC Interaction.
-See http://www.bbc.co.uk/radio/stations for full list of stations.
-See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
-Interactive prefix arg filters  content by genre.
-
-(fn &optional GENRE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-bbc-genre
-@deffn {Command} emacspeak-bbc-genre   
-@findex emacspeak-bbc-genre
-
-@format
-Launch BBC Interaction for specified Genre.
-@end format
-@end deffn
 
 @subsubsection emacspeak-bbc-get-iplayer-stream-pid
 @deffn {Command} emacspeak-bbc-get-iplayer-stream-pid  (pid)
@@ -2609,13 +2569,6 @@ Browse BBC Schedule from get_iplayer radio cache
 @end deffn
 
 @subsection emacspeak-bbc Options
-
-@defvar {User Option} emacspeak-bbc-button-action
-Action to use for BBC iPlayer buttons.
-get-iplayer: use get_iplayer.
-chrome: Hand off URL to Chrome.
-
-@end defvar
 
 @defvar {User Option} emacspeak-bbc-get-iplayer
 Name of get_iplayer executable.

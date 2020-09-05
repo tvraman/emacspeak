@@ -12,83 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 4, 2020.
-
-
-File: emacspeak.info,  Node: emacspeak-eshell,  Next: emacspeak-ess,  Prev: emacspeak-erc,  Up: Emacspeak Commands And Options
-
-12.70 emacspeak-eshell
-======================
-
-EShell is a shell implemented entirely in Emacs Lisp.  It is part of
-emacs 21 –and can also be used under Emacs 20.  This module
-speech-enables EShell
-
-12.70.1 emacspeak-eshell Options
---------------------------------
-
- -- Variable: User Option emacspeak-eshell-ls-use-personalities
-     Indicates if ls in eshell uses different voice personalities.
-
- -- Variable: User Option voice-eshell-ls-archive
-     Personality used for eshell-ls-archive This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-backup
-     Personality used for eshell-ls-backup This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-eshell-ls-clutter
-     Personality used for eshell-ls-clutter This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-directory
-     Personality used for eshell-ls-directory This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-eshell-ls-executable
-     Personality used for eshell-ls-executable This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-missing
-     Personality used for eshell-ls-missing This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-eshell-ls-product
-     Personality used for eshell-ls-product This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option voice-eshell-ls-readonly
-     Personality used for eshell-ls-readonly This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-eshell-ls-special
-     Personality used for eshell-ls-special This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option voice-eshell-ls-symlink
-     Personality used for eshell-ls-symlink This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-eshell-ls-unreadable
-     Personality used for eshell-ls-unreadable This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option voice-eshell-prompt
-     Personality used for eshell-prompt This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
+last updated on September 5, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emacspeak-eshell,  Up: Emacspeak Commands And Options
@@ -8505,4 +8429,42 @@ developing AsTeR.
      Personality used for slime-apropos-symbol This personality uses
      voice-monotone-light whose effect can be changed globally by
      customizing voice-monotone-light-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-smart-window,  Next: emacspeak-smartparens,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
+
+12.184 emacspeak-smart-window
+=============================
+
+SMART-WINDOW == Smart Window switching for Emacs
+
+
+File: emacspeak.info,  Node: emacspeak-smartparens,  Next: emacspeak-solitaire,  Prev: emacspeak-smart-window,  Up: Emacspeak Commands And Options
+
+12.185 emacspeak-smartparens
+============================
+
+SMARTPARENS == Automatic insertion, wrapping and paredit-like navigation
+with user defined pairs this module speech-enables smartparens.
+Insertion of a matching delimiter is indicated by a short auditory icon.
+Structured navigation speaks the current line with the position of point
+aurally highlighted.
+
+12.185.1 emacspeak-smartparens Options
+--------------------------------------
+
+ -- Variable: User Option voice-sp-show-pair-enclosing
+     Personality used for sp-show-pair-enclosing This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-sp-wrap-overlay-closing-pair
+     Personality used for sp-wrap-overlay-closing-pair This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option voice-sp-wrap-overlay-opening-pair
+     Personality used for sp-wrap-overlay-opening-pair This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
 
