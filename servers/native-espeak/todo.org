@@ -1,5 +1,3 @@
 * ESpeak Todo 
-
-  - Fix voice-lock. At present module tclespeak.cpp produces matching
-    close tags -- but that appears to be buggy.
+  
   - Teach tclespeak.cpp to  list and use mbrola voices if installed.
