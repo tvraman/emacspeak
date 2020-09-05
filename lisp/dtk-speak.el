@@ -572,11 +572,9 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; or a parenthesis grouping start or end
 ;;; leaves point at the end of the chunk.
 ;;; returns  distance moved; nil if stationery
-(defvar dtk-chunk-separator-syntax ">)$\""
+(defvar-local dtk-chunk-separator-syntax ".>)$\""
   "Syntax classes  to identify chunks when splitting text.")
 
-;;; make it buffer local:
-(make-variable-buffer-local 'dtk-chunk-separator-syntax)
 (defsubst dtk-complement-chunk-separator-syntax ()
   "Return complement of syntactic class that splits clauses."
   (cl-declare (special dtk-chunk-separator-syntax))
@@ -1827,11 +1825,16 @@ only speak upto the first ctrl-m."
         (skip-syntax-forward "- ")      ;skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
-                    (dtk-move-across-a-chunk chunk-sep complement-sep))
-            (skip-syntax-forward "-")   ;skip  trailing whitespace
+                    (dtk-move-across-a-chunk chunk-sep
+                                             complement-sep))
+          (unless
+              (and (char-after (point))
+                   (= (char-syntax (preceding-char)) ?.)
+                   (not (= 32 (char-syntax (following-char))))) ;;; this handles the embedded punctuation case.
+              (skip-syntax-forward "-") ;skip  trailing whitespace
             (setq end (point))
             (dtk-format-text-and-speak start end)
-            (setq start end))          ; end while
+            (setq start end)))          ; end while
 ;;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
