@@ -1814,7 +1814,7 @@ only speak upto the first ctrl-m."
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
         (dtk-interp-sync)
-        (insert text)                   ; insert and pre-process text
+        (insert-for-yank text)                   ; insert and pre-process text
         (dtk--delete-invisible-text)
         (dtk-handle-repeating-patterns mode)
         (when pronunciation-table
