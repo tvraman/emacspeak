@@ -124,17 +124,15 @@
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
   (interactive)
-  (cl-declare (special threes-cells threes-next-number
-                       threes-game-over-p emacspeak-threes-rows-max))
+  (cl-declare (special threes-cells threes-next-number threes-game-over-p ))
   (when threes-game-over-p (emacspeak-auditory-icon 'alarm))
   (emacspeak-threes-sox-gen threes-next-number)
-  (let ((cells (apply #'append (copy-sequence threes-cells)))
-        (next (list (propertize (format "%s" threes-next-number) 'personality voice-bolden))))
-    (dtk-speak-list
-     (append cells next) 4)
-    (emacspeak-auditory-icon 'select-object)
-    (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
-      (emacspeak-auditory-icon 'item))))
+  (let ((cells (apply #'nconc (copy-sequence threes-cells)))
+        (next
+         (list (propertize
+                (format "%s" threes-next-number) 'personality voice-bolden))))
+    (dtk-speak-list (append cells next) 4)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-threes-speak-empty-count ()
   "Speak number of cells that are non-empty."
