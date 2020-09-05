@@ -127,7 +127,7 @@
   (cl-declare (special threes-cells threes-next-number threes-game-over-p ))
   (when threes-game-over-p (emacspeak-auditory-icon 'alarm))
   (emacspeak-threes-sox-gen threes-next-number)
-  (let ((cells (apply #'nconc (copy-sequence threes-cells)))
+  (let ((cells (apply #'append (copy-sequence threes-cells)))
         (next
          (list (propertize
                 (format "%s" threes-next-number) 'personality voice-bolden))))
