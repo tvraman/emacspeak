@@ -424,7 +424,7 @@ so it can be passed to subprocesses."
 
 (defvar emacspeak-startup-message
   (format
-   "  Press %s to get an   overview of emacspeak  %s \
+   "  Press %s to get an   overview of emacspeak  %s. \
  I am  completely operational,  and all my circuits are functioning perfectly!"
    (substitute-command-keys
     "\\[emacspeak-describe-emacspeak]")
