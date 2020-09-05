@@ -808,9 +808,6 @@ will say ``aw fifteen dot'' when speaking the string
 (defvar dtk-speak-treat-embedded-punctuations-specially t
   "*If T then speech not split at embedded punctuations.")
 
-(defvar dtk-speak-skim-scale 1.2
-  "*Scale factor applied to speech rate when skimming.")
-
 ;;}}}
 ;;{{{ helper --generate state switcher:
 ;;;###autoload
