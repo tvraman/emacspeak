@@ -159,7 +159,8 @@
           `(defadvice ,f (before emacspeak pre act comp)
              "Play auditory icon."
              (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'select-object)))))
+               (emacspeak-auditory-icon 'item)))))
+
 (defadvice pianobar-window-toggle (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
