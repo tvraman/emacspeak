@@ -1745,16 +1745,15 @@ This is achieved by sending the text to the speech server.
 No-op if variable `dtk-quiet' is set to t.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
-  (cl-declare (special dtk-speaker-process dtk-stop-immediately
-                       tts-strip-octals inhibit-point-motion-hooks
-                       inhibit-modification-hooks
-                       dtk-speak-server-initialized emacspeak-use-auditory-icons
-                       dtk-speech-rate dtk-speak-nonprinting-chars
-                       dtk-quiet dtk-chunk-separator-syntax
-                       voice-lock-mode dtk-punctuation-mode
-                       dtk-split-caps dtk-capitalize dtk-allcaps-beep
-                       emacspeak-pronounce-pronunciation-table
-                       selective-display))
+  (cl-declare (special
+               dtk-speaker-process dtk-stop-immediately
+               tts-strip-octals inhibit-point-motion-hooks
+               dtk-speak-server-initialized emacspeak-use-auditory-icons
+               dtk-speech-rate dtk-speak-nonprinting-chars
+               dtk-quiet dtk-chunk-separator-syntax inhibit-modification-hooks
+               voice-lock-mode dtk-punctuation-mode
+               dtk-split-caps dtk-capitalize dtk-allcaps-beep
+               emacspeak-pronounce-pronunciation-table selective-display))
 ;;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
 ;;; ensure  the process  is live
@@ -1826,10 +1825,10 @@ only speak upto the first ctrl-m."
         (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk chunk-sep complement-sep))
-          (unless
+          (unless ;;;If  embedded punctuations, continue
               (and (char-after (point))
                    (= ?. (char-syntax (preceding-char)))
-                   (not (= 32 (char-syntax (following-char))))) ;;; this handles the embedded punctuation case.
+                   (not (= 32 (char-syntax (following-char))))) 
               (skip-syntax-forward "-") ;skip  trailing whitespace
             (setq end (point))
             (dtk-audio-format start end)
