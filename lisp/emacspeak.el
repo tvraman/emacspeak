@@ -487,12 +487,12 @@ commands and options for details."
     (require 'emacspeak-keymap)
     (require 'emacspeak-advice)
     (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
-      (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
+    (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
     (emacspeak-setup-programming-modes)
     (emacspeak-use-customized-blink-paren)
-    (run-hooks 'emacspeak-startup-hook)
     (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
-    (emacspeak-play-startup-icon)))
+    (emacspeak-play-startup-icon)
+    (run-hooks 'emacspeak-startup-hook)))
 
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
