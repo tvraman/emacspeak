@@ -724,7 +724,6 @@ interactive command that the key sequence executes."
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(global-set-key (kbd "C-&") 'emacspeak-launch-application)
 (global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
 
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
