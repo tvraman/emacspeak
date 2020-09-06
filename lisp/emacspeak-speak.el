@@ -3560,14 +3560,6 @@ This function is sensitive to calendar mode when prompting."
                                 "%Y-%m-%d"))
 ;;}}}
 ;;{{{ AppLauncher for use in X:
-;;;###autoload
-(defun emacspeak-launch-application (command)
-  "Launch an application.
-This command  is designed for use in a windowing environment like X."
-  (interactive (list (read-shell-command "$ ")))
-  (start-process-shell-command command nil command))
-
-;;}}}
 ;;{{{ Navigating completions:
 
 (defun emacspeak-minibuffer-next-completion ()
