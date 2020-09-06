@@ -268,7 +268,8 @@ Use Custom to customize where possible. "
         (tvr-customize) ;;; customizations
         (tvr-tabs)
         (tvr-time-it "tvr-Custom" start)
-        (setq start (current-time)) 
+        (setq start (current-time))
+        (run-with-idle-timer 1 nil #'yas-reload-all)
         (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
         (setq start (current-time))
         (tvr-dbus-setup)
