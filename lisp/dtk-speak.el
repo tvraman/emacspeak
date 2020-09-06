@@ -1779,7 +1779,7 @@ only speak upto the first ctrl-m."
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
           (inherit-speaker-process dtk-speaker-process)
-          (pronunciation-table emacspeak-pronounce-pronunciation-table)
+          (pron-table emacspeak-pronounce-pronunciation-table)
           (use-auditory-icons emacspeak-use-auditory-icons)
           (chunk-sep dtk-chunk-separator-syntax)
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
@@ -1813,11 +1813,10 @@ only speak upto the first ctrl-m."
          voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
         (dtk-interp-sync)
-        (insert-for-yank text)                   ; insert and pre-process text
+        (insert-for-yank text)          ; insert and pre-process text
         (dtk--delete-invisible-text)
         (dtk-handle-repeating-patterns mode)
-        (when pronunciation-table
-          (tts-apply-pronunciations pronunciation-table))
+        (when pron-table (tts-apply-pronunciations pron-table))
         (dtk-unicode-replace-chars mode)
         (dtk-quote mode)
         (goto-char (point-min))         ; text is ready to be spoken
@@ -1829,7 +1828,7 @@ only speak upto the first ctrl-m."
               (and (char-after (point))
                    (= ?. (char-syntax (preceding-char)))
                    (not (= 32 (char-syntax (following-char))))) 
-              (skip-syntax-forward "-") ;skip  trailing whitespace
+            (skip-syntax-forward "-")   ;skip  trailing whitespace
             (setq end (point))
             (dtk-audio-format start end)
             (setq start end)))          ; end while
