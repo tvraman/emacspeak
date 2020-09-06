@@ -713,7 +713,7 @@ Here,  change is any change in property personality, face or font-lock-face."
    (dtk-next-single-property-change start 'face (current-buffer) end)
    (dtk-next-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defun dtk-format-text-and-speak (start end)
+(defun dtk-audio-format (start end)
   "Format and speak text.
 Arguments START and END specify region to speak."
   (cl-declare (special voice-lock-mode dtk-speaker-process
@@ -1832,12 +1832,12 @@ only speak upto the first ctrl-m."
                    (not (= 32 (char-syntax (following-char))))) ;;; this handles the embedded punctuation case.
               (skip-syntax-forward "-") ;skip  trailing whitespace
             (setq end (point))
-            (dtk-format-text-and-speak start end)
+            (dtk-audio-format start end)
             (setq start end)))          ; end while
 ;;; process trailing text
         (unless (= start (point-max))
           (skip-syntax-forward " ")     ;skip leading whitespace
-          (unless (eobp) (dtk-format-text-and-speak (point) (point-max))))))
+          (unless (eobp) (dtk-audio-format (point) (point-max))))))
     (dtk-force)))
 
 ;;; forward Declaration:
