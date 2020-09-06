@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 5, 2020.
+last updated on September 6, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-smartparens,  Up: Emacspeak Commands And Options
@@ -266,8 +266,8 @@ of emacspeak from becoming dependent on the speech server modules
 12.188.1.9 emacspeak-launch-application
 .......................................
 
- -- Command: emacspeak-launch-application (command)
-     ‘C-&’
+ -- Command: emacspeak-launch-application [Arg list not available until
+          function definition is loaded.]
 
      Launch an application.
      This command  is designed for use in a windowing environment like X.

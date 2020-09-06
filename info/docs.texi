@@ -16134,12 +16134,7 @@ Also set the mark at the position where point was.
 @end deffn
 
 @subsubsection emacspeak-launch-application
-@deffn {Command} emacspeak-launch-application  (command)
-@table @kbd
-@item C-&
-@kindex C-&
-@end table
-
+@deffn {Command} emacspeak-launch-application  [Arg list not available until function definition is loaded.]
 @findex emacspeak-launch-application
 
 @format
