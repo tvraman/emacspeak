@@ -3648,7 +3648,6 @@ This command  is designed for use in a windowing environment like X."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-
 ;;{{{Utility: Persist variable to a file:
 (defun emacspeak--persist-variable (var file)
   "Persist variable  `var' to file `FILE'.
