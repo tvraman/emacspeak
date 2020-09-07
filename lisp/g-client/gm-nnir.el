@@ -128,10 +128,6 @@
 ;;}}}
 ;;{{{ NNIR Engine For GMail 
 ;;; For Emacs 28 (hopefully temporary)
-(define-obsolete-function-alias
-  'gnus-group-make-nnir-group
-   'gnus-group-make-search-group
-   "28.1")
 
 ;;; GMail Search Commands 
 ;;;###autoload
