@@ -52,7 +52,7 @@
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'jabber "jabber" 'no-error)
+(with-no-warnings (require 'jabber "jabber" 'no-error))
 ;;}}}
 ;;{{{ map voices
 

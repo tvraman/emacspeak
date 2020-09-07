@@ -51,8 +51,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (require 'python-mode "python-mode" 'no-error))
+
+(with-no-warnings (require 'python-mode "python-mode" 'no-error))
 ;;}}}
 ;;{{{  electric editing
 
