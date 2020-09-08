@@ -12,7 +12,7 @@ above.
 * Background 
 
 You can read email with GNUS, and many people read GMail with GNUS,
-the details of GMail setup with GNUS wont fit this margin.  For my own
+however, the details of GMail setup with GNUS wont fit this margin.  For my own
 GMail setup using Ceasar's excellent _auth-xoauth2_ package, see file
 [[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el][gnus-gmail-prepare.el]].
 
@@ -26,8 +26,7 @@ both the  standard IMap search operator as well as GMail's search
 operators; in practice, I have mostly only used the GMail Search
 operators in the last 8 years since implementing this module.
 
-Without further ado, here is the  code to enable GMail Search
-operators:
+Without further ado, here is the  code to enable GMail Search:
 
 #+BEGIN_SRC emacs-lisp
 (defun gm-nnir-group-make-gmail-group (query)
@@ -49,6 +48,32 @@ I bind the above to _/_ by using
 (define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
 #+END_SRC
 
+
+
+
+* Example Of Use
+
+I am subscribed to list _emacs-devel@gnu.org_ and email sent to that
+list gets GMail Label ~emacs-devel~. In Gnus, I open that label as
+group ~emacs-devel@gnu.org~. Typing _/_ on the group line and entering
+: from:rms after:2020/09/01
+in the minibuffer results in the following:
+
+: 1.1 Re: Good first issues to contribute Richard Stallman 05-Sep [5.3k]
+: 2.1 Lars Ingebrigtsen is now one of the Emacs maintainers Richard Stallman 06-Sep [4.9k]
+: 3.1 Re: A new user perspective about "Changes for emacs 28" Richard Stallman 07-Sep [5.5k]
+: 4.5 Re: Changes for emacs 28 Richard Stallman 07-Sep [5.3k]
+: 5.1  Richard Stallman 07-Sep <6.2k>
+: 6.1  Richard Stallman 07-Sep <6.0k>
+: 7.1  Richard Stallman 07-Sep <5.5k>
+: 8.1  Richard Stallman 07-Sep <5.7k>
+: 
+
+
+
+The search above creates an ephemeral group with matching messages
+appearing as shown above, you can read messages, reply to them and do
+anything else that you might ordinarily do within the GNUS interface.
 
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
