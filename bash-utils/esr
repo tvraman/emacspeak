@@ -2,4 +2,4 @@
 
 # Emergency SR
 # Use espeak-ng to speak output from shell commands:
-"$@" 2>&1 | espeak-ng 
+"$@" 2>&1 | espeak-ng  &
