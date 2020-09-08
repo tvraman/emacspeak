@@ -224,6 +224,7 @@ Use Custom to customize where possible. "
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
+  (define-key ctl-x-map "u"  'undo-redo)
   (define-key ctl-x-map "\C-d" 'dired-jump)
   (define-key ctl-x-map "\C-n" 'forward-page)
   (define-key ctl-x-map "\C-p" 'backward-page)
