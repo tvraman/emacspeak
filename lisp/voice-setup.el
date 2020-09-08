@@ -417,6 +417,7 @@ command \\[customize-variable] on <personality>-settings. "
 
 (voice-setup-add-map
  '(
+   (variable-pitch voice-animate)
    (shr-link voice-bolden)
    (bold voice-bolden)
    (bold-italic voice-bolden-and-animate)
