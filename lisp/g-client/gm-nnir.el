@@ -153,7 +153,7 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
     (cond
      ((gnus-group-group-name)           ; Search current group
       (gnus-group-make-nnir-group
-       nil                              ; no extra parms needed
+       nil                              ; no extra params needed
        `(nnir-specs (nnir-query-spec (query ,q)))))
      (t (error "Not on a group.")))))
 
