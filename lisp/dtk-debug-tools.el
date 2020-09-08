@@ -115,7 +115,7 @@
         (set-syntax-table syntax-table)
         (set-buffer-multibyte inherit-enable-multibyte-characters)
         (insert-for-yank text)
-                                        ;(dtk--delete-invisible-text)
+        (dtk--delete-invisible-text)
         (when pronunciation-table
           (tts-apply-pronunciations pronunciation-table))
         (dtk-unicode-replace-chars mode)
