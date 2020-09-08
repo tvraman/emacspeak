@@ -1,0 +1,66 @@
+* Executive Summary 
+
+I have been using the following to search GMail from GNUS for over 8
+years now. The recent announcement of the _nnselect_ back-end reminded
+me that I had never gotten to writing this up formally, So here
+goes. With the described solution in place, you can search your GMail
+from within  GNUS using the same GMail Search operators  that you're
+familiar with from within  your Web Browser, e.g. searches of the form
+/from: foo/,  /subject:bar/, /after:date/ and combinations of the
+above.
+
+* Background 
+
+You can read email with GNUS, and many people read GMail with GNUS,
+the details of GMail setup with GNUS wont fit this margin.  For my own
+GMail setup using Ceasar's excellent _auth-xoauth2_ package, see file
+[[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el][gnus-gmail-prepare.el]].
+
+* Leveraging GNUS Back-end NNIR To Search GMail
+
+GMail is accessed from GNUS using the imap protocol.
+The _imap_ specification defines a set of standard search operators;
+GMail itself defines a  slightly different and arguably easier to use
+set of search operators. Module _gm-nnir_ refered to above implements
+both the  standard IMap search operator as well as GMail's search
+operators; in practice, I have mostly only used the GMail Search
+operators in the last 8 years since implementing this module.
+
+Without further ado, here is the  code to enable GMail Search
+operators:
+
+#+BEGIN_SRC emacs-lisp
+(defun gm-nnir-group-make-gmail-group (query)
+  "Use GMail search syntax.
+See https://support.google.com/mail/answer/7190?hl=en for syntax. "
+  (interactive "sGMail Query: ")  
+  (let ((nnir-imap-default-search-key "imap")
+        (q (format "X-GM-RAW \"%s\"" query)))
+    (cond
+     ((gnus-group-group-name)           ; Search current group
+      (gnus-group-make-nnir-group
+       nil                              ; no extra params needed
+       `(nnir-specs (nnir-query-spec (query ,q)))))
+     (t (error "Not on a group.")))))
+#+END_SRC
+
+I bind the above to _/_ by using
+#+BEGIN_SRC emacs-lisp
+(define-key gnus-group-mode-map "/" 'gm-nnir-group-make-gmail-group)
+#+END_SRC
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Using GMail Search Operators In GNUS 
+#+date: <2020-09-08 Tue>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3)
