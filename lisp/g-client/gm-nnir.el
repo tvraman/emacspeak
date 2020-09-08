@@ -127,7 +127,6 @@
 
 ;;}}}
 ;;{{{ NNIR Engine For GMail 
-;;; For Emacs 28 (hopefully temporary)
 
 ;;; GMail Search Commands 
 ;;;###autoload
