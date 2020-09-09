@@ -472,8 +472,7 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
   (cl-declare (special line-move-visual emacspeak-info-directory
-                       use-dialog-box emacspeak-pronounce-dictionaries-file
-                       emacspeak-play-program emacspeak-sounds-directory))
+                       use-dialog-box emacspeak-pronounce-dictionaries-file))
   (let ((ad-redefinition-action 'accept)
         (file-name-handler-alist nil)
         (load-source-file-function  nil))
