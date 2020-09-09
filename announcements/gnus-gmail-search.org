@@ -12,20 +12,19 @@ above.
 * Background 
 
 You can read email with GNUS, and many people read GMail with GNUS,
-however, the details of GMail setup with GNUS wont fit this margin.  For my own
-GMail setup using Ceasar's excellent _auth-xoauth2_ package, see file
-[[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el][gnus-gmail-prepare.el]].
+however, the details of GMail setup with GNUS wont fit this margin.
+For my own GMail setup using Ceasar's excellent _auth-xoauth2_
+package, see file [[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el][gnus-gmail-prepare.el]].
 
 * Leveraging GNUS Back-end NNIR To Search GMail
 
 GMail is accessed from GNUS using the imap protocol.  The _imap_
 specification defines a set of standard search operators; GMail itself
 defines a slightly different and arguably easier to use set of search
-operators. Module
-[[https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el][gm-nnir]]
-implements both the standard IMap search operator as well as GMail's
-search operators; in practice, I have mostly only used the GMail
-Search operators in the last 8 years since implementing this module.
+operators. Module [[https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el][gm-nnir]] implements both the standard IMap search
+operator as well as GMail's search operators; in practice, I have
+mostly only used the GMail Search operators in the last 8 years since
+implementing this module.
 
 Without further ado, here is the  code to enable GMail Search:
 
