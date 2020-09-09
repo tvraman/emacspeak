@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1257 commands and 943 options.
+This chapter documents a total of 1256 commands and 944 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1950,6 +1950,12 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 
 @end defvar
 
+@defvar {User Option} voice-variable-pitch
+Personality used for variable-pitch
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} voice-warning
 Personality used for warning
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
@@ -2178,11 +2184,6 @@ Note that we needed to advice a lot more for Emacs 19 and
 Emacs 20 than we do for Emacs 21 and Emacs 22.
 As of August 2007, this file is being purged of advice forms
 not needed in Emacs 22.
-This also means that this and subsequent versions of
-Emacspeak should not be run on versions of Emacs older than
-Emacs 21,
-And preferably only run on Emacs 22.
-This version of Emacspeak is only tested on Emacs 24 and later.
 
 @subsection Emacspeak-Advice Commands
 
@@ -16130,18 +16131,6 @@ Display is centered at point.
 Also set the mark at the position where point was.
 
 (fn PERCENT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-launch-application
-@deffn {Command} emacspeak-launch-application  [Arg list not available until function definition is loaded.]
-@findex emacspeak-launch-application
-
-@format
-Launch an application.
-This command  is designed for use in a windowing environment like X.
-
-(fn COMMAND)
 @end format
 @end deffn
 

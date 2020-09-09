@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 6, 2020.
+last updated on September 9, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1257 commands and 943 options.
+   This chapter documents a total of 1256 commands and 944 options.
 
 * Menu:
 
@@ -4519,6 +4519,11 @@ system.
      uses voice-bolden-extra whose effect can be changed globally by
      customizing voice-bolden-extra-settings.
 
+ -- Variable: User Option voice-variable-pitch
+     Personality used for variable-pitch This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option voice-warning
      Personality used for warning This personality uses voice-smoothen
      whose effect can be changed globally by customizing
@@ -4724,10 +4729,7 @@ I violate this at present by advising completion comint and shell here.
 
    Note that we needed to advice a lot more for Emacs 19 and Emacs 20
 than we do for Emacs 21 and Emacs 22.  As of August 2007, this file is
-being purged of advice forms not needed in Emacs 22.  This also means
-that this and subsequent versions of Emacspeak should not be run on
-versions of Emacs older than Emacs 21, And preferably only run on Emacs
-22.  This version of Emacspeak is only tested on Emacs 24 and later.
+being purged of advice forms not needed in Emacs 22.
 
 12.14.1 Emacspeak-Advice Commands
 ---------------------------------
