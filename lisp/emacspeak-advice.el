@@ -55,13 +55,8 @@
 ;;;Emacs 20 than we do for Emacs 21 and Emacs 22.
 ;;; As of August 2007, this file is being purged of advice forms
 ;;;not needed in Emacs 22.
-;;; This also means that this and subsequent versions of
-;;;Emacspeak should not be run on versions of Emacs older than
-;;;Emacs 21,
-;;; And preferably only run on Emacs 22.
-;;; This version of Emacspeak is only tested on Emacs 24 and later.
 
-;;
+
 ;;; Code:
 
 ;;}}}
