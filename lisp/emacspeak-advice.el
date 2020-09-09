@@ -1675,6 +1675,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
   (when (ems-interactive-p)
     (message "Displayed mode help in help window")
     (emacspeak-auditory-icon 'help)))
+
 (cl-loop
  for f in
  '(
@@ -1725,6 +1726,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
                    "Uncommented"
                  "Commented")
                (count-lines (point) (mark 'force))))))
+
 (cl-loop
  for f in
  '(save-buffer save-some-buffers)
@@ -1734,6 +1736,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'save-object)))))
+
 (cl-loop
  for f in
  '(delete-region kill-region completion-kill-region)
@@ -1764,6 +1767,7 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+
 (cl-loop
  for f in
  '(kill-buffer kill-current-buffer quit-window)
