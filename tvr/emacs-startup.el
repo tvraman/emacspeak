@@ -30,7 +30,10 @@
 ;;; 8. Function tvr-emacs starts up Emacspeak, and sets up two hooks:
 ;;;    - after-init-hook to do the bulk of the work.
 ;;;    - emacs-startup-hook to set up  initial window configuration.
-;;; 9. Function tvr-after-init-hook on after-init-hook does the following:
+;;; 9. Function tvr-after-init-hook on after-init-hook does the
+;;; following:
+;;; For efficiency, package-specific setup files are concatenated into
+;;; a single file all-prepare.el by  make.
 ;;;    - Load package-specific prepare.el files.
 ;;;    - Load the custom settings file.
 ;;;    - Start up things like the emacs server.
@@ -54,13 +57,12 @@
 (push (expand-file-name "vm/lisp/" emacs-personal-library) load-path)
 
 (defvar tvr-libs
-   "all-prepare"
-   "Libraries that need extra setup.")
+  "all-prepare"
+  "Libraries that need extra setup.")
 
 ;;}}}
 ;;{{{ Forward Function Declarations:
-
-(declare-function completion-initialize "completion" nil)
+(declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function soundscape-toggle "soundscape" nil)
 (declare-function nm-enable "nm" nil)
 (declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
@@ -75,12 +77,11 @@
 (defmacro tvr-fastload (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
   (declare (indent 1) (debug t))
-  `(let ((emacspeak-speak-messages nil)
-         (file-name-handler-alist nil)
+  `(let ((file-name-handler-alist nil)
          (load-source-file-function nil)
          (inhibit-message t)
          (gc-cons-threshold 128000000)
-         (gc-cons-percentage 0.8))
+         (gc-cons-percentage 0.7))
      ,@body))
 
 ;;}}}
@@ -118,11 +119,11 @@
   "Safe load lib."
   (let ((start (current-time)))
     (tvr-fastload
-     (condition-case err
-         (progn
-           (load lib)
-           (tvr-time-it lib start))
-       (error (message "Error loading %s: %s" lib (error-message-string err)))))))
+        (condition-case err
+            (progn
+              (load lib)
+              (tvr-time-it lib start))
+          (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
 ;;}}}
 ;;{{{ tvr-tabs:
@@ -177,7 +178,6 @@
 ;;}}}
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
-
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook."
   (cl-declare (special emacspeak-sounds-directory))
@@ -224,24 +224,23 @@ Use Custom to customize where possible. "
    (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
-  (define-key ctl-x-map "u"  'undo-redo)
-  (define-key ctl-x-map "\C-d" 'dired-jump)
-  (define-key ctl-x-map "\C-n" 'forward-page)
-  (define-key ctl-x-map "\C-p" 'backward-page)
+  (define-key ctl-x-map "u"  'undo-only)
+  (define-key ctl-x-map (kbd "C-u") 'undo-redo)
+  (define-key ctl-x-map (kbd "C-d") 'dired-jump)
+  (define-key ctl-x-map (kbd "C-n") 'forward-page)
+  (define-key ctl-x-map (kbd "C-p") 'backward-page)
 ;;; Shell mode bindings:
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
 ;;; Outline Setup:
   (with-eval-after-load 'outline
-    (define-key outline-mode-prefix-map "o" 'open-line) ;;;restore 
-    (global-set-key "\C-o" outline-mode-prefix-map))
+    (define-key outline-mode-prefix-map "o" 'open-line) ;;;restore
+    (global-set-key (kbd "C-o") outline-mode-prefix-map))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
-  (define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+  (define-key esc-map (kbd "M-:") 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
-  (dynamic-completion-mode 1)
   (tvr-fastload
-      (completion-initialize)
-    (when (file-exists-p custom-file)  (load custom-file))))
+      (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-defer-muggles ()
   "Defered muggles loader."
@@ -250,19 +249,19 @@ Use Custom to customize where possible. "
 (defsubst  tvr-dbus-setup ()
   "Configure DBus Services"
   (when (dbus-list-known-names :session)
-       (require 'emacspeak-dbus)
-       (nm-enable)
-       (emacspeak-dbus-sleep-enable)
-       (emacspeak-dbus-udisks-enable)
-       (emacspeak-dbus-upower-enable)
-       (emacspeak-dbus-watch-screen-lock)))
+    (require 'emacspeak-dbus)
+    (nm-enable)
+    (emacspeak-dbus-sleep-enable)
+    (emacspeak-dbus-udisks-enable)
+    (emacspeak-dbus-upower-enable)
+    (emacspeak-dbus-watch-screen-lock)))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
   (tvr-fastload
-      (let ((start (current-time))) 
+      (let ((start (current-time)))
         (load tvr-libs) ;;; load  settings   not  customizable via custom.
         (tvr-time-it "libs" start)
         (setq start (current-time))
@@ -312,9 +311,9 @@ Emacs customization and library configuration happens via the after-init-hook. "
   (setq outloud-default-speech-rate 125 ; because we load custom at the end
         dectalk-default-speech-rate 485)
   (tvr-fastload ;;; load emacspeak:
-   (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
-   (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
-     (push (expand-file-name "tvr/" emacspeak-directory) load-path)))
+      (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
+      (push (expand-file-name "tvr/" emacspeak-directory) load-path)))
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook)) ;end defun tvr-emacs
 
