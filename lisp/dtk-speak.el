@@ -1738,6 +1738,12 @@ Argument S specifies the syntax class."
 
 ;;}}}
 ;;{{{ speak text
+(defvar-local dtk-yank-excluded-properties
+  '(category field follow-link fontified font-lock-face help-echo
+             keymap local-map mouse-face read-only yank-handler)
+  "Like yank-excluded-properties, but without intangible and invisible
+ in it.
+This is so text marked invisible is silenced.")
 
 (defun dtk-speak (text)
   "Speak the TEXT string on the  tts.
@@ -1745,7 +1751,7 @@ This is achieved by sending the text to the speech server.
 No-op if variable `dtk-quiet' is set to t.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
-  (cl-declare (special
+  (cl-declare (special dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals inhibit-point-motion-hooks
                dtk-speak-server-initialized emacspeak-use-auditory-icons
@@ -1773,6 +1779,7 @@ only speak upto the first ctrl-m."
         (and ctrl-m (setq text (substring text 0 ctrl-m))
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t) ;snapshot relevant state
+          (yank-excluded-properties  yank-excluded-properties)
           (inhibit-read-only t)
           (inhibit-modification-hooks t)
           (deactivate-mark nil)
@@ -1799,6 +1806,7 @@ only speak upto the first ctrl-m."
         (erase-buffer)
 ;;; inherit environment
         (setq
+         yank-excluded-properties dtk-yank-excluded-properties
          buffer-invisibility-spec invisibility-spec
          dtk-chunk-separator-syntax chunk-sep
          dtk-speaker-process inherit-speaker-process
