@@ -23,7 +23,7 @@ specification defines a set of standard search operators; GMail itself
 defines a slightly different and arguably easier to use set of search
 operators. Module
 [[https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el][gm-nnir]]
-himplements both the standard IMap search operator as well as GMail's
+implements both the standard IMap search operator as well as GMail's
 search operators; in practice, I have mostly only used the GMail
 Search operators in the last 8 years since implementing this module.
 

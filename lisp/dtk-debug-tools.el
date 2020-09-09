@@ -116,11 +116,10 @@
         (set-buffer-multibyte inherit-enable-multibyte-characters)
         (insert-for-yank text)
         (dtk--delete-invisible-text)
-        (when pronunciation-table
-          (tts-apply-pronunciations pronunciation-table))
-        (dtk-unicode-replace-chars mode)
-        (dtk-handle-repeating-patterns mode)
-        (dtk-quote mode)
+        
+        
+        
+        
         (goto-char (point-min))
         (skip-syntax-forward " ")       ;skip leading whitespace
         tts-scratch-buffer))))
