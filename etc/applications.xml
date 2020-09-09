@@ -734,9 +734,6 @@ module emacspeak-vdiff.</application>
     <applicaiton name="jss">
       Interactive debugging of Web applications (Chrome, Firefox) via
     the browser debugging API.</applicaiton>
-    <application name="kite">
-      Interact with Chrome via the remote debugging API.
-    </application>
     <application name="sage-shell-mode">
       Speech-enable SageMath interaction.</application>
     <application name="ein">
