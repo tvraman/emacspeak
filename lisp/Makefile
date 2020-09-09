@@ -196,7 +196,6 @@ emacspeak-indium.elc \
 emacspeak-jdee.elc \
 emacspeak-js2.elc \
 emacspeak-jss.elc \
-emacspeak-kite.elc \
 emacspeak-kmacro.elc  \
 emacspeak-librivox.elc \
 emacspeak-lispy.elc \
@@ -487,7 +486,6 @@ emacspeak-jdee.elc: emacspeak-jdee.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-jss.elc: emacspeak-jss.el dtk-speak.elc voice-setup.elc
-emacspeak-kite.elc: emacspeak-kite.el dtk-speak.elc voice-setup.elc
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-librivox.elc: emacspeak-librivox.el emacspeak-m-player.elc dtk-speak.elc voice-setup.elc
 emacspeak-lispy.elc: emacspeak-lispy.el  dtk-speak.elc voice-setup.elc
