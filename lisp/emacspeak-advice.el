@@ -76,8 +76,10 @@
 (require 'hippie-exp)
 (require 'comint)
 (require 'shell)
+
 ;;}}}
 ;;{{{ Forward Declarations:
+
 (defvar emacspeak-prefix)
 
 ;;}}}
@@ -298,8 +300,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
        (emacspeak-speak-mode-line)))))
 (cl-loop
  for f in
- '(
-   beginning-of-buffer end-of-buffer)
+ '(beginning-of-buffer end-of-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -310,9 +311,10 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
 
 (cl-loop
  for f in
- '(tab-to-tab-stop indent-for-tab-command reindent-then-newline-and-indent
-                   indent-sexp indent-pp-sexp
-                   indent-region indent-relative)
+ '(
+   tab-to-tab-stop indent-for-tab-command reindent-then-newline-and-indent
+   indent-sexp indent-pp-sexp
+   indent-region indent-relative)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
