@@ -2797,14 +2797,6 @@ Produce auditory icons if possible."
 ;;{{{ provide auditory icon when window config changes
 
 ;;}}}
-;;{{{ advice load to speech-enable new commands
-
-(defadvice load (after emacspeak pre act comp)
-  "Fix interactive commands just defined."
-  (emacspeak-fix-commands-loaded-from
-   (file-name-sans-extension (ad-get-arg 0))))
-
-;;}}}
 ;;{{{ mail aliases
 
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
