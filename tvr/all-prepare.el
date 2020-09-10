@@ -170,8 +170,6 @@ This moves them into the Spam folder."
   (define-key lispy-mode-map "a" 'special-lispy-beginning-of-defun)
   (define-key lispy-mode-map "A" 'special-lispy-ace-symbol)
   (define-key lispy-mode-map (kbd "C-,") nil)
-  (define-key lispy-mode-map [(control left)] 'lispy-barf)
-  (define-key lispy-mode-map [(control right)] 'lispy-slurp)
   (define-key lispy-mode-map-lispy (kbd "C-,") nil)
 ;;;  Lispy for eval-expression:
   (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy))
