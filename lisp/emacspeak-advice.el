@@ -2177,7 +2177,7 @@ Provide an auditory icon if possible."
     (message "Aborting recursive edit")))
 (cl-loop
  for f in
- '(undo undo-only)
+ '(undo undo-redo undo-only)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
