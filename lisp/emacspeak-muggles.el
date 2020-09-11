@@ -98,8 +98,8 @@
 (require 'hideshow)
 (require 'emacspeak-maths nil 'no-error)
 (require 'org)
-(with-no-warnings (require 'origami "origami" 'no-error))
-(require 'vuiet "vuiet" 'no-error)
+(with-no-warnings (require 'origami "origami" 'no-error)
+                  (require 'vuiet "vuiet" 'no-error))
 (require 'smartparens "smartparens" 'no-error)
 (require 'browse-kill-ring "browse-kill-ring" 'no-error)
 (require 'hydra "hydra" 'no-error)
@@ -107,7 +107,7 @@
 (require 'view)
 (require 'emacspeak-m-player)
 (declare-function ido-ubiquitous-mode "ext:ido-completing-read+" (&optional arg))
-
+(declare-function ido-everywhere "ido" (&optional arg))
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
 
@@ -395,7 +395,7 @@ Argument `k-map' is a symbol  that names a keymap."
             (lispy-mode "Lispy")
             (smartparens-mode "Smart Parens")
             (t "neither lispy or sp"))))
-(declare-function ido-everywhere "ido" (&optional arg))
+
 
 (global-set-key
  (kbd "C-c o")
