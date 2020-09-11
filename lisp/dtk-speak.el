@@ -1740,8 +1740,8 @@ Argument S specifies the syntax class."
 ;;{{{ speak text
 (defvar-local dtk-yank-excluded-properties
   '(category field follow-link fontified font-lock-face help-echo
-             keymap local-map mouse-face read-only yank-handler)
-  "Like yank-excluded-properties, but without intangible and invisible
+             keymap local-map mouse-face read-only intangible yank-handler)
+  "Like yank-excluded-properties, but without  invisible
  in it.
 This is so text marked invisible is silenced.")
 
