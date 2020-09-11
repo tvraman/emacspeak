@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1256 commands and 944 options.
+This chapter documents a total of 1256 commands and 924 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -125,7 +125,6 @@ This chapter documents a total of 1256 commands and 944 options.
 * emacspeak-js2::Speech-enable JS2.
 * emacspeak-jss::Speech-enable JSS.
 * emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
-* emacspeak-kite::Speech-enable KITE.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
@@ -1521,6 +1520,8 @@ C-s		flx-isearch-forward
 C-u		emacspeak-feeds-browse
 SPC		emacspeak-webspace
 '		emacspeak-m-player-using-hrtf
+,		switch-to-prev-buffer
+.		switch-to-next-buffer
 /		emacspeak-wizards-web-clean-up-processes
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 ;		emacspeak-m-player-using-openal
@@ -4481,6 +4482,12 @@ Optional interactive prefix arg shuffles playlist.
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
 Options passed to Unix builtin ‘file’ command.
+
+@end defvar
+
+@defvar {User Option} voice-dired-broken-symlink
+Personality used for dired-broken-symlink
+This personality uses  ’voice-monotone whose  effect can be changed globally by customizing ’voice-monotone-settings.
 
 @end defvar
 
@@ -10197,149 +10204,6 @@ bound to a key.
 The value of this variable is an association list. The car of
 each element specifies a key sequence. The cdr specifies an
 interactive command that the key sequence executes.
-
-@end defvar
-
-@node emacspeak-kite
-@section emacspeak-kite
-
-kite connects Emacs to browsers that support the webkit debugging protocol.
-You can use this to connect to a running Chrome
-Make sure to start chrome with the correct command-line flag: e.g., on Linux:
-google-chrome --remote-debugging-port=9222
-You can get  Emacs package kite from here:
-git clone git://github.com/jscheid/kite
-Make sure to first install the websocket package from elpa.
-This package speech-enables kite for Emacspeak users.
-This is what I use at present when developing/debugging ChromeVox.
-ChromeVox == http://google-axs-chrome.googlecode.com
-http://chromevox.com
-
-@subsection emacspeak-kite Options
-
-@defvar {User Option} voice-kite-boolean
-Personality used for kite-boolean
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-loading
-Personality used for kite-loading
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-log-debug
-Personality used for kite-log-debug
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-log-error
-Personality used for kite-log-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-log-log
-Personality used for kite-log-log
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-log-warning
-Personality used for kite-log-warning
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-null
-Personality used for kite-null
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-number
-Personality used for kite-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-object
-Personality used for kite-object
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-property-name
-Personality used for kite-property-name
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-proto-property-name
-Personality used for kite-proto-property-name
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-quote
-Personality used for kite-quote
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-column-number
-Personality used for kite-stack-column-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-error-message
-Personality used for kite-stack-error-message
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-error-type
-Personality used for kite-stack-error-type
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-file-name
-Personality used for kite-stack-file-name
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-function-name
-Personality used for kite-stack-function-name
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-line-number
-Personality used for kite-stack-line-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-stack-pseudo-file-name
-Personality used for kite-stack-pseudo-file-name
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-string
-Personality used for kite-string
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-kite-undefined
-Personality used for kite-undefined
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 

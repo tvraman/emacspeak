@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 9, 2020.
+last updated on September 11, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1256 commands and 944 options.
+   This chapter documents a total of 1256 commands and 924 options.
 
 * Menu:
 
@@ -3008,7 +3008,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-js2::Speech-enable JS2.
 * emacspeak-jss::Speech-enable JSS.
 * emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
-* emacspeak-kite::Speech-enable KITE.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
 * emacspeak-lispy::Speech-enable LISPY.
@@ -4156,6 +4155,8 @@ system.
      C-u		emacspeak-feeds-browse
      SPC		emacspeak-webspace
      ’		emacspeak-m-player-using-hrtf
+     ,		switch-to-prev-buffer
+     .		switch-to-next-buffer
      /		emacspeak-wizards-web-clean-up-processes
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
      ;		emacspeak-m-player-using-openal
@@ -6765,6 +6766,11 @@ buffer Voicification is used to indicate directories, marked files etc.
 
  -- Variable: User Option emacspeak-dired-file-cmd-options
      Options passed to Unix builtin ‘file’ command.
+
+ -- Variable: User Option voice-dired-broken-symlink
+     Personality used for dired-broken-symlink This personality uses
+     ’voice-monotone whose effect can be changed globally by customizing
+     ’voice-monotone-settings.
 
  -- Variable: User Option voice-dired-directory
      Personality used for dired-directory This personality uses
