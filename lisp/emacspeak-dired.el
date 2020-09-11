@@ -72,8 +72,7 @@
    (dired-directory voice-bolden-medium)
    (dired-symlink voice-animate-extra)
    (dired-ignored voice-lighten-extra)
-   (dired-flagged voice-animate-extra)
-   ))
+   (dired-flagged voice-animate-extra)))
 
 ;;}}}
 ;;{{{  functions:
