@@ -395,6 +395,7 @@ Argument `k-map' is a symbol  that names a keymap."
             (lispy-mode "Lispy")
             (smartparens-mode "Smart Parens")
             (t "neither lispy or sp"))))
+(declare-function ido-everywhere "ido" (&optional arg))
 
 (global-set-key
  (kbd "C-c o")
