@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1256 commands and 924 options.
+This chapter documents a total of 1256 commands and 920 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -123,7 +123,6 @@ This chapter documents a total of 1256 commands and 924 options.
 * emacspeak-jabber::Speech-Enable jabber.
 * emacspeak-jdee::Speech enable JDEE -- An integrated Java Development Environment.
 * emacspeak-js2::Speech-enable JS2.
-* emacspeak-jss::Speech-enable JSS.
 * emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
@@ -10014,47 +10013,6 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 @defvar {User Option} voice-js2-warning
 Personality used for js2-warning
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@node emacspeak-jss
-@section emacspeak-jss
-
-jss connects Emacs to browsers that support the webkit debugging protocol.
-You can use this to connect to a running Chrome or Firefox.
-Make sure to start chrome with the correct command-line flag: e.g., on Linux:
-google-chrome --remote-debugging-port=9222
-You can get  Emacs package jss from here:
-url = git://github.com/segv/jss.git
-Make sure to first install the websocket package from elpa.
-This package speech-enables jss for Emacspeak users.
-This is what I use alongside package Kite at present when developing/debugging ChromeVox.
-ChromeVox == http://google-axs-chrome.googlecode.com
-http://chromevox.com
-
-@subsection emacspeak-jss Options
-
-@defvar {User Option} voice-jss-console-debug-message
-Personality used for jss-console-debug-message
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-jss-console-error-message
-Personality used for jss-console-error-message
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-jss-console-log-message
-Personality used for jss-console-log-message
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-jss-console-warn-message
-Personality used for jss-console-warn-message
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 

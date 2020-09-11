@@ -48,6 +48,18 @@ bridge to YT.
 
 Module ~emacspeak-sdcv~ speech-enables emacs package ~sdcv~ to enable
 interaction with Stardict dictionaries.
+** Module  ~emacspeak-kite~ Is Obsolete.
+
+Package ~kite~ is obsolete --- use Indium for live debugging of Web
+
+** Module  ~emacspeak-jss~ Is Obsolete.
+
+Package ~jss~ is obsolete --- use Indium for live debugging of Web
+And NodeJS Apps
+** Stripped Down ~emacspeak-bbc~
+
+The BBC Backstage API is obsolete and long gone; this is reflected in
+a lighter-weight, stripped down ~emacspeak-bbc~.
 
 ** Module ~emacspeak-npr~ Is Marked Obsolete 
 

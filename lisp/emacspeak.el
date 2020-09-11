@@ -218,7 +218,6 @@ speech-enabling extensions for `package' (a string)."
 (emacspeak-do-package-setup "js2" 'emacspeak-js2)
 (emacspeak-do-package-setup "indium" 'emacspeak-indium)
 (emacspeak-do-package-setup "js2-mode" 'emacspeak-js2)
-(emacspeak-do-package-setup "jss" 'emacspeak-jss)
 (emacspeak-do-package-setup "kmacro" 'emacspeak-kmacro)
 (emacspeak-do-package-setup "lispy" 'emacspeak-lispy)
 (emacspeak-do-package-setup"lua-mdoe" 'emacspeak-lua)

@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1256 commands and 924 options.
+   This chapter documents a total of 1256 commands and 920 options.
 
 * Menu:
 
@@ -3006,7 +3006,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-jabber::Speech-Enable jabber.
 * emacspeak-jdee::Speech enable JDEE – An integrated Java Development Environment.
 * emacspeak-js2::Speech-enable JS2.
-* emacspeak-jss::Speech-enable JSS.
 * emacspeak-keymap::Setup  keymaps and keybindings provided by Emacspeak.
 * emacspeak-kmacro::Speech-enable kbd macro interface.
 * emacspeak-librivox::LIBRIVOX API client.
