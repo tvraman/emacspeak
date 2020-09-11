@@ -44,6 +44,7 @@
 ;;; It reduces the amount of speech you hear:
 ;;; Typically you hear the file names as you move through the dired buffer
 ;;; Voicification is used to indicate directories, marked files etc.
+
 ;;; Code:
 
 ;;}}}
@@ -60,6 +61,7 @@
 
 (voice-setup-add-map
  '(
+   (dired-broken-symlink 'voice-monotone)
    (dired-set-id  voice-animate)
    (dired-special voice-lighten)
    (dired-header voice-smoothen)
