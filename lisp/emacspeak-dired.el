@@ -44,16 +44,17 @@
 ;;; It reduces the amount of speech you hear:
 ;;; Typically you hear the file names as you move through the dired buffer
 ;;; Voicification is used to indicate directories, marked files etc.
+;;; Code:
 
 ;;}}}
 ;;{{{  required packages
 
-;;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'desktop)
 (require 'dired)
+
 ;;}}}
 ;;{{{ Define personalities
 
