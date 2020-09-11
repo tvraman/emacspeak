@@ -660,6 +660,8 @@ command that the key sequence executes."
 
 (defcustom emacspeak-hyper-keys 
   '(
+    ("," switch-to-prev-buffer)
+    ("." switch-to-next-buffer)
     ("C-e" eshell)
     ("TAB" hippie-expand)
     ("C-r" flx-isearch-backward)
