@@ -156,7 +156,6 @@ emacspeak-ess.elc \
 emacspeak-evil.elc \
 emacspeak-eterm.elc \
 emacspeak-eudc.elc \
-emacspeak-facemenu.elc \
 emacspeak-feeds.elc \
 emacspeak-filtertext.elc \
 emacspeak-find-dired.elc \
@@ -440,7 +439,6 @@ emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc voice-setup.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
 dom-addons.elc: dom-addons.el 
 emacspeak-eww.elc: emacspeak-eww.el  dom-addons.elc dtk-speak.elc voice-setup.elc
-emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc voice-setup.elc
 emacspeak-feeds.elc: emacspeak-feeds.el emacspeak-webutils.elc dtk-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
 emacspeak-find-dired.elc: emacspeak-find-dired.el dtk-speak.elc voice-setup.elc

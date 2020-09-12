@@ -181,7 +181,6 @@ speech-enabling extensions for `package' (a string)."
      ("eudc" emacspeak-eudc)
      ("evil" emacspeak-evil)
      ("eww" emacspeak-eww)
-     ("facemenu" emacspeak-facemenu)
      ("find-dired" emacspeak-find-dired)
      ("find-func" emacspeak-find-func)
      ("find-things-fast" emacspeak-ftf)
