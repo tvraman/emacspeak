@@ -242,7 +242,7 @@ Use Custom to customize where possible. "
 
 (defsubst tvr-defer-muggles ()
   "Defered muggles loader."
-  (tvr-fastload (load "emacspeak-muggles-autoloads")))
+  (tvr-fastload (load "emacspeak-muggles")))
 
 (defsubst  tvr-dbus-setup ()
   "Configure DBus Services"
