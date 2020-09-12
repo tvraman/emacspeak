@@ -731,9 +731,6 @@ module emacspeak-vdiff.</application>
       Tool for browsing  object oriented software codebases
       --- this is largely obsoleted by ECB..
     </application>
-    <applicaiton name="jss">
-      Interactive debugging of Web applications (Chrome, Firefox) via
-    the browser debugging API.</applicaiton>
     <application name="sage-shell-mode">
       Speech-enable SageMath interaction.</application>
     <application name="ein">
