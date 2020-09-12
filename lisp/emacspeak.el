@@ -4,7 +4,6 @@
 ;;; Description:  Emacspeak: A speech interface to Emacs
 ;;; Keywords: Emacspeak, Speech, Dectalk,
 ;;{{{  LCD Archive entry:
-
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
@@ -106,8 +105,7 @@ This function adds the appropriate form to `after-load-alist' to
 set up Emacspeak support for a given package.  Argument MODULE (a
 symbol)specifies the emacspeak module that implements the
 speech-enabling extensions for `package' (a string)."
-  (with-eval-after-load package
-    (require module)))
+  (with-eval-after-load package (require module)))
 
 ;;; DocView
 (declare-function doc-view-open-text "doc-view")
@@ -115,11 +113,10 @@ speech-enabling extensions for `package' (a string)."
   (add-hook 'doc-view-mode-hook #'doc-view-open-text))
 
 ;;; subr.el
-(with-eval-after-load  "subr"
-  (emacspeak-fix-commands-loaded-from "subr"))
 
 ;;}}}
 ;;{{{ Setup package extensions
+
 (defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages as they are loaded."
   
@@ -325,6 +322,7 @@ speech-enabling extensions for `package' (a string)."
      ("yaml-mode" emacspeak-yaml)
      ("yasnippet" emacspeak-yasnippet)
      ("ytel" emacspeak-ytel))))
+
 ;;}}}
 ;;{{{  Submit bugs
 
