@@ -44,6 +44,8 @@
 
 ;;; This module speech enables find-func
 
+;;; Code:
+
 ;;}}}
 ;;{{{ requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
@@ -66,7 +68,7 @@
              "Speak current line"
              (when  (ems-interactive-p)
                (emacspeak-auditory-icon 'open-object)
-               (dtk-speak (format "Found %s" (ad-get-arg 0)))))))
+               (emacspeak-speak-line)))))
 
 ;;}}}
 
