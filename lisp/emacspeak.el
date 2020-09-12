@@ -292,7 +292,6 @@ speech-enabling extensions for `package' (a string)."
      ("texinfo" emacspeak-texinfo)
      ("threes" emacspeak-threes)
      ("tide" emacspeak-tide)
-     ("tmm" emacspeak-facemenu)
      ("todo-mode" emacspeak-todo-mode)
      ("transient" emacspeak-transient)
      ("twittering-mode" emacspeak-twittering)
