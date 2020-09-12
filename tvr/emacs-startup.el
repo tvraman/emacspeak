@@ -179,7 +179,9 @@
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
 
 (defun tvr-emacs-startup-hook ()
-  "Emacs startup hook."
+  "Emacs startup hook.
+Reset gc-cons-threshold to a smaller value, time startup and play
+startup sound."
   (cl-declare (special emacspeak-sounds-directory))
   (setq gc-cons-threshold 64000000)
   (start-process
