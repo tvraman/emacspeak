@@ -71,7 +71,6 @@
                (emacspeak-speak-line)))))
 
 ;;}}}
-
 (provide 'emacspeak-find-func)
 ;;{{{  emacs local variables 
 
