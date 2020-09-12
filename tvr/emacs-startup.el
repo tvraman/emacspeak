@@ -64,11 +64,7 @@
 ;;{{{ Forward Function Declarations:
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function soundscape-toggle "soundscape" nil)
-(declare-function nm-enable "nm" nil)
-(declare-function emacspeak-dbus-sleep-enable "emacspeak-dbus" nil)
-(declare-function emacspeak-dbus-watch-screen-lock "emacspeak-dbus" nil)
-(declare-function emacspeak-dbus-udisks-enable "emacspeak-dbus" nil)
-(declare-function emacspeak-dbus-upower-enable "emacspeak-dbus" nil)
+(declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
 (declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
 
 ;;}}}
@@ -251,12 +247,7 @@ Use Custom to customize where possible. "
 (defsubst  tvr-dbus-setup ()
   "Configure DBus Services"
   (when (dbus-list-known-names :session)
-    (require 'emacspeak-dbus)
-    (nm-enable)
-    (emacspeak-dbus-sleep-enable)
-    (emacspeak-dbus-udisks-enable)
-    (emacspeak-dbus-upower-enable)
-    (emacspeak-dbus-watch-screen-lock)))
+    (emacspeak-dbus-setup)))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
