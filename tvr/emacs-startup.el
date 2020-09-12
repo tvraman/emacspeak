@@ -240,10 +240,10 @@ Use Custom to customize where possible. "
   (tvr-fastload
       (when (file-exists-p custom-file)  (load custom-file))))
 
-(defun tvr-defer-muggles ()
+(defsubst tvr-defer-muggles ()
   "Defered muggles loader."
-  (unless (featurep 'emacspeak-muggles)
-    (make-thread #'(lambda () (tvr-fastload (load "emacspeak-muggles"))))))
+  (tvr-fastload (load "emacspeak-muggles-autoloads")))
+
 (defsubst  tvr-dbus-setup ()
   "Configure DBus Services"
   (when (dbus-list-known-names :session) (emacspeak-dbus-setup)))
