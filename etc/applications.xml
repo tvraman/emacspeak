@@ -344,9 +344,6 @@ type="text/xsl"?>
       Play Pandora radio using the Open Source <em>Pianobar</em>
       command-line client.
     </application>
-    <application name="npr">
-      API  client for listening to NPR programs.
-    </application>
     <application name="librivox">
     API  client for listening to free Librivox audio books.</application>
     <application name="emms">
