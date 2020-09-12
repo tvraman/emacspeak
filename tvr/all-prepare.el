@@ -4,8 +4,7 @@
 (autoload 'vm-visit-folder "vm" "Open VM folder" t nil)
 (with-eval-after-load "vm"
   (global-set-key (kbd "C-x m") 'vm-mail)
-  (when (require 'bbdb) (bbdb-insinuate-vm))
-  (load-library "mspools"))
+  (when (require 'bbdb) (bbdb-insinuate-vm)))
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;;; Uses auth-source-xoauth2:
