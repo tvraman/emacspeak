@@ -652,14 +652,6 @@ Info-mode:
    ("a" origami-toggle-all-nodes)))
 
 ;;}}}
-;;{{{ hydra-ox:
-(eval-after-load 'org
-  `(progn
-     (when (locate-library "hydra-ox")
-       (require 'hydra-ox)
-       (define-key org-mode-map (kbd "C-c DEL") 'hydra-ox/body))))
-
-;;}}}
 ;;{{{ Muggle: Speak And Browse Math
 
 (global-set-key
