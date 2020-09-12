@@ -390,6 +390,17 @@ already disabled."
   (message "Unregistered screen-lock signal handler"))
 
 ;;}}}
+;;{{{Setup:
+;;;###autoload
+(defun emacspeak-dbus-setup ()
+  "Turn on all defined handlers."
+  (nm-enable)
+    (emacspeak-dbus-sleep-enable)
+    (emacspeak-dbus-udisks-enable)
+    (emacspeak-dbus-upower-enable)
+    (emacspeak-dbus-watch-screen-lock))
+
+;;}}}
 (provide 'emacspeak-dbus)
 ;;{{{ end of file
 
