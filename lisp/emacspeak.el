@@ -132,7 +132,6 @@ speech-enabling extensions for `package' (a string)."
      ("arc-mode" emacspeak-arc)
      ("bbdb" emacspeak-bbdb)
      ("bibtex" emacspeak-bibtex)
-     ("bmk-mgr" emacspeak-bmk-mgr)
      ("bookmark" emacspeak-bookmark)
      ("browse-kill-ring" emacspeak-browse-kill-ring)
      ("bs" emacspeak-bs)
