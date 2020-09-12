@@ -1,4 +1,384 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-05-28T10:05:03.752-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>163</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-8930221260080669957</id><published>2020-05-28T10:05:00.000-07:00</published><updated>2020-05-28T10:05:03.674-07:00</updated><title type='text'>GitHub Standard Fork And Pull-Request Workflow From Emacs</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;br /&gt;
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-09-08T16:26:13.668-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>168</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-8563131593972762432</id><published>2020-09-08T16:26:00.000-07:00</published><updated>2020-09-08T16:26:13.245-07:00</updated><title type='text'>Searching GMail From GNUS</title><content type='html'>&lt;div id=&quot;content&quot;&gt;
+&lt;h1 class=&quot;title&quot;&gt;Using GMail Search Operators In GNUS&lt;/h1&gt;
+&lt;div id=&quot;outline-container-org551bed2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org551bed2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+I have been using the following to search GMail from GNUS for over 8
+years now. The recent announcement of the &lt;span class=&quot;underline&quot;&gt;nnselect&lt;/span&gt; back-end reminded
+me that I had never gotten to writing this up formally, So here
+goes. With the described solution in place, you can search your GMail
+from within  GNUS using the same GMail Search operators  that you&#39;re
+familiar with from within  your Web Browser, e.g. searches of the form
+&lt;i&gt;from: foo&lt;/i&gt;,  &lt;i&gt;subject:bar&lt;/i&gt;, &lt;i&gt;after:date&lt;/i&gt; and combinations of the
+above.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org77c15d3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org77c15d3&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Background&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;p&gt;
+You can read email with GNUS, and many people read GMail with GNUS,
+however, the details of GMail setup with GNUS wont fit this margin.  For my own
+GMail setup using Ceasar&#39;s excellent &lt;span class=&quot;underline&quot;&gt;auth-xoauth2&lt;/span&gt; package, see file
+&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-gmail-prepare.el&quot;&gt;gnus-gmail-prepare.el&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org742fc31&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org742fc31&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Leveraging GNUS Back-end NNIR To Search GMail&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;p&gt;
+GMail is accessed from GNUS using the imap protocol.  The &lt;span class=&quot;underline&quot;&gt;imap&lt;/span&gt;
+specification defines a set of standard search operators; GMail itself
+defines a slightly different and arguably easier to use set of search
+operators. Module
+&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/g-client/gm-nnir.el&quot;&gt;gm-nnir&lt;/a&gt;
+himplements both the standard IMap search operator as well as GMail&#39;s
+search operators; in practice, I have mostly only used the GMail
+Search operators in the last 8 years since implementing this module.
+&lt;/p&gt;
+
+&lt;p&gt;
+Without further ado, here is the  code to enable GMail Search:
+&lt;/p&gt;
+
+&lt;div class=&quot;org-src-container&quot;&gt;
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(defun gm-nnir-group-make-gmail-group (query)
+  &quot;Use GMail search syntax.
+See https://support.google.com/mail/answer/7190?hl=en for syntax. &quot;
+  (interactive &quot;sGMail Query: &quot;)  
+  (let ((nnir-imap-default-search-key &quot;imap&quot;)
+        (q (format &quot;X-GM-RAW \&quot;%s\&quot;&quot; query)))
+    (cond
+     ((gnus-group-group-name)           ; Search current group
+      (gnus-group-make-nnir-group
+       nil                              ; no extra params needed
+       `(nnir-specs (nnir-query-spec (query ,q)))))
+     (t (error &quot;Not on a group.&quot;)))))
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+I bind the above to &lt;span class=&quot;underline&quot;&gt;/&lt;/span&gt; by using
+&lt;/p&gt;
+&lt;div class=&quot;org-src-container&quot;&gt;
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(define-key gnus-group-mode-map &quot;/&quot; &#39;gm-nnir-group-make-gmail-group)
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div id=&quot;outline-container-org3464a1f&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org3464a1f&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Example Of Use&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+&lt;p&gt;
+I am subscribed to list &lt;span class=&quot;underline&quot;&gt;emacs-devel@gnu.org&lt;/span&gt; and email sent to that
+list gets GMail Label &lt;code&gt;emacs-devel&lt;/code&gt;. In Gnus, I open that label as
+group &lt;code&gt;emacs-devel@gnu.org&lt;/code&gt;. Typing &lt;span class=&quot;underline&quot;&gt;/&lt;/span&gt; on the group line and entering
+&lt;/p&gt;
+&lt;pre class=&quot;example&quot;&gt;
+from:rms after:2020/09/01
+&lt;/pre&gt;
+
+&lt;p&gt;
+in the minibuffer results in the following:
+&lt;/p&gt;
+
+&lt;pre class=&quot;example&quot;&gt;
+1.1 Re: Good first issues to contribute Richard Stallman 05-Sep [5.3k]
+2.1 Lars Ingebrigtsen is now one of the Emacs maintainers Richard Stallman 06-Sep [4.9k]
+3.1 Re: A new user perspective about &quot;Changes for emacs 28&quot; Richard Stallman 07-Sep [5.5k]
+4.5 Re: Changes for emacs 28 Richard Stallman 07-Sep [5.3k]
+5.1  Richard Stallman 07-Sep &amp;lt;6.2k&amp;gt;
+6.1  Richard Stallman 07-Sep &amp;lt;6.0k&amp;gt;
+7.1  Richard Stallman 07-Sep &amp;lt;5.5k&amp;gt;
+8.1  Richard Stallman 07-Sep &amp;lt;5.7k&amp;gt;
+
+&lt;/pre&gt;
+
+
+
+
+&lt;p&gt;
+The search above creates an ephemeral group with matching messages
+appearing as shown above, you can read messages, reply to them and do
+anything else that you might ordinarily do within the GNUS interface.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;					</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8563131593972762432'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/searching-gmail-from-gnus.html' title='Searching GMail From GNUS'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-8905782418233033405</id><published>2020-08-16T12:18:00.001-07:00</published><updated>2020-08-16T12:18:46.360-07:00</updated><title type='text'>Start Emacs In A Defun</title><content type='html'>
+&lt;div id=&quot;content&quot;&gt;
+&lt;h1 class=&quot;title&quot;&gt;Start Emacs In A Defun&lt;/h1&gt;
+&lt;div id=&quot;outline-container-org3fba985&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org3fba985&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Summary&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+This is a follow-up to my earlier article titled &lt;a href=&quot;https://emacspeak.blogspot.com/2017/08/emacs-start-up-speeding-it-up.html&quot;&gt;Speeding Up Emacs
+Startup&lt;/a&gt; from August 2017. Three years later, I once again spent time
+cleaning up and refactoring the results as described below. The
+end-result is to once again speed up Emacs startup, (about 25% faster
+on my laptop)while making the setup cleaner and easier to maintain
+than before.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-orgc30cbf6&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgc30cbf6&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Start Emacs In A Defun&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;p&gt;
+This &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#start-of-content&quot;&gt;startup file&lt;/a&gt; is set up with the following goals:
+&lt;/p&gt;
+
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Speed up emacs startup &amp;#x2014; setting environment variable
+&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L247-L311&quot;&gt;&lt;code&gt;TVR_TIME_EMS&lt;/code&gt;&lt;/a&gt; before starting emacs produces detailed timing
+ information in the &lt;b&gt;Messages&lt;/b&gt; buffer.&lt;/li&gt;
+&lt;li&gt;Customize packages via Custom  as far as possible.&lt;/li&gt;
+&lt;li&gt;Keep the  &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;custom settings&lt;/a&gt;  in a separate file, with a later goal of
+turning that into a  theme.&lt;/li&gt;
+&lt;li&gt;After converting to a theme, Move machine-specific custom settings
+into a separate host-specific custom file, thus making the earlier
+theme host-independent.  Place host-specific non-customizable bits
+in default.el (not done yet).&lt;/li&gt;
+&lt;li&gt;Define package-specific settings not available via Custom in a package-specific &amp;lt;package&amp;gt;-prepare.el file.&lt;/li&gt;
+&lt;li&gt;Install everything from elpa/melpa as far as possible. (vm is an
+exception at present) &amp;#x2014; I have nearly 200 packages activated.&lt;/li&gt;
+&lt;li&gt;The startup file is a collection of functions with entry-point &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-emacs&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The only top-level call is &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;(tvr-emacs)&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Function tvr-emacs starts up Emacspeak, and sets up two hooks:
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;after-init-hook to do the bulk of the work.&lt;/li&gt;
+&lt;li&gt;emacs-startup-hook to set up  initial window configuration.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Function &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-after-init-hook&lt;/a&gt; on after-init-hook does the following:
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;Load package-specific prepare.el files.&lt;/li&gt;
+&lt;li&gt;Load the custom settings file.&lt;/li&gt;
+&lt;li&gt;Starts up things like the emacs server.&lt;/li&gt;
+&lt;li&gt;Some of these tasks are done on a separate thread using make-thread.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The work of loading files etc., is done within macro &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/emacs-startup.el#L185-L311&quot;&gt;tvr-fastload&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+which sets up an efficient environment for loading files.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org650b226&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org650b226&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Conclusion&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;p&gt;
+With this setup, &lt;code&gt;M-x emacs-init-time&lt;/code&gt; shows  init-time as
+&lt;/p&gt;
+&lt;pre class=&quot;example&quot;&gt;
+1.288381225 seconds
+&lt;/pre&gt;
+
+&lt;p&gt;
+on my laptop with an SSD.  Setting &lt;code&gt;package-quickstart&lt;/code&gt; to &lt;code&gt;T&lt;/code&gt; is a
+major win when running with a spinning-disk instead of an SSD. But the
+biggest win is that I no longer have to go hunting to find out where
+something in emacs got configured a given way &amp;#x2014; AKA, there are a
+limited number of places I need to look.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org403baf9&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org403baf9&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Wish-List&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Remembering  the name of a custom-setting  you set up a while ago
+is still  a challenge, You cant find it unless you remember its
+approximate name.&lt;/li&gt;
+&lt;li&gt;Command &lt;code&gt;emacspeak-wizards-customize-saved&lt;/code&gt; bound to &lt;code&gt;C-h C-s&lt;/code&gt;
+helps some in this regard but is a stop-gap solution.&lt;/li&gt;
+&lt;li&gt;Custom themes are  not  easy to use.&lt;/li&gt;
+&lt;li&gt;I keep my &lt;code&gt;custom-file&lt;/code&gt; checked into a local Git repository and
+is the only part of my setup that I cannot publish &amp;#x2014; since that
+file tends to hoover up information that you shouldn&#39;t publish,
+e.g., aPI keys and other private/personal bits.&lt;/li&gt;
+&lt;li&gt;Perhaps Emacs needs at least two custom-files, a public and a
+private custom-file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8905782418233033405'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/8905782418233033405'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/08/start-emacs-in-defun.html' title='Start Emacs In A Defun'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-4916053591627777743</id><published>2020-06-16T10:13:00.001-07:00</published><updated>2020-06-16T10:13:34.161-07:00</updated><title type='text'>Learning Rust: Programming The Pick-Up Sticks Game</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Learning Rust: The Pick-Up Sticks Game&lt;/h1&gt;&lt;div id=&quot;outline-container-org0a67b1f&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org0a67b1f&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;This &lt;a href=&quot;https://github.com/tvraman/pick-sticks&quot;&gt;directory&lt;/a&gt; contains an implementation of the &lt;i&gt;Pick Up Sticks&lt;/i&gt; game&lt;br /&gt;
+described in my paper &lt;a href=&quot;http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html&quot;&gt;Thinking Of Mathematics (Section 5)&lt;/a&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;It&#39;s an interesting experience writing it in Rust as I learn the&lt;br /&gt;
+language. The original implementation described in my paper was&lt;br /&gt;
+written in 1987 in Fortran-77, and consisted of one single&lt;br /&gt;
+function. Though that style of programming would be frowned upon today&lt;br /&gt;
+and is clearly not advisable for programming in the large, it&#39;s&lt;br /&gt;
+interesting to observe that a more structured implementation as seen&lt;br /&gt;
+in this Rust implementation qrequires a lot more fore-thought with&lt;br /&gt;
+respect to code organization.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org8a0d2da&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org8a0d2da&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Programming Environment&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;here is a short overview of  the programming environment  used:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Emacs 28.0.50 with emacspeak 52.0.&lt;/li&gt;
+&lt;li&gt;Package  &lt;code&gt;eglot&lt;/code&gt; for managing the project with an  LSP server.&lt;/li&gt;
+&lt;li&gt;Rust Language Server &lt;a href=&quot;https://github.com/rust-lang-nursery/rls&quot;&gt;(RLS)&lt;/a&gt; as the LSP server.&lt;/li&gt;
+&lt;li&gt;Package &lt;code&gt;company&lt;/code&gt; for completion.&lt;/li&gt;
+&lt;li&gt;Package &lt;code&gt;yasnippet&lt;/code&gt; for code templates.&lt;/li&gt;
+&lt;li&gt;Package &lt;code&gt;rust-mode&lt;/code&gt; for Rust editing smarts.&lt;/li&gt;
+&lt;li&gt;Package &lt;code&gt;racer&lt;/code&gt; for additional cross-referencing and&lt;br /&gt;
+documentation support.&lt;/li&gt;
+&lt;li&gt;Package &lt;code&gt;cargo&lt;/code&gt; for cargo integration from inside Emacs.&lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;p&gt;In the process of setting up my Rust environment, I also&lt;br /&gt;
+speech-enabled Emacs packages &lt;code&gt;rust-mode&lt;/code&gt;, &lt;code&gt;racer&lt;/code&gt; and &lt;code&gt;cargo&lt;/code&gt; for Emacspeak.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org6572a3a&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org6572a3a&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Books&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;I  downloaded  &lt;i&gt;The Rust Programming Language (2018)&lt;/i&gt; from Bookshare&lt;br /&gt;
+and it&#39;s what I am still using as I write this. Note that this book is&lt;br /&gt;
+also available in the Rust distribution. The version in the Rust&lt;br /&gt;
+distribution is a little less usable since it&#39;s split into multiple&lt;br /&gt;
+smaller HTML files with each file repeating a lot of navigational&lt;br /&gt;
+boiler-plate at the top.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org2e40623&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org2e40623&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; Experience Learning Rust&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;I usually find that I learn a language better if I write some code as&lt;br /&gt;
+I learn the language.&lt;br /&gt;
+In this instance, I decided to program the pick-up-sticks game &amp;#x2014; a&lt;br /&gt;
+simple game that I programmed in 1987 for the final class project for&lt;br /&gt;
+CS-101 at IIT-Bombay. Here are the rules of the game:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;This is a two-player game  and the game starts with \(n\) sticks.&lt;/li&gt;
+&lt;li&gt;The first player can pick at most \(n-1\)  sticks.&lt;/li&gt;
+&lt;li&gt;Assume a player picks \(k\) sticks. At the  subsequent turn, opponent&lt;br /&gt;
+can pick at most  \(2 * k\) sticks.&lt;/li&gt;
+&lt;li&gt;The player who is able to &lt;i&gt;clean-up&lt;/i&gt; the remaining sticks while&lt;br /&gt;
+adhering to the rules is the winner.&lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;p&gt;Read  &lt;a href=&quot;http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/thinking-of-math.html&quot;&gt;Thinking Of Mathematics (Section 5)&lt;/a&gt; for a description of an&lt;br /&gt;
+algorithm that is guaranteed to win.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orge266a0f&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orge266a0f&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; The Implementation&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;&lt;p&gt;Learning Rust&#39;s ownership rules for memory management, and learning to&lt;br /&gt;
+use references  the Rust way were some of the things that were unique&lt;br /&gt;
+to this learning experience.&lt;br /&gt;
+Rust has some unique features including declaring lifetimes that are&lt;br /&gt;
+typically needed in more advanced cases; however in my initial&lt;br /&gt;
+attempts, not doing things the Rust way caused compile-time errors&lt;br /&gt;
+that initially guided me toward using and declaring&lt;br /&gt;
+lifetimes. Eventually, all of those declarations became unnecessary.&lt;br /&gt;
+More generally, the Rust compiler turns out to be a very good Rust&lt;br /&gt;
+teacher.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgda356e2&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgda356e2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;6&lt;/span&gt; Crux Of The Implementation&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-6&quot;&gt;&lt;p&gt;See module &lt;code&gt;game.rs&lt;/code&gt; for the implementation. The core of the&lt;br /&gt;
+implementation is still a handful of lines to implement the winning&lt;br /&gt;
+strategy of:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;If the number of sticks at the start is a Fibonacci number, ask&lt;br /&gt;
+the opponent to play first.&lt;/li&gt;
+&lt;li&gt;At each turn, force the opponent toward the closest Fibonacci number.&lt;/li&gt;
+&lt;li&gt;Do above while respecting the limit rule, i.e. if you pick \(k\)&lt;br /&gt;
+sticks, the opponent can pick up to \(2k\) sticks, so never pick  \(k\)&lt;br /&gt;
+where \(3k &gt;= n\).&lt;/li&gt;
+&lt;li&gt;The result of (3) is to subdivide the game into smaller games&lt;br /&gt;
+when playing with larger values of \(n\) &amp;#x2014; see the &lt;span class=&quot;underline&quot;&gt;while&lt;/span&gt; loop in&lt;br /&gt;
+method    &lt;code&gt;my_move&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;outline-container-org66df065&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org66df065&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;7&lt;/span&gt; Closing Thoughts&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;The computing environment I now have is far more sophisticated&lt;br /&gt;
+than what I had in 1987.&lt;/li&gt;
+&lt;li&gt;Today, I have interactive completion, source-code&lt;br /&gt;
+cross-references, on-the-fly access to documentation, and a fully&lt;br /&gt;
+accessible book where I can look up things whenever I want.&lt;/li&gt;
+&lt;li&gt;In 1987, I did most of my thinking and problem-solving in my&lt;br /&gt;
+dorm-room with no computer to hand. When ready with the solution,&lt;br /&gt;
+I made a few notes in Braille using a &lt;a href=&quot;https://www.google.com/search?num=25&amp;amp;lite=90586&amp;amp;q=braille+pocket+slate&quot;&gt;pocket-slate and stylus&lt;/a&gt;,&lt;br /&gt;
+then went to the computer room with a volunteer reader and typed&lt;br /&gt;
+up the program, with the student volunteer providing high-quality&lt;br /&gt;
+interactive spoken feedback.&lt;/li&gt;
+&lt;li&gt;Interestingly, I think it took me less time  from memory to&lt;br /&gt;
+implement the solution in 1987 &amp;#x2014; perhaps this is time shrinking&lt;br /&gt;
+with number of years passed.&lt;/li&gt;
+&lt;li&gt;Either way, the primary take-away is that it pays to analyse a&lt;br /&gt;
+problem before one actually starts writing code. Writing code is&lt;br /&gt;
+always fun, and today, even more so given the excellent array of&lt;br /&gt;
+tools &amp;#x2014; but unless one focuses on the problem at hand, one can&lt;br /&gt;
+spend a lot of time &lt;i&gt;sharpening one&#39;s pencils&lt;/i&gt; as opposed to&lt;br /&gt;
+writing something useful.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4916053591627777743'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/4916053591627777743'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/06/learning-rust-programming-pick-up.html' title='Learning Rust: Programming The Pick-Up Sticks Game'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-1627256763947489320</id><published>2020-06-03T08:28:00.004-07:00</published><updated>2020-06-03T08:28:49.908-07:00</updated><title type='text'>Viewing Data Records As Forms --- Old Is Gold</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Viewing Data Records As Forms: Old Is Gold!&lt;/h1&gt;&lt;div id=&quot;outline-container-orgf03381d&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgf03381d&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Given a file containing data records made up of multiple fields, you&lt;br /&gt;
+can easily view them using Emacs&#39; &lt;code&gt;forms&lt;/code&gt; library.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org25f0d41&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org25f0d41&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Background: BBC Program Listings&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;I use Perl utility &lt;code&gt;get_player&lt;/code&gt; to fetch details of BBC Radio&lt;br /&gt;
+programs. When I was using this frequently, I had installed package&lt;br /&gt;
+&lt;code&gt;iplayer.el&lt;/code&gt; from Melpa &amp;#x2014; that package presented the data as   a &lt;br /&gt;
+nicely organized  Org document. Time passed,  and I somehow stopped&lt;br /&gt;
+using it, until &amp;#x2026; last week. Then I discovered that package&lt;br /&gt;
+&lt;code&gt;iplayer&lt;/code&gt; on Melpa hadn&#39;t been updated in a few years, and worse had&lt;br /&gt;
+broken because package &lt;code&gt;org&lt;/code&gt; no longer includes now obsoleted&lt;br /&gt;
+sub-module &lt;code&gt;orgstruct&lt;/code&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org04dd571&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org04dd571&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Task: Viewing BBC Program Listings&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;When I realized package &lt;code&gt;iplayer&lt;/code&gt; was broken, I tried to make up for&lt;br /&gt;
+its loss for a few days by using shell-level utilities like &lt;code&gt;cut&lt;/code&gt;. But&lt;br /&gt;
+then I missed the convenience of being able to work with the data with&lt;br /&gt;
+all of Emacs&#39; power and was initially tempted to write a new package&lt;br /&gt;
+&amp;#x2014; after all, how hard is it to take a record, split it into fields&lt;br /&gt;
+and display it in a desired form? Fortunately, I remembered another of&lt;br /&gt;
+my favorite edicts from the creator of Perl (Larry Wall) &lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;Lazy Programmer Is A Good Programmer
+&lt;/pre&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;At the same time I had a strong sense of dejavu &amp;#x2014; in the early daysa&lt;br /&gt;
+of Emacspeak (approx 1995), I remembered demonstrating the power of&lt;br /&gt;
+Emacs to manipulate and display data records by using  file&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;/etc/passwd&lt;/span&gt; as an example.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org5413461&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org5413461&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; The Free Solution&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;So the completely free (AKA zero-work) solution I used was to leverage&lt;br /&gt;
+Emacs&#39; built-in &lt;code&gt;forms&lt;/code&gt; library &amp;#x2014; the solution&lt;br /&gt;
+as created  &lt;br /&gt;
+in&lt;br /&gt;
+&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/etc/forms/get-iplayer.el#L3&quot;&gt;get-iplayer.el&lt;/a&gt; is below:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;div class=&quot;org-src-container&quot;&gt;&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span style=&quot;color: #a020f0;&quot;&gt;setq&lt;/span&gt; forms-read-only t)
+(&lt;span style=&quot;color: #a020f0;&quot;&gt;setq&lt;/span&gt; forms-file (expand-file-name &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;~/.get_iplayer/radio.cache&quot;&lt;/span&gt;))
+(&lt;span style=&quot;color: #a020f0;&quot;&gt;setq&lt;/span&gt; forms-number-of-fields 16)
+(&lt;span style=&quot;color: #a020f0;&quot;&gt;setq&lt;/span&gt; forms-field-sep &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;|&quot;&lt;/span&gt;)
+(&lt;span style=&quot;color: #a020f0;&quot;&gt;setq&lt;/span&gt; forms-format-list
+      (list
+       &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Id: &quot;&lt;/span&gt;  1 &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;\t&quot;&lt;/span&gt; &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Name: &quot;&lt;/span&gt; 3 &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;\n&quot;&lt;/span&gt;
+       &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Episode: &quot;&lt;/span&gt; 4 &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;\t&quot;&lt;/span&gt; &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Description: &quot;&lt;/span&gt;  12 &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;\n&quot;&lt;/span&gt;))
+&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;With the above in place, you can:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;M-x forms-find-file RET get-iplayer.el&lt;/li&gt;
+&lt;li&gt;This  displays one record at  a time as specified by &lt;code&gt;forms-format-list&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You can  search through records etc.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/1627256763947489320'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/1627256763947489320'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/06/viewing-data-records-as-forms-old-is.html' title='Viewing Data Records As Forms --- Old Is Gold'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-6302020997836944453</id><published>2020-05-30T09:27:00.001-07:00</published><updated>2020-05-30T09:30:25.744-07:00</updated><title type='text'>Magit/Forge Cheatsheet For GitHub Workflow</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Magit/Forge Fork And Create Pull-Request Cheat-Sheet For GitHub&lt;/h1&gt;&lt;p&gt;The &lt;a href=&quot;https://emacspeak.blogspot.com/2020/05/github-standard-fork-and-pull-request.html&quot;&gt;previous article&lt;/a&gt; covered   the fork/create-pullreq workflow for&lt;br /&gt;
+GitHub without using a browser.&lt;br /&gt;
+It turns out that in learning by doing, I had made a few mis-steps&lt;br /&gt;
+that made things a lot more convoluted. Here is a quick cheat-sheet on&lt;br /&gt;
+how to do this exclusively   with Magit/Forge.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Run &lt;span class=&quot;underline&quot;&gt;M-x magit-status&lt;/span&gt;  on your Git clone of the project   to&lt;br /&gt;
+which you wish to contribute.&lt;/li&gt;
+&lt;li&gt;Add your GitHub user-id &lt;span class=&quot;underline&quot;&gt;&quot;tvraman&quot;&lt;/span&gt; in my case to forge custom&lt;br /&gt;
+option  &lt;span class=&quot;underline&quot;&gt;forge-owned-accounts&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;In the &lt;span class=&quot;underline&quot;&gt;magit-status&lt;/span&gt; buffer above, type &lt;span class=&quot;underline&quot;&gt;&#39;cf&lt;/span&gt; to create the fork&lt;br /&gt;
+and answer the prompts with the defaults as they appear in the minibuffer.&lt;/li&gt;
+&lt;li&gt;Create your feature branch, add your contribution and check-in.&lt;/li&gt;
+&lt;li&gt;In the &lt;span class=&quot;underline&quot;&gt;magit-status&lt;/span&gt; buffer, type &lt;span class=&quot;underline&quot;&gt;&#39;cp&lt;/span&gt; to create the&lt;br /&gt;
+pull-request.&lt;/li&gt;
+&lt;/ol&gt;&lt;br /&gt;
+&lt;p&gt;Share And Enjoy!&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6302020997836944453'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/6302020997836944453'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/05/magitforge-cheatsheet-for-github.html' title='Magit/Forge Cheatsheet For GitHub Workflow'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-8930221260080669957</id><published>2020-05-28T10:05:00.000-07:00</published><updated>2020-05-28T10:05:03.674-07:00</updated><title type='text'>GitHub Standard Fork And Pull-Request Workflow From Emacs</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;br /&gt;
 &lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;GitHub Standard Fork And Pull Request From Inside Emacs&lt;/h1&gt;&lt;div id=&quot;outline-container-org21d06c9&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org21d06c9&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Collaborating via GitHub (and similar platforms) requires&lt;br /&gt;
 understanding and following a somewhat standardized fork, create, push&lt;br /&gt;
 workflow. Most of the gory details of this workflow typically get&lt;br /&gt;
@@ -14144,325 +14524,4 @@ qx(mv $grabbed  $where/$target);
 chdir $where;
 qx(echo $password | bks-unpack -q $target 1&amp;gt;&amp;amp;- 2&amp;gt;&amp;amp;- &amp;amp;);
 &lt;/pre&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114074992344461641'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114074992344461641'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-connecting-lynx-and-w3.html' title='Emacspeak: Connecting Lynx And W3 '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-114057538920932076</id><published>2006-02-21T18:29:00.000-08:00</published><updated>2006-02-21T18:29:49.256-08:00</updated><title type='text'>Emacspeak, SuDoKu And History </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Here is a small enhancement to &lt;a href=&quot;http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html&quot;&gt;playing
-SuDoKu&lt;/a&gt; in Emacspeak.
-The feature is probably generally useful  i.e., it&#39;s not specific
-to eyes-free interaction,
-but its presence encourages one to try different solution
-strategies.&lt;/p&gt;
-&lt;p&gt;Commands &lt;code&gt;emacspeak-sudoku-history-push&lt;/code&gt; bound to
-&lt;code&gt;m&lt;/code&gt; and  &lt;code&gt;emacspeak-sudoku-history-pop&lt;/code&gt;
-bound to &lt;code&gt;M&lt;/code&gt; allow one to &lt;em&gt;mark&lt;/em&gt; interesting
-states in the game and return to these prior states with a single
-keystroke. This means that when one is confronted with  one of
-two choices, with no apparent additional information on which 
-route to take, it becomes possible to push that state on to the
-history stack, try one of the alternatives and backtrack if necessary.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114057538920932076'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114057538920932076'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-sudoku-and-history.html' title='Emacspeak, SuDoKu And History '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-114048639986049011</id><published>2006-02-20T17:46:00.000-08:00</published><updated>2006-02-20T17:46:39.903-08:00</updated><title type='text'>Emacspeak And Voice Locking Using Aural CSS </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-
-&lt;p&gt;This is slightly reformatted from what was posted to the
-Emacspeak mailing list as separate message.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Emacspeak defines a number of voice overlays such as
-&lt;code&gt;voice-bolden&lt;/code&gt;, and &lt;code&gt;voice-lighten&lt;/code&gt; that can be applied to a
-given voice to change what it sounds like.&lt;/li&gt;
-
-&lt;li&gt;Voice overlays are defined in terms of Aural CSS (&lt;a href=&quot;http://www.w3.org/tr/css2/aural.html&quot;&gt;ACSS&lt;/a&gt;) to
-keep them independent of a specific TTS engine.&lt;/li&gt;
-
-&lt;li&gt;For each such overlay there is a corresponding
-&lt;code&gt;&amp;lt;overlay-name&amp;gt;-settings&lt;/code&gt; variable that can be customized via
-custom.&lt;/li&gt;
-
-&lt;li&gt;The numbers in &lt;code&gt;voice-bolden-settings as an example&lt;/code&gt;:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;table border=&quot;2&quot; cellpadding=&quot;5&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Setting&lt;/th&gt;
-      &lt;th&gt;Value&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;family&lt;/td&gt;
-      &lt;td&gt;nil&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;average-pitch&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pitch-range&lt;/td&gt;
-      &lt;td&gt;6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;stress&lt;/td&gt;
-      &lt;td&gt;6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;richness&lt;/td&gt;
-      &lt;td&gt;nil&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;punctuation&lt;/td&gt;
-      &lt;td&gt;nil&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-Unset values (&lt;code&gt;nil&lt;/code&gt;) show up as &quot;unspecified&quot; in the customize
-interface.
-
-&lt;ol&gt;
-&lt;li&gt;Do not directly customize &lt;code&gt;voice-bolden&lt;/code&gt; and friends, instead
-customize the corresponding &lt;code&gt;voice-bolden-settings&lt;/code&gt;, since that
-ensures that all voices that are defined in terms of
-&lt;code&gt;voice-bolden&lt;/code&gt; get correctly updated.&lt;/li&gt;
-
-&lt;li&gt;Discovering what to customize:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Command &lt;code&gt;emacspeak-show-personality-at-point&lt;/code&gt; (bound by default
-to C-e M-v) will show you the value of properties personality and
-face at point. A recent update I implemented last weekend makes
-this more useful, so make sure you do a CVS update; earlier this
-command used to display the ACSS setting --- now it displays the
-abstract name. Describe-variable on these names should tell you
-what to customize; so as an example:&lt;/p&gt;
-
-&lt;p&gt;Put point on a comment line, and hit &lt;code&gt;C-e M-v&lt;/code&gt;:
-you will hear&lt;/p&gt;
-
-&lt;pre class=&quot;example&quot;&gt;
-Personality emacspeak-voice-lock-comment-personality
-Face font-lock-comment-delimiter-face
-&lt;/pre&gt;
-
-&lt;p&gt;Describe-variable of &lt;code&gt;emacspeak-voice-lock-comment-personality&lt;/code&gt; gives:&lt;/p&gt;
-
-&lt;pre class=&quot;example&quot;&gt;
-emacspeak-voice-lock-comment-personality&#39;s value is acss-p0-s0-all
-
-Documentation:
-Personality used for font-lock-comment-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-&lt;/pre&gt;
-
-
-&lt;h3&gt;How It All Works&lt;/h3&gt;
-
-&lt;p class=&quot;first&quot;&gt;Here is a brief explanation of the connection between
-&lt;code&gt;voice-bolden&lt;/code&gt; and its associated &lt;code&gt;voice-bolden-settings&lt;/code&gt;.&lt;/p&gt;
-
-
-&lt;ol&gt;
-&lt;li&gt;Voice  settings are initially in &lt;code&gt;voice-bolden-settings&lt;/code&gt; which is a list
-of numbers.&lt;/li&gt;
-
-&lt;li&gt;That list of numbers needs to be translated to appropriate
-device-specific codes to send to the TTS engine.&lt;/li&gt;
-
-&lt;li&gt;You do not want to do this translation &lt;em&gt;each&lt;/em&gt; time you
-speak something.&lt;/li&gt;
-
-&lt;li&gt;So when &lt;code&gt;voice-bolden&lt;/code&gt; is defined, the definition happens in
-two steps:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The list of settings is stored away in
-&lt;code&gt;voice-bolden-settings&lt;/code&gt;,&lt;/li&gt;
-&lt;li&gt;A corresponding voice-name is generated ---
-&lt;code&gt;acss-a&amp;lt;n&amp;gt;-p&amp;lt;n&amp;gt;-r&amp;lt;n&amp;gt;-s&amp;lt;n&amp;gt;&lt;/code&gt; and the corresponding control codes to
-send to the device are stored away in a hash-table keyed by the above symbol.&lt;/li&gt;
-
-&lt;li&gt;Finally, &lt;code&gt;voice-bolden&lt;/code&gt; is assigned the above symbol.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;What this gives is:&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The ability to customize the voice via custom by editting
-the list of numbers in &lt;code&gt;voice-bolden-settings&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;When that list is editted, &lt;code&gt;voice-bolden&lt;/code&gt; is arranged to be
-updated automatically.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3&gt;Other Useful Commands&lt;/h3&gt;
-&lt;p&gt;In addition, commands
-&lt;code&gt;emacspeak-wizards-generate-voice-sampler&lt;/code&gt; can be
-useful in generating a buffer that shows what the various ACSS
-settings sound like.
-Command &lt;code&gt;emacspeak-wizards-voice-sampler&lt;/code&gt; can be used
-to apply a specific voice to a region of text while experimenting
-with the various settings.&lt;/p&gt;
-
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114048639986049011'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114048639986049011'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-and-voice-locking-using.html' title='Emacspeak And Voice Locking Using Aural CSS '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113970989256663836</id><published>2006-02-11T18:04:00.000-08:00</published><updated>2006-02-11T18:04:52.580-08:00</updated><title type='text'>Playing SuDoKu Using Auditory Feedback </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Emacspeak speech-enables &lt;em&gt;SuDoKu&lt;/em&gt; implemented  by &lt;a href=&quot;http://www.columbia.edu/~jr2075/elisp/index.html&quot;&gt;sudoku.el&lt;/a&gt;.
-Speech-enabling games is an effective means of discovering what
-additions one needs to make to an auditory interface for
-working effectively in an eyes-free environment --- this was
-aptly demonstrated a few years ago by identifying interesting
-&lt;em&gt;conversational gestures&lt;/em&gt; by speech-enabling the game of
-&lt;code&gt;Tetris&lt;/code&gt; --- see  &lt;a href=&quot;http://emacspeak.sourceforge.net/raman/publications/assets-98/paper.pdf&quot;&gt;Conversational
-Gestures For The Audio Desktop&lt;/a&gt; from Assets 1998.&lt;/p&gt;
-
-
-&lt;h4&gt;Advicing Interactive Commands&lt;/h4&gt;
-&lt;p&gt;As with speech-enabling any Emacs module,
-&lt;code&gt;emacspeak-sudoku&lt;/code&gt; &lt;em&gt;advices&lt;/em&gt; all interactive
-commands to produce spoken feedback.
-In addition to speaking the cell moved to, all navigation
-commands produce an auditory icon that is a function of whether
-the cell value is mutable ---  original values cannot be changed
-and this is indicated with a distinctive icon.&lt;/p&gt;
-
-&lt;h4&gt;Additional Interactive Commands&lt;/h4&gt;
-
-&lt;p&gt;Playing SuDoKu effectively requires one to build a good mental
-image of the state of the board as well as the ability to
-effectively query the game for currently active constraints. The
-eye&#39;s ability to  quickly move around the board and perceive row,
-column and sub-square constraints needs to be compensated for in
-an eyes-free environment. As an example, it is too difficult to
-build the necessary mental model by just listening to the board
-spoken aloud, or by listening to idnividual cells by navigating
-to them.&lt;/p&gt;
-
-&lt;p&gt;Here are the set of additional interactive commands that
-needed to be added in order to be able to play the game
-effectively.&lt;/p&gt;
-
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;r&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speak current row.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;c&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speak current column&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;s&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speak current sub-square.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;R&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speak number of remaining cells in current row.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;C&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speak number of remaining cells in current column.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;S&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speak number of remaining cells in current sub-square.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;d&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the sub-square below the current sub-square.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;u&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the sub-square above the current sub-square.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;n&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the next sub-square.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;p&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the previous sub-square.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;a&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the beginning of current row.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;e&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the end of the current row.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;t&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the top of the current column.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;b&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Move to the bottom of the current column.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;,&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speaks information about the overall &lt;em&gt;distribution&lt;/em&gt; of
-numbers on the board.
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;d&lt;/code&gt; --- Conveys how many instances of each digit
-have been filled in.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;s&lt;/code&gt; --- Conveys number of remaining cells in each
-sub-square.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;r&lt;/code&gt; --- Conveys number of remaining cells in each
-row.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;c&lt;/code&gt; --- Conveys number of remaining cells in each
-column.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;/&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speaks number of remaining cells in the current board.&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;.&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;Speaks value in current cell.&lt;/dd&gt;
-&lt;/dl&gt;
-
-&lt;p&gt;Notes on how invormation is spoken:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Numbers are spoken in groups of 3 to achieve effective
-intonation.&lt;/li&gt;
-&lt;li&gt;When navigating by sub-squares, point &lt;em&gt;always&lt;/em&gt; moves
-to the top left corner of the sub-square.&lt;/li&gt;
-&lt;li&gt;Additional commands bound to &lt;code&gt;M-r&lt;/code&gt;,
-&lt;code&gt;M-c&lt;/code&gt; and &lt;code&gt;M-s&lt;/code&gt; erase the current row,
-column or sub-square respectively. These commands would probably
-be convenient to have independent of whether one is using visual
-output.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Effectiveness Of The Resulting Interface&lt;/h4&gt;
-
-&lt;p&gt;With the above interface in place, the simpler levels of the
-game are a breeze, levels &lt;em&gt;difficult&lt;/em&gt; and &lt;em&gt;evil&lt;/em&gt;
-are sufficiently challenging to be fun.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113970989256663836'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113970989256663836'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html' title='Playing SuDoKu Using Auditory Feedback '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113842396545550696</id><published>2006-01-27T20:52:00.000-08:00</published><updated>2006-01-27T20:52:45.470-08:00</updated><title type='text'>Browsing Sourceforge Download Servers </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Sourceforge is a nice service, but it can also be painful to
-use because of the heavy-weight Web page design, and the need to
-repeatedly click before you get the download you want.&lt;/p&gt;
-&lt;p&gt;The most irksome of these is the download mechanism provided
-by Sourceforge --- where you first need to browse a list of
-download servers, pick a mirror, and then download what you
-want. 
-Emacspeak implements a &lt;em&gt;Smart URL&lt;/em&gt; that enables one to
-download from Sourceforge in a single step.&lt;/p&gt;
-&lt;p&gt;By default, this uses a North American mirror; the behavior
-can be customized if outside the US.
-Use &lt;em&gt;smart URL&lt;/em&gt; &lt;code&gt;Sourceforge Browse Mirror&lt;/code&gt; and
-specify the name of a SF hosted project when prompted.
-This brings up the index page for the project&#39;s download area,
-sorted by date. Move to the bottom of the page and   hit
-&lt;code&gt;b&lt;/code&gt; to move to the latest available download.&lt;/p&gt;
-&lt;p&gt;The &lt;em&gt;smart URL&lt;/em&gt; sets up the W3 buffer with a
-context-sensitive download function; when on a download link, hit
-&lt;code&gt;C-d&lt;/code&gt;
-to start downloading. This command will prompt for the URL;
-rather than hitting &lt;code&gt;return&lt;/code&gt; (which would bring you to
-the &lt;em&gt;browse mirrors&lt;/em&gt; page, hit &lt;code&gt;M-p&lt;/code&gt; to get the
-download URL for your  SF mirror.
-Note that this wizard uses &lt;code&gt;GNU wget&lt;/code&gt; to perform the
-download
-via Emacs module &lt;code&gt;w3-wget&lt;/code&gt;.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842396545550696'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842396545550696'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/browsing-sourceforge-download-servers.html' title='Browsing Sourceforge Download Servers '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-113842342844647994</id><published>2006-01-27T20:43:00.000-08:00</published><updated>2006-01-27T20:43:48.903-08:00</updated><title type='text'>BBC Channels On Emacspeak </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Since the BBC&#39;s various channels are what I listen to the
-most, launching BBC channels has always been a couple of
-keystrokes in Emacspeak. As a first step, directory
-&lt;code&gt;realaudio/radio&lt;/code&gt; contains shortcut files for
-launching  live streams from the various BBC channels.&lt;/p&gt;
-&lt;p&gt;
-In addition, module &lt;code&gt;emacspeak-url-template&lt;/code&gt; defines a
-number of &lt;em&gt;Smart URLs&lt;/em&gt; for single-click access to BBC
-programs. The ones I use the most are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Smart URL&lt;/em&gt; &lt;code&gt;BBC Channels On Demand&lt;/code&gt;, and &lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Smart URL&lt;/em&gt; &lt;code&gt;BBC Genres On Demand&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-These &lt;em&gt;smart URLs&lt;/em&gt; prompt for the channel or genre
-respectively and bring up a Web page that lists the various shows
-that are available --- note that the BBC archives shows for a
-whole week.
-The resulting Web page is easy to browse in W3; the most
-effective way to skim the buffer is to repeatedly hit
-&lt;code&gt;i&lt;/code&gt; which moves through the various items on the page.
-Hitting &lt;code&gt;e e&lt;/code&gt; (that&#39;s the letter &lt;code&gt;e&lt;/code&gt;
-&lt;em&gt;twice&lt;/em&gt;) while on a hyperlink will launch the
-corresponding media stream by calling   a &lt;em&gt;context-aware&lt;/em&gt;
-command that knows about transforming the URL to one that
-accesses the program stream; --- note that simply following the
-hyperlink will get you first to a page about the program, rather
-than to the program stream itself.&lt;/p&gt;
-&lt;p&gt;To find out what channels and genres are available, browse the
-BBC Web site --- channel and genre names are not hard-wired into
-Emacspeak since these can change over time with channels and
-genres being added or renamed.&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/bbc-channels-on-emacspeak.html' title='BBC Channels On Emacspeak '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
+    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114074992344461641'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114074992344461641'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-connecting-lynx-and-w3.html' title='Emacspeak: Connecting Lynx And W3 '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
