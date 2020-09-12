@@ -99,7 +99,7 @@ the Emacspeak desktop.")
 ;;}}}
 ;;{{{ Package Setup Helper
 
-(defun emacspeak-do-package-setup (package module)
+(defsubst emacspeak-do-package-setup (package module)
   "Setup Emacspeak extension for a specific PACKAGE.
 This function adds the appropriate form to `after-load-alist' to
 set up Emacspeak support for a given package.  Argument MODULE (a
@@ -119,7 +119,6 @@ speech-enabling extensions for `package' (a string)."
 
 (defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages as they are loaded."
-  
   (mapc
    #'(lambda (pair)
        (emacspeak-do-package-setup  (cl-first pair) (cl-second pair)))
