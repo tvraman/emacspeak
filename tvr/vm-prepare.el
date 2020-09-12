@@ -4,5 +4,4 @@
 (autoload 'vm-visit-folder "vm" "Open VM folder" t nil)
 (with-eval-after-load "vm"
   (global-set-key (kbd "C-x m") 'vm-mail)
-  (when (require 'bbdb) (bbdb-insinuate-vm))
-  (load-library "mspools"))
+  (when (require 'bbdb) (bbdb-insinuate-vm)))
