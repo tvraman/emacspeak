@@ -246,8 +246,7 @@ Use Custom to customize where possible. "
     (make-thread #'(lambda () (tvr-fastload (load "emacspeak-muggles"))))))
 (defsubst  tvr-dbus-setup ()
   "Configure DBus Services"
-  (when (dbus-list-known-names :session)
-    (emacspeak-dbus-setup)))
+  (when (dbus-list-known-names :session) (emacspeak-dbus-setup)))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
