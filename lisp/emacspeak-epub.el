@@ -906,6 +906,7 @@ in the epub file instead."
        'unique)
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
+      (eww-update-header-line-format)
       (when emacspeak-web-post-process-hook
         (emacspeak-webutils-run-post-process-hook))
       (goto-char (point-min))
