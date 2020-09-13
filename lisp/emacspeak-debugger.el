@@ -60,6 +60,17 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
+(cl-loop
+ for f in 
+ '(backtrace-forward-frame backtrace-backward-frame)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
 (defadvice debugger-eval-expression (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
