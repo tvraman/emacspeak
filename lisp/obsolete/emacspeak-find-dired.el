@@ -37,19 +37,19 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;{{{Introduction:
+
+;;; Commentary:
+;;; Speech-enabled find-dired.
+;;; Code:
+
+ 
+
+;;}}}
 ;;{{{ required modules
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-;;}}}
-;;{{{  Introduction:
-
-;;; Commentary:
-;;; find-dired is an emacs package for using UNIX find from emacs.
-;;; this module speech-enables find-dired
-
-;;; Code:
 
 ;;}}}
 (provide 'emacspeak-find-dired)
