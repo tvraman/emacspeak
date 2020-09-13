@@ -47,14 +47,15 @@
 ;;; appropriate faces.
 ;;;This is useful in things like shell buffers.
 ;;; This module maps ansi codes to the appropriate voices.
+;;; Code:
 
 ;;}}}
 ;;{{{ required modules
 
-;;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+
 ;;}}}
 ;;{{{ color to voice
 
@@ -86,15 +87,13 @@
 ;;}}}
 ;;{{{ advice interactive commands
 
-(defadvice ansi-color-for-comint-mode-on (after emacspeak
-                                                pre act comp)
+(defadvice ansi-color-for-comint-mode-on (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'on)
     (message "Ansi escape sequences will be processed.")))
 
-(defadvice ansi-color-for-comint-mode-off (after emacspeak
-                                                 pre act comp)
+(defadvice ansi-color-for-comint-mode-off (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'off)
