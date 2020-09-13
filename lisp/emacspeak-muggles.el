@@ -483,12 +483,12 @@ _d_: subtree
  (defhydra emacspeak-muggles-navigate
    (:body-pre
     (progn
-      (emacspeak-hydra-body-pre "Move")
+      (emacspeak-hydra-body-pre "Navigator")
       (emacspeak-hydra-toggle-talkative)
       (condition-case nil (next-line) (error nil)))
     :hint nil
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   "move"
+   "Navigator"
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-navigate"))
    ("s" emacspeak-hydra-toggle-talkative "quiet")
    ("n" next-line "next ")
