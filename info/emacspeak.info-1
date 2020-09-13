@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 12, 2020.
+last updated on September 13, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2966,10 +2966,8 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-eudc::Speech enable  LDAP directory client.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
-* emacspeak-facemenu::Map default Emacs faces like bold to appropriate speech personalities.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
 * emacspeak-filtertext::Utilities to filter text.
-* emacspeak-find-dired::Speech enable  find-dired.
 * emacspeak-find-func::Speech enable emacs’ code finder.
 * emacspeak-fix-interactive::Make  Emacs’ builtin prompts   speak.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
@@ -5696,8 +5694,8 @@ File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calc,  Prev: emacspea
 12.29 emacspeak-c
 =================
 
-Make some of C and C++ mode more emacspeak friendly Works with both
-boring c-mode and the excellent cc-mode
+Make C and C++ mode more emacspeak friendly Works with both boring
+c-mode and the excellent cc-mode
 
 12.29.1 Emacspeak-C Commands
 ----------------------------
