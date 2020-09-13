@@ -436,20 +436,10 @@ and their meanings. ")
      (define-key c-mode-map "\C-cs" 'emacspeak-c-speak-semantics)
      (define-key c-mode-map "\M-n" 'c-next-statement)
      (define-key c-mode-map "\M-p" 'c-previous-statement)
-     (when (and  (boundp 'c-mode-base-map)
-                 c-mode-base-map)
-       (define-key c-mode-base-map
-         "\M-\C-a" 'c-beginning-of-defun)
-       (define-key c-mode-base-map "\M-\C-e" 'c-end-of-defun)
+     (when (and  (boundp 'c-mode-base-map) c-mode-base-map)
        (define-key c-mode-base-map "\C-cs" 'emacspeak-c-speak-semantics)
        (define-key c-mode-base-map "\M-n" 'c-next-statement)
-       (define-key c-mode-base-map "\M-p"
-         'c-previous-statement))
-     (emacspeak-pronounce-toggle-use-of-dictionaries t)
-     (or dtk-split-caps
-         (dtk-toggle-split-caps))
-     (or dtk-allcaps-beep
-         (dtk-toggle-allcaps-beep))))
+       (define-key c-mode-base-map "\M-p" 'c-previous-statement))))
 
 ;;}}}
 ;;{{{ personalities
