@@ -2891,7 +2891,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ display world time
 
-(defadvice display-time-world (after emacspeak pre act comp)
+(defadvice world-clock (after emacspeak pre act comp)
   "Speak what you displayed."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
