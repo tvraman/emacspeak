@@ -306,49 +306,13 @@ speech-enabling extensions for `package' (a string)."
     ("ytel" emacspeak-ytel))
   "Packages to prepare Emacs to speech-enable.")
 
-(defsubst emacspeak-prepare-emacs ()
+(defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages as they are loaded."
   (cl-declare (special emacspeak-packages-to-prepare))
   (mapc
    #'(lambda (pair)
        (emacspeak-do-package-setup  (cl-first pair) (cl-second pair)))
    emacspeak-packages-to-prepare))
-
-;;}}}
-;;{{{  Submit bugs
-
-(defconst emacspeak-bug-address
-  "emacspeak@cs.vassar.edu"
-  "Address for bug reports and questions.")
-
-(defun emacspeak-submit-bug ()
-  "Function to submit a bug to the programs maintainer."
-  (interactive)
-  (require 'reporter)
-  (when
-      (yes-or-no-p "Are you sure you want to submit a bug report? ")
-    (let (
-          (vars '(
-                  emacs-version
-                  system-type
-                  emacspeak-version  dtk-program
-                  dtk-speech-rate dtk-character-scale
-                  dtk-split-caps dtk-capitalize
-                  dtk-punctuation-mode
-                  emacspeak-line-echo  emacspeak-word-echo
-                  emacspeak-character-echo
-                  emacspeak-use-auditory-icons
-                  emacspeak-audio-indentation)))
-      (mapcar
-       #'(lambda (x)
-           (if (not (and (boundp x) (symbol-value x)))
-               (setq vars (delq x vars))))vars)
-      (reporter-submit-bug-report
-       emacspeak-bug-address
-       (concat "Emacspeak Version: " emacspeak-version)
-       vars
-       nil nil
-       "Description of Problem:"))))
 
 ;;}}}
 ;;{{{ setup programming modes
@@ -369,7 +333,7 @@ caps."
     (emacspeak-pronounce-refresh-pronunciations)
     (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
 
-(defun emacspeak-setup-programming-modes ()
+(defsubst emacspeak-setup-programming-modes ()
   "Setup programming modes."
   (add-hook 'prog-mode-hook #'emacspeak-setup-programming-mode)
   (mapc
@@ -384,7 +348,7 @@ caps."
 ;;}}}
 ;;{{{ exporting emacspeak environment to subprocesses
 
-(defun emacspeak-export-environment ()
+(defsubst emacspeak-export-environment ()
   "Export shell environment.
 This exports emacspeak's system variables to the environment
 so it can be passed to subprocesses."
@@ -492,6 +456,42 @@ commands and options for details."
   (switch-to-buffer "*Help*")
   (dtk-set-punctuations 'all)
   (emacspeak-speak-buffer))
+
+;;}}}
+;;{{{  Submit bugs
+
+(defconst emacspeak-bug-address
+  "emacspeak@cs.vassar.edu"
+  "Address for bug reports and questions.")
+
+(defun emacspeak-submit-bug ()
+  "Function to submit a bug to the programs maintainer."
+  (interactive)
+  (require 'reporter)
+  (when
+      (yes-or-no-p "Are you sure you want to submit a bug report? ")
+    (let (
+          (vars '(
+                  emacs-version
+                  system-type
+                  emacspeak-version  dtk-program
+                  dtk-speech-rate dtk-character-scale
+                  dtk-split-caps dtk-capitalize
+                  dtk-punctuation-mode
+                  emacspeak-line-echo  emacspeak-word-echo
+                  emacspeak-character-echo
+                  emacspeak-use-auditory-icons
+                  emacspeak-audio-indentation)))
+      (mapcar
+       #'(lambda (x)
+           (if (not (and (boundp x) (symbol-value x)))
+               (setq vars (delq x vars))))vars)
+      (reporter-submit-bug-report
+       emacspeak-bug-address
+       (concat "Emacspeak Version: " emacspeak-version)
+       vars
+       nil nil
+       "Description of Problem:"))))
 
 ;;}}}
 (provide 'emacspeak)
