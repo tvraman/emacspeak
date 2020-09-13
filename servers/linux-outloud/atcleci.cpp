@@ -242,7 +242,7 @@ static size_t alsa_configure(void) {
 }
 
 //>
-//<xrun and suspend
+//< suspend
 
 #ifndef timersub
 
@@ -256,46 +256,6 @@ static size_t alsa_configure(void) {
     }                                                \
   } while (0)
 #endif
-
-// static void xrun(void) {
-//   snd_pcm_status_t *status;
-//   int res;
-
-//   snd_pcm_status_alloca(&status);
-//   if ((res = snd_pcm_status(AHandle, status)) < 0) {
-//     fprintf(stderr, "status error: %s", snd_strerror(res));
-//     alsa_close();
-//     exit(EXIT_FAILURE);
-//   }
-//   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_RUNNING) {
-//     // DMIX appears to be in a confused state, attempt to restore sanity.
-//     if ((res = snd_pcm_prepare(AHandle)) < 0) {
-//       // Attempt to fix failed!
-//       fprintf(stderr, "XRUN: prepare error: %s", snd_strerror(res));
-//       alsa_close();
-//       exit(EXIT_FAILURE);
-//     }
-//     return; // ready to continue
-//   }
-//   if (snd_pcm_status_get_state(status) == SND_PCM_STATE_XRUN) {
-//     struct timeval now, diff, tstamp;
-//     gettimeofday(&now, 0);
-//     snd_pcm_status_get_trigger_tstamp(status, &tstamp);
-//     timersub(&now, &tstamp, &diff);
-//     fprintf(stderr, "Underrun!!! (at least %.3f ms long)\n",
-//             diff.tv_sec * 1000 + diff.tv_usec / 1000.0);
-//     if ((res = snd_pcm_prepare(AHandle)) < 0) {
-//       fprintf(stderr, "xrun: prepare error: %s", snd_strerror(res));
-//       alsa_close();
-//       exit(EXIT_FAILURE);
-//     }
-//     return;  // ok, data should be accepted again
-//   }
-//   fprintf(stderr, "read/write error, state = %s\n",
-//           snd_pcm_state_name(snd_pcm_status_get_state(status)));
-//   // DMIX leaves device in a strange state, so retry.
-//   alsa_retry();
-// }
 
 static void suspend(void) {
   int res;
