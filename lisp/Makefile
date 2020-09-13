@@ -68,7 +68,6 @@ tts.elc tts-cmds.elc  \
 plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc
 
-
 SPEAK_OBJECTS =   \
 emacspeak-speak.elc  \
 emacspeak-prompts.elc \
@@ -158,7 +157,6 @@ emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-feeds.elc \
 emacspeak-filtertext.elc \
-emacspeak-ftf.elc \
 emacspeak-find-func.elc \
 emacspeak-flycheck.elc \
 emacspeak-flymake.elc \
@@ -302,7 +300,6 @@ emacspeak-yaml.elc \
 emacspeak-ytel.elc \
 emacspeak-yasnippet.elc
 
-
 ADDON_OBJECTS = \
 nm.elc \
 tapestry.elc     \
@@ -440,7 +437,6 @@ dom-addons.elc: dom-addons.el
 emacspeak-eww.elc: emacspeak-eww.el  dom-addons.elc dtk-speak.elc voice-setup.elc
 emacspeak-feeds.elc: emacspeak-feeds.el emacspeak-webutils.elc dtk-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
-emacspeak-ftf.elc: emacspeak-ftf.el dtk-speak.elc
 emacspeak-find-func.elc: emacspeak-find-func.el dtk-speak.elc voice-setup.elc
 emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-setup.elc
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc

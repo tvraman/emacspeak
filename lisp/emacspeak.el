@@ -177,7 +177,6 @@ speech-enabling extensions for `package' (a string)."
     ("evil" emacspeak-evil)
     ("eww" emacspeak-eww)
     ("find-func" emacspeak-find-func)
-    ("find-things-fast" emacspeak-ftf)
     ("flycheck" emacspeak-flycheck)
     ("flymake" emacspeak-flymake)
     ("flyspell" emacspeak-flyspell)

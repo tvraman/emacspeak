@@ -93,7 +93,6 @@ This chapter documents a total of 1256 commands and 920 options.
 * emacspeak-folding::Speech enable Folding Mode -- enables structured editing.
 * emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs' forms mode  -- provides  a convenient database interface.
-* emacspeak-ftf::Speech-enable find-things-fast.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-generic::Speech enable  generic modes.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
@@ -8260,12 +8259,6 @@ Personality for read-only fields.
 Personality for read-write fields. 
 
 @end defvar
-
-@node emacspeak-ftf
-@section emacspeak-ftf
-
-FTF ==  find-things-fast
-Package ftf --- find-things-fast -- is available from the marmalade emacs package archive
 
 @node emacspeak-geiser
 @section emacspeak-geiser

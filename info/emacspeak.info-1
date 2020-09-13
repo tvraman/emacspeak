@@ -2976,7 +2976,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-folding::Speech enable Folding Mode – enables structured editing.
 * emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs’ forms mode  – provides  a convenient database interface.
-* emacspeak-ftf::Speech-enable find-things-fast.
 * emacspeak-geiser::Speech-enable GEISER.
 * emacspeak-generic::Speech enable  generic modes.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
