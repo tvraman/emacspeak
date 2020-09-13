@@ -151,17 +151,6 @@ Argument `k-map' is a symbol  that names a keymap."
    (emacspeak-muggles-generate 'pianobar-key-map)))
 
 ;;}}}
-;;{{{ Map Hydra Colors To Voices:
-
-(voice-setup-add-map
- '(
-   (hydra-face-red voice-bolden)
-   (hydra-face-blue voice-lighten)
-   (hydra-face-amaranth voice-animate)
-   (hydra-face-pink voice-bolden-medium)
-   (hydra-face-teal voice-lighten-medium)))
-
-;;}}}
 ;;{{{ Brightness:
 
 (global-set-key
