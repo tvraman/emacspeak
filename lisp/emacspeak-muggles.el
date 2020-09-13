@@ -283,6 +283,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 ;;}}}
 ;;{{{ Media Player:
+
 (declare-function emacspeak-amark-save "emacspeak-muggles" t)
 (global-set-key
  (kbd "s-;")
@@ -707,6 +708,39 @@ Info-mode:
    ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
 ;;}}}
+;;{{{Vuiet:
+(declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
+
+(global-set-key
+ (kbd "C-; v")
+ (defhydra emacspeak-muggles-vuiet
+   (:body-pre
+    (progn
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-body-pre "Vuiet  Explorer"))
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+   (";" vuiet-playing-track-lyrics)
+   ("=" vuiet-player-volume-inc)
+   ("-" vuiet-player-volume-dec)
+   ("A" vuiet-play-artist-loved-tracks)
+   ("'" vuiet-play-loved-tracks)
+   ("," vuiet-seek-backward)
+   ("." vuiet-seek-forward)
+   ("C-s" vuiet-artist-info-search)
+   ("L" vuiet-playing-artist-lastfm-page)
+   ("SPC" vuiet-play-pause)
+   ("a" vuiet-artist-info)
+   ("i" emacspeak-vuiet-track-info)
+   ("l" vuiet-love-track)
+   ("n" vuiet-next)
+   ("p" vuiet-play-artist)
+   ("r" vuiet-replay)
+   ("s" vuiet-stop)
+   ("t" vuiet-play-track)
+   ("u" vuiet-unlove-track)
+   ))
+
+;;}}}
 ;;{{{ Muggles Autoload Wizard:
 
 (defvar emacspeak-muggles-pattern
@@ -750,39 +784,7 @@ Also generates global keybindings if any."
     (message "Generated autoloads for muggles.")))
 
 ;;}}}
-;;{{{Vuiet:
-(declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
 
-(global-set-key
- (kbd "C-; v")
- (defhydra emacspeak-muggles-vuiet
-   (:body-pre
-    (progn
-      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "Vuiet  Explorer"))
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   (";" vuiet-playing-track-lyrics)
-   ("=" vuiet-player-volume-inc)
-   ("-" vuiet-player-volume-dec)
-   ("A" vuiet-play-artist-loved-tracks)
-   ("'" vuiet-play-loved-tracks)
-   ("," vuiet-seek-backward)
-   ("." vuiet-seek-forward)
-   ("C-s" vuiet-artist-info-search)
-   ("L" vuiet-playing-artist-lastfm-page)
-   ("SPC" vuiet-play-pause)
-   ("a" vuiet-artist-info)
-   ("i" emacspeak-vuiet-track-info)
-   ("l" vuiet-love-track)
-   ("n" vuiet-next)
-   ("p" vuiet-play-artist)
-   ("r" vuiet-replay)
-   ("s" vuiet-stop)
-   ("t" vuiet-play-track)
-   ("u" vuiet-unlove-track)
-   ))
-
-;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
