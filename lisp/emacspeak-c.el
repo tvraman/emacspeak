@@ -40,18 +40,18 @@
 
 ;;; Commentary:
 
-;;; Make some of C and C++ mode more emacspeak friendly
+;;; Make  C and C++ mode more emacspeak friendly
 ;;; Works with both boring c-mode
 ;;; and the excellent cc-mode
+
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
 
-;;; Code:
-
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'cc-mode)
+(eval-when-compile (require 'cc-mode))
 
 ;;}}}
 ;;{{{ advice electric deletion
@@ -428,8 +428,7 @@ and their meanings. ")
 ;;}}}
 ;;{{{ Additional keybindings:
 
-(cl-declaim (special c-mode-map
-                     c-mode-base-map))
+(cl-declaim (special c-mode-map c-mode-base-map))
 (add-hook
  'c-mode-common-hook
  #'(lambda ()
