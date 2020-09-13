@@ -211,7 +211,7 @@ speech-enabling extensions for `package' (a string)."
     ("js2-mode" emacspeak-js2)
     ("kmacro" emacspeak-kmacro)
     ("lispy" emacspeak-lispy)
-    ("lua-mdoe" emacspeak-lua)
+    ("lua-mode" emacspeak-lua)
     ("magit" emacspeak-magit)
     ("make-mode" emacspeak-make-mode)
     ("man" emacspeak-man)
