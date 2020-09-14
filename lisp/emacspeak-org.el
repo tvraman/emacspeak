@@ -460,13 +460,13 @@
   (cl-pushnew
    '("eww" :follow 'eww :store org-eww-store-link)
    org-link-parameters)
-  ;;; add these to outline-minor-mode-map
-     ;;; will work in both org and orgalist when loaded 
+;;; add these to outline-minor-mode-map
+;;; will work in both org and orgalist when loaded 
 
-(define-key org-mode-map (kbd "C-o e") 'tvr-org-enumerate)
-(define-key org-mode-map (kbd "C-o i") 'tvr-org-itemize)
-(define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
-(define-key outline-minor-mode-map (kbd "C-o e") 'tvr-org-enumerate)
+  (define-key org-mode-map (kbd "C-o e") 'tvr-org-enumerate)
+  (define-key org-mode-map (kbd "C-o i") 'tvr-org-itemize)
+  (define-key outline-minor-mode-map (kbd "C-o i") 'tvr-org-itemize)
+  (define-key outline-minor-mode-map (kbd "C-o e") 'tvr-org-enumerate)
 
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)

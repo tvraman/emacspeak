@@ -1211,10 +1211,10 @@ provides commands for having parts of the current buffer, the
 mode-line etc to be spoken.
 
 If you are hearing this description as a result of pressing
-C-h C-e you may want to press C-e s to
-stop speech, and then use the arrow keys to move around in the Help
-buffer to read the rest of this description, which includes a summary
-of all emacspeak keybindings.
+C-h C-e you may want to press use the
+arrow keys to move around in the Help buffer to read the rest of
+this description, which includes a summary of all emacspeak
+keybindings.
 
 All emacspeak commands use C-e as a prefix
 key.  You can also set the state of the TTS engine by using
