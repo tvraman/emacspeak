@@ -1948,16 +1948,7 @@ Optional  interactive prefix arg `log-msg' logs spoken info to *Messages*."
   (cl-declare (special minor-mode-alist))
   (force-mode-line-update)
   (let ((cs (ems-get-buffer-coding-system))
-        (info
-         (mapconcat
-          #'(lambda (item)
-              (let ((var (car item))
-                    (value (cadr item)))
-                (if (and (boundp var) (eval var))
-                    (format-mode-line value)
-                  "")))
-          minor-mode-alist
-          " ")))
+        (info (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
     (dtk-speak (concat info cs))))
 
