@@ -394,10 +394,10 @@ provides commands for having parts of the current buffer, the
 mode-line etc to be spoken.
 
 If you are hearing this description as a result of pressing
-\\[emacspeak-describe-emacspeak] you may want to press \\[dtk-stop] to
-stop speech, and then use the arrow keys to move around in the Help
-buffer to read the rest of this description, which includes a summary
-of all emacspeak keybindings.
+\\[emacspeak-describe-emacspeak] you may want to press use the
+arrow keys to move around in the Help buffer to read the rest of
+this description, which includes a summary of all emacspeak
+keybindings.
 
 All emacspeak commands use \\[emacspeak-prefix-command] as a prefix
 key.  You can also set the state of the TTS engine by using
