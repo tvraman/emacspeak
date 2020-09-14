@@ -102,6 +102,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
 (declare-function pianobar "ext:pianobar" nil)
 (declare-function pianobar-send-string  "ext:pianobar" (cmd))
 (defun emacspeak-pianobar-volume-down ()
@@ -142,25 +143,26 @@
 
 ;;; Advice all actions to play a pre-auditory icon
 
-(cl-loop for  f in
-         '(pianobar-pause-song pianobar-love-current-song
-                               pianobar-ban-current-song pianobar-bookmark-song
-                               pianobar-create-station pianobar-delete-current-station
-                               pianobar-explain-song
-                               pianobar-add-shared-station pianobar-song-history
-                               pianobar-currently-playing pianobar-add-shared-station
-                               pianobar-move-song-different-station pianobar-next-song
-                               pianobar-rename-current-station
-                               pianobar-change-station
-                               pianobar-tired-of-song
-                               pianobar-upcoming-songs
-                               pianobar-select-quickmix-stations pianobar-next-song)
-         do
-         (eval
-          `(defadvice ,f (before emacspeak pre act comp)
-             "Play auditory icon."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'item)))))
+(cl-loop
+ for  f in
+ '(pianobar-pause-song pianobar-love-current-song
+                       pianobar-ban-current-song pianobar-bookmark-song
+                       pianobar-create-station pianobar-delete-current-station
+                       pianobar-explain-song
+                       pianobar-add-shared-station pianobar-song-history
+                       pianobar-currently-playing pianobar-add-shared-station
+                       pianobar-move-song-different-station pianobar-next-song
+                       pianobar-rename-current-station
+                       pianobar-change-station
+                       pianobar-tired-of-song
+                       pianobar-upcoming-songs
+                       pianobar-select-quickmix-stations pianobar-next-song)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
+     "Play auditory icon."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'item)))))
 
 (defadvice pianobar-window-toggle (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -180,12 +182,8 @@
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
-;;; Simplified Pianobar Interaction
-
-;;{{{ Customizations And Variables
-
-;;}}}
 ;;{{{ emacspeak-pianobar
+
 (defvar emacspeak-pianobar-electric-mode t
   "Records if electric mode is on.")
 
