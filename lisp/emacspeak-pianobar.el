@@ -58,15 +58,16 @@
 
 ;;; Emacspeak implements command emacspeak-pianobar, a light-weight
 ;;; wrapper on top of pianobar. Emacspeak binds this command to
-;;; @code{C-e '}. In my personal @code{.emacs}, I bind this to
-;;; @code{f5}. Command emacspeak-pianobar is designed to let you
+;;; @code{C-e '}. 
+;;;  Command emacspeak-pianobar is designed to let you
 ;;; launch Pandora channels and switch tracks/channels without moving
 ;;; away from your primary tasks such as editting code or
 ;;; reading/composing email. Toward this end, launching command
 ;;; emacspeak-pianobar the first time initializes the
 ;;; @code{*pianobar*} buffer and launches command @code{pianobar};
-;;; Focus is placed in the @code{*pianobar*} buffer. Pianobar can be
-;;; controlled with single keystrokes while in this buffer. The most
+;;; but focus  remains   in your current buffer. Pianobar can be
+;;; controlled with single keystrokes while in  the pianobar  buffer
+;;; --- switch to   using @code{C-e ''}. The most
 ;;; useful keys are @code{right} for skipping tracks, @code{up} and
 ;;; @code{down} for switching channels etc.; see the keys bound in
 ;;; @code{pianobar-key-map} for a complete list. Pressing @code{C-e '}
