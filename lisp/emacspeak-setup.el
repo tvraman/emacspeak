@@ -212,6 +212,9 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
 ;;; Start emacspeak if emacs   is interactive:
 
 (unless noninteractive (emacspeak))
+(message "emacspeak ready after %s seconds"
+         (float-time
+          (time-subtract (current-time) before-init-time)))
 
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables
