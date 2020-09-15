@@ -692,6 +692,7 @@ command that the key sequence executes."
     ("s" emacspeak-wizards-shell)
     ("t" twit)
     ("u" list-unicode-display)
+    ("SPC" emacspeak-webspace)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
@@ -728,8 +729,6 @@ interactive command that the key sequence executes."
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
-
-(define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 
 ;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
