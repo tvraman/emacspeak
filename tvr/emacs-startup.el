@@ -245,10 +245,6 @@ Use Custom to customize where possible. "
   "Defered muggles loader."
   (tvr-fastload (load "emacspeak-muggles")))
 
-(defsubst  tvr-dbus-setup ()
-  "Configure DBus Services"
-  (when (dbus-list-known-names :session) (emacspeak-dbus-setup)))
-
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
@@ -265,8 +261,8 @@ Use Custom to customize where possible. "
         (run-with-idle-timer 1 nil #'yas-reload-all)
         (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
         (setq start (current-time))
-        (tvr-dbus-setup)
-        (tvr-time-it "dbus" start)
+        (when (dbus-list-known-names :session) (emacspeak-dbus-setup)
+              (tvr-time-it "dbus" start))
         (setq start (current-time))
         (soundscape-toggle)
         (emacspeak-wizards-project-shells-initialize)
