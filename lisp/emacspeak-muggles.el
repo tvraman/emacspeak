@@ -75,6 +75,7 @@
 ;;; @item Repeatable-Yank: @kbd{C-y} Smart yank
 ;;; @item SmartParens: @kbd{C-c ,} Smart Parens
 ;;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
+;;; @item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and undo-redo on @kbd{\}
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
@@ -615,6 +616,26 @@ Info-mode:
 
 (global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
+
+;;}}}
+;;{{{ Repeatable Undo
+
+;;; Repeatable undo-only and undo-redo 
+(global-set-key (kbd "C-/") 
+                (defhydra emacspeak-muggles-undo-only/undo-redo
+                  (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
+                             :pre
+                             (progn
+                               (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+                               (emacspeak-hydra-pre))
+                             :post emacspeak-hydra-post)
+                  "Undo"
+                  ("?" (emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo"))
+                  ("/" undo-only nil)
+                  ("\\" undo-redo nil)))
+
+
+
 
 ;;}}}
 ;;{{{ origami:

@@ -5576,6 +5576,7 @@ terminology as shown in the hydra package documentation.
    • Repeatable-Yank: ‘C-y’ Smart yank
    • SmartParens: ‘C-c ,’ Smart Parens
    • Vuiet Explorer: ‘C-; v’ Vuiet Music Explorer and Player
+   • undo-only/undo-redo: ‘C-/ ’ Undo-only on ‘/’ and undo-redo on ‘\’
 
    Emacspeak automatically speaks Hydra hints when displayed.  To
 silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
@@ -5967,7 +5968,23 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.130.3.15 emacspeak-muggles-view/body
+12.130.3.15 emacspeak-muggles-undo-only/undo-redo/body
+......................................................
+
+ -- Command: emacspeak-muggles-undo-only/undo-redo/body
+     ‘C-/’
+
+     Call the body in the "emacspeak-muggles-undo-only/undo-redo" hydra.
+
+     The heads for the associated hydra are:
+
+     "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo")’,
+     "/":    ‘undo-only’,
+     "\":    ‘undo-redo’
+
+     The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
+
+12.130.3.16 emacspeak-muggles-view/body
 .......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -6028,7 +6045,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.130.3.16 emacspeak-muggles-vuiet/body
+12.130.3.17 emacspeak-muggles-vuiet/body
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
@@ -6061,7 +6078,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
 
-12.130.3.17 emacspeak-muggles-yank-pop/body
+12.130.3.18 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -6080,7 +6097,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
 
-12.130.3.18 emacspeak-origami/body
+12.130.3.19 emacspeak-origami/body
 ..................................
 
  -- Command: emacspeak-origami/body

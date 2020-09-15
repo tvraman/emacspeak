@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1256 commands and 921 options.
+This chapter documents a total of 1257 commands and 921 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12573,6 +12573,7 @@ shown in the hydra package documentation.
 @item Repeatable-Yank: @kbd{C-y} Smart yank
 @item SmartParens: @kbd{C-c ,} Smart Parens
 @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
+@item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and undo-redo on @kbd{\}
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
@@ -13032,6 +13033,28 @@ The heads for the associated hydra are:
 "q":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-undo-only/undo-redo/body
+@deffn {Command} emacspeak-muggles-undo-only/undo-redo/body   
+@table @kbd
+@item C-/
+@kindex C-/
+@end table
+
+@findex emacspeak-muggles-undo-only/undo-redo/body
+
+@format
+Call the body in the "emacspeak-muggles-undo-only/undo-redo" hydra.
+
+The heads for the associated hydra are:
+
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo")’,
+"/":    ‘undo-only’,
+"\":    ‘undo-redo’
+
+The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 @end format
 @end deffn
 
