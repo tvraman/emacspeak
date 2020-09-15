@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 13, 2020.
+last updated on September 14, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -7918,7 +7918,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> $:                                emacspeak-speak.    (line  229)
 * <fn> %:                                emacspeak-speak.    (line  416)
 * <fn> &:                                emacspeak-wizards.  (line 1351)
-* <fn> ':                                emacspeak-pianobar. (line   46)
+* <fn> ':                                emacspeak-pianobar. (line   45)
 * <fn> (:                                emacspeak-sounds.   (line   32)
 * <fn> ):                                emacspeak-sounds.   (line   76)
 * <fn> ,:                                emacspeak-speak.    (line  990)
@@ -8328,7 +8328,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e %:                                 Status Information. (line   92)
 * C-e % <1>:                             emacspeak-speak.    (line  415)
 * C-e &:                                 emacspeak-wizards.  (line 1350)
-* C-e ':                                 emacspeak-pianobar. (line   45)
+* C-e ':                                 emacspeak-pianobar. (line   44)
 * C-e (:                                 emacspeak-sounds.   (line   31)
 * C-e ):                                 emacspeak-sounds.   (line   75)
 * C-e ,:                                 emacspeak-speak.    (line  989)
