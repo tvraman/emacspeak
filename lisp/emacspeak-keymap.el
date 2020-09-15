@@ -659,10 +659,10 @@ command that the key sequence executes."
 ;;; years.
 ;;; Turn it into a useful prefix key.
 
-(defvar  emacspeak-ctl-z-map nil
+(defvar  emacspeak-ctl-z-keymap nil
   "Emacspeak ctl-z keymap")
 
-(define-prefix-command 'emacspeak-ctl-z-map   'emacspeak-ctl-z-map)
+(define-prefix-command 'emacspeak-ctl-z-keymap   'emacspeak-ctl-z-keymap)
 
 (defcustom emacspeak-ctl-z-keys 
   '(
@@ -692,13 +692,13 @@ interactive command that the key sequence executes."
            (ems-interactive-command :tag "Command")))
   :set
   #'(lambda (sym val)
-      (emacspeak-keymap-bindings-update emacspeak-ctl-z-map val)
+      (emacspeak-keymap-bindings-update emacspeak-ctl-z-keymap val)
       (set-default sym
                    (sort
                     val
                     #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(global-set-key (kbd "C-z") 'emacspeak-ctl-z-map)
+(global-set-key (kbd "C-z") 'emacspeak-ctl-z-keymap)
 
 ;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
