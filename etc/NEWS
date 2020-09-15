@@ -10,6 +10,15 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 53 --- Emacspeak 53 User Visible Changes
 
 This version requires Emacs-27.1 or later.
+** Add CTL-Z As A New Prefix Keymap
+By default Emacs uses _C-z_ to command _suspend-frame_.
+Emacspeak now redefines _C-z_ to be a prefix keymap, and binds command
+_suspend-frame_ to key _C-z z_.
+This now enables one more complete keymap for binding additional
+convenience commands.
+If you wish to restore the default Emacs behavior, bind _C-z_ to
+command _suspend-frame_ after Emacspeak has been loaded.
+
 
 ** Speech-Enable Package Syslog
 
