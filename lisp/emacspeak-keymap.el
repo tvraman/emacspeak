@@ -653,6 +653,54 @@ command that the key sequence executes."
                 'emacspeak-alt-keymap)
 
 ;;}}}
+;;{{{ Create a C-z keymap that is customizable 
+
+;;; 2020: Suspending emacs with C-z is something I've not done in 30
+;;; years.
+;;; Turn it into a useful prefix key.
+
+(defvar  emacspeak-ctl-z-map nil
+  "Emacspeak ctl-z keymap")
+
+(define-prefix-command 'emacspeak-ctl-z-map   'emacspeak-ctl-z-map)
+
+(defcustom emacspeak-ctl-z-keys 
+  '(
+    ("z" suspend-frame)
+    )
+  "*Specifies ctl-z  key bindings for the audio desktop. 
+
+Bindings specified here are available on prefix key `C-z' for
+example, if you bind `zb' to command `suspend-frame ' then that command
+will be available on key `C-z z'.
+
+KEYS should be a string constant in the format used for saving
+keyboard macros (see `edmacro-mode').
+
+Command is an interactive command or a prefix-command that can be
+bound to a key. 
+
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes."
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak C-Z  Keys"
+          (list
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set
+  #'(lambda (sym val)
+      (emacspeak-keymap-bindings-update emacspeak-ctl-z-map val)
+      (set-default sym
+                   (sort
+                    val
+                    #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+(global-set-key (kbd "C-z") 'emacspeak-ctl-z-map)
+
+;;}}}
 ;;{{{ Create a hyper keymap that users can put personal commands
 
 (defvar  emacspeak-hyper-keymap nil
