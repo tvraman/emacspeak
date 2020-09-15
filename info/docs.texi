@@ -1514,11 +1514,9 @@ TAB		hippie-expand
 C-r		flx-isearch-backward
 C-s		flx-isearch-forward
 C-u		emacspeak-feeds-browse
-SPC		emacspeak-webspace
 '		emacspeak-m-player-using-hrtf
 ,		switch-to-prev-buffer
 .		switch-to-next-buffer
-/		emacspeak-wizards-web-clean-up-processes
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 ;		emacspeak-m-player-using-openal
 B		eww-list-bookmarks
@@ -1543,9 +1541,6 @@ u		list-unicode-display
 v		emacspeak-muggles-vuiet/body
 w		emacspeak-wizards-noaa-weather
 y		yas-expand
-
-SPC SPC		emacspeak-webspace-headlines-browse
-SPC h		emacspeak-webspace-headlines
 
 .
 
@@ -21346,13 +21341,6 @@ Open headline at point by following its link property and filter for content.
 
 @subsubsection emacspeak-webspace-headlines
 @deffn {Command} emacspeak-webspace-headlines   
-@table @kbd
-@item C-; SPC h
-@kindex C-; SPC h
-@item C-x @@ h SPC h
-@kindex C-x @@ h SPC h
-@end table
-
 @findex emacspeak-webspace-headlines
 
 @format
@@ -21362,13 +21350,6 @@ Startup Headlines ticker using RSS/Atom  feeds.
 
 @subsubsection emacspeak-webspace-headlines-browse
 @deffn {Command} emacspeak-webspace-headlines-browse   
-@table @kbd
-@item C-; SPC SPC
-@kindex C-; SPC SPC
-@item C-x @@ h SPC SPC
-@kindex C-x @@ h SPC SPC
-@end table
-
 @findex emacspeak-webspace-headlines-browse
 
 @format
@@ -24068,13 +24049,6 @@ Display Soccer World Cup Card From Google.
 
 @subsubsection emacspeak-wizards-web-clean-up-processes
 @deffn {Command} emacspeak-wizards-web-clean-up-processes   
-@table @kbd
-@item C-; /
-@kindex C-; /
-@item C-x @@ h /
-@kindex C-x @@ h /
-@end table
-
 @findex emacspeak-wizards-web-clean-up-processes
 
 @format
