@@ -87,10 +87,10 @@ provides commands for having parts of the current buffer, the
 mode-line etc to be spoken.
 
 If you are hearing this description as a result of pressing
-C-h C-e you may want to press C-e s to
-stop speech, and then use the arrow keys to move around in the Help
-buffer to read the rest of this description, which includes a summary
-of all emacspeak keybindings.
+C-h C-e you may want to press use the
+arrow keys to move around in the Help buffer to read the rest of
+this description, which includes a summary of all emacspeak
+keybindings.
 
 All emacspeak commands use C-e as a prefix
 key.  You can also set the state of the TTS engine by using
@@ -390,21 +390,18 @@ TAB             hippie-expand
 C-r             flx-isearch-backward
 C-s             flx-isearch-forward
 C-u             emacspeak-feeds-browse
-SPC             emacspeak-webspace
 ’         emacspeak-m-player-using-hrtf
 ,               switch-to-prev-buffer
 .               switch-to-next-buffer
-/               emacspeak-wizards-web-clean-up-processes
 :               emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 ;               emacspeak-m-player-using-openal
 B               eww-list-bookmarks
-F               rg-dwim
 a               emacspeak-wizards-term
 b               eww-list-buffers
 c               browse-url-chrome
 d               magit-dispatch
 e               gmaps
-f               rg
+f               find-file
 g               gnus
 h               emacspeak-org-capture-link
 i               yas-insert-snippet
@@ -420,9 +417,6 @@ u               list-unicode-display
 v               emacspeak-muggles-vuiet/body
 w               emacspeak-wizards-noaa-weather
 y               yas-expand
-
-SPC SPC         emacspeak-webspace-headlines-browse
-SPC h           emacspeak-webspace-headlines
 
 .
 
@@ -472,6 +466,7 @@ c               emacspeak-wizards-view-buffers-filtered-by-this-mode
 d               sdcv-search-input
 e               eww
 f               emacspeak-wizards-find-file-as-root
+g               rg
 h               emacspeak-muggles-hideshow/body
 i               emacspeak-wizards-iheart
 l               eww-open-file

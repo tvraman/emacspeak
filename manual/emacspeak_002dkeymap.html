@@ -160,6 +160,23 @@ relief. Note: I’ve not used this in over 20 years.
   </dl>
   <dl>
     <dt id="index-User-Option-429">Variable: <strong>User
+    Option</strong> <em>emacspeak-ctl-z-keys</em></dt>
+    <dd>
+      <p>*Specifies ctl-z key bindings for the audio desktop.</p>
+      <p>Bindings specified here are available on prefix key ‘C-z’
+      for example, if you bind ‘zb’ to command ‘suspend-frame ’
+      then that command will be available on key ‘C-z z’.</p>
+      <p>KEYS should be a string constant in the format used for
+      saving keyboard macros (see ‘edmacro-mode’).</p>
+      <p>Command is an interactive command or a prefix-command that
+      can be bound to a key.</p>
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-430">Variable: <strong>User
     Option</strong> <em>emacspeak-hyper-keys</em></dt>
     <dd>
       <p>*Specifies hyper key bindings for the audio desktop. Emacs
@@ -179,7 +196,7 @@ relief. Note: I’ve not used this in over 20 years.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-430">Variable: <strong>User
+    <dt id="index-User-Option-431">Variable: <strong>User
     Option</strong> <em>emacspeak-personal-ctlx-keys</em></dt>
     <dd>
       <p>*Specifies personal-ctlx key bindings for use with C-e C-x
@@ -197,7 +214,7 @@ relief. Note: I’ve not used this in over 20 years.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-431">Variable: <strong>User
+    <dt id="index-User-Option-432">Variable: <strong>User
     Option</strong> <em>emacspeak-personal-keys</em></dt>
     <dd>
       <p>*Specifies personal key bindings for the audio desktop.
@@ -215,7 +232,7 @@ relief. Note: I’ve not used this in over 20 years.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-432">Variable: <strong>User
+    <dt id="index-User-Option-433">Variable: <strong>User
     Option</strong> <em>emacspeak-super-keys</em></dt>
     <dd>
       <p>*Specifies super key bindings for the audio desktop. You

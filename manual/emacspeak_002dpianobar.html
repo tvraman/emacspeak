@@ -80,24 +80,23 @@
   <h4 class="subsection">12.147.2 Emacspeak Usage:</h4>
   <p>Emacspeak implements command emacspeak-pianobar, a
   light-weight wrapper on top of pianobar. Emacspeak binds this
-  command to <code>C-e '</code>. In my personal
-  <code>.emacs</code>, I bind this to <code>f5</code>. Command
-  emacspeak-pianobar is designed to let you launch Pandora channels
-  and switch tracks/channels without moving away from your primary
-  tasks such as editting code or reading/composing email. Toward
-  this end, launching command emacspeak-pianobar the first time
-  initializes the <code>*pianobar*</code> buffer and launches
-  command <code>pianobar</code>; Focus is placed in the
-  <code>*pianobar*</code> buffer. Pianobar can be controlled with
-  single keystrokes while in this buffer. The most useful keys are
-  <code>right</code> for skipping tracks, <code>up</code> and
-  <code>down</code> for switching channels etc.; see the keys bound
-  in <code>pianobar-key-map</code> for a complete list. Pressing
-  <code>C-e '</code> in the <code>*pianobar*</code> buffer buries
-  the <code>*pianobar*</code>. From here on, Pianobar can be
-  controlled by pressing the Pianobar prefix key (<code>C-e
-  '</code>) followed by keys from
-  <code>pianobar-key-map</code>.</p><span id=
+  command to <code>C-e '</code>. Command emacspeak-pianobar is
+  designed to let you launch Pandora channels and switch
+  tracks/channels without moving away from your primary tasks such
+  as editting code or reading/composing email. Toward this end,
+  launching command emacspeak-pianobar the first time initializes
+  the <code>*pianobar*</code> buffer and launches command
+  <code>pianobar</code>; but focus remains in your current buffer.
+  Pianobar can be controlled with single keystrokes while in the
+  pianobar buffer — switch to using <code>C-e ''</code>. The most
+  useful keys are <code>right</code> for skipping tracks,
+  <code>up</code> and <code>down</code> for switching channels
+  etc.; see the keys bound in <code>pianobar-key-map</code> for a
+  complete list. Pressing <code>C-e '</code> in the
+  <code>*pianobar*</code> buffer buries the
+  <code>*pianobar*</code>. From here on, Pianobar can be controlled
+  by pressing the Pianobar prefix key (<code>C-e '</code>) followed
+  by keys from <code>pianobar-key-map</code>.</p><span id=
   "Emacspeak_002dPianobar-Commands"></span>
   <h4 class="subsection">12.147.3 Emacspeak-Pianobar
   Commands</h4><span id="emacspeak_002dpianobar-2"></span>
@@ -234,7 +233,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
   </dl><span id="emacspeak_002dpianobar-Options"></span>
   <h4 class="subsection">12.147.4 emacspeak-pianobar Options</h4>
   <dl>
-    <dt id="index-User-Option-700">Variable: <strong>User
+    <dt id="index-User-Option-701">Variable: <strong>User
     Option</strong> <em>emacspeak-pianobar-max-preset</em></dt>
     <dd>
       <p>Number of presets.</p>
