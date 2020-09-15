@@ -719,7 +719,6 @@ interactive command that the key sequence executes."
     ("C-u" emacspeak-feeds-browse)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
-    ("/" emacspeak-wizards-web-clean-up-processes)
     ("'" emacspeak-m-player-using-hrtf)
     ("B" eww-list-bookmarks)
     ("a" emacspeak-wizards-term)
@@ -740,7 +739,6 @@ interactive command that the key sequence executes."
     ("s" emacspeak-wizards-shell)
     ("t" twit)
     ("u" list-unicode-display)
-    ("SPC" emacspeak-webspace)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
