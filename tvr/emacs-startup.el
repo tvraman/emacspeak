@@ -148,12 +148,12 @@
   "set foreground to black"
   (set-foreground-color "black"))
 
-(defun tvr-set-color-for-today ()
+(defsubst tvr-set-color-for-today ()
   "Set color pair for today."
   (interactive)
   (cl-declare (special tvr-weekday-to-color-alist))
   (let ((pair
-         (elt tvr-weekday-to-color-alist (read (format-time-string "%w")))))
+         (nth (read (format-time-string "%w")) tvr-weekday-to-color-alist)))
     (set-background-color (cl-first pair))
     (set-foreground-color (cl-second pair))))
 
