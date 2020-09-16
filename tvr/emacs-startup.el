@@ -183,7 +183,6 @@ Use Custom to customize where possible. "
    #'(lambda (f) (put f 'disabled nil))
    '(list-threads narrow-to-page list-timers upcase-region
                   downcase-region  narrow-to-region eval-expression ))
-  (setq-default custom-file (expand-file-name "~/.customize-emacs"))
   (prefer-coding-system 'utf-8-emacs)
   (cl-loop ;;; global key-bindings
    for key in
@@ -223,6 +222,7 @@ Use Custom to customize where possible. "
   (define-key esc-map (kbd "M-:") 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
   (tvr-tabs)
+  (setq custom-file (expand-file-name "~/.customize-emacs"))
   (tvr-fastload
       (when (file-exists-p custom-file)  (load custom-file))))
 
