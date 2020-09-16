@@ -621,18 +621,19 @@ Info-mode:
 ;;{{{ Repeatable Undo
 
 ;;; Repeatable undo-only and undo-redo 
-(global-set-key (kbd "C-/") 
-                (defhydra emacspeak-muggles-undo-only/undo-redo
-                  (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
-                             :pre
-                             (progn
-                               (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-                               (emacspeak-hydra-pre))
-                             :post emacspeak-hydra-post)
-                  "Undo"
-                  ("?" (emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo"))
-                  ("/" undo-only nil)
-                  ("\\" undo-redo nil)))
+(global-set-key
+ (kbd "C-/") 
+ (defhydra emacspeak-muggles-undo-only/undo-redo
+   (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
+              :pre
+              (progn
+                (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+                (emacspeak-hydra-pre))
+              :post emacspeak-hydra-post)
+   "Undo"
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo"))
+   ("/" undo-only nil)
+   ("\\" undo-redo nil)))
 
 
 
