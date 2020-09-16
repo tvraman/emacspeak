@@ -48,13 +48,13 @@
 (cl-declaim (optimize (safety 0) (speed 3)))
 (require 'dbus)
 
-(defvar tvr-personal-library
+(defvar tvr-site-lib
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
 
-(when (file-exists-p tvr-personal-library)
-  (push tvr-personal-library load-path))
-(push (expand-file-name "vm/lisp/" tvr-personal-library) load-path)
+(when (file-exists-p tvr-site-lib)
+  (push tvr-site-lib load-path))
+(push (expand-file-name "vm/lisp/" tvr-site-lib) load-path)
 
 (defvar tvr-libs
   "all-prepare"
