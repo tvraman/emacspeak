@@ -222,6 +222,7 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'magit (require 'forge))
   (define-key esc-map (kbd "M-:") 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
+  (tvr-tabs)
   (tvr-fastload
       (when (file-exists-p custom-file)  (load custom-file))))
 
@@ -239,7 +240,6 @@ Use Custom to customize where possible. "
         (tvr-time-it "libs" start)
         (setq start (current-time))
         (tvr-customize) ;;; customizations
-        (tvr-tabs)
         (tvr-time-it "tvr-Custom" start)
         (setq start (current-time))
         (run-with-idle-timer 1 nil #'yas-reload-all)
