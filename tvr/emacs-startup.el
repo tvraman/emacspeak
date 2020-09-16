@@ -47,7 +47,7 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (require 'dbus)
-(defvar emacspeak-speak-messages)
+
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
