@@ -136,7 +136,7 @@
 
 (defconst tvr-weekday-to-color-map
   [("light sky blue" . "#6FBD87")       ; silver tree
-   ("#FFBCC9" . "#FFD724")              ;gold on pink
+   ("royal blue" . "#FFD724")              ;RoyalBlue on pink
    ("#F4C430" . "sea green")            ; saffron
    ("#FFFFDA" . "royal blue")
    ("mint cream" . "royal blue")
