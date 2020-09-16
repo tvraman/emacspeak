@@ -215,15 +215,14 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
 ;;; Outline Setup:
   (with-eval-after-load 'outline
-    (define-key outline-mode-prefix-map "o" 'open-line) ;;;restore
-    (global-set-key (kbd "C-o") outline-mode-prefix-map))
+    (global-set-key (kbd "C-o") outline-mode-prefix-map) ;;;restore
+    (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (tvr-set-color-for-today)
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (tvr-fastload
-      (when (file-exists-p custom-file)  (load custom-file))))
+  (tvr-fastload (when (file-exists-p custom-file)  (load custom-file))))
 
 (defsubst tvr-defer-muggles ()
   "Defered muggles loader."
@@ -243,10 +242,8 @@ Use Custom to customize where possible. "
         (setq start (current-time))
         (run-with-idle-timer 1 nil #'yas-reload-all)
         (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
-        (setq start (current-time))
         (when (dbus-list-known-names :session)
-          (make-thread #'emacspeak-dbus-setup)
-          (tvr-time-it "dbus" start))
+          (make-thread #'emacspeak-dbus-setup))
         (setq start (current-time))
         (soundscape-toggle)
         (emacspeak-wizards-project-shells-initialize)
