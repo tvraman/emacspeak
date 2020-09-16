@@ -134,28 +134,28 @@
 ;;}}}
 ;;{{{Weekday Colors:
 
-(defconst tvr-weekday-to-color-alist
-  '(("light sky blue" "#6FBD87")        ; silver tree
-    ("#FFBCC9" "#FFD724")               ;gold on pink
-    ("#F4C430" "sea green")             ; saffron
-    ("#FFFFDA" "royal blue")
-    ("mint cream" "royal blue")
-    ("PowderBlue" "gold")
-    ("#FFF3FF" "gold"))                 ; lavender blush
+(defconst tvr-weekday-to-color-map
+  [("light sky blue" . "#6FBD87")       ; silver tree
+   ("#FFBCC9" . "#FFD724")              ;gold on pink
+   ("#F4C430" . "sea green")            ; saffron
+   ("#FFFFDA" . "royal blue")
+   ("mint cream" . "royal blue")
+   ("PowderBlue" . "gold")
+   ("#FFF3FF" . "gold")]                ; lavender blush
   "Alist of color pairs for days of the week")
-
-(defun bw ()
-  "set foreground to black"
-  (set-foreground-color "black"))
 
 (defsubst tvr-set-color-for-today ()
   "Set color pair for today."
   (interactive)
-  (cl-declare (special tvr-weekday-to-color-alist))
+  (cl-declare (special tvr-weekday-to-color-map))
   (let ((pair
-         (nth (read (format-time-string "%w")) tvr-weekday-to-color-alist)))
-    (set-background-color (cl-first pair))
-    (set-foreground-color (cl-second pair))))
+         (aref tvr-weekday-to-color-map (read (format-time-string "%w")))))
+    (set-background-color (car pair))
+    (set-foreground-color (cdr pair))))
+
+(defun bw ()
+  "set foreground to black"
+  (set-foreground-color "black"))
 
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
