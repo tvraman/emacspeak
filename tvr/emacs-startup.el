@@ -108,7 +108,7 @@
 ;;}}}
 ;;{{{ tvr-tabs:
 
-(defun tvr-tabs ()
+(defsubst tvr-tabs ()
   "Set up my tab-bar."
   (tab-new)
   (tab-rename "Books")
