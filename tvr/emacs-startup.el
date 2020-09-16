@@ -92,7 +92,7 @@
 (defalias 'epa--decode-coding-string 'decode-coding-string)
 
 ;;}}}
-;;{{{ helper functions:
+;;{{{ tvr-time-it
 
 (defsubst tvr-time-it (what &optional start)
   "Time code."
@@ -159,7 +159,7 @@
 
 (defun tvr-emacs-startup-hook ()
   "Emacs startup hook.
-Reset gc-cons-threshold to a smaller value, time startup and play
+Reset gc-cons-threshold to a smaller value  and play
 startup sound."
   (cl-declare (special emacspeak-sounds-directory))
   (setq gc-cons-threshold 64000000)
