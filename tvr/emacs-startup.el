@@ -61,13 +61,7 @@
   "Libraries that need extra setup.")
 
 ;;}}}
-;;{{{ Forward Function Declarations:
-(declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
-(declare-function soundscape-toggle "soundscape" nil)
-(declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
-(declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
 
-;;}}}
 ;;{{{ Macro: tvr-fastload:
 
 (defmacro tvr-fastload (&rest body)
@@ -110,16 +104,6 @@
              (format "%s" what))
            (float-time (time-subtract (current-time) start))
            gcs-done gc-elapsed))
-
-(defun load-library-if-available (lib)
-  "Safe load lib."
-  (let ((start (current-time)))
-    (tvr-fastload
-        (condition-case err
-            (progn
-              (load lib)
-              (tvr-time-it lib start))
-          (error (message "Error loading %s: %s" lib (error-message-string err)))))))
 
 ;;}}}
 ;;{{{ tvr-tabs:
@@ -309,6 +293,26 @@ Emacs customization and library configuration happens via the after-init-hook. "
 
 ;;}}}
 (tvr-emacs)
+;;{{{helper: lib if available:
+
+(defun load-library-if-available (lib)
+  "Safe load lib."
+  (let ((start (current-time)))
+    (tvr-fastload
+        (condition-case err
+            (progn
+              (load lib)
+              (tvr-time-it lib start))
+          (error (message "Error loading %s: %s" lib (error-message-string err)))))))
+
+;;}}}
+;;{{{ Forward Function Declarations:
+(declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
+(declare-function soundscape-toggle "soundscape" nil)
+(declare-function emacspeak-dbus-setup "emacspeak-dbus" nil)
+(declare-function emacspeak-wizards-project-shells-initialize "emacspeak-wizards" nil)
+
+;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 
