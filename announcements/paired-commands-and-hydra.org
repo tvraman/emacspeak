@@ -1,0 +1,99 @@
+* Executive Summary 
+
+Emacs commands such as ~yank~ and ~yank-pop~ or ~undo-only~ and
+~undo-redo~ come in logical pairs.  Such logical pairs (or command
+tuples in general) are characterized by the fact that one often
+invokes a sequence of these commands repeatedly until the desired
+result is attained.  Package [[https://github.com/abo-abo/hydra][Hydra]] defines an elegant means of
+combining such command pairs into a single higher-level command that
+can be invoked more efficiently from the keyboard.
+To my knowledge, the only built-in Emacs command that exhibits a
+similar behavior is Emacs' ~text-scale-adjust~.
+
+** Example: ~undo-oanly~ And ~undo-redo~
+
+Command ~undo-only~ allows one to  move back through a sequence of
+changes.Command ~undo-redo~ in contrast /undoes/ previous undo
+commands.
+In practice, one often moves back through a sequence of operations,
+with a few ~undo-redo~ invocations mixed in if one moves back too far.
+
+Emacs convention would suggest that one bind these commands to
+separate keys, but this has a few disadvantages:
+
+  - Binding separate keys to the two commands feels wasteful,
+    especially as unbound keys in Emacs become increasingly precious.
+  - It's not ergonomic  to jump between the two commands in this pair
+    unless one chooses the key-bindings /carefully/ --- as an example,
+    I used _C-x u_ for ~undo-only and _C-x C-u~ for ~undo-redo~ for
+    many years. But now, a continuous sequence of undo operations
+    requires too much chording.
+
+** A Hydra Inspired Solution
+
+  1. Combine the two commands into a higher-level command.
+  2. Bind that command to a single key, in my case _C-/_ (/C-_/ on a tty).
+  3. When invoked, the Hydra-defined command does one of the following:
+     1. Invokes ~undo-only~  on being called, then continues to read keys.
+     2. Subsequent presses of _/_ invoke command ~undo-only~.
+     3. Pressing _\_ invokes ~undo-redo~.
+     4. Any other key quits the Hydra-generated higher-level command.
+
+This is defined as part of Emacspeak's collection of [[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-muggles.el#L1][Muggles]], as is evident, this is much nicer to  your wrists.
+
+
+#+begin_src  emacs-lisp
+(global-set-key
+ (kbd "C-/") 
+ (defhydra emacspeak-muggles-undo-only/undo-redo
+   (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
+              :pre
+              (progn
+                (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+                (emacspeak-hydra-pre))
+              :post emacspeak-hydra-post)
+   "Undo"
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-undo-only/undo-redo"))
+   ("/" undo-only nil)
+   ("\\" undo-redo nil)))
+#+end_src
+
+Note that the above can be simplified by dropping the
+emacspeak-specific clauses when not using Emacspeak.
+
+** Repeatable Yank/Pop From The Hydra Wiki
+
+I originally discovered the metaphor of repeatable paired commands a
+few years ago from the [[https://github.com/abo-abo/hydra.wiki.git][Hydra Wiki]]  which demonstrates a [[https://github.com/abo-abo/hydra/wiki/Emacs][repeatable
+yank/pop]].  To summarize its effects:
+
+  1. _C-y_ invokes the hydra-generated higher-level command.
+  2. Subsequent presses of _y_ is  the same of ~yank-pop~.
+  3. Pressing _Y_ invokes ~yank-pop~ with a negative argument.
+  4. Consequence of above, you can grab the last entry on the
+     ~kill-ring~ by pressing _Y_ after invoking the command --- would
+     take a lot more keystrokes in vanilla Emacs.
+  5. You can also add smart affordances such as searching the
+     ~kill-ring~ via interfaces such as ~ido~.
+
+** Conclusion
+
+As Emacs gains in functionality, grouping commands into higher-level
+abstractions, generating a single higher-level command that is bound
+to a key, and using that invocation context to implement the  result
+of subsequent keypresses is an abstraction that generalizes well.
+
+     
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Emacs: paired Commands — Efficient Keyboard Interaction Using Hydra 
+#+date: <2020-09-16 Wed>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3)
