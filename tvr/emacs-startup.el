@@ -219,7 +219,6 @@ Use Custom to customize where possible. "
     (global-set-key (kbd "C-o") outline-mode-prefix-map))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
-  (define-key esc-map (kbd "M-:") 'emacspeak-wizards-show-eval-result)
   (tvr-set-color-for-today)
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
