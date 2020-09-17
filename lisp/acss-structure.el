@@ -74,14 +74,15 @@
 ;;; future use.
 ;;; See module voice-setup.el  to see how voices are defined
 ;;; independent of a given TTS engine.
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
 
-;;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'tts)
+
 ;;}}}
 ;;{{{ Forward Declarations:
 
@@ -89,8 +90,8 @@
 (declare-function tts-define-voice-from-speech-style "dectalk-voices.el" (name style))
 
 ;;}}}
-
 ;;{{{ tts common vars 
+
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
 
