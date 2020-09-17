@@ -12,9 +12,7 @@
 
 ;;; Commentary:
 ;;; This startup file is set up with the following goals:
-;;; 1. Speed up emacs startup --- setting environment variable
-;;;    "TVR_TIME_EMS" before starting emacs produces detailed timing
-;;;    information in the *Messages* buffer.
+;;; 1. Speed up emacs startup 
 ;;; 2. Customize packages via a custom file as far as possible.
 ;;; 3. Keep the  custom settings  in a separate file, with a later goal of
 ;;;   turning that into a  theme.
@@ -288,19 +286,6 @@ Emacs customization and library configuration happens via the after-init-hook. "
 
 ;;}}}
 (tvr-emacs)
-;;{{{helper: lib if available:
-
-(defun load-library-if-available (lib)
-  "Safe load lib."
-  (let ((start (current-time)))
-    (tvr-fastload
-        (condition-case err
-            (progn
-              (load lib)
-              (tvr-time-it lib start))
-          (error (message "Error loading %s: %s" lib (error-message-string err)))))))
-
-;;}}}
 ;;{{{ Forward Function Declarations:
 (declare-function yas-reload-all "yasnippet" (&optional no-jit interactive))
 (declare-function soundscape-toggle "soundscape" nil)
