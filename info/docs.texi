@@ -15748,7 +15748,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 @findex emacspeak-audio-setup
 
 @format
-Call appropriate audio environment set command.
+Call amixer  command.
 
 (fn &optional PREFIX)
 @end format

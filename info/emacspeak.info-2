@@ -8391,7 +8391,7 @@ appropriate subdirectories of emacspeak-sounds-directory
      ‘C-e (’
      ‘<fn> (’
 
-     Call appropriate audio environment set command.
+     Call amixer  command.
 
      (fn &optional PREFIX)
 
