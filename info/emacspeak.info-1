@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 15, 2020.
+last updated on September 17, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3156,19 +3156,20 @@ produces voice change effects by examining the value of text-property
 ’personality.
 
    Think of a buffer of formatted text along with the text-property
-’personality appropriately set as a "aural display list".  Applications
-like EWW that produce such formatted buffers call function
-acss-personality-from-speech-style with a "speech-style" –a structure as
-defined in this module and get back a symbol that they then assign to
-the value of property ’personality.  Emacspeak’s rendering engine then
-does the needful at the time speech is produced.  Function
-acss-personality-from-speech-style does the following: Takes as input a
-"speech style" (1) Computes a symbol that will be used henceforth to
-refer to this specific speech style.  (2) Examines emacspeak’s internal
-voice table to see if this speech style has a voice already defined.  If
-so it returns immediately.  Otherwise, it does the additional work of
-defining a dectalk-voice for future use.  See module dectalk-voices.el
-to see how voices are defined.
+’personality appropriately set as a "aural display list".  Module
+voice-setup.el help applications like EWW produce audio-formatted output
+by calling function acss-personality-from-speech-style with a
+"speech-style" –a structure as defined in this module and get back a
+symbol that they then assign to the value of property ’personality.
+Emacspeak’s rendering engine then does the needful at the time speech is
+produced.  Function acss-personality-from-speech-style does the
+following: Takes as input a "speech style" (1) Computes a symbol that
+will be used henceforth to refer to this specific speech style.  (2)
+Examines emacspeak’s internal voice table to see if this speech style
+has a voice already defined.  If so it returns immediately.  Otherwise,
+it does the additional work of defining a -voice for future use.  See
+module voice-setup.el to see how voices are defined independent of a
+given TTS engine.
 
 
 File: emacspeak.info,  Node: amixer,  Next: cd-tool,  Prev: acss-structure,  Up: Emacspeak Commands And Options
