@@ -96,10 +96,7 @@
   "Time code."
   (or start (setq start (current-time)))
   (message "<%s %.4f %d gcs %.4f>"
-           (if (stringp what)
-               what
-             (format "%s" what))
-           (float-time (time-subtract (current-time) start))
+           what (float-time (time-subtract (current-time) start))
            gcs-done gc-elapsed))
 
 ;;}}}
@@ -115,7 +112,7 @@
 ;;}}}
 ;;{{{Weekday Colors:
 
-(defconst tvr-weekday-to-color-map
+(defconst tvr-weekday-color-map
   [("light sky blue" . "#6FBD87")       ; silver tree
    ("royal blue" . "#FFD724")              ;RoyalBlue on pink
    ("#F4C430" . "sea green")            ; saffron
@@ -127,10 +124,8 @@
 
 (defsubst tvr-set-color-for-today ()
   "Set color pair for today."
-  (interactive)
-  (cl-declare (special tvr-weekday-to-color-map))
-  (let ((pair
-         (aref tvr-weekday-to-color-map (read (format-time-string "%w")))))
+  (cl-declare (special tvr-weekday-color-map))
+  (let ((pair (aref tvr-weekday-color-map (read (format-time-string "%w")))))
     (set-background-color (car pair))
     (set-foreground-color (cdr pair))))
 
@@ -230,21 +225,14 @@ Use Custom to customize where possible. "
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
   (tvr-fastload
-      (let ((start (current-time)))
-        (load tvr-libs) ;;; load  settings   not  customizable via custom.
-        (tvr-time-it "libs" start)
-        (setq start (current-time))
-        (tvr-customize) ;;; customizations
-        (tvr-time-it "tvr-Custom" start)
-        (setq start (current-time))
-        (run-with-idle-timer 1 nil #'yas-reload-all)
-        (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
-        (when (dbus-list-known-names :session)
-          (make-thread #'emacspeak-dbus-setup))
-        (setq start (current-time))
-        (soundscape-toggle)
-        (emacspeak-wizards-project-shells-initialize)
-        (tvr-time-it "Finishing Up" start))))
+      (load tvr-libs) ;;; load  settings   not  customizable via custom.
+    (tvr-customize)   ;;; customizations
+    (run-with-idle-timer 1 nil #'yas-reload-all)
+    (run-with-idle-timer 1 nil #'tvr-defer-muggles)
+    (when (dbus-list-known-names :session)
+      (make-thread #'emacspeak-dbus-setup))
+    (soundscape-toggle)
+    (emacspeak-wizards-project-shells-initialize)))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
@@ -296,6 +284,18 @@ Emacs customization and library configuration happens via the after-init-hook. "
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values '((folded-file . t))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 ;;;local variables:
 ;;;folded-file: t
 ;;;end:
