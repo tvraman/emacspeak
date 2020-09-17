@@ -45,12 +45,15 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+
 ;;}}}
-;;{{{ Customizations:
+;;{{{ Decls:
+
 ;;; forward decl:
 (defvar emacspeak-speak-messages)
+
 ;;}}}
-;;{{{ Definitions
+;;{{{ Custom:
 
 (defcustom amixer-device "default"
   "ALSA Control Device."
