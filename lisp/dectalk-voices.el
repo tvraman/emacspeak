@@ -43,11 +43,11 @@
 ;;; Commentary:
 ;;; This module defines the various voices used in voice-lock mode.
 ;;; This module is Dectalk specific.
+;;; Code:
 
 ;;}}}
 ;;{{{ required modules
 
-;;; Code:
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
@@ -76,9 +76,6 @@
   (dtk-select-server "dtk-exp")
   (dtk-initialize))
 
-;;;### autoload
-
-
 ;;}}}
 ;;{{{ Forward declarations:
 
@@ -106,7 +103,7 @@ COMMAND-STRING to the Dectalk."
   (cl-declare (special dectalk-voice-table))
   (puthash  name command-string  dectalk-voice-table))
 
-(defun dectalk-get-voice-command (name)
+(defsubst dectalk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (cl-declare (special dectalk-voice-table))
   (cond
@@ -115,7 +112,7 @@ COMMAND-STRING to the Dectalk."
    (t (or  (gethash name dectalk-voice-table)
            dectalk-default-voice-string))))
 
-(defun dectalk-voice-defined-p (name)
+(defsubst dectalk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (cl-declare (special dectalk-voice-table))
   (gethash name dectalk-voice-table))
@@ -136,6 +133,7 @@ COMMAND-STRING to the Dectalk."
 
 ;;}}}
 ;;{{{  the inaudible voice
+
 ;;; no special code needed --handled by Emacspeak engine.
 
 (dectalk-define-voice 'inaudible "")
@@ -621,6 +619,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ configurater
+
 ;;;###autoload
 (defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
