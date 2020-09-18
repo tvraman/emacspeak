@@ -229,14 +229,14 @@ Use Custom to customize where possible. "
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
   (tvr-fastload
-      (load tvr-libs) ;;; load  settings   not  customizable via custom.
-    (tvr-customize)   ;;; customizations
-    (run-with-idle-timer 1 nil #'yas-reload-all)
-    (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
-    (when (dbus-list-known-names :session)
-      (make-thread #'emacspeak-dbus-setup))
-    (soundscape-toggle)
-    (emacspeak-wizards-project-shells-initialize)))
+      (load tvr-libs)) ;;; load  settings   not  customizable via custom.
+  (tvr-customize)      ;;; customizations
+  (run-with-idle-timer 1 nil #'yas-reload-all)
+  (run-with-idle-timer 0.5 nil #'tvr-defer-muggles)
+  (when (dbus-list-known-names :session)
+    (make-thread #'emacspeak-dbus-setup))
+  (soundscape-toggle)
+  (emacspeak-wizards-project-shells-initialize))
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
@@ -270,9 +270,9 @@ Emacs customization and library configuration happens via the after-init-hook. "
   (setq outloud-default-speech-rate 125 ; because we load custom at the end
         dectalk-default-speech-rate 485)
   (tvr-fastload ;;; load emacspeak:
-      (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc"))
+      (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc")))
     (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
-      (push (expand-file-name "tvr/" emacspeak-directory) load-path)))
+      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook)) ;end defun tvr-emacs
 
