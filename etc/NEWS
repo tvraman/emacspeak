@@ -57,6 +57,13 @@ bridge to YT.
 
 Module ~emacspeak-sdcv~ speech-enables emacs package ~sdcv~ to enable
 interaction with Stardict dictionaries.
+
+
+** Module ~emacspeak-tdtd~ Is Obsolete 
+
+Package ~tdtd~ which supported editing of SGML DTDs has disappeared
+from its source location, making module ~emacspeak-tdtd~ obsolete.
+
 ** Module  ~emacspeak-kite~ Is Obsolete.
 
 Package ~kite~ is obsolete --- use Indium for live debugging of Web

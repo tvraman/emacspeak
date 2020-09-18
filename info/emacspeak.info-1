@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1257 commands and 921 options.
+   This chapter documents a total of 1257 commands and 922 options.
 
 * Menu:
 
@@ -3085,7 +3085,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-tapestry::Speak information about current layout of windows.
 * emacspeak-tar::Speech enable Tar Mode – Manipulate tar archives from Emacs.
 * emacspeak-tcl::Speech enable TCL development environment.
-* emacspeak-tdtd::Speech enable  DTD authoring.
 * emacspeak-tempo::Speech enable tempo – template library used for Java and HTML authoring.
 * emacspeak-tetris::Speech enable game of Tetris.
 * emacspeak-texinfo::Speech enable texinfo mode.
@@ -6367,6 +6366,11 @@ emacspeak-widget.el which speech-enables the widget libraries.
      Personality used for custom-variable-button This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
+
+ -- Variable: User Option voice-custom-variable-obsolete
+     Personality used for custom-variable-obsolete This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
 
  -- Variable: User Option voice-custom-variable-tag
      Personality used for custom-variable-tag This personality uses

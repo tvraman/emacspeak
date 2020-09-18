@@ -277,7 +277,6 @@ speech-enabling extensions for `package' (a string)."
     ("table" emacspeak-etable)
     ("tar-mode" emacspeak-tar)
     ("tcl" emacspeak-tcl)
-    ("tdtd" emacspeak-tdtd)
     ("tempo" emacspeak-tempo)
     ("term" emacspeak-eterm)
     ("tetris" emacspeak-tetris)

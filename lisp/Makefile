@@ -266,7 +266,6 @@ emacspeak-tab-bar.elc \
 emacspeak-tapestry.elc \
 emacspeak-tar.elc \
 emacspeak-tcl.elc \
-emacspeak-tdtd.elc \
 emacspeak-tempo.elc \
 emacspeak-tetris.elc \
 emacspeak-threes.elc \
@@ -561,7 +560,6 @@ emacspeak-tab-bar.elc: emacspeak-tab-bar.el dtk-speak.elc voice-setup.elc
 emacspeak-tapestry.elc: emacspeak-tapestry.el dtk-speak.elc voice-setup.elc
 emacspeak-tar.elc: emacspeak-tar.el dtk-speak.elc voice-setup.elc
 emacspeak-tcl.elc: emacspeak-tcl.el dtk-speak.elc voice-setup.elc
-emacspeak-tdtd.elc: emacspeak-tdtd.el dtk-speak.elc voice-setup.elc
 emacspeak-tempo.elc: emacspeak-tempo.el dtk-speak.elc voice-setup.elc
 emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc voice-setup.elc
 emacspeak-threes.elc: emacspeak-threes.el dtk-speak.elc
