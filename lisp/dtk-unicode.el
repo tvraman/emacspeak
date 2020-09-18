@@ -47,22 +47,21 @@
 
 ;;; Commentary:
 
-;;
 ;;; This  Provides Unicode support to the speech layer.
 
 ;;; Code:
 
 ;;}}}
-;;{{{ Preamble
+;;{{{ Required Modules:
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (require 'descr-text)
+
 ;;}}}
 ;;{{{ Customizations
 
-(defgroup dtk-unicode
-  nil
+(defgroup dtk-unicode nil
   "Customization group for dtk-unicode."
   :group 'emacspeak
   :prefix "dtk-unicode-")
@@ -226,6 +225,7 @@ nil if CHAR is not in Unicode."
       (get-char-code-property char 'name)
       (get-char-code-property char 'old-name)
       (format "%c" char))))))
+
 (defun dtk-unicode-char-properties (char)
   "Return unicode properties for CHAR."
   (let ((unicode (encode-char char 'ucs)))
@@ -323,9 +323,6 @@ Does nothing for unibyte buffers."
             (replace-match replacement t t nil)
             (when props
               (set-text-properties pos (point) props))))))))
-
-;;}}}
-(provide 'dtk-unicode)
 
 ;;}}}
 (provide 'dtk-unicode)
