@@ -134,9 +134,7 @@ interactive command. Turn off the flag once used."
   (declare (indent 1) (debug t))
   `(let ((file-name-handler-alist nil)
          (load-source-file-function nil)
-         (inhibit-message t)
-         (gc-cons-threshold 128000000)
-         (gc-cons-percentage 0.7))
+         (inhibit-message t))
      ,@body))
 
 
