@@ -182,6 +182,7 @@
 ;;{{{ define voices
 (voice-setup-add-map
  '(
+   (custom-variable-obsolete voice-smoothen-extra)
    (custom-group-subtitle  voice-smoothen)
    (custom-themed voice-brighten)
    (custom-visibility voice-annotate)
