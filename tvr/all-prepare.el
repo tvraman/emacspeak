@@ -167,7 +167,6 @@ This moves them into the Spam folder."
   (define-key lispy-mode-map (kbd "M-d") 'kill-word)
   (define-key lispy-mode-map (kbd "M-e") 'lispy-move-end-of-line)
   (define-key lispy-mode-map "a" 'special-lispy-beginning-of-defun)
-  (define-key lispy-mode-map "A" 'special-lispy-ace-symbol)
   (define-key lispy-mode-map (kbd "C-,") nil)
   (define-key lispy-mode-map-lispy (kbd "C-,") nil)
 ;;;  Lispy for eval-expression:
