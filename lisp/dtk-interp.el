@@ -39,6 +39,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ introduction
+
 ;;; Commentary:
 ;;; All requests to the speech server are factored out into
 ;;; this module.
@@ -49,15 +50,16 @@
 ;;; speech servers.
 
 ;;; Code:
+
 ;;}}}
 ;;{{{ requires
 
 (require 'cl-lib)
-
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{ Forward declarations:
+
 ;;; From dtk-speak.el
 
 (defvar dtk-speaker-process)
@@ -69,6 +71,7 @@
 
 ;;}}}
 ;;{{{ macros
+
 (defmacro tts-with-voice (voice &rest body)
   "Set voice temporarily and execute body."
   (declare (indent 1) (debug t))
@@ -82,13 +85,14 @@
              (symbol-value ,voice)
            ,voice)))
        ((listp ,voice)
-        (mapconcat #'(lambda (v)
-                       (tts-get-voice-command
-                        (if (boundp v)
-                            (symbol-value v)
-                          v)))
-                   ,voice
-                   " "))
+        (mapconcat
+         #'(lambda (v)
+             (tts-get-voice-command
+              (if (boundp v)
+                  (symbol-value v)
+                v)))
+         ,voice
+         " "))
        (t "")))
      ,@body
      (dtk-interp-queue-code (tts-voice-reset-code))))  
@@ -158,7 +162,6 @@
   (process-send-string dtk-speaker-process (format "tts_say { %s}\n" string)))
 
 ;;}}}
-
 ;;{{{ stop
 
 (defun dtk-interp-stop ()
