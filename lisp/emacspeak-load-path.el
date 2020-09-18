@@ -1,7 +1,7 @@
 ;;; emacspeak-load-path.el -- Setup Emacs load-path for compiling Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
-;;; Description:  Sets up load-path for emacspeak compilation and installation
+;;; Description:  Sets up load-path and env for emacspeak compilation and installation
 ;;; Keywords: Emacspeak, Speech extension for Emacs
 ;;{{{  LCD Archive entry:
 ;;; LCD Archive Entry:
@@ -125,7 +125,22 @@ interactive command. Turn off the flag once used."
         result))))
 
 ;;}}}
+;;{{{Macro: ems--fastload:
 
+;;; Internal macro used to efficiently load files.
+
+(defmacro ems--fastload (&rest body)
+  "Execute body with  an environment condusive to fast-loading files."
+  (declare (indent 1) (debug t))
+  `(let ((file-name-handler-alist nil)
+         (load-source-file-function nil)
+         (inhibit-message t)
+         (gc-cons-threshold 128000000)
+         (gc-cons-percentage 0.7))
+     ,@body))
+
+
+;;}}}
 (provide 'emacspeak-load-path)
 ;;{{{ end of file
 
