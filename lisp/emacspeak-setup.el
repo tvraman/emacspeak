@@ -140,10 +140,12 @@ such as pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{ autoloads, Hooks
 (unless noninteractive
-  (ems--fastload
-    (mapc
-     #'load
-     '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
+  (let ((file-name-handler-alist nil)
+         (load-source-file-function nil)
+         (inhibit-message t))
+      (mapc
+       #'load
+       '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
 
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
