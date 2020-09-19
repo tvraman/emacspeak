@@ -41,8 +41,6 @@
 
 (require 'cl-lib)
 (eval-when-compile (require 'subr-x))
-;(require 'auth-source)
-;(require 'url-parse)
 (require 'advice)
 (setq ad-redefinition-action 'accept)
 (require 'emacspeak-load-path)
@@ -52,7 +50,6 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-keymap)
-
 
 ;;}}}
 
