@@ -284,7 +284,6 @@
    ("u" emacspeak-url-template-fetch)
    ("v" view-register)
    ("w" emacspeak-speak-word)
-   ("{" emacspeak-speak-paragraph)
    ("|" emacspeak-speak-line-set-column-filter)
    ("." dtk-notify-stop)
    )
