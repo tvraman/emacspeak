@@ -424,20 +424,14 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
-  (interactive)
-  (cl-declare (special line-move-visual emacspeak-info-directory
-                       use-dialog-box ))
-  (emacspeak-export-environment)
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
   (when (boundp 'Info-directory-list)
     (push emacspeak-info-directory Info-directory-list))
-  (require 'emacspeak-personality)
   (dtk-initialize)
-  (require 'emacspeak-keymap)
+  (emacspeak-pronounce-load-dictionaries)
   (require 'emacspeak-advice)
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
-  (emacspeak-pronounce-load-dictionaries)
   (emacspeak-setup-programming-modes)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
   (make-thread #'emacspeak-prepare-emacs)

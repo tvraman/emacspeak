@@ -308,23 +308,21 @@ applied."
 ;;;###autoload
 (defun emacspeak-pronounce-load-dictionaries (&optional filename)
   "Load pronunciation dictionaries.
-Optional argument FILENAME specifies the dictionary file."
+Optional argument FILENAME specifies the dictionary file,
+Default is emacspeak-pronounce-dictionaries-file."
   (interactive
-   (list (read-file-name
-          "Load pronunciation dictionaries from file: "
-          emacspeak-resource-directory
-          emacspeak-pronounce-dictionaries-file)))
-  (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
-  (when (file-exists-p 
-(or  filename  emacspeak-pronounce-dictionaries-file))
+   (list
+    (read-file-name
+     "Load pronunciation dictionaries from file: "
+     emacspeak-resource-directory emacspeak-pronounce-dictionaries-file)))
+  (cl-declare (special emacspeak-pronounce-dictionaries-file emacspeak-pronounce-dictionaries-loaded))
+  (setq filename (or  filename  emacspeak-pronounce-dictionaries-file))
+  (when (file-exists-p filename)
     (condition-case nil
-          (progn
-            (ems--fastload filename)
-            (setq emacspeak-pronounce-dictionaries-loaded t))
-      (error
-       (message "Error loading pronunciation dictionary, deactivating  pronunciations.")
-       (setq emacspeak-pronounce-dictionaries (make-hash-table)
-             emacspeak-pronounce-dictionaries-loaded t)))))
+        (progn
+          (ems--fastload filename)
+          (setq emacspeak-pronounce-dictionaries-loaded t))
+      (error (message "Error loading pronunciation dictionary")))))
 
 ;;;###autoload
 (defun emacspeak-pronounce-clear-dictionaries ()
