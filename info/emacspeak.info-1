@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 18, 2020.
+last updated on September 19, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1257 commands and 922 options.
+   This chapter documents a total of 1255 commands and 923 options.
 
 * Menu:
 
@@ -3834,419 +3834,7 @@ system.
 12.9.1 Emacspeak Commands
 -------------------------
 
-12.9.1.1 emacspeak
-..................
-
- -- Command: emacspeak
-
-     Start the Emacspeak Audio Desktop.
-     Use Emacs as you normally would,
-     emacspeak will provide you spoken feedback as you work.  Emacspeak also
-     provides commands for having parts of the current buffer, the
-     mode-line etc to be spoken.
-
-     If you are hearing this description as a result of pressing
-     C-h C-e you may want to press use the
-     arrow keys to move around in the Help buffer to read the rest of
-     this description, which includes a summary of all emacspeak
-     keybindings.
-
-     All emacspeak commands use C-e as a prefix
-     key.  You can also set the state of the TTS engine by using
-     C-e d as a prefix.  Here is a summary of all
-     emacspeak commands along with their bindings.  You need to precede the
-     keystrokes listed below with C-e.
-
-     Emacspeak also provides a fluent speech extension to the Emacs
-     terminal emulator (eterm).  Note: You need to use the term package that
-     comes with emacs-19.29 and later.
-
-     key             binding
-     —             ——-
-
-     C-@		emacspeak-speak-current-mark
-     C-a		emacspeak-toggle-auditory-icons
-     C-b		emacspeak-bookshare
-     C-c		emacspeak-clipboard-copy
-     C-d		emacspeak-toggle-show-point
-     C-e		end-of-line
-     TAB		emacspeak-open-info
-     C-j		emacspeak-hide-speak-block-sans-prefix
-     C-l		emacspeak-speak-line-number
-     RET		emacspeak-speak-continuously
-     C-n		emacspeak-speak-next-window
-     C-o		emacspeak-ocr
-     C-p		emacspeak-speak-previous-window
-     C-q		emacspeak-toggle-inaudible-or-comint-autospeak
-     C-s		tts-restart
-     C-t		emacspeak-table-submap-command
-     C-u		emacspeak-feeds-browse
-     C-v		view-mode
-     C-w		emacspeak-speak-window-information
-     C-x		emacspeak-personal-ctlx-keymap
-     C-y		emacspeak-clipboard-paste
-     ESC		Prefix Command
-     SPC		emacspeak-speak-header-line
-     !		emacspeak-speak-run-shell-command
-     "		emacspeak-speak-sexp
-     #		emacspeak-gridtext
-     $		emacspeak-shell-command
-     %		emacspeak-speak-current-percentage
-     &		emacspeak-wizards-shell-command-on-current-file
-     ’		emacspeak-pianobar
-     (		emacspeak-audio-setup
-     )		emacspeak-sounds-select-theme
-     ,		emacspeak-speak-skim-buffer
-     .		dtk-notify-stop
-     /		emacspeak-speak-this-buffer-other-window-display
-     0 .. 9		emacspeak-speak-predefined-window
-     :		emacspeak-m-player-shuffle
-     ;		emacspeak-multimedia
-     <		emacspeak-speak-previous-field
-     =		emacspeak-speak-current-column
-     >		emacspeak-speak-next-field
-     ?		emacspeak-websearch-dispatch
-     @		emacspeak-speak-message-at-time
-     A		emacspeak-appt-repeat-announcement
-     B		emacspeak-speak-buffer-interactively
-     C		emacspeak-customize
-     I		emacspeak-speak-show-active-network-interfaces
-     L		emacspeak-speak-line-interactively
-     M		emacspeak-speak-minor-mode-line
-     N		emacspeak-view-emacspeak-news
-     P		emacspeak-speak-paragraph-interactively
-     R		emacspeak-speak-rectangle
-     T		emacspeak-view-emacspeak-tips
-     V		emacspeak-speak-version
-     W		emacspeak-tapestry-select-window-by-name
-     [		emacspeak-speak-page
-     \		emacspeak-toggle-speak-line-invert-filter
-     ]		emacspeak-speak-page-interactively
-     ^		emacspeak-filtertext
-     a		emacspeak-speak-message-again
-     b		emacspeak-speak-buffer
-     c		emacspeak-speak-char
-     d		emacspeak-dtk-submap-command
-     e		end-of-line
-     f		emacspeak-speak-buffer-filename
-     g		emacspeak-epub
-     h		emacspeak-speak-help
-     i		emacspeak-tabulate-region
-     j		emacspeak-hide-or-expose-block
-     k		emacspeak-speak-current-kill
-     l		emacspeak-speak-line
-     m		emacspeak-speak-mode-line
-     n		emacspeak-speak-rest-of-buffer
-     o		emacspeak-toggle-comint-output-monitor
-     p		emacspeak-speak-paragraph
-     q		emacspeak-toggle-speak-messages
-     r		emacspeak-speak-region
-     s		dtk-stop
-     t		emacspeak-speak-time
-     u		emacspeak-url-template-fetch
-     v		view-register
-     w		emacspeak-speak-word
-     x		emacspeak-personal-keymap
-     {		emacspeak-speak-paragraph
-     |		emacspeak-speak-line-set-column-filter
-     DEL		cd-tool
-     C-SPC		emacspeak-speak-current-mark
-     <C-left>	emacspeak-select-this-buffer-previous-display
-     <C-right>	emacspeak-select-this-buffer-next-display
-     <delete>	emacspeak-ssh-tts-restart
-     <down>		emacspeak-read-next-line
-     <f1>		emacspeak-learn-emacs-mode
-     <f11>		emacspeak-wizards-shell-toggle
-     <insert>	emacspeak-emergency-tts-restart
-     <left>		emacspeak-speak-this-buffer-previous-display
-     <right>		emacspeak-speak-this-buffer-next-display
-     <up>		emacspeak-read-previous-line
-     <(deletechar>	emacspeak-ssh-tts-restart
-
-     x SPC		emacspeak-jabber-speak-recent-message
-     x ,		emacspeak-wizards-shell-directory-set
-     x .		emacspeak-wizards-shell-directory-reset
-     x 0 .. x 9	emacspeak-wizards-shell-by-key
-     x =		emacspeak-wizards-find-longest-line-in-region
-     x C		emacspeak-wizards-colors
-     x a		emacspeak-wizards-alpha-vantage-quotes
-     x b		battery
-     x c		emacspeak-wizards-color-wheel
-     x d		deadgrep
-     x e		emacspeak-we-xsl-map
-     x h		emacspeak-wizards-how-many-matches
-     x i		ibuffer
-     x j		emacspeak-jabber-popup-roster
-     x m		mspools-show
-     x o		emacspeak-wizards-occur-header-lines
-     x p		paradox-list-packages
-     x q		emacspeak-wizards-quote
-     x r		jabber-activity-switch-to
-     x s		emacspeak-emergency-tts-restart
-     x t		emacspeak-speak-telephone-directory
-     x u		emacspeak-wizards-units
-     x v		emacspeak-wizards-vc-viewer
-     x w		emacspeak-wizards-noaa-weather
-     x y		ytel
-     x |		emacspeak-wizards-squeeze-blanks
-     x DEL		desktop-clear
-
-     # a		emacspeak-gridtext-apply
-     # l		emacspeak-gridtext-load
-     # s		emacspeak-gridtext-save
-
-     C-M-@		emacspeak-speak-spaces-at-point
-     C-M-b		emacspeak-submit-bug
-     C-M-k		kill-emacs
-     C-M-l		emacspeak-speak-overlay-properties
-     M-%		emacspeak-goto-percent
-     M-;		emacspeak-webutils-play-media-at-point
-     M-a		emacspeak-set-auditory-icon-player
-     M-b		emacspeak-speak-other-buffer
-     M-c		emacspeak-copy-current-file
-     M-d		emacspeak-pronounce-dispatch
-     M-f		emacspeak-frame-label-or-switch-to-labelled-frame
-     M-h		emacspeak-speak-hostname
-     M-i		emacspeak-table-display-table-in-region
-     M-l		emacspeak-link-current-file
-     M-m		emacspeak-toggle-mail-alert
-     M-p		emacspeak-show-property-at-point
-     M-q		voice-setup-toggle-silence-personality
-     M-r		emacspeak-remote-connect-to-server
-     M-s		emacspeak-symlink-current-file
-     M-t		emacspeak-tapestry-describe-tapestry
-     M-u		emacspeak-feeds-add-feed
-     M-v		emacspeak-show-style-at-point
-     M-w		emacspeak-speak-which-function
-     M-x		emacspeak-wizards-execute-emacspeak-command
-     C-M-SPC		emacspeak-speak-spaces-at-point
-
-     C-t C-b		emacspeak-table-previous-column
-     C-t C-f		emacspeak-table-next-column
-     C-t TAB		emacspeak-table-next-column
-     C-t C-n		emacspeak-table-next-row
-     C-t C-p		emacspeak-table-previous-row
-     C-t ESC		Prefix Command
-     C-t SPC		emacspeak-table-speak-current-element
-     C-t #		emacspeak-table-sort-on-current-column
-     C-t ,		emacspeak-table-find-csv-file
-     C-t .		emacspeak-table-speak-coordinates
-     C-t <		emacspeak-table-goto-left
-     C-t =		emacspeak-table-speak-dimensions
-     C-t >		emacspeak-table-goto-right
-     C-t A		emacspeak-table-goto-left
-     C-t B		emacspeak-table-goto-bottom
-     C-t C		emacspeak-table-search-column
-     C-t E		emacspeak-table-goto-right
-     C-t Q		emacspeak-kill-buffer-quietly
-     C-t R		emacspeak-table-search-row
-     C-t T		emacspeak-table-goto-top
-     C-t a		emacspeak-table-select-automatic-speaking-method
-     C-t b		emacspeak-table-speak-both-headers-and-element
-     C-t c		emacspeak-table-speak-column-header-and-element
-     C-t f		emacspeak-table-speak-row-filtered
-     C-t g		emacspeak-table-speak-column-filtered
-     C-t h		emacspeak-table-search-headers
-     C-t j		emacspeak-table-goto
-     C-t k		emacspeak-table-copy-to-clipboard
-     C-t n		emacspeak-table-next-row
-     C-t p		emacspeak-table-previous-row
-     C-t q		quit-window
-     C-t r		emacspeak-table-speak-row-header-and-element
-     C-t s		emacspeak-table-search
-     C-t v		emacspeak-table-view-csv-buffer
-     C-t w		emacspeak-table-copy-current-element-to-kill-ring
-     C-t x		emacspeak-table-copy-current-element-to-register
-     C-t <S-tab>	emacspeak-table-previous-column
-     C-t <down>	emacspeak-table-next-row
-     C-t <left>	emacspeak-table-previous-column
-     C-t <right>	emacspeak-table-next-column
-     C-t <up>	emacspeak-table-previous-row
-
-     d C-c		dtk-cloud
-     d C-d		dectalk
-     d C-e		espeak
-     d RET		dtk-set-chunk-separator-syntax
-     d C-n		dtk-notify-initialize
-     d C-o		outloud
-     d C-s		dtk-notify-shutdown
-     d C-v		global-voice-lock-mode
-     d SPC		dtk-toggle-splitting-on-white-space
-     d ,		dtk-toggle-punctuation-mode
-     d 0 .. d 9	dtk-set-predefined-speech-rate
-     d C		dtk-toggle-allcaps-beep
-     d L		dtk-local-server
-     d N		dtk-set-next-language
-     d P		dtk-set-previous-language
-     d R		dtk-reset-state
-     d S		dtk-set-language
-     d V		tts-speak-version
-     d a		dtk-add-cleanup-pattern
-     d c		dtk-toggle-capitalization
-     d d		dtk-select-server
-     d f		dtk-set-character-scale
-     d i		emacspeak-toggle-audio-indentation
-     d k		emacspeak-toggle-character-echo
-     d l		emacspeak-toggle-line-echo
-     d m		emacspeak-speak-set-mode-punctuations
-     d n		dtk-toggle-speak-nonprinting-chars
-     d o		dtk-toggle-strip-octals
-     d p		dtk-set-punctuations
-     d r		dtk-set-rate
-     d s		dtk-toggle-split-caps
-     d v		voice-lock-mode
-     d w		emacspeak-toggle-word-echo
-     d z		emacspeak-zap-tts
-
-     x e C-c		emacspeak-we-junk-by-class-list
-     x e C-f		emacspeak-we-count-matches
-     x e C-p		emacspeak-we-xpath-junk-and-follow
-     x e C-t		emacspeak-we-count-tables
-     x e C-x		emacspeak-we-count-nested-tables
-     x e C		emacspeak-we-extract-by-class-list
-     x e D		emacspeak-we-junk-by-class-list
-     x e I		emacspeak-we-extract-by-id-list
-     x e M		emacspeak-we-extract-tables-by-match-list
-     x e P		emacspeak-we-follow-and-extract-main
-     x e S		emacspeak-we-style-filter
-     x e T		emacspeak-we-extract-tables-by-position-list
-     x e X		emacspeak-we-extract-nested-table-list
-     x e a		emacspeak-we-xslt-apply
-     x e b		emacspeak-we-follow-and-filter-by-id
-     x e c		emacspeak-we-extract-by-class
-     x e d		emacspeak-we-junk-by-class
-     x e e		emacspeak-we-url-expand-and-execute
-     x e f		emacspeak-we-xslt-filter
-     x e i		emacspeak-we-extract-by-id
-     x e j		emacspeak-we-xslt-junk
-     x e k		emacspeak-we-toggle-xsl-keep-result
-     x e m		emacspeak-we-extract-table-by-match
-     x e o		emacspeak-we-xsl-toggle
-     x e p		emacspeak-we-xpath-filter-and-follow
-     x e r		emacspeak-we-extract-by-role
-     x e s		emacspeak-we-xslt-select
-     x e t		emacspeak-we-extract-table-by-position
-     x e u		emacspeak-we-extract-matching-urls
-     x e v		emacspeak-we-class-filter-and-follow-link
-     x e x		emacspeak-we-extract-nested-table
-     x e y		emacspeak-we-class-filter-and-follow
-     x e z		emacspeak-we-extract-speakable
-
-     C-t M-<		emacspeak-table-goto-top
-     C-t M->		emacspeak-table-goto-bottom
-     C-t M-l		emacspeak-table-ui-filter-load
-     C-t M-s		emacspeak-table-ui-filter-save
-
-     Emacspeak provides a set of additional keymaps to give easy access to
-     its extensive facilities.
-
-     Press C-; to access keybindings in emacspeak-hyper-keymap:
-     key             binding
-     —             ——-
-
-     C-e		eshell
-     TAB		hippie-expand
-     C-r		flx-isearch-backward
-     C-s		flx-isearch-forward
-     C-u		emacspeak-feeds-browse
-     ’		emacspeak-m-player-using-hrtf
-     ,		switch-to-prev-buffer
-     .		switch-to-next-buffer
-     :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
-     ;		emacspeak-m-player-using-openal
-     B		eww-list-bookmarks
-     a		emacspeak-wizards-term
-     b		eww-list-buffers
-     c		browse-url-chrome
-     d		magit-dispatch
-     e		gmaps
-     f		find-file
-     g		gnus
-     h		emacspeak-org-capture-link
-     i		yas-insert-snippet
-     j		emacspeak-wizards-shell-toggle
-     k		emacspeak-webspace-knowledge-search
-     l		emacspeak-librivox
-     m		vm
-     o		helm-mini
-     p		emacspeak-wizards-pdf-open
-     s		emacspeak-wizards-shell
-     t		twit
-     u		list-unicode-display
-     v		emacspeak-muggles-vuiet/body
-     w		emacspeak-wizards-noaa-weather
-     y		yas-expand
-
-     .
-
-     Press C-’ or C-.  to access keybindings in emacspeak-super-keymap:
-     key             binding
-     —             ——-
-
-     C-n		emacspeak-wizards-google-headlines
-     SPC		emacspeak-wizards-scratch
-     ’		emacspeak-vlc
-     .		emacspeak-wizards-shell-directory-reset
-     R		emacspeak-webspace-feed-reader
-     S		soundscape-stop
-     a		emacspeak-wizards-execute-asynchronously
-     c		calculator
-     d		emacspeak-dired-downloads
-     e		elfeed
-     f		flyspell-mode
-     g		emacspeak-google-tts-region
-     h		emacspeak-m-player-from-media-history
-     j		ido-imenu-anywhere
-     l		emacspeak-m-player-locate-media
-     m		emacspeak-wizards-view-buffers-filtered-by-this-mode
-     n		emacspeak-wizards-google-news
-     o		emacspeak-muggles-outliner/body
-     p		proced
-     q		emacspeak-wizards-iex-show-quote
-     r		soundscape-restart
-     s		soundscape
-     t		soundscape-toggle
-     u		soundscape-update-mood
-     v		emacspeak-muggles-view/body
-     w		define-word
-
-     .
-
-     Press C-, to access keybindings in emacspeak-alt-keymap:
-     key             binding
-     —             ——-
-
-     SPC		emacspeak-eww-smart-tabs
-     ,		emacspeak-eldoc-speak-doc
-     /		emacspeak-origami/body
-     a		emacspeak-feeds-atom-display
-     b		sox-binaural
-     c		emacspeak-wizards-view-buffers-filtered-by-this-mode
-     d		sdcv-search-input
-     e		eww
-     f		emacspeak-wizards-find-file-as-root
-     g		rg
-     h		emacspeak-muggles-hideshow/body
-     i		emacspeak-wizards-iheart
-     l		eww-open-file
-     m		magit-status
-     n		emacspeak-wizards-cycle-to-next-buffer
-     o		emacspeak-feeds-opml-display
-     p		emacspeak-wizards-cycle-to-previous-buffer
-     q		emacspeak-wizards-iex-show-price
-     r		emacspeak-feeds-rss-display
-     s		emacspeak-wizards-tune-in-radio-search
-     t		emacspeak-wizards-tune-in-radio-browse
-     u		emacspeak-m-player-url
-     v		visual-line-mode
-     y		emacspeak-m-player-youtube-player
-
-     .
-
-     See the online documentation C-e TAB for individual
-     commands and options for details.
-
-12.9.1.2 emacspeak-describe-emacspeak
+12.9.1.1 emacspeak-describe-emacspeak
 .....................................
 
  -- Command: emacspeak-describe-emacspeak
@@ -4256,7 +3844,7 @@ system.
 
      Give a brief overview of emacspeak.
 
-12.9.1.3 emacspeak-submit-bug
+12.9.1.2 emacspeak-submit-bug
 .............................
 
  -- Command: emacspeak-submit-bug
@@ -8153,4 +7741,446 @@ speech-enables EShell
      Personality used for eshell-prompt This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emacspeak-eshell,  Up: Emacspeak Commands And Options
+
+12.71 emacspeak-ess
+===================
+
+ESS == Emacs Speaks Statistics This module makes ESS speak.
+
+
+File: emacspeak.info,  Node: emacspeak-etable,  Next: emacspeak-eterm,  Prev: emacspeak-ess,  Up: Emacspeak Commands And Options
+
+12.72 emacspeak-etable
+======================
+
+table.el provides rich table editing for emacs.  this module
+speech-enables table.el
+
+12.72.1 Emacspeak-Etable Commands
+---------------------------------
+
+12.72.1.1 emacspeak-etable-speak-cell
+.....................................
+
+ -- Command: emacspeak-etable-speak-cell
+
+     Speak current cell.
+
+
+File: emacspeak.info,  Node: emacspeak-eterm,  Next: emacspeak-eudc,  Prev: emacspeak-etable,  Up: Emacspeak Commands And Options
+
+12.73 emacspeak-eterm
+=====================
+
+This module makes eterm talk.  Eterm is the new terminal emulator for
+Emacs.  Use of emacspeak with eterm really needs an info page.  At
+present, the only documentation is the source level documentation.  This
+module uses Control-t as an additional prefix key to allow the user To
+move around the terminal and have different parts spoken.
+
+12.73.1 Emacspeak-Eterm Commands
+--------------------------------
+
+12.73.1.1 emacspeak-eterm-copy-region-to-register
+.................................................
+
+ -- Command: emacspeak-eterm-copy-region-to-register (register)
+
+     Copy text from terminal to an Emacs REGISTER.
+     This copies  region delimited by the emacspeak eterm marker
+     set by command M-x emacspeak-eterm-set-marker and the
+     emacspeak eterm pointer to a register.
+
+     (fn REGISTER)
+
+12.73.1.2 emacspeak-eterm-define-window
+.......................................
+
+ -- Command: emacspeak-eterm-define-window (id)
+
+     Prompt for a window ID.
+     The window is then define to be
+     the rectangle delimited by point and eterm mark.  This is to
+     be used when emacspeak is set to review mode inside an
+     eterm.
+
+     (fn ID)
+
+12.73.1.3 emacspeak-eterm-describe-window
+.........................................
+
+ -- Command: emacspeak-eterm-describe-window (id)
+
+     Describe an eterm  window.
+     Description indicates eterm window coordinates and whether it is stretchable
+
+     (fn ID)
+
+12.73.1.4 emacspeak-eterm-goto-line
+...................................
+
+ -- Command: emacspeak-eterm-goto-line (line)
+
+     Move emacspeak eterm pointer to a specified LINE.
+
+     (fn LINE)
+
+12.73.1.5 emacspeak-eterm-kill-ring-save-region
+...............................................
+
+ -- Command: emacspeak-eterm-kill-ring-save-region
+
+     Copy text from terminal to kill ring.
+     This copies  region delimited by the emacspeak eterm marker
+     set by command M-x emacspeak-eterm-set-marker and the
+     emacspeak eterm pointer.
+
+12.73.1.6 emacspeak-eterm-maybe-send-raw
+........................................
+
+ -- Command: emacspeak-eterm-maybe-send-raw
+
+     Send a raw character through if in the terminal buffer.
+     Execute end of line if
+     in a non eterm buffer if executed via C-e C-e
+
+12.73.1.7 emacspeak-eterm-paste-register
+........................................
+
+ -- Command: emacspeak-eterm-paste-register (register)
+
+     Paste contents of REGISTER at current location.
+     If the specified register contains text, then that text is
+     sent to the terminal as if it were typed by the user.
+
+     (fn REGISTER)
+
+12.73.1.8 emacspeak-eterm-pointer-backward-word
+...............................................
+
+ -- Command: emacspeak-eterm-pointer-backward-word (count)
+
+     Move the pointer backward  by words.
+     Interactive numeric prefix arg specifies number of words to move.
+     Argument COUNT specifies number of words by which to move.
+
+     (fn COUNT)
+
+12.73.1.9 emacspeak-eterm-pointer-down
+......................................
+
+ -- Command: emacspeak-eterm-pointer-down (count)
+
+     Move the pointer down a line.
+     Argument COUNT specifies number of lines by which to move.
+
+     (fn COUNT)
+
+12.73.1.10 emacspeak-eterm-pointer-forward-word
+...............................................
+
+ -- Command: emacspeak-eterm-pointer-forward-word (count)
+
+     Move the pointer forward by words.
+     Interactive numeric prefix arg specifies number of words to move.
+     Argument COUNT specifies number of words by which to move.
+
+     (fn COUNT)
+
+12.73.1.11 emacspeak-eterm-pointer-left
+.......................................
+
+ -- Command: emacspeak-eterm-pointer-left (count)
+
+     Move the pointer left.
+     Argument COUNT specifies number of columns by which to move.
+
+     (fn COUNT)
+
+12.73.1.12 emacspeak-eterm-pointer-right
+........................................
+
+ -- Command: emacspeak-eterm-pointer-right (count)
+
+     Move the pointer right.
+     Argument COUNT specifies number of columns by which to move.
+
+     (fn COUNT)
+
+12.73.1.13 emacspeak-eterm-pointer-to-bottom
+............................................
+
+ -- Command: emacspeak-eterm-pointer-to-bottom
+
+     Move the pointer to the bottom  of the screen.
+
+12.73.1.14 emacspeak-eterm-pointer-to-cursor
+............................................
+
+ -- Command: emacspeak-eterm-pointer-to-cursor
+
+     Move the pointer to the cursor.
+
+12.73.1.15 emacspeak-eterm-pointer-to-left-edge
+...............................................
+
+ -- Command: emacspeak-eterm-pointer-to-left-edge
+
+     Move the pointer to the right edge.
+
+12.73.1.16 emacspeak-eterm-pointer-to-next-color-change
+.......................................................
+
+ -- Command: emacspeak-eterm-pointer-to-next-color-change (&optional
+          count)
+
+     Move the eterm pointer to the next color change.
+     This allows you to move between highlighted regions of the screen.
+     Optional argument COUNT specifies how many changes to skip.
+
+     (fn &optional COUNT)
+
+12.73.1.17 emacspeak-eterm-pointer-to-previous-color-change
+...........................................................
+
+ -- Command: emacspeak-eterm-pointer-to-previous-color-change (&optional
+          count)
+
+     Move the eterm pointer to the next color change.
+     This allows you to move between highlighted regions of the screen.
+     Optional argument COUNT specifies how many changes to skip.
+
+     (fn &optional COUNT)
+
+12.73.1.18 emacspeak-eterm-pointer-to-right-edge
+................................................
+
+ -- Command: emacspeak-eterm-pointer-to-right-edge
+
+     Move the pointer to the right edge.
+
+12.73.1.19 emacspeak-eterm-pointer-to-top
+.........................................
+
+ -- Command: emacspeak-eterm-pointer-to-top
+
+     Move the pointer to the top of the screen.
+
+12.73.1.20 emacspeak-eterm-pointer-up
+.....................................
+
+ -- Command: emacspeak-eterm-pointer-up (count)
+
+     Move the pointer up a line.
+     Argument COUNT .specifies number of lines by which to move.
+
+     (fn COUNT)
+
+12.73.1.21 emacspeak-eterm-remote-term
+......................................
+
+ -- Command: emacspeak-eterm-remote-term (host)
+
+     Start a terminal-emulator in a new buffer.
+
+     (fn HOST)
+
+12.73.1.22 emacspeak-eterm-search-backward
+..........................................
+
+ -- Command: emacspeak-eterm-search-backward
+
+     Search backward on the terminal.
+
+12.73.1.23 emacspeak-eterm-search-forward
+.........................................
+
+ -- Command: emacspeak-eterm-search-forward
+
+     Search forward on the terminal.
+
+12.73.1.24 emacspeak-eterm-set-filter-window
+............................................
+
+ -- Command: emacspeak-eterm-set-filter-window (flag)
+
+     Prompt for the id of a predefined window,
+     and set the ‘filter’ window to it.
+     Non-nil interactive prefix arg ‘unsets’ the filter window;
+     this is equivalent to having the entire terminal as the filter window (this is
+     what eterm starts up with).
+     Setting the filter window results in emacspeak  only monitoring screen
+     activity within the filter window.
+
+     (fn FLAG)
+
+12.73.1.25 emacspeak-eterm-set-focus-window
+...........................................
+
+ -- Command: emacspeak-eterm-set-focus-window (flag)
+
+     Prompt for the id of a predefined window,
+     and set the ‘focus’ window to it.
+     Non-nil interactive prefix arg ‘unsets’ the focus window;
+     this is equivalent to having the entire terminal as the focus window (this is
+     what eterm starts up with).
+     Setting the focus window results in emacspeak  monitoring screen
+     and speaking that window upon seeing screen activity.
+
+     (fn FLAG)
+
+12.73.1.26 emacspeak-eterm-set-marker
+.....................................
+
+ -- Command: emacspeak-eterm-set-marker
+
+     Set Emacspeak eterm marker.
+     This sets  the emacspeak eterm marker to the position pointed
+     to by the emacspeak eterm pointer.
+
+12.73.1.27 emacspeak-eterm-speak-cursor
+.......................................
+
+ -- Command: emacspeak-eterm-speak-cursor
+
+     Speak cursor position.
+
+12.73.1.28 emacspeak-eterm-speak-pointer
+........................................
+
+ -- Command: emacspeak-eterm-speak-pointer
+
+     Speak current pointer position.
+
+12.73.1.29 emacspeak-eterm-speak-pointer-char
+.............................................
+
+ -- Command: emacspeak-eterm-speak-pointer-char (&optional prefix)
+
+     Speak char under eterm pointer.
+     Pronounces character phonetically unless  called with a PREFIX arg.
+
+     (fn &optional PREFIX)
+
+12.73.1.30 emacspeak-eterm-speak-pointer-line
+.............................................
+
+ -- Command: emacspeak-eterm-speak-pointer-line
+
+     Speak the line the pointer is on.
+
+12.73.1.31 emacspeak-eterm-speak-pointer-word
+.............................................
+
+ -- Command: emacspeak-eterm-speak-pointer-word
+
+     Speak the word  the pointer is on.
+
+12.73.1.32 emacspeak-eterm-speak-predefined-window
+..................................................
+
+ -- Command: emacspeak-eterm-speak-predefined-window
+
+     Speak a predefined eterm window between 1 and 10.
+
+12.73.1.33 emacspeak-eterm-speak-screen
+.......................................
+
+ -- Command: emacspeak-eterm-speak-screen (&optional flag)
+
+     Speak the screen.  Default is to speak from the emacspeak pointer  to point.
+     Optional prefix arg FLAG causes region above
+     the Emacspeak pointer to be spoken.
+
+     (fn &optional FLAG)
+
+12.73.1.34 emacspeak-eterm-speak-window
+.......................................
+
+ -- Command: emacspeak-eterm-speak-window (id)
+
+     Speak an eterm window.
+     Argument ID specifies the window.
+
+     (fn ID)
+
+12.73.1.35 emacspeak-eterm-toggle-filter-window
+...............................................
+
+ -- Command: emacspeak-eterm-toggle-filter-window
+
+     Toggle active state of filter window.
+
+12.73.1.36 emacspeak-eterm-toggle-focus-window
+..............................................
+
+ -- Command: emacspeak-eterm-toggle-focus-window
+
+     Toggle active state of focus window.
+
+12.73.1.37 emacspeak-eterm-toggle-pointer-mode
+..............................................
+
+ -- Command: emacspeak-eterm-toggle-pointer-mode (&optional prefix)
+
+     Toggle emacspeak eterm pointer mode.
+     With optional interactive prefix  arg, turn it on.
+     When emacspeak eterm is in pointer mode, the eterm read pointer
+     stays where it is rather than automatically moving to the terminal cursor when
+     there is terminal activity.
+
+12.73.1.38 emacspeak-eterm-toggle-review
+........................................
+
+ -- Command: emacspeak-eterm-toggle-review
+
+     Toggle state of eterm review.
+     In review mode, you can move around the terminal and listen to the contents
+     without sending input to the terminal itself.
+
+12.73.1.39 emacspeak-eterm-yank-window
+......................................
+
+ -- Command: emacspeak-eterm-yank-window (id)
+
+     Yank contents of  an eterm window at point.
+
+     (fn ID)
+
+12.73.1.40 emacspeak-toggle-eterm-autospeak
+...........................................
+
+ -- Command: emacspeak-toggle-eterm-autospeak (&optional prefix)
+
+     Toggle state of eterm autospeak.
+     When eterm autospeak is turned on and the terminal is in line mode,
+     all output to the terminal is automatically spoken.
+       Interactive prefix arg means toggle  the global default value, and then set the
+       current local  value to the result.
+
+12.73.2 emacspeak-eterm Options
+-------------------------------
+
+ -- Variable: User Option emacspeak-eterm-bold-personality
+     Personality to indicate terminal bold.
+
+ -- Variable: User Option emacspeak-eterm-default-personality
+     Default personality for terminal.
+
+ -- Variable: User Option emacspeak-eterm-highlight-personality
+     Personality to show terminal highlighting.
+
+ -- Variable: User Option emacspeak-eterm-remote-hosts-cache
+     File where list of known remote hosts is cached
+
+ -- Variable: User Option emacspeak-eterm-underline-personality
+     Personality to indicate terminal underlining.
+
+ -- Variable: User Option voice-term-underline
+     Personality used for term-underline This personality uses
+     voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
 
