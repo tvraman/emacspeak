@@ -436,7 +436,7 @@ commands and options for details."
   (dtk-initialize)
   (require 'emacspeak-keymap)
   (require 'emacspeak-advice)
-  (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
+  (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
   (emacspeak-setup-programming-modes)
   (emacspeak-use-customized-blink-paren)
