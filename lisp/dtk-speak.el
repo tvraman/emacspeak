@@ -1507,10 +1507,9 @@ available TTS servers.")
    (t (plain-configure-tts)))
   (dtk-set-rate tts-default-speech-rate t)
   (dtk-interp-sync)
-  (ems--fastload 
     (unless (member tts-name tts-configured-engines)
       (cl-pushnew tts-name tts-configured-engines)
-      (load-library "voice-setup")))
+      (ems--fastload "voice-setup"))
   (when
       (or
        (string-match "^ssh" tts-name)   ;remote server

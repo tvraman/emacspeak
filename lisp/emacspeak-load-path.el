@@ -125,17 +125,16 @@ interactive command. Turn off the flag once used."
         result))))
 
 ;;}}}
-;;{{{Macro: ems--fastload:
+;;{{{defsubst: ems--fastload:
 
-;;; Internal macro used to efficiently load files.
+;;; Internal function  used to efficiently load files.
 
-(defmacro ems--fastload (&rest body)
-  "Execute body with  an environment condusive to fast-loading files."
-  (declare (indent 1) (debug t))
-  `(let ((file-name-handler-alist nil)
+(defsubst ems--fastload (file)
+  "Load file efficiently."
+  (let ((file-name-handler-alist nil)
          (load-source-file-function nil)
          (inhibit-message t))
-     ,@body))
+    (load file)))
 
 
 ;;}}}

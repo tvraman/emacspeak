@@ -317,10 +317,9 @@ Optional argument FILENAME specifies the dictionary file."
   (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
   (when (file-exists-p filename)
     (condition-case nil
-        (ems--fastload
           (progn
-            (load-file filename)
-            (setq emacspeak-pronounce-dictionaries-loaded t)))
+            (ems--fastload filename)
+            (setq emacspeak-pronounce-dictionaries-loaded t))
       (error
        (message "Error loading pronunciation dictionary, deactivating  pronunciations.")
        (setq emacspeak-pronounce-dictionaries (make-hash-table)
