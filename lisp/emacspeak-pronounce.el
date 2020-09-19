@@ -315,7 +315,8 @@ Optional argument FILENAME specifies the dictionary file."
           emacspeak-resource-directory
           emacspeak-pronounce-dictionaries-file)))
   (cl-declare (special emacspeak-pronounce-dictionaries-loaded))
-  (when (file-exists-p filename)
+  (when (file-exists-p 
+(or  filename  emacspeak-pronounce-dictionaries-file))
     (condition-case nil
           (progn
             (ems--fastload filename)

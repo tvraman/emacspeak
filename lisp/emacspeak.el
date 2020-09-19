@@ -426,7 +426,7 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (interactive)
   (cl-declare (special line-move-visual emacspeak-info-directory
-                       use-dialog-box emacspeak-pronounce-dictionaries-file))
+                       use-dialog-box ))
   (emacspeak-export-environment)
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
@@ -437,9 +437,9 @@ commands and options for details."
   (require 'emacspeak-keymap)
   (require 'emacspeak-advice)
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
-  (emacspeak-pronounce-load-dictionaries emacspeak-pronounce-dictionaries-file)
+  (emacspeak-pronounce-load-dictionaries)
   (emacspeak-setup-programming-modes)
-  (emacspeak-use-customized-blink-paren)
+  (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
   (make-thread #'emacspeak-prepare-emacs)
   (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
   (emacspeak-play-startup-icon)

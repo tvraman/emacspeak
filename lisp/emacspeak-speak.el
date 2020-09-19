@@ -3202,7 +3202,6 @@ Also display match context in minibuffer."
   "A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk."
-  (interactive)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
   (and (called-interactively-p 'interactive)
        (message "Using customized blink-paren function provided by Emacspeak.")))
