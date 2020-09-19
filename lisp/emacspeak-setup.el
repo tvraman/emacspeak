@@ -139,6 +139,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;}}}
 ;;{{{ autoloads, Hooks
+
 (unless noninteractive
   (let ((file-name-handler-alist nil)
          (load-source-file-function nil)
@@ -207,8 +208,6 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
   "Hook run after Emacspeak is started."
   :type 'hook
   :group 'emacspeak)
-
-
 
 ;;}}}
 ;;; Start emacspeak if emacs   is interactive:
