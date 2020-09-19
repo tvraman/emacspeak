@@ -278,10 +278,9 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
           (cond
            (read-as-csv (emacspeak-table-view-csv-buffer (current-buffer)))
            (t (emacspeak-table-display-table-in-region start end)))
-        (error
-         (progn
-           (message "Output could not be tabulated correctly")
-           (switch-to-buffer buffer-name)))))))
+        (error (message "Output could not be tabulated correctly")))
+      (emacspeak-auditory-icon 'open-object)
+      (emacspeak-speak-mode-line))))
 
 ;;}}}
 ;;{{{ Notifications:
