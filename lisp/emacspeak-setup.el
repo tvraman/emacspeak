@@ -213,7 +213,6 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
 ;;; Start emacspeak if emacs   is interactive:
 
 (unless noninteractive (emacspeak))
-
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables
 
