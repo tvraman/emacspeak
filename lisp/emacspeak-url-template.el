@@ -160,8 +160,7 @@ dont-url-encode if true then url arguments are not url-encoded "
                     emacspeak-resource-directory)))
   (condition-case nil
       (progn
-        (load
-         (expand-file-name file emacspeak-resource-directory)))
+        (ems--fastload (expand-file-name file emacspeak-resource-directory)))
     (error (message "Error loading resources from %s "
                     file))))
 

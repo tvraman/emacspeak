@@ -1890,7 +1890,7 @@ Warning, this is fragile, and depends on a stable id/class for the
   (interactive)
   (cl-declare (special emacspeak-eww-marks-file))
   (when (file-exists-p emacspeak-eww-marks-file)
-    (load-file emacspeak-eww-marks-file)))
+    (ems--fastload emacspeak-eww-marks-file)))
 
 (defvar emacspeak-eww-marks
   (cond
@@ -2128,7 +2128,7 @@ with an interactive prefix arg. "
   (interactive)
   (cl-declare (special emacspeak-resource-directory))
   (when (file-exists-p (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))
-    (load-file
+    (ems--fastload
      (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
 
 ;;}}}

@@ -275,7 +275,7 @@ previous window configuration."
 (defun emacspeak-wizards-load-current-file ()
   "load file into emacs"
   (interactive)
-  (load-file (buffer-file-name)))
+  (ems--fastload (buffer-file-name)))
 
 (defun emacspeak-wizards-next-interactive-defun ()
   "Move point to the next interactive defun"

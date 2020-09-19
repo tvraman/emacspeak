@@ -835,7 +835,7 @@ emacspeak-speak-filter-table)\n" k v)))
                        emacspeak-speak-filter-table
                        emacspeak-speak-filters-loaded-p))
   (unless emacspeak-speak-filters-loaded-p
-    (load-file emacspeak-speak-filter-persistent-store)
+    (ems--fastload emacspeak-speak-filter-persistent-store)
     (setq emacspeak-speak-filters-loaded-p t)
     (add-hook 'kill-emacs-hook 'emacspeak-speak-persist-filter-settings)))
 
@@ -3426,7 +3426,7 @@ directory."
     (when
         (and res
              (file-exists-p (expand-file-name emacspeak-speak-directory-settings res)))
-      (load (expand-file-name emacspeak-speak-directory-settings res))
+      (ems--fastload (expand-file-name emacspeak-speak-directory-settings res))
       (emacspeak-auditory-icon 'task-done))))
 
 ;;}}}
