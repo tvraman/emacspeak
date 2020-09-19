@@ -145,7 +145,8 @@ such as pronunciation dictionaries are stored. ")
          (inhibit-message t))
       (mapc
        #'load
-       '("emacspeak-loaddefs" "emacspeak-cus-load" "g-loaddefs" "g-cus-load"))))
+       '("emacspeak-loaddefs.el" "emacspeak-cus-load.el"
+         "g-loaddefs.el" "g-cus-load.el"))))
 
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
