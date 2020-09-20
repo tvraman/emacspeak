@@ -341,7 +341,7 @@ custom: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."
 	cat cus-load.el  >> emacspeak-loaddefs.el
-	rm cus-load.el
+	rm -f cus-load.el
 
 # }}}
 # {{{  Make rules for the various modules

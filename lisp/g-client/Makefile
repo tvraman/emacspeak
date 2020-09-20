@@ -72,7 +72,7 @@ g-loaddefs.el:${MODULES}
 custom:${MODULES}
 	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-custom-make-dependencies "."
 	cat g-cus-load.el >> g-loaddefs.el
-	\rm g-cus-load.el
+	rm -f g-cus-load.el
 
 # }}}
 # {{{  Make rules for the various modules
