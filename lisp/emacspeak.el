@@ -352,9 +352,10 @@ caps."
 This exports emacspeak's system variables to the environment
 so it can be passed to subprocesses."
   (cl-declare (special emacspeak-directory emacspeak-play-program
-                       emacspeak-sounds-directory))
+                       tts-notification-device emacspeak-sounds-directory))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
+  (setenv "ALSA_NOTIFY" tts-notification-device)
   (setenv "EMACSPEAK_PLAY_PROGRAM" emacspeak-play-program))
 
 ;;}}}
