@@ -63,14 +63,16 @@ all: ${MODULES} g-loaddefs.el
 	@make config 
 	@make $(OBJECTS)
 
-config: g-cus-load.el g-loaddefs.el
+config: g-loaddefs.el custom
 
 g-loaddefs.el:${MODULES}
 	@echo ";;;Auto generated" > g-loaddefs.el
 	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-generate-autoloads
 
-g-cus-load.el:${MODULES}
+custom:${MODULES}
 	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-custom-make-dependencies "."
+	cat g-cus-load.el >> g-loaddefs.el
+	\rm g-cus-load.el
 
 # }}}
 # {{{  Make rules for the various modules

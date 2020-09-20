@@ -1,7 +1,0 @@
-;;; For use in  Emacsuns other than Emacs 22
-;;; We generate g-cus-load.el for Emacs 22 automatically.
-;;; It's not essential, but is a nice to have.
-;;; This skeleton file will let g-client load an run without
-;;; errors.
-
-(provide  'g-cus-load)
