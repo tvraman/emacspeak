@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 19, 2020.
+last updated on September 20, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3405,8 +3405,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 ........................
 
  -- Command: dtk-notify-stop
-     ‘C-e .’
-     ‘<fn> .’
 
      Stop  speech on notification stream.
 

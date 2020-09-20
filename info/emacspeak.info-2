@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 19, 2020.
+last updated on September 20, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eudc,  Next: emacspeak-evil,  Prev: emacspeak-eterm,  Up: Emacspeak Commands And Options
@@ -8327,8 +8327,8 @@ of emacspeak from becoming dependent on the speech server modules
 ...........................................
 
  -- Command: emacspeak-speak-buffer-filename (&optional filename)
-     ‘C-e f’
-     ‘<fn> f’
+     ‘C-e C-f’
+     ‘<fn> C-f’
 
      Speak name of file being visited in current buffer.
      Speak default directory if invoked in a dired buffer,
@@ -8406,6 +8406,8 @@ of emacspeak from becoming dependent on the speech server modules
 .........................................
 
  -- Command: emacspeak-speak-current-field
+     ‘C-e .’
+     ‘<fn> .’
 
      Speak current field.
 

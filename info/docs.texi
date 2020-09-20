@@ -573,13 +573,6 @@ Shutdown notification TTS stream.
 
 @subsubsection dtk-notify-stop
 @deffn {Command} dtk-notify-stop   
-@table @kbd
-@item C-e .
-@kindex C-e .
-@item <fn> .
-@kindex <fn> .
-@end table
-
 @findex dtk-notify-stop
 
 @format
@@ -15873,10 +15866,10 @@ voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs
 @subsubsection emacspeak-speak-buffer-filename
 @deffn {Command} emacspeak-speak-buffer-filename  (&optional filename)
 @table @kbd
-@item C-e f
-@kindex C-e f
-@item <fn> f
-@kindex <fn> f
+@item C-e C-f
+@kindex C-e C-f
+@item <fn> C-f
+@kindex <fn> C-f
 @end table
 
 @findex emacspeak-speak-buffer-filename
@@ -15990,6 +15983,13 @@ Speak the current column.
 
 @subsubsection emacspeak-speak-current-field
 @deffn {Command} emacspeak-speak-current-field   
+@table @kbd
+@item C-e .
+@kindex C-e .
+@item <fn> .
+@kindex <fn> .
+@end table
+
 @findex emacspeak-speak-current-field
 
 @format
