@@ -121,11 +121,6 @@
 (global-set-key (kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (kbd "C-t")  'emacspeak-table-submap-command)
-
-;;; fix what we just broke:-)
-(define-key emacspeak-keymap "e" 'end-of-line)
-(define-key emacspeak-keymap (kbd "C-e") 'end-of-line)
-
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
 
@@ -827,7 +822,7 @@ interactive command that the key sequence executes."
   (cl-declare (special emacspeak-prefix))
   (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
   (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
-
+(add-hook 'change-major-mode-hook  'emacspeak-keymap-recover-eol)
 ;;}}}
 ;;{{{ Global Bindings From Other Modules:
 
