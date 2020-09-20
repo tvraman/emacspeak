@@ -2010,8 +2010,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 (defun dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
   (cl-declare (special tts-notification-device))
-  (or tts-notification-device
-      (getenv "ALSA_DEFAULT")))
+  (or tts-notification-device (getenv "ALSA_DEFAULT")))
 
 (defun dtk-notify-initialize ()
   "Initialize notification TTS stream."
