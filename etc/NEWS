@@ -76,6 +76,10 @@ And NodeJS Apps
 
 The BBC Backstage API is obsolete and long gone; this is reflected in
 a lighter-weight, stripped down ~emacspeak-bbc~.
+** G-Client Modules Merged Into Emacs/lisp
+
+Modules from sub-package ~g-client~ that are still in use have been
+merged into the _emacspeak/lisp_ directory.
 
 ** Module ~emacspeak-npr~ Is Marked Obsolete 
 
