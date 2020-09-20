@@ -48,8 +48,7 @@ BATCH = -batch -q -no-site-file     \
 load-source-file-function  nil)' 
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
 -l $(SRC)/lisp/emacspeak-loaddefs.el \
--l $(SRC)/lisp/g-client/g-load-path.el -l $(SRC)/lisp/g-client/g-cus-load.el  \
--l $(SRC)/lisp/g-client/g-loaddefs.el
+-l $(SRC)/lisp/g-client/g-load-path.el -l $(SRC)/lisp/g-client/g-loaddefs.el
 
 
 COMPILE =  -f batch-byte-compile
