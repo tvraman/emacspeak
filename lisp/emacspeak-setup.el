@@ -135,18 +135,17 @@ such as pronunciation dictionaries are stored. ")
 ;;{{{Load-path:
 
 (cl-pushnew emacspeak-lisp-directory load-path)
-(cl-pushnew (expand-file-name "g-client" emacspeak-lisp-directory) load-path)
 
 ;;}}}
 ;;{{{ autoloads, Hooks
 
 (unless noninteractive
   (let ((file-name-handler-alist nil)
-         (load-source-file-function nil)
-         (inhibit-message t))
-      (mapc
-       #'(lambda (f) (load f nil nil 'no-suffix 'must-suffix))
-       '("emacspeak-loaddefs.el" "g-loaddefs.el"))))
+        (load-source-file-function nil)
+        (inhibit-message t))
+    (mapc
+     #'(lambda (f) (load f nil nil 'no-suffix 'must-suffix))
+     '("emacspeak-loaddefs.el" ))))
 
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)

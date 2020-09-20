@@ -46,9 +46,8 @@ BATCH = -batch -q -no-site-file     \
 -f package-initialize \
 --eval '(setq file-name-handler-alist nil gc-cons-threshold 64000000 \
 load-source-file-function  nil)' 
-DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
--l $(SRC)/lisp/emacspeak-loaddefs.el \
--l $(SRC)/lisp/g-client/g-load-path.el -l $(SRC)/lisp/g-client/g-loaddefs.el
+DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el 
+
 
 
 COMPILE =  -f batch-byte-compile
@@ -298,10 +297,10 @@ emacspeak-ytel.elc \
 emacspeak-yasnippet.elc
 
 ADDON_OBJECTS = \
-nm.elc \
-tapestry.elc     \
-dom-addons.elc \
-xbacklight.elc  toy-braille.elc tetris.elc cd-tool.elc 
+nm.elc tapestry.elc dom-addons.elc  \
+xbacklight.elc  toy-braille.elc tetris.elc cd-tool.elc  \
+g-utils.elc gweb.elc gmaps.elc gm-nnir.elc 
+
 
 OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 
@@ -309,7 +308,6 @@ OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 # {{{  User level targets all
 
 all: $(OBJECTS)
-	cd g-client; $(MAKE) --no-print-directory
 
 muggles: emacspeak-muggles.elc 
 
@@ -323,8 +321,6 @@ lint:
 emacs -batch -q \
 -f package-initialize \
 -l advice.el -l emacspeak-load-path.el  -l emacspeak-loaddefs.el \
--l ./g-client/g-loaddefs.el \
--l ./g-client/g-load-path.el \
 -l g-utils.el \
 -f elint-directory 
 
@@ -609,14 +605,14 @@ relint:
 	$(EMACS) -batch -f package-initialize -l relint.el -f relint-batch ./*.el 
 
 tags:
-	etags *.el g-client/*.el
+	etags *.el 
 
 # }}}
 # {{{  user level target-- clean
 
 clean:
 	rm -f *.elc  emacspeak-loaddefs.el 
-	cd g-client && make clean 
+
 
 # }}}
 # {{{ end of file

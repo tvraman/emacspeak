@@ -82,7 +82,6 @@ dist:
 config:
 	@cd etc && $(MAKE) config   --no-print-directory
 	@cd lisp && $(MAKE) config --no-print-directory
-	@cd lisp/g-client  && $(MAKE) config --no-print-directory
 	@echo "Configured emacspeak in directory $(SRC)."
 
 # }}}

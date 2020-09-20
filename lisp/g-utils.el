@@ -304,8 +304,7 @@ references, poor-man's xpath."
          (coding-system-for-read 'binary)
          (coding-system-for-write 'binary)
          (buffer-undo-list t))
-     (save-excursion
-       (set-buffer  buffer)
+     (with-current-buffer buffer 
        (kill-all-local-variables)
        (erase-buffer)
        (progn ,@body))))
@@ -361,8 +360,7 @@ XML string is transformed via style
 XML  is transformed via style
   and previewed via `g-html-handler'."
   (cl-declare (special g-xslt-program g-html-handler))
-  (save-excursion
-    (set-buffer buffer)
+  (with-current-buffer buffer
     (when style
       (g-xsl-transform-region (point-min) (point-max) style))
     (funcall g-html-handler (current-buffer))))

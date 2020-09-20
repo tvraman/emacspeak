@@ -202,13 +202,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "") ;no-op -- change to taste
-            )))
+            ))
    '(
      (0 96 115)
      (1 101 112)
@@ -228,13 +227,12 @@ and TABLE gives the values along that dimension."
 ;;; Harry  has a big head --and a lower pitch for the middle setting
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "") ; no-op --- change to taste
-            )))
+            ))
    '(
      (0 50 125)
      (1 59 123)
@@ -253,13 +251,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty average pitch
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format ""); no-op --- change to taste
-            )))
+            ))
    '(
      (0 160 115)
      (1 170 112)
@@ -296,13 +293,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format ""); no-op --- chagne to taste.
-            )))
+            ))
    '(
      (0 0 0)
      (1 20 10)
@@ -321,13 +317,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format ""); no-op --- change to taste
-            )))
+            ))
    '(
      (0 0 0)
      (1 16 20)
@@ -346,13 +341,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty pitch range
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format ""); no-op --- change to taste
-            )))
+            ))
    '(
      (0 0 0)
      (1 50 10)
@@ -391,13 +385,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "") ; no-op --- edit to taste
-            )))
+            ))
    '(
      (0  0 0 0 0)
      (1 3 6  20 3)
@@ -416,13 +409,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry stress
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "") ; no-op --- change to taste
-            )))
+            ))
    '(
      (0  0 0 0 0)
      (1 4 6 2 2)
@@ -441,13 +433,12 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty stress
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table
             (cl-first setting)
             (format "") ; no-op --- change to taste.
-            )))
+            ))
    '(
      (0  1 1 0 0)
      (1 3 4 11 0)
@@ -479,12 +470,11 @@ and TABLE gives the values along that dimension."
 ;;{{{  paul richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table (cl-first setting)
             (format "") ; no-op --- change to taste
-            )))
+            ))
    '(
      (0 0 100)
      (1 14 80)
@@ -503,12 +493,11 @@ and TABLE gives the values along that dimension."
 ;;{{{  harry richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table (cl-first setting)
             (format "") ; no-op --- change to taste
-            )))
+            ))
    '(
      (0 100 0)
      (1 96 3)
@@ -527,12 +516,11 @@ and TABLE gives the values along that dimension."
 ;;{{{  betty richness
 
 (let ((table (make-vector 10 "")))
-  (mapcar
-   (function
-    (lambda (setting)
+  (mapc
+    #'(lambda (setting)
       (aset table (cl-first setting)
             (format "") ; no-op -- change to taste.
-            )))
+            ))
    '(
      (0 0 100)
      (1 8 76)
