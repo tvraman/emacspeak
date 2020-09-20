@@ -40,13 +40,13 @@
 .POSIX:
 # what emacs is called on your system
 EMACS = emacs
-SRC=".."
+SRC="../lisp"
 # How to run in batch mode
 BATCH = -batch -q -no-site-file     \
 -f package-initialize \
 --eval '(setq file-name-handler-alist nil gc-cons-threshold 64000000 \
 load-source-file-function  nil)' 
-DEPS=-l $(SRC)/lisp/emacspeak-load-path.el -l $(SRC)/lisp/emacspeak-loaddefs.el 
+DEPS=-l $(SRC)/emacspeak-load-path.el -l $(SRC)/emacspeak-loaddefs.el 
 
 
 
