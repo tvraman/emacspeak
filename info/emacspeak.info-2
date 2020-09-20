@@ -7771,9 +7771,6 @@ repository for my setup.
  -- Variable: User Option emacspeak-startup-hook
      Hook run after Emacspeak is started.
 
- -- Variable: User Option emacspeak-tts-use-notify-stream
-     Set to true to use a separate TTS stream for notifications.
-
  -- Variable: User Option tts-notification-device
      Virtual ALSA device to use for notifications stream.
 

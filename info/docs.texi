@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1255 commands and 923 options.
+This chapter documents a total of 1255 commands and 922 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -235,7 +235,6 @@ This chapter documents a total of 1255 commands and 923 options.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * emacspeak-ytel::Speech-enable YTEL.
 * espeak-voices::Define  Espeak tags.
-* g::Google Client.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
@@ -15158,11 +15157,6 @@ Hook run after Emacspeak is started.
 
 @end defvar
 
-@defvar {User Option} emacspeak-tts-use-notify-stream
-Set to true to use a separate TTS stream for notifications.
-
-@end defvar
-
 @defvar {User Option} tts-notification-device
 Virtual ALSA device to use for notifications stream.
 
@@ -24215,17 +24209,6 @@ Start ESpeak engine.
 Default speech rate for eSpeak.
 
 @end defvar
-
-@node g
-@section g
-
-Top-level bootstrap module for Google Client.
-Loads in authentication module and sets up per-service
-modules:
-gmaps: Google Maps
-gweb: Google Web Search
-gblogger: Blogger
-gphoto: Google Photos
 
 @node g-utils
 @section g-utils

@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1255 commands and 923 options.
+   This chapter documents a total of 1255 commands and 922 options.
 
 * Menu:
 
@@ -3118,7 +3118,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * emacspeak-ytel::Speech-enable YTEL.
 * espeak-voices::Define  Espeak tags.
-* g::Google Client.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
