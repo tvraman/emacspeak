@@ -822,7 +822,7 @@ interactive command that the key sequence executes."
   (cl-declare (special emacspeak-prefix))
   (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
   (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
-(add-hook 'change-major-mode-hook  'emacspeak-keymap-recover-eol)
+(add-hook 'after-change-major-mode-hook  'emacspeak-keymap-recover-eol)
 ;;}}}
 ;;{{{ Global Bindings From Other Modules:
 
