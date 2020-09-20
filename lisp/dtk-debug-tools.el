@@ -53,7 +53,7 @@
 
 ;;}}}
 ;;{{{dtk-debug-speak-buffer
-;;;###autoload
+
 (defun dtk--debug-speak-buffer (text)
   "Return the buffer that dtk-speak would have created as its scratch buffer."
   (cl-declare (special 
