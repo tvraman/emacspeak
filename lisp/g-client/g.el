@@ -46,6 +46,7 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  introduction
+
 ;;; Commentary:
 ;;; Top-level bootstrap module for Google Client.
 ;;; Loads in authentication module and sets up per-service
@@ -55,6 +56,7 @@
 ;;; gblogger: Blogger
 ;;; gphoto: Google Photos 
 ;;; Code:
+
 ;;}}}
 ;;{{{ customizations:
 
@@ -67,10 +69,10 @@
 
 ;;}}}
 ;;{{{ pull in autoloads
+
 (let ((file-name-handler-alist nil)
       (load-source-file-function  nil))
-  (load "g-loaddefs")
-  (load-library "g-cus-load"))
+  (load "g-loaddefs"))
 
 ;;}}}
 (provide 'g)
