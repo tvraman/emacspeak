@@ -48,7 +48,6 @@ BATCH = -batch -q -no-site-file     \
 load-source-file-function  nil)' 
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
 -l $(SRC)/lisp/emacspeak-loaddefs.el \
--l $(SRC)/lisp/emacspeak-cus-load.el \
 -l $(SRC)/lisp/g-client/g-load-path.el -l $(SRC)/lisp/g-client/g-cus-load.el  \
 -l $(SRC)/lisp/g-client/g-loaddefs.el
 
@@ -319,7 +318,7 @@ maths: emacspeak-maths.el
 	make emacspeak-maths.elc
 force:
 
-config: emacspeak-loaddefs.el emacspeak-cus-load.el 
+config: emacspeak-loaddefs.el   custom
 lint:
 	echo "." |\
 emacs -batch -q \
@@ -339,10 +338,11 @@ emacspeak-loaddefs.el: force
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
-emacspeak-cus-load.el: force
+custom: force
 	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."
-	mv cus-load.el emacspeak-cus-load.el
+	cat cus-load.el  >> emacspeak-loaddefs.el
+	rm cus-load.el
 
 # }}}
 # {{{  Make rules for the various modules
@@ -616,7 +616,7 @@ tags:
 # {{{  user level target-- clean
 
 clean:
-	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-load.el
+	rm -f *.elc  emacspeak-loaddefs.el 
 	cd g-client && make clean 
 
 # }}}

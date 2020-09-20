@@ -8,7 +8,6 @@
 # ignore generated files:
 README
 etc/emacspeak.sh
-lisp/emacspeak-cus-load.el
 lisp/emacspeak-loaddefs.el
 lisp/TAGS
 info/TAGS

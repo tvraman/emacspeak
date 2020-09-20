@@ -146,7 +146,7 @@ such as pronunciation dictionaries are stored. ")
          (inhibit-message t))
       (mapc
        #'(lambda (f) (load f nil nil 'no-suffix 'must-suffix))
-       '("emacspeak-loaddefs.el" "emacspeak-cus-load.el"
+       '("emacspeak-loaddefs.el" 
          "g-loaddefs.el" "g-cus-load.el"))))
 
 (defcustom dtk-startup-hook
