@@ -81,14 +81,12 @@
   zip
   lat-lng)
 
-(defun gmaps-locations-load ()
+(defsubst gmaps-locations-load ()
   "Load saved GMaps locations."
   (interactive)
-  (cl-declare (special gmaps-locations-file))
+  (cl-declare (special gmaps-locations-file gmaps-locations-loaded-p))
   (when (file-exists-p gmaps-locations-file)
-    (let ((file-name-handler-alist nil)
-          (load-source-file-function  nil))
-      (load gmaps-locations-file))))
+    (setq gmaps-locations-loaded-p (ems--fastload gmaps-locations-file))))
 
 (defvar gmaps-location-table (make-hash-table  :test  #'equal)
   "Hash table that memoizes geolocation.")
