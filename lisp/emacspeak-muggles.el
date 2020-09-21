@@ -486,7 +486,7 @@ _d_: subtree
     (progn
       (emacspeak-hydra-body-pre "Navigator")
       (emacspeak-hydra-toggle-talkative)
-      (condition-case nil (next-line) (error nil)))
+      (condition-case nil (call-interactively #'next-line) (error nil)))
     :hint nil
     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    "Navigator"
