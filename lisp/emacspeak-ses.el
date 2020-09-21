@@ -124,13 +124,13 @@
 (defun emacspeak-ses-forward-row-and-summarize ()
   "Move to next row and summarize."
   (interactive)
-  (next-line)
+  (forward-line 1)
   (emacspeak-ses-summarize-current-cell))
 
 (defun emacspeak-ses-backward-row-and-summarize ()
   "Move to previous row  and summarize."
   (interactive)
-  (previous-line)
+  (forward-line -1)
   (emacspeak-ses-summarize-current-cell))
 
 ;;}}}

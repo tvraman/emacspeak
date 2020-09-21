@@ -103,13 +103,13 @@
 (defun emacspeak-package-next-line ()
   "Move to next line and speak it."
   (interactive)
-  (next-line)
+  (forward-line 1)
   (emacspeak-package-summarize-line))
 
 (defun emacspeak-package-previous-line ()
   "Move to next line and speak it."
   (interactive)
-  (previous-line)
+  (forward-line -1)
   (emacspeak-package-summarize-line))
 
 (defun emacspeak-package-mode-hook ()

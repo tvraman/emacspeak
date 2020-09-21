@@ -275,7 +275,7 @@
                           :test #'string-equal)))
     (cond
      (pos
-      (goto-line (1+ pos))
+      (forward-line (1+ pos))
       (emacspeak-proced-speak-this-field))
      (t (error "Cant find %s" name)))))
 

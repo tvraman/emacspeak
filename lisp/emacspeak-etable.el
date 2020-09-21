@@ -47,11 +47,8 @@
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (condition-case nil
-      (require 'table)
-    (error "table.el is only available in newer Emacsuns")))
-
+  
+(require 'table )
 ;;}}}
 ;;{{{ Update command remap list.
 (defadvice table--make-cell-map(after emacspeak pre act comp)

@@ -50,6 +50,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
+(cl-declaim (optimize (safety 0) (speed 3)))
 (require 'let-alist)
 (require 'lisp-mnt)
 (require 'subr-x)
@@ -57,7 +58,6 @@
 (require 'dired)
 (require 'derived)
 (require 'find-dired)
-(cl-declaim (optimize (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-table-ui)
 (require 'texinfo)
@@ -66,13 +66,13 @@
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 (require 'name-this-color "name-this-color" 'no-error)
-(eval-when-compile
-  (require 'gweb)
-  (require 'shell)
-  (require 'calendar)
-  (require 'cus-edit)
-  (require 'org)
-  (require 'solar))
+
+(require 'gweb)
+(require 'shell)
+(require 'calendar)
+(require 'cus-edit)
+(require 'org)
+(require 'solar)
 ;;}}}
 ;;{{{ custom
 
@@ -2413,9 +2413,8 @@ buffer keyed by `key'gets the key of buffer `buffer'."
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
   "Cleanup commentary."
-  (save-excursion
-    (set-buffer
-     (get-buffer-create " *doc-temp*"))
+  (save-current-buffer
+    (set-buffer (get-buffer-create " *doc-temp*"))
     (erase-buffer)
     (insert commentary)
     (goto-char (point-min))

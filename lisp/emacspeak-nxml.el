@@ -249,7 +249,7 @@
     (let ((o-open nil))
       (save-excursion
         (setq o-open (car (overlays-at (point))))
-        (next-line 1)
+        (forward-line 1)
         (beginning-of-line)
         (forward-char -2)
         (setq o-close (car (overlays-at (point))))
