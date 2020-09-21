@@ -143,10 +143,8 @@ such as pronunciation dictionaries are stored. ")
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil)
         (inhibit-message t))
-    (mapc
-     #'(lambda (f) (load f nil nil 'no-suffix 'must-suffix))
-     '("emacspeak-loaddefs.el" ))))
-
+    (load "emacspeak-loaddefs.el" nil nil 'no-suffix 'must-suffix))
+  
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
   "List of hooks to be run after starting up the speech server.
