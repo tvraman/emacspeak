@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1237 commands and 916 options.
+This chapter documents a total of 1217 commands and 914 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -214,7 +214,6 @@ This chapter documents a total of 1237 commands and 916 options.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
-* emacspeak-vlc::Speech-enable VLC.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-vuiet::Speech-enable VUIET.
 * emacspeak-wdired::Speech-enable wdired.
@@ -246,8 +245,6 @@ This chapter documents a total of 1237 commands and 916 options.
 * sox-gen::Binaural Beats And More Using SoX.
 * tetris::implementation of Tetris for Emacs.
 * toy-braille::
-* tts::Engine-specific TTS Environment.
-* tts-cmds::Engine-specific TTS Commands.
 * voice-setup::Setup voices for voice-lock.
 * xbacklight::Control Display Brightness From Emacs.
 * URL Templates ::
@@ -19526,188 +19523,6 @@ Moves current line to top of window
 @end format
 @end deffn
 
-@node emacspeak-vlc
-@section emacspeak-vlc
-
-An Emacspeak Front-End For VLC Interaction.
-
-@subsection Emacspeak-Vlc Commands
-
-@subsubsection emacspeak-vlc
-@deffn {Command} emacspeak-vlc   
-@table @kbd
-@item C-. '
-@kindex C-. '
-@item C-' '
-@kindex C-' '
-@item C-x @@ s '
-@kindex C-x @@ s '
-@end table
-
-@findex emacspeak-vlc
-
-@format
-Start or control Emacspeak VLC player.
-
-Uses current context to prompt for media to play.
-Controls media playback when already playing a stream.
-
-key             binding
----             -------
-
-SPC		emacspeak-vlc-pause
-'		emacspeak-vlc-pop-to-player
-+		emacspeak-vlc-volume-up
-,		emacspeak-vlc-backward-10s
--		emacspeak-vlc-volume-down
-.		emacspeak-vlc-forward-10s
-<		emacspeak-vlc-backward-1min
-=		emacspeak-vlc-volume-up
->		emacspeak-vlc-forward-1min
-G		emacspeak-vlc-seek-percentage
-Q		emacspeak-vlc-quit
-[		emacspeak-vlc-slower
-]		emacspeak-vlc-faster
-g		emacspeak-vlc-seek-absolute
-k		emacspeak-vlc-quit
-n		emacspeak-vlc-next-track
-p		emacspeak-vlc-previous-track
-q		bury-buffer
-r		emacspeak-vlc-seek-relative
-s		emacspeak-vlc-scale-speed
-t		emacspeak-vlc-play-tracks-jump
-v		emacspeak-vlc-volume-change
-@{		emacspeak-vlc-half-speed
-@}		emacspeak-vlc-double-speed
-DEL		emacspeak-vlc-reset-speed
-<down>		emacspeak-vlc-forward-1min
-<end>		emacspeak-vlc-end-of-track
-<home>		emacspeak-vlc-beginning-of-track
-<left>		emacspeak-vlc-backward-10s
-<next>		emacspeak-vlc-forward-10min
-<prior>		emacspeak-vlc-backward-10min
-<right>		emacspeak-vlc-forward-10s
-<up>		emacspeak-vlc-backward-1min
-
-.
-@end format
-@end deffn
-
-@subsubsection emacspeak-vlc-command
-@deffn {Command} emacspeak-vlc-command  (key)
-@findex emacspeak-vlc-command
-
-@format
-Invoke VLC commands.
-
-(fn KEY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-vlc-mode
-@deffn {Command} emacspeak-vlc-mode   
-@findex emacspeak-vlc-mode
-
-@format
-Major mode for vlc interaction. 
-
-key             binding
----             -------
-
-SPC		emacspeak-vlc-pause
-'		emacspeak-vlc-pop-to-player
-+		emacspeak-vlc-volume-up
-,		emacspeak-vlc-backward-10s
--		emacspeak-vlc-volume-down
-.		emacspeak-vlc-forward-10s
-<		emacspeak-vlc-backward-1min
-=		emacspeak-vlc-volume-up
->		emacspeak-vlc-forward-1min
-G		emacspeak-vlc-seek-percentage
-Q		emacspeak-vlc-quit
-[		emacspeak-vlc-slower
-]		emacspeak-vlc-faster
-g		emacspeak-vlc-seek-absolute
-k		emacspeak-vlc-quit
-n		emacspeak-vlc-next-track
-p		emacspeak-vlc-previous-track
-q		bury-buffer
-r		emacspeak-vlc-seek-relative
-s		emacspeak-vlc-scale-speed
-t		emacspeak-vlc-play-tracks-jump
-v		emacspeak-vlc-volume-change
-@{		emacspeak-vlc-half-speed
-@}		emacspeak-vlc-double-speed
-DEL		emacspeak-vlc-reset-speed
-<down>		emacspeak-vlc-forward-1min
-<end>		emacspeak-vlc-end-of-track
-<home>		emacspeak-vlc-beginning-of-track
-<left>		emacspeak-vlc-backward-10s
-<next>		emacspeak-vlc-forward-10min
-<prior>		emacspeak-vlc-backward-10min
-<right>		emacspeak-vlc-forward-10s
-<up>		emacspeak-vlc-backward-1min
-
-In addition to any hooks its parent mode ‘comint-mode’ might have run,
-this mode runs the hook ‘emacspeak-vlc-mode-hook’, as the final or penultimate step
-during initialization.
-@end format
-@end deffn
-
-@subsubsection emacspeak-vlc-player
-@deffn {Command} emacspeak-vlc-player  (resource)
-@findex emacspeak-vlc-player
-
-@format
-Play specified resource using vlc.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-vlc-mode.
-
-(fn RESOURCE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-vlc-pop-to-player
-@deffn {Command} emacspeak-vlc-pop-to-player   
-@findex emacspeak-vlc-pop-to-player
-
-@format
-Pop to vlc buffer.
-@end format
-@end deffn
-
-@subsubsection emacspeak-vlc-quit
-@deffn {Command} emacspeak-vlc-quit   
-@findex emacspeak-vlc-quit
-
-@format
-Quit VLC
-@end format
-@end deffn
-
-@subsubsection emacspeak-vlc-url
-@deffn {Command} emacspeak-vlc-url  (url)
-@findex emacspeak-vlc-url
-
-@format
-Call emacspeak-vlc with specified URL.
-
-(fn URL)
-@end format
-@end deffn
-
-@subsection emacspeak-vlc Options
-
-@defvar {User Option} emacspeak-vlc-options
-Options passed to VLC.
-
-@end defvar
-
-@defvar {User Option} emacspeak-vlc-program
-VLC player program.
-
-@end defvar
-
 @node emacspeak-vm
 @section emacspeak-vm
 
@@ -22650,35 +22465,6 @@ Show price for symbol in current row
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-iheart
-@deffn {Command} emacspeak-wizards-iheart  (q)
-@table @kbd
-@item C-, i
-@kindex C-, i
-@item C-x @@ a i
-@kindex C-x @@ a i
-@end table
-
-@findex emacspeak-wizards-iheart
-
-@format
-Perform IHeart Radio search and display clickable results.
-
-(fn Q)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-iheart-radio-play
-@deffn {Command} emacspeak-wizards-iheart-radio-play  (id)
-@findex emacspeak-wizards-iheart-radio-play
-
-@format
-Play specified   station from IHeart Radio.
-
-(fn ID)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-lacheck-buffer-file
 @deffn {Command} emacspeak-wizards-lacheck-buffer-file   
 @findex emacspeak-wizards-lacheck-buffer-file
@@ -25063,130 +24849,6 @@ References:
 http://www.nbp.org/ic/nbp/braille/index.html
 
 http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
-
-@node tts
-@section tts
-
-Define data structure and API for setting up, accessing and manipulating TTS environment.
-When complete, this will  be used by the various engine configuration functions to set everything in one structure.
-
-@subsection Tts Commands
-
-@subsubsection tts-set-chunk-separator
-@deffn {Command} tts-set-chunk-separator  (chunk-separator)
-@findex tts-set-chunk-separator
-
-@format
-Set tts chunk-separator.
-
-(fn CHUNK-SEPARATOR)
-@end format
-@end deffn
-
-@subsubsection tts-set-punctuations
-@deffn {Command} tts-set-punctuations  (punctuations)
-@findex tts-set-punctuations
-
-@format
-Set tts punctuations.
-
-(fn PUNCTUATIONS)
-@end format
-@end deffn
-
-@subsubsection tts-set-rate
-@deffn {Command} tts-set-rate  (rate)
-@findex tts-set-rate
-
-@format
-Set tts rate.
-
-(fn RATE)
-@end format
-@end deffn
-
-@subsubsection tts-toggle-allcaps
-@deffn {Command} tts-toggle-allcaps   
-@findex tts-toggle-allcaps
-
-@format
-Toggle field allcaps in current tts-state.
-@end format
-@end deffn
-
-@subsubsection tts-toggle-capitalize
-@deffn {Command} tts-toggle-capitalize   
-@findex tts-toggle-capitalize
-
-@format
-Toggle field capitalize in current tts-state.
-@end format
-@end deffn
-
-@subsubsection tts-toggle-quiet
-@deffn {Command} tts-toggle-quiet   
-@findex tts-toggle-quiet
-
-@format
-Toggle field quiet in current tts-state.
-@end format
-@end deffn
-
-@subsubsection tts-toggle-speak-nonprinting-chars
-@deffn {Command} tts-toggle-speak-nonprinting-chars   
-@findex tts-toggle-speak-nonprinting-chars
-
-@format
-Toggle field speak-nonprinting-chars in current tts-state.
-@end format
-@end deffn
-
-@subsubsection tts-toggle-split-caps
-@deffn {Command} tts-toggle-split-caps   
-@findex tts-toggle-split-caps
-
-@format
-Toggle field split-caps in current tts-state.
-@end format
-@end deffn
-
-@subsubsection tts-toggle-strip-octals
-@deffn {Command} tts-toggle-strip-octals   
-@findex tts-toggle-strip-octals
-
-@format
-Toggle field strip-octals in current tts-state.
-@end format
-@end deffn
-
-@subsubsection tts-toggle-use-auditory-icons
-@deffn {Command} tts-toggle-use-auditory-icons   
-@findex tts-toggle-use-auditory-icons
-
-@format
-Toggle field use-auditory-icons in current tts-state.
-@end format
-@end deffn
-
-@node tts-cmds
-@section tts-cmds
-
-End-user TTS Commands implemented using tts-state. If this works
-out, these will eventually replace the commands implemented in
-dtk-speak.el
-
-@subsection Tts-Cmds Commands
-
-@subsubsection tts-cmd-set-rate
-@deffn {Command} tts-cmd-set-rate  (rate &optional prefix)
-@findex tts-cmd-set-rate
-
-@format
-Set speech rate.
-
-(fn RATE &optional PREFIX)
-@end format
-@end deffn
 
 @node voice-setup
 @section voice-setup

@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1237 commands and 916 options.
+   This chapter documents a total of 1217 commands and 914 options.
 
 * Menu:
 
@@ -3097,7 +3097,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.
-* emacspeak-vlc::Speech-enable VLC.
 * emacspeak-vm::Speech enable VMMail.
 * emacspeak-vuiet::Speech-enable VUIET.
 * emacspeak-wdired::Speech-enable wdired.
@@ -3129,8 +3128,6 @@ documentation, then read *Note emacspeak-eww::.
 * sox-gen::Binaural Beats And More Using SoX.
 * tetris::implementation of Tetris for Emacs.
 * toy-braille::
-* tts::Engine-specific TTS Environment.
-* tts-cmds::Engine-specific TTS Commands.
 * voice-setup::Setup voices for voice-lock.
 * xbacklight::Control Display Brightness From Emacs.
 * URL Templates ::
