@@ -147,7 +147,7 @@ tones using SoX, e.g., for binaural beats."
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
 
-;;;###autoload
+
 (defun sox-tone-binaural (length freq beat gain)
   "Play binaural audio with carrier frequency `freq', beat `beat', and
 gain `gain'."
@@ -164,7 +164,7 @@ gain `gain'."
     freq (+ freq beat)
     (+ gain sox-binaural-gain-offset))))
 
-;;;###autoload
+
 (defun sox-tone-slide-binaural (length freq beat-start beat-end  gain)
   "Play binaural audio with carrier frequency `freq', beat
 `beat-start' -> `beat-end', and gain `gain'."
@@ -200,7 +200,7 @@ gain `gain'."
         (push (list this-freq this-beat) specs)))
     (nreverse specs)))
 
-;;;###autoload
+
 (defun sox-beats-binaural (length beat-spec-list  gain)
   "Play binaural audio with beat-spec specifying the various tones.
 Param `beat-spec-list' is a list of `(carrier beat) tupples."
@@ -310,7 +310,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (dtk-notify-say
    (format "%s: %s" name (sox--format-seconds duration))))
 
-;;;###autoload
+
 (defun sox-slide-binaural (name-1 name-2 duration)
   "Play specified binaural slide from `name-1' to `name-2'."
   (interactive
@@ -603,7 +603,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
                   1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1 channels 2"
   "Command-line that produces a simple chime.")
 
-;;;###autoload
+
 (defun sox-chime (&optional tempo speed)
   "Play chime --- optional args tempo and speed default to 1."
   (cl-declare (special sox-chime-cmd))
