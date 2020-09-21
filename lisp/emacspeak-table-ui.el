@@ -134,7 +134,7 @@ Full List Of Keybindings:
   (set (make-local-variable 'voice-lock-mode) t)
   (put-text-property (point-min) (point-max)
                      'point-entered 'emacspeak-table-point-motion-hook)
-  (not-modified)
+  (set-buffer-modified-p nil)
   (setq buffer-undo-list t)
   (setq buffer-read-only t)
   (emacspeak-auditory-icon 'select-object)
@@ -197,7 +197,7 @@ Full List Of Keybindings:
 
 (defun emacspeak-table-synchronize-display ()
   "Bring visual display in sync with internal representation"
-  (cl-declare (special emacspeak-table positions))
+  (cl-declare (special emacspeak-table ems--positions))
   (let ((row (emacspeak-table-current-row emacspeak-table))
         (column (emacspeak-table-current-column emacspeak-table))
         (width (frame-width)))
@@ -206,7 +206,7 @@ Full List Of Keybindings:
       (gethash
        (intern
         (format "element:%s:%s" row column))
-       positions)
+       ems--positions)
       (point)))
     (scroll-left (- (current-column)
                     (+ (/ width  2)
@@ -483,7 +483,7 @@ Optional prefix arg prompts for a new filter."
 
 (defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
-  (cl-declare (special emacspeak-table positions))
+  (cl-declare (special emacspeak-table ems--positions))
   (with-current-buffer buffer
     (emacspeak-table-mode)
     (let ((i 0)
@@ -496,7 +496,7 @@ Optional prefix arg prompts for a new filter."
       (setq buffer-undo-list t)
       (erase-buffer)
       (set (make-local-variable 'emacspeak-table) table)
-      (set (make-local-variable 'positions) (make-hash-table))
+      (set (make-local-variable 'ems--positions) (make-hash-table))
       (setq count (1-  (emacspeak-table-num-columns table)))
       (cl-loop
        for row across (emacspeak-table-elements table) do
@@ -505,7 +505,7 @@ Optional prefix arg prompts for a new filter."
         (puthash
          (intern (format "element:%s:%s" i j))  ; compute key
          (point) ; insertion point  is the value
-         positions)
+         ems--positions)
         (insert
          (format "%s%s"
                  (emacspeak-table-this-element table i j)
@@ -536,7 +536,7 @@ CalTrain schedules.  Execute command `describe-mode' bound to
 \\[describe-mode] in a buffer that is in emacspeak table mode to read
 the documentation on the table browser."
   (interactive "FEnter filename containing table data: ")
-  (cl-declare (special positions))
+  (cl-declare (special ems--positions))
   (let ((buffer (get-buffer-create (format  "*%s*"
                                             (file-name-nondirectory filename))))
         (data nil)
@@ -594,7 +594,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (insert-buffer buffer-name)
+      (insert-buffer-substring buffer-name)
       (goto-char (point-min))
       (flush-lines "^ *$")
       (goto-char (point-min))
@@ -652,7 +652,7 @@ CalTrain schedules.  Execute command `describe-mode' bound to
 \\[describe-mode] in a buffer that is in emacspeak table mode to read
 the documentation on the table browser."
   (interactive "r")
-  (cl-declare (special emacspeak-table positions))
+  (cl-declare (special emacspeak-table ems--positions))
   (let ((buffer-undo-list t)
         (workspace (get-buffer-create " table workspace  "))
         (buffer (get-buffer-create
@@ -684,7 +684,7 @@ the documentation on the table browser."
       (let ((inhibit-read-only t))
         (erase-buffer)
         (set (make-local-variable 'emacspeak-table) table)
-        (set (make-local-variable 'positions) (make-hash-table))
+        (set (make-local-variable 'ems--positions) (make-hash-table))
         (setq count (1-  (emacspeak-table-num-columns table)))
         (cl-loop for row across (emacspeak-table-elements table)
                  do
@@ -693,7 +693,7 @@ the documentation on the table browser."
                           (setf
                            (gethash
                             (intern (format "element:%s:%s" i j))
-                            positions)
+                            ems--positions)
                            (point))
                           (insert
                            (format "%s%s"

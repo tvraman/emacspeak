@@ -785,7 +785,7 @@ interactive command that the key sequence executes."
   (let ((bindings nil))
     (with-temp-buffer
       "org-to-map"
-      (insert-file filename)
+      (insert-file-contents filename)
       (goto-char (point-min))
       (while (not (eobp))
         (let ((fields
