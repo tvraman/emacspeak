@@ -512,7 +512,7 @@ Optional interactive prefix arg author-first prints author at the
     (goto-char (point-min)))
   (when (ems-interactive-p) (emacspeak-auditory-icon 'task-done)))
 
-;;;###autoload
+
 (defun emacspeak-epub-bookshelf-refresh ()
   "Refresh and redraw bookshelf."
   (interactive)
@@ -759,7 +759,7 @@ No book files are deleted."
     (emacspeak-epub-bookshelf-redraw)
     (message "Cleared bookshelf.")))
 
-;;;###autoload
+
 (defun emacspeak-epub-bookshelf-save ()
   "Save bookshelf metadata."
   (interactive)
@@ -841,7 +841,7 @@ For detailed documentation, see \\[emacspeak-epub-mode]"
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;;###autoload
+
 (defun emacspeak-epub-open (epub-file)
   "Open specified Epub.
 Filename may need to  be shell-quoted when called from Lisp."
@@ -858,7 +858,7 @@ Filename may need to  be shell-quoted when called from Lisp."
 
 (declare-function eww-update-header-line-format "eww" nil)
 
-;;;###autoload
+
 (defun emacspeak-epub-eww (epub-file &optional broken-ncx)
   "Display entire book  using EWW from EPub.
 Uses content listed in toc.ncx or  equivalent by default.
@@ -923,7 +923,7 @@ in the epub file instead."
   "REST  end-point for performing Google Books Search
 to find Epubs  having full viewability.")
 
-;;;###autoload
+
 (defun emacspeak-epub-google (query)
   "Search for Epubs from Google Books."
   (interactive "sGoogle Books Query: ")
@@ -997,7 +997,7 @@ to find Epubs  having full viewability.")
   (format "%s%s"
           emacspeak-epub-gutenberg-mirror book-id))
 
-;;;###autoload
+
 (defun emacspeak-epub-gutenberg-download (book-id &optional download)
   "Open web page for specified book.
 Place download url for epub in kill ring.

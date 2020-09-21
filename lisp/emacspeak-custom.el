@@ -216,7 +216,7 @@
   "^/-"
   "Pattern identifying start of custom group.")
 
-;;;###autoload
+
 (defun emacspeak-custom-goto-group ()
   "Jump to custom group when in a customization buffer."
   (interactive)

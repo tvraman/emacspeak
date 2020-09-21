@@ -319,7 +319,7 @@ speech-enabling extensions for `package' (a string)."
 ;;; turn on automatic voice locking , split caps and punctuations in
 ;;; programming  modes
 
-;;;###autoload
+
 (defun emacspeak-setup-programming-mode ()
   "Setup programming mode.
 Turns on audio indentation and sets
@@ -473,7 +473,7 @@ commands and options for details."
                   emacspeak-character-echo
                   emacspeak-use-auditory-icons
                   emacspeak-audio-indentation)))
-      (mapcar
+      (mapc
        #'(lambda (x)
            (if (not (and (boundp x) (symbol-value x)))
                (setq vars (delq x vars))))vars)
