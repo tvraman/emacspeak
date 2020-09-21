@@ -1347,7 +1347,7 @@ Optional argument PREFIX  specifies that the character should be spoken phonetic
     ("default" . "default"))
   "Available speech display tables.")
 
-;;;###autoload
+
 (defun emacspeak-speak-set-display-table (&optional prefix)
   "Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
@@ -1542,8 +1542,6 @@ Negative prefix arg speaks from start of buffer to point."
         (emacspeak-speak-buffer arg)))
      (t (emacspeak-auditory-icon 'button)
         (dtk-speak "First ask for help")))))
-
-;;;###autoload
 
 ;;;###autoload
 (defun emacspeak-speak-minibuffer (&optional arg)
@@ -2129,7 +2127,7 @@ Second interactive prefix sets clock to new timezone."
       (format-time-string emacspeak-speak-time-format-string
                           (current-time) (getenv "TZ")))))))
 
-;;;###autoload
+
 (defun emacspeak-speak-seconds-since-epoch (seconds)
   "Speaks time value specified as seconds  since epoch, e.g. as from float-time."
   (interactive
@@ -2141,7 +2139,7 @@ Second interactive prefix sets clock to new timezone."
    (format-time-string
     emacspeak-speak-time-format-string (seconds-to-time seconds))))
 
-;;;###autoload
+
 (defun emacspeak-speak-microseconds-since-epoch (ms)
   "Speaks time value specified as microseconds  since epoch, e.g. as from float-time."
   (interactive
@@ -2150,7 +2148,7 @@ Second interactive prefix sets clock to new timezone."
   (let ((seconds (/ ms 1000000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
 
-;;;###autoload
+
 (defun emacspeak-speak-milliseconds-since-epoch (ms)
   "Speaks time value specified as milliseconds  since epoch, e.g. as from float-time."
   (interactive
@@ -2159,7 +2157,7 @@ Second interactive prefix sets clock to new timezone."
   (let ((seconds (/ ms 1000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
 
-;;;###autoload
+
 (defun emacspeak-speak-date-as-seconds (time)
   "Read time value as a human-readable string, return seconds.
 Seconds value is also placed in the kill-ring."
@@ -2275,7 +2273,7 @@ Argument STRING specifies the alphanumeric phone number."
              (cl-incf i))
     string))
 
-;;;###autoload
+
 (defun emacspeak-dial-dtk (number)
   "Prompt for and dial a phone NUMBER with the Dectalk."
   (interactive "sEnter phone number to dial:")
@@ -2343,7 +2341,7 @@ by a change in voice personality."
 ;;}}}
 ;;{{{ speaking personality chunks
 
-;;;###autoload
+
 (defun emacspeak-speak-this-personality-chunk ()
   "Speak chunk of text around point that has current
 personality."
@@ -2354,7 +2352,7 @@ personality."
      (if  start (1+ start) (point-min))
      (or  end  (point-max)))))
 
-;;;###autoload
+
 (defun emacspeak-speak-next-personality-chunk ()
   "Moves to the front of next chunk having current personality.
 Speak that chunk after moving."
@@ -2397,7 +2395,7 @@ Return buffer position or nil on failure."
             (setq result start)))
       result)))
 
-;;;###autoload
+
 (defun emacspeak-speak-previous-personality-chunk ()
   "Moves to the front of previous chunk having current personality.
 Speak that chunk after moving."
@@ -2432,7 +2430,7 @@ Speak that chunk after moving."
 ;;}}}
 ;;{{{ speaking face   chunks
 
-;;;###autoload
+
 (defun emacspeak-speak-this-face-chunk ()
   "Speak chunk of text around point that has current face."
   (interactive)
@@ -2442,7 +2440,7 @@ Speak that chunk after moving."
      (if  start (1+ start) (point-min))
      (or end (point-max)))))
 
-;;;###autoload
+
 (defun emacspeak-speak-next-face-chunk ()
   "Moves to the front of next chunk having current style.
 Speak that chunk after moving."
@@ -2458,7 +2456,7 @@ Speak that chunk after moving."
         (emacspeak-speak-this-face-chunk)))
      (t (message "No more chunks with current face.")))))
 
-;;;###autoload
+
 (defun emacspeak-speak-previous-face-chunk ()
   "Moves to the front of previous chunk having current face.
 Speak that chunk after moving."
@@ -2540,7 +2538,7 @@ Interactive prefix arg `browse'  repeatedly browses  through
 ;;}}}
 ;;{{{ comint
 
-;;;###autoload
+
 (defun emacspeak-completion-pick-completion ()
   "Pick completion and return safely where we came from."
   (interactive)
@@ -2784,7 +2782,7 @@ Optional argument ARG  specifies `other' window to speak."
   (interactive)
   (emacspeak-speak-other-window -1))
 
-;;;###autoload
+
 (defun emacspeak-owindow-scroll-up ()
   "Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling."
@@ -2794,7 +2792,7 @@ Speak the window contents after scrolling."
     (call-interactively 'scroll-up)
     (select-window window)))
 
-;;;###autoload
+
 (defun emacspeak-owindow-scroll-down ()
   "Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling."
@@ -2804,7 +2802,7 @@ Speak the window contents after scrolling."
     (call-interactively 'scroll-down)
     (select-window window)))
 
-;;;###autoload
+
 (defun emacspeak-owindow-next-line (count)
   "Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT can specify number of lines to move."
@@ -2821,7 +2819,7 @@ Numeric prefix arg COUNT can specify number of lines to move."
                             (point))
           (emacspeak-speak-line))))))
 
-;;;###autoload
+
 (defun emacspeak-owindow-previous-line (count)
   "Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT specifies number of lines to move."
@@ -2838,7 +2836,7 @@ Numeric prefix arg COUNT specifies number of lines to move."
                             (point))
           (emacspeak-speak-line))))))
 
-;;;###autoload
+
 (defun emacspeak-owindow-speak-line ()
   "Speak the current line in the other window."
   (interactive)
@@ -2847,7 +2845,7 @@ Numeric prefix arg COUNT specifies number of lines to move."
     (goto-char (window-point))
     (emacspeak-speak-line)))
 
-;;;###autoload
+
 (defun emacspeak-speak-predefined-window (&optional arg)
   "Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
@@ -3005,7 +3003,7 @@ Argument PERSONALITY gives the value for property personality."
                     (symbol-name key)
                     (symbol-name key))))
 
-;;;###autoload
+
 (defun emacspeak-voiceify-rectangle (start end &optional personality)
   "Voicify the current rectangle.
 When calling from a program,arguments are
@@ -3026,7 +3024,7 @@ Prompts for PERSONALITY  with completion when called interactively."
            (emacspeak-put-personality start-seg (point) personality))
        start end nil))))
 
-;;;###autoload
+
 (defun emacspeak-voiceify-region (start end &optional personality)
   "Voicify the current region.
 When calling from a program,arguments are
@@ -3225,7 +3223,7 @@ Argument O specifies overlay."
 ;;}}}
 ;;{{{ Speaking spaces
 
-;;;###autoload
+
 (defun emacspeak-speak-spaces-at-point ()
   "Speak the white space at point."
   (interactive)
@@ -3267,7 +3265,7 @@ Argument O specifies overlay."
                                  (match-end 0)
                                  'personality 'inaudible))))))))
 
-;;;###autoload
+
 (defun emacspeak-switch-to-reference-buffer ()
   "Switch back to buffer that generated completions."
   (interactive)
@@ -3336,8 +3334,6 @@ char, or dont move. "
                                    (emacspeak-speak-line)))
 
 ;;;###autoload
-
-;;;###autoload
 (defun emacspeak-mark-backward-mark ()
   "Cycle backward through the mark ring."
   (interactive)
@@ -3357,7 +3353,7 @@ char, or dont move. "
 ;;}}}
 ;;{{{ speaking an extent of text delimited by specified char
 
-;;;###autoload
+
 (defun emacspeak-speak-and-skip-extent-upto-char (char)
   "Search forward from point until we hit char.
 Speak text between point and the char we hit."
@@ -3375,7 +3371,7 @@ Speak text between point and the char we hit."
        (t (error "Could not find %c" char))))
     (when goal (goto-char goal))))
 
-;;;###autoload
+
 (defun emacspeak-speak-and-skip-extent-upto-this-char ()
   "Speak extent delimited by point and last character typed."
   (interactive)
@@ -3485,13 +3481,13 @@ configure which media players get silenced or paused/resumed."
 ;;}}}
 ;;{{{ Show active network interfaces
 
-;;;###autoload
+
 (defun emacspeak-speak-hostname ()
   "Speak host name."
   (interactive)
   (message (system-name)))
 
-;;;###autoload
+
 (defun emacspeak-speak-show-active-network-interfaces (&optional address)
   "Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
