@@ -411,7 +411,7 @@
 
 (setq appt-disp-window-function 'emacspeak-appt-speak-appointment)
 (setq appt-delete-window 'emacspeak-appt-delete-display)
-;;;###autoload
+
 (defun emacspeak-appt-repeat-announcement ()
   "Speaks the most recently displayed appointment message if any."
   (interactive)
@@ -438,7 +438,7 @@
 
 ;;}}}
 ;;{{{ Use GWeb if available for configuring sunrise/sunset coords
-;;;###autoload
+
 (defun emacspeak-calendar-setup-sunrise-sunset ()
   "Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gweb-my-address via M-x customize-variable."
