@@ -277,7 +277,6 @@ emacspeak-url-template.elc \
 emacspeak-vdiff.elc \
 emacspeak-view.elc \
 emacspeak-vuiet.elc \
-emacspeak-vlc.elc \
 emacspeak-vm.elc \
 emacspeak-wdired.elc \
 emacspeak-we.elc \
@@ -568,7 +567,6 @@ emacspeak-url-template.elc: emacspeak-url-template.el emacspeak-webutils.elc ema
 emacspeak-vdiff.elc: emacspeak-vdiff.el dtk-speak.elc voice-setup.elc
 emacspeak-vuiet.elc: emacspeak-vuiet.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
-emacspeak-vlc.elc: emacspeak-vlc.el dtk-speak.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
 emacspeak-wdired.elc: emacspeak-wdired.el dtk-speak.elc voice-setup.elc
 emacspeak-we.elc: emacspeak-we.el emacspeak-webutils.elc

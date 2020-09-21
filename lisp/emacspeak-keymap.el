@@ -522,7 +522,6 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-super-keys 
   '(
-    ("'" emacspeak-vlc)
     ("SPC"  emacspeak-wizards-scratch)
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
@@ -599,7 +598,6 @@ interactive command that the key sequence executes."
     ("f" emacspeak-wizards-find-file-as-root)
     ("g" rg-dwim)
     ("g" rg)
-    ("i" emacspeak-wizards-iheart)
     ("l" eww-open-file)
     ("m" magit-status)
     ("n" emacspeak-wizards-cycle-to-next-buffer)

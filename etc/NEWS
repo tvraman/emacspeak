@@ -85,6 +85,12 @@ merged into the _emacspeak/lisp_ directory.
 
 Long live XML!
 
+** Module ~emacspeak-vlc~ Is Obsolete
+
+It was never completed and hasn't been used, marking it obsolete.
+This also obsoletes the wizards pertaining to ~IHeart Radio~.
+
+
 
 ** Module ~emacspeak-npr~ Is Marked Obsolete 
 
