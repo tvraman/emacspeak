@@ -754,7 +754,7 @@ browsing table elements"
 
 (make-variable-buffer-local 'emacspeak-table-speak-element)
 
-;;;###autoload
+
 (defun emacspeak-table-next-row (&optional count)
   "Move to the next row if possible"
   (interactive "p")
@@ -765,7 +765,7 @@ browsing table elements"
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
-;;;###autoload
+
 (defun emacspeak-table-previous-row (&optional count)
   "Move to the previous row if possible"
   (interactive "p")
@@ -776,7 +776,7 @@ browsing table elements"
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
-;;;###autoload
+
 (defun emacspeak-table-next-column (&optional count)
   "Move to the next column if possible"
   (interactive "p")
@@ -787,7 +787,7 @@ browsing table elements"
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
-;;;###autoload
+
 (defun emacspeak-table-previous-column (&optional count)
   "Move to the previous column  if possible"
   (interactive "p")
@@ -1104,7 +1104,7 @@ table markup.")
 
 ;;}}}
 ;;{{{ copy and paste tables
-;;;###autoload
+
 (defun emacspeak-table-copy-to-clipboard ()
   "Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode."
