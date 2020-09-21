@@ -81,6 +81,11 @@ a lighter-weight, stripped down ~emacspeak-bbc~.
 Modules from sub-package ~g-client~ that are still in use have been
 merged into the _emacspeak/lisp_ directory.
 
+** Module ~emacspeak-xml-shell~ Is Obsolete
+
+Long live XML!
+
+
 ** Module ~emacspeak-npr~ Is Marked Obsolete 
 
 
