@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1255 commands and 922 options.
+This chapter documents a total of 1244 commands and 916 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -228,7 +228,6 @@ This chapter documents a total of 1255 commands and 922 options.
 * emacspeak-wizards::Magic For Power Users.
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
-* emacspeak-xml-shell::Implements a simple XML browser.
 * emacspeak-xref::Speech-enable XREF.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
 * emacspeak-yaml::Speech-enable YAML.
@@ -21507,28 +21506,6 @@ Prompts for the new location and preserves modification time
 @end format
 @end deffn
 
-@subsubsection emacspeak-links
-@deffn {Command} emacspeak-links  (url)
-@findex emacspeak-links
-
-@format
-Launch links on  specified URL in a new terminal.
-
-(fn URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-lynx
-@deffn {Command} emacspeak-lynx  (url)
-@findex emacspeak-lynx
-
-@format
-Launch lynx on  specified URL in a new terminal.
-
-(fn URL)
-@end format
-@end deffn
-
 @subsubsection emacspeak-next-frame-or-buffer
 @deffn {Command} emacspeak-next-frame-or-buffer  (&optional frame)
 @table @kbd
@@ -23553,17 +23530,6 @@ Refresh view of VC we’re viewing.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-vi-as-su-file
-@deffn {Command} emacspeak-wizards-vi-as-su-file  (file)
-@findex emacspeak-wizards-vi-as-su-file
-
-@format
-Launch sudo vi on specified file in a terminal.
-
-(fn FILE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-m-player-mode   
 @table @kbd
@@ -23798,16 +23764,6 @@ Template used to audio-format  rows.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-links-program
-Name of links executable.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-lynx-program
-Lynx executable.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-pdf-to-text-options
 options to Command for running pdftotext.
 
@@ -23916,135 +23872,6 @@ Augments it by displaying the alt text and the transcript.
 Open explanation of current xkcd in default browser
 @end format
 @end deffn
-
-@node emacspeak-xml-shell
-@section emacspeak-xml-shell
-
-Use xmllint from package libxml2 to implement
-an XML browser.
-Uses the interactive shell provided by xmllint to do the hard
-work.
-Results of traversal are transformed  using xsltproc from libxslt
-
-@subsection Emacspeak-Xml-Shell Commands
-
-@subsubsection emacspeak-xml-shell
-@deffn {Command} emacspeak-xml-shell  (system-id)
-@findex emacspeak-xml-shell
-
-@format
-Start Xml-Shell on contents of system-id.
-
-(fn SYSTEM-ID)
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-browse-current
-@deffn {Command} emacspeak-xml-shell-browse-current   
-@findex emacspeak-xml-shell-browse-current
-
-@format
-Display current node.
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-browse-result
-@deffn {Command} emacspeak-xml-shell-browse-result  (xpath)
-@findex emacspeak-xml-shell-browse-result
-
-@format
-Display XPath  and display its result using EWW.
-
-(fn XPATH)
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-goto-children
-@deffn {Command} emacspeak-xml-shell-goto-children   
-@findex emacspeak-xml-shell-goto-children
-
-@format
-Navigate down to the children of current node.
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-goto-next-child
-@deffn {Command} emacspeak-xml-shell-goto-next-child   
-@findex emacspeak-xml-shell-goto-next-child
-
-@format
-Navigate forward  to the next child  of current node.
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-goto-parent
-@deffn {Command} emacspeak-xml-shell-goto-parent   
-@findex emacspeak-xml-shell-goto-parent
-
-@format
-Navigate up to the parent of current node.
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-goto-previous-child
-@deffn {Command} emacspeak-xml-shell-goto-previous-child   
-@findex emacspeak-xml-shell-goto-previous-child
-
-@format
-Navigate backward  to the previous child  of current node.
-@end format
-@end deffn
-
-@subsubsection emacspeak-xml-shell-mode
-@deffn {Command} emacspeak-xml-shell-mode   
-@findex emacspeak-xml-shell-mode
-
-@format
-XML Shell
-
-Interactive XML browser.
-key             binding
----             -------
-
-C-c		Prefix Command
-<down>		emacspeak-xml-shell-goto-children
-<left>		emacspeak-xml-shell-goto-previous-child
-<right>		emacspeak-xml-shell-goto-next-child
-<up>		emacspeak-xml-shell-goto-parent
-
-C-c C-v		emacspeak-xml-shell-browse-result
-C-c v		emacspeak-xml-shell-browse-current
-
-In addition to any hooks its parent mode ‘comint-mode’ might have run,
-this mode runs the hook ‘emacspeak-xml-shell-mode-hook’, as the final or penultimate step
-during initialization.
-@end format
-@end deffn
-
-@subsection emacspeak-xml-shell Options
-
-@defvar {User Option} emacspeak-xml-shell-command
-Executable that provides the XML browser shell.
-Default is xmllint.
-If you want an XML Shell on steroids get XSH and use emacs custom to
-customize the default to be xsh.
-
-@end defvar
-
-@defvar {User Option} emacspeak-xml-shell-hooks
-Start up hooks run after XML browser  process is started.
-
-@end defvar
-
-@defvar {User Option} emacspeak-xml-shell-options
-Command-line options for XML browse command.
-
-@end defvar
-
-@defvar {User Option} emacspeak-xml-shell-xslt
-XSL transform to apply when displaying current node.
-
-@end defvar
 
 @node emacspeak-xref
 @section emacspeak-xref
