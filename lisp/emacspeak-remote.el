@@ -50,7 +50,7 @@
 ;;; Code:
 ;;}}}
 ;;{{{  User customizations
-;;;###autoload
+
 (defgroup emacspeak-remote nil
   "Emacspeak remote group."
   :group 'emacspeak-remote)
@@ -96,7 +96,7 @@ a local  Emacspeak terminal buffer.")
                      emacspeak-resource-directory)
   "Filename containing the name of the host we connected from")
 
-;;;###autoload
+
 (defun emacspeak-remote-edit-current-remote-hostname  ()
   "Interactively set up where we came from.
 Value is persisted for use with ssh servers."
@@ -130,8 +130,6 @@ the host we just logged in from."
 (defvar emacspeak-remote-default-port-to-connect
   "2222"
   "Default used when prompting for a port to connect to.")
-
-;;;###autoload
 
 ;;;###autoload
 (defun emacspeak-remote-quick-connect-to-server()

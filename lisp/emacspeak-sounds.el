@@ -207,12 +207,6 @@ Do not set this by hand;
 
 ;;}}}
 ;;{{{  native player (
-;;;###autoload
-(defun emacspeak-native-auditory-icon (sound-name)
-  "Play auditory icon using native Emacs player."
-  (play-sound
-   (list 'sound
-         :file (format "%s" (emacspeak-get-sound-filename sound-name)))))
 
 ;;}}}
 ;;{{{  serve an auditory icon
@@ -347,7 +341,7 @@ Optional interactive PREFIX arg toggles global value."
                     emacspeak-sounds-auditory-icon-players
                     nil nil
                     "emacspeak-")))
-;;;###autoload
+
 (defun  emacspeak-set-auditory-icon-player (player)
   "Select  player used for producing auditory icons.
 Recommended choices:

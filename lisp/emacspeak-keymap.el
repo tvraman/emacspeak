@@ -231,7 +231,6 @@
    ("M-C-b" emacspeak-submit-bug)
    ("M-C-k" kill-emacs)
    ("M-C-l" emacspeak-speak-overlay-properties)
-   ("M-a" emacspeak-set-auditory-icon-player)
    ("M-b" emacspeak-speak-other-buffer)
    ("M-c" emacspeak-copy-current-file)
    ("M-d" emacspeak-pronounce-dispatch)
