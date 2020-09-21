@@ -58,7 +58,7 @@
 (require 'emacspeak-feeds)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
-(defvar org-ans2)
+(defvar org-ans2 nil)
 ;;}}}
 ;;{{{ voice locking:
 
