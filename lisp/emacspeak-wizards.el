@@ -1551,6 +1551,7 @@ directory to where find is to be launched."
 
 ;;}}}
 ;;{{{ customize emacspeak
+(declare-function emacspeak-custom-goto-group "emacspeak-custom" nil)
 
 ;;;###autoload
 (defun emacspeak-customize ()

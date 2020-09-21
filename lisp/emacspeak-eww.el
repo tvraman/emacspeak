@@ -1968,6 +1968,7 @@ Warning, this is fragile, and depends on a stable id/class for the
   (emacspeak-eww-marks-save)
   (emacspeak-auditory-icon 'delete-object)
   (message "Removed Emacspeak EWW mark %s" name))
+(declare-function emacspeak-epub-eww "emacspeak-epub" [Arg list not available until function definition is loaded.])
 
 ;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)

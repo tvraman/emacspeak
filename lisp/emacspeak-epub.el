@@ -858,7 +858,7 @@ Filename may need to  be shell-quoted when called from Lisp."
 
 (declare-function eww-update-header-line-format "eww" nil)
 
-;;;###autoload
+
 (defun emacspeak-epub-eww (epub-file &optional broken-ncx)
   "Display entire book  using EWW from EPub.
 Uses content listed in toc.ncx or  equivalent by default.
