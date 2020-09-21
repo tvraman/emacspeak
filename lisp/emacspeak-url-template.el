@@ -119,7 +119,7 @@
 ;;}}}
 ;;{{{ define resources
 
-;;;###autoload
+
 (defun emacspeak-url-template-define (name template
                                            &optional generators post-action
                                            documentation fetcher
