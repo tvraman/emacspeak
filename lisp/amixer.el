@@ -294,7 +294,7 @@ Interactive prefix arg refreshes cache."
        (amixer-control-name control)
        update)))))
 
-;;;###autoload
+
 (defun amixer-equalize()
   "Set equalizer. Only affects device `equal'."
   (interactive)
