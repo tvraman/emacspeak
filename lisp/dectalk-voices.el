@@ -641,7 +641,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  tts-env for Dectalk:
 
-;;;###autoload
+
 (defun dectalk-make-tts-env  ()
   "Constructs a TTS environment for Dectalk."
   (cl-declare (special dectalk-default-speech-rate))
