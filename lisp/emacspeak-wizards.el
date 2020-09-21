@@ -364,7 +364,6 @@ With prefix arg, opens the phone book for editing."
 ;;; http://emacs-fu.blogspot.com/
 ;;; 2013/03/editing-with-root-privileges-once-more.html
 ;;;###autoload
-
 (defun emacspeak-wizards-find-file-as-root (file)
   "Like `ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
@@ -1748,14 +1747,6 @@ Ubuntu and Debian this is group `tty'."
 ;;}}}
 ;;{{{ google Transcoder
 
-;;;###autoload
-(defun emacspeak-wizards-google-transcode ()
-  "View Web through Google Transcoder."
-  (interactive)
-  (let ((name "Google Transcoder"))
-    (emacspeak-url-template-open
-     (emacspeak-url-template-get name))))
-
 ;;}}}
 ;;{{{ longest line in region
 ;;;###autoload
@@ -2063,50 +2054,9 @@ dates.")
   (emacspeak-speak-mode-line))
 
 ;;}}}
-;;{{{ rivo
-
-(defvar emacspeak-wizards-rivo-program
-  (expand-file-name "rivo.pl" emacspeak-etc-directory)
-  "Rivo script used by emacspeak.")
-;;;###autoload
-(defun emacspeak-wizards-rivo (when channel stop-time output directory)
-  "Rivo wizard.
-Prompts for relevant information and schedules a rivo job using
-  UNIX At scheduling facility.
-RIVO is implemented by rivo.pl ---
- a Perl script  that can be used to launch streaming media and record
-   streaming media for  a specified duration."
-  (interactive
-   (list
-    (read-from-minibuffer "At Time: hh:mm Month Day")
-    (ems-with-messages-silenced
-     (let ((completion-ignore-case t)
-           (minibuffer-history emacspeak-media-history))
-       (emacspeak-pronounce-define-local-pronunciation
-        emacspeak-media-shortcuts-directory " shortcuts/ ")
-       (read-file-name "RealAudio resource: "
-                       emacspeak-media-shortcuts-directory
-                       (if (eq major-mode 'dired-mode)
-                           (dired-get-filename)
-                         emacspeak-media-last-url))))
-    (read-minibuffer "Length:" "00:30:00")
-    (read-minibuffer "Output Name:")
-    (read-directory-name "Output Directory:")))
-  (cl-declare (special
-               emacspeak-media-last-url emacspeak-media-shortcuts-directory
-               emacspeak-media-history))
-  (let ((command
-         (format "%s -c %s -s %s -o %s -d %s\n"
-                 emacspeak-wizards-rivo-program
-                 channel stop-time output directory)))
-    (shell-command
-     (format "echo '%s' | at %s"
-             command when))))
-
-;;}}}
 ;;{{{ shell history:
 
-;;;###autoload
+
 (defun emacspeak-wizards-shell-bind-keys ()
   "Set up additional shell mode keys."
   (cl-loop for b in
@@ -2278,7 +2228,7 @@ of the source buffer."
        (setq emacspeak-wizards--project-shell-directory dir))))
      (emacspeak-wizards--build-shells-table))
 
-;;;###autoload
+
 (defun emacspeak-wizards-shell-directory-set ()
   "Define current directory as this shell's project directory."
   (interactive)
@@ -3165,8 +3115,6 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (error "Customize emacspeak-wizards-personal-portfolio first"))
   (emacspeak-wizards-yql-lookup emacspeak-wizards-personal-portfolio))
 
-;;;###autoload
-
 ;;}}}
 ;;{{{ alpha-vantage: Stock Quotes
 
@@ -3195,7 +3143,6 @@ Visit https://www.alphavantage.co/support/#api-key to get your key."
    emacspeak-wizards-alpha-vantage-base
    func ticker emacspeak-wizards-alpha-vantage-api-key))
 
-;;;###autoload
 
 (defconst ems--alpha-vantage-funcs
   '("TIME_SERIES_INTRADAY" "TIME_SERIES_DAILY_ADJUSTED"
@@ -3962,7 +3909,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 
 ;;; For use from etc/emacs-pipe.pl
 ;;; Above can be used as a printer command in XTerm
-;;;###autoload
+
 (defun emacspeak-wizards-pipe ()
   "convenience function"
   (pop-to-buffer (get-buffer-create " *piped*"))
@@ -4008,20 +3955,6 @@ updating custom settings for a specific package or group of packages."
                                                            found) pattern)))
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
-
-;;}}}
-;;{{{ Quick Weather:
-
-;;;###autoload
-(defun emacspeak-wizards-quick-weather ()
-  "Bring up weather forecast for current location."
-  (interactive)
-  (cl-declare (special gweb-my-zip))
-  (funcall-interactively
-   #'emacspeak-feeds-rss-display
-   (format
-    "http://www.wunderground.com/auto/rss_full/%s.xml"
-    gweb-my-zip)))
 
 ;;}}}
 ;;{{{ NOAA Weather API:
@@ -4120,31 +4053,6 @@ weather for `gweb-my-address'.  "
     (emacspeak-speak-buffer)))
 
 ;;}}}
-;;{{{ enable/Disable bash-completion in shells:
-
-;;; Completion from bash completion:
-;;; Wins for completing command options. (gdbus)
-;;; Loses for dirname completions.
-;;; This wizard helps quickly turn bash-completion on/off
-;;; I bind it to C-c TAB
-
-;;;###autoload
-(defun emacspeak-wizards-bash-completion-toggle ()
-  "Toggle bash completion from package bash-completion in this shell."
-  (interactive)
-  (cl-declare (special comint-dynamic-complete-functions
-                       shell-dynamic-complete-functions))
-  (cond
-   ((memq 'bash-completion-dynamic-complete comint-dynamic-complete-functions)
-    (pop comint-dynamic-complete-functions)
-    (emacspeak-auditory-icon 'off)
-    (message "Disabled bash completion."))
-   (t
-    (setq comint-dynamic-complete-functions shell-dynamic-complete-functions)
-    (emacspeak-auditory-icon 'on)
-    (message "Enabled bash completion."))))
-
-;;}}}
 ;;{{{ Cleanup Hanging Web connections:
 
 (defun emacspeak-wizards-web-clean-up-processes ()
@@ -4178,17 +4086,6 @@ external package."
       f
       (if ext (format "ext:%s" file) file)
       arglist))))
-
-;;}}}
-;;{{{ World Cup 2018
-;;;###autoload
-(defun emacspeak-wizards-wc-2018 (team)
-  "Display Soccer World Cup Card From Google."
-  (interactive "sTeam:")
-  (emacspeak-we-extract-by-class
-   "xVDuB"
-   (format "https://www.google.com/search?q=world cup+%s&num=25" team)
-   'speak))
 
 ;;}}}
 ;;{{{ Google Newspaper:
@@ -4237,23 +4134,6 @@ external package."
        ((commandp l) (do-it l))
        ((commandp g) (do-it g))
        (t (error "%s is not bound to a command." key))))))
-
-;;}}}
-;;{{{Elisp Wizard: Insert Package Prefix:
-;;;###autoload 
-(defun emacspeak-wizards-insert-elisp-prefix ()
-  "Insert package prefix for current file."
-  (interactive)
-  (let ((prefix nil)
-        (pkg
-         (intern
-          (file-name-sans-extension
-           (file-relative-name (buffer-file-name (current-buffer)))))))
-    (when (featurep pkg)
-      (setq prefix (format "%s-" pkg))
-      (insert prefix)
-      (emacspeak-auditory-icon 'yank-object)
-      (dtk-speak prefix))))
 
 ;;}}}
 ;;{{{Midi Playback Using MuseScore ==mscore:
