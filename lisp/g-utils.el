@@ -6,7 +6,7 @@
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; g-client| T. V. Raman |raman@cs.cornell.edu
+;;; g-client| T. V. Raman |tv.raman.tv@gmail.com
 ;;; An emacs interface to Google Services|
 ;;; $Date: 2006/10/13 01:38:19 $ |
 ;;;  $Revision: 1.14 $ |

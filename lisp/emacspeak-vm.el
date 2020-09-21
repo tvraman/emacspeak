@@ -7,7 +7,7 @@
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;;; A speech interface to Emacs |
 ;;; $Date: 2008-07-31 10:49:44 -0700 (Thu, 31 Jul 2008) $ |
 ;;;  $Revision: 4557 $ |

@@ -3,7 +3,7 @@
 ;;; Description:  Emacspeak Table Navigation UI
 ;;; Keywords: Emacspeak, Table UI ,  Visual layout gives structure
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
+;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;;; A speech interface to Emacs |
 ;;; $Date: 2008-06-26 15:46:49 -0700 (Thu, 26 Jun 2008) $ |
 ;;;  $Revision: 4532 $ |

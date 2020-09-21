@@ -6,7 +6,7 @@
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; gcal| T. V. Raman |raman@cs.cornell.edu
+;;; gcal| T. V. Raman |tv.raman.tv@gmail.com
 ;;; An emacs interface to Reader|
 ;;; $Date: 2006/09/28 17:47:44 $ |
 ;;;  $Revision: 1.30 $ |
