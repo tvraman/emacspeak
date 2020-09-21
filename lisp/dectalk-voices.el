@@ -51,8 +51,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
-(require 'tts)
-
 ;;}}}
 ;;{{{ Customizations:
 
@@ -637,25 +635,6 @@ and TABLE gives the values along that dimension."
         dtk-speech-rate-base 150)
   (setq-default dtk-speech-rate-step 50
                 dtk-speech-rate-base 150))
-
-;;}}}
-;;{{{  tts-env for Dectalk:
-
-
-(defun dectalk-make-tts-env  ()
-  "Constructs a TTS environment for Dectalk."
-  (cl-declare (special dectalk-default-speech-rate))
-  (make-tts-env
-   :name :dectalk
-   :default-voice 'paul
-   :default-speech-rate dectalk-default-speech-rate
-   :list-voices #'dectalk-list-voices
-   :acss-voice-defined-p #'dectalk-voice-defined-p
-   :get-acss-voice-command #'dectalk-get-voice-command
-   :define-voice-from-acss #'dectalk-define-voice-from-speech-style
-   :speech-rate-base 150 :speech-rate-step 50))
-
-(tts-env-set :dectalk  (dectalk-make-tts-env))
 
 ;;}}}
 (provide 'dectalk-voices)

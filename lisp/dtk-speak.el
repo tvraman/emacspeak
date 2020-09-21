@@ -53,7 +53,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'tts)
 (require 'dtk-interp)
 (require 'dtk-unicode)
 
@@ -1660,8 +1659,6 @@ program. Port defaults to dtk-local-server-port"
         (process nil))
     (setq process (apply #'start-process name nil program dtk-program-args))
     (set-process-coding-system process 'utf-8 'utf-8)
-    (tts-env-set-process-env process
-                             (tts-env-get (tts-env-key dtk-program)))
     process))
 
 (defun dtk-initialize ()

@@ -61,7 +61,6 @@ COMPILE =  -f batch-byte-compile
 TTS_OBJECTS = acss-structure.elc \
 dtk-interp.elc dtk-unicode.elc \
 dtk-speak.elc		dectalk-voices.elc\
-tts.elc tts-cmds.elc  \
 plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc
 
@@ -346,10 +345,8 @@ custom: force
 
 dtk-interp.elc: dtk-interp.el
 dtk-unicode.elc: dtk-unicode.el
-dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc tts.elc
-acss-structure.elc: acss-structure.el tts.elc 
-tts.elc: tts.el
-tts-cmds.elc: tts-cmds.el tts.elc
+dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc 
+acss-structure.elc: acss-structure.el 
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc 
 outloud-voices.elc: outloud-voices.el voice-setup.elc 
 plain-voices.elc: plain-voices.el voice-setup.elc 
