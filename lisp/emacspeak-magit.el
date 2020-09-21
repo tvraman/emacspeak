@@ -52,9 +52,9 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-(eval-when-compile
-  (require 'magit nil 'no-error)
-  (require 'magit-extras nil 'no-error))
+
+(require 'magit nil 'no-error)
+(require 'magit-extras nil 'no-error)
 
 ;;}}}
 ;;{{{ Map voices to faces:

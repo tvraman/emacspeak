@@ -50,10 +50,10 @@
 
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (let ((inhibit-message  t))
-    (require 'ecb "ecb" 'no-error))
-  (require 'tree-buffer "tree-buffer" 'no-error))
+
+   
+(require 'ecb "ecb" 'no-error)
+(require 'tree-buffer "tree-buffer" 'no-error)
 ;;}}}
 ;;{{{ Forward Declarations:
 

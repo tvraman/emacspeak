@@ -63,7 +63,7 @@
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
-(eval-when-compile (require 'calendar))
+(require 'calendar)
 ;;}}}
 ;;{{{ structures
 

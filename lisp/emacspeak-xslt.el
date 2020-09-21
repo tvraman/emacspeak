@@ -336,7 +336,7 @@ part of the libxslt package."
           (coding-system-for-read 'utf-8)
           (coding-system-for-write 'utf-8)
           (buffer-file-coding-system 'utf-8))
-      (insert-file file)
+      (insert-file-contents file)
       (shell-command
        (format "%s   --novalid --nonet --param base %s  %s  \"%s\"  2>/dev/null"
                emacspeak-xslt-program 

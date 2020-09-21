@@ -53,8 +53,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (require 'sage-shell-mode nil 'noerror))
+
+(require 'sage-shell-mode nil 'noerror)
 
 ;;}}}
 ;;{{{ Forward Decls:

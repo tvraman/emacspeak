@@ -61,16 +61,16 @@
 (require 'dtk-unicode)
 (require 'emacspeak-pronounce)
 (require 'sox-gen)
-(eval-when-compile
-  (require 'thingatpt)
-  (require 'custom)
+
+(require 'thingatpt)
+(require 'custom)
 (require 'ido)
 (require 'time-date)
 (require 'rect)
-  (require 'shell)
-  (require 'calendar)
-  (require 'which-func)
-  )
+(require 'shell)
+(require 'calendar)
+(require 'which-func)
+  
 
 ;;}}}
 ;;{{{  custom group
@@ -2973,7 +2973,7 @@ any other key to speak entire sexp."
 ;;}}}
 ;;{{{  emacs rectangles and regions:
 
-(eval-when-compile (require 'rect))
+
 ;;; These help you listen to columns of text. Useful for tabulated data
 ;;;###autoload
 (defun emacspeak-speak-rectangle (start end)

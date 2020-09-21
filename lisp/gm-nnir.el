@@ -60,7 +60,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 (require 'nnir)
-(eval-when-compile (require 'gnus-group))
+(require 'gnus-group)
 ;;}}}
 ;;{{{ IMap Search Operators:
 
