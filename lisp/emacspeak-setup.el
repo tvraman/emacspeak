@@ -162,8 +162,9 @@ hook."
   (tts-configure-synthesis-setup dtk-program))
 
 (defcustom tts-notification-device
-  (or (getenv "ALSA_NOTIFY")
-      (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono"))))
+  (eval-when-compile
+    (or (getenv "ALSA_NOTIFY")
+        (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
   "Virtual ALSA device to use for notifications stream."
   :type 'string
   :group 'tts)
