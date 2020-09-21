@@ -348,8 +348,7 @@ For detailed help, invoke command emacspeak-ocr bound to
                        emacspeak-ocr-document-name
                        buffer-read-only))
   (let  ((buffer (emacspeak-ocr-get-buffer)))
-    (save-excursion
-      (set-buffer buffer)
+    (with-current-buffer buffer
       (emacspeak-ocr-mode)
       (when (file-exists-p emacspeak-ocr-working-directory)
         (cd emacspeak-ocr-working-directory))

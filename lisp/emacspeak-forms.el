@@ -272,13 +272,12 @@ Assumes that point is at the front of a field value."
 (add-hook 'forms-mode-hooks
           (function
            (lambda nil 
-             (mapcar 
-              (function
-               (lambda (map)
+             (mapc
+               #'(lambda (map)
                  (define-key map "\C-m" 'emacspeak-forms-rerun-filter)
                  (define-key map "."
                    'emacspeak-forms-summarize-current-position)
-                 (define-key map "," 'emacspeak-forms-summarize-current-record)))
+                 (define-key map "," 'emacspeak-forms-summarize-current-record))
               (list forms-mode-ro-map 
                     forms-mode-map))
 ;;; move to first field

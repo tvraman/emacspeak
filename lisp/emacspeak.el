@@ -319,7 +319,7 @@ speech-enabling extensions for `package' (a string)."
 ;;; turn on automatic voice locking , split caps and punctuations in
 ;;; programming  modes
 
-
+;;;###autoload
 (defun emacspeak-setup-programming-mode ()
   "Setup programming mode.
 Turns on audio indentation and sets

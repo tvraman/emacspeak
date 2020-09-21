@@ -137,7 +137,7 @@
   (define-key emacspeak-eterm-keymap "r" 'emacspeak-eterm-toggle-review)
   (define-key emacspeak-eterm-keymap "q" 'emacspeak-eterm-toggle-review)
   (and term-raw-escape-map
-       (mapcar
+       (mapc
         #'(lambda (key)
             (define-key term-raw-escape-map key 
               (lookup-key (current-global-map) key)))

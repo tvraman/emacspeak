@@ -148,13 +148,13 @@
 (defun emacspeak-elfeed-next-entry ()
   "Move to next entry and speak it."
   (interactive)
-  (next-line)
+  (forward-line 1)
   (emacspeak-elfeed-speak-entry-at-point))
 
 (defun emacspeak-elfeed-previous-entry ()
   "Move to previous entry and speak it."
   (interactive)
-  (previous-line)
+  (forward-line -1)
   (emacspeak-elfeed-speak-entry-at-point))
 
 (defun emacspeak-elfeed-filter-entry-at-point ()

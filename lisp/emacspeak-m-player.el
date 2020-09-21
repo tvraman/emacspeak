@@ -71,15 +71,14 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (require 'ansi-color)
-  (require 'ladspa)
-  (require 'ido)
-  (require 'emacspeak-amark)
-  (require 'emacspeak-webutils)
-  (require 'dired)
-  (require 'locate)
-  (require 'comint))
+(require 'ansi-color)
+(require 'ladspa)
+(require 'ido)
+(require 'emacspeak-amark)
+(require 'emacspeak-webutils)
+(require 'dired)
+(require 'locate)
+(require 'comint)
 
 ;;}}}
 ;;{{{ Stream Metadata:
