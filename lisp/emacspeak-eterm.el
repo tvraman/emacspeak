@@ -57,7 +57,7 @@
 (require 'term)
 ;;}}}
 ;;{{{ custom
-;;;###autoload
+
 (defgroup emacspeak-eterm nil
   "Terminal emulator for the Emacspeak Desktop."
   :group 'emacspeak
@@ -791,7 +791,7 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
   "Vector of window positions.
 A terminal window is recorded by the  positions of its top left
 and bottom right.")
-;;;###autoload
+
 (defun emacspeak-eterm-record-window  (window-id top-left bottom-right
                                                  &optional right-stretch left-stretch)
   "Insert this window definition into the table of terminal windows.
@@ -947,7 +947,7 @@ non-negative integer ")
   "Window id used to filter screen activity.")
 
 (make-variable-buffer-local 'emacspeak-eterm-filter-window)
-;;;###autoload
+
 (defun emacspeak-eterm-set-filter-window (flag)
   "Prompt for the id of a predefined window,
 and set the `filter' window to it.
@@ -1286,7 +1286,7 @@ completions for filename at point")))
 
 ;;}}}
 ;;{{{  Launch remote terminals
-;;;###autoload
+
 (defvar emacspeak-eterm-remote-hosts-table
   (make-vector 127 0)
   "obarray used for completing hostnames when prompting for a remote
@@ -1320,7 +1320,7 @@ emacspeak-eterm-remote-hostnames")
 
 (cl-eval-when (load)
   (emacspeak-eterm-load-remote-hosts-cache))
-;;;###autoload
+
 (defun emacspeak-eterm-cache-remote-host (host)
   "Add this hostname to cache of remote hostnames"
   (cl-declare (special emacspeak-eterm-remote-hosts-table

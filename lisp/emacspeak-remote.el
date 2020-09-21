@@ -200,6 +200,7 @@ Server is specified via custom option `emacspeak-remote-default-ssh-server'."
     (setq dtk-program emacspeak-remote-default-ssh-server)
     (dtk-select-server emacspeak-remote-default-ssh-server)
     (dtk-initialize)))
+(declare-function emacspeak-eterm-cache-remote-host "emacspeak-eterm" (host))
 
 ;;;###autoload
 (defun  emacspeak-remote-connect-to-server (host port)

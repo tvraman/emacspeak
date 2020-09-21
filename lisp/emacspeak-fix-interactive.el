@@ -66,7 +66,7 @@
    "\\|^face\\|^frame\\|^font"
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
-;;;###autoload
+
 (defun emacspeak-should-i-fix-interactive-p  (sym)
   "Predicate to test if this function should be fixed. "
   (and
@@ -138,7 +138,7 @@ use the minibuffer."
   t)
 
 
-;;;###autoload
+
 (defun  emacspeak-fix-interactive-command-if-necessary (command)
   "Fix command if necessary."
   (when (emacspeak-should-i-fix-interactive-p  command)
@@ -146,7 +146,7 @@ use the minibuffer."
 
 ;;}}}
 ;;{{{  fixing all commands defined in a given module:
-;;;###autoload
+
 (defun emacspeak-fix-commands-loaded-from (module)
   "Fix all commands loaded from a specified module."
   (interactive

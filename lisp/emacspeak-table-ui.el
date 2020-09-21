@@ -987,7 +987,7 @@ match, makes the matching row or column current."
     (emacspeak-auditory-icon 'select-object)
     (message "Copied element to register %c" register)))
 
-(emacspeak-fix-interactive-command-if-necessary 'emacspeak-table-copy-current-element-to-register)
+
 
 ;;; Implementing table editing and table clipboard.
 ;;{{{ variables

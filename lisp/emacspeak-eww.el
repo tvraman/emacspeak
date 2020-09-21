@@ -2047,7 +2047,7 @@ interactive prefix arg `delete', delete that mark instead."
            (executable-find "youtube-dl")))
   "Shell commands we permit on URL under point.")
 
-;;;###autoload
+
 (defun emacspeak-eww-shell-command-on-url-at-point (&optional prefix)
   "Run specified shell command on URL at point.
 Warning: Running shell script cbox through this fails mysteriously."

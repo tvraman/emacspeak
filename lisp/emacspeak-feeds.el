@@ -59,7 +59,7 @@
 ;;}}}
 ;;{{{  feed cache
 
-;;;###autoload
+
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
@@ -84,7 +84,7 @@
           (string :tag "Modern" "/usr/local/google/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"))
   :group 'emacspeak-xsl)
 
-;;;###autoload
+
 (defvar emacspeak-feeds-feeds-table (make-hash-table :test #'equal)
   "Hash table to enable efficient feed look up when adding feeds.")
 
@@ -165,7 +165,7 @@ The feed list is persisted to file saved-feeds on exit."
   (expand-file-name "feeds.el" emacspeak-resource-directory)
   "Feed archive.")
 
-;;;###autoload
+
 (defun emacspeak-feeds-archive-feeds ()
   "Archive list of subscribed fees to personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines."
@@ -184,7 +184,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
                (length emacspeak-feeds)
                emacspeak-feeds-archive-file))))
 
-;;;###autoload
+
 (defun emacspeak-feeds-restore-feeds ()
   "Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines."
@@ -209,7 +209,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
                  (length feeds) (length emacspeak-feeds)))
       (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
-;;;###autoload
+
 (defun emacspeak-feeds-fastload-feeds ()
   "Fast load list of feeds from archive.
 This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds."

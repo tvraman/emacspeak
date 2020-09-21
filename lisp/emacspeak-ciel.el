@@ -68,8 +68,6 @@
     (emacspeak-auditory-icon 'mark-object)
     (dtk-speak (format "Copied: %s " (car  kill-ring)))))
 
-(mapc #'emacspeak-fix-interactive-command-if-necessary '(ciel-ci ciel-co))
-
 ;;}}}
 (provide 'emacspeak-ciel)
 ;;{{{ end of file

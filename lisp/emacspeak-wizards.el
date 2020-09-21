@@ -383,32 +383,6 @@ user."
 
 ;;}}}
 ;;{{{ edit file as root using sudo vi
-;;;###autoload
-(defun emacspeak-wizards-vi-as-su-file (file)
-  "Launch sudo vi on specified file in a terminal."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "SU Edit File: "))))
-  (require 'term)
-  (delete-other-windows)
-  (switch-to-buffer
-   (term-ansi-make-term
-    (generate-new-buffer-name
-     (format "vi-%s"
-             (file-name-nondirectory file)))
-    "sudo"
-    nil
-    "vi"
-    file))
-  (emacspeak-eterm-record-window 1
-                                 (cons 0 1)
-                                 (cons 79 20)
-                                 'right-stretch 'left-stretch)
-  (emacspeak-eterm-set-filter-window 1)
-  (term-char-mode)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ browse chunks
@@ -903,72 +877,7 @@ Signals beginning  of buffer."
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 
 ;;}}}
-;;{{{  launch lynx
-
-(defcustom emacspeak-wizards-links-program "links"
-  "Name of links executable."
-  :type 'file
-  :group 'emacspeak-wizards)
-
-;;;###autoload
-(defun emacspeak-links (url)
-  "Launch links on  specified URL in a new terminal."
-  (interactive
-   (list
-    (read-from-minibuffer "URL: ")))
-  (cl-declare (special emacspeak-wizards-links-program))
-  (require 'term)
-  (delete-other-windows)
-  (switch-to-buffer
-   (term-ansi-make-term
-    (generate-new-buffer-name
-     (format "links-%s"
-             (substring url 7)))
-    emacspeak-wizards-links-program
-    nil
-    url))
-  (emacspeak-eterm-record-window 1
-                                 (cons 0 1)
-                                 (cons 79 20)
-                                 'right-stretch 'left-stretch)
-  (term-char-mode)
-  (emacspeak-auditory-icon 'open-object))
-
-(defcustom emacspeak-wizards-lynx-program
-  "lynx"
-  "Lynx executable."
-  :type 'file
-  :group 'emacspeak-wizards)
-
-;;;###autoload
-(defun emacspeak-lynx (url)
-  "Launch lynx on  specified URL in a new terminal."
-  (interactive
-   (list
-    (read-from-minibuffer "URL: "
-                          (browse-url-url-at-point))))
-  (cl-declare (special emacspeak-wizards-lynx-program
-                       term-height term-width))
-  (require 'term)
-  (delete-other-windows)
-  (switch-to-buffer
-   (term-ansi-make-term
-    (generate-new-buffer-name
-     (format "lynx-%s"
-             (substring url 7)))
-    emacspeak-wizards-lynx-program
-    nil
-    "-show-cursor=yes"
-    url))
-  (emacspeak-eterm-record-window 1
-                                 (cons 0 1)
-                                 (cons
-                                  (- term-width 1)
-                                  (- term-height 1))
-                                 'right-stretch 'left-stretch)
-  (emacspeak-eterm-set-filter-window 1)
-  (term-char-mode)
-  (emacspeak-auditory-icon 'open-object))
+;;{{{  launch Curl
 
 (defcustom emacspeak-curl-cookie-store
   (expand-file-name "~/.curl-cookies")
