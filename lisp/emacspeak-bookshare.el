@@ -1331,7 +1331,7 @@ Useful for fulltext search in a book."
 (defvar-local emacspeak-bookshare-this-book nil
   "Record current book in buffer where it is rendered.")
 
-;;;###autoload
+
 (defun emacspeak-bookshare-eww (directory)
   "Render complete book using EWW"
   (interactive
