@@ -292,7 +292,7 @@ Default is to return NullAgent if name not found."
     Custom-mode messages-buffer-mode)
   "List of mode names that get the Help mood.")
 
-;;;###autoload
+
 (defun soundscape-load-theme (theme)
   "Sets up automatic Soundscape mappings based on theme.
 See  \\{soundscape-default-theme} for details."
@@ -486,7 +486,7 @@ Optional interactive prefix arg restarts the listener if already running."
 ;;}}}
 ;;{{{ Automatic soundscapes:
 
-;;;###autoload
+
 (defvar soundscape--auto nil
   "Record if automatic soundscapes are on.
 Do not set this by hand, use command \\[soundscape-toggle].")
