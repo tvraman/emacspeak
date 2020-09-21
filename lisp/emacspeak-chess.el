@@ -124,9 +124,9 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (require 'chess-pos nil 'noerror)
-  (require 'chess-display nil 'noerror))
+
+(require 'chess-pos nil 'noerror)
+(require 'chess-display nil 'noerror)
 
 ;;}}}
 ;;{{{Helpers:

@@ -78,9 +78,8 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'amixer)
-(eval-when-compile
-  (require 'derived)
-  (require 'dbus))
+(require 'derived)
+(require 'dbus)
 (require 'nm "nm" 'no-error)
 
 ;;}}}
