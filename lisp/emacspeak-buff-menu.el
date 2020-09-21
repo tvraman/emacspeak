@@ -118,13 +118,13 @@
 (defun emacspeak-list-buffers-next-line (count)
   "Speech enabled buffer menu navigation"
   (interactive "p")
-  (next-line count)
+  (forward-line count)
   (emacspeak-list-buffers-speak-buffer-line))
 
 (defun emacspeak-list-buffers-previous-line (count)
   "Speech enabled buffer menu navigation"
   (interactive "p")
-  (previous-line count)
+  (forward-line  (* -1 count))
   (emacspeak-list-buffers-speak-buffer-line))
 
 (defadvice list-buffers (after emacspeak pre act)

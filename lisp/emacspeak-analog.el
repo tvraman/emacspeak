@@ -214,7 +214,7 @@ Speak field or char moved to."
   (let ((fields (emacspeak-analog-get-field-spec)))
     (cond (fields
            (emacspeak-auditory-icon 'select-object)
-           (next-line -1)
+           (forward-line -1)
            (emacspeak-analog-speak-field fields))
           (t (call-interactively 'previous-line)))))
 
@@ -224,7 +224,7 @@ Speak field or char moved to."
   (let ((fields (emacspeak-analog-get-field-spec)))
     (cond (fields
            (emacspeak-auditory-icon 'select-object)
-           (next-line 1)
+           (forward-line 1)
            (emacspeak-analog-speak-field fields))
           (t (call-interactively 'next-line)))))
 
