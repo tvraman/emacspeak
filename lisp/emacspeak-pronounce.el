@@ -276,7 +276,7 @@ applied."
   :group 'emacspeak-pronounce)
 
 
-;;;###autoload
+
 (defun emacspeak-pronounce-save-dictionaries ()
   "Writes out the persistent emacspeak pronunciation dictionaries."
   (interactive)
@@ -324,7 +324,7 @@ Default is emacspeak-pronounce-dictionaries-file."
           (setq emacspeak-pronounce-dictionaries-loaded t))
       (error (message "Error loading pronunciation dictionary")))))
 
-;;;###autoload
+
 (defun emacspeak-pronounce-clear-dictionaries ()
   "Clear all current pronunciation dictionaries."
   (interactive)
@@ -352,22 +352,7 @@ Default is emacspeak-pronounce-dictionaries-file."
 
 (make-variable-buffer-local ' emacspeak-pronounce-yank-word-point)
 ;;;###autoload
-(defun emacspeak-pronounce-yank-word ()
-  "Yank word at point into minibuffer."
-  (interactive)
-  (cl-declare (special emacspeak-pronounce-yank-word-point
-                       emacspeak-pronounce-current-buffer))
-  (let ((string
-         (save-current-buffer
-           (set-buffer emacspeak-pronounce-current-buffer)
-           (goto-char emacspeak-pronounce-yank-word-point)
-           (buffer-substring-no-properties
-            (point)
-            (save-excursion
-              (forward-word 1)
-              (setq emacspeak-pronounce-yank-word-point (point)))))))
-    (insert string)
-    (dtk-speak string)))
+
 
 (defun emacspeak-pronounce-read-term (key)
   (cl-declare (special emacspeak-pronounce-yank-word-point
@@ -493,12 +478,12 @@ Becomes automatically buffer local.")
 
 (setq-default emacspeak-pronounce-pronunciation-table nil)
 
-;;;###autoload
+
 (defun  emacspeak-pronounce-pronunciation-table ()
   "Closure that returns the pronunciation table."
   emacspeak-pronounce-pronunciation-table)
 
-;;;###autoload
+
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle use of pronunciation dictionaries in current buffer.
 Pronunciations can be defined on a per file, per directory and/or
@@ -526,7 +511,7 @@ to explicitly turn pronunciations on or off."
      "Turned  pronunciations %s."
      (if emacspeak-pronounce-pronunciation-table " on " " off "))))
 
-;;;###autoload
+
 (defun emacspeak-pronounce-refresh-pronunciations ()
   "Refresh pronunciation table for current buffer.
 Activates pronunciation dictionaries if not already active."
@@ -677,7 +662,7 @@ pronunciation dictionary for the specified key."
          emacspeak-pronounce-dictionaries)
         value))))
 
-;;;###autoload
+
 (defun emacspeak-pronounce-edit-pronunciations (key)
   "Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key."

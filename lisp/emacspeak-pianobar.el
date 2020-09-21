@@ -187,7 +187,7 @@
 (defvar emacspeak-pianobar-electric-mode t
   "Records if electric mode is on.")
 
-;;;###autoload
+
 (defun emacspeak-pianobar-electric-mode-toggle ()
   "Toggle electric mode in pianobar buffer.
 If electric mode is on, keystrokes invoke pianobar commands directly."

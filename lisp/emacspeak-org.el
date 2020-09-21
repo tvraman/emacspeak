@@ -58,6 +58,7 @@
 (require 'emacspeak-feeds)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
+(defvar org-ans2)
 ;;}}}
 ;;{{{ voice locking:
 
@@ -547,7 +548,7 @@
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'close-object))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-current-element ()
   "echoes current table element"
   (interactive)
@@ -556,21 +557,21 @@
      ((string-match "^ *$" field) (dtk-speak "space"))
      (t (dtk-speak-and-echo field)))))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-column-header ()
   "echoes column header"
   (interactive)
   (dtk-speak-and-echo
    (propertize (org-table-get 1 nil) 'face 'bold)))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-row-header ()
   "echoes row header"
   (interactive)
   (dtk-speak-and-echo
    (propertize (org-table-get nil 1) 'face 'italic)))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-coordinates ()
   "echoes coordinates"
   (interactive)
@@ -578,7 +579,7 @@
    (concat "row " (number-to-string (org-table-current-line))
            ", column " (number-to-string (org-table-current-column)))))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-both-headers-and-element ()
   "echoes both row and col headers."
   (interactive)
@@ -589,7 +590,7 @@
     (propertize (org-table-get  1 nil) 'face 'bold) " "
     (org-table-get-field))))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-row-header-and-element ()
   "echoes row header and element"
   (interactive)
@@ -599,7 +600,7 @@
     " "
     (org-table-get-field))))
 
-;;;###autoload
+
 (defun emacspeak-org-table-speak-column-header-and-element ()
   "echoes col header and element"
   (interactive)
@@ -622,7 +623,7 @@
 ;;}}}
 ;;{{{ Additional table function:
 
-;;;###autoload
+
 (unless (fboundp 'org-table-previous-row)
   (defun org-table-previous-row ()
     "Go to the previous row (same column) in the current table.
@@ -646,7 +647,7 @@ Before doing so, re-align the table if necessary."
 
 ;;}}}
 ;;{{{ EWW Integration:
-;;;###autoload
+
 (defun emacspeak-org-capture-link ()
   "Capture hyperlink to current context.
 To use this command, first  do `customize-variable' `org-capture-template'

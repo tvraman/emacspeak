@@ -832,14 +832,14 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ GMail Search Accelerators:
 
-;;;###autoload
+
 (defun emacspeak-gnus-personal-gmail-recent ()
   "Look for mail addressed personally in the last day."
   (interactive)
   (gm-nnir-group-make-gmail-group
    (format "newer_than:1d to:me -cc:%s" user-mail-address)))
 
-;;;###autoload
+
 (defun emacspeak-gnus-personal-gmail-last-week()
   "Look for mail addressed personally in the last week."
   (interactive)

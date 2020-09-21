@@ -89,7 +89,7 @@ speak the first field")
   "Personality for read-only fields. "
   :type 'symbol
   :group 'emacspeak-forms)
-;;;###autoload
+
 (defun emacspeak-forms-speak-field ()
   "Speak current form field name and value.
 Assumes that point is at the front of a field value."

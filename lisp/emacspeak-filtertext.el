@@ -112,7 +112,7 @@ preparation for interactively filtering text. "
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)))
 
-;;;###autoload
+
 (defun emacspeak-filtertext-revert ()
   "Revert to original text."
   (interactive)

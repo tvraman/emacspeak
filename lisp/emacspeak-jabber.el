@@ -280,7 +280,7 @@ the kill ring as well."
 
 ;;}}}
 ;;{{{ Speak recent message:
-;;;###autoload
+
 (defun emacspeak-jabber-speak-recent-message ()
   "Speak most recent message if one exists."
   (interactive)

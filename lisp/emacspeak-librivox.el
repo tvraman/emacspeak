@@ -278,7 +278,7 @@ Optional arg `offset' (default 0) is used for getting more results."
     )
   "List of genres.")
 
-;;;###autoload
+
 (defun emacspeak-librivox-search-by-genre (genre &optional offset)
   "Search by genre.
 Optional prefix arg `offset' prompts for offset."
@@ -294,7 +294,7 @@ Optional prefix arg `offset' prompts for offset."
            (url-encode-url genre))
    offset))
 
-;;;###autoload
+
 (defun emacspeak-librivox-search-by-author (author &optional offset)
   "Search by author. Both exact and partial matches for
 `author'. Optional interactive prefix arg `offset' prompts for offset
@@ -307,7 +307,7 @@ Optional prefix arg `offset' prompts for offset."
            (url-hexify-string author))
    offset))
 
-;;;###autoload
+
 (defun emacspeak-librivox-search-by-title (title &optional offset)
   "Search by title. Both exact and partial matches for `title'. Optional
 prefix arg `offset' prompts for offset --- use this for retrieving
@@ -367,7 +367,7 @@ more results."
 
 ;;}}}
 ;;{{{ Play Librivox Streams:
-;;;###autoload
+
 (defun emacspeak-librivox-play (rss-url)
   "Play book stream"
   (interactive

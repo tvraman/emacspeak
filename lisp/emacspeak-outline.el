@@ -214,28 +214,28 @@ commands. "
                 (format  "Speak %s lines from section %s"
                          (count-lines start end) (ems--this-line))))
       (emacspeak-speak-region start end))))
-;;;###autoload
+
 (defun emacspeak-outline-speak-next-heading ()
   "Analogous to outline-next-visible-heading,
 except that the outline section is  spoken"
   (interactive)
   (emacspeak-auditory-icon 'section)
   (emacspeak-outline-speak-heading 'outline-next-visible-heading 1))
-;;;###autoload
+
 (defun emacspeak-outline-speak-previous-heading ()
   "Analogous to outline-previous-visible-heading,
 except that the outline section is  spoken"
   (interactive)
   (emacspeak-auditory-icon 'section)
   (emacspeak-outline-speak-heading 'outline-next-visible-heading -1))
-;;;###autoload
+
 (defun emacspeak-outline-speak-forward-heading ()
   "Analogous to outline-forward-same-level,
 except that the outline section is  spoken"
   (interactive)
   (emacspeak-auditory-icon 'section)
   (emacspeak-outline-speak-heading 'outline-forward-same-level 1))
-;;;###autoload
+
 (defun emacspeak-outline-speak-backward-heading ()
   "Analogous to outline-backward-same-level
 except that the outline section is  spoken"
@@ -244,7 +244,7 @@ except that the outline section is  spoken"
   (forward-line -1)
   (emacspeak-outline-speak-heading 'outline-forward-same-level -1))
 
-;;;###autoload
+
 (defun emacspeak-outline-speak-this-heading ()
   "Speak current outline section starting from point"
   (interactive)
