@@ -143,7 +143,7 @@ such as pronunciation dictionaries are stored. ")
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil)
         (inhibit-message t))
-    (load "emacspeak-loaddefs.el" nil nil 'no-suffix 'must-suffix))
+    (load "emacspeak-loaddefs.el" nil nil 'no-suffix 'must-suffix)))
   
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
