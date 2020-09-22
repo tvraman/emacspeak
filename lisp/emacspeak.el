@@ -436,7 +436,7 @@ commands and options for details."
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
-  (dtk-speak-and-echo emacspeak-startup-message)
+  (message emacspeak-startup-message)
   (emacspeak-play-startup-icon)
   (run-hooks 'emacspeak-startup-hook))
 
