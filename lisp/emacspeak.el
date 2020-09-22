@@ -363,13 +363,15 @@ caps."
                          emacspeak-sounds-directory))))
 
 (defvar emacspeak-startup-message
-  (format
-   "  Press %s to get an   overview of emacspeak  %s. \
+  (eval-when-compile
+    (format
+     "  Press %s to get an   overview of emacspeak  %s. \
  I am  completely operational,  and all my circuits are functioning perfectly!"
-   (substitute-command-keys
-    "\\[emacspeak-describe-emacspeak]")
-   emacspeak-version)
+     (substitute-command-keys
+      "\\[emacspeak-describe-emacspeak]")
+     emacspeak-version))
   "Emacspeak startup message.")
+
 ;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
