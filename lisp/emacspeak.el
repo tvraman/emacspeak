@@ -327,6 +327,7 @@ punctuation mode to all, activates the dictionary and turns on split
 caps."
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation))
   (ems-with-messages-silenced
+      (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
       (dtk-set-punctuations 'all)
     (or dtk-split-caps (dtk-toggle-split-caps))
     (emacspeak-pronounce-refresh-pronunciations)
@@ -434,7 +435,6 @@ commands and options for details."
   (ems--fastload "emacspeak-advice")
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
-  (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
   (make-thread #'emacspeak-prepare-emacs)
   (dtk-speak-and-echo emacspeak-startup-message)
   (emacspeak-play-startup-icon)
