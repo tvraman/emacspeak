@@ -306,6 +306,10 @@ speech-enabling extensions for `package' (a string)."
 (defun emacspeak-prepare-emacs ()
   "Prepare Emacs to speech-enable packages as they are loaded."
   (cl-declare (special emacspeak-packages-to-prepare))
+  (setq-default line-move-visual nil)
+  (setq use-dialog-box nil)
+  (when (boundp 'Info-directory-list)
+    (push emacspeak-info-directory Info-directory-list))
   (mapc
    #'(lambda (pair)
        (emacspeak-do-package-setup  (cl-first pair) (cl-second pair)))
@@ -412,10 +416,6 @@ Press C-, to access keybindings in emacspeak-alt-keymap:
 
 See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
-  (setq-default line-move-visual nil)
-  (setq use-dialog-box nil)
-  (when (boundp 'Info-directory-list)
-    (push emacspeak-info-directory Info-directory-list))
   (dtk-initialize)
   (emacspeak-pronounce-load-dictionaries)
   (ems--fastload "emacspeak-advice")
