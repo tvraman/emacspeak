@@ -105,7 +105,7 @@ use `emacspeak-toggle-auditory-icons' bound to
   "Maps valid sound themes to the file name extension used by that theme.")
 
 ;;;###autoload
-(defun emacspeak-sounds-define-theme (theme-name file-ext)
+(defsubst emacspeak-sounds-define-theme (theme-name file-ext)
   "Define a sounds theme for auditory icons. "
   (cl-declare (special emacspeak-sounds-themes-table))
   (setq theme-name (intern theme-name))

@@ -436,7 +436,7 @@ commands and options for details."
   (emacspeak-setup-programming-modes)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
   (make-thread #'emacspeak-prepare-emacs)
-  (tts-with-punctuations 'some (dtk-speak-and-echo emacspeak-startup-message))
+  (dtk-speak-and-echo emacspeak-startup-message)
   (emacspeak-play-startup-icon)
   (run-hooks 'emacspeak-startup-hook))
 
