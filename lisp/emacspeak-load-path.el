@@ -132,8 +132,7 @@ interactive command. Turn off the flag once used."
 (defsubst ems--fastload (file)
   "Load file efficiently."
   (let ((file-name-handler-alist nil)
-         (load-source-file-function nil)
-         (inhibit-message t))
+         (load-source-file-function nil))
     (load file)))
 
 
