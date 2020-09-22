@@ -112,23 +112,26 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
-  (let
-      ((ext
-        '("mov" "wma" "wmv" "flv" "m4a" "m4b"  "flac" "aiff" "aac" "opus ""mkv"
-          "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
-    (concat
-     "\\."
-     (regexp-opt
-      (nconc ext (mapcar #'upcase ext))
-      'parens)
-     "$"))
+  (eval-when-compile
+    (let
+        ((ext
+          '("mov" "wma" "wmv" "flv" "m4a" "m4b"  "flac" "aiff" "aac" "opus ""mkv"
+            "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
+      (concat
+       "\\."
+       (regexp-opt
+        (nconc ext (mapcar #'upcase ext))
+        'parens)
+       "$")))
   "Extensions that match media files.")
+
 ;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
-  (concat
-   (regexp-opt
-    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
-   "$")
+  (eval-when-compile
+    (concat
+     (regexp-opt
+      (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
+     "$"))
   "Pattern for matching playlists.")
 
 ;;}}}
