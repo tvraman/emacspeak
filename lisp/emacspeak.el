@@ -431,7 +431,7 @@ commands and options for details."
     (push emacspeak-info-directory Info-directory-list))
   (dtk-initialize)
   (emacspeak-pronounce-load-dictionaries)
-  (require 'emacspeak-advice)
+  (ems--fastload "emacspeak-advice")
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
