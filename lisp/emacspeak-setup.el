@@ -139,15 +139,14 @@ such as pronunciation dictionaries are stored. ")
 
 (cl-pushnew emacspeak-lisp-directory load-path)
 
+(unless noninteractive
+  (let ((file-name-handler-alist nil)
+        (load-source-file-function nil))
+    (load (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory))))
+
 ;;}}}
 ;;{{{ autoloads, Hooks
 
-(unless noninteractive
-  (let ((file-name-handler-alist nil)
-        (load-source-file-function nil)
-        (inhibit-message t))
-    (load (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory))))
-  
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
   "List of hooks to be run after starting up the speech server.
@@ -207,7 +206,6 @@ It's placed by default on customizable option `emacspeak-startup-hook'."
 
 ;;}}}
 ;;; Start emacspeak if emacs   is interactive:
-
 (unless noninteractive (emacspeak))
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables
