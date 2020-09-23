@@ -92,7 +92,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(cl-eval-when '(load)
+(eval-when-compile
   (when (locate-library "package")
     (unless (locate-library "hydra") (package-install 'hydra))))
 (require 'emacspeak-hydra)
