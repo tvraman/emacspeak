@@ -69,14 +69,6 @@
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
-(require 'emacspeak-sounds)
-(require 'ansi-color)
-(require 'which-func)
-(require 'vc)
-(require 'hippie-exp)
-(require 'comint)
-(require 'shell)
-
 ;;}}}
 ;;{{{ Forward Declarations:
 
