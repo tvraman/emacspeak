@@ -527,11 +527,11 @@ Argument MODE  specifies the current pronunciation mode."
       (replace-match replacement nil t)
       (setq start (- (point) (length replacement)))
       (when personality
-        (put-text-property start (point)
-                           'personality personality)))
+        (put-text-property start (point) 'personality personality)))
     (goto-char (point-min))))
 
 (defun dtk-handle-repeating-patterns (mode)
+  "Handle repeating patterns by replacing them with 'aw <length> char-names'"
   (cl-declare (special dtk-cleanup-repeats))
   (goto-char (point-min))
   (mapc
