@@ -36,7 +36,7 @@
 ;;;    - Load the custom settings file.
 ;;;    - Start up things like the emacs server.
 ;;;    - Some of these tasks are done on a separate thread using make-thread.
-;;;   - The work of loading files etc., is done within macro tvr-fastload
+;;;   - The work of loading files etc., is done within macro tvr-time-load
 ;;;   which sets up an efficient environment for loading files.
 
 ;;}}}
@@ -59,9 +59,9 @@
   "Libraries that need extra setup.")
 
 ;;}}}
-;;{{{ Macro: tvr-fastload:
+;;{{{ Macro: tvr-time-load:
 
-(defmacro tvr-fastload (&rest body)
+(defmacro tvr-time-load (&rest body)
   "Execute body with  an environment condusive to fast-loading files."
   (declare (indent 1) (debug t))
   `(let ((start (current-time))
@@ -218,17 +218,17 @@ Use Custom to customize where possible. "
   (tvr-set-color-for-today)
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (tvr-fastload (when (file-exists-p custom-file)  (load custom-file))))
+  (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
 (defsubst tvr-defer-muggles ()
   "Defered muggles loader."
-  (tvr-fastload (load "emacspeak-muggles")))
+  (tvr-time-load (load "emacspeak-muggles")))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
   (cl-declare (special  tvr-libs))
-  (tvr-fastload
+  (tvr-time-load
       (load tvr-libs)) ;;; load  settings   not  customizable via custom.
   (tvr-customize)      ;;; customizations
   (run-with-idle-timer 1 nil #'yas-reload-all)
@@ -269,7 +269,7 @@ Emacs customization and library configuration happens via the after-init-hook. "
                        outloud-default-speech-rate dectalk-default-speech-rate))
   (setq outloud-default-speech-rate 125 ; because we load custom at the end
         dectalk-default-speech-rate 485)
-  (tvr-fastload ;;; load emacspeak:
+  (tvr-time-load ;;; load emacspeak:
       (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc")))
   (push (expand-file-name "tvr/" emacspeak-directory) load-path)
   (add-hook 'after-init-hook #'tvr-after-init)
