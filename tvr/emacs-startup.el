@@ -271,8 +271,7 @@ Emacs customization and library configuration happens via the after-init-hook. "
         dectalk-default-speech-rate 485)
   (tvr-fastload ;;; load emacspeak:
       (load (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.elc")))
-    (when (file-exists-p (expand-file-name "tvr" emacspeak-directory))
-      (push (expand-file-name "tvr/" emacspeak-directory) load-path))
+  (push (expand-file-name "tvr/" emacspeak-directory) load-path)
   (add-hook 'after-init-hook #'tvr-after-init)
   (add-hook 'emacs-startup-hook #'tvr-emacs-startup-hook)) ;end defun tvr-emacs
 
