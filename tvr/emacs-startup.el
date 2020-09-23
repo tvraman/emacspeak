@@ -94,16 +94,6 @@
 (defalias 'epa--decode-coding-string 'decode-coding-string)
 
 ;;}}}
-;;{{{ tvr-time-it
-
-(defsubst tvr-time-it (what &optional start)
-  "Time code."
-  (or start (setq start (current-time)))
-  (message "<%s %.4f %d gcs %.4f>"
-           what (float-time (time-subtract (current-time) start))
-           gcs-done gc-elapsed))
-
-;;}}}
 ;;{{{ tvr-tabs:
 
 (defsubst tvr-tabs ()
