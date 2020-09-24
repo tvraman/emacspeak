@@ -5518,7 +5518,6 @@ terminology as shown in the hydra package documentation.
    • hideshow: C-, h Provide HideShow bindings.
    • toggle-option: ‘C-c o’ Single binding for toggling options.
    • Repeatable-Yank: ‘C-y’ Smart yank
-   • SmartParens: ‘C-c ,’ Smart Parens
    • Vuiet Explorer: ‘C-; v’ Vuiet Music Explorer and Player
    • undo-only/undo-redo: ‘C-/ ’ Undo-only on ‘/’ and undo-redo on ‘\’
    • emacspeak-maths ‘s-SPC’ Speak and browse math.
@@ -5571,6 +5570,7 @@ binds ‘s’ to this command.
      "s":    ‘hs-show-block’,
      "H":    ‘hs-hide-all’,
      "S":    ‘hs-show-all’,
+     "a":    ‘hs-show-all’,
      "l":    ‘hs-hide-level’,
      "i":    ‘hs-hide-initial-comment-block’
 
@@ -5655,8 +5655,8 @@ binds ‘s’ to this command.
      "SPC":    ‘emacspeak-outline-speak-this-heading’,
      "n":    ‘emacspeak-outline-speak-next-heading’,
      "p":    ‘emacspeak-outline-speak-previous-heading’,
-     "N":    ‘org-forward-heading-same-level’,
-     "P":    ‘org-backward-heading-same-level’,
+     "f":    ‘org-forward-heading-same-level’,
+     "b":    ‘org-backward-heading-same-level’,
      "u":    ‘outline-up-heading’,
      "g":    ‘org-goto’
 
@@ -5684,49 +5684,8 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
-12.130.3.9 emacspeak-muggles-smartparens/body
-.............................................
-
- -- Command: emacspeak-muggles-smartparens/body
-     ‘C-c ,’
-
-     Call the body in the "emacspeak-muggles-smartparens" hydra.
-
-     The heads for the associated hydra are:
-
-     "’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
-     "(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
-     "<down>":    ‘sp-splice-sexp-killing-forward’,
-     "<left>":    ‘sp-forward-barf-sexp’,
-     "<right>":    ‘sp-forward-slurp-sexp’,
-     "<up>":    ‘sp-splice-sexp-killing-backward’,
-     "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-smartparens")’,
-     "C-<left>":    ‘sp-backward-barf-sexp’,
-     "C-<right>":    ‘sp-backward-slurp-sexp’,
-     "R":    ‘sp-splice-sexp’,
-     """:    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
-     "a":    ‘beginning-of-defun’,
-     "b":    ‘sp-backward-sexp’,
-     "c":    ‘sp-convolute-sexp’,
-     "d":    ‘sp-down-sexp’,
-     "e":    ‘end-of-defun’,
-     "f":    ‘sp-forward-sexp’,
-     "i":    ‘sp-indent-defun’,
-     "j":    ‘sp-join-sexp’,
-     "k":    ‘sp-kill-sexp’,
-     "n":    ‘sp-next-sexp’,
-     "p":    ‘sp-previous-sexp’,
-     "r":    ‘sp-splice-sexp-killing-around’,
-     "s":    ‘sp-split-sexp’,
-     "t":    ‘sp-transpose-sexp’,
-     "u":    ‘sp-backward-up-sexp’,
-     "w":    ‘sp-copy-sexp’,
-     "{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’
-
-     The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
-
-12.130.3.10 emacspeak-muggles-toggle-option/body
-................................................
+12.130.3.9 emacspeak-muggles-toggle-option/body
+...............................................
 
  -- Command: emacspeak-muggles-toggle-option/body
      ‘C-c o’
@@ -5753,7 +5712,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.130.3.11 emacspeak-muggles-undo-only/undo-redo/body
+12.130.3.10 emacspeak-muggles-undo-only/undo-redo/body
 ......................................................
 
  -- Command: emacspeak-muggles-undo-only/undo-redo/body
@@ -5769,7 +5728,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 
-12.130.3.12 emacspeak-muggles-view/body
+12.130.3.11 emacspeak-muggles-view/body
 .......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -5830,7 +5789,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.130.3.13 emacspeak-muggles-vuiet/body
+12.130.3.12 emacspeak-muggles-vuiet/body
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
@@ -5863,7 +5822,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
 
-12.130.3.14 emacspeak-muggles-yank-pop/body
+12.130.3.13 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
