@@ -438,7 +438,7 @@
 
 ;;}}}
 ;;{{{ Use GWeb if available for configuring sunrise/sunset coords
-
+;;;###autoload
 (defun emacspeak-calendar-setup-sunrise-sunset ()
   "Set up geo-coordinates using Google Maps reverse geocoding.
 To use, configure variable gweb-my-address via M-x customize-variable."
