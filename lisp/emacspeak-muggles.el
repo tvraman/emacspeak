@@ -258,6 +258,7 @@
    ("s" hs-show-block)
    ("H" hs-hide-all)
    ("S" hs-show-all)
+   ("a"  hs-show-all)
    ("l" hs-hide-level)
    ("i" hs-hide-initial-comment-block)))
 
