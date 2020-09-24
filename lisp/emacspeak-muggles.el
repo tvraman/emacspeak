@@ -64,18 +64,14 @@
 ;;; @item Navigate: @kbd{s-n} Navigate with ease.
 ;;;@item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
 ;;;@item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
-;;;@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
-;;;@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
-;;;@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
 ;;; @item hideshow: C-, h Provide HideShow bindings.
-;;; @item origami: C-, / Origami   bindings.
 ;;; @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
-;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
-;;;@item Info-Summary: <?> in Info Info Summary Muggle
 ;;; @item Repeatable-Yank: @kbd{C-y} Smart yank
 ;;; @item SmartParens: @kbd{C-c ,} Smart Parens
 ;;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
-;;; @item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and undo-redo on @kbd{\}
+;;; @item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and
+;;; undo-redo on @kbd{\}
+;;; @item emacspeak-maths @kbd{s-SPC} Speak and browse math.
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
@@ -113,48 +109,7 @@
 (declare-function ido-ubiquitous-mode "ext:ido-completing-read+" (&optional arg))
 (declare-function ido-everywhere "ido" (&optional arg))
 ;;}}}
-;;{{{ Generate Muggles From Keymaps:
 
-;;; Generate A Muggle:
-;;; Take a name of a keymap (symbol)
-;;; And generate an interactive command that can be bound to a key.
-;;; Invoking that command temporarily activates the previously supplied keymap.
-;;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
-;;; Inspired by the Hydra package.
-;;;###autoload
-(defun emacspeak-muggles-generate (k-map)
-  "Generate a Muggle from specified k-map.
-Argument `k-map' is a symbol  that names a keymap."
-  (unless (and (symbolp k-map) (boundp k-map) (keymapp (symbol-value k-map)))
-    (error "%s is not a keymap." k-map))
-  (let ((cmd-name (intern (format "emacspeak-muggles-%s-cmd" k-map)))
-        (doc-string (format "Temporarily use keymap %s" k-map)))
-    (eval
-     `(defun ,cmd-name ()
-        ,doc-string
-        (interactive)
-        (let* ((key (read-key-sequence "Key: "))
-               (cmd (lookup-key ,k-map key)))
-          (while (commandp cmd)
-            (call-interactively cmd)
-            (setq key (read-key-sequence "Key: ")
-                  cmd (lookup-key ,k-map key)))
-          (call-interactively (lookup-key (current-global-map) key))
-          (emacspeak-auditory-icon 'close-object))))))
-
-;;; Create a command to invoke our media player map:
-
-(global-set-key
- (kbd "s-m")
- (emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
-
-;; Create one for pianobar
-(when (featurep 'pianobar)
-  (global-set-key
-   (kbd "s-'")
-   (emacspeak-muggles-generate 'pianobar-key-map)))
-
-;;}}}
 ;;{{{ Brightness:
 
 (global-set-key
@@ -286,71 +241,6 @@ Argument `k-map' is a symbol  that names a keymap."
     ("c"emacspeak-org-table-speak-column-header-and-element)))
 
 ;;}}}
-;;{{{ Media Player:
-
-(declare-function emacspeak-amark-save "emacspeak-muggles" t)
-(global-set-key
- (kbd "s-;")
- (defhydra emacspeak-muggles-m-player
-   (:body-pre (emacspeak-hydra-body-pre "Media Player")
-              :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   (";" emacspeak-m-player)
-   ("+" emacspeak-m-player-volume-up)
-   ("," emacspeak-m-player-backward-10s)
-   ("%" emacspeak-m-player-display-percent)
-   ("-" emacspeak-m-player-volume-down)
-   ("." emacspeak-m-player-forward-10s)
-   ("<" emacspeak-m-player-backward-1min)
-   ("<down>" emacspeak-m-player-forward-1min)
-   ("<end>" emacspeak-m-player-end-of-track)
-   ("<home>" emacspeak-m-player-beginning-of-track)
-   ("<left>" emacspeak-m-player-backward-10s)
-   ("<next>" emacspeak-m-player-forward-10min)
-   ("<prior>" emacspeak-m-player-backward-10min)
-   ("<right>" emacspeak-m-player-forward-10s)
-   ("<up>" emacspeak-m-player-backward-1min)
-   ("=" emacspeak-m-player-volume-up)
-   (">" emacspeak-m-player-forward-1min)
-   ("?" emacspeak-m-player-display-position)
-   ("C" emacspeak-m-player-clear-filters)
-   ("C-m" emacspeak-m-player-load)
-   ("DEL" emacspeak-m-player-reset-speed)
-   ("L" emacspeak-m-player-load-file)
-   ("M-l" emacspeak-m-player-load-playlist)
-   ("O" emacspeak-m-player-reset-options)
-   ("P" emacspeak-m-player-apply-reverb-preset)
-   ("Q" emacspeak-m-player-quit "quit")
-   ("R" emacspeak-m-player-edit-reverb)
-   ("S" emacspeak-amark-save)
-   ("SPC" emacspeak-m-player-pause)
-   ("[" emacspeak-m-player-slower)
-   ("]" emacspeak-m-player-faster)
-   ("a" emacspeak-m-player-amark-add)
-   ("b" emacspeak-m-player-balance)
-   ("c" emacspeak-m-player-slave-command)
-   ("d" emacspeak-m-player-delete-filter)
-   ("e" emacspeak-m-player-add-equalizer)
-   ("f" emacspeak-m-player-add-filter)
-   ("g" emacspeak-m-player-seek-absolute)
-   ("j" emacspeak-m-player-amark-jump)
-   ("l" emacspeak-m-player-get-length)
-   ("m" emacspeak-m-player-mode-line)
-   ("n" emacspeak-m-player-next-track)
-   ("o" emacspeak-m-player-customize-options)
-   ("p" emacspeak-m-player-previous-track)
-   ("q" bury-buffer)
-   ("r" emacspeak-m-player-seek-relative)
-   ("s" emacspeak-m-player-scale-speed)
-   ("t" emacspeak-m-player-play-tracks-jump)
-   ("u" emacspeak-m-player-url)
-   ("v" emacspeak-m-player-volume-change)
-   ("(" emacspeak-m-player-left-channel)
-   (")" emacspeak-m-player-right-channel)
-   ("{" emacspeak-m-player-half-speed)
-   ("}" emacspeak-m-player-double-speed)
-   ))
-
-;;}}}
 ;;{{{ HideShow:
 
 (global-set-key
@@ -431,52 +321,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("q" nil "quit")))
 
 ;;}}}
-;;{{{ Outliner:
 
-;;; Cloned from Hydra Wiki:
-(global-set-key
- (kbd "C-. o")
- (defhydra emacspeak-muggles-outliner
-   (:body-pre
-    (progn
-      (outline-minor-mode 1)
-      (emacspeak-hydra-body-pre "Outline Navigation"))
-    :pre emacspeak-hydra-pre :post emacspeak-hydra-post
-    :color pink :hint nil)
-   "
-^Hide^             ^Show^           ^Move
-^^^^^^------------------------------------------------------
-_q_: sublevels     _a_: all         _u_: up
-_t_: body          _e_: entry       _n_: next visible
-_o_: other         _i_: children    _p_: previous visible
-_c_: entry         _k_: branches    _f_: forward same level
-_l_: leaves        _s_: subtree     _b_: backward same level
-_d_: subtree
-
-"
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-outliner"))
-   ;; Hide
-   ("q" outline-hide-sublevels) ; Hide everything but the top-level headings
-   ("t" outline-hide-body) ; Hide everything but headings (all body lines)
-   ("o" outline-hide-other)             ; Hide other branches
-   ("c" outline-hide-entry)             ; Hide this entry's body
-   ("l" outline-hide-leaves) ; Hide body lines in this entry and sub-entries
-   ("d" outline-hide-subtree) ; Hide everything in this entry and sub-entries
-   ;; Show
-   ("a" outline-show-all)               ; Show (expand) everything
-   ("e" outline-show-entry)             ; Show this heading's body
-   ("i" outline-show-children) ; Show this heading's immediate child sub-headings
-   ("k" outline-show-branches) ; Show all sub-headings under this heading
-   ("s" outline-show-subtree) ; Show (expand) everything in this heading & below
-   ;; Move
-   ("u" outline-up-heading)               ; Up
-   ("n" outline-next-visible-heading)     ; Next
-   ("p" outline-previous-visible-heading) ; Previous
-   ("f" outline-forward-same-level)       ; Forward - same level
-   ("b" outline-backward-same-level)      ; Backward - same level
-   ("z" nil "leave")))
-
-;;}}}
 ;;{{{ Navigate:
 
 ;;; Inspired by  Hydra wiki:
@@ -509,74 +354,6 @@ _d_: subtree
    ("l" recenter-top-bottom)
    ("<" beginning-of-buffer)
    (">" end-of-buffer)))
-
-;;}}}
-;;{{{ Info Summary:
-
-;;; Taken from Hydra wiki and customized to taste:
-(define-key Info-mode-map (kbd "?")
-  (defhydra emacspeak-muggles-info-summary
-    (:color blue :hint nil
-            :body-pre (emacspeak-hydra-body-pre "Info Summary")
-            :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-    "
-Info-mode:
-
-  ^^_]_ forward  (next logical node)       ^^_l_ast (←)        _u_p (↑)                             _f_ollow reference       _T_OC
-  ^^_[_ backward (prev logical node)       ^^_r_eturn (→)      _m_enu (↓) (C-u for new window)      _i_ndex                  _d_irectory
-  ^^_n_ext (same level only)               ^^_H_istory         _g_oto (C-u for new window)          _,_ next index item      _c_opy node name
-  ^^_p_rev (same level only)               _<_/_t_op           _b_eginning of buffer                virtual _I_ndex          _C_lone buffer
-  regex _s_earch (_S_ case sensitive)      ^^_>_ final         _e_nd of buffer                      ^^                       _a_propos
-
-  _1_ .. _9_ Pick first .. ninth item in the node's menu.
-
-"
-    ("]"   Info-forward-node)
-    ("["   Info-backward-node)
-    ("n"   Info-next)
-    ("p"   Info-prev)
-    ("s"   Info-search)
-    ("S"   Info-search-case-sensitively)
-
-    ("l"   Info-history-back)
-    ("r"   Info-history-forward)
-    ("H"   Info-history)
-    ("t"   Info-top-node)
-    ("<"   Info-top-node)
-    (">"   Info-final-node)
-
-    ("u"   Info-up)
-    ("^"   Info-up)
-    ("m"   Info-menu)
-    ("g"   Info-goto-node)
-    ("b"   beginning-of-buffer)
-    ("e"   end-of-buffer)
-
-    ("f"   Info-follow-reference)
-    ("i"   Info-index)
-    (","   Info-index-next)
-    ("I"   Info-virtual-index)
-
-    ("T"   Info-toc)
-    ("d"   Info-directory)
-    ("c"   Info-copy-current-node-name)
-    ("C"   clone-buffer)
-    ("a"   info-apropos)
-
-    ("1"   Info-nth-menu-item)
-    ("2"   Info-nth-menu-item)
-    ("3"   Info-nth-menu-item)
-    ("4"   Info-nth-menu-item)
-    ("5"   Info-nth-menu-item)
-    ("6"   Info-nth-menu-item)
-    ("7"   Info-nth-menu-item)
-    ("8"   Info-nth-menu-item)
-    ("9"   Info-nth-menu-item)
-
-    ("?"   Info-summary "Info summary")
-    ("h"   Info-help "Info help")
-    ("q"   quit-window "Info exit")
-    ("C-g" nil "cancel" :color blue)))
 
 ;;}}}
 ;;{{{ Repeatable Yank
@@ -640,31 +417,6 @@ Info-mode:
 
 
 
-
-;;}}}
-;;{{{ origami:
-
-(global-set-key
- (kbd "C-, /")
- (defhydra emacspeak-origami
-   (:color red
-           :body-pre
-           (progn
-             (origami-mode 1)
-             (emacspeak-hydra-body-pre "Origami")
-             (emacspeak-hydra-toggle-talkative))
-           :hint nil
-           :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-   "
-    _o_pen node    _n_ext fold       toggle _f_orward
-    _c_lose node   _p_revious fold   toggle _a_ll
-    "
-   ("o" origami-open-node)
-   ("c" origami-close-node)
-   ("n" origami-next-fold)
-   ("p" origami-previous-fold)
-   ("f" origami-forward-toggle-node)
-   ("a" origami-toggle-all-nodes)))
 
 ;;}}}
 ;;{{{ Muggle: Speak And Browse Math
@@ -766,49 +518,7 @@ Info-mode:
    ))
 
 ;;}}}
-;;{{{ Muggles Autoload Wizard:
 
-(defvar emacspeak-muggles-pattern
-  "emacspeak-muggles-.*/body$"
-  "Pattern matching muggles we are interested in.")
-
-(defun emacspeak-muggles-enumerate ()
-  "Enumerate all interactive muggles."
-  (cl-declare (special emacspeak-muggles-pattern))
-  (let ((result nil))
-    (mapatoms
-     #'(lambda (s)
-         (let ((name (symbol-name s)))
-           (when
-               (and
-                (commandp s)
-                (string-match emacspeak-muggles-pattern  name))
-             (push s result)))))
-    result))
-
-;;;###autoload
-(defun emacspeak-muggles-generate-autoloads ()
-  "Generate autoload lines for all defined muggles.
-Also generates global keybindings if any."
-  (let ((muggles (emacspeak-muggles-enumerate))
-        (buff
-         (find-file-noselect
-          (expand-file-name "emacspeak-muggles-autoloads.el"
-                            emacspeak-lisp-directory))))
-    (with-current-buffer buff
-      (erase-buffer)
-      (insert ";;; Auto Generated: Do Not Hand Edit.\n\n")
-      (cl-loop
-       for m in muggles do
-       (let ((key  (where-is-internal m nil 'first)))
-         (insert (format "(autoload \'%s \"emacspeak-muggles\" \"%s\" t)\n" m m))
-         (when key 
-           (insert (format "(global-set-key %s \'%s)\n" key m)))))
-      (insert "\n(provide \'emacspeak-muggles-autoloads)\n")
-      (save-buffer))
-    (message "Generated autoloads for muggles.")))
-
-;;}}}
 
 (provide 'emacspeak-muggles)
 ;;{{{ end of file

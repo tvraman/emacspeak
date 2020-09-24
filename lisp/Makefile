@@ -307,9 +307,9 @@ OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 all: $(OBJECTS)
 
 muggles: emacspeak-muggles.elc 
+extra-muggles: extra-muggles.elc
+maths: emacspeak-maths.elc
 
-maths: emacspeak-maths.el
-	make emacspeak-maths.elc
 force:
 
 config: emacspeak-loaddefs.el   custom
