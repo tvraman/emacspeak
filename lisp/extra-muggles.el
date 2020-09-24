@@ -63,6 +63,7 @@
 ;;; @subsection Extra Muggles
 
 ;;;@itemize
+;;; @item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
 ;;; @item SmartParens: @kbd{C-c ,} Smart Parens
 ;;;@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
 ;;;@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
@@ -436,6 +437,67 @@ Also generates global keybindings if any."
    ("u" sp-backward-up-sexp)  
    ("w" sp-copy-sexp)  
    ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
+
+;;}}}
+;;{{{  View Mode:
+
+(global-set-key
+ (kbd  "C-. v")
+ (defhydra emacspeak-muggles-view
+   (:body-pre
+    (progn
+      (emacspeak-hydra-toggle-talkative)
+      (emacspeak-hydra-body-pre "View"))
+    :hint nil
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+   "View Mode"
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-view"))
+   ("$" set-selective-display)
+   ("%"  View-goto-percent)
+   ("'" register-to-point)
+   ("(" backward-sexp)
+   (")" forward-sexp)
+   ("." set-mark-command)
+   ("/" View-search-regexp-forward)
+   ("<" beginning-of-buffer)
+   ("<return>" nil "quit")
+   ("=" what-line)
+   (">" end-of-buffer)
+   ("@" View-back-to-mark)
+   ("A"beginning-of-defun)
+   ("DEL" View-scroll-page-backward)
+   ("E"end-of-defun)
+   ("J" (emacspeak-hide-or-expose-block 'all))
+   ("SPC" View-scroll-page-forward)
+   ("[" backward-page)
+   ("\\" View-search-regexp-backward)
+   ("]" forward-page)
+   ("a" move-beginning-of-line)
+   ("b" backward-word)
+   ("c" emacspeak-speak-char)
+   ("d" View-scroll-half-page-forward)
+   ("e" move-end-of-line)
+   ("f" forward-word)
+   ("g" goto-line)
+   ("h" backward-char)
+   ("i" emacspeak-speak-mode-line)
+   ("j" next-line)
+   ("k" previous-line)
+   ("l" forward-char)
+   ("m" point-to-register)
+   ("n" View-search-last-regexp-forward)
+   ("p" View-search-last-regexp-backward)
+   ("q" nil "quit")
+   ("r" copy-to-register)
+   ("s" emacspeak-hydra-toggle-talkative)
+   ("t" (recenter 0))
+   ("u" View-scroll-half-page-backward)
+   ("w"emacspeak-speak-word)
+   ("x" exchange-point-and-mark)
+   ("y" kill-ring-save)
+   ("{" backward-paragraph)
+   ("}" forward-paragraph)
+   ))
 
 ;;}}}
 (provide 'extra-muggles)

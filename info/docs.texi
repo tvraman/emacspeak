@@ -12488,7 +12488,6 @@ shown in the hydra package documentation.
 
 @itemize
 @item Brightness: @kbd{print} Control display brightness using xbacklight.
-@item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
 @item Navigate: @kbd{s-n} Navigate with ease.
 @item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
 @item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
@@ -12752,75 +12751,6 @@ The heads for the associated hydra are:
 "\":    ‘undo-redo’
 
 The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-view/body
-@deffn {Command} emacspeak-muggles-view/body   
-@table @kbd
-@item C-. v
-@kindex C-. v
-@item C-' v
-@kindex C-' v
-@item C-x @@ s v
-@kindex C-x @@ s v
-@end table
-
-@findex emacspeak-muggles-view/body
-
-@format
-Call the body in the "emacspeak-muggles-view" hydra.
-
-The heads for the associated hydra are:
-
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-view")’,
-"$":    ‘set-selective-display’,
-"%":    ‘View-goto-percent’,
-"’":    ‘register-to-point’,
-"(":    ‘backward-sexp’,
-")":    ‘forward-sexp’,
-".":    ‘set-mark-command’,
-"/":    ‘View-search-regexp-forward’,
-"<":    ‘beginning-of-buffer’,
-"<return>":    ‘nil’,
-"=":    ‘what-line’,
-">":    ‘end-of-buffer’,
-"@@":    ‘View-back-to-mark’,
-"A":    ‘beginning-of-defun’,
-"DEL":    ‘View-scroll-page-backward’,
-"E":    ‘end-of-defun’,
-"J":    ‘(emacspeak-hide-or-expose-block ’all)’,
-"SPC":    ‘View-scroll-page-forward’,
-"[":    ‘backward-page’,
-"\":    ‘View-search-regexp-backward’,
-"]":    ‘forward-page’,
-"a":    ‘move-beginning-of-line’,
-"b":    ‘backward-word’,
-"c":    ‘emacspeak-speak-char’,
-"d":    ‘View-scroll-half-page-forward’,
-"e":    ‘move-end-of-line’,
-"f":    ‘forward-word’,
-"g":    ‘goto-line’,
-"h":    ‘backward-char’,
-"i":    ‘emacspeak-speak-mode-line’,
-"j":    ‘next-line’,
-"k":    ‘previous-line’,
-"l":    ‘forward-char’,
-"m":    ‘point-to-register’,
-"n":    ‘View-search-last-regexp-forward’,
-"p":    ‘View-search-last-regexp-backward’,
-"q":    ‘nil’,
-"r":    ‘copy-to-register’,
-"s":    ‘emacspeak-hydra-toggle-talkative’,
-"t":    ‘(recenter 0)’,
-"u":    ‘View-scroll-half-page-backward’,
-"w":    ‘emacspeak-speak-word’,
-"x":    ‘exchange-point-and-mark’,
-"y":    ‘kill-ring-save’,
-"@{":    ‘backward-paragraph’,
-"@}":    ‘forward-paragraph’
-
-The body can be accessed via ‘emacspeak-muggles-view/body’.
 @end format
 @end deffn
 
@@ -23511,6 +23441,7 @@ shown in the hydra package documentation.
 @subsection Extra Muggles
 
 @itemize
+@item View-Mode: @kbd{C-. v} Temporarily behave like view-mode.
 @item SmartParens: @kbd{C-c ,} Smart Parens
 @item m-player: @kbd{s-m} Emacspeak-M-Player Commands
 @item m-player: @kbd{s-;} Emacspeak-M-Player muggle
@@ -23768,6 +23699,75 @@ The heads for the associated hydra are:
 "@{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "@{"))’
 
 The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-view/body
+@deffn {Command} emacspeak-muggles-view/body   
+@table @kbd
+@item C-. v
+@kindex C-. v
+@item C-' v
+@kindex C-' v
+@item C-x @@ s v
+@kindex C-x @@ s v
+@end table
+
+@findex emacspeak-muggles-view/body
+
+@format
+Call the body in the "emacspeak-muggles-view" hydra.
+
+The heads for the associated hydra are:
+
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-view")’,
+"$":    ‘set-selective-display’,
+"%":    ‘View-goto-percent’,
+"’":    ‘register-to-point’,
+"(":    ‘backward-sexp’,
+")":    ‘forward-sexp’,
+".":    ‘set-mark-command’,
+"/":    ‘View-search-regexp-forward’,
+"<":    ‘beginning-of-buffer’,
+"<return>":    ‘nil’,
+"=":    ‘what-line’,
+">":    ‘end-of-buffer’,
+"@@":    ‘View-back-to-mark’,
+"A":    ‘beginning-of-defun’,
+"DEL":    ‘View-scroll-page-backward’,
+"E":    ‘end-of-defun’,
+"J":    ‘(emacspeak-hide-or-expose-block ’all)’,
+"SPC":    ‘View-scroll-page-forward’,
+"[":    ‘backward-page’,
+"\":    ‘View-search-regexp-backward’,
+"]":    ‘forward-page’,
+"a":    ‘move-beginning-of-line’,
+"b":    ‘backward-word’,
+"c":    ‘emacspeak-speak-char’,
+"d":    ‘View-scroll-half-page-forward’,
+"e":    ‘move-end-of-line’,
+"f":    ‘forward-word’,
+"g":    ‘goto-line’,
+"h":    ‘backward-char’,
+"i":    ‘emacspeak-speak-mode-line’,
+"j":    ‘next-line’,
+"k":    ‘previous-line’,
+"l":    ‘forward-char’,
+"m":    ‘point-to-register’,
+"n":    ‘View-search-last-regexp-forward’,
+"p":    ‘View-search-last-regexp-backward’,
+"q":    ‘nil’,
+"r":    ‘copy-to-register’,
+"s":    ‘emacspeak-hydra-toggle-talkative’,
+"t":    ‘(recenter 0)’,
+"u":    ‘View-scroll-half-page-backward’,
+"w":    ‘emacspeak-speak-word’,
+"x":    ‘exchange-point-and-mark’,
+"y":    ‘kill-ring-save’,
+"@{":    ‘backward-paragraph’,
+"@}":    ‘forward-paragraph’
+
+The body can be accessed via ‘emacspeak-muggles-view/body’.
 @end format
 @end deffn
 
