@@ -91,7 +91,10 @@ It was never completed and hasn't been used, marking it obsolete.
 This also obsoletes the wizards pertaining to ~IHeart Radio~.
 
 
+** Emacspeak Start-Up Has Been Optimized 
 
+Emacspeak takes advantage of features like  ~make-thread~ in Emacs 26
+and later to optimize Emacspeak's start-up time.
 ** Module ~emacspeak-npr~ Is Marked Obsolete 
 
 
