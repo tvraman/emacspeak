@@ -65,17 +65,12 @@
 (add-to-list 'load-path self-document-lisp-directory)
 (add-to-list
  'load-path
- (expand-file-name "g-client" self-document-lisp-directory))
-(add-to-list
- 'load-path
  (expand-file-name "../../site-lisp" (file-name-directory load-file-name)))
 (load "emacspeak-loaddefs")
 (defconst self-document-files
   (append
-   (list "emacspeak-maths.el" "emacspeak-muggles.el")
-   (directory-files self-document-lisp-directory nil "\\.elc$")
-   (directory-files (expand-file-name "g-client" self-document-lisp-directory)
-                    nil "\\.elc$"))
+   (list "emacspeak-maths.el" "emacspeak-muggles.el" "extra-muggles.el")
+   (directory-files self-document-lisp-directory nil "\\.elc$"))
   "List of elisp modules  to document.")
 (defvar emacspeak-muggles-activate-p t)
 (defvar self-document-fn-key
@@ -114,8 +109,8 @@
           (regexp-opt
            '("amixer" "cd-tool"
              "dectalk" "dtk" "espeak" "mac-"
-             "emacspeak" "xbacklight"
-             "g-" "g-app"   "gm-" "gmap"  "gweb"
+             "emacspeak" "xbacklight" "extra-muggles"
+             "g-"    "gm-" "gmap"  "gweb"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match command names.")
 
