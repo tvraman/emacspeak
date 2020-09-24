@@ -81,7 +81,8 @@
   "Formatting rule for speaking company selection."
   (ems-with-messages-silenced
    (let ((metadata (funcall 'company-fetch-metadata)))
-     (when metadata (ems-voiceify-string metadata 'voice-annotate))
+     (when metadata
+       (propertize metadata 'personality 'voice-annotate))
      (dtk-speak-and-echo
       (concat (ems-company-current) " " metadata)))))
 
