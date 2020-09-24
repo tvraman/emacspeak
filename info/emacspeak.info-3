@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 22, 2020.
+last updated on September 24, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -4762,7 +4762,7 @@ YTEL == Youtube From Elisp Install package ytel from Melpa.
      (fn ID)
 
 
-File: emacspeak.info,  Node: espeak-voices,  Next: g-utils,  Prev: emacspeak-ytel,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: espeak-voices,  Next: extra-muggles,  Prev: emacspeak-ytel,  Up: Emacspeak Commands And Options
 
 12.226 espeak-voices
 ====================
@@ -4789,15 +4789,247 @@ ESpeak TTS engine.
      Default speech rate for eSpeak.
 
 
-File: emacspeak.info,  Node: g-utils,  Next: gm-nnir,  Prev: espeak-voices,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: extra-muggles,  Next: g-utils,  Prev: espeak-voices,  Up: Emacspeak Commands And Options
 
-12.227 g-utils
+12.227 extra-muggles
+====================
+
+MUGGLES == Emacspeak spells for power-users.  These are extra hydras
+that I dont use very often, And are being moved here from
+emacspeak-muggles to save time at startup.
+
+   This module implements no new functionality — contrast with
+emacspeak-wizards.  Instead, it uses package hydra to provide
+convenience key-bindings that access existing Emacspeak functionality.
+You need to install package Hydra first: ‘M-x package-install hydra’.
+
+   Note that on newer versions of Emacs, loading this module will
+attempt to automatically install package hydra if it is not found.
+
+12.227.1 Using Hydras
+---------------------
+
+See the high-level documentation for the Hydra package by executing ‘C-h
+C-j ’ hydra ‘RET’.  The documentation in this section uses the same
+terminology as shown in the hydra package documentation.
+
+12.227.2 Extra Muggles
+----------------------
+
+   • m-player: ‘s-m’ Emacspeak-M-Player Commands
+   • m-player: ‘s-;’ Emacspeak-M-Player muggle
+   • pianobar: ‘s-'’ Emacspeak-M-pianobar Commands
+   • origami: C-, / Origami bindings.
+   • outliner: <C-c .> Bindings from outline-minor-mode.
+   • Info-Summary: <?> in Info Info Summary Muggle
+
+   Emacspeak automatically speaks Hydra hints when displayed.  To
+silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
+silence speaking of Hydra hints, Muggles can bind command
+‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
+binds ‘s’ to this command.
+
+12.227.3 Extra-Muggles Commands
+-------------------------------
+
+12.227.3.1 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+............................................................
+
+ -- Command: emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+     ‘s-m’
+
+     Temporarily use keymap emacspeak-m-player-mode-map
+
+12.227.3.2 emacspeak-muggles-info-summary/body
+..............................................
+
+ -- Command: emacspeak-muggles-info-summary/body
+
+     Call the body in the "emacspeak-muggles-info-summary" hydra.
+
+     The heads for the associated hydra are:
+
+     "]":    ‘Info-forward-node’,
+     "[":    ‘Info-backward-node’,
+     "n":    ‘Info-next’,
+     "p":    ‘Info-prev’,
+     "s":    ‘Info-search’,
+     "S":    ‘Info-search-case-sensitively’,
+     "l":    ‘Info-history-back’,
+     "r":    ‘Info-history-forward’,
+     "H":    ‘Info-history’,
+     "t":    ‘Info-top-node’,
+     "<":    ‘Info-top-node’,
+     ">":    ‘Info-final-node’,
+     "u":    ‘Info-up’,
+     "^":    ‘Info-up’,
+     "m":    ‘Info-menu’,
+     "g":    ‘Info-goto-node’,
+     "b":    ‘beginning-of-buffer’,
+     "e":    ‘end-of-buffer’,
+     "f":    ‘Info-follow-reference’,
+     "i":    ‘Info-index’,
+     ",":    ‘Info-index-next’,
+     "I":    ‘Info-virtual-index’,
+     "T":    ‘Info-toc’,
+     "d":    ‘Info-directory’,
+     "c":    ‘Info-copy-current-node-name’,
+     "C":    ‘clone-buffer’,
+     "a":    ‘info-apropos’,
+     "1":    ‘Info-nth-menu-item’,
+     "2":    ‘Info-nth-menu-item’,
+     "3":    ‘Info-nth-menu-item’,
+     "4":    ‘Info-nth-menu-item’,
+     "5":    ‘Info-nth-menu-item’,
+     "6":    ‘Info-nth-menu-item’,
+     "7":    ‘Info-nth-menu-item’,
+     "8":    ‘Info-nth-menu-item’,
+     "9":    ‘Info-nth-menu-item’,
+     "?":    ‘Info-summary’,
+     "h":    ‘Info-help’,
+     "q":    ‘quit-window’,
+     "C-g":    ‘nil’
+
+     The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
+
+12.227.3.3 emacspeak-muggles-m-player/body
+..........................................
+
+ -- Command: emacspeak-muggles-m-player/body
+     ‘s-;’
+
+     Call the body in the "emacspeak-muggles-m-player" hydra.
+
+     The heads for the associated hydra are:
+
+     ";":    ‘emacspeak-m-player’,
+     "+":    ‘emacspeak-m-player-volume-up’,
+     ",":    ‘emacspeak-m-player-backward-10s’,
+     "%":    ‘emacspeak-m-player-display-percent’,
+     "-":    ‘emacspeak-m-player-volume-down’,
+     ".":    ‘emacspeak-m-player-forward-10s’,
+     "<":    ‘emacspeak-m-player-backward-1min’,
+     "<down>":    ‘emacspeak-m-player-forward-1min’,
+     "<end>":    ‘emacspeak-m-player-end-of-track’,
+     "<home>":    ‘emacspeak-m-player-beginning-of-track’,
+     "<left>":    ‘emacspeak-m-player-backward-10s’,
+     "<next>":    ‘emacspeak-m-player-forward-10min’,
+     "<prior>":    ‘emacspeak-m-player-backward-10min’,
+     "<right>":    ‘emacspeak-m-player-forward-10s’,
+     "<up>":    ‘emacspeak-m-player-backward-1min’,
+     "=":    ‘emacspeak-m-player-volume-up’,
+     ">":    ‘emacspeak-m-player-forward-1min’,
+     "?":    ‘emacspeak-m-player-display-position’,
+     "C":    ‘emacspeak-m-player-clear-filters’,
+     "C-m":    ‘emacspeak-m-player-load’,
+     "DEL":    ‘emacspeak-m-player-reset-speed’,
+     "L":    ‘emacspeak-m-player-load-file’,
+     "M-l":    ‘emacspeak-m-player-load-playlist’,
+     "O":    ‘emacspeak-m-player-reset-options’,
+     "P":    ‘emacspeak-m-player-apply-reverb-preset’,
+     "Q":    ‘emacspeak-m-player-quit’,
+     "R":    ‘emacspeak-m-player-edit-reverb’,
+     "S":    ‘emacspeak-amark-save’,
+     "SPC":    ‘emacspeak-m-player-pause’,
+     "[":    ‘emacspeak-m-player-slower’,
+     "]":    ‘emacspeak-m-player-faster’,
+     "a":    ‘emacspeak-m-player-amark-add’,
+     "b":    ‘emacspeak-m-player-balance’,
+     "c":    ‘emacspeak-m-player-slave-command’,
+     "d":    ‘emacspeak-m-player-delete-filter’,
+     "e":    ‘emacspeak-m-player-add-equalizer’,
+     "f":    ‘emacspeak-m-player-add-filter’,
+     "g":    ‘emacspeak-m-player-seek-absolute’,
+     "j":    ‘emacspeak-m-player-amark-jump’,
+     "l":    ‘emacspeak-m-player-get-length’,
+     "m":    ‘emacspeak-m-player-mode-line’,
+     "n":    ‘emacspeak-m-player-next-track’,
+     "o":    ‘emacspeak-m-player-customize-options’,
+     "p":    ‘emacspeak-m-player-previous-track’,
+     "q":    ‘bury-buffer’,
+     "r":    ‘emacspeak-m-player-seek-relative’,
+     "s":    ‘emacspeak-m-player-scale-speed’,
+     "t":    ‘emacspeak-m-player-play-tracks-jump’,
+     "u":    ‘emacspeak-m-player-url’,
+     "v":    ‘emacspeak-m-player-volume-change’,
+     "(":    ‘emacspeak-m-player-left-channel’,
+     ")":    ‘emacspeak-m-player-right-channel’,
+     "{":    ‘emacspeak-m-player-half-speed’,
+     "}":    ‘emacspeak-m-player-double-speed’
+
+     The body can be accessed via ‘emacspeak-muggles-m-player/body’.
+
+12.227.3.4 emacspeak-muggles-outliner/body
+..........................................
+
+ -- Command: emacspeak-muggles-outliner/body
+     ‘C-. o’
+     ‘C-' o’
+     ‘C-x @ s o’
+
+     Call the body in the "emacspeak-muggles-outliner" hydra.
+
+     The heads for the associated hydra are:
+
+     "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
+     "q":    ‘outline-hide-sublevels’,
+     "t":    ‘outline-hide-body’,
+     "o":    ‘outline-hide-other’,
+     "c":    ‘outline-hide-entry’,
+     "l":    ‘outline-hide-leaves’,
+     "d":    ‘outline-hide-subtree’,
+     "a":    ‘outline-show-all’,
+     "e":    ‘outline-show-entry’,
+     "i":    ‘outline-show-children’,
+     "k":    ‘outline-show-branches’,
+     "s":    ‘outline-show-subtree’,
+     "u":    ‘outline-up-heading’,
+     "n":    ‘outline-next-visible-heading’,
+     "p":    ‘outline-previous-visible-heading’,
+     "f":    ‘outline-forward-same-level’,
+     "b":    ‘outline-backward-same-level’,
+     "z":    ‘nil’
+
+     The body can be accessed via ‘emacspeak-muggles-outliner/body’.
+
+12.227.3.5 emacspeak-muggles-pianobar-key-map-cmd
+.................................................
+
+ -- Command: emacspeak-muggles-pianobar-key-map-cmd
+     ‘s-'’
+
+     Temporarily use keymap pianobar-key-map
+
+12.227.3.6 emacspeak-origami/body
+.................................
+
+ -- Command: emacspeak-origami/body
+     ‘C-, /’
+     ‘C-x @ a /’
+
+     Call the body in the "emacspeak-origami" hydra.
+
+     The heads for the associated hydra are:
+
+     "o":    ‘origami-open-node’,
+     "c":    ‘origami-close-node’,
+     "n":    ‘origami-next-fold’,
+     "p":    ‘origami-previous-fold’,
+     "f":    ‘origami-forward-toggle-node’,
+     "a":    ‘origami-toggle-all-nodes’
+
+     The body can be accessed via ‘emacspeak-origami/body’.
+
+
+File: emacspeak.info,  Node: g-utils,  Next: gm-nnir,  Prev: extra-muggles,  Up: Emacspeak Commands And Options
+
+12.228 g-utils
 ==============
 
 Common Code e.g.  helper functions.  Used by modules like gphoto,
 gblogger etc.
 
-12.227.1 g-utils Options
+12.228.1 g-utils Options
 ------------------------
 
  -- Variable: User Option g-atom-edit-filter
@@ -4833,16 +5065,16 @@ gblogger etc.
 
 File: emacspeak.info,  Node: gm-nnir,  Next: gmaps,  Prev: g-utils,  Up: Emacspeak Commands And Options
 
-12.228 gm-nnir
+12.229 gm-nnir
 ==============
 
 Makes search GMail more convenient.  IMap search operators, GMail search
 extensions.
 
-12.228.1 Gm-Nnir Commands
+12.229.1 Gm-Nnir Commands
 -------------------------
 
-12.228.1.1 gm-nnir-group-make-gmail-group
+12.229.1.1 gm-nnir-group-make-gmail-group
 .........................................
 
  -- Command: gm-nnir-group-make-gmail-group (query)
@@ -4853,7 +5085,7 @@ extensions.
 
      (fn QUERY)
 
-12.228.1.2 gm-nnir-group-make-nnir-group
+12.229.1.2 gm-nnir-group-make-nnir-group
 ........................................
 
  -- Command: gm-nnir-group-make-nnir-group (q)
@@ -4866,15 +5098,15 @@ extensions.
 
 File: emacspeak.info,  Node: gmaps,  Next: ladspa,  Prev: gm-nnir,  Up: Emacspeak Commands And Options
 
-12.229 gmaps
+12.230 gmaps
 ============
 
 Implements the Google Maps API
 
-12.229.1 Gmaps Commands
+12.230.1 Gmaps Commands
 -----------------------
 
-12.229.1.1 gmaps
+12.230.1.1 gmaps
 ................
 
  -- Command: gmaps
@@ -4887,7 +5119,7 @@ Implements the Google Maps API
 
      (fn)
 
-12.229.1.2 gmaps-bicycling-directions
+12.230.1.2 gmaps-bicycling-directions
 .....................................
 
  -- Command: gmaps-bicycling-directions (origin destination)
@@ -4898,7 +5130,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.229.1.3 gmaps-directions
+12.230.1.3 gmaps-directions
 ...........................
 
  -- Command: gmaps-directions (origin destination mode)
@@ -4907,7 +5139,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION MODE)
 
-12.229.1.4 gmaps-driving-directions
+12.230.1.4 gmaps-driving-directions
 ...................................
 
  -- Command: gmaps-driving-directions (origin destination)
@@ -4918,21 +5150,21 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.229.1.5 gmaps-locations-load
+12.230.1.5 gmaps-locations-load
 ...............................
 
  -- Command: gmaps-locations-load
 
      Load saved GMaps locations.
 
-12.229.1.6 gmaps-locations-save
+12.230.1.6 gmaps-locations-save
 ...............................
 
  -- Command: gmaps-locations-save
 
      Save GMaps Locations.
 
-12.229.1.7 gmaps-mode
+12.230.1.7 gmaps-mode
 .....................
 
  -- Command: gmaps-mode
@@ -4964,7 +5196,7 @@ Implements the Google Maps API
      M-i		backward-button
 
 
-12.229.1.8 gmaps-place-details
+12.230.1.8 gmaps-place-details
 ..............................
 
  -- Command: gmaps-place-details
@@ -4976,7 +5208,7 @@ Implements the Google Maps API
 
      (fn)
 
-12.229.1.9 gmaps-place-reviews
+12.230.1.9 gmaps-place-reviews
 ..............................
 
  -- Command: gmaps-place-reviews
@@ -4984,7 +5216,7 @@ Implements the Google Maps API
      Display reviews for place at point.
      Place details need to have been expanded first.
 
-12.229.1.10 gmaps-places-nearby
+12.230.1.10 gmaps-places-nearby
 ...............................
 
  -- Command: gmaps-places-nearby (&optional clear-filter)
@@ -4996,7 +5228,7 @@ Implements the Google Maps API
 
      (fn &optional CLEAR-FILTER)
 
-12.229.1.11 gmaps-places-search
+12.230.1.11 gmaps-places-search
 ...............................
 
  -- Command: gmaps-places-search (query &optional clear-filter)
@@ -5009,7 +5241,7 @@ Implements the Google Maps API
 
      (fn QUERY &optional CLEAR-FILTER)
 
-12.229.1.12 gmaps-set-current-filter
+12.230.1.12 gmaps-set-current-filter
 ....................................
 
  -- Command: gmaps-set-current-filter (&optional all)
@@ -5019,7 +5251,7 @@ Implements the Google Maps API
 
      (fn &optional ALL)
 
-12.229.1.13 gmaps-set-current-location
+12.230.1.13 gmaps-set-current-location
 ......................................
 
  -- Command: gmaps-set-current-location (address)
@@ -5030,7 +5262,7 @@ Implements the Google Maps API
 
      (fn ADDRESS)
 
-12.229.1.14 gmaps-set-current-radius
+12.230.1.14 gmaps-set-current-radius
 ....................................
 
  -- Command: gmaps-set-current-radius (radius)
@@ -5041,7 +5273,7 @@ Implements the Google Maps API
 
      (fn RADIUS)
 
-12.229.1.15 gmaps-transit-directions
+12.230.1.15 gmaps-transit-directions
 ....................................
 
  -- Command: gmaps-transit-directions (origin destination)
@@ -5052,7 +5284,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.229.1.16 gmaps-walking-directions
+12.230.1.16 gmaps-walking-directions
 ....................................
 
  -- Command: gmaps-walking-directions (origin destination)
@@ -5063,7 +5295,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.229.2 gmaps Options
+12.230.2 gmaps Options
 ----------------------
 
  -- Variable: User Option gmaps-api-key
@@ -5077,7 +5309,7 @@ Implements the Google Maps API
 
 File: emacspeak.info,  Node: ladspa,  Next: mac-voices,  Prev: gmaps,  Up: Emacspeak Commands And Options
 
-12.230 ladspa
+12.231 ladspa
 =============
 
 This module uses tools from the Ladspa SDK to expose Ladspa plugins in a
@@ -5090,10 +5322,10 @@ zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins rev-plugins
 mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
 invada-studio-plugins-ladspa fil-plugins
 
-12.230.1 Ladspa Commands
+12.231.1 Ladspa Commands
 ------------------------
 
-12.230.1.1 ladspa
+12.231.1.1 ladspa
 .................
 
  -- Command: ladspa (&optional refresh)
@@ -5102,28 +5334,28 @@ invada-studio-plugins-ladspa fil-plugins
 
      (fn &optional REFRESH)
 
-12.230.1.2 ladspa-analyse-plugin-at-point
+12.231.1.2 ladspa-analyse-plugin-at-point
 .........................................
 
  -- Command: ladspa-analyse-plugin-at-point
 
      Analyse plugin at point.
 
-12.230.1.3 ladspa-edit-control
+12.231.1.3 ladspa-edit-control
 ..............................
 
  -- Command: ladspa-edit-control
 
      Edit Ladspa control  at point by prompting for control values.
 
-12.230.1.4 ladspa-instantiate
+12.231.1.4 ladspa-instantiate
 .............................
 
  -- Command: ladspa-instantiate
 
      Instantiate plugin at point by prompting for control values.
 
-12.230.1.5 ladspa-mode
+12.231.1.5 ladspa-mode
 ......................
 
  -- Command: ladspa-mode
@@ -5149,13 +5381,13 @@ invada-studio-plugins-ladspa fil-plugins
 
 File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
 
-12.231 mac-voices
+12.232 mac-voices
 =================
 
 This module defines the various voices used in voice-lock mode by Mac
 TTS.
 
-12.231.1 mac-voices Options
+12.232.1 mac-voices Options
 ---------------------------
 
  -- Variable: User Option mac-default-speech-rate
@@ -5164,16 +5396,16 @@ TTS.
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
-12.232 outloud-voices
+12.233 outloud-voices
 =====================
 
 This module defines the various voices used in voice-lock mode.  This
 module is IBM ViaVoice Outloud specific.
 
-12.232.1 Outloud-Voices Commands
+12.233.1 Outloud-Voices Commands
 --------------------------------
 
-12.232.1.1 outloud
+12.233.1.1 outloud
 ..................
 
  -- Command: outloud (&optional device)
@@ -5184,14 +5416,14 @@ module is IBM ViaVoice Outloud specific.
 
      (fn &optional DEVICE)
 
-12.232.1.2 outloud-32
+12.233.1.2 outloud-32
 .....................
 
  -- Command: outloud-32
 
      Select 32-Outloud server.
 
-12.232.2 outloud-voices Options
+12.233.2 outloud-voices Options
 -------------------------------
 
  -- Variable: User Option outloud-default-speech-rate
@@ -5200,7 +5432,7 @@ module is IBM ViaVoice Outloud specific.
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
 
-12.233 plain-voices
+12.234 plain-voices
 ===================
 
 This module defines the various voices used in voice-lock mode.  This
@@ -5210,7 +5442,7 @@ implemented appropriate voice-locking controls
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
-12.234 soundscape
+12.235 soundscape
 =================
 
 Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
@@ -5247,10 +5479,10 @@ that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
 email, IM, ...  map to the same _mood_.
 
-12.234.1 Soundscape Commands
+12.235.1 Soundscape Commands
 ----------------------------
 
-12.234.1.1 soundscape
+12.235.1.1 soundscape
 .....................
 
  -- Command: soundscape (scape)
@@ -5262,14 +5494,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.234.1.2 soundscape-kill
+12.235.1.2 soundscape-kill
 ..........................
 
  -- Command: soundscape-kill
 
      Stop all running soundscapes.
 
-12.234.1.3 soundscape-listener
+12.235.1.3 soundscape-listener
 ..............................
 
  -- Command: soundscape-listener (&optional restart)
@@ -5280,14 +5512,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional RESTART)
 
-12.234.1.4 soundscape-listener-shutdown
+12.235.1.4 soundscape-listener-shutdown
 .......................................
 
  -- Command: soundscape-listener-shutdown
 
      Shutdown listener.
 
-12.234.1.5 soundscape-remote
+12.235.1.5 soundscape-remote
 ............................
 
  -- Command: soundscape-remote (names)
@@ -5296,7 +5528,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn NAMES)
 
-12.234.1.6 soundscape-restart
+12.235.1.6 soundscape-restart
 .............................
 
  -- Command: soundscape-restart (&optional device)
@@ -5310,7 +5542,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional DEVICE)
 
-12.234.1.7 soundscape-stop
+12.235.1.7 soundscape-stop
 ..........................
 
  -- Command: soundscape-stop (scape)
@@ -5322,14 +5554,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.234.1.8 soundscape-theme
+12.235.1.8 soundscape-theme
 ...........................
 
  -- Command: soundscape-theme
 
      Shows default theme in a special buffer.
 
-12.234.1.9 soundscape-toggle
+12.235.1.9 soundscape-toggle
 ............................
 
  -- Command: soundscape-toggle
@@ -5341,7 +5573,7 @@ email, IM, ...  map to the same _mood_.
      When turned on, Soundscapes are automatically run based on current major mode.
      Run command M-x soundscape-theme to see the default mode->mood mapping.
 
-12.234.1.10 soundscape-update-mood
+12.235.1.10 soundscape-update-mood
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
@@ -5355,7 +5587,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT-MODE)
 
-12.234.2 soundscape Options
+12.235.2 soundscape Options
 ---------------------------
 
  -- Variable: User Option soundscape-data
@@ -5375,7 +5607,7 @@ email, IM, ...  map to the same _mood_.
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
-12.235 sox
+12.236 sox
 ==========
 
 This module defines a convenient speech-enabled interface for editing
@@ -5392,10 +5624,10 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-12.235.1 Sox Commands
+12.236.1 Sox Commands
 ---------------------
 
-12.235.1.1 sox-add-effect
+12.236.1.1 sox-add-effect
 .........................
 
  -- Command: sox-add-effect (name)
@@ -5404,7 +5636,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.235.1.2 sox-delete-effect-at-point
+12.236.1.2 sox-delete-effect-at-point
 .....................................
 
  -- Command: sox-delete-effect-at-point
@@ -5415,14 +5647,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.235.1.3 sox-edit-effect-at-point
+12.236.1.3 sox-edit-effect-at-point
 ...................................
 
  -- Command: sox-edit-effect-at-point
 
      Edit effect at point.
 
-12.235.1.4 sox-mode
+12.236.1.4 sox-mode
 ...................
 
  -- Command: sox-mode
@@ -5437,7 +5669,7 @@ always work.  This module can be used independent of Emacspeak.
      —             ——-
 
 
-12.235.1.5 sox-open-file
+12.236.1.5 sox-open-file
 ........................
 
  -- Command: sox-open-file (snd-file)
@@ -5448,14 +5680,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SND-FILE)
 
-12.235.1.6 sox-play
+12.236.1.6 sox-play
 ...................
 
  -- Command: sox-play
 
      Play sound from current context.
 
-12.235.1.7 sox-refresh
+12.236.1.7 sox-refresh
 ......................
 
  -- Command: sox-refresh
@@ -5466,7 +5698,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.235.1.8 sox-save
+12.236.1.8 sox-save
 ...................
 
  -- Command: sox-save (save-file)
@@ -5475,7 +5707,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SAVE-FILE)
 
-12.235.1.9 sox-set-effect
+12.236.1.9 sox-set-effect
 .........................
 
  -- Command: sox-set-effect (name)
@@ -5484,21 +5716,21 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.235.1.10 sox-show-timestamp
+12.236.1.10 sox-show-timestamp
 ..............................
 
  -- Command: sox-show-timestamp
 
      Show timestamp   in stream.
 
-12.235.1.11 sox-stop
+12.236.1.11 sox-stop
 ....................
 
  -- Command: sox-stop
 
      Stop currently playing  sound from current context.
 
-12.235.2 sox Options
+12.236.2 sox Options
 --------------------
 
  -- Variable: User Option sox-edit
@@ -5510,13 +5742,13 @@ always work.  This module can be used independent of Emacspeak.
 
 File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
 
-12.236 sox-gen
+12.237 sox-gen
 ==============
 
 Provides binaural audio along with pre-defined themes.  This module can
 be used independent of Emacspeak.
 
-12.236.1 Binaural Beats Using SoX
+12.237.1 Binaural Beats Using SoX
 ---------------------------------
 
 A binaural beat is an auditory illusion perceived when two different
@@ -5544,7 +5776,7 @@ binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
    — default is 0.
 
-12.236.1.1 High-Level Commands For Pre-Defined Binaural Beats
+12.237.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
 
 These commands can be called directly to play one of the predefined
@@ -5579,10 +5811,10 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-12.236.2 Sox-Gen Commands
+12.237.2 Sox-Gen Commands
 -------------------------
 
-12.236.2.1 sox-beats-binaural
+12.237.2.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -5592,7 +5824,7 @@ binaural beats.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-12.236.2.2 sox-binaural
+12.237.2.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -5603,7 +5835,7 @@ binaural beats.
 
      (fn NAME DURATION)
 
-12.236.2.3 sox-chakras
+12.237.2.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -5613,7 +5845,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.236.2.4 sox-relax
+12.237.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -5623,7 +5855,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.236.2.5 sox-rev-up
+12.237.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -5633,7 +5865,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.236.2.6 sox-slide-binaural
+12.237.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -5642,7 +5874,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.236.2.7 sox-tone-binaural
+12.237.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -5652,7 +5884,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.236.2.8 sox-tone-slide-binaural
+12.237.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -5663,7 +5895,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.236.2.9 sox-turn-down
+12.237.2.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (length)
@@ -5673,7 +5905,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.236.2.10 sox-wind-down
+12.237.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -5683,7 +5915,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.236.3 sox-gen Options
+12.237.3 sox-gen Options
 ------------------------
 
  -- Variable: User Option sox-binaural-gain-offset
@@ -5700,13 +5932,13 @@ binaural beats.
 
 File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Emacspeak Commands And Options
 
-12.237 tetris
+12.238 tetris
 =============
 
 
 File: emacspeak.info,  Node: toy-braille,  Next: voice-setup,  Prev: tetris,  Up: Emacspeak Commands And Options
 
-12.238 toy-braille
+12.239 toy-braille
 ==================
 
 This is a bit of toy code to write in braille.  To try this, load this
@@ -5739,7 +5971,7 @@ configured).
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
-12.239 voice-setup
+12.240 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -5778,10 +6010,10 @@ available via custom.  new voices can be defined using CSS style
 specifications see special form defvoice Voices defined via defvoice can
 be customized via custom see the documentation for defvoice.
 
-12.239.1 Voice-Setup Commands
+12.240.1 Voice-Setup Commands
 -----------------------------
 
-12.239.1.1 voice-lock-mode
+12.240.1.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -5800,14 +6032,14 @@ be customized via custom see the documentation for defvoice.
 
      (fn &optional ARG)
 
-12.239.1.2 voice-lock-mode–turn-on
+12.240.1.2 voice-lock-mode–turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-12.239.1.3 voice-setup-describe-personality
+12.240.1.3 voice-setup-describe-personality
 ...........................................
 
  -- Command: voice-setup-describe-personality (personality)
@@ -5822,7 +6054,7 @@ be customized via custom see the documentation for defvoice.
 
      (fn PERSONALITY)
 
-12.239.1.4 voice-setup-list-voices
+12.240.1.4 voice-setup-list-voices
 ..................................
 
  -- Command: voice-setup-list-voices (pattern)
@@ -5836,7 +6068,7 @@ be customized via custom see the documentation for defvoice.
 
      (fn PATTERN)
 
-12.239.1.5 voice-setup-toggle-silence-personality
+12.240.1.5 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -5852,7 +6084,7 @@ be customized via custom see the documentation for defvoice.
      either case, the buffer is refontified to have the new mapping
      take effect.
 
-12.239.2 voice-setup Options
+12.240.2 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-animate-extra-settings
@@ -5953,7 +6185,7 @@ be customized via custom see the documentation for defvoice.
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-12.240 xbacklight
+12.241 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -5963,38 +6195,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.240.1 Xbacklight Commands
+12.241.1 Xbacklight Commands
 ----------------------------
 
-12.240.1.1 xbacklight-black
+12.241.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Turn screen black.
 
-12.240.1.2 xbacklight-decrement
+12.241.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness by  by one step.
 
-12.240.1.3 xbacklight-get
+12.241.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get current brightness level.
 
-12.240.1.4 xbacklight-increment
+12.241.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness by  by one step.
 
-12.240.1.5 xbacklight-set
+12.241.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -6004,14 +6236,14 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-12.240.1.6 xbacklight-white
+12.241.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
 
      Turn screen white.
 
-12.240.2 xbacklight Options
+12.241.2 xbacklight Options
 ---------------------------
 
  -- Variable: User Option xbacklight-step
@@ -6020,7 +6252,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-12.241 URL Templates
+12.242 URL Templates
 ====================
 
 This section documents a total of 86 URL Templates.
@@ -7687,7 +7919,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> T:                              emacspeak-speak.    (line 1291)
 * <help> TAB:                            emacspeak-info.     (line   39)
 * <help> \:                              emacspeak-wizards.  (line  443)
-* <print>:                               emacspeak-muggles.  (line   58)
+* <print>:                               emacspeak-muggles.  (line   53)
 * <S-down>:                              emacspeak-wizards.  (line  261)
 * <S-up>:                                emacspeak-wizards.  (line  251)
 * <search>:                              emacspeak-speak.    (line  220)
@@ -7701,7 +7933,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' l:                                 emacspeak-m-player. (line  381)
 * C-' m:                                 emacspeak-wizards.  (line 1575)
 * C-' n:                                 emacspeak-wizards.  (line  886)
-* C-' o:                                 emacspeak-muggles.  (line  338)
+* C-' o:                                 extra-muggles.      (line  177)
 * C-' q:                                 emacspeak-wizards.  (line  953)
 * C-' R:                                 emacspeak-webspace. (line   17)
 * C-' r:                                 soundscape.         (line   95)
@@ -7710,14 +7942,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' SPC:                               emacspeak-wizards.  (line 1200)
 * C-' t:                                 soundscape.         (line  128)
 * C-' u:                                 soundscape.         (line  140)
-* C-' v:                                 emacspeak-muggles.  (line  456)
+* C-' v:                                 emacspeak-muggles.  (line  291)
 * C-, ,:                                 emacspeak-advice.   (line   22)
-* C-, /:                                 emacspeak-muggles.  (line  568)
+* C-, /:                                 extra-muggles.      (line  217)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
 * C-, c:                                 emacspeak-wizards.  (line 1576)
 * C-, f:                                 emacspeak-wizards.  (line  706)
-* C-, h:                                 emacspeak-muggles.  (line   89)
+* C-, h:                                 emacspeak-muggles.  (line   76)
 * C-, n:                                 emacspeak-wizards.  (line  517)
 * C-, o:                                 emacspeak-feeds.    (line   67)
 * C-, p:                                 emacspeak-wizards.  (line  526)
@@ -7737,7 +7969,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. l:                                 emacspeak-m-player. (line  380)
 * C-. m:                                 emacspeak-wizards.  (line 1574)
 * C-. n:                                 emacspeak-wizards.  (line  885)
-* C-. o:                                 emacspeak-muggles.  (line  337)
+* C-. o:                                 extra-muggles.      (line  176)
 * C-. q:                                 emacspeak-wizards.  (line  952)
 * C-. R:                                 emacspeak-webspace. (line   16)
 * C-. r:                                 soundscape.         (line   94)
@@ -7746,8 +7978,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. SPC:                               emacspeak-wizards.  (line 1199)
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
-* C-. v:                                 emacspeak-muggles.  (line  455)
-* C-/:                                   emacspeak-muggles.  (line  439)
+* C-. v:                                 emacspeak-muggles.  (line  290)
+* C-/:                                   emacspeak-muggles.  (line  274)
 * C-; ':                                 emacspeak-m-player. (line  698)
 * C-; ::                                 emacspeak-wizards.  (line 1556)
 * C-; ;:                                 emacspeak-m-player. (line  709)
@@ -7760,13 +7992,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; l:                                 emacspeak-librivox. (line   32)
 * C-; p:                                 emacspeak-wizards.  (line 1111)
 * C-; s:                                 emacspeak-wizards.  (line 1216)
-* C-; v:                                 emacspeak-muggles.  (line  516)
+* C-; v:                                 emacspeak-muggles.  (line  351)
 * C-; w:                                 emacspeak-wizards.  (line 1078)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
-* C-c ,:                                 emacspeak-muggles.  (line  370)
+* C-c ,:                                 emacspeak-muggles.  (line  205)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -7803,7 +8035,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  411)
+* C-c o <1>:                             emacspeak-muggles.  (line  246)
 * C-e cap M:                             Status Information. (line   18)
 * C-e cap R:                             Reading.            (line   69)
 * C-e !:                                 emacspeak-speak.    (line  890)
@@ -8151,14 +8383,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h T:                                 emacspeak-speak.    (line 1289)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-h \:                                 emacspeak-wizards.  (line  441)
-* C-M-y:                                 emacspeak-muggles.  (line  110)
+* C-M-y:                                 emacspeak-muggles.  (line   97)
 * C-x @ a ,:                             emacspeak-advice.   (line   23)
-* C-x @ a /:                             emacspeak-muggles.  (line  569)
+* C-x @ a /:                             extra-muggles.      (line  218)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a c:                             emacspeak-wizards.  (line 1577)
 * C-x @ a f:                             emacspeak-wizards.  (line  707)
-* C-x @ a h:                             emacspeak-muggles.  (line   90)
+* C-x @ a h:                             emacspeak-muggles.  (line   77)
 * C-x @ a n:                             emacspeak-wizards.  (line  518)
 * C-x @ a o:                             emacspeak-feeds.    (line   68)
 * C-x @ a p:                             emacspeak-wizards.  (line  527)
@@ -8181,7 +8413,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h l:                             emacspeak-librivox. (line   33)
 * C-x @ h p:                             emacspeak-wizards.  (line 1112)
 * C-x @ h s:                             emacspeak-wizards.  (line 1217)
-* C-x @ h v:                             emacspeak-muggles.  (line  517)
+* C-x @ h v:                             emacspeak-muggles.  (line  352)
 * C-x @ h w:                             emacspeak-wizards.  (line 1081)
 * C-x @ s .:                             emacspeak-wizards.  (line 1284)
 * C-x @ s a:                             emacspeak-wizards.  (line  669)
@@ -8192,7 +8424,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s l:                             emacspeak-m-player. (line  382)
 * C-x @ s m:                             emacspeak-wizards.  (line 1578)
 * C-x @ s n:                             emacspeak-wizards.  (line  887)
-* C-x @ s o:                             emacspeak-muggles.  (line  339)
+* C-x @ s o:                             extra-muggles.      (line  178)
 * C-x @ s q:                             emacspeak-wizards.  (line  954)
 * C-x @ s R:                             emacspeak-webspace. (line   18)
 * C-x @ s r:                             soundscape.         (line   96)
@@ -8201,7 +8433,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s SPC:                           emacspeak-wizards.  (line 1201)
 * C-x @ s t:                             soundscape.         (line  129)
 * C-x @ s u:                             soundscape.         (line  141)
-* C-x @ s v:                             emacspeak-muggles.  (line  457)
+* C-x @ s v:                             emacspeak-muggles.  (line  292)
 * C-x r e:                               emacspeak-eww.      (line  523)
 * ESC <down>:                            emacspeak-speak.    (line  128)
 * ESC <next>:                            emacspeak-speak.    (line  159)
@@ -8213,8 +8445,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <ESCAPE> prior:                        Reading.            (line  172)
 * <ESCAPE> <UP>:                         Reading.            (line  154)
 * M-ESC ::                               emacspeak-wizards.  (line 1338)
-* s-;:                                   emacspeak-muggles.  (line  177)
-* s-m:                                   emacspeak-muggles.  (line   81)
-* s-n:                                   emacspeak-muggles.  (line  267)
-* s-SPC:                                 emacspeak-muggles.  (line  244)
+* s-':                                   extra-muggles.      (line  209)
+* s-;:                                   extra-muggles.      (line  109)
+* s-m:                                   extra-muggles.      (line   49)
+* s-n:                                   emacspeak-muggles.  (line  135)
+* s-SPC:                                 emacspeak-muggles.  (line  112)
 

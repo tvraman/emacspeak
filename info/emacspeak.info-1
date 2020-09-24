@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 22, 2020.
+last updated on September 24, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1217 commands and 914 options.
+   This chapter documents a total of 1218 commands and 914 options.
 
 * Menu:
 
@@ -3116,6 +3116,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * emacspeak-ytel::Speech-enable YTEL.
 * espeak-voices::Define  Espeak tags.
+* extra-muggles::Additional Hydras For The Emacspeak Desktop.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.

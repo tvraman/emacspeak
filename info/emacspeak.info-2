@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 22, 2020.
+last updated on September 24, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emacspeak-eshell,  Up: Emacspeak Commands And Options
@@ -5515,18 +5515,13 @@ terminology as shown in the hydra package documentation.
    • org-mode structure nav: ‘C-c C-SPC’ Structure navigation for
      org-mode.
    • org-mode tables: ‘C-c t’ Table UI for org-mode tables.
-   • m-player: ‘s-m’ Emacspeak-M-Player Commands
-   • m-player: ‘s-;’ Emacspeak-M-Player muggle
-   • pianobar: ‘s-'’ Emacspeak-M-pianobar Commands
    • hideshow: C-, h Provide HideShow bindings.
-   • origami: C-, / Origami bindings.
    • toggle-option: ‘C-c o’ Single binding for toggling options.
-   • outliner: <C-c .> Bindings from outline-minor-mode.
-   • Info-Summary: <?> in Info Info Summary Muggle
    • Repeatable-Yank: ‘C-y’ Smart yank
    • SmartParens: ‘C-c ,’ Smart Parens
    • Vuiet Explorer: ‘C-; v’ Vuiet Music Explorer and Player
    • undo-only/undo-redo: ‘C-/ ’ Undo-only on ‘/’ and undo-redo on ‘\’
+   • emacspeak-maths ‘s-SPC’ Speak and browse math.
 
    Emacspeak automatically speaks Hydra hints when displayed.  To
 silence all Hydra hints, set hydra-is-helpful to nil.  To temporarily
@@ -5560,15 +5555,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
-12.130.3.2 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
-............................................................
-
- -- Command: emacspeak-muggles-emacspeak-m-player-mode-map-cmd
-     ‘s-m’
-
-     Temporarily use keymap emacspeak-m-player-mode-map
-
-12.130.3.3 emacspeak-muggles-hideshow/body
+12.130.3.2 emacspeak-muggles-hideshow/body
 ..........................................
 
  -- Command: emacspeak-muggles-hideshow/body
@@ -5589,7 +5576,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
-12.130.3.4 emacspeak-muggles-ido-yank
+12.130.3.3 emacspeak-muggles-ido-yank
 .....................................
 
  -- Command: emacspeak-muggles-ido-yank
@@ -5597,133 +5584,14 @@ binds ‘s’ to this command.
 
      Pick what to yank using ido completion.
 
-12.130.3.5 emacspeak-muggles-info-summary/body
-..............................................
-
- -- Command: emacspeak-muggles-info-summary/body
-
-     Call the body in the "emacspeak-muggles-info-summary" hydra.
-
-     The heads for the associated hydra are:
-
-     "]":    ‘Info-forward-node’,
-     "[":    ‘Info-backward-node’,
-     "n":    ‘Info-next’,
-     "p":    ‘Info-prev’,
-     "s":    ‘Info-search’,
-     "S":    ‘Info-search-case-sensitively’,
-     "l":    ‘Info-history-back’,
-     "r":    ‘Info-history-forward’,
-     "H":    ‘Info-history’,
-     "t":    ‘Info-top-node’,
-     "<":    ‘Info-top-node’,
-     ">":    ‘Info-final-node’,
-     "u":    ‘Info-up’,
-     "^":    ‘Info-up’,
-     "m":    ‘Info-menu’,
-     "g":    ‘Info-goto-node’,
-     "b":    ‘beginning-of-buffer’,
-     "e":    ‘end-of-buffer’,
-     "f":    ‘Info-follow-reference’,
-     "i":    ‘Info-index’,
-     ",":    ‘Info-index-next’,
-     "I":    ‘Info-virtual-index’,
-     "T":    ‘Info-toc’,
-     "d":    ‘Info-directory’,
-     "c":    ‘Info-copy-current-node-name’,
-     "C":    ‘clone-buffer’,
-     "a":    ‘info-apropos’,
-     "1":    ‘Info-nth-menu-item’,
-     "2":    ‘Info-nth-menu-item’,
-     "3":    ‘Info-nth-menu-item’,
-     "4":    ‘Info-nth-menu-item’,
-     "5":    ‘Info-nth-menu-item’,
-     "6":    ‘Info-nth-menu-item’,
-     "7":    ‘Info-nth-menu-item’,
-     "8":    ‘Info-nth-menu-item’,
-     "9":    ‘Info-nth-menu-item’,
-     "?":    ‘Info-summary’,
-     "h":    ‘Info-help’,
-     "q":    ‘quit-window’,
-     "C-g":    ‘nil’
-
-     The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
-
-12.130.3.6 emacspeak-muggles-lispy-or-sp
+12.130.3.4 emacspeak-muggles-lispy-or-sp
 ........................................
 
  -- Command: emacspeak-muggles-lispy-or-sp
 
      Toggle between lispy and smartparens.
 
-12.130.3.7 emacspeak-muggles-m-player/body
-..........................................
-
- -- Command: emacspeak-muggles-m-player/body
-     ‘s-;’
-
-     Call the body in the "emacspeak-muggles-m-player" hydra.
-
-     The heads for the associated hydra are:
-
-     ";":    ‘emacspeak-m-player’,
-     "+":    ‘emacspeak-m-player-volume-up’,
-     ",":    ‘emacspeak-m-player-backward-10s’,
-     "%":    ‘emacspeak-m-player-display-percent’,
-     "-":    ‘emacspeak-m-player-volume-down’,
-     ".":    ‘emacspeak-m-player-forward-10s’,
-     "<":    ‘emacspeak-m-player-backward-1min’,
-     "<down>":    ‘emacspeak-m-player-forward-1min’,
-     "<end>":    ‘emacspeak-m-player-end-of-track’,
-     "<home>":    ‘emacspeak-m-player-beginning-of-track’,
-     "<left>":    ‘emacspeak-m-player-backward-10s’,
-     "<next>":    ‘emacspeak-m-player-forward-10min’,
-     "<prior>":    ‘emacspeak-m-player-backward-10min’,
-     "<right>":    ‘emacspeak-m-player-forward-10s’,
-     "<up>":    ‘emacspeak-m-player-backward-1min’,
-     "=":    ‘emacspeak-m-player-volume-up’,
-     ">":    ‘emacspeak-m-player-forward-1min’,
-     "?":    ‘emacspeak-m-player-display-position’,
-     "C":    ‘emacspeak-m-player-clear-filters’,
-     "C-m":    ‘emacspeak-m-player-load’,
-     "DEL":    ‘emacspeak-m-player-reset-speed’,
-     "L":    ‘emacspeak-m-player-load-file’,
-     "M-l":    ‘emacspeak-m-player-load-playlist’,
-     "O":    ‘emacspeak-m-player-reset-options’,
-     "P":    ‘emacspeak-m-player-apply-reverb-preset’,
-     "Q":    ‘emacspeak-m-player-quit’,
-     "R":    ‘emacspeak-m-player-edit-reverb’,
-     "S":    ‘emacspeak-amark-save’,
-     "SPC":    ‘emacspeak-m-player-pause’,
-     "[":    ‘emacspeak-m-player-slower’,
-     "]":    ‘emacspeak-m-player-faster’,
-     "a":    ‘emacspeak-m-player-amark-add’,
-     "b":    ‘emacspeak-m-player-balance’,
-     "c":    ‘emacspeak-m-player-slave-command’,
-     "d":    ‘emacspeak-m-player-delete-filter’,
-     "e":    ‘emacspeak-m-player-add-equalizer’,
-     "f":    ‘emacspeak-m-player-add-filter’,
-     "g":    ‘emacspeak-m-player-seek-absolute’,
-     "j":    ‘emacspeak-m-player-amark-jump’,
-     "l":    ‘emacspeak-m-player-get-length’,
-     "m":    ‘emacspeak-m-player-mode-line’,
-     "n":    ‘emacspeak-m-player-next-track’,
-     "o":    ‘emacspeak-m-player-customize-options’,
-     "p":    ‘emacspeak-m-player-previous-track’,
-     "q":    ‘bury-buffer’,
-     "r":    ‘emacspeak-m-player-seek-relative’,
-     "s":    ‘emacspeak-m-player-scale-speed’,
-     "t":    ‘emacspeak-m-player-play-tracks-jump’,
-     "u":    ‘emacspeak-m-player-url’,
-     "v":    ‘emacspeak-m-player-volume-change’,
-     "(":    ‘emacspeak-m-player-left-channel’,
-     ")":    ‘emacspeak-m-player-right-channel’,
-     "{":    ‘emacspeak-m-player-half-speed’,
-     "}":    ‘emacspeak-m-player-double-speed’
-
-     The body can be accessed via ‘emacspeak-muggles-m-player/body’.
-
-12.130.3.8 emacspeak-muggles-maths-navigator/body
+12.130.3.5 emacspeak-muggles-maths-navigator/body
 .................................................
 
  -- Command: emacspeak-muggles-maths-navigator/body
@@ -5746,7 +5614,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
 
-12.130.3.9 emacspeak-muggles-navigate/body
+12.130.3.6 emacspeak-muggles-navigate/body
 ..........................................
 
  -- Command: emacspeak-muggles-navigate/body
@@ -5774,8 +5642,8 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 
-12.130.3.10 emacspeak-muggles-org-nav/body
-..........................................
+12.130.3.7 emacspeak-muggles-org-nav/body
+.........................................
 
  -- Command: emacspeak-muggles-org-nav/body
 
@@ -5794,8 +5662,8 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 
-12.130.3.11 emacspeak-muggles-org-table/body
-............................................
+12.130.3.8 emacspeak-muggles-org-table/body
+...........................................
 
  -- Command: emacspeak-muggles-org-table/body
 
@@ -5816,41 +5684,8 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
-12.130.3.12 emacspeak-muggles-outliner/body
-...........................................
-
- -- Command: emacspeak-muggles-outliner/body
-     ‘C-. o’
-     ‘C-' o’
-     ‘C-x @ s o’
-
-     Call the body in the "emacspeak-muggles-outliner" hydra.
-
-     The heads for the associated hydra are:
-
-     "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
-     "q":    ‘outline-hide-sublevels’,
-     "t":    ‘outline-hide-body’,
-     "o":    ‘outline-hide-other’,
-     "c":    ‘outline-hide-entry’,
-     "l":    ‘outline-hide-leaves’,
-     "d":    ‘outline-hide-subtree’,
-     "a":    ‘outline-show-all’,
-     "e":    ‘outline-show-entry’,
-     "i":    ‘outline-show-children’,
-     "k":    ‘outline-show-branches’,
-     "s":    ‘outline-show-subtree’,
-     "u":    ‘outline-up-heading’,
-     "n":    ‘outline-next-visible-heading’,
-     "p":    ‘outline-previous-visible-heading’,
-     "f":    ‘outline-forward-same-level’,
-     "b":    ‘outline-backward-same-level’,
-     "z":    ‘nil’
-
-     The body can be accessed via ‘emacspeak-muggles-outliner/body’.
-
-12.130.3.13 emacspeak-muggles-smartparens/body
-..............................................
+12.130.3.9 emacspeak-muggles-smartparens/body
+.............................................
 
  -- Command: emacspeak-muggles-smartparens/body
      ‘C-c ,’
@@ -5890,7 +5725,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.130.3.14 emacspeak-muggles-toggle-option/body
+12.130.3.10 emacspeak-muggles-toggle-option/body
 ................................................
 
  -- Command: emacspeak-muggles-toggle-option/body
@@ -5918,7 +5753,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
-12.130.3.15 emacspeak-muggles-undo-only/undo-redo/body
+12.130.3.11 emacspeak-muggles-undo-only/undo-redo/body
 ......................................................
 
  -- Command: emacspeak-muggles-undo-only/undo-redo/body
@@ -5934,7 +5769,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 
-12.130.3.16 emacspeak-muggles-view/body
+12.130.3.12 emacspeak-muggles-view/body
 .......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -5995,7 +5830,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.130.3.17 emacspeak-muggles-vuiet/body
+12.130.3.13 emacspeak-muggles-vuiet/body
 ........................................
 
  -- Command: emacspeak-muggles-vuiet/body
@@ -6028,7 +5863,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
 
-12.130.3.18 emacspeak-muggles-yank-pop/body
+12.130.3.14 emacspeak-muggles-yank-pop/body
 ...........................................
 
  -- Command: emacspeak-muggles-yank-pop/body
@@ -6046,26 +5881,6 @@ binds ‘s’ to this command.
      "l":    ‘browse-kill-ring’
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
-
-12.130.3.19 emacspeak-origami/body
-..................................
-
- -- Command: emacspeak-origami/body
-     ‘C-, /’
-     ‘C-x @ a /’
-
-     Call the body in the "emacspeak-origami" hydra.
-
-     The heads for the associated hydra are:
-
-     "o":    ‘origami-open-node’,
-     "c":    ‘origami-close-node’,
-     "n":    ‘origami-next-fold’,
-     "p":    ‘origami-previous-fold’,
-     "f":    ‘origami-forward-toggle-node’,
-     "a":    ‘origami-toggle-all-nodes’
-
-     The body can be accessed via ‘emacspeak-origami/body’.
 
 
 File: emacspeak.info,  Node: emacspeak-muse,  Next: emacspeak-navi-mode,  Prev: emacspeak-muggles,  Up: Emacspeak Commands And Options

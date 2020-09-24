@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1217 commands and 914 options.
+This chapter documents a total of 1218 commands and 914 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -233,6 +233,7 @@ This chapter documents a total of 1217 commands and 914 options.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
 * emacspeak-ytel::Speech-enable YTEL.
 * espeak-voices::Define  Espeak tags.
+* extra-muggles::Additional Hydras For The Emacspeak Desktop.
 * g-utils::Google Client Utilities.
 * gm-nnir::Searching GMail Using NNIR.
 * gmaps::Google Maps.
@@ -12491,18 +12492,14 @@ shown in the hydra package documentation.
 @item Navigate: @kbd{s-n} Navigate with ease.
 @item  org-mode structure nav: @kbd{C-c C-SPC} Structure navigation  for org-mode.
 @item  org-mode tables: @kbd{C-c t} Table UI for org-mode tables.
-@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
-@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
-@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
 @item hideshow: C-, h Provide HideShow bindings.
-@item origami: C-, / Origami   bindings.
 @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
-@item outliner: <C-c .> Bindings from outline-minor-mode.
-@item Info-Summary: <?> in Info Info Summary Muggle
 @item Repeatable-Yank: @kbd{C-y} Smart yank
 @item SmartParens: @kbd{C-c ,} Smart Parens
 @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
-@item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and undo-redo on @kbd{\}
+@item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and
+undo-redo on @kbd{\}
+@item emacspeak-maths @kbd{s-SPC} Speak and browse math.
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
@@ -12539,20 +12536,6 @@ The heads for the associated hydra are:
 "SPC":    ‘xbacklight-increment’
 
 The body can be accessed via ‘emacspeak-muggles-brightness/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-emacspeak-m-player-mode-map-cmd
-@deffn {Command} emacspeak-muggles-emacspeak-m-player-mode-map-cmd   
-@table @kbd
-@item s-m
-@kindex s-m
-@end table
-
-@findex emacspeak-muggles-emacspeak-m-player-mode-map-cmd
-
-@format
-Temporarily use keymap emacspeak-m-player-mode-map
 @end format
 @end deffn
 
@@ -12598,139 +12581,12 @@ Pick what to yank using ido completion.
 @end format
 @end deffn
 
-@subsubsection emacspeak-muggles-info-summary/body
-@deffn {Command} emacspeak-muggles-info-summary/body   
-@findex emacspeak-muggles-info-summary/body
-
-@format
-Call the body in the "emacspeak-muggles-info-summary" hydra.
-
-The heads for the associated hydra are:
-
-"]":    ‘Info-forward-node’,
-"[":    ‘Info-backward-node’,
-"n":    ‘Info-next’,
-"p":    ‘Info-prev’,
-"s":    ‘Info-search’,
-"S":    ‘Info-search-case-sensitively’,
-"l":    ‘Info-history-back’,
-"r":    ‘Info-history-forward’,
-"H":    ‘Info-history’,
-"t":    ‘Info-top-node’,
-"<":    ‘Info-top-node’,
-">":    ‘Info-final-node’,
-"u":    ‘Info-up’,
-"^":    ‘Info-up’,
-"m":    ‘Info-menu’,
-"g":    ‘Info-goto-node’,
-"b":    ‘beginning-of-buffer’,
-"e":    ‘end-of-buffer’,
-"f":    ‘Info-follow-reference’,
-"i":    ‘Info-index’,
-",":    ‘Info-index-next’,
-"I":    ‘Info-virtual-index’,
-"T":    ‘Info-toc’,
-"d":    ‘Info-directory’,
-"c":    ‘Info-copy-current-node-name’,
-"C":    ‘clone-buffer’,
-"a":    ‘info-apropos’,
-"1":    ‘Info-nth-menu-item’,
-"2":    ‘Info-nth-menu-item’,
-"3":    ‘Info-nth-menu-item’,
-"4":    ‘Info-nth-menu-item’,
-"5":    ‘Info-nth-menu-item’,
-"6":    ‘Info-nth-menu-item’,
-"7":    ‘Info-nth-menu-item’,
-"8":    ‘Info-nth-menu-item’,
-"9":    ‘Info-nth-menu-item’,
-"?":    ‘Info-summary’,
-"h":    ‘Info-help’,
-"q":    ‘quit-window’,
-"C-g":    ‘nil’
-
-The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
-@end format
-@end deffn
-
 @subsubsection emacspeak-muggles-lispy-or-sp
 @deffn {Command} emacspeak-muggles-lispy-or-sp   
 @findex emacspeak-muggles-lispy-or-sp
 
 @format
 Toggle between lispy and smartparens.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-m-player/body
-@deffn {Command} emacspeak-muggles-m-player/body   
-@table @kbd
-@item s-;
-@kindex s-;
-@end table
-
-@findex emacspeak-muggles-m-player/body
-
-@format
-Call the body in the "emacspeak-muggles-m-player" hydra.
-
-The heads for the associated hydra are:
-
-";":    ‘emacspeak-m-player’,
-"+":    ‘emacspeak-m-player-volume-up’,
-",":    ‘emacspeak-m-player-backward-10s’,
-"%":    ‘emacspeak-m-player-display-percent’,
-"-":    ‘emacspeak-m-player-volume-down’,
-".":    ‘emacspeak-m-player-forward-10s’,
-"<":    ‘emacspeak-m-player-backward-1min’,
-"<down>":    ‘emacspeak-m-player-forward-1min’,
-"<end>":    ‘emacspeak-m-player-end-of-track’,
-"<home>":    ‘emacspeak-m-player-beginning-of-track’,
-"<left>":    ‘emacspeak-m-player-backward-10s’,
-"<next>":    ‘emacspeak-m-player-forward-10min’,
-"<prior>":    ‘emacspeak-m-player-backward-10min’,
-"<right>":    ‘emacspeak-m-player-forward-10s’,
-"<up>":    ‘emacspeak-m-player-backward-1min’,
-"=":    ‘emacspeak-m-player-volume-up’,
-">":    ‘emacspeak-m-player-forward-1min’,
-"?":    ‘emacspeak-m-player-display-position’,
-"C":    ‘emacspeak-m-player-clear-filters’,
-"C-m":    ‘emacspeak-m-player-load’,
-"DEL":    ‘emacspeak-m-player-reset-speed’,
-"L":    ‘emacspeak-m-player-load-file’,
-"M-l":    ‘emacspeak-m-player-load-playlist’,
-"O":    ‘emacspeak-m-player-reset-options’,
-"P":    ‘emacspeak-m-player-apply-reverb-preset’,
-"Q":    ‘emacspeak-m-player-quit’,
-"R":    ‘emacspeak-m-player-edit-reverb’,
-"S":    ‘emacspeak-amark-save’,
-"SPC":    ‘emacspeak-m-player-pause’,
-"[":    ‘emacspeak-m-player-slower’,
-"]":    ‘emacspeak-m-player-faster’,
-"a":    ‘emacspeak-m-player-amark-add’,
-"b":    ‘emacspeak-m-player-balance’,
-"c":    ‘emacspeak-m-player-slave-command’,
-"d":    ‘emacspeak-m-player-delete-filter’,
-"e":    ‘emacspeak-m-player-add-equalizer’,
-"f":    ‘emacspeak-m-player-add-filter’,
-"g":    ‘emacspeak-m-player-seek-absolute’,
-"j":    ‘emacspeak-m-player-amark-jump’,
-"l":    ‘emacspeak-m-player-get-length’,
-"m":    ‘emacspeak-m-player-mode-line’,
-"n":    ‘emacspeak-m-player-next-track’,
-"o":    ‘emacspeak-m-player-customize-options’,
-"p":    ‘emacspeak-m-player-previous-track’,
-"q":    ‘bury-buffer’,
-"r":    ‘emacspeak-m-player-seek-relative’,
-"s":    ‘emacspeak-m-player-scale-speed’,
-"t":    ‘emacspeak-m-player-play-tracks-jump’,
-"u":    ‘emacspeak-m-player-url’,
-"v":    ‘emacspeak-m-player-volume-change’,
-"(":    ‘emacspeak-m-player-left-channel’,
-")":    ‘emacspeak-m-player-right-channel’,
-"@{":    ‘emacspeak-m-player-half-speed’,
-"@}":    ‘emacspeak-m-player-double-speed’
-
-The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 @end format
 @end deffn
 
@@ -12840,47 +12696,6 @@ The heads for the associated hydra are:
 "c":    ‘emacspeak-org-table-speak-column-header-and-element’
 
 The body can be accessed via ‘emacspeak-muggles-org-table/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-outliner/body
-@deffn {Command} emacspeak-muggles-outliner/body   
-@table @kbd
-@item C-. o
-@kindex C-. o
-@item C-' o
-@kindex C-' o
-@item C-x @@ s o
-@kindex C-x @@ s o
-@end table
-
-@findex emacspeak-muggles-outliner/body
-
-@format
-Call the body in the "emacspeak-muggles-outliner" hydra.
-
-The heads for the associated hydra are:
-
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
-"q":    ‘outline-hide-sublevels’,
-"t":    ‘outline-hide-body’,
-"o":    ‘outline-hide-other’,
-"c":    ‘outline-hide-entry’,
-"l":    ‘outline-hide-leaves’,
-"d":    ‘outline-hide-subtree’,
-"a":    ‘outline-show-all’,
-"e":    ‘outline-show-entry’,
-"i":    ‘outline-show-children’,
-"k":    ‘outline-show-branches’,
-"s":    ‘outline-show-subtree’,
-"u":    ‘outline-up-heading’,
-"n":    ‘outline-next-visible-heading’,
-"p":    ‘outline-previous-visible-heading’,
-"f":    ‘outline-forward-same-level’,
-"b":    ‘outline-backward-same-level’,
-"z":    ‘nil’
-
-The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 @end format
 @end deffn
 
@@ -13114,33 +12929,6 @@ The heads for the associated hydra are:
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-origami/body
-@deffn {Command} emacspeak-origami/body   
-@table @kbd
-@item C-, /
-@kindex C-, /
-@item C-x @@ a /
-@kindex C-x @@ a /
-@end table
-
-@findex emacspeak-origami/body
-
-@format
-Call the body in the "emacspeak-origami" hydra.
-
-The heads for the associated hydra are:
-
-"o":    ‘origami-open-node’,
-"c":    ‘origami-close-node’,
-"n":    ‘origami-next-fold’,
-"p":    ‘origami-previous-fold’,
-"f":    ‘origami-forward-toggle-node’,
-"a":    ‘origami-toggle-all-nodes’
-
-The body can be accessed via ‘emacspeak-origami/body’.
 @end format
 @end deffn
 
@@ -23743,6 +23531,271 @@ Start ESpeak engine.
 Default speech rate for eSpeak.
 
 @end defvar
+
+@node extra-muggles
+@section extra-muggles
+
+MUGGLES ==  Emacspeak spells for power-users.
+These are extra hydras that I dont use very often,
+And are being moved here from emacspeak-muggles to save time at
+startup.
+
+This module implements no new functionality --- contrast with
+emacspeak-wizards.  Instead, it uses package hydra to provide
+convenience key-bindings that access existing Emacspeak
+functionality.
+You need to install package Hydra first:
+@samp{M-x package-install  hydra}.
+
+Note that on newer versions of Emacs, loading this module will
+attempt to automatically install package hydra if it is not found.
+@subsection Using Hydras
+See the high-level documentation for the Hydra package by executing
+@kbd {C-h C-j } hydra @kbd{RET}.
+The documentation in this section uses the same terminology as
+shown in the hydra package documentation.
+
+@subsection Extra Muggles
+
+@itemize
+@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
+@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
+@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
+@item origami: C-, / Origami   bindings.
+@item outliner: <C-c .> Bindings from outline-minor-mode.
+@item Info-Summary: <?> in Info Info Summary Muggle
+@end itemize
+
+Emacspeak automatically speaks Hydra hints when displayed.
+To silence all Hydra hints, set hydra-is-helpful to nil.  To
+temporarily silence speaking of Hydra hints, Muggles can bind
+command @code{emacspeak-hydra-toggle-talkative}.  As an
+example, Muggle @samp{ViewMode} binds @code{s} to this command.
+
+@subsection Extra-Muggles Commands
+
+@subsubsection emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+@deffn {Command} emacspeak-muggles-emacspeak-m-player-mode-map-cmd   
+@table @kbd
+@item s-m
+@kindex s-m
+@end table
+
+@findex emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+
+@format
+Temporarily use keymap emacspeak-m-player-mode-map
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-info-summary/body
+@deffn {Command} emacspeak-muggles-info-summary/body   
+@findex emacspeak-muggles-info-summary/body
+
+@format
+Call the body in the "emacspeak-muggles-info-summary" hydra.
+
+The heads for the associated hydra are:
+
+"]":    ‘Info-forward-node’,
+"[":    ‘Info-backward-node’,
+"n":    ‘Info-next’,
+"p":    ‘Info-prev’,
+"s":    ‘Info-search’,
+"S":    ‘Info-search-case-sensitively’,
+"l":    ‘Info-history-back’,
+"r":    ‘Info-history-forward’,
+"H":    ‘Info-history’,
+"t":    ‘Info-top-node’,
+"<":    ‘Info-top-node’,
+">":    ‘Info-final-node’,
+"u":    ‘Info-up’,
+"^":    ‘Info-up’,
+"m":    ‘Info-menu’,
+"g":    ‘Info-goto-node’,
+"b":    ‘beginning-of-buffer’,
+"e":    ‘end-of-buffer’,
+"f":    ‘Info-follow-reference’,
+"i":    ‘Info-index’,
+",":    ‘Info-index-next’,
+"I":    ‘Info-virtual-index’,
+"T":    ‘Info-toc’,
+"d":    ‘Info-directory’,
+"c":    ‘Info-copy-current-node-name’,
+"C":    ‘clone-buffer’,
+"a":    ‘info-apropos’,
+"1":    ‘Info-nth-menu-item’,
+"2":    ‘Info-nth-menu-item’,
+"3":    ‘Info-nth-menu-item’,
+"4":    ‘Info-nth-menu-item’,
+"5":    ‘Info-nth-menu-item’,
+"6":    ‘Info-nth-menu-item’,
+"7":    ‘Info-nth-menu-item’,
+"8":    ‘Info-nth-menu-item’,
+"9":    ‘Info-nth-menu-item’,
+"?":    ‘Info-summary’,
+"h":    ‘Info-help’,
+"q":    ‘quit-window’,
+"C-g":    ‘nil’
+
+The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-m-player/body
+@deffn {Command} emacspeak-muggles-m-player/body   
+@table @kbd
+@item s-;
+@kindex s-;
+@end table
+
+@findex emacspeak-muggles-m-player/body
+
+@format
+Call the body in the "emacspeak-muggles-m-player" hydra.
+
+The heads for the associated hydra are:
+
+";":    ‘emacspeak-m-player’,
+"+":    ‘emacspeak-m-player-volume-up’,
+",":    ‘emacspeak-m-player-backward-10s’,
+"%":    ‘emacspeak-m-player-display-percent’,
+"-":    ‘emacspeak-m-player-volume-down’,
+".":    ‘emacspeak-m-player-forward-10s’,
+"<":    ‘emacspeak-m-player-backward-1min’,
+"<down>":    ‘emacspeak-m-player-forward-1min’,
+"<end>":    ‘emacspeak-m-player-end-of-track’,
+"<home>":    ‘emacspeak-m-player-beginning-of-track’,
+"<left>":    ‘emacspeak-m-player-backward-10s’,
+"<next>":    ‘emacspeak-m-player-forward-10min’,
+"<prior>":    ‘emacspeak-m-player-backward-10min’,
+"<right>":    ‘emacspeak-m-player-forward-10s’,
+"<up>":    ‘emacspeak-m-player-backward-1min’,
+"=":    ‘emacspeak-m-player-volume-up’,
+">":    ‘emacspeak-m-player-forward-1min’,
+"?":    ‘emacspeak-m-player-display-position’,
+"C":    ‘emacspeak-m-player-clear-filters’,
+"C-m":    ‘emacspeak-m-player-load’,
+"DEL":    ‘emacspeak-m-player-reset-speed’,
+"L":    ‘emacspeak-m-player-load-file’,
+"M-l":    ‘emacspeak-m-player-load-playlist’,
+"O":    ‘emacspeak-m-player-reset-options’,
+"P":    ‘emacspeak-m-player-apply-reverb-preset’,
+"Q":    ‘emacspeak-m-player-quit’,
+"R":    ‘emacspeak-m-player-edit-reverb’,
+"S":    ‘emacspeak-amark-save’,
+"SPC":    ‘emacspeak-m-player-pause’,
+"[":    ‘emacspeak-m-player-slower’,
+"]":    ‘emacspeak-m-player-faster’,
+"a":    ‘emacspeak-m-player-amark-add’,
+"b":    ‘emacspeak-m-player-balance’,
+"c":    ‘emacspeak-m-player-slave-command’,
+"d":    ‘emacspeak-m-player-delete-filter’,
+"e":    ‘emacspeak-m-player-add-equalizer’,
+"f":    ‘emacspeak-m-player-add-filter’,
+"g":    ‘emacspeak-m-player-seek-absolute’,
+"j":    ‘emacspeak-m-player-amark-jump’,
+"l":    ‘emacspeak-m-player-get-length’,
+"m":    ‘emacspeak-m-player-mode-line’,
+"n":    ‘emacspeak-m-player-next-track’,
+"o":    ‘emacspeak-m-player-customize-options’,
+"p":    ‘emacspeak-m-player-previous-track’,
+"q":    ‘bury-buffer’,
+"r":    ‘emacspeak-m-player-seek-relative’,
+"s":    ‘emacspeak-m-player-scale-speed’,
+"t":    ‘emacspeak-m-player-play-tracks-jump’,
+"u":    ‘emacspeak-m-player-url’,
+"v":    ‘emacspeak-m-player-volume-change’,
+"(":    ‘emacspeak-m-player-left-channel’,
+")":    ‘emacspeak-m-player-right-channel’,
+"@{":    ‘emacspeak-m-player-half-speed’,
+"@}":    ‘emacspeak-m-player-double-speed’
+
+The body can be accessed via ‘emacspeak-muggles-m-player/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-outliner/body
+@deffn {Command} emacspeak-muggles-outliner/body   
+@table @kbd
+@item C-. o
+@kindex C-. o
+@item C-' o
+@kindex C-' o
+@item C-x @@ s o
+@kindex C-x @@ s o
+@end table
+
+@findex emacspeak-muggles-outliner/body
+
+@format
+Call the body in the "emacspeak-muggles-outliner" hydra.
+
+The heads for the associated hydra are:
+
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
+"q":    ‘outline-hide-sublevels’,
+"t":    ‘outline-hide-body’,
+"o":    ‘outline-hide-other’,
+"c":    ‘outline-hide-entry’,
+"l":    ‘outline-hide-leaves’,
+"d":    ‘outline-hide-subtree’,
+"a":    ‘outline-show-all’,
+"e":    ‘outline-show-entry’,
+"i":    ‘outline-show-children’,
+"k":    ‘outline-show-branches’,
+"s":    ‘outline-show-subtree’,
+"u":    ‘outline-up-heading’,
+"n":    ‘outline-next-visible-heading’,
+"p":    ‘outline-previous-visible-heading’,
+"f":    ‘outline-forward-same-level’,
+"b":    ‘outline-backward-same-level’,
+"z":    ‘nil’
+
+The body can be accessed via ‘emacspeak-muggles-outliner/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-pianobar-key-map-cmd
+@deffn {Command} emacspeak-muggles-pianobar-key-map-cmd   
+@table @kbd
+@item s-'
+@kindex s-'
+@end table
+
+@findex emacspeak-muggles-pianobar-key-map-cmd
+
+@format
+Temporarily use keymap pianobar-key-map
+@end format
+@end deffn
+
+@subsubsection emacspeak-origami/body
+@deffn {Command} emacspeak-origami/body   
+@table @kbd
+@item C-, /
+@kindex C-, /
+@item C-x @@ a /
+@kindex C-x @@ a /
+@end table
+
+@findex emacspeak-origami/body
+
+@format
+Call the body in the "emacspeak-origami" hydra.
+
+The heads for the associated hydra are:
+
+"o":    ‘origami-open-node’,
+"c":    ‘origami-close-node’,
+"n":    ‘origami-next-fold’,
+"p":    ‘origami-previous-fold’,
+"f":    ‘origami-forward-toggle-node’,
+"a":    ‘origami-toggle-all-nodes’
+
+The body can be accessed via ‘emacspeak-origami/body’.
+@end format
+@end deffn
 
 @node g-utils
 @section g-utils
