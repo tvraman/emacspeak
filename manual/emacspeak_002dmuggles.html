@@ -96,7 +96,6 @@
     <li>toggle-option: <kbd>C-c o</kbd> Single binding for toggling
     options.</li>
     <li>Repeatable-Yank: <kbd>C-y</kbd> Smart yank</li>
-    <li>SmartParens: <kbd>C-c ,</kbd> Smart Parens</li>
     <li>Vuiet Explorer: <kbd>C-; v</kbd> Vuiet Music Explorer and
     Player</li>
     <li>undo-only/undo-redo: <kbd>C-/</kbd> Undo-only on
@@ -173,6 +172,7 @@ The heads for the associated hydra are:
 "s":    ‘hs-show-block’,
 "H":    ‘hs-hide-all’,
 "S":    ‘hs-show-all’,
+"a":    ‘hs-show-all’,
 "l":    ‘hs-hide-level’,
 "i":    ‘hs-hide-initial-comment-block’
 
@@ -307,8 +307,8 @@ The heads for the associated hydra are:
 "SPC":    ‘emacspeak-outline-speak-this-heading’,
 "n":    ‘emacspeak-outline-speak-next-heading’,
 "p":    ‘emacspeak-outline-speak-previous-heading’,
-"N":    ‘org-forward-heading-same-level’,
-"P":    ‘org-backward-heading-same-level’,
+"f":    ‘org-forward-heading-same-level’,
+"b":    ‘org-backward-heading-same-level’,
 "u":    ‘outline-up-heading’,
 "g":    ‘org-goto’
 
@@ -349,61 +349,8 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dmuggles_002dsmartparens_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.9
-  emacspeak-muggles-smartparens/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dsmartparens_002fbody">
-    Command:
-    <strong>emacspeak-muggles-smartparens/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-c ,</kbd></dt>
-        <dd><span id="index-C_002dc-_002c"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dsmartparens_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-smartparens" hydra.
-
-The heads for the associated hydra are:
-
-"’":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "’"))’,
-"(":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "("))’,
-"&lt;down&gt;":    ‘sp-splice-sexp-killing-forward’,
-"&lt;left&gt;":    ‘sp-forward-barf-sexp’,
-"&lt;right&gt;":    ‘sp-forward-slurp-sexp’,
-"&lt;up&gt;":    ‘sp-splice-sexp-killing-backward’,
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-smartparens")’,
-"C-&lt;left&gt;":    ‘sp-backward-barf-sexp’,
-"C-&lt;right&gt;":    ‘sp-backward-slurp-sexp’,
-"R":    ‘sp-splice-sexp’,
-""":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "\""))’,
-"a":    ‘beginning-of-defun’,
-"b":    ‘sp-backward-sexp’,
-"c":    ‘sp-convolute-sexp’,
-"d":    ‘sp-down-sexp’,
-"e":    ‘end-of-defun’,
-"f":    ‘sp-forward-sexp’,
-"i":    ‘sp-indent-defun’,
-"j":    ‘sp-join-sexp’,
-"k":    ‘sp-kill-sexp’,
-"n":    ‘sp-next-sexp’,
-"p":    ‘sp-previous-sexp’,
-"r":    ‘sp-splice-sexp-killing-around’,
-"s":    ‘sp-split-sexp’,
-"t":    ‘sp-transpose-sexp’,
-"u":    ‘sp-backward-up-sexp’,
-"w":    ‘sp-copy-sexp’,
-"{":    ‘(lambda (_) (interactive "P") (sp-wrap-with-pair "{"))’
-
-The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.10
+  <h4 class="subsubsection">12.130.3.9
   emacspeak-muggles-toggle-option/body</h4>
   <dl>
     <dt id=
@@ -444,7 +391,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.11
+  <h4 class="subsubsection">12.130.3.10
   emacspeak-muggles-undo-only/undo-redo/body</h4>
   <dl>
     <dt id=
@@ -472,7 +419,7 @@ The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
       </div>
     </dd>
   </dl><span id="emacspeak_002dmuggles_002dview_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.12
+  <h4 class="subsubsection">12.130.3.11
   emacspeak-muggles-view/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dview_002fbody">Command:
@@ -545,7 +492,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
       </div>
     </dd>
   </dl><span id="emacspeak_002dmuggles_002dvuiet_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.13
+  <h4 class="subsubsection">12.130.3.12
   emacspeak-muggles-vuiet/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dvuiet_002fbody">
@@ -590,7 +537,7 @@ The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dyank_002dpop_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.14
+  <h4 class="subsubsection">12.130.3.13
   emacspeak-muggles-yank-pop/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dyank_002dpop_002fbody">
