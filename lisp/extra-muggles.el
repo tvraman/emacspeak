@@ -12,6 +12,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -62,6 +63,7 @@
 ;;; @subsection Extra Muggles
 
 ;;;@itemize
+;;; @item SmartParens: @kbd{C-c ,} Smart Parens
 ;;;@item m-player: @kbd{s-m} Emacspeak-M-Player Commands
 ;;;@item m-player: @kbd{s-;} Emacspeak-M-Player muggle
 ;;;@item pianobar: @kbd{s-'} Emacspeak-M-pianobar Commands
@@ -392,6 +394,48 @@ Also generates global keybindings if any."
       (insert "\n(provide \'emacspeak-muggles-autoloads)\n")
       (save-buffer))
     (message "Generated autoloads for muggles.")))
+
+;;}}}
+;;{{{ smartParens:
+
+(global-set-key
+ (kbd "C-c ,")
+ (defhydra emacspeak-muggles-smartparens
+   (:body-pre
+    (progn
+      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+      (emacspeak-hydra-body-pre "SmartParens"))
+    :pre emacspeak-hydra-pre
+    :post emacspeak-hydra-post)
+   "Smart Parens"
+   ("'" (lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
+   ("(" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
+   ("<down>" sp-splice-sexp-killing-forward)  
+   ("<left>" sp-forward-barf-sexp)  
+   ("<right>" sp-forward-slurp-sexp)  
+   ("<up>" sp-splice-sexp-killing-backward)  
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-smartparens"))
+   ("C-<left>" sp-backward-barf-sexp)  
+   ("C-<right>" sp-backward-slurp-sexp)
+   ("R" sp-splice-sexp)  
+   ("\"" (lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
+   ("a" beginning-of-defun)
+   ("b" sp-backward-sexp)  
+   ("c" sp-convolute-sexp)  
+   ("d" sp-down-sexp)  
+   ("e" end-of-defun)
+   ("f" sp-forward-sexp)  
+   ("i" sp-indent-defun)  
+   ("j" sp-join-sexp)  
+   ("k" sp-kill-sexp)  
+   ("n" sp-next-sexp)  
+   ("p" sp-previous-sexp)  
+   ("r" sp-splice-sexp-killing-around)  
+   ("s" sp-split-sexp)  
+   ("t" sp-transpose-sexp)  
+   ("u" sp-backward-up-sexp)  
+   ("w" sp-copy-sexp)  
+   ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
 
 ;;}}}
 (provide 'extra-muggles)

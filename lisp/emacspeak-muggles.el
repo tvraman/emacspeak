@@ -67,7 +67,6 @@
 ;;; @item hideshow: C-, h Provide HideShow bindings.
 ;;; @item toggle-option:  @kbd{C-c o} Single binding for toggling options.
 ;;; @item Repeatable-Yank: @kbd{C-y} Smart yank
-;;; @item SmartParens: @kbd{C-c ,} Smart Parens
 ;;; @item Vuiet Explorer: @kbd{C-; v} Vuiet Music Explorer and Player
 ;;; @item undo-only/undo-redo: @kbd{C-/ } Undo-only on @kbd{/} and
 ;;; undo-redo on @kbd{\}
@@ -443,48 +442,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("<right>" emacspeak-maths-right "right")))
 
 ;;}}}
-;;{{{ smartParens:
 
-(global-set-key
- (kbd "C-c ,")
- (defhydra emacspeak-muggles-smartparens
-   (:body-pre
-    (progn
-      (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
-      (emacspeak-hydra-body-pre "SmartParens"))
-    :pre emacspeak-hydra-pre
-    :post emacspeak-hydra-post)
-   "Smart Parens"
-   ("'" (lambda (_) (interactive "P") (sp-wrap-with-pair "'")))  
-   ("(" (lambda (_) (interactive "P") (sp-wrap-with-pair "(")))  
-   ("<down>" sp-splice-sexp-killing-forward)  
-   ("<left>" sp-forward-barf-sexp)  
-   ("<right>" sp-forward-slurp-sexp)  
-   ("<up>" sp-splice-sexp-killing-backward)  
-   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-smartparens"))
-   ("C-<left>" sp-backward-barf-sexp)  
-   ("C-<right>" sp-backward-slurp-sexp)
-   ("R" sp-splice-sexp)  
-   ("\"" (lambda (_) (interactive "P") (sp-wrap-with-pair "\"")))  
-   ("a" beginning-of-defun)
-   ("b" sp-backward-sexp)  
-   ("c" sp-convolute-sexp)  
-   ("d" sp-down-sexp)  
-   ("e" end-of-defun)
-   ("f" sp-forward-sexp)  
-   ("i" sp-indent-defun)  
-   ("j" sp-join-sexp)  
-   ("k" sp-kill-sexp)  
-   ("n" sp-next-sexp)  
-   ("p" sp-previous-sexp)  
-   ("r" sp-splice-sexp-killing-around)  
-   ("s" sp-split-sexp)  
-   ("t" sp-transpose-sexp)  
-   ("u" sp-backward-up-sexp)  
-   ("w" sp-copy-sexp)  
-   ("{" (lambda (_) (interactive "P") (sp-wrap-with-pair "{")))))
-
-;;}}}
 ;;{{{Vuiet:
 (declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
 
