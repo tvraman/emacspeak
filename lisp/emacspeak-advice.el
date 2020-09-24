@@ -2694,11 +2694,9 @@ Produce auditory icons if possible."
 
 (defun ems--get-where-is (definition )
   "Return string describing where-is `definition'."
-  (let ((func (indirect-function definition)))
-    (let*
-        ((keys (where-is-internal definition overriding-local-map nil nil ))
+  (let* ((keys (where-is-internal definition overriding-local-map nil nil ))
 	 (desc (mapconcat 'key-description keys ", ")))
-      (ems-canonicalize-key-description desc))))
+    (ems-canonicalize-key-description desc)))
 
 (defadvice where-is (after emacspeak pre act comp)
   "Provide spoken feedback"
