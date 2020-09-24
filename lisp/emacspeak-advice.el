@@ -2685,7 +2685,6 @@ Produce auditory icons if possible."
   "Speak what you displayed"
   (cond
    ((ems-interactive-p)
-
     (let ((emacspeak-speak-messages nil))
       ad-do-it
       (dtk-speak (ems-canonicalize-key-description ad-return-value))))
