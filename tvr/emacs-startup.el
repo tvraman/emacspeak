@@ -230,7 +230,6 @@ Use Custom to customize where possible. "
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
-  (auto-correct-mode 1)
   (auto-fill-mode 1)
   (abbrev-mode 1)
   (unless (eq major-mode 'org-mode) (orgalist-mode 1)))
