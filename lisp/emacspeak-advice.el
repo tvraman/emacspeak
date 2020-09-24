@@ -1902,7 +1902,6 @@ Indicate change of selection with an auditory icon
         (hyper-regexp "C-x @ h")
         (alt-regexp "C-x @ a")
         (super-regexp "C-x @ s"))
-    (condition-case nil
         (with-temp-buffer
           (setq buffer-undo-list t)
           (setq case-fold-search nil)
@@ -1937,13 +1936,10 @@ Indicate change of selection with an auditory icon
             (while (re-search-forward meta-regexp nil t)
               (replace-match "meta \\1"))
             (goto-char (point-min))
-            (while (re-search-forward alt-regexp nil t)
-              (replace-match "alt \\1"))
             (goto-char (point-min))
             (while (re-search-forward caps-regexp nil t)
               (replace-match " cap \\& " t)))
-          (buffer-string))
-      (error ""))))
+          (buffer-string))))
 
 (defadvice exchange-point-and-mark (after emacspeak pre act comp)
   "Speak the line.
