@@ -1893,53 +1893,7 @@ Indicate change of selection with an auditory icon
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-predefined-window 1)))
 
-(defun ems-canonicalize-key-description (desc)
-  "Change key description to a speech-friendly form."
-  (let ((shift-regexp "S-\\(.\\)")
-        (ctrl-regexp "C-\\(.\\)")
-        (meta-regexp "M-\\(.\\)")
-        (caps-regexp "\\b[A-Z]\\b")
-        (hyper-regexp "C-x @ h")
-        (alt-regexp "C-x @ a")
-        (super-regexp "C-x @ s"))
-        (with-temp-buffer
-          (setq buffer-undo-list t)
-          (setq case-fold-search nil)
-          (erase-buffer)
-          (insert desc)
-          (goto-char (point-min))
-          (save-match-data
-            (while (search-forward "SPC" nil t)
-              (replace-match "space"))
-            (goto-char (point-min))
-            (while (search-forward "ESC" nil t)
-              (replace-match "escape"))
-            (goto-char (point-min))
-            (while (search-forward "RET" nil t)
-              (replace-match "return"))
-            (goto-char (point-min))
-            (while (re-search-forward hyper-regexp nil t)
-              (replace-match "hyper "))
-            (goto-char (point-min))
-            (while (re-search-forward alt-regexp nil t)
-              (replace-match "alt "))
-            (goto-char (point-min))
-            (while (re-search-forward super-regexp nil t)
-              (replace-match "super "))
-            (goto-char (point-min))
-            (while (re-search-forward shift-regexp nil t)
-              (replace-match "shift \\1"))
-            (goto-char (point-min))
-            (while (re-search-forward ctrl-regexp nil t)
-              (replace-match "control \\1"))
-            (goto-char (point-min))
-            (while (re-search-forward meta-regexp nil t)
-              (replace-match "meta \\1"))
-            (goto-char (point-min))
-            (goto-char (point-min))
-            (while (re-search-forward caps-regexp nil t)
-              (replace-match " cap \\& " t)))
-          (buffer-string))))
+
 
 (defadvice exchange-point-and-mark (after emacspeak pre act comp)
   "Speak the line.
@@ -2680,6 +2634,54 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ advice where-is and friends
+(defun ems-canonicalize-key-description (desc)
+  "Change key description to a speech-friendly form."
+  (let ((shift-regexp "S-\\(.\\)")
+        (ctrl-regexp "C-\\(.\\)")
+        (meta-regexp "M-\\(.\\)")
+        (caps-regexp "\\b[A-Z]\\b")
+        (hyper-regexp "C-x @ h")
+        (alt-regexp "C-x @ a")
+        (super-regexp "C-x @ s"))
+        (with-temp-buffer
+          (setq buffer-undo-list t)
+          (setq case-fold-search nil)
+          (erase-buffer)
+          (insert desc)
+          (goto-char (point-min))
+          (save-match-data
+            (while (search-forward "SPC" nil t)
+              (replace-match "space"))
+            (goto-char (point-min))
+            (while (search-forward "ESC" nil t)
+              (replace-match "escape"))
+            (goto-char (point-min))
+            (while (search-forward "RET" nil t)
+              (replace-match "return"))
+            (goto-char (point-min))
+            (while (re-search-forward hyper-regexp nil t)
+              (replace-match "hyper "))
+            (goto-char (point-min))
+            (while (re-search-forward alt-regexp nil t)
+              (replace-match "alt "))
+            (goto-char (point-min))
+            (while (re-search-forward super-regexp nil t)
+              (replace-match "super "))
+            (goto-char (point-min))
+            (while (re-search-forward shift-regexp nil t)
+              (replace-match "shift \\1"))
+            (goto-char (point-min))
+            (while (re-search-forward ctrl-regexp nil t)
+              (replace-match "control \\1"))
+            (goto-char (point-min))
+            (while (re-search-forward meta-regexp nil t)
+              (replace-match "meta \\1"))
+            (goto-char (point-min))
+            (goto-char (point-min))
+            (while (re-search-forward caps-regexp nil t)
+              (replace-match " cap \\& " t)))
+          (buffer-string))))
+
 
 (defadvice describe-key-briefly (around emacspeak pre act comp)
   "Speak what you displayed"
@@ -2690,10 +2692,18 @@ Produce auditory icons if possible."
       (dtk-speak (ems-canonicalize-key-description ad-return-value))))
    (t ad-do-it)))
 
+(defun ems--get-where-is (definition )
+  "Return string describing where-is `definition'."
+  (let ((func (indirect-function definition)))
+    (let*
+        ((keys (where-is-internal definition overriding-local-map nil nil ))
+	 (desc (mapconcat 'key-description keys ", ")))
+      (ems-canonicalize-key-description desc))))
+
 (defadvice where-is (after emacspeak pre act comp)
   "Provide spoken feedback"
   (when (ems-interactive-p)
-    (emacspeak-speak-message-again)))
+    (dtk-speak (ems--get-where-is (ad-get-arg 0)))))
 
 ;;}}}
 ;;{{{ apropos and friends
