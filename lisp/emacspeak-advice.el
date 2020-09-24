@@ -3039,17 +3039,17 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{lv-message:
 
-(defvar lv-emacspeak-cache nil
+(defvar ems--lv-cache nil
   "Emacspeak's private cache of the last lv message.")
 
 (voice-setup-set-voice-for-face 'lv-separator  'inaudible)
 
 (defadvice lv-message (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cl-declare (special lv-emacspeak-cache))
+  (cl-declare (special ems--lv-cache))
   (emacspeak-auditory-icon 'help)
   (with-current-buffer (window-buffer (lv-window))
-    (setq lv-emacspeak-cache (buffer-substring (point-min) (point-max)))
+    (setq ems--lv-cache (buffer-substring (point-min) (point-max)))
     (emacspeak-speak-buffer)))
 
 (defadvice lv-delete-window (after emacspeak pre act comp)
