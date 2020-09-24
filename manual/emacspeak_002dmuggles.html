@@ -92,22 +92,17 @@
     navigation for org-mode.</li>
     <li>org-mode tables: <kbd>C-c t</kbd> Table UI for org-mode
     tables.</li>
-    <li>m-player: <kbd>s-m</kbd> Emacspeak-M-Player Commands</li>
-    <li>m-player: <kbd>s-;</kbd> Emacspeak-M-Player muggle</li>
-    <li>pianobar: <kbd>s-'</kbd> Emacspeak-M-pianobar Commands</li>
     <li>hideshow: C-, h Provide HideShow bindings.</li>
-    <li>origami: C-, / Origami bindings.</li>
     <li>toggle-option: <kbd>C-c o</kbd> Single binding for toggling
     options.</li>
-    <li>outliner: &lt;C-c .&gt; Bindings from
-    outline-minor-mode.</li>
-    <li>Info-Summary: &lt;?&gt; in Info Info Summary Muggle</li>
     <li>Repeatable-Yank: <kbd>C-y</kbd> Smart yank</li>
     <li>SmartParens: <kbd>C-c ,</kbd> Smart Parens</li>
     <li>Vuiet Explorer: <kbd>C-; v</kbd> Vuiet Music Explorer and
     Player</li>
     <li>undo-only/undo-redo: <kbd>C-/</kbd> Undo-only on
     <kbd>/</kbd> and undo-redo on <kbd>\</kbd></li>
+    <li>emacspeak-maths <kbd>s-SPC</kbd> Speak and browse
+    math.</li>
   </ul>
   <p>Emacspeak automatically speaks Hydra hints when displayed. To
   silence all Hydra hints, set hydra-is-helpful to nil. To
@@ -153,29 +148,8 @@ The body can be accessed via ‘emacspeak-muggles-brightness/body’.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"></span>
-  <h4 class="subsubsection">12.130.3.2
-  emacspeak-muggles-emacspeak-m-player-mode-map-cmd</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd">
-    Command:
-    <strong>emacspeak-muggles-emacspeak-m-player-mode-map-cmd</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>s-m</kbd></dt>
-        <dd><span id="index-s_002dm"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Temporarily use keymap emacspeak-m-player-mode-map
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dmuggles_002dhideshow_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.3
+  <h4 class="subsubsection">12.130.3.2
   emacspeak-muggles-hideshow/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dhideshow_002fbody">
@@ -207,7 +181,7 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
       </div>
     </dd>
   </dl><span id="emacspeak_002dmuggles_002dido_002dyank"></span>
-  <h4 class="subsubsection">12.130.3.4
+  <h4 class="subsubsection">12.130.3.3
   emacspeak-muggles-ido-yank</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dido_002dyank">Command:
@@ -224,72 +198,8 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dmuggles_002dinfo_002dsummary_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.5
-  emacspeak-muggles-info-summary/body</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody">
-    Command:
-    <strong>emacspeak-muggles-info-summary/body</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dmuggles_002dinfo_002dsummary_002fbody-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-info-summary" hydra.
-
-The heads for the associated hydra are:
-
-"]":    ‘Info-forward-node’,
-"[":    ‘Info-backward-node’,
-"n":    ‘Info-next’,
-"p":    ‘Info-prev’,
-"s":    ‘Info-search’,
-"S":    ‘Info-search-case-sensitively’,
-"l":    ‘Info-history-back’,
-"r":    ‘Info-history-forward’,
-"H":    ‘Info-history’,
-"t":    ‘Info-top-node’,
-"&lt;":    ‘Info-top-node’,
-"&gt;":    ‘Info-final-node’,
-"u":    ‘Info-up’,
-"^":    ‘Info-up’,
-"m":    ‘Info-menu’,
-"g":    ‘Info-goto-node’,
-"b":    ‘beginning-of-buffer’,
-"e":    ‘end-of-buffer’,
-"f":    ‘Info-follow-reference’,
-"i":    ‘Info-index’,
-",":    ‘Info-index-next’,
-"I":    ‘Info-virtual-index’,
-"T":    ‘Info-toc’,
-"d":    ‘Info-directory’,
-"c":    ‘Info-copy-current-node-name’,
-"C":    ‘clone-buffer’,
-"a":    ‘info-apropos’,
-"1":    ‘Info-nth-menu-item’,
-"2":    ‘Info-nth-menu-item’,
-"3":    ‘Info-nth-menu-item’,
-"4":    ‘Info-nth-menu-item’,
-"5":    ‘Info-nth-menu-item’,
-"6":    ‘Info-nth-menu-item’,
-"7":    ‘Info-nth-menu-item’,
-"8":    ‘Info-nth-menu-item’,
-"9":    ‘Info-nth-menu-item’,
-"?":    ‘Info-summary’,
-"h":    ‘Info-help’,
-"q":    ‘quit-window’,
-"C-g":    ‘nil’
-
-The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dmuggles_002dlispy_002dor_002dsp"></span>
-  <h4 class="subsubsection">12.130.3.6
+  <h4 class="subsubsection">12.130.3.4
   emacspeak-muggles-lispy-or-sp</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dlispy_002dor_002dsp">
@@ -303,86 +213,8 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dmuggles_002dm_002dplayer_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.7
-  emacspeak-muggles-m-player/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002dm_002dplayer_002fbody">
-    Command: <strong>emacspeak-muggles-m-player/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>s-;</kbd></dt>
-        <dd><span id="index-s_002d_003b"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-m-player" hydra.
-
-The heads for the associated hydra are:
-
-";":    ‘emacspeak-m-player’,
-"+":    ‘emacspeak-m-player-volume-up’,
-",":    ‘emacspeak-m-player-backward-10s’,
-"%":    ‘emacspeak-m-player-display-percent’,
-"-":    ‘emacspeak-m-player-volume-down’,
-".":    ‘emacspeak-m-player-forward-10s’,
-"&lt;":    ‘emacspeak-m-player-backward-1min’,
-"&lt;down&gt;":    ‘emacspeak-m-player-forward-1min’,
-"&lt;end&gt;":    ‘emacspeak-m-player-end-of-track’,
-"&lt;home&gt;":    ‘emacspeak-m-player-beginning-of-track’,
-"&lt;left&gt;":    ‘emacspeak-m-player-backward-10s’,
-"&lt;next&gt;":    ‘emacspeak-m-player-forward-10min’,
-"&lt;prior&gt;":    ‘emacspeak-m-player-backward-10min’,
-"&lt;right&gt;":    ‘emacspeak-m-player-forward-10s’,
-"&lt;up&gt;":    ‘emacspeak-m-player-backward-1min’,
-"=":    ‘emacspeak-m-player-volume-up’,
-"&gt;":    ‘emacspeak-m-player-forward-1min’,
-"?":    ‘emacspeak-m-player-display-position’,
-"C":    ‘emacspeak-m-player-clear-filters’,
-"C-m":    ‘emacspeak-m-player-load’,
-"DEL":    ‘emacspeak-m-player-reset-speed’,
-"L":    ‘emacspeak-m-player-load-file’,
-"M-l":    ‘emacspeak-m-player-load-playlist’,
-"O":    ‘emacspeak-m-player-reset-options’,
-"P":    ‘emacspeak-m-player-apply-reverb-preset’,
-"Q":    ‘emacspeak-m-player-quit’,
-"R":    ‘emacspeak-m-player-edit-reverb’,
-"S":    ‘emacspeak-amark-save’,
-"SPC":    ‘emacspeak-m-player-pause’,
-"[":    ‘emacspeak-m-player-slower’,
-"]":    ‘emacspeak-m-player-faster’,
-"a":    ‘emacspeak-m-player-amark-add’,
-"b":    ‘emacspeak-m-player-balance’,
-"c":    ‘emacspeak-m-player-slave-command’,
-"d":    ‘emacspeak-m-player-delete-filter’,
-"e":    ‘emacspeak-m-player-add-equalizer’,
-"f":    ‘emacspeak-m-player-add-filter’,
-"g":    ‘emacspeak-m-player-seek-absolute’,
-"j":    ‘emacspeak-m-player-amark-jump’,
-"l":    ‘emacspeak-m-player-get-length’,
-"m":    ‘emacspeak-m-player-mode-line’,
-"n":    ‘emacspeak-m-player-next-track’,
-"o":    ‘emacspeak-m-player-customize-options’,
-"p":    ‘emacspeak-m-player-previous-track’,
-"q":    ‘bury-buffer’,
-"r":    ‘emacspeak-m-player-seek-relative’,
-"s":    ‘emacspeak-m-player-scale-speed’,
-"t":    ‘emacspeak-m-player-play-tracks-jump’,
-"u":    ‘emacspeak-m-player-url’,
-"v":    ‘emacspeak-m-player-volume-change’,
-"(":    ‘emacspeak-m-player-left-channel’,
-")":    ‘emacspeak-m-player-right-channel’,
-"{":    ‘emacspeak-m-player-half-speed’,
-"}":    ‘emacspeak-m-player-double-speed’
-
-The body can be accessed via ‘emacspeak-muggles-m-player/body’.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dmuggles_002dmaths_002dnavigator_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.8
+  <h4 class="subsubsection">12.130.3.5
   emacspeak-muggles-maths-navigator/body</h4>
   <dl>
     <dt id=
@@ -418,7 +250,7 @@ The body can be accessed via ‘emacspeak-muggles-maths-navigator/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dnavigate_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.9
+  <h4 class="subsubsection">12.130.3.6
   emacspeak-muggles-navigate/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dnavigate_002fbody">
@@ -457,7 +289,7 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dorg_002dnav_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.10
+  <h4 class="subsubsection">12.130.3.7
   emacspeak-muggles-org-nav/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dorg_002dnav_002fbody">
@@ -486,7 +318,7 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dorg_002dtable_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.11
+  <h4 class="subsubsection">12.130.3.8
   emacspeak-muggles-org-table/body</h4>
   <dl>
     <dt id=
@@ -517,54 +349,8 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dmuggles_002doutliner_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.12
-  emacspeak-muggles-outliner/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dmuggles_002doutliner_002fbody">
-    Command: <strong>emacspeak-muggles-outliner/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-. o</kbd></dt>
-        <dd><span id="index-C_002d_002e-o"></span></dd>
-        <dt><kbd>C-' o</kbd></dt>
-        <dd><span id="index-C_002d_0027-o"></span></dd>
-        <dt><kbd>C-x @ s o</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-s-o"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dmuggles_002doutliner_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-muggles-outliner" hydra.
-
-The heads for the associated hydra are:
-
-"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
-"q":    ‘outline-hide-sublevels’,
-"t":    ‘outline-hide-body’,
-"o":    ‘outline-hide-other’,
-"c":    ‘outline-hide-entry’,
-"l":    ‘outline-hide-leaves’,
-"d":    ‘outline-hide-subtree’,
-"a":    ‘outline-show-all’,
-"e":    ‘outline-show-entry’,
-"i":    ‘outline-show-children’,
-"k":    ‘outline-show-branches’,
-"s":    ‘outline-show-subtree’,
-"u":    ‘outline-up-heading’,
-"n":    ‘outline-next-visible-heading’,
-"p":    ‘outline-previous-visible-heading’,
-"f":    ‘outline-forward-same-level’,
-"b":    ‘outline-backward-same-level’,
-"z":    ‘nil’
-
-The body can be accessed via ‘emacspeak-muggles-outliner/body’.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dmuggles_002dsmartparens_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.13
+  <h4 class="subsubsection">12.130.3.9
   emacspeak-muggles-smartparens/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dsmartparens_002fbody">
@@ -617,7 +403,7 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.14
+  <h4 class="subsubsection">12.130.3.10
   emacspeak-muggles-toggle-option/body</h4>
   <dl>
     <dt id=
@@ -658,7 +444,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dundo_002donly_002fundo_002dredo_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.15
+  <h4 class="subsubsection">12.130.3.11
   emacspeak-muggles-undo-only/undo-redo/body</h4>
   <dl>
     <dt id=
@@ -686,7 +472,7 @@ The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
       </div>
     </dd>
   </dl><span id="emacspeak_002dmuggles_002dview_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.16
+  <h4 class="subsubsection">12.130.3.12
   emacspeak-muggles-view/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dview_002fbody">Command:
@@ -759,7 +545,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
       </div>
     </dd>
   </dl><span id="emacspeak_002dmuggles_002dvuiet_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.17
+  <h4 class="subsubsection">12.130.3.13
   emacspeak-muggles-vuiet/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dvuiet_002fbody">
@@ -804,7 +590,7 @@ The body can be accessed via ‘emacspeak-muggles-vuiet/body’.
     </dd>
   </dl><span id=
   "emacspeak_002dmuggles_002dyank_002dpop_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.18
+  <h4 class="subsubsection">12.130.3.14
   emacspeak-muggles-yank-pop/body</h4>
   <dl>
     <dt id="index-emacspeak_002dmuggles_002dyank_002dpop_002fbody">
@@ -827,36 +613,6 @@ The heads for the associated hydra are:
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
-</pre>
-      </div>
-    </dd>
-  </dl><span id="emacspeak_002dorigami_002fbody"></span>
-  <h4 class="subsubsection">12.130.3.19 emacspeak-origami/body</h4>
-  <dl>
-    <dt id="index-emacspeak_002dorigami_002fbody">Command:
-    <strong>emacspeak-origami/body</strong></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-, /</kbd></dt>
-        <dd><span id="index-C_002d_002c-_002f"></span></dd>
-        <dt><kbd>C-x @ a /</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-a-_002f"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dorigami_002fbody-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Call the body in the "emacspeak-origami" hydra.
-
-The heads for the associated hydra are:
-
-"o":    ‘origami-open-node’,
-"c":    ‘origami-close-node’,
-"n":    ‘origami-next-fold’,
-"p":    ‘origami-previous-fold’,
-"f":    ‘origami-forward-toggle-node’,
-"a":    ‘origami-toggle-all-nodes’
-
-The body can be accessed via ‘emacspeak-origami/body’.
 </pre>
       </div>
     </dd>
