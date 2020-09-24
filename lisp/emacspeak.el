@@ -418,7 +418,7 @@ See the online documentation \\[emacspeak-open-info] for individual
 commands and options for details."
   (dtk-initialize)
   (emacspeak-pronounce-load-dictionaries)
-  (ems--fastload "emacspeak-advice")
+  (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
