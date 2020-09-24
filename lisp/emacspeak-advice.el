@@ -2697,7 +2697,7 @@ Produce auditory icons if possible."
   (let* ((keys (where-is-internal cmd overriding-local-map nil nil ))
 	 (desc (mapconcat 'key-description keys ", ")))
     (concat
-     (format "%s is on " definition)
+     (format "%s is on " cmd)
      (ems-canonicalize-key-description desc))))
 
 (defadvice where-is (after emacspeak pre act comp)
