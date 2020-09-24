@@ -212,8 +212,8 @@
     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
     ("n" emacspeak-outline-speak-next-heading  "next heading")
     ("p" emacspeak-outline-speak-previous-heading "prev heading")
-    ("N" org-forward-heading-same-level "next heading at same level")
-    ("P" org-backward-heading-same-level "prev heading at same level")
+    ("f" org-forward-heading-same-level "next heading at same level")
+    ("b" org-backward-heading-same-level "prev heading at same level")
     ("u" outline-up-heading "up heading")
     ("g" org-goto "goto" :exit t)))
 
@@ -321,7 +321,6 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("q" nil "quit")))
 
 ;;}}}
-
 ;;{{{ Navigate:
 
 ;;; Inspired by  Hydra wiki:
@@ -419,7 +418,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 
 
 ;;}}}
-;;{{{ Muggle: Speak And Browse Math
+;;{{{  Speak And Browse Math
 
 (global-set-key
  (kbd "s-SPC")
@@ -518,8 +517,6 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ))
 
 ;;}}}
-
-
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
