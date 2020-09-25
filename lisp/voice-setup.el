@@ -493,26 +493,6 @@ command \\[customize-variable] on <personality>-settings. "
   (setq minor-mode-alist (cons '(voice-lock-mode " Voice") minor-mode-alist)))
 
 ;;}}}
-;;{{{ list-voices-display
-
-(defcustom voice-setup-sample-text
-  "Emacspeak --- The Complete Audio Desktop!"
-  "Sample text used  when displaying available voices."
-  :type 'string
-  :group 'voice-fonts)
-
-(defun voice-setup-list-voices (pattern)
-  "Show all defined voice-face mappings  in a help buffer.
-Sample text to use comes from variable
-  `voice-setup-sample-text'. "
-  (interactive (list (and current-prefix-arg
-                          (read-string "List faces matching regexp: "))))
-  (cl-declare (special voice-setup-sample-text))
-  (let ((list-faces-sample-text voice-setup-sample-text))
-    (list-faces-display pattern)
-    (message "Displayed voice-face mappings in other window.")))
-
-;;}}}
 ;;{{{ interactively silence personalities 
 
 (defvar voice-setup-buffer-face-voice-table (make-hash-table)
@@ -562,6 +542,26 @@ take effect."
               (string-match  "^acss-" (symbol-name  (symbol-value s))))
            (push s result))))
     result))
+
+;;}}}
+;;{{{ list-voices-display
+
+(defcustom voice-setup-sample-text
+  "Emacspeak --- The Complete Audio Desktop!"
+  "Sample text used  when displaying available voices."
+  :type 'string
+  :group 'voice-fonts)
+
+(defun voice-setup-list-voices (pattern)
+  "Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  `voice-setup-sample-text'. "
+  (interactive (list (and current-prefix-arg
+                          (read-string "List faces matching regexp: "))))
+  (cl-declare (special voice-setup-sample-text))
+  (let ((list-faces-sample-text voice-setup-sample-text))
+    (list-faces-display pattern)
+    (message "Displayed voice-face mappings in other window.")))
 
 ;;}}}
 ;;{{{ describe-voice at point:
