@@ -819,7 +819,19 @@ specified pronunciation dictionary key."
 ;;}}}
 
 ;;}}}
+;;{{{Text Mode Pronunciations:
 
+(emacspeak-pronounce-add-dictionary-entry
+      'text-mode
+      (concat " -" emacspeak-pronounce-number-pattern)
+      (cons
+       #'re-search-forward
+       #'(lambda (number)
+           (concat
+            " minus "
+            (substring number 1)))))
+
+;;}}}
 (provide 'emacspeak-pronounce)
 ;;{{{ emacs local variables
 
