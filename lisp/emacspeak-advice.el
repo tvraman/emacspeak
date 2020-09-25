@@ -2971,40 +2971,39 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ Asking Questions:
 
-(defadvice yes-or-no-p (before emacspeak pre act comp)
-  "Play auditory icon."
-  (emacspeak-auditory-icon 'ask-question))
-
-(defadvice yes-or-no-p (after emacspeak pre act comp)
+(defadvice yes-or-no-p (around emacspeak pre act comp)
   "Play auditory icon."
   (cond
-   (ad-return-value
-    (emacspeak-auditory-icon 'yes-answer))
-   (t (emacspeak-auditory-icon 'no-answer))))
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'ask-question)
+    ad-do-it
+    (emacspeak-auditory-icon (if ad-return-value 'yes-answer 'no-answer )))
+   (t ad-do-it))
+  ad-return-value)
 
-(defadvice ask-user-about-lock (before emacspeak pre act comp)
-  "Play auditory icon."
-  (emacspeak-auditory-icon 'ask-short-question))
 
-(defadvice ask-user-about-lock (after emacspeak pre act comp)
+
+(defadvice y-or-n-p (around emacspeak pre act comp)
   "Play auditory icon."
   (cond
-   (ad-return-value (emacspeak-auditory-icon 'y-answer))
-   (t (emacspeak-auditory-icon 'n-answer))))
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'ask-short-question)
+    ad-do-it
+    (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer )))
+   (t ad-do-it)))
+
+(defadvice ask-user-about-lock (around emacspeak pre act comp)
+  "Play auditory icon."
+  (cond
+   ((ems-interactive-p)
+    (emacspeak-auditory-icon 'ask-short-question)
+    ad-do-it
+    (emacspeak-auditory-icon (if ad-return-value 'y-answer 'n-answer )))
+   (t ad-do-it)))
 
 (defadvice ask-user-about-lock-help (after emacspeak pre act comp)
   "Play auditory icon."
   (emacspeak-auditory-icon 'help))
-
-(defadvice y-or-n-p (before emacspeak pre act comp)
-  "Play auditory icon."
-  (emacspeak-auditory-icon 'ask-short-question))
-
-(defadvice y-or-n-p (after emacspeak pre act comp)
-  "Play auditory icon."
-  (cond
-   (ad-return-value (emacspeak-auditory-icon 'y-answer))
-   (t (emacspeak-auditory-icon 'n-answer))))
 
 ;;}}}
 ;;{{{ Advice process-menu
