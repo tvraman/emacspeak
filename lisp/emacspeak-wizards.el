@@ -328,26 +328,6 @@ previous window configuration."
     (emacspeak-speak-line))))
 
 ;;}}}
-;;{{{ list-voices-display
-
-(defcustom voice-setup-sample-text
-  "Emacspeak --- The Complete Audio Desktop!"
-  "Sample text used  when displaying available voices."
-  :type 'string
-  :group 'voice-fonts)
-
-(defun voice-setup-list-voices (pattern)
-  "Show all defined voice-face mappings  in a help buffer.
-Sample text to use comes from variable
-  `voice-setup-sample-text'. "
-  (interactive (list (and current-prefix-arg
-                          (read-string "List faces matching regexp: "))))
-  (cl-declare (special voice-setup-sample-text))
-  (let ((list-faces-sample-text voice-setup-sample-text))
-    (list-faces-display pattern)
-    (message "Displayed voice-face mappings in other window.")))
-
-;;}}}
 ;;{{{ Network interface utils:
 
 (defun ems-get-active-network-interfaces ()
@@ -2006,6 +1986,7 @@ Interactive  arguments specify filename pattern and search pattern."
 
 ;;}}}
 ;;{{{ voice sample
+
 ;;;###autoload
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
@@ -2070,6 +2051,24 @@ for the current voice family."
        (insert "\n")))
     (funcall-interactively #'switch-to-buffer buffer)
     (goto-char (point-min))))
+
+;;}}}
+;;{{{ list-voices-display
+
+(defvar ems--wizards-sampler-text
+  "Emacspeak --- The Complete Audio Desktop!"
+  "Sample text used  when displaying available voices.")
+
+(defun emacspeak-wizards-list-voices (pattern)
+  "Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  `ems--wizards-sampler-text "
+  (interactive (list (and current-prefix-arg
+                          (read-string "List faces matching regexp: "))))
+  (cl-declare (special ems--wizards-sampler-text))
+  (let ((list-faces-sample-text ems--wizards-sampler-text))
+    (list-faces-display pattern)
+    (message "Displayed voice-face mappings in other window.")))
 
 ;;}}}
 ;;{{{ tramp wizard
