@@ -3331,53 +3331,6 @@ configure which media players get silenced or paused/resumed."
   (call-interactively emacspeak-search))
 
 ;;}}}
-;;{{{ Network interface utils:
-
-(defun ems-get-active-network-interfaces ()
-  "Return  names of active network interfaces."
-  (when (fboundp 'network-interface-list)
-     (seq-uniq (mapcar #'car (network-interface-list)))))
-
-(defvar emacspeak-speak-network-interfaces-list
-  (ems-get-active-network-interfaces)
-  "Used when prompting for an interface to query.")
-
-(defun ems-get-ip-address (dev)
-  "get the IP-address for device DEV "
-  (setq dev
-        (or dev
-            (completing-read
-             "Device: "
-             (ems-get-active-network-interfaces) nil t)))
-  (format-network-address
-   (car (network-interface-info dev))
-   'omit-port))
-
-;;}}}
-;;{{{ Show active network interfaces
-
-
-(defun emacspeak-speak-hostname ()
-  "Speak host name."
-  (interactive)
-  (message (system-name)))
-
-
-(defun emacspeak-speak-show-active-network-interfaces (&optional address)
-  "Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking."
-  (interactive "P")
-  (kill-new
-   (message
-    (if address
-        (ems-get-ip-address nil)
-      (mapconcat #'identity 
-                 (ems-get-active-network-interfaces)
-                 " ")))))
-
-;;}}}
 ;;{{{ Smart date prompers:
 
 (defun emacspeak-speak-collect-date (prompt time-format-string)
@@ -3419,6 +3372,7 @@ This function is sensitive to calendar mode when prompting."
   "Return today as yyyy-mm-dd"
   (emacspeak-speak-collect-date "Date:"
                                 "%Y-%m-%d"))
+
 ;;}}}
 ;;{{{ Navigating completions:
 
@@ -3517,19 +3471,6 @@ Arranges for `VAR' to be restored when `file' is loaded."
         (pp (symbol-value var) (current-buffer))
         (insert (format ") ;;; set %s\n\n" var))
         (save-buffer)))))
-
-;;}}}
-;;{{{Text Mode Pronunciations:
-
-(emacspeak-pronounce-add-dictionary-entry
-      'text-mode
-      (concat " -" emacspeak-pronounce-number-pattern)
-      (cons
-       #'re-search-forward
-       #'(lambda (number)
-           (concat
-            " minus "
-            (substring number 1)))))
 
 ;;}}}
 (provide 'emacspeak-speak)

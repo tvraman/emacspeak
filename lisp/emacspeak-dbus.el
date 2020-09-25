@@ -119,6 +119,7 @@ Initialize screen-saver buffer  if needed, and switch to  it."
 
 ;;}}}
 ;;{{{ NM Handlers
+(declare-function ems-get-active-network-interfaces "emacspeak-wizards" nil)
 
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection.

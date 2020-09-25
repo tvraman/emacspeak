@@ -328,6 +328,53 @@ previous window configuration."
     (emacspeak-speak-line))))
 
 ;;}}}
+;;{{{ Network interface utils:
+
+(defun ems-get-active-network-interfaces ()
+  "Return  names of active network interfaces."
+  (when (fboundp 'network-interface-list)
+     (seq-uniq (mapcar #'car (network-interface-list)))))
+
+(defvar emacspeak-speak-network-interfaces-list
+  (ems-get-active-network-interfaces)
+  "Used when prompting for an interface to query.")
+
+(defun ems-get-ip-address (dev)
+  "get the IP-address for device DEV "
+  (setq dev
+        (or dev
+            (completing-read
+             "Device: "
+             (ems-get-active-network-interfaces) nil t)))
+  (format-network-address
+   (car (network-interface-info dev))
+   'omit-port))
+
+;;}}}
+;;{{{ Show active network interfaces
+
+
+(defun emacspeak-speak-hostname ()
+  "Speak host name."
+  (interactive)
+  (message (system-name)))
+
+
+(defun emacspeak-speak-show-active-network-interfaces (&optional address)
+  "Shows all active network interfaces in the echo area.
+With interactive prefix argument ADDRESS it prompts for a
+specific interface and shows its address. The address is
+also copied to the kill ring for convenient yanking."
+  (interactive "P")
+  (kill-new
+   (message
+    (if address
+        (ems-get-ip-address nil)
+      (mapconcat #'identity 
+                 (ems-get-active-network-interfaces)
+                 " ")))))
+
+;;}}}
 ;;{{{ Elisp Utils:
 
 ;;;###autoload
