@@ -765,6 +765,7 @@ the sense of the filter. "
 
 ;;}}}
 ;;{{{  Speak units of text
+
 (declare-function emacspeak-handle-action-at-point "emacspeak-wizards" (&optional pos))
 
 (defun emacspeak-speak-region (start end)
@@ -787,15 +788,11 @@ Argument START  and END specify region to speak."
 (defvar emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "Regular expression to match horizontal rules in ascii text.")
 
-(put 'emacspeak-horizontal-rule 'variable-interactive
-     "sEnterregular expression to match horizontal rule: ")
-
 (defvar emacspeak-decoration-rule
   "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
   "Regular expressions to match lines that are purely decorative ascii.")
 
-(put 'emacspeak-decoration-rule 'variable-interactive
-     "sEnterregular expression to match lines that are decorative ASCII: ")
+
 
 (defvar emacspeak-unspeakable-rule
   "^[^0-9a-zA-Z]+$"
@@ -804,9 +801,6 @@ This is a regular expression that matches lines containing only
 non-alphanumeric characters.  emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some.")
-
-(put 'emacspeak-unspeakable-rule 'variable-interactive
-     "sEnterregular expression to match unspeakable lines: ")
 
 (defcustom emacspeak-speak-maximum-line-length 512
   "Threshold for determining `long' lines.
@@ -1002,12 +996,11 @@ Cues the start of a physical line with auditory icon `left'."
               (buffer-substring start end)))
       (dtk-speak line))))
 
-(defvar emacspeak-speak-last-spoken-word-position nil
+(defvar-local emacspeak-speak-last-spoken-word-position nil
   "Records position of the last word that was spoken.
 Local to each buffer.  Used to decide if we should spell the word
 rather than speak it.")
 
-(make-variable-buffer-local 'emacspeak-speak-last-spoken-word-position)
 (defun emacspeak-speak-spell-word (word)
   "Spell WORD."
   (cl-declare (special voice-animate))
@@ -1027,7 +1020,7 @@ rather than speak it.")
                            char-string)))
     (dtk-speak result)))
 
-;;;###autoload
+
 (defun emacspeak-speak-spell-current-word ()
   "Spell word at  point."
   (interactive)
@@ -1453,6 +1446,7 @@ Negative prefix arg speaks from start of buffer to point."
 
 ;;}}}
 ;;{{{ mail check
+
 (defcustom emacspeak-mail-spool-file
   (expand-file-name
    (user-login-name)
