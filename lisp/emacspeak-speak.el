@@ -765,6 +765,7 @@ the sense of the filter. "
 
 ;;}}}
 ;;{{{  Speak units of text
+(declare-function emacspeak-handle-action-at-point "emacspeak-wizards" (&optional pos))
 
 (defun emacspeak-speak-region (start end)
   "Speak region.
@@ -782,12 +783,6 @@ Argument START  and END specify region to speak."
     (emacspeak-handle-action-at-point)
     (dtk-stop)
     (dtk-speak (buffer-substring start end))))
-
-(defun emacspeak-speak-string (string personality)
-  "Apply personality to string and speak it."
-  (put-text-property 0 (length string)
-                     'personality personality string)
-  (dtk-speak string))
 
 (defvar emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "Regular expression to match horizontal rules in ascii text.")

@@ -2324,7 +2324,7 @@ Produce an auditory icon if possible."
 (defadvice isearch-delete-char (after emacspeak pre act comp)
   "Speak the search hit.
 Produce auditory icons if possible."
-  (emacspeak-speak-string isearch-string voice-bolden)
+  (dtk-speak (propertize isearch-string 'personality  voice-bolden))
   (when (sit-for 0.5)
     (emacspeak-auditory-icon 'search-hit)
     (ems-set-personality-temporarily
@@ -2342,7 +2342,7 @@ Produce auditory icons if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-speak-string isearch-string voice-bolden)
+       (dtk-speak (propertize  isearch-string voice-bolden))
        (emacspeak-auditory-icon 'yank-object)))))
 (cl-loop
  for f in
