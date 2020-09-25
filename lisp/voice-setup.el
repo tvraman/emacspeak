@@ -2,6 +2,7 @@
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock mode for Emacspeak
 ;;{{{  LCD Archive entry:
+
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;;; A speech interface to Emacs |
@@ -262,7 +263,7 @@ VOICE-NAME are  changed."
 ;;; note that for now we dont use  gain settings
 
 (defmacro defvoice (personality settings doc)
-  "Define voice using CSS setting.  Setting is a list of the form
+  "Define voice using ACSS setting.  Setting is a list of the form
 (list paul 5 5 5 5 'all) which defines a standard male voice
 that speaks `all' punctuations.  Once
 defined, the newly declared personality can be customized by calling
