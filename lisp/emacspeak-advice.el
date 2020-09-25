@@ -3078,7 +3078,6 @@ Produce auditory icons if possible."
 
 
 ;;}}}
-
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
