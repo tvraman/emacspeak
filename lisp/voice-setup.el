@@ -91,9 +91,6 @@
 (eval-when-compile (require 'easy-mmode))
 (require 'custom)
 (require 'acss-structure)
-(require 'outloud-voices)
-(require 'mac-voices)
-(require 'espeak-voices)
 (require 'dectalk-voices)
 (require 'emacspeak-sounds)
 
