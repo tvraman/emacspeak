@@ -96,13 +96,6 @@
       (insert (format "%s\n" m)))))
 
 ;;}}}
-;;{{{ Helper: voicify string
-(defsubst ems-voiceify-string (string personality)
-  "Apply personality PERSONALITY to STRING."
-  (put-text-property 0 (length string)
-                     'personality personality string))
-
-;;}}}
 ;;{{{Read JSON file:
 
 (defsubst ems--json-read-file (filename)
