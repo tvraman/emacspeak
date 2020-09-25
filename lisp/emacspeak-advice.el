@@ -70,11 +70,6 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
 ;;}}}
-;;{{{ Forward Declarations:
-
-(defvar emacspeak-prefix)
-
-;;}}}
 ;;{{{ Silence advice chatter:
 
 (defadvice ad--cl--defalias-fset (around emacspeak pre act comp)
