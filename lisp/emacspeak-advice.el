@@ -70,13 +70,6 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
 ;;}}}
-;;{{{ Advice ding
-
-(defadvice ding (before emacspeak pre act comp)
-  "Produce auditory icon."
-  (emacspeak-auditory-icon 'warn-user))
-
-;;}}}
 ;;{{{  Replace: define personalities
 
 (defcustom emacspeak-replace-personality
