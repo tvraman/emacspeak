@@ -266,6 +266,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-mode-line)))))
+
 (cl-loop
  for f in
  '(beginning-of-buffer end-of-buffer)
@@ -357,6 +358,7 @@ When on a close delimiter, speaking matching open delimiter after a small delay.
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'scroll)
        (emacspeak-speak-page)))))
+
 (cl-loop
  for f in
  '(scroll-up scroll-down
