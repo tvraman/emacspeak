@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -73,6 +74,21 @@
 (require 'cus-edit)
 (require 'org)
 (require 'solar)
+
+;;}}}
+;;{{{Read JSON file:
+
+(defsubst ems--json-read-file (filename)
+  "Use native json implementation if available to read json file."
+  (cond
+   ((fboundp 'json-parse-buffer)
+    (with-current-buffer (find-file-noselect filename)
+      (goto-char (point-min))
+      (prog1
+          (json-parse-buffer :object-type 'alist)
+        (kill-buffer ))))
+   (t (json-read-file filename))))
+
 ;;}}}
 ;;{{{ custom
 
