@@ -104,6 +104,27 @@ Also turn on hydra-is-helpful if it was turned off."
   (message (eval (symbol-value (intern (format "%s/hint" name))))))
 
 ;;}}}
+;;{{{lv-message:
+
+(defvar ems--lv-cache nil
+  "Emacspeak's private cache of the last lv message.")
+
+(voice-setup-set-voice-for-face 'lv-separator  'inaudible)
+
+(defadvice lv-message (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cl-declare (special ems--lv-cache))
+  (emacspeak-auditory-icon 'help)
+  (with-current-buffer (window-buffer (lv-window))
+    (setq ems--lv-cache (buffer-substring (point-min) (point-max)))
+    (emacspeak-speak-buffer)))
+
+(defadvice lv-delete-window (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (dtk-stop)
+  (emacspeak-auditory-icon 'delete-object))
+
+;;}}}
 (provide 'emacspeak-hydra)
 ;;{{{ end of file
 
