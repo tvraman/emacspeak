@@ -96,20 +96,6 @@
       (insert (format "%s\n" m)))))
 
 ;;}}}
-;;{{{Read JSON file:
-
-(defsubst ems--json-read-file (filename)
-  "Use native json implementation if available to read json file."
-  (cond
-   ((fboundp 'json-parse-buffer)
-    (with-current-buffer (find-file-noselect filename)
-      (goto-char (point-min))
-      (prog1
-          (json-parse-buffer :object-type 'alist)
-        (kill-buffer ))))
-   (t (json-read-file filename))))
-
-;;}}}
 ;;{{{ Per-Mode Punctuations:
 
 (defvar emacspeak-speak-mode-punctuation-table
