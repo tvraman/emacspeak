@@ -606,7 +606,9 @@ origin/destination may be returned as a lat,long string."
 
 (defun gmaps-set-current-location (address)
   " Set current location."
-  (interactive  "sAddress: ")
+  (interactive
+   (list
+    (completing-read "Location: " gmaps-location-table)))
   (cl-declare (special gmaps-current-location))
   (setq gmaps-current-location (gmaps-address-location address))
   (message "Moved to %s" address))
