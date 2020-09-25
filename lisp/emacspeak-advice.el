@@ -103,8 +103,7 @@ that is being replaced."
 
 (defadvice perform-replace (around emacspeak pre act comp)
   "Silence help message."
-  (ems-with-messages-silenced
-   ad-do-it))
+  (ems-with-messages-silenced ad-do-it))
 
 (defadvice replace-highlight (before emacspeak pre act)
   "Voicify and speak the line containing the replacement. "
@@ -112,13 +111,11 @@ that is being replaced."
     (let ((from (ad-get-arg 0))
           (to (ad-get-arg 1)))
       (condition-case nil
-          (progn
+          (let ((inhibit-read-only t))
             (and emacspeak-replace-highlight-on
-                 emacspeak-replace-start
-                 emacspeak-replace-end
                  (put-text-property
-                  (max emacspeak-replace-start (point-min))
-                  (min emacspeak-replace-end (point-max))
+                  (max from (point-min))
+                  (min to (point-max))
                   'personality emacspeak-replace-saved-personality))
             (setq emacspeak-replace-highlight-on t
                   emacspeak-replace-start from
@@ -134,12 +131,10 @@ that is being replaced."
 
 (defadvice replace-dehighlight (after emacspeak pre act)
   "Turn off the replacement highlight. "
-  (cl-declare (special emacspeak-replace-highlight-on
-                       emacspeak-replace-saved-personality
-                       emacspeak-replace-start emacspeak-replace-end))
+  
   (save-match-data
     (condition-case nil
-        (progn
+        (let ((inhibit-read-only t))
           (and emacspeak-replace-highlight-on
                emacspeak-replace-start
                emacspeak-replace-end
