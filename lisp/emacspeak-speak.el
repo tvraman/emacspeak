@@ -87,6 +87,11 @@
   (buffer-substring (line-beginning-position) (line-end-position)))
 
 ;;}}}
+;;{{{  sync emacspeak and TTS:
+
+(cl--defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
+
+;;}}}
 ;;{{{Helper: Log Message Quietly
 (defun ems--log-message (m)
   "Log a message without echoing it."
@@ -94,23 +99,6 @@
     (with-current-buffer (messages-buffer)
       (goto-char (point-max))
       (insert (format "%s\n" m)))))
-
-;;}}}
-;;{{{ Per-Mode Punctuations:
-
-(defvar emacspeak-speak-mode-punctuation-table
-  (make-hash-table :test #'eq)
-  "Store mode-specific punctuation mode setting.")
-
-(defun ems-get-mode-punctuation-setting (mode)
-  "Return punctuation setting for specified mode MODE."
-  (cl-declare (special emacspeak-speak-mode-punctuation-table))
-  (gethash mode emacspeak-speak-mode-punctuation-table))
-
-(defun ems-set-mode-punctuation-setting (mode value)
-  "Set punctuation setting for specified mode MODE to value VALUE."
-  (cl-declare (special emacspeak-speak-mode-punctuation-table))
-  (puthash mode value emacspeak-speak-mode-punctuation-table))
 
 ;;}}}
 ;;{{{  line, Word and Character echo
@@ -450,30 +438,6 @@ Useful to do this before you listen to an entire buffer."
                    'personality emacspeak-speak-paragraph-personality)))))
         (error nil))
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
-
-;;}}}
-;;{{{  sync emacspeak and TTS:
-
-(defun ems-sync-mode-punctuation-setting (mode)
-  "Update per-mode punctuation setting if needed."
-  (cl-declare (special dtk-punctuation-mode))
-  (let ((p (ems-get-mode-punctuation-setting mode)))
-    (when (and p (not (eq p dtk-punctuation-mode)))
-      (dtk-set-punctuations p))))
-
-(cl--defalias 'emacspeak-dtk-sync 'dtk-interp-sync)
-;;;###autoload
-(defun emacspeak-speak-set-mode-punctuations (setting)
-  "Set punctuation mode for all buffers in current mode."
-  (interactive
-   (list
-    (intern (completing-read "Punctuation Mode: " '(all none some)))))
-  (cl-declare (special major-mode))
-  (ems-set-mode-punctuation-setting major-mode setting)
-  (ems-sync-mode-punctuation-setting major-mode)
-  (when (called-interactively-p 'interactive)
-    (message "Set punctuations to %s in %s" setting mode-name)
-    (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
