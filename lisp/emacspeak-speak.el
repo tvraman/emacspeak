@@ -3420,7 +3420,6 @@ This function is sensitive to calendar mode when prompting."
   (emacspeak-speak-collect-date "Date:"
                                 "%Y-%m-%d"))
 ;;}}}
-;;{{{ AppLauncher for use in X:
 ;;{{{ Navigating completions:
 
 (defun emacspeak-minibuffer-next-completion ()
