@@ -2728,15 +2728,6 @@ Produce auditory icons if possible."
     (emacspeak-speak-help)))
 
 ;;}}}
-;;{{{ speak context after done garbage collecting
-
-(defadvice garbage-collect (after emacspeak pre act comp)
-  "Speak modeline when done."
-  (when (ems-interactive-p)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'task-done)))
-
-;;}}}
 ;;{{{ toggling debug state
 
 (defadvice toggle-debug-on-error (after emacspeak pre act comp)
@@ -2837,7 +2828,7 @@ Produce auditory icons if possible."
            (end (ad-get-arg 1)))
        (with-silent-modifications
          (condition-case nil
-             (progn
+             (let ((inhibit-read-only t))
                (put-text-property start end 'auditory-icon 'button))
            (error nil)))))))
 
@@ -2953,15 +2944,16 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ copyright commands:
 
-(cl-loop for f in
-         '(copyright copyright-update)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'task-done)
-               (emacspeak-speak-line)))))
+(cl-loop
+ for f in
+ '(copyright copyright-update)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-line)))))
 
 (defadvice copyright-update-directory (after emacspeak pre act comp)
   "Provide auditory feedback."
