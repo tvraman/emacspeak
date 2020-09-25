@@ -517,6 +517,10 @@ Leave point at front of decoded attachment."
  do
  (add-hook hook 'emacspeak-pronounce-refresh-pronunciations 'append))
 
+(defvar emacspeak-speak-embedded-url-pattern
+  "<https?:[^ \t]*>"
+  "Pattern to recognize embedded URLs.")
+
 (cl-loop
  for mode in
  '(vm-presentation-mode mail-mode)

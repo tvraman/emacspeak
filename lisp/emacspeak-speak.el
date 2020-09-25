@@ -517,15 +517,6 @@ Value returned is compatible with `encode-time'."
       (error rfc-3339))))
 
 ;;}}}
-;;{{{  url link pattern:
-
-(defcustom emacspeak-speak-embedded-url-pattern
-  "<https?:[^ \t]*>"
-  "Pattern to recognize embedded URLs."
-  :type 'string
-  :group 'emacspeak-speak)
-
-;;}}}
 ;;{{{  Actions
 
 ;;; Setting value of property 'emacspeak-action to a list
