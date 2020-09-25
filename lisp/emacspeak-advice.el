@@ -3073,8 +3073,7 @@ Produce auditory icons if possible."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'close-object)
-    ))
+    (emacspeak-auditory-icon 'close-object)))
 
 
 ;;}}}
