@@ -534,7 +534,7 @@ current local  value to the result.")
 ;;}}}
 ;;{{{ compute percentage into the buffer:
 
-(defun emacspeak-get-current-percentage-into-buffer ()
+(defsubst emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
   (let* ((pos (point))
          (total (buffer-size))
