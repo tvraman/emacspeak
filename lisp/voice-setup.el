@@ -130,13 +130,13 @@
 (defvar voice-setup-face-voice-table (make-hash-table)
   "Hash table holding face to voice mapping.")
 
-(defun voice-setup-set-voice-for-face (face voice)
+(defsubst voice-setup-set-voice-for-face (face voice)
   "Map face --a symbol-- to relevant voice."
   (cl-declare (special  voice-setup-face-voice-table))
   (setf (gethash face voice-setup-face-voice-table) voice))
 
-(defun voice-setup-get-voice-for-face (face)
-  "Map face --a symbol-- to relevant voice."
+(defsubst voice-setup-get-voice-for-face (face)
+  "Retrieve face --a symbol-- to relevant voice."
   (cl-declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
 
