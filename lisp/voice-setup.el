@@ -95,6 +95,7 @@
 (require 'espeak-voices)
 (require 'dectalk-voices)
 (require 'emacspeak-sounds)
+
 ;;}}}
 ;;{{{ customization group
 
@@ -106,6 +107,7 @@
 
 ;;}}}
 ;;{{{  helper for voice custom items:
+
 (unless (fboundp 'tts-list-voices)
   (fset 'tts-list-voices #'dectalk-list-voices))
 
@@ -117,7 +119,7 @@
        #'(lambda (voice)(list 'const voice))
        (tts-list-voices))))
 
-(defun voice-setup-read-personality (&optional prompt)
+(defsubst voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
   (read (completing-read (or prompt "Personality: ")
                          (tts-list-voices))))
