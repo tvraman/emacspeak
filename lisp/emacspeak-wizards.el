@@ -4103,22 +4103,6 @@ weather for `gweb-my-address'.  "
     (emacspeak-speak-buffer)))
 
 ;;}}}
-;;{{{ Cleanup Hanging Web connections:
-
-(defun emacspeak-wizards-web-clean-up-processes ()
-  "Delete stale Web connections."
-  (interactive)
-  (cl-declare (special url-http-open-connections))
-  (let ((count 0))
-    (cl-loop
-     for p being the hash-values of url-http-open-connections
-     when p do
-     (cl-incf count)
-     (delete-process (car p)))
-    (when (called-interactively-p 'interactive)
-      (message "Deleted %d web  connections" count))))
-
-;;}}}
 ;;{{{ generate declare-function statements:
 (defun emacspeak-wizards-gen-fn-decl (f &optional ext)
   "Generate declare-function call for function `f'.
