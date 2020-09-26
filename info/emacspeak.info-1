@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1203 commands and 906 options.
+   This chapter documents a total of 1207 commands and 906 options.
 
 * Menu:
 
@@ -4879,7 +4879,42 @@ File: emacspeak.info,  Node: emacspeak-auctex,  Next: emacspeak-bbc,  Prev: emac
 Speech-enables the AucTeX package.  AucTeX, now available from ELPA, has
 been my authoring environment of choice for writing LaTeX since 1991.
 
-12.20.1 emacspeak-auctex Options
+12.20.1 Emacspeak-Auctex Commands
+---------------------------------
+
+12.20.1.1 emacspeak-auctex-comma-at-end-of-word
+...............................................
+
+ -- Command: emacspeak-auctex-comma-at-end-of-word
+
+     Move to the end of current word and add a comma.
+
+12.20.1.2 emacspeak-auctex-end-of-word
+......................................
+
+ -- Command: emacspeak-auctex-end-of-word (arg)
+
+     move to end of word
+
+     (fn ARG)
+
+12.20.1.3 emacspeak-auctex-lacheck-buffer-file
+..............................................
+
+ -- Command: emacspeak-auctex-lacheck-buffer-file
+
+     Run Lacheck on current buffer.
+
+12.20.1.4 emacspeak-auctex-tex-tie-current-word
+...............................................
+
+ -- Command: emacspeak-auctex-tex-tie-current-word (n)
+
+     Tie the next n  words.
+
+     (fn N)
+
+12.20.2 emacspeak-auctex Options
 --------------------------------
 
  -- Variable: User Option voice-latex-bold-personality

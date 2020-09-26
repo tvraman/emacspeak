@@ -495,6 +495,14 @@ To leave, press \\[keyboard-quit]."
         (setq continue nil)))
     (message "Leaving learn mode ")))
 
+(defun emacspeak-describe-emacspeak ()
+  "Give a brief overview of emacspeak."
+  (interactive)
+  (describe-function 'emacspeak)
+  (switch-to-buffer "*Help*")
+  (dtk-set-punctuations 'all)
+  (emacspeak-speak-buffer))
+
 ;;}}}
 ;;{{{ labelled frames
 

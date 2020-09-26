@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1203 commands and 906 options.
+This chapter documents a total of 1207 commands and 906 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -2420,6 +2420,48 @@ Speak the size of the file on current line
 
 Speech-enables the AucTeX package.
 AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
+
+@subsection Emacspeak-Auctex Commands
+
+@subsubsection emacspeak-auctex-comma-at-end-of-word
+@deffn {Command} emacspeak-auctex-comma-at-end-of-word   
+@findex emacspeak-auctex-comma-at-end-of-word
+
+@format
+Move to the end of current word and add a comma.
+@end format
+@end deffn
+
+@subsubsection emacspeak-auctex-end-of-word
+@deffn {Command} emacspeak-auctex-end-of-word  (arg)
+@findex emacspeak-auctex-end-of-word
+
+@format
+move to end of word
+
+(fn ARG)
+@end format
+@end deffn
+
+@subsubsection emacspeak-auctex-lacheck-buffer-file
+@deffn {Command} emacspeak-auctex-lacheck-buffer-file   
+@findex emacspeak-auctex-lacheck-buffer-file
+
+@format
+Run Lacheck on current buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-auctex-tex-tie-current-word
+@deffn {Command} emacspeak-auctex-tex-tie-current-word  (n)
+@findex emacspeak-auctex-tex-tie-current-word
+
+@format
+Tie the next n  words.
+
+(fn N)
+@end format
+@end deffn
 
 @subsection emacspeak-auctex Options
 
@@ -21462,7 +21504,7 @@ under point as either the foreground or background color.
 @end deffn
 
 @subsubsection emacspeak-wizards-comma-at-end-of-word
-@deffn {Command} emacspeak-wizards-comma-at-end-of-word   
+@deffn {Command} emacspeak-wizards-comma-at-end-of-word  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-comma-at-end-of-word
 
 @format
@@ -21550,7 +21592,7 @@ Create a virtual manpage in Emacs from the Perl Online Documentation.
 @end deffn
 
 @subsubsection emacspeak-wizards-end-of-word
-@deffn {Command} emacspeak-wizards-end-of-word  (arg)
+@deffn {Command} emacspeak-wizards-end-of-word  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-end-of-word
 
 @format
@@ -22067,7 +22109,7 @@ Show price for symbol in current row
 @end deffn
 
 @subsubsection emacspeak-wizards-lacheck-buffer-file
-@deffn {Command} emacspeak-wizards-lacheck-buffer-file   
+@deffn {Command} emacspeak-wizards-lacheck-buffer-file  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-lacheck-buffer-file
 
 @format
@@ -22655,7 +22697,7 @@ Launch terminal and rename buffer appropriately.
 @end deffn
 
 @subsubsection emacspeak-wizards-tex-tie-current-word
-@deffn {Command} emacspeak-wizards-tex-tie-current-word  (n)
+@deffn {Command} emacspeak-wizards-tex-tie-current-word  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-tex-tie-current-word
 
 @format

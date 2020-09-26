@@ -423,13 +423,7 @@ commands and options for details."
   (emacspeak-play-startup-icon)
   (run-hooks 'emacspeak-startup-hook))
 
-(defun emacspeak-describe-emacspeak ()
-  "Give a brief overview of emacspeak."
-  (interactive)
-  (describe-function 'emacspeak)
-  (switch-to-buffer "*Help*")
-  (dtk-set-punctuations 'all)
-  (emacspeak-speak-buffer))
+
 
 ;;}}}
 (provide 'emacspeak)
