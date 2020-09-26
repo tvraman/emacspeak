@@ -4038,7 +4038,7 @@ external package."
            emacspeak-wizards-media-pipe midi-file)))
 
 ;;}}}
-;;{{{FreeGeoIP:
+;;{{{Free GeoIP:
 
 (defun emacspeak-wizards-free-geo-ip (&optional reverse-geocode)
   "Return list consisting of city and region_name.
