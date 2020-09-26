@@ -58,6 +58,7 @@
 
 ;;}}}
 ;;{{{ Forward Declarations:
+
 (declare-function voice-setup-get-voice-for-face "voice-setup" (face))
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
@@ -94,10 +95,9 @@ mac for MAC TTS (default on Mac)")
   :group 'emacspeak
   :prefix "dtk-")
 
-(defvar tts-strip-octals nil
+(defvar-local tts-strip-octals nil
   "Set to T to strip all octal chars before speaking.
 Particularly useful for web browsing.")
-(make-variable-buffer-local 'tts-strip-octals)
 
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
@@ -114,17 +114,14 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level."
   :type 'integer
   :group 'tts)
 (defvar dtk-startup-hook)
-(defvar dtk-quiet nil
+(defvar-local dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
-Do not set this variable by hand.
 See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
-(make-variable-buffer-local 'dtk-quiet)
 
-(defvar dtk-split-caps t
+(defvar-local  dtk-split-caps t
   "Flag indicating whether to use split caps when speaking.
-Do not set this variable by hand, use command  `dtk-toggle-split-caps'
+ Use command  `dtk-toggle-split-caps'
  bound to \\[dtk-toggle-split-caps].")
-(make-variable-buffer-local 'dtk-split-caps)
 
 (defcustom dtk-cleanup-repeats
   (list
