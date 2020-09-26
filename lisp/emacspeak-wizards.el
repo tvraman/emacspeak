@@ -2553,7 +2553,7 @@ mapped to voices."
         (tabulated-list-print))
       buffer)))
 
-;;;###autoload
+
 (defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
   "Display list of buffers filtered by specified mode."
   (switch-to-buffer
@@ -2562,8 +2562,7 @@ mapped to voices."
         (with-current-buffer buffer
           (eq major-mode mode)))))
   (rename-buffer (format "Buffers Filtered By Major Mode %s" mode) 'unique)
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-line))
+  (emacspeak-auditory-icon 'open-object))
 
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
