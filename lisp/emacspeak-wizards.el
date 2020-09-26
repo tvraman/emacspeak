@@ -3811,7 +3811,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 ;;}}}
 ;;{{{ Smart Scratch:
 
-;;;###autoload
+
 (defun emacspeak-wizards-scratch ()
   "Switch to *scratch* buffer, creating it if necessary."
   (interactive)
