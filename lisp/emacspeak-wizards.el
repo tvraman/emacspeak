@@ -2699,6 +2699,7 @@ mapped to voices."
           when (funcall predicate b) collect b))
         (old-buffer (current-buffer))
         (buffer (get-buffer-create (format "*: Filtered Buffer Menu"))))
+    (cl-assert buffer-list t "No buffers in this mode.")
     (with-current-buffer buffer
       (Buffer-menu-mode)
       (list-buffers--refresh buffer-list old-buffer)
