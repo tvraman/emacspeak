@@ -1200,64 +1200,11 @@ annotation is inserted into the working buffer when complete."
   (emacspeak-speak-line))
 
 ;;}}}
-;;{{{ xl wizard
-
-;;;
-
-(define-derived-mode emacspeak-wizards-xl-mode text-mode
-  "Browsing XL Files."
-  "Major mode for browsing XL spreadsheets.\n\n
-XL Sheets are converted to HTML and previewed using a browser."
-  (emacspeak-wizards-xl-display))
-
-(defcustom emacspeak-wizards-xlhtml-program "xlhtml"
-  "Program for converting XL to HTML.
-Set this to nil if you do not want to use the XLHTML wizard."
-  :type 'string
-  :group 'emacspeak-wizards)
-
-(defvar emacspeak-wizards-xl-preview-buffer nil
-  "Records buffer displaying XL preview.")
-;;;###autoload
-(defun emacspeak-wizards-xl-display ()
-  "Called to set up preview of an XL file.
-Assumes we are in a buffer visiting a .xls file.
-Previews those contents as HTML and nukes the buffer
-visiting the xls file."
-  (interactive)
-  (cl-declare (special emacspeak-wizards-xlhtml-program
-                       emacspeak-wizards-xl-preview-buffer))
-  (cond
-   ((null emacspeak-wizards-xlhtml-program)
-    (message "Not using Emacspeak XLHTML wizard."))
-   (t
-    (let ((filename (buffer-file-name))
-          (xl-buffer (current-buffer))
-          (buffer (get-buffer-create " *xl scratch*")))
-      (save-current-buffer
-        (set-buffer buffer)
-        (setq buffer-undo-list t)
-        (erase-buffer)
-        (kill-all-local-variables)
-        (shell-command
-         (format "%s -a -te %s"
-                 emacspeak-wizards-xlhtml-program filename)
-         'replace
-         (current-buffer))
-        (call-interactively #'browse-url-of-buffer))
-      (kill-buffer buffer)
-      (kill-buffer xl-buffer)))))
-
-
-
-;;}}}
 ;;{{{ pdf wizard
 
-(defcustom emacspeak-wizards-pdf-to-text-program
+(defvar emacspeak-wizards-pdf-to-text-program
   "pdftotext"
-  "Command for running pdftotext."
-  :type 'string
-  :group 'emacspeak-wizards)
+  "Command for running pdftotext.")
 
 (defcustom emacspeak-wizards-pdf-to-text-options
   "-layout"
@@ -1266,7 +1213,8 @@ visiting the xls file."
           (const :tag "None" nil)
           (string :tag "Options" "-layout"))
   :group 'emacspeak-wizards)
-;;;###autoload
+
+
 (defun emacspeak-wizards-pdf-open (filename &optional ask-pwd)
   "Open pdf file as text.
 Optional interactive prefix arg ask-pwd prompts for password."
@@ -1301,118 +1249,6 @@ Optional interactive prefix arg ask-pwd prompts for password."
     (set-buffer-modified-p nil)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
-
-;;}}}
-;;{{{ ppt wizard
-
-;;;
-
-(require 'derived)
-(define-derived-mode emacspeak-wizards-ppt-mode text-mode
-  "Browsing PPT Files."
-  "Major mode for browsing PPT slides.\n\n
-PPT files  are converted to HTML and previewed using a browser."
-  (emacspeak-wizards-ppt-display))
-
-(defcustom emacspeak-wizards-ppthtml-program "ppthtml"
-  "Program for converting PPT  to HTML.
-Set this to nil if you do not want to use the PPTHTML wizard."
-  :type 'string
-  :group 'emacspeak-wizards)
-
-(defvar emacspeak-wizards-ppt-preview-buffer nil
-  "Records buffer displaying PPT preview.")
-;;;###autoload
-(defun emacspeak-wizards-ppt-display ()
-  "Called to set up preview of an PPT file.
-Assumes we are in a buffer visiting a .ppt file.
-Previews those contents as HTML and nukes the buffer
-visiting the ppt file."
-  (interactive)
-  (cl-declare (special emacspeak-wizards-ppthtml-program
-                       emacspeak-wizards-ppt-preview-buffer))
-  (emacspeak-webutils-without-xsl
-   (cond
-    ((null emacspeak-wizards-ppthtml-program)
-     (message "Not using Emacspeak PPTHTML wizard."))
-    (t
-     (let ((filename (buffer-file-name))
-           (ppt-buffer (current-buffer))
-           (buffer (get-buffer-create " *ppt scratch*")))
-       (save-current-buffer
-         (setq buffer-undo-list t)
-         (set-buffer buffer)
-         (erase-buffer)
-         (kill-all-local-variables)
-         (shell-command
-          (format "%s  %s"
-                  emacspeak-wizards-ppthtml-program filename)
-          'replace
-          (current-buffer))
-         (call-interactively #'browse-url-of-buffer))
-       (kill-buffer buffer)
-       (kill-buffer ppt-buffer))))))
-
-(defun emacspeak-wizards-augment-auto-mode-alist (ext mode)
-  "Add to auto-mode-alist."
-  (cl-declare (special auto-mode-alist))
-  (setq auto-mode-alist
-        (cons
-         (cons ext mode)
-         auto-mode-alist)))
-
-(emacspeak-wizards-augment-auto-mode-alist
- "\\.ppt$"
- 'emacspeak-wizards-ppt-mode)
-
-;;}}}
-;;{{{ DVI wizard
-
-(define-derived-mode emacspeak-wizards-dvi-mode fundamental-mode
-  "Browsing DVI Files."
-  "Major mode for browsing DVI files.\n\n
-DVI files  are converted to text and previewed using text mode."
-  (emacspeak-wizards-dvi-display))
-
-(defcustom emacspeak-wizards-dvi2txt-program
-  (expand-file-name "dvi2txt"
-                    emacspeak-etc-directory)
-  "Program for converting dvi  to txt.
-Set this to nil if you do not want to use the DVI wizard."
-  :type 'string
-  :group 'emacspeak-wizards)
-
-(defvar emacspeak-wizards-dvi-preview-buffer nil
-  "Records buffer displaying dvi preview.")
-
-;;;###autoload
-(defun emacspeak-wizards-dvi-display ()
-  "Called to set up preview of an DVI file.
-Assumes we are in a buffer visiting a .DVI file.
-Previews those contents as text and nukes the buffer
-visiting the DVI file."
-  (interactive)
-  (cl-declare (special emacspeak-wizards-dvi2txt-program
-                       emacspeak-wizards-dvi-preview-buffer))
-  (cond
-   ((null emacspeak-wizards-dvi2txt-program)
-    (message "Not using Emacspeak DVI wizard."))
-   (t
-    (let ((filename (buffer-file-name))
-          (dvi-buffer (current-buffer))
-          (buffer (get-buffer-create " *dvi preview*")))
-      (erase-buffer)
-      (kill-all-local-variables)
-      (shell-command
-       (format "%s  %s &"
-               emacspeak-wizards-dvi2txt-program filename)
-       buffer)
-      (kill-buffer dvi-buffer)
-      (switch-to-buffer buffer)))))
-
-(emacspeak-wizards-augment-auto-mode-alist
- "\\.dvi$"
- 'emacspeak-wizards-dvi-mode)
 
 ;;}}}
 ;;{{{ find wizard

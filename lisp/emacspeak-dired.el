@@ -444,6 +444,9 @@ On a directory line, run du -s on the directory to speak its size."
     (with-current-buffer buffer
       (markdown-preview))))
 
+(declare-function emacspeak-wizards-pdf-open "emacspeak-wizards" (filename &optional ask-pwd))
+
+
 (defun emacspeak-dired-pdf-open ()
   "Open PDF file on current dired line."
   (interactive)
