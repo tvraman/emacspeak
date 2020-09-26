@@ -2546,11 +2546,12 @@ mapped to voices."
         (old-buffer (current-buffer))
         (buffer (get-buffer-create (format "*: Filtered Buffer Menu"))))
     (cl-assert buffer-list t "No buffers in this mode.")
-    (with-current-buffer buffer
-      (Buffer-menu-mode)
-      (list-buffers--refresh buffer-list old-buffer)
-      (tabulated-list-print))
-    buffer))
+    (when buffer-list
+      (with-current-buffer buffer
+        (Buffer-menu-mode)
+        (list-buffers--refresh buffer-list)
+        (tabulated-list-print))
+      buffer)))
 
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
