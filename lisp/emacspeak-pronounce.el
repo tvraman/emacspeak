@@ -57,21 +57,12 @@
 ;;; Code:
 
 ;;}}}
-;;{{{ required packages
+;;{{{ required Modules:
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'calendar)
-
 (require 'voice-setup)
-(require 'thingatpt)
-(cl-eval-when (compile)
-                                        ;avoid recursive include during compile
-  (provide 'emacspeak-pronounce)
-  (require 'dtk-speak)
-  (require 'emacspeak-sounds))
-
 ;;}}}
 ;;{{{ customizations
 
@@ -254,12 +245,10 @@ Argument CHILD specifies the mode whose supers are being requested."
 
 ;;}}}
 
-(defcustom emacspeak-pronounce-pronunciation-personality voice-lighten
+(defvar emacspeak-pronounce-pronunciation-personality voice-lighten
   "*Pronunciation personality.
 This is the personality used when speaking things that have a pronunciation
-applied."
-  :group 'emacspeak-pronounce
-  :type (voice-setup-custom-menu))
+applied.")
 
 ;;}}}
 ;;{{{ loading, clearing and saving dictionaries
@@ -724,6 +713,7 @@ specified pronunciation dictionary key."
 (defvar emacspeak-pronounce-date-mm-dd-yyyy-pattern
   "[0-9]\\{2\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\([0-9]\\{2\\}\\)?"
   "Pattern that matches dates of the form mm-dd-[cc]yy.")
+(declare-function calendar-date-string "calendar" (date &optional abbreviate nodayname))
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
