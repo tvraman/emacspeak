@@ -343,8 +343,8 @@
  (emacspeak-keymap-update emacspeak-table-submap binding))
 
 ;;; Put these in the global map:
-(global-set-key [(shift left)] 'switch-to-prev-buffer)
-(global-set-key [(shift right)] 'switch-to-next-buffer)
+(global-set-key [(shift left)] 'previous-buffer)
+(global-set-key [(shift right)] 'next-buffer)
 (global-set-key [(control left)] 'emacspeak-previous-frame-or-buffer)
 (global-set-key [(control right)] 'emacspeak-next-frame-or-buffer)
 (global-set-key [(control down)] 'pop-to-mark-command)
@@ -703,8 +703,8 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-hyper-keys 
   '(
-    ("," switch-to-prev-buffer)
-    ("." switch-to-next-buffer)
+    ("," previous-buffer)
+    ("." next-buffer)
     ("C-e" eshell)
     ("TAB" hippie-expand)
     ("C-r" flx-isearch-backward)
