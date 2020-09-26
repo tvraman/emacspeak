@@ -1026,67 +1026,6 @@ Signals beginning  of buffer."
   (emacspeak-speak-mode-line))
 
 ;;}}}
-;;{{{ table wizard
-
-(defvar emacspeak-etc-directory
-  (expand-file-name "etc/" emacspeak-directory)
-  "Directory containing miscellaneous files  for Emacspeak.")
-
-(cl-declaim (special emacspeak-etc-directory))
-(defvar emacspeak-wizards-table-content-extractor
-  (expand-file-name "extract-table.pl" emacspeak-etc-directory)
-  "Program that extracts table content.")
-;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-url (url depth count)
-  "Extract table specified by depth and count from HTML
-content at URL.
-Extracted content is placed as a csv file in task.csv."
-  (interactive
-   (list
-    (read-from-minibuffer "URL: ")
-    (read-from-minibuffer "Depth: ")
-    (read-from-minibuffer "Count: ")))
-  (cl-declare (special emacspeak-wizards-table-content-extractor))
-  (let ((buffer (get-buffer-create " *table extractor*")))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (call-process
-       emacspeak-wizards-table-content-extractor
-       nil t nil
-       "--url" url
-       "--depth" depth
-       "--count" count
-       "2>/dev/null")
-      (emacspeak-table-view-csv-buffer))))
-
-;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-file (file depth count)
-  "Extract table specified by depth and count from HTML
-content at file.
-Extracted content is sent to STDOUT."
-  (interactive
-   (list
-    (read-file-name "File: ")
-    (read-from-minibuffer "Depth: ")
-    (read-from-minibuffer "Count: ")))
-  (cl-declare (special emacspeak-wizards-table-content-extractor))
-  (let ((buffer
-         (get-buffer-create " *table extractor* ")))
-    (save-current-buffer
-      (set-buffer buffer)
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (call-process
-       emacspeak-wizards-table-content-extractor
-       nil t nil
-       "--file" file
-       "--depth" depth
-       "--count" count
-       "2>/dev/null")
-      (emacspeak-table-view-csv-buffer))))
-
-;;}}}
 ;;{{{ annotation wizard
 
 ;;; I use this to collect my annotations into a buffer
@@ -1170,7 +1109,7 @@ annotation is inserted into the working buffer when complete."
 ;;;###autoload
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to the shell buffer and cd to
- the directory of the current buffer."
+ the directory of the previously current buffer."
   (interactive)
   (cl-declare (special default-directory))
   (let ((dir default-directory))
