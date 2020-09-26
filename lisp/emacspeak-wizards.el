@@ -2563,7 +2563,7 @@ mapped to voices."
           (eq major-mode mode)))))
   (rename-buffer (format "Buffers Filtered By Major Mode %s" mode) 'unique)
   (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
+  (emacspeak-speak-line))
 
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
