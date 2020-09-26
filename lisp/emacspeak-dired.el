@@ -398,7 +398,7 @@ On a directory line, run du -s on the directory to speak its size."
   (emacspeak-m-player (dired-get-filename) 'playlist))
 (declare-function emacspeak-epub-eww "emacspeak-dired" t)
 
-(defun emacspeak-wizards-rpm-query-in-dired ()
+(defun emacspeak-dired-rpm-query-in-dired ()
   "Run rpm -qi on current dired entry."
   (interactive)
   (cl-declare (special major-mode))
@@ -413,7 +413,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (defconst emacspeak-dired-opener-table
   `(("\\.epub$"  emacspeak-dired-epub-eww)
-    "\\.rpm$" emacspeak-wizards-rpm-query-in-dired
+    "\\.rpm$" emacspeak-dired-rpm-query-in-dired
     ("\\.mid$"  emacspeak-dired-midi-play)
     ("\\.xhtml" emacspeak-dired-eww-open)
     ("\\.html" emacspeak-dired-eww-open)

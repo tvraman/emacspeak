@@ -436,6 +436,7 @@ also copied to the kill ring for convenient yanking."
 
 ;;}}}
 ;;{{{  simple phone book
+
 (defcustom emacspeak-speak-telephone-directory
   (expand-file-name "tel-dir" emacspeak-resource-directory)
   "File holding telephone directory.
@@ -1182,22 +1183,6 @@ annotation is inserted into the working buffer when complete."
       (shell-process-cd dir))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
-
-;;}}}
-;;{{{  run rpm -qi on current dired entry
-;;;###autoload
-(defun emacspeak-wizards-rpm-query-in-dired ()
-  "Run rpm -qi on current dired entry."
-  (interactive)
-  (cl-declare (special major-mode))
-  (unless (eq major-mode 'dired-mode)
-    (error "This command should be used in dired mode."))
-  (shell-command
-   (format "rpm -qi ` rpm -qf %s`"
-           (dired-get-filename 'no-location)))
-  (other-window 1)
-  (search-forward "Summary" nil t)
-  (emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ pdf wizard
