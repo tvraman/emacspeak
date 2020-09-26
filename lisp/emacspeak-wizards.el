@@ -3738,23 +3738,16 @@ Optional interactive prefix arg `best' picks best audio format."
           (vars '(
                   emacs-version
                   system-type
-                  emacspeak-version  dtk-program
-                  dtk-speech-rate dtk-character-scale
-                  dtk-split-caps dtk-capitalize
-                  dtk-punctuation-mode
-                  emacspeak-line-echo  emacspeak-word-echo
-                  emacspeak-character-echo
-                  emacspeak-use-auditory-icons
-                  emacspeak-audio-indentation)))
+                  emacspeak-version  dtk-program)))
       (mapc
        #'(lambda (x)
            (if (not (and (boundp x) (symbol-value x)))
-               (setq vars (delq x vars))))vars)
+               (setq vars (delq x vars))))
+       vars)
       (reporter-submit-bug-report
        emacspeak-bug-address
        (concat "Emacspeak Version: " emacspeak-version)
-       vars
-       nil nil
+       vars nil nil
        "Description of Problem:"))))
 
 ;;}}}
