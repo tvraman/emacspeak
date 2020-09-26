@@ -398,8 +398,22 @@ On a directory line, run du -s on the directory to speak its size."
   (emacspeak-m-player (dired-get-filename) 'playlist))
 (declare-function emacspeak-epub-eww "emacspeak-dired" t)
 
+(defun emacspeak-wizards-rpm-query-in-dired ()
+  "Run rpm -qi on current dired entry."
+  (interactive)
+  (cl-declare (special major-mode))
+  (unless (eq major-mode 'dired-mode)
+    (error "This command should be used in dired mode."))
+  (shell-command
+   (format "rpm -qi ` rpm -qf %s`"
+           (dired-get-filename 'no-location)))
+  (other-window 1)
+  (search-forward "Summary" nil t)
+  (emacspeak-speak-line))
+
 (defconst emacspeak-dired-opener-table
   `(("\\.epub$"  emacspeak-dired-epub-eww)
+    "\\.rpm$" emacspeak-wizards-rpm-query-in-dired
     ("\\.mid$"  emacspeak-dired-midi-play)
     ("\\.xhtml" emacspeak-dired-eww-open)
     ("\\.html" emacspeak-dired-eww-open)
