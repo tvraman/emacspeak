@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1206 commands and 906 options.
+This chapter documents a total of 1203 commands and 906 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -4371,6 +4371,15 @@ Smart dired opener. Invokes appropriate Emacspeak handler on  current file in Di
 
 @format
 Open PDF file on current dired line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-dired-rpm-query-in-dired
+@deffn {Command} emacspeak-dired-rpm-query-in-dired   
+@findex emacspeak-dired-rpm-query-in-dired
+
+@format
+Run rpm -qi on current dired entry.
 @end format
 @end deffn
 
@@ -21700,15 +21709,6 @@ Prompt for and execute an Emacspeak command.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-find-emacspeak-source
-@deffn {Command} emacspeak-wizards-find-emacspeak-source   
-@findex emacspeak-wizards-find-emacspeak-source
-
-@format
-Like find-file, but binds default-directory to emacspeak-directory.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-find-file-as-root
 @deffn {Command} emacspeak-wizards-find-file-as-root  (file)
 @table @kbd
@@ -21888,32 +21888,6 @@ Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
 
 (fn STEP)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-get-table-content-from-file
-@deffn {Command} emacspeak-wizards-get-table-content-from-file  (file depth count)
-@findex emacspeak-wizards-get-table-content-from-file
-
-@format
-Extract table specified by depth and count from HTML
-content at file.
-Extracted content is sent to STDOUT.
-
-(fn FILE DEPTH COUNT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-get-table-content-from-url
-@deffn {Command} emacspeak-wizards-get-table-content-from-url  (url depth count)
-@findex emacspeak-wizards-get-table-content-from-url
-
-@format
-Extract table specified by depth and count from HTML
-content at URL.
-Extracted content is placed as a csv file in task.csv.
-
-(fn URL DEPTH COUNT)
 @end format
 @end deffn
 
@@ -22333,15 +22307,6 @@ t   :  tops/last
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-rpm-query-in-dired
-@deffn {Command} emacspeak-wizards-rpm-query-in-dired   
-@findex emacspeak-wizards-rpm-query-in-dired
-
-@format
-Run rpm -qi on current dired entry.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-scratch
 @deffn {Command} emacspeak-wizards-scratch   
 @table @kbd
@@ -22527,7 +22492,7 @@ Define current directory as this shell’s project directory.
 
 @format
 Switch to the shell buffer and cd to
- the directory of the current buffer.
+ the directory of the previously current buffer.
 @end format
 @end deffn
 
