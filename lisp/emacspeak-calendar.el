@@ -365,8 +365,37 @@
    ad-return-value))
 
 ;;}}}
+;;{{{ Global sunrise/sunset wizard:
+
+;;;###autoload
+(defun emacspeak-calendar-sunrise-sunset (address &optional arg)
+  "Display sunrise/sunset for specified address."
+  (interactive
+   (list
+    (read-from-minibuffer "Address: ")
+    current-prefix-arg))
+  (let* ((geo (gmaps-address-geocode address))
+         (calendar-latitude (g-json-get 'lat geo))
+         (calendar-longitude (g-json-get 'lng geo))
+         (calendar-time-zone
+          (solar-get-number
+           "Enter difference from Coordinated Universal Time (in minutes): "))
+         (calendar-standard-time-zone-name
+          (cond ((zerop calendar-time-zone) "UTC")
+                ((< calendar-time-zone 0)
+                 (format "UTC%dmin" calendar-time-zone))
+                (t (format "UTC+%dmin" calendar-time-zone))))
+         (date (if arg (calendar-read-date) (calendar-current-date)))
+         (date-string (calendar-date-string date t))
+         (time-string (solar-sunrise-sunset-string date)))
+    (message "%s: %s at %s" date-string time-string address)))
+
+
+
+;;}}}
 ;;{{{  keymap
-(cl-eval-when (load))
+
+
 
 (defun emacspeak-calendar-setup()
   "Set up appropriate bindings for calendar"
@@ -375,7 +404,7 @@
     (set-buffer calendar-buffer)
     (local-unset-key emacspeak-prefix)
     (define-key calendar-mode-map "v" 'view-diary-entries)
-    (define-key calendar-mode-map "\M-s" 'emacspeak-wizards-sunrise-sunset)
+    (define-key calendar-mode-map "\M-s" 'emacspeak-calendar-sunrise-sunset)
     (define-key calendar-mode-map  "\C-e." 'emacspeak-calendar-speak-date)
     (define-key calendar-mode-map  "\C-ee"
       'calendar-end-of-week)))

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1207 commands and 906 options.
+This chapter documents a total of 1206 commands and 906 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -3306,6 +3306,17 @@ To use, configure variable gweb-my-address via M-x customize-variable.
 
 @format
 Speak the date under point when called in Calendar Mode. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-calendar-sunrise-sunset
+@deffn {Command} emacspeak-calendar-sunrise-sunset  (address &optional arg)
+@findex emacspeak-calendar-sunrise-sunset
+
+@format
+Display sunrise/sunset for specified address.
+
+(fn ADDRESS &optional ARG)
 @end format
 @end deffn
 
@@ -21630,6 +21641,11 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
 
 @subsubsection emacspeak-wizards-eww-buffer-list
 @deffn {Command} emacspeak-wizards-eww-buffer-list   
+@table @kbd
+@item C-z e
+@kindex C-z e
+@end table
+
 @findex emacspeak-wizards-eww-buffer-list
 
 @format
@@ -22623,17 +22639,6 @@ Squeeze multiple blank lines in current buffer.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-sunrise-sunset
-@deffn {Command} emacspeak-wizards-sunrise-sunset  (address &optional arg)
-@findex emacspeak-wizards-sunrise-sunset
-
-@format
-Display sunrise/sunset for specified address.
-
-(fn ADDRESS &optional ARG)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-swap-fg-and-bg
 @deffn {Command} emacspeak-wizards-swap-fg-and-bg   
 @table @kbd
@@ -22866,20 +22871,11 @@ Buffer menu filtered by  m-player mode.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-view-buffers-filtered-by-mode
-@deffn {Command} emacspeak-wizards-view-buffers-filtered-by-mode  (mode)
-@findex emacspeak-wizards-view-buffers-filtered-by-mode
-
-@format
-Display list of buffers filtered by specified mode.
-
-(fn MODE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-this-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-this-mode   
 @table @kbd
+@item C-z b
+@kindex C-z b
 @item C-. m
 @kindex C-. m
 @item C-' m

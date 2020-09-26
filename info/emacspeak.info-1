@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1207 commands and 906 options.
+   This chapter documents a total of 1206 commands and 906 options.
 
 * Menu:
 
@@ -5668,6 +5668,15 @@ advantages of speech-enabled interaction.
  -- Command: emacspeak-calendar-speak-date
 
      Speak the date under point when called in Calendar Mode.
+
+12.32.1.4 emacspeak-calendar-sunrise-sunset
+...........................................
+
+ -- Command: emacspeak-calendar-sunrise-sunset (address &optional arg)
+
+     Display sunrise/sunset for specified address.
+
+     (fn ADDRESS &optional ARG)
 
 12.32.2 emacspeak-calendar Options
 ----------------------------------
