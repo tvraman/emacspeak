@@ -4274,6 +4274,42 @@ Optional interactive prefix arg `best' picks best audio format."
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{  Submit bugs
+
+(defconst emacspeak-bug-address
+  "emacspeak@cs.vassar.edu"
+  "Address for bug reports and questions.")
+
+(defun emacspeak-submit-bug ()
+  "Function to submit a bug to the programs maintainer."
+  (interactive)
+  (require 'reporter)
+  (when
+      (yes-or-no-p "Are you sure you want to submit a bug report? ")
+    (let (
+          (vars '(
+                  emacs-version
+                  system-type
+                  emacspeak-version  dtk-program
+                  dtk-speech-rate dtk-character-scale
+                  dtk-split-caps dtk-capitalize
+                  dtk-punctuation-mode
+                  emacspeak-line-echo  emacspeak-word-echo
+                  emacspeak-character-echo
+                  emacspeak-use-auditory-icons
+                  emacspeak-audio-indentation)))
+      (mapc
+       #'(lambda (x)
+           (if (not (and (boundp x) (symbol-value x)))
+               (setq vars (delq x vars))))vars)
+      (reporter-submit-bug-report
+       emacspeak-bug-address
+       (concat "Emacspeak Version: " emacspeak-version)
+       vars
+       nil nil
+       "Description of Problem:"))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
