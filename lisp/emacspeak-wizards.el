@@ -2543,7 +2543,6 @@ mapped to voices."
          (cl-loop
           for b in (buffer-list)
           when (funcall predicate b) collect b))
-        (old-buffer (current-buffer))
         (buffer (get-buffer-create (format "*: Filtered Buffer Menu"))))
     (cl-assert buffer-list t "No buffers in this mode.")
     (when buffer-list
@@ -2567,7 +2566,7 @@ mapped to voices."
 
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
-  "Buffer menu filtered by  mode of current-buffer."xs
+  "Buffer menu filtered by  mode of current-buffer."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode major-mode))
 
