@@ -186,7 +186,7 @@ beginning or end of a physical line produces an appropriate auditory icon."
  '(
    next-logical-line previous-logical-line
    delete-indentation back-to-indentation
-   lisp-indent-line goto-line)
+   lisp-indent-line goto-line goto-line-relative)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
