@@ -1248,9 +1248,7 @@ visiting the xls file."
       (kill-buffer buffer)
       (kill-buffer xl-buffer)))))
 
-(emacspeak-wizards-augment-auto-mode-alist
- "\\.xls$"
- 'emacspeak-wizards-xl-mode)
+
 
 ;;}}}
 ;;{{{ pdf wizard
@@ -1354,6 +1352,14 @@ visiting the ppt file."
          (call-interactively #'browse-url-of-buffer))
        (kill-buffer buffer)
        (kill-buffer ppt-buffer))))))
+
+(defun emacspeak-wizards-augment-auto-mode-alist (ext mode)
+  "Add to auto-mode-alist."
+  (cl-declare (special auto-mode-alist))
+  (setq auto-mode-alist
+        (cons
+         (cons ext mode)
+         auto-mode-alist)))
 
 (emacspeak-wizards-augment-auto-mode-alist
  "\\.ppt$"
