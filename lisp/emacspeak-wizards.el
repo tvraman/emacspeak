@@ -2561,12 +2561,13 @@ mapped to voices."
     #'(lambda (buffer)
         (with-current-buffer buffer
           (eq major-mode mode)))))
-  (rename-buffer (format "Buffers Filtered By Major Mode %s" mode) 'unique)
-  (emacspeak-auditory-icon 'open-object))
+  (rename-buffer (format "Buffers Filtered By  %s" mode) 'unique)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-line))
 
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
-  "Buffer menu filtered by  mode of current-buffer."
+  "Buffer menu filtered by  mode of current-buffer."xs
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode major-mode))
 
