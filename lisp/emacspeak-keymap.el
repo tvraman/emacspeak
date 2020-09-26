@@ -659,6 +659,8 @@ command that the key sequence executes."
 
 (defcustom emacspeak-ctl-z-keys 
   '(
+    ("n" emacspeak-wizards-cycle-to-next-buffer)
+    ("p" emacspeak-wizards-cycle-to-previous-buffer)
     ("z" suspend-frame)
     )
   "*Specifies ctl-z  key bindings for the audio desktop. 
