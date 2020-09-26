@@ -1149,7 +1149,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
 ;;}}}
 ;;{{{ find wizard
 
-(define-derived-mode emacspeak-wizards-finder-mode fundamental-mode
+(define-derived-mode emacspeak-wizards-finder-mode special-mode
   "Emacspeak Finder"
   "Emacspeak Finder\n\n")
 
@@ -1200,10 +1200,8 @@ Optional interactive prefix arg ask-pwd prompts for password."
   :type 'sexp
   :group 'emacspeak-wizards)
 
-(defvar emacspeak-wizards-finder-args nil
+(defvar-local emacspeak-wizards-finder-args nil
   "List of switches to use as test arguments to find.")
-
-(make-variable-buffer-local 'emacspeak-wizards-finder-args)
 
 (defcustom emacspeak-wizards-find-switches-that-need-quoting
   (list "-name" "-iname"
