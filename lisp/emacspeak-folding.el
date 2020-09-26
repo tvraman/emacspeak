@@ -137,9 +137,13 @@ Then speak the  line."
 
 ;;}}}
 ;;{{{ Fix keymap:
-(cl-declaim (special folding-mode-map))
-(when (boundp 'folding-mode-map)
-  (define-key folding-mode-map (kbd "C-e") 'emacspeak-prefix-command))
+(add-hook
+ 'folding-load-hook
+ #'(lambda ()
+ 
+     (cl-declare (special folding-mode-map))
+     (when (boundp 'folding-mode-map)
+       (define-key folding-mode-map (kbd "C-e") 'emacspeak-prefix-command))))
 
 ;;}}}
 (provide  'emacspeak-folding)
