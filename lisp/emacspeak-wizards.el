@@ -480,6 +480,7 @@ command."
 
 ;;}}}
 ;;{{{  Learn mode
+
 ;;;###autoload
 (defun emacspeak-learn-emacs-mode ()
   "Helps you learn the keys.  You can press keys and hear what they do.
@@ -984,6 +985,7 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{ ansi term
+
 ;;;###autoload
 (defun emacspeak-wizards-terminal (program)
   "Launch terminal and rename buffer appropriately."
