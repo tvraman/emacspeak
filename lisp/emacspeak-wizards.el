@@ -2630,32 +2630,6 @@ mapped to voices."
   (call-interactively command))
 
 ;;}}}
-;;{{{ Global sunrise/sunset wizard:
-
-;;;###autoload
-(defun emacspeak-wizards-sunrise-sunset (address &optional arg)
-  "Display sunrise/sunset for specified address."
-  (interactive
-   (list
-    (read-from-minibuffer "Address: ")
-    current-prefix-arg))
-  (let* ((geo (gmaps-address-geocode address))
-         (calendar-latitude (g-json-get 'lat geo))
-         (calendar-longitude (g-json-get 'lng geo))
-         (calendar-time-zone
-          (solar-get-number
-           "Enter difference from Coordinated Universal Time (in minutes): "))
-         (calendar-standard-time-zone-name
-          (cond ((zerop calendar-time-zone) "UTC")
-                ((< calendar-time-zone 0)
-                 (format "UTC%dmin" calendar-time-zone))
-                (t (format "UTC+%dmin" calendar-time-zone))))
-         (date (if arg (calendar-read-date) (calendar-current-date)))
-         (date-string (calendar-date-string date t))
-         (time-string (solar-sunrise-sunset-string date)))
-    (message "%s: %s at %s" date-string time-string address)))
-
-;;}}}
 ;;{{{ Shell Helper: Path Cleanup
 
 (defun emacspeak-wizards-cleanup-shell-path ()
@@ -2763,6 +2737,7 @@ Optional interactive prefix arg `category' prompts for a category."
   (require 'emacspeak-url-template)
   (let ((name "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
 ;;}}}
 ;;{{{ alpha-vantage: Stock Quotes
 
