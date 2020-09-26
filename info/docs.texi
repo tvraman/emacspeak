@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1207 commands and 906 options.
+This chapter documents a total of 1203 commands and 906 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1186,26 +1186,6 @@ It actually does very little:
 It sets up Emacs to load package-specific
 Emacspeak modules as each package is loaded.
 It implements function emacspeak which loads the rest of the system.
-
-@subsection Emacspeak Commands
-
-@subsubsection emacspeak-describe-emacspeak
-@deffn {Command} emacspeak-describe-emacspeak   
-@table @kbd
-@item C-h C-e
-@kindex C-h C-e
-@item <f1> C-e
-@kindex <f1> C-e
-@item <help> C-e
-@kindex <help> C-e
-@end table
-
-@findex emacspeak-describe-emacspeak
-
-@format
-Give a brief overview of emacspeak.
-@end format
-@end deffn
 
 @subsection emacspeak Options
 
@@ -20850,6 +20830,24 @@ Customize Emacspeak.
 @end format
 @end deffn
 
+@subsubsection emacspeak-describe-emacspeak
+@deffn {Command} emacspeak-describe-emacspeak   
+@table @kbd
+@item C-h C-e
+@kindex C-h C-e
+@item <f1> C-e
+@kindex <f1> C-e
+@item <help> C-e
+@kindex <help> C-e
+@end table
+
+@findex emacspeak-describe-emacspeak
+
+@format
+Give a brief overview of emacspeak.
+@end format
+@end deffn
+
 @subsubsection emacspeak-emergency-tts-restart
 @deffn {Command} emacspeak-emergency-tts-restart   
 @table @kbd
@@ -21503,15 +21501,6 @@ under point as either the foreground or background color.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-comma-at-end-of-word
-@deffn {Command} emacspeak-wizards-comma-at-end-of-word  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-comma-at-end-of-word
-
-@format
-Move to the end of current word and add a comma.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-count-slides-in-region
 @deffn {Command} emacspeak-wizards-count-slides-in-region  (start end)
 @findex emacspeak-wizards-count-slides-in-region
@@ -21588,17 +21577,6 @@ Cycles to previous buffer having same mode.
 Create a virtual manpage in Emacs from the Perl Online Documentation.
 
 (fn FILENAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-end-of-word
-@deffn {Command} emacspeak-wizards-end-of-word  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-end-of-word
-
-@format
-move to end of word
-
-(fn ARG)
 @end format
 @end deffn
 
@@ -22108,15 +22086,6 @@ Show price for symbol in current row
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-lacheck-buffer-file
-@deffn {Command} emacspeak-wizards-lacheck-buffer-file  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-lacheck-buffer-file
-
-@format
-Run Lacheck on current buffer.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-list-voices
 @deffn {Command} emacspeak-wizards-list-voices  (pattern)
 @table @kbd
@@ -22559,7 +22528,7 @@ Display a buffer with sample text in the defined voices.
 @end deffn
 
 @subsubsection emacspeak-wizards-show-environment-variable
-@deffn {Command} emacspeak-wizards-show-environment-variable  (v)
+@deffn {Command} emacspeak-wizards-show-environment-variable  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-show-environment-variable
 
 @format
@@ -22693,17 +22662,6 @@ term if needed.
 Launch terminal and rename buffer appropriately.
 
 (fn PROGRAM)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-tex-tie-current-word
-@deffn {Command} emacspeak-wizards-tex-tie-current-word  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-tex-tie-current-word
-
-@format
-Tie the next n  words.
-
-(fn N)
 @end format
 @end deffn
 
