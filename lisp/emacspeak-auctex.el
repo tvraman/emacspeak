@@ -235,6 +235,44 @@ the opening line of the newly inserted environment. "
   ad-return-value)
 
 ;;}}}
+;;{{{ tex utils:
+
+;;;###autoload
+(defun emacspeak-auctex-end-of-word (arg)
+  "move to end of word"
+  (interactive "P")
+  (if arg
+      (forward-word arg)
+    (forward-word 1)))
+
+;;;###autoload
+(defun emacspeak-auctex-comma-at-end-of-word ()
+  "Move to the end of current word and add a comma."
+  (interactive)
+  (forward-word 1)
+  (insert-char ?,))
+
+;;;###autoload
+(defun emacspeak-auctex-lacheck-buffer-file ()
+  "Run Lacheck on current buffer."
+  (interactive)
+  (compile (format "lacheck %s"
+                   (buffer-file-name (current-buffer)))))
+
+;;;###autoload
+(defun emacspeak-auctex-tex-tie-current-word (n)
+  "Tie the next n  words."
+  (interactive "P")
+  (or n (setq n 1))
+  (while
+      (> n 0)
+    (setq n (- n 1))
+    (forward-word 1)
+    (delete-horizontal-space)
+    (insert-char 126 1))
+  (forward-word 1))
+
+;;}}}
 (provide  'emacspeak-auctex)
 ;;{{{  emacs local variables 
 
