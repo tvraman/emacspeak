@@ -1200,17 +1200,6 @@ annotation is inserted into the working buffer when complete."
   (emacspeak-speak-line))
 
 ;;}}}
-;;{{{ auto mode alist utility
-
-(defun emacspeak-wizards-augment-auto-mode-alist (ext mode)
-  "Add to auto-mode-alist."
-  (cl-declare (special auto-mode-alist))
-  (setq auto-mode-alist
-        (cons
-         (cons ext mode)
-         auto-mode-alist)))
-
-;;}}}
 ;;{{{ xl wizard
 
 ;;;
