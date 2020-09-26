@@ -2354,16 +2354,6 @@ Default is to add autoload cookies to current file."
     (shrink-window-if-larger-than-buffer)))
 
 ;;}}}
-;;{{{ quick-edit emacspeak sources:
-
-;;;###autoload
-(defun emacspeak-wizards-find-emacspeak-source ()
-  "Like find-file, but binds default-directory to emacspeak-directory."
-  (interactive)
-  (let ((default-directory emacspeak-directory))
-    (call-interactively 'find-file)))
-
-;;}}}
 ;;{{{ Bullet navigation
 
 ;;;###autoload
