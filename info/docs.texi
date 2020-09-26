@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1210 commands and 908 options.
+This chapter documents a total of 1208 commands and 906 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -22921,28 +22921,6 @@ Read a personality  and apply it to the current line.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-yql-lookup
-@deffn {Command} emacspeak-wizards-yql-lookup  (symbols)
-@findex emacspeak-wizards-yql-lookup
-
-@format
-Lookup quotes for specified stock symbols.
-Symbols are separated by whitespace.
-
-(fn SYMBOLS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-yql-quotes
-@deffn {Command} emacspeak-wizards-yql-quotes   
-@findex emacspeak-wizards-yql-quotes
-
-@format
-Display quotes using YQL API.
-Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-ytel-download
 @deffn {Command} emacspeak-wizards-ytel-download  (id)
 @findex emacspeak-wizards-ytel-download
@@ -23043,13 +23021,6 @@ options to Command for running pdftotext.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-personal-portfolio
-Set this to the stock tickers you want to check. Default is
-GAFA. Tickers are separated by white-space and are automatically
-sorted in lexical order with duplicates removed when saving.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-project-shells
 List of shell-name/initial-directory pairs.
 
@@ -23072,11 +23043,6 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 Command line for dumping out virtual console.  Make sure you have
 access to /dev/vcs* by adding yourself to the appropriate group.  On
 Ubuntu and Debian this is group ‘tty’.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-yql-quotes-row-filter
-Template used to audio-format  rows.
 
 @end defvar
 

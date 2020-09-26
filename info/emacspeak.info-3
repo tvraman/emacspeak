@@ -4424,25 +4424,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PERSONALITY)
 
-12.218.1.148 emacspeak-wizards-yql-lookup
-.........................................
-
- -- Command: emacspeak-wizards-yql-lookup (symbols)
-
-     Lookup quotes for specified stock symbols.
-     Symbols are separated by whitespace.
-
-     (fn SYMBOLS)
-
-12.218.1.149 emacspeak-wizards-yql-quotes
-.........................................
-
- -- Command: emacspeak-wizards-yql-quotes
-
-     Display quotes using YQL API.
-     Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
-
-12.218.1.150 emacspeak-wizards-ytel-download
+12.218.1.148 emacspeak-wizards-ytel-download
 ............................................
 
  -- Command: emacspeak-wizards-ytel-download (id)
@@ -4451,7 +4433,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ID)
 
-12.218.1.151 emacspeak-wizards-ytel-play-at-point
+12.218.1.149 emacspeak-wizards-ytel-play-at-point
 .................................................
 
  -- Command: emacspeak-wizards-ytel-play-at-point (id &optional best)
@@ -4512,11 +4494,6 @@ Contains various wizards for the Emacspeak desktop.
  -- Variable: User Option emacspeak-wizards-pdf-to-text-options
      options to Command for running pdftotext.
 
- -- Variable: User Option emacspeak-wizards-personal-portfolio
-     Set this to the stock tickers you want to check.  Default is GAFA.
-     Tickers are separated by white-space and are automatically sorted
-     in lexical order with duplicates removed when saving.
-
  -- Variable: User Option emacspeak-wizards-project-shells
      List of shell-name/initial-directory pairs.
 
@@ -4533,9 +4510,6 @@ Contains various wizards for the Emacspeak desktop.
      Command line for dumping out virtual console.  Make sure you have
      access to /dev/vcs* by adding yourself to the appropriate group.
      On Ubuntu and Debian this is group ‘tty’.
-
- -- Variable: User Option emacspeak-wizards-yql-quotes-row-filter
-     Template used to audio-format rows.
 
 
 File: emacspeak.info,  Node: emacspeak-woman,  Next: emacspeak-xkcd,  Prev: emacspeak-wizards,  Up: Emacspeak Commands And Options
