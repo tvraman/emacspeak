@@ -1308,18 +1308,6 @@ directory to where find is to be launched."
   (emacspeak-custom-goto-group))
 
 ;;}}}
-;;{{{ display environment variable
-;;;###autoload
-(defun emacspeak-wizards-show-environment-variable (v)
-  "Display value of specified environment variable."
-  (interactive
-   (list
-    (read-envvar-name "Display environment variable: " 'exact)))
-  (message "%s is %s"
-           v
-           (getenv v)))
-
-;;}}}
 ;;{{{ squeeze blank lines in current buffer:
 ;;;###autoload
 (defun emacspeak-wizards-squeeze-blanks (start end)
