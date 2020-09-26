@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1217 commands and 912 options.
+This chapter documents a total of 1210 commands and 908 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1204,22 +1204,6 @@ It implements function emacspeak which loads the rest of the system.
 
 @format
 Give a brief overview of emacspeak.
-@end format
-@end deffn
-
-@subsubsection emacspeak-submit-bug
-@deffn {Command} emacspeak-submit-bug   
-@table @kbd
-@item C-e C-M-b
-@kindex C-e C-M-b
-@item <fn> C-M-b
-@kindex <fn> C-M-b
-@end table
-
-@findex emacspeak-submit-bug
-
-@format
-Function to submit a bug to the programs maintainer.
 @end format
 @end deffn
 
@@ -21229,6 +21213,22 @@ Restart specified ssh tts server.
 @end format
 @end deffn
 
+@subsubsection emacspeak-submit-bug
+@deffn {Command} emacspeak-submit-bug   
+@table @kbd
+@item C-e C-M-b
+@kindex C-e C-M-b
+@item <fn> C-M-b
+@kindex <fn> C-M-b
+@end table
+
+@findex emacspeak-submit-bug
+
+@format
+Function to submit a bug to the programs maintainer.
+@end format
+@end deffn
+
 @subsubsection emacspeak-symlink-current-file
 @deffn {Command} emacspeak-symlink-current-file   
 @table @kbd
@@ -21485,6 +21485,8 @@ updating custom settings for a specific package or group of packages.
 @subsubsection emacspeak-wizards-cycle-to-next-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-next-buffer   
 @table @kbd
+@item C-z n
+@kindex C-z n
 @item C-, n
 @kindex C-, n
 @item C-x @@ a n
@@ -21501,6 +21503,8 @@ Cycles to next buffer having same mode.
 @subsubsection emacspeak-wizards-cycle-to-previous-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-previous-buffer   
 @table @kbd
+@item C-z p
+@kindex C-z p
 @item C-, p
 @kindex C-, p
 @item C-x @@ a p
@@ -21522,36 +21526,6 @@ Cycles to previous buffer having same mode.
 Create a virtual manpage in Emacs from the Perl Online Documentation.
 
 (fn FILENAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-dvi-display
-@deffn {Command} emacspeak-wizards-dvi-display   
-@findex emacspeak-wizards-dvi-display
-
-@format
-Called to set up preview of an DVI file.
-Assumes we are in a buffer visiting a .DVI file.
-Previews those contents as text and nukes the buffer
-visiting the DVI file.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-dvi-mode
-@deffn {Command} emacspeak-wizards-dvi-mode   
-@findex emacspeak-wizards-dvi-mode
-
-@format
-Major mode for browsing DVI files.
-
-DVI files  are converted to text and previewed using text mode.
-
-This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final or penultimate step
-during initialization.
-
-key             binding
----             -------
-
 @end format
 @end deffn
 
@@ -22310,37 +22284,6 @@ Provide an input buffer in a specified mode.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-ppt-display
-@deffn {Command} emacspeak-wizards-ppt-display   
-@findex emacspeak-wizards-ppt-display
-
-@format
-Called to set up preview of an PPT file.
-Assumes we are in a buffer visiting a .ppt file.
-Previews those contents as HTML and nukes the buffer
-visiting the ppt file.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-ppt-mode
-@deffn {Command} emacspeak-wizards-ppt-mode   
-@findex emacspeak-wizards-ppt-mode
-
-@format
-Major mode for browsing PPT slides.
-
-PPT files  are converted to HTML and previewed using a browser.
-
-In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final or penultimate step
-during initialization.
-
-key             binding
----             -------
-
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-previous-bullet
 @deffn {Command} emacspeak-wizards-previous-bullet   
 @findex emacspeak-wizards-previous-bullet
@@ -22978,46 +22921,6 @@ Read a personality  and apply it to the current line.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-web-clean-up-processes
-@deffn {Command} emacspeak-wizards-web-clean-up-processes   
-@findex emacspeak-wizards-web-clean-up-processes
-
-@format
-Delete stale Web connections.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-xl-display
-@deffn {Command} emacspeak-wizards-xl-display   
-@findex emacspeak-wizards-xl-display
-
-@format
-Called to set up preview of an XL file.
-Assumes we are in a buffer visiting a .xls file.
-Previews those contents as HTML and nukes the buffer
-visiting the xls file.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-xl-mode
-@deffn {Command} emacspeak-wizards-xl-mode   
-@findex emacspeak-wizards-xl-mode
-
-@format
-Major mode for browsing XL spreadsheets.
-
-XL Sheets are converted to HTML and previewed using a browser.
-
-In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final or penultimate step
-during initialization.
-
-key             binding
----             -------
-
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-yql-lookup
 @deffn {Command} emacspeak-wizards-yql-lookup  (symbols)
 @findex emacspeak-wizards-yql-lookup
@@ -23120,12 +23023,6 @@ Visit https://www.alphavantage.co/support/#api-key to get your key.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-dvi2txt-program
-Program for converting dvi  to txt.
-Set this to nil if you do not want to use the DVI wizard.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-find-switches-that-need-quoting
 Find switches whose args need quoting.
 
@@ -23146,21 +23043,10 @@ options to Command for running pdftotext.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-pdf-to-text-program
-Command for running pdftotext.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-personal-portfolio
 Set this to the stock tickers you want to check. Default is
 GAFA. Tickers are separated by white-space and are automatically
 sorted in lexical order with duplicates removed when saving.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-ppthtml-program
-Program for converting PPT  to HTML.
-Set this to nil if you do not want to use the PPTHTML wizard.
 
 @end defvar
 
@@ -23186,12 +23072,6 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 Command line for dumping out virtual console.  Make sure you have
 access to /dev/vcs* by adding yourself to the appropriate group.  On
 Ubuntu and Debian this is group ‘tty’.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-xlhtml-program
-Program for converting XL to HTML.
-Set this to nil if you do not want to use the XLHTML wizard.
 
 @end defvar
 
