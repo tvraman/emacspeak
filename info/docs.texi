@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1208 commands and 906 options.
+This chapter documents a total of 1207 commands and 906 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -21681,17 +21681,6 @@ Read key-sequence, then execute its command on a new thread.
 Prompt for and execute an Emacspeak command.
 
 (fn COMMAND)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-finance-google-search
-@deffn {Command} emacspeak-wizards-finance-google-search  (ticker)
-@findex emacspeak-wizards-finance-google-search
-
-@format
-Google Finance Search
-
-(fn TICKER)
 @end format
 @end deffn
 

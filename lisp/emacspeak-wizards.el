@@ -2708,7 +2708,6 @@ mapped to voices."
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
   "Display list of buffers filtered by specified mode."
-  (interactive "SMode: ")
   (switch-to-buffer
    (emacspeak-wizards-view-buffers-filtered-by-predicate
     #'(lambda (buffer)
