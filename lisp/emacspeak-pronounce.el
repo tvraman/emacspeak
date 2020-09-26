@@ -37,10 +37,9 @@
 
 ;;}}}
 
-
-;;; Commentary:
 ;;{{{ Introduction
 
+;;; Commentary:
 ;;;This module implements user customizable pronunciation dictionaries
 ;;;for emacspeak. Custom pronunciations can be defined per file, per
 ;;;directory and/or per major mode. Emacspeak maintains a persistent
@@ -55,10 +54,9 @@
 ;;;are association lists defining the dictionary. Users of this module
 ;;;can retrieve a dictionary made up of all applicable association
 ;;;lists for a given file.
+;;; Code:
 
 ;;}}}
-;;
-;;; Code:
 ;;{{{ required packages
 
 (require 'cl-lib)
