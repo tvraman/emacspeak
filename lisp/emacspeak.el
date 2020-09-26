@@ -55,7 +55,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-
 ;;}}}
 ;;{{{  Customize groups
 
@@ -88,9 +87,7 @@ the Emacspeak desktop.")
                    :help-echo "Read Emacspeak Tips and Tricks.")
   :link   (list 'file-link :tag "NEWS" (expand-file-name
                                         "etc/NEWS"
-                                        emacspeak-directory)
-                :help-echo "What's New In This Release")
-  :link '(custom-manual "(emacspeak)Top")
+                                        emacspeak-directory))
 ;;; end links
   :prefix "emacspeak-"
   :group 'applications
