@@ -3946,16 +3946,20 @@ weather for `gweb-my-address'.  "
 
 ;;}}}
 ;;{{{ generate declare-function statements:
+
+(declare-function help--symbol-completion-table "help-fns" (string pred action))
+
 (defun emacspeak-wizards-gen-fn-decl (f &optional ext)
   "Generate declare-function call for function `f'.
 Optional interactive prefix arg ext says this comes from an
 external package."
   (interactive
    (list
-    (completing-read
-     "Function:"
-     #'help--symbol-completion-table
-                #'(lambda (f)  (fboundp f) ))))
+    (read
+     (completing-read
+      "Function:"
+      #'help--symbol-completion-table
+      #'functionp))))
   (cl-assert (functionp f) t "Not a valid function")
   (let ((file (symbol-file f 'defun))
         (arglist (help-function-arglist f 'preserve)))
