@@ -2673,9 +2673,12 @@ Produce auditory icons if possible."
 (defun ems--get-where-is (cmd )
   "Return string describing keys that invoke `cmd'. "
   (let* ((keys (where-is-internal cmd overriding-local-map nil nil ))
-	 (desc (mapconcat 'key-description keys ", ")))
+	 (desc
+          (if (zerop (length keys))
+              "is not on any key"
+            (mapconcat 'key-description keys ", "))))
     (concat
-     (format "%s is on " cmd)
+     (format "%s  " cmd)
      (ems-canonicalize-key-description desc))))
 
 (defadvice where-is (after emacspeak pre act comp)
