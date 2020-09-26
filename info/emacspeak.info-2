@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 24, 2020.
+last updated on September 25, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-ess,  Next: emacspeak-etable,  Prev: emacspeak-eshell,  Up: Emacspeak Commands And Options
@@ -8335,16 +8335,7 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire help.
 
-12.183.1.49 emacspeak-speak-hostname
-....................................
-
- -- Command: emacspeak-speak-hostname
-     ‘C-e M-h’
-     ‘<fn> M-h’
-
-     Speak host name.
-
-12.183.1.50 emacspeak-speak-line
+12.183.1.49 emacspeak-speak-line
 ................................
 
  -- Command: emacspeak-speak-line (&optional arg)
@@ -8369,7 +8360,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.51 emacspeak-speak-line-interactively
+12.183.1.50 emacspeak-speak-line-interactively
 ..............................................
 
  -- Command: emacspeak-speak-line-interactively
@@ -8381,7 +8372,7 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire line.
 
-12.183.1.52 emacspeak-speak-line-number
+12.183.1.51 emacspeak-speak-line-number
 .......................................
 
  -- Command: emacspeak-speak-line-number
@@ -8390,7 +8381,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Print the current buffer line number and narrowed line number of point.
 
-12.183.1.53 emacspeak-speak-line-set-column-filter
+12.183.1.52 emacspeak-speak-line-set-column-filter
 ..................................................
 
  -- Command: emacspeak-speak-line-set-column-filter (filter)
@@ -8410,7 +8401,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn FILTER)
 
-12.183.1.54 emacspeak-speak-message-again
+12.183.1.53 emacspeak-speak-message-again
 .........................................
 
  -- Command: emacspeak-speak-message-again (&optional
@@ -8424,7 +8415,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional FROM-MESSAGE-CACHE)
 
-12.183.1.55 emacspeak-speak-message-at-time
+12.183.1.54 emacspeak-speak-message-at-time
 ...........................................
 
  -- Command: emacspeak-speak-message-at-time (time message)
@@ -8437,7 +8428,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn TIME MESSAGE)
 
-12.183.1.56 emacspeak-speak-microseconds-since-epoch
+12.183.1.55 emacspeak-speak-microseconds-since-epoch
 ....................................................
 
  -- Command: emacspeak-speak-microseconds-since-epoch (ms)
@@ -8446,7 +8437,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn MS)
 
-12.183.1.57 emacspeak-speak-milliseconds-since-epoch
+12.183.1.56 emacspeak-speak-milliseconds-since-epoch
 ....................................................
 
  -- Command: emacspeak-speak-milliseconds-since-epoch (ms)
@@ -8455,7 +8446,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn MS)
 
-12.183.1.58 emacspeak-speak-minibuffer
+12.183.1.57 emacspeak-speak-minibuffer
 ......................................
 
  -- Command: emacspeak-speak-minibuffer (&optional arg)
@@ -8466,7 +8457,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.59 emacspeak-speak-minor-mode-line
+12.183.1.58 emacspeak-speak-minor-mode-line
 ...........................................
 
  -- Command: emacspeak-speak-minor-mode-line (&optional log-msg)
@@ -8478,7 +8469,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional LOG-MSG)
 
-12.183.1.60 emacspeak-speak-mode-line
+12.183.1.59 emacspeak-speak-mode-line
 .....................................
 
  -- Command: emacspeak-speak-mode-line (&optional buffer-info)
@@ -8491,7 +8482,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional BUFFER-INFO)
 
-12.183.1.61 emacspeak-speak-next-face-chunk
+12.183.1.60 emacspeak-speak-next-face-chunk
 ...........................................
 
  -- Command: emacspeak-speak-next-face-chunk
@@ -8499,7 +8490,7 @@ of emacspeak from becoming dependent on the speech server modules
      Moves to the front of next chunk having current style.
      Speak that chunk after moving.
 
-12.183.1.62 emacspeak-speak-next-field
+12.183.1.61 emacspeak-speak-next-field
 ......................................
 
  -- Command: emacspeak-speak-next-field
@@ -8508,7 +8499,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Move to and speak next field.
 
-12.183.1.63 emacspeak-speak-next-personality-chunk
+12.183.1.62 emacspeak-speak-next-personality-chunk
 ..................................................
 
  -- Command: emacspeak-speak-next-personality-chunk
@@ -8516,7 +8507,7 @@ of emacspeak from becoming dependent on the speech server modules
      Moves to the front of next chunk having current personality.
      Speak that chunk after moving.
 
-12.183.1.64 emacspeak-speak-next-window
+12.183.1.63 emacspeak-speak-next-window
 .......................................
 
  -- Command: emacspeak-speak-next-window
@@ -8525,7 +8516,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the next window.
 
-12.183.1.65 emacspeak-speak-other-buffer
+12.183.1.64 emacspeak-speak-other-buffer
 ........................................
 
  -- Command: emacspeak-speak-other-buffer (buffer)
@@ -8537,7 +8528,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn BUFFER)
 
-12.183.1.66 emacspeak-speak-other-window
+12.183.1.65 emacspeak-speak-other-window
 ........................................
 
  -- Command: emacspeak-speak-other-window (&optional arg)
@@ -8550,7 +8541,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.67 emacspeak-speak-overlay-properties
+12.183.1.66 emacspeak-speak-overlay-properties
 ..............................................
 
  -- Command: emacspeak-speak-overlay-properties
@@ -8559,7 +8550,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak display, before-string or after-string property if any.
 
-12.183.1.68 emacspeak-speak-page
+12.183.1.67 emacspeak-speak-page
 ................................
 
  -- Command: emacspeak-speak-page (&optional arg)
@@ -8573,7 +8564,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.69 emacspeak-speak-page-interactively
+12.183.1.68 emacspeak-speak-page-interactively
 ..............................................
 
  -- Command: emacspeak-speak-page-interactively
@@ -8585,7 +8576,7 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire page.
 
-12.183.1.70 emacspeak-speak-paragraph
+12.183.1.69 emacspeak-speak-paragraph
 .....................................
 
  -- Command: emacspeak-speak-paragraph (&optional arg)
@@ -8599,7 +8590,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.71 emacspeak-speak-paragraph-interactively
+12.183.1.70 emacspeak-speak-paragraph-interactively
 ...................................................
 
  -- Command: emacspeak-speak-paragraph-interactively
@@ -8611,14 +8602,14 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire paragraph.
 
-12.183.1.72 emacspeak-speak-preceding-char
+12.183.1.71 emacspeak-speak-preceding-char
 ..........................................
 
  -- Command: emacspeak-speak-preceding-char
 
      Speak character before point.
 
-12.183.1.73 emacspeak-speak-predefined-window
+12.183.1.72 emacspeak-speak-predefined-window
 .............................................
 
  -- Command: emacspeak-speak-predefined-window (&optional arg)
@@ -8653,7 +8644,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.74 emacspeak-speak-previous-face-chunk
+12.183.1.73 emacspeak-speak-previous-face-chunk
 ...............................................
 
  -- Command: emacspeak-speak-previous-face-chunk
@@ -8661,7 +8652,7 @@ of emacspeak from becoming dependent on the speech server modules
      Moves to the front of previous chunk having current face.
      Speak that chunk after moving.
 
-12.183.1.75 emacspeak-speak-previous-field
+12.183.1.74 emacspeak-speak-previous-field
 ..........................................
 
  -- Command: emacspeak-speak-previous-field
@@ -8670,7 +8661,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Move to previous field and speak it.
 
-12.183.1.76 emacspeak-speak-previous-personality-chunk
+12.183.1.75 emacspeak-speak-previous-personality-chunk
 ......................................................
 
  -- Command: emacspeak-speak-previous-personality-chunk
@@ -8678,7 +8669,7 @@ of emacspeak from becoming dependent on the speech server modules
      Moves to the front of previous chunk having current personality.
      Speak that chunk after moving.
 
-12.183.1.77 emacspeak-speak-previous-window
+12.183.1.76 emacspeak-speak-previous-window
 ...........................................
 
  -- Command: emacspeak-speak-previous-window
@@ -8687,7 +8678,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the previous window.
 
-12.183.1.78 emacspeak-speak-rectangle
+12.183.1.77 emacspeak-speak-rectangle
 .....................................
 
  -- Command: emacspeak-speak-rectangle (start end)
@@ -8700,7 +8691,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END)
 
-12.183.1.79 emacspeak-speak-region
+12.183.1.78 emacspeak-speak-region
 ..................................
 
  -- Command: emacspeak-speak-region (start end)
@@ -8712,7 +8703,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END)
 
-12.183.1.80 emacspeak-speak-rest-of-buffer
+12.183.1.79 emacspeak-speak-rest-of-buffer
 ..........................................
 
  -- Command: emacspeak-speak-rest-of-buffer
@@ -8721,7 +8712,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak remainder of the buffer starting at point
 
-12.183.1.81 emacspeak-speak-run-shell-command
+12.183.1.80 emacspeak-speak-run-shell-command
 .............................................
 
  -- Command: emacspeak-speak-run-shell-command (command &optional
@@ -8741,7 +8732,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn COMMAND &optional READ-AS-CSV)
 
-12.183.1.82 emacspeak-speak-seconds-since-epoch
+12.183.1.81 emacspeak-speak-seconds-since-epoch
 ...............................................
 
  -- Command: emacspeak-speak-seconds-since-epoch (seconds)
@@ -8750,7 +8741,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn SECONDS)
 
-12.183.1.83 emacspeak-speak-sentence
+12.183.1.82 emacspeak-speak-sentence
 ....................................
 
  -- Command: emacspeak-speak-sentence (&optional arg)
@@ -8761,7 +8752,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.84 emacspeak-speak-set-display-table
+12.183.1.83 emacspeak-speak-set-display-table
 .............................................
 
  -- Command: emacspeak-speak-set-display-table (&optional prefix)
@@ -8772,18 +8763,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional PREFIX)
 
-12.183.1.85 emacspeak-speak-set-mode-punctuations
-.................................................
-
- -- Command: emacspeak-speak-set-mode-punctuations (setting)
-     ‘C-e d m’
-     ‘<fn> d m’
-
-     Set punctuation mode for all buffers in current mode.
-
-     (fn SETTING)
-
-12.183.1.86 emacspeak-speak-sexp
+12.183.1.84 emacspeak-speak-sexp
 ................................
 
  -- Command: emacspeak-speak-sexp (&optional arg)
@@ -8796,7 +8776,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.87 emacspeak-speak-sexp-interactively
+12.183.1.85 emacspeak-speak-sexp-interactively
 ..............................................
 
  -- Command: emacspeak-speak-sexp-interactively
@@ -8806,22 +8786,7 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire sexp.
 
-12.183.1.88 emacspeak-speak-show-active-network-interfaces
-..........................................................
-
- -- Command: emacspeak-speak-show-active-network-interfaces (&optional
-          address)
-     ‘C-e I’
-     ‘<fn> I’
-
-     Shows all active network interfaces in the echo area.
-     With interactive prefix argument ADDRESS it prompts for a
-     specific interface and shows its address. The address is
-     also copied to the kill ring for convenient yanking.
-
-     (fn &optional ADDRESS)
-
-12.183.1.89 emacspeak-speak-skim-buffer
+12.183.1.86 emacspeak-speak-skim-buffer
 .......................................
 
  -- Command: emacspeak-speak-skim-buffer
@@ -8830,7 +8795,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Skim the current buffer  a paragraph at a time.
 
-12.183.1.90 emacspeak-speak-spaces-at-point
+12.183.1.87 emacspeak-speak-spaces-at-point
 ...........................................
 
  -- Command: emacspeak-speak-spaces-at-point
@@ -8841,14 +8806,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the white space at point.
 
-12.183.1.91 emacspeak-speak-spell-current-word
+12.183.1.88 emacspeak-speak-spell-current-word
 ..............................................
 
  -- Command: emacspeak-speak-spell-current-word
 
      Spell word at  point.
 
-12.183.1.92 emacspeak-speak-text-range
+12.183.1.89 emacspeak-speak-text-range
 ......................................
 
  -- Command: emacspeak-speak-text-range (property)
@@ -8857,14 +8822,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn PROPERTY)
 
-12.183.1.93 emacspeak-speak-this-face-chunk
+12.183.1.90 emacspeak-speak-this-face-chunk
 ...........................................
 
  -- Command: emacspeak-speak-this-face-chunk
 
      Speak chunk of text around point that has current face.
 
-12.183.1.94 emacspeak-speak-this-personality-chunk
+12.183.1.91 emacspeak-speak-this-personality-chunk
 ..................................................
 
  -- Command: emacspeak-speak-this-personality-chunk
@@ -8872,7 +8837,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speak chunk of text around point that has current
      personality.
 
-12.183.1.95 emacspeak-speak-time
+12.183.1.92 emacspeak-speak-time
 ................................
 
  -- Command: emacspeak-speak-time (&optional world)
@@ -8886,7 +8851,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional WORLD)
 
-12.183.1.96 emacspeak-speak-version
+12.183.1.93 emacspeak-speak-version
 ...................................
 
  -- Command: emacspeak-speak-version (&optional speak-rev)
@@ -8898,7 +8863,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional SPEAK-REV)
 
-12.183.1.97 emacspeak-speak-visual-line
+12.183.1.94 emacspeak-speak-visual-line
 .......................................
 
  -- Command: emacspeak-speak-visual-line
@@ -8906,7 +8871,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speaks current visual line.
      Cues the start of a physical line with auditory icon ‘left’.
 
-12.183.1.98 emacspeak-speak-voice-annotate-paragraphs
+12.183.1.95 emacspeak-speak-voice-annotate-paragraphs
 .....................................................
 
  -- Command: emacspeak-speak-voice-annotate-paragraphs
@@ -8915,7 +8880,7 @@ of emacspeak from becoming dependent on the speech server modules
      Here, paragraph is taken to mean a chunk of text preceded by a blank line.
      Useful to do this before you listen to an entire buffer.
 
-12.183.1.99 emacspeak-speak-which-function
+12.183.1.96 emacspeak-speak-which-function
 ..........................................
 
  -- Command: emacspeak-speak-which-function
@@ -8926,8 +8891,8 @@ of emacspeak from becoming dependent on the speech server modules
      which-func without turning that mode on.  We actually use
      semantic to do the work.
 
-12.183.1.100 emacspeak-speak-window-information
-...............................................
+12.183.1.97 emacspeak-speak-window-information
+..............................................
 
  -- Command: emacspeak-speak-window-information
      ‘C-e C-w’
@@ -8935,8 +8900,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speaks information about current window.
 
-12.183.1.101 emacspeak-speak-word
-.................................
+12.183.1.98 emacspeak-speak-word
+................................
 
  -- Command: emacspeak-speak-word (&optional arg)
      ‘C-e w’
@@ -8950,8 +8915,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.183.1.102 emacspeak-speak-word-interactively
-...............................................
+12.183.1.99 emacspeak-speak-word-interactively
+..............................................
 
  -- Command: emacspeak-speak-word-interactively
 
@@ -8960,7 +8925,7 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire word.
 
-12.183.1.103 emacspeak-speak-world-clock
+12.183.1.100 emacspeak-speak-world-clock
 ........................................
 
  -- Command: emacspeak-speak-world-clock (zone &optional set)
@@ -8970,23 +8935,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn ZONE &optional SET)
 
-12.183.1.104 emacspeak-switch-to-reference-buffer
+12.183.1.101 emacspeak-switch-to-reference-buffer
 .................................................
 
  -- Command: emacspeak-switch-to-reference-buffer
 
      Switch back to buffer that generated completions.
 
-12.183.1.105 emacspeak-toggle-action-mode
-.........................................
-
- -- Command: emacspeak-toggle-action-mode (&optional prefix)
-
-     Toggle state of  Emacspeak  action mode.
-     Interactive PREFIX arg means toggle  the global default value, and then set the
-     current local  value to the result.
-
-12.183.1.106 emacspeak-toggle-audio-indentation
+12.183.1.102 emacspeak-toggle-audio-indentation
 ...............................................
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
@@ -9001,7 +8957,7 @@ of emacspeak from becoming dependent on the speech server modules
      line’s indentation.  Specifying ‘speak’
      results in the number of initial spaces being spoken.
 
-12.183.1.107 emacspeak-toggle-character-echo
+12.183.1.103 emacspeak-toggle-character-echo
 ............................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
@@ -9012,7 +8968,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.183.1.108 emacspeak-toggle-comint-autospeak
+12.183.1.104 emacspeak-toggle-comint-autospeak
 ..............................................
 
  -- Command: emacspeak-toggle-comint-autospeak (&optional prefix)
@@ -9023,7 +8979,7 @@ of emacspeak from becoming dependent on the speech server modules
      PREFIX arg means toggle the global default value, and then
      set the current local value to the result.
 
-12.183.1.109 emacspeak-toggle-comint-output-monitor
+12.183.1.105 emacspeak-toggle-comint-output-monitor
 ...................................................
 
  -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
@@ -9036,14 +8992,14 @@ of emacspeak from becoming dependent on the speech server modules
      PREFIX arg means toggle the global default value, and then
      set the current local value to the result.
 
-12.183.1.110 emacspeak-toggle-header-line
+12.183.1.106 emacspeak-toggle-header-line
 .........................................
 
  -- Command: emacspeak-toggle-header-line
 
      Toggle Emacspeak’s default header line.
 
-12.183.1.111 emacspeak-toggle-inaudible-or-comint-autospeak
+12.183.1.107 emacspeak-toggle-inaudible-or-comint-autospeak
 ...........................................................
 
  -- Command: emacspeak-toggle-inaudible-or-comint-autospeak
@@ -9054,7 +9010,7 @@ of emacspeak from becoming dependent on the speech server modules
      Otherwise call voice-setup-toggle-silence-personality which toggles the
      personality under point.
 
-12.183.1.112 emacspeak-toggle-line-echo
+12.183.1.108 emacspeak-toggle-line-echo
 .......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -9065,7 +9021,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.183.1.113 emacspeak-toggle-mail-alert
+12.183.1.109 emacspeak-toggle-mail-alert
 ........................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
@@ -9078,7 +9034,7 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.183.1.114 emacspeak-toggle-show-point
+12.183.1.110 emacspeak-toggle-show-point
 ........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
@@ -9089,7 +9045,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.183.1.115 emacspeak-toggle-speak-line-invert-filter
+12.183.1.111 emacspeak-toggle-speak-line-invert-filter
 ......................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -9101,7 +9057,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.183.1.116 emacspeak-toggle-speak-messages
+12.183.1.112 emacspeak-toggle-speak-messages
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -9110,7 +9066,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle the state of whether emacspeak echoes messages.
 
-12.183.1.117 emacspeak-toggle-word-echo
+12.183.1.113 emacspeak-toggle-word-echo
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -9121,7 +9077,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.183.1.118 emacspeak-view-notifications
+12.183.1.114 emacspeak-view-notifications
 .........................................
 
  -- Command: emacspeak-view-notifications
@@ -9131,7 +9087,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.183.1.119 emacspeak-voiceify-rectangle
+12.183.1.115 emacspeak-voiceify-rectangle
 .........................................
 
  -- Command: emacspeak-voiceify-rectangle (start end &optional
@@ -9144,7 +9100,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.183.1.120 emacspeak-voiceify-region
+12.183.1.116 emacspeak-voiceify-region
 ......................................
 
  -- Command: emacspeak-voiceify-region (start end &optional personality)
@@ -9156,7 +9112,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.183.1.121 emacspeak-zap-tts
+12.183.1.117 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts
@@ -9220,9 +9176,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-speak-directory-settings
      Name of file that holds directory specific settings.
-
- -- Variable: User Option emacspeak-speak-embedded-url-pattern
-     Pattern to recognize embedded URLs.
 
  -- Variable: User Option emacspeak-speak-filter-persistent-store
      File where emacspeak filters are persisted.

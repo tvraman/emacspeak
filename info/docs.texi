@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1218 commands and 914 options.
+This chapter documents a total of 1217 commands and 912 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -15813,22 +15813,6 @@ any other key to speak entire help.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-hostname
-@deffn {Command} emacspeak-speak-hostname   
-@table @kbd
-@item C-e M-h
-@kindex C-e M-h
-@item <fn> M-h
-@kindex <fn> M-h
-@end table
-
-@findex emacspeak-speak-hostname
-
-@format
-Speak host name.
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-line
 @deffn {Command} emacspeak-speak-line  (&optional arg)
 @table @kbd
@@ -16458,24 +16442,6 @@ setting to be global.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-set-mode-punctuations
-@deffn {Command} emacspeak-speak-set-mode-punctuations  (setting)
-@table @kbd
-@item C-e d m
-@kindex C-e d m
-@item <fn> d m
-@kindex <fn> d m
-@end table
-
-@findex emacspeak-speak-set-mode-punctuations
-
-@format
-Set punctuation mode for all buffers in current mode.
-
-(fn SETTING)
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-sexp
 @deffn {Command} emacspeak-speak-sexp  (&optional arg)
 @table @kbd
@@ -16505,27 +16471,6 @@ Speak the start of, rest of, or the entire sexp.
 ’s’ to speak the start.
 ’r’ to speak the rest.
 any other key to speak entire sexp.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-show-active-network-interfaces
-@deffn {Command} emacspeak-speak-show-active-network-interfaces  (&optional address)
-@table @kbd
-@item C-e I
-@kindex C-e I
-@item <fn> I
-@kindex <fn> I
-@end table
-
-@findex emacspeak-speak-show-active-network-interfaces
-
-@format
-Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking.
-
-(fn &optional ADDRESS)
 @end format
 @end deffn
 
@@ -16751,17 +16696,6 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
 
 @format
 Switch back to buffer that generated completions.
-@end format
-@end deffn
-
-@subsubsection emacspeak-toggle-action-mode
-@deffn {Command} emacspeak-toggle-action-mode  (&optional prefix)
-@findex emacspeak-toggle-action-mode
-
-@format
-Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
 @end format
 @end deffn
 
@@ -17122,11 +17056,6 @@ List of coding systems on this platform.
 
 @defvar {User Option} emacspeak-speak-directory-settings
 Name of file that holds directory specific settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-embedded-url-pattern
-Pattern to recognize embedded URLs.
 
 @end defvar
 
@@ -21138,6 +21067,22 @@ Signals end of buffer.
 @end format
 @end deffn
 
+@subsubsection emacspeak-speak-hostname
+@deffn {Command} emacspeak-speak-hostname   
+@table @kbd
+@item C-e M-h
+@kindex C-e M-h
+@item <fn> M-h
+@kindex <fn> M-h
+@end table
+
+@findex emacspeak-speak-hostname
+
+@format
+Speak host name.
+@end format
+@end deffn
+
 @subsubsection emacspeak-speak-popup-messages
 @deffn {Command} emacspeak-speak-popup-messages   
 @table @kbd
@@ -21155,6 +21100,27 @@ Signals end of buffer.
 Pop up messages buffer.
 If it is already selected then hide it and try to restore
 previous window configuration.
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-show-active-network-interfaces
+@deffn {Command} emacspeak-speak-show-active-network-interfaces  (&optional address)
+@table @kbd
+@item C-e I
+@kindex C-e I
+@item <fn> I
+@kindex <fn> I
+@end table
+
+@findex emacspeak-speak-show-active-network-interfaces
+
+@format
+Shows all active network interfaces in the echo area.
+With interactive prefix argument ADDRESS it prompts for a
+specific interface and shows its address. The address is
+also copied to the kill ring for convenient yanking.
+
+(fn &optional ADDRESS)
 @end format
 @end deffn
 
@@ -21281,6 +21247,17 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
+@end format
+@end deffn
+
+@subsubsection emacspeak-toggle-action-mode
+@deffn {Command} emacspeak-toggle-action-mode  (&optional prefix)
+@findex emacspeak-toggle-action-mode
+
+@format
+Toggle state of  Emacspeak  action mode.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
 @end format
 @end deffn
 
@@ -22142,6 +22119,28 @@ Show price for symbol in current row
 
 @format
 Run Lacheck on current buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-list-voices
+@deffn {Command} emacspeak-wizards-list-voices  (pattern)
+@table @kbd
+@item C-h "
+@kindex C-h "
+@item <f1> "
+@kindex <f1> "
+@item <help> "
+@kindex <help> "
+@end table
+
+@findex emacspeak-wizards-list-voices
+
+@format
+Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  ‘ems--wizards-sampler-text 
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -25007,28 +25006,6 @@ these are available via minibuffer history.
 @end format
 @end deffn
 
-@subsubsection voice-setup-list-voices
-@deffn {Command} voice-setup-list-voices  (pattern)
-@table @kbd
-@item C-h "
-@kindex C-h "
-@item <f1> "
-@kindex <f1> "
-@item <help> "
-@kindex <help> "
-@end table
-
-@findex voice-setup-list-voices
-
-@format
-Show all defined voice-face mappings  in a help buffer.
-Sample text to use comes from variable
-  ‘voice-setup-sample-text’. 
-
-(fn PATTERN)
-@end format
-@end deffn
-
 @subsubsection voice-setup-toggle-silence-personality
 @deffn {Command} voice-setup-toggle-silence-personality   
 @table @kbd
@@ -25183,11 +25160,6 @@ Turns current voice into one that  speaks no punctuations.
 
 @defvar {User Option} voice-punctuations-some-settings
 Turns current voice into one that  speaks some punctuations.
-
-@end defvar
-
-@defvar {User Option} voice-setup-sample-text
-Sample text used  when displaying available voices.
 
 @end defvar
 
