@@ -2764,17 +2764,6 @@ Optional interactive prefix arg `category' prompts for a category."
   (let ((name "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
-;;{{{ google Finance  Search Wizard
-
-(defun emacspeak-wizards-finance-google-search (ticker)
-  "Google Finance Search"
-  (interactive "sTicker: ")
-  (emacspeak-we-extract-by-id
-   "res"
-   (format "https://finance.google.com/finance?q=%s" ticker)
-   'speak))
-
-;;}}}
 ;;{{{ alpha-vantage: Stock Quotes
 
 ;;;alpha-vantage:
