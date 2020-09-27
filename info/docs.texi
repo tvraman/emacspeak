@@ -9106,7 +9106,7 @@ Change  web-history-visited in the currently active toolbelt.
 @end deffn
 
 @subsubsection emacspeak-google-transcode-url
-@deffn {Command} emacspeak-google-transcode-url  (url)
+@deffn {Command} emacspeak-google-transcode-url  [Arg list not available until function definition is loaded.]
 @findex emacspeak-google-transcode-url
 
 @format
@@ -9168,7 +9168,7 @@ current page.
 @end deffn
 
 @subsubsection emacspeak-transcode-current-url-via-google
-@deffn {Command} emacspeak-transcode-current-url-via-google  (&optional untranscode)
+@deffn {Command} emacspeak-transcode-current-url-via-google  [Arg list not available until function definition is loaded.]
 @findex emacspeak-transcode-current-url-via-google
 
 @format

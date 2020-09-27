@@ -2574,7 +2574,8 @@ e.g.  blog search are tbm=
 12.94.1.40 emacspeak-google-transcode-url
 .........................................
 
- -- Command: emacspeak-google-transcode-url (url)
+ -- Command: emacspeak-google-transcode-url [Arg list not available
+          until function definition is loaded.]
 
      Transcode specified url via Google.
 
@@ -2620,8 +2621,8 @@ e.g.  blog search are tbm=
 12.94.1.45 emacspeak-transcode-current-url-via-google
 .....................................................
 
- -- Command: emacspeak-transcode-current-url-via-google (&optional
-          untranscode)
+ -- Command: emacspeak-transcode-current-url-via-google [Arg list not
+          available until function definition is loaded.]
 
      Transcode current URL via Google.
        Reverse effect with prefix arg.
