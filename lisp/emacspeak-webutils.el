@@ -240,7 +240,7 @@ ARGS specifies additional arguments to SPEAKER if any."
                  'append))
      ,@body))
 
-;;}}}
+
 
 (defvar emacspeak-webutils-media-history nil
   "Store media links played from the web.")
