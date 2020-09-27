@@ -241,28 +241,7 @@ ARGS specifies additional arguments to SPEAKER if any."
      ,@body))
 
 ;;}}}
-;;{{{ tools
 
-(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
-
-;;;###autoload
-(defun emacspeak-webutils-jump-to-title-in-content ()
-  "Jumps to the title in web document.
-The first time it is called, it jumps to the first
-instance  of the title.  Repeated calls jump to further
-instances."
-  (interactive)
-  (let ((title (emacspeak-eww-current-title)))
-    (condition-case nil
-        (progn
-          (if (not (eq last-command 'emacspeak-webutils-jump-to-title-in-content))
-              (goto-char (point-min)))
-          (goto-char
-           (search-forward
-            (substring title 0 (min 10 (length title)))))
-          (emacspeak-speak-line)
-          (emacspeak-auditory-icon 'large-movement))
-      (error "Title not found in body."))))
 (defvar emacspeak-webutils-media-history nil
   "Store media links played from the web.")
 
