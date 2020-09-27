@@ -2206,36 +2206,6 @@ Default is to add autoload cookies to current file."
    (format "\n Thanks, \n --%s\n" (user-full-name))))
 
 ;;}}}
-;;{{{ specialized input buffers:
-
-;;; Taken from a message on the org mailing list.
-
-;;;###autoload
-(defun emacspeak-wizards-popup-input-buffer (mode)
-  "Provide an input buffer in a specified mode."
-  (interactive
-   (list
-    (intern
-     (completing-read
-      "Mode: "
-      (mapcar (lambda (e)
-                (list (symbol-name e)))
-              (apropos-internal "-mode$" 'commandp))
-      nil t))))
-  (let ((buffer-name (generate-new-buffer-name "*input*")))
-    (pop-to-buffer (make-indirect-buffer (current-buffer) buffer-name))
-    (narrow-to-region (point) (point))
-    (funcall mode)
-    (let ((map (copy-keymap (current-local-map))))
-      (define-key map (kbd "C-c C-c")
-        (lambda ()
-          (interactive)
-          (kill-buffer nil)
-          (delete-window)))
-      (use-local-map map))
-    (shrink-window-if-larger-than-buffer)))
-
-;;}}}
 ;;{{{ Bullet navigation
 
 ;;;###autoload
@@ -3389,6 +3359,7 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 
 ;;}}}
 ;;{{{ Swap Foreground And Background:
+
 ;;;###autoload
 (defun emacspeak-wizards-swap-fg-and-bg ()
   "Swap foreground and background."

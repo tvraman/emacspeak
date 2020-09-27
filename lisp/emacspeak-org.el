@@ -757,6 +757,37 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 
 ;;}}}
+;;{{{ specialized input buffers:
+
+;;; Taken from a message on the org mailing list.
+
+;;;###autoload
+(defun emacspeak-org-popup-input-buffer (mode)
+  "Provide an input buffer in a specified mode."
+  (interactive
+   (list
+    (intern
+     (completing-read
+      "Mode: "
+      (mapcar
+       #'(lambda (e)
+         (list (symbol-name e)))
+              (apropos-internal "-mode$" 'commandp))
+      nil t))))
+  (let ((buffer-name (generate-new-buffer-name "*input*")))
+    (pop-to-buffer (make-indirect-buffer (current-buffer) buffer-name))
+    (narrow-to-region (point) (point))
+    (funcall mode)
+    (let ((map (copy-keymap (current-local-map))))
+      (define-key map (kbd "C-c C-c")
+        #'(lambda ()
+          (interactive)
+          (kill-buffer nil)
+          (delete-window)))
+      (use-local-map map))
+    (shrink-window-if-larger-than-buffer)))
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
