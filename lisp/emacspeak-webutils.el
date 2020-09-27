@@ -226,13 +226,6 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ helper macros:
 
-
-
-
-
-(defvar emacspeak-webutils-media-history nil
-  "Store media links played from the web.")
-
 ;;;###autoload
 
 ;;}}}
