@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{ Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -420,7 +421,7 @@
 
 (cl-loop
  for name in
- '(title url source dom)
+ '(title  source dom)
  do
  (eval
   `(defun
@@ -447,7 +448,6 @@
 ;;{{{ Declare generated functions:
 
 (declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
-(declare-function emacspeak-eww-current-url "emacspeak-eww" nil)
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 (declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
 (declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
@@ -477,7 +477,7 @@ are available are cued by an auditory icon on the header line."
   (interactive)
   (emacspeak-eww-prepare-eww)
   (let ((alt (dom-alternate-links (emacspeak-eww-current-dom)))
-        (base (emacspeak-eww-current-url)))
+        (base (eww-current-url)))
     (cond
      ((null alt) (message "No alternate links."))
      (t
@@ -522,7 +522,7 @@ are available are cued by an auditory icon on the header line."
               (emacspeak-google-canonicalize-result-url url))
              ((and url (stringp url))url)
              (t (error "No URL under point.")))))
-      emacspeak-webutils-current-url #'emacspeak-eww-current-url)))
+      emacspeak-webutils-current-url #'eww-current-url)))
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")
@@ -709,13 +709,13 @@ If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
   (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
   (cond
-   ((and (emacspeak-eww-current-url)
+   ((and (eww-current-url)
          emacspeak-eww-feed
          emacspeak-eww-style)
                                         ; this is a displayed feed
     (let ((p dtk-punctuation-mode)
           (r dtk-speech-rate)
-          (u (emacspeak-eww-current-url))
+          (u (eww-current-url))
           (s emacspeak-eww-style))
       (kill-buffer)
       (add-hook
@@ -725,7 +725,7 @@ Retain previously set punctuations  mode."
            (dtk-set-rate r))
        'at-end)
       (emacspeak-feeds-feed-display u s 'speak)))
-   ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
+   ((and (eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
     (let
         ((n emacspeak-eww-url-template)
@@ -1096,7 +1096,7 @@ for use as a DOM filter."
   (cl-declare (special emacspeak-eww-rename-result-buffer
                        emacspeak-eww-shr-render-functions))
   (let ((emacspeak-eww-rename-result-buffer nil)
-        (url (emacspeak-eww-current-url))
+        (url (eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
         (inhibit-read-only t)
         (shr-external-rendering-functions emacspeak-eww-shr-render-functions))
@@ -1147,7 +1147,7 @@ Optional interactive arg `multi' prompts for multiple ids."
     (setq dom (funcall filter dom id))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+       (dom-html-from-nodes dom (eww-current-url))))))
 
 (defun eww-view-dom-not-having-id (&optional multi)
   "Display DOM filtered by specified nodes not passing  id=value test.
@@ -1166,7 +1166,7 @@ Optional interactive arg `multi' prompts for multiple ids."
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
-        dom (emacspeak-eww-current-url))))))
+        dom (eww-current-url))))))
 
 (defun emacspeak-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
@@ -1210,7 +1210,7 @@ Optional interactive arg `multi' prompts for multiple classes."
              (list  (emacspeak-eww-read-attribute-and-value)))))))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-add-base dom   (emacspeak-eww-current-url))))))
+       (dom-html-add-base dom   (eww-current-url))))))
 
 (defun eww-view-dom-not-having-attribute (&optional multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -1225,7 +1225,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                (emacspeak-eww-read-list 'emacspeak-eww-read-attribute-and-value)
              (list  (emacspeak-eww-read-attribute-and-value)))))))
     (when dom
-      (dom-html-add-base dom   (emacspeak-eww-current-url))
+      (dom-html-add-base dom   (eww-current-url))
       (emacspeak-eww-view-helper dom))))
 
 (defun emacspeak-eww-read-class ()
@@ -1248,7 +1248,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (setq dom (funcall filter dom class))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+       (dom-html-from-nodes dom (eww-current-url))))))
 
 (defun eww-view-dom-not-having-class (&optional multi)
   "Display DOM filtered by specified nodes not passing   class=value test.
@@ -1267,7 +1267,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
-        dom (emacspeak-eww-current-url))))))
+        dom (eww-current-url))))))
 
 (defun emacspeak-eww-read-role ()
   "Return role value read from minibuffer."
@@ -1303,7 +1303,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (setq dom (funcall filter dom role))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+       (dom-html-from-nodes dom (eww-current-url))))))
 
 (defun eww-view-dom-not-having-role (multi)
   "Display DOM filtered by specified  nodes not passing   role=value test.
@@ -1324,7 +1324,7 @@ Optional interactive arg `multi' prompts for multiple classes."
       (emacspeak-eww-view-helper
        (dom-html-add-base
         dom
-        (emacspeak-eww-current-url))))))
+        (eww-current-url))))))
 
 (defun eww-view-dom-having-property (multi)
   "Display DOM filtered by specified property=value test.
@@ -1339,7 +1339,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (setq dom (funcall filter dom property))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+       (dom-html-from-nodes dom (eww-current-url))))))
 
 (defun eww-view-dom-not-having-property (multi)
   "Display DOM filtered by specified  nodes not passing   property=value test.
@@ -1360,7 +1360,7 @@ Optional interactive arg `multi' prompts for multiple classes."
         dom
       (emacspeak-eww-view-helper
        (dom-html-add-base dom
-                          (emacspeak-eww-current-url))))))
+                          (eww-current-url))))))
 
 (defun eww-view-dom-having-itemprop (multi)
   "Display DOM filtered by specified itemprop=value test.
@@ -1375,7 +1375,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (setq dom (funcall filter dom itemprop))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+       (dom-html-from-nodes dom (eww-current-url))))))
 
 (defun eww-view-dom-not-having-itemprop (multi)
   "Display DOM filtered by specified  nodes not passing   itemprop=value test.
@@ -1395,7 +1395,7 @@ Optional interactive arg `multi' prompts for multiple classes."
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
-        dom (emacspeak-eww-current-url))))))
+        dom (eww-current-url))))))
 (defun emacspeak-eww-read-element ()
   "Return element  value read from minibuffer."
   (cl-declare (special eww-element-cache))
@@ -1416,7 +1416,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))
+       (dom-html-from-nodes dom (eww-current-url))))
      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
@@ -1434,7 +1434,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
-        dom (emacspeak-eww-current-url))))))
+        dom (eww-current-url))))))
 
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
@@ -1453,7 +1453,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((dom (funcall  filter  (emacspeak-eww-current-dom)arg)))
     (when dom
       (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+       (dom-html-from-nodes dom (eww-current-url))))))
 
 (defun eww-display-dom-by-id (id)
   "Display DOM filtered by specified id."
@@ -1724,7 +1724,7 @@ Warning, this is fragile, and depends on a stable id/class for the
       (emacspeak-eww-view-helper
        (dom-html-from-nodes
         (dom-by-class dom "mod" )
-        (emacspeak-eww-current-url)))))
+        (eww-current-url)))))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 (define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
