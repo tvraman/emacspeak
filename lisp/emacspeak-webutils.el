@@ -241,14 +241,6 @@ ARGS specifies additional arguments to SPEAKER if any."
      ,@body))
 
 ;;}}}
-;;{{{ variables
-
-(defvar emacspeak-eww-url-at-point
-  #'(lambda nil (shr-url-at-point nil))
-  "Function variable returning the value of the url under point
-  in a Web page.")
-
-;;}}}
 ;;{{{ tools
 
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
