@@ -271,21 +271,21 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
   "Display RSS feed."
   (interactive
    (list
-    (emacspeak-webutils-read-this-url)))
+    (emacspeak-webutils-read-url)))
   (cl-declare (special emacspeak-rss-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
-  (interactive (list (emacspeak-webutils-read-this-url)))
+  (interactive (list (emacspeak-webutils-read-url)))
   (cl-declare (special emacspeak-opml-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
 (defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
-  (interactive (list (emacspeak-webutils-read-this-url)))
+  (interactive (list (emacspeak-webutils-read-url)))
   (cl-declare (special emacspeak-atom-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-atom-view-xsl 'speak))
 

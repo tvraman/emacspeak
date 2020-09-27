@@ -139,15 +139,10 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
              (while (search-forward entity end t)
                (replace-match replacement nil t)))))
 
-(defun emacspeak-webutils-supported-p ()
-  "Check if this is a supported browser."
-  (eq browse-url-browser-function 'eww-browse-url))
-
 (defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
-  (let
-      ((p dtk-punctuation-mode)
+  (let ((p dtk-punctuation-mode)
        (r dtk-speech-rate))
     (add-hook
      'emacspeak-web-post-process-hook
@@ -165,29 +160,27 @@ Forward punctuation and rate  settings to resulting buffer."
   "Setup post process hook to cache google query when rendered."
   (cl-declare (special emacspeak-google-query))
   (let ((cache
-         (eval `(function
-                 (lambda nil
-                   (setq emacspeak-google-query ,query))))))
+         (eval
+          `#'(lambda nil
+              (setq emacspeak-google-query ,query)))))
     (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
 
 (defun emacspeak-webutils-cache-google-toolbelt(belt)
   "Setup post process hook to cache google toolbelt when rendered."
   (cl-declare (special emacspeak-google-toolbelt))
   (let ((cache
-         (eval `(function
-                 (lambda nil
-                   (setq emacspeak-google-toolbelt' ,belt))))))
+         (eval 
+                 `#'(lambda nil
+                   (setq emacspeak-google-toolbelt' ,belt)))))
     (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
 
-(defun emacspeak-webutils-browser-check ()
+(defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (cl-declare (special major-mode))
   (unless (eq major-mode 'eww-mode)
     (error "This command cannot be used outside browser buffers.")))
 
-(cl--defalias 'emacspeak-webutils-read-url 'emacspeak-webutils-read-this-url)
-
-(defun emacspeak-webutils-read-this-url ()
+(defun emacspeak-webutils-read-url ()
   "Return URL under point
 or URL read from minibuffer."
   (let ((url (shr-url-at-point nil)))
@@ -215,7 +208,6 @@ LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
   (cl-declare (special emacspeak-web-post-process-hook))
-  (when (emacspeak-webutils-supported-p)
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
@@ -229,7 +221,7 @@ ARGS specifies additional arguments to SPEAKER if any."
                   (apply(quote ,speaker) ,args))
                  (t (message "Your search appears to have failed.")))
               (error nil))))))
-     'at-end)))
+     'at-end))
 
 ;;}}}
 ;;{{{ helper macros:

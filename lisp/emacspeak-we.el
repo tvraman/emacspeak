@@ -661,7 +661,7 @@ buffer. Interactive use provides list of class values as completion."
    (list
     (completing-read "Class: "
                      emacspeak-we-buffer-class-cache)
-    (emacspeak-webutils-read-this-url)
+    (emacspeak-webutils-read-url)
     current-prefix-arg))
   (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
     (emacspeak-we-xslt-junk filter
@@ -739,7 +739,7 @@ values as completion. "
    (list
     (let ((completion-ignore-case t))
       (emacspeak-we-css-get-class-list))
-    (emacspeak-webutils-read-this-url)
+    (emacspeak-webutils-read-url)
     current-prefix-arg))
   (let ((filter
          (mapconcat
@@ -857,7 +857,7 @@ used as well."
      ((and (not current-prefix-arg)emacspeak-we-class-filter) emacspeak-we-class-filter)
      (t (setq emacspeak-we-class-filter
               (read-from-minibuffer "Class: "))))
-    (emacspeak-webutils-read-this-url)
+    (emacspeak-webutils-read-url)
     current-prefix-arg))
   (cl-declare (special emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
   (let ((redirect nil))

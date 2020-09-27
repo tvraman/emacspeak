@@ -1329,7 +1329,7 @@ Returns a cons cell where the car is email, and the cdr is password."
 
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
-  (interactive (list  (emacspeak-webutils-read-this-url)))
+  (interactive (list  (emacspeak-webutils-read-url)))
   (let  ((add nil))
     (unless book (error "No Book URL specified"))
     (setq add

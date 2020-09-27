@@ -367,7 +367,7 @@ part of the libxslt package."
   (interactive
    (list
     (emacspeak-xslt-read)
-    (emacspeak-webutils-read-this-url)
+    (emacspeak-webutils-read-url)
     current-prefix-arg))
   (let ((browse-url-browser-function  'eww-browse-url)
         (src-buffer

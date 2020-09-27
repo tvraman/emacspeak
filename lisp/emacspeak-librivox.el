@@ -372,7 +372,7 @@ more results."
   "Play book stream"
   (interactive
    (list
-    (emacspeak-webutils-read-this-url)))
+    (emacspeak-webutils-read-url)))
   (cl-declare (special g-curl-program g-curl-common-options
                        emacspeak-xslt-program))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
