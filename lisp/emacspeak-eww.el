@@ -505,23 +505,24 @@ are available are cued by an auditory icon on the header line."
 
 ;;; Inform emacspeak-webutils about EWW:
 
+(defvar emacspeak-eww-url-at-point
+  "EWW Url At point that also handle google specialities."
+  #'(lambda ()
+      (let ((url (shr-url-at-point nil)))
+        (cond
+         ((and url ;;; google  Result 
+               (stringp url)
+               (string-prefix-p (emacspeak-google-result-url-prefix) url))
+          (emacspeak-google-canonicalize-result-url url))
+         ((and url (stringp url))url)
+         (t (error "No URL under point."))))))
+
 (add-hook
  'eww-mode-hook
  #'(lambda ()
      (outline-minor-mode nil)
-     (emacspeak-pronounce-toggle-use-of-dictionaries t)
-     (setq
-      emacspeak-webutils-url-at-point
-      #'(lambda ()
-          (let ((url (shr-url-at-point nil)))
-            (cond
-             ((and url
-                   (stringp url)
-                   (string-prefix-p
-                    (emacspeak-google-result-url-prefix) url))
-              (emacspeak-google-canonicalize-result-url url))
-             ((and url (stringp url))url)
-             (t (error "No URL under point."))))))))
+     (emacspeak-pronounce-toggle-use-of-dictionaries t)))
+
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")

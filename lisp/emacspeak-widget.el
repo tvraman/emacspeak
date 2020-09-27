@@ -578,8 +578,8 @@ Returns a string with appropriate personality."
             (old-position (point)))
         (cond
          ((and (eq major-mode 'eww-mode)
-               emacspeak-webutils-url-at-point
-               (funcall emacspeak-webutils-url-at-point)
+               emacspeak-eww-url-at-point
+               (funcall emacspeak-eww-url-at-point)
                (bound-and-true-p emacspeak-we-url-executor)
                (functionp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)

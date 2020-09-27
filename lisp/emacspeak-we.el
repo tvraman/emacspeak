@@ -79,7 +79,7 @@ a rewrite rule even if one is already defined."
   (interactive "P")
   (cl-declare (special emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
-  (let ((url (funcall emacspeak-webutils-url-at-point))
+  (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
     (unless url (error "Not on a link."))
     (when (or prompt (null emacspeak-we-url-rewrite-rule))
@@ -106,7 +106,7 @@ a rewrite rule even if one is already defined."
   (interactive "P")
   (cl-declare (special emacspeak-we-url-executor))
   (emacspeak-webutils-browser-check)
-  (let ((url (funcall emacspeak-webutils-url-at-point)))
+  (let ((url (funcall emacspeak-eww-url-at-point)))
     (unless url (error "Not on a link."))
     (emacspeak-auditory-icon 'button)
     (cond
@@ -169,6 +169,7 @@ Default is to apply sort-tables."
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
   :group 'emacspeak-we)
+(declare-function eww-current-url "eww" nil)
 
 ;;;###autoload
 (defun emacspeak-we-xslt-apply (xsl)
@@ -178,7 +179,7 @@ Default is to apply sort-tables."
   (add-hook
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer  xsl))
-  (browse-url (funcall emacspeak-webutils-current-url)))
+  (browse-url (eww-current-url)))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-select (xsl)
@@ -367,7 +368,7 @@ operate on current web page when in a browser buffer; otherwise
    (list
     (or (called-interactively-p 'interactive) current-prefix-arg)))
   (emacspeak-we-extract-by-role "main"
-                                (funcall emacspeak-webutils-url-at-point) speak))
+                                (funcall emacspeak-eww-url-at-point) speak))
 
 ;;;###autoload
 (defun emacspeak-we-extract-media-streams-under-point ()
@@ -375,7 +376,7 @@ operate on current web page when in a browser buffer; otherwise
   (interactive)
   (emacspeak-webutils-browser-check)
   (emacspeak-we-extract-media-streams
-   (funcall emacspeak-webutils-url-at-point)
+   (funcall emacspeak-eww-url-at-point)
    'speak))
 
 ;;;###autoload
@@ -895,7 +896,7 @@ used as well."
   (cl-declare (special emacspeak-we-id-filter
                        emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
-  (let ((url (funcall emacspeak-webutils-url-at-point))
+  (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
     (unless url
       (error "Not on a link."))
@@ -964,7 +965,7 @@ used as well."
                        emacspeak-we-recent-xpath-filter emacspeak-we-xpath-filter-history
                        emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
-  (let ((url (funcall emacspeak-webutils-url-at-point))
+  (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
     (unless url (error "Not on a link."))
     (when emacspeak-we-url-rewrite-rule
@@ -1013,7 +1014,7 @@ used as well."
                        emacspeak-we-recent-class-filter emacspeak-we-class-filter-history
                        emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
-  (let ((url (funcall emacspeak-webutils-url-at-point))
+  (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
     (unless url (error "Not on a link."))
     (when emacspeak-we-url-rewrite-rule
@@ -1058,7 +1059,7 @@ used as well."
                        emacspeak-we-recent-xpath-junk
                        emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)
-  (let ((url (funcall emacspeak-webutils-url-at-point))
+  (let ((url (funcall emacspeak-eww-url-at-point))
         (redirect nil))
     (unless url
       (error "Not on a link."))

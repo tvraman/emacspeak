@@ -243,12 +243,10 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ variables
 
-(defvar emacspeak-webutils-url-at-point
+(defvar emacspeak-eww-url-at-point
   #'(lambda nil (shr-url-at-point nil))
   "Function variable returning the value of the url under point
   in a Web page.")
-
-
 
 ;;}}}
 ;;{{{ tools
@@ -283,9 +281,9 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P")
   (cl-declare (special emacspeak-webutils-media-history
-                       emacspeak-webutils-url-at-point))
+                       emacspeak-eww-url-at-point))
   (let ((url
-         (or (funcall emacspeak-webutils-url-at-point)
+         (or (funcall emacspeak-eww-url-at-point)
              (browse-url-url-at-point))))
     (cl-assert (stringp url) t "No URL under point." )
     (message "Playing media  URL under point")
@@ -299,8 +297,8 @@ the first line to MPlayer as a playlist.
 Useful in handling double-redirect from TuneIn."
   (interactive)
   (let ((url
-         (if emacspeak-webutils-url-at-point
-             (funcall emacspeak-webutils-url-at-point)
+         (if emacspeak-eww-url-at-point
+             (funcall emacspeak-eww-url-at-point)
            (browse-url-url-at-point))))
     (setq url
           (cl-first
