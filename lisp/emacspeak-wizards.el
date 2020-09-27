@@ -2166,7 +2166,7 @@ buffer keyed by `key'gets the key of buffer `buffer'."
   ";;;###autoload"
   "autoload cookie pattern.")
 
-;;;###autoload
+
 (defun emacspeak-wizards-add-autoload-cookies (&optional f)
   "Add autoload cookies to file f.
 Default is to add autoload cookies to current file."
@@ -2179,7 +2179,6 @@ Default is to add autoload cookies to current file."
       (goto-char (point-min))
       (unless (eq major-mode 'emacs-lisp-mode)
         (error "Not an Emacs Lisp file."))
-      (goto-char (point-min))
       (condition-case nil
           (while (not (eobp))
             (re-search-forward "^ *(interactive")
@@ -2444,7 +2443,7 @@ mapped to voices."
            '("amixer" "cd-tool"
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak" "xbacklight"
-             "g-" "g-app"   "gm-" "gmap"  "gweb"
+                 "gm-" "gmap"  "gweb"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match Emacspeak command names.")
 ;;;###autoload
