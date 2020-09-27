@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 26, 2020.
+last updated on September 27, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -2635,42 +2635,7 @@ This module provides common Web utilities for emacspeak.
      the first line to MPlayer as a playlist.
      Useful in handling double-redirect from TuneIn.
 
-12.214.1.2 emacspeak-webutils-google-extract-from-cache
-.......................................................
-
- -- Command: emacspeak-webutils-google-extract-from-cache (&optional
-          prefix)
-
-     Extract current  page from the Google cache.
-     With a prefix argument, extracts url under point.
-
-     (fn &optional PREFIX)
-
-12.214.1.3 emacspeak-webutils-google-on-this-site
-.................................................
-
- -- Command: emacspeak-webutils-google-on-this-site
-
-     Perform a google search restricted to the current WWW site.
-
-12.214.1.4 emacspeak-webutils-google-similar-to-this-page
-.........................................................
-
- -- Command: emacspeak-webutils-google-similar-to-this-page (url)
-
-     Ask Google to find documents similar to this one.
-
-     (fn URL)
-
-12.214.1.5 emacspeak-webutils-google-who-links-to-this-page
-...........................................................
-
- -- Command: emacspeak-webutils-google-who-links-to-this-page
-
-     Perform a google search to locate documents that link to the
-     current page.
-
-12.214.1.6 emacspeak-webutils-jump-to-title-in-content
+12.214.1.2 emacspeak-webutils-jump-to-title-in-content
 ......................................................
 
  -- Command: emacspeak-webutils-jump-to-title-in-content
@@ -2680,7 +2645,7 @@ This module provides common Web utilities for emacspeak.
      instance  of the title.  Repeated calls jump to further
      instances.
 
-12.214.1.7 emacspeak-webutils-play-media-at-point
+12.214.1.3 emacspeak-webutils-play-media-at-point
 .................................................
 
  -- Command: emacspeak-webutils-play-media-at-point (&optional
@@ -2693,34 +2658,6 @@ This module provides common Web utilities for emacspeak.
       A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
 
      (fn &optional PLAYLIST-P)
-
-12.214.1.8 emacspeak-webutils-transcode-current-url-via-google
-..............................................................
-
- -- Command: emacspeak-webutils-transcode-current-url-via-google
-          (&optional untranscode)
-
-     Transcode current URL via Google.
-       Reverse effect with prefix arg.
-
-     (fn &optional UNTRANSCODE)
-
-12.214.1.9 emacspeak-webutils-transcode-via-google
-..................................................
-
- -- Command: emacspeak-webutils-transcode-via-google (&optional
-          untranscode)
-
-     Transcode URL under point via Google.
-      Reverse effect with prefix arg for links on a transcoded page.
-
-     (fn &optional UNTRANSCODE)
-
-12.214.2 emacspeak-webutils Options
------------------------------------
-
- -- Variable: User Option emacspeak-webutils-charent-alist
-     Entities to unescape when treating badly escaped XML.
 
 
 File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev: emacspeak-webutils,  Up: Emacspeak Commands And Options
@@ -4778,9 +4715,6 @@ binds ‘s’ to this command.
 ..........................................
 
  -- Command: emacspeak-muggles-outliner/body
-     ‘C-. o’
-     ‘C-' o’
-     ‘C-x @ s o’
 
      Call the body in the "emacspeak-muggles-outliner" hydra.
 
@@ -4807,15 +4741,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.227.3.5 emacspeak-muggles-pianobar-key-map-cmd
-.................................................
-
- -- Command: emacspeak-muggles-pianobar-key-map-cmd
-     ‘s-'’
-
-     Temporarily use keymap pianobar-key-map
-
-12.227.3.6 emacspeak-muggles-smartparens/body
+12.227.3.5 emacspeak-muggles-smartparens/body
 .............................................
 
  -- Command: emacspeak-muggles-smartparens/body
@@ -4856,13 +4782,10 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.227.3.7 emacspeak-muggles-view/body
+12.227.3.6 emacspeak-muggles-view/body
 ......................................
 
  -- Command: emacspeak-muggles-view/body
-     ‘C-. v’
-     ‘C-' v’
-     ‘C-x @ s v’
 
      Call the body in the "emacspeak-muggles-view" hydra.
 
@@ -4917,12 +4840,10 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.227.3.8 emacspeak-origami/body
+12.227.3.7 emacspeak-origami/body
 .................................
 
  -- Command: emacspeak-origami/body
-     ‘C-, /’
-     ‘C-x @ a /’
 
      Call the body in the "emacspeak-origami" hydra.
 
@@ -7703,7 +7624,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M:                                emacspeak-speak.    (line  626)
 * <fn> m:                                emacspeak-speak.    (line  638)
 * <fn> M-%:                              emacspeak-speak.    (line   78)
-* <fn> M-;:                              emacspeak-webutils. (line   72)
+* <fn> M-;:                              emacspeak-webutils. (line   37)
 * <fn> M-b:                              emacspeak-speak.    (line  685)
 * <fn> M-c:                              emacspeak-wizards.  (line   68)
 * <fn> M-d:                              emacspeak-pronounce.
@@ -7827,12 +7748,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' a:                                 emacspeak-wizards.  (line  681)
 * C-' C-n:                               emacspeak-wizards.  (line  851)
 * C-' d:                                 emacspeak-dired.    (line   26)
-* C-' g:                                 emacspeak-google.   (line  284)
+* C-' g:                                 emacspeak-google.   (line  316)
 * C-' h:                                 emacspeak-m-player. (line  319)
 * C-' l:                                 emacspeak-m-player. (line  381)
 * C-' m:                                 emacspeak-wizards.  (line 1463)
 * C-' n:                                 emacspeak-wizards.  (line  861)
-* C-' o:                                 extra-muggles.      (line  179)
 * C-' q:                                 emacspeak-wizards.  (line  928)
 * C-' R:                                 emacspeak-webspace. (line   17)
 * C-' r:                                 soundscape.         (line   95)
@@ -7841,14 +7761,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' SPC:                               emacspeak-wizards.  (line 1139)
 * C-' t:                                 soundscape.         (line  128)
 * C-' u:                                 soundscape.         (line  140)
-* C-' v:                                 extra-muggles.      (line  261)
 * C-, ,:                                 emacspeak-advice.   (line   22)
-* C-, /:                                 extra-muggles.      (line  321)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
 * C-, c:                                 emacspeak-wizards.  (line 1464)
 * C-, f:                                 emacspeak-wizards.  (line  703)
-* C-, h:                                 emacspeak-muggles.  (line   74)
 * C-, n:                                 emacspeak-wizards.  (line  563)
 * C-, o:                                 emacspeak-feeds.    (line   67)
 * C-, p:                                 emacspeak-wizards.  (line  573)
@@ -7863,12 +7780,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. a:                                 emacspeak-wizards.  (line  680)
 * C-. C-n:                               emacspeak-wizards.  (line  850)
 * C-. d:                                 emacspeak-dired.    (line   25)
-* C-. g:                                 emacspeak-google.   (line  283)
+* C-. g:                                 emacspeak-google.   (line  315)
 * C-. h:                                 emacspeak-m-player. (line  318)
 * C-. l:                                 emacspeak-m-player. (line  380)
 * C-. m:                                 emacspeak-wizards.  (line 1462)
 * C-. n:                                 emacspeak-wizards.  (line  860)
-* C-. o:                                 extra-muggles.      (line  178)
 * C-. q:                                 emacspeak-wizards.  (line  927)
 * C-. R:                                 emacspeak-webspace. (line   16)
 * C-. r:                                 soundscape.         (line   94)
@@ -7877,8 +7793,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. SPC:                               emacspeak-wizards.  (line 1138)
 * C-. t:                                 soundscape.         (line  127)
 * C-. u:                                 soundscape.         (line  139)
-* C-. v:                                 extra-muggles.      (line  260)
-* C-/:                                   emacspeak-muggles.  (line  232)
+* C-/:                                   emacspeak-muggles.  (line  230)
 * C-; ':                                 emacspeak-m-player. (line  698)
 * C-; ::                                 emacspeak-wizards.  (line 1452)
 * C-; ;:                                 emacspeak-m-player. (line  709)
@@ -7891,13 +7806,12 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; l:                                 emacspeak-librivox. (line   32)
 * C-; p:                                 emacspeak-wizards.  (line 1093)
 * C-; s:                                 emacspeak-wizards.  (line 1155)
-* C-; v:                                 emacspeak-muggles.  (line  248)
 * C-; w:                                 emacspeak-wizards.  (line 1060)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
-* C-c ,:                                 extra-muggles.      (line  219)
+* C-c ,:                                 extra-muggles.      (line  208)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -7934,7 +7848,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  204)
+* C-c o <1>:                             emacspeak-muggles.  (line  202)
 * C-e cap M:                             Status Information. (line   18)
 * C-e cap R:                             Reading.            (line   69)
 * C-e !:                                 emacspeak-speak.    (line  881)
@@ -8154,7 +8068,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M:                                 emacspeak-speak.    (line  625)
 * C-e m <1>:                             emacspeak-speak.    (line  637)
 * C-e M-%:                               emacspeak-speak.    (line   77)
-* C-e M-;:                               emacspeak-webutils. (line   71)
+* C-e M-;:                               emacspeak-webutils. (line   36)
 * C-e M-b:                               emacspeak-speak.    (line  684)
 * C-e M-c:                               emacspeak-wizards.  (line   67)
 * C-e M-d:                               emacspeak-pronounce.
@@ -8281,14 +8195,12 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h T:                                 emacspeak-speak.    (line 1245)
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-h \:                                 emacspeak-wizards.  (line  493)
-* C-M-y:                                 emacspeak-muggles.  (line   96)
+* C-M-y:                                 emacspeak-muggles.  (line   94)
 * C-x @ a ,:                             emacspeak-advice.   (line   23)
-* C-x @ a /:                             extra-muggles.      (line  322)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a c:                             emacspeak-wizards.  (line 1465)
 * C-x @ a f:                             emacspeak-wizards.  (line  704)
-* C-x @ a h:                             emacspeak-muggles.  (line   75)
 * C-x @ a n:                             emacspeak-wizards.  (line  564)
 * C-x @ a o:                             emacspeak-feeds.    (line   68)
 * C-x @ a p:                             emacspeak-wizards.  (line  574)
@@ -8311,18 +8223,16 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h l:                             emacspeak-librivox. (line   33)
 * C-x @ h p:                             emacspeak-wizards.  (line 1094)
 * C-x @ h s:                             emacspeak-wizards.  (line 1156)
-* C-x @ h v:                             emacspeak-muggles.  (line  249)
 * C-x @ h w:                             emacspeak-wizards.  (line 1063)
 * C-x @ s .:                             emacspeak-wizards.  (line 1223)
 * C-x @ s a:                             emacspeak-wizards.  (line  682)
 * C-x @ s C-n:                           emacspeak-wizards.  (line  852)
 * C-x @ s d:                             emacspeak-dired.    (line   27)
-* C-x @ s g:                             emacspeak-google.   (line  285)
+* C-x @ s g:                             emacspeak-google.   (line  317)
 * C-x @ s h:                             emacspeak-m-player. (line  320)
 * C-x @ s l:                             emacspeak-m-player. (line  382)
 * C-x @ s m:                             emacspeak-wizards.  (line 1466)
 * C-x @ s n:                             emacspeak-wizards.  (line  862)
-* C-x @ s o:                             extra-muggles.      (line  180)
 * C-x @ s q:                             emacspeak-wizards.  (line  929)
 * C-x @ s R:                             emacspeak-webspace. (line   18)
 * C-x @ s r:                             soundscape.         (line   96)
@@ -8331,7 +8241,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s SPC:                           emacspeak-wizards.  (line 1140)
 * C-x @ s t:                             soundscape.         (line  129)
 * C-x @ s u:                             soundscape.         (line  141)
-* C-x @ s v:                             extra-muggles.      (line  262)
 * C-x r e:                               emacspeak-eww.      (line  523)
 * C-z b:                                 emacspeak-wizards.  (line 1461)
 * C-z e:                                 emacspeak-wizards.  (line  665)
@@ -8348,9 +8257,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <ESCAPE> prior:                        Reading.            (line  172)
 * <ESCAPE> <UP>:                         Reading.            (line  154)
 * M-ESC ::                               emacspeak-wizards.  (line 1268)
-* s-':                                   extra-muggles.      (line  211)
 * s-;:                                   extra-muggles.      (line  111)
 * s-m:                                   extra-muggles.      (line   51)
-* s-n:                                   emacspeak-muggles.  (line  134)
-* s-SPC:                                 emacspeak-muggles.  (line  111)
+* s-n:                                   emacspeak-muggles.  (line  132)
+* s-SPC:                                 emacspeak-muggles.  (line  109)
 

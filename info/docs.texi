@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1200 commands and 905 options.
+This chapter documents a total of 1199 commands and 904 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -8752,6 +8752,24 @@ Now, some specialized searches, e.g. blog search are tbm=
 
 @subsection Emacspeak-Google Commands
 
+@subsubsection emacspeak-google-extract-from-cache
+@deffn {Command} emacspeak-google-extract-from-cache   
+@findex emacspeak-google-extract-from-cache
+
+@format
+Extract current  page from the Google cache. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-on-this-site
+@deffn {Command} emacspeak-google-on-this-site   
+@findex emacspeak-google-on-this-site
+
+@format
+Perform a google search restricted to the current WWW site.
+@end format
+@end deffn
+
 @subsubsection emacspeak-google-open-link
 @deffn {Command} emacspeak-google-open-link   
 @findex emacspeak-google-open-link
@@ -8785,6 +8803,17 @@ Sign in to Google.
 
 @format
 Sign out to Google.
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-similar-to-this-page
+@deffn {Command} emacspeak-google-similar-to-this-page  (url)
+@findex emacspeak-google-similar-to-this-page
+
+@format
+Ask Google to find documents similar to this one.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -9076,6 +9105,17 @@ Change  web-history-visited in the currently active toolbelt.
 @end format
 @end deffn
 
+@subsubsection emacspeak-google-transcode-url
+@deffn {Command} emacspeak-google-transcode-url  (url)
+@findex emacspeak-google-transcode-url
+
+@format
+Transcode specified url via Google.
+
+(fn URL)
+@end format
+@end deffn
+
 @subsubsection emacspeak-google-tts
 @deffn {Command} emacspeak-google-tts  (text &optional lang)
 @findex emacspeak-google-tts
@@ -9114,6 +9154,28 @@ Speak region using Google Network TTS.
 
 @format
 Show my public IP
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-who-links-to-this-page
+@deffn {Command} emacspeak-google-who-links-to-this-page   
+@findex emacspeak-google-who-links-to-this-page
+
+@format
+Perform a google search to locate documents that link to the
+current page.
+@end format
+@end deffn
+
+@subsubsection emacspeak-transcode-current-url-via-google
+@deffn {Command} emacspeak-transcode-current-url-via-google  (&optional untranscode)
+@findex emacspeak-transcode-current-url-via-google
+
+@format
+Transcode current URL via Google.
+  Reverse effect with prefix arg.
+
+(fn &optional UNTRANSCODE)
 @end format
 @end deffn
 
@@ -12565,13 +12627,6 @@ The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
 @subsubsection emacspeak-muggles-hideshow/body
 @deffn {Command} emacspeak-muggles-hideshow/body   
-@table @kbd
-@item C-, h
-@kindex C-, h
-@item C-x @@ a h
-@kindex C-x @@ a h
-@end table
-
 @findex emacspeak-muggles-hideshow/body
 
 @format
@@ -12782,13 +12837,6 @@ The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 
 @subsubsection emacspeak-muggles-vuiet/body
 @deffn {Command} emacspeak-muggles-vuiet/body   
-@table @kbd
-@item C-; v
-@kindex C-; v
-@item C-x @@ h v
-@kindex C-x @@ h v
-@end table
-
 @findex emacspeak-muggles-vuiet/body
 
 @format
@@ -20493,48 +20541,6 @@ Useful in handling double-redirect from TuneIn.
 @end format
 @end deffn
 
-@subsubsection emacspeak-webutils-google-extract-from-cache
-@deffn {Command} emacspeak-webutils-google-extract-from-cache  (&optional prefix)
-@findex emacspeak-webutils-google-extract-from-cache
-
-@format
-Extract current  page from the Google cache.
-With a prefix argument, extracts url under point.
-
-(fn &optional PREFIX)
-@end format
-@end deffn
-
-@subsubsection emacspeak-webutils-google-on-this-site
-@deffn {Command} emacspeak-webutils-google-on-this-site   
-@findex emacspeak-webutils-google-on-this-site
-
-@format
-Perform a google search restricted to the current WWW site.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webutils-google-similar-to-this-page
-@deffn {Command} emacspeak-webutils-google-similar-to-this-page  (url)
-@findex emacspeak-webutils-google-similar-to-this-page
-
-@format
-Ask Google to find documents similar to this one.
-
-(fn URL)
-@end format
-@end deffn
-
-@subsubsection emacspeak-webutils-google-who-links-to-this-page
-@deffn {Command} emacspeak-webutils-google-who-links-to-this-page   
-@findex emacspeak-webutils-google-who-links-to-this-page
-
-@format
-Perform a google search to locate documents that link to the
-current page.
-@end format
-@end deffn
-
 @subsubsection emacspeak-webutils-jump-to-title-in-content
 @deffn {Command} emacspeak-webutils-jump-to-title-in-content   
 @findex emacspeak-webutils-jump-to-title-in-content
@@ -20566,37 +20572,6 @@ Optional interactive prefix arg ‘playlist-p’ says to treat the link as a pla
 (fn &optional PLAYLIST-P)
 @end format
 @end deffn
-
-@subsubsection emacspeak-webutils-transcode-current-url-via-google
-@deffn {Command} emacspeak-webutils-transcode-current-url-via-google  (&optional untranscode)
-@findex emacspeak-webutils-transcode-current-url-via-google
-
-@format
-Transcode current URL via Google.
-  Reverse effect with prefix arg.
-
-(fn &optional UNTRANSCODE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-webutils-transcode-via-google
-@deffn {Command} emacspeak-webutils-transcode-via-google  (&optional untranscode)
-@findex emacspeak-webutils-transcode-via-google
-
-@format
-Transcode URL under point via Google.
- Reverse effect with prefix arg for links on a transcoded page.
-
-(fn &optional UNTRANSCODE)
-@end format
-@end deffn
-
-@subsection emacspeak-webutils Options
-
-@defvar {User Option} emacspeak-webutils-charent-alist
-Entities to unescape when treating badly escaped XML.
-
-@end defvar
 
 @node emacspeak-widget
 @section emacspeak-widget
@@ -23365,15 +23340,6 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
 @subsubsection emacspeak-muggles-outliner/body
 @deffn {Command} emacspeak-muggles-outliner/body   
-@table @kbd
-@item C-. o
-@kindex C-. o
-@item C-' o
-@kindex C-' o
-@item C-x @@ s o
-@kindex C-x @@ s o
-@end table
-
 @findex emacspeak-muggles-outliner/body
 
 @format
@@ -23401,20 +23367,6 @@ The heads for the associated hydra are:
 "z":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-outliner/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-pianobar-key-map-cmd
-@deffn {Command} emacspeak-muggles-pianobar-key-map-cmd   
-@table @kbd
-@item s-'
-@kindex s-'
-@end table
-
-@findex emacspeak-muggles-pianobar-key-map-cmd
-
-@format
-Temporarily use keymap pianobar-key-map
 @end format
 @end deffn
 
@@ -23467,15 +23419,6 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
-@table @kbd
-@item C-. v
-@kindex C-. v
-@item C-' v
-@kindex C-' v
-@item C-x @@ s v
-@kindex C-x @@ s v
-@end table
-
 @findex emacspeak-muggles-view/body
 
 @format
@@ -23536,13 +23479,6 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 @subsubsection emacspeak-origami/body
 @deffn {Command} emacspeak-origami/body   
-@table @kbd
-@item C-, /
-@kindex C-, /
-@item C-x @@ a /
-@kindex C-x @@ a /
-@end table
-
 @findex emacspeak-origami/body
 
 @format
