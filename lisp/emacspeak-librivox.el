@@ -209,7 +209,7 @@ Optional arg `offset' (default 0) is used for getting more results."
   (let* ((title
           (format
            "Search: %s Offset: %s"
-           (emacspeak-wizards-unhex-uri pattern) offset))
+           (url-unhex-string pattern) offset))
          (url (emacspeak-librivox-audiobooks-uri pattern offset))
          (result (g-json-get-result
                   (format
