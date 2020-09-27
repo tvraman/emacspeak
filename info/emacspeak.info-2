@@ -5694,7 +5694,7 @@ binds ‘s’ to this command.
      The heads for the associated hydra are:
 
      "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-     "C-f":    ‘turn-on-folding-mode’,
+     "C-f":    ‘(call-interactively #’folding-mode)’,
      "C":    ‘(call-interactively #’flycheck-mode)’,
      "F":    ‘(call-interactively #’flyspell-mode)’,
      "a":    ‘(call-interactively #’abbrev-mode)’,
@@ -6419,49 +6419,58 @@ http://orgmode.org/
 
      Pops up an org input area.
 
-12.138.1.4 emacspeak-org-table-speak-both-headers-and-element
+12.138.1.4 emacspeak-org-popup-input-buffer
+...........................................
+
+ -- Command: emacspeak-org-popup-input-buffer (mode)
+
+     Provide an input buffer in a specified mode.
+
+     (fn MODE)
+
+12.138.1.5 emacspeak-org-table-speak-both-headers-and-element
 .............................................................
 
  -- Command: emacspeak-org-table-speak-both-headers-and-element
 
      echoes both row and col headers.
 
-12.138.1.5 emacspeak-org-table-speak-column-header
+12.138.1.6 emacspeak-org-table-speak-column-header
 ..................................................
 
  -- Command: emacspeak-org-table-speak-column-header
 
      echoes column header
 
-12.138.1.6 emacspeak-org-table-speak-column-header-and-element
+12.138.1.7 emacspeak-org-table-speak-column-header-and-element
 ..............................................................
 
  -- Command: emacspeak-org-table-speak-column-header-and-element
 
      echoes col header and element
 
-12.138.1.7 emacspeak-org-table-speak-coordinates
+12.138.1.8 emacspeak-org-table-speak-coordinates
 ................................................
 
  -- Command: emacspeak-org-table-speak-coordinates
 
      echoes coordinates
 
-12.138.1.8 emacspeak-org-table-speak-current-element
+12.138.1.9 emacspeak-org-table-speak-current-element
 ....................................................
 
  -- Command: emacspeak-org-table-speak-current-element
 
      echoes current table element
 
-12.138.1.9 emacspeak-org-table-speak-row-header
-...............................................
+12.138.1.10 emacspeak-org-table-speak-row-header
+................................................
 
  -- Command: emacspeak-org-table-speak-row-header
 
      echoes row header
 
-12.138.1.10 emacspeak-org-table-speak-row-header-and-element
+12.138.1.11 emacspeak-org-table-speak-row-header-and-element
 ............................................................
 
  -- Command: emacspeak-org-table-speak-row-header-and-element
@@ -7105,10 +7114,6 @@ given file.
           emacspeak-pronounce-internet-smileys-pronunciations
      Pronunciation dictionary used in all instant messenger and IRC chat
      modes.  See http://www.charm.net/~kmarsh/smiley.html.
-
- -- Variable: User Option emacspeak-pronounce-pronunciation-personality
-     *Pronunciation personality.  This is the personality used when
-     speaking things that have a pronunciation applied.
 
 
 File: emacspeak.info,  Node: emacspeak-py,  Next: emacspeak-pydoc,  Prev: emacspeak-pronounce,  Up: Emacspeak Commands And Options

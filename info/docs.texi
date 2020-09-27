@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1203 commands and 906 options.
+This chapter documents a total of 1200 commands and 905 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -12739,7 +12739,7 @@ Call the body in the "emacspeak-muggles-toggle-option" hydra.
 The heads for the associated hydra are:
 
 "?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
-"C-f":    ‘turn-on-folding-mode’,
+"C-f":    ‘(call-interactively #’folding-mode)’,
 "C":    ‘(call-interactively #’flycheck-mode)’,
 "F":    ‘(call-interactively #’flyspell-mode)’,
 "a":    ‘(call-interactively #’abbrev-mode)’,
@@ -13587,6 +13587,17 @@ Pops up an org input area.
 @end format
 @end deffn
 
+@subsubsection emacspeak-org-popup-input-buffer
+@deffn {Command} emacspeak-org-popup-input-buffer  (mode)
+@findex emacspeak-org-popup-input-buffer
+
+@format
+Provide an input buffer in a specified mode.
+
+(fn MODE)
+@end format
+@end deffn
+
 @subsubsection emacspeak-org-table-speak-both-headers-and-element
 @deffn {Command} emacspeak-org-table-speak-both-headers-and-element   
 @findex emacspeak-org-table-speak-both-headers-and-element
@@ -14348,13 +14359,6 @@ File that holds the persistent emacspeak pronunciation dictionaries.
 Pronunciation dictionary used in all instant messenger and IRC chat
 modes.
 See http://www.charm.net/~kmarsh/smiley.html. 
-
-@end defvar
-
-@defvar {User Option} emacspeak-pronounce-pronunciation-personality
-*Pronunciation personality.
-This is the personality used when speaking things that have a pronunciation
-applied.
 
 @end defvar
 
@@ -21823,7 +21827,8 @@ directory to where find is to be launched.
 @format
 Emacspeak Finder
 
-This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final or penultimate step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -21892,6 +21897,11 @@ external package.
 
 @subsubsection emacspeak-wizards-generate-finder
 @deffn {Command} emacspeak-wizards-generate-finder   
+@table @kbd
+@item C-z f
+@kindex C-z f
+@end table
+
 @findex emacspeak-wizards-generate-finder
 
 @format
@@ -22263,17 +22273,6 @@ Optional interactive prefix arg ask-pwd prompts for password.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-popup-input-buffer
-@deffn {Command} emacspeak-wizards-popup-input-buffer  (mode)
-@findex emacspeak-wizards-popup-input-buffer
-
-@format
-Provide an input buffer in a specified mode.
-
-(fn MODE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-previous-bullet
 @deffn {Command} emacspeak-wizards-previous-bullet   
 @findex emacspeak-wizards-previous-bullet
@@ -22527,17 +22526,6 @@ Display a buffer with sample text in the defined voices.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-show-environment-variable
-@deffn {Command} emacspeak-wizards-show-environment-variable  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-show-environment-variable
-
-@format
-Display value of specified environment variable.
-
-(fn V)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-show-eval-result
 @deffn {Command} emacspeak-wizards-show-eval-result  (form)
 @table @kbd
@@ -22665,15 +22653,6 @@ Launch terminal and rename buffer appropriately.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-thanks-mail-signature
-@deffn {Command} emacspeak-wizards-thanks-mail-signature   
-@findex emacspeak-wizards-thanks-mail-signature
-
-@format
-insert thanks , --Raman at the end of mail message
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 @deffn {Command} emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer   
 @findex emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
@@ -22736,17 +22715,6 @@ Optional interactive prefix arg ‘category’ prompts for a category.
 
 @format
 Search Tune-In Radio.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-unhex-uri
-@deffn {Command} emacspeak-wizards-unhex-uri  (uri)
-@findex emacspeak-wizards-unhex-uri
-
-@format
-UnEscape URI
-
-(fn URI)
 @end format
 @end deffn
 
