@@ -368,7 +368,6 @@ With a prefix argument, extracts url under point."
 
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 
-
 ;;;###autoload
 (defun emacspeak-webutils-jump-to-title-in-content ()
   "Jumps to the title in web document.
@@ -424,29 +423,8 @@ Useful in handling double-redirect from TuneIn."
     (message "Playing redirected media  URL under point: %s" url)
     (emacspeak-m-player url t)))
 
-
-
 ;;}}}
-;;{{{ utility: Get Feed Titles With Links
 
-(defun emacspeak-webutils-feed-titles (feed-url)
-  "Return a list of the form `((title url)...) given an RSS/Atom  feed  URL."
-  (cl-declare (special emacspeak-xslt-directory emacspeak-xslt-program
-                       g-curl-program g-curl-common-options))
-  (with-temp-buffer
-    (shell-command
-     (format "%s %s %s | %s %s - "
-             g-curl-program g-curl-common-options feed-url
-             emacspeak-xslt-program
-             (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory))
-     (current-buffer))
-    (goto-char (point-min))
-;;; newline -> spc
-    (while (re-search-forward "\n" nil t) (replace-match " "))
-    (goto-char (point-min))
-    (read (current-buffer))))
-
-;;}}}
 ;;{{{ Clean up web connections:
 (defadvice url-retrieve-internal (before emacspeak pre act comp)
   "Clean up stale web connections"

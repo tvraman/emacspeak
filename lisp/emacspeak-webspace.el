@@ -167,6 +167,22 @@ Generates auditory and visual display."
 
 (defvar emacspeak-webspace-headlines-period '(0 1800 0)
   "How often we fetch from a feed.")
+(defun emacspeak-webspace-feed-titles (feed-url)
+  "Return a list of the form `((title url)...) given an RSS/Atom  feed  URL."
+  (cl-declare (special emacspeak-xslt-directory emacspeak-xslt-program
+                       g-curl-program g-curl-common-options))
+  (with-temp-buffer
+    (shell-command
+     (format "%s %s %s | %s %s - "
+             g-curl-program g-curl-common-options feed-url
+             emacspeak-xslt-program
+             (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory))
+     (current-buffer))
+    (goto-char (point-min))
+;;; newline -> spc
+    (while (re-search-forward "\n" nil t) (replace-match " "))
+    (goto-char (point-min))
+    (read (current-buffer))))
 
 (defun emacspeak-webspace-headlines-fetch (feed)
   "Add headlines from specified feed to our cache.
@@ -180,7 +196,7 @@ Newly found headlines are inserted into the ring within our feedstore."
         (or (null last-update)          ;  at most every half hour
             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
-      (setq new-titles (emacspeak-webutils-feed-titles feed))
+      (setq new-titles (emacspeak-webspace-feed-titles feed))
       (when (listp new-titles)
         (mapc
          #'(lambda (h)
