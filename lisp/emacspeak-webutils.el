@@ -56,17 +56,6 @@
 (require 'shr)
 
 ;;}}}
-;;{{{ Utility: Render HTML To String
-
-;;;###autoload
-(defun emacspeak-webutils-html-string (html-string)
-  "Return formatted string."
-  (with-temp-buffer
-    (insert html-string)
-    (shr-render-region  (point-min) (point-max))
-    (buffer-string)))
-
-;;}}}
 ;;{{{ Fix bug in url-cookie
 
 (defadvice url-cookie-write-file (around fix-write-bug pre act comp)
