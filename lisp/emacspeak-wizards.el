@@ -2151,15 +2151,6 @@ buffer keyed by `key'gets the key of buffer `buffer'."
         (lm-commentary filename))))))
 
 ;;}}}
-;;{{{ unescape URIs
-
-;;;###autoload
-(defun emacspeak-wizards-unhex-uri (uri)
-  "UnEscape URI"
-  (interactive "sURL:")
-  (message (url-unhex-string uri)))
-
-;;}}}
 ;;{{{ Add autoload cookies:
 
 (defvar emacspeak-autoload-cookie-pattern
