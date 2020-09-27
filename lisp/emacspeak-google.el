@@ -423,7 +423,7 @@ current page."
   (interactive)
   (browse-url
    (format "http://webcache.googleusercontent.com/search?q=cache:%s"
-           (shr-url-at-point))))
+           (shr-url-at-point nil))))
 
 ;;;###autoload
 (defun emacspeak-google-on-this-site ()
@@ -432,7 +432,7 @@ current page."
   (emacspeak-websearch-google
    (format "site:%s %s"
            (aref
-            (url-generic-parse-url eww-current-url) 3)
+            (url-generic-parse-url (eww-current-url)) 3)
            (read-from-minibuffer "Search this site for: "))))
 
 (defvar emacspeak-google-related-uri
@@ -458,8 +458,11 @@ current page."
 
 (defun emacspeak-google-transcoded-to-plain-url (url)
   "Extract plain URL from Google transcoder URL."
-  (let ((prefix (substring emacspeak-webutils-google-transcoder-url 0
-                           (1+ (cl-position ?? emacspeak-webutils-google-transcoder-url)))))
+  (cl-declare (special emacspeak-google-transcoder-url))
+  (let ((prefix
+         (substring emacspeak-google-transcoder-url
+                    0
+                    (1+ (cl-position ?? emacspeak-google-transcoder-url)))))
     (when (equal prefix (substring url 0 (length prefix)))
       (let* ((args (substring url (length prefix)))
              (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
@@ -483,7 +486,7 @@ current page."
   ;; removing the above line makes the untranscode work
   (cond
    ((null untranscode)
-    (emacspeak-google-transcode-this-url
+    (emacspeak-google-transcode-url
      (eww-current-url)))
    (t
     (let ((plain-url (emacspeak-google-transcoded-to-plain-url (eww-current-url))))
