@@ -240,31 +240,6 @@ ARGS specifies additional arguments to SPEAKER if any."
                  'append))
      ,@body))
 
-(make-obsolete 'emacspeak-webutils-with-xsl-environment
-               "Use emacspeak-web-pre-process-hook to set up a  transformer function instead."
-               "42.0")
-(defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
-  "Execute body with XSL turned on
-and xsl environment specified by style, params and options."
-  (declare (indent 1) (debug t))
-  `(progn
-     (add-hook
-      'emacspeak-web-post-process-hook
-      (eval
-       `#'(lambda ()
-            (cl-declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
-                                 emacspeak-xslt-options emacspeak-we-xsl-params))
-            (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
-                  emacspeak-xslt-options ,emacspeak-xslt-options
-                  emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
-                  emacspeak-we-xsl-params (quote ,emacspeak-we-xsl-params))))
-      'append)
-     (setq emacspeak-we-xsl-p t
-           emacspeak-xslt-options ,options
-           emacspeak-we-xsl-transform ,style
-           emacspeak-we-xsl-params ,params)
-     ,@body))
-
 ;;}}}
 ;;{{{ variables
 
