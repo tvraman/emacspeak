@@ -214,10 +214,10 @@
 ;;; @command{shr-copy-url}
 ;;; Copy URL under point to the kill-ring.
 ;;; @item ;
-;;; @command{emacspeak-webutils-play-media-at-point}
+;;; @command{emacspeak-eww-play-media-at-point}
 ;;; Play media URL under point using @code{emacs-m-player}.
 ;;; @item U
-;;; @command{emacspeak-webutils-curl-play-media-at-point}
+;;; @command{emacspeak-eww-curl-play-media-at-point}
 ;;; Play media url under point by first downloading the URL using
 ;;; CURL. This is useful for sites that do multiple redirects before
 ;;; returning the actual media stream URL.
@@ -445,6 +445,43 @@
                 value))))
 
 ;;}}}
+;;{{{play media:
+
+(defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
+  "Play media url under point.
+Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
+ A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
+  (interactive "P")
+  (cl-declare (special emacspeak-webutils-media-history
+                       emacspeak-eww-url-at-point))
+  (let ((url
+         (or (funcall emacspeak-eww-url-at-point)
+             (browse-url-url-at-point))))
+    (cl-assert (stringp url) t "No URL under point." )
+    (message "Playing media  URL under point")
+    (kill-new url)
+    (push (list url (if playlist-p t nil)) emacspeak-webutils-media-history)
+    (emacspeak-m-player  url  playlist-p)))
+
+(defun emacspeak-eww-curl-play-media-at-point ()
+  "Use Curl to pull a URL, then pass
+the first line to MPlayer as a playlist.
+Useful in handling double-redirect from TuneIn."
+  (interactive)
+  (let ((url
+         (if emacspeak-eww-url-at-point
+             (funcall emacspeak-eww-url-at-point)
+           (browse-url-url-at-point))))
+    (setq url
+          (cl-first
+           (split-string
+            (shell-command-to-string (format "curl --silent '%s'" url))
+            "\n")))
+    (message "Playing redirected media  URL under point: %s" url)
+    (emacspeak-m-player url t)))
+
+
+;;}}}
 ;;{{{ Declare generated functions:
 
 (declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
@@ -582,8 +619,8 @@ are available are cued by an auditory icon on the header line."
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-command-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
-  (define-key eww-link-keymap ";" 'emacspeak-webutils-play-media-at-point)
-  (define-key eww-link-keymap "U" 'emacspeak-webutils-curl-play-media-at-point)
+  (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
+  (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
   (define-key eww-link-keymap "\C-o" 'emacspeak-feeds-opml-display)
   (define-key eww-link-keymap "\C-r" 'emacspeak-feeds-rss-display)
   (define-key eww-link-keymap "\C-a" 'emacspeak-feeds-atom-display)

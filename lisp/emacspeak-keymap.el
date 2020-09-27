@@ -225,7 +225,7 @@
    ("L" emacspeak-speak-line-interactively)
    ("M" emacspeak-speak-minor-mode-line)
    ("M-%" emacspeak-goto-percent)
-   ("M-;" emacspeak-webutils-play-media-at-point)
+   ("M-;" emacspeak-eww-play-media-at-point)
    ("M-C-@" emacspeak-speak-spaces-at-point)
    ("M-C-SPC" emacspeak-speak-spaces-at-point)
    ("M-C-b" emacspeak-submit-bug)
