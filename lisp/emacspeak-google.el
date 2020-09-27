@@ -452,47 +452,6 @@ current page."
     "%s%s"
     emacspeak-google-related-uri url)))
 
-(defvar emacspeak-google-transcoder-url
-  "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
-  "URL pattern for accessing Google transcoder.")
-
-(defun emacspeak-google-transcoded-to-plain-url (url)
-  "Extract plain URL from Google transcoder URL."
-  (cl-declare (special emacspeak-google-transcoder-url))
-  (let ((prefix
-         (substring emacspeak-google-transcoder-url
-                    0
-                    (1+ (cl-position ?? emacspeak-google-transcoder-url)))))
-    (when (equal prefix (substring url 0 (length prefix)))
-      (let* ((args (substring url (length prefix)))
-             (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
-        (url-unhex-string (cdr (assoc "u" arg-alist)))))))
-
-;;;###autoload
-(defun emacspeak-google-transcode-url (url)
-  "Transcode specified url via Google."
-  (interactive (list (browse-url-url-at-point)))
-  (cl-declare (special emacspeak-google-transcoder-url))
-  (browse-url
-   (format emacspeak-google-transcoder-url
-           (url-encode-url url))))
-
-;;;###autoload
-(defun emacspeak-transcode-current-url-via-google (&optional untranscode)
-  "Transcode current URL via Google.
-  Reverse effect with prefix arg."
-  (interactive "P")
-  ;;  (let ((url-mime-encoding-string "gzip"))
-  ;; removing the above line makes the untranscode work
-  (cond
-   ((null untranscode)
-    (emacspeak-google-transcode-url
-     (eww-current-url)))
-   (t
-    (let ((plain-url (emacspeak-google-transcoded-to-plain-url (eww-current-url))))
-      (when plain-url
-        (browse-url plain-url))))))
-
 ;;}}}
 ;;{{{ Interactive Commands
 
