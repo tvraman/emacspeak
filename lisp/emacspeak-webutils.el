@@ -56,15 +56,6 @@
 (require 'shr)
 
 ;;}}}
-;;{{{ Fix bug in url-cookie
-
-(defadvice url-cookie-write-file (around fix-write-bug pre act comp)
-  "Fix bug in url-cookie-write-file."
-  (let ((print-length nil)
-        (print-level nil))
-    ad-do-it))
-
-;;}}}
 ;;{{{ web-pre-process
 
 ;;;###autoload
