@@ -1051,16 +1051,16 @@ selected filter before it is applied."
 
 ;;; from emacspeak-webutils:
 
-(defvar emacspeak-webutils-media-history nil)
+(defvar emacspeak-m-player-history nil)
 
 (defun emacspeak-m-player-from-media-history (posn)
   "Play media from media-history.
 Numeric arg `posn' specifies position in history."
   (interactive "p")
-  (cl-declare (special emacspeak-webutils-media-history))
+  (cl-declare (special emacspeak-m-player-history))
   (setq posn (1- posn))
-  (cl-assert (and emacspeak-webutils-media-history (> (length emacspeak-webutils-media-history)  posn)) t "Not that many elements in media history")
-  (apply #'emacspeak-m-player (elt emacspeak-webutils-media-history posn)))
+  (cl-assert (and emacspeak-m-player-history (> (length emacspeak-m-player-history)  posn)) t "Not that many elements in media history")
+  (apply #'emacspeak-m-player (elt emacspeak-m-player-history posn)))
 
 ;;}}}
 ;;{{{ Reset Options:
