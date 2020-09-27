@@ -521,8 +521,7 @@ are available are cued by an auditory icon on the header line."
                     (emacspeak-google-result-url-prefix) url))
               (emacspeak-google-canonicalize-result-url url))
              ((and url (stringp url))url)
-             (t (error "No URL under point.")))))
-      emacspeak-webutils-current-url #'eww-current-url)))
+             (t (error "No URL under point."))))))))
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")
