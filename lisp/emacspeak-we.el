@@ -60,11 +60,12 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
-(require 'emacspeak-webutils)
+
 
 ;;}}}
 ;;{{{ URL Rewrite:
-
+;;; forward decl to help compiler 
+(defvar emacspeak-eww-url-at-point)
 ;;;###autoload
 (defun emacspeak-we-url-rewrite-and-follow (&optional prompt)
   "Apply a url rewrite rule as specified in the current buffer
