@@ -93,12 +93,6 @@
       (message "No link under point."))))
 
 ;;;###autoload
-(defun emacspeak-webspace-transcode ()
-  "Transcode headline at point by following its link property."
-  (interactive)
-  (emacspeak-webspace-act-on-link 'emacspeak-webutils-transcode-this-url-via-google))
-
-;;;###autoload
 (defun emacspeak-webspace-yank-link ()
   "Yank link under point into kill ring."
   (interactive)

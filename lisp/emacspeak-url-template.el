@@ -491,20 +491,9 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Search Google news."
  #'emacspeak-url-template-google-atom-news-display)
 
-(defvar emacspeak-url-template-google-transcoder-url
-  "https://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
-  "URL for obtaining mobile transcoder page views.")
 
-(emacspeak-url-template-define
- "Google Transcoder"
- emacspeak-url-template-google-transcoder-url
- (list
-  #'(lambda ()
-      (read-from-minibuffer "URL: "
-                            (or (browse-url-url-at-point)
-                                "http://"))))
- 'emacspeak-speak-buffer
- "Transcode site via Google.")
+
+
 
 ;;}}}
 ;;{{{ Google Structured Data Parser:

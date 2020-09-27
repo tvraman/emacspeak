@@ -250,8 +250,7 @@
 ;;;@command{emacspeak-webutils-google-similar-to-this-page}
 ;;;Google similarity search.
 ;;;@item C-t
-;;;@command{emacspeak-eww-transcode}
-;;;Transcode current page to something more readable.
+;;;@command{emacspeak-eww-trans
 ;;;@item G @command{emacspeak-google-command}
 ;;;Prefix key to invoke Google-specific commands.
 ;;;@item L
@@ -609,7 +608,6 @@ are available are cued by an auditory icon on the header line."
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
-     ("C-t" emacspeak-eww-transcode)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<right>"  emacspeak-eww-table-next-cell)
      ("M-." emacspeak-eww-table-speak-cell)
@@ -1774,31 +1772,6 @@ Warning, this is fragile, and depends on a stable id/class for the
 
 ;;}}}
 ;;{{{  EWW Filtering shortcuts:
-
-(defun emacspeak-eww-transcode ()
-  "Apply appropriate transcoding rules to current DOM."
-  (interactive)
-  (cl-declare (special eww-element-cache eww-role-cache))
-  (emacspeak-eww-prepare-eww)
-  (let ((dom (emacspeak-eww-current-dom))
-        (article-p (member "article" eww-element-cache))
-        (main-p (member "main" eww-role-cache)))
-    (cond
-     (article-p
-      (message "articles")
-      (setq dom (dom-by-tag dom 'article))
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))
-     (main-p
-      (message "role.main")
-      (setq dom (dom-by-role dom "main"))
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))
-     (t
-      (message "headers and paragraphs")
-      (setq dom (dom-by-tag-list dom '(p h1 h2 h3 h4)))
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url)))))))
 
 ;;}}}
 ;;{{{ Tags At Point:
