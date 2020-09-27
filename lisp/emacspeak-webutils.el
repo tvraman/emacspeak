@@ -83,9 +83,7 @@ Note that the Web browser should reset this hook after using it.")
 
 (defun emacspeak-webutils-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
-  (cl-declare (special emacspeak-web-post-process-hook
-                       emacspeak-web-pre-process-hook))
-  (setq emacspeak-web-pre-process-hook nil) ;clear  pre-process hook
+  (cl-declare (special emacspeak-web-post-process-hook))
   (when     emacspeak-web-post-process-hook
     (condition-case nil
         (let ((inhibit-read-only t))
@@ -122,18 +120,13 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
           (point) (point-max)
           (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
 
-(defcustom emacspeak-webutils-charent-alist
+(defvar emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
     ("&gt;" . ">")
     ("&quot;" . "\"")
     ("&apos;" . "'")
     ("&amp;" . "&"))
-  "Entities to unescape when treating badly escaped XML."
-  :type '(repeat  :tag "Char Entity"
-                  (cons :tag "Entry"
-                        (string :tag "CharEnt")
-                        (string :tag "Replacement")))
-  :group 'emacspeak-webutils)
+  "Entities to unescape when treating badly escaped XML.")
 
 (defun emacspeak-webutils-unescape-charent (start end)
   "Clean up charents in XML."
