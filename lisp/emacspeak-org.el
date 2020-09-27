@@ -512,7 +512,7 @@
 (defun emacspeak-org-popup-input ()
   "Pops up an org input area."
   (interactive)
-  (emacspeak-wizards-popup-input-buffer 'org-mode))
+  (emacspeak-org-popup-input-buffer 'org-mode))
 
 ;;}}}
 ;;{{{ org capture
