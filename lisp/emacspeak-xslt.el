@@ -39,12 +39,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
+
 ;;; Commentary:
 ;;; libxml and libxsl are XML libraries for GNOME.
 ;;; xsltproc is a  xslt processor using libxsl
 ;;; this module defines routines for applying xsl transformations
 ;;; using xsltproc
 ;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -101,6 +103,22 @@
 This is useful when handling bad HTML."
   :type 'boolean
   :group 'emacspeak-xslt)
+
+;;}}}
+;;{{{Macro: without-xsl
+(defmacro emacspeak-xslt-without-xsl (&rest body)
+  "Execute body with XSL turned off."
+  (declare (indent 1) (debug t))
+  `(progn
+     (cl-declare (special emacspeak-we-xsl-p))
+     (when emacspeak-we-xsl-p
+       (setq emacspeak-we-xsl-p nil)
+       (add-hook 'emacspeak-web-post-process-hook
+                 #'(lambda ()
+                     (cl-declare (special emacspeak-we-xsl-p))
+                     (setq emacspeak-we-xsl-p t))
+                 'append))
+     ,@body))
 
 ;;}}}
 ;;{{{ Functions:
@@ -383,7 +401,7 @@ part of the libxslt package."
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-webutils-unescape-charent (point-min) (point-max)))
-      (emacspeak-webutils-without-xsl
+      (emacspeak-xslt-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
@@ -404,7 +422,7 @@ part of the libxslt package."
       (set-buffer src-buffer)
       (when unescape-charent
         (emacspeak-webutils-unescape-charent (point-min) (point-max)))
-      (emacspeak-webutils-without-xsl
+      (emacspeak-xslt-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 

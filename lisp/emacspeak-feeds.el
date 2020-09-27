@@ -264,7 +264,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
       (setq eww-current-url feed-url
             emacspeak-eww-feed t 
             emacspeak-eww-style style)
-      (emacspeak-webutils-without-xsl (browse-url-of-buffer)))))
+      (emacspeak-xslt-without-xsl (browse-url-of-buffer)))))
 
 ;;;###autoload
 (defun emacspeak-feeds-rss-display (feed-url)

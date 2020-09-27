@@ -226,19 +226,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ helper macros:
 
-(defmacro emacspeak-webutils-without-xsl (&rest body)
-  "Execute body with XSL turned off."
-  (declare (indent 1) (debug t))
-  `(progn
-     (cl-declare (special emacspeak-we-xsl-p))
-     (when emacspeak-we-xsl-p
-       (setq emacspeak-we-xsl-p nil)
-       (add-hook 'emacspeak-web-post-process-hook
-                 #'(lambda ()
-                     (cl-declare (special emacspeak-we-xsl-p))
-                     (setq emacspeak-we-xsl-p t))
-                 'append))
-     ,@body))
+
 
 
 

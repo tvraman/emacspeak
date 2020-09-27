@@ -429,7 +429,7 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-speak-line))
  "Dictionary Lookup"
  #'(lambda (url)
-     (emacspeak-webutils-without-xsl
+     (emacspeak-xslt-without-xsl
          (browse-url url))))
 
 ;;}}}

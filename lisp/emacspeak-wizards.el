@@ -167,7 +167,7 @@ current local  value to the result.")
   "Browse  Emacspeak productivity tips."
   (interactive)
   (cl-declare (special emacspeak-etc-directory))
-  (emacspeak-webutils-without-xsl
+  (emacspeak-xslt-without-xsl
    (browse-url
     (format "file:///%stips.html"
             emacspeak-etc-directory)))
