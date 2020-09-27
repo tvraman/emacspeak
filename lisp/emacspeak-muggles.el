@@ -243,7 +243,7 @@ _t_ truncate-lines:    %`truncate-lines
 _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 "
    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
-   ("C-f" turn-on-folding-mode)
+   ("C-f" (call-interactively #'folding-mode))
    ("C" (call-interactively #'flycheck-mode))
    ("F" (call-interactively #'flyspell-mode))
    ("a" (call-interactively #'abbrev-mode))
