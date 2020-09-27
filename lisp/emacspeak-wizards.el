@@ -76,6 +76,13 @@
 (require 'solar)
 
 ;;}}}
+;;{{{defgroup:
+(defgroup emacspeak-wizards nil
+  "Wizards for the Emacspeak desktop."
+  :group 'emacspeak
+  :prefix "emacspeak-wizards-")
+
+;;}}}
 ;;{{{Read JSON file:
 
 (defsubst ems--json-read-file (filename)
