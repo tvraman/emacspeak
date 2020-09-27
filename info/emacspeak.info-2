@@ -702,8 +702,6 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      ‘emacspeak-webutils-google-similar-to-this-page’ Google similarity
      search.
 ‘C-t’
-     ‘emacspeak-eww-transcode’ Transcode current page to something more
-     readable.
 ‘G emacspeak-google-command’
      Prefix key to invoke Google-specific commands.
 ‘L’
@@ -1338,14 +1336,7 @@ prefix arg to delete a previously created eww-mark.
 
      Display tags at point.
 
-12.76.7.58 emacspeak-eww-transcode
-..................................
-
- -- Command: emacspeak-eww-transcode
-
-     Apply appropriate transcoding rules to current DOM.
-
-12.76.7.59 emacspeak-eww-update-title
+12.76.7.58 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
@@ -2571,17 +2562,7 @@ e.g.  blog search are tbm=
 
      Change  web-history-visited in the currently active toolbelt.
 
-12.94.1.40 emacspeak-google-transcode-url
-.........................................
-
- -- Command: emacspeak-google-transcode-url [Arg list not available
-          until function definition is loaded.]
-
-     Transcode specified url via Google.
-
-     (fn URL)
-
-12.94.1.41 emacspeak-google-tts
+12.94.1.40 emacspeak-google-tts
 ...............................
 
  -- Command: emacspeak-google-tts (text &optional lang)
@@ -2591,7 +2572,7 @@ e.g.  blog search are tbm=
 
      (fn TEXT &optional LANG)
 
-12.94.1.42 emacspeak-google-tts-region
+12.94.1.41 emacspeak-google-tts-region
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end &optional ask-lang)
@@ -2603,31 +2584,20 @@ e.g.  blog search are tbm=
 
      (fn START END &optional ASK-LANG)
 
-12.94.1.43 emacspeak-google-what-is-my-ip
+12.94.1.42 emacspeak-google-what-is-my-ip
 .........................................
 
  -- Command: emacspeak-google-what-is-my-ip
 
      Show my public IP
 
-12.94.1.44 emacspeak-google-who-links-to-this-page
+12.94.1.43 emacspeak-google-who-links-to-this-page
 ..................................................
 
  -- Command: emacspeak-google-who-links-to-this-page
 
      Perform a google search to locate documents that link to the
      current page.
-
-12.94.1.45 emacspeak-transcode-current-url-via-google
-.....................................................
-
- -- Command: emacspeak-transcode-current-url-via-google [Arg list not
-          available until function definition is loaded.]
-
-     Transcode current URL via Google.
-       Reverse effect with prefix arg.
-
-     (fn &optional UNTRANSCODE)
 
 12.94.2 emacspeak-google Options
 --------------------------------

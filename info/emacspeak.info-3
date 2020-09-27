@@ -2592,15 +2592,8 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
      Open headline at point by following its link property.
 
-12.213.1.9 emacspeak-webspace-transcode
+12.213.1.9 emacspeak-webspace-yank-link
 .......................................
-
- -- Command: emacspeak-webspace-transcode
-
-     Transcode headline at point by following its link property.
-
-12.213.1.10 emacspeak-webspace-yank-link
-........................................
 
  -- Command: emacspeak-webspace-yank-link
 
@@ -6076,7 +6069,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.242 URL Templates
 ====================
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 85 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6203,155 +6196,152 @@ out the following steps:
   37. Google Scholar
 
      Google Scholar Search
-  38. Google Transcoder
-
-     Transcode site via Google.
-  39. Google Trends
+  38. Google Trends
 
      Google Trends
-  40. Google Weather
+  39. Google Weather
 
      Light-weight Google search.
-  41. Google Webmaster Page Analysis
+  40. Google Webmaster Page Analysis
 
      Page Analysis From Google Webmaster tools.
-  42. Guardian RSS Feeds Directory
+  41. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  43. Hacker News Frontpage
+  42. Hacker News Frontpage
 
      Display Hacker News Front Page
-  44. Hacker News Search
+  43. Hacker News Search
 
      Display Hacker News Front Page
-  45. MLB Scorecard
+  44. MLB Scorecard
 
      Show MLB Scorecard.
-  46. MLB standings
+  45. MLB standings
 
      Display MLB standings.
-  47. Money Headlines From CNN
+  46. Money Headlines From CNN
 
      Money Headlines From CNN
-  48. NBA standings
+  47. NBA standings
 
      Display NBA standings.
-  49. NLS Bard Popular
+  48. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  50. NLS Bard Recent
+  49. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  51. NLS Bard Search
+  50. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  52. NY Times Mobile
+  51. NY Times Mobile
 
      NYTimes Mobile Site
-  53. NY Times RSS Feeds
+  52. NY Times RSS Feeds
 
      Display browsable list of NY Times RSS Feeds.
-  54. Old Time Radio
+  53. Old Time Radio
 
      This months Old Time Radio Programming
-  55. OpenLibrary
+  54. OpenLibrary
 
      Open Library Search
-  56. Patent Search From Google
+  55. Patent Search From Google
 
      Perform patent search via Google
-  57. PodCast CNet
+  56. PodCast CNet
 
      Play Podcast from CNET
-  58. RadioTime Browser
+  57. RadioTime Browser
 
      RadioTime Entry point.
-  59. RadioTime Categories
+  58. RadioTime Categories
 
      RadioTime Categories .
-  60. RadioTime Search
+  59. RadioTime Search
 
      RadioTime Search.
-  61. Reddit At Point.
+  60. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  62. Reddit By Topic.
+  61. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  63. Reddit Front Page.
+  62. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  64. Reddit Search.
+  63. Reddit Search.
 
      Reddit Search Results Feed.
-  65. Seeking Alpha Stock Search
+  64. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  66. Sign in to Google
+  65. Sign in to Google
 
      Login to Google.
-  67. StreamWorld Radio
+  66. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  68. Tech News From CNet
+  67. Tech News From CNet
 
      Display tech news from CNET
-  69. Times Of India
+  68. Times Of India
 
      Retrieve Times Of India.
-  70. TuneIn Radio
+  69. TuneIn Radio
 
      Translate StreamId to playable stream.
-  71. UPS Packages
+  70. UPS Packages
 
      Display package tracking information from UPS.
-  72. Washington Post
+  71. Washington Post
 
      Washington Post Contents
-  73. Weather forecast from Weather Underground
+  72. Weather forecast from Weather Underground
 
      Weather forecast from weather underground mobile.
-  74. Wiki Data Search
+  73. Wiki Data Search
 
      Search WikiData.
-  75. WordNet Search
+  74. WordNet Search
 
      Look up term in WordNet.
-  76. Yahoo RSSNews
+  75. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  77. Youtube News
+  76. Youtube News
 
      News Headlines From Youtube
-  78. fedex packages
+  77. fedex packages
 
      Display package tracking information from Fedex.
-  79. html Google News Search
+  78. html Google News Search
 
      Search Google news.
-  80. html5IRC
+  79. html5IRC
 
      Show HTML5 IRC log.
-  81. sourceforge Download
+  80. sourceforge Download
 
      Download specified file.
-  82. sourceforge browse mirrors
+  81. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  83. sourceforge project
+  82. sourceforge project
 
      Open specified project page at SourceForge.
-  84. w3c IRC Logs
+  83. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  85. w3c Lists
+  84. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  86. world CNN Content
+  85. world CNN Content
 
      Filter down to CNN content area.
 
@@ -7748,7 +7738,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' a:                                 emacspeak-wizards.  (line  681)
 * C-' C-n:                               emacspeak-wizards.  (line  851)
 * C-' d:                                 emacspeak-dired.    (line   26)
-* C-' g:                                 emacspeak-google.   (line  317)
+* C-' g:                                 emacspeak-google.   (line  307)
 * C-' h:                                 emacspeak-m-player. (line  319)
 * C-' l:                                 emacspeak-m-player. (line  381)
 * C-' m:                                 emacspeak-wizards.  (line 1463)
@@ -7772,7 +7762,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, q:                                 emacspeak-wizards.  (line  916)
 * C-, r:                                 emacspeak-feeds.    (line   86)
 * C-, s:                                 emacspeak-wizards.  (line 1393)
-* C-, SPC:                               emacspeak-eww.      (line  730)
+* C-, SPC:                               emacspeak-eww.      (line  728)
 * C-, t:                                 emacspeak-wizards.  (line 1381)
 * C-, u:                                 emacspeak-m-player. (line  687)
 * C-, y:                                 emacspeak-m-player. (line  762)
@@ -7780,7 +7770,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. a:                                 emacspeak-wizards.  (line  680)
 * C-. C-n:                               emacspeak-wizards.  (line  850)
 * C-. d:                                 emacspeak-dired.    (line   25)
-* C-. g:                                 emacspeak-google.   (line  316)
+* C-. g:                                 emacspeak-google.   (line  306)
 * C-. h:                                 emacspeak-m-player. (line  318)
 * C-. l:                                 emacspeak-m-player. (line  380)
 * C-. m:                                 emacspeak-wizards.  (line 1462)
@@ -8207,7 +8197,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a q:                             emacspeak-wizards.  (line  917)
 * C-x @ a r:                             emacspeak-feeds.    (line   87)
 * C-x @ a s:                             emacspeak-wizards.  (line 1394)
-* C-x @ a SPC:                           emacspeak-eww.      (line  731)
+* C-x @ a SPC:                           emacspeak-eww.      (line  729)
 * C-x @ a t:                             emacspeak-wizards.  (line 1382)
 * C-x @ a u:                             emacspeak-m-player. (line  688)
 * C-x @ a y:                             emacspeak-m-player. (line  763)
@@ -8228,7 +8218,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s a:                             emacspeak-wizards.  (line  682)
 * C-x @ s C-n:                           emacspeak-wizards.  (line  852)
 * C-x @ s d:                             emacspeak-dired.    (line   27)
-* C-x @ s g:                             emacspeak-google.   (line  318)
+* C-x @ s g:                             emacspeak-google.   (line  308)
 * C-x @ s h:                             emacspeak-m-player. (line  320)
 * C-x @ s l:                             emacspeak-m-player. (line  382)
 * C-x @ s m:                             emacspeak-wizards.  (line 1466)
@@ -8241,7 +8231,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s SPC:                           emacspeak-wizards.  (line 1140)
 * C-x @ s t:                             soundscape.         (line  129)
 * C-x @ s u:                             soundscape.         (line  141)
-* C-x r e:                               emacspeak-eww.      (line  523)
+* C-x r e:                               emacspeak-eww.      (line  521)
 * C-z b:                                 emacspeak-wizards.  (line 1461)
 * C-z e:                                 emacspeak-wizards.  (line  665)
 * C-z f:                                 emacspeak-wizards.  (line  832)

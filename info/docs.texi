@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1199 commands and 904 options.
+This chapter documents a total of 1195 commands and 904 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6876,8 +6876,6 @@ Toggle punctuation mode.
 @command{emacspeak-webutils-google-similar-to-this-page}
 Google similarity search.
 @item C-t
-@command{emacspeak-eww-transcode}
-Transcode current page to something more readable.
 @item G @command{emacspeak-google-command}
 Prefix key to invoke Google-specific commands.
 @item L
@@ -7643,15 +7641,6 @@ Speak current cell.
 
 @format
 Display tags at point.
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-transcode
-@deffn {Command} emacspeak-eww-transcode   
-@findex emacspeak-eww-transcode
-
-@format
-Apply appropriate transcoding rules to current DOM.
 @end format
 @end deffn
 
@@ -9105,17 +9094,6 @@ Change  web-history-visited in the currently active toolbelt.
 @end format
 @end deffn
 
-@subsubsection emacspeak-google-transcode-url
-@deffn {Command} emacspeak-google-transcode-url  [Arg list not available until function definition is loaded.]
-@findex emacspeak-google-transcode-url
-
-@format
-Transcode specified url via Google.
-
-(fn URL)
-@end format
-@end deffn
-
 @subsubsection emacspeak-google-tts
 @deffn {Command} emacspeak-google-tts  (text &optional lang)
 @findex emacspeak-google-tts
@@ -9164,18 +9142,6 @@ Show my public IP
 @format
 Perform a google search to locate documents that link to the
 current page.
-@end format
-@end deffn
-
-@subsubsection emacspeak-transcode-current-url-via-google
-@deffn {Command} emacspeak-transcode-current-url-via-google  [Arg list not available until function definition is loaded.]
-@findex emacspeak-transcode-current-url-via-google
-
-@format
-Transcode current URL via Google.
-  Reverse effect with prefix arg.
-
-(fn &optional UNTRANSCODE)
 @end format
 @end deffn
 
@@ -20493,15 +20459,6 @@ Open headline at point by following its link property.
 @end format
 @end deffn
 
-@subsubsection emacspeak-webspace-transcode
-@deffn {Command} emacspeak-webspace-transcode   
-@findex emacspeak-webspace-transcode
-
-@format
-Transcode headline at point by following its link property.
-@end format
-@end deffn
-
 @subsubsection emacspeak-webspace-yank-link
 @deffn {Command} emacspeak-webspace-yank-link   
 @findex emacspeak-webspace-yank-link
@@ -24963,7 +24920,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 86 URL Templates.
+This section documents a total of 85 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25059,9 +25016,7 @@ Google Image Search@item @b{Google News Search}
 
 Search Google news.@item @b{Google Scholar}
 
-Google Scholar Search@item @b{Google Transcoder}
-
-Transcode site via Google.@item @b{Google Trends}
+Google Scholar Search@item @b{Google Trends}
 
 Google Trends@item @b{Google Weather}
 

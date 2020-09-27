@@ -250,7 +250,6 @@
 ;;;@command{emacspeak-webutils-google-similar-to-this-page}
 ;;;Google similarity search.
 ;;;@item C-t
-;;;@command{emacspeak-eww-trans
 ;;;@item G @command{emacspeak-google-command}
 ;;;Prefix key to invoke Google-specific commands.
 ;;;@item L
