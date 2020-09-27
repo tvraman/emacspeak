@@ -476,7 +476,7 @@ dont-url-encode if true then url arguments are not url-encoded "
   "View Google Atom news feed pulled using Curl."
   (cl-declare (special emacspeak-atom-view-xsl
                        g-curl-program g-curl-common-options))
-  (emacspeak-webutils-autospeak)
+  (emacspeak-eww-autospeak)
   (g-display-result
    (format
     "%s %s    '%s' 2>/dev/null"
@@ -771,7 +771,7 @@ name of the list.")
  nil
  "Display baseball Video Highlights."
  #'(lambda (url)
-     (emacspeak-webutils-autospeak)
+     (emacspeak-eww-autospeak)
      (emacspeak-xslt-view-xml
       (emacspeak-xslt-get "mlb-media.xsl") url)))
 
@@ -1437,7 +1437,7 @@ template."
        (cl-assert
         (string-match "https://www.reddit.com" url) t
         "Does not look like a Reddit URL")
-       (emacspeak-webutils-autospeak)
+       (emacspeak-eww-autospeak)
        (emacspeak-feeds-atom-display (concat url ".rss")))))
 
 (emacspeak-url-template-define

@@ -481,7 +481,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (if lucky
-        (emacspeak-webutils-autospeak)
+        (emacspeak-eww-autospeak)
       (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
     (setq search-url
           (concat

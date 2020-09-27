@@ -477,7 +477,7 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
         (insert "</ol>\n"))
        (t(insert  (emacspeak-webspace-kg-format-result (cl-first results)))))
       (insert "</body></html>\n")
-      (emacspeak-webutils-autospeak)
+      (emacspeak-eww-autospeak)
       (browse-url-of-buffer))))
 
 ;;}}}

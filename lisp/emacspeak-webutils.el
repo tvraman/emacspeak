@@ -139,7 +139,7 @@ pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
              (while (search-forward entity end t)
                (replace-match replacement nil t)))))
 
-(defsubst emacspeak-webutils-autospeak()
+(defsubst emacspeak-eww-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
   (let ((p dtk-punctuation-mode)

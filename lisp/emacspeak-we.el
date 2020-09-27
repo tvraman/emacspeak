@@ -300,7 +300,7 @@ Each filter is a list of the form
   (cl-declare (special emacspeak-we-xsl-junk))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
     (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
-    (when speak (emacspeak-webutils-autospeak))
+    (when speak (emacspeak-eww-autospeak))
     (add-hook
      'emacspeak-web-pre-process-hook
      (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-junk params))
