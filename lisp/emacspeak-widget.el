@@ -568,12 +568,13 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{  activating widgets:
 ;;; forward declaration:
+(defvar emacspeak-eww-url-at-point)
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
   (let ((inhibit-read-only t)
         (widget (widget-at (ad-get-arg 0))))
     (cond
-     (widget                           ; First record some state:
+     (widget                            ; First record some state:
       (let ((pos (ad-get-arg 0))
             (old-position (point)))
         (cond
@@ -586,7 +587,7 @@ Returns a string with appropriate personality."
           (call-interactively 'emacspeak-we-url-expand-and-execute))
          (t ad-do-it
             (cond
-             ((= old-position (point)) ;did not move
+             ((= old-position (point))  ;did not move
               (emacspeak-auditory-icon 'button)
               (emacspeak-widget-summarize (widget-at pos)))
              (t  (emacspeak-auditory-icon 'large-movement)
