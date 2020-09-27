@@ -90,14 +90,6 @@
    (t (json-read-file filename))))
 
 ;;}}}
-;;{{{ custom
-
-(defgroup emacspeak-wizards nil
-  "Wizards for the Emacspeak desktop."
-  :group 'emacspeak
-  :prefix "emacspeak-wizards-")
-
-;;}}}
 ;;{{{  Actions
 
 ;;; Setting value of property 'emacspeak-action to a list
