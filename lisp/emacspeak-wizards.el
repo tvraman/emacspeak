@@ -2195,17 +2195,6 @@ Default is to add autoload cookies to current file."
         (error "Added %d autoload cookies." count)))))
 
 ;;}}}
-;;{{{ mail signature:
-
-;;;###autoload
-(defun emacspeak-wizards-thanks-mail-signature ()
-  "insert thanks , --Raman at the end of mail message"
-  (interactive)
-  (goto-char (point-max))
-  (insert
-   (format "\n Thanks, \n --%s\n" (user-full-name))))
-
-;;}}}
 ;;{{{ Bullet navigation
 
 ;;;###autoload
