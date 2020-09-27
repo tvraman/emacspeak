@@ -248,9 +248,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   "Function variable returning the value of the url under point
   in a Web page.")
 
-(defvar emacspeak-webutils-current-url nil
-  "Function variable returning the value of the current document
-  url in a Web page.")
+
 
 ;;}}}
 ;;{{{ tools
