@@ -243,8 +243,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 ;;}}}
 ;;{{{ variables
 
-(defvar emacspeak-webutils-document-title nil
-  "Function variable returning the current document title.")
+
 
 (defvar emacspeak-webutils-url-at-point
   #'(lambda nil (shr-url-at-point nil))
@@ -367,6 +366,9 @@ With a prefix argument, extracts url under point."
 ;;}}}
 ;;{{{ tools
 
+(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
+
+
 ;;;###autoload
 (defun emacspeak-webutils-jump-to-title-in-content ()
   "Jumps to the title in web document.
@@ -374,7 +376,7 @@ The first time it is called, it jumps to the first
 instance  of the title.  Repeated calls jump to further
 instances."
   (interactive)
-  (let ((title (funcall emacspeak-webutils-document-title)))
+  (let ((title (emacspeak-eww-current-title)))
     (condition-case nil
         (progn
           (if (not (eq last-command 'emacspeak-webutils-jump-to-title-in-content))
@@ -422,7 +424,7 @@ Useful in handling double-redirect from TuneIn."
     (message "Playing redirected media  URL under point: %s" url)
     (emacspeak-m-player url t)))
 
-;;;###autoload
+
 
 ;;}}}
 ;;{{{ utility: Get Feed Titles With Links
