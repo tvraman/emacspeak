@@ -57,11 +57,12 @@
 
 ;;}}}
 ;;{{{Autospeak Helper
+;;;###autoload
 (defun emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
   (let ((p dtk-punctuation-mode)
-       (r dtk-speech-rate))
+        (r dtk-speech-rate))
     (add-hook
      'emacspeak-web-post-process-hook
      #'(lambda nil
