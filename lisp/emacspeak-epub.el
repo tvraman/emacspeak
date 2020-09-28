@@ -176,6 +176,8 @@
 (require 'derived)
 (eval-when-compile(require 'subr-x))
 (require 'locate)
+(require 'emacspeak-webutils)
+(require 'dom-addons)
 ;;}}}
 ;;{{{  Customizations, Variables:
 
