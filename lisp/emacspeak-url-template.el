@@ -151,7 +151,7 @@ dont-url-encode if true then url arguments are not url-encoded "
     :fetcher fetcher
     :dont-url-encode dont-url-encode)))
 
-;;;###autoload
+
 (defun emacspeak-url-template-load (file)
   "Load URL template resources from specified location."
   (interactive
