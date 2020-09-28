@@ -27,7 +27,6 @@ APT's
 AQI
 ArchWiki
 arg
-Arg
 ARG
 args
 ASIN
@@ -61,7 +60,6 @@ BookShare
 BOOKSHARE
 boop
 brf
-browsable
 bsf
 bz
 calc
@@ -610,10 +608,8 @@ tooltip
 tooltips
 TPJ
 transcode
-Transcode
 transcoded
 transcoder
-Transcoder
 Treese
 trplayer
 tty
@@ -682,8 +678,6 @@ webspace
 Webspace
 WEBSPACE
 Webspaces
-webutils
-Webutils
 Wecker
 whitespace
 widnow
