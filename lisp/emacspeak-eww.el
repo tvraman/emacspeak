@@ -396,16 +396,14 @@
 ;;{{{ Required modules
 
 (require 'cl-lib)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'pp)
 (eval-when-compile(require 'subr-x))
 (require 'eww  )
 (require 'dom)
 (require 'dom-addons)
-(require 'emacspeak-speak)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
-
 (require 'emacspeak-google)
 
 ;;}}}
