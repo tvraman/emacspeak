@@ -113,7 +113,7 @@ This is useful when handling bad HTML."
      (cl-declare (special emacspeak-we-xsl-p))
      (when emacspeak-we-xsl-p
        (setq emacspeak-we-xsl-p nil)
-       (add-hook 'emacspeak-web-post-process-hook
+       (add-hook 'emacspeak-eww-post-process-hook
                  #'(lambda ()
                      (cl-declare (special emacspeak-we-xsl-p))
                      (setq emacspeak-we-xsl-p t))
@@ -124,7 +124,7 @@ This is useful when handling bad HTML."
 ;;{{{XSLT Transformer functions:
 
 (defun emacspeak-xslt-make-xsl-transformer  (xsl &optional params)
-  "Return a function that can be attached to emacspeak-web-pre-process-hook to apply required xslt transform."
+  "Return a function that can be attached to emacspeak-eww-pre-process-hook to apply required xslt transform."
   (cond
    ((null params)
     (eval
@@ -137,7 +137,7 @@ This is useful when handling bad HTML."
 
 (defun emacspeak-xslt-make-xsl-transformer-pipeline   (specs url)
   "Return a function that can be attached to
-emacspeak-web-pre-process-hook to apply required xslt transformation
+emacspeak-eww-pre-process-hook to apply required xslt transformation
 pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
   (eval
    `#'(lambda ()
@@ -424,7 +424,7 @@ part of the libxslt package."
     (read-string "URL: " (browse-url-url-at-point))))
   (cl-declare (special emacspeak-xslt-options))
   (add-hook
-   'emacspeak-web-pre-process-hook
+   'emacspeak-eww-pre-process-hook
    (emacspeak-xslt-make-xsl-transformer style))
   (browse-url url))
 

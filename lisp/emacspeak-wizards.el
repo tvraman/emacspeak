@@ -3533,7 +3533,7 @@ external package."
   (interactive)
   (cl-declare (special emacspeak-we-xsl-junk emacspeak-we-xsl-filter))
   (add-hook
-   'emacspeak-web-post-process-hook
+   'emacspeak-eww-post-process-hook
    #'(lambda nil (eww-display-dom-by-element 'h3)))
   (message "Press l to expand all sections.")
   (emacspeak-we-xslt-pipeline-filter

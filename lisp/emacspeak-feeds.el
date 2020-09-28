@@ -247,7 +247,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
     (with-current-buffer data-buffer
       (when speak (emacspeak-eww-autospeak))
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda ()
            (setq eww-current-url feed-url
                  emacspeak-eww-feed t 

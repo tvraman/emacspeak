@@ -109,7 +109,7 @@
 (defadvice helm-google-suggest (before emacspeak pre act comp)
   "setup emacspeak post-processing-hook"
   (add-hook
-   'emacspeak-web-post-process-hook
+   'emacspeak-eww-post-process-hook
    #'(lambda nil
        (let  ((emacspeak-google-toolbelt (emacspeak-google-toolbelt)))
          (eww-display-dom-by-id-list '("center_col" "rhs"))))))

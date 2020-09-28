@@ -690,7 +690,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 (defun emacspeak-org-eww-file (file _link)
   "Preview HTML files with EWW from exporter."
-  (add-hook 'emacspeak-web-post-process-hook  #'emacspeak-speak-buffer)
+  (add-hook 'emacspeak-eww-post-process-hook  #'emacspeak-speak-buffer)
   (funcall-interactively #'eww-open-file file))
 
 ;;}}}

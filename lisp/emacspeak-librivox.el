@@ -220,7 +220,7 @@ Optional arg `offset' (default 0) is used for getting more results."
     (when books
       (emacspeak-eww-autospeak)
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda ()
            (cl-declare (special emacspeak-we-url-executor))
            (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))

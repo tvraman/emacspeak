@@ -171,9 +171,9 @@
 LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
-  (cl-declare (special emacspeak-web-post-process-hook))
+  (cl-declare (special emacspeak-eww-post-process-hook))
   (add-hook
-   'emacspeak-web-post-process-hook
+   'emacspeak-eww-post-process-hook
    (eval
     `(function
       (lambda nil
@@ -522,7 +522,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
      (lucky (browse-url search-url))
      (t                                 ; always just show results
 (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda ()
            (emacspeak-eww-next-h1  'speak)))      
       (emacspeak-we-extract-by-id-list
@@ -553,7 +553,7 @@ Optional prefix arg prompts for toolbelt options."
      (options (emacspeak-google-toolbelt-change))
      (t
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda ()
            (emacspeak-eww-next-h1  'speak)))
       (emacspeak-we-extract-by-id-list
@@ -672,7 +672,7 @@ Optional prefix arg  avoids scraping  information from HTML."
    (list
     (emacspeak-websearch-read-query "Yahoo News Query: ")
     current-prefix-arg))
-  (add-hook 'emacspeak-web-post-process-hook
+  (add-hook 'emacspeak-eww-post-process-hook
             #'(lambda nil
                 (cl-declare (special  emacspeak-we-url-rewrite-rule
                                       emacspeak-websearch-news-yahoo-rss-uri
@@ -712,7 +712,7 @@ Optional prefix arg  avoids scraping  information from HTML."
    (list
     (emacspeak-websearch-read-query "Lookup word in Webster:")))
   (cl-declare (special emacspeak-websearch-merriam-webster-uri))
-  (add-hook 'emacspeak-web-post-process-hook #'emacspeak-eww-next-h1 'at-end)
+  (add-hook 'emacspeak-eww-post-process-hook #'emacspeak-eww-next-h1 'at-end)
   (browse-url
    (concat emacspeak-websearch-merriam-webster-uri
            (url-hexify-string query))))

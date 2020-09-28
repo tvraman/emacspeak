@@ -1183,7 +1183,7 @@ Make sure it's downloaded and unpacked first."
       (unless (file-exists-p directory)
         (error "First unpack this content."))
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda ()
            (cl-declare (special emacspeak-we-url-executor))
            (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)
@@ -1276,7 +1276,7 @@ Make sure it's downloaded and unpacked first."
   (cl-declare (special emacspeak-bookshare-directory))
   (let* ((xsl (emacspeak-bookshare-toc-xslt)))
     (add-hook
-     'emacspeak-web-post-process-hook
+     'emacspeak-eww-post-process-hook
      #'(lambda ()
          (cl-declare (special emacspeak-we-url-executor))
          (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
@@ -1364,7 +1364,7 @@ Useful for fulltext search in a book."
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda nil
            (setq emacspeak-bookshare-this-book directory)
            (emacspeak-speak-load-directory-settings directory)

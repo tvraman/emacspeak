@@ -765,7 +765,7 @@ are available are cued by an auditory icon on the header line."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
-  (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
+  (add-hook 'emacspeak-eww-post-process-hook 'emacspeak-eww-post-render-actions)
   (cond
    ((and (eww-current-url)
          emacspeak-eww-feed
@@ -777,7 +777,7 @@ Retain previously set punctuations  mode."
           (s emacspeak-eww-style))
       (kill-buffer)
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda ()
            (dtk-set-punctuations p)
            (dtk-set-rate r))
@@ -790,7 +790,7 @@ Retain previously set punctuations  mode."
          (p dtk-punctuation-mode)
          (r dtk-speech-rate))
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda nil
            (dtk-set-punctuations p)
            (dtk-set-rate r))
@@ -823,7 +823,7 @@ Retain previously set punctuations  mode."
       (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
     (emacspeak-speak-voice-annotate-paragraphs)
     (cond
-     (emacspeak-web-post-process-hook
+     (emacspeak-eww-post-process-hook
       (emacspeak-eww-run-post-process-hook))
      (t (emacspeak-speak-mode-line)))))
 
@@ -924,7 +924,7 @@ Retain previously set punctuations  mode."
 (defun emacspeak-eww-autospeak()
   "Setup post process hook to speak the Web page when rendered. "
   (add-hook
-   'emacspeak-web-post-process-hook
+   'emacspeak-eww-post-process-hook
    #'(lambda nil
        (cl-declare (special emacspeak-we-xpath-filter))
        (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
@@ -932,48 +932,48 @@ Retain previously set punctuations  mode."
    'at-end))
 
 ;;;###autoload
-(defvar emacspeak-web-pre-process-hook nil
+(defvar emacspeak-eww-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
 ;;;###autoload
 (defun emacspeak-eww-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
-  (cl-declare (special emacspeak-web-pre-process-hook))
-  (when     emacspeak-web-pre-process-hook
+  (cl-declare (special emacspeak-eww-pre-process-hook))
+  (when     emacspeak-eww-pre-process-hook
     (condition-case nil
         (let ((inhibit-read-only t))
-          (run-hooks  'emacspeak-web-pre-process-hook))
+          (run-hooks  'emacspeak-eww-pre-process-hook))
       ((debug error)  (message "Caught error  in pre-process hook.")
-       (setq emacspeak-web-pre-process-hook nil)))
-    (setq emacspeak-web-pre-process-hook nil)))
+       (setq emacspeak-eww-pre-process-hook nil)))
+    (setq emacspeak-eww-pre-process-hook nil)))
 
 ;;}}}
 ;;{{{ web-post-process
 ;;;###autoload
-(defvar emacspeak-web-post-process-hook nil
+(defvar emacspeak-eww-post-process-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
 ;;;###autoload
 (defun emacspeak-eww-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
-  (cl-declare (special emacspeak-web-post-process-hook))
-  (when     emacspeak-web-post-process-hook
+  (cl-declare (special emacspeak-eww-post-process-hook))
+  (when     emacspeak-eww-post-process-hook
     (condition-case nil
         (let ((inhibit-read-only t))
-          (run-hooks  'emacspeak-web-post-process-hook))
+          (run-hooks  'emacspeak-eww-post-process-hook))
       ((debug error)  (message "Caught error  in post-process hook.")
-       (setq emacspeak-web-post-process-hook nil)))
-    (setq emacspeak-web-post-process-hook nil)))
+       (setq emacspeak-eww-post-process-hook nil)))
+    (setq emacspeak-eww-post-process-hook nil)))
 
 ;;}}}
 ;;{{{ xslt transform on request:
 
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
-  (cl-declare (special emacspeak-web-pre-process-hook))
+  (cl-declare (special emacspeak-eww-pre-process-hook))
   (save-excursion
     (cond
-     (emacspeak-web-pre-process-hook (emacspeak-eww-run-pre-process-hook))
+     (emacspeak-eww-pre-process-hook (emacspeak-eww-run-pre-process-hook))
      ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-we-xsl-transform (point) (point-max)
@@ -2065,7 +2065,7 @@ interactive prefix arg `delete', delete that mark instead."
                (t (error "Unknown book type."))))
         (when point
           (add-hook
-           'emacspeak-web-post-process-hook
+           'emacspeak-eww-post-process-hook
            #'(lambda ()
                (goto-char point)
                (emacspeak-auditory-icon 'large-movement))

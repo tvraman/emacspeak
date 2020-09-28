@@ -373,7 +373,7 @@
       (setq element (concat base element)))
     (setq content (emacspeak-epub-get-contents epub element))
     (add-hook
-     'emacspeak-web-post-process-hook
+     'emacspeak-eww-post-process-hook
      #'(lambda nil
          (cl-declare (special emacspeak-we-url-executor
                               emacspeak-epub-this-epub
@@ -408,7 +408,7 @@ Useful if table of contents in toc.ncx is empty."
                 (format "<li><a href=\"%s\">%s</a></li>\n" f f)))
       (insert "</ol>\n")
       (add-hook
-       'emacspeak-web-post-process-hook
+       'emacspeak-eww-post-process-hook
        #'(lambda nil
            (cl-declare (special emacspeak-we-url-executor
                                 emacspeak-epub-this-epub))
@@ -443,7 +443,7 @@ Useful if table of contents in toc.ncx is empty."
            (locator (cl-first fields))
            (fragment (cl-second fields)))
       (when fragment (setq fragment (format "#%s" fragment)))
-      (add-hook 'emacspeak-web-post-process-hook
+      (add-hook 'emacspeak-eww-post-process-hook
                 #'(lambda nil (ems--fastload emacspeak-speak-directory-settings)))
       (emacspeak-epub-browse-content emacspeak-epub-this-epub locator fragment)))
    (t (browse-url url))))
@@ -907,7 +907,7 @@ in the epub file instead."
       (plist-put eww-data :author (emacspeak-epub-author this-epub))
       (plist-put eww-data :title (emacspeak-epub-title this-epub))
       (eww-update-header-line-format)
-      (when emacspeak-web-post-process-hook
+      (when emacspeak-eww-post-process-hook
         (emacspeak-eww-run-post-process-hook))
       (goto-char (point-min))
       (emacspeak-auditory-icon 'open-object))

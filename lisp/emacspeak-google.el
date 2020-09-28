@@ -413,7 +413,7 @@ This variable is buffer-local.")
          (eval
           `#'(lambda nil
               (setq emacspeak-google-query ,query)))))
-    (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+    (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
 
 (defun emacspeak-google-cache-toolbelt(belt)
   "Setup post process hook to cache google toolbelt when rendered."
@@ -422,7 +422,7 @@ This variable is buffer-local.")
          (eval 
                  `#'(lambda nil
                    (setq emacspeak-google-toolbelt' ,belt)))))
-    (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+    (add-hook 'emacspeak-eww-post-process-hook cache 'at-end)))
 
 
 ;;}}}
@@ -573,7 +573,7 @@ current page."
   (let ((url (shr-url-at-point nil)))
     (cl-assert url t "No link under point.")
     (add-hook
-     'emacspeak-web-post-process-hook
+     'emacspeak-eww-post-process-hook
      #'(lambda ()
          (emacspeak-eww-next-h1  'speak)))      
     (emacspeak-we-extract-by-id-list
