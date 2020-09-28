@@ -221,7 +221,7 @@ Use Custom to customize where possible. "
   (tvr-time-load
       (load tvr-libs)) ;;; load  settings   not  customizable via custom.
   (tvr-customize)      ;;; customizations
-  (run-with-idle-timer 1 nil #'yas-reload-all)
+  (with-eval-after-load 'yasnippet (yas-reload-all))
   (tvr-defer-muggles)
   (when (dbus-list-known-names :session)
     (make-thread #'emacspeak-dbus-setup))
