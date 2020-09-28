@@ -54,7 +54,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'eww)
-(require 'emacspeak-eww)
 (require 'emacspeak-feeds)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
@@ -655,6 +654,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (interactive)
   (org-store-link nil)
   (org-capture nil "h"))
+(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
 
 (defun org-eww-store-link ()
   "Store a link to a EWW buffer."

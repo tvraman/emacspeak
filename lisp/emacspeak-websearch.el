@@ -52,7 +52,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'eww)
-(require 'emacspeak-eww)
 (require 'emacspeak-feeds)
 (require 'emacspeak-google)
 (require 'gweb)
@@ -485,6 +484,7 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 (defvar emacspeak-websearch-google-number-of-results 25
   "Number of Google search results.")
+(declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
