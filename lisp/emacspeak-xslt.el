@@ -428,7 +428,7 @@ part of the libxslt package."
    (emacspeak-xslt-make-xsl-transformer style))
   (browse-url url))
 
-;;;###autoload
+
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)
   "Browse XML URL with specified XSL style."
   (interactive

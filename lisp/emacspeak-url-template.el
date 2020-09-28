@@ -250,6 +250,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil nil
  "BBC World News Summary"
  #'emacspeak-feeds-opml-display)
+(declare-function emacspeak-xslt-view-xml "emacspeak-xslt" (style url &optional unescape-charent))
 
 (emacspeak-url-template-define
  "BBC Program Guide (not maintained)"
