@@ -87,28 +87,22 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile
-  (when (locate-library "package")
-    (unless (locate-library "hydra") (package-install 'hydra))))
-(with-no-warnings (require 'origami "origami" 'no-error)
-                  (require 'vuiet "vuiet" 'no-error))
-(require 'emacspeak-hydra)
-(require 'org)
-(require 'emacspeak-org)
-(require 'hideshow)
-(require 'emacspeak-maths nil 'no-error)
-(require 'emacspeak-outline)
-(require 'org)
-(with-no-warnings (require 'origami "origami" 'no-error)
-                  (require 'vuiet "vuiet" 'no-error))
-(require 'smartparens "smartparens" 'no-error)
-(require 'browse-kill-ring "browse-kill-ring" 'no-error)
-(require 'hydra "hydra" 'no-error)
-(require 'xbacklight)
-(require 'view)
-(require 'emacspeak-m-player)
-(declare-function ido-ubiquitous-mode "ext:ido-completing-read+" (&optional arg))
-(declare-function ido-everywhere "ido" (&optional arg))
+(with-no-warnings
+  (eval-when-compile
+    (when (locate-library "package")
+      (unless (locate-library "hydra") (package-install 'hydra)))
+  
+    (require 'origami "origami" 'no-error)
+    (require 'emacspeak-hydra)
+  
+  
+    (require 'emacspeak-outline)
+    (require 'smartparens "smartparens" 'no-error)
+    (require 'hydra "hydra" 'no-error)
+    (require 'view)
+    (require 'emacspeak-m-player)))
+
+
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
 
