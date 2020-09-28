@@ -53,7 +53,6 @@
 (require 'ring)
 (require 'derived)
 (require 'gweb)
-(require 'emacspeak-webutils)
 (require 'emacspeak-feeds)
 
 ;;}}}

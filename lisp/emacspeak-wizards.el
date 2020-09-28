@@ -63,7 +63,6 @@
 (require 'emacspeak-table-ui)
 (require 'texinfo)
 (require 'term)
-(require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 (require 'name-this-color "name-this-color" 'no-error)

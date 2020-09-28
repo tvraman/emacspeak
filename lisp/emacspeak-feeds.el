@@ -1,5 +1,5 @@
 ;;; emacspeak-feeds.el --- Feeds Support (Atom, RSS) For Emacspeak  -*- lexical-binding: t; -*-
-;;; $Id: emacspeak-webutils.el 8904 2014-03-21 20:28:21Z tv.raman.tv $
+;;; $Id:$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak Feeds Support 
 ;;; Keywords: Emacspeak, RSS, Atom
@@ -51,7 +51,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
-(require 'emacspeak-webutils)
 (require 'url)
 (require 'eww)
 (require 'browse-url)

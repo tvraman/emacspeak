@@ -48,8 +48,8 @@
 ;;; Emacs web browser  EWW
 ;;; This module will use the abstraction provided by browse-url
 ;;; to handle Web pages.
-;;; Module emacspeak-webutils provides the needed additional
-;;; abstractions not already covered by browse-url
+
+
 
 ;;; Code:
 

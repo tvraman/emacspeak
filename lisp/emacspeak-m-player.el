@@ -75,7 +75,6 @@
 (require 'ladspa)
 (require 'ido)
 (require 'emacspeak-amark)
-(require 'emacspeak-webutils)
 (require 'dired)
 (require 'locate)
 (require 'comint)
@@ -1048,8 +1047,6 @@ selected filter before it is applied."
 
 ;;}}}
 ;;{{{ Media History:
-
-;;; from emacspeak-webutils:
 
 (defvar emacspeak-m-player-history nil)
 

@@ -171,12 +171,10 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
 (require 'derived)
 (eval-when-compile(require 'subr-x))
 (require 'locate)
-(require 'emacspeak-webutils)
 (require 'dom-addons)
 ;;}}}
 ;;{{{  Customizations, Variables:
