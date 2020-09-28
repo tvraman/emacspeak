@@ -2287,17 +2287,7 @@ This module provides utility functions for searching the WWW
 
      (fn TERM)
 
-12.212.1.6 emacspeak-websearch-company-news
-...........................................
-
- -- Command: emacspeak-websearch-company-news (ticker &optional prefix)
-
-     Perform an company news lookup.
-     Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
-
-     (fn TICKER &optional PREFIX)
-
-12.212.1.7 emacspeak-websearch-dispatch
+12.212.1.6 emacspeak-websearch-dispatch
 .......................................
 
  -- Command: emacspeak-websearch-dispatch
@@ -2307,7 +2297,7 @@ This module provides utility functions for searching the WWW
       Press ‘?’ to list available search engines.
         This interface attempts to speak the most relevant information on the result page.
 
-12.212.1.8 emacspeak-websearch-foldoc-search
+12.212.1.7 emacspeak-websearch-foldoc-search
 ............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
@@ -2316,7 +2306,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.212.1.9 emacspeak-websearch-google
+12.212.1.8 emacspeak-websearch-google
 .....................................
 
  -- Command: emacspeak-websearch-google (query &optional flag)
@@ -2327,8 +2317,8 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.212.1.10 emacspeak-websearch-google-feeling-lucky
-....................................................
+12.212.1.9 emacspeak-websearch-google-feeling-lucky
+...................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
 
@@ -2336,28 +2326,21 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.212.1.11 emacspeak-websearch-google-news
+12.212.1.10 emacspeak-websearch-google-news
 ...........................................
 
  -- Command: emacspeak-websearch-google-news
 
      Invoke Google News url template.
 
-12.212.1.12 emacspeak-websearch-google-regional-news
-....................................................
-
- -- Command: emacspeak-websearch-google-regional-news
-
-     Browse Google News by region.
-
-12.212.1.13 emacspeak-websearch-google-search-in-date-range
+12.212.1.11 emacspeak-websearch-google-search-in-date-range
 ...........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.212.1.14 emacspeak-websearch-google-with-toolbelt
+12.212.1.12 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
@@ -2366,7 +2349,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.212.1.15 emacspeak-websearch-gutenberg
+12.212.1.13 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
@@ -2375,14 +2358,14 @@ This module provides utility functions for searching the WWW
 
      (fn TYPE QUERY)
 
-12.212.1.16 emacspeak-websearch-help
+12.212.1.14 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.212.1.17 emacspeak-websearch-merriam-webster-search
+12.212.1.15 emacspeak-websearch-merriam-webster-search
 ......................................................
 
  -- Command: emacspeak-websearch-merriam-webster-search (query)
@@ -2391,17 +2374,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.212.1.18 emacspeak-websearch-news-yahoo
-..........................................
-
- -- Command: emacspeak-websearch-news-yahoo (query &optional rss)
-
-     Perform an Yahoo News search.
-     Optional prefix arg  avoids scraping  information from HTML.
-
-     (fn QUERY &optional RSS)
-
-12.212.1.19 emacspeak-websearch-wikipedia-search
+12.212.1.16 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -2410,27 +2383,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.212.1.20 emacspeak-websearch-yahoo
-.....................................
-
- -- Command: emacspeak-websearch-yahoo (query)
-
-     Perform an Yahoo  search
-
-     (fn QUERY)
-
-12.212.1.21 emacspeak-websearch-yahoo-historical-chart
-......................................................
-
- -- Command: emacspeak-websearch-yahoo-historical-chart (ticker
-          &optional as-html)
-
-     Look up historical stock data.
-     Optional second arg as-html processes the results as HTML rather than data.
-
-     (fn TICKER &optional AS-HTML)
-
-12.212.1.22 emacspeak-websearch-youtube-search
+12.212.1.17 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
@@ -2498,19 +2451,7 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
      Setup news updates.
      Updated headlines found in emacspeak-webspace-headlines.
 
-12.213.1.6 emacspeak-webspace-knowledge-search
-..............................................
-
- -- Command: emacspeak-webspace-knowledge-search (query &optional limit)
-     ‘C-; k’
-     ‘C-x @ h k’
-
-     Perform a Google Knowledge Graph search.
-     Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
-
-     (fn QUERY &optional LIMIT)
-
-12.213.1.7 emacspeak-webspace-mode
+12.213.1.6 emacspeak-webspace-mode
 ..................................
 
  -- Command: emacspeak-webspace-mode
@@ -2542,14 +2483,14 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
      this mode runs the hook ‘emacspeak-webspace-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.213.1.8 emacspeak-webspace-open
+12.213.1.7 emacspeak-webspace-open
 ..................................
 
  -- Command: emacspeak-webspace-open
 
      Open headline at point by following its link property.
 
-12.213.1.9 emacspeak-webspace-yank-link
+12.213.1.8 emacspeak-webspace-yank-link
 .......................................
 
  -- Command: emacspeak-webspace-yank-link
@@ -2561,9 +2502,6 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
  -- Variable: User Option emacspeak-webspace-feeds
      Feeds to use in Headline Ticker.
-
- -- Variable: User Option emacspeak-webspace-kg-key
-     API Key for Google Knowledge Graph.
 
 
 File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev: emacspeak-webspace,  Up: Emacspeak Commands And Options
@@ -4219,6 +4157,11 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Variable: User Option emacspeak-wizards-pdf-to-text-options
      options to Command for running pdftotext.
+
+ -- Variable: User Option emacspeak-wizards-personal-portfolio
+     Set this to the stock tickers you want to check.  Default is GAFA.
+     Tickers are separated by white-space and are automatically sorted
+     in lexical order with duplicates removed when saving.
 
  -- Variable: User Option emacspeak-wizards-project-shells
      List of shell-name/initial-directory pairs.
@@ -7414,7 +7357,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> =:                                emacspeak-speak.    (line  364)
 * <fn> >:                                emacspeak-speak.    (line  659)
 * <fn> ?:                                emacspeak-websearch.
-                                                             (line   72)
+                                                             (line   62)
 * <fn> @:                                emacspeak-speak.    (line  584)
 * <fn> A:                                emacspeak-calendar. (line   19)
 * <fn> a:                                emacspeak-speak.    (line  571)
@@ -7664,7 +7607,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' a:                                 emacspeak-wizards.  (line  681)
 * C-' C-n:                               emacspeak-wizards.  (line  851)
 * C-' d:                                 emacspeak-dired.    (line   26)
-* C-' g:                                 emacspeak-google.   (line  307)
+* C-' g:                                 emacspeak-google.   (line  319)
 * C-' h:                                 emacspeak-m-player. (line  319)
 * C-' l:                                 emacspeak-m-player. (line  381)
 * C-' m:                                 emacspeak-wizards.  (line 1463)
@@ -7700,7 +7643,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-. a:                                 emacspeak-wizards.  (line  680)
 * C-. C-n:                               emacspeak-wizards.  (line  850)
 * C-. d:                                 emacspeak-dired.    (line   25)
-* C-. g:                                 emacspeak-google.   (line  306)
+* C-. g:                                 emacspeak-google.   (line  318)
 * C-. h:                                 emacspeak-m-player. (line  318)
 * C-. l:                                 emacspeak-m-player. (line  380)
 * C-. m:                                 emacspeak-wizards.  (line 1462)
@@ -7724,7 +7667,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; e:                                 gmaps.              (line   16)
 * C-; h:                                 emacspeak-org.      (line   27)
 * C-; j:                                 emacspeak-wizards.  (line 1241)
-* C-; k:                                 emacspeak-webspace. (line   58)
+* C-; k:                                 emacspeak-google.   (line   28)
 * C-; l:                                 emacspeak-librivox. (line   32)
 * C-; p:                                 emacspeak-wizards.  (line 1093)
 * C-; s:                                 emacspeak-wizards.  (line 1155)
@@ -7818,7 +7761,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e = <1>:                             emacspeak-speak.    (line  363)
 * C-e >:                                 emacspeak-speak.    (line  658)
 * C-e ?:                                 emacspeak-websearch.
-                                                             (line   71)
+                                                             (line   61)
 * C-e @:                                 emacspeak-speak.    (line  583)
 * C-e a:                                 Status Information. (line    8)
 * C-e A:                                 emacspeak-calendar. (line   18)
@@ -8144,7 +8087,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h h:                             emacspeak-org.      (line   28)
 * C-x @ h j:                             emacspeak-wizards.  (line 1243)
-* C-x @ h k:                             emacspeak-webspace. (line   59)
+* C-x @ h k:                             emacspeak-google.   (line   29)
 * C-x @ h l:                             emacspeak-librivox. (line   33)
 * C-x @ h p:                             emacspeak-wizards.  (line 1094)
 * C-x @ h s:                             emacspeak-wizards.  (line 1156)
@@ -8154,7 +8097,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s a:                             emacspeak-wizards.  (line  682)
 * C-x @ s C-n:                           emacspeak-wizards.  (line  852)
 * C-x @ s d:                             emacspeak-dired.    (line   27)
-* C-x @ s g:                             emacspeak-google.   (line  308)
+* C-x @ s g:                             emacspeak-google.   (line  320)
 * C-x @ s h:                             emacspeak-m-player. (line  320)
 * C-x @ s l:                             emacspeak-m-player. (line  382)
 * C-x @ s m:                             emacspeak-wizards.  (line 1466)

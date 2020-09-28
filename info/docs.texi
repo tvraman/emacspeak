@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1190 commands and 904 options.
+This chapter documents a total of 1185 commands and 905 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1364,354 +1364,6 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @defvar {User Option} voice-negation-char-personality
 Personality used for font-lock-negation-char-face
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-calendar-event
-Personality used for org-agenda-calendar-event
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-calendar-sexp
-Personality used for org-agenda-calendar-sexp
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-column-dateline
-Personality used for org-agenda-column-dateline
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-diary
-Personality used for org-agenda-diary
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-done
-Personality used for org-agenda-done
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-filter-category
-Personality used for org-agenda-filter-category
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-filter-tags
-Personality used for org-agenda-filter-tags
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-restriction-lock
-Personality used for org-agenda-restriction-lock
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-agenda-structure
-Personality used for org-agenda-structure
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-archived
-Personality used for org-archived
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-beamer-tag
-Personality used for org-beamer-tag
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-block
-Personality used for org-block
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-block-background
-Personality used for org-block-background
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-checkbox
-Personality used for org-checkbox
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-clock-overlay
-Personality used for org-clock-overlay
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-code
-Personality used for org-code
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-column
-Personality used for org-column
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-column-title
-Personality used for org-column-title
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-date
-Personality used for org-date
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-date-selected
-Personality used for org-date-selected
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-default
-Personality used for org-default
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-document-info
-Personality used for org-document-info
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-document-info-keyword
-Personality used for org-document-info-keyword
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-document-title
-Personality used for org-document-title
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-done
-Personality used for org-done
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-drawer
-Personality used for org-drawer
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-ellipsis
-Personality used for org-ellipsis
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-footnote
-Personality used for org-footnote
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-formula
-Personality used for org-formula
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-headline-done
-Personality used for org-headline-done
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-hide
-Personality used for org-hide
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-indent
-Personality used for org-indent
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-inlinetask
-Personality used for org-inlinetask
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-latex-and-export-specials
-Personality used for org-latex-and-export-specials
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-1
-Personality used for org-level-1
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-2
-Personality used for org-level-2
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-3
-Personality used for org-level-3
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-4
-Personality used for org-level-4
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-5
-Personality used for org-level-5
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-6
-Personality used for org-level-6
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-7
-Personality used for org-level-7
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-level-8
-Personality used for org-level-8
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-link
-Personality used for org-link
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-meta-line
-Personality used for org-meta-line
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-property-value
-Personality used for org-property-value
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-scheduled
-Personality used for org-scheduled
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-scheduled-previously
-Personality used for org-scheduled-previously
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-scheduled-today
-Personality used for org-scheduled-today
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-sexp-date
-Personality used for org-sexp-date
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-special-keyword
-Personality used for org-special-keyword
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-table
-Personality used for org-table
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-tag
-Personality used for org-tag
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-target
-Personality used for org-target
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-time-grid
-Personality used for org-time-grid
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-todo
-Personality used for org-todo
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-upcoming-deadline
-Personality used for org-upcoming-deadline
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-verbatim
-Personality used for org-verbatim
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-warning
-Personality used for org-warning
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 
 @end defvar
 
@@ -8769,6 +8421,25 @@ Extract current  page from the Google cache.
 @end format
 @end deffn
 
+@subsubsection emacspeak-google-knowledge-search
+@deffn {Command} emacspeak-google-knowledge-search  (query &optional limit)
+@table @kbd
+@item C-; k
+@kindex C-; k
+@item C-x @@ h k
+@kindex C-x @@ h k
+@end table
+
+@findex emacspeak-google-knowledge-search
+
+@format
+Perform a Google Knowledge Graph search.
+Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
+
+(fn QUERY &optional LIMIT)
+@end format
+@end deffn
+
 @subsubsection emacspeak-google-on-this-site
 @deffn {Command} emacspeak-google-on-this-site   
 @findex emacspeak-google-on-this-site
@@ -9165,6 +8836,11 @@ current page.
 @end deffn
 
 @subsection emacspeak-google Options
+
+@defvar {User Option} emacspeak-google-kg-key
+API Key for Google Knowledge Graph.
+
+@end defvar
 
 @defvar {User Option} emacspeak-google-tts-default-language
 Default language used for Google TTS.
@@ -13717,6 +13393,354 @@ Key of template used for capturing  hot list.
 
 @defvar {User Option} emacspeak-org-table-after-movement-function
 The function to call after moving in a table
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-calendar-event
+Personality used for org-agenda-calendar-event
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-calendar-sexp
+Personality used for org-agenda-calendar-sexp
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-column-dateline
+Personality used for org-agenda-column-dateline
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-diary
+Personality used for org-agenda-diary
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-done
+Personality used for org-agenda-done
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-filter-category
+Personality used for org-agenda-filter-category
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-filter-tags
+Personality used for org-agenda-filter-tags
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-restriction-lock
+Personality used for org-agenda-restriction-lock
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-agenda-structure
+Personality used for org-agenda-structure
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-archived
+Personality used for org-archived
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-beamer-tag
+Personality used for org-beamer-tag
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-block
+Personality used for org-block
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-block-background
+Personality used for org-block-background
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-checkbox
+Personality used for org-checkbox
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-clock-overlay
+Personality used for org-clock-overlay
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-code
+Personality used for org-code
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-column
+Personality used for org-column
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-column-title
+Personality used for org-column-title
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-date
+Personality used for org-date
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-date-selected
+Personality used for org-date-selected
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-default
+Personality used for org-default
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-document-info
+Personality used for org-document-info
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-document-info-keyword
+Personality used for org-document-info-keyword
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-document-title
+Personality used for org-document-title
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-done
+Personality used for org-done
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-drawer
+Personality used for org-drawer
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-ellipsis
+Personality used for org-ellipsis
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-footnote
+Personality used for org-footnote
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-formula
+Personality used for org-formula
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-headline-done
+Personality used for org-headline-done
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-hide
+Personality used for org-hide
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-indent
+Personality used for org-indent
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-inlinetask
+Personality used for org-inlinetask
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-latex-and-export-specials
+Personality used for org-latex-and-export-specials
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-1
+Personality used for org-level-1
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-2
+Personality used for org-level-2
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-3
+Personality used for org-level-3
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-4
+Personality used for org-level-4
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-5
+Personality used for org-level-5
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-6
+Personality used for org-level-6
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-7
+Personality used for org-level-7
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-level-8
+Personality used for org-level-8
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-link
+Personality used for org-link
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-meta-line
+Personality used for org-meta-line
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-property-value
+Personality used for org-property-value
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-scheduled
+Personality used for org-scheduled
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-scheduled-previously
+Personality used for org-scheduled-previously
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-scheduled-today
+Personality used for org-scheduled-today
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-sexp-date
+Personality used for org-sexp-date
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-special-keyword
+Personality used for org-special-keyword
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-table
+Personality used for org-table
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-tag
+Personality used for org-tag
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-target
+Personality used for org-target
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-time-grid
+Personality used for org-time-grid
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-todo
+Personality used for org-todo
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-upcoming-deadline
+Personality used for org-upcoming-deadline
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-verbatim
+Personality used for org-verbatim
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-org-warning
+Personality used for org-warning
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 
 @end defvar
 
@@ -20116,18 +20140,6 @@ Perform a CiteSeer search.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-company-news
-@deffn {Command} emacspeak-websearch-company-news  (ticker &optional prefix)
-@findex emacspeak-websearch-company-news
-
-@format
-Perform an company news lookup.
-Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
-
-(fn TICKER &optional PREFIX)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-dispatch
 @deffn {Command} emacspeak-websearch-dispatch   
 @table @kbd
@@ -20189,15 +20201,6 @@ Invoke Google News url template.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-google-regional-news
-@deffn {Command} emacspeak-websearch-google-regional-news   
-@findex emacspeak-websearch-google-regional-news
-
-@format
-Browse Google News by region.
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-google-search-in-date-range
 @deffn {Command} emacspeak-websearch-google-search-in-date-range   
 @findex emacspeak-websearch-google-search-in-date-range
@@ -20249,18 +20252,6 @@ Search the Merriam Webster Dictionary.
 @end format
 @end deffn
 
-@subsubsection emacspeak-websearch-news-yahoo
-@deffn {Command} emacspeak-websearch-news-yahoo  (query &optional rss)
-@findex emacspeak-websearch-news-yahoo
-
-@format
-Perform an Yahoo News search.
-Optional prefix arg  avoids scraping  information from HTML.
-
-(fn QUERY &optional RSS)
-@end format
-@end deffn
-
 @subsubsection emacspeak-websearch-wikipedia-search
 @deffn {Command} emacspeak-websearch-wikipedia-search  (query)
 @findex emacspeak-websearch-wikipedia-search
@@ -20269,29 +20260,6 @@ Optional prefix arg  avoids scraping  information from HTML.
 Search Wikipedia using Google.
 
 (fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-yahoo
-@deffn {Command} emacspeak-websearch-yahoo  (query)
-@findex emacspeak-websearch-yahoo
-
-@format
-Perform an Yahoo  search
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-websearch-yahoo-historical-chart
-@deffn {Command} emacspeak-websearch-yahoo-historical-chart  (ticker &optional as-html)
-@findex emacspeak-websearch-yahoo-historical-chart
-
-@format
-Look up historical stock data.
-Optional second arg as-html processes the results as HTML rather than data.
-
-(fn TICKER &optional AS-HTML)
 @end format
 @end deffn
 
@@ -20378,25 +20346,6 @@ Updated headlines found in emacspeak-webspace-headlines.
 @end format
 @end deffn
 
-@subsubsection emacspeak-webspace-knowledge-search
-@deffn {Command} emacspeak-webspace-knowledge-search  (query &optional limit)
-@table @kbd
-@item C-; k
-@kindex C-; k
-@item C-x @@ h k
-@kindex C-x @@ h k
-@end table
-
-@findex emacspeak-webspace-knowledge-search
-
-@format
-Perform a Google Knowledge Graph search.
-Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
-
-(fn QUERY &optional LIMIT)
-@end format
-@end deffn
-
 @subsubsection emacspeak-webspace-mode
 @deffn {Command} emacspeak-webspace-mode   
 @findex emacspeak-webspace-mode
@@ -20453,11 +20402,6 @@ Yank link under point into kill ring.
 
 @defvar {User Option} emacspeak-webspace-feeds
 Feeds to use in Headline Ticker.
-
-@end defvar
-
-@defvar {User Option} emacspeak-webspace-kg-key
-API Key for Google Knowledge Graph.
 
 @end defvar
 
@@ -22799,6 +22743,13 @@ Template used to audio-format  rows.
 
 @defvar {User Option} emacspeak-wizards-pdf-to-text-options
 options to Command for running pdftotext.
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-personal-portfolio
+Set this to the stock tickers you want to check. Default is
+GAFA. Tickers are separated by white-space and are automatically
+sorted in lexical order with duplicates removed when saving.
 
 @end defvar
 
