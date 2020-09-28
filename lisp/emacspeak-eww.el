@@ -416,6 +416,24 @@
   :group 'emacspeak)
 
 ;;}}}
+;;{{{Autospeak Helper
+(defun emacspeak-eww-autospeak()
+  "Setup post process hook to speak the Web page when rendered.
+Forward punctuation and rate  settings to resulting buffer."
+  (let ((p dtk-punctuation-mode)
+       (r dtk-speech-rate))
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda nil
+         (cl-declare (special emacspeak-we-xpath-filter))
+         (let ((inhibit-read-only t))
+           (dtk-set-punctuations p)
+           (dtk-set-rate r)
+           (emacspeak-dtk-sync)
+           (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
+           (emacspeak-speak-buffer)))
+     'at-end)))
+;;}}}
 ;;{{{ Helpers:
 ;;; Generate functions emacspeak-eww-current-title and friends:
 
