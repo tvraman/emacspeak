@@ -2134,7 +2134,7 @@ Warning: Running shell script cbox through this fails mysteriously."
   (cl-declare (special emacspeak-eww-smart-tabs))
   (gethash key  emacspeak-eww-smart-tabs))
 
-;;;###autoload
+
 (defun emacspeak-eww-smart-tabs-add (char url )
   "Add a URL to the specified location in smart tabs."
   (interactive
