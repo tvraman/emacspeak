@@ -80,7 +80,7 @@
 ;;{{{ URL Rewrite:
 ;;; forward decl to help compiler 
 (defvar emacspeak-eww-url-at-point)
-;;;###autoload
+
 (defun emacspeak-we-url-rewrite-and-follow (&optional prompt)
   "Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
@@ -186,7 +186,7 @@ Default is to apply sort-tables."
   :group 'emacspeak-we)
 (declare-function eww-current-url "eww" nil)
 
-;;;###autoload
+
 (defun emacspeak-we-xslt-apply (xsl)
   "Apply specified transformation to current Web page."
   (interactive (list (emacspeak-xslt-read)))
@@ -196,7 +196,7 @@ Default is to apply sort-tables."
    (emacspeak-xslt-make-xsl-transformer  xsl))
   (browse-url (eww-current-url)))
 
-;;;###autoload
+
 (defun emacspeak-we-xslt-select (xsl)
   "Select XSL transformation applied to Web pages before they are displayed ."
   (interactive (list (emacspeak-xslt-read)))
@@ -208,7 +208,7 @@ Default is to apply sort-tables."
              (file-name-sans-extension
               (file-name-nondirectory xsl)))))
 
-;;;###autoload
+
 (defun emacspeak-we-xsl-toggle ()
   "Toggle  application of XSL transformations."
   (interactive)
@@ -220,7 +220,7 @@ Default is to apply sort-tables."
     (message "Turned %s XSL"
              (if emacspeak-we-xsl-p 'on 'off))))
 
-;;;###autoload
+
 (defun emacspeak-we-count-matches (url locator)
   "Count matches for locator  in Web page."
   (interactive
@@ -234,23 +234,23 @@ Default is to apply sort-tables."
     (emacspeak-xslt-params-from-xpath locator url)
     'no-comment)))
 
-;;;###autoload
+
 (defun emacspeak-we-count-nested-tables (url)
   "Count nested tables in Web page."
   (interactive (list (emacspeak-eww-read-url)))
   (emacspeak-we-count-matches url "'//table//table'"))
 
-;;;###autoload
+
 (defun emacspeak-we-count-tables (url)
   "Count  tables in Web page."
   (interactive (list (emacspeak-eww-read-url)))
   (emacspeak-we-count-matches url "//table"))
 
-;;;###autoload
+
 (defvar emacspeak-we-xsl-keep-result nil
   "Toggle via command \\[emacspeak-we-toggle-xsl-keep-result].")
 
-;;;###autoload
+
 (defun emacspeak-we-toggle-xsl-keep-result ()
   "Toggle xsl keep result flag."
   (interactive)
@@ -303,7 +303,7 @@ Each filter is a list of the form
    #'emacspeak-eww-reading-settings 'at-end)
   (browse-url url))
 
-;;;###autoload
+
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
   "Junk elements matching specified locator."
   (interactive
@@ -340,7 +340,7 @@ Each filter is a list of the form
            (string :tag "Extension Suffix"))
   :group 'emacspeak-we)
 
-;;;###autoload
+
 (defun emacspeak-we-extract-media-streams (url &optional speak)
   "Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
@@ -363,20 +363,10 @@ operate on current web page when in a browser buffer; otherwise
      (format filter predicate)
      url speak)))
 
-;;;###autoload
-(defun emacspeak-we-extract-print-streams (url &optional speak)
-  "Extract links to printable  streams.
-operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg `speak' specifies if the result
- should be spoken automatically."
-  (interactive
-   (list
-    (emacspeak-eww-read-url)
-    (or (called-interactively-p 'interactive) current-prefix-arg)))
-  (let ((filter "//a[contains(@href,\"print\")]"))
-    (emacspeak-we-xslt-filter filter url speak)))
 
-;;;###autoload
+
+
+
 (defun emacspeak-we-follow-and-extract-main (&optional speak)
   "Follow URL, then extract role=main."
   (interactive
@@ -385,16 +375,7 @@ operate on current web page when in a browser buffer; otherwise
   (emacspeak-we-extract-by-role "main"
                                 (funcall emacspeak-eww-url-at-point) speak))
 
-;;;###autoload
-(defun emacspeak-we-extract-media-streams-under-point ()
-  "In browser buffers, extract media streams from url under point."
-  (interactive)
-  (emacspeak-eww-browser-check)
-  (emacspeak-we-extract-media-streams
-   (funcall emacspeak-eww-url-at-point)
-   'speak))
 
-;;;###autoload
 (defun emacspeak-we-extract-matching-urls (pattern url &optional speak)
   "Extracts links whose URL matches pattern."
   (interactive
@@ -644,7 +625,7 @@ buffer. Interactive use provides list of class values as completion."
                               (or (called-interactively-p 'interactive)
                                   speak))))
 
-;;;###autoload
+
 (defun emacspeak-we-extract-speakable (url &optional speak)
   "Extract elements having class`speakable' from HTML. "
   (interactive
@@ -811,48 +792,6 @@ separate buffer. Interactive use provides list of id values as completion. "
          speak))))
 
 ;;;###autoload
-(defun emacspeak-we-extract-id-text (id   url &optional speak)
-  "Extract text nodes from elements having specified id attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer.
-Interactive use provides list of id values as completion."
-  (interactive
-   (list
-    (let ((completion-ignore-case t))
-      (completing-read "Id: "
-                       emacspeak-we-buffer-id-cache))
-    (emacspeak-eww-read-url)
-    (or (called-interactively-p 'interactive) current-prefix-arg)))
-  (emacspeak-we-xslt-filter
-   (format "//*[@id=\"%s\"]//text()"
-           id)
-   url
-   speak))
-
-;;;###autoload
-(defun emacspeak-we-extract-id-list-text(ids   url &optional speak)
-  "Extract text nodes from elements having id specified in list `ids' from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Interactive use provides list of id values as completion. "
-  (interactive
-   (list
-    (emacspeak-we-get-id-list)
-    (emacspeak-eww-read-url)
-    (or (called-interactively-p 'interactive) current-prefix-arg)))
-  (let ((filter
-         (mapconcat
-          #'(lambda  (c)
-              (format "(@id=\"%s\")" c))
-          ids
-          " or ")))
-    (emacspeak-we-xslt-filter
-     (format "//*[%s]//text()" filter)
-     url
-     (or (called-interactively-p 'interactive)
-         speak))))
-
-;;;###autoload
-
 (defvar emacspeak-we-url-rewrite-rule nil
   "URL rewrite rule to use in current buffer.")
 
@@ -1099,7 +1038,7 @@ used as well."
 
 ;;}}}
 ;;{{{ Property filter
-;;;###autoload
+
 
 ;;}}}
 ;;{{{  xsl keymap
