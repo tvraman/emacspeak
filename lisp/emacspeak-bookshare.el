@@ -1222,7 +1222,7 @@ Make sure it's downloaded and unpacked first."
         (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-current-buffer
       (set-buffer result)
-      (emacspeak-webutils-autospeak)
+      (emacspeak-eww-autospeak)
       (browse-url-of-buffer))))
 
 (defun emacspeak-bookshare-view-page-range (url)
@@ -1241,7 +1241,7 @@ Make sure it's downloaded and unpacked first."
          (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-current-buffer
       (set-buffer result)
-      (emacspeak-webutils-autospeak)
+      (emacspeak-eww-autospeak)
       (browse-url-of-buffer))
     (kill-buffer result)))
 

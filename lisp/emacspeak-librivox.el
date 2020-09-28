@@ -219,7 +219,7 @@ Optional arg `offset' (default 0) is used for getting more results."
     (unless books (message "No results."))
     (emacspeak-auditory-icon 'task-done)
     (when books
-      (emacspeak-webutils-autospeak)
+      (emacspeak-eww-autospeak)
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()

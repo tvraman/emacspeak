@@ -248,7 +248,7 @@
 ;;;@item = @command{dtk-toggle-punctuation-mode}
 ;;;Toggle punctuation mode.
 ;;;@item ?
-;;;@command{emacspeak-webutils-google-similar-to-this-page}
+;;;@command{emacspeak-google-similar-to-this-page}
 ;;;Google similarity search.
 ;;;@item C-t
 ;;;@item G @command{emacspeak-google-command}
@@ -401,13 +401,12 @@
 (require 'eww  )
 (require 'dom)
 (require 'dom-addons)
-(require 'emacspeak-webutils)
 (require 'emacspeak-speak)
 (require 'emacspeak-feeds "emacspeak-feeds" 'no-error)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
-(require 'emacspeak-webutils)
+
 (require 'emacspeak-google)
 
 ;;}}}
@@ -445,22 +444,7 @@
                 ,(intern (format ":%s" name))
                 value))))
 
-(defsubst emacspeak-webutils-autospeak()
-  "Setup post process hook to speak the Web page when rendered.
-Forward punctuation and rate  settings to resulting buffer."
-  (let ((p dtk-punctuation-mode)
-       (r dtk-speech-rate))
-    (add-hook
-     'emacspeak-web-post-process-hook
-     #'(lambda nil
-         (cl-declare (special emacspeak-we-xpath-filter))
-         (let ((inhibit-read-only t))
-           (dtk-set-punctuations p)
-           (dtk-set-rate r)
-           (emacspeak-dtk-sync)
-           (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
-           (emacspeak-speak-buffer)))
-     'at-end)))
+
 
 ;;}}}
 ;;{{{play media:
@@ -470,7 +454,7 @@ Forward punctuation and rate  settings to resulting buffer."
 Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P")
-  (cl-declare (special emacspeak-webutils-media-history
+  (cl-declare (special emacspeak-m-player-media-history
                        emacspeak-eww-url-at-point))
   (let ((url
          (or (funcall emacspeak-eww-url-at-point)
@@ -478,7 +462,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
     (cl-assert (stringp url) t "No URL under point." )
     (message "Playing media  URL under point")
     (kill-new url)
-    (push (list url (if playlist-p t nil)) emacspeak-webutils-media-history)
+    (push (list url (if playlist-p t nil)) emacspeak-m-player-media-history)
     (emacspeak-m-player  url  playlist-p)))
 
 (defun emacspeak-eww-curl-play-media-at-point ()
@@ -558,7 +542,7 @@ are available are cued by an auditory icon on the header line."
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
-;;; Inform emacspeak-webutils about EWW:
+
 
 (defvar emacspeak-eww-url-at-point
   #'(lambda ()
@@ -658,7 +642,7 @@ are available are cued by an auditory icon on the header line."
      ("3" emacspeak-eww-next-h3)
      ("4" emacspeak-eww-next-h4)
      ("=" dtk-toggle-punctuation-mode)
-     ("?" emacspeak-webutils-google-similar-to-this-page)
+     ("?" emacspeak-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
@@ -821,7 +805,7 @@ Retain previously set punctuations  mode."
     (emacspeak-speak-voice-annotate-paragraphs)
     (cond
      (emacspeak-web-post-process-hook
-      (emacspeak-webutils-run-post-process-hook))
+      (emacspeak-eww-run-post-process-hook))
      (t (emacspeak-speak-mode-line)))))
 
 (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook)
@@ -916,6 +900,53 @@ Retain previously set punctuations  mode."
      (t ad-do-it))))
 
 ;;}}}
+;;{{{ web-pre-process
+;;;###autoload
+(defun emacspeak-eww-autospeak()
+  "Setup post process hook to speak the Web page when rendered. "
+  (add-hook
+   'emacspeak-web-post-process-hook
+   #'(lambda nil
+       (cl-declare (special emacspeak-we-xpath-filter))
+       (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
+       (emacspeak-speak-buffer))
+   'at-end))
+
+;;;###autoload
+(defvar emacspeak-web-pre-process-hook nil
+  "Pre-process hook -- to be used for XSL preprocessing etc.")
+;;;###autoload
+(defun emacspeak-eww-run-pre-process-hook (&rest _ignore)
+  "Run web pre process hook."
+  (cl-declare (special emacspeak-web-pre-process-hook))
+  (when     emacspeak-web-pre-process-hook
+    (condition-case nil
+        (let ((inhibit-read-only t))
+          (run-hooks  'emacspeak-web-pre-process-hook))
+      ((debug error)  (message "Caught error  in pre-process hook.")
+       (setq emacspeak-web-pre-process-hook nil)))
+    (setq emacspeak-web-pre-process-hook nil)))
+
+;;}}}
+;;{{{ web-post-process
+;;;###autoload
+(defvar emacspeak-web-post-process-hook nil
+  "Set locally to a  site specific post processor.
+Note that the Web browser should reset this hook after using it.")
+
+;;;###autoload
+(defun emacspeak-eww-run-post-process-hook (&rest _ignore)
+  "Use web post process hook."
+  (cl-declare (special emacspeak-web-post-process-hook))
+  (when     emacspeak-web-post-process-hook
+    (condition-case nil
+        (let ((inhibit-read-only t))
+          (run-hooks  'emacspeak-web-post-process-hook))
+      ((debug error)  (message "Caught error  in post-process hook.")
+       (setq emacspeak-web-post-process-hook nil)))
+    (setq emacspeak-web-post-process-hook nil)))
+
+;;}}}
 ;;{{{ xslt transform on request:
 
 (defadvice eww-display-html (before emacspeak pre act comp)
@@ -923,7 +954,7 @@ Retain previously set punctuations  mode."
   (cl-declare (special emacspeak-web-pre-process-hook))
   (save-excursion
     (cond
-     (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
+     (emacspeak-web-pre-process-hook (emacspeak-eww-run-pre-process-hook))
      ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-we-xsl-transform (point) (point-max)
@@ -1848,23 +1879,6 @@ Warning, this is fragile, and depends on a stable id/class for the
 (defvar emacspeak-eww-phantom-js
   (executable-find "phantomjs")
   "Name of PhantomJS executable.")
-
-(defun emacspeak-eww-phantom (url)
-  "Retrieve `url'  using PhantomJS and render with EWW."
-  (interactive
-   (list
-    (emacspeak-webutils-read-url)))
-  (cl-assert emacspeak-eww-phantom-js  nil "Please install phantomjs first.")
-  (cl-assert emacspeak-eww-phantom-get nil "PhantomJS script not found.")
-  (with-temp-buffer
-    (shell-command
-     (format "%s %s '%s' 2> /dev/null "
-             emacspeak-eww-phantom-js emacspeak-eww-phantom-get url)
-     (current-buffer))
-    (goto-char (point-min))
-    (insert
-     (format "<base href='%s'/>" url))
-    (browse-url-of-buffer)))
 
 ;;}}}
 ;;{{{ Handling Media (audio/video)

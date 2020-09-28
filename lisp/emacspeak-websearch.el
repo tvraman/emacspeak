@@ -51,7 +51,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emacspeak-webutils)
 (require 'eww)
 (require 'emacspeak-eww)
 (require 'emacspeak-feeds)
@@ -167,6 +166,30 @@
     answer))
 
 ;;}}}
+;;{{{post-processor
+(defun emacspeak-websearch-post-process (locator speaker &rest args)
+  "Set up post processing steps on a result page.
+LOCATOR is a string to search for in the results page.
+SPEAKER is a function to call to speak relevant information.
+ARGS specifies additional arguments to SPEAKER if any."
+  (cl-declare (special emacspeak-web-post-process-hook))
+  (add-hook
+   'emacspeak-web-post-process-hook
+   (eval
+    `(function
+      (lambda nil
+        (let ((inhibit-read-only t))
+          (condition-case nil
+              (cond
+               ((search-forward ,locator nil t)
+                (recenter 0)
+                (apply(quote ,speaker) ,args))
+               (t (message "Your search appears to have failed.")))
+            (error nil))))))
+   'at-end))
+
+;;}}}
+
 ;;{{{ Computer Science Bibliography
 
 (emacspeak-websearch-set-searcher 'biblio
@@ -188,7 +211,7 @@
   (browse-url
    (concat emacspeak-websearch-biblio-uri
            (url-hexify-string query)))
-  (emacspeak-webutils-post-process
+  (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
 
@@ -213,7 +236,7 @@
   (cl-declare (special emacspeak-websearch-citeseer-uri))
   (browse-url
    (format  emacspeak-websearch-citeseer-uri (url-hexify-string term)))
-  (emacspeak-webutils-post-process term  #'emacspeak-speak-line))
+  (emacspeak-websearch-post-process term  #'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{ FolDoc
@@ -236,7 +259,7 @@
   (browse-url
    (concat emacspeak-websearch-foldoc-uri
            (url-hexify-string query)))
-  (emacspeak-webutils-post-process
+  (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
 
@@ -301,7 +324,7 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
                          (?o "/op")
                          (?s "/sec")))
                (format "s=%s" ticker)))
-      (emacspeak-webutils-post-process
+      (emacspeak-websearch-post-process
        (format-time-string "%Y")
        'emacspeak-speak-line)))))
 
@@ -377,7 +400,7 @@ Optional second arg as-html processes the results as HTML rather than data."
                  (format "&f=%s" end-year)
                  (format "&g=%s" period)
                  (format "&s=%s" ticker)))
-        (emacspeak-webutils-post-process
+        (emacspeak-websearch-post-process
          "Open"
          'emacspeak-speak-line)))))
 
@@ -406,7 +429,7 @@ Optional second arg as-html processes the results as HTML rather than data."
              (?a "author=")
              (?t "title="))
            (url-hexify-string query)))
-  (emacspeak-webutils-post-process
+  (emacspeak-websearch-post-process
    query
    'emacspeak-speak-line))
 
@@ -478,11 +501,11 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
         (search-url nil)
         (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
         (lucky (and flag  (consp flag) (= 16 (car flag)))))
-    (emacspeak-webutils-cache-google-query query)
-    (emacspeak-webutils-cache-google-toolbelt toolbelt)
+    (emacspeak-google-cache-query query)
+    (emacspeak-google-cache-toolbelt toolbelt)
     (if lucky
-        (emacspeak-webutils-autospeak)
-      (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
+        (emacspeak-eww-autospeak)
+      (emacspeak-websearch-post-process "Results" 'emacspeak-speak-line))
     (setq search-url
           (concat
            (emacspeak-websearch-google-uri)
@@ -524,8 +547,8 @@ Optional prefix arg prompts for toolbelt options."
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
         (toolbelt (emacspeak-google-toolbelt)))
-    (emacspeak-webutils-cache-google-query query)
-    (emacspeak-webutils-cache-google-toolbelt toolbelt)
+    (emacspeak-google-cache-query query)
+    (emacspeak-google-cache-toolbelt toolbelt)
     (cond
      (options (emacspeak-google-toolbelt-change))
      (t
@@ -624,7 +647,7 @@ Optional prefix arg prompts for toolbelt options."
   (browse-url
    (concat emacspeak-websearch-jeeves-uri
            (url-hexify-string query)))
-  (emacspeak-webutils-post-process query 'emacspeak-speak-line))
+  (emacspeak-websearch-post-process query 'emacspeak-speak-line))
 
 ;;}}}
 ;;{{{  news yahoo
@@ -730,7 +753,7 @@ Optional prefix arg  avoids scraping  information from HTML."
   (browse-url
    (concat emacspeak-websearch-yahoo-uri
            (url-hexify-string query)))
-  (emacspeak-webutils-post-process
+  (emacspeak-websearch-post-process
    "
 Results"
    'emacspeak-speak-line))

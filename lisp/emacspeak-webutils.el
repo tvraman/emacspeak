@@ -56,55 +56,7 @@
 (require 'shr)
 
 ;;}}}
-;;{{{Autospeak Helper
-;;;###autoload
-(defun emacspeak-webutils-autospeak()
-  "Setup post process hook to speak the Web page when rendered. "
-  (add-hook
-   'emacspeak-web-post-process-hook
-   #'(lambda nil
-       (cl-declare (special emacspeak-we-xpath-filter))
-       (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
-       (emacspeak-speak-buffer))
-   'at-end))
 
-;;}}}
-;;{{{ web-pre-process
-
-(defvar emacspeak-web-pre-process-hook nil
-  "Pre-process hook -- to be used for XSL preprocessing etc.")
-;;;###autoload
-(defun emacspeak-webutils-run-pre-process-hook (&rest _ignore)
-  "Run web pre process hook."
-  (cl-declare (special emacspeak-web-pre-process-hook))
-  (when     emacspeak-web-pre-process-hook
-    (condition-case nil
-        (let ((inhibit-read-only t))
-          (run-hooks  'emacspeak-web-pre-process-hook))
-      ((debug error)  (message "Caught error  in pre-process hook.")
-       (setq emacspeak-web-pre-process-hook nil)))
-    (setq emacspeak-web-pre-process-hook nil)))
-
-;;}}}
-;;{{{ web-post-process
-
-(defvar emacspeak-web-post-process-hook nil
-  "Set locally to a  site specific post processor.
-Note that the Web browser should reset this hook after using it.")
-
-;;;###autoload
-(defun emacspeak-webutils-run-post-process-hook (&rest _ignore)
-  "Use web post process hook."
-  (cl-declare (special emacspeak-web-post-process-hook))
-  (when     emacspeak-web-post-process-hook
-    (condition-case nil
-        (let ((inhibit-read-only t))
-          (run-hooks  'emacspeak-web-post-process-hook))
-      ((debug error)  (message "Caught error  in post-process hook.")
-       (setq emacspeak-web-post-process-hook nil)))
-    (setq emacspeak-web-post-process-hook nil)))
-
-;;}}}
 ;;{{{ Helpers:
 
 ;;;###autoload
@@ -126,26 +78,7 @@ or URL read from minibuffer."
 
 
 ;;;###autoload
-(defun emacspeak-webutils-post-process (locator speaker &rest args)
-  "Set up post processing steps on a result page.
-LOCATOR is a string to search for in the results page.
-SPEAKER is a function to call to speak relevant information.
-ARGS specifies additional arguments to SPEAKER if any."
-  (cl-declare (special emacspeak-web-post-process-hook))
-  (add-hook
-   'emacspeak-web-post-process-hook
-   (eval
-    `(function
-      (lambda nil
-        (let ((inhibit-read-only t))
-          (condition-case nil
-              (cond
-               ((search-forward ,locator nil t)
-                (recenter 0)
-                (apply(quote ,speaker) ,args))
-               (t (message "Your search appears to have failed.")))
-            (error nil))))))
-   'at-end))
+
 
 ;;}}}
 (provide 'emacspeak-webutils)

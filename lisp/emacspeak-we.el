@@ -70,7 +70,7 @@
   (add-hook
    'emacspeak-web-post-process-hook
    (eval
-    #'(lambda nil
+    `#'(lambda nil
         (rename-buffer
          (format "%s %s"
                  (buffer-name) ,key)
@@ -314,7 +314,7 @@ Each filter is a list of the form
   (cl-declare (special emacspeak-we-xsl-junk))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
     (emacspeak-we-rename-buffer (format "Filtered %s" path))
-    (when speak (emacspeak-webutils-autospeak))
+    (when speak (emacspeak-eww-autospeak))
     (add-hook
      'emacspeak-web-pre-process-hook
      (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-junk params))
