@@ -729,7 +729,7 @@ interactive command that the key sequence executes."
     ("h" emacspeak-org-capture-link)
     ("i" yas-insert-snippet)
     ("j" emacspeak-wizards-shell-toggle)
-    ("k" emacspeak-webspace-knowledge-search)
+    ("k" emacspeak-google-knowledge-search)
     ("l" emacspeak-librivox)
     ("m" vm)
     ("o" helm-mini)

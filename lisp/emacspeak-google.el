@@ -713,6 +713,101 @@ Optional interactive prefix arg `lang' specifies  language identifier."
   (emacspeak-websearch-google "what+is+my+ip"))
 
 ;;}}}
+;;{{{ Google Knowledge Graph:
+
+;;; Google Knowledge Graph Search API  |  Knowledge G https://developers.google.com/knowledge-graph/
+
+(defcustom emacspeak-google-kg-key  nil
+  "API Key for Google Knowledge Graph."
+  :type
+  '(choice
+    (const :tag "None" "")
+    (string :tag "Key" :value ""))
+  :group 'emacspeak-google)
+
+(defvar emacspeak-google-kg-rest-end-point
+  "https://kgsearch.googleapis.com/v1/entities:search?%s=%s&key=%s&indent=1&limit=%s"
+  "Rest end-point for KG Search.")
+
+(defun emacspeak-google-kg-id-uri (id)
+  "Return URL for KG Search by id."
+  (cl-declare (special emacspeak-google-kg-rest-end-point))
+  (format
+   emacspeak-google-kg-rest-end-point
+   "ids"
+   (url-hexify-string (substring id 3))
+   emacspeak-google-kg-key
+   1))
+
+(defun emacspeak-google-kg-query-uri (query &optional limit)
+  "Return URL for KG Search."
+  (cl-declare (special emacspeak-google-kg-rest-end-point))
+  (or limit (setq limit 5))
+  (format
+   emacspeak-google-kg-rest-end-point
+   "query"
+   (url-hexify-string query)
+   emacspeak-google-kg-key
+   limit))
+
+(defun emacspeak-google-kg-json-ld (query &optional limit)
+  "Return JSON-LD structure."
+  (or limit (setq limit 5))
+  (g-json-from-url
+   (emacspeak-google-kg-query-uri query limit)))
+
+(defun emacspeak-google-kg-results (query &optional limit)
+  "Return list of results."
+  (or limit (setq limit 5))
+  (cl-map  'list
+           #'(lambda (r) (g-json-get 'result r))
+           (g-json-get 'itemListElement
+                       (emacspeak-google-kg-json-ld query limit))))
+
+(defun emacspeak-google-kg-format-result (result)
+  "Format result as HTML."
+  (let-alist result
+    (format
+     "<p><a href='%s'>%s</a> is a <code>[%s]</code>.
+<strong>%s</strong></p>
+<p>%s</p>
+<p><a href='%s'>Id: %s</a>
+<img src='%s'/></p>\n"
+     (g-json-get 'url .detailedDescription) .name
+     (mapconcat #'identity .@type ", ")
+     .description
+     (or (g-json-get 'articleBody .detailedDescription) "")
+     (emacspeak-google-kg-id-uri .@id)
+     .@id
+     (g-json-get 'contentUrl .image))))
+;;;###autoload
+(defun emacspeak-google-knowledge-search (query &optional limit)
+  "Perform a Google Knowledge Graph search.
+Optional interactive prefix arg `limit' prompts for number of results, default is 1."
+  (interactive "sQuery:\nP")
+  (setq limit
+        (cond
+         (limit  (read-number "Number of results: "))
+         (t  5)))
+  (let ((results (emacspeak-google-kg-results query limit)))
+    (unless results (error "No results"))
+    (with-temp-buffer
+      (insert (format "<html><head><title>%s</title></head><body>\n" query))
+      (cond
+       ((> limit 1)
+        (insert "<ol>\n")
+        (cl-loop
+         for r in results do
+         (insert "<li>")
+         (insert (emacspeak-google-kg-format-result r))
+         (insert "</li>\n"))
+        (insert "</ol>\n"))
+       (t(insert  (emacspeak-google-kg-format-result (cl-first results)))))
+      (insert "</body></html>\n")
+      (emacspeak-eww-autospeak)
+      (browse-url-of-buffer))))
+
+;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
