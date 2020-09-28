@@ -80,7 +80,7 @@ Forward punctuation and rate  settings to resulting buffer."
 ;;;###autoload
 (defvar emacspeak-web-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
-
+;;;###autoload
 (defun emacspeak-webutils-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
   (cl-declare (special emacspeak-web-pre-process-hook))
@@ -100,6 +100,7 @@ Forward punctuation and rate  settings to resulting buffer."
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
+;;;###autoload
 (defun emacspeak-webutils-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
   (cl-declare (special emacspeak-web-post-process-hook))
@@ -114,7 +115,6 @@ Note that the Web browser should reset this hook after using it.")
 ;;}}}
 ;;{{{ Helpers:
 
-
 (defvar emacspeak-webutils-charent-alist
   '(("&lt;" . "<")
     ("&gt;" . ">")
@@ -122,7 +122,7 @@ Note that the Web browser should reset this hook after using it.")
     ("&apos;" . "'")
     ("&amp;" . "&"))
   "Entities to unescape when treating badly escaped XML.")
-
+;;;###autoload
 (defun emacspeak-webutils-unescape-charent (start end)
   "Clean up charents in XML."
   (cl-declare (special emacspeak-webutils-charent-alist))
@@ -133,9 +133,7 @@ Note that the Web browser should reset this hook after using it.")
              (goto-char start)
              (while (search-forward entity end t)
                (replace-match replacement nil t)))))
-
-
-
+;;;###autoload
 (defun emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."
   (cl-declare (special emacspeak-google-query))
@@ -144,7 +142,7 @@ Note that the Web browser should reset this hook after using it.")
           `#'(lambda nil
               (setq emacspeak-google-query ,query)))))
     (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
-
+;;;###autoload
 (defun emacspeak-webutils-cache-google-toolbelt(belt)
   "Setup post process hook to cache google toolbelt when rendered."
   (cl-declare (special emacspeak-google-toolbelt))
@@ -153,13 +151,13 @@ Note that the Web browser should reset this hook after using it.")
                  `#'(lambda nil
                    (setq emacspeak-google-toolbelt' ,belt)))))
     (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
-
+;;;###autoload
 (defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (cl-declare (special major-mode))
   (unless (eq major-mode 'eww-mode)
     (error "This command cannot be used outside browser buffers.")))
-
+;;;###autoload
 (defun emacspeak-webutils-read-url ()
   "Return URL under point
 or URL read from minibuffer."
@@ -202,11 +200,6 @@ ARGS specifies additional arguments to SPEAKER if any."
                  (t (message "Your search appears to have failed.")))
               (error nil))))))
      'at-end))
-
-;;}}}
-;;{{{ helper macros:
-
-;;;###autoload
 
 ;;}}}
 (provide 'emacspeak-webutils)
