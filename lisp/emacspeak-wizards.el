@@ -3691,6 +3691,7 @@ Optional interactive prefix arg `best' picks best audio format."
 
 ;;; local variables:
 ;;; folded-file: t
+;;; byte-compile-warnings: (not noruntime )
 ;;; end:
 
 ;;}}}
