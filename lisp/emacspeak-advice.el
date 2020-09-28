@@ -2880,7 +2880,7 @@ Produce auditory icons if possible."
              (cond
               ((ems-interactive-p)
                (emacspeak-auditory-icon 'open-object)
-               (emacspeak-eww-autospeak)
+               (emacspeak-webutils-autospeak)
                ad-do-it)
               (t ad-do-it))
              ad-return-value)))

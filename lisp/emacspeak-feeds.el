@@ -246,7 +246,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
         (coding-system-for-write 'utf-8)
         (emacspeak-xslt-options nil))
     (with-current-buffer data-buffer
-      (when speak (emacspeak-eww-autospeak))
+      (when speak (emacspeak-webutils-autospeak))
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
