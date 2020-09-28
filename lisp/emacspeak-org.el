@@ -53,7 +53,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'eww)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
 (defvar org-ans2 nil)
@@ -456,9 +455,7 @@
   "Placed on org-mode-hook to do Emacspeak setup."
   (cl-declare (special org-mode-map
                        org-link-parameters))
-  (cl-pushnew
-   '("eww" :follow 'eww :store org-eww-store-link)
-   org-link-parameters)
+  
 ;;; add these to outline-minor-mode-map
 ;;; will work in both org and orgalist when loaded 
 
@@ -644,7 +641,7 @@ Before doing so, re-align the table if necessary."
         (if (looking-at " ") (forward-char 1))))))
 
 ;;}}}
-;;{{{ EWW Integration:
+;;{{{ Capture
 
 (defun emacspeak-org-capture-link ()
   "Capture hyperlink to current context.
@@ -654,15 +651,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (org-store-link nil)
   (org-capture nil "h"))
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
-
-(defun org-eww-store-link ()
-  "Store a link to a EWW buffer."
-  (when (eq major-mode 'eww-mode)
-    (org-link-store-props
-     :type "eww"
-     :link   (or (shr-url-at-point nil) (eww-current-url))
-     :url (or (shr-url-at-point nil) (eww-current-url))
-     :description (emacspeak-eww-current-title))))
 
 ;;}}}
 ;;{{{ Speech-enable export prompt:
