@@ -176,8 +176,7 @@ ARGS specifies additional arguments to SPEAKER if any."
   (add-hook
    'emacspeak-eww-post-process-hook
    (eval
-    `(function
-      (lambda nil
+      `#'(lambda nil
         (let ((inhibit-read-only t))
           (condition-case nil
               (cond
@@ -185,7 +184,7 @@ ARGS specifies additional arguments to SPEAKER if any."
                 (recenter 0)
                 (apply(quote ,speaker) ,args))
                (t (message "Your search appears to have failed.")))
-            (error nil))))))
+            (error nil)))))
    'at-end))
 
 ;;}}}

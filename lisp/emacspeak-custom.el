@@ -174,9 +174,9 @@
 ;;{{{ custom hook
 
 (add-hook 'Custom-mode-hook
-          (function
-           (lambda nil
-             (emacspeak-pronounce-refresh-pronunciations))))
+          
+          #'(lambda nil
+              (emacspeak-pronounce-refresh-pronunciations)))
 
 ;;}}}
 ;;{{{ define voices

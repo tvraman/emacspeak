@@ -1006,13 +1006,12 @@ Signals beginning  of buffer."
   "Returns names from BUFFER-LIST excluding those beginning with a space."
   (let (buf-name)
     (delq nil (mapcar
-               (function
-                (lambda (b)
-                  (setq buf-name (buffer-name b))
-                  (and (stringp buf-name)
-                       (/= (length buf-name) 0)
-                       (/= (aref buf-name 0) ?\ )
-                       b)))
+               #'(lambda (b)
+                   (setq buf-name (buffer-name b))
+                   (and (stringp buf-name)
+                        (/= (length buf-name) 0)
+                        (/= (aref buf-name 0) ?\ )
+                        b))
                (or buffer-list
                    (buffer-list))))))
 

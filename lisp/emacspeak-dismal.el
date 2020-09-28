@@ -199,8 +199,7 @@ emacspeak-dismal-row-summarizer-list"
   (let ((summary nil))
     (setq summary 
           (mapconcat
-           (function
-            (lambda (token)
+            #'(lambda (token)
               (let ((value nil))
                 (cond
                  ((stringp token) token)
@@ -225,7 +224,7 @@ emacspeak-dismal-row-summarizer-list"
                                      'personality emacspeak-dismal-value-personality 
                                      value)
                   value)
-                 (t  (format "%s" token))))))
+                 (t  (format "%s" token)))))
            emacspeak-dismal-row-summarizer-list 
            " "))
     (dtk-speak summary)))
@@ -245,8 +244,7 @@ emacspeak-dismal-col-summarizer-list"
   (let ((summary nil))
     (setq summary 
           (mapconcat
-           (function
-            (lambda (token)
+            #'(lambda (token)
               (let ((value nil))
                 (cond
                  ((stringp token) token)
@@ -271,7 +269,7 @@ emacspeak-dismal-col-summarizer-list"
                                      'personality
                                      emacspeak-dismal-value-personality value)
                   value)
-                 (t  (format "%s" token))))))
+                 (t  (format "%s" token)))))
            emacspeak-dismal-col-summarizer-list 
            " "))
     (dtk-speak summary)))
@@ -286,8 +284,7 @@ emacspeak-dismal-sheet-summarizer-list"
       (dis-recalculate-matrix))
     (message 
      (mapconcat
-      (function
-       (lambda (token)
+       #'(lambda (token)
          (cond
           ((stringp token) token)
           ((and (listp token)
@@ -296,7 +293,7 @@ emacspeak-dismal-sheet-summarizer-list"
            (emacspeak-dismal-cell-value
             (cl-first token)
             (cl-second token)))
-          (t  (format "%s" token)))))
+          (t  (format "%s" token))))
       emacspeak-dismal-sheet-summarizer-list 
       " "))))
 

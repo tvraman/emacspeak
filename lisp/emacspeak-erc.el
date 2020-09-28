@@ -187,9 +187,8 @@ Optional interactive prefix  arg defines a pronunciation that
     (error "Not in an ERC buffer."))
   (setq emacspeak-erc-people-to-monitor
         (cl-remove-if
-         (function
-          (lambda (x)
-            (string-equal x name)))
+          #'(lambda (x)
+            (string-equal x name))
          emacspeak-erc-people-to-monitor))
   (emacspeak-auditory-icon 'delete-object)
   (message "monitoring %s"

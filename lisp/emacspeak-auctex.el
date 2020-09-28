@@ -207,8 +207,7 @@ the opening line of the newly inserted environment. "
 ;;; We add imenu settings to LaTeX-mode-hook
 
 (add-hook  'LaTeX-mode-hook
-           (function
-            (lambda ()
+            #'(lambda ()
               (cl-declare (special imenu-generic-expression
                                    imenu-create-index-function))
               (require 'imenu)
@@ -217,7 +216,7 @@ the opening line of the newly inserted environment. "
                     '(
                       (nil
                        "^ *\\\\\\(sub\\)*section{\\([^}]+\\)"
-                       2))))))
+                       2)))))
 
 ;;}}}
 ;;{{{ advice font changes 

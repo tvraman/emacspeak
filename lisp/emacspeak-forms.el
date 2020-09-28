@@ -270,18 +270,17 @@ Assumes that point is at the front of a field value."
 (cl-declaim (special forms-mode-map forms-mode-ro-map
                      forms-mode-edit-map))
 (add-hook 'forms-mode-hooks
-          (function
-           (lambda nil 
-             (mapc
+          #'(lambda nil 
+              (mapc
                #'(lambda (map)
-                 (define-key map "\C-m" 'emacspeak-forms-rerun-filter)
-                 (define-key map "."
-                   'emacspeak-forms-summarize-current-position)
-                 (define-key map "," 'emacspeak-forms-summarize-current-record))
-              (list forms-mode-ro-map 
-                    forms-mode-map))
+                   (define-key map "\C-m" 'emacspeak-forms-rerun-filter)
+                   (define-key map "."
+                     'emacspeak-forms-summarize-current-position)
+                   (define-key map "," 'emacspeak-forms-summarize-current-record))
+               (list forms-mode-ro-map 
+                     forms-mode-map))
 ;;; move to first field
-             (forms-next-field 1))))
+              (forms-next-field 1)))
 
 ;;}}}
 (provide  'emacspeak-forms)

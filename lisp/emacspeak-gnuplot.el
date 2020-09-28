@@ -151,9 +151,8 @@
     (emacspeak-speak-line)))
 
 (add-hook 'gnuplot-mode-hook
-          (function
-           (lambda nil
-             (dtk-set-punctuations 'all))))
+           #'(lambda nil
+             (dtk-set-punctuations 'all)))
 
 ;;}}}
 (provide 'emacspeak-gnuplot)
