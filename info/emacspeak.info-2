@@ -699,8 +699,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 ‘= dtk-toggle-punctuation-mode’
      Toggle punctuation mode.
 ‘?’
-     ‘emacspeak-webutils-google-similar-to-this-page’ Google similarity
-     search.
+     ‘emacspeak-google-similar-to-this-page’ Google similarity search.
 ‘C-t’
 ‘G emacspeak-google-command’
      Prefix key to invoke Google-specific commands.
@@ -1069,16 +1068,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn NAME &optional DELETE)
 
-12.76.7.28 emacspeak-eww-phantom
-................................
-
- -- Command: emacspeak-eww-phantom (url)
-
-     Retrieve ‘url’  using PhantomJS and render with EWW.
-
-     (fn URL)
-
-12.76.7.29 emacspeak-eww-play-media-at-point
+12.76.7.28 emacspeak-eww-play-media-at-point
 ............................................
 
  -- Command: emacspeak-eww-play-media-at-point (&optional playlist-p)
@@ -1091,7 +1081,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PLAYLIST-P)
 
-12.76.7.30 emacspeak-eww-previous-dd
+12.76.7.29 emacspeak-eww-previous-dd
 ....................................
 
  -- Command: emacspeak-eww-previous-dd (&optional speak)
@@ -1100,7 +1090,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dd.
      The dd is automatically spoken if there is no user activity.
 
-12.76.7.31 emacspeak-eww-previous-dl
+12.76.7.30 emacspeak-eww-previous-dl
 ....................................
 
  -- Command: emacspeak-eww-previous-dl (&optional speak)
@@ -1109,7 +1099,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dl.
      The dl is automatically spoken if there is no user activity.
 
-12.76.7.32 emacspeak-eww-previous-dt
+12.76.7.31 emacspeak-eww-previous-dt
 ....................................
 
  -- Command: emacspeak-eww-previous-dt (&optional speak)
@@ -1118,7 +1108,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the dt.
      The dt is automatically spoken if there is no user activity.
 
-12.76.7.33 emacspeak-eww-previous-element
+12.76.7.32 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
@@ -1127,14 +1117,14 @@ prefix arg to delete a previously created eww-mark.
 
      (fn EL)
 
-12.76.7.34 emacspeak-eww-previous-element-from-history
+12.76.7.33 emacspeak-eww-previous-element-from-history
 ......................................................
 
  -- Command: emacspeak-eww-previous-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.76.7.35 emacspeak-eww-previous-element-like-this
+12.76.7.34 emacspeak-eww-previous-element-like-this
 ...................................................
 
  -- Command: emacspeak-eww-previous-element-like-this (element)
@@ -1144,7 +1134,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.76.7.36 emacspeak-eww-previous-h
+12.76.7.35 emacspeak-eww-previous-h
 ...................................
 
  -- Command: emacspeak-eww-previous-h (&optional speak)
@@ -1153,7 +1143,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.76.7.37 emacspeak-eww-previous-h1
+12.76.7.36 emacspeak-eww-previous-h1
 ....................................
 
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
@@ -1162,7 +1152,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.76.7.38 emacspeak-eww-previous-h2
+12.76.7.37 emacspeak-eww-previous-h2
 ....................................
 
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
@@ -1171,7 +1161,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.76.7.39 emacspeak-eww-previous-h3
+12.76.7.38 emacspeak-eww-previous-h3
 ....................................
 
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
@@ -1180,7 +1170,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.76.7.40 emacspeak-eww-previous-h4
+12.76.7.39 emacspeak-eww-previous-h4
 ....................................
 
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
@@ -1189,7 +1179,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.76.7.41 emacspeak-eww-previous-h5
+12.76.7.40 emacspeak-eww-previous-h5
 ....................................
 
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
@@ -1198,7 +1188,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.76.7.42 emacspeak-eww-previous-h6
+12.76.7.41 emacspeak-eww-previous-h6
 ....................................
 
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
@@ -1207,7 +1197,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.76.7.43 emacspeak-eww-previous-li
+12.76.7.42 emacspeak-eww-previous-li
 ....................................
 
  -- Command: emacspeak-eww-previous-li (&optional speak)
@@ -1216,7 +1206,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.76.7.44 emacspeak-eww-previous-ol
+12.76.7.43 emacspeak-eww-previous-ol
 ....................................
 
  -- Command: emacspeak-eww-previous-ol (&optional speak)
@@ -1225,7 +1215,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.76.7.45 emacspeak-eww-previous-p
+12.76.7.44 emacspeak-eww-previous-p
 ...................................
 
  -- Command: emacspeak-eww-previous-p (&optional speak)
@@ -1234,7 +1224,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.76.7.46 emacspeak-eww-previous-table
+12.76.7.45 emacspeak-eww-previous-table
 .......................................
 
  -- Command: emacspeak-eww-previous-table (&optional speak)
@@ -1243,7 +1233,7 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.76.7.47 emacspeak-eww-previous-ul
+12.76.7.46 emacspeak-eww-previous-ul
 ....................................
 
  -- Command: emacspeak-eww-previous-ul (&optional speak)
@@ -1252,21 +1242,21 @@ prefix arg to delete a previously created eww-mark.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.76.7.48 emacspeak-eww-reading-settings
+12.76.7.47 emacspeak-eww-reading-settings
 .........................................
 
  -- Command: emacspeak-eww-reading-settings
 
      Setup speech-rate, punctuation and split-caps for reading prose.
 
-12.76.7.49 emacspeak-eww-restore
+12.76.7.48 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.76.7.50 emacspeak-eww-shell-command-on-url-at-point
+12.76.7.49 emacspeak-eww-shell-command-on-url-at-point
 ......................................................
 
  -- Command: emacspeak-eww-shell-command-on-url-at-point (&optional
@@ -1277,7 +1267,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.76.7.51 emacspeak-eww-smart-tabs
+12.76.7.50 emacspeak-eww-smart-tabs
 ...................................
 
  -- Command: emacspeak-eww-smart-tabs (char &optional define)
@@ -1290,7 +1280,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn CHAR &optional DEFINE)
 
-12.76.7.52 emacspeak-eww-smart-tabs-add
+12.76.7.51 emacspeak-eww-smart-tabs-add
 .......................................
 
  -- Command: emacspeak-eww-smart-tabs-add (char url)
@@ -1299,21 +1289,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn CHAR URL)
 
-12.76.7.53 emacspeak-eww-smart-tabs-load
+12.76.7.52 emacspeak-eww-smart-tabs-load
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-load
 
      Load our smart tabsfrom a file.
 
-12.76.7.54 emacspeak-eww-smart-tabs-save
+12.76.7.53 emacspeak-eww-smart-tabs-save
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-save
 
      Save our smart tabs to a file for reloading.
 
-12.76.7.55 emacspeak-eww-speak-this-element
+12.76.7.54 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -1324,7 +1314,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn ELEMENT)
 
-12.76.7.56 emacspeak-eww-table-next-cell
+12.76.7.55 emacspeak-eww-table-next-cell
 ........................................
 
  -- Command: emacspeak-eww-table-next-cell (&optional prefix)
@@ -1334,7 +1324,7 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.76.7.57 emacspeak-eww-table-previous-cell
+12.76.7.56 emacspeak-eww-table-previous-cell
 ............................................
 
  -- Command: emacspeak-eww-table-previous-cell (&optional prefix)
@@ -1344,21 +1334,21 @@ prefix arg to delete a previously created eww-mark.
 
      (fn &optional PREFIX)
 
-12.76.7.58 emacspeak-eww-table-speak-cell
+12.76.7.57 emacspeak-eww-table-speak-cell
 .........................................
 
  -- Command: emacspeak-eww-table-speak-cell
 
      Speak current cell.
 
-12.76.7.59 emacspeak-eww-tags-at-point
+12.76.7.58 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.76.7.60 emacspeak-eww-update-title
+12.76.7.59 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
@@ -1378,6 +1368,56 @@ prefix arg to delete a previously created eww-mark.
 
  -- Variable: User Option emacspeak-eww-silence-images
      Set to nil if you want EWW to load images.
+
+ -- Variable: User Option voice-eww-form-checkbox
+     Personality used for eww-form-checkbox This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-eww-form-file
+     Personality used for eww-form-file This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-eww-form-select
+     Personality used for eww-form-select This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option voice-eww-form-submit
+     Personality used for eww-form-submit This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-eww-form-text
+     Personality used for eww-form-text This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option voice-eww-form-textarea
+     Personality used for eww-form-textarea This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option voice-eww-invalid-certificate
+     Personality used for eww-invalid-certificate This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option voice-eww-valid-certificate
+     Personality used for eww-valid-certificate This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option voice-shr-selected-link
+     Personality used for shr-selected-link This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-shr-strike-through
+     Personality used for shr-strike-through This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options

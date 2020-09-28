@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1195 commands and 904 options.
+This chapter documents a total of 1194 commands and 904 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -220,7 +220,6 @@ This chapter documents a total of 1195 commands and 904 options.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.
 * emacspeak-webspace::Webspaces In Emacspeak.
-* emacspeak-webutils::Common Web Utilities For Emacspeak.
 * emacspeak-widget::Speech enable Emacs' native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing -- Manage multiple Emacs window configurations.
@@ -1248,54 +1247,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
-@defvar {User Option} voice-eww-form-checkbox
-Personality used for eww-form-checkbox
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-file
-Personality used for eww-form-file
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-select
-Personality used for eww-form-select
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-submit
-Personality used for eww-form-submit
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-text
-Personality used for eww-form-text
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-form-textarea
-Personality used for eww-form-textarea
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-invalid-certificate
-Personality used for eww-invalid-certificate
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-eww-valid-certificate
-Personality used for eww-valid-certificate
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
 @defvar {User Option} voice-file-name-shadow
 Personality used for file-name-shadow
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
@@ -1845,18 +1796,6 @@ This personality uses  voice-monotone-medium whose  effect can be changed global
 @defvar {User Option} voice-shr-link
 Personality used for shr-link
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-shr-selected-link
-Personality used for shr-selected-link
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} voice-shr-strike-through
-Personality used for shr-strike-through
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
@@ -6873,7 +6812,7 @@ Bookmark current Web page.
 @item = @command{dtk-toggle-punctuation-mode}
 Toggle punctuation mode.
 @item ?
-@command{emacspeak-webutils-google-similar-to-this-page}
+@command{emacspeak-google-similar-to-this-page}
 Google similarity search.
 @item C-t
 @item G @command{emacspeak-google-command}
@@ -7313,17 +7252,6 @@ interactive prefix arg ‘delete’, delete that mark instead.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-phantom
-@deffn {Command} emacspeak-eww-phantom  (url)
-@findex emacspeak-eww-phantom
-
-@format
-Retrieve ‘url’  using PhantomJS and render with EWW.
-
-(fn URL)
-@end format
-@end deffn
-
 @subsubsection emacspeak-eww-play-media-at-point
 @deffn {Command} emacspeak-eww-play-media-at-point  (&optional playlist-p)
 @table @kbd
@@ -7700,6 +7628,66 @@ User Agent string that is  sent when masquerading is on.
 
 @defvar {User Option} emacspeak-eww-silence-images
 Set to nil if you want EWW to load images.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-checkbox
+Personality used for eww-form-checkbox
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-file
+Personality used for eww-form-file
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-select
+Personality used for eww-form-select
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-submit
+Personality used for eww-form-submit
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-text
+Personality used for eww-form-text
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-form-textarea
+Personality used for eww-form-textarea
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-invalid-certificate
+Personality used for eww-invalid-certificate
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-eww-valid-certificate
+Personality used for eww-valid-certificate
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-shr-selected-link
+Personality used for shr-selected-link
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-shr-strike-through
+Personality used for shr-strike-through
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
 
 @end defvar
 
@@ -19381,8 +19369,6 @@ we makes emacspeak's webedit layer independent of a given
 Emacs web browser  EWW
 This module will use the abstraction provided by browse-url
 to handle Web pages.
-Module emacspeak-webutils provides the needed additional
-abstractions not already covered by browse-url
 
 @subsection Emacspeak-We Commands
 
@@ -20524,11 +20510,6 @@ Feeds to use in Headline Ticker.
 API Key for Google Knowledge Graph.
 
 @end defvar
-
-@node emacspeak-webutils
-@section emacspeak-webutils
-
-This module provides common Web utilities for emacspeak.
 
 @node emacspeak-widget
 @section emacspeak-widget
@@ -24959,7 +24940,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 84 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25085,9 +25066,7 @@ template.@item @b{NLS Bard Search}
 
 Search NLS Bard Catalog. Login once before using this template.@item @b{NY Times Mobile}
 
-NYTimes Mobile Site@item @b{NY Times RSS Feeds}
-
-Display browsable list of NY Times RSS Feeds.@item @b{Old Time Radio}
+NYTimes Mobile Site@item @b{Old Time Radio}
 
 This months Old Time Radio Programming@item @b{OpenLibrary}
 

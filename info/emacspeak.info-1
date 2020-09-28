@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1195 commands and 904 options.
+   This chapter documents a total of 1194 commands and 904 options.
 
 * Menu:
 
@@ -3103,7 +3103,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-we::Transform Web Pages Using XSLT.
 * emacspeak-websearch::search utilities.
 * emacspeak-webspace::Webspaces In Emacspeak.
-* emacspeak-webutils::Common Web Utilities For Emacspeak.
 * emacspeak-widget::Speech enable Emacs’ native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing – Manage multiple Emacs window configurations.
@@ -3876,46 +3875,6 @@ system.
      whose effect can be changed globally by customizing
      voice-animate-settings.
 
- -- Variable: User Option voice-eww-form-checkbox
-     Personality used for eww-form-checkbox This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option voice-eww-form-file
-     Personality used for eww-form-file This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-eww-form-select
-     Personality used for eww-form-select This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option voice-eww-form-submit
-     Personality used for eww-form-submit This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-eww-form-text
-     Personality used for eww-form-text This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-eww-form-textarea
-     Personality used for eww-form-textarea This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option voice-eww-invalid-certificate
-     Personality used for eww-invalid-certificate This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option voice-eww-valid-certificate
-     Personality used for eww-valid-certificate This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
  -- Variable: User Option voice-file-name-shadow
      Personality used for file-name-shadow This personality uses
      voice-monotone-medium whose effect can be changed globally by
@@ -4375,16 +4334,6 @@ system.
      Personality used for shr-link This personality uses voice-bolden
      whose effect can be changed globally by customizing
      voice-bolden-settings.
-
- -- Variable: User Option voice-shr-selected-link
-     Personality used for shr-selected-link This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option voice-shr-strike-through
-     Personality used for shr-strike-through This personality uses
-     voice-annotate whose effect can be changed globally by customizing
-     voice-annotate-settings.
 
  -- Variable: User Option voice-string-personality
      Personality used for font-lock-string-face This personality uses
