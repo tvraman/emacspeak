@@ -133,49 +133,49 @@
 
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
-
-(define-key org-mode-map
-  (kbd "C-c C-SPC")
-  (defhydra emacspeak-muggles-org-nav
-    (:body-pre
-     (progn
-       (emacspeak-hydra-toggle-talkative)
-       (emacspeak-hydra-body-pre "OrgNavView"))
-     :hint nil
-     :pre emacspeak-hydra-pre :post emacspeak-hydra-post
-     :color red :columns 3)
-    "Org Mode Navigate "
-    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
-    ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
-    ("n" emacspeak-outline-speak-next-heading  "next heading")
-    ("p" emacspeak-outline-speak-previous-heading "prev heading")
-    ("f" org-forward-heading-same-level "next heading at same level")
-    ("b" org-backward-heading-same-level "prev heading at same level")
-    ("u" outline-up-heading "up heading")
-    ("g" org-goto "goto" :exit t)))
+(with-eval-after-load "org"
+    (define-key org-mode-map
+      (kbd "C-c C-SPC")
+      (defhydra emacspeak-muggles-org-nav
+        (:body-pre
+         (progn
+           (emacspeak-hydra-toggle-talkative)
+           (emacspeak-hydra-body-pre "OrgNavView"))
+         :hint nil
+         :pre emacspeak-hydra-pre :post emacspeak-hydra-post
+         :color red :columns 3)
+        "Org Mode Navigate "
+        ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
+        ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
+        ("n" emacspeak-outline-speak-next-heading  "next heading")
+        ("p" emacspeak-outline-speak-previous-heading "prev heading")
+        ("f" org-forward-heading-same-level "next heading at same level")
+        ("b" org-backward-heading-same-level "prev heading at same level")
+        ("u" outline-up-heading "up heading")
+        ("g" org-goto "goto" :exit t))))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
-
-(define-key
-  org-mode-map (kbd "C-c t")
-  (defhydra emacspeak-muggles-org-table
-    (:body-pre
-     (progn
-       (emacspeak-hydra-body-pre "Org Table UI")
-       (when hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
-     :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
-    "Org Table UI"
-    ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
-    ("j" org-table-next-row)
-    ("k" org-table-previous-row)
-    ("h" org-table-previous-field)
-    ("l" org-table-next-field)
-    ("SPC"emacspeak-org-table-speak-current-element)
-    ("."emacspeak-org-table-speak-coordinates)
-    ("b"emacspeak-org-table-speak-both-headers-and-element)
-    ("r"emacspeak-org-table-speak-row-header-and-element)
-    ("c"emacspeak-org-table-speak-column-header-and-element)))
+(with-eval-after-load "org"
+  (define-key
+    org-mode-map (kbd "C-c t")
+    (defhydra emacspeak-muggles-org-table
+      (:body-pre
+       (progn
+         (emacspeak-hydra-body-pre "Org Table UI")
+         (when hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
+       :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
+      "Org Table UI"
+      ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
+      ("j" org-table-next-row)
+      ("k" org-table-previous-row)
+      ("h" org-table-previous-field)
+      ("l" org-table-next-field)
+      ("SPC"emacspeak-org-table-speak-current-element)
+      ("."emacspeak-org-table-speak-coordinates)
+      ("b"emacspeak-org-table-speak-both-headers-and-element)
+      ("r"emacspeak-org-table-speak-row-header-and-element)
+      ("c"emacspeak-org-table-speak-column-header-and-element))))
 
 ;;}}}
 ;;{{{ HideShow:
