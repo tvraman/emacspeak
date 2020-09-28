@@ -81,7 +81,7 @@ use `emacspeak-toggle-auditory-icons' bound to
 
 ;;}}}
 ;;{{{ Setup Audio 
-;;;###autoload
+
 (defun emacspeak-audio-setup (&optional prefix)
   "Call amixer  command."
   (interactive "P")
@@ -161,7 +161,7 @@ Do not set this by hand;
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
 
-;;;###autoload
+
 (defun emacspeak-sounds-select-theme  (theme)
   "Select theme for auditory icons."
   (interactive
@@ -197,7 +197,7 @@ Do not set this by hand;
 
 ;;}}}
 ;;{{{  queue an auditory icon
-;;;###autoload
+
 (defun emacspeak-queue-auditory-icon (sound-name)
   "Queue auditory icon SOUND-NAME."
   (cl-declare (special dtk-speaker-process))
@@ -306,7 +306,7 @@ Use Serve when working with remote speech servers."
 ;;{{{  toggle auditory icons
 
 ;;; This is the main entry point to this module:
-;;;###autoload
+
 (defun emacspeak-toggle-auditory-icons (&optional prefix)
   "Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value."
@@ -387,7 +387,7 @@ audio player."
           (const nil :tag "None")
           (string :tag "Command "))
   :group 'emacspeak-sounds)
-;;;###autoload
+
 (defun emacspeak-sounds-reset-sound  ()
   "Reload sound drivers."
   (interactive)
