@@ -414,7 +414,7 @@ part of the libxslt package."
       (set-buffer-multibyte t)
       (browse-url-of-buffer))))
 
-;;;###autoload
+
 (defun emacspeak-xslt-view (style url)
   "Browse URL with specified XSL style."
   (interactive
