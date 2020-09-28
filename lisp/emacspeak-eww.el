@@ -402,7 +402,6 @@
 (require 'dom)
 (require 'dom-addons)
 (require 'emacspeak-speak)
-(require 'emacspeak-feeds "emacspeak-feeds" 'no-error)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
@@ -616,6 +615,7 @@ are available are cued by an auditory icon on the header line."
   "Turn this on to avoid rendering images."
   :type 'boolean
   :group 'emacspeak-eww)
+(declare-function emacspeak-feeds-feed-display "emacspeak-feeds" (feed-url style &optional speak))
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
