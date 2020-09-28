@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1194 commands and 904 options.
+This chapter documents a total of 1190 commands and 904 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -19570,33 +19570,6 @@ buffer. Interactive use provides list of role values as completion.
 @end format
 @end deffn
 
-@subsubsection emacspeak-we-extract-id-list-text
-@deffn {Command} emacspeak-we-extract-id-list-text  (ids url &optional speak)
-@findex emacspeak-we-extract-id-list-text
-
-@format
-Extract text nodes from elements having id specified in list ‘ids’ from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Interactive use provides list of id values as completion. 
-
-(fn IDS URL &optional SPEAK)
-@end format
-@end deffn
-
-@subsubsection emacspeak-we-extract-id-text
-@deffn {Command} emacspeak-we-extract-id-text  (id url &optional speak)
-@findex emacspeak-we-extract-id-text
-
-@format
-Extract text nodes from elements having specified id attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer.
-Interactive use provides list of id values as completion.
-
-(fn ID URL &optional SPEAK)
-@end format
-@end deffn
-
 @subsubsection emacspeak-we-extract-matching-urls
 @deffn {Command} emacspeak-we-extract-matching-urls  (pattern url &optional speak)
 @table @kbd
@@ -19626,15 +19599,6 @@ operate on current web page when in a browser buffer; otherwise
  should be spoken automatically.
 
 (fn URL &optional SPEAK)
-@end format
-@end deffn
-
-@subsubsection emacspeak-we-extract-media-streams-under-point
-@deffn {Command} emacspeak-we-extract-media-streams-under-point   
-@findex emacspeak-we-extract-media-streams-under-point
-
-@format
-In browser buffers, extract media streams from url under point.
 @end format
 @end deffn
 
@@ -19674,20 +19638,6 @@ spoken automatically.
 Extract specified list of tables from a Web page.
 
 (fn TABLES URL &optional SPEAK)
-@end format
-@end deffn
-
-@subsubsection emacspeak-we-extract-print-streams
-@deffn {Command} emacspeak-we-extract-print-streams  (url &optional speak)
-@findex emacspeak-we-extract-print-streams
-
-@format
-Extract links to printable  streams.
-operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg ‘speak’ specifies if the result
- should be spoken automatically.
-
-(fn URL &optional SPEAK)
 @end format
 @end deffn
 
