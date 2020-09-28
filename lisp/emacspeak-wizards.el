@@ -146,7 +146,7 @@ current local  value to the result.")
 ;;}}}
 ;;{{{  Emacspeak News and Documentation
 
-;;;###autoload
+
 (defun emacspeak-view-emacspeak-news ()
   "Display emacspeak News for a given version."
   (interactive)
@@ -161,7 +161,7 @@ current local  value to the result.")
   (org-next-visible-heading 1)
   (emacspeak-speak-line))
 
-;;;###autoload
+
 (defun emacspeak-view-emacspeak-tips ()
   "Browse  Emacspeak productivity tips."
   (interactive)
@@ -184,7 +184,7 @@ current local  value to the result.")
 
 (make-variable-buffer-local
  'emacspeak-copy-associated-location)
-;;;###autoload
+
 (defun emacspeak-copy-current-file ()
   "Copy file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -222,7 +222,7 @@ Prompts for the new location and preserves modification time
      )
     (emacspeak-auditory-icon 'select-object)
     (message "Copied current document to %s" location)))
-;;;###autoload
+
 (defun emacspeak-link-current-file ()
   "Link (hard link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -255,7 +255,7 @@ Prompts for the new location and preserves modification time
      file location)
     (emacspeak-auditory-icon 'select-object)
     (message "Linked current document to %s" location)))
-;;;###autoload
+
 (defun emacspeak-symlink-current-file ()
   "Link (symbolic link) file visited in current buffer to new location.
 Prompts for the new location and preserves modification time
@@ -375,12 +375,12 @@ also copied to the kill ring for convenient yanking."
 ;;}}}
 ;;{{{ Elisp Utils:
 
-;;;###autoload
+
 (defun emacspeak-wizards-byte-compile-current-buffer ()
   "byte compile current buffer"
   (interactive)
   (byte-compile-file (buffer-file-name)))
-;;;###autoload
+
 (defun emacspeak-wizards-load-current-file ()
   "load file into emacs"
   (interactive)
@@ -458,7 +458,7 @@ user."
 ;;}}}
 ;;{{{ browse chunks
 
-;;;###autoload
+
 (defun emacspeak-wizards-move-and-speak (command count)
   "Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
@@ -754,7 +754,7 @@ the emacspeak table clipboard instead."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;;;###autoload
+
 (defun emacspeak-wizards-show-memory-used ()
   "Convenience command to view state of memory used in this session so far."
   (interactive)
@@ -965,7 +965,7 @@ Signals beginning  of buffer."
   :type 'file
   :group 'emacspeak-wizards)
 
-;;;###autoload
+
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with a browser ."
   (interactive "sURL: ")
@@ -1396,7 +1396,7 @@ prompts for and sets value of the file local pattern."
   "Default file extension  used when spotting words."
   :type 'string
   :group 'emacspeak-wizards)
-;;;###autoload
+
 (defun emacspeak-wizards-spot-words (ext word)
   "Searches recursively in all files with extension `ext'
 for `word' and displays hits in a compilation buffer."
@@ -1438,7 +1438,7 @@ Use with caution."
 ;;}}}
 ;;{{{ pod -- perl online docs
 (declare-function cperl-pod2man-build-command "cperl-mode" nil)
-;;;###autoload
+
 (defun emacspeak-wizards-display-pod-as-manpage (filename)
   "Create a virtual manpage in Emacs from the Perl Online Documentation."
   (interactive
@@ -1462,7 +1462,7 @@ Use with caution."
 
 ;;}}}
 ;;{{{ fix text that has gotten read-only accidentally
-;;;###autoload
+
 (defun emacspeak-wizards-fix-read-only-text (start end)
   "Nuke read-only property on text range."
   (interactive "r")
@@ -1519,7 +1519,7 @@ Ubuntu and Debian this is group `tty'."
      (goto-char (point-min))
      (when (called-interactively-p 'interactive) (emacspeak-speak-line)))))
 
-;;;###autoload
+
 (defun emacspeak-wizards-vc-viewer-refresh ()
   "Refresh view of VC we're viewing."
   (interactive)
@@ -1698,7 +1698,7 @@ Interactive  arguments specify filename pattern and search pattern."
 ;;}}}
 ;;{{{ voice sample
 
-;;;###autoload
+
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
   (interactive (list (voice-setup-read-personality)))
@@ -1706,7 +1706,7 @@ Interactive  arguments specify filename pattern and search pattern."
                      'personality personality)
   (emacspeak-speak-line))
 
-;;;###autoload
+
 (defun emacspeak-wizards-generate-voice-sampler (step)
   "Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family."
@@ -1738,7 +1738,7 @@ for the current voice family."
     (switch-to-buffer buffer)
     (goto-char (point-min))))
 
-;;;###autoload
+
 (defun emacspeak-wizards-show-defined-voices ()
   "Display a buffer with sample text in the defined voices."
   (interactive)
@@ -1794,7 +1794,7 @@ bound to \\[emacspeak-wizards-tramp-open-location]."
                 (string :tag "Location")))
   :group 'emacspeak-wizards)
 
-;;;###autoload
+
 (defun emacspeak-wizards-tramp-open-location (name)
   "Open specified tramp location.
 Location is specified by name."
@@ -1940,18 +1940,6 @@ Direction specifies previous/next."
       (funcall-interactively #'pop-to-buffer target))
      ((= 1 (length shells)) (shell "1-shell"))
      (t (call-interactively #'shell)))))
-
-;;;###autoload
-(defun emacspeak-wizards-next-shell ()
-  "Switch to next shell."
-  (interactive)
-  (emacspeak-wizards-switch-shell 1))
-
-;;;###autoload
-(defun emacspeak-wizards-previous-shell ()
-  "Switch to previous shell."
-  (interactive)
-  (emacspeak-wizards-switch-shell -1))
 
 ;;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)
@@ -2129,25 +2117,6 @@ buffer keyed by `key'gets the key of buffer `buffer'."
       (replace-match "" nil t))
     (buffer-string)))
 
-;;;###autoload
-(defun emacspeak-wizards-show-commentary (&optional file)
-  "Display commentary. Default is to display commentary from current buffer."
-  (interactive "P")
-  (let ((filename nil))
-    (cond
-     ((and (called-interactively-p 'interactive)
-           file)
-      (setq filename (read-file-name "File: ")))
-     ((and (called-interactively-p 'interactive)
-           (null file))
-      (setq filename (buffer-file-name (current-buffer))))
-     (t (setq filename file)))
-    (with-output-to-temp-buffer "*Commentary*"
-      (set-buffer standard-output)
-      (insert
-       (ems-cleanup-commentary
-        (lm-commentary filename))))))
-
 ;;}}}
 ;;{{{ Add autoload cookies:
 
@@ -2185,7 +2154,7 @@ Default is to add autoload cookies to current file."
 ;;}}}
 ;;{{{ Bullet navigation
 
-;;;###autoload
+
 (defun emacspeak-wizards-next-bullet ()
   "Navigate to and speak next `bullet'."
   (interactive)
@@ -2193,7 +2162,7 @@ Default is to add autoload cookies to current file."
    "\\(^ *[0-9]+\\. \\)\\|\\( O \\) *")
   (emacspeak-auditory-icon 'item)
   (emacspeak-speak-line))
-;;;###autoload
+
 (defun emacspeak-wizards-previous-bullet ()
   "Navigate to and speak previous `bullet'."
   (interactive)
@@ -2345,7 +2314,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;}}}
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
 
-;;;###autoload
+
 (defun emacspeak-wizards-enumerate-matching-commands (pattern)
   "Return list of commands whose names match pattern."
   (interactive "sFilter Regex: ")
@@ -2399,7 +2368,7 @@ filters out commands that dont have an active key-binding."
     (sort result
           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b))))))
 
-;;;###autoload
+
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
   "utility function to enumerate old, obsolete maps that we have still
 mapped to voices."
@@ -2718,7 +2687,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
            (g-json-from-url
             (format "%s/account/metadata?token=%s" emacspeak-wizards-iex-base emacspeak-iex-api-key))))
 
-;;;###autoload
+
 (defun emacspeak-wizards-iex-show-price (symbol)
   "Quick Quote: Just stock price from IEXCloud."
   (interactive
@@ -2745,7 +2714,7 @@ Caches results locally in `emacspeak-wizards-iex-portfolio-file'."
     map)
   "Local keymap used in quotes view.")
 
-;;;###autoload
+
 (defun emacspeak-wizards-iex-show-quote (&optional refresh)
   "Show portfolio  data from cache.
 Optional interactive prefix arg forces cache refresh.
@@ -2841,7 +2810,7 @@ P: Show live price for current stock."
      'keymap ems--wizards-iex-quotes-keymap)
     (funcall-interactively #'emacspeak-table-goto 1 1)))
 
-;;;###autoload
+
 (defun emacspeak-wizards-iex-show-news (symbol &optional refresh)
   "Show news for specified ticker.
 Checks cache, then makes API call if needed.
@@ -2886,7 +2855,7 @@ Optional interactive prefix arg refreshes cache."
     (funcall-interactively #'switch-to-buffer buff)
     (goto-char (point-min))))
 
-;;;###autoload
+
 (defun emacspeak-wizards-iex-show-financials (symbol &optional refresh)
   "Show financials for specified ticker.
 Checks cache, then makes API call if needed.
