@@ -2145,7 +2145,7 @@ Warning: Running shell script cbox through this fails mysteriously."
   (emacspeak-eww-smart-tabs-put char url)
   (emacspeak-auditory-icon 'close-object))
 
-;;;###autoload
+
 (defun emacspeak-eww-smart-tabs (char &optional define)
   "Open URL in EWW keyed by  `char'.
 To associate a URL with a char, use this command
