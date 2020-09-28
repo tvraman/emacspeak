@@ -535,7 +535,7 @@ feature. Calling spec is like `emacspeak-m-player'."
   '("-af" "hrtf" "-af" "resample=48000")
   "Additional options to use built-in HRTF.")
 
-;;;###autoload
+
 (defun emacspeak-m-player-using-hrtf ()
   "Add af resample=48000,hrtf to startup options.
 This will work if the soundcard is set to 48000."
