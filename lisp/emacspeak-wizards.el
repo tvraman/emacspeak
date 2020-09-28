@@ -60,19 +60,20 @@
 (require 'derived)
 (require 'find-dired)
 (require 'emacspeak-preamble)
-(require 'emacspeak-table-ui)
-(require 'texinfo)
-(require 'term)
-(require 'emacspeak-we)
-(require 'emacspeak-xslt)
-(require 'name-this-color "name-this-color" 'no-error)
+(eval-when-compile
+  (require 'emacspeak-table-ui)
+  (require 'texinfo)
+  (require 'term)
+  (require 'emacspeak-we)
+  (require 'emacspeak-xslt)
+  (require 'name-this-color "name-this-color" 'no-error)
 
-(require 'gweb)
-(require 'shell)
-(require 'calendar)
-(require 'cus-edit)
-(require 'org)
-(require 'solar)
+  (require 'gweb)
+  (require 'shell)
+  (require 'calendar)
+  (require 'cus-edit)
+  (require 'org)
+  (require 'solar))
 
 ;;}}}
 ;;{{{defgroup:
