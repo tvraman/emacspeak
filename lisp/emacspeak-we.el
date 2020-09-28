@@ -179,7 +179,7 @@ Default is to apply sort-tables."
   (emacspeak-webutils-browser-check)
   (add-hook
    'emacspeak-web-pre-process-hook
-   (emacspeak-webutils-make-xsl-transformer  xsl))
+   (emacspeak-xslt-make-xsl-transformer  xsl))
   (browse-url (eww-current-url)))
 
 ;;;###autoload
@@ -268,7 +268,7 @@ from Web page -- default is the current page being viewed."
     (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
     (add-hook
      'emacspeak-web-pre-process-hook
-     (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
+     (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-filter params))
     (add-hook
      'emacspeak-web-post-process-hook
      #'emacspeak-eww-reading-settings 'at-end)
@@ -283,7 +283,7 @@ Each filter is a list of the form
     (emacspeak-webutils-rename-buffer (format "Pipeline filtered ")))
   (add-hook
    'emacspeak-web-pre-process-hook
-   (emacspeak-webutils-make-xsl-transformer-pipeline specs url))
+   (emacspeak-xslt-make-xsl-transformer-pipeline specs url))
   (add-hook
    'emacspeak-web-post-process-hook
    #'emacspeak-eww-reading-settings 'at-end)
@@ -303,7 +303,7 @@ Each filter is a list of the form
     (when speak (emacspeak-eww-autospeak))
     (add-hook
      'emacspeak-web-pre-process-hook
-     (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-junk params))
+     (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-junk params))
     (browse-url url)))
 
 (defcustom emacspeak-we-media-stream-suffixes

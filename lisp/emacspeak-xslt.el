@@ -121,6 +121,34 @@ This is useful when handling bad HTML."
      ,@body))
 
 ;;}}}
+;;{{{XSLT Transformer functions:
+
+(defun emacspeak-xslt-make-xsl-transformer  (xsl &optional params)
+  "Return a function that can be attached to emacspeak-web-pre-process-hook to apply required xslt transform."
+  (cond
+   ((null params)
+    (eval
+     `#'(lambda ()
+          (emacspeak-xslt-region ,xsl (point) (point-max)))))
+   (t
+    (eval
+     `#'(lambda ()
+          (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))))
+
+(defun emacspeak-xslt-make-xsl-transformer-pipeline   (specs url)
+  "Return a function that can be attached to
+emacspeak-web-pre-process-hook to apply required xslt transformation
+pipeline. Argument `specs' is a list of elements of the form `(xsl params)'."
+  (eval
+   `#'(lambda ()
+        (cl-loop
+         for s in ',specs do
+         (emacspeak-xslt-region
+          (cl-first s)
+          (point) (point-max)
+          (emacspeak-xslt-params-from-xpath (cl-second s) ,url))))))
+
+;;}}}
 ;;{{{ Functions:
 
 ;;;###autoload
@@ -376,7 +404,7 @@ part of the libxslt package."
   (cl-declare (special emacspeak-xslt-options))
   (add-hook
    'emacspeak-web-pre-process-hook
-   (emacspeak-webutils-make-xsl-transformer style))
+   (emacspeak-xslt-make-xsl-transformer style))
   (browse-url url))
 
 ;;;###autoload
