@@ -6840,10 +6840,10 @@ media streams, or to open various feed-types such as @code{ATOM},
 @command{shr-copy-url}
 Copy URL under point to the kill-ring.
 @item ;
-@command{emacspeak-webutils-play-media-at-point}
+@command{emacspeak-eww-play-media-at-point}
 Play media URL under point using @code{emacs-m-player}.
 @item U
-@command{emacspeak-webutils-curl-play-media-at-point}
+@command{emacspeak-eww-curl-play-media-at-point}
 Play media url under point by first downloading the URL using
 CURL. This is useful for sites that do multiple redirects before
 returning the actual media stream URL.
@@ -7025,6 +7025,17 @@ delete a previously created eww-mark.
 Interactively add a mark with name title+‘name’ at current position.
 
 (fn NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-curl-play-media-at-point
+@deffn {Command} emacspeak-eww-curl-play-media-at-point   
+@findex emacspeak-eww-curl-play-media-at-point
+
+@format
+Use Curl to pull a URL, then pass
+the first line to MPlayer as a playlist.
+Useful in handling double-redirect from TuneIn.
 @end format
 @end deffn
 
@@ -7310,6 +7321,26 @@ interactive prefix arg ‘delete’, delete that mark instead.
 Retrieve ‘url’  using PhantomJS and render with EWW.
 
 (fn URL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-play-media-at-point
+@deffn {Command} emacspeak-eww-play-media-at-point  (&optional playlist-p)
+@table @kbd
+@item C-e M-;
+@kindex C-e M-;
+@item <fn> M-;
+@kindex <fn> M-;
+@end table
+
+@findex emacspeak-eww-play-media-at-point
+
+@format
+Play media url under point.
+Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
+ A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
+
+(fn &optional PLAYLIST-P)
 @end format
 @end deffn
 
@@ -12593,6 +12624,13 @@ The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
 @subsubsection emacspeak-muggles-hideshow/body
 @deffn {Command} emacspeak-muggles-hideshow/body   
+@table @kbd
+@item C-, h
+@kindex C-, h
+@item C-x @@ a h
+@kindex C-x @@ a h
+@end table
+
 @findex emacspeak-muggles-hideshow/body
 
 @format
@@ -12803,6 +12841,13 @@ The body can be accessed via ‘emacspeak-muggles-undo-only/undo-redo/body’.
 
 @subsubsection emacspeak-muggles-vuiet/body
 @deffn {Command} emacspeak-muggles-vuiet/body   
+@table @kbd
+@item C-; v
+@kindex C-; v
+@item C-x @@ h v
+@kindex C-x @@ h v
+@end table
+
 @findex emacspeak-muggles-vuiet/body
 
 @format
@@ -20485,51 +20530,6 @@ API Key for Google Knowledge Graph.
 
 This module provides common Web utilities for emacspeak.
 
-@subsection Emacspeak-Webutils Commands
-
-@subsubsection emacspeak-webutils-curl-play-media-at-point
-@deffn {Command} emacspeak-webutils-curl-play-media-at-point   
-@findex emacspeak-webutils-curl-play-media-at-point
-
-@format
-Use Curl to pull a URL, then pass
-the first line to MPlayer as a playlist.
-Useful in handling double-redirect from TuneIn.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webutils-jump-to-title-in-content
-@deffn {Command} emacspeak-webutils-jump-to-title-in-content   
-@findex emacspeak-webutils-jump-to-title-in-content
-
-@format
-Jumps to the title in web document.
-The first time it is called, it jumps to the first
-instance  of the title.  Repeated calls jump to further
-instances.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webutils-play-media-at-point
-@deffn {Command} emacspeak-webutils-play-media-at-point  (&optional playlist-p)
-@table @kbd
-@item C-e M-;
-@kindex C-e M-;
-@item <fn> M-;
-@kindex <fn> M-;
-@end table
-
-@findex emacspeak-webutils-play-media-at-point
-
-@format
-Play media url under point.
-Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
- A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
-
-(fn &optional PLAYLIST-P)
-@end format
-@end deffn
-
 @node emacspeak-widget
 @section emacspeak-widget
 
@@ -23297,6 +23297,15 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
 @subsubsection emacspeak-muggles-outliner/body
 @deffn {Command} emacspeak-muggles-outliner/body   
+@table @kbd
+@item C-. o
+@kindex C-. o
+@item C-' o
+@kindex C-' o
+@item C-x @@ s o
+@kindex C-x @@ s o
+@end table
+
 @findex emacspeak-muggles-outliner/body
 
 @format
@@ -23324,6 +23333,20 @@ The heads for the associated hydra are:
 "z":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-outliner/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-pianobar-key-map-cmd
+@deffn {Command} emacspeak-muggles-pianobar-key-map-cmd   
+@table @kbd
+@item s-'
+@kindex s-'
+@end table
+
+@findex emacspeak-muggles-pianobar-key-map-cmd
+
+@format
+Temporarily use keymap pianobar-key-map
 @end format
 @end deffn
 
@@ -23376,6 +23399,15 @@ The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
+@table @kbd
+@item C-. v
+@kindex C-. v
+@item C-' v
+@kindex C-' v
+@item C-x @@ s v
+@kindex C-x @@ s v
+@end table
+
 @findex emacspeak-muggles-view/body
 
 @format
@@ -23436,6 +23468,13 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 @subsubsection emacspeak-origami/body
 @deffn {Command} emacspeak-origami/body   
+@table @kbd
+@item C-, /
+@kindex C-, /
+@item C-x @@ a /
+@kindex C-x @@ a /
+@end table
+
 @findex emacspeak-origami/body
 
 @format

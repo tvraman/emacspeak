@@ -404,6 +404,28 @@ This variable is buffer-local.")
           (if emacspeak-google-use-https "https" "http")))
 
 ;;}}}
+;;{{{Cache query, toolbelt
+
+(defun emacspeak-google-cache-query(query)
+  "Setup post process hook to cache google query when rendered."
+  (cl-declare (special emacspeak-google-query))
+  (let ((cache
+         (eval
+          `#'(lambda nil
+              (setq emacspeak-google-query ,query)))))
+    (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+
+(defun emacspeak-google-cache-toolbelt(belt)
+  "Setup post process hook to cache google toolbelt when rendered."
+  (cl-declare (special emacspeak-google-toolbelt))
+  (let ((cache
+         (eval 
+                 `#'(lambda nil
+                   (setq emacspeak-google-toolbelt' ,belt)))))
+    (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
+
+
+;;}}}
 ;;{{{  google tools
 
 (declare-function eww-current-url "eww" nil)
@@ -501,7 +523,7 @@ current page."
                      (concat
                       (emacspeak-google-toolbelt-to-tbs belt)
                       (emacspeak-google-toolbelt-to-tbm belt))))
-                 (emacspeak-webutils-cache-google-toolbelt belt)
+                 (emacspeak-google-cache-toolbelt belt)
                  (emacspeak-websearch-google
                   (or emacspeak-google-query
                       (gweb-google-autocomplete))))))))
