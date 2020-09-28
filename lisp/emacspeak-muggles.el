@@ -132,6 +132,7 @@
 
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
+
 (with-eval-after-load "org"
     (define-key org-mode-map
       (kbd "C-c C-SPC")
@@ -379,8 +380,8 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
    ("<right>" emacspeak-maths-right "right")))
 
 ;;}}}
-
 ;;{{{Vuiet:
+
 (declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
 
 (global-set-key
