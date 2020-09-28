@@ -1049,6 +1049,9 @@ selected filter before it is applied."
 ;;{{{ Media History:
 
 (defvar emacspeak-m-player-history nil)
+;;;###autoload
+(defvar emacspeak-m-player-media-history nil
+  "Record media urls we played.")
 
 (defun emacspeak-m-player-from-media-history (posn)
   "Play media from media-history.
