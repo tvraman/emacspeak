@@ -2167,7 +2167,7 @@ with an interactive prefix arg. "
     (emacspeak-auditory-icon 'button)
     (eww url)))
 
-;;;###autoload
+
 (defun emacspeak-eww-smart-tabs-save ()
   "Save our smart tabs to a file for reloading."
   (interactive)
@@ -2183,7 +2183,7 @@ with an interactive prefix arg. "
  'kill-emacs-hook
  #'emacspeak-eww-smart-tabs-save)
 
-;;;###autoload
+
 (defun emacspeak-eww-smart-tabs-load ()
   "Load our smart tabsfrom a file."
   (interactive)
