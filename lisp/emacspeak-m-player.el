@@ -1351,7 +1351,7 @@ Default is to pick smallest (lowest quality) audio format.
 Optional prefix arg `best' chooses highest quality."
   (interactive
    (list
-    (emacspeak-webutils-read-url)
+    (emacspeak-eww-read-url)
     current-prefix-arg))
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
@@ -1662,7 +1662,7 @@ tap-reverb already installed."
   "Play an RSS stream by converting to  an M3U playlist."
   (interactive
    (list
-    (emacspeak-webutils-read-url)))
+    (emacspeak-eww-read-url)))
   (let* ((file (make-temp-file  "rss-media" nil ".m3u"))
          (buffer (find-file-noselect file)))
     (message "Retrieving playlist.")

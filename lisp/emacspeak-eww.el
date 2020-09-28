@@ -416,7 +416,26 @@
   :group 'emacspeak)
 
 ;;}}}
+
 ;;{{{ Helpers:
+
+
+;;;###autoload
+(defsubst emacspeak-eww-browser-check ()
+  "Check to see if functions are called from a browser buffer"
+  (cl-declare (special major-mode))
+  (unless (eq major-mode 'eww-mode)
+    (error "This command cannot be used outside browser buffers.")))
+
+;;;###autoload
+(defun emacspeak-eww-read-url ()
+  "Return URL under point
+or URL read from minibuffer."
+  (let ((url (shr-url-at-point nil)))
+    (if url
+        url
+      (car (browse-url-interactive-arg "URL: ")))))
+
 ;;; Generate functions emacspeak-eww-current-title and friends:
 
 (cl-loop
