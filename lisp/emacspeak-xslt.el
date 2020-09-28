@@ -389,7 +389,7 @@ part of the libxslt package."
 ;;}}}
 ;;{{{ interactive commands:
 
-;;;###autoload
+
 (defun emacspeak-xslt-view-file(style file)
   "Transform `file' using `style' and preview via browse-url."
   (interactive

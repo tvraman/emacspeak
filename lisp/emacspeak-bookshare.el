@@ -1138,6 +1138,7 @@ Target location is generated from author and title."
                        emacspeak-xslt-directory))
 
   (expand-file-name emacspeak-bookshare-toc-xslt emacspeak-xslt-directory))
+(declare-function emacspeak-xslt-view-file "emacspeak-xslt" (style file))
 
 (defun emacspeak-bookshare-view-at-point ()
   "View book at point.
