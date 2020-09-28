@@ -59,22 +59,18 @@
 ;;{{{Autospeak Helper
 ;;;###autoload
 (defun emacspeak-webutils-autospeak()
-  "Setup post process hook to speak the Web page when rendered.
-Forward punctuation and rate  settings to resulting buffer."
-  (let ((p dtk-punctuation-mode)
-        (r dtk-speech-rate))
+  "Setup post process hook to speak the Web page when rendered. "
     (add-hook
      'emacspeak-web-post-process-hook
      #'(lambda nil
          (cl-declare (special emacspeak-we-xpath-filter))
            (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
            (emacspeak-speak-buffer))
-     'at-end)))
+     'at-end))
 
 ;;}}}
 ;;{{{ web-pre-process
 
-;;;###autoload
 (defvar emacspeak-web-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
 ;;;###autoload
@@ -92,7 +88,6 @@ Forward punctuation and rate  settings to resulting buffer."
 ;;}}}
 ;;{{{ web-post-process
 
-;;;###autoload
 (defvar emacspeak-web-post-process-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
@@ -112,24 +107,6 @@ Note that the Web browser should reset this hook after using it.")
 ;;}}}
 ;;{{{ Helpers:
 
-(defvar emacspeak-webutils-charent-alist
-  '(("&lt;" . "<")
-    ("&gt;" . ">")
-    ("&quot;" . "\"")
-    ("&apos;" . "'")
-    ("&amp;" . "&"))
-  "Entities to unescape when treating badly escaped XML.")
-;;;###autoload
-(defun emacspeak-webutils-unescape-charent (start end)
-  "Clean up charents in XML."
-  (cl-declare (special emacspeak-webutils-charent-alist))
-  (cl-loop for entry in emacspeak-webutils-charent-alist
-           do
-           (let ((entity (car  entry))
-                 (replacement (cdr entry)))
-             (goto-char start)
-             (while (search-forward entity end t)
-               (replace-match replacement nil t)))))
 ;;;###autoload
 (defun emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."

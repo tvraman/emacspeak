@@ -366,6 +366,27 @@ part of the libxslt package."
       result)))
 
 ;;}}}
+;;{{{handle charent
+(defvar emacspeak-xslt-charent-alist
+  '(("&lt;" . "<")
+    ("&gt;" . ">")
+    ("&quot;" . "\"")
+    ("&apos;" . "'")
+    ("&amp;" . "&"))
+  "Entities to unescape when treating badly escaped XML.")
+
+(defun emacspeak-xslt-unescape-charent (start end)
+  "Clean up charents in XML."
+  (cl-declare (special emacspeak-xslt-charent-alist))
+  (cl-loop for entry in emacspeak-xslt-charent-alist
+           do
+           (let ((entity (car  entry))
+                 (replacement (cdr entry)))
+             (goto-char start)
+             (while (search-forward entity end t)
+               (replace-match replacement nil t)))))
+
+;;}}}
 ;;{{{ interactive commands:
 
 ;;;###autoload
@@ -428,7 +449,7 @@ part of the libxslt package."
     (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent
-        (emacspeak-webutils-unescape-charent (point-min) (point-max)))
+        (emacspeak-xslt-unescape-charent (point-min) (point-max)))
       (emacspeak-xslt-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
@@ -449,7 +470,7 @@ part of the libxslt package."
     (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent
-        (emacspeak-webutils-unescape-charent (point-min) (point-max)))
+        (emacspeak-xslt-unescape-charent (point-min) (point-max)))
       (emacspeak-xslt-without-xsl
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
