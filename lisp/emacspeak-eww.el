@@ -561,7 +561,6 @@ are available are cued by an auditory icon on the header line."
 ;;; Inform emacspeak-webutils about EWW:
 
 (defvar emacspeak-eww-url-at-point
-  "EWW Url At point that also handle google specialities."
   #'(lambda ()
       (let ((url (shr-url-at-point nil)))
         (cond
@@ -570,7 +569,8 @@ are available are cued by an auditory icon on the header line."
                (string-prefix-p (emacspeak-google-result-url-prefix) url))
           (emacspeak-google-canonicalize-result-url url))
          ((and url (stringp url))url)
-         (t (error "No URL under point."))))))
+         (t (error "No URL under point.")))))
+  "EWW Url At point that also handle google specialities.")
 
 (add-hook
  'eww-mode-hook
