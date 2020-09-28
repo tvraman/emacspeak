@@ -401,6 +401,7 @@
 (require 'eww  )
 (require 'dom)
 (require 'dom-addons)
+(require 'emacspeak-webutils)
 (require 'emacspeak-speak)
 (require 'emacspeak-feeds "emacspeak-feeds" 'no-error)
 (cl-declaim  (optimize  (safety 0) (speed 3)))

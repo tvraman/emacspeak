@@ -88,6 +88,7 @@
 (require 'dired)
 (require 'eww   nil  'noerror)
 (require 'browse-url)
+(require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
