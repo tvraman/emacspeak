@@ -108,8 +108,6 @@ Note that the Web browser should reset this hook after using it.")
 ;;{{{ Helpers:
 
 ;;;###autoload
-
-;;;###autoload
 (defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (cl-declare (special major-mode))
@@ -125,17 +123,7 @@ or URL read from minibuffer."
       (car (browse-url-interactive-arg "URL: ")))))
 
 ;;;  Helper: rename result buffer
-(defun emacspeak-webutils-rename-buffer (key)
-  "Setup emacspeak-web-post-process-hook  to rename result buffer"
-  (add-hook
-   'emacspeak-web-post-process-hook
-   (eval
-    `(function
-      (lambda nil
-        (rename-buffer
-         (format "%s %s"
-                 (buffer-name) ,key)
-         'unique))))))
+
 
 ;;;###autoload
 (defun emacspeak-webutils-post-process (locator speaker &rest args)

@@ -63,6 +63,20 @@
 
 
 ;;}}}
+;;{{{Helper:
+
+(defun emacspeak-we-rename-buffer (key)
+  "Setup emacspeak-web-post-process-hook  to rename result buffer"
+  (add-hook
+   'emacspeak-web-post-process-hook
+   (eval
+    #'(lambda nil
+        (rename-buffer
+         (format "%s %s"
+                 (buffer-name) ,key)
+         'unique)))))
+
+;;}}}
 ;;{{{ URL Rewrite:
 ;;; forward decl to help compiler 
 (defvar emacspeak-eww-url-at-point)
@@ -265,7 +279,7 @@ from Web page -- default is the current page being viewed."
   (cl-declare (special emacspeak-we-xsl-filter
                        emacspeak-we-filters-rename-buffer))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
+    (when emacspeak-we-filters-rename-buffer(emacspeak-we-rename-buffer (format "Filtered %s" path)))
     (add-hook
      'emacspeak-web-pre-process-hook
      (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-filter params))
@@ -280,7 +294,7 @@ Each filter is a list of the form
  `(xsl-stylesheet-name xpath)'."
   (cl-declare (special emacspeak-we-filters-rename-buffer))
   (when emacspeak-we-filters-rename-buffer
-    (emacspeak-webutils-rename-buffer (format "Pipeline filtered ")))
+    (emacspeak-we-rename-buffer (format "Pipeline filtered ")))
   (add-hook
    'emacspeak-web-pre-process-hook
    (emacspeak-xslt-make-xsl-transformer-pipeline specs url))
@@ -299,7 +313,7 @@ Each filter is a list of the form
     (called-interactively-p 'interactive)))
   (cl-declare (special emacspeak-we-xsl-junk))
   (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
+    (emacspeak-we-rename-buffer (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
     (add-hook
      'emacspeak-web-pre-process-hook
