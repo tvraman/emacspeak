@@ -58,6 +58,7 @@
 (defun emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
+
 (defgroup emacspeak-xslt nil
   "XSL transformation group."
   :group 'emacspeak)
@@ -195,7 +196,7 @@ part of the libxslt package."
         (set-buffer-multibyte t)
         (current-buffer)))))
 
-;;;###autoload
+
 (defun emacspeak-xslt-run (xsl &optional start end)
   "Run xslt on region, and return output filtered by sort -u.
 Region defaults to entire buffer."

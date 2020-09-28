@@ -555,6 +555,7 @@ Tables are specified by containing  match pattern
   "Caches class attribute values for current buffer.")
 
 (make-variable-buffer-local 'emacspeak-we-buffer-class-cache)
+(declare-function emacspeak-xslt-run "emacspeak-xslt" (xsl &optional start end))
 
 (defun emacspeak-we-build-class-cache ()
   "Build class cache and forward it to rendered page."
