@@ -434,20 +434,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ NY Times
-(emacspeak-url-template-define
- "NY Times RSS Feeds"
- "http://www.nytimes.com/services/xml/rss/nyt/index.opml"
- nil
- nil
- "Display browsable list of NY Times RSS Feeds."
- #'(lambda (url)
-     (let ((buffer
-            (emacspeak-xslt-xml-url
-             (emacspeak-xslt-get "opml.xsl")
-             url)))
-       (save-current-buffer
-         (set-buffer buffer)
-         (browse-url-of-buffer)))))
 
 (emacspeak-url-template-define
  "NY Times Mobile"
