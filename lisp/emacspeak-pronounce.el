@@ -338,8 +338,6 @@ Default is emacspeak-pronounce-dictionaries-file."
   "Point where we left off reading from the buffer containing the term being defined.")
 
 (make-variable-buffer-local ' emacspeak-pronounce-yank-word-point)
-;;;###autoload
-
 
 (defun emacspeak-pronounce-read-term (key)
   (cl-declare (special emacspeak-pronounce-yank-word-point
@@ -359,7 +357,7 @@ Default is emacspeak-pronounce-dictionaries-file."
          (define-key now-map "\C-w"'emacspeak-pronounce-yank-word))
        now-map))))
 
-;;;###autoload
+
 (defun emacspeak-pronounce-define-local-pronunciation (word pron)
   "Define buffer local pronunciation.
 Argument `word' specified the word to be pronounced.
@@ -408,7 +406,7 @@ Returns a pair of the form (key-type . key)."
      (t (error "Cannot define pronunciations with key type %s" key-type)))
     (cons key-type key)))
 
-;;;###autoload
+
 (defun emacspeak-pronounce-define-template-pronunciation ()
   "Interactively define template entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
@@ -434,7 +432,7 @@ First loads any persistent dictionaries if not already loaded."
     (when (eq (car key-pair) 'buffer)
       (emacspeak-pronounce-add-buffer-local-dictionary-entry word pronunciation))))
 
-;;;###autoload
+
 (defun emacspeak-pronounce-define-pronunciation ()
   "Interactively define entries in the pronunciation dictionaries.
 Default term to define is delimited by region.
@@ -681,7 +679,7 @@ specified pronunciation dictionary key."
   "Dictionary: Clear Define Edit Load Refresh Save Toggle"
   "Help message listing emacspeak commands.")
 
-;;;###autoload
+
 (defun emacspeak-pronounce-dispatch ()
   "Provides the user interface front-end to Emacspeak's pronunciation dictionaries."
   (interactive)
