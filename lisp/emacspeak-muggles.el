@@ -96,8 +96,6 @@
 (require 'emacspeak-maths nil 'no-error)
 (require 'emacspeak-outline)
 (require 'org)
-(with-no-warnings (require 'origami "origami" 'no-error)
-                  (require 'vuiet "vuiet" 'no-error))
 (require 'smartparens "smartparens" 'no-error)
 (require 'browse-kill-ring "browse-kill-ring" 'no-error)
 (require 'hydra "hydra" 'no-error)

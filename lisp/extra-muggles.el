@@ -90,6 +90,8 @@
 (eval-when-compile
   (when (locate-library "package")
     (unless (locate-library "hydra") (package-install 'hydra))))
+(with-no-warnings (require 'origami "origami" 'no-error)
+                  (require 'vuiet "vuiet" 'no-error))
 (require 'emacspeak-hydra)
 (require 'org)
 (require 'emacspeak-org)
