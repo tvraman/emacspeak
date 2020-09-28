@@ -145,7 +145,7 @@ end   as specified by grid."
   "Lookup key and return corresponding grid. "
   (cl-declare (special emacspeak-gridtext-table))
   (gethash key emacspeak-gridtext-table))
-;;;###autoload
+
 (defun emacspeak-gridtext-load (file)
   "Load saved grid settings."
   (interactive
@@ -159,7 +159,7 @@ end   as specified by grid."
          (expand-file-name  file emacspeak-resource-directory)))
     (error (message "Error loading resources from %s "
                     file))))
-;;;###autoload
+
 (defun emacspeak-gridtext-save (file)
   "Save out grid settings."
   (interactive
@@ -192,7 +192,7 @@ end   as specified by grid."
 
 ;;}}}
 ;;{{{ interactive commands
-;;;###autoload
+
 (defun emacspeak-gridtext-apply (start end grid)
   "Apply grid to region."
   (interactive
