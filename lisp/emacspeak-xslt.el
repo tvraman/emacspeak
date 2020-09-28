@@ -454,7 +454,7 @@ part of the libxslt package."
        (browse-url-of-buffer)))
     (kill-buffer src-buffer)))
 
-;;;###autoload
+
 (defun emacspeak-xslt-view-region (style start end &optional unescape-charent)
   "Browse XML region with specified XSL style."
   (interactive
