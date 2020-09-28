@@ -60,13 +60,13 @@
 ;;;###autoload
 (defun emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered. "
-    (add-hook
-     'emacspeak-web-post-process-hook
-     #'(lambda nil
-         (cl-declare (special emacspeak-we-xpath-filter))
-           (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
-           (emacspeak-speak-buffer))
-     'at-end))
+  (add-hook
+   'emacspeak-web-post-process-hook
+   #'(lambda nil
+       (cl-declare (special emacspeak-we-xpath-filter))
+       (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter)
+       (emacspeak-speak-buffer))
+   'at-end))
 
 ;;}}}
 ;;{{{ web-pre-process
@@ -121,7 +121,7 @@ Note that the Web browser should reset this hook after using it.")
 or URL read from minibuffer."
   (let ((url (shr-url-at-point nil)))
     (if url
-        url 
+        url
       (car (browse-url-interactive-arg "URL: ")))))
 
 ;;;  Helper: rename result buffer
@@ -144,20 +144,20 @@ LOCATOR is a string to search for in the results page.
 SPEAKER is a function to call to speak relevant information.
 ARGS specifies additional arguments to SPEAKER if any."
   (cl-declare (special emacspeak-web-post-process-hook))
-    (add-hook
-     'emacspeak-web-post-process-hook
-     (eval
-      `(function
-        (lambda nil
-          (let ((inhibit-read-only t))
-            (condition-case nil
-                (cond
-                 ((search-forward ,locator nil t)
-                  (recenter 0)
-                  (apply(quote ,speaker) ,args))
-                 (t (message "Your search appears to have failed.")))
-              (error nil))))))
-     'at-end))
+  (add-hook
+   'emacspeak-web-post-process-hook
+   (eval
+    `(function
+      (lambda nil
+        (let ((inhibit-read-only t))
+          (condition-case nil
+              (cond
+               ((search-forward ,locator nil t)
+                (recenter 0)
+                (apply(quote ,speaker) ,args))
+               (t (message "Your search appears to have failed.")))
+            (error nil))))))
+   'at-end))
 
 ;;}}}
 (provide 'emacspeak-webutils)
