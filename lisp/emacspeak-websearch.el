@@ -128,7 +128,7 @@
                                    'emacspeak-websearch-help)
 
 (emacspeak-websearch-set-key ?? 'help)
-
+;;;###autoload
 (defun emacspeak-websearch-dispatch  ()
   " Press `?' to list available search engines.
    This interface attempts to speak the most relevant information on the result page."
