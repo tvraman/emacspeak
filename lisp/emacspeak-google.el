@@ -430,7 +430,7 @@ This variable is buffer-local.")
 
 (declare-function eww-current-url "eww" nil)
 
-;;;###autoload
+
 (defun emacspeak-google-who-links-to-this-page ()
   "Perform a google search to locate documents that link to the
 current page."
@@ -439,7 +439,7 @@ current page."
    (format "link:%s"
            (eww-current-url))))
 
-;;;###autoload
+
 (defun emacspeak-google-extract-from-cache ()
   "Extract current  page from the Google cache. "
   (interactive)
@@ -447,7 +447,7 @@ current page."
    (format "http://webcache.googleusercontent.com/search?q=cache:%s"
            (shr-url-at-point nil))))
 
-;;;###autoload
+
 (defun emacspeak-google-on-this-site ()
   "Perform a google search restricted to the current WWW site."
   (interactive)
@@ -460,7 +460,7 @@ current page."
 (defvar emacspeak-google-related-uri
   "http://www.google.com/search?hl=en&num=25&q=related:")
 
-;;;###autoload
+
 (defun emacspeak-google-similar-to-this-page (url)
   "Ask Google to find documents similar to this one."
   (interactive
@@ -605,10 +605,10 @@ current page."
 
 ;;}}}
 ;;{{{  keymap
-;;;###autoload
+
 (define-prefix-command  'emacspeak-google-command
   'emacspeak-google-keymap)
-
+(cl-declaim (special emacspeak-google-keymap))
 (cl-loop
  for k in
  '(
@@ -780,7 +780,7 @@ Optional interactive prefix arg `lang' specifies  language identifier."
      (emacspeak-google-kg-id-uri .@id)
      .@id
      (g-json-get 'contentUrl .image))))
-;;;###autoload
+
 (defun emacspeak-google-knowledge-search (query &optional limit)
   "Perform a Google Knowledge Graph search.
 Optional interactive prefix arg `limit' prompts for number of results, default is 1."

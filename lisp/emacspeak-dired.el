@@ -485,7 +485,7 @@ On a directory line, run du -s on the directory to speak its size."
 ;;}}}
 ;;{{{ Locate results as a play-list:
 
-;;;###autoload
+
 (defun emacspeak-locate-play-results-as-playlist (&optional shuffle)
   "Treat locate results as a play-list.
 Optional interactive prefix arg shuffles playlist."
