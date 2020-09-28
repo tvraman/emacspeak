@@ -5,5 +5,4 @@
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-cb" 'org-switchb)
   (define-key global-map "\C-cc" 'org-capture)
-  (define-key org-mode-map (kbd "C-c C-SPC") 'emacspeak-muggles-org-nav/body)
-  (define-key org-mode-map (kbd "C-c t") 'emacspeak-muggles-org-table/body))
+  )
