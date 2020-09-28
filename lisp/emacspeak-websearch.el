@@ -114,6 +114,7 @@
           (sort map #'(lambda (a b) (< (car a) (car b)))))
     (with-current-buffer (help-buffer)
       (erase-buffer)
+      (help-mode)
       (cl-loop
        for m in map do
        (insert (format "%s:\t%s\n"
