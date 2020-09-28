@@ -107,7 +107,6 @@
 
 
 ;;}}}
-
 ;;{{{ Brightness:
 
 (global-set-key
