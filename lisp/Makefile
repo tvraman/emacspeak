@@ -107,7 +107,6 @@ emacspeak-c.elc \
 emacspeak-calc.elc \
 emacspeak-calculator.elc \
 emacspeak-calendar.elc \
-emacspeak-checkdoc.elc \
 emacspeak-chess.elc \
 emacspeak-ciel.elc \
 emacspeak-cider.elc \
@@ -376,7 +375,6 @@ emacspeak-ciel.elc: emacspeak-ciel.el dtk-speak.elc
 emacspeak-calc.elc: emacspeak-calc.el
 emacspeak-calculator.elc: emacspeak-calculator.el  dtk-speak.elc voice-setup.elc
 emacspeak-calendar.elc: emacspeak-calendar.el dtk-speak.el
-emacspeak-checkdoc.elc: emacspeak-checkdoc.el dtk-speak.elc voice-setup.elc
 emacspeak-chess.elc: emacspeak-chess.el dtk-speak.elc voice-setup.elc
 emacspeak-compile.elc: emacspeak-compile.el  dtk-speak.elc
 emacspeak-company.elc: emacspeak-company.el dtk-speak.elc

@@ -131,7 +131,6 @@ speech-enabling extensions for `package' (a string)."
     ("calculator" emacspeak-calculator)
     ("calendar" emacspeak-calendar)
     ("cc-mode" emacspeak-c)
-    ("checkdoc" emacspeak-checkdoc)
     ("chess" emacspeak-chess)
     ("cider" emacspeak-cider)
     ("ciel" emacspeak-ciel)
