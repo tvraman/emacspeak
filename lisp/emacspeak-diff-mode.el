@@ -64,7 +64,7 @@
    (diff-hunk-header voice-bolden-medium)
    (diff-index voice-monotone)
    (diff-indicator-added voice-annotate)
-   (diff-indicator-changed voice-annotate)
+   (diff-indicator-changed voice-lighten)
    (diff-indicator-removed voice-smoothen)
    (diff-nonexistent voice-lighten-extra)
    (diff-refine-added voice-lighten)
@@ -74,6 +74,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+
 (cl-loop
  for f in
  '(diff-next-complex-hunk
