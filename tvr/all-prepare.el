@@ -189,7 +189,7 @@ This moves them into the Spam folder."
 
 (with-eval-after-load "org"
   (require 'org-tempo)
-  (define-key global-map "\C-cl" 'org-store-link)
-  (define-key global-map "\C-cb" 'org-switchb)
-  (define-key global-map "\C-cc" 'org-capture)
-  )
+  (define-key global-map (kbd "C-c l")  'org-store-link)
+  (define-key global-map (kbd "C-c b")  'org-switchb)
+  (define-key global-map  (kbd "C-c c")  'org-capture)
+)
