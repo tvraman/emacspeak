@@ -239,7 +239,6 @@ emacspeak-setup.el \
 emacspeak-sgml-mode.elc \
 emacspeak-shx.elc \
 emacspeak-sh-script.elc \
-emacspeak-sigbegone.elc \
 emacspeak-smartparens.elc \
 emacspeak-smart-window.elc \
 emacspeak-solitaire.elc \
@@ -516,7 +515,6 @@ emacspeak-setup.elc: emacspeak-setup.el
 emacspeak-sgml-mode.elc: emacspeak-sgml-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-sh-script.elc: emacspeak-sh-script.el dtk-speak.elc voice-setup.elc
 emacspeak-shx.elc: emacspeak-shx.el dtk-speak.elc
-emacspeak-sigbegone.elc: emacspeak-sigbegone.el voice-setup.elc
 emacspeak-smartparens.elc: emacspeak-smartparens.el dtk-speak.elc voice-setup.elc
 emacspeak-smart-window.elc: emacspeak-smart-window.el dtk-speak.elc
 emacspeak-solitaire.elc: emacspeak-solitaire.el dtk-speak.elc voice-setup.elc

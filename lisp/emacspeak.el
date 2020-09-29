@@ -255,7 +255,6 @@ speech-enabling extensions for `package' (a string)."
     ("sgml-mode" emacspeak-sgml-mode)
     ("sh-script" emacspeak-sh-script)
     ("shx" emacspeak-shx)
-    ("sigbegone" emacspeak-sigbegone)
     ("slime" emacspeak-slime)
     ("smart-window" emacspeak-smart-window)
     ("smartparens" emacspeak-smartparens)
