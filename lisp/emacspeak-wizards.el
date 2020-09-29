@@ -59,7 +59,6 @@
   (require 'cus-edit)
   (require 'derived)
   (require 'desktop)
-  (require 'dired)
   (require 'emacspeak-table-ui)
   (require 'emacspeak-we)
   (require 'emacspeak-xslt)

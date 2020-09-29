@@ -75,7 +75,6 @@
 (require 'ladspa)
 (require 'ido)
 (require 'emacspeak-amark)
-(require 'dired)
 (require 'locate)
 (require 'comint)
 
