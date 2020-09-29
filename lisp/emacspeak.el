@@ -422,6 +422,16 @@ commands and options for details."
 
 
 ;;}}}
+generic-x setup-indian-environment-map
+(with-eval-after-load "generic-x"
+  (cl-loop
+   for mode in generic-mode-list do
+   (when (functionp mode)
+     (eval
+      `(defadvice ,mode (after emacspeak pre act comp)
+         "Setup Emacspeak programming mode hooks."
+         (emacspeak-setup-programming-mode))))))
+
 (provide 'emacspeak)
 ;;{{{ end of file
 
