@@ -3049,6 +3049,30 @@ Produce auditory icons if possible."
        (emacspeak-speak-line)))))
 
 ;;}}}
+;;{{{Advice Semantic:
+
+(defadvice semantic-complete-symbol (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (let ((prior (point))
+        (dtk-stop-immediately t))
+    (emacspeak-kill-buffer-carefully "*Completions*")
+    ad-do-it
+    (if (> (point) prior)
+        (tts-with-punctuations 'all
+          (emacspeak-speak-rest-of-buffer))
+      (emacspeak-speak-completions-if-available))
+    ad-return-value)))
+
+;;}}}
+(provide 'emacspeak-cedet)
+;;{{{ end of file
+
+;;; local variables:
+;;; folded-file: t
+;;; end:
+
+;;}}
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
