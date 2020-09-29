@@ -104,6 +104,12 @@
   (require 'view)
   (require 'vuiet nil 'no-error)
   (require 'emacspeak-m-player))
+(declare-function org-table-previous-row "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-current-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-coordinates "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-both-headers-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-row-header-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-column-header-and-element "emacspeak-org" nil)
 
 
 ;;}}}

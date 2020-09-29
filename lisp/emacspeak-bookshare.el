@@ -90,7 +90,8 @@
 (require 'emacspeak-xslt)
 (require 'dom)
 (require 'xml)
-(autoload 'auth-source-search "auth-source")
+(declare-function auth-source-search "auth-source" (&rest rest))
+
 (declare-function dired-get-filename "dired" (&optional localp no-error-if-not-filep))
 
 ;;}}}

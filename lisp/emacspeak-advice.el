@@ -1998,6 +1998,8 @@ Provide an auditory icon if possible."
        (message "Narrowed editing region to %s lines"
                 (count-lines (region-beginning)
                              (region-end)))))))
+(declare-function which-function "which-func" nil)
+
 
 (defadvice narrow-to-defun (after emacspeak pre act comp)
   "Announce yourself."

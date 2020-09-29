@@ -69,7 +69,7 @@
 (require 'rect)
 (require 'shell)
 (require 'calendar)
-(require 'which-func)
+(eval-when-compile (require 'which-func))
   
 
 ;;}}}
@@ -1650,12 +1650,11 @@ indicating the arrival  of new mail when displaying the mode line.")
 which-func without turning that mode on.  We actually use
 semantic to do the work."
   (interactive)
-  (require 'semantic "semantic" 'no-error)
-  (when (featurep 'semantic)
+  (require 'semantic "semantic")
     (require 'which-func)
     (message (or
               (which-function)
-              "Not inside a function."))))
+              "Not inside a function.")))
 
 (defun emacspeak-speak-buffer-info ()
   "Speak buffer information."
