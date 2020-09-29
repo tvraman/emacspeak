@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1185 commands and 905 options.
+   This chapter documents a total of 1182 commands and 905 options.
 
 * Menu:
 
@@ -2968,7 +2968,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
 * emacspeak-filtertext::Utilities to filter text.
-* emacspeak-find-func::Speech enable emacs’ code finder.
 * emacspeak-fix-interactive::Make  Emacs’ builtin prompts   speak.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.

@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1185 commands and 905 options.
+This chapter documents a total of 1182 commands and 905 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -85,7 +85,6 @@ This chapter documents a total of 1185 commands and 905 options.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
 * emacspeak-filtertext::Utilities to filter text.
-* emacspeak-find-func::Speech enable emacs' code finder.
 * emacspeak-fix-interactive::Make  Emacs' builtin prompts   speak.
 * emacspeak-flycheck::Speech-enable FLYCHECK.
 * emacspeak-flymake::Speech-enable FLYMAKE.
@@ -7564,11 +7563,6 @@ during initialization.
 Revert to original text.
 @end format
 @end deffn
-
-@node emacspeak-find-func
-@section emacspeak-find-func
-
-This module speech enables find-func
 
 @node emacspeak-fix-interactive
 @section emacspeak-fix-interactive
@@ -22003,15 +21997,6 @@ Move point to the next interactive defun
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-next-shell
-@deffn {Command} emacspeak-wizards-next-shell   
-@findex emacspeak-wizards-next-shell
-
-@format
-Switch to next shell.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-noaa-weather
 @deffn {Command} emacspeak-wizards-noaa-weather  (&optional ask)
 @table @kbd
@@ -22086,15 +22071,6 @@ Optional interactive prefix arg ask-pwd prompts for password.
 
 @format
 Navigate to and speak previous ‘bullet’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-previous-shell
-@deffn {Command} emacspeak-wizards-previous-shell   
-@findex emacspeak-wizards-previous-shell
-
-@format
-Switch to previous shell.
 @end format
 @end deffn
 
@@ -22310,17 +22286,6 @@ Define current directory as this shell’s project directory.
 @format
 Switch to the shell buffer and cd to
  the directory of the previously current buffer.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-show-commentary
-@deffn {Command} emacspeak-wizards-show-commentary  (&optional file)
-@findex emacspeak-wizards-show-commentary
-
-@format
-Display commentary. Default is to display commentary from current buffer.
-
-(fn &optional FILE)
 @end format
 @end deffn
 
