@@ -85,15 +85,14 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'dired)
-(require 'eww   nil  'noerror)
-(require 'browse-url)
+(eval-when-compile (require 'derived))
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
-(require 'dom) ; Cloned from Emacs 25
+(require 'dom)
 (require 'xml)
-(require 'derived)
 (autoload 'auth-source-search "auth-source")
+(declare-function dired-get-filename "dired" (&optional localp no-error-if-not-filep))
+
 ;;}}}
 ;;{{{ Customizations
 
