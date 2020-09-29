@@ -384,17 +384,6 @@ also copied to the kill ring for convenient yanking."
 ;;}}}
 ;;{{{ Elisp Utils:
 
-
-(defun emacspeak-wizards-byte-compile-current-buffer ()
-  "byte compile current buffer"
-  (interactive)
-  (byte-compile-file (buffer-file-name)))
-
-(defun emacspeak-wizards-load-current-file ()
-  "load file into emacs"
-  (interactive)
-  (ems--fastload (buffer-file-name)))
-
 (defun emacspeak-wizards-next-interactive-defun ()
   "Move point to the next interactive defun"
   (interactive)
@@ -3410,16 +3399,16 @@ updating custom settings for a specific package or group of packages."
 (defun ems--noaa-url (&optional geo)
   "Return NOAA Weather API REST end-point for specified lat/long.
 Location is a Lat/Lng pair retrieved from Google Maps API."
-  (cl-declare (special gweb-my-address))
-  (cl-assert (or geo gweb-my-address) nil "Location not specified.")
-  (unless geo (setq geo (gmaps-address-geocode gweb-my-address)))
+  (cl-declare (special gmaps-my-address))
+  (cl-assert (or geo gmaps-my-address) nil "Location not specified.")
+  (unless geo (setq geo (gmaps-address-geocode gmaps-my-address)))
   (format
    "https://api.weather.gov/points/%.4f,%.4f/forecast"
    (g-json-get 'lat geo) (g-json-get 'lng geo)))
 
 (defun ems--noaa-get-data (ask)
   "Internal function that gets NOAA data and returns a results buffer."
-  (cl-declare (special gweb-my-address))
+  (cl-declare (special gmaps-my-address))
   (let* ((buffer (get-buffer-create "*NOAA Weather*"))
          (inhibit-read-only t)
          (date nil)
@@ -3428,10 +3417,10 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (address
           (if (and ask (= 16 (car ask)))
               (read-from-minibuffer "Address:")
-            gweb-my-address))
+            gmaps-my-address))
          (geo (if (and ask (= 16 (car ask)))
                   (gmaps-address-geocode address)
-                (gmaps-address-geocode gweb-my-address))))
+                (gmaps-address-geocode gmaps-my-address))))
     (with-current-buffer buffer
       (erase-buffer)
       (org-mode)
@@ -3479,7 +3468,7 @@ Data is retrieved only once, subsequent calls switch to previously
 displayed results. Kill that buffer or use an interactive prefix
 arg (C-u) to get new data.  Optional second interactive prefix
 arg (C-u C-u) asks for location address; Default is to display
-weather for `gweb-my-address'.  "
+weather for `gmaps-my-address'.  "
   (interactive "P")
   (let ((buffer
          (cond
