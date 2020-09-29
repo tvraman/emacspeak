@@ -196,7 +196,6 @@ speech-enabling extensions for `package' (a string)."
     ("ibuffer" emacspeak-ibuffer)
     ("ido" emacspeak-ido)
     ("iedit" emacspeak-iedit)
-    ("imenu" emacspeak-imenu)
     ("indium" emacspeak-indium)
     ("info" emacspeak-info)
     ("ispell" emacspeak-ispell)

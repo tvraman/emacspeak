@@ -178,7 +178,6 @@ emacspeak-ibuffer.elc \
 emacspeak-ido.elc \
 emacspeak-iedit.elc \
 emacspeak-ivy.elc \
-emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jabber.elc \
@@ -448,7 +447,6 @@ emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc voice-setup.elc
 emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
 emacspeak-iedit.elc: emacspeak-iedit.el dtk-speak.elc voice-setup.elc
 emacspeak-ivy.elc: emacspeak-ivy.el dtk-speak.elc voice-setup.elc
-emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc voice-setup.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
 emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc voice-setup.elc
