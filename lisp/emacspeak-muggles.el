@@ -86,24 +86,24 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(with-no-warnings
-  (eval-when-compile
-    (when (locate-library "package")
-      (unless (locate-library "hydra") (package-install 'hydra)))
+
+(eval-when-compile
+  (when (locate-library "package")
+    (unless (locate-library "hydra") (package-install 'hydra)))
   
-    (require 'emacspeak-hydra)
-    (require 'org)
-    (require 'hideshow)
-    (require 'ido)
-    (require 'emacspeak-maths nil 'no-error)
-    (require 'emacspeak-outline)
-    (require 'smartparens "smartparens" 'no-error)
-    (require 'browse-kill-ring "browse-kill-ring" 'no-error)
-    (require 'hydra "hydra" 'no-error)
-    (require 'xbacklight)
-    (require 'view)
-    (require 'vuiet nil 'no-error)
-    (require 'emacspeak-m-player)))
+  (require 'emacspeak-hydra)
+  (require 'org)
+  (require 'hideshow)
+  (require 'ido)
+  (require 'emacspeak-maths nil 'no-error)
+  (require 'emacspeak-outline)
+  (require 'smartparens "smartparens" 'no-error)
+  (require 'browse-kill-ring "browse-kill-ring" 'no-error)
+  (require 'hydra "hydra" 'no-error)
+  (require 'xbacklight)
+  (require 'view)
+  (require 'vuiet nil 'no-error)
+  (require 'emacspeak-m-player))
 
 
 ;;}}}
@@ -419,6 +419,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 
 ;;; local variables:
 ;;; folded-file: t
+;;; byte-compile-warnings: (not noruntime)
 ;;; end:
 
 ;;}}}

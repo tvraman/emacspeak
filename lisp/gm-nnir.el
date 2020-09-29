@@ -163,6 +163,7 @@ See https://support.google.com/mail/answer/7190?hl=en for syntax.
 
 ;;; local variables:
 ;;; folded-file: t
+;;; byte-compile-warnings: (not obsolete)
 ;;; end:
 
 ;;}}}

@@ -87,20 +87,20 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(with-no-warnings
-  (eval-when-compile
-    (when (locate-library "package")
-      (unless (locate-library "hydra") (package-install 'hydra)))
+
+(eval-when-compile
+  (when (locate-library "package")
+    (unless (locate-library "hydra") (package-install 'hydra)))
   
-    (require 'origami "origami" 'no-error)
-    (require 'emacspeak-hydra)
+  (require 'origami "origami" 'no-error)
+  (require 'emacspeak-hydra)
   
   
-    (require 'emacspeak-outline)
-    (require 'smartparens "smartparens" 'no-error)
-    (require 'hydra "hydra" 'no-error)
-    (require 'view)
-    (require 'emacspeak-m-player)))
+  (require 'emacspeak-outline)
+  (require 'smartparens "smartparens" 'no-error)
+  (require 'hydra "hydra" 'no-error)
+  (require 'view)
+  (require 'emacspeak-m-player))
 
 
 ;;}}}
@@ -501,6 +501,7 @@ Also generates global keybindings if any."
 
 ;;; local variables:
 ;;; folded-file: t
+;;; byte-compile-warnings: (not noruntime )
 ;;; end:
 
 ;;}}}
