@@ -3073,6 +3073,15 @@ Produce auditory icons if possible."
 
 ;;}}
 ;;}}}
+;;{{{ advice
+
+(defadvice imenu (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
