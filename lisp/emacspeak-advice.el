@@ -3061,7 +3061,7 @@ Produce auditory icons if possible."
         (tts-with-punctuations 'all
           (emacspeak-speak-rest-of-buffer))
       (emacspeak-speak-completions-if-available))
-    ad-return-value)))
+    ad-return-value))
 
 ;;}}}
 (provide 'emacspeak-cedet)

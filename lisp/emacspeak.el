@@ -252,7 +252,6 @@ speech-enabling extensions for `package' (a string)."
     ("rust-mode" emacspeak-rust-mode)
     ("sage-shell-mode" emacspeak-sage)
     ("sdcv" emacspeak-sdcv)
-    ("semantic" emacspeak-cedet)
     ("ses" emacspeak-ses)
     ("sgml-mode" emacspeak-sgml-mode)
     ("sh-script" emacspeak-sh-script)

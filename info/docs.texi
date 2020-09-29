@@ -39,7 +39,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-calc::Speech enable the Emacs Calculator -- a powerful symbolic algebra system.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar -- maintain a diary and appointments.
-* emacspeak-cedet::Speech enable CEDET Development Environment.
 * emacspeak-checkdoc::Speech-enable checkdoc.
 * emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
@@ -151,7 +150,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
 * emacspeak-personality::
-* emacspeak-php-mode::Speech-Enable php-mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
@@ -2956,13 +2954,6 @@ Personality used for holiday
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
-
-@node emacspeak-cedet
-@section emacspeak-cedet
-
-CEDET consists of speedbar semantic ede and friends.
-This module speech enables new functionality in semantic,
-senator and friends
 
 @node emacspeak-checkdoc
 @section emacspeak-checkdoc
@@ -14005,12 +13996,6 @@ Implementation Notes from 2002.
 
 This module defines a personality interface for implementing voice
 lock via font lock.
-
-@node emacspeak-php-mode
-@section emacspeak-php-mode
-
-speech-enable php-mode.el (available from sourceforge project
-php-mode)
 
 @node emacspeak-pianobar
 @section emacspeak-pianobar
