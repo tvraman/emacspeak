@@ -2975,7 +2975,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs’ forms mode  – provides  a convenient database interface.
 * emacspeak-geiser::Speech-enable GEISER.
-* emacspeak-generic::Speech enable  generic modes.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
 * emacspeak-gnus::Speech enable GNUS – Fluent spoken access to imap, usenet.
@@ -2993,7 +2992,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
 * emacspeak-ido::speech-enable ido.
 * emacspeak-iedit::Speech-enable IEDIT.
-* emacspeak-imenu::Speech enable Imenu – produce buffer-specific table of contents.
 * emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
 * emacspeak-info::Speech enable Info – Emacs’ online documentation viewer.
 * emacspeak-ispell::Speech enable Ispell – Emacs’ interactive spell checker.
@@ -3063,7 +3061,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-sgml-mode::Speech enable SGML mode.
 * emacspeak-sh-script::Speech enable  sh-script mode.
 * emacspeak-shx::Speech-enable SHX.
-* emacspeak-sigbegone::Speech-enable sigbegone.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
 * emacspeak-smart-window::Speech-enable SMART-WINDOW.
 * emacspeak-smartparens::Speech-enable SMARTPARENS.

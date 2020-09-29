@@ -92,7 +92,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-forge::Speech-enable FORGE.
 * emacspeak-forms::Speech enable Emacs' forms mode  -- provides  a convenient database interface.
 * emacspeak-geiser::Speech-enable GEISER.
-* emacspeak-generic::Speech enable  generic modes.
 * emacspeak-gh-explorer::Speech-enable GH-EXPLORER.
 * emacspeak-gnuplot::speech-enable gnuplot mode.
 * emacspeak-gnus::Speech enable GNUS -- Fluent spoken access to imap, usenet.
@@ -110,7 +109,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
 * emacspeak-ido::speech-enable ido.
 * emacspeak-iedit::Speech-enable IEDIT.
-* emacspeak-imenu::Speech enable Imenu -- produce buffer-specific table of contents.
 * emacspeak-indium::Speech-enable INDIUM, A Javascript IDE.
 * emacspeak-info::Speech enable Info -- Emacs' online documentation viewer.
 * emacspeak-ispell::Speech enable Ispell -- Emacs' interactive spell checker.
@@ -180,7 +178,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-sgml-mode::Speech enable SGML mode.
 * emacspeak-sh-script::Speech enable  sh-script mode.
 * emacspeak-shx::Speech-enable SHX.
-* emacspeak-sigbegone::Speech-enable sigbegone.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
 * emacspeak-smart-window::Speech-enable SMART-WINDOW.
 * emacspeak-smartparens::Speech-enable SMARTPARENS.
@@ -7865,14 +7862,6 @@ including the geiser->scheme REPL.
 This is used by racket-mode for racket interaction,
 And also for interacting with Guile.
 
-@node emacspeak-generic
-@section emacspeak-generic
-
-This module speech-enables generic.el so that modes
-defined using  define-generic-mode get voice locking
-support. Examples include apache-generic-mode and
-friends defined in generic-x.el
-
 @node emacspeak-gh-explorer
 @section emacspeak-gh-explorer
 
@@ -9119,11 +9108,6 @@ Personality used for iedit-read-only-occurrence
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
-
-@node emacspeak-imenu
-@section emacspeak-imenu
-
-Speech enable imenu and provide other useful navigation commands.
 
 @node emacspeak-indium
 @section emacspeak-indium
@@ -14914,11 +14898,6 @@ This module speech-enables sh-script.el
 @section emacspeak-shx
 
 SHX ==  Shell Extras For emacs
-
-@node emacspeak-sigbegone
-@section emacspeak-sigbegone
-
-Speech-enables package sigbegone --voiceify sigs in email and news
 
 @node emacspeak-slime
 @section emacspeak-slime

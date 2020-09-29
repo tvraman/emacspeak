@@ -180,7 +180,6 @@ speech-enabling extensions for `package' (a string)."
     ("forms" emacspeak-forms)
     ("gdb-ui" emacspeak-gud)
     ("geiser" emacspeak-geiser)
-    ("generic" emacspeak-generic)
     ("github-explorer" emacspeak-gh-explorer)
     ("gnuplot" emacspeak-gnuplot)
     ("gnus" emacspeak-gnus)
@@ -422,7 +421,7 @@ commands and options for details."
 
 
 ;;}}}
-generic-x setup-indian-environment-map
+;;{{{generic-x:
 (with-eval-after-load "generic-x"
   (cl-loop
    for mode in generic-mode-list do
@@ -431,7 +430,7 @@ generic-x setup-indian-environment-map
       `(defadvice ,mode (after emacspeak pre act comp)
          "Setup Emacspeak programming mode hooks."
          (emacspeak-setup-programming-mode))))))
-
+;;}}}
 (provide 'emacspeak)
 ;;{{{ end of file
 
