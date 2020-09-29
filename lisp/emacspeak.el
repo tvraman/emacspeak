@@ -153,7 +153,6 @@ speech-enabling extensions for `package' (a string)."
     ("dunnet" emacspeak-entertain)
     ("ecb" emacspeak-ecb)
     ("eclim" emacspeak-eclim)
-    ("ediary" emacspeak-ediary)
     ("ediff" emacspeak-ediff)
     ("eglot" emacspeak-eglot)
     ("ein" emacspeak-ein)

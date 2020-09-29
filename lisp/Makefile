@@ -129,7 +129,6 @@ emacspeak-dumb-jump.elc \
 emacspeak-epub.elc \
 emacspeak-ecb.elc \
 emacspeak-ein.elc \
-emacspeak-ediary.elc \
 emacspeak-ediff.elc \
 emacspeak-eglot.elc \
 emacspeak-elisp-refs.elc \
@@ -395,7 +394,6 @@ emacspeak-dired.elc: emacspeak-dired.el dtk-speak.elc voice-setup.elc
 emacspeak-dismal.elc: emacspeak-dismal.el dtk-speak.elc voice-setup.elc
 emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc voice-setup.elc
 emacspeak-ein.elc: emacspeak-ein.el dtk-speak.elc voice-setup.elc
-emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc voice-setup.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
 emacspeak-elisp-refs.elc: emacspeak-elisp-refs.el dtk-speak.elc voice-setup.elc
 emacspeak-elscreen.elc: emacspeak-elscreen.el dtk-speak.elc voice-setup.elc
