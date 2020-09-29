@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on September 28, 2020.
+last updated on September 29, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1182 commands and 905 options.
+   This chapter documents a total of 1180 commands and 905 options.
 
 * Menu:
 
@@ -5340,7 +5340,7 @@ advantages of speech-enabled interaction.
  -- Command: emacspeak-calendar-setup-sunrise-sunset
 
      Set up geo-coordinates using Google Maps reverse geocoding.
-     To use, configure variable gweb-my-address via M-x customize-variable.
+     To use, configure variable gmaps-my-address via M-x customize-variable.
 
 12.32.1.3 emacspeak-calendar-speak-date
 .......................................

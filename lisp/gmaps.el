@@ -219,29 +219,29 @@ Optional argument `raw-p' returns raw JSON  object."
     (error "")))
 
 ;;; Example of use:
-(defvar gweb-my-location
+(defvar gmaps-my-location
   nil
-  "Geo coordinates --- automatically set by reverse geocoding gweb-my-address")
+  "Geo coordinates --- automatically set by reverse geocoding gmaps-my-address")
 
-(defvar gweb-my-zip
+(defvar gmaps-my-zip
   nil
-  "Postal Code --- automatically set by reverse geocoding gweb-my-address")
+  "Postal Code --- automatically set by reverse geocoding gmaps-my-address")
 
 (declare-function  emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
 
-(defcustom gweb-my-address
+(defcustom gmaps-my-address
   nil
-  "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
+  "Location address. Setting this updates gmaps-my-location coordinates  via geocoding."
   :type '(choice
           (const :tag "None" nil)
           (string  :tag "Address"))
   :set
   #'(lambda (sym val)
-      (cl-declare (special gweb-my-location))
+      (cl-declare (special gmaps-my-location))
       (when val
-        (setq gweb-my-location (gmaps-address-location val))
-        (setq gweb-my-zip (gmaps--location-zip gweb-my-location))
-        (set-default sym (gmaps--location-address gweb-my-location))
+        (setq gmaps-my-location (gmaps-address-location val))
+        (setq gmaps-my-zip (gmaps--location-zip gmaps-my-location))
+        (set-default sym (gmaps--location-address gmaps-my-location))
         (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
         val))
   :group 'gweb)
@@ -307,7 +307,7 @@ Parameter `key' is the API  key."
     (insert "Google Maps Interaction")
     (put-text-property start (point) 'face font-lock-doc-face)
     (insert "\n\f\n")
-    (and gweb-my-address (gmaps-set-current-location gweb-my-address))
+    (and gmaps-my-address (gmaps-set-current-location gmaps-my-address))
     (setq header-line-format
           '("Google Maps: "
             (:eval   (gmaps--location-address gmaps-current-location))))))

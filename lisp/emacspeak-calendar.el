@@ -470,32 +470,32 @@
 ;;;###autoload
 (defun emacspeak-calendar-setup-sunrise-sunset ()
   "Set up geo-coordinates using Google Maps reverse geocoding.
-To use, configure variable gweb-my-address via M-x customize-variable."
+To use, configure variable gmaps-my-address via M-x customize-variable."
   (interactive)
-  (cl-declare (special  gweb-my-address gweb-my-location
+  (cl-declare (special  gmaps-my-address gmaps-my-location
                         calendar-latitude calendar-longitude))
   (cond
-   ((null gweb-my-location)
-    (message "First customize gweb-my-address."))
+   ((null gmaps-my-location)
+    (message "First customize gmaps-my-address."))
    (t
     (setq
      calendar-latitude
-     (g-json-get 'lat (gmaps-address-geocode gweb-my-address))
+     (g-json-get 'lat (gmaps-address-geocode gmaps-my-address))
      calendar-longitude
-     (g-json-get 'lng (gmaps-address-geocode gweb-my-address)))
-    (message "Setup for %s" gweb-my-address))))
+     (g-json-get 'lng (gmaps-address-geocode gmaps-my-address)))
+    (message "Setup for %s" gmaps-my-address))))
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
   "Like calendar's sunrise-sunset, but speaks location intelligently."
-  (cl-declare (special gweb-my-address))
+  (cl-declare (special gmaps-my-address))
   (cond
-   ((and (boundp 'gweb-my-address)
-         gweb-my-address
+   ((and (boundp 'gmaps-my-address)
+         gmaps-my-address
          (ems-interactive-p))
     (let ((date (calendar-cursor-to-date t)))
       (message "%s at %s"
                (solar-sunrise-sunset-string date 'nolocation)
-               gweb-my-address)))
+               gmaps-my-address)))
    (t ad-do-it)))
 
 ;;}}}

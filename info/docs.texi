@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1182 commands and 905 options.
+This chapter documents a total of 1180 commands and 905 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -2908,7 +2908,7 @@ Speaks the most recently displayed appointment message if any.
 
 @format
 Set up geo-coordinates using Google Maps reverse geocoding.
-To use, configure variable gweb-my-address via M-x customize-variable.
+To use, configure variable gmaps-my-address via M-x customize-variable.
 @end format
 @end deffn
 
@@ -21201,15 +21201,6 @@ Insert Braille string at point.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-byte-compile-current-buffer
-@deffn {Command} emacspeak-wizards-byte-compile-current-buffer   
-@findex emacspeak-wizards-byte-compile-current-buffer
-
-@format
-byte compile current buffer
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-cleanup-shell-path
 @deffn {Command} emacspeak-wizards-cleanup-shell-path   
 @findex emacspeak-wizards-cleanup-shell-path
@@ -21919,15 +21910,6 @@ Sample text to use comes from variable
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-load-current-file
-@deffn {Command} emacspeak-wizards-load-current-file   
-@findex emacspeak-wizards-load-current-file
-
-@format
-load file into emacs
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-midi-using-m-score
 @deffn {Command} emacspeak-wizards-midi-using-m-score  (midi-file)
 @findex emacspeak-wizards-midi-using-m-score
@@ -22018,7 +22000,7 @@ Data is retrieved only once, subsequent calls switch to previously
 displayed results. Kill that buffer or use an interactive prefix
 arg (C-u) to get new data.  Optional second interactive prefix
 arg (C-u C-u) asks for location address; Default is to display
-weather for ‘gweb-my-address’.  
+weather for ‘gmaps-my-address’.  
 
 (fn &optional ASK)
 @end format
@@ -23669,8 +23651,8 @@ Maps  API  key --- goto  https://code.google.com/apis/console to get one.
 
 @end defvar
 
-@defvar {User Option} gweb-my-address
-Location address. Setting this updates gweb-my-location coordinates  via geocoding.
+@defvar {User Option} gmaps-my-address
+Location address. Setting this updates gmaps-my-location coordinates  via geocoding.
 
 @end defvar
 

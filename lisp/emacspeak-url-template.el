@@ -60,6 +60,7 @@
 (require 'emacspeak-preamble)
 (require 'dom-addons)
 (require 'gweb)
+(require 'gmaps)
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
@@ -348,11 +349,11 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Light-weight Google search.")
 
 ;;; forward declaration:
-(defvar gweb-my-zip nil)
+(defvar gmaps-my-zip nil)
 (emacspeak-url-template-define
  "Google Weather"
  (format "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
-         (and (require 'gmaps) gweb-my-zip))
+         gmaps-my-zip)
  nil
  #'(lambda nil
      (search-forward "Search Tools")
@@ -906,7 +907,7 @@ JSON is retrieved from `url'."
  (list
   #'(lambda ()
       (read-from-minibuffer "Zip: "
-                            (bound-and-true-p gweb-my-zip))))
+                            (bound-and-true-p gmaps-my-zip))))
  #'(lambda ()
      (with-demoted-errors
          (eww-display-dom-by-class "city-body"))
