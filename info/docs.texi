@@ -60,7 +60,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-dumb-jump::Speech-enable DUMB-JUMP.
 * emacspeak-ecb::speech-enable Emacs Class Browser.
 * emacspeak-eclim::Speech-enable ECLIM: emacs/eclipse integration.
-* emacspeak-ediary::Speech-enable ediary.
 * emacspeak-ediff::Speech enable Emacs interface to diff and merge.
 * emacspeak-eglot::Speech-enable EGLOT.
 * emacspeak-ein::Speech-enable EIN For IPython Notebooks.
@@ -153,7 +152,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
 * emacspeak-project::Speech-enable PROJECT.
 * emacspeak-projectile::Speech-enable PROJECTILE.
-* emacspeak-prompts::Pre-Defined Speech  PROMPTS.
 * emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.
 * emacspeak-py::Speech enable Python development environment.
 * emacspeak-pydoc::Speech-enable PYDOC.
@@ -4374,12 +4372,6 @@ ECLIM ==  Eclipse/Vim integration.
 http://www.eclim.org turns Eclipse into a headless server that can be called from other programs.
 Package Emacs-Eclim connects Emacs to Eclim.
 Package emacspeak-eclim speech-enables emacs-eclim.
-
-@node emacspeak-ediary
-@section emacspeak-ediary
-
-ediary is a special mode for editing your.diary file.
-This module speech-enables ediary
 
 @node emacspeak-ediff
 @section emacspeak-ediff
@@ -14227,12 +14219,6 @@ Speech-enable project.el
 
 PROJECTILE ==  @samp{M-x package-install projectile}.
 Project management in Emacs.
-
-@node emacspeak-prompts
-@section emacspeak-prompts
-
-This module provides a set of pre-defined speech prompts,
-And a light-weight player for generating these prompts.
 
 @node emacspeak-pronounce
 @section emacspeak-pronounce
