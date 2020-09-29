@@ -23,7 +23,6 @@
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
 ;;; GNU Emacs is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published by
 ;;; the Free Software Foundation; either version 2, or (at your option)
 ;;; any later version.
 ;;;
@@ -74,6 +73,16 @@
   (require 'cus-edit)
   (require 'org)
   (require 'solar))
+
+;;}}}
+;;{{{Forward Decls:
+
+(declare-function org-table-previous-row "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-current-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-coordinates "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-both-headers-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-row-header-and-element "emacspeak-org" nil)
+(declare-function emacspeak-org-table-speak-column-header-and-element "emacspeak-org" nil)
 
 ;;}}}
 ;;{{{defgroup:
