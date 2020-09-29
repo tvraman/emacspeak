@@ -2,7 +2,7 @@
       x-wait-for-event-timeout 0
       mail-host-address "google.com"
       user-mail-address "raman@google.com")
-
+(xbacklight-set 0)
 (defvar touchpad-device "12"
   "Device ID of touchpad.
 Set by locating it via xinput list | grep -i touchpad ")
