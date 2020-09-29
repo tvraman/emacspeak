@@ -216,7 +216,6 @@ emacspeak-popup.elc \
 emacspeak-package.elc \
 emacspeak-paradox.elc \
 emacspeak-perl.elc \
-emacspeak-php-mode.elc \
 emacspeak-pianobar.elc \
 emacspeak-proced.elc \
 emacspeak-project.elc \
@@ -490,7 +489,6 @@ emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-package.elc: emacspeak-package.el dtk-speak.elc voice-setup.elc
 emacspeak-paradox.elc: emacspeak-paradox.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
-emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pianobar.elc: emacspeak-pianobar.el dtk-speak.elc voice-setup.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
 emacspeak-personality.elc: emacspeak-personality.el

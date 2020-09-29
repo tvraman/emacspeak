@@ -231,7 +231,6 @@ speech-enabling extensions for `package' (a string)."
     ("paradox"emacspeak-paradox)
     ("pcvs" emacspeak-pcl-cvs)
     ("perl-mode" emacspeak-perl)
-    ("php-mode" emacspeak-php-mode)
     ("pianobar" emacspeak-pianobar)
     ("popup" emacspeak-popup)
     ("proced" emacspeak-proced)
