@@ -396,6 +396,22 @@ audio player."
     (shell-command emacspeak-sounds-reset-snd-module-command)))
 
 ;;}}}
+;;{{{ emacspeak-prompts:
+
+(defvar emacspeak-prompts-directory 
+  (expand-file-name "prompts" emacspeak-sounds-directory)
+  "Where pre-defined prompt files are located.")
+
+;;;###autoload 
+(defun emacspeak-prompt (name)
+  "Play  prompt for specified name."
+  (cl-declare (special emacspeak-prompts-directory emacspeak-m-player-program))
+  (let  ((file (expand-file-name (format "%s.mp3" name)
+                                 emacspeak-prompts-directory)))
+    (cl-assert (file-exists-p file) t  "File does not exist")
+    (call-process emacspeak-m-player-program nil  0 nil  file)))
+
+;;}}}
 (provide  'emacspeak-sounds)
 ;;{{{  emacs local variables
 
