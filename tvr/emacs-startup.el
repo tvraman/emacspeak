@@ -224,7 +224,7 @@ Use Custom to customize where possible. "
   (with-eval-after-load 'yasnippet (yas-reload-all))
   (tvr-defer-muggles)
   (when (dbus-list-known-names :session)
-    (make-thread #'emacspeak-dbus-setup))
+    (emacspeak-dbus-setup))
   (soundscape-toggle)
   (emacspeak-wizards-project-shells-initialize))
 

@@ -352,7 +352,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "Google Weather"
  (format "https://www.google.com/search?num=25&gbv=1&q=weather+%s"
-         gweb-my-zip)
+         (and (require 'gmaps) gweb-my-zip))
  nil
  #'(lambda nil
      (search-forward "Search Tools")
