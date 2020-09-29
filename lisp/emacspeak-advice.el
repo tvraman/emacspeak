@@ -3028,6 +3028,25 @@ Produce auditory icons if possible."
 
 
 ;;}}}
+;;{{{ advice
+(defvar emacspeak-find-func-commands
+  
+  "Commands to speech enable")
+
+(cl-loop
+ for f in
+ '(
+   find-function find-function-at-point find-variable
+   find-variable-at-point find-function-on-key)
+ do
+ (eval
+  `(defadvice ,f  (after emacspeak pre act comp)
+     "Speak current line"
+     (when  (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
