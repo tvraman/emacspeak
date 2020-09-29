@@ -153,7 +153,6 @@ emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-feeds.elc \
 emacspeak-filtertext.elc \
-emacspeak-find-func.elc \
 emacspeak-flycheck.elc \
 emacspeak-flymake.elc \
 emacspeak-flyspell.elc \
@@ -425,7 +424,6 @@ dom-addons.elc: dom-addons.el
 emacspeak-eww.elc: emacspeak-eww.el  dom-addons.elc dtk-speak.elc voice-setup.elc
 emacspeak-feeds.elc: emacspeak-feeds.el  dtk-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
-emacspeak-find-func.elc: emacspeak-find-func.el dtk-speak.elc voice-setup.elc
 emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-setup.elc
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc
 emacspeak-flymake.elc: emacspeak-flymake.el dtk-speak.elc voice-setup.elc

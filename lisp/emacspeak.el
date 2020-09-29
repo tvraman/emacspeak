@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -171,7 +172,6 @@ speech-enabling extensions for `package' (a string)."
     ("eudc" emacspeak-eudc)
     ("evil" emacspeak-evil)
     ("eww" emacspeak-eww)
-    ("find-func" emacspeak-find-func)
     ("flycheck" emacspeak-flycheck)
     ("flymake" emacspeak-flymake)
     ("flyspell" emacspeak-flyspell)
