@@ -14,6 +14,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2007, 2011, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -113,7 +114,8 @@
 (defadvice sage-shell-help:describe-symbol (after emacspeak pre act comp)
   "Provide auditory feedback."
   (with-current-buffer (window-buffer (selected-window))
-    (emacspeak-auditory-icon 'help) (emacspeak-speak-buffer)))
+    (emacspeak-auditory-icon 'help)
+    (emacspeak-speak-buffer)))
 
 (cl-loop
  for f in
