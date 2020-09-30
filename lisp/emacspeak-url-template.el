@@ -61,7 +61,7 @@
 (require 'eww)
 (require 'dom-addons)
 (require 'gweb)
-(require 'gmaps)
+;(require 'gmaps)
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
