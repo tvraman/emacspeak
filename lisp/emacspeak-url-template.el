@@ -55,17 +55,15 @@
 ;;}}}
 ;;{{{ required modules
 (require 'cl-lib)
-(eval-when-compile (require 'subr-x))
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+(eval-when-compile (require 'subr-x))
 (require 'emacspeak-preamble)
-(require 'eww)
+;(require 'eww)
 (require 'dom-addons)
 (require 'gweb)
-;(require 'gmaps)
 (require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
-(require 'calendar)
 ;;}}}
 ;;{{{ structures
 
