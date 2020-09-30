@@ -87,14 +87,15 @@
 
 (defun self-document-load-modules ()
   "Load all modules"
-  (cl-declare (special dtk-program
-                    self-document-files emacspeak-play-emacspeak-startup-icon))
+  (cl-declare (special dtk-program self-document-files
+                       emacspeak-auditory-icon-function))
   (let ((file-name-handler-alist nil)
         (load-source-file-function  nil)
         (dtk-program "log-null"))
     (package-initialize)              ; bootstrap emacs package system
 ;;; Bootstrap Emacspeak
     (load-library "emacspeak-setup")
+    (setq emacspeak-auditory-icon-function #'identity)
 ;;; Load all Emacspeak modules:
     (cl-loop
      for f in  self-document-files do

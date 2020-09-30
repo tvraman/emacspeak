@@ -39,7 +39,6 @@ This chapter documents a total of 1180 commands and 905 options.
 * emacspeak-calc::Speech enable the Emacs Calculator -- a powerful symbolic algebra system.
 * emacspeak-calculator::Speech enable  desktop calculator.
 * emacspeak-calendar::Speech enable Emacs Calendar -- maintain a diary and appointments.
-* emacspeak-checkdoc::Speech-enable checkdoc.
 * emacspeak-chess::Speech-enable CHESS.
 * emacspeak-cider::Speech-enable CIDER, A Clojure IDE.
 * emacspeak-ciel::Speech-enable CIEL.
@@ -2950,11 +2949,6 @@ This personality uses  voice-brighten-extra whose  effect can be changed globall
 
 @end defvar
 
-@node emacspeak-checkdoc
-@section emacspeak-checkdoc
-
-Speech-enable checkdoc.el
-
 @node emacspeak-chess
 @section emacspeak-chess
 
@@ -3830,7 +3824,7 @@ This personality uses  voice-annotate whose  effect can be changed globally by c
 
 @defvar {User Option} voice-diff-indicator-changed
 Personality used for diff-indicator-changed
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
