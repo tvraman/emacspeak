@@ -482,8 +482,7 @@ To use, configure variable gmaps-my-address via M-x customize-variable."
      calendar-latitude
      (g-json-get 'lat (gmaps-address-geocode gmaps-my-address))
      calendar-longitude
-     (g-json-get 'lng (gmaps-address-geocode gmaps-my-address)))
-    (message "Setup for %s" gmaps-my-address))))
+     (g-json-get 'lng (gmaps-address-geocode gmaps-my-address))))))
 
 (defadvice calendar-sunrise-sunset (around emacspeak pre act comp)
   "Like calendar's sunrise-sunset, but speaks location intelligently."
