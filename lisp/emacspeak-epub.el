@@ -175,6 +175,7 @@
 (require 'derived)
 (eval-when-compile(require 'subr-x))
 (require 'locate)
+(require 'eww)
 (require 'dom-addons)
 ;;}}}
 ;;{{{  Customizations, Variables:
