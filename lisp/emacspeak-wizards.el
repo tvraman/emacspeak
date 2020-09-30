@@ -1969,7 +1969,7 @@ of the source buffer."
        (target (funcall-interactively #'pop-to-buffer target)
                (ems--shell-pushd-if-needed dir target))
        (t (call-interactively #'shell)))))
-   (t (call-interactively 'emacspeak-wizards-next-shell))))
+   (t (call-interactively 'emacspeak-wizards-cycle-to-next-buffer))))
 
 ;;; Inspired by package project-shells from melpa --- but simplified.
 
