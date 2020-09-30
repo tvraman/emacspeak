@@ -16,9 +16,11 @@
 ;;; 2. Customize packages via a custom file as far as possible.
 ;;; 3. Keep the  custom settings  in a separate file, with a later goal of
 ;;;   turning that into a  theme.
-;;; 4. After converting to a theme, Move machine-specific custom settings
+;;; 4. After converting to a theme,
+;;; Move machine-specific custom settings
 ;;;    into a separate host-specific custom file, thus making the
-;;; earlier theme host-independent.  Place host-specific non-customizable bits in default.el.
+;;; earlier theme host-independent.
+;;; Place host-specific non-customizable bits in default.el.
 ;;; 4. Define package-specific settings not available via Custom in a
 ;;;    package-specific <package>-prepare.el file.
 ;;; 5. Install everything from elpa/melpa as far as possible. (vm is an
@@ -37,7 +39,8 @@
 ;;;    - Start up things like the emacs server.
 ;;;    - Some of these tasks are done on a separate thread using make-thread.
 ;;;   - The work of loading files etc., is done within macro tvr-time-load
-;;;   which sets up an efficient environment for loading files.
+;;;   which sets up an efficient environment for loading files and
+;;; helps in profiling.
 
 ;;}}}
 ;;{{{  libs, vars:
@@ -62,7 +65,8 @@
 ;;{{{ Macro: tvr-time-load:
 
 (defmacro tvr-time-load (&rest body)
-  "Execute body with  an environment condusive to fast-loading files."
+  "Execute body with  an environment condusive to fast-loading files.
+Produce timing information as the last step."
   (declare (indent 1) (debug t))
   `(let ((start (current-time))
          (file-name-handler-alist nil)
@@ -178,7 +182,7 @@ Use Custom to customize where possible. "
      ("<f5>" find-file)
      ("C-c <tab>"  hs-toggle-hiding)
      ("M--" undo-only)
-     ("M-/" hippie-expand)
+     ("M-/" dabbrev-expand)
      ("M-C-c" calendar)
      ("M-C-j" imenu)
      ("M-e" emacspeak-wizards-end-of-word)
@@ -230,9 +234,9 @@ Use Custom to customize where possible. "
 
 (defun tvr-text-mode-hook ()
   "TVR:text-mode"
-  (auto-fill-mode 1)
-  (abbrev-mode 1)
-  (unless (eq major-mode 'org-mode) (orgalist-mode 1)))
+  (auto-fill-mode)
+  (abbrev-mode)
+  (unless (eq major-mode 'org-mode) (orgalist-mode)))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
