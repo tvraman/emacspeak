@@ -95,7 +95,7 @@
     (package-initialize)              ; bootstrap emacs package system
 ;;; Bootstrap Emacspeak
     (load-library "emacspeak-setup")
-    (setq emacspeak-auditory-icon-function #'identity)
+    (setq emacspeak-auditory-icon-function #'ignore)
 ;;; Load all Emacspeak modules:
     (cl-loop
      for f in  self-document-files do
