@@ -56,8 +56,6 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-(require 'descr-text)
-
 ;;}}}
 ;;{{{ Customizations
 
@@ -226,18 +224,9 @@ nil if CHAR is not in Unicode."
       (get-char-code-property char 'old-name)
       (format "%c" char))))))
 
-(defun dtk-unicode-char-properties (char)
-  "Return unicode properties for CHAR."
-  (let ((unicode (encode-char char 'ucs)))
-    (when unicode (describe-char-unicode-data unicode))))
-
-(defun dtk-unicode-char-property (char prop-name)
-  "Get character property by name."
-  (cl-second (assoc prop-name (dtk-unicode-char-properties char))))
-
 (defun dtk-unicode-char-punctuation-p (char)
   "Use unicode properties to determine whether CHAR is a ppunctuation character."
-  (let ((category (dtk-unicode-char-property char "Category"))
+  (let ((category (get-char-code-property char 'category))
         (case-fold-search t))
     (when (stringp category)
       (string-match "punctuation" category))))
