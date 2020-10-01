@@ -92,7 +92,7 @@
 (require 'custom)
 (require 'acss-structure)
 (require 'dectalk-voices)
-(require 'emacspeak-sounds)
+
 
 ;;}}}
 ;;{{{ customization group

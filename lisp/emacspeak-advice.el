@@ -1935,12 +1935,13 @@ Provide an auditory icon if possible."
 
 (defadvice call-last-kbd-macro (around emacspeak pre act comp)
   "Provide spoken feedback."
+  (cl-declare (special emacspeak-use-auditory-icons))
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced
-     (let ((dtk-quiet t)
-           (emacspeak-use-auditory-icons nil))
-       ad-do-it))
+        (let ((dtk-quiet t)
+              (emacspeak-use-auditory-icons nil))
+          ad-do-it))
     (message "Executed macro. ")
     (emacspeak-auditory-icon 'task-done))
    (t ad-do-it))

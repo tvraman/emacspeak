@@ -59,6 +59,7 @@
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'sox-gen)
+(declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
 
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
 (declare-function which-function "which-func" nil)
@@ -2435,15 +2436,30 @@ setting."
   :type 'boolean)
 (make-variable-buffer-local 'emacspeak-comint-autospeak)
 
-(ems-generate-switcher 'emacspeak-toggle-comint-autospeak
-                       'emacspeak-comint-autospeak
-                       "Toggle state of Emacspeak comint autospeak.
+(defun emacspeak-toggle-comint-autospeak (&optional prefix)
+  "Toggle state of Emacspeak comint autospeak.
 When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
-set the current local value to the result.")
+set the current local value to the result."
+  (interactive "P")
+  (cl-declare (special emacspeak-comint-autospeak ))
+  (cond
+   (prefix
+    (setq-default
+     emacspeak-comint-autospeak
+     (not (default-value 'emacspeak-comint-autospeak)))
+    (setq emacspeak-comint-autospeak (default-value 'emacspeak-comint-autospeak)))
+   (t (make-local-variable 'emacspeak-comint-autospeak)
+      (setq emacspeak-comint-autospeak (not emacspeak-comint-autospeak))))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon (if emacspeak-comint-autospeak "on" "off"))
+    (dtk-speak-and-echo
+     (format "Turned emacspeak-comint-autospeak %s  %s."
+             (if emacspeak-comint-autospeak "on" "off")
+             (if prefix "" " locally")))))
 
-(declare-function emacspeak-toggle-comint-autospeak "emacspeak-speak" (&optional prefix))
+
 
 ;;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()

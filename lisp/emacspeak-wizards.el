@@ -73,6 +73,7 @@
   (require 'texinfo)
   )
 (declare-function word-at-point "thingatpt" (&optional no-properties))
+(declare-function sox-play "sox" t)
 
 
 ;;}}}

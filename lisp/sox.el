@@ -75,7 +75,7 @@
   (executable-find "sox")
   "Location of SoX utility."
   :type 'file)
-
+;;;###autoload
 (defcustom sox-play (executable-find "play")
   "Location of play from SoX utility."
   :type 'file)
@@ -256,7 +256,7 @@
     (apply #'start-process
            "player" "*SOX*"
            action file options)))
-
+;;;###autoload
 (defun sox-play ()
   "Play sound from current context."
   (interactive)
