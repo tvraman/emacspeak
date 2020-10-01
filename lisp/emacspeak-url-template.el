@@ -1250,31 +1250,6 @@ Each URL template carries out the following steps:
 ;;}}}
 ;;{{{ Search NLS Bard:
 
-(defun emacspeak-url-template-nls-auth-info()
-  "Get the email and password forNls if it already exists
-in `auth-sources'. If not present, ask for email and password,
-and create an entry in the `auth-sources'.
-Returns a cons cell where the car is email, and the cdr is password."
-  (let* ((auth-source-creation-prompts
-          '((user . "Your BARD NLSUserID: ")
-            (secret . "Your BARD NLS password: ")))
-         (found
-          (nth 0
-               (auth-source-search
-                :max 1
-                :host "nlsbard.loc.gov"
-                :port 'https
-                :create t
-                :require '(:username :secret)))))
-    (when found
-      (let ((user (plist-get found :user))
-            (secret (plist-get found :secret))
-            (save-function (plist-get found :save-function)))
-        (when (functionp save-function) (funcall save-function))
-        (when (functionp secret)
-          (setq secret (funcall secret)))
-        (cons user secret)))))
-
 (defvar emacspeak-url-template-nls-authenticated nil
   "Record if we have authenticated in this Emacs session.")
 (declare-function mml-compute-boundary "mml" (cont))
