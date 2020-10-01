@@ -71,12 +71,11 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'ansi-color)
 (require 'ladspa)
-(require 'ido)
+;(require 'ido)
 (require 'emacspeak-amark)
-(require 'locate)
 (require 'comint)
+(declare-function dired-get-filename "dired" (&optional localp no-error-if-not-filep))
 
 ;;}}}
 ;;{{{ Stream Metadata:
@@ -316,6 +315,7 @@ etc to be ignored when guessing directory.")
 
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory."
+  (cl-declare (special ido-case-fold))
   (let ((ido-case-fold t)
         (emacspeak-m-player-accelerator-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
@@ -1691,7 +1691,8 @@ Results are placed in a Locate buffer and can be played using
 M-Player --- use \\[emacspeak-dired-open-this-file] locally bound to C-RET 
 to play individual tracks."
   (interactive "sSearch Pattern: ")
-  (cl-declare  (special emacspeak-media-extensions))
+  (cl-declare  (special emacspeak-media-extensions
+                        locate-command locate-make-command-line))
   (let ((inhibit-read-only t)
         (locate-make-command-line #'(lambda (s) (list locate-command "-i" "--regexp" s))))
     (locate-with-filter
