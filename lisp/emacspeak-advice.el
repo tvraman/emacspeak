@@ -65,10 +65,7 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile (require 'advice))
-(require 'voice-setup)
-(require 'dtk-speak)
-(require 'emacspeak-pronounce)
-(require 'emacspeak-speak)
+(require 'emacspeak-preamble)
 (declare-function shell-dirtrack-mode "shell" (&optional arg))
 
 ;;}}}
