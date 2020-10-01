@@ -69,6 +69,8 @@
 (require 'dtk-speak)
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
+(declare-function shell-dirtrack-mode "shell" (&optional arg))
+
 ;;}}}
 ;;{{{  Replace: define personalities
 
@@ -1099,8 +1101,6 @@ icon."
    (t ad-do-it))
   ad-return-value)
 
-(require 'shell)
-
 ;;; Customize comint:
 
 (add-hook 'comint-output-filter-functions
@@ -1416,6 +1416,7 @@ icon."
 (defun emacspeak-shell-dirtrack-procfs (str)
   "Directory tracking using /proc.
 /proc/pid/cwd is a symlink to working directory."
+  (cl-declare (special comint-prompt-regexp))
   (prog1 str
     (when (string-match comint-prompt-regexp str)
       (condition-case nil
