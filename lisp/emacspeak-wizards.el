@@ -51,8 +51,8 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-(eval-when-compile (require 'subr-x))
-(require 'let-alist)
+(eval-when-compile (require 'subr-x)
+                   (require 'let-alist))
 (require 'emacspeak-preamble)
 (eval-when-compile
   (require 'calendar)
@@ -72,6 +72,8 @@
   (require 'term)
   (require 'texinfo)
   )
+(declare-function word-at-point "thingatpt" (&optional no-properties))
+
 
 ;;}}}
 ;;{{{Forward Decls:

@@ -54,22 +54,16 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
-(require 'seq)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'voice-setup)
+
 (require 'dtk-speak)
-(require 'dtk-unicode)
 (require 'emacspeak-pronounce)
 (require 'sox-gen)
-(require 'thingatpt)
-(require 'custom)
-(require 'ido)
-(require 'time-date)
-(require 'rect)
-(require 'shell)
-(require 'calendar)
-(eval-when-compile (require 'which-func))
-  
+
+(declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
+(declare-function which-function "which-func" nil)
+(declare-function calendar-cursor-to-nearest-date "cal-move" [Arg list not available until function definition is loaded.])
+(declare-function word-at-point "thingatpt" (&optional no-properties))
 
 ;;}}}
 ;;{{{  custom group
@@ -1968,7 +1962,7 @@ Optional second arg `set' sets the TZ environment variable as well."
        emacspeak-speak-zoneinfo-directory))
     current-prefix-arg))
   (cl-declare (special emacspeak-speak-time-format-string
-                       emacspeak-speak-zoneinfo-directory))
+                       ido-case-fold emacspeak-speak-zoneinfo-directory))
   (when (and set
              (= 16 (car set)))
     ;; two interactive prefixes from caller
@@ -2448,6 +2442,8 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
+
+(declare-function emacspeak-toggle-comint-autospeak "emacspeak-speak" (&optional prefix))
 
 ;;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()
