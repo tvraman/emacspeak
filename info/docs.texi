@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 905 options.
+This chapter documents a total of 1180 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -16788,6 +16788,8 @@ When turned on, comint output is automatically spoken.  Turn this on if
 you want your shell to speak its results.  Interactive
 PREFIX arg means toggle the global default value, and then
 set the current local value to the result.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -24110,18 +24112,6 @@ Show timestamp   in stream.
 Stop currently playing  sound from current context.
 @end format
 @end deffn
-
-@subsection sox Options
-
-@defvar {User Option} sox-edit
-Location of SoX utility.
-
-@end defvar
-
-@defvar {User Option} sox-play
-Location of play from SoX utility.
-
-@end defvar
 
 @node sox-gen
 @section sox-gen
