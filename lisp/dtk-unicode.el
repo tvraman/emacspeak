@@ -56,7 +56,7 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-(declare-function describe-char-unicode-data "descr-text" (char))
+(require 'descr-text)
 
 ;;}}}
 ;;{{{ Customizations
