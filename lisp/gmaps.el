@@ -227,7 +227,7 @@ Optional argument `raw-p' returns raw JSON  object."
   "Postal Code --- automatically set by reverse geocoding gmaps-my-address")
 
 (declare-function  emacspeak-calendar-setup-sunrise-sunset  "emacspeak-calendar" nil)
-;;;###autoload
+
 (defcustom gmaps-my-address
   nil
   "Location address. Setting this updates gmaps-my-location coordinates  via geocoding."
@@ -241,7 +241,6 @@ Optional argument `raw-p' returns raw JSON  object."
         (setq gmaps-my-location (gmaps-address-location val))
         (setq gmaps-my-zip (gmaps--location-zip gmaps-my-location))
         (set-default sym (gmaps--location-address gmaps-my-location))
-        (when (featurep 'emacspeak) (emacspeak-calendar-setup-sunrise-sunset))
         val))
   :group 'gweb)
 
