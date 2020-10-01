@@ -1253,30 +1253,6 @@ Each URL template carries out the following steps:
 (defvar emacspeak-url-template-nls-authenticated nil
   "Record if we have authenticated in this Emacs session.")
 (declare-function mml-compute-boundary "mml" (cont))
-(declare-function mm-url-encode-www-form-urlencoded "mm-url" (pairs))
-
-(defun emacspeak-url-template-nls-ensure-auth ()
-  "Fetch our auth tokens, then sign in."
-  (cl-declare (special emacspeak-url-template-nls-authenticated))
-  (unless emacspeak-url-template-nls-authenticated
-    (let* ((token (emacspeak-url-template-nls-auth-info))
-           (boundary (mml-compute-boundary nil))
-           (values
-            (list
-             (cons "url_return" nil)
-             (cons "submit" nil)
-             (cons "login" (cdr token))
-             (cons "password" (car token))))
-           (url-request-method "POST")
-           (url-request-extra-headers
-            (list
-             (cons "Content-Type"
-                   (concat "multipart/form-data; boundary=" boundary))))
-           (url-request-data
-            (mm-url-encode-www-form-urlencoded values)))
-      (setq emacspeak-url-template-nls-authenticated t)
-      (eww-browse-url
-       "https://nlsbard.loc.gov:443/nlsbardprod/login/NLS"))))
 
 (defun emacspeak-url-template-nls-add-to-wishlist  (book)
   "Add book under point to wishlist."
