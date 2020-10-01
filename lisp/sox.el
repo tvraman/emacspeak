@@ -71,14 +71,12 @@
   :group 'emacspeak
   :group 'applications)
 
-(defcustom sox-edit
+(defvar sox-edit
   (executable-find "sox")
-  "Location of SoX utility."
-  :type 'file)
-;;;###autoload
-(defcustom sox-play (executable-find "play")
-  "Location of play from SoX utility."
-  :type 'file)
+  "Location of SoX utility.")
+
+(defvar sox-play (executable-find "play")
+  "Location of play from SoX utility.")
 
 ;;}}}
 ;;{{{ Define Special Mode

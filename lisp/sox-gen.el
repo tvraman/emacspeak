@@ -128,12 +128,14 @@
 
 ;;}}}
 ;;{{{ SoX Command Generator:
+(defvar sox-gen-play (executable-find "play")
+  "Location of play from SoX utility.")
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
-  (cl-declare (special sox-play sox-gen-p))
+  (cl-declare (special sox-gen-play sox-gen-p))
   (when sox-gen-p
-    (apply #'start-process "SoX" nil sox-play  (split-string cmd))))
+    (apply #'start-process "SoX" nil sox-gen-play  (split-string cmd))))
 
 ;;}}}
 ;;{{{ Binaural Audio:
