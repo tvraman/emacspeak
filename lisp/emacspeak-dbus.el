@@ -177,7 +177,6 @@ Stop apps that use the network."
 signal registration objects."
   (cond
    ((emacspeak-dbus-login1-sleep-p)
-    (message "Registering sleep/resume handlers.")
     (emacspeak-dbus-screensaver-check)
     (list
      (dbus-register-signal
@@ -195,8 +194,7 @@ signal registration objects."
   (interactive)
   (cl-declare (special emacspeak-dbus-sleep-registration))
   (unless emacspeak-dbus-sleep-registration
-    (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register)))
-  (message "Enabled integration with login1 daemon."))
+    (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register))))
 
 ;;; Disable integration
 (defun emacspeak-dbus-sleep-disable()
@@ -207,8 +205,7 @@ already disabled."
   (while emacspeak-dbus-sleep-registration
     (dbus-unregister-object (car emacspeak-dbus-sleep-registration))
     (setq emacspeak-dbus-sleep-registration
-          (cdr emacspeak-dbus-sleep-registration)))
-  (message "Disabled integration with Login1 daemon."))
+          (cdr emacspeak-dbus-sleep-registration))))
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
@@ -258,7 +255,6 @@ already disabled."
 
 (defun emacspeak-dbus-udisks-register()
   "Register signal handlers for UDisks2  InterfacesAdded signal."
-  (message "Registering UDisks2 signal handler.")
   (list
    (dbus-register-signal
     :system
@@ -280,8 +276,7 @@ already disabled."
   (interactive)
   (cl-declare (special emacspeak-dbus-udisks-registration))
   (unless emacspeak-dbus-udisks-registration
-    (setq emacspeak-dbus-udisks-registration (emacspeak-dbus-udisks-register)))
-  (message "Enabled integration with UDisks2."))
+    (setq emacspeak-dbus-udisks-registration (emacspeak-dbus-udisks-register))))
 
 ;;; Disable integration
 (defun emacspeak-dbus-udisks-disable()
@@ -292,8 +287,7 @@ already disabled."
   (while emacspeak-dbus-udisks-registration
     (dbus-unregister-object (car emacspeak-dbus-udisks-registration))
     (setq emacspeak-dbus-udisks-registration
-          (cdr emacspeak-dbus-udisks-registration)))
-  (message "Disabled integration with UDisks2."))
+          (cdr emacspeak-dbus-udisks-registration))))
 
 ;;}}}
 ;;{{{ UPower:
@@ -303,7 +297,6 @@ already disabled."
 
 (defun emacspeak-dbus-upower-register()
   "Register signal handlers for UPower  InterfacesAdded signal."
-  (message "Registering UPower signal handler.")
   (list
    (dbus-register-signal
     :system
@@ -325,8 +318,7 @@ already disabled."
   (interactive)
   (cl-declare (special emacspeak-dbus-upower-registration))
   (unless emacspeak-dbus-upower-registration
-    (setq emacspeak-dbus-upower-registration (emacspeak-dbus-upower-register)))
-  (message "Enabled integration with UPower."))
+    (setq emacspeak-dbus-upower-registration (emacspeak-dbus-upower-register))))
 
 ;;; Disable integration
 (defun emacspeak-dbus-upower-disable()
@@ -337,8 +329,7 @@ already disabled."
   (while emacspeak-dbus-upower-registration
     (dbus-unregister-object (car emacspeak-dbus-upower-registration))
     (setq emacspeak-dbus-upower-registration
-          (cdr emacspeak-dbus-upower-registration)))
-  (message "Disabled integration with UPower."))
+          (cdr emacspeak-dbus-upower-registration))))
 
 ;;}}}
 ;;{{{ Interactive Command: Lock Screen
@@ -388,8 +379,7 @@ already disabled."
   "De-Register a handler to watch screen lock/unlock."
   (cl-declare (special emacspeak-dbus-screen-lock-handle))
   (dbus-unregister-object emacspeak-dbus-screen-lock-handle)
-  (setq emacspeak-dbus-screen-lock-handle nil)
-  (message "Unregistered screen-lock signal handler"))
+  (setq emacspeak-dbus-screen-lock-handle nil))
 
 ;;}}}
 ;;{{{Setup:
