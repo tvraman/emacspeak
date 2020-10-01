@@ -61,7 +61,6 @@
 (require 'dtk-unicode)
 (require 'emacspeak-pronounce)
 (require 'sox-gen)
-
 (require 'thingatpt)
 (require 'custom)
 (require 'ido)
