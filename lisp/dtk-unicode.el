@@ -213,8 +213,7 @@ charsets returned by operations such as `find-charset-region'."
       (setq ad-return-value result))))
 
 (defun dtk-unicode-name-for-char (char)
-  "Return unicode name for character CHAR.
-nil if CHAR is not in Unicode."
+  "Return unicode name for character CHAR. "
   (cond
    ((= char 128) "")
    (t
