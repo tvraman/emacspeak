@@ -60,7 +60,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
-(require 'derived)
+(eval-when-compile (require 'derived))
 (require 'ladspa)
 
 ;;}}}
