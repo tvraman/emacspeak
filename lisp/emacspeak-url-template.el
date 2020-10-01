@@ -252,14 +252,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'emacspeak-feeds-opml-display)
 (declare-function emacspeak-xslt-view-xml "emacspeak-xslt" (style url &optional unescape-charent))
 
-(emacspeak-url-template-define
- "BBC Program Guide (not maintained)"
- "http://downloads.bbc.co.uk/podcasts/ppg.xml"
- nil nil
- "Display interactive BBC Program Guide."
- #'(lambda (url)
-     (emacspeak-xslt-view-xml
-      (emacspeak-xslt-get "bbc-ppg.xsl") url)))
+
 (emacspeak-url-template-define
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
@@ -267,28 +260,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil nil
  "BBC PodCast Directory"
  #'emacspeak-feeds-opml-display)
-
-;;}}}
-;;{{{ html5irc
-
-(emacspeak-url-template-define
- "html5IRC"
- "http://krijnhoetmer.nl/irc-logs/whatwg/%s"
- (list 'emacspeak-speak-date-YearMonthDate)
- nil
- "Show HTML5 IRC log.")
-
-;;}}}
-;;{{{ google image search:
-
-(emacspeak-url-template-define
- "Google Image Search"
- "http://www.google.com/search?gbv=1&bih=&biw=&hl=en&tbm=isch&btnG=Search+Images&q=%s"
- (list "Search:")
- nil
- "Google Image Search"
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "res" url 'speak)))
 
 ;;}}}
 ;;{{{ Google Trends:
@@ -307,15 +278,6 @@ dont-url-encode if true then url arguments are not url-encoded "
   "Set up content filter in displayed page."
   (cl-declare (special emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
   (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
-
-;;}}}
-;;{{{ webmaster tools
-(emacspeak-url-template-define
- "Google Webmaster Page Analysis"
- "https://www.google.com/webmasters/tools/pageanalysis?siteUrl=%s"
- (list "URL To Analyze: ")
- nil
- "Page Analysis From Google Webmaster tools.")
 
 ;;}}}
 ;;{{{ Anonimize google search
@@ -499,18 +461,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Display tech news from CNET"
  #'emacspeak-feeds-rss-display)
 
-(emacspeak-url-template-define
- "PodCast CNet"
- "http://podcast-files.cnet.com/podcast/cnet_podcast_%s.mp3"
- (list
-  #'(lambda nil
-      (read-from-minibuffer
-       "Date: "
-       (format-time-string "%m%d%y"))))
- nil
- "Play Podcast from CNET"
- #'(lambda (url)
-     (emacspeak-m-player url)))
+
 
 ;;}}}
 ;;{{{ yahoo daily news
@@ -886,35 +837,6 @@ JSON is retrieved from `url'."
       'speak)))
 
 ;;}}}
-;;{{{ times of india
-
-(emacspeak-url-template-define
- "Times Of India"
- "http://www.timesofindia.com"
- nil
- nil
- "Retrieve Times Of India."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "content" url 'speak)))
-
-;;}}}
-;;{{{ weather underground
-
-(emacspeak-url-template-define
- "Weather forecast from Weather Underground"
- "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
- (list
-  #'(lambda ()
-      (read-from-minibuffer "Zip: "
-                            (bound-and-true-p gmaps-my-zip))))
- #'(lambda ()
-     (with-demoted-errors
-         (eww-display-dom-by-class "city-body"))
-     (goto-char (point-min))
-     (emacspeak-speak-buffer))
- "Weather forecast from weather underground mobile.")
-
-;;}}}
 ;;{{{ airport conditions:
 (emacspeak-url-template-define
  "Airport conditions"
@@ -925,18 +847,6 @@ JSON is retrieved from `url'."
  #'(lambda (url)
      (emacspeak-we-extract-table-by-match "Status"
                                           url 'speak)))
-
-;;}}}
-;;{{{ emacs wiki search
-
-(emacspeak-url-template-define
- "EmacsWiki Search"
- "http://www.emacswiki.org/cgi-bin/wiki?search=%s"
- (list "Search EmacsWiki For: ")
- #'(lambda nil
-     (search-forward "Result page" nil t)
-     (emacspeak-speak-line))
- "EmacsWiki Search")
 
 ;;}}}
 ;;{{{ wordnet
@@ -996,25 +906,15 @@ Format is stationid+AM/FM."
 ;;}}}
 ;;{{{ GitHub Search
 
-(emacspeak-url-template-define
- "GitHub Code Search"
- "https://github.com/search?q=%s&type=Code&utf8=✓"
- (list "GitHub Code Search:")
- nil
- "GitHub Code Search.
-Query can include filters such as:
 
-<term>: Query Term.
-extension:<ext> Filter by file extension
--filename:<pattern> Filter out files matching pattern.")
 (declare-function emacspeak-eww-next-h "emacspeak-eww" (&optional speak))
 (emacspeak-url-template-define
  "GitHub Search"
  "https://github.com/search?q=%s"
  (list "Query: ")
  #'(lambda ()
-     (emacspeak-eww-next-h)
-     (emacspeak-speak-rest-of-buffer))
+     (search-forward  "repository results" nil t)
+     (emacspeak-speak-line))
  "Perform a GitHub Search.")
 
 ;;}}}
