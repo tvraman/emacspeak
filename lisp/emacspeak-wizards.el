@@ -51,13 +51,14 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-(eval-when-compile (require 'subr-x)
-                   (require 'let-alist))
+(eval-when-compile
+  (require 'subr-x)
+  (require 'derived)
+  (require 'let-alist))
 (require 'emacspeak-preamble)
 (eval-when-compile
   (require 'calendar)
   (require 'cus-edit)
-  (require 'derived)
   (require 'desktop)
   (require 'emacspeak-table-ui)
   (require 'emacspeak-we)
@@ -70,11 +71,10 @@
   (require 'shell)
   (require 'solar)
   (require 'term)
-  (require 'texinfo)
-  )
+  (require 'texinfo))
+
 (declare-function word-at-point "thingatpt" (&optional no-properties))
 (declare-function sox-play "sox" t)
-
 
 ;;}}}
 ;;{{{Forward Decls:
