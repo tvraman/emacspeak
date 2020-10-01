@@ -72,10 +72,10 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'ladspa)
-;(require 'ido)
 (require 'emacspeak-amark)
-(require 'comint)
-(declare-function dired-get-filename "dired" (&optional localp no-error-if-not-filep))
+(declare-function dired-get-filename "dired" (&optional localp
+                                                        no-error-if-not-filep))
+(declare-function comint-mode "comint" nil)
 
 ;;}}}
 ;;{{{ Stream Metadata:
