@@ -24732,7 +24732,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 84 URL Templates.
+This section documents a total of 75 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -24762,9 +24762,7 @@ Logout from Google to do an anonymous search.@item @b{ArchWiki Search}
 
 Search Linux ArchWiki@item @b{BBC Podcast Directory}
 
-BBC PodCast Directory@item @b{BBC Program Guide (not maintained)}
-
-Display interactive BBC Program Guide.@item @b{BBC World News Summary}
+BBC PodCast Directory@item @b{BBC World News Summary}
 
 BBC World News Summary@item @b{Baseball Box Scores}
 
@@ -24799,20 +24797,11 @@ List CNN Podcast media links.@item @b{Currency Converter}
 Currency Converter. Currencies can be a comma-separated list of
 codes.@item @b{Dictionary Lookup}
 
-Dictionary Lookup@item @b{EmacsWiki Search}
-
-EmacsWiki Search@item @b{Finance Google Search}
+Dictionary Lookup@item @b{Finance Google Search}
 
 Display content from Google Finance.@item @b{FreeSound}
 
-Search FreeSound.@item @b{GitHub Code Search}
-
-GitHub Code Search.
-Query can include filters such as:
-
-<term>: Query Term.
-extension:<ext> Filter by file extension
--filename:<pattern> Filter out files matching pattern.@item @b{GitHub Search}
+Search FreeSound.@item @b{GitHub Search}
 
 Perform a GitHub Search.@item @b{GoLang Browse}
 
@@ -24822,9 +24811,7 @@ Lookup GoLang package documentation.@item @b{GoLang Search}
 
 Search GoLang package documentation.@item @b{Google Basic}
 
-Light-weight Google search.@item @b{Google Image Search}
-
-Google Image Search@item @b{Google News Search}
+Light-weight Google search.@item @b{Google News Search}
 
 Search Google news.@item @b{Google Scholar}
 
@@ -24832,9 +24819,7 @@ Google Scholar Search@item @b{Google Trends}
 
 Google Trends@item @b{Google Weather}
 
-Light-weight Google search.@item @b{Google Webmaster Page Analysis}
-
-Page Analysis From Google Webmaster tools.@item @b{Guardian RSS Feeds Directory}
+Light-weight Google search.@item @b{Guardian RSS Feeds Directory}
 
 Guardian Feeds  Directory@item @b{Hacker  News Frontpage}
 
@@ -24864,9 +24849,7 @@ This months Old Time Radio Programming@item @b{OpenLibrary}
 
 Open Library Search@item @b{Patent Search From Google}
 
-Perform patent search via Google@item @b{PodCast CNet}
-
-Play Podcast from CNET@item @b{RadioTime Browser}
+Perform patent search via Google@item @b{RadioTime Browser}
 
 RadioTime Entry point.@item @b{RadioTime Categories}
 
@@ -24890,17 +24873,13 @@ Play radio stream.
 Example: kcbsFM.
 Format is stationid+AM/FM.@item @b{Tech News From CNet}
 
-Display tech news from CNET@item @b{Times Of India}
-
-Retrieve Times Of India.@item @b{TuneIn Radio}
+Display tech news from CNET@item @b{TuneIn Radio}
 
 Translate StreamId to playable stream.@item @b{UPS Packages}
 
 Display package tracking information from UPS.@item @b{Washington Post}
 
-Washington Post Contents@item @b{Weather forecast from Weather Underground}
-
-Weather forecast from weather underground mobile.@item @b{Wiki Data Search}
+Washington Post Contents@item @b{Wiki Data Search}
 
 Search WikiData.@item @b{WordNet Search}
 
@@ -24912,9 +24891,7 @@ News Headlines From Youtube@item @b{fedex packages}
 
 Display package tracking information from Fedex.@item @b{html Google News Search}
 
-Search Google news.@item @b{html5IRC}
-
-Show HTML5 IRC log.@item @b{sourceforge Download}
+Search Google news.@item @b{sourceforge Download}
 
 Download specified file.@item @b{sourceforge browse mirrors}
 
