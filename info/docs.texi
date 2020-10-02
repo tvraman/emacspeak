@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 903 options.
+This chapter documents a total of 1181 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -14057,6 +14057,17 @@ Switch to next preset.
 
 @format
 Switch to previous preset.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-send-raw
+@deffn {Command} emacspeak-pianobar-send-raw  (string)
+@findex emacspeak-pianobar-send-raw
+
+@format
+Send raw string with newline added to pianobar.
+
+(fn STRING)
 @end format
 @end deffn
 
