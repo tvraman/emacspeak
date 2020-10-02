@@ -9,8 +9,6 @@
 ;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
-
-;;}}}
 ;;{{{  Copyright:
 
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
@@ -987,12 +985,10 @@ match, makes the matching row or column current."
   (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'select-object)
     (message "Copied element to register %c" register)))
-
-
-
-;;; Implementing table editing and table clipboard.
+;;}}}
 ;;{{{ variables
 
+;;; Implementing table editing and table clipboard.
 (defvar emacspeak-table-clipboard nil
   "Variable to hold table copied to the clipboard.")
 
@@ -1159,8 +1155,6 @@ markup to use."
                   (unless (= current final)
                     (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
       (insert (format "%s" table-end))))))
-
-;;}}}
 
 ;;}}}
 ;;{{{  table sorting:
