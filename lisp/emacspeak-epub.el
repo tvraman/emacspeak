@@ -172,11 +172,11 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
-(require 'derived)
-(eval-when-compile(require 'subr-x))
-(require 'locate)
-(require 'eww)
-(require 'dom-addons)
+
+(eval-when-compile
+  (require 'derived)
+  (require 'subr-x))
+(require 'dom)
 ;;}}}
 ;;{{{  Customizations, Variables:
 
@@ -1280,6 +1280,7 @@ Letters do not insert themselves; instead, they are commands.
 ;;{{{ Locate epub using Locate:
 (defun emacspeak-epub-locate-epubs (pattern)
   "Locate epub files using locate."  (interactive "sSearch Pattern: ")
+  (cl-declare (special locate-command locate-make-command-line))
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
     (locate-with-filter pattern ".epub$")))
 
