@@ -51,7 +51,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'js2-mode "js2-mode" 'no-error)
+
 ;;}}}
 ;;{{{  map faces to voices:
 
