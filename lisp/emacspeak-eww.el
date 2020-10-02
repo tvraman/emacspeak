@@ -617,16 +617,16 @@ are available are cued by an auditory icon on the header line."
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
-  (cl-declare (special eww-mode-map eww-link-keymap
+  (cl-declare (special eww-mode-map eww-link-keymap eww-text-map
                        shr-inhibit-images emacspeak-eww-inhibit-images
                        emacspeak-pronounce-common-xml-namespace-uri-pronunciations
                        emacspeak-eww-masquerade))
-    (emacspeak-pronounce-augment-pronunciations
-     'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
-    (emacspeak-pronounce-add-dictionary-entry
-     'eww-mode
-     emacspeak-speak-rfc-3339-datetime-pattern
-     (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
+  (emacspeak-pronounce-augment-pronunciations
+   'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
+  (emacspeak-pronounce-add-dictionary-entry
+   'eww-mode
+   emacspeak-speak-rfc-3339-datetime-pattern
+   (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
 ;;; turn off images on request 
   (setq shr-inhibit-images emacspeak-eww-inhibit-images)
 ;;; remove "I" "o" from eww-link-keymap
@@ -636,6 +636,7 @@ are available are cued by an auditory icon on the header line."
    do
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
+  (define-key eww-text-map  [C-return] 'emacspeak-eww-fillin-form-field)
   (define-key eww-link-keymap  "!" 'emacspeak-eww-shell-command-on-url-at-point)
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
