@@ -64,7 +64,8 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'emacspeak-preamble) (require 'flyspell "flyspell" 'no-error)
+(require 'emacspeak-preamble)
+
 
 ;;}}}
 ;;{{{ define personalities
@@ -117,7 +118,7 @@ fly spell checking."
 
 ;;}}}
 ;;{{{ use flyspell-correct if available:
-
+(cl-declaim (special flyspell-mode-map))
 (defcustom emacspeak-flyspell-correct
   (cond
    ((locate-library "flyspell-correct-ido") 'flyspell-correct-ido)
