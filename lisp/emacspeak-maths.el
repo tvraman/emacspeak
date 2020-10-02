@@ -93,7 +93,7 @@
 (require 'emacspeak-preamble)
 (require 'cl-lib)
 (require 'comint)
-(require 'derived)
+(eval-when-compile (require 'derived))
 (require 'nvm "nvm" 'no-error)
 
 ;;}}}
