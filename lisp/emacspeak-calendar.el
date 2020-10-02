@@ -374,6 +374,8 @@
    (list
     (read-from-minibuffer "Address: ")
     current-prefix-arg))
+  (cl-declare (special calendar-standard-time-zone-name
+                       calendar-longitude calendar-latitude))
   (let* ((geo (gmaps-address-geocode address))
          (calendar-latitude (g-json-get 'lat geo))
          (calendar-longitude (g-json-get 'lng geo))
@@ -430,6 +432,7 @@
 
 (defun emacspeak-appt-delete-display ()
   "Function to delete appointment message"
+  (cl-declare (special appt-buffer-name))
   (and (get-buffer appt-buffer-name)
        (save-current-buffer
          (set-buffer appt-buffer-name)
