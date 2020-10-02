@@ -195,6 +195,7 @@
 (eval-after-load
     "vdiff"
   `(progn
+     (cl-declare (special vdiff-mode-prefix-map))
      (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk)
      (define-key vdiff-mode-prefix-map   (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
      (define-key vdiff-mode-prefix-map   (kbd "l") 'emacspeak-vdiff-speak-other-line)))
