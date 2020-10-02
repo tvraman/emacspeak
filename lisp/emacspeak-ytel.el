@@ -66,8 +66,6 @@ Optional interactive prefix arg `best' picks best audio format."
     (ytel-video-id (ytel-get-current-video))
     current-prefix-arg))
   (cl-declare (special emacspeak-ytel-yt-url-pattern))
-  (or (require 'ytel 'no-error)
-      (error "Install package ytel from melpa."))
   (funcall-interactively
    #'emacspeak-m-player-youtube-player
    (format emacspeak-ytel-yt-url-pattern id)
