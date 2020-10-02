@@ -52,10 +52,12 @@
 
 ;;}}}
 ;;{{{ required modules
-
+(require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emms "emms" 'no-error)
+(declare-function emms-playlist-current-selected-track "emacspeak-emms" t)
+(declare-function emms-player-pause "emacspeak-emms" t)
+
 ;;}}}
 ;;{{{ module emms:
 
