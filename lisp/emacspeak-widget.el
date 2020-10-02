@@ -51,13 +51,11 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
+(require 'emacspeak-preamble)
 (require 'voice-setup)
-(require 'dtk-speak)
-(require 'widget)
 (require 'wid-edit)
-(require 'emacspeak-speak)
-(require 'emacspeak-sounds)
+
+
 ;;}}}
 ;;{{{  Customize global behavior
 
