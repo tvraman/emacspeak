@@ -91,14 +91,13 @@
 (eval-when-compile
   (when (locate-library "package")
     (unless (locate-library "hydra") (package-install 'hydra)))
-  
-  (require 'origami "origami" 'no-error)
   (require 'emacspeak-hydra)
   (require 'emacspeak-outline)
   (require 'smartparens "smartparens" 'no-error)
   (require 'hydra "hydra" 'no-error)
   (require 'view)
   (require 'emacspeak-m-player))
+(with-no-warnings (require 'origami "origami" 'no-error))
 
 
 ;;}}}
