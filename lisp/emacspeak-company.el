@@ -58,7 +58,8 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'company "company" 'no-error)
+(declare-function company-fetch-metadata "company" nil)
+
 ;;}}}
 ;;{{{ map faces:
 (voice-setup-add-map
