@@ -1946,9 +1946,10 @@ Warning, this is fragile, and depends on a stable id/class for the
 (defun emacspeak-eww-marks-load ()
   "Load saved marks."
   (interactive)
-  (cl-declare (special emacspeak-eww-marks-file))
+  (cl-declare (special emacspeak-eww-marks emacspeak-eww-marks-file))
   (when (file-exists-p emacspeak-eww-marks-file)
-    (ems--fastload emacspeak-eww-marks-file)))
+    (ems--fastload emacspeak-eww-marks-file)
+     emacspeak-eww-marks))
 
 (defvar emacspeak-eww-marks
   (cond
@@ -2074,7 +2075,8 @@ interactive prefix arg `delete', delete that mark instead."
   "Save Emacspeak EWW marks."
   (interactive)
   (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
-  (emacspeak--persist-variable 'emacspeak-eww-marks emacspeak-eww-marks-file))
+  (when (hash-table-p emacspeak-eww-marks)
+    (emacspeak--persist-variable 'emacspeak-eww-marks emacspeak-eww-marks-file)))
 
 (defvar emacspeak-eww-marks-save-timer
   (run-at-time 3600 3600  #'emacspeak-eww-marks-save)
