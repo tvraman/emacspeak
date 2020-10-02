@@ -61,8 +61,6 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'custom)
-(require 'voice-setup)
 ;;}}}
 ;;{{{ customizations
 
@@ -715,6 +713,7 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-mm-dd-yyyy-date (string)
   "Return pronunciation for mm-dd-yyyy dates."
+  (cl-declare (special voice-punctuations-some))
   (save-match-data
     (let ((fields (mapcar #'read (split-string string "-"))))
       (propertize
@@ -735,6 +734,7 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-yyyymmdd-date (string)
   "Return pronunciation for yyyymmdd dates."
+  (cl-declare (special voice-punctuations-some))
   (save-match-data
     (propertize
      (calendar-date-string
@@ -753,6 +753,7 @@ specified pronunciation dictionary key."
 
 (defun emacspeak-pronounce-us-phone-number (phone)
   "Return pronunciation for US phone number."
+  (cl-declare (special voice-punctuations-some))
   (when (= 14 (length phone))
     (setq phone (substring phone 2)))
   (let ((area-code (substring phone 0 3))
