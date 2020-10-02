@@ -51,12 +51,10 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'eww)
-(require 'emacspeak-feeds)
 (require 'emacspeak-google)
 (require 'gweb)
-(require  'emacspeak-we)
-(require 'calendar)
+(declare-function word-at-point "thingatpt" (&optional no-properties))
+(declare-function calendar-cursor-to-date "calendar" (&optional error event))
 
 ;;}}}
 ;;{{{ Forward Declarations:
