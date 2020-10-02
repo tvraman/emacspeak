@@ -225,7 +225,7 @@ already disabled."
      (error
       (progn
         (unless
-            (zerop (shell-command "pidof gnome-screensaver"))
+            (zerop (shell-command "pidof gnome-screensaver > /dev/null"))
             (start-process "screen-saver" nil "gnome-screensaver")))))
    t))
 

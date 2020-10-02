@@ -763,7 +763,7 @@ icon."
                (float-time
                 (time-subtract (current-time) emacspeak-lazy-message-time))))
          (setq emacspeak-lazy-message-time (current-time)
-               emacspeak-last-message (ansi-color-apply m))
+               emacspeak-last-message  m)
          ;;; so we really need to speak it
          (tts-with-punctuations 'all
            (dtk-notify-speak m 'dont-log)))
