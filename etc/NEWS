@@ -95,6 +95,15 @@ This also obsoletes the wizards pertaining to ~IHeart Radio~.
 
 Emacspeak takes advantage of features like  ~make-thread~ in Emacs 26
 and later to optimize Emacspeak's start-up time.
+
+** Auth-Source And EWW
+
+If you use ~auth-source~ and its various supported backends to manage
+authentication information, you can now use _C-RET_
+(~emacspeak-eww-fillin-form-field~) to insert the user-name and/or
+password  into the input field.
+
+
 ** Module ~emacspeak-npr~ Is Marked Obsolete 
 
 
