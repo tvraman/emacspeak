@@ -85,6 +85,7 @@
 (defun emacspeak-mines-speak-uncovered-count ()
   "Speak number of uncovered cells."
   (interactive)
+  (cl-declare (special mines-number-mines))
   (cl-declare (special mines-state))
   (dtk-speak
    (format "%d mines with %d uncovered cells remaining."
@@ -121,7 +122,7 @@ to beginning of board before searching."
 (defun emacspeak-mines-speak-board ()
   "Speak the board."
   (interactive)
-  (cl-declare (special  mines-number-cols))
+  (cl-declare (special  mines-number-cols mines-grid))
   (let ((cells nil))
     (save-excursion
       (setq cells
