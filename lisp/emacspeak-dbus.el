@@ -169,6 +169,21 @@ Stop apps that use the network."
   (tts-restart)
   (run-hooks 'emacspeak-dbus-resume-hook))
 
+(defsubst emacspeak-dbus-screensaver-check ()
+  "Check  and fix Emacs DBus Binding to gnome-screensaver"
+  (ems-with-messages-silenced
+      (condition-case nil
+          (dbus-call-method
+           :session
+           "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+           "org.gnome.ScreenSaver" "GetActive")
+        (error
+         (progn
+           (unless
+               (zerop (shell-command "pidof gnome-screensaver > /dev/null"))
+             (start-process "screen-saver" nil "gnome-screensaver")))))
+    t))
+
 (defvar emacspeak-dbus-sleep-registration nil
   "List holding sleep registration.")
 
@@ -213,21 +228,6 @@ already disabled."
     (save-some-buffers t))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
-
-(defun emacspeak-dbus-screensaver-check ()
-  "Check  and fix Emacs DBus Binding to gnome-screensaver"
-  (ems-with-messages-silenced
-   (condition-case nil
-       (dbus-call-method
-        :session
-        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
-        "org.gnome.ScreenSaver" "GetActive")
-     (error
-      (progn
-        (unless
-            (zerop (shell-command "pidof gnome-screensaver > /dev/null"))
-            (start-process "screen-saver" nil "gnome-screensaver")))))
-   t))
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
