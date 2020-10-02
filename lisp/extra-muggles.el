@@ -94,8 +94,6 @@
   
   (require 'origami "origami" 'no-error)
   (require 'emacspeak-hydra)
-  
-  
   (require 'emacspeak-outline)
   (require 'smartparens "smartparens" 'no-error)
   (require 'hydra "hydra" 'no-error)
