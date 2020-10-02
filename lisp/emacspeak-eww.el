@@ -2284,6 +2284,26 @@ With interactive prefix arg, move to the start of the table."
   (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 ;;}}}
+;;{{{Form filling:
+
+(defun emacspeak-eww-fillin-form-field ()
+  "Fill in user or passwd field using auth-source backend."
+  (interactive)
+  (emacspeak-eww-browser-check)
+  (let ((url (eww-current-url))
+        (result nil))
+    (cl-assert url t "No current url")
+    (setq result 
+          (cl-case
+              (read-char "u  User, p Password")
+            (?u  (url-user-for-url url))
+            (?p  (url-password-for-url url))
+            (otherwise nil)))
+    (cl-assert result t "No value found to insert here")
+    (when result (insert result))
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
