@@ -61,7 +61,6 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-xslt)
 
-
 ;;}}}
 ;;{{{Helper:
 
