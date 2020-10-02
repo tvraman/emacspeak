@@ -2321,8 +2321,9 @@ Produce auditory icons if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (dtk-speak (propertize  isearch-string voice-bolden))
+       (dtk-speak (propertize  isearch-string 'personality voice-bolden))
        (emacspeak-auditory-icon 'yank-object)))))
+
 (cl-loop
  for f in
  '(isearch-ring-advance isearch-ring-retreat
