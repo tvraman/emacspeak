@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1181 commands and 903 options.
+This chapter documents a total of 1182 commands and 903 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6611,6 +6611,15 @@ Useful in handling double-redirect from TuneIn.
 Interactively delete a mark with name ‘name’ at current position.
 
 (fn NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-fillin-form-field
+@deffn {Command} emacspeak-eww-fillin-form-field   
+@findex emacspeak-eww-fillin-form-field
+
+@format
+Fill in user or passwd field using auth-source backend.
 @end format
 @end deffn
 
