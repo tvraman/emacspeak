@@ -55,10 +55,11 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+(eval-when-compile (require 'derived))
 (require 'emacspeak-preamble)
 (require 'gweb)
-(require 'gmaps)
-(require 'derived)
+
+
 
 ;;}}}
 ;;{{{ Data Structures
