@@ -77,8 +77,6 @@ Optional interactive prefix arg `best' picks best audio format."
    (list (ytel-video-id (ytel-get-current-video))))
   (cl-declare (special emacspeak-m-player-youtube-dl
                        emacspeak-ytel-yt-url-pattern))
-  (or (require 'ytel 'no-error)
-      (error "Install package ytel from melpa."))
   (let ((default-directory (expand-file-name "~/Downloads")))
     (shell-command
      (format "%s '%s' & "
