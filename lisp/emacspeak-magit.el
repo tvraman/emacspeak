@@ -53,9 +53,6 @@
 (require 'emacspeak-preamble)
 
 
-(require 'magit nil 'no-error)
-(require 'magit-extras nil 'no-error)
-
 ;;}}}
 ;;{{{ Map voices to faces:
 
