@@ -162,6 +162,7 @@
   "Default presence alert used by Emacspeak.
 Silently drops alerts on the floor --- Google Talk is too chatty otherwise."
   nil)
+(cl-declaim (special jabber-alert-presence-message-function))
 (setq
  jabber-alert-presence-message-function
  #'emacspeak-jabber-presence-default-message)
@@ -284,6 +285,7 @@ the kill ring as well."
 (defun emacspeak-jabber-speak-recent-message ()
   "Speak most recent message if one exists."
   (interactive)
+  (cl-declare (special jabber-activity-jids))
   (cond
    (jabber-activity-jids
     (save-excursion
