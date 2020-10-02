@@ -117,7 +117,9 @@
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (with-current-buffer pianobar-buffer
-    (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
+    (define-key pianobar-key-map "t"
+      'emacspeak-pianobar-electric-mode-toggle)
+    (define-key pianobar-key-map (kbd "RET") 'emacspeak-pianobar-send-raw)
     (define-key pianobar-key-map [right] 'pianobar-next-song)
     (dotimes (i 10)
       (define-key pianobar-key-map    (format "%s" i)   'emacspeak-pianobar-switch-to-preset))
@@ -290,6 +292,11 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-max-preset)))
   (setq emacspeak-pianobar-current-preset (1- emacspeak-pianobar-current-preset))
   (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset)))
+
+(defun emacspeak-pianobar-send-raw  (string)
+  "Send raw string with newline added to pianobar."
+  (interactive "sString:")
+  (pianobar-send-string (format "%s\n" string)))
 
 ;;}}}
 
