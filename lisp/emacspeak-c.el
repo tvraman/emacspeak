@@ -52,9 +52,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (declare-function c-beginning-of-statement "cc-cmds" (&optional count lim sentence-flag))
-
 (declare-function c-end-of-statement "cc-cmds" (&optional count lim sentence-flag))
-
 
 ;;}}}
 ;;{{{ advice electric deletion
