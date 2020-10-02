@@ -51,8 +51,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'elisp-refs "elisp-refs" 'no-error)
-
 ;;}}}
 ;;{{{ Advice interactive commands:
 
