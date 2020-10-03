@@ -113,7 +113,8 @@ See http://developer.bookshare.org/docs for details on how to get
 (defvar emacspeak-bookshare-user-id nil
   "Bookshare user Id.")
 
-(defcustom emacspeak-bookshare-directory (expand-file-name "~/books/book-share")
+(defcustom emacspeak-bookshare-directory
+  (eval-when-compile (expand-file-name "~/books/book-share"))
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-bookshare)
