@@ -400,15 +400,12 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'pp)
 (eval-when-compile(require 'subr-x))
 (require 'eww  )
 (require 'dom)
 (require 'dom-addons)
-(require 'emacspeak-preamble)
-(require 'emacspeak-we)
 (require 'emacspeak-google)
-
+(require 'emacspeak-preamble)
 ;;}}}
 ;;{{{defgroup:
 (defgroup emacspeak-eww nil
@@ -909,6 +906,7 @@ Retain previously set punctuations  mode."
 
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
+  (cl-declare (special emacspeak-we-url-executor))
   (emacspeak-auditory-icon 'button)
   (let ((emacspeak-eww-masquerade t))
     (cond
@@ -972,7 +970,8 @@ Note that the Web browser should reset this hook after using it.")
 
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
-  (cl-declare (special emacspeak-eww-pre-process-hook))
+  (cl-declare (special emacspeak-eww-pre-process-hook
+                       emacspeak-we-xsl-transform emacspeak-we-xsl-p))
   (save-excursion
     (cond
      (emacspeak-eww-pre-process-hook (emacspeak-eww-run-pre-process-hook))
@@ -1819,7 +1818,7 @@ The %s is automatically spoken if there is no user activity."
 Warning, this is fragile, and depends on a stable id/class for the
   knowledge card."
   (interactive)
-  (cl-declare (special
+  (cl-declare (special emacspeak-google-toolbelt emacspeak-google-keymap
                emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Turn on  masquerade mode for knowledge cards."))
@@ -1835,6 +1834,7 @@ Warning, this is fragile, and depends on a stable id/class for the
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 (define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
+
 ;;}}}
 ;;{{{ Speech-enable EWW buffer list:
 
