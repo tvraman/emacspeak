@@ -1,4 +1,4 @@
-;;; emacspeak-personality.el ---Voiceify Overlays  -*- lexical-binding: t; -*-
+;;; emacspeak-personality.el --- Voiceify Overlays  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock implementation
