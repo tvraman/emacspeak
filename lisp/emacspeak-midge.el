@@ -162,10 +162,8 @@
   "Midge group for Emacspeak."
   :group 'emacspeak)
 
-(defcustom midge-mode-hook nil
-  "set in emacspeak-setup"
-  :type 'hook
-  :group 'emacspeak-midge)
+(defvar midge-mode-hook nil
+  "midge setup hook")
 
 (defadvice midge-mode (after emacspeak pre act comp)
   "Run midge-mode-hook"

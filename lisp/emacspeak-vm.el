@@ -164,11 +164,9 @@ Note that some badly formed mime messages  cause trouble."
       (dtk-speak-and-echo  (format  "%s" header))))
    (t (error "No current message."))))
 
-(defcustom emacspeak-vm-headers-strip-octals t
+(defvar emacspeak-vm-headers-strip-octals t
   "Specify whether non-ascii chars should be stripped when
-  speaking email headers."
-  :type 'boolean
-  :group 'emacspeak-vm)
+  speaking email headers.")
 
 (defun emacspeak-vm-speak-message ()
   "Move point to the message body."
@@ -709,30 +707,11 @@ text using pdftotext."
   :type 'string
   :group 'emacspeak-vm)
 
-(defcustom emacspeak-vm-doc2text
-  (expand-file-name "doc2text" emacspeak-etc-directory)
-  "Executable that converts MSWord documents on standard input to plain
-text using wvText."
-  :type 'string
-  :group 'emacspeak-vm)
+
 (defcustom emacspeak-vm-cal2text
   (expand-file-name "cal2text" emacspeak-etc-directory)
   "Executable that converts calendar invitations    on
   standard input to plain text."
-  :type 'string
-  :group 'emacspeak-vm)
-
-(defcustom emacspeak-vm-xls2html
-  (expand-file-name "xls2html" emacspeak-etc-directory)
-  "Executable that converts MSXL documents on standard input to HTML
- using xlhtml."
-  :type 'string
-  :group 'emacspeak-vm)
-
-(defcustom emacspeak-vm-ppt2html
-  (expand-file-name "ppt2html" emacspeak-etc-directory)
-  "Executable that converts MSPPT documents on standard input to HTML
- using xlhtml."
   :type 'string
   :group 'emacspeak-vm)
 
@@ -760,22 +739,12 @@ text using wvText."
                        vm-mime-attachment-auto-type-alist
                        vm-mime-type-converter-alist
                        emacspeak-vm-pdf2text
-                       emacspeak-vm-ppt2html
-                       emacspeak-vm-xls2html
-                       emacspeak-vm-doc2text
                        emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-converter
    (list "text/calendar" "text/plain" emacspeak-vm-cal2text))
   (emacspeak-vm-add-mime-converter
    (list "application/pdf" "text/plain"
          emacspeak-vm-pdf2text))
-  (emacspeak-vm-add-mime-converter
-   (list "application/vnd.ms-excel" "text/html"
-         emacspeak-vm-xls2html))
-  (emacspeak-vm-add-mime-converter
-   (list "application/vnd.ms-powerpoint" "text/html" emacspeak-vm-ppt2html))
-  (emacspeak-vm-add-mime-converter
-   (list "application/msword" "text/plain" emacspeak-vm-doc2text))
   (setq vm-preview-lines nil
         vm-infer-mime-types t
         vm-mime-decode-for-preview nil

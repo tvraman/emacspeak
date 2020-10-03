@@ -155,11 +155,9 @@ a rewrite rule even if one is already defined."
 (defgroup emacspeak-we nil
   "Emacspeak WebEdit"
   :group 'emacspeak)
-
-(defcustom emacspeak-we-xsl-p nil
-  "T means we apply XSL before displaying HTML."
-  :type 'boolean
-  :group 'emacspeak-we)
+;;;###autoload
+(defvar emacspeak-we-xsl-p nil
+  "T means we apply XSL before displaying HTML.")
 
 (defcustom emacspeak-we-xsl-transform
   (emacspeak-xslt-get "sort-tables.xsl")

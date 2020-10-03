@@ -178,20 +178,14 @@ Useful when eterm is in review mode.")
   :type 'symbol
   :group 'emacspeak-eterm)
 
-(defcustom emacspeak-eterm-bold-personality voice-bolden
-  "Personality to indicate terminal bold."
-  :type 'symbol
-  :group 'emacspeak-eterm)
+(defvar emacspeak-eterm-bold-personality voice-bolden
+  "Personality to indicate terminal bold.")
 
-(defcustom emacspeak-eterm-underline-personality 'ursula
-  "Personality to indicate terminal underlining."
-  :group 'emacspeak-eterm
-  :type 'symbol)
+(defvar emacspeak-eterm-underline-personality 'ursula
+  "Personality to indicate terminal underlining.")
 
-(defcustom emacspeak-eterm-default-personality 'paul
-  "Default personality for terminal."
-  :type 'symbol
-  :group 'emacspeak-eterm)
+(defvar emacspeak-eterm-default-personality 'paul
+  "Default personality for terminal.")
 
 ;;}}}
 ;;{{{  functions
@@ -1294,11 +1288,9 @@ host. Hosts are added whenever a new hostname is encountered, and the
 list of known hostnames is persisted in file named by
 emacspeak-eterm-remote-hostnames")
 (cl-declaim (special emacspeak-resource-directory))
-(defcustom emacspeak-eterm-remote-hosts-cache
+(defvar emacspeak-eterm-remote-hosts-cache
   (expand-file-name ".hosts" emacspeak-resource-directory)
-  "File where list of known remote hosts is cached"
-  :type 'file
-  :group 'emacspeak-eterm)
+  "File where list of known remote hosts is cached")
 
 (defun emacspeak-eterm-load-remote-hosts-cache ()
   "Load cached remote hostnames"

@@ -103,22 +103,16 @@
 (defvar emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine.")
 
-(defcustom emacspeak-xslt-options
+(defvar emacspeak-xslt-options
   "--html --nonet --novalid --encoding utf-8"
-  "Options passed to xsltproc."
-  :type 'string
-  :group 'emacspeak-xslt)
+  "Options passed to xsltproc.")
 
-(defcustom emacspeak-xslt-keep-errors  nil
-  "If non-nil, xslt errors will be preserved in an errors buffer."
-  :type 'boolean
-  :group 'emacspeak-xslt)
+(defvar emacspeak-xslt-keep-errors  nil
+  "If non-nil, xslt errors will be preserved in an errors buffer.")
 
-(defcustom emacspeak-xslt-nuke-null-char t
+(defvar emacspeak-xslt-nuke-null-char t
   "If T null chars in the region will be nuked.
-This is useful when handling bad HTML."
-  :type 'boolean
-  :group 'emacspeak-xslt)
+This is useful when handling bad HTML.")
 
 ;;}}}
 ;;{{{Macro: without-xsl

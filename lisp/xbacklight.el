@@ -84,10 +84,8 @@
   :group 'emacspeak
   :group 'applications)
 
-(defcustom xbacklight-step  10
-  "Step-size used when incrementing and decrementing brightness."
-  :type 'integer
-  :group  'xbacklight)
+(defvar xbacklight-step  10
+  "Step-size used when incrementing and decrementing brightness.")
 ;;;###autoload
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."

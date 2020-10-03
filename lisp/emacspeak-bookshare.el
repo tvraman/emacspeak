@@ -122,19 +122,11 @@ See http://developer.bookshare.org/docs for details on how to get
   (expand-file-name "downloads/" emacspeak-bookshare-directory)
   "Directory where archives are saved on download.")
 
-(defcustom emacspeak-bookshare-browser-function
+(defvar emacspeak-bookshare-browser-function
   'eww-browse-url
   "Function to display Bookshare Book content in a WWW browser.
 This is used by the various Bookshare view commands to display
-  content from Bookshare books."
-  :type
-  '(choice
-    (function-item :tag "Emacs EWW" :value  eww-browse-url)
-    (function-item :tag "Default Mac OS X browser"
-                   :value browse-url-default-macosx-browser)
-    (function :tag "Your own function"))
-  :version "47"
-  :group 'emacspeak-bookshare)
+  content from Bookshare books.")
 
 ;;}}}
 ;;{{{ Variables:
@@ -1109,14 +1101,9 @@ Target location is generated from author and title."
                 'auditory-icon 'item))
     (message "Unpacked content.")))
 
-(defcustom emacspeak-bookshare-xslt
+(defvar emacspeak-bookshare-xslt
   "daisyTransform.xsl"
-  "Name of bookshare  XSL transform."
-  :type
-  '(choice :tag "Key"
-           (const :tag "Daisy transform from Bookshare"  "daisyTransform.xsl")
-           (const :tag "Default HTML View" "default.xsl"))
-  :group 'emacspeak-bookshare)
+  "Name of bookshare  XSL transform.")
 
 (defun emacspeak-bookshare-xslt (directory)
   "Return suitable XSL  transform."
@@ -1283,14 +1270,10 @@ Make sure it's downloaded and unpacked first."
      xsl
      (cl-first (directory-files directory 'full "\\.xml$")))))
 
-(defcustom emacspeak-bookshare-html-to-text-command
+(defvar emacspeak-bookshare-html-to-text-command
   "lynx -dump -stdin"
-  "Command to convert html to text on stdin."
+  "Command to convert html to text on stdin.")
 
-  :type '(choice
-          (const :tag "lynx"  "lynx -dump -stdin")
-          (const "html2text" "html2text"))
-  :group 'emacspeak-bookshare)
 (defun emacspeak-bookshare-fulltext (directory)
   "Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book."

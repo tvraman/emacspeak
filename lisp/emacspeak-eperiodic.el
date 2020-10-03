@@ -134,11 +134,9 @@
   )
 ;;}}}
 ;;{{{  listen off the web:
-(defcustom emacspeak-eperiodic-media-location 
+(defvar emacspeak-eperiodic-media-location 
   "http://www.webelements.com/webelements/elements/media/snds-description/%s.rm"
-  "Location of streaming media describing elements."
-  :type 'url
-  :group 'emacspeak-eperiodic)
+  "Location of streaming media describing elements.")
 
 (defun emacspeak-eperiodic-play-description ()
   "Play audio description from WebElements."

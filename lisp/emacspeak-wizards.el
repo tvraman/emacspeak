@@ -405,12 +405,10 @@ This is just a text file, and we use grep to search it."
   :group 'emacspeak-speak
   :type 'string)
 
-(defcustom emacspeak-speak-telephone-directory-command
+(defvar emacspeak-speak-telephone-directory-command
   "grep -i "
-  "Command used to look up names in the telephone
-directory."
-  :group 'emacspeak-speak
-  :type 'string)
+  "Command used to look up names in the telephone directory.")
+
 ;;;###autoload
 (defun emacspeak-speak-telephone-directory (&optional edit)
   "Lookup and display a phone number.
@@ -1201,14 +1199,11 @@ Optional interactive prefix arg ask-pwd prompts for password."
 (defvar-local emacspeak-wizards-finder-args nil
   "List of switches to use as test arguments to find.")
 
-(defcustom emacspeak-wizards-find-switches-that-need-quoting
+(defvar emacspeak-wizards-find-switches-that-need-quoting
   (list "-name" "-iname"
         "-path" "-ipath"
         "-regexp" "-iregexp")
-  "Find switches whose args need quoting."
-  :type '(repeat
-          (string))
-  :group 'emacspeak-wizards)
+  "Find switches whose args need quoting.")
 
 (defun emacspeak-wizards-find-quote-arg-if-necessary (switch arg)
   "Quote find arg if necessary."
@@ -1472,13 +1467,11 @@ Use with caution."
 
 ;;}}}
 ;;{{{ VC viewer
-(defcustom emacspeak-wizards-vc-viewer-command
+(defvar emacspeak-wizards-vc-viewer-command
   "setterm -dump %s -file %s"
   "Command line for dumping out virtual console.  Make sure you have
 access to /dev/vcs* by adding yourself to the appropriate group.  On
-Ubuntu and Debian this is group `tty'."
-  :type 'string
-  :group 'emacspeak-wizards)
+Ubuntu and Debian this is group `tty'.")
 
 (define-derived-mode emacspeak-wizards-vc-view-mode special-mode
   "VC Viewer  Interaction"
@@ -2621,17 +2614,12 @@ for how to get  an API key. "
            (string :tag "API Key"))
   :group 'emacspeak-wizards)
 
-(defcustom emacspeak-wizards-iex-quotes-row-filter
+(defvar emacspeak-wizards-iex-quotes-row-filter
   '(0 " ask  " 2
       " trading between   " 4 " and  " 5
       " PE is " 10
       " For a market cap of " 9)
-  "Template used to audio-format  rows."
-  :type '(repeat
-          (choice :tag "Entry"
-                  (integer :tag "Column Number:")
-                  (string :tag "Text")))
-  :group 'emacspeak-wizards)
+  "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
   (expand-file-name "portfolio.json" emacspeak-resource-directory)

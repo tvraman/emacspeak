@@ -246,12 +246,8 @@ unless `dired-listing-switches' contains -l"
 ;;}}}
 ;;{{{ Additional status speaking commands
 
-(defcustom emacspeak-dired-file-cmd-options "-b"
-  "Options passed to Unix builtin `file' command."
-  :type '(choice
-          (const :tag "Brief" "-b")
-          (const :tag "Detailed" nil))
-  :group 'emacspeak-dired)
+(defvar emacspeak-dired-file-cmd-options "-b"
+  "Options passed to Unix builtin `file' command.")
 
 (defun emacspeak-dired-show-file-type (&optional file deref-symlinks)
   "Displays type of current file by running command file.

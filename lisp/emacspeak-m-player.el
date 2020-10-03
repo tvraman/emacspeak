@@ -215,12 +215,10 @@ This is set to nil when playing Internet  streams.")
    "-slave"  "-softvol" "-softvol-max" "300" "-quiet")
   "Default options for MPlayer.")
 
-(defcustom emacspeak-m-player-options
+(defvar emacspeak-m-player-options
   (copy-sequence emacspeak-m-player-default-options)
-  "Options passed to mplayer."
-  :type  '(repeat
-           (string :tag "option"))
-  :group 'emacspeak-m-player)
+  "Options passed to mplayer.")
+
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
   "*Map specific key sequences to launching MPlayer accelerators
