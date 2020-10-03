@@ -3046,7 +3046,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail – Emacs’ default mail agent.
-* emacspeak-rpm::speech-enable RPM.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.

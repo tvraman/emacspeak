@@ -163,7 +163,6 @@ This chapter documents a total of 1178 commands and 839 options.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail -- Emacs' default mail agent.
-* emacspeak-rpm::speech-enable RPM.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
 * emacspeak-rst::Speech-enable RST.
 * emacspeak-ruby::Speech enable Ruby Mode.
@@ -14410,15 +14409,6 @@ Speak labels of current message
 Summarize current message
 @end format
 @end deffn
-
-@node emacspeak-rpm
-@section emacspeak-rpm
-
-This module speech-enables rpm.el
-rpm.el can be downloaded from
-http://www.uni-karlsruhe.de/~Detlev.Zundel/download/rpm.el
-and provides a nice interface to managing and browsing
-rpm.
 
 @node emacspeak-rpm-spec
 @section emacspeak-rpm-spec
