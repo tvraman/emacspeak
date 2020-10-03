@@ -406,9 +406,10 @@
 (require 'dom-addons)
 (require 'emacspeak-google)
 (require 'emacspeak-preamble)
+(declare-function emacspeak-epub-eww "emacspeak-epub" (epub-file &optional broken-ncx))
+
 ;;}}}
 ;;{{{ Helpers:
-
 
 ;;;###autoload
 (defsubst emacspeak-eww-browser-check ()
@@ -453,8 +454,6 @@ or URL read from minibuffer."
                 ,(intern (format ":%s" name))
                 value))))
 
-
-
 ;;}}}
 ;;{{{play media:
 
@@ -490,7 +489,6 @@ Useful in handling double-redirect from TuneIn."
             "\n")))
     (message "Playing redirected media  URL under point: %s" url)
     (emacspeak-m-player url t)))
-
 
 ;;}}}
 ;;{{{ Declare generated functions:
@@ -551,13 +549,11 @@ are available are cued by an auditory icon on the header line."
 ;;}}}
 ;;{{{ Setup EWW Initialization:
 
-
-
 (defvar emacspeak-eww-url-at-point
   #'(lambda ()
       (let ((url (shr-url-at-point nil)))
         (cond
-         ((and url ;;; google  Result 
+         ((and url ;;; google  Result
                (stringp url)
                (string-prefix-p (emacspeak-google-result-url-prefix) url))
           (emacspeak-google-canonicalize-result-url url))
@@ -570,7 +566,6 @@ are available are cued by an auditory icon on the header line."
  #'(lambda ()
      (outline-minor-mode nil)
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
-
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")
@@ -621,7 +616,7 @@ are available are cued by an auditory icon on the header line."
    'eww-mode
    emacspeak-speak-rfc-3339-datetime-pattern
    (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
-;;; turn off images on request 
+;;; turn off images on request
   (setq shr-inhibit-images emacspeak-eww-inhibit-images)
 ;;; remove "I" "o" from eww-link-keymap
   (cl-loop
@@ -643,7 +638,7 @@ are available are cued by an auditory icon on the header line."
    for binding  in
    '(
      (":" emacspeak-eww-tags-at-point)
-     ("\"" emacspeak-eww-reading-settings) 
+     ("\"" emacspeak-eww-reading-settings)
      ("V" eww-view-source)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
@@ -980,7 +975,7 @@ Note that the Web browser should reset this hook after using it.")
 (cl-loop
  for  tag in
  '(h1 h2 h3 h4 h5 h6 div                ; sectioning
-      math ; mathml 
+      math ; mathml
       ul ol dl                          ; Lists
       li dt dd p                        ; block-level: bullets, paras
       form blockquote                   ; block-level
@@ -1010,8 +1005,8 @@ Note that the Web browser should reset this hook after using it.")
 (defun shr-tag-math (dom)
   "Handle Math Nodes from MathML"
   (shr-ensure-newline)
-      (shr-generic dom)
-      (shr-ensure-newline))
+  (shr-generic dom)
+  (shr-ensure-newline))
 
 ;;}}}
 ;;{{{ Advice readable
@@ -1746,7 +1741,7 @@ The %s is automatically spoken if there is no user activity."
          (emacspeak-auditory-icon 'item)
          (forward-line 1)
          (let ((start  (point)))
-           (condition-case nil 
+           (condition-case nil
                (save-excursion
                  (funcall #'emacspeak-eww-next-element s)
                  (emacspeak-speak-region start (point)))
@@ -1766,7 +1761,7 @@ The %s is automatically spoken if there is no user activity."
          (emacspeak-auditory-icon 'item)
          (forward-line 1)
          (let ((start  (point)))
-           (condition-case nil 
+           (condition-case nil
                (save-excursion
                  (funcall #'emacspeak-eww-next-element s)
                  (emacspeak-speak-region start (point)))
@@ -1808,7 +1803,7 @@ Warning, this is fragile, and depends on a stable id/class for the
   knowledge card."
   (interactive)
   (cl-declare (special emacspeak-google-toolbelt emacspeak-google-keymap
-               emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
+                       emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Turn on  masquerade mode for knowledge cards."))
   (unless (eq major-mode 'eww-mode)
@@ -1816,10 +1811,10 @@ Warning, this is fragile, and depends on a stable id/class for the
   (unless  emacspeak-google-toolbelt
     (error "This doesn't look like a Google results page."))
   (let  ((dom (emacspeak-eww-current-dom)))
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes
-        (dom-by-class dom "kCrYT" )
-        (eww-current-url)))))
+    (emacspeak-eww-view-helper
+     (dom-html-from-nodes
+      (dom-by-class dom "kCrYT" )
+      (eww-current-url)))))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 (define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
@@ -1870,8 +1865,6 @@ Warning, this is fragile, and depends on a stable id/class for the
 
 ;;}}}
 ;;{{{ Tags At Point:
-
-
 
 (defun emacspeak-eww-tags-at-point ()
   "Display tags at point."
@@ -1925,7 +1918,6 @@ Warning, this is fragile, and depends on a stable id/class for the
 ;;; Bookmarks for use in reading ebooks with EWW:
 ;;; They are called eww-marks to distinguish them from web bookmarks
 
-
 (defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-resource-directory)
   "File where we save EWW marks.")
@@ -1942,7 +1934,7 @@ Warning, this is fragile, and depends on a stable id/class for the
   (cl-declare (special emacspeak-eww-marks emacspeak-eww-marks-file))
   (when (file-exists-p emacspeak-eww-marks-file)
     (ems--fastload emacspeak-eww-marks-file)
-     emacspeak-eww-marks))
+    emacspeak-eww-marks))
 
 (defvar emacspeak-eww-marks
   (cond
@@ -1951,8 +1943,6 @@ Warning, this is fragile, and depends on a stable id/class for the
    (t
     (make-hash-table :test #'equal)))
   "Stores   EWW-marks.")
-
-
 
 (defun emacspeak-eww-add-mark (name)
   "Interactively add a mark with name title+`name' at current position."
@@ -2019,7 +2009,8 @@ Warning, this is fragile, and depends on a stable id/class for the
   (emacspeak-eww-marks-save)
   (emacspeak-auditory-icon 'delete-object)
   (message "Removed Emacspeak EWW mark %s" name))
-(declare-function emacspeak-epub-eww "emacspeak-epub" [Arg list not available until function definition is loaded.])
+
+
 
 ;;;###autoload
 (defun emacspeak-eww-open-mark (name &optional delete)
@@ -2090,7 +2081,7 @@ interactive prefix arg `delete', delete that mark instead."
 ;;}}}
 ;;{{{ Shell Command On URL Under Point:
 (defvar emacspeak-eww-url-shell-commands
-  (delete nil 
+  (delete nil
           (list
            (expand-file-name "cbox" emacspeak-etc-directory)
            (expand-file-name "cbox-left" emacspeak-etc-directory)
@@ -2098,7 +2089,6 @@ interactive prefix arg `delete', delete that mark instead."
            (expand-file-name "cbox-amp" emacspeak-etc-directory)
            (executable-find "youtube-dl")))
   "Shell commands we permit on URL under point.")
-
 
 (defun emacspeak-eww-shell-command-on-url-at-point (&optional prefix)
   "Run specified shell command on URL at point.
@@ -2126,7 +2116,6 @@ Warning: Running shell script cbox through this fails mysteriously."
   "Retrieve URL stored in `KEY'"
   (cl-declare (special emacspeak-eww-smart-tabs))
   (gethash key  emacspeak-eww-smart-tabs))
-
 
 (defun emacspeak-eww-smart-tabs-add (char url )
   "Add a URL to the specified location in smart tabs."
@@ -2160,12 +2149,11 @@ with an interactive prefix arg. "
     (emacspeak-auditory-icon 'button)
     (eww url)))
 
-
 (defun emacspeak-eww-smart-tabs-save ()
   "Save our smart tabs to a file for reloading."
   (interactive)
   (when
-      (and 
+      (and
        (bound-and-true-p emacspeak-eww-smart-tabs)
        (not (hash-table-empty-p emacspeak-eww-smart-tabs)))
     (emacspeak--persist-variable
@@ -2175,7 +2163,6 @@ with an interactive prefix arg. "
 (add-hook
  'kill-emacs-hook
  #'emacspeak-eww-smart-tabs-save)
-
 
 (defun emacspeak-eww-smart-tabs-load ()
   "Load our smart tabsfrom a file."
@@ -2286,7 +2273,7 @@ With interactive prefix arg, move to the start of the table."
   (let ((url (eww-current-url))
         (result nil))
     (cl-assert url t "No current url")
-    (setq result 
+    (setq result
           (cl-case
               (read-char "u  User, p Password")
             (?u  (url-user-for-url url))
