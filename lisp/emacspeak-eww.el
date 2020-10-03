@@ -843,10 +843,6 @@ Retain previously set punctuations  mode."
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'delete-object)))
 
-(defadvice eww-bookmark-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
-
 (defadvice eww-bookmark-yank(after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'yank-object)))
