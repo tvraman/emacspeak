@@ -149,11 +149,7 @@ Summarize the form to welcome the user. "
 ;;}}}
 ;;{{{ voiceify values in results 
 
-(defgroup emacspeak-eudc nil
-  "Emacspeak add-on to the Emacs Universal Directory Client."
-  :group 'emacspeak
-  :group 'eudc
-  :prefix "emacspeak-eudc-")
+
 
 (defvar emacspeak-eudc-attribute-value-personality
   voice-animate
