@@ -1,20 +1,3 @@
-;;{{{outline-flag-region:
-;;; Handle outline hide/show directly here --- rather than relying on
-;;overlay advice alone.
-
-(defadvice outline-flag-region (around emacspeak pre act comp)
-  "Reflect hide/show via property invisible as wel"
-  (let  ((ems--voiceify-overlays  nil)
-         (beg (ad-get-arg 0))
-         (end (ad-get-arg 1))
-         (inhibit-read-only t))
-    ad-do-it
-    (when (zerop beg) (setq beg (point-min)))
-    (with-silent-modifications
-      (put-text-property
-       beg end 'invisible
-       (if (ad-get-arg 2) 'outline nil)))))
-
 ;;; emacspeak-outline.el --- Speech enable Outline --   Browsing  Structured Documents  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
@@ -64,6 +47,7 @@
 
 ;;}}}
 ;;{{{ requires
+
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'outline)
@@ -116,6 +100,24 @@
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{outline-flag-region:
+;;; Handle outline hide/show directly here --- rather than relying on
+;;overlay advice alone.
+
+(defadvice outline-flag-region (around emacspeak pre act comp)
+  "Reflect hide/show via property invisible as wel"
+  (let  ((ems--voiceify-overlays  nil)
+         (beg (ad-get-arg 0))
+         (end (ad-get-arg 1))
+         (inhibit-read-only t))
+    ad-do-it
+    (when (zerop beg) (setq beg (point-min)))
+    (with-silent-modifications
+      (put-text-property
+       beg end 'invisible
+       (if (ad-get-arg 2) 'outline nil)))))
+
+
 ;;{{{  Hiding and showing subtrees
 
 (defadvice outline-hide-entry (after emacspeak pre act comp)
