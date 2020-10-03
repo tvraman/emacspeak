@@ -239,6 +239,9 @@
 ;;;@subsection Miscellaneous Commands
 
 ;;;@table @kbd
+;;; @item  {C-RET}
+;;; @command emacspeak-eww-fillin-form-field
+;;; When on an input field, insert  username/password information accessed via auth-source.
 ;;;@item '
 ;;;@command{emacspeak-speak-rest-of-buffer}
 ;;;Speak rest of current Web page starting from point.
