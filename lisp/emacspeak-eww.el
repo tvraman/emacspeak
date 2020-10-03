@@ -407,13 +407,6 @@
 (require 'emacspeak-google)
 (require 'emacspeak-preamble)
 ;;}}}
-;;{{{defgroup:
-(defgroup emacspeak-eww nil
-  "EWW Customizations"
-  :group 'emacspeak)
-
-;;}}}
-
 ;;{{{ Helpers:
 
 
@@ -597,7 +590,7 @@ are available are cued by an auditory icon on the header line."
           )
   "User Agent string that is  sent when masquerading is on."
   :type 'string
-  :group 'emacspeak-eww)
+  :group 'emacspeak)
 
 ;;; Advice note: Setting ad-return-value in one arm of the cond
 ;;; appears to perculate to both arms.
@@ -612,7 +605,8 @@ are available are cued by an auditory icon on the header line."
 (defcustom emacspeak-eww-inhibit-images nil
   "Turn this on to avoid rendering images."
   :type 'boolean
-  :group 'emacspeak-eww)
+  :group 'emacspeak)
+
 (declare-function emacspeak-feeds-feed-display "emacspeak-feeds" (feed-url style &optional speak))
 
 (defun emacspeak-eww-setup ()
@@ -1031,14 +1025,9 @@ Note that the Web browser should reset this hook after using it.")
 ;;}}}
 ;;{{{  Customize image loading:
 
-(defcustom emacspeak-eww-silence-images t
-  "Set to nil if you want EWW to load images."
-  :type 'boolean
-  :group 'emacspeak-eww)
-
 (defadvice eww-display-image (around emacspeak pre act comp)
   "Dont load images if asked to silence them."
-  (unless emacspeak-eww-silence-images ad-do-it))
+  (unless emacspeak-eww-inhibit-images ad-do-it))
 
 ;;}}}
 ;;{{{ element, class, role, id caches:
