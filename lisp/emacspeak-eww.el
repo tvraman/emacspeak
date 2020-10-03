@@ -600,6 +600,7 @@ Chrome/74.0.3724.8 Safari/537.36"
    (emacspeak-eww-masquerade
     (setq ad-return-value emacspeak-eww-masquerade-as))
    (t (setq ad-return-value "User-Agent: URL/Emacs \r\n"))))
+
 (defcustom emacspeak-eww-inhibit-images nil
   "Turn this on to avoid rendering images."
   :type 'boolean
@@ -635,9 +636,9 @@ Chrome/74.0.3724.8 Safari/537.36"
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-eww-play-media-at-point)
   (define-key eww-link-keymap "U" 'emacspeak-eww-curl-play-media-at-point)
-  (define-key eww-link-keymap "\C-o" 'emacspeak-feeds-opml-display)
-  (define-key eww-link-keymap "\C-r" 'emacspeak-feeds-rss-display)
-  (define-key eww-link-keymap "\C-a" 'emacspeak-feeds-atom-display)
+  (define-key eww-link-keymap (kbd "C-o") 'emacspeak-feeds-opml-display)
+  (define-key eww-link-keymap (kbd "C-r") 'emacspeak-feeds-rss-display)
+  (define-key eww-link-keymap (kbd "C-a") 'emacspeak-feeds-atom-display)
   (define-key eww-link-keymap  "y" 'emacspeak-m-player-youtube-player)
   (cl-loop
    for binding  in
