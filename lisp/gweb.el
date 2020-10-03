@@ -66,10 +66,6 @@
 ;;}}}
 ;;{{{ Customizations
 
-(defgroup gweb nil
-  "Google search"
-  :group 'g)
-
 ;;}}}
 ;;{{{ Variables
 
