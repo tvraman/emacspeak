@@ -226,7 +226,6 @@ emacspeak-related.elc \
 emacspeak-rpm-spec.elc \
 emacspeak-remote.elc \
 emacspeak-rmail.elc \
-emacspeak-rpm.elc  \
 emacspeak-ruby.elc \
 emacspeak-sage.elc \
 emacspeak-slime.elc \
