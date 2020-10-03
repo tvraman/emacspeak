@@ -1570,34 +1570,6 @@ ALSA_DEFAULT to specified device before starting the server."
     (dtk-notify-initialize)
     (setq emacspeak-tts-use-notify-stream t)))
 
-(defcustom tts-device-list (list "default")
-  "List of ALSA sound devices  we can use."
-  :type '(repeat
-          (choice :tag "Device"
-                  (const "default")
-                  (const "$ALSA_DEFAULT")
-                  (string)))
-  :group 'dtk)
-
-(defun tts-cycle-device (&optional restart)
-  "Cycle through available ALSA devices.
-Optional interactive prefix arg restarts current TTS server."
-  (interactive "P")
-  (cl-declare (special tts-device tts-device-list))
-  (let ((pos (cl-position tts-device tts-device-list :test
-                          #'string=))
-        (len (length tts-device-list)))
-    (cond
-     ((= len 1) (message "Only  one ALSA device."))
-     (t                                 ; Cycle
-      (setq tts-device
-            (nth
-             (% (+ 1 pos) len)
-             tts-device-list))
-      (setenv "ALSA_DEFAULT" tts-device)
-      (message "ALSA_DEFAULT: %s" tts-device)
-      (when restart (tts-restart))))))
-
 (defvar dtk-local-server-process nil
   "Local server process.")
 
