@@ -67,10 +67,6 @@
 ;;}}}
 ;;{{{ searcher table
 
-
-(defgroup emacspeak-websearch nil
-  "Websearch tools for the Emacspeak desktop."
-  :group 'emacspeak)
 (defvar emacspeak-websearch-table (make-hash-table)
   "Table holding mapping from search engine names to appropriate searcher functions.")
 
