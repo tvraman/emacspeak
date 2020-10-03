@@ -567,7 +567,7 @@ are available are cued by an auditory icon on the header line."
 (add-hook
  'eww-mode-hook
  #'(lambda ()
-     (outline-minor-mode nil)
+     (outline-minor-mode)
      (emacspeak-pronounce-toggle-use-of-dictionaries t)))
 
 (defvar emacspeak-eww-masquerade t
@@ -582,15 +582,13 @@ are available are cued by an auditory icon on the header line."
            (if emacspeak-eww-masquerade "on" "off"))
   (emacspeak-auditory-icon (if emacspeak-eww-masquerade 'on 'off)))
 
-(defcustom  emacspeak-eww-masquerade-as
+(defvar  emacspeak-eww-masquerade-as
   (format "User-Agent: %s\r\n"
           "Mozilla/5.0 (X11; Linux x86_64) \
 AppleWebKit/537.36 (KHTML, like Gecko) \
 Chrome/74.0.3724.8 Safari/537.36"
           )
-  "User Agent string that is  sent when masquerading is on."
-  :type 'string
-  :group 'emacspeak)
+  "User Agent string that is  sent when masquerading is on.")
 
 ;;; Advice note: Setting ad-return-value in one arm of the cond
 ;;; appears to perculate to both arms.
