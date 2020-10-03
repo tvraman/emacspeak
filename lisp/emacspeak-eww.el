@@ -241,7 +241,8 @@
 ;;;@table @kbd
 ;;; @item  C-RET
 ;;; @command {emacspeak-eww-fillin-form-field}
-;;; When on an input field, insert  username/password information accessed via auth-source.
+;;; When on an input field, insert  username/password information
+;;; accessed via auth-source.
 ;;;@item '
 ;;;@command{emacspeak-speak-rest-of-buffer}
 ;;;Speak rest of current Web page starting from point.
@@ -406,7 +407,8 @@
 (require 'dom-addons)
 (require 'emacspeak-google)
 (require 'emacspeak-preamble)
-(declare-function emacspeak-epub-eww "emacspeak-epub" (epub-file &optional broken-ncx))
+(declare-function emacspeak-epub-eww
+                  "emacspeak-epub" (epub-file &optional broken-ncx))
 
 ;;}}}
 ;;{{{ Helpers:
@@ -459,8 +461,9 @@ or URL read from minibuffer."
 
 (defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
   "Play media url under point.
-Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
- A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing"
+Optional interactive prefix arg `playlist-p' says to treat the
+ link as a playlist.  A second interactive prefix arg adds
+ mplayer option -allow-dangerous-playlist-parsing"
   (interactive "P")
   (cl-declare (special emacspeak-m-player-media-history
                        emacspeak-eww-url-at-point))
@@ -581,7 +584,9 @@ are available are cued by an auditory icon on the header line."
 
 (defcustom  emacspeak-eww-masquerade-as
   (format "User-Agent: %s\r\n"
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3724.8 Safari/537.36"
+          "Mozilla/5.0 (X11; Linux x86_64) \
+AppleWebKit/537.36 (KHTML, like Gecko) \
+Chrome/74.0.3724.8 Safari/537.36"
           )
   "User Agent string that is  sent when masquerading is on."
   :type 'string
@@ -602,14 +607,16 @@ are available are cued by an auditory icon on the header line."
   :type 'boolean
   :group 'emacspeak)
 
-(declare-function emacspeak-feeds-feed-display "emacspeak-feeds" (feed-url style &optional speak))
+(declare-function emacspeak-feeds-feed-display
+                  "emacspeak-feeds" (feed-url style &optional speak))
 
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
-  (cl-declare (special eww-mode-map eww-link-keymap eww-text-map
-                       shr-inhibit-images emacspeak-eww-inhibit-images
-                       emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                       emacspeak-eww-masquerade))
+  (cl-declare (special
+               eww-mode-map eww-link-keymap eww-text-map
+               shr-inhibit-images emacspeak-eww-inhibit-images
+               emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+               emacspeak-eww-masquerade))
   (emacspeak-pronounce-augment-pronunciations
    'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
   (emacspeak-pronounce-add-dictionary-entry
@@ -1605,7 +1612,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
        (completing-read "Element: "
                         eww-element-cache nil 'must-match
                         nil 'emacspeak-eww-element-navigation-history)))))
-  (cl-declare (special eww-element-cache emacspeak-eww-element-navigation-history))
+  (cl-declare (special eww-element-cache
+                       emacspeak-eww-element-navigation-history))
   (let*
       ((start
         (or
@@ -1802,8 +1810,9 @@ The %s is automatically spoken if there is no user activity."
 Warning, this is fragile, and depends on a stable id/class for the
   knowledge card."
   (interactive)
-  (cl-declare (special emacspeak-google-toolbelt emacspeak-google-keymap
-                       emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
+  (cl-declare (special
+               emacspeak-google-toolbelt emacspeak-google-keymap
+               emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Turn on  masquerade mode for knowledge cards."))
   (unless (eq major-mode 'eww-mode)
@@ -1824,7 +1833,8 @@ Warning, this is fragile, and depends on a stable id/class for the
 
 (defun emacspeak-eww-speak-buffer-line ()
   "Speak EWW buffer line."
-  (cl-assert (eq major-mode 'eww-buffers-mode) nil "Not in an EWW buffer listing.")
+  (cl-assert (eq major-mode 'eww-buffers-mode) nil
+             "Not in an EWW buffer listing.")
   (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))
     (if buffer
         (dtk-speak (buffer-name buffer))
@@ -1992,7 +2002,8 @@ Warning, this is fragile, and depends on a stable id/class for the
        (require 'emacspeak-bookshare)
        (cl-find-if
         #'(lambda (b)
-            (string= book (with-current-buffer b emacspeak-bookshare-this-book)))
+            (string= book
+                     (with-current-buffer b emacspeak-bookshare-this-book)))
         (buffer-list)))
       (t (error "Unknown book type %s" type))))
     (when buffer
@@ -2060,7 +2071,8 @@ interactive prefix arg `delete', delete that mark instead."
   (interactive)
   (cl-declare (special emacspeak-eww-marks-file emacspeak-eww-marks))
   (when (hash-table-p emacspeak-eww-marks)
-    (emacspeak--persist-variable 'emacspeak-eww-marks emacspeak-eww-marks-file)))
+    (emacspeak--persist-variable 'emacspeak-eww-marks
+                                 emacspeak-eww-marks-file)))
 
 (defvar emacspeak-eww-marks-save-timer
   (run-at-time 3600 3600  #'emacspeak-eww-marks-save)
@@ -2097,7 +2109,8 @@ Warning: Running shell script cbox through this fails mysteriously."
   (cl-declare (special emacspeak-eww-url-shell-commands))
   (cl-assert (shr-url-at-point prefix) t "No URL at point.")
   (let ((url (shr-url-at-point prefix))
-        (cmd (completing-read "Shell Command: " emacspeak-eww-url-shell-commands)))
+        (cmd
+         (completing-read "Shell Command: " emacspeak-eww-url-shell-commands)))
     (shell-command (format "%s '%s'" cmd url))
     (emacspeak-auditory-icon 'task-done)))
 ;;}}}
@@ -2168,7 +2181,9 @@ with an interactive prefix arg. "
   "Load our smart tabsfrom a file."
   (interactive)
   (cl-declare (special emacspeak-resource-directory))
-  (when (file-exists-p (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))
+  (when
+      (file-exists-p
+       (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))
     (ems--fastload
      (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
 
@@ -2223,7 +2238,8 @@ Value is specified as a position in the list of table cells.")
   "Speak current cell."
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
-  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+  (dtk-speak
+   (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
@@ -2241,10 +2257,12 @@ Interactive prefix arg moves to the last cell in the table."
      (1- (length (emacspeak-eww-table-cells))))
     (goto-char (get-text-property (point) 'table-end)))
    (t
-    (setq emacspeak-eww-table-current-cell (1+ emacspeak-eww-table-current-cell))
+    (setq emacspeak-eww-table-current-cell
+          (1+ emacspeak-eww-table-current-cell))
     (goto-char (next-single-property-change (point) 'display))))
   (emacspeak-auditory-icon 'left)
-  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+  (dtk-speak
+   (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-previous-cell (&optional prefix)
   "Speak previous cell after making it current.
@@ -2261,7 +2279,8 @@ With interactive prefix arg, move to the start of the table."
                                             emacspeak-eww-table-current-cell))
     (goto-char (previous-single-property-change (point) 'display))))
   (emacspeak-auditory-icon 'right)
-  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+  (dtk-speak
+   (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 ;;}}}
 ;;{{{Form filling:
