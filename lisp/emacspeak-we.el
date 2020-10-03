@@ -109,7 +109,7 @@ a rewrite rule even if one is already defined."
 
 ;;}}}
 ;;{{{ url expand and execute
-
+;;;###autoload
 (defvar emacspeak-we-url-executor nil
   "URL expand/execute function  to use in current buffer.")
 
@@ -142,7 +142,7 @@ a rewrite rule even if one is already defined."
 
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
-
+;;;###autoload
 (define-prefix-command 'emacspeak-we-xsl-map)
 
 (defvar emacspeak-we-xsl-filter
