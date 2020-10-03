@@ -158,9 +158,6 @@
 
 ;;}}}
 ;;{{{ midge-mode-hook
-(defgroup emacspeak-midge nil
-  "Midge group for Emacspeak."
-  :group 'emacspeak)
 
 (defvar midge-mode-hook nil
   "midge setup hook")
