@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1182 commands and 898 options.
+This chapter documents a total of 1180 commands and 843 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1727,18 +1727,6 @@ Speak Eldoc documentation if available.
 
 @subsection emacspeak-advice Options
 
-@defvar {User Option} emacspeak-advice-progress-reporter
-Set to true if progress reporter should produce an auditory
-icon.
-
-@end defvar
-
-@defvar {User Option} emacspeak-replace-personality
-Personality used in search and replace to indicate word
-that is being replaced.
-
-@end defvar
-
 @defvar {User Option} emacspeak-speak-errors
 Specifies if error messages are cued.
 
@@ -1746,11 +1734,6 @@ Specifies if error messages are cued.
 
 @defvar {User Option} emacspeak-speak-tooltips
 Enable to get tooltips spoken.
-
-@end defvar
-
-@defvar {User Option} emacspeak-untabify-fixes-non-breaking-space
-Advice untabify to change non-breaking space chars to space.
 
 @end defvar
 
@@ -2132,13 +2115,6 @@ Stream using get_iplayer.
 Browse BBC Schedule from get_iplayer radio cache
 @end format
 @end deffn
-
-@subsection emacspeak-bbc Options
-
-@defvar {User Option} emacspeak-bbc-get-iplayer
-Name of get_iplayer executable.
-
-@end defvar
 
 @node emacspeak-bbdb
 @section emacspeak-bbdb
@@ -2738,25 +2714,8 @@ See http://developer.bookshare.org/docs for details on how to get
 
 @end defvar
 
-@defvar {User Option} emacspeak-bookshare-browser-function
-Function to display Bookshare Book content in a WWW browser.
-This is used by the various Bookshare view commands to display
-  content from Bookshare books.
-
-@end defvar
-
 @defvar {User Option} emacspeak-bookshare-directory
 Customize this to the root of where books are organized.
-
-@end defvar
-
-@defvar {User Option} emacspeak-bookshare-html-to-text-command
-Command to convert html to text on stdin.
-
-@end defvar
-
-@defvar {User Option} emacspeak-bookshare-xslt
-Name of bookshare  XSL transform.
 
 @end defvar
 
@@ -2925,11 +2884,6 @@ Display sunrise/sunset for specified address.
 @end deffn
 
 @subsection emacspeak-calendar Options
-
-@defvar {User Option} emacspeak-calendar-mark-personality
-Personality to use when showing marked calendar entries.
-
-@end defvar
 
 @defvar {User Option} voice-calendar-today
 Personality used for calendar-today
@@ -4057,11 +4011,6 @@ Optional interactive prefix arg shuffles playlist.
 
 @subsection emacspeak-dired Options
 
-@defvar {User Option} emacspeak-dired-file-cmd-options
-Options passed to Unix builtin ‘file’ command.
-
-@end defvar
-
 @defvar {User Option} voice-dired-broken-symlink
 Personality used for dired-broken-symlink
 This personality uses  ’voice-monotone whose  effect can be changed globally by customizing ’voice-monotone-settings.
@@ -4283,13 +4232,6 @@ Summarizes a sheet using the specification in list
 emacspeak-dismal-sheet-summarizer-list
 @end format
 @end deffn
-
-@subsection emacspeak-dismal Options
-
-@defvar {User Option} emacspeak-dismal-value-personality
-Personality used for speaking cell values in summaries.
-
-@end defvar
 
 @node emacspeak-dumb-jump
 @section emacspeak-dumb-jump
@@ -4878,13 +4820,6 @@ Speak element at point.
 @end format
 @end deffn
 
-@subsection emacspeak-eperiodic Options
-
-@defvar {User Option} emacspeak-eperiodic-media-location
-Location of streaming media describing elements.
-
-@end defvar
-
 @node emacspeak-epub
 @section emacspeak-epub
 
@@ -5424,11 +5359,6 @@ Root of Calibre library.
 
 @end defvar
 
-@defvar {User Option} emacspeak-epub-calibre-sqlite
-Path to sqlite3.
-
-@end defvar
-
 @defvar {User Option} emacspeak-epub-gutenberg-mirror
 Base URL  for Gutenberg mirror.
 
@@ -5549,12 +5479,6 @@ Emacs 20.
 This module speech-enables EShell
 
 @subsection emacspeak-eshell Options
-
-@defvar {User Option} emacspeak-eshell-ls-use-personalities
-Indicates if ls in eshell uses different voice
-personalities.
-
-@end defvar
 
 @defvar {User Option} voice-eshell-ls-archive
 Personality used for eshell-ls-archive
@@ -6120,31 +6044,6 @@ all output to the terminal is automatically spoken.
 
 @subsection emacspeak-eterm Options
 
-@defvar {User Option} emacspeak-eterm-bold-personality
-Personality to indicate terminal bold.
-
-@end defvar
-
-@defvar {User Option} emacspeak-eterm-default-personality
-Default personality for terminal.
-
-@end defvar
-
-@defvar {User Option} emacspeak-eterm-highlight-personality
-Personality to show terminal highlighting.
-
-@end defvar
-
-@defvar {User Option} emacspeak-eterm-remote-hosts-cache
-File where list of known remote hosts is cached
-
-@end defvar
-
-@defvar {User Option} emacspeak-eterm-underline-personality
-Personality to indicate terminal underlining.
-
-@end defvar
-
 @defvar {User Option} voice-term-underline
 Personality used for term-underline
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
@@ -6169,13 +6068,6 @@ this module speech enables eudc
 Send email to the address given by the current record. 
 @end format
 @end deffn
-
-@subsection emacspeak-eudc Options
-
-@defvar {User Option} emacspeak-eudc-attribute-value-personality
-Personality t use for voiceifying attribute values. 
-
-@end defvar
 
 @node emacspeak-evil
 @section emacspeak-evil
@@ -8957,13 +8849,6 @@ and when you have heard enough navigate easily  to move past the block.
 @end format
 @end deffn
 
-@subsection emacspeak-hide Options
-
-@defvar {User Option} emacspeak-hidden-header-line-personality
-Personality used to identify header lines of blocks.
-
-@end defvar
-
 @node emacspeak-hide-lines
 @section emacspeak-hide-lines
 
@@ -11023,11 +10908,6 @@ M-l		emacspeak-m-player-load-playlist
 
 @subsection emacspeak-m-player Options
 
-@defvar {User Option} emacspeak-m-player-options
-Options passed to mplayer.
-
-@end defvar
-
 @defvar {User Option} emacspeak-m-player-program
 Media player program.
 
@@ -11937,16 +11817,6 @@ Switch to output buffer.
 Move up in current Math expression. (auto-generated)
 @end format
 @end deffn
-
-@subsection emacspeak-maths Options
-
-@defvar {User Option} emacspeak-maths-inferior-program
-Location of ‘node’ executable.  Make sure the environment in which
-Emacs is launched finds the right installation of node.  M-x
-package-install nvm makes it easier to have Emacs find the right node
-install.
-
-@end defvar
 
 @node emacspeak-message
 @section emacspeak-message
@@ -13755,14 +13625,6 @@ Speak current outline section starting from point
 @end format
 @end deffn
 
-@subsection emacspeak-outline Options
-
-@defvar {User Option} emacspeak-outline-dont-query-before-speaking
-*Option to control prompts when speaking  outline
-sections.
-
-@end defvar
-
 @node emacspeak-package
 @section emacspeak-package
 
@@ -14086,13 +13948,6 @@ Decrease volume
 Increase volume
 @end format
 @end deffn
-
-@subsection emacspeak-pianobar Options
-
-@defvar {User Option} emacspeak-pianobar-max-preset
-Number of presets.
-
-@end defvar
 
 @node emacspeak-popup
 @section emacspeak-popup
@@ -15058,15 +14913,6 @@ audio player.
 @end format
 @end deffn
 
-@subsubsection emacspeak-sounds-reset-sound
-@deffn {Command} emacspeak-sounds-reset-sound   
-@findex emacspeak-sounds-reset-sound
-
-@format
-Reload sound drivers.
-@end format
-@end deffn
-
 @subsubsection emacspeak-sounds-select-theme
 @deffn {Command} emacspeak-sounds-select-theme  (theme)
 @table @kbd
@@ -15129,11 +14975,6 @@ Name of executable that plays sound files.
 
 @defvar {User Option} emacspeak-sounds-default-theme
 Default theme for auditory icons. 
-
-@end defvar
-
-@defvar {User Option} emacspeak-sounds-reset-snd-module-command
-Command to reset sound module.
 
 @end defvar
 
@@ -17095,11 +16936,6 @@ List of coding systems on this platform.
 
 @end defvar
 
-@defvar {User Option} emacspeak-speak-directory-settings
-Name of file that holds directory specific settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-speak-filter-persistent-store
 File where emacspeak filters are persisted.
 
@@ -17129,11 +16965,6 @@ emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
 ‘emacspeak-toggle-speak-messages’ bound to
 C-e q.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-paragraph-personality
-Personality used to mark start of paragraph.
 
 @end defvar
 
@@ -17199,43 +17030,6 @@ Does the equivalent of the mouse click from the keyboard
 Switch to the speedbar
 @end format
 @end deffn
-
-@subsection emacspeak-speedbar Options
-
-@defvar {User Option} emacspeak-speedbar-button-personality
-personality used for speedbar buttons
-
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-default-personality
-Default personality used in speedbar buffers
-
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-directory-personality
-Speedbar personality for directory buttons
-
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-file-personality
-Personality used for file buttons
-
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-highlight-personality
-Personality used for for speedbar highlight.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-selected-personality
-Personality used to indicate speedbar selection
-
-@end defvar
-
-@defvar {User Option} emacspeak-speedbar-tag-personality
-Personality used for speedbar tags
-
-@end defvar
 
 @node emacspeak-sql
 @section emacspeak-sql
@@ -19260,27 +19054,9 @@ settings to match what the author of Emacspeak uses.
 
 @end defvar
 
-@defvar {User Option} emacspeak-vm-doc2text
-Executable that converts MSWord documents on standard input to plain
-text using wvText.
-
-@end defvar
-
-@defvar {User Option} emacspeak-vm-headers-strip-octals
-Specify whether non-ascii chars should be stripped when
-  speaking email headers.
-
-@end defvar
-
 @defvar {User Option} emacspeak-vm-pdf2text
 Executable that converts PDF on standard input to plain
 text using pdftotext.
-
-@end defvar
-
-@defvar {User Option} emacspeak-vm-ppt2html
-Executable that converts MSPPT documents on standard input to HTML
- using xlhtml.
 
 @end defvar
 
@@ -19292,12 +19068,6 @@ Should VM  use the customizations used by the author of Emacspeak.
 @defvar {User Option} emacspeak-vm-voice-loc
 Set this to T if you want messages automatically voice locked.
 Note that some badly formed mime messages  cause trouble.
-
-@end defvar
-
-@defvar {User Option} emacspeak-vm-xls2html
-Executable that converts MSXL documents on standard input to HTML
- using xlhtml.
 
 @end defvar
 
@@ -19549,20 +19319,6 @@ buffer. Interactive use provides list of role values as completion.
 Extracts links whose URL matches pattern.
 
 (fn PATTERN URL &optional SPEAK)
-@end format
-@end deffn
-
-@subsubsection emacspeak-we-extract-media-streams
-@deffn {Command} emacspeak-we-extract-media-streams  (url &optional speak)
-@findex emacspeak-we-extract-media-streams
-
-@format
-Extract links to media streams.
-operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg ‘speak’ specifies if the result
- should be spoken automatically.
-
-(fn URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -19993,29 +19749,8 @@ Select XSL transformation applied to Web pages before they are displayed .
 
 @subsection emacspeak-we Options
 
-@defvar {User Option} emacspeak-we-cleanup-bogus-quotes
-Clean up bogus Unicode chars for magic quotes.
-
-@end defvar
-
 @defvar {User Option} emacspeak-we-filters-rename-buffer
 Set to T  if you want the buffer name to contain the applied filter.
-
-@end defvar
-
-@defvar {User Option} emacspeak-we-media-stream-suffixes
-Suffixes that identify   URLs   to media streams.
-
-@end defvar
-
-@defvar {User Option} emacspeak-we-xsl-p
-T means we apply XSL before displaying HTML.
-
-@end defvar
-
-@defvar {User Option} emacspeak-we-xsl-transform
-Specifies transform to use before displaying a page.
-Default is to apply sort-tables.
 
 @end defvar
 
@@ -20213,13 +19948,6 @@ YouTube search.
 (fn QUERY)
 @end format
 @end deffn
-
-@subsection emacspeak-websearch Options
-
-@defvar {User Option} emacspeak-websearch-google-options
-Additional options to pass to Google e.g. &xx=yy...
-
-@end defvar
 
 @node emacspeak-webspace
 @section emacspeak-webspace
@@ -22602,12 +22330,6 @@ This is just a text file, and we use grep to search it.
 
 @end defvar
 
-@defvar {User Option} emacspeak-speak-telephone-directory-command
-Command used to look up names in the telephone
-directory.
-
-@end defvar
-
 @defvar {User Option} emacspeak-ssh-tts-server
 SSH TTS server to use by default.
 
@@ -22619,18 +22341,8 @@ Visit https://www.alphavantage.co/support/#api-key to get your key.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-find-switches-that-need-quoting
-Find switches whose args need quoting.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-find-switches-widget
 Widget to get find switch.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-iex-quotes-row-filter
-Template used to audio-format  rows.
 
 @end defvar
 
@@ -22661,13 +22373,6 @@ Tramp locations used by Emacspeak tramp wizard.
 Locations added here via custom can be opened using command
 emacspeak-wizards-tramp-open-location
 bound to M-x emacspeak-wizards-tramp-open-location.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-vc-viewer-command
-Command line for dumping out virtual console.  Make sure you have
-access to /dev/vcs* by adding yourself to the appropriate group.  On
-Ubuntu and Debian this is group ‘tty’.
 
 @end defvar
 
@@ -22781,24 +22486,6 @@ Browse XML URL with specified XSL style.
 (fn STYLE URL &optional UNESCAPE-CHARENT)
 @end format
 @end deffn
-
-@subsection emacspeak-xslt Options
-
-@defvar {User Option} emacspeak-xslt-keep-errors
-If non-nil, xslt errors will be preserved in an errors buffer.
-
-@end defvar
-
-@defvar {User Option} emacspeak-xslt-nuke-null-char
-If T null chars in the region will be nuked.
-This is useful when handling bad HTML.
-
-@end defvar
-
-@defvar {User Option} emacspeak-xslt-options
-Options passed to xsltproc.
-
-@end defvar
 
 @node emacspeak-yaml
 @section emacspeak-yaml
@@ -23276,17 +22963,6 @@ Used by modules like gphoto, gblogger etc.
 
 @subsection g-utils Options
 
-@defvar {User Option} g-atom-edit-filter
-XSLT transform used to tidy up an entry before posting.
-For now, this is blogger specific.
-
-@end defvar
-
-@defvar {User Option} g-atom-titles-xsl
-XSLT transform to convert Atom feed to alist of title/url pairs.
-
-@end defvar
-
 @defvar {User Option} g-atom-view-xsl
 XSLT transform to convert Atom feed to HTML.
 
@@ -23305,12 +22981,6 @@ Common options to pass to all Curl invocations.
 
 @defvar {User Option} g-curl-debug
 Set to T to see Curl stderr output.
-
-@end defvar
-
-@defvar {User Option} g-html-handler
-Function that processes HTML.
-Receives buffer containing HTML as its argument.
 
 @end defvar
 
@@ -24325,11 +23995,6 @@ binaural beat to another.
 
 @end defvar
 
-@defvar {User Option} sox-gen-p
-Should sox-gen commands attempt to invoke SoX.
-
-@end defvar
-
 @node tetris
 @section tetris
 
@@ -24711,13 +24376,6 @@ Set brightness to  specified level.
 Turn screen white.
 @end format
 @end deffn
-
-@subsection xbacklight Options
-
-@defvar {User Option} xbacklight-step
-Step-size used when incrementing and decrementing brightness.
-
-@end defvar
 
 @node URL Templates 
 @section URL Templates
