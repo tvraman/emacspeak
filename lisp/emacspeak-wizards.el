@@ -3115,6 +3115,7 @@ under point as either the foreground or background color."
 (defun emacspeak-wizards-color-at-point ()
   "Echo foreground/background color at point."
   (interactive)
+  (require 'name-this-color)
   (let ((weight (faces--attribute-at-point :weight))
         (slant (faces--attribute-at-point :slant))
         (family (faces--attribute-at-point :family)))
