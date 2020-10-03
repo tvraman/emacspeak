@@ -74,11 +74,6 @@
   (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds.")
 
-
-(defgroup emacspeak-xslt nil
-  "XSL transformation group."
-  :group 'emacspeak)
-
 (defun emacspeak-xslt-params-from-xpath (path base)
   "Return params suitable for passing to  emacspeak-xslt-region"
   (list
