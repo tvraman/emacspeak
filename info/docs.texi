@@ -141,11 +141,11 @@ This chapter documents a total of 1178 commands and 839 options.
 * emacspeak-org::Speech-enable org.
 * emacspeak-orgalist::Speech-enable ORGALIST.
 * emacspeak-origami::Speech-enable ORIGAMI.
-* emacspeak-outline::
+* emacspeak-outline::Speech enable Outline --   Browsing  Structured Documents.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
-* emacspeak-personality::
+* emacspeak-personality::Voiceify Overlays.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
