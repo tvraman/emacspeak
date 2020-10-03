@@ -99,10 +99,6 @@
 ;;}}}
 ;;{{{ Customizations And Variables:
 
-(defgroup emacspeak-maths nil
-  "Customize Emacspeak  Maths."
-  :group 'emacspeak)
-
 (defvar emacspeak-maths-inferior-program
   (cond
    ((and (locate-library "nvm")
