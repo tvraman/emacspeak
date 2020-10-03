@@ -62,21 +62,21 @@
 (defgroup emacspeak-feeds nil
   "RSS Feeds for the Emacspeak desktop."
   :group 'emacspeak)
-;;;###autoload
+
 (defcustom emacspeak-opml-view-xsl
-  (emacspeak-xslt-get "opml.xsl")
+  (eval-when-compile (emacspeak-xslt-get "opml.xsl"))
   "XSL stylesheet used for viewing OPML  Feeds."
   :type  'file
   :group 'emacspeak-xsl)
-;;;###autoload
+
 (defcustom emacspeak-rss-view-xsl
-  (emacspeak-xslt-get "rss.xsl")
+  (eval-when-compile (emacspeak-xslt-get "rss.xsl"))
   "XSL stylesheet used for viewing RSS Feeds."
   :type  'file
   :group 'emacspeak-xsl)
-;;;###autoload
+
 (defcustom emacspeak-atom-view-xsl
-  (emacspeak-xslt-get "atom.xsl")
+  (eval-when-compile (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds."
   :type '(choice
           (string :tag "Legacy"  "/usr/local/google/home/raman/emacs/lisp/emacspeak/xsl/atom.xsl")

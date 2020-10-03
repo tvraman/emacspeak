@@ -127,7 +127,7 @@ fly spell checking."
   :type 'symbol)
 
 ;;; flyspell-correct is available on melpa:
-
+(cl-declaim (special flyspell-mode-map))
 (when
     (and (bound-and-true-p flyspell-mode-map)
          (locate-library "flyspell-correct"))

@@ -54,7 +54,7 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  xslt Environment:
-;;;###autoload
+
 (defun emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))

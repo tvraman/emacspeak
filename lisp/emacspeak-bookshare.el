@@ -89,7 +89,9 @@
 (require 'dom)
 (require 'xml)
 (declare-function auth-source-search "auth-source" (&rest rest))
-(declare-function dired-get-filename "dired" (&optional localp no-error-if-not-filep))
+(declare-function dired-get-filename "dired" (&optional localp
+                                                        no-error-if-not-filep))
+(declare-function emacspeak-xslt-get "emacspeak-xslt" (arg1))
 (declare-function emacspeak-xslt-params-from-xpath "emacspeak-bookshare" t)
 ;;}}}
 ;;{{{ Customizations
