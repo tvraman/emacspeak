@@ -395,10 +395,8 @@ Argument BODY specifies forms to execute."
           (put-text-property (point) (+ 2 (point))
                              'auditory-icon sound-cue))))))
 
-(defcustom emacspeak-speak-paragraph-personality voice-animate
-  "Personality used to mark start of paragraph."
-  :group 'emacspeak-speak
-  :type 'symbol)
+(defvar emacspeak-speak-paragraph-personality voice-animate
+  "Personality used to mark start of paragraph.")
 
 (defvar-local  emacspeak-speak-voice-annotated-paragraphs nil
   "Records if paragraphs in this buffer have been voice annotated.")
@@ -3288,11 +3286,10 @@ See documentation for command run-at-time for details on time-spec."
 ;;}}}
 ;;{{{ Directory specific settings
 
-(defcustom emacspeak-speak-directory-settings
+(defvar emacspeak-speak-directory-settings
   ".espeak.el"
-  "Name of file that holds directory specific settings."
-  :group 'emacspeak-speak
-  :type 'string)
+  "Name of file that holds directory specific settings.")
+
 ;;;###autoload
 (defun emacspeak-speak-load-directory-settings (&optional dir)
   "Load a directory specific Emacspeak settings file.

@@ -59,10 +59,8 @@
 ;;}}}
 ;;{{{ voice locking for block header lines
 
-(defcustom emacspeak-hidden-header-line-personality voice-annotate
-  "Personality used to identify header lines of blocks."
-  :type 'symbol
-  :group 'emacspeak-hide)
+(defvar emacspeak-hidden-header-line-personality voice-annotate
+  "Personality used to identify header lines of blocks.")
 
 ;;; forcibly set this to t to avoid a possible Emacs bug:
 (cl-declaim (special line-move-ignore-invisible))

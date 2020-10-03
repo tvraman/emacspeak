@@ -121,10 +121,9 @@
 ;;}}}
 ;;{{{ sox-gen-p:
 
-(defcustom sox-gen-p (executable-find "sox")
-  "Should sox-gen commands attempt to invoke SoX."
-  :type 'boolean
-  :group 'sox-gen)
+(defvar sox-gen-p
+  (eval-when-compile (executable-find "sox"))
+  "Should sox-gen commands attempt to invoke SoX.")
 
 ;;}}}
 ;;{{{ SoX Command Generator:

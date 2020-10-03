@@ -60,10 +60,8 @@
    (diary voice-bolden)
    ))
 
-(defcustom emacspeak-calendar-mark-personality voice-bolden
-  "Personality to use when showing marked calendar entries."
-  :type 'symbol
-  :group 'emacspeak-calendar)
+(defvar emacspeak-calendar-mark-personality voice-bolden
+  "Personality to use when showing marked calendar entries.")
 
 ;;}}}
 ;;{{{  functions:

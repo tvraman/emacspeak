@@ -72,21 +72,8 @@
   "Name of CURL executable.")
 
 (defcustom g-atom-view-xsl
-  (expand-file-name "atom-view.xsl" g-directory)
+  (eval-when-compile (emacspeak-xslt-get "atom-view.xsl"))
   "XSLT transform to convert Atom feed to HTML."
-  :type 'string
-  :group 'g)
-
-(defcustom g-atom-titles-xsl
-  (expand-file-name "atom-titles.xsl" g-directory)
-  "XSLT transform to convert Atom feed to alist of title/url pairs."
-  :type 'string
-  :group 'g)
-
-(defcustom g-atom-edit-filter
-  (expand-file-name "blogger-edit-post.xsl" g-directory)
-  "XSLT transform used to tidy up an entry before posting.
-For now, this is blogger specific."
   :type 'string
   :group 'g)
 
@@ -96,15 +83,9 @@ For now, this is blogger specific."
   :type 'string
   :group 'g)
 
-(defcustom g-html-handler 'browse-url-of-buffer
+(defvar g-html-handler 'browse-url-of-buffer
   "Function that processes HTML.
-Receives buffer containing HTML as its argument."
-  :type '(choice
-          (function-item browse-url-of-buffer)
-          (function-item switch-to-buffer)
-
-          (function :format "%t %v" :tag "Custom:"))
-  :group 'g)
+Receives buffer containing HTML as its argument.")
 
 (defcustom g-url-under-point 'browse-url-url-at-point
   "Function used to get URL from current context."

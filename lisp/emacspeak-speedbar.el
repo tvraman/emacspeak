@@ -260,40 +260,27 @@ An automatically updating speedbar consumes resources.")
 ;;{{{  voice locking 
 ;;; Map speedbar faces to voices
 ;;
-(defcustom emacspeak-speedbar-button-personality  voice-bolden
-  "personality used for speedbar buttons"
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+(defvar emacspeak-speedbar-button-personality  voice-bolden
+  "personality used for speedbar buttons")
 
-(defcustom emacspeak-speedbar-selected-personality  voice-animate
-  "Personality used to indicate speedbar selection"
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+(defvar emacspeak-speedbar-selected-personality  voice-animate
+  "Personality used to indicate speedbar selection")
 
-(defcustom emacspeak-speedbar-directory-personality voice-bolden-medium
+(defvar emacspeak-speedbar-directory-personality voice-bolden-medium
   "Speedbar personality for directory buttons"
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+  )
 
-(defcustom emacspeak-speedbar-file-personality  'paul
-  "Personality used for file buttons"
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+(defvar emacspeak-speedbar-file-personality  'paul
+  "Personality used for file buttons")
 
-(defcustom emacspeak-speedbar-highlight-personality voice-animate
-  "Personality used for for speedbar highlight."
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+(defvar emacspeak-speedbar-highlight-personality voice-animate
+  "Personality used for for speedbar highlight.")
 
-(defcustom emacspeak-speedbar-tag-personality voice-monotone
-  "Personality used for speedbar tags"
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+(defvar emacspeak-speedbar-tag-personality voice-monotone
+  "Personality used for speedbar tags")
 
-(defcustom emacspeak-speedbar-default-personality 'paul
-  "Default personality used in speedbar buffers"
-  :type 'symbol
-  :group 'emacspeak-speedbar)
+(defvar emacspeak-speedbar-default-personality 'paul
+  "Default personality used in speedbar buffers")
 
 (defadvice speedbar-make-button (after emacspeak pre act comp)
   "Voiceify the button"

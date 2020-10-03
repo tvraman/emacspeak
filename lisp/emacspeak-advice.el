@@ -576,11 +576,8 @@ the words that were capitalized."
 ;;}}}
 ;;{{{ advice tabify:
 
-(defcustom emacspeak-untabify-fixes-non-breaking-space t
-  "Advice untabify to change non-breaking space chars to space."
-  :type 'boolean
-  :group 'emacspeak
-  :version "37.0")
+(defvar emacspeak-untabify-fixes-non-breaking-space t
+  "Advice untabify to change non-breaking space chars to space.")
 
 (defadvice untabify (after emacspeak-fix-nbspc pre act comp)
   "Fix NBSP chars if asked to ---
@@ -719,11 +716,8 @@ see option emacspeak-untabify-fixes-non-breaking-space."
                         "space"))))
      ad-do-it)))
 
-(defcustom emacspeak-advice-progress-reporter t
-  "Set to true if progress reporter should produce an auditory
-icon."
-  :type 'boolean
-  :group 'emacspeak-advice)
+(defvar emacspeak-advice-progress-reporter t
+  "Set to true if progress reporter should produce an auditory icon.")
 
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
   "Silence progress reporters for now."

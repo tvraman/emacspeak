@@ -159,14 +159,10 @@ a rewrite rule even if one is already defined."
 (defvar emacspeak-we-xsl-p nil
   "T means we apply XSL before displaying HTML.")
 
-(defcustom emacspeak-we-xsl-transform
-  (emacspeak-xslt-get "sort-tables.xsl")
+(defvar emacspeak-we-xsl-transform
+  (eval-when-compile (emacspeak-xslt-get "sort-tables.xsl"))
   "Specifies transform to use before displaying a page.
-Default is to apply sort-tables."
-  :type  '(choice
-           (file :tag "XSL")
-           (const :tag "none" nil))
-  :group 'emacspeak-we)
+Default is to apply sort-tables.")
 
 ;;;###autoload
 (defvar emacspeak-we-xsl-params nil
@@ -177,10 +173,9 @@ Default is to apply sort-tables."
 ;;; need to be set at top-level since the page-rendering code is
 ;;; called asynchronously.
 
-(defcustom emacspeak-we-cleanup-bogus-quotes t
-  "Clean up bogus Unicode chars for magic quotes."
-  :type 'boolean
-  :group 'emacspeak-we)
+(defvar emacspeak-we-cleanup-bogus-quotes t
+  "Clean up bogus Unicode chars for magic quotes.")
+
 (declare-function eww-current-url "eww" nil)
 
 
@@ -316,53 +311,6 @@ Each filter is a list of the form
      'emacspeak-eww-pre-process-hook
      (emacspeak-xslt-make-xsl-transformer emacspeak-we-xsl-junk params))
     (browse-url url)))
-
-(defcustom emacspeak-we-media-stream-suffixes
-  (list
-   ".ram"
-   ".rm"
-   ".ra"
-   ".pls"
-   ".asf"
-   ".asx"
-   ".mp3"
-   ".m3u"
-   ".m4v"
-   ".wma"
-   ".wmv"
-   ".avi"
-   ".mpg")
-  "Suffixes that identify   URLs   to media streams."
-  :type  '(repeat
-           (string :tag "Extension Suffix"))
-  :group 'emacspeak-we)
-
-
-(defun emacspeak-we-extract-media-streams (url &optional speak)
-  "Extract links to media streams.
-operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg `speak' specifies if the result
- should be spoken automatically."
-  (interactive
-   (list
-    (emacspeak-eww-read-url)
-    (or (called-interactively-p 'interactive) current-prefix-arg)))
-  (cl-declare (special emacspeak-we-media-stream-suffixes))
-  (let ((filter "//a[%s]")
-        (predicate
-         (mapconcat
-          #'(lambda (suffix)
-              (format "contains(@href,\"%s\")"
-                      suffix))
-          emacspeak-we-media-stream-suffixes
-          " or ")))
-    (emacspeak-we-xslt-filter
-     (format filter predicate)
-     url speak)))
-
-
-
-
 
 (defun emacspeak-we-follow-and-extract-main (&optional speak)
   "Follow URL, then extract role=main."

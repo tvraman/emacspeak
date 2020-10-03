@@ -1067,11 +1067,9 @@ Fetch if needed, or if refresh is T."
   :type 'directory
   :group 'emacspeak-epub)
 
-(defcustom   emacspeak-epub-calibre-sqlite
-  (executable-find "sqlite3")
-  "Path to sqlite3."
-  :type 'string
-  :group 'emacspeak-epub)
+(defvar   emacspeak-epub-calibre-sqlite
+  (eval-when-compile (executable-find "sqlite3"))
+  "Path to sqlite3.")
 
 (defvar emacspeak-epub-calibre-db
   (expand-file-name "metadata.db" emacspeak-epub-calibre-root-dir)

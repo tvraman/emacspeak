@@ -322,12 +322,8 @@ ARGS specifies additional arguments to SPEAKER if any."
      "http://")
    emacspeak-websearch-google-uri-template))
 
-(defcustom emacspeak-websearch-google-options nil
-  "Additional options to pass to Google e.g. &xx=yy..."
-  :type '(choice
-          (const :tag "None" nil)
-          (string :tag "Options"))
-  :group 'emacspeak-websearch)
+(defvar emacspeak-websearch-google-options nil
+  "Additional options to pass to Google e.g. &xx=yy...")
 
 (defadvice gweb-google-autocomplete (after emacspeak pre act comp)
   "Cache the query."

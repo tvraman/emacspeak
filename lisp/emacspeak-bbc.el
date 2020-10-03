@@ -61,10 +61,9 @@
   (expand-file-name  "iplayer-stream.mp3" temporary-file-directory)
   "Location of named pipe used for streaming.")
 
-(defcustom emacspeak-bbc-get-iplayer (executable-find "get_iplayer")
-  "Name of get_iplayer executable."
-  :type 'string
-  :group 'emacspeak-bbc)
+(defvar emacspeak-bbc-get-iplayer
+  (eval-when-compile  (executable-find "get_iplayer"))
+  "Name of get_iplayer executable.")
 
 (defun emacspeak-bbc-get-iplayer-stream-url (url)
   "Stream using get_iplayer."

@@ -123,11 +123,9 @@ Provide an auditory icon if possible."
   :group 'eshell
   :prefix "emacspeak-eshell-")
 
-(defcustom emacspeak-eshell-ls-use-personalities t
+(defvar emacspeak-eshell-ls-use-personalities t
   "Indicates if ls in eshell uses different voice
-personalities."
-  :type 'boolean
-  :group 'emacspeak-eshell)
+personalities.")
 
 ;;}}}
 ;;{{{ voices

@@ -155,11 +155,9 @@ Summarize the form to welcome the user. "
   :group 'eudc
   :prefix "emacspeak-eudc-")
 
-(defcustom emacspeak-eudc-attribute-value-personality
+(defvar emacspeak-eudc-attribute-value-personality
   voice-animate
-  "Personality t use for voiceifying attribute values. "
-  :type 'symbol
-  :group 'emacspeak-eudc)
+  "Personality t use for voiceifying attribute values. ")
 
 (defadvice eudc-print-attribute-value (around emacspeak pre
                                               act comp)

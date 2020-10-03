@@ -188,11 +188,8 @@
 ;;}}}
 ;;{{{  Interactive speaking of sections
 
-(defcustom emacspeak-outline-dont-query-before-speaking t
-  "*Option to control prompts when speaking  outline
-sections."
-  :group 'emacspeak-outline
-  :type 'boolean)
+(defvar emacspeak-outline-dont-query-before-speaking t
+  "*Option to control prompts when speaking  outline sections.")
 
 (defun emacspeak-outline-speak-heading (what direction)
   "Function used by all interactive section speaking
