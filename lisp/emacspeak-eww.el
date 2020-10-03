@@ -457,6 +457,15 @@ or URL read from minibuffer."
                 value))))
 
 ;;}}}
+;;{{{ Declare generated functions:
+
+(declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
+(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
+(declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
+(declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
+(declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
+
+;;}}}
 ;;{{{play media:
 
 (defun emacspeak-eww-play-media-at-point (&optional  playlist-p)
@@ -492,15 +501,6 @@ Useful in handling double-redirect from TuneIn."
             "\n")))
     (message "Playing redirected media  URL under point: %s" url)
     (emacspeak-m-player url t)))
-
-;;}}}
-;;{{{ Declare generated functions:
-
-(declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
-(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
-(declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
-(declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
-(declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
 
 ;;}}}
 ;;{{{ Inline Helpers:
