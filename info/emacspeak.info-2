@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 2, 2020.
+last updated on October 3, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-evil,  Next: emacspeak-eww,  Prev: emacspeak-eudc,  Up: Emacspeak Commands And Options
@@ -1052,18 +1052,9 @@ This module provides Feeds support for Emacspeak
 12.74.2 emacspeak-feeds Options
 -------------------------------
 
- -- Variable: User Option emacspeak-atom-view-xsl
-     XSL stylesheet used for viewing Atom Feeds.
-
  -- Variable: User Option emacspeak-feeds
      Table of RSS/Atom feeds.  The feed list is persisted to file
      saved-feeds on exit.
-
- -- Variable: User Option emacspeak-opml-view-xsl
-     XSL stylesheet used for viewing OPML Feeds.
-
- -- Variable: User Option emacspeak-rss-view-xsl
-     XSL stylesheet used for viewing RSS Feeds.
 
 
 File: emacspeak.info,  Node: emacspeak-filtertext,  Next: emacspeak-fix-interactive,  Prev: emacspeak-feeds,  Up: Emacspeak Commands And Options

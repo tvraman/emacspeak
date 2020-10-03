@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1182 commands and 901 options.
+This chapter documents a total of 1182 commands and 898 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -7453,24 +7453,9 @@ Display RSS feed.
 
 @subsection emacspeak-feeds Options
 
-@defvar {User Option} emacspeak-atom-view-xsl
-XSL stylesheet used for viewing Atom Feeds.
-
-@end defvar
-
 @defvar {User Option} emacspeak-feeds
 Table of RSS/Atom feeds.
 The feed list is persisted to file saved-feeds on exit.
-
-@end defvar
-
-@defvar {User Option} emacspeak-opml-view-xsl
-XSL stylesheet used for viewing OPML  Feeds.
-
-@end defvar
-
-@defvar {User Option} emacspeak-rss-view-xsl
-XSL stylesheet used for viewing RSS Feeds.
 
 @end defvar
 
