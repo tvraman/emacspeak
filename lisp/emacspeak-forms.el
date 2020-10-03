@@ -80,15 +80,11 @@ speak the first field")
    (format "Record %s of %s from %s"
            forms--current-record forms--total-records forms-file)))
 
-(defcustom emacspeak-forms-rw-voice 'paul
-  "Personality for read-write fields. "
-  :type 'symbol
-  :group 'emacspeak-forms)
+(defvar emacspeak-forms-rw-voice 'paul
+  "Personality for read-write fields. ")
 
-(defcustom emacspeak-forms-ro-voice voice-annotate
-  "Personality for read-only fields. "
-  :type 'symbol
-  :group 'emacspeak-forms)
+(defvar emacspeak-forms-ro-voice voice-annotate
+  "Personality for read-only fields. ")
 
 (defun emacspeak-forms-speak-field ()
   "Speak current form field name and value.
