@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1182 commands and 903 options.
+This chapter documents a total of 1182 commands and 901 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6430,7 +6430,8 @@ Play link under point as a Youtube stream.
 @table @kbd
 @item  C-RET
 @command {emacspeak-eww-fillin-form-field}
-When on an input field, insert  username/password information accessed via auth-source.
+When on an input field, insert  username/password information
+accessed via auth-source.
 @item '
 @command{emacspeak-speak-rest-of-buffer}
 Speak rest of current Web page starting from point.
@@ -6902,8 +6903,9 @@ interactive prefix arg ‘delete’, delete that mark instead.
 
 @format
 Play media url under point.
-Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
- A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
+Optional interactive prefix arg ‘playlist-p’ says to treat the
+ link as a playlist.  A second interactive prefix arg adds
+ mplayer option -allow-dangerous-playlist-parsing
 
 (fn &optional PLAYLIST-P)
 @end format
@@ -7255,16 +7257,6 @@ Interactively set title --- renames buffer, and sets header-line.
 
 @defvar {User Option} emacspeak-eww-inhibit-images
 Turn this on to avoid rendering images.
-
-@end defvar
-
-@defvar {User Option} emacspeak-eww-masquerade-as
-User Agent string that is  sent when masquerading is on.
-
-@end defvar
-
-@defvar {User Option} emacspeak-eww-silence-images
-Set to nil if you want EWW to load images.
 
 @end defvar
 

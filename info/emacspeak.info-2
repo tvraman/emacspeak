@@ -619,8 +619,9 @@ prefix arg to delete a previously created eww-mark.
      ‘<fn> M-;’
 
      Play media url under point.
-     Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
-      A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
+     Optional interactive prefix arg ‘playlist-p’ says to treat the
+      link as a playlist.  A second interactive prefix arg adds
+      mplayer option -allow-dangerous-playlist-parsing
 
      (fn &optional PLAYLIST-P)
 
@@ -905,12 +906,6 @@ prefix arg to delete a previously created eww-mark.
 
  -- Variable: User Option emacspeak-eww-inhibit-images
      Turn this on to avoid rendering images.
-
- -- Variable: User Option emacspeak-eww-masquerade-as
-     User Agent string that is sent when masquerading is on.
-
- -- Variable: User Option emacspeak-eww-silence-images
-     Set to nil if you want EWW to load images.
 
  -- Variable: User Option voice-eww-form-checkbox
      Personality used for eww-form-checkbox This personality uses
