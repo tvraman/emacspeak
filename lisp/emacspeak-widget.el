@@ -59,12 +59,6 @@
 ;;}}}
 ;;{{{  Customize global behavior
 
-(defgroup emacspeak-widget nil
-  "Widgets on the Emacspeak Desktop."
-  :group 'emacspeak
-  :group 'widget
-  :prefix "emacspeak-widget")
-
 (voice-setup-add-map
  '(
    (widget-field voice-smoothen)
