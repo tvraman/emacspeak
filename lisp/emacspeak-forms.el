@@ -48,14 +48,6 @@
 ;;; Provide additional advice to forms-mode 
 ;;; Code:
 ;;}}}
-;;{{{  custom
-(defgroup emacspeak-forms nil
-  "Emacspeak support for forms mode."
-  :group 'emacspeak
-  :group 'forms
-  :prefix "emacspeak-forms-")
-
-;;}}}
 ;;{{{ Helper functions
 
 (defvar emacspeak-forms-current-record-summarizer
