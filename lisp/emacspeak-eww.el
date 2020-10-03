@@ -1025,7 +1025,7 @@ Note that the Web browser should reset this hook after using it.")
 ;;{{{  Customize image loading:
 
 (defadvice eww-display-image (around emacspeak pre act comp)
-  "Dont load images if asked to silence them."
+  "Dont load images if asked to inhibit them."
   (unless emacspeak-eww-inhibit-images ad-do-it))
 
 ;;}}}
@@ -1879,16 +1879,6 @@ Warning, this is fragile, and depends on a stable id/class for the
   (let ((tags (emacspeak-eww-here-tags)))
     (print tags)
     (dtk-speak-list tags)))
-
-;;}}}
-;;{{{ Phantom:
-
-(defvar emacspeak-eww-phantom-get
-  (expand-file-name "phantom/pget.js" emacspeak-directory)
-  "Name of PhantomJS script that implements wget-like retrieval.")
-(defvar emacspeak-eww-phantom-js
-  (executable-find "phantomjs")
-  "Name of PhantomJS executable.")
 
 ;;}}}
 ;;{{{ Handling Media (audio/video)
