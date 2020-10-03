@@ -50,13 +50,6 @@
 ;;;  Package nxml is available from the Emacs package archive.
 ;;; Code:
 ;;}}}
-;;{{{ customization:
-
-(defgroup emacspeak-nxml nil
-  "Customizations for Emacspeak with NXML."
-  :group  'emacspeak)
-
-;;}}}
 ;;{{{ voice locking 
 (voice-setup-add-map
  '(
