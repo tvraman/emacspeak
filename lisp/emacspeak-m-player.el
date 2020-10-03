@@ -76,6 +76,7 @@
 (declare-function dired-get-filename "dired" (&optional localp
                                                         no-error-if-not-filep))
 (declare-function comint-mode "comint" nil)
+(declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
 ;;}}}
 ;;{{{ Stream Metadata:

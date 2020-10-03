@@ -72,6 +72,7 @@
 (require 'emacspeak-preamble)
 (require 'dom)
 (require 'g-utils)
+(declare-function emacspeak-xslt-get "emacspeak-xslt" (style))
 
 ;;}}}
 ;;{{{ Variables:
