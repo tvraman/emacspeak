@@ -3031,8 +3031,7 @@ Produce auditory icons if possible."
 
 
 ;;}}}
-;;{{{ advice
-
+;;{{{ advice find-func etc.
 
 (cl-loop
  for f in
