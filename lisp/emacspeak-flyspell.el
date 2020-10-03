@@ -66,7 +66,6 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-
 ;;}}}
 ;;{{{ define personalities
 
@@ -118,7 +117,6 @@ fly spell checking."
 
 ;;}}}
 ;;{{{ use flyspell-correct if available:
-(cl-declaim (special flyspell-mode-map))
 (defcustom emacspeak-flyspell-correct
   (cond
    ((locate-library "flyspell-correct-ido") 'flyspell-correct-ido)
@@ -130,7 +128,9 @@ fly spell checking."
 
 ;;; flyspell-correct is available on melpa:
 
-(when (locate-library "flyspell-correct")
+(when
+    (and (bound-and-true-p flyspell-mode-map)
+         (locate-library "flyspell-correct"))
   (define-key flyspell-mode-map (kbd "C-x .") 'flyspell-correct-at-point)
   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous)
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
