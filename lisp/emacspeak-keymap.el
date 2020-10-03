@@ -51,8 +51,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(eval-when-compile (require 'wid-edit))
-
 ;;}}}
 ;;{{{ Custom Widget Types:
 
