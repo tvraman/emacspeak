@@ -1490,6 +1490,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 
 ;;}}}
 ;;{{{ vc:
+
 (voice-setup-add-map
  '(
    (log-edit-header voice-bolden)
@@ -3031,9 +3032,7 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ advice
-(defvar emacspeak-find-func-commands
-  
-  "Commands to speech enable")
+
 
 (cl-loop
  for f in
