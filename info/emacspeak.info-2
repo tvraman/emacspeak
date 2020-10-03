@@ -224,6 +224,9 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 12.73.4 Miscellaneous Commands
 ------------------------------
 
+‘C-RET’
+     ‘emacspeak-eww-fillin-form-field’ When on an input field, insert
+     username/password information accessed via auth-source.
 ‘'’
      ‘emacspeak-speak-rest-of-buffer’ Speak rest of current Web page
      starting from point.
