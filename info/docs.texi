@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1180 commands and 843 options.
+This chapter documents a total of 1178 commands and 839 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1010,18 +1010,6 @@ value to the result.
 @end format
 @end deffn
 
-@subsubsection tts-cycle-device
-@deffn {Command} tts-cycle-device  (&optional restart)
-@findex tts-cycle-device
-
-@format
-Cycle through available ALSA devices.
-Optional interactive prefix arg restarts current TTS server.
-
-(fn &optional RESTART)
-@end format
-@end deffn
-
 @subsubsection tts-restart
 @deffn {Command} tts-restart   
 @table @kbd
@@ -1103,11 +1091,6 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 
 @defvar {User Option} dtk-use-tones
 Allow tones to be turned off.
-
-@end defvar
-
-@defvar {User Option} tts-device-list
-List of ALSA sound devices  we can use.
 
 @end defvar
 
@@ -7707,18 +7690,6 @@ Summarize current position in list of records
 Summarize current record
 @end format
 @end deffn
-
-@subsection emacspeak-forms Options
-
-@defvar {User Option} emacspeak-forms-ro-voice
-Personality for read-only fields. 
-
-@end defvar
-
-@defvar {User Option} emacspeak-forms-rw-voice
-Personality for read-write fields. 
-
-@end defvar
 
 @node emacspeak-geiser
 @section emacspeak-geiser
@@ -15283,20 +15254,6 @@ Default is to read the previous word.
 @end format
 @end deffn
 
-@subsubsection emacspeak-search
-@deffn {Command} emacspeak-search   
-@table @kbd
-@item <search>
-@kindex <search>
-@end table
-
-@findex emacspeak-search
-
-@format
-Call search defined in <search>.
-@end format
-@end deffn
-
 @subsubsection emacspeak-shell-command
 @deffn {Command} emacspeak-shell-command  (command)
 @table @kbd
@@ -16918,11 +16875,6 @@ Interval in seconds between mail alerts for the same pending
 @defvar {User Option} emacspeak-mail-spool-file
 Mail spool file examined  to alert you about newly
 arrived mail.
-
-@end defvar
-
-@defvar {User Option} emacspeak-search
-Default search engine.
 
 @end defvar
 

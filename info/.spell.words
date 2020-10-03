@@ -34,6 +34,7 @@ auctex
 Auctex
 AucTeX
 AUCTeX
+auth
 autoload
 autopan
 autosat
@@ -113,7 +114,6 @@ deadgrep
 DEADGREP
 debugInfo
 decl
-decrementing
 dectalk
 Dectalk
 DecTalk
@@ -123,7 +123,6 @@ defun
 defvoice
 deletechar
 deref
-dev
 Dfilter
 DHTML
 dialup
@@ -232,6 +231,7 @@ fg
 fil
 filesystem
 filladapt
+fillin
 filtertext
 Filtertext
 financials
@@ -303,7 +303,6 @@ imap
 IMap
 imenu
 incompat
-incrementing
 infromation
 init
 inlined
@@ -381,9 +380,6 @@ mpost
 mpuz
 mspools
 MSpools
-MSPPT
-MSWord
-MSXL
 multicolumn
 multiline
 multitrack
@@ -419,7 +415,6 @@ ons
 openal
 OpenLibrary
 opml
-OPML
 O'Reilly
 OReilly
 orgalist
@@ -448,7 +443,6 @@ PIANOBAR
 pid
 pos
 posn
-ppt
 pre
 Pre
 prebuilt
@@ -502,7 +496,6 @@ RMail
 RMAIL
 RMS
 rng
-ro
 rpmfind
 rss
 RSS
@@ -510,7 +503,6 @@ RSSNews
 rst
 RST
 runtime
-rw
 Sametime
 sawfish
 scanimage
@@ -555,11 +547,9 @@ stardict
 Stardict
 stationid
 stderr
-stdin
 StreamId
 StreamWorld
 strikethru
-stylesheet
 stylesheets
 su
 subdir
@@ -602,7 +592,6 @@ transcoded
 transcoder
 Treese
 trplayer
-tty
 TuneIn
 tvr
 twarc
@@ -621,7 +610,6 @@ unifont
 unmapped
 unmerged
 unraised
-untabify
 untranscode
 untrusted
 upower
@@ -634,7 +622,6 @@ UTF
 utils
 vc
 vco
-vcs
 vdiff
 Vdiff
 VDIFF
@@ -648,7 +635,6 @@ VM
 VMMail
 voiceified
 voiceify
-voiceifying
 Voicification
 Voicifies
 voxin
@@ -680,7 +666,6 @@ wishlist
 WordNet
 Wowser
 Wunderground
-wvText
 xa
 xbacklight
 Xbacklight
@@ -689,14 +674,11 @@ xheader
 xkcd
 Xkcd
 XKCD
-xlhtml
-xls
 xmlns
 XMMS
 xpath
 XPath
 xsl
-XSL
 xslt
 Xslt
 XSLT
@@ -708,7 +690,6 @@ YASNIPPET
 ytel
 Ytel
 YTEL
-yy
 yyyy
 yyyymmdd
 zam

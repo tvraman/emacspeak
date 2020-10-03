@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1180 commands and 843 options.
+   This chapter documents a total of 1178 commands and 839 options.
 
 * Menu:
 
@@ -3686,17 +3686,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
       toggle the global default value, and then set the current local
      value to the result.
 
-12.7.1.30 tts-cycle-device
-..........................
-
- -- Command: tts-cycle-device (&optional restart)
-
-     Cycle through available ALSA devices.
-     Optional interactive prefix arg restarts current TTS server.
-
-     (fn &optional RESTART)
-
-12.7.1.31 tts-restart
+12.7.1.30 tts-restart
 .....................
 
  -- Command: tts-restart
@@ -3705,7 +3695,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Use this to nuke the currently running TTS server and restart it.
 
-12.7.1.32 tts-speak-version
+12.7.1.31 tts-speak-version
 ...........................
 
  -- Command: tts-speak-version
@@ -3749,9 +3739,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Variable: User Option dtk-use-tones
      Allow tones to be turned off.
-
- -- Variable: User Option tts-device-list
-     List of ALSA sound devices we can use.
 
 
 File: emacspeak.info,  Node: dtk-unicode,  Next: emacspeak,  Prev: dtk-speak,  Up: Emacspeak Commands And Options
