@@ -194,11 +194,6 @@ The default value of 12 is too high for using ido effectively with speech. "
 ;;}}}
 ;;{{{ define personalities 
 
-(defgroup emacspeak-ido nil
-  "Emacspeak ido customizations."
-  :group  'emacspeak
-  )
-
 (voice-setup-add-map
  '(
    (ido-virtual voice-smoothen)
