@@ -173,10 +173,8 @@ Useful when eterm is in review mode.")
 ;;}}}
 ;;{{{  voice definitions  for eterm  highlight, underline etc
 
-(defcustom emacspeak-eterm-highlight-personality voice-bolden
-  "Personality to show terminal highlighting."
-  :type 'symbol
-  :group 'emacspeak-eterm)
+(defvar emacspeak-eterm-highlight-personality voice-bolden
+  "Personality to show terminal highlighting.")
 
 (defvar emacspeak-eterm-bold-personality voice-bolden
   "Personality to indicate terminal bold.")

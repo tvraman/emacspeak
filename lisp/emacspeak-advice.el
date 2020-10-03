@@ -71,13 +71,10 @@
 ;;}}}
 ;;{{{  Replace: define personalities
 
-(defcustom emacspeak-replace-personality
+(defvar emacspeak-replace-personality
   voice-animate
   "Personality used in search and replace to indicate word
-that is being replaced."
-  :group 'isearch
-  :group 'emacspeak
-  :type 'symbol)
+that is being replaced.")
 
 ;;}}}
 ;;{{{  Advice Replace
