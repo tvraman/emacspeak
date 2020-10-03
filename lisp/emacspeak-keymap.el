@@ -366,7 +366,6 @@
 (global-set-key  (kbd "C-;") 'emacspeak-hyper-keymap)
 ;;; Our very own silence key on the console
 (global-set-key '[silence] 'emacspeak-silence)
-(global-set-key '[search] 'emacspeak-search)
 
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix

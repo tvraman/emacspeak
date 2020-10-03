@@ -3326,17 +3326,6 @@ configure which media players get silenced or paused/resumed."
 ;;}}}
 ;;{{{ Search
 
-(defcustom emacspeak-search 'emacspeak-websearch-accessible-google
-  "Default search engine."
-  :type 'function
-  :group 'emacspeak)
-
-(defun emacspeak-search ()
-  "Call search defined in \\[emacspeak-search]."
-  (interactive)
-  (cl-declare (special emacspeak-search))
-  (call-interactively emacspeak-search))
-
 ;;}}}
 ;;{{{ Smart date prompers:
 
