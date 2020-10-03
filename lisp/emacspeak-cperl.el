@@ -59,27 +59,6 @@
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
 
-(defvar emacspeak-cperl-electric-insertion-commands-to-advice
-  '(cperl-electric-lbrace
-    cperl-electric-paren
-    cperl-electric-rparen
-    cperl-electric-semi
-    cperl-electric-terminator)
-  "Electric commands from CPerl to advice")
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (cl-loop for e in emacspeak-cperl-electric-insertion-commands-to-advice
-           do
-           (eval
-            `(defadvice ,e (after emacspeak pre act comp)
-               "Speak what you inserted.
-Cue electric insertion with a tone."
-               (when (ems-interactive-p)
-                 (let ((emacspeak-speak-messages nil))
-                   (emacspeak-speak-this-char last-input-event)
-                   (dtk-tone 800 100 t)))))))
-
 (defadvice cperl-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
