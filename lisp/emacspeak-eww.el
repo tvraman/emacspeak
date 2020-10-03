@@ -240,7 +240,7 @@
 
 ;;;@table @kbd
 ;;; @item  {C-RET}
-;;; @command emacspeak-eww-fillin-form-field
+;;; @command {emacspeak-eww-fillin-form-field}
 ;;; When on an input field, insert  username/password information accessed via auth-source.
 ;;;@item '
 ;;;@command{emacspeak-speak-rest-of-buffer}
