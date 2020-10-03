@@ -60,15 +60,6 @@
 (require 'emacspeak-preamble)
 (require 'speedbar "speedbar" 'no-error)
 ;;}}}
-;;{{{ custom
-
-(defgroup emacspeak-speedbar nil
-  "Speedbar on the Emacspeak audio desktop."
-  :group 'emacspeak
-  :group 'speedbar
-  :prefix "emacspeak-speedbar")
-
-;;}}}
 ;;{{{  work outside a windowing system
 
                                         ;(defadvice speedbar-frame-mode (around emacspeak pre act comp)
