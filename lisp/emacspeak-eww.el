@@ -910,6 +910,7 @@ Retain previously set punctuations  mode."
 
 ;;}}}
 ;;{{{ web-pre-process
+
 ;;;###autoload
 (defun emacspeak-eww-autospeak()
   "Setup post process hook to speak the Web page when rendered. "
@@ -938,6 +939,7 @@ Retain previously set punctuations  mode."
 
 ;;}}}
 ;;{{{ web-post-process
+
 ;;;###autoload
 (defvar emacspeak-eww-post-process-hook nil
   "Set locally to a  site specific post processor.
@@ -976,12 +978,13 @@ Note that the Web browser should reset this hook after using it.")
 (cl-loop
  for  tag in
  '(h1 h2 h3 h4 h5 h6 div                ; sectioning
-      math ; mathml
+      math                              ; mathml
       ul ol dl                          ; Lists
       li dt dd p                        ; block-level: bullets, paras
       form blockquote                   ; block-level
       a b it em span                    ; in-line
       br hr                             ; separators
+      td th ; table cells and headers
       table)
  do
  (eval
