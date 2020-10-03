@@ -377,21 +377,6 @@ audio player."
 ;;}}}
 ;;{{{  flush sound driver
 
-(defcustom emacspeak-sounds-reset-snd-module-command nil
-  "Command to reset sound module."
-  :type '(choice
-          :tag "Command to reset sound modules"
-          (const nil :tag "None")
-          (string :tag "Command "))
-  :group 'emacspeak-sounds)
-
-(defun emacspeak-sounds-reset-sound  ()
-  "Reload sound drivers."
-  (interactive)
-  (cl-declare (special emacspeak-sounds-reset-snd-module-command))
-  (when emacspeak-sounds-reset-snd-module-command
-    (shell-command emacspeak-sounds-reset-snd-module-command)))
-
 ;;}}}
 ;;{{{ emacspeak-prompts:
 
