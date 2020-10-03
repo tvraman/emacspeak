@@ -59,14 +59,6 @@
 (declare-function dis-recalculate-matrix "dismal" nil)
 
 ;;}}}
-;;{{{ custom
-
-(defgroup emacspeak-dismal nil
-  "Spread-sheet for the Emacspeak Desktop."
-  :group 'emacspeak
-  :prefix "emacspeak-dismal-")
-
-;;}}}
 ;;{{{  helper functions:
 
 ;;; return cell value as a string
