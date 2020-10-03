@@ -1827,7 +1827,7 @@ Warning, this is fragile, and depends on a stable id/class for the
   (let  ((dom (emacspeak-eww-current-dom)))
       (emacspeak-eww-view-helper
        (dom-html-from-nodes
-        (dom-by-class dom "mod" )
+        (dom-by-class dom "kCrYT" )
         (eww-current-url)))))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
