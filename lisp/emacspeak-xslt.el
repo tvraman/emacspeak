@@ -60,17 +60,17 @@
   (expand-file-name style emacspeak-xslt-directory))
 
 ;;;###autoload
-(defvar emacspeak-opml-view-xsl
+(defconst emacspeak-opml-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "opml.xsl"))
   "XSL stylesheet used for viewing OPML  Feeds.")
 
 ;;;###autoload
-(defvar emacspeak-rss-view-xsl
+(defconst emacspeak-rss-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "rss.xsl"))
   "XSL stylesheet used for viewing RSS Feeds.")
 
 ;;;###autoload
-(defvar emacspeak-atom-view-xsl
+(defconst emacspeak-atom-view-xsl
   (eval-when-compile  (emacspeak-xslt-get "atom.xsl"))
   "XSL stylesheet used for viewing Atom Feeds.")
 
