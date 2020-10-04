@@ -51,14 +51,14 @@
 ;;}}}
 ;;{{{ Variables
 
-(cl-declaim (special emacspeak-lisp-directory))
+
 (defvar emacspeak-auto-autoloads-file
-  (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory)
+  (expand-file-name "emacspeak-loaddefs.el"   (file-name-directory load-file-name))
   "File that holds automatically generated autoloads for
 Emacspeak.")
 
 (defvar emacspeak-auto-custom-file
-  (expand-file-name "cus-load.el" emacspeak-lisp-directory)
+  (expand-file-name "cus-load.el"(file-name-directory load-file-name))
   "File that holds automatically generated custom dependencies for
 Emacspeak.")
 
@@ -67,10 +67,10 @@ Emacspeak.")
 
 (defun emacspeak-auto-generate-autoloads ()
   "Generate emacspeak autoloads."
-  (cl-declare (special  emacspeak-auto-autoloads-file emacspeak-lisp-directory))
+  (cl-declare (special  emacspeak-auto-autoloads-file ))
   (let ((dtk-quiet t)
         (generated-autoload-file emacspeak-auto-autoloads-file))
-    (update-directory-autoloads emacspeak-lisp-directory)))
+    (update-directory-autoloads (file-name-directory emacspeak-auto-autoloads-file))))
 
 ;;}}}
 ;;{{{ custom dependencies:
