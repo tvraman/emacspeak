@@ -148,7 +148,7 @@ such as pronunciation dictionaries are stored. ")
     (load (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory))))
 
 ;;}}}
-;;{{{ autoloads, Hooks
+;;{{{  Hooks
 
 (defcustom dtk-startup-hook
   '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
