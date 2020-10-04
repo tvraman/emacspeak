@@ -120,7 +120,7 @@
 
 (defvar emacspeak-2048-game-file
   (expand-file-name "2048-game-stack"
-                    emacspeak-resource-directory)
+                    emacspeak-user-directory)
   "File where we export/import game state.")
 
 (defun emacspeak-2048-export (&optional prompt)

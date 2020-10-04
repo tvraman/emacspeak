@@ -157,10 +157,10 @@ dont-url-encode if true then url arguments are not url-encoded "
   (interactive
    (list
     (read-file-name "Load URL templates from file: "
-                    emacspeak-resource-directory)))
+                    emacspeak-user-directory)))
   (condition-case nil
       (progn
-        (ems--fastload (expand-file-name file emacspeak-resource-directory)))
+        (ems--fastload (expand-file-name file emacspeak-user-directory)))
     (error (message "Error loading resources from %s "
                     file))))
 
@@ -168,12 +168,12 @@ dont-url-encode if true then url arguments are not url-encoded "
   "Save out url templates."
   (interactive
    (list
-    (read-file-name "Save URL templates to: " emacspeak-resource-directory)))
-  (cl-declare (special emacspeak-resource-directory))
+    (read-file-name "Save URL templates to: " emacspeak-user-directory)))
+  (cl-declare (special emacspeak-user-directory))
   (let ((print-level nil)
         (print-length nil)
         (buffer (find-file-noselect
-                 (expand-file-name file emacspeak-resource-directory))))
+                 (expand-file-name file emacspeak-user-directory))))
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)

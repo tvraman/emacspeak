@@ -99,7 +99,7 @@
   "Directory containing  Emacspeak info files.")
 
 ;;;###autoload
-(defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
+(defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
   "Directory where Emacspeak resource files
 such as pronunciation dictionaries are stored. ")
 

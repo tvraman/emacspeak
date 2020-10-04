@@ -151,12 +151,12 @@ end   as specified by grid."
   (interactive
    (list
     (read-file-name "Load grid settings  from file: "
-                    emacspeak-resource-directory
+                    emacspeak-user-directory
                     ".gridtext")))
   (condition-case nil
       (progn
         (load
-         (expand-file-name  file emacspeak-resource-directory)))
+         (expand-file-name  file emacspeak-user-directory)))
     (error (message "Error loading resources from %s "
                     file))))
 
@@ -165,14 +165,14 @@ end   as specified by grid."
   (interactive
    (list
     (read-file-name "Save gridtext settings  to file: "
-                    emacspeak-resource-directory
+                    emacspeak-user-directory
                     ".gridtext")))
-  (cl-declare (special emacspeak-resource-directory))
+  (cl-declare (special emacspeak-user-directory))
   (let ((print-level nil)
         (print-length nil)
         (buffer (find-file-noselect
                  (expand-file-name file
-                                   emacspeak-resource-directory))))
+                                   emacspeak-user-directory))))
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)

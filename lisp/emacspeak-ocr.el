@@ -114,7 +114,7 @@ OCR engine for optical character recognition."
 
 (defcustom emacspeak-ocr-working-directory
   (expand-file-name "ocr/"
-                    emacspeak-resource-directory)
+                    emacspeak-user-directory)
   "Directory where images and OCR results
 will be placed."
   :group 'emacspeak-ocr

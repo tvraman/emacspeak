@@ -1237,12 +1237,12 @@ future  use."
   (interactive
    (list
     (read-file-name "Load filter settings  from file: "
-                    emacspeak-resource-directory
+                    emacspeak-user-directory
                     ".table-ui-filter")))
   (condition-case nil
       (progn
         (load
-         (expand-file-name  file emacspeak-resource-directory)))
+         (expand-file-name  file emacspeak-user-directory)))
     (error (message "Error loading resources from %s "
                     file))))
 
@@ -1251,12 +1251,12 @@ future  use."
   (interactive
    (list
     (read-file-name "Save table-ui-filter settings  to file: "
-                    emacspeak-resource-directory
+                    emacspeak-user-directory
                     ".table-ui-filter")))
-  (cl-declare (special emacspeak-resource-directory))
+  (cl-declare (special emacspeak-user-directory))
   (let ((buffer (find-file-noselect
                  (expand-file-name file
-                                   emacspeak-resource-directory))))
+                                   emacspeak-user-directory))))
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)

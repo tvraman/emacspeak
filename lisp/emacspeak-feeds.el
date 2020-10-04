@@ -111,7 +111,7 @@ The feed list is persisted to file saved-feeds on exit."
        (emacspeak--persist-variable
         'emacspeak-feeds
         (expand-file-name "saved-feeds"
-                          emacspeak-resource-directory)))))
+                          emacspeak-user-directory)))))
 
 (defun emacspeak-feeds-added-p (feed-url)
   "Check if this feed has been added before."
@@ -140,7 +140,7 @@ The feed list is persisted to file saved-feeds on exit."
             (message "Added feed as %s" title))))))
 
 (defvar emacspeak-feeds-archive-file
-  (expand-file-name "feeds.el" emacspeak-resource-directory)
+  (expand-file-name "feeds.el" emacspeak-user-directory)
   "Feed archive.")
 
 

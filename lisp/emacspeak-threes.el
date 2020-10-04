@@ -269,7 +269,7 @@
 
 (defvar emacspeak-threes-game-file
   (expand-file-name "threes-game-stack"
-                    emacspeak-resource-directory)
+                    emacspeak-user-directory)
   "File where we export/import game state.")
 
 (defun emacspeak-threes-export (&optional prompt)

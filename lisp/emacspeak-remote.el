@@ -89,11 +89,11 @@ a local  Emacspeak terminal buffer.")
 
 ;;;Remote hostname guessing
 ;;;
-(cl-declaim (special emacspeak-resource-directory))
+(cl-declaim (special emacspeak-user-directory))
 
 (defvar emacspeak-remote-hostname
   (expand-file-name  ".current-remote-hostname"
-                     emacspeak-resource-directory)
+                     emacspeak-user-directory)
   "Filename containing the name of the host we connected from")
 
 

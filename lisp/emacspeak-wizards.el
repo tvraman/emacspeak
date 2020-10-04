@@ -399,7 +399,7 @@ also copied to the kill ring for convenient yanking."
 ;;{{{  simple phone book
 
 (defcustom emacspeak-speak-telephone-directory
-  (expand-file-name "tel-dir" emacspeak-resource-directory)
+  (expand-file-name "tel-dir" emacspeak-user-directory)
   "File holding telephone directory.
 This is just a text file, and we use grep to search it."
   :group 'emacspeak-speak
@@ -656,13 +656,13 @@ meaning of `next'."
 
 (cl-eval-when (load)
   (condition-case nil
-      (unless (file-exists-p emacspeak-resource-directory)
-        (make-directory emacspeak-resource-directory))
+      (unless (file-exists-p emacspeak-user-directory)
+        (make-directory emacspeak-user-directory))
     (error (message "Make sure you have an Emacspeak resource directory %s"
-                    emacspeak-resource-directory))))
+                    emacspeak-user-directory))))
 
 (defcustom emacspeak-clipboard-file
-  (concat emacspeak-resource-directory "/" "clipboard")
+  (concat emacspeak-user-directory "/" "clipboard")
   "File used to save Emacspeak clipboard.
 The emacspeak clipboard provides a convenient mechanism for exchanging
 information between different Emacs sessions."
@@ -681,12 +681,12 @@ clipboard file to use. Argument START and END specifies
 region. Optional argument PROMPT specifies whether we prompt for the
 name of a clipboard file."
   (interactive "r\nP")
-  (cl-declare (special emacspeak-resource-directory emacspeak-clipboard-file))
+  (cl-declare (special emacspeak-user-directory emacspeak-clipboard-file))
   (let ((clip (buffer-substring-no-properties start end))
         (clipboard-file
          (if prompt
              (read-file-name "Copy region to clipboard file: "
-                             emacspeak-resource-directory
+                             emacspeak-user-directory
                              emacspeak-clipboard-file)
            emacspeak-clipboard-file))
         (clipboard nil))
@@ -710,7 +710,7 @@ session --Emacs' register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead."
   (interactive "P")
-  (cl-declare (special emacspeak-resource-directory emacspeak-clipboard-file))
+  (cl-declare (special emacspeak-user-directory emacspeak-clipboard-file))
   (let ((start (point))
         (clipboard-file emacspeak-clipboard-file))
     (cond
@@ -2622,7 +2622,7 @@ for how to get  an API key. "
   "Template used to audio-format  rows.")
 
 (defvar emacspeak-wizards-iex-portfolio-file
-  (expand-file-name "portfolio.json" emacspeak-resource-directory)
+  (expand-file-name "portfolio.json" emacspeak-user-directory)
   "Local file cache of IEX API data.")
 
 (defconst ems--iex-types
@@ -3552,7 +3552,7 @@ external package."
 
 
 (defvar emacspeak-wizards-media-pipe
-  (expand-file-name "pipe.flac" emacspeak-resource-directory)
+  (expand-file-name "pipe.flac" emacspeak-user-directory)
   "Named socket for piped media streams.")
 
 ;;;###autoload

@@ -679,7 +679,7 @@ emacspeak-speak-filter-table)\n" k v)))
 
 (defcustom emacspeak-speak-filter-persistent-store
   (expand-file-name ".filters"
-                    emacspeak-resource-directory)
+                    emacspeak-user-directory)
   "File where emacspeak filters are persisted."
   :type 'file
   :group 'emacspeak-speak)

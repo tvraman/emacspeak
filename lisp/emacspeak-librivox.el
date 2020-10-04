@@ -328,7 +328,7 @@ more results."
    (list
     (read-char "a: Author, t: Title,  p:Play, g:Genre, d: Browse Local")))
   (cl-ecase search-type
-    (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
+    (?d (dired (expand-file-name "librivox" emacspeak-user-directory)))
     (?a (call-interactively 'emacspeak-librivox-search-by-author))
     (?p (call-interactively 'emacspeak-librivox-play))
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
@@ -337,7 +337,7 @@ more results."
 ;;}}}
 ;;{{{ Cache Playlists:
 (defcustom emacspeak-librivox-local-cache
-  (expand-file-name "librivox" emacspeak-resource-directory)
+  (expand-file-name "librivox" emacspeak-user-directory)
   "Location where we cache LIBRIVOX playlists."
   :type 'directory
   :group 'emacspeak-librivox)

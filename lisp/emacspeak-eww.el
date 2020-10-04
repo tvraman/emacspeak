@@ -1916,7 +1916,7 @@ Warning, this is fragile, and depends on a stable id/class for the
 ;;; They are called eww-marks to distinguish them from web bookmarks
 
 (defvar emacspeak-eww-marks-file
-  (expand-file-name "eww-marks" emacspeak-resource-directory)
+  (expand-file-name "eww-marks" emacspeak-user-directory)
   "File where we save EWW marks.")
 (cl-defstruct emacspeak-eww-mark
   type                             ; daisy, epub, epub-3
@@ -2158,7 +2158,7 @@ with an interactive prefix arg. "
        (not (hash-table-empty-p emacspeak-eww-smart-tabs)))
     (emacspeak--persist-variable
      'emacspeak-eww-smart-tabs
-     (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
+     (expand-file-name "smart-eww-tabs" emacspeak-user-directory))))
 
 (add-hook
  'kill-emacs-hook
@@ -2167,12 +2167,12 @@ with an interactive prefix arg. "
 (defun emacspeak-eww-smart-tabs-load ()
   "Load our smart tabsfrom a file."
   (interactive)
-  (cl-declare (special emacspeak-resource-directory))
+  (cl-declare (special emacspeak-user-directory))
   (when
       (file-exists-p
-       (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))
+       (expand-file-name "smart-eww-tabs" emacspeak-user-directory))
     (ems--fastload
-     (expand-file-name "smart-eww-tabs" emacspeak-resource-directory))))
+     (expand-file-name "smart-eww-tabs" emacspeak-user-directory))))
 
 ;;}}}
 ;;{{{Pronunciations:

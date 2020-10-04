@@ -252,11 +252,11 @@ applied.")
 ;;}}}
 ;;{{{ loading, clearing and saving dictionaries
 
-(cl-declaim (special emacspeak-resource-directory))
+(cl-declaim (special emacspeak-user-directory))
 
 (defcustom emacspeak-pronounce-dictionaries-file
   (expand-file-name ".dictionary"
-                    emacspeak-resource-directory)
+                    emacspeak-user-directory)
   "File that holds the persistent emacspeak pronunciation dictionaries."
   :type '(file :tag "Dictionary File ")
   :group 'emacspeak-pronounce)
@@ -272,7 +272,7 @@ applied.")
          (print-length nil)
          (filename (read-file-name
                     "Save pronunciation dictionaries to file: "
-                    emacspeak-resource-directory
+                    emacspeak-user-directory
                     nil nil
                     (file-name-nondirectory emacspeak-pronounce-dictionaries-file)))
          (buffer nil))
@@ -300,7 +300,7 @@ Default is emacspeak-pronounce-dictionaries-file."
    (list
     (read-file-name
      "Load pronunciation dictionaries from file: "
-     emacspeak-resource-directory emacspeak-pronounce-dictionaries-file)))
+     emacspeak-user-directory emacspeak-pronounce-dictionaries-file)))
   (cl-declare (special emacspeak-pronounce-dictionaries-file emacspeak-pronounce-dictionaries-loaded))
   (setq filename (or  filename  emacspeak-pronounce-dictionaries-file))
   (when (file-exists-p filename)

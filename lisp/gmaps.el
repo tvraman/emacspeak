@@ -124,10 +124,10 @@
 
 (defvar gmaps-locations-loaded-p nil
   "Record if Locations cache  is loaded.")
-(defvar emacspeak-resource-directory)
+(defvar emacspeak-user-directory)
 
 (defvar gmaps-locations-file
-  (expand-file-name "gmaps-locations" emacspeak-resource-directory)
+  (expand-file-name "gmaps-locations" emacspeak-user-directory)
   "File where we save Locations.")
 (declare-function emacspeak-auditory-icon "emacspeak-sounds" (icon))
 
