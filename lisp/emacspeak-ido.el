@@ -127,7 +127,7 @@ The default value of 12 is too high for using ido effectively with speech. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-enable-regexp 'on 'off))
     (dtk-speak
-     (format "Case %s"
+     (format "Regexp %s"
              (if ido-enable-regexp 'on 'off)))))
 
 (defadvice ido-toggle-prefix (after emacspeak pre act comp)
@@ -140,12 +140,12 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cl-declare (special ido-process-ignore-lists))
+  (cl-declare (special ido-ignore-files))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if ido-process-ignore-lists 'on 'off))
+    (emacspeak-auditory-icon (if ido-ignore-files 'on 'off))
     (dtk-speak
-     (format "Case %s"
-             (if ido-process-ignore-lists
+     (format "File ignoring  %s"
+             (if ido-ignore-files
                  'on 'off)))))
 
 (defadvice ido-complete (after emacspeak pre act comp)
@@ -159,7 +159,8 @@ The default value of 12 is too high for using ido effectively with speech. "
    ido-switch-buffer ido-switch-buffer-other-window
    ido-switch-buffer-other-frame ido-display-buffer
    ido-find-file ido-find-file-other-frame ido-find-file-other-window
-   ido-find-alternate-file ido-find-file-read-only ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
+   ido-find-alternate-file ido-find-file-read-only
+   ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
  do
  (eval
   `(defadvice   ,f(after emacspeak pre act comp)
@@ -167,10 +168,12 @@ The default value of 12 is too high for using ido effectively with speech. "
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-mode-line)))))
+
 (defadvice ido-bury-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
+
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
@@ -214,6 +217,7 @@ The default value of 12 is too high for using ido effectively with speech. "
     (define-key ido-common-completion-map (kbd "M-e")  'ido-edit-input)))
 
 (emacspeak-ido-keys)
+
 ;;}}}
 (provide 'emacspeak-ido)
 ;;{{{ end of file
