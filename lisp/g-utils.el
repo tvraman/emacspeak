@@ -61,10 +61,6 @@
 ;;}}}
 ;;{{{ Customizations:
 
-(defvar g-directory (and load-file-name
-                         (file-name-directory load-file-name))
-  "Directory where Google Client is installed.")
-
 (defvar g-scratch-buffer" *g scratch*"
   "Scratch buffer we do authentication work.")
 
