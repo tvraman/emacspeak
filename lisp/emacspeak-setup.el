@@ -52,11 +52,6 @@
 ;;; Code:
 
 ;;}}}
-;;{{{ Required Modules
-
-(require 'cl-lib)
-(cl-declaim  (optimize  (safety 0) (speed 3)))
-;;}}}
 ;;{{{  Define locations
 
 ;;;###autoload
@@ -140,7 +135,7 @@ such as pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{Load-path:
 
-(cl-pushnew emacspeak-lisp-directory load-path)
+(push emacspeak-lisp-directory load-path)
 
 (unless noninteractive
   (let ((file-name-handler-alist nil)
