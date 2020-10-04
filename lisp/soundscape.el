@@ -263,7 +263,8 @@ Default is to return NullAgent if name not found."
   "Return associated soundscape for this mode if any."
   (let ((result nil))
     (while mode
-      (cl-pushnew (gethash mode soundscape-mode-table) result)
+      (cl-pushnew (gethash mode soundscape-mode-table) result
+                  :test #'string-equal)
       (setq mode (get mode 'derived-mode-parent)))
     (delq nil result)))
 

@@ -649,7 +649,8 @@ origin/destination may be returned as a lat,long string."
   (let ((result nil)
         (type (completing-read "Type: Blank to quit " gmaps-place-types)))
     (while (not (= 0 (length type)))
-      (cl-pushnew type result)
+      (cl-pushnew type result
+                  :test #'string-equal)
       (setq type (completing-read "Type: Blank to quit " gmaps-place-types)))
     result))
 

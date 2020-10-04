@@ -790,7 +790,9 @@ will say ``aw fifteen dot'' when speaking the string
            (read-from-minibuffer "Specify repeating pattern to delete: ")
            dtk-cleanup-repeats)))
    (t 
-    (cl-pushnew (read-from-minibuffer "Specify repeating pattern: ") dtk-cleanup-repeats))))
+    (cl-pushnew (read-from-minibuffer "Specify repeating pattern: ")
+                dtk-cleanup-repeats
+                :test #'string-equal))))
 
 ;;}}}
 ;;{{{ helper --generate state switcher:
@@ -1499,7 +1501,8 @@ available TTS servers.")
   (dtk-set-rate tts-default-speech-rate t)
   (dtk-interp-sync)
     (unless (member tts-name tts-configured-engines)
-      (cl-pushnew tts-name tts-configured-engines)
+      (cl-pushnew tts-name tts-configured-engines
+                  :test #'string-equal)
       (ems--fastload "voice-setup"))
   (when
       (or

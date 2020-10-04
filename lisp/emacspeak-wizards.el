@@ -2432,7 +2432,7 @@ mapped to voices."
         (updated (copy-sequence exec-path)))
     (cl-loop
      for d in dirs do
-     (cl-pushnew d updated))
+     (cl-pushnew d updated :test #'string-equal))
     (setq exec-path updated)))
 
 ;;}}}
