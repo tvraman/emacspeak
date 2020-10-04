@@ -48,19 +48,17 @@
 (require 'cl-lib)
 (require 'autoload)
 (require 'cus-dep)
+
 ;;}}}
 ;;{{{ Variables
 
-
 (defvar emacspeak-auto-autoloads-file
   (expand-file-name "emacspeak-loaddefs.el"   (file-name-directory load-file-name))
-  "File that holds automatically generated autoloads for
-Emacspeak.")
+  "File that holds automatically generated autoloads for Emacspeak.")
 
 (defvar emacspeak-auto-custom-file
   (expand-file-name "cus-load.el"(file-name-directory load-file-name))
-  "File that holds automatically generated custom dependencies for
-Emacspeak.")
+  "File that holds automatically generated custom dependencies for Emacspeak.")
 
 ;;}}}
 ;;{{{ generate autoloads
