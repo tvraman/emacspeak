@@ -40,7 +40,7 @@
 (require 'advice)
 (setq ad-redefinition-action 'accept)
 
-(cl-pushnew (file-name-directory load-file-name) load-path)
+(cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
 
 ;;{{{ Interactive Check Implementation:
 
