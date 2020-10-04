@@ -559,7 +559,7 @@ Returns a string with appropriate personality."
 ;;}}}
 ;;{{{  activating widgets:
 ;;; forward declaration:
-(defvar emacspeak-eww-url-at-point)
+
 (defadvice widget-button-press (around emacspeak pre act comp)
   "Provide auditory feedback"
   (let ((inhibit-read-only t)
@@ -570,8 +570,6 @@ Returns a string with appropriate personality."
             (old-position (point)))
         (cond
          ((and (eq major-mode 'eww-mode)
-               emacspeak-eww-url-at-point
-               (funcall emacspeak-eww-url-at-point)
                (bound-and-true-p emacspeak-we-url-executor)
                (functionp emacspeak-we-url-executor))
           (emacspeak-auditory-icon 'button)
