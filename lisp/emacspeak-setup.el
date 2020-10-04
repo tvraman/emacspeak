@@ -135,7 +135,7 @@ such as pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{Load-path:
 
-(push emacspeak-lisp-directory load-path)
+(cl-pushnew emacspeak-lisp-directory load-path)
 
 (unless noninteractive
   (let ((file-name-handler-alist nil)
