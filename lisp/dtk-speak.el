@@ -82,7 +82,7 @@ mac for MAC TTS (default on Mac)")
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server)
 (defvar emacspeak-auditory-icon-function)
-(defvar emacspeak-directory)
+
 (defvar emacspeak-use-auditory-icons)
 (defvar emacspeak-pronounce-pronunciation-personality)
 
@@ -1042,10 +1042,6 @@ Use command  `dtk-set-punctuations' bound to
 
 (make-variable-buffer-local 'dtk-punctuation-mode)
 ;;; forward declaration
-(defvar emacspeak-servers-directory
-  (expand-file-name
-   "servers/"
-   emacspeak-directory))
 
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers.
