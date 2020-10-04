@@ -94,7 +94,7 @@
    (read-file-name "XSL Transformation: "
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
-
+;;;###autoload
 (defvar emacspeak-xslt-program "xsltproc"
   "Name of XSLT transformation engine.")
 
