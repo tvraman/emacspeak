@@ -59,8 +59,7 @@
 
 (cl-loop
  for f in
- '(windmove-left windmove-right
-                 windmove-up windmove-down)
+ '(windmove-left windmove-right windmove-up windmove-down)
  do
  (eval
   `(defadvice  ,f (after emacspeak pre act comp)
