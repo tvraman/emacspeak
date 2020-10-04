@@ -40,16 +40,7 @@
 (require 'advice)
 (setq ad-redefinition-action 'accept)
 
-(defvar emacspeak-directory
-  (expand-file-name "../" (file-name-directory load-file-name))
-  "Directory where emacspeak is installed. ")
-
-(defvar emacspeak-lisp-directory
-  (expand-file-name "lisp/" emacspeak-directory)
-  "Directory containing lisp files for  Emacspeak.")
-
-
-(push emacspeak-lisp-directory load-path)
+(cl-pushnew (file-name-directory load-file-name) load-path)
 
 ;;{{{ Interactive Check Implementation:
 
