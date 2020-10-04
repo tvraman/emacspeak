@@ -51,27 +51,21 @@
 
 ;;}}}
 ;;{{{ advice
-(defvar emacspeak-net-utils-commands
-  '(arp
-    route
-    traceroute
-    ifconfig
-    iwconfig
-    ping
-    netstat
-    dns-lookup-host
-    nslookup-host)
-  "Commands to speech enable")
 
-(cl-loop for f in emacspeak-net-utils-commands
-         do
-         (eval
-          `(defadvice ,f  (after emacspeak pre act comp)
-             "Speak output"
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'open-object)
-               (message "Displayed results of %s in other window"
-                        (quote ,f))))))
+(cl-loop
+ for f in
+ '(
+   arp route traceroute
+   ifconfig iwconfig ping netstat
+   dns-lookup-host nslookup-host)
+ do
+ (eval
+  `(defadvice ,f  (after emacspeak pre act comp)
+     "Speak output"
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (message "Displayed results of %s in other window"
+                (quote ,f))))))
 
 ;;}}}
 (provide 'emacspeak-net-utils)
