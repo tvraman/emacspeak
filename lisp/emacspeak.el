@@ -429,9 +429,9 @@ commands and options for details."
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
+  (global-visual-line-mode -1)
   (message emacspeak-startup-message)
-  (emacspeak-play-startup-icon)
-  (run-hooks 'emacspeak-startup-hook))
+  (emacspeak-play-startup-icon))
 
 
 

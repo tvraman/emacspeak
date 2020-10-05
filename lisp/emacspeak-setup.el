@@ -138,19 +138,6 @@ such as pronunciation dictionaries are stored. ")
     (load  "emacspeak-loaddefs.el")))
 
 ;;}}}
-;;{{{  Hooks
-(defun emacspeak-turn-off-visual-line-mode ()
-  "This function turns off visual line mode globally.
-It's placed by default on customizable option `emacspeak-startup-hook'."
-  (global-visual-line-mode -1))
-
-(defcustom emacspeak-startup-hook
-  '(emacspeak-turn-off-visual-line-mode)
-  "Hook run after Emacspeak is started."
-  :type 'hook
-  :group 'emacspeak)
-
-;;}}}
 ;;; Start emacspeak if emacs   is interactive:
 (unless noninteractive (emacspeak))
 (provide 'emacspeak-setup)

@@ -160,7 +160,7 @@ a rewrite rule even if one is already defined."
   "T means we apply XSL before displaying HTML.")
 
 (defvar emacspeak-we-xsl-transform
-  (eval-when-compile (emacspeak-xslt-get "sort-tables.xsl"))
+  nil
   "Specifies transform to use before displaying a page.
 Default is to apply sort-tables.")
 

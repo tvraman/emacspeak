@@ -6465,19 +6465,6 @@ has been verified to work, You can add (load-library "emacspeak-setup")
 To your .emacs file.  See tvr/emacs-startup.el in the Emacspeak Git
 repository for my setup.
 
-12.164.1 emacspeak-setup Options
---------------------------------
-
- -- Variable: User Option dtk-startup-hook
-     List of hooks to be run after starting up the speech server.  Set
-     things like speech rate, punctuation mode etc in this hook.
-
- -- Variable: User Option emacspeak-startup-hook
-     Hook run after Emacspeak is started.
-
- -- Variable: User Option tts-notification-device
-     Virtual ALSA device to use for notifications stream.
-
 
 File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
 

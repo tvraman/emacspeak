@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1178 commands and 839 options.
+   This chapter documents a total of 1178 commands and 837 options.
 
 * Menu:
 
@@ -3738,6 +3738,9 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
  -- Variable: User Option dtk-use-tones
      Allow tones to be turned off.
+
+ -- Variable: User Option tts-notification-device
+     Virtual ALSA device to use for notifications stream.
 
 
 File: emacspeak.info,  Node: dtk-unicode,  Next: emacspeak,  Prev: dtk-speak,  Up: Emacspeak Commands And Options

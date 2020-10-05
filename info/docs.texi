@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1178 commands and 839 options.
+This chapter documents a total of 1178 commands and 837 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1090,6 +1090,11 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 
 @defvar {User Option} dtk-use-tones
 Allow tones to be turned off.
+
+@end defvar
+
+@defvar {User Option} tts-notification-device
+Virtual ALSA device to use for notifications stream.
 
 @end defvar
 
@@ -14660,25 +14665,6 @@ You can  add
 (load-library "emacspeak-setup")
 To your .emacs file.
 See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
-
-@subsection emacspeak-setup Options
-
-@defvar {User Option} dtk-startup-hook
-List of hooks to be run after starting up the speech server.
-Set things like speech rate, punctuation mode etc in this
-hook.
-
-@end defvar
-
-@defvar {User Option} emacspeak-startup-hook
-Hook run after Emacspeak is started.
-
-@end defvar
-
-@defvar {User Option} tts-notification-device
-Virtual ALSA device to use for notifications stream.
-
-@end defvar
 
 @node emacspeak-sgml-mode
 @section emacspeak-sgml-mode
