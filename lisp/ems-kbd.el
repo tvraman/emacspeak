@@ -97,14 +97,25 @@
                          collect (if (= (logand ch ?\M-\^@) 0)
                                      ch (+ ch 128))))
       res)))
-(setq ems-kbd-tests
-      '(
-        "C-c c"
-        "M-C-a"
-        "A-a"
-        ))
 
-(cl-loop
- for test in ems-kbd-tests
- unless (equal (ems-kbd test) (kbd test))
- collect test)
+;;; Tests:
+
+(let ((tests 
+       '(
+         "C-c c"
+         "S-a"
+         "s-a"
+         "H-a"
+         "C-;"
+         "M-C-a"
+         "A-a"))
+      (restult nil))
+  (setq result
+        (cl-loop
+         for test in tests
+         unless (equal (ems-kbd test) (kbd test))
+         collect test))
+  (cond
+   ((null result) (message "All tests passed."))
+   (t (message "%s tests failed." (length result))
+      result)))
