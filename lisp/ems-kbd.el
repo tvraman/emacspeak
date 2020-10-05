@@ -16,6 +16,7 @@
              key)
         ;; Try to catch events of the form "<as df>".
         (cond
+         ;;; pattern: <xxxx>
          ((string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
           (setq word (match-string 0 word)
                 pos (+ word-beg (match-end 0))))
@@ -23,26 +24,33 @@
           (setq word (substring string word-beg word-end)
                 pos word-end)))
         (cond
+         ;;; modifier + keys 
          ((and
            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
            (progn
              (setq word
                    (concat (substring word (match-beginning 1) (match-end 1))
                            (substring word (match-beginning 3) (match-end 3))))
-             (not (string-match
-                   "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
-                   word))))
+             (not
+              (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
+               word))))
           (setq key (list (intern word))))
          (t
           (let ((orig-word word)
                 (prefix 0)
                 (bits 0))
-            (while
+            (while ;;; calculate modifier bits
                 (string-match "^[ACHMsS]-." word)
-              (cl-incf bits (cdr (assq (aref word 0)
-                                       '((?A . ?\A-\^@) (?C . ?\C-\^@)
-                                         (?H . ?\H-\^@) (?M . ?\M-\^@)
-                                         (?s . ?\s-\^@) (?S . ?\S-\^@)))))
+              (cl-incf bits
+                       (cdr
+                        (assq (aref word 0)
+                              '((?A . ?\A-\^@)
+
+                                (?C . ?\C-\^@)
+                                (?H . ?\H-\^@)
+                                (?M . ?\M-\^@)
+                                (?s . ?\s-\^@)
+                                (?S . ?\S-\^@)))))
               (cl-incf prefix 2)
               (cl-callf substring word 2))
             (when (string-match "^\\^.$" word)
@@ -59,31 +67,35 @@
                             ("SPC" . " ")
                             ("DEL" . "\177")))))
               (when found (setq word (cdr found))))
-            (when (string-match "^\\\\[0-7]+$" word)
+            (when (string-match "^\\\\[0-7]+$" word) ;;; octals
               (cl-loop for ch across word
                        for n = 0 then (+ (* n 8) ch -48)
                        finally do (setq word (vector n))))
-            (cond ((= bits 0)
-                   (setq key word))
-                  ((and (= bits ?\M-\^@) (stringp word)
-                        (string-match "^-?[0-9]+$" word))
-                   (setq key (cl-loop for x across word
-                                      collect (+ x bits))))
+            (cond ;;; apply modifiers 
+             ((= bits 0) (setq key word))
+             ((and (= bits ?\M-\^@)
+                   (stringp word)
+                   (string-match "^-?[0-9]+$" word))
+              (setq key
+                    (cl-loop
+                     for x across word
+                     collect (+ x bits))))
                   ((/= (length word) 1)
                    (error "%s must prefix a single character, not %s"
                           (substring orig-word 0 prefix) word))
-                  ((and (/= (logand bits ?\C-\^@) 0) (stringp word)
+                  ((and
+                    (/= (logand bits ?\C-\^@) 0)
+                    (stringp word)
                         ;; We used to accept . and ? here,
                         ;; but . is simply wrong,
                         ;; and C-? is not used (we use DEL instead).
-                        (string-match "[@-_a-z]" word))
-                   (setq key (list (+ bits (- ?\C-\^@)
-                                      (logand (aref word 0) 31)))))
-                  (t
-                   (setq key (list (+ bits (aref word 0)))))))))
+                    (string-match "[@-_a-z]" word))
+                   (setq key
+                         (list (+ bits (- ?\C-\^@)
+                                  (logand (aref word 0) 31)))))
+                  (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
-        (when key
-          (cl-callf vconcat res key)))) ; end while
+        (when key (cl-callf vconcat res key)))) ; end while
     ;;; events now in vector res, now validate it
     (cond
      ((and
@@ -93,14 +105,13 @@
         (and
          (characterp ch)
              (let ((ch2 (logand ch (lognot ?\M-\^@))))
-               (and
-                (>= ch2 0) (<= ch2 127))))))
+               (and (>= ch2 0) (<= ch2 127))))))
       (concat
        (cl-loop
         for ch across res
         collect
         (cond
-         ((= (logand ch ?\M-\^@) 0)
+         ((= (logand ch ?\M-\^@) 0) ;;; no meta bit
           ch)
          (t (+ ch 128))))))
      (t res))))
