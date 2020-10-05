@@ -84,13 +84,13 @@
 	(when key
 	  (cl-loop
            repeat times do
-           (cl-callf vconcat res key)))))
+           (cl-callf vconcat res key))))) ; end while
     (when (and (>= (length res) 4)
 	       (eq (aref res 0) ?\C-x)
 	       (eq (aref res 1) ?\()
 	       (eq (aref res (- (length res) 2)) ?\C-x)
 	       (eq (aref res (- (length res) 1)) ?\)))
-      (setq res (cl-subseq res 2 -2)))
+      (setq res (cl-subseq res 2 -2))) ; end when
     (if
         (and 
 	 (cl-loop for ch across res
@@ -98,9 +98,11 @@
                               (let ((ch2 (logand ch (lognot ?\M-\^@))))
                                 (and
                                  (>= ch2 0) (<= ch2 127))))))
-	(concat (cl-loop for ch across res
-                         collect (if (= (logand ch ?\M-\^@) 0)
-                                     ch (+ ch 128))))
+	(concat
+         (cl-loop
+          for ch across res
+          collect (if (= (logand ch ?\M-\^@) 0)
+                      ch (+ ch 128))))
       res)))
 
 ;;; Tests:
