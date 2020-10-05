@@ -14,11 +14,13 @@
              (times 1)
              key)
         ;; Try to catch events of the form "<as df>".
-        (if (string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
-            (setq word (match-string 0 word)
-                  pos (+ word-beg (match-end 0)))
+        (cond
+         ((string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
+          (setq word (match-string 0 word)
+                pos (+ word-beg (match-end 0))))
+         (t
           (setq word (substring string word-beg word-end)
-                pos word-end))
+                pos word-end)))
         (when (string-match "\\([0-9]+\\)\\*." word)
           (setq times (string-to-number (substring word 0 (match-end 1))))
           (setq word (substring word (1+ (match-end 1)))))
