@@ -22,10 +22,6 @@
           (setq word (substring string word-beg word-end)
                 pos word-end)))
         (cond
-         ((string-match "^<<.+>>$" word)
-          (setq key
-                (vconcat
-                 (substring word 2 -2) "\r")))
          ((and
            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
            (progn
