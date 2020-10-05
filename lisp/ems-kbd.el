@@ -1,5 +1,4 @@
-(defun ems-kbd (string )
-  "Simplified and hopefully more robust kbd function."
+(defun ems-kbd (string &optional need-vector)
   (let ((case-fold-search nil)
 	(len (length string)) ; We won't alter string in the loop below.
 	(pos 0)
@@ -44,9 +43,9 @@
 	       (let ((orig-word word) (prefix 0) (bits 0))
 		 (while (string-match "^[ACHMsS]-." word)
 		   (cl-incf bits (cdr (assq (aref word 0)
-					    '((?A . ?\A-\^@) (?C . ?\C-\^@)
-					      (?H . ?\H-\^@) (?M . ?\M-\^@)
-					      (?s . ?\s-\^@) (?S . ?\S-\^@)))))
+					 '((?A . ?\A-\^@) (?C . ?\C-\^@)
+					   (?H . ?\H-\^@) (?M . ?\M-\^@)
+					   (?s . ?\s-\^@) (?S . ?\S-\^@)))))
 		   (cl-incf prefix 2)
 		   (cl-callf substring word 2))
 		 (when (string-match "^\\^.$" word)
@@ -88,11 +87,12 @@
 	       (eq (aref res (- (length res) 2)) ?\C-x)
 	       (eq (aref res (- (length res) 1)) ?\)))
       (setq res (cl-subseq res 2 -2)))
-        (when
-	 (cl-loop for ch across res
-                  always (and (characterp ch)
-                              (let ((ch2 (logand ch (lognot ?\M-\^@))))
-                                (and (>= ch2 0) (<= ch2 127))))))
+    (if (and (not need-vector)
+	     (cl-loop for ch across res
+                      always (and (characterp ch)
+                                  (let ((ch2 (logand ch (lognot ?\M-\^@))))
+                                    (and (>= ch2 0) (<= ch2 127))))))
 	(concat (cl-loop for ch across res
                          collect (if (= (logand ch ?\M-\^@) 0)
-                                     ch (+ ch 128))))))
+                                     ch (+ ch 128))))
+      res)))
