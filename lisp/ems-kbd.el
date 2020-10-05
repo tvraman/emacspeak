@@ -104,8 +104,10 @@
        (cl-loop
         for ch across res
         collect
-        (if (= (logand ch ?\M-\^@) 0)
-            ch (+ ch 128)))))
+        (cond
+         ((= (logand ch ?\M-\^@) 0)
+          ch)
+         (t (+ ch 128))))))
      (t
       res))))
 
