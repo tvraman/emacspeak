@@ -3,8 +3,9 @@
 	(len (length string)) ; We won't alter string in the loop below.
 	(pos 0)
 	(res []))
-    (while (and (< pos len)
-		(string-match "[^ \t\n\f]+" string pos))
+    (while
+        (and (< pos len)
+	     (string-match "[^ \t\n\f]+" string pos))
       (let* ((word-beg (match-beginning 0))
 	     (word-end (match-end 0))
 	     (word (substring string word-beg len))
