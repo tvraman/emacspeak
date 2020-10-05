@@ -139,39 +139,6 @@ such as pronunciation dictionaries are stored. ")
 
 ;;}}}
 ;;{{{  Hooks
-
-(defcustom tts-notification-device
-  (eval-when-compile
-    (or (getenv "ALSA_NOTIFY")
-        (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
-  "Virtual ALSA device to use for notifications stream."
-  :type 'string
-  :group 'tts)
-
-;;;###autoload
-(defun emacspeak-tts-multistream-p (tts-engine)
-  "Checks if this tts-engine can support multiple streams."
-  (and
-   (member tts-engine '("outloud"  "cloud-outloud"))
-   (not (string= (dtk-get-notify-alsa-device) "default"))))
-
-(defvar emacspeak-tts-use-notify-stream
-  (and (not noninteractive) (emacspeak-tts-multistream-p dtk-program))
-  "Set to true to use a separate TTS stream for notifications.")
-
-(defsubst emacspeak-tts-use-notify-stream-p ()
-  "Predicate to check if we use a separate notify stream."
-  (cl-declare (special emacspeak-tts-use-notify-stream))
-  emacspeak-tts-use-notify-stream)
-
-(defun emacspeak-tts-notify-hook ()
-  "Starts up a notification stream if current synth supports  multiple invocations.
-TTS engine should use ALSA for this to be usable."
-  (cl-declare (special dtk-program dtk-notify-process))
-  (unless noninteractive 
-    (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
-    (when (emacspeak-tts-multistream-p dtk-program) (dtk-notify-initialize))))
-
 (defun emacspeak-turn-off-visual-line-mode ()
   "This function turns off visual line mode globally.
 It's placed by default on customizable option `emacspeak-startup-hook'."

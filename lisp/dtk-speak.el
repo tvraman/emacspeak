@@ -1539,7 +1539,7 @@ ALSA_DEFAULT to specified device before starting the server."
     current-prefix-arg))
   (cl-declare (special dtk-program dtk-servers-alist
                        tts-device emacspeak-servers-directory
-                       emacspeak-tts-use-notify-stream emacspeak-ssh-tts-server))
+                        emacspeak-ssh-tts-server))
   (when (and (called-interactively-p 'interactive) device)
     (setq tts-device
           (completing-read "Device: "
@@ -1553,20 +1553,16 @@ ALSA_DEFAULT to specified device before starting the server."
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
     (when (called-interactively-p 'interactive)
-      (setq emacspeak-tts-use-notify-stream
-            (emacspeak-tts-multistream-p dtk-program))
       (dtk-initialize))))
 
 (defun dtk-cloud ()
   "Select preferred Cloud TTS server."
   (interactive)
-  (cl-declare (special dtk-cloud-server
-                       emacspeak-tts-use-notify-stream))
+  (cl-declare (special dtk-cloud-server))
   (dtk-select-server dtk-cloud-server)
   (dtk-initialize)
-  (when (emacspeak-tts-multistream-p dtk-cloud-server)
-    (dtk-notify-initialize)
-    (setq emacspeak-tts-use-notify-stream t)))
+  (when (tts-multistream-p dtk-cloud-server)
+    (dtk-notify-initialize)))
 
 (defvar dtk-local-server-process nil
   "Local server process.")
@@ -1614,6 +1610,21 @@ program. Port defaults to dtk-local-server-port"
 ;;}}}
 ;;{{{  initialize the speech process
 
+
+(defcustom tts-notification-device
+  (eval-when-compile
+    (or (getenv "ALSA_NOTIFY")
+        (cl-first (split-string (shell-command-to-string  "aplay -L 2>/dev/null | grep mono")))))
+  "Virtual ALSA device to use for notifications stream."
+  :type 'string
+  :group 'tts)
+
+(defsubst tts-multistream-p (tts-engine)
+  "Checks if this tts-engine can support multiple streams."
+  (and
+   (member tts-engine '("outloud"  "cloud-outloud"))
+   (not (string= tts-notification-device "default"))))
+
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
@@ -1643,7 +1654,7 @@ program. Port defaults to dtk-local-server-port"
       (setq dtk-speaker-process new-process)
       (tts-configure-synthesis-setup dtk-program)
       (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
-    (when (emacspeak-tts-multistream-p dtk-program) (dtk-notify-initialize))))))
+      (when (tts-multistream-p dtk-program) (dtk-notify-initialize))))))
 
 (defun tts-shutdown ()
   "Shutdown TTS servers."
@@ -1910,11 +1921,9 @@ inserted.  Otherwise it is a number that specifies grouping"
   "Return valid TTS handle for notifications.
 Returns nil if the result would not be a valid process handle."
   (cl-declare (special dtk-notify-process dtk-speaker-process
-                       emacspeak-tts-use-notify-stream dtk-program))
+                        dtk-program))
   (let ((result
          (cond
-          ((null emacspeak-tts-use-notify-stream) dtk-speaker-process) ;custom overrides.
-          ((null (emacspeak-tts-multistream-p dtk-program)) dtk-speaker-process)
           ((null dtk-notify-process) dtk-speaker-process)
           ((and (processp dtk-notify-process)
                 (memq (process-status dtk-notify-process) '(open run)))
