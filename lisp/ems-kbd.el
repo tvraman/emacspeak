@@ -91,22 +91,23 @@
              (eq (aref res (- (length res) 2)) ?\C-x)
              (eq (aref res (- (length res) 1)) ?\)))
       (setq res (cl-subseq res 2 -2))) ; end when
-    (if
-        (and 
-         (cl-loop
-          for ch across res
-          always
-          (and (characterp ch)
-               (let ((ch2 (logand ch (lognot ?\M-\^@))))
-                 (and
-                  (>= ch2 0) (<= ch2 127))))))
-        (concat
-         (cl-loop
-          for ch across res
-          collect
-          (if (= (logand ch ?\M-\^@) 0)
-              ch (+ ch 128))))
-      res)))
+    (cond
+     ((and
+       (cl-loop
+        for ch across res
+        always
+        (and (characterp ch)
+             (let ((ch2 (logand ch (lognot ?\M-\^@))))
+               (and
+                (>= ch2 0) (<= ch2 127))))))
+      (concat
+       (cl-loop
+        for ch across res
+        collect
+        (if (= (logand ch ?\M-\^@) 0)
+            ch (+ ch 128)))))
+     (t
+      res))))
 
 ;;; Tests:
 
