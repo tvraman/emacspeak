@@ -75,6 +75,7 @@ emacspeak-sounds.elc
 CORE_OBJECTS =  \
 emacspeak.elc \
 emacspeak-setup.elc \
+emacspeak-load-path.elc \
 emacspeak-advice.elc\
 emacspeak-keymap.elc\
 emacspeak-fix-interactive.elc\
