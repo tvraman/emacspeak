@@ -25,11 +25,6 @@
          ((string-match "^<<.+>>$" word)
 	  (setq key
                 (vconcat
-                 (if (eq (key-binding [?\M-x])
-			 'execute-extended-command)
-		     [?\M-x]
-		   (or (car (where-is-internal 'execute-extended-command))
-		       [?\M-x]))
 		 (substring word 2 -2) "\r")))
 	 ((and
            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
