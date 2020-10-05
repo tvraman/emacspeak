@@ -75,10 +75,6 @@
   "Directory holding XSL transformations.")
 
 ;;;###autoload
-(defvar emacspeak-curl-program (executable-find "curl")
-  "Name of CURL executable.")
-
-;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Directory containing miscellaneous files  for Emacspeak.")
@@ -102,6 +98,10 @@ such as pronunciation dictionaries are stored. ")
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
   "README file from where we get Git  revision number.")
+
+;;;###autoload
+(defvar emacspeak-curl-program (executable-find "curl")
+  "Name of CURL executable.")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
