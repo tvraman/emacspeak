@@ -109,6 +109,8 @@
 
 (let ((tests 
        '(
+         "<f1> SPC"
+         "<f1> <f2> TAB"
          "<f1> RET"
          "[f1]"
          "<f1>"
