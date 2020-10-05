@@ -77,8 +77,9 @@
                                       (logand (aref word 0) 31)))))
                   (t
                    (setq key (list (+ bits (aref word 0)))))))))
+        ;;; push key on to the result vector 
         (when key
-           (cl-callf vconcat res key)))) ; end while
+          (cl-callf vconcat res key)))) ; end while
     ;;; events now in vector res, now validate it
     (cond
      ((and
