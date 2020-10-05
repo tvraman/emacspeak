@@ -105,7 +105,6 @@
          (t (+ ch 128))))))
      (t res))))
 
-
 ;;; Tests:
 
 (let ((tests 
