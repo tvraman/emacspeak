@@ -2,7 +2,7 @@
 #$Id$
 #Description: Launch a TTS server on a remote host.
 #Copyright (C) 1995 -- 2011, T. V. Raman 
-# {{{  documentation
+#{{{  documentation
 
 # Running TTS server remotely.
 #Note that on modern  Linux installations,
@@ -17,7 +17,7 @@
 #In addition, you may need to ssh once by hand to get past the 
 #"do you want to continue connecting" question.
 
-# }}}
+#}}}
 set localhost [exec hostname]
 puts stderr "running on host <$localhost>"
 if [expr $argc == 0] {

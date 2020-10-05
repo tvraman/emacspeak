@@ -1,6 +1,6 @@
 #$Id$
-# {{{ LCD Entry: 
-#x
+#{{{ LCD Entry: 
+#
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
@@ -9,8 +9,8 @@
 # Location undetermined
 #
 
-# }}}
-# {{{ Copyright:
+#}}}
+#{{{ Copyright:
 
 #x
 #Copyright (C) 1995 -- 2007, T. V. Raman 
@@ -35,8 +35,8 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
-# }}}
-# {{{ sync state 
+#}}}
+#{{{ sync state 
 proc tts_sync_state {punct capitalize allcaps splitcaps rate} {
     tts_set_punctuations  $punct
     tts_capitalize  $capitalize
@@ -44,8 +44,8 @@ proc tts_sync_state {punct capitalize allcaps splitcaps rate} {
     tts_split_caps   $splitcaps
     tts_set_speech_rate  $rate
 } 
-# }}}
-# {{{ queue:
+#}}}
+#{{{ queue:
 
 #currently we use an inlined version of this test in speech_task
 
@@ -187,8 +187,8 @@ proc queue_restore {} {
     set tts(q_tail) $tail
 }
 
-# }}}
-# {{{sounds: 
+#}}}
+#{{{sounds: 
 
 #play a sound over the server
 proc p {sound} {
@@ -197,8 +197,8 @@ proc p {sound} {
     speech_task
 }
 
-# }}}
-# {{{beep  
+#}}}
+#{{{beep  
 
 #you need to have beep installed 
 
@@ -218,8 +218,8 @@ proc beep {{freq 523} {length 100}} {
 }
 
 
-# }}}
-# {{{self test 
+#}}}
+#{{{self test 
 
 proc tts_selftest {} {
      loop i 1 10 {
@@ -229,8 +229,8 @@ proc tts_selftest {} {
 }
 
 
-# }}}
-# {{{guessing os   and port 
+#}}}
+#{{{guessing os   and port 
 
 proc which_os {} {
 global env
@@ -287,8 +287,8 @@ proc which_port {{os Linux}} {
     return $port
 }
 
-# }}}
-# {{{tts setserial 
+#}}}
+#{{{tts setserial 
 
 proc tts_setserial {} {
     global tts
@@ -326,8 +326,8 @@ proc tts_setserial {} {
     fcntl $tts(write) nobuf 1
 }
 
-# }}}
-# {{{tts initialize  
+#}}}
+#{{{tts initialize  
 
 proc tts_initialize {} {
     global tts backup  queue env
@@ -370,8 +370,8 @@ proc tts_initialize {} {
     set tts(not_stopped) 1
 }
 
-# }}}
-# {{{ Emacs local variables  
+#}}}
+#{{{ Emacs local variables  
 
 ### Local variables:
 ### mode: tcl
@@ -379,4 +379,4 @@ proc tts_initialize {} {
 ### folded-file: t
 ### End:
 
-# }}}
+#}}}

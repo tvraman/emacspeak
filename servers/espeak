@@ -1,6 +1,6 @@
 #!/usr/bin/tclsh
 # Keywords: Emacspeak, eSpeak , TCL
-# {{{ LCD Entry: 
+#{{{ LCD Entry: 
 
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -10,8 +10,8 @@
 # Location undetermined
 #
 
-# }}}
-# {{{ Copyright:  
+#}}}
+#{{{ Copyright:  
 #Copyright (C) 1995 -- 2017, T. V. Raman 
 #All Rights Reserved
 #
@@ -31,16 +31,16 @@
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
-# }}}
-# {{{source common code 
+#}}}
+#{{{source common code 
 
 package require Tclx
 set wd [file dirname $argv0]
 source $wd/tts-lib.tcl
 
-# }}}
+#}}}
 
-# {{{ procedures  
+#{{{ procedures  
 
 # Language switching
 #
@@ -378,8 +378,8 @@ proc useStereoOutput {} {
     setOutput buffer
 }
 
-# }}}
-# {{{ speech task 
+#}}}
+#{{{ speech task 
 
 proc trackIndex {index} {
     global tts
@@ -492,8 +492,8 @@ set prefix "$text"
     return ""
 }
 
-# }}}
-# {{{clean 
+#}}}
+#{{{clean 
 
 #preprocess element before sending it out:
 proc clean {element} {
@@ -509,8 +509,8 @@ proc clean {element} {
     return $element
 }
 
-# }}}
-# {{{ Initialize and set state.
+#}}}
+#{{{ Initialize and set state.
 
 #do not die if you see a control-c
 signal ignore {sigint}
@@ -545,8 +545,8 @@ if $mswindows {
   commandloop
 }
 
-# }}}
-# {{{ Emacs local variables  
+#}}}
+#{{{ Emacs local variables  
 
 ### Local variables:
 ### mode: tcl
@@ -554,4 +554,4 @@ if $mswindows {
 ### folded-file: t
 ### End:
 
-# }}}
+#}}}
