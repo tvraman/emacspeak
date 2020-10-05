@@ -430,6 +430,7 @@ commands and options for details."
   (emacspeak-setup-programming-modes)
   (make-thread #'emacspeak-prepare-emacs)
   (global-visual-line-mode -1)
+  (transient-mark-mode -1)
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
 
