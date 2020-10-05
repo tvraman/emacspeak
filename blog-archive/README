@@ -16,6 +16,15 @@ wget -O raw.xml 'http://emacspeak.blogspot.com/feeds/posts/default?max-results=1
 
 articles.html: xsltproc ../xsl/atom-view.xsl raw.xml >articles.html
 
-As of 2020: the above wget command only retrieves the most recent 150 posts.
+Mon 05 Oct 2020 02:25:14 PM PDT
+
 
 file full.xml is being hand-constructed by appending missing past articles by hand, those retrieved from previous git snapshots of emacspeak.
+Going forward:
+
+  1. Pull raw.xml using wget.
+  2. Pick up newer <entry> elements from raw.xml and add to the front
+     of raw.xml
+  3. Generate articles.html
+
+  
