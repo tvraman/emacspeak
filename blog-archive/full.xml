@@ -23369,4 +23369,793 @@
       <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
     </author>
   </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-114057538920932076</id><published>
+      2006-02-21T18:29:00.000-08:00
+    </published>
+    <updated>2006-02-21T18:29:49.256-08:00</updated><title type='text'>
+      Emacspeak, SuDoKu And History 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Here is a small enhancement to &lt;a
+      
+      href=&quot;http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html&quot;&gt;playing
+      SuDoKu&lt;/a&gt; in Emacspeak.
+      The feature is probably generally useful  i.e., it&#39;s not specific
+      to eyes-free interaction,
+      but its presence encourages one to try different solution
+      strategies.&lt;/p&gt;
+      &lt;p&gt;Commands &lt;code&gt;emacspeak-sudoku-history-push&lt;/code&gt;
+      bound to
+      &lt;code&gt;m&lt;/code&gt; and 
+      &lt;code&gt;emacspeak-sudoku-history-pop&lt;/code&gt;
+      bound to &lt;code&gt;M&lt;/code&gt; allow one to
+      &lt;em&gt;mark&lt;/em&gt; interesting
+      states in the game and return to these prior states with a single
+      keystroke. This means that when one is confronted with  one of
+      two choices, with no apparent additional information on which 
+      route to take, it becomes possible to push that state on to the
+      history stack, try one of the alternatives and backtrack if
+      necessary.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114057538920932076'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114057538920932076'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-sudoku-and-history.html' title='Emacspeak, SuDoKu And History '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-114048639986049011</id><published>
+      2006-02-20T17:46:00.000-08:00
+    </published>
+    <updated>2006-02-20T17:46:39.903-08:00</updated><title type='text'>
+      Emacspeak And Voice Locking Using Aural CSS 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      
+      &lt;p&gt;This is slightly reformatted from what was posted to the
+      Emacspeak mailing list as separate message.&lt;/p&gt;
+      &lt;ol&gt;
+      &lt;li&gt;Emacspeak defines a number of voice overlays such as
+      &lt;code&gt;voice-bolden&lt;/code&gt;, and
+      &lt;code&gt;voice-lighten&lt;/code&gt; that can be applied to a
+      given voice to change what it sounds like.&lt;/li&gt;
+      
+      &lt;li&gt;Voice overlays are defined in terms of Aural CSS (&lt;a
+      href=&quot;http://www.w3.org/tr/css2/aural.html&quot;&gt;ACSS&lt;/a&gt;)
+      to
+      keep them independent of a specific TTS engine.&lt;/li&gt;
+      
+      &lt;li&gt;For each such overlay there is a corresponding
+      &lt;code&gt;&amp;lt;overlay-name&amp;gt;-settings&lt;/code&gt; variable
+      that can be customized via
+      custom.&lt;/li&gt;
+      
+      &lt;li&gt;The numbers in &lt;code&gt;voice-bolden-settings as an
+      example&lt;/code&gt;:&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;table border=&quot;2&quot; cellpadding=&quot;5&quot;&gt;
+      &lt;thead&gt;
+      &lt;tr&gt;
+      &lt;th&gt;Setting&lt;/th&gt;
+      &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;
+      &lt;td&gt;family&lt;/td&gt;
+      &lt;td&gt;nil&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;average-pitch&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;pitch-range&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;stress&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;richness&lt;/td&gt;
+      &lt;td&gt;nil&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+      &lt;td&gt;punctuation&lt;/td&gt;
+      &lt;td&gt;nil&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/tbody&gt;
+      &lt;/table&gt;
+      Unset values (&lt;code&gt;nil&lt;/code&gt;) show up as
+      &quot;unspecified&quot; in the customize
+      interface.
+      
+      &lt;ol&gt;
+      &lt;li&gt;Do not directly customize &lt;code&gt;voice-bolden&lt;/code&gt;
+      and friends, instead
+      customize the corresponding
+      &lt;code&gt;voice-bolden-settings&lt;/code&gt;, since that
+      ensures that all voices that are defined in terms of
+      &lt;code&gt;voice-bolden&lt;/code&gt; get correctly updated.&lt;/li&gt;
+      
+      &lt;li&gt;Discovering what to customize:&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;Command
+      &lt;code&gt;emacspeak-show-personality-at-point&lt;/code&gt; (bound by
+      default
+      to C-e M-v) will show you the value of properties personality and
+      face at point. A recent update I implemented last weekend makes
+      this more useful, so make sure you do a CVS update; earlier this
+      command used to display the ACSS setting --- now it displays the
+      abstract name. Describe-variable on these names should tell you
+      what to customize; so as an example:&lt;/p&gt;
+      
+      &lt;p&gt;Put point on a comment line, and hit &lt;code&gt;C-e
+      M-v&lt;/code&gt;:
+      you will hear&lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      Personality emacspeak-voice-lock-comment-personality
+      Face font-lock-comment-delimiter-face
+      &lt;/pre&gt;
+      
+      &lt;p&gt;Describe-variable of
+      &lt;code&gt;emacspeak-voice-lock-comment-personality&lt;/code&gt;
+      gives:&lt;/p&gt;
+      
+      &lt;pre class=&quot;example&quot;&gt;
+      emacspeak-voice-lock-comment-personality&#39;s value is acss-p0-s0-all
+      
+      Documentation:
+      Personality used for font-lock-comment-face
+      This personality uses  voice-monotone whose  effect can be changed
+      globally by customizing voice-monotone-settings.
+      
+      &lt;/pre&gt;
+      
+      
+      &lt;h3&gt;How It All Works&lt;/h3&gt;
+      
+      &lt;p class=&quot;first&quot;&gt;Here is a brief explanation of the
+      connection between
+      &lt;code&gt;voice-bolden&lt;/code&gt; and its associated
+      &lt;code&gt;voice-bolden-settings&lt;/code&gt;.&lt;/p&gt;
+      
+      
+      &lt;ol&gt;
+      &lt;li&gt;Voice  settings are initially in
+      &lt;code&gt;voice-bolden-settings&lt;/code&gt; which is a list
+      of numbers.&lt;/li&gt;
+      
+      &lt;li&gt;That list of numbers needs to be translated to appropriate
+      device-specific codes to send to the TTS engine.&lt;/li&gt;
+      
+      &lt;li&gt;You do not want to do this translation
+      &lt;em&gt;each&lt;/em&gt; time you
+      speak something.&lt;/li&gt;
+      
+      &lt;li&gt;So when &lt;code&gt;voice-bolden&lt;/code&gt; is defined, the
+      definition happens in
+      two steps:&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;The list of settings is stored away in
+      &lt;code&gt;voice-bolden-settings&lt;/code&gt;,&lt;/li&gt;
+      &lt;li&gt;A corresponding voice-name is generated ---
+      
+      &lt;code&gt;acss-a&amp;lt;n&amp;gt;-p&amp;lt;n&amp;gt;-r&amp;lt;n&amp;gt;-s&amp;lt;n&amp;gt;&lt;/code&gt; and the corresponding control codes to
+      send to the device are stored away in a hash-table keyed by the above
+      symbol.&lt;/li&gt;
+      
+      &lt;li&gt;Finally, &lt;code&gt;voice-bolden&lt;/code&gt; is assigned the
+      above symbol.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h3&gt;What this gives is:&lt;/h3&gt;
+      
+      &lt;ol&gt;
+      &lt;li&gt;The ability to customize the voice via custom by editting
+      the list of numbers in
+      &lt;code&gt;voice-bolden-settings&lt;/code&gt;&lt;/li&gt;
+      
+      &lt;li&gt;When that list is editted,
+      &lt;code&gt;voice-bolden&lt;/code&gt; is arranged to be
+      updated automatically.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;h3&gt;Other Useful Commands&lt;/h3&gt;
+      &lt;p&gt;In addition, commands
+      &lt;code&gt;emacspeak-wizards-generate-voice-sampler&lt;/code&gt; can be
+      useful in generating a buffer that shows what the various ACSS
+      settings sound like.
+      Command &lt;code&gt;emacspeak-wizards-voice-sampler&lt;/code&gt; can be
+      used
+      to apply a specific voice to a region of text while experimenting
+      with the various settings.&lt;/p&gt;
+      
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114048639986049011'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114048639986049011'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-and-voice-locking-using.html' title='Emacspeak And Voice Locking Using Aural CSS '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113970989256663836</id><published>
+      2006-02-11T18:04:00.000-08:00
+    </published>
+    <updated>2006-02-11T18:04:52.580-08:00</updated><title type='text'>Playing
+      SuDoKu Using Auditory Feedback 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Emacspeak speech-enables &lt;em&gt;SuDoKu&lt;/em&gt; implemented
+       by &lt;a
+      
+      href=&quot;http://www.columbia.edu/~jr2075/elisp/index.html&quot;&gt;sudoku.el&lt;/a&gt;.
+      Speech-enabling games is an effective means of discovering what
+      additions one needs to make to an auditory interface for
+      working effectively in an eyes-free environment --- this was
+      aptly demonstrated a few years ago by identifying interesting
+      &lt;em&gt;conversational gestures&lt;/em&gt; by speech-enabling the game
+      of
+      &lt;code&gt;Tetris&lt;/code&gt; --- see  &lt;a
+      
+      href=&quot;http://emacspeak.sourceforge.net/raman/publications/assets-98/paper.pdf&quot;&gt;Conversational
+      Gestures For The Audio Desktop&lt;/a&gt; from Assets 1998.&lt;/p&gt;
+      
+      
+      &lt;h4&gt;Advicing Interactive Commands&lt;/h4&gt;
+      &lt;p&gt;As with speech-enabling any Emacs module,
+      &lt;code&gt;emacspeak-sudoku&lt;/code&gt; &lt;em&gt;advices&lt;/em&gt;
+      all interactive
+      commands to produce spoken feedback.
+      In addition to speaking the cell moved to, all navigation
+      commands produce an auditory icon that is a function of whether
+      the cell value is mutable ---  original values cannot be changed
+      and this is indicated with a distinctive icon.&lt;/p&gt;
+      
+      &lt;h4&gt;Additional Interactive Commands&lt;/h4&gt;
+      
+      &lt;p&gt;Playing SuDoKu effectively requires one to build a good mental
+      image of the state of the board as well as the ability to
+      effectively query the game for currently active constraints. The
+      eye&#39;s ability to  quickly move around the board and perceive row,
+      column and sub-square constraints needs to be compensated for in
+      an eyes-free environment. As an example, it is too difficult to
+      build the necessary mental model by just listening to the board
+      spoken aloud, or by listening to idnividual cells by navigating
+      to them.&lt;/p&gt;
+      
+      &lt;p&gt;Here are the set of additional interactive commands that
+      needed to be added in order to be able to play the game
+      effectively.&lt;/p&gt;
+      
+      &lt;dl&gt;
+      &lt;dt&gt;&lt;code&gt;r&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speak current row.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;c&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speak current column&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;s&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speak current sub-square.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;R&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speak number of remaining cells in current row.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;C&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speak number of remaining cells in current column.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;S&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speak number of remaining cells in current
+      sub-square.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;d&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the sub-square below the current sub-square.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;u&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the sub-square above the current sub-square.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;n&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the next sub-square.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;p&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the previous sub-square.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;a&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the beginning of current row.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;e&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the end of the current row.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;t&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the top of the current column.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;b&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Move to the bottom of the current column.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;,&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speaks information about the overall
+      &lt;em&gt;distribution&lt;/em&gt; of
+      numbers on the board.
+      &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;d&lt;/code&gt; --- Conveys how many instances of
+      each digit
+      have been filled in.&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;s&lt;/code&gt; --- Conveys number of remaining
+      cells in each
+      sub-square.&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;r&lt;/code&gt; --- Conveys number of remaining
+      cells in each
+      row.&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;c&lt;/code&gt; --- Conveys number of remaining
+      cells in each
+      column.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;/&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speaks number of remaining cells in the current
+      board.&lt;/dd&gt;
+      &lt;dt&gt;&lt;code&gt;.&lt;/code&gt;&lt;/dt&gt;
+      &lt;dd&gt;Speaks value in current cell.&lt;/dd&gt;
+      &lt;/dl&gt;
+      
+      &lt;p&gt;Notes on how invormation is spoken:&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;Numbers are spoken in groups of 3 to achieve effective
+      intonation.&lt;/li&gt;
+      &lt;li&gt;When navigating by sub-squares, point
+      &lt;em&gt;always&lt;/em&gt; moves
+      to the top left corner of the sub-square.&lt;/li&gt;
+      &lt;li&gt;Additional commands bound to &lt;code&gt;M-r&lt;/code&gt;,
+      &lt;code&gt;M-c&lt;/code&gt; and &lt;code&gt;M-s&lt;/code&gt; erase the
+      current row,
+      column or sub-square respectively. These commands would probably
+      be convenient to have independent of whether one is using visual
+      output.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;h4&gt;Effectiveness Of The Resulting Interface&lt;/h4&gt;
+      
+      &lt;p&gt;With the above interface in place, the simpler levels of the
+      game are a breeze, levels &lt;em&gt;difficult&lt;/em&gt; and
+      &lt;em&gt;evil&lt;/em&gt;
+      are sufficiently challenging to be fun.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113970989256663836'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113970989256663836'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html' title='Playing SuDoKu Using Auditory Feedback '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113842396545550696</id><published>
+      2006-01-27T20:52:00.000-08:00
+    </published>
+    <updated>2006-01-27T20:52:45.470-08:00</updated><title type='text'>Browsing
+      Sourceforge Download Servers 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Sourceforge is a nice service, but it can also be painful to
+      use because of the heavy-weight Web page design, and the need to
+      repeatedly click before you get the download you want.&lt;/p&gt;
+      &lt;p&gt;The most irksome of these is the download mechanism provided
+      by Sourceforge --- where you first need to browse a list of
+      download servers, pick a mirror, and then download what you
+      want. 
+      Emacspeak implements a &lt;em&gt;Smart URL&lt;/em&gt; that enables one to
+      download from Sourceforge in a single step.&lt;/p&gt;
+      &lt;p&gt;By default, this uses a North American mirror; the behavior
+      can be customized if outside the US.
+      Use &lt;em&gt;smart URL&lt;/em&gt; &lt;code&gt;Sourceforge Browse
+      Mirror&lt;/code&gt; and
+      specify the name of a SF hosted project when prompted.
+      This brings up the index page for the project&#39;s download area,
+      sorted by date. Move to the bottom of the page and   hit
+      &lt;code&gt;b&lt;/code&gt; to move to the latest available
+      download.&lt;/p&gt;
+      &lt;p&gt;The &lt;em&gt;smart URL&lt;/em&gt; sets up the W3 buffer with a
+      context-sensitive download function; when on a download link, hit
+      &lt;code&gt;C-d&lt;/code&gt;
+      to start downloading. This command will prompt for the URL;
+      rather than hitting &lt;code&gt;return&lt;/code&gt; (which would bring
+      you to
+      the &lt;em&gt;browse mirrors&lt;/em&gt; page, hit
+      &lt;code&gt;M-p&lt;/code&gt; to get the
+      download URL for your  SF mirror.
+      Note that this wizard uses &lt;code&gt;GNU wget&lt;/code&gt; to perform
+      the
+      download
+      via Emacs module &lt;code&gt;w3-wget&lt;/code&gt;.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842396545550696'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842396545550696'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/browsing-sourceforge-download-servers.html' title='Browsing Sourceforge Download Servers '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113842342844647994</id><published>
+      2006-01-27T20:43:00.000-08:00
+    </published>
+    <updated>2006-01-27T20:43:48.903-08:00</updated><title type='text'>BBC
+      Channels On Emacspeak 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Since the BBC&#39;s various channels are what I listen to the
+      most, launching BBC channels has always been a couple of
+      keystrokes in Emacspeak. As a first step, directory
+      &lt;code&gt;realaudio/radio&lt;/code&gt; contains shortcut files for
+      launching  live streams from the various BBC channels.&lt;/p&gt;
+      &lt;p&gt;
+      In addition, module &lt;code&gt;emacspeak-url-template&lt;/code&gt;
+      defines a
+      number of &lt;em&gt;Smart URLs&lt;/em&gt; for single-click access to BBC
+      programs. The ones I use the most are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;em&gt;Smart URL&lt;/em&gt; &lt;code&gt;BBC Channels On
+      Demand&lt;/code&gt;, and &lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;Smart URL&lt;/em&gt; &lt;code&gt;BBC Genres On
+      Demand&lt;/code&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;
+      These &lt;em&gt;smart URLs&lt;/em&gt; prompt for the channel or genre
+      respectively and bring up a Web page that lists the various shows
+      that are available --- note that the BBC archives shows for a
+      whole week.
+      The resulting Web page is easy to browse in W3; the most
+      effective way to skim the buffer is to repeatedly hit
+      &lt;code&gt;i&lt;/code&gt; which moves through the various items on the
+      page.
+      Hitting &lt;code&gt;e e&lt;/code&gt; (that&#39;s the letter
+      &lt;code&gt;e&lt;/code&gt;
+      &lt;em&gt;twice&lt;/em&gt;) while on a hyperlink will launch the
+      corresponding media stream by calling   a
+      &lt;em&gt;context-aware&lt;/em&gt;
+      command that knows about transforming the URL to one that
+      accesses the program stream; --- note that simply following the
+      hyperlink will get you first to a page about the program, rather
+      than to the program stream itself.&lt;/p&gt;
+      &lt;p&gt;To find out what channels and genres are available, browse the
+      BBC Web site --- channel and genre names are not hard-wired into
+      Emacspeak since these can change over time with channels and
+      genres being added or renamed.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113842342844647994'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/bbc-channels-on-emacspeak.html' title='BBC Channels On Emacspeak '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113832891320852876</id><published>
+      2006-01-26T18:28:00.000-08:00
+    </published>
+    <updated>2006-01-26T18:28:33.273-08:00</updated><title type='text'>
+      Emacspeak World Clock For Timezone Travel 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Command &lt;code&gt;emacspeak-speak-time&lt;/code&gt; bound to
+      &lt;code&gt;C-e
+      t&lt;/code&gt; speaks the current time. 
+      An additional convenience offered by this keystroke is to get the
+      time at a specified time zone using Emacs&#39; completion
+      facility. &lt;/p&gt;
+      &lt;p&gt;To use this feature, simply precede  the keystroke with an
+      &lt;code&gt;interactive prefix arg&lt;/code&gt; i.e., use &lt;code&gt;C-u
+      C-e
+      t&lt;/code&gt;.
+      This will prompt for the timezone in the minibuffer. Using two
+      &lt;code&gt;C-u C-u&lt;/code&gt; will set the  default timezone after
+      speaking the time --- a useful way of avoiding jet-lag as you
+      travel.&lt;/p&gt;
+      
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113832891320852876'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113832891320852876'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-world-clock-for-timezone.html' title='Emacspeak World Clock For Timezone Travel '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113795676485627531</id><published>
+      2006-01-22T11:06:00.000-08:00
+    </published>
+    <updated>2006-01-22T11:06:05.263-08:00</updated><title type='text'>
+      Emacspeak Web Wizards: Obtaining Context From The Calendar 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Emacspeak implements a number of &lt;code&gt;smart
+      URLs&lt;/code&gt; in
+      module &lt;code&gt;emacspeak-url-template.el&lt;/code&gt; --- see earlier
+      post on &lt;a
+      
+      href=&quot;http://emacspeak.blogspot.com/2005/12/emacspeak-web-tricks-web-command-line.html&quot;&gt;Web
+      Command Line&lt;/a&gt;. Many of these &lt;code&gt;smart URLs&lt;/code&gt;
+      prompt
+      the user for the date, e.g. you can use &lt;code&gt;smart
+      URL&lt;/code&gt;&lt;em&gt;NPR On Demand&lt;/em&gt; to play  archived NPR
+      shows.
+      &lt;/p&gt;
+      &lt;p&gt;The most intuitive means of specifying a date is of course
+      using a &lt;code&gt;calendar&lt;/code&gt; that functions as a
+      &lt;em&gt;date-picker&lt;/em&gt;, and Emacs has a very powerful built-in
+      calendar. Emacspeak ties these two together by arranging for
+      commands that prompt for a date to use the &lt;em&gt;current
+      date&lt;/em&gt;
+      in the  Emacs Calendar as the default. So the easiest way to play
+      &lt;em&gt;NPR Morning Edition&lt;/em&gt; for  &lt;em&gt;Monday, January
+      2, 2006&lt;/em&gt;
+      is to do the following:
+      &lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;Switch to the Emacs Calendar and move to the desired date
+      &lt;em&gt;Monday January 2, 2006&lt;/em&gt; by pressing
+      &lt;code&gt;gd&lt;/code&gt;.
+      &lt;/li&gt;
+      &lt;li&gt;Invoke the &lt;em&gt;NPR On Demand&lt;/em&gt; &lt;code&gt;smart
+      URL&lt;/code&gt; by
+      pressing &lt;code&gt;C-e u RET NPR  RET&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Specify the program code for &lt;em&gt;Morning
+      Edition&lt;/em&gt; by
+      pressing &lt;code&gt;me RET &lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt; Hit enter to pick the default date that is offered in the
+      minibuffer.&lt;/li&gt;
+      &lt;li&gt;Sit back and listen ...&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113795676485627531'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-web-wizards-obtaining.html' title='Emacspeak Web Wizards: Obtaining Context From The Calendar '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113755198213159076</id><published>
+      2006-01-17T18:39:00.000-08:00
+    </published>
+    <updated>2006-01-17T18:39:42.490-08:00</updated><title type='text'>Viewing
+      Atom Feeds Within Emacspeak 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;The most effective way of viewing Atom Feeds in Emacspeak is
+      to use command &lt;code&gt;emacspeak-atom-display&lt;/code&gt; and
+      specifying
+      the URL of the feed when prompted. Thus, &lt;code&gt;M-x
+      emacspeak-atom-display RET
+      http://emacspeak.blogspot.com/atom.xml&lt;/code&gt; displays a Web page
+      generated from the Emacspeak Blog.&lt;/p&gt;
+      &lt;p&gt;Notice the following in the generated Web page:&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;It starts with a navigable table of contents.&lt;/li&gt;
+      &lt;li&gt;Each Blog entry has a  link labeled
+      &lt;code&gt;edit&lt;/code&gt; next to
+      it.&lt;/li&gt;
+      &lt;li&gt;Each Blog entry ends with a link labeled
+      &lt;code&gt;Bookmark&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;There is a link labeled &lt;code&gt;Post&lt;/code&gt; at the
+      top of the
+      page.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;The above links help you easily create and edit posts to the
+      Blog if you have write access using commands provided by module
+      &lt;code&gt;atom-blogger&lt;/code&gt;.
+      Eventually, I may add commands to these hyperlinks to
+      automatically invoke the appropriate command from
+      &lt;code&gt;atom-blogger&lt;/code&gt;; for now, I find it  sufficiently
+      convenient to copy the URL under point to the
+      &lt;code&gt;kill-ring&lt;/code&gt; and later yank it back into the
+      minibuffer
+      when prompted by &lt;code&gt;atom-blogger&lt;/code&gt;.&lt;/p&gt;
+      &lt;p&gt;Finally, note that this and subsequent posts to this Blog will
+      show  up automatically on the &lt;a
+      
+      href=&quot;http://www.cs.vassar.edu/~priestdo/emacspeak/&quot;&gt;Emacspeak
+      Mailing List&lt;/a&gt; at Vassar.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113755198213159076'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113755198213159076'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/viewing-atom-feeds-within-emacspeak.html' title='Viewing Atom Feeds Within Emacspeak '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113752981092887635</id><published>
+      2006-01-17T12:30:00.000-08:00
+    </published>
+    <updated>2006-01-17T12:39:36.013-08:00</updated><title type='text'>Viewing
+      Formatted Source Code In Emacs/W3 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;div&gt;
+      &lt;p&gt;While reading online texts on programming in Python and Ruby,
+      I noticed that Emacspeak was not announcing indented lines in
+      preformatted source-code examples, even with &lt;code&gt;audio
+      indentation&lt;/code&gt; turned on.
+      The reason is that many of these texts use an HTML non-breaking
+      space for indentation, and though W3 was rendering these
+      correctly, the default syntax table in W3 had not defined the
+      resulting &lt;code&gt;octal 240&lt;/code&gt; to be of class
+      white-space. Consequently, Emacspeak&#39;s audio indentation code was
+      not treating the non-breaking space as white space.&lt;/p&gt;
+      &lt;p&gt;I&#39;ve checked in a patch to
+      &lt;code&gt;emacspeak-w3.el&lt;/code&gt; that
+      modifies the syntax table in &lt;code&gt;w3-mode&lt;/code&gt;
+      by adding the appropriate lines to &lt;code&gt;w3-mode-hook&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113752981092887635'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113752981092887635'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/viewing-formatted-source-code-in.html' title='Viewing Formatted Source Code In Emacs/W3 '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113726801747885464</id><published>
+      2006-01-14T11:46:00.000-08:00
+    </published>
+    <updated>2006-01-14T11:46:57.486-08:00</updated><title type='text'>
+      Speech-Enabled ATOM-Blogger 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;
+      Module &lt;code&gt;atom-blogger&lt;/code&gt; is a light-weight Emacs
+      client
+      for creating or editting &lt;em&gt;blogger&lt;/em&gt; posts using ATOM.
+      Emacspeak bundles &lt;code&gt;atom-blogger&lt;/code&gt; and
+      speech-enables it
+      via module &lt;code&gt;emacspeak-atom-blogger&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;p&gt;Module &lt;code&gt;emacspeak-setup.el&lt;/code&gt; has been
+      updated to set
+      up the Emacs&#39; &lt;code&gt;load-path&lt;/code&gt; to locate package
+      &lt;code&gt;atom-blogger&lt;/code&gt;, so if correctly installed,
+      Emacspeak
+      users should be able to launch and use
+      &lt;code&gt;atom-blogger&lt;/code&gt;
+      with no further configuration.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113726801747885464'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113726801747885464'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/speech-enabled-atom-blogger_14.html' title='Speech-Enabled ATOM-Blogger '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113707573746854118</id><published>
+      2006-01-12T06:22:00.000-08:00
+    </published>
+    <updated>2006-01-12T06:22:17.530-08:00</updated><title type='text'>
+      Emacspeak And Ruby 
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;Emacspeak now speech-enables ruby-mode to support developing
+      Web applications using &lt;code&gt;Ruby On Rails&lt;/code&gt;.
+      I presently use &lt;code&gt;nxml-mode&lt;/code&gt; for editing the
+      &lt;code&gt;.rhtml&lt;/code&gt; files, but am looking for an alternative
+      to
+      using multi-mode or its variants when editing the embedded Ruby
+      code.
+      Sadly, one has to turn off &lt;code&gt;nxml-mode&lt;/code&gt;&#39;s
+      validity
+      checking while editing &lt;code&gt;.rhtml&lt;/code&gt; files ---
+      otherwise it
+      complains about the &lt;code&gt;&amp;lt;%&lt;/code&gt; directives.
+      &lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113707573746854118'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113707573746854118'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-and-ruby.html' title='Emacspeak And Ruby '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113622417010298115</id><published>
+      2006-01-02T09:49:00.000-08:00
+    </published>
+    <updated>2006-01-02T09:49:33.126-08:00</updated><title type='text'>
+      Emacspeak Wizard: Recording Audio Streams For Later Playback
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;
+      Emacspeak includes  a large collection of wizards implemented in
+      module &lt;code&gt;emacspeak-wizards.el&lt;/code&gt;
+      One of these ---&lt;code&gt;emacspeak-wizrds-rivo&lt;/code&gt;  works
+      hand-in-hand with script &lt;code&gt;etc/rivo.pl&lt;/code&gt;
+      to provide a simple &lt;strong&gt;record for later
+      playback&lt;/strong&gt;        facility that can be used to record live
+      realaudio streams for
+      future playback. This is useful for  listening to live broadcasts
+      at a more convenient time.&lt;/p&gt;
+      &lt;p&gt;Wizard &lt;code&gt;emacspeak-wizrds-rivo&lt;/code&gt; prompts
+      for the time
+      at which to record, the length of the recording, the stream to
+      record, and the location in which the recording is to be stored.
+      It then uses command &lt;code&gt;trplayer&lt;/code&gt; (text-mode
+      RealPlayer)
+      with command  &lt;code&gt;vsound&lt;/code&gt;
+      to capture the audio stream, and  converts the result to MP3
+      using command &lt;code&gt;lame&lt;/code&gt;.
+      ToDo: With &lt;code&gt;mplayer&lt;/code&gt; now able to play RealAudio
+      streams, the &lt;code&gt;etc/rivo.pl&lt;/code&gt; script should be
+      updated to
+      use &lt;code&gt;mplayer&lt;/code&gt; since this will :&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;Remove the &lt;code&gt;vsound&lt;/code&gt;
+      dependency.&lt;/li&gt;
+      &lt;li&gt;Enable us to record more than just RealAudio
+      streams.&lt;/li&gt;      &lt;/ul&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113622417010298115'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/113622417010298115'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/01/emacspeak-wizard-recording-audio.html' title='Emacspeak Wizard: Recording Audio Streams For Later Playback'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
 </feed>
