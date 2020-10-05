@@ -165,7 +165,7 @@ startup sound."
   "Customize my emacs.
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
-               outline-mode-prefix-map outline-minor-mode-prefix))
+                       outline-mode-prefix-map outline-minor-mode-prefix))
   (setq outline-minor-mode-prefix (kbd "C-o"))
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
@@ -210,6 +210,7 @@ Use Custom to customize where possible. "
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
   (tvr-set-color-for-today)
+  (make-thread #'(lambda nil (load (tvr-time-load (load "eww")))))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
