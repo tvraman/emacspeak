@@ -1,9 +1,10 @@
 (defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function."
-  (let ((case-fold-search nil)
-	(len (length string)) ; We won't alter string in the loop below.
-	(pos 0)
-	(res []))
+  (let
+      ((case-fold-search nil)
+       (len (length string)) ; We won't alter string in the loop below.
+       (pos 0)
+       (res []))
     (while
         (and (< pos len)
 	     (string-match "[^ \t\n\f]+" string pos))
