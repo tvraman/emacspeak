@@ -8,7 +8,7 @@
     (while
 ;;; tokenize by white-space into vector res
         (and (< pos len)
-             (string-match "[^ \t\n\f]+" string pos))
+             (string-match "[^ \t\n\f]+" string pos)) ;tokenizer  test
       (let* ((word-beg (match-beginning 0))
              (word-end (match-end 0))
              (word (substring string word-beg len))
@@ -25,17 +25,19 @@
          ((and
            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
            (progn
-             (setq word (concat (substring word (match-beginning 1)
-                                           (match-end 1))
-                                (substring word (match-beginning 3)
-                                           (match-end 3))))
+             (setq word
+                   (concat (substring word (match-beginning 1) (match-end 1))
+                           (substring word (match-beginning 3) (match-end 3))))
              (not (string-match
                    "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
                    word))))
           (setq key (list (intern word))))
          (t
-          (let ((orig-word word) (prefix 0) (bits 0))
-            (while (string-match "^[ACHMsS]-." word)
+          (let ((orig-word word)
+                (prefix 0)
+                (bits 0))
+            (while
+                (string-match "^[ACHMsS]-." word)
               (cl-incf bits (cdr (assq (aref word 0)
                                        '((?A . ?\A-\^@) (?C . ?\C-\^@)
                                          (?H . ?\H-\^@) (?M . ?\M-\^@)
@@ -46,10 +48,15 @@
               (cl-incf bits ?\C-\^@)
               (cl-incf prefix)
               (cl-callf substring word 1))
-            (let ((found (assoc word '(("NUL" . "\0") ("RET" . "\r")
-                                       ("LFD" . "\n") ("TAB" . "\t")
-                                       ("ESC" . "\e") ("SPC" . " ")
-                                       ("DEL" . "\177")))))
+            (let ((found
+                   (assoc word
+                          '(("NUL" . "\0")
+                            ("RET" . "\r")
+                            ("LFD" . "\n")
+                            ("TAB" . "\t")
+                            ("ESC" . "\e")
+                            ("SPC" . " ")
+                            ("DEL" . "\177")))))
               (when found (setq word (cdr found))))
             (when (string-match "^\\\\[0-7]+$" word)
               (cl-loop for ch across word
