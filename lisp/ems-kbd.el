@@ -112,7 +112,9 @@
          "H-a"
          "C-;"
          "A-a"
-         "M-C-a"))
+         "M-C-a"
+         "S-H-a"
+         "A-H-a"))
       (restult nil))
   (setq result
         (cl-loop
