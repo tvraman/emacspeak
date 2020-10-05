@@ -79,9 +79,7 @@
                   (t
                    (setq key (list (+ bits (aref word 0)))))))))
         (when key
-          (cl-loop
-           repeat times do
-           (cl-callf vconcat res key))))) ; end while
+           (cl-callf vconcat res key)))) ; end while
     ;;; events now in vector res, now validate it
     (cond
      ((and
