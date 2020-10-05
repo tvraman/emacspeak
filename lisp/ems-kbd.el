@@ -140,7 +140,7 @@
          "M-C-a"
          "S-H-a"
          "A-H-a"))
-      (restult nil))
+      (result nil))
   (setq result
         (cl-loop
          for test in tests
