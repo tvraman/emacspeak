@@ -214,10 +214,6 @@ Use Custom to customize where possible. "
   (setq custom-file (expand-file-name "~/.customize-emacs"))
   (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
-(defsubst tvr-defer-muggles ()
-  "Defered muggles loader."
-  (tvr-time-load (load "emacspeak-muggles")))
-
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
 ;;; load  library-specific settings, customize, then start things.
@@ -226,7 +222,7 @@ Use Custom to customize where possible. "
       (load tvr-libs)) ;;; load  settings   not  customizable via custom.
   (tvr-customize)      ;;; customizations
   (with-eval-after-load 'yasnippet (yas-reload-all))
-  (tvr-defer-muggles)
+  (tvr-time-load (load "emacspeak-muggles"))
   (when (dbus-list-known-names :session)
     (make-thread #'emacspeak-dbus-setup))
   (soundscape-toggle)
