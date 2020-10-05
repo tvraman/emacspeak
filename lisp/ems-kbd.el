@@ -5,7 +5,7 @@
        (len (length string)) ; We won't alter string in the loop below.
        (pos 0)
        (res []))
-    (while
+    (while ; tokenize by white-space
         (and (< pos len)
 	     (string-match "[^ \t\n\f]+" string pos))
       (let* ((word-beg (match-beginning 0))
@@ -110,6 +110,8 @@
 
 (let ((tests 
        '(
+         "<f1>"
+         "<F2>"
          "C-x" 
          "C-x C-f" 
          "C-x 4 C-f" 
@@ -147,3 +149,5 @@
    ((null result) (message "All tests passed."))
    (t (message "%s tests failed." (length result))
       result)))
+ 
+ 
