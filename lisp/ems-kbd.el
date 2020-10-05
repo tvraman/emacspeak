@@ -108,6 +108,9 @@
 
 (let ((tests 
        '(
+         "DEL"
+         "ESC m"
+         "ESC C-a"
          "<f1> SPC"
          "<f1> <f2> TAB"
          "<f1> RET"
