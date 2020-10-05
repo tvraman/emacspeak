@@ -1,4 +1,4 @@
-articles.html: raw.xml
+articles.html: full.xml
 	xsltproc ../xsl/atom-view.xsl full.xml >articles.html
 
 raw.xml:

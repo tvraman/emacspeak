@@ -24158,4 +24158,145 @@
       <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
     </author>
   </entry>
+<entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113605677499310089</id><published>
+      2005-12-31T11:19:00.000-08:00
+    </published>
+    <updated>2005-12-31T11:19:35.036-08:00</updated><title type='text'>Emacs
+      Tip: Viewing Commands Available On A Prefix Key
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;
+      Emacs, and consequently Emacspeak, uses a number of multi-key
+      sequences. The initial key that makes up such a multi-key
+      sequence --- AKA the &lt;code&gt;prefix-key&lt;/code&gt;
+      that leads to all Emacspeak commands is &lt;code&gt;C-e&lt;/code&gt;
+      (&lt;code&gt;control-e)&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;p&gt;Pressing any &lt;code&gt;prefix-key&lt;/code&gt; followed by the
+      &lt;code&gt;help-key&lt;/code&gt; (&lt;code&gt;C-h&lt;/code&gt;) results
+      in Emacs
+      displaying a &lt;strong&gt;*Help*&lt;/strong&gt; buffer that lists all
+      key-sequences beginning with that prefix. &lt;/p&gt;
+      
+      &lt;p&gt;This can be a very useful way of quickly seeing what keyboard
+      commands are available ---  as  the resulting listing is 
+      shorter than what is produced by &lt;code&gt;C-h b&lt;/code&gt; (command
+      describe-bindings) which lists all key-bindings.
+      &lt;/p&gt;
+      &lt;p&gt;To  use this feature to review Emacspeak&#39;s
+      key-bindings, I have now moved command
+      &lt;code&gt;emacspeak-learn-emacs-mode&lt;/code&gt; to &lt;code&gt;C-h
+      C-l&lt;/code&gt;
+      and &lt;code&gt;C-e F1&lt;/code&gt;
+      from its original key-binding of &lt;code&gt;C-e C-h&lt;/code&gt;  ---
+      thechange is checked into CVS.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/113605677499310089'/>
+    <link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/113605677499310089'/>
+    <link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2005/12/emacs-tip-viewing-commands-available.html' title='Emacs Tip: Viewing Commands Available On A Prefix Key'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113596114050756312</id><published>
+      2005-12-30T08:45:00.000-08:00
+    </published>
+    <updated>2006-01-01T13:25:05.803-08:00</updated><title type='text'>Using
+      The New MPlayer With ALSA Support &#xa;
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;
+      New versions of the Linux &lt;code&gt;mplayer&lt;/code&gt;
+      can now play RealMedia files in addition to the various DVD and Windows
+      audio and video streams.
+      As an added bonus, &lt;code&gt;mplayer&lt;/code&gt; can be built to use
+      ALSA ---(note that default RPMs available on the Web still default to OSS
+      as of December 2006).
+      This, with the additional support for  newer RealMedia formats has
+      finally caused me to switch away from &lt;code&gt;trplayer&lt;/code&gt;
+      a---a command line RealPlayer that was built against RealPlayer
+      8.0&lt;/p&gt;
+      &lt;p&gt;Note that building &lt;code&gt;mplayer&lt;/code&gt; from source
+      to include ALSA support, and locating all the  codecs you need will
+      require a few Google searches. Specifically, to play NPR streams, you
+      will need to grab &lt;code&gt;avisynth.dll&lt;/code&gt; from the
+      SourceForge project of the same name. But once this is done,
+      &lt;code&gt;mplayer&lt;/code&gt; will happily play multiple streams of
+      audio without requiring multichannel support from the sound card. For
+      Emacspeak users this means that you get auditory icons, and more
+      importantly software TTS while listening to audio streams.&lt;/p&gt;
+      &lt;p&gt;
+      To use software TTS while &lt;code&gt;mplayer&lt;/code&gt; is playing
+      audio streams requires that you use a TTS server that uses ALSA; the
+      default Emacspeak servers still use OSS.
+      To build a TTS server for IBM ViaVoice TTS, obtain Emacspeak sources from
+      CVS, and follow the instructions in file
+      &lt;code&gt;servers/linux-outloud/ALSA&lt;/code&gt;.
+      &lt;/p&gt;
+      &lt;p&gt;As of a few weeks ago, The Emacspeak CVS repository has been
+      updated so that all access to streaming media goes through
+      &lt;code&gt;mplayer&lt;/code&gt; by default.  Make sure to configure your
+      &lt;code&gt;mplayer&lt;/code&gt; with a smaller cache size if you use it
+      exclusively for streaming audio; by default it uses a rather
+      large cache, and streaming realaudio often takes a long time to
+      start before the cache is configured to be something smaller; I
+      use a cache size of &lt;code&gt;64kb&lt;/code&gt; on my laptop.&lt;/p&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/113596114050756312'/>
+    <link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/113596114050756312'/>
+    <link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2005/12/using-new-mplayer-with-alsa-support.html' title='Using The New MPlayer With ALSA Support &#xa;'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-113589454437902784</id><published>
+      2005-12-29T14:15:00.000-08:00
+    </published>
+    <updated>2006-01-01T13:25:53.083-08:00</updated><title type='text'>Blogging
+      From Inside Emacs&#xa;  
+    </title>
+    <content type='html'>&lt;div
+      xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      
+      &lt;p&gt;
+      I&#39;m posting this using a bare-boned
+      &lt;code&gt;atom-blogger&lt;/code&gt; that I implemented this morning.
+      It uses &lt;code&gt;curl&lt;/code&gt; to  process the HTTP Post
+      Request.&lt;/p&gt;
+      &lt;h3&gt;Editting Previous Entries&lt;/h3&gt;
+      &lt;p&gt;What&#39;s more, the bare-bones atom-blogger can now edit
+      previous posts.
+      This is done by getting the desired entry, filtering it for elements that
+      should not be present when submitting updates, and adding a
+      &lt;code&gt;generator&lt;/code&gt; element --- all of these steps are
+      required by the Blogger API.
+      Unwanted elements are filtered out using
+      &lt;code&gt;xsltproc&lt;/code&gt;.
+      &lt;/p&gt;
+      
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/113589454437902784'/>
+    <link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/113589454437902784'/>
+    <link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2005/12/blogging-from-inside-emacs.html' title='Blogging From Inside Emacs&#xa;  '/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
 </feed>

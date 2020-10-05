@@ -499,6 +499,17 @@ Reader
 <li><a href="#idm2273">
       Emacspeak Wizard: Recording Audio Streams For Later Playback
     </a></li>
+<li><a href="#idm2287">Emacs
+      Tip: Viewing Commands Available On A Prefix Key
+    </a></li>
+<li><a href="#idm2301">Using
+      The New MPlayer With ALSA Support 
+
+    </a></li>
+<li><a href="#idm2315">Blogging
+      From Inside Emacs
+  
+    </a></li>
 </ol>
 <h2><a name="idm19" id="idm19">
       Searching GMail From GNUS
@@ -23667,6 +23678,131 @@ Reader
 </tr></TABLE>
 <p><em><a href="http://www.blogger.com/profile/03589687652590194428%0A%20%20%20%20%20%20">T. V. Raman</a></em> at </p>
       2006-01-02T09:49:00.000-08:00
+    <h2><a name="idm2287" id="idm2287">Emacs
+      Tip: Viewing Commands Available On A Prefix Key
+    </a></h2>
+<div>
+<br><div
+      xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+      Emacs, and consequently Emacspeak, uses a number of multi-key
+      sequences. The initial key that makes up such a multi-key
+      sequence --- AKA the <code>prefix-key</code>
+      that leads to all Emacspeak commands is <code>C-e</code>
+      (<code>control-e)</code>.
+      </p>
+      <p>Pressing any <code>prefix-key</code> followed by the
+      <code>help-key</code> (<code>C-h</code>) results
+      in Emacs
+      displaying a <strong>*Help*</strong> buffer that lists all
+      key-sequences beginning with that prefix. </p>
+      
+      <p>This can be a very useful way of quickly seeing what keyboard
+      commands are available ---  as  the resulting listing is 
+      shorter than what is produced by <code>C-h b</code> (command
+      describe-bindings) which lists all key-bindings.
+      </p>
+      <p>To  use this feature to review Emacspeak's
+      key-bindings, I have now moved command
+      <code>emacspeak-learn-emacs-mode</code> to <code>C-h
+      C-l</code>
+      and <code>C-e F1</code>
+      from its original key-binding of <code>C-e C-h</code>  ---
+      thechange is checked into CVS.</p>
+      </div>
+    </div>
+<TABLE><tr>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/113605677499310089">[Edit]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/113605677499310089">[Self]</a></td>
+<td><a href="http://emacspeak.blogspot.com/2005/12/emacs-tip-viewing-commands-available.html">[HTML]</a></td>
+</tr></TABLE>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428%0A%20%20%20%20%20%20">T. V. Raman</a></em> at </p>
+      2005-12-31T11:19:00.000-08:00
+    <h2><a name="idm2301" id="idm2301">Using
+      The New MPlayer With ALSA Support 
+
+    </a></h2>
+<div>
+<br><div
+      xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+      New versions of the Linux <code>mplayer</code>
+      can now play RealMedia files in addition to the various DVD and Windows
+      audio and video streams.
+      As an added bonus, <code>mplayer</code> can be built to use
+      ALSA ---(note that default RPMs available on the Web still default to OSS
+      as of December 2006).
+      This, with the additional support for  newer RealMedia formats has
+      finally caused me to switch away from <code>trplayer</code>
+      a---a command line RealPlayer that was built against RealPlayer
+      8.0</p>
+      <p>Note that building <code>mplayer</code> from source
+      to include ALSA support, and locating all the  codecs you need will
+      require a few Google searches. Specifically, to play NPR streams, you
+      will need to grab <code>avisynth.dll</code> from the
+      SourceForge project of the same name. But once this is done,
+      <code>mplayer</code> will happily play multiple streams of
+      audio without requiring multichannel support from the sound card. For
+      Emacspeak users this means that you get auditory icons, and more
+      importantly software TTS while listening to audio streams.</p>
+      <p>
+      To use software TTS while <code>mplayer</code> is playing
+      audio streams requires that you use a TTS server that uses ALSA; the
+      default Emacspeak servers still use OSS.
+      To build a TTS server for IBM ViaVoice TTS, obtain Emacspeak sources from
+      CVS, and follow the instructions in file
+      <code>servers/linux-outloud/ALSA</code>.
+      </p>
+      <p>As of a few weeks ago, The Emacspeak CVS repository has been
+      updated so that all access to streaming media goes through
+      <code>mplayer</code> by default.  Make sure to configure your
+      <code>mplayer</code> with a smaller cache size if you use it
+      exclusively for streaming audio; by default it uses a rather
+      large cache, and streaming realaudio often takes a long time to
+      start before the cache is configured to be something smaller; I
+      use a cache size of <code>64kb</code> on my laptop.</p>
+      </div>
+    </div>
+<TABLE><tr>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/113596114050756312">[Edit]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/113596114050756312">[Self]</a></td>
+<td><a href="http://emacspeak.blogspot.com/2005/12/using-new-mplayer-with-alsa-support.html">[HTML]</a></td>
+</tr></TABLE>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428%0A%20%20%20%20%20%20">T. V. Raman</a></em> at </p>
+      2005-12-30T08:45:00.000-08:00
+    <h2><a name="idm2315" id="idm2315">Blogging
+      From Inside Emacs
+  
+    </a></h2>
+<div>
+<br><div
+      xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>
+      I'm posting this using a bare-boned
+      <code>atom-blogger</code> that I implemented this morning.
+      It uses <code>curl</code> to  process the HTTP Post
+      Request.</p>
+      <h3>Editting Previous Entries</h3>
+      <p>What's more, the bare-bones atom-blogger can now edit
+      previous posts.
+      This is done by getting the desired entry, filtering it for elements that
+      should not be present when submitting updates, and adding a
+      <code>generator</code> element --- all of these steps are
+      required by the Blogger API.
+      Unwanted elements are filtered out using
+      <code>xsltproc</code>.
+      </p>
+      
+      </div>
+    </div>
+<TABLE><tr>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/113589454437902784">[Edit]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/113589454437902784">[Self]</a></td>
+<td><a href="http://emacspeak.blogspot.com/2005/12/blogging-from-inside-emacs.html">[HTML]</a></td>
+</tr></TABLE>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428%0A%20%20%20%20%20%20">T. V. Raman</a></em> at </p>
+      2005-12-29T14:15:00.000-08:00
     <h2></h2>
 <p><br><a href="http://www.blogger.com/profile/03589687652590194428%0A%20%20%20%20">T. V. Raman</a><br></p>
 <h2>Feed-Level Links</h2>
