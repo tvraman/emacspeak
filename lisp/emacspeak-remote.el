@@ -233,7 +233,6 @@ port that that host is listening on for speech requests."
       (setq emacspeak-remote-default-port-to-connect (format "%s" port))
       (delete-process old-process)
       (run-hooks 'emacspeak-remote-hooks)
-      (emacspeak-tts-startup-hook)
       (message "Connecting to server on host %s  port %s" host port))
      (t (error "Failed to connect to speech server on host %s port %s" host port)))))
 

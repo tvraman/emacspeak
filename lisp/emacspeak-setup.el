@@ -140,20 +140,6 @@ such as pronunciation dictionaries are stored. ")
 ;;}}}
 ;;{{{  Hooks
 
-(defcustom dtk-startup-hook
-  '(emacspeak-tts-startup-hook emacspeak-tts-notify-hook)
-  "List of hooks to be run after starting up the speech server.
-Set things like speech rate, punctuation mode etc in this
-hook."
-  :type 'hook
-  :group 'tts)
-
-;;;###autoload
-(defun emacspeak-tts-startup-hook ()
-  "Default hook function run after TTS is started."
-  (cl-declare (special dtk-program))
-  (tts-configure-synthesis-setup dtk-program))
-
 (defcustom tts-notification-device
   (eval-when-compile
     (or (getenv "ALSA_NOTIFY")

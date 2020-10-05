@@ -112,7 +112,7 @@ This determines step size used when setting speech rate via command
 dtk-speech-rate-base  +  dtk-speech-rate-step*level."
   :type 'integer
   :group 'tts)
-(defvar dtk-startup-hook)
+
 (defvar-local dtk-quiet nil
   "Switch indicating if the speech synthesizer is to keep quiet.
 See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
@@ -1630,8 +1630,9 @@ program. Port defaults to dtk-local-server-port"
 
 (defun dtk-initialize ()
   "Initialize speech system."
-  (cl-declare (special dtk-speaker-process dtk-speak-server-initialized
-                       dtk-startup-hook))
+  (cl-declare (special dtk-speaker-process
+                       dtk-speak-server-initialized
+                       dtk-program))
   (let* ((new-process (dtk-make-process "Speaker"))
          (state (process-status new-process)))
     (setq dtk-speak-server-initialized (memq state '(run open)))
@@ -1640,7 +1641,10 @@ program. Port defaults to dtk-local-server-port"
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
-      (run-hooks 'dtk-startup-hook)))))
+      (tts-configure-synthesis-setup dtk-program)
+      (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
+    (when (emacspeak-tts-multistream-p dtk-program) (dtk-notify-initialize))))))
+
 (defun tts-shutdown ()
   "Shutdown TTS servers."
   (cl-declare (special dtk-speaker-process dtk-notify-process))
