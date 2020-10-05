@@ -58,11 +58,6 @@
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "Directory where emacspeak is installed. ")
-;;;###autoload
-(defvar emacspeak-servers-directory
-  (expand-file-name "servers/" emacspeak-directory)
-  "Directory where speech servers are located.")
-
 
 ;;;###autoload
 (defvar emacspeak-lisp-directory
