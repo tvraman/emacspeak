@@ -158,7 +158,7 @@ a rewrite rule even if one is already defined."
 ;;;###autoload
 (defvar emacspeak-we-xsl-p nil
   "T means we apply XSL before displaying HTML.")
-
+;;;###autoload
 (defvar emacspeak-we-xsl-transform
   nil
   "Specifies transform to use before displaying a page.
