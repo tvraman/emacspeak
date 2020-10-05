@@ -2,7 +2,7 @@
 # $Id$
 # Description:  Interfacing to a Dectalk via TCL.
 # Keywords: Emacspeak, Dectalk, TCL
-# {{{ LCD Entry:
+#{{{ LCD Entry:
 
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
@@ -12,8 +12,8 @@
 # Location undetermined
 #
 
-# }}}
-# {{{ Copyright:
+#}}}
+#{{{ Copyright:
 #Copyright (C) 1995 -- 2017, T. V. Raman
 # Copyright (c) 1995,   T. V. Raman, Adobe Systems
 # Incorporated.
@@ -37,8 +37,8 @@
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
-# }}}
-# {{{commandabbreviations
+#}}}
+#{{{commandabbreviations
 
 #This version uses shortened dtk command strings to improve performance
 #when running remote sessions.
@@ -55,15 +55,15 @@
 # a == all
 # s == some
 
-# }}}
-# {{{source common code
+#}}}
+#{{{source common code
 package require Tclx
 set wd [file dirname $argv0]
 lappend auto_path $wd
 source $wd/tts-lib.tcl
 #source tts-lib.tcl
-# }}}
-# {{{ procedures
+#}}}
+#{{{ procedures
 
 proc version {} {
     global tts
@@ -251,8 +251,8 @@ proc r {rate} {
     return ""
 }
 
-# }}}
-# {{{ speech task
+#}}}
+#{{{ speech task
 
 proc speech_task {} {
     global queue tts
@@ -300,8 +300,8 @@ proc speech_task {} {
     return ""
 }
 
-# }}}
-# {{{clean
+#}}}
+#{{{clean
 
 #preprocess element before sending it out:
 
@@ -374,8 +374,8 @@ proc clean {element} {
     return $element
 }
 
-# }}}
-# {{{ initialize
+#}}}
+#{{{ initialize
 
 tts_setserial
 # Dectalk likes only ascii
@@ -414,8 +414,8 @@ puts -nonewline     $tts(write)  {[:timeout 0]
 #Start the main command loop:
 commandloop
 
-# }}}
-# {{{ Emacs local variables
+#}}}
+#{{{ Emacs local variables
 
 ### Local variables:
 ### mode: tcl
@@ -423,4 +423,4 @@ commandloop
 ### folded-file: t
 ### End:
 
-# }}}
+#}}}
