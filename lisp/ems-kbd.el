@@ -12,7 +12,6 @@
       (let* ((word-beg (match-beginning 0))
              (word-end (match-end 0))
              (word (substring string word-beg len))
-             (times 1)
              key)
         ;; Try to catch events of the form "<as df>".
         (cond
