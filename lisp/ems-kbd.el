@@ -81,7 +81,9 @@
 		       (t
 			(setq key (list (+ bits (aref word 0)))))))))
 	(when key
-	  (cl-loop repeat times do (cl-callf vconcat res key)))))
+	  (cl-loop
+           repeat times do
+           (cl-callf vconcat res key)))))
     (when (and (>= (length res) 4)
 	       (eq (aref res 0) ?\C-x)
 	       (eq (aref res 1) ?\()
@@ -93,7 +95,8 @@
 	     (cl-loop for ch across res
                       always (and (characterp ch)
                                   (let ((ch2 (logand ch (lognot ?\M-\^@))))
-                                    (and (>= ch2 0) (<= ch2 127))))))
+                                    (and
+                                     (>= ch2 0) (<= ch2 127))))))
 	(concat (cl-loop for ch across res
                          collect (if (= (logand ch ?\M-\^@) 0)
                                      ch (+ ch 128))))
