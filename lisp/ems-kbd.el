@@ -1,4 +1,4 @@
-(defun ems-kbd (string &optional need-vector)
+(defun ems-kbd (string )
   (let ((case-fold-search nil)
 	(len (length string)) ; We won't alter string in the loop below.
 	(pos 0)
@@ -87,7 +87,8 @@
 	       (eq (aref res (- (length res) 2)) ?\C-x)
 	       (eq (aref res (- (length res) 1)) ?\)))
       (setq res (cl-subseq res 2 -2)))
-    (if (and (not need-vector)
+    (if
+        (and 
 	     (cl-loop for ch across res
                       always (and (characterp ch)
                                   (let ((ch2 (logand ch (lognot ?\M-\^@))))
