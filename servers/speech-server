@@ -4,7 +4,7 @@
 #Usage: tcl speech-server port device-specific-script
 #Example: tclsh speech-server 2222 dtk-exp
 # Keywords: Emacspeak, Speech, TCL
-# {{{ LCD Entry: 
+#{{{ LCD Entry: 
 
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu 
@@ -14,8 +14,8 @@
 # Location undetermined
 #
 
-# }}}
-# {{{ Copyright:  
+#}}}
+#{{{ Copyright:  
 #Copyright (C) 1995 -- 2017, T. V. Raman 
 # Incorporated.
 #All Rights Reserved
@@ -36,8 +36,8 @@
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
-# }}}
-# {{{Initialize and get ready
+#}}}
+#{{{Initialize and get ready
 package require Tclx
 set port [lindex $argv 0]
 #start up the server
@@ -58,8 +58,8 @@ close $server
 #cue incoming connection
 #launch speech synthesizer code
 source [lindex $argv 1]
-# }}}
-# {{{ Emacs local variables  
+#}}}
+#{{{ Emacs local variables  
 
 ### Local variables:
 ### mode: tcl
@@ -67,4 +67,4 @@ source [lindex $argv 1]
 ### folded-file: t
 ### End:
 
-# }}}
+#}}}
