@@ -766,14 +766,12 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     (when (bufferp ad-return-value)
       (dtk-speak (format "Displayed message in buffer  %s" buffer-name)))))
 
-(declare-function emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
-
 (with-eval-after-load "eldoc"
   (global-eldoc-mode -1)
   (setq eldoc-idle-delay 3))
 
 (defvar emacspeak-eldoc-speak-explicitly
-  (not (emacspeak-tts-use-notify-stream-p))
+  (not (tts-multistream-p dtk-program))
   "Set to T if not using a separate TTS notification stream.")
 
 (voice-setup-map-face 'eldoc-highlight-function-argument 'voice-bolden)
