@@ -108,6 +108,7 @@
 
 (let ((tests 
        '(
+         "return"
          "DEL"
          "ESC m"
          "ESC C-a"
