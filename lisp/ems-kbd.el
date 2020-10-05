@@ -9,6 +9,7 @@
 ;;; tokenize by white-space into vector res
         (and (< pos len)
              (string-match "[^ \t\n\f]+" string pos)) ;tokenizer  test
+      ;;; tokenize word into key
       (let* ((word-beg (match-beginning 0))
              (word-end (match-end 0))
              (word (substring string word-beg len))
@@ -80,7 +81,7 @@
                                       (logand (aref word 0) 31)))))
                   (t
                    (setq key (list (+ bits (aref word 0)))))))))
-        ;;; push key on to the result vector 
+;;; push key on to the result vector 
         (when key
           (cl-callf vconcat res key)))) ; end while
     ;;; events now in vector res, now validate it
