@@ -135,7 +135,7 @@ such as pronunciation dictionaries are stored. ")
 (unless noninteractive
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
-    (load (expand-file-name "emacspeak-loaddefs.el" emacspeak-lisp-directory))))
+    (load  "emacspeak-loaddefs.el")))
 
 ;;}}}
 ;;{{{  Hooks
