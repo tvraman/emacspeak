@@ -84,13 +84,6 @@
           (cl-loop
            repeat times do
            (cl-callf vconcat res key))))) ; end while
-    (when
-        (and (>= (length res) 4)
-             (eq (aref res 0) ?\C-x)
-             (eq (aref res 1) ?\()
-             (eq (aref res (- (length res) 2)) ?\C-x)
-             (eq (aref res (- (length res) 1)) ?\)))
-      (setq res (cl-subseq res 2 -2))) ; end when
     (cond
      ((and
        (cl-loop
@@ -110,6 +103,7 @@
          (t (+ ch 128))))))
      (t
       res))))
+
 
 ;;; Tests:
 
