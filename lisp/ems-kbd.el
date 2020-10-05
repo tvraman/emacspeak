@@ -96,3 +96,14 @@
                          collect (if (= (logand ch ?\M-\^@) 0)
                                      ch (+ ch 128))))
       res)))
+(setq ems-kbd-tests
+      '(
+        "C-c c"
+        "M-C-a"
+        "A-a"
+        ))
+
+(cl-loop
+ for test in ems-kbd-tests
+ unless (equal (ems-kbd test) (kbd test))
+ collect test)
