@@ -5,7 +5,7 @@
        (len (length string)) ; We won't alter string in the loop below.
        (pos 0)
        (res []))
-    (while ; tokenize by white-space
+    (while                              ; tokenize by white-space
         (and (< pos len)
              (string-match "[^ \t\n\f]+" string pos))
       (let* ((word-beg (match-beginning 0))
@@ -84,12 +84,14 @@
           (cl-loop
            repeat times do
            (cl-callf vconcat res key))))) ; end while
+    ;;; events now in vector res 
     (cond
      ((and
        (cl-loop
         for ch across res
         always
-        (and (characterp ch)
+        (and
+         (characterp ch)
              (let ((ch2 (logand ch (lognot ?\M-\^@))))
                (and
                 (>= ch2 0) (<= ch2 127))))))
@@ -101,8 +103,7 @@
          ((= (logand ch ?\M-\^@) 0)
           ch)
          (t (+ ch 128))))))
-     (t
-      res))))
+     (t res))))
 
 
 ;;; Tests:
