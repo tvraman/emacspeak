@@ -109,6 +109,8 @@
 
 (let ((tests 
        '(
+         "H-DEL"
+         "A-SPC"
          "return"
          "DEL"
          "ESC m"
