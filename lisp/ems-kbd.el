@@ -103,6 +103,8 @@
 
 (let ((tests 
        '(
+         "TAB"
+         "SPC"
          "C-c c"
          "S-a"
          "s-a"
