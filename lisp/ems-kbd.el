@@ -105,13 +105,14 @@
        '(
          "TAB"
          "SPC"
+         "RET"
          "C-c c"
          "S-a"
          "s-a"
          "H-a"
          "C-;"
-         "M-C-a"
-         "A-a"))
+         "A-a"
+         "M-C-a"))
       (restult nil))
   (setq result
         (cl-loop
