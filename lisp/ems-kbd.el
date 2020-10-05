@@ -5,7 +5,8 @@
        (len (length string)) ; We won't alter string in the loop below.
        (pos 0)
        (res []))
-    (while                              ; tokenize by white-space
+    (while
+;;; tokenize by white-space into vector res
         (and (< pos len)
              (string-match "[^ \t\n\f]+" string pos))
       (let* ((word-beg (match-beginning 0))
@@ -21,9 +22,6 @@
          (t
           (setq word (substring string word-beg word-end)
                 pos word-end)))
-        (when (string-match "\\([0-9]+\\)\\*." word)
-          (setq times (string-to-number (substring word 0 (match-end 1))))
-          (setq word (substring word (1+ (match-end 1)))))
         (cond
          ((string-match "^<<.+>>$" word)
           (setq key
