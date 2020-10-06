@@ -14,15 +14,15 @@
              key)
         ;; Try to catch events of the form "<as df>".
         (cond
-         ;;; pattern: <xx+>
+;;; pattern: <xx+>
          ((string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
           (setq word (match-string 0 word)
                 pos (+ word-beg (match-end 0))))
          (t ;;; plain word, no <>
           (setq word (substring string word-beg word-end)
                 pos word-end)))
-        (cond
-         ;;; modifier + keys 
+        ;;; End of tokenizing logic 
+        (cond ;;; modifier + keys 
          ((and
            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
            (progn
@@ -31,7 +31,7 @@
                            (substring word (match-beginning 3) (match-end 3))))
              (not
               (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
-               word))))
+                            word))))
           (setq key (list (intern word))))
          (t
           (let ((orig-word word)
@@ -77,17 +77,17 @@
                     (cl-loop
                      for x across word
                      collect (+ x bits))))
-                  ((/= (length word) 1)
-                   (error "%s must prefix a single character, not %s"
-                          (substring orig-word 0 prefix) word))
-                  ((and
-                    (/= (logand bits ?\C-\^@) 0)
-                    (stringp word)
-                    (string-match "[@-_a-z]" word))
-                   (setq key
-                         (list (+ bits (- ?\C-\^@)
-                                  (logand (aref word 0) 31)))))
-                  (t (setq key (list (+ bits (aref word 0)))))))))
+             ((/= (length word) 1)
+              (error "%s must prefix a single character, not %s"
+                     (substring orig-word 0 prefix) word))
+             ((and
+               (/= (logand bits ?\C-\^@) 0)
+               (stringp word)
+               (string-match "[@-_a-z]" word))
+              (setq key
+                    (list (+ bits (- ?\C-\^@)
+                             (logand (aref word 0) 31)))))
+             (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
         (when key (cl-callf vconcat res key))))
     res))
