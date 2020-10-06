@@ -94,8 +94,7 @@
 
 (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function."
-  (let ((case-fold-search nil)
-       (res (ems-key-tokenize string)))
+  (let ((res (ems-key-tokenize string)))
 ;;; events now in vector res, now validate it
     (cond
      ((and
