@@ -1,0 +1,90 @@
+* Overview
+
+Emacs is extremely flexible with respect to letting you bind keys to
+commands.
+Interestingly, and perhaps because of its history tracing back to
+/keyboard macros/,  *naming* the key you wish to bind is not so
+straight-forward as it appears on the surface. Here are things I've
+used and learnt over the last 30 years of Emacs hackery:
+
+  1. The most basic way of naming a key is via a string of the form
+     /\C-a/ or /\M-\C-a/ where /\C/ denotes the /Control Modifier/.
+  2. This notation gets unwieldy fast when using multiple modifiers as
+     in the /\M-\C-a/ example.
+  3. It gets worse, under X, you can bind /\C- / for /Control Space/
+     --- notice that the space character here which is easy to miss as
+     white-space is significant.
+  4. The /\<modifier>-char/ notation mostly appears to date back to
+     the age of the terminal emulator (tty), so for example, it cannot
+     denote /Control+Right/ for example.
+  5. The Emacs and Elisp info manuals recommend using function /kbd/
+     for this reason, this function on the surface provides a unified
+     interface for naming keys.
+
+If you look no further, you remain happy, but ...
+
+* Function ~kbd~
+
+But if you do peel the onion, here is what you  find:
+  1. Function ~kbd~  does nothing more than calling function
+     ~read-kbd-macro~.
+  2. Function ~read-kbd-macro~ documents itself as /reading the region/
+    as a  /keyboard macro/.
+  3. The above overloading is  achieved  by the call to function ~edmacro-parse-keys~.
+  4. And finally we reach the scary core of the onion that is
+     sufficient to make your eyes water!
+  5. Function ~edmacro-parse-keys~ is an inscrutable piece of code
+     that  both looks extremely clever and magical and like all clever
+     code, feels fragile.
+
+
+* Understanding And (Hopefully) Simplifying 
+
+  A simplified ~ems-kbd~ function that is free from the complexity
+resulting from reading in a saved keyboard macro feels like a
+worthwhile goal.
+I started down this road both to understand function
+~edmacro-parse-keys~ --- sadly, I haven't yet found a specification
+for naming all available keys outside of the implementation of that
+function.
+So I started  [[https://github.com/tvraman/emacspeak/blob/master/lisp/ems-kbd.el#L1][ems-kbd.el]]
+along with a simple test-suite to see how far I could get toward the
+goal of creating an equivalent ~kbd~ function.
+
+** Steps So Far
+
+  1) Documented the implementation.
+  2) Added a simple set of tests in the file.
+  3) Changed _if_ to _cond_ or _when_ as appropriate.
+  4) Eliminated the logic  that handled  the keyboard macro
+     serialization for repeated keys.
+  5) Removed the logic for handling invocations of
+     ~execute-extended-command~ --- otherwise known as _M-x_.
+  6) A lot more remains, e.g., 
+     - simplifying how modifier bits are handled,
+     - Simplifying how special patterns like _SPC_ or _TAB_ are handled.
+     -  And likely a lot more.
+
+An alternative approach might be to rewrite it from scratch, but that
+feels intractable unless I can track down a specification for naming
+keys that is  exhaustive with respect to the various conventions that
+have been used over the years.
+
+
+  
+
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: On Defining Keys In Emacs
+#+date: <2020-10-05 Mon>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3)
