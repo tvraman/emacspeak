@@ -16,11 +16,11 @@
              key)
         ;; Try to catch events of the form "<as df>".
         (cond
-         ;;; pattern: <xxxx>
+         ;;; pattern: <xx+>
          ((string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
           (setq word (match-string 0 word)
                 pos (+ word-beg (match-end 0))))
-         (t
+         (t ;;; plain word, no <>
           (setq word (substring string word-beg word-end)
                 pos word-end)))
         (cond
@@ -45,7 +45,6 @@
                        (cdr
                         (assq (aref word 0)
                               '((?A . ?\A-\^@)
-
                                 (?C . ?\C-\^@)
                                 (?H . ?\H-\^@)
                                 (?M . ?\M-\^@)
