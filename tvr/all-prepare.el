@@ -3,8 +3,17 @@
 (autoload 'vm "vm" "vm mail reader" t nil)
 (autoload 'vm-visit-folder "vm" "Open VM folder" t nil)
 (with-eval-after-load "vm"
-  (global-set-key (kbd "C-x m") 'vm-mail)
+  (global-set-key "\C-xm" 'vm-mail)
   (when (require 'bbdb) (bbdb-insinuate-vm)))
+
+(defun make-local-hook (hook)
+  "compatibility"
+  (if (local-variable-p hook)
+      nil
+    (or (boundp hook) (set hook nil))
+    (make-local-variable hook)
+    (set hook (list t)))
+  hook)
 ;;;  Gnus Setup For GMail imap:  -*- lexical-binding: nil; -*-
 ;;; Read GMailusing gnus  with 2-factor (Oauth2) authentication.
 ;;; Uses auth-source-xoauth2:
@@ -126,7 +135,7 @@ This moves them into the Spam folder."
 ;;}}}
 ;; -*- lexical-binding: nil; -*-
 (defalias 'assoc-ignore-case 'assoc)
-(define-key ctl-x-map (kbd "C-j") jabber-global-keymap)
+(define-key ctl-x-map (kbd "|C-j") jabber-global-keymap)
 (with-eval-after-load "jabber"
   (setq fsm-debug nil)
   (setq jabber-mode-line-string
@@ -139,36 +148,32 @@ This moves them into the Spam folder."
       (:network-server . "talk.google.com")
       (:port . 5223)
       (:connection-type . ssl)))))
-
 (with-eval-after-load "smartparens"
   (require 'smartparens-config)
   (sp-use-smartparens-bindings)
-  (define-key  smartparens-mode-map (kbd "C-M-a") 'beginning-of-defun)
-  (define-key  smartparens-mode-map (kbd "C-M-e") 'end-of-defun)
-  (define-key  smartparens-mode-map (kbd "C-M-k") 'kill-sexp)
-  (define-key  smartparens-mode-map (kbd "C-M-SPC") 'mark-sexp)
-  (define-key smartparens-mode-map (kbd "M-a") 'sp-backward-down-sexp)
-  (define-key smartparens-mode-map (kbd "M-e") 'sp-up-sexp)
-  (define-key smartparens-mode-map (kbd "M-k") 'sp-kill-sexp)
-  (define-key smartparens-mode-map (kbd "C-M-f") 'forward-sexp)
-  (define-key smartparens-mode-map (kbd "C-M-b") 'backward-sexp))
+  (define-key  smartparens-mode-map "\C-\M-a" 'beginning-of-defun)
+  (define-key  smartparens-mode-map "|C-\M-e" 'end-of-defun)
+  (define-key  smartparens-mode-map "\C-\M-k" 'kill-sexp)
+  (define-key  smartparens-mode-map "C-\M- " 'mark-sexp)
+  (define-key smartparens-mode-map "\M-a" 'sp-backward-down-sexp)
+  (define-key smartparens-mode-map "\M-e" 'sp-up-sexp)
+  (define-key smartparens-mode-map "\M-k" 'sp-kill-sexp)
+  (define-key smartparens-mode-map "\C-\M-f" 'forward-sexp)
+  (define-key smartparens-mode-map "\C-\M-b" 'backward-sexp))
 (defun conditionally-enable-lispy ()
     (when (memq this-command '(eval-expression emacspeak-wizards-show-eval-result))
       (lispy-mode 1)))
 (with-eval-after-load "lispy"
   (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
-  (define-key lispy-mode-map (kbd "M-m") nil)
-  (define-key lispy-mode-map (kbd "C-y") 'emacspeak-muggles-yank-pop/yank)
-  (define-key lispy-mode-map (kbd ";") 'self-insert-command)
-  (define-key lispy-mode-map (kbd ":") 'self-insert-command)
-  (define-key lispy-mode-map (kbd "M-;") 'lispy-comment)
-  (define-key lispy-mode-map (kbd "C-d") 'delete-char)
-  (define-key lispy-mode-map (kbd "M-C-d") 'lispy-delete)
-  (define-key lispy-mode-map (kbd "M-d") 'kill-word)
-  (define-key lispy-mode-map (kbd "M-e") 'lispy-move-end-of-line)
+  (define-key lispy-mode-map "\M-m" nil)
+  (define-key lispy-mode-map "\C-y" 'emacspeak-muggles-yank-pop/yank)
+  (define-key lispy-mode-map ";" 'self-insert-command)
+  (define-key lispy-mode-map ":" 'self-insert-command)
+  (define-key lispy-mode-map "\M-;" 'lispy-comment)
+  (define-key lispy-mode-map "\C-d" 'delete-char)
+  (define-key lispy-mode-map "\M-\C-d" 'lispy-delete)
+  (define-key lispy-mode-map "\M-d" 'kill-word)
   (define-key lispy-mode-map "a" 'special-lispy-beginning-of-defun)
-  (define-key lispy-mode-map (kbd "C-,") nil)
-  (define-key lispy-mode-map-lispy (kbd "C-,") nil)
 ;;;  Lispy for eval-expression:
   (add-hook 'minibuffer-setup-hook 'conditionally-enable-lispy))
 (with-eval-after-load "slime"
@@ -177,7 +182,7 @@ This moves them into the Spam folder."
         (if (file-exists-p "/usr/share/doc/hyperspec/")
             "file:///usr/share/doc/hyperspec/"
           "http://www.lispworks.com/reference/HyperSpec/"))
-  (global-set-key (kbd "C-c s") 'slime-selector)
+  (global-set-key "\C-c s" 'slime-selector)
   (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp))
   (slime-setup)
   (slime-autodoc--disable)
@@ -189,7 +194,7 @@ This moves them into the Spam folder."
 
 (with-eval-after-load "org"
   (require 'org-tempo)
-  (define-key global-map (kbd "C-c l")  'org-store-link)
-  (define-key global-map (kbd "C-c b")  'org-switchb)
-  (define-key global-map  (kbd "C-c c")  'org-capture)
+  (define-key global-map "\C-c l" 'org-store-link)
+  (define-key global-map "\C-c b" 'org-switchb)
+  (define-key global-map  "\C-c c" 'org-capture)
 )

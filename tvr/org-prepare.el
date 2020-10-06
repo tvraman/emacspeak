@@ -2,7 +2,7 @@
 
 (with-eval-after-load "org"
   (require 'org-tempo)
-  (define-key global-map (kbd "C-c l")  'org-store-link)
-  (define-key global-map (kbd "C-c b")  'org-switchb)
-  (define-key global-map  (kbd "C-c c")  'org-capture)
+  (define-key global-map "\C-c l" 'org-store-link)
+  (define-key global-map "\C-c b" 'org-switchb)
+  (define-key global-map  "\C-c c" 'org-capture)
 )
