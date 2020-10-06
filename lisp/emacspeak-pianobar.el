@@ -119,7 +119,7 @@
   (with-current-buffer pianobar-buffer
     (define-key pianobar-key-map "t"
       'emacspeak-pianobar-electric-mode-toggle)
-    (define-key pianobar-key-map (kbd "RET") 'emacspeak-pianobar-send-raw)
+    (define-key pianobar-key-map (ems-kbd "RET") 'emacspeak-pianobar-send-raw)
     (define-key pianobar-key-map [right] 'pianobar-next-song)
     (dotimes (i 10)
       (define-key pianobar-key-map    (format "%s" i)   'emacspeak-pianobar-switch-to-preset))

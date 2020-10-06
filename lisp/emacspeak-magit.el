@@ -342,7 +342,7 @@
 (cl-declaim (special magit-file-mode-map))
 (when (and (bound-and-true-p magit-file-mode-map)
            (keymapp magit-file-mode-map))
-  (define-key magit-file-mode-map (kbd "C-c g") 'magit-file-dispatch))
+  (define-key magit-file-mode-map (ems-kbd "C-c g") 'magit-file-dispatch))
 (cl-declaim (special ctl-x-map))
 (define-key ctl-x-map  "g" 'magit-status)
 

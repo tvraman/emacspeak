@@ -3634,8 +3634,8 @@ Optional interactive prefix arg `best' picks best audio format."
          (boundp 'ytel-mode-map)
          (keymapp ytel-mode-map))
   (cl-declaim (special ytel-mode-map))
-  (define-key  ytel-mode-map (kbd "d") #'emacspeak-wizards-ytel-download)
-  (define-key  ytel-mode-map (kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
+  (define-key  ytel-mode-map (ems-kbd "d") #'emacspeak-wizards-ytel-download)
+  (define-key  ytel-mode-map (ems-kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
   (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
 
 

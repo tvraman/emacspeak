@@ -142,7 +142,7 @@ Then speak the  line."
  #'(lambda ()
      (cl-declare (special folding-mode-map))
      (when (boundp 'folding-mode-map)
-       (define-key folding-mode-map (kbd "C-e") 'emacspeak-prefix-command))))
+       (define-key folding-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command))))
 
 ;;}}}
 (provide  'emacspeak-folding)

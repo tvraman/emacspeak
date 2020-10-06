@@ -111,8 +111,8 @@
 
 (defun emacspeak-package-mode-hook ()
   "Emacspeak setup hook for package-mode."
-  (define-key package-menu-mode-map (kbd "<left>") 'emacspeak-speak-previous-field)
-  (define-key package-menu-mode-map (kbd "<right>") 'emacspeak-speak-next-field)
+  (define-key package-menu-mode-map (ems-kbd "<left>") 'emacspeak-speak-previous-field)
+  (define-key package-menu-mode-map (ems-kbd "<right>") 'emacspeak-speak-next-field)
   (define-key package-menu-mode-map " " 'emacspeak-package-summarize-line)
   (define-key package-menu-mode-map "n" 'emacspeak-package-next-line)
   (define-key package-menu-mode-map "p" 'emacspeak-package-previous-line)

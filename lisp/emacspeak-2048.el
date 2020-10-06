@@ -302,7 +302,7 @@ Optional interactive prefix arg prompts for a filename."
   (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map  "="'emacspeak-2048-score)
   (define-key 2048-mode-map  "r"'emacspeak-2048-randomize-game)
-  (define-key 2048-mode-map  (kbd "C-SPC") 'emacspeak-2048-score)
+  (define-key 2048-mode-map  (ems-kbd "C-SPC") 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
   (dtk-set-rate
    (+ dtk-speech-rate-base

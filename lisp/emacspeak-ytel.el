@@ -96,10 +96,10 @@ Optional interactive prefix arg `best' picks best audio format."
          (boundp 'ytel-mode-map)
          (keymapp ytel-mode-map))
   (cl-declaim (special ytel-mode-map))
-  (define-key  ytel-mode-map (kbd "d") #'emacspeak-ytel-download)
-  (define-key  ytel-mode-map (kbd "RET")
+  (define-key  ytel-mode-map (ems-kbd "d") #'emacspeak-ytel-download)
+  (define-key  ytel-mode-map (ems-kbd "RET")
     #'emacspeak-ytel-play-at-point)
-  (define-key  ytel-mode-map (kbd "y") #'emacspeak-ytel-yank)
+  (define-key  ytel-mode-map (ems-kbd "y") #'emacspeak-ytel-yank)
   (define-key  ytel-mode-map "." #'emacspeak-ytel-play-at-point))
 
 ;;}}}

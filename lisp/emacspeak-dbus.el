@@ -347,7 +347,7 @@ already disabled."
    "org.gnome.ScreenSaver"
    "Lock"))
 
-(global-set-key (kbd "C-, C-d") 'emacspeak-dbus-lock-screen)
+(global-set-key (ems-kbd "C-, C-d") 'emacspeak-dbus-lock-screen)
 ;;}}}
 ;;{{{ Watch Screensaver:
 

@@ -157,7 +157,7 @@ to beginning of board before searching."
      ("g" emacspeak-mines-goto)
      ("s" emacspeak-mines-jump-to-uncovered-cell))
    do
-   (define-key mines-mode-map (kbd (cl-first b)) (cl-second b))))
+   (define-key mines-mode-map (ems-kbd (cl-first b)) (cl-second b))))
 
 (eval-after-load  "mines"
   `(progn (emacspeak-mines-init)))

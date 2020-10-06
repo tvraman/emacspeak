@@ -2219,7 +2219,7 @@ Produce an auditory icon if possible."
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map "\M-m" 'isearch-exit)
 (define-key isearch-mode-map "\C-f" 'isearch-forward-symbol-at-point)
-(define-key isearch-mode-map (kbd "C-.") 'isearch-occur)
+(define-key isearch-mode-map (ems-kbd "C-.") 'isearch-occur)
 ;;; ISearch setup/teardown
 
 ;;; Produce auditory icon

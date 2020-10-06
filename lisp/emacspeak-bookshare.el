@@ -606,7 +606,7 @@ b Browse
  do
  (progn
    (emacspeak-bookshare-action-set (cl-first a) (cl-second a))
-   (define-key emacspeak-bookshare-mode-map (kbd (cl-first a))
+   (define-key emacspeak-bookshare-mode-map (ems-kbd (cl-first a))
      'emacspeak-bookshare-action)))
 
 ;;}}}

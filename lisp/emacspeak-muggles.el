@@ -116,7 +116,7 @@
 ;;{{{ Brightness:
 
 (global-set-key
- (kbd "<print>")
+ (ems-kbd "<print>")
  (defhydra emacspeak-muggles-brightness
    (:body-pre
     (progn
@@ -141,7 +141,7 @@
 
 (with-eval-after-load "org"
     (define-key org-mode-map
-      (kbd "C-c C-SPC")
+      (ems-kbd "C-c C-SPC")
       (defhydra emacspeak-muggles-org-nav
         (:body-pre
          (progn
@@ -164,7 +164,7 @@
 ;;{{{ Org-Mode Table Navigation:
 (with-eval-after-load "org"
   (define-key
-    org-mode-map (kbd "C-c t")
+    org-mode-map (ems-kbd "C-c t")
     (defhydra emacspeak-muggles-org-table
       (:body-pre
        (progn
@@ -187,7 +187,7 @@
 ;;{{{ HideShow:
 
 (global-set-key
- (kbd "C-, h")
+ (ems-kbd "C-, h")
  (defhydra  emacspeak-muggles-hideshow
    (
     :body-pre
@@ -226,7 +226,7 @@
 
 
 (global-set-key
- (kbd "C-c o")
+ (ems-kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
    (:color blue :body-pre (emacspeak-hydra-body-pre "Toggle Option ")
            :pre (progn
@@ -271,7 +271,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 ;;; But bound to s-n --- instead of C-n
 
 (global-set-key
- (kbd "s-n")
+ (ems-kbd "s-n")
  (defhydra emacspeak-muggles-navigate
    (:body-pre
     (progn
@@ -319,7 +319,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
       (emacspeak-auditory-icon 'yank-object)
       (emacspeak-speak-region orig (point)))))
 
-(global-set-key (kbd "M-C-y") 'emacspeak-muggles-ido-yank)
+(global-set-key (ems-kbd "M-C-y") 'emacspeak-muggles-ido-yank)
 
 (defhydra emacspeak-muggles-yank-pop
   (:body-pre (emacspeak-hydra-body-pre "Yank")
@@ -337,15 +337,15 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
   ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
   ("l" browse-kill-ring "list" :color blue))
 
-(global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
-(global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
+(global-set-key (ems-kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
+(global-set-key (ems-kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
 
 ;;}}}
 ;;{{{ Repeatable Undo
 
 ;;; Repeatable undo-only and undo-redo 
 (global-set-key
- (kbd "C-/") 
+ (ems-kbd "C-/") 
  (defhydra emacspeak-muggles-undo-only/undo-redo
    (:body-pre (emacspeak-hydra-body-pre "Undo Smartly")
               :pre
@@ -365,7 +365,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 ;;{{{  Speak And Browse Math
 
 (global-set-key
- (kbd "s-SPC")
+ (ems-kbd "s-SPC")
  (defhydra emacspeak-muggles-maths-navigator
    (:body-pre
     (progn
@@ -391,7 +391,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 (declare-function emacspeak-vuiet-track-info "emacspeak-vuiet" nil)
 
 (global-set-key
- (kbd "C-; v")
+ (ems-kbd "C-; v")
  (defhydra emacspeak-muggles-vuiet
    (:body-pre
     (progn

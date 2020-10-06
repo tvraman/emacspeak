@@ -91,7 +91,7 @@
   "Setup emacspeak for use with lispy"
   (cl-declare (special lispy-mode-map))
   (when (bound-and-true-p lispy-mode-map)
-    (define-key lispy-mode-map (kbd "C-e") 'emacspeak-prefix-command)))
+    (define-key lispy-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command)))
 
 (emacspeak-lispy-setup)
 

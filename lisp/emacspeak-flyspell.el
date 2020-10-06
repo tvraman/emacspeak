@@ -131,9 +131,9 @@ fly spell checking."
 (when
     (and (bound-and-true-p flyspell-mode-map)
          (locate-library "flyspell-correct"))
-  (define-key flyspell-mode-map (kbd "C-x .") 'flyspell-correct-at-point)
-  (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous)
-  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-wrapper)
+  (define-key flyspell-mode-map (ems-kbd "C-x .") 'flyspell-correct-at-point)
+  (define-key flyspell-mode-map (ems-kbd "C-'") 'flyspell-correct-previous)
+  (define-key flyspell-mode-map (ems-kbd "C-;") 'flyspell-correct-wrapper)
   (require emacspeak-flyspell-correct))
 
 (cl-loop

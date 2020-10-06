@@ -158,7 +158,7 @@
   (cl-declare (special transient-sticky-map))
   (use-local-map transient-sticky-map)
   (local-set-key "q" 'bury-buffer)
-  (local-set-key (kbd "C-c") 'transient-resume))
+  (local-set-key (ems-kbd "C-c") 'transient-resume))
 
 (defvar emacspeak-transient-cache nil
   "Cache of the last Transient buffer contents.")

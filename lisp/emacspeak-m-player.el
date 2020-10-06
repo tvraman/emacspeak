@@ -236,7 +236,7 @@ on a specific directory."
             #'(lambda (binding)
                 (let ((key (cl-first binding))
                       (directory (cl-second binding)))
-                  (emacspeak-m-player-bind-accelerator directory (kbd key))))
+                  (emacspeak-m-player-bind-accelerator directory (ems-kbd key))))
             val)
            (set-default sym val)))
 
@@ -1314,7 +1314,7 @@ flat classical club dance full-bass full-bass-and-treble
 
 (cl-loop
  for i from 1 to 9 do
- (define-key emacspeak-m-player-mode-map (kbd (format "%s" i)) 'emacspeak-m-player-volume-set))
+ (define-key emacspeak-m-player-mode-map (ems-kbd (format "%s" i)) 'emacspeak-m-player-volume-set))
 
 ;;}}}
 ;;{{{ YouTube Player
