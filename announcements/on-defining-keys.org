@@ -38,7 +38,7 @@ But if you do peel the onion, here is what you  find:
      code, feels fragile.
 
 
-* Understanding And (Hopefully) Simplifying 
+* Understanding And (Hopefully) Simplifying  Function ~kbd~
 
   A simplified ~ems-kbd~ function that is free from the complexity
 resulting from reading in a saved keyboard macro feels like a
