@@ -1,12 +1,10 @@
-(defun ems-kbd (string )
-  "Simplified and hopefully more robust kbd function."
-  (let
-      ((case-fold-search nil)
-       (len (length string)) ; We won't alter string in the loop below.
-       (pos 0)
-       (res []))
-    (while
-;;; tokenize by white-space into vector res
+(defun ems-key-tokenize (string)
+  "Return vector of tokens."
+  (let ((case-fold-search nil)
+        (len (length string)) ; We won't alter string in the loop below.
+        (pos 0)
+        (res []))
+    (while ;;; tokenize by white-space into vector res
         (and (< pos len)
              (string-match "[^ \t\n\f]+" string pos)) ;tokenizer  test
       ;;; tokenize word into key
@@ -91,8 +89,16 @@
                                   (logand (aref word 0) 31)))))
                   (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
-        (when key (cl-callf vconcat res key)))) ; end while
-    ;;; events now in vector res, now validate it
+        (when key (cl-callf vconcat res key))))
+    res))
+
+(defun ems-kbd (string )
+  "Simplified and hopefully more robust kbd function."
+  (let ((case-fold-search nil)
+       (len (length string)) ; We won't alter string in the loop below.
+       (pos 0)
+       (res (ems-key-tokenize string)))
+;;; events now in vector res, now validate it
     (cond
      ((and
        (cl-loop
@@ -100,8 +106,8 @@
         always
         (and
          (characterp ch)
-             (let ((ch2 (logand ch (lognot ?\M-\^@))))
-               (and (>= ch2 0) (<= ch2 127))))))
+         (let ((ch2 (logand ch (lognot ?\M-\^@))))
+           (and (>= ch2 0) (<= ch2 127))))))
       (concat
        (cl-loop
         for ch across res
