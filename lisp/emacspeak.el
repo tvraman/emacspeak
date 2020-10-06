@@ -63,6 +63,9 @@
   "Emacspeak: The Complete Audio Desktop  "
   :link '(url-link :tag "Web" "http://emacspeak.sf.net"
                    :help-echo "Visit Emacspeak Web Site")
+  :link '(url-link :tag "Blog Archive"
+                   l
+                 :help-echo "Read Local Emacspeak Blog Archive")
   :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com"
                    :help-echo "Read Emacspeak Blog")
   :link '(url-link :tag "Papers"
@@ -386,10 +389,10 @@ caps."
 ;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
-Use Emacs as you normally would,
-emacspeak will provide you spoken feedback as you work.  Emacspeak also
-provides commands for having parts of the current buffer, the
-mode-line etc to be spoken.
+Use Emacs as you normally would, emacspeak will provide you
+spoken feedback as you work.  Emacspeak also provides commands
+for having parts of the current buffer, the mode-line etc to be
+spoken.
 
 If you are hearing this description as a result of pressing
 \\[emacspeak-describe-emacspeak] you may want to press use the
@@ -402,10 +405,6 @@ key.  You can also set the state of the TTS engine by using
 \\[emacspeak-dtk-submap-command] as a prefix.  Here is a summary of all
 emacspeak commands along with their bindings.  You need to precede the
 keystrokes listed below with \\[emacspeak-prefix-command].
-
-Emacspeak also provides a fluent speech extension to the Emacs
-terminal emulator (eterm).  Note: You need to use the term package that
-comes with emacs-19.29 and later.
 
 \\{emacspeak-keymap}
 
@@ -433,8 +432,6 @@ commands and options for details."
   (transient-mark-mode -1)
   (message emacspeak-startup-message)
   (emacspeak-play-startup-icon))
-
-
 
 ;;}}}
 
