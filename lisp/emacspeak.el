@@ -395,8 +395,9 @@ for having parts of the current buffer, the mode-line etc to be
 spoken.
 
 If you are hearing this description as a result of pressing
-\\[emacspeak-describe-emacspeak] you may want to press use the
-arrow keys to move around in the Help buffer to read the rest of
+\\[emacspeak-describe-emacspeak] you may want to silence speech by
+pressing \\[dtk-stop] and then use the
+arrow keys in    the Help buffer to read the rest of
 this description, which includes a summary of all emacspeak
 keybindings.
 
