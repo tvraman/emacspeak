@@ -21,6 +21,170 @@
     168
   </openSearch:totalResults>
   <openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage>
+<entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-2451348598884750312</id><published>
+      2020-10-05T17:32:00.000-07:00
+    </published>
+    <updated>2020-10-05T17:32:08.430-07:00</updated><title type='text'>On
+      Defining Keys In Emacs
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;On Defining Keys In
+      Emacs&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org540a36d&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org540a36d&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt;
+      Overview&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      Emacs is extremely flexible with respect to letting you bind keys to
+      commands.
+      Interestingly, and perhaps because of its history tracing back to
+      &lt;i&gt;keyboard macros&lt;/i&gt;,  &lt;b&gt;naming&lt;/b&gt; the
+      key you wish to bind is not so
+      straight-forward as it appears on the surface. Here are things
+      I&#39;ve
+      used and learnt over the last 30 years of Emacs hackery:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;The most basic way of naming a key is via a string of the
+      form
+      &lt;i&gt;\C-a&lt;/i&gt; or &lt;i&gt;\M-\C-a&lt;/i&gt; where
+      &lt;i&gt;\C&lt;/i&gt; denotes the &lt;i&gt;Control
+      Modifier&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;This notation gets unwieldy fast when using multiple
+      modifiers as
+      in the &lt;i&gt;\M-\C-a&lt;/i&gt; example.&lt;/li&gt;
+      &lt;li&gt;It gets worse, under X, you can bind &lt;i&gt;\C- / for
+      /Control Space&lt;/i&gt;
+      &amp;#x2014; notice that the space character here which is easy to
+      miss as
+      white-space is significant.&lt;/li&gt;
+      &lt;li&gt;The &lt;i&gt;\&amp;lt;modifier&amp;gt;-char&lt;/i&gt;
+      notation mostly appears to date back to
+      the age of the terminal emulator (tty), so for example, it cannot
+      denote &lt;i&gt;Control+Right&lt;/i&gt; for example.&lt;/li&gt;
+      &lt;li&gt;The Emacs and Elisp info manuals recommend using function
+      &lt;i&gt;kbd&lt;/i&gt;
+      for this reason, this function on the surface provides a unified
+      interface for naming keys.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      If you look no further, you remain happy, but &amp;#x2026;
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org44745fc&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org44745fc&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Function
+      &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      But if you do peel the onion, here is what you  find:
+      &lt;/p&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Function &lt;code&gt;kbd&lt;/code&gt;  does nothing more
+      than calling function
+      &lt;code&gt;read-kbd-macro&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Function &lt;code&gt;read-kbd-macro&lt;/code&gt; documents
+      itself as &lt;i&gt;reading the region&lt;/i&gt;
+      as a  &lt;i&gt;keyboard macro&lt;/i&gt;.&lt;/li&gt;
+      &lt;li&gt;The above overloading is  achieved  by the call to
+      function &lt;code&gt;edmacro-parse-keys&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;And finally we reach the scary core of the onion that is
+      sufficient to make your eyes water!&lt;/li&gt;
+      &lt;li&gt;Function &lt;code&gt;edmacro-parse-keys&lt;/code&gt; is an
+      inscrutable piece of code
+      that  both looks extremely clever and magical and like all clever
+      code, feels fragile.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;div id=&quot;outline-container-org7a9ba62&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org7a9ba62&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Understanding
+      And (Hopefully) Simplifying  Function
+      &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      A simplified &lt;code&gt;ems-kbd&lt;/code&gt; function that is free
+      from the complexity
+      resulting from reading in a saved keyboard macro feels like a
+      worthwhile goal.
+      I started down this road both to understand function
+      &lt;code&gt;edmacro-parse-keys&lt;/code&gt; &amp;#x2014; sadly, I
+      haven&#39;t yet found a specification
+      for naming all available keys outside of the implementation of that
+      function.
+      So I started  &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/ems-kbd.el#L1&quot;&gt;ems-kbd.el&lt;/a&gt;
+      along with a simple test-suite to see how far I could get toward the
+      goal of creating an equivalent &lt;code&gt;kbd&lt;/code&gt;
+      function.&lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org4416bb1&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org4416bb1&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Steps So
+      Far&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Documented the implementation.&lt;/li&gt;
+      &lt;li&gt;Added a simple set of tests in the file.&lt;/li&gt;
+      &lt;li&gt;Changed &lt;span
+      class=&quot;underline&quot;&gt;if&lt;/span&gt; to &lt;span
+      class=&quot;underline&quot;&gt;cond&lt;/span&gt; or &lt;span
+      class=&quot;underline&quot;&gt;when&lt;/span&gt; as
+      appropriate.&lt;/li&gt;
+      &lt;li&gt;Eliminated the logic  that handled  the keyboard macro
+      serialization for repeated keys.&lt;/li&gt;
+      &lt;li&gt;Removed the logic for handling invocations of
+      &lt;code&gt;execute-extended-command&lt;/code&gt; &amp;#x2014;
+      otherwise known as &lt;span
+      class=&quot;underline&quot;&gt;M-x&lt;/span&gt;.&lt;/li&gt;
+      &lt;li&gt;A lot more remains, e.g., 
+      &lt;ul class=&quot;org-ul&quot;&gt;
+      &lt;li&gt;simplifying how modifier bits are handled,&lt;/li&gt;
+      &lt;li&gt;Simplifying how special patterns like &lt;span
+      class=&quot;underline&quot;&gt;SPC&lt;/span&gt; or &lt;span
+      class=&quot;underline&quot;&gt;TAB&lt;/span&gt; are
+      handled.&lt;/li&gt;
+      &lt;li&gt;And likely a lot more.&lt;/li&gt;
+      &lt;/ul&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      An alternative approach might be to rewrite it from scratch, but
+      thatfeels intractable unless I can track down a specification for
+      naming
+      keys that is  exhaustive with respect to the various conventions
+      thathave been used over the years.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html' title='On Defining Keys In Emacs'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
   <entry>
     <id>tag:blogger.com,1999:blog-20280042.post-8563131593972762432</id><published>
       2020-09-08T16:26:00.000-07:00

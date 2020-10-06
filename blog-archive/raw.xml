@@ -1,4 +1,231 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-09-08T16:26:13.668-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>168</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-8563131593972762432</id><published>2020-09-08T16:26:00.000-07:00</published><updated>2020-09-08T16:26:13.245-07:00</updated><title type='text'>Searching GMail From GNUS</title><content type='html'>&lt;div id=&quot;content&quot;&gt;
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2020-10-05T17:32:08.696-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>170</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-2451348598884750312</id><published>2020-10-05T17:32:00.000-07:00</published><updated>2020-10-05T17:32:08.430-07:00</updated><title type='text'>On Defining Keys In Emacs</title><content type='html'>&lt;div id=&quot;content&quot;&gt;
+&lt;h1 class=&quot;title&quot;&gt;On Defining Keys In Emacs&lt;/h1&gt;
+&lt;div id=&quot;outline-container-org540a36d&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org540a36d&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Overview&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+Emacs is extremely flexible with respect to letting you bind keys to
+commands.
+Interestingly, and perhaps because of its history tracing back to
+&lt;i&gt;keyboard macros&lt;/i&gt;,  &lt;b&gt;naming&lt;/b&gt; the key you wish to bind is not so
+straight-forward as it appears on the surface. Here are things I&#39;ve
+used and learnt over the last 30 years of Emacs hackery:
+&lt;/p&gt;
+
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;The most basic way of naming a key is via a string of the form
+&lt;i&gt;\C-a&lt;/i&gt; or &lt;i&gt;\M-\C-a&lt;/i&gt; where &lt;i&gt;\C&lt;/i&gt; denotes the &lt;i&gt;Control Modifier&lt;/i&gt;.&lt;/li&gt;
+&lt;li&gt;This notation gets unwieldy fast when using multiple modifiers as
+in the &lt;i&gt;\M-\C-a&lt;/i&gt; example.&lt;/li&gt;
+&lt;li&gt;It gets worse, under X, you can bind &lt;i&gt;\C- / for /Control Space&lt;/i&gt;
+&amp;#x2014; notice that the space character here which is easy to miss as
+white-space is significant.&lt;/li&gt;
+&lt;li&gt;The &lt;i&gt;\&amp;lt;modifier&amp;gt;-char&lt;/i&gt; notation mostly appears to date back to
+the age of the terminal emulator (tty), so for example, it cannot
+denote &lt;i&gt;Control+Right&lt;/i&gt; for example.&lt;/li&gt;
+&lt;li&gt;The Emacs and Elisp info manuals recommend using function &lt;i&gt;kbd&lt;/i&gt;
+for this reason, this function on the surface provides a unified
+interface for naming keys.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+If you look no further, you remain happy, but &amp;#x2026;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org44745fc&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org44745fc&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Function &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;p&gt;
+But if you do peel the onion, here is what you  find:
+&lt;/p&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Function &lt;code&gt;kbd&lt;/code&gt;  does nothing more than calling function
+&lt;code&gt;read-kbd-macro&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Function &lt;code&gt;read-kbd-macro&lt;/code&gt; documents itself as &lt;i&gt;reading the region&lt;/i&gt;
+as a  &lt;i&gt;keyboard macro&lt;/i&gt;.&lt;/li&gt;
+&lt;li&gt;The above overloading is  achieved  by the call to function &lt;code&gt;edmacro-parse-keys&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;And finally we reach the scary core of the onion that is
+sufficient to make your eyes water!&lt;/li&gt;
+&lt;li&gt;Function &lt;code&gt;edmacro-parse-keys&lt;/code&gt; is an inscrutable piece of code
+that  both looks extremely clever and magical and like all clever
+code, feels fragile.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id=&quot;outline-container-org7a9ba62&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;org7a9ba62&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Understanding And (Hopefully) Simplifying  Function &lt;code&gt;kbd&lt;/code&gt;&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;p&gt;
+  A simplified &lt;code&gt;ems-kbd&lt;/code&gt; function that is free from the complexity
+resulting from reading in a saved keyboard macro feels like a
+worthwhile goal.
+I started down this road both to understand function
+&lt;code&gt;edmacro-parse-keys&lt;/code&gt; &amp;#x2014; sadly, I haven&#39;t yet found a specification
+for naming all available keys outside of the implementation of that
+function.
+So I started  &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/ems-kbd.el#L1&quot;&gt;ems-kbd.el&lt;/a&gt;
+along with a simple test-suite to see how far I could get toward the
+goal of creating an equivalent &lt;code&gt;kbd&lt;/code&gt; function.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org4416bb1&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org4416bb1&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Steps So Far&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Documented the implementation.&lt;/li&gt;
+&lt;li&gt;Added a simple set of tests in the file.&lt;/li&gt;
+&lt;li&gt;Changed &lt;span class=&quot;underline&quot;&gt;if&lt;/span&gt; to &lt;span class=&quot;underline&quot;&gt;cond&lt;/span&gt; or &lt;span class=&quot;underline&quot;&gt;when&lt;/span&gt; as appropriate.&lt;/li&gt;
+&lt;li&gt;Eliminated the logic  that handled  the keyboard macro
+serialization for repeated keys.&lt;/li&gt;
+&lt;li&gt;Removed the logic for handling invocations of
+&lt;code&gt;execute-extended-command&lt;/code&gt; &amp;#x2014; otherwise known as &lt;span class=&quot;underline&quot;&gt;M-x&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;A lot more remains, e.g., 
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;simplifying how modifier bits are handled,&lt;/li&gt;
+&lt;li&gt;Simplifying how special patterns like &lt;span class=&quot;underline&quot;&gt;SPC&lt;/span&gt; or &lt;span class=&quot;underline&quot;&gt;TAB&lt;/span&gt; are handled.&lt;/li&gt;
+&lt;li&gt;And likely a lot more.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+An alternative approach might be to rewrite it from scratch, but that
+feels intractable unless I can track down a specification for naming
+keys that is  exhaustive with respect to the various conventions that
+have been used over the years.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/2451348598884750312'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html' title='On Defining Keys In Emacs'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-5376248580919833370</id><published>2020-09-16T10:29:00.001-07:00</published><updated>2020-09-16T10:29:30.285-07:00</updated><title type='text'>Emacs: Paired Commands --- Efficient Keyboard Interaction Using Hydra</title><content type='html'>&lt;div id=&quot;content&quot;&gt;
+&lt;h1 class=&quot;title&quot;&gt;Emacs: paired Commands — Efficient Keyboard Interaction Using Hydra&lt;/h1&gt;
+&lt;div id=&quot;outline-container-orgf8040fa&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;orgf8040fa&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;p&gt;
+Emacs commands such as &lt;code&gt;yank&lt;/code&gt; and &lt;code&gt;yank-pop&lt;/code&gt; or &lt;code&gt;undo-only&lt;/code&gt; and
+&lt;code&gt;undo-redo&lt;/code&gt; come in logical pairs.  Such logical pairs (or command
+tuples in general) are characterized by the fact that one often
+invokes a sequence of these commands repeatedly until the desired
+result is attained.  Package &lt;a href=&quot;https://github.com/abo-abo/hydra&quot;&gt;Hydra&lt;/a&gt; defines an elegant means of
+combining such command pairs into a single higher-level command that
+can be invoked more efficiently from the keyboard.
+To my knowledge, the only built-in Emacs command that exhibits a
+similar behavior is Emacs&#39; &lt;code&gt;text-scale-adjust&lt;/code&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-orgf39356f&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;orgf39356f&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.1&lt;/span&gt; Example: &lt;code&gt;undo-oanly&lt;/code&gt; And &lt;code&gt;undo-redo&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
+&lt;p&gt;
+Command &lt;code&gt;undo-only&lt;/code&gt; allows one to  move back through a sequence of
+changes.Command &lt;code&gt;undo-redo&lt;/code&gt; in contrast &lt;i&gt;undoes&lt;/i&gt; previous undo
+commands.
+In practice, one often moves back through a sequence of operations,
+with a few &lt;code&gt;undo-redo&lt;/code&gt; invocations mixed in if one moves back too far.
+&lt;/p&gt;
+
+&lt;p&gt;
+Emacs convention would suggest that one bind these commands to
+separate keys, but this has a few disadvantages:
+&lt;/p&gt;
+
+&lt;ul class=&quot;org-ul&quot;&gt;
+&lt;li&gt;Binding separate keys to the two commands feels wasteful,
+especially as unbound keys in Emacs become increasingly precious.&lt;/li&gt;
+&lt;li&gt;It&#39;s not ergonomic  to jump between the two commands in this pair
+unless one chooses the key-bindings &lt;i&gt;carefully&lt;/i&gt; &amp;#x2014; as an example,
+I used &lt;span class=&quot;underline&quot;&gt;C-x u&lt;/span&gt; for &lt;code&gt;undo-only and _C-x C-u&lt;/code&gt; for &lt;code&gt;undo-redo&lt;/code&gt; for
+many years. But now, a continuous sequence of undo operations
+requires too much chording.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-orga592e5d&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;orga592e5d&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.2&lt;/span&gt; A Hydra Inspired Solution&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Combine the two commands into a higher-level command.&lt;/li&gt;
+&lt;li&gt;Bind that command to a single key, in my case &lt;span class=&quot;underline&quot;&gt;C-/&lt;/span&gt; (&lt;i&gt;C-_&lt;/i&gt; on a tty).&lt;/li&gt;
+&lt;li&gt;When invoked, the Hydra-defined command does one of the following:
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;Invokes &lt;code&gt;undo-only&lt;/code&gt;  on being called, then continues to read keys.&lt;/li&gt;
+&lt;li&gt;Subsequent presses of &lt;span class=&quot;underline&quot;&gt;/&lt;/span&gt; invoke command &lt;code&gt;undo-only&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Pressing &lt;span class=&quot;underline&quot;&gt;\&lt;/span&gt; invokes &lt;code&gt;undo-redo&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Any other key quits the Hydra-generated higher-level command.&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+This is defined as part of Emacspeak&#39;s collection of &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-muggles.el#L1&quot;&gt;Muggles&lt;/a&gt;, as is evident, this is much nicer to  your wrists.
+&lt;/p&gt;
+
+
+&lt;div class=&quot;org-src-container&quot;&gt;
+&lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(global-set-key
+ (kbd &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;C-/&quot;&lt;/span&gt;) 
+ (&lt;span style=&quot;color: #a020f0;&quot;&gt;defhydra&lt;/span&gt; emacspeak-muggles-undo-only/undo-redo
+   (&lt;span style=&quot;color: #483d8b;&quot;&gt;:body-pre&lt;/span&gt; (emacspeak-hydra-body-pre &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Undo Smartly&quot;&lt;/span&gt;)
+              &lt;span style=&quot;color: #483d8b;&quot;&gt;:pre&lt;/span&gt;
+              (&lt;span style=&quot;color: #a020f0;&quot;&gt;progn&lt;/span&gt;
+                (&lt;span style=&quot;color: #a020f0;&quot;&gt;when&lt;/span&gt; hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+                (emacspeak-hydra-pre))
+              &lt;span style=&quot;color: #483d8b;&quot;&gt;:post&lt;/span&gt; emacspeak-hydra-post)
+   &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;Undo&quot;&lt;/span&gt;
+   (&lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;?&quot;&lt;/span&gt; (emacspeak-hydra-self-help &lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;emacspeak-muggles-undo-only/undo-redo&quot;&lt;/span&gt;))
+   (&lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;/&quot;&lt;/span&gt; undo-only nil)
+   (&lt;span style=&quot;color: #8b2252;&quot;&gt;&quot;\\&quot;&lt;/span&gt; undo-redo nil)))
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+Note that the above can be simplified by dropping the
+emacspeak-specific clauses when not using Emacspeak.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org6e9b5d6&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org6e9b5d6&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.3&lt;/span&gt; Repeatable Yank/Pop From The Hydra Wiki&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
+&lt;p&gt;
+I originally discovered the metaphor of repeatable paired commands a
+few years ago from the &lt;a href=&quot;https://github.com/abo-abo/hydra.wiki.git&quot;&gt;Hydra Wiki&lt;/a&gt;  which demonstrates a &lt;a href=&quot;https://github.com/abo-abo/hydra/wiki/Emacs&quot;&gt;repeatable
+yank/pop&lt;/a&gt;.  To summarize its effects:
+&lt;/p&gt;
+
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;&lt;span class=&quot;underline&quot;&gt;C-y&lt;/span&gt; invokes the hydra-generated higher-level command.&lt;/li&gt;
+&lt;li&gt;Subsequent presses of &lt;span class=&quot;underline&quot;&gt;y&lt;/span&gt; is  the same of &lt;code&gt;yank-pop&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Pressing &lt;span class=&quot;underline&quot;&gt;Y&lt;/span&gt; invokes &lt;code&gt;yank-pop&lt;/code&gt; with a negative argument.&lt;/li&gt;
+&lt;li&gt;Consequence of above, you can grab the last entry on the
+&lt;code&gt;kill-ring&lt;/code&gt; by pressing &lt;span class=&quot;underline&quot;&gt;Y&lt;/span&gt; after invoking the command &amp;#x2014; would
+take a lot more keystrokes in vanilla Emacs.&lt;/li&gt;
+&lt;li&gt;You can also add smart affordances such as searching the
+&lt;code&gt;kill-ring&lt;/code&gt; via interfaces such as &lt;code&gt;ido&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-org7cceb4f&quot; class=&quot;outline-3&quot;&gt;
+&lt;h3 id=&quot;org7cceb4f&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;1.4&lt;/span&gt; Conclusion&lt;/h3&gt;
+&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
+&lt;p&gt;
+As Emacs gains in functionality, grouping commands into higher-level
+abstractions, generating a single higher-level command that is bound
+to a key, and using that invocation context to implement the  result
+of subsequent keypresses is an abstraction that generalizes well.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/5376248580919833370'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/09/emacs-paired-commands-efficient.html' title='Emacs: Paired Commands --- Efficient Keyboard Interaction Using Hydra'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-8563131593972762432</id><published>2020-09-08T16:26:00.000-07:00</published><updated>2020-09-08T16:26:13.245-07:00</updated><title type='text'>Searching GMail From GNUS</title><content type='html'>&lt;div id=&quot;content&quot;&gt;
 &lt;h1 class=&quot;title&quot;&gt;Using GMail Search Operators In GNUS&lt;/h1&gt;
 &lt;div id=&quot;outline-container-org551bed2&quot; class=&quot;outline-2&quot;&gt;
 &lt;h2 id=&quot;org551bed2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;
@@ -14422,106 +14649,4 @@ diff -b -c -r1.32 w3.el
   	(set-buffer (generate-new-buffer &quot; *w3-html*&quot;))
   	(mm-disable-multibyte)
 &lt;/pre&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114204420283018511'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114204420283018511'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/03/w3-minor-patch-to-handle-content-type.html' title='W3: Minor Patch To Handle  Content-Type application/xhtml+xml '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-114187119760134089</id><published>2006-03-08T18:26:00.000-08:00</published><updated>2006-03-08T18:26:37.636-08:00</updated><title type='text'>Blogging From Emacs: Additional Atom-Blogger Documentation </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Thanks to Jason  Dunsmore 
-for writing up some additional 
-&lt;a href=&quot;http://phototechnic.blogspot.com/2006/03/using-atom-blogger-with-emacs-to-post.html&quot;&gt;
-step-by-step documentation&lt;/a&gt;
-on using &lt;code&gt;atom-blogger&lt;/code&gt;.
-&lt;/p&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114187119760134089'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114187119760134089'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/03/blogging-from-emacs-additional-atom.html' title='Blogging From Emacs: Additional Atom-Blogger Documentation '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-114074992344461641</id><published>2006-02-23T18:58:00.000-08:00</published><updated>2006-02-23T18:58:43.536-08:00</updated><title type='text'>Emacspeak: Connecting Lynx And W3 </title><content type='html'>&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;p&gt;Emacs/W3 is still the best Web page rendering option inside
-Emacspeak given the ability to apply XSL transforms, as well as
-obtaining aural styling via ACSS.
-However W3&#39;s url handling layer often breaks when faced with
-multiple redirects, especially when some of these happen through
-the &lt;code&gt;Host:&lt;/code&gt; HTTP header. Additionally,
-&lt;code&gt;HTTPS&lt;/code&gt; authentication sometimes fails mysteriously in
-the presence of redirects.&lt;/p&gt;
-
-&lt;p&gt;In many of these cases, &lt;code&gt;lynx&lt;/code&gt; happily fetches the
-pages correctly; however you&#39;re then stuck using  a  fairly weak
-auditory interface in that Emacspeak degrades to being
-aterminal level screenreader.&lt;/p&gt;
-
-&lt;p&gt;An effective solution to this problem is to use
-&lt;code&gt;lynx&lt;/code&gt; within an Emacs terminal, and after finding the
-content that is worth reading, handing off that content to
-Emacs/W3. The next few paragraphs show how.&lt;/p&gt;
-
-&lt;H4&gt;The &lt;code&gt;lynx-site.cfg&lt;/code&gt; File&lt;/H4&gt;
-
-&lt;p&gt;This is where you add site-specific configurations.
-Here are the lines I have in my &lt;code&gt;lynx-site.cfg &lt;/code&gt; to
-integrate &lt;code&gt;lynx&lt;/code&gt; and Emacs.
-Before you use any of this, make sure you have executed &lt;code&gt;M-x
-server-start&lt;/code&gt; in your running Emacs, and make sure that all
-is well by experimenting with &lt;code&gt;emacsclient&lt;/code&gt; to ensure
-that external programs can hand-off editting tasks to the
-currently running Emacs.&lt;/p&gt;
-
-
-&lt;pre&gt;
-#site defaults
-#for bookshare:
-DOWNLOADER:BKS Unpack:bks.pl  %s %s:TRUE 
-PRINTER:Edit:emacsclient %s:TRUE
-KEYMAP:???:EDITTEXTAREA	# use external editor to edit a form textarea
-PRETTYSRC:TRUE
-SOURCE_CACHE:MEMORY
-SAVE_SPACE:~/.wget/
-BOLD_HEADERS:TRUE
-PRINTER:W3:emacsclient -e &#39;(w3-open-local &quot;%s&quot;)&#39;:TRUE
-&lt;/pre&gt;
-&lt;p&gt;Below, I&#39;ll describe what each of the above lines do:&lt;/p&gt;
-
-&lt;ul&gt;
-
-&lt;li&gt; &lt;code&gt;DOWNLOADER:BKS Unpack:bks.pl  %s %s:TRUE &lt;/code&gt;&lt;br/&gt;
-The above line creates an additional item in the &lt;em&gt;download
-menu&lt;/em&gt; that invokes the BookShare unpacker.
-Script &lt;code&gt;bks-unpack.pl&lt;/code&gt; invokes the BookShare unpack
-tool with the appropriate options.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;PRINTER:Edit:emacsclient %s:TRUE&lt;/code&gt;&lt;br/&gt;
-This creates an &lt;em&gt;Edit&lt;/em&gt; item in the &lt;em&gt;print menu&lt;/em&gt;.
-Invoking this menu item causes the current page to be handed off
-to Emacs for editting.
-If you want to edit the source, first switch to &lt;em&gt;source
-view&lt;/em&gt; by hitting &lt;code&gt;\&lt;/code&gt; before invoking print.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;KEYMAP:???:EDITTEXTAREA	# use external editor to
-edit a form textarea&lt;/code&gt;&lt;br/&gt;
-This sets lynx up so that when editting a multiline textarea, you
-can hand off the editting job to Emacs. This is particularly
-useful for editting Wiki pages. Replace the &lt;code&gt;??&lt;/code&gt; with
-the desired key sequence.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;PRETTYSRC:TRUE&lt;br/&gt;
-SOURCE_CACHE:MEMORY&lt;/code&gt;&lt;br/&gt;
-The above two settings make the edit source functionality more
-pleasant to use.&lt;/li&gt;
-&lt;li&gt; &lt;code&gt;PRINTER:W3:emacsclient -e &#39;(w3-open-local
-&quot;%s&quot;)&#39;:TRUE&lt;/code&gt;&lt;br/&gt;
-The above creates a &lt;em&gt;W3&lt;/em&gt; menu item in the &lt;em&gt;print
-menu&lt;/em&gt;. Invoking this  causes Emacs/W3 to display the current
-page --- again switch to &lt;code&gt;source view&lt;/code&gt; before invoking
-this so that Emacs/W3 gets handed the HTML markup.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4&gt;Script &lt;code&gt;bks-unpack.pl&lt;/code&gt;&lt;/h4&gt;
-&lt;pre&gt;
-#!/usr/bin/perl -w
-#$Id: bks.pl,v 1.1 2003/07/04 15:41:55 tvraman Exp tvraman $
-#Description: Bookshare downloader for Lynx
-use strict;
-my $location=&quot;$ENV{HOME}/books/book-share&quot;;
-my $password = &#39;xxxxxxx&#39;;
-my $grabbed = shift;
-my $target = shift;
-my $dir =qx(basename $target .bks);
-chomp $dir;
-my $where = &quot;$location/$dir&quot;;
-qx(mkdir -p $where);
-qx(mv $grabbed  $where/$target);
-chdir $where;
-qx(echo $password | bks-unpack -q $target 1&amp;gt;&amp;amp;- 2&amp;gt;&amp;amp;- &amp;amp;);
-&lt;/pre&gt;
-    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114074992344461641'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114074992344461641'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/02/emacspeak-connecting-lynx-and-w3.html' title='Emacspeak: Connecting Lynx And W3 '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
+    &lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114204420283018511'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/114204420283018511'/><link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2006/03/w3-minor-patch-to-handle-content-type.html' title='W3: Minor Patch To Handle  Content-Type application/xhtml+xml '/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/></author></entry></feed>
