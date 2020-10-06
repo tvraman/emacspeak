@@ -92,7 +92,7 @@
         (when key (cl-callf vconcat res key))))
     res))
 
-(defun ems-kbd (string )
+(defun new-kbd (string )
   "Simplified and hopefully more robust kbd function."
   (let ((case-fold-search nil)
        (len (length string)) ; We won't alter string in the loop below.
@@ -165,7 +165,7 @@
   (setq result
         (cl-loop
          for test in tests
-         unless (equal (ems-kbd test) (kbd test))
+         unless (equal (new-kbd test) (kbd test))
          collect test))
   (cond
    ((null result) (message "All tests passed."))
