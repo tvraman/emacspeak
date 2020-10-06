@@ -85,9 +85,6 @@
                   ((and
                     (/= (logand bits ?\C-\^@) 0)
                     (stringp word)
-                        ;; We used to accept . and ? here,
-                        ;; but . is simply wrong,
-                        ;; and C-? is not used (we use DEL instead).
                     (string-match "[@-_a-z]" word))
                    (setq key
                          (list (+ bits (- ?\C-\^@)
