@@ -222,7 +222,7 @@ that is being replaced.")
                (integerp (overlay-end overlay)))
         (emacspeak-personality-remove
          (overlay-start overlay) (overlay-end overlay) voice buffer)
-        (funcall ems--voiceify-overlays beg end voice object))
+        (emacspeak-personality-add beg end voice object))
       (when invisible
         (with-current-buffer buffer
           (with-silent-modifications
