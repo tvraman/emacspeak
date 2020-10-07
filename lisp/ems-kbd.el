@@ -13,7 +13,6 @@
              (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
            (setq piece  (match-string 0 piece)
                  pos (+ word-beg (match-end 0))))
-;;; End of tokenizing logic 
          (cond ;;; modifier + keys 
           ((and
             (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" piece)
