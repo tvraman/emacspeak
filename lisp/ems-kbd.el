@@ -11,7 +11,6 @@
              (word-end (match-end 0))
              (word (substring string word-beg len))
              key)
-        ;; Try to catch events of the form "<as df>".
         (cond
 ;;; pattern: <xx+>
          ((string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
