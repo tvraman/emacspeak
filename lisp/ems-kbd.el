@@ -8,7 +8,6 @@
      for piece in (split-string string)
      do
        (let* ((word-beg 0)
-              (word-end (length piece))
               key)
          (when
              (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
