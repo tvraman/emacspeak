@@ -102,12 +102,11 @@
   :group 'emacspeak)
 
 (declare-function tts-list-voices "dectalk-voices")
+(unless (fboundp 'tts-list-voices)
+  (fset 'tts-list-voices #'dectalk-list-voices))
 
 ;;}}}
 ;;{{{  helper for voice custom items:
-
-(unless (fboundp 'tts-list-voices)
-  (fset 'tts-list-voices #'dectalk-list-voices))
 
 (defun voice-setup-custom-menu ()
   "Return a choice widget used in selecting voices."
@@ -117,10 +116,7 @@
        #'(lambda (voice)(list 'const voice))
        (tts-list-voices))))
 
-(defsubst voice-setup-read-personality (&optional prompt)
-  "Read name of a pre-defined personality using completion."
-  (read (completing-read (or prompt "Personality: ")
-                         (tts-list-voices))))
+
 
 ;;}}}
 ;;{{{ map faces to voices
