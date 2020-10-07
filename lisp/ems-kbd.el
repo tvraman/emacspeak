@@ -1,7 +1,7 @@
 (require 'cl-lib)
 
-(defun ems-key-tokenize (string)
-  "Return vector of tokens."
+(defun new-kbd (string )
+  "Simplified and hopefully more robust kbd function."
   (let ((res []))
     (cl-loop
      for word in (split-string string)
@@ -74,11 +74,6 @@
               (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
          (when key (cl-callf vconcat res key))))
-    res))
-
-(defun new-kbd (string )
-  "Simplified and hopefully more robust kbd function."
-  (let ((res (ems-key-tokenize string)))
     (cond
      ((and ;;; meta bit if appropriate
        (cl-loop
