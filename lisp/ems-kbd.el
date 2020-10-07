@@ -8,7 +8,7 @@
      for piece in (split-string string)
      do
        (let* ((word-beg 0)
-              key)
+              (key nil))
          (when
              (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
            (setq piece  (match-string 0 piece)
