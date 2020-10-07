@@ -53,6 +53,7 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 ;;}}}
 ;;{{{ems-kbd: replacement for function kbd
+
 ;;; simplified kbd function:
 ;;; Uses split-string to  simplify tokenizer.
 
@@ -60,32 +61,32 @@
   "Return vector of tokens."
   (let ((res []))
     (cl-loop
-     for piece in (split-string string)
+     for word in (split-string string)
      do
        (let* ((key nil))
          (when
-             (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
-           (setq piece  (match-string 0 piece)))
+             (string-match "\\`<[^<>[:space:]][^>[:space]]*>" word)
+           (setq word  (match-string 0 word)))
          (cond 
           ((and
-            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" piece)
+            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
             (progn
-              (setq piece
-                    (concat (substring piece (match-beginning 1) (match-end 1))
-                            (substring piece (match-beginning 3) (match-end 3))))
+              (setq word
+                    (concat (substring word (match-beginning 1) (match-end 1))
+                            (substring word (match-beginning 3) (match-end 3))))
               (not
                (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
-                             piece)))) ;;; ugh test with side-effect!
-           (setq key (list (intern piece))))
+                             word)))) ;;; ugh test with side-effect!
+           (setq key (list (intern word))))
           (t
-           (let ((orig-word piece)
+           (let ((orig-word word)
                  (prefix 0)
                  (bits 0))
              (while ;;; calculate modifier bits
-                 (string-match "^[ACHMsS]-." piece)
+                 (string-match "^[ACHMsS]-." word)
                (cl-incf bits
                         (cdr
-                         (assq (aref piece 0)
+                         (assq (aref word 0)
                                '((?A . ?\A-\^@)
                                  (?C . ?\C-\^@)
                                  (?H . ?\H-\^@)
@@ -93,13 +94,13 @@
                                  (?s . ?\s-\^@)
                                  (?S . ?\S-\^@)))))
                (cl-incf prefix 2)
-               (cl-callf substring piece 2))
-             (when (string-match "^\\^.$" piece)
+               (cl-callf substring word 2))
+             (when (string-match "^\\^.$" word)
                (cl-incf bits ?\C-\^@)
                (cl-incf prefix)
-               (cl-callf substring piece 1))
+               (cl-callf substring word 1))
              (let ((found
-                    (assoc piece
+                    (assoc word
                            '(("NUL" . "\0")
                              ("RET" . "\r")
                              ("LFD" . "\n")
@@ -107,27 +108,27 @@
                              ("ESC" . "\e")
                              ("SPC" . " ")
                              ("DEL" . "\177")))))
-               (when found (setq piece (cdr found))))
+               (when found (setq word (cdr found))))
              (cond ;;; apply modifiers 
-              ((= bits 0) (setq key piece))
+              ((= bits 0) (setq key word))
               ((and (= bits ?\M-\^@)
-                    (stringp piece)
-                    (string-match "^-?[0-9]+$" piece))
+                    (stringp word)
+                    (string-match "^-?[0-9]+$" word))
                (setq key
                      (cl-loop
-                      for x across piece
+                      for x across word
                       collect (+ x bits))))
-              ((/= (length piece) 1)
+              ((/= (length word) 1)
                (error "%s must prefix a single character, not %s"
-                      (substring orig-word 0 prefix) piece))
+                      (substring orig-word 0 prefix) word))
               ((and
                 (/= (logand bits ?\C-\^@) 0)
-                (stringp piece)
-                (string-match "[@-_a-z]" piece))
+                (stringp word)
+                (string-match "[@-_a-z]" word))
                (setq key
                      (list (+ bits (- ?\C-\^@)
-                              (logand (aref piece 0) 31)))))
-              (t (setq key (list (+ bits (aref piece 0)))))))))
+                              (logand (aref word 0) 31)))))
+              (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
          (when key (cl-callf vconcat res key))))
     res))
@@ -155,8 +156,6 @@
           ch)
          (t (+ ch 128))))))
      (t res))))
-
-
 
 ;;}}}
 ;;{{{ Custom Widget Types:
