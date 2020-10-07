@@ -67,9 +67,6 @@
      for word in (split-string string)
      do
        (let* ((key nil))
-         (when
-             (string-match "\\`<[^<>[:space:]][^>[:space]]*>" word)
-           (setq word  (match-string 0 word)))
          (cond 
           ((and
             (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
