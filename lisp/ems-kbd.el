@@ -52,7 +52,6 @@
                              ("SPC" . " ")
                              ("DEL" . "\177")))))
                (when found (setq piece (cdr found))))
-             
              (cond ;;; apply modifiers 
               ((= bits 0) (setq key piece))
               ((and (= bits ?\M-\^@)
