@@ -457,7 +457,6 @@ user."
 ;;}}}
 ;;{{{ browse chunks
 
-
 (defun emacspeak-wizards-move-and-speak (command count)
   "Speaks a chunk of text bounded by point and a target position.
 Target position is specified using a navigation command and a
@@ -1691,6 +1690,11 @@ Interactive  arguments specify filename pattern and search pattern."
 ;;}}}
 ;;{{{ voice sample
 
+
+(defsubst voice-setup-read-personality (&optional prompt)
+  "Read name of a pre-defined personality using completion."
+  (read (completing-read (or prompt "Personality: ")
+                         (tts-list-voices))))
 
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
