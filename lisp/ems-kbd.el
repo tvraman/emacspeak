@@ -10,7 +10,7 @@
          (when
              (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
            (setq piece  (match-string 0 piece)))
-         (cond ;;; modifier + keys 
+         (cond 
           ((and
             (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" piece)
             (progn
@@ -19,7 +19,7 @@
                             (substring piece (match-beginning 3) (match-end 3))))
               (not
                (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
-                             piece))))
+                             piece)))) ;;; ugh test with side-effect!
            (setq key (list (intern piece))))
           (t
            (let ((orig-word piece)
