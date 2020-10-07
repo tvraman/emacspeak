@@ -7,7 +7,6 @@
     (while ;;; tokenize by white-space into vector res
         (and (< pos len)
              (string-match "[^ \t\n\f]+" string pos)) ;tokenizer  test
-      ;;; tokenize word into key
       (let* ((word-beg (match-beginning 0))
              (word-end (match-end 0))
              (word (substring string word-beg len))
