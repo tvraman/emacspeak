@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 5, 2020.
+last updated on October 7, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -4981,7 +4981,6 @@ Assuming you have correctly setup your API key:
      key             binding
      —             ——-
 
-     RET		emacspeak-bookshare-toc-at-point
      ESC		Prefix Command
      SPC		emacspeak-bookshare-expand-at-point
      +		emacspeak-bookshare-action
@@ -7417,7 +7416,6 @@ table of contents.
 
      C-a		emacspeak-epub-bookshelf-add-directory
      C-d		emacspeak-epub-bookshelf-remove-directory
-     C-k		emacspeak-epub-delete
      C-l		emacspeak-epub-bookshelf-redraw
      RET		emacspeak-epub-eww
      C-o		emacspeak-epub-bookshelf-open-epub

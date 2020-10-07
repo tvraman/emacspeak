@@ -2503,7 +2503,6 @@ b Browse
 key             binding
 ---             -------
 
-RET		emacspeak-bookshare-toc-at-point
 ESC		Prefix Command
 SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
@@ -5247,7 +5246,6 @@ key             binding
 
 C-a		emacspeak-epub-bookshelf-add-directory
 C-d		emacspeak-epub-bookshelf-remove-directory
-C-k		emacspeak-epub-delete
 C-l		emacspeak-epub-bookshelf-redraw
 RET		emacspeak-epub-eww
 C-o		emacspeak-epub-bookshelf-open-epub
