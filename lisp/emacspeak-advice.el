@@ -146,7 +146,7 @@ that is being replaced.")
 ;;}}}
 ;;{{{ advice overlays
 
-(defvar ems--voiceify-overlays #'emacspeak-personality-add
+(defvar ems--voiceify-overlays t
   "Determines how and if we voiceify overlays. ")
 
 ;;; Needed for  outline support:
@@ -197,8 +197,7 @@ that is being replaced.")
         (when (eq prop 'category) (setq value (get value 'face)))
         (setq voice (dtk-get-voice-for-face value))
         (when voice
-            (funcall
-             ems--voiceify-overlays
+            (emacspeak-personality-add
              start end voice (overlay-buffer overlay))))
        ((eq prop 'invisible)
         (with-current-buffer (overlay-buffer overlay)
