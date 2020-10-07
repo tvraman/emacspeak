@@ -314,6 +314,7 @@
    ("C-f" emacspeak-speak-buffer-filename)
    ("C-i" emacspeak-open-info)
    ("C-j" emacspeak-hide-speak-block-sans-prefix)
+   ("C-k" browse-kill-ring)
    ("C-l" emacspeak-speak-line-number)
    ("C-m"  emacspeak-speak-continuously)
    ("C-n" emacspeak-speak-next-window)
