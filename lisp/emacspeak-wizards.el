@@ -1778,6 +1778,12 @@ Sample text to use comes from variable
     (list-faces-display pattern)
     (message "Displayed voice-face mappings in other window.")))
 
+
+(defun voice-setup-show-rogue-faces ()
+  "Return list of voices that map to non-existent faces."
+  (cl-declare (special voice-setup-face-voice-table))
+  (cl-loop for f being the hash-keys of voice-setup-face-voice-table
+           unless (facep f) collect f))
 ;;}}}
 ;;{{{ tramp wizard
 (defcustom emacspeak-wizards-tramp-locations nil
