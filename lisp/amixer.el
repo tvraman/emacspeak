@@ -294,31 +294,6 @@ Interactive prefix arg refreshes cache."
        (amixer-control-name control)
        update)))))
 
-
-(defun amixer-equalize()
-  "Set equalizer. Only affects device `equal'."
-  (interactive)
-  (cl-declare (special amixer-device))
-  (let ((amixer-device "equal")
-        (emacspeak-speak-messages nil))
-    (amixer 'refresh)
-;;; mark db dirty.
-    (setq amixer-db nil)))
-
-(defun amixer-reset-equalizer ()
-  "Reset equalizer to default values -- 66% for all 10 bands."
-  (interactive)
-  (cl-declare (special amixer-program))
-  (cl-loop
-   for  i from 1 to 10 do
-   (start-process
-    "AMixer" nil amixer-program
-    "-Dequal"
-    "cset"
-    (format "numid=%s" i)
-    "66,66"))
-  (message "Reset equalizer"))
-
 ;;;###autoload
 (defun amixer-store()
   "Persist current amixer settings."
