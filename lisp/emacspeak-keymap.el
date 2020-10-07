@@ -57,8 +57,11 @@
 ;;; simplified kbd function:
 ;;; Uses split-string to  simplify tokenizer.
 
-(defun ems-key-tokenize (string)
-  "Return vector of tokens."
+
+
+;;;###autoload
+(defun ems-kbd (string )
+  "Simplified and hopefully more robust kbd function."
   (let ((res []))
     (cl-loop
      for word in (split-string string)
@@ -131,15 +134,8 @@
               (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
          (when key (cl-callf vconcat res key))))
-    res))
-
-;;;###autoload
-(defun ems-kbd (string )
-  "Simplified and hopefully more robust kbd function."
-  (let ((res (ems-key-tokenize string)))
-;;; events now in vector res, now validate it
     (cond
-     ((and
+     ((and ;;; meta bit if appropriate
        (cl-loop
         for ch across res
         always
