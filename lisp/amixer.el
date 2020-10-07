@@ -72,9 +72,6 @@
 (cl-defstruct amixer-control
   numid iface name setting)
 
-(declare-function amixer-control-name  "amixer.el" (amixer))
-(declare-function amixer-control-numid  "amixer.el" (amixer))
-(declare-function amixer-control-iface  "amixer.el" (amixer))
 (cl-defstruct amixer-control-setting
   type access values
   min max step
