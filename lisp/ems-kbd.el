@@ -1,93 +1,89 @@
+(require 'cl-lib)
+
 (defun ems-key-tokenize (string)
   "Return vector of tokens."
   (let ((case-fold-search nil)
-        (len (length string)) ; We won't alter string in the loop below.
         (pos 0)
         (res []))
-    (while ;;; tokenize by white-space into vector res
-        (and (< pos len)
-             (string-match "[^[:space:]]+" string pos)) ;tokenizer  test
-      (let* ((word-beg (match-beginning 0))
-             (word-end (match-end 0))
-             (word (substring string word-beg len))
-             key)
-        (cond
-;;; pattern: <xx+>
-         ((string-match "\\`<[^ <>\t\n\f][^>\t\n\f]*>" word)
-          (setq word (match-string 0 word)
-                pos (+ word-beg (match-end 0))))
-         (t ;;; plain word, no <>
-          (setq word (substring string word-beg word-end)
-                pos word-end)))
-        ;;; End of tokenizing logic 
-        (cond ;;; modifier + keys 
-         ((and
-           (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
-           (progn
-             (setq word
-                   (concat (substring word (match-beginning 1) (match-end 1))
-                           (substring word (match-beginning 3) (match-end 3))))
-             (not
-              (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
-                            word))))
-          (setq key (list (intern word))))
-         (t
-          (let ((orig-word word)
-                (prefix 0)
-                (bits 0))
-            (while ;;; calculate modifier bits
-                (string-match "^[ACHMsS]-." word)
-              (cl-incf bits
-                       (cdr
-                        (assq (aref word 0)
-                              '((?A . ?\A-\^@)
-                                (?C . ?\C-\^@)
-                                (?H . ?\H-\^@)
-                                (?M . ?\M-\^@)
-                                (?s . ?\s-\^@)
-                                (?S . ?\S-\^@)))))
-              (cl-incf prefix 2)
-              (cl-callf substring word 2))
-            (when (string-match "^\\^.$" word)
-              (cl-incf bits ?\C-\^@)
-              (cl-incf prefix)
-              (cl-callf substring word 1))
-            (let ((found
-                   (assoc word
-                          '(("NUL" . "\0")
-                            ("RET" . "\r")
-                            ("LFD" . "\n")
-                            ("TAB" . "\t")
-                            ("ESC" . "\e")
-                            ("SPC" . " ")
-                            ("DEL" . "\177")))))
-              (when found (setq word (cdr found))))
-            (when (string-match "^\\\\[0-7]+$" word) ;;; octals
-              (cl-loop for ch across word
-                       for n = 0 then (+ (* n 8) ch -48)
-                       finally do (setq word (vector n))))
-            (cond ;;; apply modifiers 
-             ((= bits 0) (setq key word))
-             ((and (= bits ?\M-\^@)
-                   (stringp word)
-                   (string-match "^-?[0-9]+$" word))
-              (setq key
-                    (cl-loop
-                     for x across word
-                     collect (+ x bits))))
-             ((/= (length word) 1)
-              (error "%s must prefix a single character, not %s"
-                     (substring orig-word 0 prefix) word))
-             ((and
-               (/= (logand bits ?\C-\^@) 0)
-               (stringp word)
-               (string-match "[@-_a-z]" word))
-              (setq key
-                    (list (+ bits (- ?\C-\^@)
-                             (logand (aref word 0) 31)))))
-             (t (setq key (list (+ bits (aref word 0)))))))))
+    (cl-loop
+     for piece in (split-string string)
+     do
+       (let* ((word-beg 0)
+              (word-end (length piece))
+              key)
+         (when
+             (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
+           (setq piece  (match-string 0 piece)
+                 pos (+ word-beg (match-end 0))))
+;;; End of tokenizing logic 
+         (cond ;;; modifier + keys 
+          ((and
+            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" piece)
+            (progn
+              (setq piece
+                    (concat (substring piece (match-beginning 1) (match-end 1))
+                            (substring piece (match-beginning 3) (match-end 3))))
+              (not
+               (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
+                             piece))))
+           (setq key (list (intern piece))))
+          (t
+           (let ((orig-word piece)
+                 (prefix 0)
+                 (bits 0))
+             (while ;;; calculate modifier bits
+                 (string-match "^[ACHMsS]-." piece)
+               (cl-incf bits
+                        (cdr
+                         (assq (aref piece 0)
+                               '((?A . ?\A-\^@)
+                                 (?C . ?\C-\^@)
+                                 (?H . ?\H-\^@)
+                                 (?M . ?\M-\^@)
+                                 (?s . ?\s-\^@)
+                                 (?S . ?\S-\^@)))))
+               (cl-incf prefix 2)
+               (cl-callf substring piece 2))
+             (when (string-match "^\\^.$" piece)
+               (cl-incf bits ?\C-\^@)
+               (cl-incf prefix)
+               (cl-callf substring piece 1))
+             (let ((found
+                    (assoc piece
+                           '(("NUL" . "\0")
+                             ("RET" . "\r")
+                             ("LFD" . "\n")
+                             ("TAB" . "\t")
+                             ("ESC" . "\e")
+                             ("SPC" . " ")
+                             ("DEL" . "\177")))))
+               (when found (setq piece (cdr found))))
+             (when (string-match "^\\\\[0-7]+$" piece) ;;; octals
+               (cl-loop for ch across piece
+                        for n = 0 then (+ (* n 8) ch -48)
+                        finally do (setq piece (vector n))))
+             (cond ;;; apply modifiers 
+              ((= bits 0) (setq key piece))
+              ((and (= bits ?\M-\^@)
+                    (stringp piece)
+                    (string-match "^-?[0-9]+$" piece))
+               (setq key
+                     (cl-loop
+                      for x across piece
+                      collect (+ x bits))))
+              ((/= (length piece) 1)
+               (error "%s must prefix a single character, not %s"
+                      (substring orig-word 0 prefix) piece))
+              ((and
+                (/= (logand bits ?\C-\^@) 0)
+                (stringp piece)
+                (string-match "[@-_a-z]" piece))
+               (setq key
+                     (list (+ bits (- ?\C-\^@)
+                              (logand (aref piece 0) 31)))))
+              (t (setq key (list (+ bits (aref piece 0)))))))))
 ;;; push key on to the result vector 
-        (when key (cl-callf vconcat res key))))
+         (when key (cl-callf vconcat res key))))
     res))
 
 (defun new-kbd (string )
