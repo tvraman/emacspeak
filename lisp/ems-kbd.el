@@ -2,8 +2,7 @@
 
 (defun ems-key-tokenize (string)
   "Return vector of tokens."
-  (let ((pos 0)
-        (res []))
+  (let ((res []))
     (cl-loop
      for piece in (split-string string)
      do
@@ -11,8 +10,7 @@
               (key nil))
          (when
              (string-match "\\`<[^<>[:space:]][^>[:space]]*>" piece)
-           (setq piece  (match-string 0 piece)
-                 pos (+ word-beg (match-end 0))))
+           (setq piece  (match-string 0 piece)))
          (cond ;;; modifier + keys 
           ((and
             (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" piece)
