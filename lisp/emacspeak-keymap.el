@@ -108,10 +108,6 @@
                              ("SPC" . " ")
                              ("DEL" . "\177")))))
                (when found (setq piece (cdr found))))
-             (when (string-match "^\\\\[0-7]+$" piece) ;;; octals
-               (cl-loop for ch across piece
-                        for n = 0 then (+ (* n 8) ch -48)
-                        finally do (setq piece (vector n))))
              (cond ;;; apply modifiers 
               ((= bits 0) (setq key piece))
               ((and (= bits ?\M-\^@)
