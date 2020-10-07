@@ -2,8 +2,7 @@
 
 (defun ems-key-tokenize (string)
   "Return vector of tokens."
-  (let ((case-fold-search nil)
-        (pos 0)
+  (let ((pos 0)
         (res []))
     (cl-loop
      for piece in (split-string string)
