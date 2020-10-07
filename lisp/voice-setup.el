@@ -121,7 +121,7 @@
 ;;}}}
 ;;{{{ map faces to voices
 
-(defvar voice-setup-face-voice-table (make-hash-table)
+(defvar voice-setup-face-voice-table (make-hash-table :test #'eq)
   "Hash table holding face to voice mapping.")
 
 (defsubst voice-setup-set-voice-for-face (face voice)
@@ -133,12 +133,6 @@
   "Retrieve face --a symbol-- to relevant voice."
   (cl-declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
-
-(defun voice-setup-show-rogue-faces ()
-  "Return list of voices that map to non-existent faces."
-  (cl-declare (special voice-setup-face-voice-table))
-  (cl-loop for f being the hash-keys of voice-setup-face-voice-table
-           unless (facep f) collect f))
 
 ;;}}}
 ;;{{{ special form def-voice-font
@@ -521,23 +515,6 @@ take effect."
         (message "Silenced personality %s" personality)
         (emacspeak-auditory-icon 'close-object)))
     (when (buffer-file-name) (normal-mode))))
-
-;;}}}
-;;{{{ Helper: voice-setup-defined-voices 
-
-(defun voice-setup-defined-voices ()
-  "Return list of voices defined via defvoice."
-  (let ((result nil))
-    (mapatoms
-     #'(lambda (s)
-         (when  
-             (and
-              (string-match "^voice-"  (symbol-name s))
-              (boundp s)
-              (symbolp (symbol-value s))
-              (string-match  "^acss-" (symbol-name  (symbol-value s))))
-           (push s result))))
-    result))
 
 ;;}}}
 ;;{{{ describe-voice at point:

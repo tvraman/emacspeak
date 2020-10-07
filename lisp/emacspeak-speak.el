@@ -60,7 +60,6 @@
 (require 'emacspeak-pronounce)
 (require 'sox-gen)
 (declare-function emacspeak-play-auditory-icon "emacspeak-sounds" (sound-name))
-
 (declare-function operate-on-rectangle "rect" (function start end coerce-tabs))
 (declare-function which-function "which-func" nil)
 (declare-function calendar-cursor-to-nearest-date "cal-move" [Arg list not available until function definition is loaded.])

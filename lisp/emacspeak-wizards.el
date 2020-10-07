@@ -1735,6 +1735,22 @@ for the current voice family."
     (switch-to-buffer buffer)
     (goto-char (point-min))))
 
+(defun voice-setup-defined-voices ()
+  "Return list of voices defined via defvoice."
+  (let ((result nil))
+    (mapatoms
+     #'(lambda (s)
+         (when  
+             (and
+              (string-match "^voice-"  (symbol-name s))
+              (boundp s)
+              (symbolp (symbol-value s))
+              (string-match  "^acss-" (symbol-name  (symbol-value s))))
+           (push s result))))
+    result))
+
+
+
 
 (defun emacspeak-wizards-show-defined-voices ()
   "Display a buffer with sample text in the defined voices."
