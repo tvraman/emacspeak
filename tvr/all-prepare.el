@@ -135,7 +135,7 @@ This moves them into the Spam folder."
 ;;}}}
 ;; -*- lexical-binding: nil; -*-
 (defalias 'assoc-ignore-case 'assoc)
-(define-key ctl-x-map (kbd "|C-j") jabber-global-keymap)
+(define-key ctl-x-map (ems-kbd "|C-j") jabber-global-keymap)
 (with-eval-after-load "jabber"
   (setq fsm-debug nil)
   (setq jabber-mode-line-string
@@ -165,8 +165,8 @@ This moves them into the Spam folder."
       (lispy-mode 1)))
 (with-eval-after-load "lispy"
   (cl-declare (special lispy-mode-map lispy-mode-map-lispy))
-  (define-key lispy-mode-map (kbd "C-,") nil)
-  (define-key lispy-mode-map-lispy (kbd "C-,") nil)
+  (define-key lispy-mode-map (ems-kbd "C-,") nil)
+  (define-key lispy-mode-map-lispy (ems-kbd "C-,") nil)
   (define-key lispy-mode-map "\M-m" nil)
   (define-key lispy-mode-map "\C-y" 'emacspeak-muggles-yank-pop/yank)
   (define-key lispy-mode-map ";" 'self-insert-command)
