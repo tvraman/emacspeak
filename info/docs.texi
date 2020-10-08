@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1178 commands and 837 options.
+This chapter documents a total of 1175 commands and 836 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -303,24 +303,6 @@ Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache.
 
 (fn &optional REFRESH)
-@end format
-@end deffn
-
-@subsubsection amixer-equalize
-@deffn {Command} amixer-equalize   
-@findex amixer-equalize
-
-@format
-Set equalizer. Only affects device ‘equal’.
-@end format
-@end deffn
-
-@subsubsection amixer-reset-equalizer
-@deffn {Command} amixer-reset-equalizer   
-@findex amixer-reset-equalizer
-
-@format
-Reset equalizer to default values -- 66% for all 10 bands.
 @end format
 @end deffn
 
@@ -9478,47 +9460,6 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 This module defines the emacspeak keybindings.
 Note that the <fn> key found on laptops is denoted <fn>
 
-@subsection Emacspeak-Keymap Commands
-
-@subsubsection emacspeak-keymap-bindings-from-org
-@deffn {Command} emacspeak-keymap-bindings-from-org  (variable filename)
-@findex emacspeak-keymap-bindings-from-org
-
-@format
-Load bindings from a specified file.
-
-(fn VARIABLE FILENAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-keymap-bindings-to-org
-@deffn {Command} emacspeak-keymap-bindings-to-org  (variable filename)
-@findex emacspeak-keymap-bindings-to-org
-
-@format
-Persists mapping to org file.
-
-(fn VARIABLE FILENAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-keymap-choose-new-emacspeak-prefix
-@deffn {Command} emacspeak-keymap-choose-new-emacspeak-prefix  (prefix-key)
-@findex emacspeak-keymap-choose-new-emacspeak-prefix
-
-@format
-Interactively select a new prefix key to use for all emacspeak
-commands.  The default is to use ‘C-e’  This command
-lets you switch the prefix to something else.  This is a useful thing
-to do if you run emacspeak on a remote machine from inside a terminal
-that is running inside a local emacspeak session.  You can have the
-remote emacspeak use a different control key to give your fingers some
-relief. Note: I’ve not used this in over 20 years.
-
-(fn PREFIX-KEY)
-@end format
-@end deffn
-
 @subsection emacspeak-keymap Options
 
 @defvar {User Option} emacspeak-alt-keys
@@ -14372,14 +14313,6 @@ Open ssh session to where we came from.
 
 @defvar {User Option} emacspeak-remote-default-ssh-server
 Default ssh server to use for remote speech server.
-
-@end defvar
-
-@defvar {User Option} emacspeak-remote-hooks
-List of hook functions that are run after
-emacspeak is set to run as a remote application.
-Use this to add actions you typically perform after you enter remote
-mode.
 
 @end defvar
 
@@ -20787,6 +20720,28 @@ Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
 access to the various functions provided by alpha-vantage.
 
 (fn TICKER &optional CUSTOM)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-bindings-from-org
+@deffn {Command} emacspeak-wizards-bindings-from-org  (variable filename)
+@findex emacspeak-wizards-bindings-from-org
+
+@format
+Load bindings from a specified file.
+
+(fn VARIABLE FILENAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-bindings-to-org
+@deffn {Command} emacspeak-wizards-bindings-to-org  (variable filename)
+@findex emacspeak-wizards-bindings-to-org
+
+@format
+Persists mapping to org file.
+
+(fn VARIABLE FILENAME)
 @end format
 @end deffn
 

@@ -1964,43 +1964,7 @@ File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kmacro,  Prev: e
 This module defines the emacspeak keybindings.  Note that the <fn> key
 found on laptops is denoted <fn>
 
-12.108.1 Emacspeak-Keymap Commands
-----------------------------------
-
-12.108.1.1 emacspeak-keymap-bindings-from-org
-.............................................
-
- -- Command: emacspeak-keymap-bindings-from-org (variable filename)
-
-     Load bindings from a specified file.
-
-     (fn VARIABLE FILENAME)
-
-12.108.1.2 emacspeak-keymap-bindings-to-org
-...........................................
-
- -- Command: emacspeak-keymap-bindings-to-org (variable filename)
-
-     Persists mapping to org file.
-
-     (fn VARIABLE FILENAME)
-
-12.108.1.3 emacspeak-keymap-choose-new-emacspeak-prefix
-.......................................................
-
- -- Command: emacspeak-keymap-choose-new-emacspeak-prefix (prefix-key)
-
-     Interactively select a new prefix key to use for all emacspeak
-     commands.  The default is to use ‘C-e’  This command
-     lets you switch the prefix to something else.  This is a useful thing
-     to do if you run emacspeak on a remote machine from inside a terminal
-     that is running inside a local emacspeak session.  You can have the
-     remote emacspeak use a different control key to give your fingers some
-     relief. Note: I’ve not used this in over 20 years.
-
-     (fn PREFIX-KEY)
-
-12.108.2 emacspeak-keymap Options
+12.108.1 emacspeak-keymap Options
 ---------------------------------
 
  -- Variable: User Option emacspeak-alt-keys
@@ -6189,11 +6153,6 @@ talking to a remote speech server, after prompting for host and port
 
  -- Variable: User Option emacspeak-remote-default-ssh-server
      Default ssh server to use for remote speech server.
-
- -- Variable: User Option emacspeak-remote-hooks
-     List of hook functions that are run after emacspeak is set to run
-     as a remote application.  Use this to add actions you typically
-     perform after you enter remote mode.
 
 
 File: emacspeak.info,  Node: emacspeak-rg,  Next: emacspeak-rmail,  Prev: emacspeak-remote,  Up: Emacspeak Commands And Options

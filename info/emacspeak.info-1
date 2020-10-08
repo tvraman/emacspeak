@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1178 commands and 837 options.
+   This chapter documents a total of 1175 commands and 836 options.
 
 * Menu:
 
@@ -3185,21 +3185,7 @@ To reset all controls to their default values, Press ‘C-j’.
 
      (fn &optional REFRESH)
 
-12.2.1.2 amixer-equalize
-........................
-
- -- Command: amixer-equalize
-
-     Set equalizer. Only affects device ‘equal’.
-
-12.2.1.3 amixer-reset-equalizer
-...............................
-
- -- Command: amixer-reset-equalizer
-
-     Reset equalizer to default values – 66% for all 10 bands.
-
-12.2.1.4 amixer-store
+12.2.1.2 amixer-store
 .....................
 
  -- Command: amixer-store
