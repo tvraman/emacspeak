@@ -145,7 +145,6 @@ This chapter documents a total of 1175 commands and 836 options.
 * emacspeak-package::Speech-enable PACKAGE.
 * emacspeak-paradox::Speech-enable PARADOX.
 * emacspeak-perl::Speech enable Perl Mode.
-* emacspeak-personality::Voiceify Overlays.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
 * emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
@@ -13697,40 +13696,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @section emacspeak-perl
 
 Provide additional advice to perl-mode
-
-@node emacspeak-personality
-@section emacspeak-personality
-
-Implementation Notes From 2018:
-After 3 years, variable emacspeak-personality-voiceify-faces has
-been removed,
-and the advice on put-text-property and friends removed.
-This module nowlimits itself to mapping face/font-lock properties
-from overlays to the associated text-property (personality).
-This mapping is done via emacspeak-personality-add.
-The options for cumulative personalities have been removed.
-
-Implementation Notes From 2015:
-
-Setting emacspeak-personality-voiceify-faces to
-nil  now results in dtk-speak falling back to the
-face->voice mapping defined via voice-setup for the face at
-point. What this means:
-
-1. You always get voice-locking except
-when you set voice-lock-mode to nil.
-
-2. The advice on
-put-text-property and friends become a no-op and we still get
-voice-locking.
-
-3. Eventually this will become the default behavior
-for voice-locking.
-
-Implementation Notes from 2002.
-
-This module defines a personality interface for implementing voice
-lock via font lock.
 
 @node emacspeak-pianobar
 @section emacspeak-pianobar
