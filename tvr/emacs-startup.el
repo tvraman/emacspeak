@@ -143,7 +143,7 @@ Produce timing information as the last step."
      ("SPC" comint-magic-space)
      ("C-c k" comint-clear-buffer))
    do
-   (define-key shell-mode-map (kbd (cl-first b)) (cl-second b))))
+   (define-key shell-mode-map (ems-kbd (cl-first b)) (cl-second b))))
 
 ;;}}}
 ;;{{{Functions: emacs-startup-hook, after-init-hook, tvr-customize
@@ -166,7 +166,7 @@ startup sound."
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        outline-mode-prefix-map outline-minor-mode-prefix))
-  (setq outline-minor-mode-prefix (kbd "C-o"))
+  (setq outline-minor-mode-prefix (ems-kbd "C-o"))
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
@@ -190,22 +190,22 @@ Use Custom to customize where possible. "
      ( "M-#" calc-dispatch)
      ("M-C-v" vm-visit-folder))
    do
-   (global-set-key (kbd (cl-first key)) (cl-second key)))
+   (global-set-key (ems-kbd (cl-first key)) (cl-second key)))
   (cl-loop ;;; shell wizard
    for i from 0 to 9 do
-   (global-set-key (kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
+   (global-set-key (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
   (define-key ctl-x-map "u"  'undo-only)
-  (define-key ctl-x-map (kbd "C-u") 'undo-redo)
-  (define-key ctl-x-map (kbd "C-d") 'dired-jump)
-  (define-key ctl-x-map (kbd "C-n") 'forward-page)
-  (define-key ctl-x-map (kbd "C-p") 'backward-page)
+  (define-key ctl-x-map (ems-kbd "C-u") 'undo-redo)
+  (define-key ctl-x-map (ems-kbd "C-d") 'dired-jump)
+  (define-key ctl-x-map (ems-kbd "C-n") 'forward-page)
+  (define-key ctl-x-map (ems-kbd "C-p") 'backward-page)
 ;;; Shell mode bindings:
   (with-eval-after-load 'shell  (tvr-shell-bind-keys))
 ;;; Outline Setup:
   (with-eval-after-load 'outline
-    (global-set-key (kbd "C-o") outline-mode-prefix-map) ;;;restore
+    (global-set-key (ems-kbd "C-o") outline-mode-prefix-map) ;;;restore
     (define-key outline-mode-prefix-map "o" 'open-line))
   (server-start)
   (with-eval-after-load 'magit (require 'forge))
@@ -237,7 +237,7 @@ Use Custom to customize where possible. "
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
-  (local-set-key (kbd "C-m") 'newline-and-indent)
+  (local-set-key (ems-kbd "C-m") 'newline-and-indent)
   (company-mode)
   (hs-minor-mode)
   (auto-fill-mode)

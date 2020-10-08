@@ -133,13 +133,13 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;; Create a command to invoke our media player map:
 
 (global-set-key
- (kbd "s-m")
+ (ems-kbd "s-m")
  (emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
 
 ;; Create one for pianobar
 (when (featurep 'pianobar)
   (global-set-key
-   (kbd "s-'")
+   (ems-kbd "s-'")
    (emacspeak-muggles-generate 'pianobar-key-map)))
 
 ;;}}}
@@ -147,7 +147,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 (declare-function emacspeak-amark-save "emacspeak-muggles" t)
 (global-set-key
- (kbd "s-;")
+ (ems-kbd "s-;")
  (defhydra emacspeak-muggles-m-player
    (:body-pre (emacspeak-hydra-body-pre "Media Player")
               :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
@@ -212,7 +212,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 ;;; Cloned from Hydra Wiki:
 (global-set-key
- (kbd "C-. o")
+ (ems-kbd "C-. o")
  (defhydra emacspeak-muggles-outliner
    (:body-pre
     (progn
@@ -257,7 +257,7 @@ _d_: subtree
 ;;{{{ Info Summary:
 
 ;;; Taken from Hydra wiki and customized to taste:
-(define-key Info-mode-map (kbd "?")
+(define-key Info-mode-map (ems-kbd "?")
   (defhydra emacspeak-muggles-info-summary
     (:color blue :hint nil
             :body-pre (emacspeak-hydra-body-pre "Info Summary")
@@ -325,7 +325,7 @@ Info-mode:
 ;;{{{ origami:
 
 (global-set-key
- (kbd "C-, /")
+ (ems-kbd "C-, /")
  (defhydra emacspeak-origami
    (:color red
            :body-pre
@@ -393,7 +393,7 @@ Also generates global keybindings if any."
 ;;{{{ smartParens:
 
 (global-set-key
- (kbd "C-c ,")
+ (ems-kbd "C-c ,")
  (defhydra emacspeak-muggles-smartparens
    (:body-pre
     (progn
@@ -435,7 +435,8 @@ Also generates global keybindings if any."
 ;;{{{  View Mode:
 
 (global-set-key
- (kbd  "C-. v")
+ (ems-kbd
+  "C-. v")
  (defhydra emacspeak-muggles-view
    (:body-pre
     (progn
