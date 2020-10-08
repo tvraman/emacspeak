@@ -44,6 +44,7 @@ This chapter documents a total of 1175 commands and 836 options.
 * emacspeak-ciel::Speech-enable CIEL.
 * emacspeak-clojure::Speech-enable CLOJURE Mode.
 * emacspeak-cmuscheme::Scheme support for emacspeak.
+* emacspeak-comint::Speech-enable COMINT.
 * emacspeak-company::Speech-enable COMPANY-mode.
 * emacspeak-compile::Speech enable  navigation of  compile errors, grep matches.
 * emacspeak-cperl::Speech enable CPerl Mode.
@@ -1705,18 +1706,6 @@ Enable to get tooltips spoken.
 
 @end defvar
 
-@defvar {User Option} voice-comint-highlight-input
-Personality used for comint-highlight-input
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-comint-highlight-prompt
-Personality used for comint-highlight-prompt
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
 @defvar {User Option} voice-completions-annotations
 Personality used for completions-annotations
 This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
@@ -3236,6 +3225,26 @@ CLOJURE-mode: Specialized mode for Clojure programming.
 @section emacspeak-cmuscheme
 
 speech-enable scheme support
+
+@node emacspeak-comint
+@section emacspeak-comint
+
+comint == command interaction.
+Advice comint and friends to speak.
+
+@subsection emacspeak-comint Options
+
+@defvar {User Option} voice-comint-highlight-input
+Personality used for comint-highlight-input
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-comint-highlight-prompt
+Personality used for comint-highlight-prompt
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
 
 @node emacspeak-company
 @section emacspeak-company
