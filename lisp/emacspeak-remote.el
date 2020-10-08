@@ -55,36 +55,9 @@
   "Emacspeak remote group."
   :group 'emacspeak-remote)
 
-(defcustom emacspeak-remote-hooks nil
-  "List of hook functions that are run after
-emacspeak is set to run as a remote application.
-Use this to add actions you typically perform after you enter remote
-mode."
-  :type 'hook
-  :group 'emacspeak-remote)
-
-;;; Here is what I currently use:
-;;; It switches to using C-r as the emacspeak prefix key
-;;; if emacspeak-remote-update-keymap is set to t
-(defvar emacspeak-remote-update-keymap nil
-  "*Set this to T if you want the default remote startup hook
-to update your keymap.
-This is useful if you run remote emacspeak sessions within
-a local  Emacspeak terminal buffer.")
-
-(defun emacspeak-remote-default-hook ()
-  "Function run by default  when we launch a remote session"
-  (cl-declare (special emacspeak-remote-update-keymap
-                       emacspeak-auditory-icon-function))
-  (when emacspeak-remote-update-keymap
-    (emacspeak-keymap-choose-new-emacspeak-prefix
-     (format "%c" 18)))
-  (setq emacspeak-auditory-icon-function
-        'emacspeak-serve-auditory-icon))
-
-(add-hook 'emacspeak-remote-hooks 'emacspeak-remote-default-hook)
 ;;}}}
 ;;{{{ Helper for guessing host where we came from:
+
 ;;; see etc/last-log.pl
 
 ;;;Remote hostname guessing
