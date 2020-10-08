@@ -2,7 +2,8 @@
 
 (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function."
-  (let ((res []))
+  (let ((res [])
+        (special-char-reg "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"))
     (cl-loop
      for word in (split-string string)
      do
@@ -10,7 +11,7 @@
          (cond 
           ((and ;;; modifier+-<key> without DEL etc
             (not
-             (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$" word))
+             (string-match special-char-reg word))
             (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word))
            (setq word
                     (concat (substring word (match-beginning 1) (match-end 1))
