@@ -135,7 +135,7 @@ This moves them into the Spam folder."
 ;;}}}
 ;; -*- lexical-binding: nil; -*-
 (defalias 'assoc-ignore-case 'assoc)
-(define-key ctl-x-map (ems-kbd "|C-j") jabber-global-keymap)
+(define-key ctl-x-map "\C-j" jabber-global-keymap)
 (with-eval-after-load "jabber"
   (setq fsm-debug nil)
   (setq jabber-mode-line-string
