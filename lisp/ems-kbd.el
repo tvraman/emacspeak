@@ -1,5 +1,5 @@
 (require 'cl-lib)
-
+(eval-when-compile (require 'subr-x))
 (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function."
   (let ((res [])
@@ -38,16 +38,17 @@
                (cl-incf bits ?\C-\^@)
                (cl-incf prefix)
                (cl-callf substring word 1))
-             (let ((found
-                    (assoc word
-                           '(("NUL" . "\0")
-                             ("RET" . "\r")
-                             ("LFD" . "\n")
-                             ("TAB" . "\t")
-                             ("ESC" . "\e")
-                             ("SPC" . " ")
-                             ("DEL" . "\177")))))
-               (when found (setq word (cdr found))))
+             (when-let
+                 (found
+                  (assoc word
+                         '(("NUL" . "\0")
+                           ("RET" . "\r")
+                           ("LFD" . "\n")
+                           ("TAB" . "\t")
+                           ("ESC" . "\e")
+                           ("SPC" . " ")
+                           ("DEL" . "\177"))))
+                (setq word (cdr found)))
              (cond ;;; apply modifiers 
               ((= bits 0) (setq key word))
               ((and (= bits ?\M-\^@)
