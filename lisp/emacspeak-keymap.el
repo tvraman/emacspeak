@@ -51,6 +51,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
+
 ;;}}}
 ;;{{{ems-kbd: replacement for function kbd
 
@@ -153,7 +154,6 @@
 ;;}}}
 ;;{{{ Custom Widget Types:
 
-;;;###autoload
 (defun emacspeak-keymap-command-p (s)
   "Check if `s' is suitable to be bound to a key."
   (or (commandp s) (keymapp s)))
@@ -468,7 +468,6 @@
 (global-set-key '[silence] 'emacspeak-silence)
 
 ;;}}}
-
 ;;{{{ Create a personal keymap for c-e x
 
 ;;; Adding keys using custom:
