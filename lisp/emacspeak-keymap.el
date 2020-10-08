@@ -468,28 +468,7 @@
 (global-set-key '[silence] 'emacspeak-silence)
 
 ;;}}}
-;;{{{ Interactively switching the emacspeak-prefix
 
-;;;###autoload
-(defun emacspeak-keymap-choose-new-emacspeak-prefix (prefix-key)
-  "Interactively select a new prefix key to use for all emacspeak
-commands.  The default is to use `C-e'  This command
-lets you switch the prefix to something else.  This is a useful thing
-to do if you run emacspeak on a remote machine from inside a terminal
-that is running inside a local emacspeak session.  You can have the
-remote emacspeak use a different control key to give your fingers some
-relief. Note: I've not used this in over 20 years."
-  (interactive (list (read-key-sequence "Emacspeak Prefix: ")))
-  (cl-declare (special emacspeak-prefix))
-  (let ((current-use (lookup-key  global-map prefix-key)))
-    (global-set-key prefix-key 'emacspeak-prefix-command)
-    (unless (eq  current-use 'emacspeak-prefix-command)
-      (global-set-key (concat prefix-key prefix-key) current-use)
-      (message "Use %s %s to execute %s since %s is now the emacspeak prefix"
-               prefix-key prefix-key current-use
-               prefix-key))))
-
-;;}}}
 ;;{{{ Create a personal keymap for c-e x
 
 ;;; Adding keys using custom:
