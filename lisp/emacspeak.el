@@ -139,6 +139,7 @@ speech-enabling extensions for `package' (a string)."
     ("ciel" emacspeak-ciel)
     ("clojure" emacspeak-clojure)
     ("cmuscheme" emacspeak-cmuscheme)
+    ("comint"  emacspeak-comint)
     ("company" emacspeak-company)
     ("compile" emacspeak-compile)
     ("cperl-mode" emacspeak-cperl)
