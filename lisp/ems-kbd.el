@@ -3,7 +3,7 @@
 (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function."
   (let ((res [])
-        (special-char-reg "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
+        (special-char-reg "^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
         (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
      for word in (split-string string)
