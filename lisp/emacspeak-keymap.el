@@ -62,7 +62,7 @@
 (defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function."
   (let ((res [])
-        (special-char-reg "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
+        (special-char-reg "^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
         (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
      for word in (split-string string)
@@ -118,7 +118,7 @@
                       for x across word
                       collect (+ x bits))))
               ((/= (length word) 1)
-               (error "%s: Prefix  must prefix a single character, not %s"
+               (error "%s: Prefix  must precede a single character, not %s"
                        string word))
               ((and
                 (/= (logand bits ?\C-\^@) 0)
