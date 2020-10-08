@@ -62,12 +62,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'voice-setup)
-;;}}}
-;;{{{ customizations
-
-(defgroup emacspeak-pronounce nil
-  "Pronunciation dictionaries."
-  :group 'emacspeak)
 
 ;;}}}
 ;;{{{ Dictionary structure:
@@ -259,7 +253,7 @@ applied.")
                     emacspeak-user-directory)
   "File that holds the persistent emacspeak pronunciation dictionaries."
   :type '(file :tag "Dictionary File ")
-  :group 'emacspeak-pronounce)
+  :group 'emacspeak)
 
 
 
@@ -539,7 +533,7 @@ See http://www.charm.net/~kmarsh/smiley.html. "
           (cons :tag "Dictionary Entry"
                 (string :tag "String")
                 (string :tag "Pronunciation")))
-  :group 'emacspeak-pronounce)
+  :group 'emacspeak)
 
 ;;}}}
 ;;{{{Text Mode Entries:
@@ -575,7 +569,7 @@ See http://www.charm.net/~kmarsh/smiley.html. "
           (cons :tag "Dictionary Entry"
                 (string :tag "Namespace URI")
                 (string :tag "Pronunciation")))
-  :group 'emacspeak-pronounce)
+  :group 'emacspeak)
 
 ;;}}}
 ;;{{{ adding predefined dictionaries to a mode:
