@@ -928,11 +928,6 @@ interactive command that the key sequence executes."
 (global-set-key (ems-kbd "C-x r e") 'emacspeak-eww-open-mark)
 
 ;;}}}
-;;{{{Mode-Specific Bindings:
-
-(define-key emacs-lisp-mode-map (ems-kbd "C-c SPC") 'emacspeak-wizards-insert-elisp-prefix)
-
-;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
