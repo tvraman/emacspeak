@@ -58,10 +58,8 @@
 ;;; simplified kbd function:
 ;;; Uses split-string to  simplify tokenizer.
 
-
-
 ;;;###autoload
-(defun new-kbd (string )
+(defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function."
   (let ((res [])
         (special-char-reg "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
@@ -80,8 +78,7 @@
                   (substring word (match-beginning 3) (match-end 3))))
            (setq key (list (intern word))))
           (t
-           (let ((orig-word word)
-                 (prefix 0)
+           (let ((prefix 0)
                  (bits 0))
              (while ;;; calculate modifier bits
                  (string-match "^[ACHMsS]-." word)
@@ -121,7 +118,7 @@
                       collect (+ x bits))))
               ((/= (length word) 1)
                (error "%s must prefix a single character, not %s"
-                      (substring orig-word 0 prefix) word))
+                       string word))
               ((and
                 (/= (logand bits ?\C-\^@) 0)
                 (stringp word)
