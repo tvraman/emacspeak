@@ -63,19 +63,22 @@
 ;;;###autoload
 (defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function."
-  (let ((res []))
+  (let ((res [])
+        (special-char-reg
+         "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
+        (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
      for word in (split-string string)
      do
        (let* ((key nil))
          (cond 
-          ((and ;;; modifier+-<key> and not DEL etc
-            (not
-             (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$" word))
-            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word))
+          ((and ;;; modifier+-<key> without DEL etc
+            (not (string-match special-char-reg word))
+            (string-match modifier+angle-reg word))
            (setq word
-                    (concat (substring word (match-beginning 1) (match-end 1))
-                            (substring word (match-beginning 3) (match-end 3))))
+                 (concat
+                  (substring word (match-beginning 1) (match-end 1))
+                  (substring word (match-beginning 3) (match-end 3))))
            (setq key (list (intern word))))
           (t
            (let ((orig-word word)
