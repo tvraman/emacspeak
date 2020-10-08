@@ -58,7 +58,7 @@
                       for x across word
                       collect (+ x bits))))
               ((/= (length word) 1)
-               (error "%s must prefix a single character, not %s"
+               (error "%s: Prefix  must prefix a single character, not %s"
                        string word))
               ((and
                 (/= (logand bits ?\C-\^@) 0)
