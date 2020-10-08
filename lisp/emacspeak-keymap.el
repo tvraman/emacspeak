@@ -51,7 +51,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-
+(eval-when-compile (require 'subr-x))
 ;;}}}
 ;;{{{ems-kbd: replacement for function kbd
 
@@ -73,7 +73,7 @@
             (not (string-match special-char-reg word))
             (string-match modifier+angle-reg word))
            (setq word
-                 (concat
+                 (concat ;;; strip < and >
                   (substring word (match-beginning 1) (match-end 1))
                   (substring word (match-beginning 3) (match-end 3))))
            (setq key (list (intern word))))
@@ -97,16 +97,17 @@
                (cl-incf bits ?\C-\^@)
                (cl-incf prefix)
                (cl-callf substring word 1))
-             (let ((found
-                    (assoc word
-                           '(("NUL" . "\0")
-                             ("RET" . "\r")
-                             ("LFD" . "\n")
-                             ("TAB" . "\t")
-                             ("ESC" . "\e")
-                             ("SPC" . " ")
-                             ("DEL" . "\177")))))
-               (when found (setq word (cdr found))))
+             (when-let
+                 (found
+                  (assoc word
+                         '(("NUL" . "\0")
+                           ("RET" . "\r")
+                           ("LFD" . "\n")
+                           ("TAB" . "\t")
+                           ("ESC" . "\e")
+                           ("SPC" . " ")
+                           ("DEL" . "\177"))))
+                (setq word (cdr found)))
              (cond ;;; apply modifiers 
               ((= bits 0) (setq key word))
               ((and (= bits ?\M-\^@)
@@ -117,7 +118,7 @@
                       for x across word
                       collect (+ x bits))))
               ((/= (length word) 1)
-               (error "%s must prefix a single character, not %s"
+               (error "%s: Prefix  must prefix a single character, not %s"
                        string word))
               ((and
                 (/= (logand bits ?\C-\^@) 0)
