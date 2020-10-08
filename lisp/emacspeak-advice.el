@@ -1321,7 +1321,13 @@ see option emacspeak-untabify-fixes-non-breaking-space."
           (and comint-last-output-start
                emacspeak-comint-autospeak
                (or monitor (eq (window-buffer) buffer)))
-        (dtk-speak (ad-get-arg 1)))
+        (let ((prompt
+               (memq 'comint-highlight-prompt (get-text-property
+                                               comint-last-output-start
+                                               'font-lock-face))))
+          (if prompt
+              (dtk-notify-speak  (ad-get-arg 1))
+            (dtk-speak (ad-get-arg 1)))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
