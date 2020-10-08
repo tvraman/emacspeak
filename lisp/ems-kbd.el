@@ -14,7 +14,7 @@
             (not (string-match special-char-reg word))
             (string-match modifier+angle-reg word))
            (setq word
-                 (concat
+                 (concat ;;; strip < and >
                   (substring word (match-beginning 1) (match-end 1))
                   (substring word (match-beginning 3) (match-end 3))))
            (setq key (list (intern word))))
