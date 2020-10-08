@@ -872,48 +872,6 @@ interactive command that the key sequence executes."
 (global-set-key "\C-x@h" 'emacspeak-hyper-keymap)
 
 ;;}}}
-;;{{{ Keymaps <-> Org (text) Files :
-
-;;; This makes it easy to consolidate personal bindings across machines.
-;;; It also protects against custom losing settings due to Custom accidents.
-;;;
-
-(defun emacspeak-keymap-bindings-from-org (variable filename)
-  "Load bindings from a specified file."
-  (interactive "vVariable: \nfFilename: ")
-  (let ((bindings nil))
-    (with-temp-buffer
-      "org-to-map"
-      (insert-file-contents filename)
-      (goto-char (point-min))
-      (while (not (eobp))
-        (let ((fields
-               (split-string
-                (buffer-substring-no-properties
-                 (line-beginning-position) (line-end-position))
-                " " 'omit-nulls)))
-          (push
-           (list (cl-first fields) (intern (cl-second fields)))
-           bindings))
-        (forward-line 1)))
-    (setq bindings (nreverse (copy-sequence bindings)))
-    (set variable  bindings)
-    (customize-save-variable variable bindings)))
-
-(defun emacspeak-keymap-bindings-to-org (variable filename)
-  "Persists mapping to org file."
-  (interactive "vVariable: \nfFilename: ")
-  (let ((buffer (find-file-noselect  filename)))
-    (with-current-buffer
-        buffer
-      (goto-char (point-max))
-      (cl-loop
-       for binding  in (symbol-value variable) do
-       (insert (format "%s %s\n" (cl-first binding) (cl-second binding))))
-      (save-buffer buffer))
-    (switch-to-buffer buffer)))
-
-;;}}}
 ;;{{{ Helper: recover end-of-line
 
 (defun emacspeak-keymap-recover-eol ()
