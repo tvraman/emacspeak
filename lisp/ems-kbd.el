@@ -8,7 +8,7 @@
      do
        (let* ((key nil))
          (cond 
-          ((and ;;; modifier+-<key> and not DEL etc
+          ((and ;;; modifier+-<key> without DEL etc
             (not
              (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$" word))
             (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word))
