@@ -8,15 +8,13 @@
      do
        (let* ((key nil))
          (cond 
-          ((and
-            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word)
-            (progn
-              (setq word
+          ((and ;;; modifier+-<key> and not DEL etc
+            (not
+             (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$" word))
+            (string-match "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$" word))
+           (setq word
                     (concat (substring word (match-beginning 1) (match-end 1))
                             (substring word (match-beginning 3) (match-end 3))))
-              (not
-               (string-match "\\<\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$"
-                             word)))) ;;; ugh test with side-effect!
            (setq key (list (intern word))))
           (t
            (let ((orig-word word)
