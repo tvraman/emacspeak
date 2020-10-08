@@ -37,6 +37,7 @@
 
 # }}}
 # {{{make rules
+
 .POSIX:
 # what emacs is called on your system
 EMACS = emacs
@@ -54,6 +55,7 @@ COMPILE =  -f batch-byte-compile
 # How to compile
 %.elc:  %.el
 	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
+
 # }}}
 # {{{  grouping files into dependent modules
 
@@ -68,7 +70,6 @@ SPEAK_OBJECTS =   \
 emacspeak-speak.elc  \
 emacspeak-actions.elc \
 voice-setup.elc \
-emacspeak-personality.elc \
 emacspeak-pronounce.elc \
 emacspeak-sounds.elc
 
@@ -479,7 +480,6 @@ emacspeak-paradox.elc: emacspeak-paradox.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
 emacspeak-pianobar.elc: emacspeak-pianobar.el dtk-speak.elc voice-setup.elc
 emacspeak-pronounce.elc: emacspeak-pronounce.el
-emacspeak-personality.elc: emacspeak-personality.el
 emacspeak-popup.elc: emacspeak-popup.el dtk-speak.elc
 emacspeak-proced.elc: emacspeak-proced.el dtk-speak.elc voice-setup.elc
 emacspeak-project.elc: emacspeak-project.el dtk-speak.elc

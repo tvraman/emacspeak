@@ -66,7 +66,7 @@
 (cl-declaim (optimize (safety 0) (speed 3)))
 (eval-when-compile (require 'advice))
 (require 'emacspeak-preamble)
-(require 'emacspeak-personality)
+
 
 ;;}}}
 ;;{{{  Replace: define personalities
@@ -161,7 +161,7 @@ that is being replaced.")
       (put-text-property beg end name nil))
     ad-do-it))
 
-(defadvice delete-overlay (before emacspeak-personality  pre act)
+(defadvice delete-overlay (before voice-setup  pre act)
   "Used by emacspeak to augment voice lock."
   (when ems--voiceify-overlays
     (let* ((o (ad-get-arg 0))
@@ -174,12 +174,12 @@ that is being replaced.")
         (with-current-buffer buffer
           (save-restriction
             (widen)
-            (emacspeak-personality-remove start end voice buffer))))
+            (voice-setup-remove start end voice buffer))))
       (when  (and start end invisible)
         (with-silent-modifications
           (put-text-property start end 'invisible nil))))))
 
-(defadvice overlay-put (after emacspeak-personality pre act)
+(defadvice overlay-put (after voice-setup pre act)
   "Used by emacspeak to augment voice lock."
   (when (and (overlay-buffer (ad-get-arg 0)) ems--voiceify-overlays)
     (let* ((overlay (ad-get-arg 0))
@@ -197,14 +197,14 @@ that is being replaced.")
         (when (eq prop 'category) (setq value (get value 'face)))
         (setq voice (dtk-get-voice-for-face value))
         (when voice
-            (emacspeak-personality-add
+            (voice-setup-add
              start end voice (overlay-buffer overlay))))
        ((eq prop 'invisible)
         (with-current-buffer (overlay-buffer overlay)
           (with-silent-modifications
             (put-text-property start end 'invisible (or value nil)))))))))
 
-(defadvice move-overlay (before emacspeak-personality pre act)
+(defadvice move-overlay (before voice-setup pre act)
   "Used by emacspeak to augment voice lock."
   (when ems--voiceify-overlays
     (let*
@@ -220,9 +220,9 @@ that is being replaced.")
           (and voice
                (integerp (overlay-start overlay))
                (integerp (overlay-end overlay)))
-        (emacspeak-personality-remove
+        (voice-setup-remove
          (overlay-start overlay) (overlay-end overlay) voice buffer)
-        (emacspeak-personality-add beg end voice object))
+        (voice-setup-add beg end voice object))
       (when invisible
         (with-current-buffer buffer
           (with-silent-modifications

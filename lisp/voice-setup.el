@@ -557,6 +557,35 @@ these are available via minibuffer history."
      (t (message "%s doesn't look like a valid personality." personality)))))
 
 ;;}}}
+;;{{{Apply Personality:
+;;; Both functions below handle property changes in a "other" buffer correctly.
+(defun voice-setup-add (start end voice &optional object)
+  "Apply personality VOICE to specified region in object,
+over-writing any current personality settings."
+  (when
+      (and
+       (integerp start) (integerp end)
+       (not (= start end)))
+    (with-current-buffer
+        (if (bufferp object) object (current-buffer))
+      (with-silent-modifications
+        (put-text-property start end 'personality voice object)))))
+
+(defun voice-setup-remove  (start end voice &optional object)
+  "Remove specified personality VOICE from text bounded by start and
+end in object. "
+  (when
+      (and
+       voice
+       (integerp start) (integerp end)
+       (not (= start end))
+       (eq voice (get-text-property start 'personality object)))
+      (with-current-buffer
+          (if (bufferp object) object (current-buffer))
+        (with-silent-modifications
+          (put-text-property start end 'personality nil object)))))
+
+;;}}}
 (provide 'voice-setup)
 ;;{{{ end of file
 

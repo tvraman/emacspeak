@@ -2893,7 +2893,6 @@ START END personality
 Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
   (require 'rect)
-  (require 'emacspeak-personality)
   (let ((personality-table (emacspeak-possible-voices)))
     (when (called-interactively-p 'interactive)
       (setq personality
@@ -2913,7 +2912,6 @@ When calling from a program,arguments are
 START END personality.
 Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
-  (require 'emacspeak-personality)
   (let ((personality-table (emacspeak-possible-voices)))
     (when (called-interactively-p 'interactive)
       (setq personality
