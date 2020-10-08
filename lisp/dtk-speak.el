@@ -146,13 +146,13 @@ with a repeat count. "
 Do not set this variable by hand, use command
 `dtk-set-character-scale' bound to \\[dtk-set-character-scale].")
 
-(defvar dtk-capitalize nil
+(defvar-local dtk-capitalize nil
   "Non-nil means produce a beep to indicate  capitalization.
 Do not set this variable by hand, use command dtk-toggle-capitalization
 bound to \\[dtk-toggle-capitalization].")
-(make-variable-buffer-local 'dtk-capitalize)
 
-(defvar dtk-allcaps-beep nil
+
+(defvar-local dtk-allcaps-beep nil
   "Option to indicate capitalization.
 Non-nil means produce a beep to indicate upper case words in conjunction with
 split caps Do not set this variable by hand, use command
@@ -162,14 +162,13 @@ split caps Do not set this variable by hand, use command
   '("some" "all" "none")
   "Alist of valid punctuation modes, values are strings..")
 
-(defvar dtk-speech-rate
+(defvar-local dtk-speech-rate
   (if (string-match "dtk" dtk-program)
       225 100)
   "Rate at which tts talks.
 Do not modify this variable directly; use command  `dtk-set-rate'
  bound to \\[dtk-set-rate].")
 
-(make-variable-buffer-local 'dtk-speech-rate)
 ;;}}}
 ;;{{{Style Helper:
 
@@ -178,7 +177,6 @@ Do not modify this variable directly; use command  `dtk-set-rate'
   (and (consp value) (not (proper-list-p value))))
 
 ;;; Helper: Get face->voice mapping
-
 
 (defun dtk-get-voice-for-face (value)
   "Compute face->voice mapping."
@@ -209,15 +207,15 @@ has higher precedence than `face'."
 ;;}}}
 ;;{{{ Tone Helpers:
 
-(defun dtk-tone-deletion ()
+(defsubst dtk-tone-deletion ()
   "Tone used to indicate deletion."
   (dtk-tone 500 75 'force))
 
-(defun dtk-tone-upcase ()
+(defsubst dtk-tone-upcase ()
   "Tone used to indicate changing to upcase."
   (dtk-tone 800 100 'force))
 
-(defun dtk-tone-downcase ()
+(defsubst dtk-tone-downcase ()
   "Tone used to indicate changing to lower case."
   (dtk-tone 600 100 'force))
 
@@ -1035,15 +1033,15 @@ important to be interrupted.")
 (defvar dtk-notify-process nil
   "Notify speaker  process handle.")
 
-(defvar dtk-punctuation-mode 'all
+(defvar-local dtk-punctuation-mode 'all
   "Current setting of punctuation state.
 Possible values are some, all or none.
 You should not modify this variable;
 Use command  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
 
-(make-variable-buffer-local 'dtk-punctuation-mode)
-;;; forward declaration
+
+
 
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers.
