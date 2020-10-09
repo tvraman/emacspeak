@@ -111,13 +111,6 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
              (setq word (cdr found)))
            (cond ;;; apply modifiers 
             ((= bits 0) (setq key word))
-            ((and (= bits ?\M-\^@)
-                  (stringp word)
-                  (string-match "^-?[0-9]+$" word))
-             (setq key
-                   (cl-loop
-                    for x across word
-                    collect (+ x bits))))
             ((/= (length word) 1)
              (error "%s: Prefix  must precede a single character, not %s"
                     string word))
