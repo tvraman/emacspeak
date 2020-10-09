@@ -512,18 +512,6 @@
 ;;}}}
 ;;{{{ org capture
 
-(defcustom emacspeak-org-bookmark-key "h"
-  "Key of template used for capturing  hot list."
-  :type 'string
-  :group 'emacspeak-org)
-
-;;;###autoload
-(defun emacspeak-org-bookmark (&optional goto)
-  "Bookmark from org."
-  (interactive "P")
-  (cl-declare (special emacspeak-org-bookmark-key))
-  (org-capture goto emacspeak-org-bookmark-key))
-
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
