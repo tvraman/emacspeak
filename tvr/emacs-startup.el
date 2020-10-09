@@ -130,6 +130,7 @@ Produce timing information as the last step."
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
   (cl-declare (special emacspeak-sounds-directory))
+  (load-theme 'modus-vivendi t)
   (setq gc-cons-threshold 64000000)
   (start-process
    "play" nil "aplay"
