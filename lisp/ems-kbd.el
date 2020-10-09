@@ -71,24 +71,7 @@
               (t (setq key (list (+ bits (aref word 0)))))))))
 ;;; push key on to the result vector 
          (when key (cl-callf vconcat res key))))
-    (cond
-     ((and ;;; meta bit if appropriate
-       (cl-loop
-        for ch across res
-        always
-        (and
-         (characterp ch)
-         (let ((ch2 (logand ch (lognot ?\M-\^@))))
-           (and (>= ch2 0) (<= ch2 127))))))
-      (concat
-       (cl-loop
-        for ch across res
-        collect
-        (cond
-         ((= (logand ch ?\M-\^@) 0) ;;; no meta bit
-          ch)
-         (t (+ ch 128))))))
-     (t res))))
+     res))
 
 ;;; Tests:
 
@@ -138,7 +121,7 @@
   (setq result
         (cl-loop
          for test in tests
-         unless (equal (new-kbd test) (kbd test))
+         unless (equal (new-kbd test) (edmacro-parse-keys test 'need-vector))
          collect test))
   (cond
    ((null result) (message "All tests passed."))
