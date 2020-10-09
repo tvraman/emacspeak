@@ -116,7 +116,6 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
                     string word))
             ((and
               (/= (logand bits ?\C-\^@) 0)
-              (stringp word)
               (string-match "[@-_a-z]" word))
              (setq key
                    (list (+ bits (- ?\C-\^@)
