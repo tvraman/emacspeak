@@ -130,7 +130,6 @@ Produce timing information as the last step."
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
   (cl-declare (special emacspeak-sounds-directory))
-  (load-theme 'modus-vivendi t)
   (setq gc-cons-threshold 64000000)
   (start-process
    "play" nil "aplay"
@@ -190,7 +189,9 @@ Use Custom to customize where possible. "
   (make-thread #'(lambda nil (load (tvr-time-load (load "eww")))))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
+  (tvr-time-load
+      (load-theme 'modus-vivendi t)
+      (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
