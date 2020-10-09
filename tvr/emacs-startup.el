@@ -143,7 +143,7 @@ startup sound."
 Use Custom to customize where possible. "
   (cl-declare (special custom-file
                        outline-mode-prefix-map outline-minor-mode-prefix))
-  (setq outline-minor-mode-prefix (ems-kbd "C-o"))
+  (setq outline-minor-mode-prefix "\C-co")
 ;;; basic look and feel
   (setq frame-title-format '(multiple-frames "%b" ("Emacs")))
   (mapc
@@ -214,7 +214,7 @@ Use Custom to customize where possible. "
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
-  (local-set-key (ems-kbd "C-m") 'newline-and-indent)
+  (local-set-key "\C-m" 'newline-and-indent)
   (company-mode)
   (hs-minor-mode)
   (auto-fill-mode)
