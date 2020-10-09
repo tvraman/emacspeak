@@ -639,14 +639,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (org-store-link nil)
   (org-capture nil "h"))
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
-(defun org-eww-store-link ()
-  "Store a link to a EWW buffer."
-  (when (eq major-mode 'eww-mode)
-    (org-link-store-props
-     :type "eww"
-     :link   (emacspeak-eww-current-url)
-     :url (eww-current-url)
-     :description (emacspeak-eww-current-title))))
 
 ;;}}}
 ;;{{{ Speech-enable export prompt:
