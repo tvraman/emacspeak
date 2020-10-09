@@ -386,39 +386,6 @@
              (if orgtbl-mode 'on 'off))))
 
 ;;}}}
-;;{{{ Keymap update:
-
-(defun emacspeak-org-update-keys ()
-  "Update keys in org mode."
-  (cl-declare (special  org-mode-map))
-  (cl-loop for k in
-           '(
-             ("C-e" emacspeak-prefix-command)
-             ("C-j" org-insert-heading)
-             ("M-<down>" org-metadown)
-             ("M-<left>"  org-metaleft)
-             ("M-<right>" org-metaright)
-             ("M-<up>" org-metaup)
-             ("M-RET" org-meta-return)
-             ("M-S-<down>" org-shiftmetadown)
-             ("M-S-<left>" org-shiftmetaleft)
-             ("M-S-<right>" org-shiftmetaright)
-             ("M-S-<up>" org-shiftmetaup)
-             ("M-S-RET" org-insert-todo-heading)
-             ("S-RET" org-table-previous-row)
-             ("M-n" org-next-item)
-             ("M-p" org-previous-item)
-             ("S-<down>" org-shiftdown)
-             ("S-<left>" org-shiftleft)
-             ("S-<right>" org-shiftright)
-             ("S-<up>" org-shiftup)
-             ("S-TAB" org-shifttab))
-           do
-           (emacspeak-keymap-update  org-mode-map k)))
-
-(add-hook 'org-mode-hook #'emacspeak-org-update-keys)
-
-;;}}}
 ;;{{{ deleting chars:
 
 (defadvice org-delete-backward-char (around emacspeak pre act)
@@ -452,21 +419,49 @@
       (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
+;;{{{ Keymap update:
+
+(defun emacspeak-org-update-keys ()
+  "Update keys in org mode."
+  (cl-declare (special  org-mode-map))
+  (cl-loop
+   for k in
+   '(
+     ("C-e" emacspeak-prefix-command)
+     ("C-j" org-insert-heading)
+     ("M-<down>" org-metadown)
+     ("M-<left>"  org-metaleft)
+     ("M-<right>" org-metaright)
+     ("M-<up>" org-metaup)
+     ("M-RET" org-meta-return)
+     ("M-S-<down>" org-shiftmetadown)
+     ("M-S-<left>" org-shiftmetaleft)
+     ("M-S-<right>" org-shiftmetaright)
+     ("M-S-<up>" org-shiftmetaup)
+     ("M-S-RET" org-insert-todo-heading)
+     ("S-RET" org-table-previous-row)
+     ("M-n" org-next-item)
+     ("M-p" org-previous-item)
+     ("S-<down>" org-shiftdown)
+     ("S-<left>" org-shiftleft)
+     ("S-<right>" org-shiftright)
+     ("S-<up>" org-shiftup)
+     ("S-TAB" org-shifttab))
+   do
+   (emacspeak-keymap-update  org-mode-map k)))
+
+;;}}}
 ;;{{{ mode hook:
 
 (defun emacspeak-org-mode-setup ()
   "Placed on org-mode-hook to do Emacspeak setup."
   (cl-declare (special org-mode-map
                        org-link-parameters))
-  
-;;; add these to outline-minor-mode-map
-;;; will work in both org and orgalist when loaded 
-
+  (emacspeak-org-update-keys)
   (define-key org-mode-map (ems-kbd "C-o e") 'tvr-org-enumerate)
   (define-key org-mode-map (ems-kbd "C-o i") 'tvr-org-itemize)
   (define-key outline-minor-mode-map (ems-kbd "C-o i") 'tvr-org-itemize)
   (define-key outline-minor-mode-map (ems-kbd "C-o e") 'tvr-org-enumerate)
-
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)
     (emacspeak-setup-programming-mode)))
@@ -493,8 +488,7 @@
 (cl-loop
  for f in
  '(
-   org-occur
-   org-beginning-of-line org-end-of-line
+   org-occur org-beginning-of-line org-end-of-line
    org-beginning-of-item org-beginning-of-item-list)
  do
  (eval
