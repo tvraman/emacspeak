@@ -189,9 +189,8 @@ Use Custom to customize where possible. "
   (make-thread #'(lambda nil (load (tvr-time-load (load "eww")))))
   (tvr-tabs)
   (setq custom-file (expand-file-name "~/.customize-emacs"))
-  (tvr-time-load
-      (load-theme 'modus-vivendi t)
-      (when (file-exists-p custom-file)  (load custom-file))))
+  (load-theme 'modus-vivendi t)
+  (tvr-time-load (when (file-exists-p custom-file)  (load custom-file))))
 
 (defun tvr-after-init ()
   "Actions to take after Emacs is up and ready."
