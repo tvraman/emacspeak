@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1175 commands and 836 options.
+This chapter documents a total of 1174 commands and 835 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -13008,17 +13008,6 @@ or http://orgmode.org/
 
 @subsection Emacspeak-Org Commands
 
-@subsubsection emacspeak-org-bookmark
-@deffn {Command} emacspeak-org-bookmark  (&optional goto)
-@findex emacspeak-org-bookmark
-
-@format
-Bookmark from org.
-
-(fn &optional GOTO)
-@end format
-@end deffn
-
 @subsubsection emacspeak-org-capture-link
 @deffn {Command} emacspeak-org-capture-link   
 @table @kbd
@@ -13121,11 +13110,6 @@ echoes row header and element
 @end deffn
 
 @subsection emacspeak-org Options
-
-@defvar {User Option} emacspeak-org-bookmark-key
-Key of template used for capturing  hot list.
-
-@end defvar
 
 @defvar {User Option} emacspeak-org-table-after-movement-function
 The function to call after moving in a table

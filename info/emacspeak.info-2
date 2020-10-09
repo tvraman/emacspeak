@@ -4988,16 +4988,7 @@ http://orgmode.org/
 12.133.1 Emacspeak-Org Commands
 -------------------------------
 
-12.133.1.1 emacspeak-org-bookmark
-.................................
-
- -- Command: emacspeak-org-bookmark (&optional goto)
-
-     Bookmark from org.
-
-     (fn &optional GOTO)
-
-12.133.1.2 emacspeak-org-capture-link
+12.133.1.1 emacspeak-org-capture-link
 .....................................
 
  -- Command: emacspeak-org-capture-link
@@ -5008,14 +4999,14 @@ http://orgmode.org/
      To use this command, first  do ‘customize-variable’ ‘org-capture-template’
      and assign  letter ‘h’ to a template that creates the hyperlink on capture.
 
-12.133.1.3 emacspeak-org-popup-input
+12.133.1.2 emacspeak-org-popup-input
 ....................................
 
  -- Command: emacspeak-org-popup-input
 
      Pops up an org input area.
 
-12.133.1.4 emacspeak-org-popup-input-buffer
+12.133.1.3 emacspeak-org-popup-input-buffer
 ...........................................
 
  -- Command: emacspeak-org-popup-input-buffer (mode)
@@ -5024,49 +5015,49 @@ http://orgmode.org/
 
      (fn MODE)
 
-12.133.1.5 emacspeak-org-table-speak-both-headers-and-element
+12.133.1.4 emacspeak-org-table-speak-both-headers-and-element
 .............................................................
 
  -- Command: emacspeak-org-table-speak-both-headers-and-element
 
      echoes both row and col headers.
 
-12.133.1.6 emacspeak-org-table-speak-column-header
+12.133.1.5 emacspeak-org-table-speak-column-header
 ..................................................
 
  -- Command: emacspeak-org-table-speak-column-header
 
      echoes column header
 
-12.133.1.7 emacspeak-org-table-speak-column-header-and-element
+12.133.1.6 emacspeak-org-table-speak-column-header-and-element
 ..............................................................
 
  -- Command: emacspeak-org-table-speak-column-header-and-element
 
      echoes col header and element
 
-12.133.1.8 emacspeak-org-table-speak-coordinates
+12.133.1.7 emacspeak-org-table-speak-coordinates
 ................................................
 
  -- Command: emacspeak-org-table-speak-coordinates
 
      echoes coordinates
 
-12.133.1.9 emacspeak-org-table-speak-current-element
+12.133.1.8 emacspeak-org-table-speak-current-element
 ....................................................
 
  -- Command: emacspeak-org-table-speak-current-element
 
      echoes current table element
 
-12.133.1.10 emacspeak-org-table-speak-row-header
-................................................
+12.133.1.9 emacspeak-org-table-speak-row-header
+...............................................
 
  -- Command: emacspeak-org-table-speak-row-header
 
      echoes row header
 
-12.133.1.11 emacspeak-org-table-speak-row-header-and-element
+12.133.1.10 emacspeak-org-table-speak-row-header-and-element
 ............................................................
 
  -- Command: emacspeak-org-table-speak-row-header-and-element
@@ -5075,9 +5066,6 @@ http://orgmode.org/
 
 12.133.2 emacspeak-org Options
 ------------------------------
-
- -- Variable: User Option emacspeak-org-bookmark-key
-     Key of template used for capturing hot list.
 
  -- Variable: User Option emacspeak-org-table-after-movement-function
      The function to call after moving in a table
