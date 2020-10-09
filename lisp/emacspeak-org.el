@@ -690,7 +690,6 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
        (emacspeak-speak-mode-line)))))
 
 ;;}}}
-
 ;;{{{ Fillers:
 
 (defadvice org-fill-paragraph (after emacspeak pre act comp)
