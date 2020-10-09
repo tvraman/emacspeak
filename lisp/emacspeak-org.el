@@ -50,12 +50,14 @@
 
 ;;}}}
 ;;{{{ required modules
+
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
 (defvar org-ans2 nil)
+
 ;;}}}
 ;;{{{ voice locking:
 
@@ -243,18 +245,19 @@
 ;;}}}
 ;;{{{ cut and paste:
 
-(cl-loop for f in
-         '(
-           org-cut-subtree org-copy-subtree
-           org-paste-subtree org-archive-subtree
-           org-narrow-to-subtree)
-         do
-         (eval
-          `(defadvice ,f(after emacspeak pre act comp)
-             "Provide spoken feedback."
-             (when (ems-interactive-p)
-               (emacspeak-speak-line)
-               (emacspeak-auditory-icon 'yank-object)))))
+(cl-loop
+ for f in
+ '(
+   org-cut-subtree org-copy-subtree
+   org-paste-subtree org-archive-subtree
+   org-narrow-to-subtree)
+ do
+ (eval
+  `(defadvice ,f(after emacspeak pre act comp)
+     "Provide spoken feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'yank-object)))))
 
 ;;}}}
 ;;{{{ completion:
