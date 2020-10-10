@@ -58,8 +58,6 @@
 ;;; simplified kbd function:
 ;;; Uses split-string to  simplify tokenizer.
 
-;;;###autoload
-
 (defvar ems--kbd-char-table
   '(("NUL" . "\0")
     ("RET" . "\r")
@@ -79,6 +77,7 @@
     (?S . ?\S-\^@))
   "AList mapping modifier names to modifier bit-values.")
 
+;;;###autoload
 (defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function.
 Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
