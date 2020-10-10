@@ -29,14 +29,13 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
            (while ;;; calculate modifier bits
                (string-match "^[ACHMsS]-." word)
              (cl-incf bits
-                      (cdr
-                       (assq (aref word 0)
-                             '((?A . ?\A-\^@)
-                               (?C . ?\C-\^@)
-                               (?H . ?\H-\^@)
-                               (?M . ?\M-\^@)
-                               (?s . ?\s-\^@)
-                               (?S . ?\S-\^@)))))
+                      (pcase (aref word 0)
+                        (?A   ?\A-\^@)
+                        (?C   ?\C-\^@)
+                        (?H   ?\H-\^@)
+                        (?M   ?\M-\^@)
+                        (?s   ?\s-\^@)
+                        (?S   ?\S-\^@)))
              (cl-incf prefix 2)
              (cl-callf substring word 2))
            (when (string-match "^\\^.$" word)
