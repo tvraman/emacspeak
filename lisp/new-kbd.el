@@ -52,12 +52,7 @@ Always returns a vector i.e. like passing need-vector to
                       (cdr (assq (aref word 0) ems--kbd-mod-table)))
              (cl-incf prefix 2)
              (cl-callf substring word 2))
-           (when (string-match "^\\^.$" word)
-             (cl-incf bits ?\C-\^@)
-             (cl-incf prefix)
-             (cl-callf substring word 1))
-           (when-let
-               (found (assoc word ems--kbd-char-table))
+           (when-let (found (assoc word ems--kbd-char-table))
              (setq word (cdr found)))
            (cond ;;; apply modifiers 
             ((= bits 0) (setq key word))
@@ -79,6 +74,7 @@ Always returns a vector i.e. like passing need-vector to
 
 (let ((tests 
        '(
+         "\^i"
          "<F2>"
          "<f1> <f2> TAB"
          "<f1> RET"
@@ -89,6 +85,7 @@ Always returns a vector i.e. like passing need-vector to
          "A-TAB"
          "A-a"
          "C-;"
+         "C-a"
          "C-M-<down>"
          "s-SPC"
          "C-RET"
