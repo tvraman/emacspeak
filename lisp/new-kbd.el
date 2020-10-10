@@ -45,15 +45,15 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
              (cl-callf substring word 1))
            (when-let
                (found
-                (assoc word
-                       '(("NUL" . "\0")
-                         ("RET" . "\r")
-                         ("LFD" . "\n")
-                         ("TAB" . "\t")
-                         ("ESC" . "\e")
-                         ("SPC" . " ")
-                         ("DEL" . "\177"))))
-             (setq word (cdr found)))
+                (pcase word
+                  ("NUL"   "\0")
+                  ("RET"   "\r")
+                  ("LFD"   "\n")
+                  ("TAB"   "\t")
+                  ("ESC"   "\e")
+                  ("SPC"   " ")
+                  ("DEL"   "\177")))
+             (setq word  found))
            (cond ;;; apply modifiers 
             ((= bits 0) (setq key word))
             ((/= (length word) 1)
