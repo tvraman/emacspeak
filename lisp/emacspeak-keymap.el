@@ -59,6 +59,7 @@
 ;;; Uses split-string to  simplify tokenizer.
 
 ;;;###autoload
+
 (defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function.
 Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
@@ -73,11 +74,10 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
         ((and ;;; modifier+-<key> without DEL etc
           (not (string-match special-char-reg word))
           (string-match modifier+angle-reg word))
-         (setq word
-               (concat ;;; strip < and >
-                (substring word (match-beginning 1) (match-end 1))
-                (substring word (match-beginning 3) (match-end 3))))
-         (setq key (list (intern word))))
+         (setq key (list (intern 
+                          (concat ;;; strip < and >
+                           (substring word (match-beginning 1) (match-end 1))
+                           (substring word (match-beginning 3) (match-end 3)))))))
         (t
          (let ((prefix 0)
                (bits 0))
@@ -124,6 +124,7 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
 ;;; push key on to the result vector 
        (when key (cl-callf vconcat res key))))
     res))
+
 
 ;;}}}
 ;;{{{ Custom Widget Types:
