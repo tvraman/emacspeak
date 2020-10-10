@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-10 Sat 07:25 -->
+<!-- 2020-10-10 Sat 08:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Extracting A Light-Weight Key-Sequence Reader By Progressive Simplification</title>
@@ -243,8 +243,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Extracting A Light-Weight Key-Sequence Reader By Progressive Simplification</h1>
-<div id="outline-container-orgac4008b" class="outline-2">
-<h2 id="orgac4008b"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-org8478e6b" class="outline-2">
+<h2 id="org8478e6b"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In the previous article entitled <a href="https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html">On Defining Keys In Emacs</a> I covered
@@ -256,7 +256,7 @@ and consequently easier to understand.  You can see the step-by-step
 simplification via the Git history for file <a href="https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1">new-kbd.el</a> (note: used to
 be called <code>ems-kbd.el</code>).  That file contains the final version of the
 simplified function, along with a test-suite that verifies that it's
-behavior is convenient with the solution built into Emacs. The updated
+behavior is consistent with the solution built into Emacs. The updated
 function is now part of Emacspeak and is named <code>ems-kbd</code> in that
 package.
 </p>
@@ -268,12 +268,12 @@ the final version.
 </div>
 </div>
 
-<div id="outline-container-orgc5fe474" class="outline-2">
-<h2 id="orgc5fe474"><span class="section-number-2">2</span> Steps Toward Simplification</h2>
+<div id="outline-container-orgc945516" class="outline-2">
+<h2 id="orgc945516"><span class="section-number-2">2</span> Steps Toward Simplification</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgaaa6d11" class="outline-3">
-<h3 id="orgaaa6d11"><span class="section-number-3">2.1</span> Separate Tokenization From Processing</h3>
+<div id="outline-container-org9c645a6" class="outline-3">
+<h3 id="org9c645a6"><span class="section-number-3">2.1</span> Separate Tokenization From Processing</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Function <code>edmacro-parse-keys</code> 
@@ -294,8 +294,8 @@ is accumulated into a result vector.
 </div>
 </div>
 
-<div id="outline-container-orge871f14" class="outline-3">
-<h3 id="orge871f14"><span class="section-number-3">2.2</span> Refactoring Case Analysis</h3>
+<div id="outline-container-orgef3ace5" class="outline-3">
+<h3 id="orgef3ace5"><span class="section-number-3">2.2</span> Refactoring Case Analysis</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
  Once tokenization is factored out, 
@@ -319,8 +319,8 @@ defining keyboard-shortcuts.
 </div>
 </div>
 
-<div id="outline-container-org349e909" class="outline-3">
-<h3 id="org349e909"><span class="section-number-3">2.3</span> Rearranging Conditionals</h3>
+<div id="outline-container-orgef48135" class="outline-3">
+<h3 id="orgef48135"><span class="section-number-3">2.3</span> Rearranging Conditionals</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Next, I rearranged conditionals and in that process eliminated <code>cond</code>
@@ -334,8 +334,8 @@ side-effects  to hopefully result in less fragile code.
 </div>
 </div>
 
-<div id="outline-container-org7af7bb1" class="outline-3">
-<h3 id="org7af7bb1"><span class="section-number-3">2.4</span> Lexically Bind Regex Patterns</h3>
+<div id="outline-container-orga33b49c" class="outline-3">
+<h3 id="orga33b49c"><span class="section-number-3">2.4</span> Lexically Bind Regex Patterns</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 To improve readability, I created let-bindings to some of the regex
@@ -348,8 +348,8 @@ for white-space tests.
 
 
 
-<div id="outline-container-org139056e" class="outline-3">
-<h3 id="org139056e"><span class="section-number-3">2.5</span> Always Return A Vector</h3>
+<div id="outline-container-orge59e5cd" class="outline-3">
+<h3 id="orge59e5cd"><span class="section-number-3">2.5</span> Always Return A Vector</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Finally, I setup the new function to always return a vector; function
@@ -441,8 +441,8 @@ code in <code>edmacro-parse-keys</code>.
 </div>
 
 
-<div id="outline-container-org0923351" class="outline-3">
-<h3 id="org0923351"><span class="section-number-3">2.6</span> Closing Thoughts</h3>
+<div id="outline-container-orgeb3c504" class="outline-3">
+<h3 id="orgeb3c504"><span class="section-number-3">2.6</span> Closing Thoughts</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 The above simplification exercise was done by:
@@ -465,7 +465,7 @@ calling our new function on each value with that returned by the original.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2020-10-09 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2020-10-10 Sat 07:25</p>
+<p class="date">Created: 2020-10-10 Sat 08:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
