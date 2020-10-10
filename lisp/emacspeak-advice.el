@@ -985,7 +985,8 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 (cl-loop
  for f in
- '(read-key read-key-sequence read-char read-char-exclusive)
+ '(read-key read-key-sequence read-key-sequence-vector
+            read-char read-char-exclusive)
  do
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
