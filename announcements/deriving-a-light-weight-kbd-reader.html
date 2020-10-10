@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-09 Fri 19:49 -->
+<!-- 2020-10-10 Sat 07:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Extracting A Light-Weight Key-Sequence Reader By Progressive Simplification</title>
@@ -243,26 +243,22 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Extracting A Light-Weight Key-Sequence Reader By Progressive Simplification</h1>
-<div id="outline-container-org6706d81" class="outline-2">
-<h2 id="org6706d81"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-orgac4008b" class="outline-2">
+<h2 id="orgac4008b"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-In the previous article entitled 
-<a href="https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html">On Defining Keys In Emacs</a>
-I covered   the issue of  declaring key-sequences and having them
-processed by Emacs when defining keyboard short-cuts.
-During the last week, I took the underlying Emacs Lisp function
-<code>edmacro-parse-key</code> 
-and via a process of progressive simplification derived a new
-<code>new-kbd</code> function that is much simpler and consequently easier to
-understand.
-You can see the step-by-step simplification via the Git history for
-file 
-<a href="https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1">new-kbd.el</a> (note: used to be called <code>ems-kbd.el</code>).
-That file contains the final version of the simplified function, along
-with a test-suite that verifies that it's behavior is convenient with
-the solution built into Emacs. The updated function is now part of
-Emacspeak and is named <code>ems-kbd</code> in that package.
+In the previous article entitled <a href="https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html">On Defining Keys In Emacs</a> I covered
+the issue of declaring key-sequences when defining keyboard
+short-cuts.  During the last week, I took the underlying Emacs Lisp
+function <code>edmacro-parse-key</code> and via a process of progressive
+simplification derived a new <code>new-kbd</code> function that is much simpler
+and consequently easier to understand.  You can see the step-by-step
+simplification via the Git history for file <a href="https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1">new-kbd.el</a> (note: used to
+be called <code>ems-kbd.el</code>).  That file contains the final version of the
+simplified function, along with a test-suite that verifies that it's
+behavior is convenient with the solution built into Emacs. The updated
+function is now part of Emacspeak and is named <code>ems-kbd</code> in that
+package.
 </p>
 
 <p>
@@ -272,12 +268,12 @@ the final version.
 </div>
 </div>
 
-<div id="outline-container-org51f1c0f" class="outline-2">
-<h2 id="org51f1c0f"><span class="section-number-2">2</span> Steps Toward Simplification</h2>
+<div id="outline-container-orgc5fe474" class="outline-2">
+<h2 id="orgc5fe474"><span class="section-number-2">2</span> Steps Toward Simplification</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgce10fe8" class="outline-3">
-<h3 id="orgce10fe8"><span class="section-number-3">2.1</span> Separate Tokenization From Processing</h3>
+<div id="outline-container-orgaaa6d11" class="outline-3">
+<h3 id="orgaaa6d11"><span class="section-number-3">2.1</span> Separate Tokenization From Processing</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Function <code>edmacro-parse-keys</code> 
@@ -286,7 +282,7 @@ various parts of that string are processed in a single <code>while</code> loop.
 </p>
 
 <p>
-The first  step in simplification was to separate these steps, and
+The first  step in simplification was to separate these steps, by 
 using function <code>split-string</code> to split the input string on
 <span class="underline">whitespace</span> to generate a list of words.
 </p>
@@ -298,8 +294,8 @@ is accumulated into a result vector.
 </div>
 </div>
 
-<div id="outline-container-orgf4b374e" class="outline-3">
-<h3 id="orgf4b374e"><span class="section-number-3">2.2</span> Refactoring Case Analysis</h3>
+<div id="outline-container-orge871f14" class="outline-3">
+<h3 id="orge871f14"><span class="section-number-3">2.2</span> Refactoring Case Analysis</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
  Once tokenization is factored out, 
@@ -323,8 +319,8 @@ defining keyboard-shortcuts.
 </div>
 </div>
 
-<div id="outline-container-org49a04c2" class="outline-3">
-<h3 id="org49a04c2"><span class="section-number-3">2.3</span> Rearranging Conditionals</h3>
+<div id="outline-container-org349e909" class="outline-3">
+<h3 id="org349e909"><span class="section-number-3">2.3</span> Rearranging Conditionals</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Next, I rearranged conditionals and in that process eliminated <code>cond</code>
@@ -338,20 +334,22 @@ side-effects  to hopefully result in less fragile code.
 </div>
 </div>
 
-<div id="outline-container-org46e7c9c" class="outline-3">
-<h3 id="org46e7c9c"><span class="section-number-3">2.4</span> Lexically Bind Regex Patterns</h3>
+<div id="outline-container-org7af7bb1" class="outline-3">
+<h3 id="org7af7bb1"><span class="section-number-3">2.4</span> Lexically Bind Regex Patterns</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 To improve readability, I created let-bindings to some of the regex
 patterns used to identify key-sequence patterns.
+In the process, I also made these more readable by using <span class="underline">[:space:]</span>
+for white-space tests.
 </p>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgd2d863d" class="outline-3">
-<h3 id="orgd2d863d"><span class="section-number-3">2.5</span> Always Return A Vector</h3>
+<div id="outline-container-org139056e" class="outline-3">
+<h3 id="org139056e"><span class="section-number-3">2.5</span> Always Return A Vector</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Finally, I setup the new function to always return a vector; function
@@ -359,14 +357,9 @@ Finally, I setup the new function to always return a vector; function
 it is called. 
 Since Emacs now takes a vector in every context  where a key-sequence
 is expected, this simplification does not break  when using our
-simplified function when defining keys.
+simplified function for  defining keys.
 </p>
-</div>
-</div>
 
-<div id="outline-container-org6724df4" class="outline-3">
-<h3 id="org6724df4"><span class="section-number-3">2.6</span> And Here Is The Code</h3>
-<div class="outline-text-3" id="text-2-6">
 <div class="org-src-container">
 <pre class="src src-emacs-list">   (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function.
@@ -437,6 +430,7 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
 </pre>
 </div>
 
+
 <p>
 You can verify the code above by running the tests found at the end of
 file  <code>new-kbd.el</code> &#x2014; the tests were extracted from the various
@@ -445,12 +439,33 @@ code in <code>edmacro-parse-keys</code>.
 </p>
 </div>
 </div>
+
+
+<div id="outline-container-org0923351" class="outline-3">
+<h3 id="org0923351"><span class="section-number-3">2.6</span> Closing Thoughts</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+The above simplification exercise was done by:
+</p>
+
+<ol class="org-ol">
+<li>Starting with the original <code>edmacro-parse-keys</code> copied over to a
+new file and renamed to function <code>new-kbd</code>.</li>
+<li>Adding a set of tests at the end of file, essentially this is a
+<code>let</code> that binds a set of tests, then compares the result of
+calling our new function on each value with that returned by the original.</li>
+<li>Modifying and simplifying our new function and running
+<code>eval-buffer</code> after each step.</li>
+<li>It was a fun exercise to see order emerge from chaos at each step!</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2020-10-09 Fri 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2020-10-09 Fri 19:49</p>
+<p class="date">Created: 2020-10-10 Sat 07:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,21 +1,17 @@
 * Background
 
-In the previous article entitled 
-[[https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html][On Defining Keys In Emacs]]
-I covered   the issue of  declaring key-sequences and having them
-processed by Emacs when defining keyboard short-cuts.
-During the last week, I took the underlying Emacs Lisp function
-~edmacro-parse-key~ 
-and via a process of progressive simplification derived a new
-~new-kbd~ function that is much simpler and consequently easier to
-understand.
-You can see the step-by-step simplification via the Git history for
-file 
-[[https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1][new-kbd.el]] (note: used to be called ~ems-kbd.el~).
-That file contains the final version of the simplified function, along
-with a test-suite that verifies that it's behavior is convenient with
-the solution built into Emacs. The updated function is now part of
-Emacspeak and is named ~ems-kbd~ in that package.
+In the previous article entitled [[https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html][On Defining Keys In Emacs]] I covered
+the issue of declaring key-sequences when defining keyboard
+short-cuts.  During the last week, I took the underlying Emacs Lisp
+function ~edmacro-parse-key~ and via a process of progressive
+simplification derived a new ~new-kbd~ function that is much simpler
+and consequently easier to understand.  You can see the step-by-step
+simplification via the Git history for file [[https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1][new-kbd.el]] (note: used to
+be called ~ems-kbd.el~).  That file contains the final version of the
+simplified function, along with a test-suite that verifies that it's
+behavior is convenient with the solution built into Emacs. The updated
+function is now part of Emacspeak and is named ~ems-kbd~ in that
+package.
 
 The next section gives a high-level overview of the steps that led to
 the final version.
@@ -28,7 +24,7 @@ Function ~edmacro-parse-keys~
 interweaves  the process of tokenizing its input string  and how
 various parts of that string are processed in a single ~while~ loop.
 
-The first  step in simplification was to separate these steps, and
+The first  step in simplification was to separate these steps, by 
 using function ~split-string~ to split the input string on
 _whitespace_ to generate a list of words.
 
@@ -63,6 +59,8 @@ side-effects  to hopefully result in less fragile code.
 
 To improve readability, I created let-bindings to some of the regex
 patterns used to identify key-sequence patterns.
+In the process, I also made these more readable by using _[:space:]_
+for white-space tests.
 
 
 
@@ -73,7 +71,7 @@ Finally, I setup the new function to always return a vector; function
 it is called. 
 Since Emacs now takes a vector in every context  where a key-sequence
 is expected, this simplification does not break  when using our
-simplified function when defining keys.
+simplified function for  defining keys.
 
    #+begin_src emacs-list
    (defun new-kbd (string )
