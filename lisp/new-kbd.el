@@ -49,8 +49,7 @@ Always returns a vector i.e. like passing need-vector to
            (while ;;; calculate modifier bits
                (string-match "^[ACHMsS]-." word)
              (cl-incf bits
-                      (cdr
-                       (assq (aref word 0) ems--kbd-mod-table)))
+                      (cdr (assq (aref word 0) ems--kbd-mod-table)))
              (cl-incf prefix 2)
              (cl-callf substring word 2))
            (when (string-match "^\\^.$" word)
@@ -58,8 +57,7 @@ Always returns a vector i.e. like passing need-vector to
              (cl-incf prefix)
              (cl-callf substring word 1))
            (when-let
-               (found
-                (assoc word ems--kbd-char-table))
+               (found (assoc word ems--kbd-char-table))
              (setq word (cdr found)))
            (cond ;;; apply modifiers 
             ((= bits 0) (setq key word))
