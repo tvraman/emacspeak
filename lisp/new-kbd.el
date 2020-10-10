@@ -2,6 +2,24 @@
 (eval-when-compile (require 'subr-x))
 
 ;;; See[[info:elisp#Key Sequences][info:elisp#Key Sequences]]
+(defvar ems--kbd-char-table
+  '(("NUL" . "\0")
+    ("RET" . "\r")
+    ("LFD" . "\n")
+    ("TAB" . "\t")
+    ("ESC" . "\e")
+    ("SPC" . " ")
+    ("DEL" . "\177"))
+  "AList mapping  kbd-char-names to char-values.")
+
+(defvar ems--kbd-mod-table
+  '((?A . ?\A-\^@)
+    (?C . ?\C-\^@)
+    (?H . ?\H-\^@)
+    (?M . ?\M-\^@)
+    (?s . ?\s-\^@)
+    (?S . ?\S-\^@))
+  "AList mapping modifier names to modifier bit-values.")
 
 (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function.
@@ -30,13 +48,7 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
                (string-match "^[ACHMsS]-." word)
              (cl-incf bits
                       (cdr
-                       (assq (aref word 0)
-                             '((?A . ?\A-\^@)
-                               (?C . ?\C-\^@)
-                               (?H . ?\H-\^@)
-                               (?M . ?\M-\^@)
-                               (?s . ?\s-\^@)
-                               (?S . ?\S-\^@)))))
+                       (assq (aref word 0) ems--kbd-mod-table)))
              (cl-incf prefix 2)
              (cl-callf substring word 2))
            (when (string-match "^\\^.$" word)
@@ -45,14 +57,7 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
              (cl-callf substring word 1))
            (when-let
                (found
-                (assoc word
-                       '(("NUL" . "\0")
-                         ("RET" . "\r")
-                         ("LFD" . "\n")
-                         ("TAB" . "\t")
-                         ("ESC" . "\e")
-                         ("SPC" . " ")
-                         ("DEL" . "\177"))))
+                (assoc word ems--kbd-char-table))
              (setq word (cdr found)))
            (cond ;;; apply modifiers 
             ((= bits 0) (setq key word))
