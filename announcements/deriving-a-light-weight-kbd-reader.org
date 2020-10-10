@@ -1,0 +1,167 @@
+* Background
+
+In the previous article entitled 
+[[https://emacspeak.blogspot.com/2020/10/on-defining-keys-in-emacs.html][On Defining Keys In Emacs]]
+I covered   the issue of  declaring key-sequences and having them
+processed by Emacs when defining keyboard short-cuts.
+During the last week, I took the underlying Emacs Lisp function
+~edmacro-parse-key~ 
+and via a process of progressive simplification derived a new
+~new-kbd~ function that is much simpler and consequently easier to
+understand.
+You can see the step-by-step simplification via the Git history for
+file 
+[[https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1][new-kbd.el]] (note: used to be called ~ems-kbd.el~).
+That file contains the final version of the simplified function, along
+with a test-suite that verifies that it's behavior is convenient with
+the solution built into Emacs. The updated function is now part of
+Emacspeak and is named ~ems-kbd~ in that package.
+
+The next section gives a high-level overview of the steps that led to
+the final version.
+
+* Steps Toward Simplification
+
+** Separate Tokenization From Processing 
+
+Function ~edmacro-parse-keys~ 
+interweaves  the process of tokenizing its input string  and how
+various parts of that string are processed in a single ~while~ loop.
+
+The first  step in simplification was to separate these steps, and
+using function ~split-string~ to split the input string on
+_whitespace_ to generate a list of words.
+
+A simple ~cl-loop~ is then used to turn each ~word~ into a ~key~ that
+is accumulated into a result vector.
+
+** Refactoring Case Analysis 
+
+ Once tokenization is factored out, 
+the remainder of function ~edmacro-parse-keys~ 
+converts each key-specification into either the corresponding string
+or vector representation.
+
+The original requirement of parsing  the serialization of
+keyboard-macros brought along additional logic that I first
+eliminated, since my goal was to create a function to be used in
+defining keyboard-shortcuts.
+  
+  - I eliminated code that handled invocation of ~M-x
+    execute-extended-command~ during a keyboard-macro.
+  - I eliminated processing of comments within the keyboard-macro serialization.
+
+** Rearranging Conditionals 
+
+Next, I rearranged conditionals and in that process eliminated ~cond~
+clauses that were now effectively dead-code.
+
+In the process, I also eliminated   test-predicates that had
+side-effects  to hopefully result in less fragile code.
+
+** Lexically Bind Regex Patterns
+
+To improve readability, I created let-bindings to some of the regex
+patterns used to identify key-sequence patterns.
+
+
+
+** Always Return A Vector 
+
+Finally, I setup the new function to always return a vector; function
+~edmacro-parse-keys~ returns either a string or a vector  based on how
+it is called. 
+Since Emacs now takes a vector in every context  where a key-sequence
+is expected, this simplification does not break  when using our
+simplified function when defining keys.
+
+** And Here Is The Code
+
+   #+begin_src emacs-list
+   (defun new-kbd (string )
+  "Simplified and hopefully more robust kbd function.
+Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
+  (let ((res [])
+        (special-char-reg "^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
+        (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
+    (cl-loop
+     for word in (split-string string)
+     do
+     (let* ((key nil))
+       (cond 
+        ((and ;;; modifier+-<key> without DEL etc
+          (not (string-match special-char-reg word))
+          (string-match modifier+angle-reg word))
+         (setq key
+               (list
+                (intern 
+                 (concat ;;; strip < and >
+                  (substring word (match-beginning 1) (match-end 1))
+                  (substring word (match-beginning 3) (match-end 3)))))))
+        (t
+         (let ((prefix 0)
+               (bits 0))
+           (while ;;; calculate modifier bits
+               (string-match "^[ACHMsS]-." word)
+             (cl-incf bits
+                      (cdr
+                       (assq (aref word 0)
+                             '((?A . ?\A-\^@)
+                               (?C . ?\C-\^@)
+                               (?H . ?\H-\^@)
+                               (?M . ?\M-\^@)
+                               (?s . ?\s-\^@)
+                               (?S . ?\S-\^@)))))
+             (cl-incf prefix 2)
+             (cl-callf substring word 2))
+           (when (string-match "^\\^.$" word)
+             (cl-incf bits ?\C-\^@)
+             (cl-incf prefix)
+             (cl-callf substring word 1))
+           (when-let
+               (found
+                (assoc word
+                       '(("NUL" . "\0")
+                         ("RET" . "\r")
+                         ("LFD" . "\n")
+                         ("TAB" . "\t")
+                         ("ESC" . "\e")
+                         ("SPC" . " ")
+                         ("DEL" . "\177"))))
+             (setq word (cdr found)))
+           (cond ;;; apply modifiers 
+            ((= bits 0) (setq key word))
+            ((/= (length word) 1)
+             (error "%s: Prefix  must precede a single character, not %s"
+                    string word))
+            ((and
+              (/= (logand bits ?\C-\^@) 0)
+              (string-match "[@-_a-z]" word))
+             (setq key
+                   (list (+ bits (- ?\C-\^@)
+                            (logand (aref word 0) 31)))))
+            (t (setq key (list (+ bits (aref word 0)))))))))
+;;; push key on to the result vector 
+       (when key (cl-callf vconcat res key))))
+    res))
+   #+end_src
+
+You can verify the code above by running the tests found at the end of
+file  ~new-kbd.el~ --- the tests were extracted from the various
+patterns described in the Elisp Reference, as well as  by reading the
+code in ~edmacro-parse-keys~.
+
+
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Extracting A Light-Weight Key-Sequence Reader By Progressive Simplification
+#+date: <2020-10-09 Fri>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3)
