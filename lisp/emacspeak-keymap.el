@@ -74,10 +74,12 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
         ((and ;;; modifier+-<key> without DEL etc
           (not (string-match special-char-reg word))
           (string-match modifier+angle-reg word))
-         (setq key (list (intern 
-                          (concat ;;; strip < and >
-                           (substring word (match-beginning 1) (match-end 1))
-                           (substring word (match-beginning 3) (match-end 3)))))))
+         (setq key
+               (list
+                (intern 
+                 (concat ;;; strip < and >
+                  (substring word (match-beginning 1) (match-end 1))
+                  (substring word (match-beginning 3) (match-end 3)))))))
         (t
          (let ((prefix 0)
                (bits 0))
