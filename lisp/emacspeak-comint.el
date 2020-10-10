@@ -251,7 +251,8 @@
     (emacspeak-speak-line)))
 
 (defadvice comint-output-filter (around emacspeak pre act comp)
-  "Make comint speak its output."
+  "Make comint speak its output.
+Try not to speak the shell prompt."
   (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
         (dtk-stop-immediately nil))
@@ -262,14 +263,11 @@
                emacspeak-comint-autospeak
                (or monitor (eq (window-buffer) buffer)))
         (let ((prompt
-               (memq 'comint-highlight-prompt (get-text-property
-                                               comint-last-output-start
-                                               'font-lock-face))))
-          (cond
-           (prompt
-            (sit-for 0.05)
-            (dtk-notify-speak (ad-get-arg 1)))
-                (t (dtk-speak (ad-get-arg 1))))))
+               (memq
+                'comint-highlight-prompt
+                (get-text-property comint-last-output-start 'font-lock-face))))
+          (unless prompt
+            t (dtk-speak (ad-get-arg 1)))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
