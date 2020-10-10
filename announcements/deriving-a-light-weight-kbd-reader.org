@@ -9,7 +9,7 @@ and consequently easier to understand.  You can see the step-by-step
 simplification via the Git history for file [[https://github.com/tvraman/emacspeak/blob/master/lisp/new-kbd.el#L1][new-kbd.el]] (note: used to
 be called ~ems-kbd.el~).  That file contains the final version of the
 simplified function, along with a test-suite that verifies that it's
-behavior is convenient with the solution built into Emacs. The updated
+behavior is consistent with the solution built into Emacs. The updated
 function is now part of Emacspeak and is named ~ems-kbd~ in that
 package.
 
