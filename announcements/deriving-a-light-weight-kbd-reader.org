@@ -75,8 +75,6 @@ Since Emacs now takes a vector in every context  where a key-sequence
 is expected, this simplification does not break  when using our
 simplified function when defining keys.
 
-** And Here Is The Code
-
    #+begin_src emacs-list
    (defun new-kbd (string )
   "Simplified and hopefully more robust kbd function.
@@ -146,10 +144,28 @@ Always returns a vector i.e. like passing need-vector to edmacro-parse-keys. "
     res))
    #+end_src
 
+
 You can verify the code above by running the tests found at the end of
 file  ~new-kbd.el~ --- the tests were extracted from the various
 patterns described in the Elisp Reference, as well as  by reading the
 code in ~edmacro-parse-keys~.
+
+
+** Closing Thoughts
+
+The above simplification exercise was done by:
+
+  1. Starting with the original ~edmacro-parse-keys~ copied over to a
+     new file and renamed to function ~new-kbd~.
+  2. Adding a set of tests at the end of file, essentially this is a
+     ~let~ that binds a set of tests, then compares the result of
+     calling our new function on each value with that returned by the original.
+  3. Modifying and simplifying our new function and running
+     ~eval-buffer~ after each step.
+  4. It was a fun exercise to see order emerge from chaos at each step!
+
+
+
 
 
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
