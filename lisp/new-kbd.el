@@ -30,8 +30,7 @@ Always returns a vector i.e. like passing need-vector to
         (special-char-reg "^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
         (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
-     for word in (split-string string)
-     do
+     for word in (split-string string) do
      (let* ((key nil))
        (cond 
         ((and ;;; modifier+-<key> without DEL etc
