@@ -59,7 +59,8 @@
 ;;; Uses split-string to  simplify tokenizer.
 
 (defvar ems--kbd-char-table
-  '(("NUL" . "\0")
+  '(
+    ("NUL" . "\0")
     ("RET" . "\r")
     ("LFD" . "\n")
     ("TAB" . "\t")
@@ -69,7 +70,8 @@
   "AList mapping  kbd-char-names to char-values.")
 
 (defvar ems--kbd-mod-table
-  '((?A . ?\A-\^@)
+  '(
+    (?A . ?\A-\^@)
     (?C . ?\C-\^@)
     (?H . ?\H-\^@)
     (?M . ?\M-\^@)
