@@ -255,19 +255,19 @@
 Try not to speak the shell prompt."
   (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
-        (dtk-stop-immediately nil))
+        (output (ad-get-arg 1)))
     (with-current-buffer buffer
       ad-do-it
       (when
           (and comint-last-output-start
                emacspeak-comint-autospeak
                (or monitor (eq (window-buffer) buffer)))
-        (let ((prompt
+        (let ((prompt-p
                (memq
                 'comint-highlight-prompt
                 (get-text-property comint-last-output-start 'font-lock-face))))
-          (unless prompt
-            t (dtk-speak (ad-get-arg 1)))))
+          (unless prompt-p
+            t (dtk-speak output))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
