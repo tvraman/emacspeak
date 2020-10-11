@@ -3110,7 +3110,18 @@ With interactive prefix arg, set foreground and background color first."
 Otherwise just return  `color'."
   (interactive "P")
   (cond
-   ((fboundp 'ntc-name-this-color) (ntc-name-this-color color))
+   ((fboundp 'ntc-name-this-color)
+    (let* ((candidate (ntc--get-closest-color color))
+           (name (ntc--struct-name (cdr candidate)))
+           (shade (ntc--struct-shade (cdr candidate))))
+      (cond
+       ((string= name shade) name)
+       (t
+        (concat 
+         (propertize name 'personality voice-bolden)
+         " shaded"
+         (propertize shade 'personality voice-annotate))
+        ))))
    (t color)))
 
 (defun emacspeak-wizards-frame-colors ()
