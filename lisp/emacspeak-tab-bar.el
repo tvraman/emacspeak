@@ -92,7 +92,9 @@
  for f in 
  '(
    tab-next tab-previous tab-select
-   tab-bar-select-tab tab-bar-switch-to-next-tab tab-bar-switch-to-prev-tab)
+   tab-bar-select-tab tab-bar-switch-to-next-tab
+   tab-bar-switch-to-prev-tab
+   tab-bar-switch-to-recent-tab)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
