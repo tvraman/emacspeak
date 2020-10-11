@@ -92,8 +92,8 @@
  for f in 
  '(
    tab-next tab-previous tab-select
-   tab-bar-select-tab tab-bar-switch-to-next-tab
-   tab-bar-switch-to-prev-tab
+   tab-bar-select-tab tab-bar-select-tab-by-name
+   tab-bar-switch-to-next-tab tab-bar-switch-to-prev-tab
    tab-bar-switch-to-recent-tab)
  do
  (eval
