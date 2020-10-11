@@ -252,7 +252,8 @@
 
 (defadvice comint-output-filter (around emacspeak pre act comp)
   "Make comint speak its output.
-Try not to speak the shell prompt."
+Try not to speak the shell prompt,
+instead, always play an auditory icon when the shell prompt is displayed."
   (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
         (output (ad-get-arg 1)))
@@ -260,14 +261,15 @@ Try not to speak the shell prompt."
       ad-do-it
       (when
           (and comint-last-output-start
-               emacspeak-comint-autospeak
                (or monitor (eq (window-buffer) buffer)))
         (let ((prompt-p
                (memq
                 'comint-highlight-prompt
-                (get-text-property comint-last-output-start 'font-lock-face))))
-          (unless prompt-p
-            t (dtk-speak output))))
+                (get-text-property comint-last-output-start
+                                   'font-lock-face))))
+          (when prompt-p (emacspeak-auditory-icon 'item))
+          (when (and emacspeak-comint-autospeak (not prompt-p))
+            (dtk-speak output))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
