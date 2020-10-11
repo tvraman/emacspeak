@@ -262,14 +262,15 @@ instead, always play an auditory icon when the shell prompt is displayed."
       (when
           (and comint-last-output-start
                (or monitor (eq (window-buffer) buffer)))
-        (let ((prompt-p
-               (memq
-                'comint-highlight-prompt
-                (get-text-property comint-last-output-start
-                                   'font-lock-face))))
-          (when prompt-p (emacspeak-auditory-icon 'item))
-          (when (and emacspeak-comint-autospeak (not prompt-p))
-            (dtk-speak output))))
+        (let
+            ((prompt-p
+              (memq
+               'comint-highlight-prompt
+               (get-text-property comint-last-output-start 'font-lock-face))))
+          (cond
+           ( (and emacspeak-comint-autospeak (not prompt-p))
+             (dtk-speak output))
+           (prompt-p (emacspeak-auditory-icon 'item)))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
