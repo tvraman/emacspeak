@@ -80,22 +80,18 @@
   "AList mapping modifier names to modifier bit-values.")
 
 ;;;###autoload
-(defun ems-kbd (string )
+(defun new-kbd (string )
   "Simplified and hopefully more robust kbd function.
 Always returns a vector i.e. like passing need-vector to
-edmacro-parse-keys. "
+  edmacro-parse-keys. "
   (cl-declare (special ems--kbd-mod-table ems--kbd-char-table))
   (let ((res [])
-        (special-char-reg "^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
         (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
-     for word in (split-string string)
-     do
+     for word in (split-string string) do
      (let* ((key nil))
        (cond 
-        ((and ;;; modifier+-<key> without DEL etc
-          (not (string-match special-char-reg word))
-          (string-match modifier+angle-reg word))
+        ((string-match modifier+angle-reg word)  ;;; modifier+-<key> without DEL etc
          (setq key
                (list
                 (intern 
@@ -111,10 +107,6 @@ edmacro-parse-keys. "
                       (cdr (assq (aref word 0) ems--kbd-mod-table)))
              (cl-incf prefix 2)
              (cl-callf substring word 2))
-           (when (string-match "^\\^.$" word)
-             (cl-incf bits ?\C-\^@)
-             (cl-incf prefix)
-             (cl-callf substring word 1))
            (when-let (found (assoc word ems--kbd-char-table))
              (setq word (cdr found)))
            (cond ;;; apply modifiers 
