@@ -1668,9 +1668,7 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 
 This module defines the advice forms for making the core of Emacs speak
 Advice forms that are specific to Emacs subsystems do not belong here!
-I violate this at present by advising completion comint and
-shell here.
-
+I violate this at present by advising completion.
 Note that we needed to advice a lot more for Emacs 19 and
 Emacs 20 than we do for Emacs 21 and Emacs 22.
 As of August 2007, this file is being purged of advice forms
