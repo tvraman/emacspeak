@@ -33,7 +33,7 @@ Always returns a vector i.e. like passing need-vector to
      for word in (split-string string) do
      (let ((key nil))
        (cond 
-        ((string-match mod+angle-reg word)  ;;; modifier+-<key> without DEL etc
+        ((string-match mod+angle-reg word)  ;;; modifier+-<key> 
          (setq key
                (list
                 (intern 
