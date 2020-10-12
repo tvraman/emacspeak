@@ -256,16 +256,14 @@ Try not to speak the shell prompt,
 instead, always play an auditory icon when the shell prompt is displayed."
   (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
-        (output (ad-get-arg 1))
-        (max (point-max)))
+        (output (ad-get-arg 1)))
     ad-do-it
     (with-current-buffer buffer
       (when
           (and
            (not  (string-match "^\r" output)) ;;; skip invisible output 
            comint-last-output-start
-           (or monitor (eq (window-buffer) buffer))
-           (> (point-max) max))
+           (or monitor (eq (window-buffer) buffer)))
         (let
             ((prompt-p
               (save-excursion
