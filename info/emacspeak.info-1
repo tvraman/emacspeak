@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 8, 2020.
+last updated on October 12, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -4242,11 +4242,10 @@ File: emacspeak.info,  Node: emacspeak-advice,  Next: emacspeak-amark,  Prev: em
 
 This module defines the advice forms for making the core of Emacs speak
 Advice forms that are specific to Emacs subsystems do not belong here!
-I violate this at present by advising completion comint and shell here.
-
-   Note that we needed to advice a lot more for Emacs 19 and Emacs 20
-than we do for Emacs 21 and Emacs 22.  As of August 2007, this file is
-being purged of advice forms not needed in Emacs 22.
+I violate this at present by advising completion.  Note that we needed
+to advice a lot more for Emacs 19 and Emacs 20 than we do for Emacs 21
+and Emacs 22.  As of August 2007, this file is being purged of advice
+forms not needed in Emacs 22.
 
 12.14.1 Emacspeak-Advice Commands
 ---------------------------------

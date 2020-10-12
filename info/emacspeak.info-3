@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 8, 2020.
+last updated on October 12, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -7444,7 +7444,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' t:                                 soundscape.         (line  128)
 * C-' u:                                 soundscape.         (line  140)
 * C-' v:                                 extra-muggles.      (line  261)
-* C-, ,:                                 emacspeak-advice.   (line   22)
+* C-, ,:                                 emacspeak-advice.   (line   21)
 * C-, /:                                 extra-muggles.      (line  321)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   90)
@@ -7884,7 +7884,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h TAB:                               emacspeak-info.     (line   37)
 * C-h \:                                 emacspeak-wizards.  (line  504)
 * C-M-y:                                 emacspeak-muggles.  (line   96)
-* C-x @ a ,:                             emacspeak-advice.   (line   23)
+* C-x @ a ,:                             emacspeak-advice.   (line   22)
 * C-x @ a /:                             extra-muggles.      (line  322)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   91)
