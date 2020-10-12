@@ -80,7 +80,7 @@
   "AList mapping modifier names to modifier bit-values.")
 
 ;;;###autoload
-(defun new-kbd (string )
+(defun ems-kbd (string )
   "Simplified and hopefully more robust kbd function.
 Always returns a vector i.e. like passing need-vector to
   edmacro-parse-keys. "
