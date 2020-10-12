@@ -257,8 +257,8 @@ instead, always play an auditory icon when the shell prompt is displayed."
   (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
         (output (ad-get-arg 1)))
+    ad-do-it
     (with-current-buffer buffer
-      ad-do-it
       (when
           (and comint-last-output-start
                (or monitor (eq (window-buffer) buffer)))
@@ -270,7 +270,8 @@ instead, always play an auditory icon when the shell prompt is displayed."
           (cond
            ( (and emacspeak-comint-autospeak (not prompt-p))
              (dtk-speak output))
-           (prompt-p (emacspeak-auditory-icon 'item)))))
+           ((zerop  (length output)) nil)
+           ( prompt-p (emacspeak-auditory-icon 'item)))))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions (around emacspeak pre act comp)
