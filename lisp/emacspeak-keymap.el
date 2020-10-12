@@ -93,7 +93,7 @@ Always returns a vector i.e. like passing need-vector to
      for word in (split-string string) do
      (let ((key nil))
        (cond 
-        ((string-match mod+angle-reg word)  ;;; modifier+-<key> without DEL etc
+        ((string-match mod+angle-reg word)  ;;; modifier+-<key> 
          (setq key
                (list
                 (intern 
@@ -116,7 +116,7 @@ Always returns a vector i.e. like passing need-vector to
             ((and
               (/= (logand bits ?\C-\^@) 0)
               (string-match "[@-_a-z]" word))
-             (setq key
+             (setq key ;;; C-a is 1 etc.
                    (list (+ bits (- ?\C-\^@)
                             (logand (aref word 0) 31)))))
             (t (setq key (list (+ bits (aref word 0)))))))))
