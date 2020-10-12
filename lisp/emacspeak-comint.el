@@ -256,21 +256,25 @@ Try not to speak the shell prompt,
 instead, always play an auditory icon when the shell prompt is displayed."
   (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
-        (output (ad-get-arg 1)))
+        (output (ad-get-arg 1))
+        (max (point-max)))
     ad-do-it
     (with-current-buffer buffer
       (when
-          (and comint-last-output-start
-               (or monitor (eq (window-buffer) buffer)))
+          (and
+           (not  (string-match "^\r" output)) ;;; skip invisible output 
+           comint-last-output-start
+           (or monitor (eq (window-buffer) buffer))
+           (> (point-max) max))
         (let
             ((prompt-p
-              (memq
-               'comint-highlight-prompt
-               (get-text-property comint-last-output-start 'font-lock-face))))
+              (save-excursion
+                (goto-char comint-last-output-start)
+                (or (looking-at shell-prompt-pattern)
+                    (looking-at comint-prompt-regexp)))))
           (cond
            ( (and emacspeak-comint-autospeak (not prompt-p))
              (dtk-speak output))
-           ((zerop  (length output)) nil)
            ( prompt-p (emacspeak-auditory-icon 'item)))))
       ad-return-value)))
 
