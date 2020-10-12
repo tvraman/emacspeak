@@ -55,7 +55,7 @@ Always returns a vector i.e. like passing need-vector to
              (error "%s: Prefix must precede a character, not %s" string word))
             ((and
               (/= (logand bits ?\C-\^@) 0)
-              (string-match "^[@-_a-z]" word))
+              (string-match "^[@-_a-z]" word)) ;;; ascii control char
              (setq key ;;; C-a is 1 etc.
                    (list (+ bits (- ?\C-\^@)
                             (logand (aref word 0) 31)))))
