@@ -30,7 +30,7 @@ Always returns a vector i.e. like passing need-vector to
         (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
      for word in (split-string string) do
-     (let* ((key nil))
+     (let ((key nil))
        (cond 
         ((string-match modifier+angle-reg word)  ;;; modifier+-<key> without DEL etc
          (setq key
