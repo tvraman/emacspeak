@@ -27,15 +27,12 @@ Always returns a vector i.e. like passing need-vector to
   edmacro-parse-keys. "
   (cl-declare (special ems--kbd-mod-table ems--kbd-char-table))
   (let ((res [])
-        (special-char-reg "^\\(NUL\\|RET\\|LFD\\|ESC\\|SPC\\|DEL\\)$")
         (modifier+angle-reg "^\\(\\([ACHMsS]-\\)*\\)<\\(.+\\)>$"))
     (cl-loop
      for word in (split-string string) do
      (let* ((key nil))
        (cond 
-        ((and ;;; modifier+-<key> without DEL etc
-          (not (string-match special-char-reg word))
-          (string-match modifier+angle-reg word))
+        ((string-match modifier+angle-reg word)  ;;; modifier+-<key> without DEL etc
          (setq key
                (list
                 (intern 
