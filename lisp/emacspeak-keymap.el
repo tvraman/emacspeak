@@ -103,19 +103,16 @@ Always returns a vector i.e. like passing need-vector to
         (t
          (let ((prefix 0)
                (bits 0))
-           (while ;;; calculate modifier bits
-               (string-match mod+char word)
+           (while (string-match mod+char word) ;;; calculate modifier bits
              (cl-incf bits
                       (cdr (assq (aref word 0) ems--kbd-mod-table)))
              (cl-incf prefix 2)
-             (cl-callf substring word 2))
-           (when-let (found (assoc word ems--kbd-char-table))
-             (setq word (cdr found)))
+             (cl-callf substring word 2)) ;;; end while modifiers
+           (when-let (c (assoc word ems--kbd-char-table)) (setq word (cdr c)))
            (cond ;;; apply modifiers 
-            ((= bits 0) (setq key word))
+            ((= bits 0) (setq key word)) ;;; no modifier bits
             ((/= (length word) 1)
-             (error "%s: Prefix  must precede a single character, not %s"
-                    string word))
+             (error "%s: Prefix must precede a character, not %s" string word))
             ((and
               (/= (logand bits ?\C-\^@) 0)
               (string-match "[@-_a-z]" word))
