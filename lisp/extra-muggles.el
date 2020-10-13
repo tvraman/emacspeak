@@ -324,6 +324,14 @@ Info-mode:
 ;;}}}
 ;;{{{ origami:
 
+(declare-function origami-open-node "origami" (buffer point))
+(declare-function origami-close-node "origami" (buffer point))
+(declare-function origami-next-fold "origami" (buffer point))
+(declare-function origami-previous-fold "origami" (buffer point))
+(declare-function origami-forward-toggle-node "origami" (buffer point))
+(declare-function origami-toggle-all-nodes "origami" (buffer))
+(declare-function origami-mode "origami" (&optional arg))
+
 (global-set-key
  (ems-kbd "C-, /")
  (defhydra emacspeak-origami

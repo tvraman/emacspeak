@@ -98,7 +98,7 @@
 ;;{{{ customization group
 
 (defgroup voice-fonts nil
-  "Customization group for setting voices."
+  "Customize voices"
   :group 'emacspeak)
 
 (declare-function tts-list-voices "dectalk-voices")
@@ -109,7 +109,7 @@
 ;;{{{  helper for voice custom items:
 
 (defun voice-setup-custom-menu ()
-  "Return a choice widget used in selecting voices."
+  "Return a choice widget used to select  voices."
   `(choice
     (symbol :tag "Other")
     ,@(mapcar 
@@ -212,8 +212,7 @@
 ;;{{{  special form defvoice
 
 (defvar voice-setup-personality-table (make-hash-table)
-  "Maps personality names to ACSS  settings.
-Keys are personality names.")
+  "Maps personality names to ACSS  settings. ")
 
 (defun voice-setup-personality-from-style (style-list)
   "Define a personality given a list of speech style settings."
@@ -487,16 +486,17 @@ command \\[customize-variable] on <personality>-settings. "
 
 (defvar voice-setup-buffer-face-voice-table (make-hash-table)
   "Hash table used to store buffer local face->personality mappings.")
+
+;;; If personality at point is currently audible, its
+;;; face->personality map is cached in a buffer local variable, and
+;;; its face->personality map is replaced by face->inaudible.  If
+;;; personality at point is inaudible, and there is a cached value,
+;;; then the original face->personality mapping is restored.  In
+;;; either case, the buffer is refontified to have the new mapping take effect.
+
 ;;;###autoload
 (defun voice-setup-toggle-silence-personality ()
-  "Toggle audibility of personality under point  .
-If personality at point is currently audible, its
-face->personality map is cached in a buffer local variable, and
-its face->personality map is replaced by face->inaudible.  If
-personality at point is inaudible, and there is a cached value,
-then the original face->personality mapping is restored.  In
-either case, the buffer is refontified to have the new mapping
-take effect."
+  "Toggle audibility of personality under point  . "
   (interactive)
   (cl-declare (special voice-setup-buffer-face-voice-table))
   (let* ((personality  (dtk-get-style))
@@ -560,8 +560,7 @@ these are available via minibuffer history."
 ;;{{{Apply Personality:
 ;;; Both functions below handle property changes in a "other" buffer correctly.
 (defun voice-setup-add (start end voice &optional object)
-  "Apply personality VOICE to specified region in object,
-over-writing any current personality settings."
+  "Apply personality VOICE to specified region in object."
   (when
       (and
        (integerp start) (integerp end)
