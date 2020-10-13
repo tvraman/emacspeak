@@ -82,12 +82,9 @@
       "index-dtk_002dadd_002dcleanup_002dpattern-2"></span>
       <div class="format">
         <pre class=
-        "format">Add this pattern to the list of repeating patterns that
-are cleaned up.  Optional interactive prefix arg deletes
-this pattern if previously added.  Cleaning up repeated
-patterns results in emacspeak speaking the pattern followed
-by a repeat count instead of speaking all the characters
-making up the pattern.  Thus, by adding the repeating
+        "format">Add this pattern to the list of repeating patterns.
+  Optional interactive prefix arg deletes
+this pattern if previously added.    Thus, by adding the repeating
 pattern ‘.’ (this is already added by default) emacspeak
 will say ‘‘aw fifteen dot’’ when speaking the string
 ‘‘...............’’ instead of ‘‘period period period period
@@ -304,8 +301,7 @@ Argument S specifies the syntax class.
         <dd><span id="index-_003cfn_003e-d-S"></span></dd>
       </dl><span id="index-dtk_002dset_002dlanguage-1"></span>
       <div class="format">
-        <pre class=
-        "format">Set language according to the argument lang.
+        <pre class="format">Set language  to  lang.
 
 (fn LANG)
 </pre>
@@ -325,7 +321,7 @@ Argument S specifies the syntax class.
       </dl><span id=
       "index-dtk_002dset_002dnext_002dlanguage-1"></span>
       <div class="format">
-        <pre class="format">Switch to the next available language
+        <pre class="format">Switch to the next  language
 </pre>
       </div>
     </dd>
@@ -409,7 +405,7 @@ rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 For example if alias="en" lang="en_GB",
 then the following call:
  dtk-set-language("en")
-will set "en_GB".
+will set "en_GB". 
 
 (fn ALIAS LANG)
 </pre>
@@ -430,8 +426,7 @@ will set "en_GB".
       </dl><span id=
       "index-dtk_002dset_002dprevious_002dlanguage-1"></span>
       <div class="format">
-        <pre class=
-        "format">Switch to the previous available language
+        <pre class="format">Switch to the previous  language
 </pre>
       </div>
     </dd>
@@ -643,7 +638,6 @@ Optional interactive prefix arg causes this setting to become global.
       "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars-1"></span>
       <div class="format">
         <pre class="format">Toggle speak-nonprinting-chars.
-Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 </pre>
@@ -770,11 +764,9 @@ value to the result.
     <dt id="index-User-Option-3">Variable: <strong>User
     Option</strong> <em>dtk-cleanup-repeats</em></dt>
     <dd>
-      <p>List of repeating patterns to clean up. You can use
-      command ‘dtk-add-cleanup-pattern’ bound to C-e d a to add
-      more patterns. Specify patterns that people use to decorate
-      their ASCII files, and cause untold pain to the speech
-      synthesizer.</p>
+      <p>List of repeating patterns to clean up. Use command
+      ‘dtk-add-cleanup-pattern’ bound to C-e d a to add more
+      patterns.</p>
       <p>If more than 3 consecutive occurrences of a specified
       pattern is found, the TTS engine replaces it with a repeat
       count.</p>
@@ -798,7 +790,7 @@ value to the result.
     <dt id="index-User-Option-6">Variable: <strong>User
     Option</strong> <em>dtk-speak-nonprinting-chars</em></dt>
     <dd>
-      <p>*Option that specifies handling of non-printing chars. Non
+      <p>Option that specifies handling of non-printing chars. Non
       nil value means non printing characters should be spoken as
       their octal value. Set this to t to avoid a dectalk bug that
       makes the speech box die if it seems some accented characters
@@ -809,17 +801,16 @@ value to the result.
     <dt id="index-User-Option-7">Variable: <strong>User
     Option</strong> <em>dtk-speech-rate-base</em></dt>
     <dd>
-      <p>*Value of lowest tolerable speech rate.</p>
+      <p>Value of lowest tolerable speech rate.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-8">Variable: <strong>User
     Option</strong> <em>dtk-speech-rate-step</em></dt>
     <dd>
-      <p>*Value of speech rate increment. This determines step size
-      used when setting speech rate via command
-      ‘dtk-set-predefined-speech-rate’. Formula used is
-      dtk-speech-rate-base + dtk-speech-rate-step*level.</p>
+      <p>Value of speech rate increment. Determines step size when
+      setting speech rate via command
+      ‘dtk-set-predefined-speech-rate’.</p>
     </dd>
   </dl>
   <dl>
