@@ -1979,10 +1979,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'emacspeak-auditory-icon icon))))
 
-;;; Forward Declaration
-(defvar tts-notification-device)
-
-(defun dtk-get-notify-alsa-device ()
+(defsubst dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
   (cl-declare (special tts-notification-device))
   (or tts-notification-device (getenv "ALSA_DEFAULT")))
@@ -2020,6 +2017,7 @@ Notification is logged in the notifications buffer unless `dont-log' is T. "
 (defun dtk-notify-shutdown ()
   "Shutdown notification TTS stream."
   (interactive)
+  (cl-declare (special dtk-notify-process))
   (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process)))
 
 ;;}}}
