@@ -76,7 +76,7 @@ mac for MAC TTS (default on Mac)")
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
     (split-string (getenv "DTK_PROGRAM_ARGS")))
-  "Arguments passed to the dtk-program")
+  "Speech server args.")
 
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server)
@@ -89,7 +89,7 @@ mac for MAC TTS (default on Mac)")
 ;;{{{  user customizations:
 
 (defgroup tts nil
-  "Text To Speech (TTS) customizations for the Emacspeak audio desktop."
+  "TTS customizations for the Emacspeak audio desktop."
   :group 'emacspeak
   :prefix "dtk-")
 
@@ -99,22 +99,21 @@ Particularly useful for web browsing.")
 
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
-  "*Value of lowest tolerable speech rate."
+  "Value of lowest tolerable speech rate."
   :type 'integer
   :group 'tts)
 
 (defcustom dtk-speech-rate-step
   (if (string-match "dtk" dtk-program) 50 8)
-  "*Value of speech rate increment.
-This determines step size used when setting speech rate via command
-`dtk-set-predefined-speech-rate'.  Formula used is
-dtk-speech-rate-base  +  dtk-speech-rate-step*level."
+  "Value of speech rate increment.
+Determines step size  when setting speech rate via command
+`dtk-set-predefined-speech-rate'."
   :type 'integer
   :group 'tts)
 
 (defvar-local dtk-quiet nil
-  "Switch indicating if the speech synthesizer is to keep quiet.
-See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
+  "Switch to silence speech via 
+ command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
 
 (defvar-local  dtk-split-caps t
   "Flag indicating whether to use split caps when speaking.
@@ -126,10 +125,8 @@ See command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
    ". " "." "_" "-" "=" "/" "+" "*" ":" ";" "%"
    "\\/" "/\\" "{" "}" "~" "$" ")" "#" "<>" "^")
   "List of repeating patterns to clean up.
-You can use  command  `dtk-add-cleanup-pattern'
+Use  command  `dtk-add-cleanup-pattern'
  bound to \\[dtk-add-cleanup-pattern]  to add more patterns.
-Specify patterns that people use to decorate their ASCII files, and cause
-untold pain to the speech synthesizer.
 
 If more than 3 consecutive occurrences
 of a specified pattern is found, the TTS engine replaces it
@@ -142,30 +139,30 @@ with a repeat count. "
 
 (defvar dtk-character-scale 1.1
   "Factor by which speech rate is scaled when characters are spoken.
-Do not set this variable by hand, use command
+  Use command
 `dtk-set-character-scale' bound to \\[dtk-set-character-scale].")
 
 (defvar-local dtk-capitalize nil
   "Non-nil means produce a beep to indicate  capitalization.
-Do not set this variable by hand, use command dtk-toggle-capitalization
+Use command dtk-toggle-capitalization
 bound to \\[dtk-toggle-capitalization].")
 
 
 (defvar-local dtk-allcaps-beep nil
   "Option to indicate capitalization.
 Non-nil means produce a beep to indicate upper case words in conjunction with
-split caps Do not set this variable by hand, use command
+split caps. Use command
 `dtk-toggle-allcaps-beep' bound to \\[dtk-toggle-allcaps-beep].")
 
 (defconst dtk-punctuation-mode-alist
   '("some" "all" "none")
-  "Alist of valid punctuation modes, values are strings..")
+  "Alist of valid punctuation modes, values are strings.")
 
 (defvar-local dtk-speech-rate
   (if (string-match "dtk" dtk-program)
       225 100)
   "Rate at which tts talks.
-Do not modify this variable directly; use command  `dtk-set-rate'
+ Use command  `dtk-set-rate'
  bound to \\[dtk-set-rate].")
 
 ;;}}}
@@ -194,8 +191,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
       voice)))
 
 (defsubst dtk-get-style (&optional pos)
-  "Compute style at pos by examining personality and face
-properties. Return value is a personality that can be applied to the
+  " Return value is a personality that can be applied to the
 content when speaking. Default `pos' to point. Property `personality'
 has higher precedence than `face'."
   (or pos (setq pos (point)))
@@ -211,11 +207,11 @@ has higher precedence than `face'."
   (dtk-tone 500 75 'force))
 
 (defsubst dtk-tone-upcase ()
-  "Tone used to indicate changing to upcase."
+  "Tone used to indicate  upcase."
   (dtk-tone 800 100 'force))
 
 (defsubst dtk-tone-downcase ()
-  "Tone used to indicate changing to lower case."
+  "Tone used to indicate  lower case."
   (dtk-tone 600 100 'force))
 
 ;;}}}
@@ -314,8 +310,7 @@ Modifies text and point in buffer."
 ;;{{{  Tones, Language, formatting speech etc.
 
 (defun dtk-silence (duration &optional force)
-  "Produce silence.
-Argument DURATION  specifies number of milliseconds to pause.
+  "Produce `duration' ms of silence.
 Optional argument FORCE  flushes the command to the speech server."
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -344,7 +339,7 @@ Optional argument FORCE  flushes the command to the speech server."
     (dtk-interp-tone pitch duration force)))
 
 (defun dtk-set-language (lang)
-  "Set language according to the argument lang."
+  "Set language  to  lang."
   (interactive "sEnter new language: \n")
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -352,14 +347,14 @@ Optional argument FORCE  flushes the command to the speech server."
     (dtk-interp-language lang (called-interactively-p 'interactive))))
 
 (defun dtk-set-next-language ()
-  "Switch to the next available language"
+  "Switch to the next  language"
   (interactive)
   (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-next-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-previous-language ()
-  "Switch to the previous available language"
+  "Switch to the previous  language"
   (interactive)
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -372,8 +367,7 @@ Optional argument FORCE  flushes the command to the speech server."
 For example if alias=\"en\" lang=\"en_GB\",
 then the following call:
  dtk-set-language(\"en\")
-will set \"en_GB\".
-"
+will set \"en_GB\". "
   (interactive "s")
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -414,7 +408,7 @@ Newlines  become spaces so each server request is a single line.
       (replace-match " "))))
 
 (defun dtk-fix-brackets (mode)
-  "Quote any delimiters that need special treatment. Argument MODE
+  "Quote  delimiters that need special treatment. Argument MODE
 specifies the current pronunciation mode --- See
 \\[dtk-bracket-regexp]"
   (cl-declare (special dtk-bracket-regexp))
@@ -457,7 +451,7 @@ specifies the current pronunciation mode --- See
         (replace-match " " nil t))))))
 
 (defcustom dtk-speak-nonprinting-chars nil
-  "*Option that specifies handling of non-printing chars.
+  "Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
 spoken as their octal value.
 Set this to t to avoid a dectalk bug that makes the speech box die if
@@ -469,8 +463,7 @@ it seems some accented characters in certain contexts."
 
 (defvar dtk-octal-chars
   "[\000-\010\013\014\016-\037\177-\377]"
-  "Regular expression matching control chars.
-Set this once per emacspeak session for efficiency.")
+  "Regular expression matching control chars. ")
 
 (defun dtk-fix-control-chars ()
   "Handle control characters in speech stream."
@@ -497,8 +490,8 @@ Set this once per emacspeak session for efficiency.")
 
 (defun dtk-replace-duplicates (string mode)
   "Replace repeating patterns.
-Argument STRING  specifies the repeating string to replace.
-Argument MODE  specifies the current pronunciation mode."
+ `STRING' is  the repeating string to replace.
+` MODE' is  the current pronunciation mode."
   (let* ((inhibit-read-only t)
          (len (length string))
          (pattern (regexp-quote string))
@@ -544,7 +537,7 @@ Argument MODE  specifies the current pronunciation mode."
    (t (while (search-forward dtk-null-char nil t) (replace-match "")))))
 
 (defun dtk-quote (mode)
-  "Clean-up text before sending it out."
+  "Clean-up text."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
@@ -706,8 +699,7 @@ Here,  change is any change in property personality, face or font-lock-face."
    (dtk-next-single-property-change start 'font-lock-face (current-buffer) end)))
 
 (defun dtk-audio-format (start end)
-  "Format and speak text.
-Arguments START and END specify region to speak."
+  "Format and speak text from `start' to `end'. "
   (cl-declare (special voice-lock-mode dtk-speaker-process
                        tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
@@ -768,12 +760,9 @@ Optional arg `all' or interactive call   silences notification stream as well."
 ;;{{{  adding cleanup patterns:
 
 (defun dtk-add-cleanup-pattern (&optional delete)
-  "Add this pattern to the list of repeating patterns that
-are cleaned up.  Optional interactive prefix arg deletes
-this pattern if previously added.  Cleaning up repeated
-patterns results in emacspeak speaking the pattern followed
-by a repeat count instead of speaking all the characters
-making up the pattern.  Thus, by adding the repeating
+  "Add this pattern to the list of repeating patterns.
+  Optional interactive prefix arg deletes
+this pattern if previously added.    Thus, by adding the repeating
 pattern `.' (this is already added by default) emacspeak
 will say ``aw fifteen dot'' when speaking the string
 ``...............'' instead of ``period period period period
@@ -935,7 +924,6 @@ value, and then set the current local value to the result.")
 (ems-generate-switcher 'dtk-toggle-speak-nonprinting-chars
                        'dtk-speak-nonprinting-chars
                        "Toggle speak-nonprinting-chars.
-Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
