@@ -67,10 +67,115 @@
   <span id="emacspeak_002dcomint-1"></span>
   <h3 class="section">12.38 emacspeak-comint</h3>
   <p>comint == command interaction. Advice comint and friends to
-  speak.</p><span id="emacspeak_002dcomint-Options"></span>
-  <h4 class="subsection">12.38.1 emacspeak-comint Options</h4>
+  speak.</p><span id="Emacspeak_002dComint-Commands"></span>
+  <h4 class="subsection">12.38.1 Emacspeak-Comint
+  Commands</h4><span id=
+  "emacspeak_002dcompletion_002dpick_002dcompletion"></span>
+  <h4 class="subsubsection">12.38.1.1
+  emacspeak-completion-pick-completion</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002dcompletion_002dpick_002dcompletion">
+    Command:
+    <strong>emacspeak-completion-pick-completion</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002dcompletion_002dpick_002dcompletion-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Pick completion and return safely where we came from.
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002dtoggle_002dcomint_002dautospeak"></span>
+  <h4 class="subsubsection">12.38.1.2
+  emacspeak-toggle-comint-autospeak</h4>
+  <dl>
+    <dt id="index-emacspeak_002dtoggle_002dcomint_002dautospeak">
+    Command: <strong>emacspeak-toggle-comint-autospeak</strong>
+    <em>(&amp;optional prefix)</em></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002dtoggle_002dcomint_002dautospeak-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Toggle state of Emacspeak comint autospeak.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+
+(fn &amp;optional PREFIX)
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></span>
+  <h4 class="subsubsection">12.38.1.3
+  emacspeak-toggle-comint-output-monitor</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor">
+    Command:
+    <strong>emacspeak-toggle-comint-output-monitor</strong>
+    <em>(&amp;optional prefix)</em></dt>
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-e o</kbd></dt>
+        <dd><span id="index-C_002de-o"></span></dd>
+        <dt><kbd>&lt;fn&gt; o</kbd></dt>
+        <dd><span id="index-_003cfn_003e-o"></span></dd>
+      </dl><span id=
+      "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002dtoggle_002dinaudible_002dor_002dcomint_002dautospeak"></span>
+  <h4 class="subsubsection">12.38.1.4
+  emacspeak-toggle-inaudible-or-comint-autospeak</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002dtoggle_002dinaudible_002dor_002dcomint_002dautospeak">
+    Command:
+    <strong>emacspeak-toggle-inaudible-or-comint-autospeak</strong></dt>
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-e C-q</kbd></dt>
+        <dd><span id="index-C_002de-C_002dq"></span></dd>
+        <dt><kbd>&lt;fn&gt; C-q</kbd></dt>
+        <dd><span id="index-_003cfn_003e-C_002dq"></span></dd>
+      </dl><span id=
+      "index-emacspeak_002dtoggle_002dinaudible_002dor_002dcomint_002dautospeak-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Toggle comint-autospeak when in a comint buffer.
+Otherwise call voice-setup-toggle-silence-personality which toggles the
+personality under point.
+</pre>
+      </div>
+    </dd>
+  </dl><span id="emacspeak_002dcomint-Options"></span>
+  <h4 class="subsection">12.38.2 emacspeak-comint Options</h4>
   <dl>
     <dt id="index-User-Option-106">Variable: <strong>User
+    Option</strong> <em>emacspeak-comint-autospeak</em></dt>
+    <dd>
+      <p>Says if comint output is automatically spoken. You can use
+      ‘emacspeak-toggle-comint-autospeak‘ bound to M-x
+      emacspeak-toggle-comint-autospeak to toggle this setting.</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-107">Variable: <strong>User
     Option</strong> <em>voice-comint-highlight-input</em></dt>
     <dd>
       <p>Personality used for comint-highlight-input This
@@ -79,7 +184,7 @@
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-107">Variable: <strong>User
+    <dt id="index-User-Option-108">Variable: <strong>User
     Option</strong> <em>voice-comint-highlight-prompt</em></dt>
     <dd>
       <p>Personality used for comint-highlight-prompt This
@@ -87,5 +192,17 @@
       globally by customizing voice-monotone-settings.</p>
     </dd>
   </dl>
+  <hr />
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dcompany.html" accesskey="n"
+    rel="next">emacspeak-company</a>, Previous: <a href=
+    "emacspeak_002dcmuscheme.html" accesskey="p" rel=
+    "prev">emacspeak-cmuscheme</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
+    "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href="Concept-Index.html" title=
+    "Index" rel="index">Index</a>]</p>
+  </div>
 </body>
 </html>
