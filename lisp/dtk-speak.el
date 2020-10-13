@@ -1078,10 +1078,8 @@ available TTS servers.")
 
 ;;{{{ variable to hold buffer specific speech table
 
-(defvar dtk-display-table nil
+(defvar-local dtk-display-table nil
   "Variable holding display information for special characters.")
-
-(make-variable-buffer-local 'dtk-display-table)
 
 ;;}}}
 ;;{{{  default speech table
@@ -1713,6 +1711,7 @@ Argument S specifies the syntax class."
 
 ;;}}}
 ;;{{{ speak text
+
 (defvar-local dtk-yank-excluded-properties
   '(category field follow-link fontified font-lock-face help-echo
              keymap local-map mouse-face read-only intangible yank-handler)
