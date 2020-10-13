@@ -67,7 +67,7 @@
 ;;{{{ Dictionary structure:
 
 (defvar emacspeak-pronounce-dictionaries (make-hash-table)
-  "Hash table holding emacspeak's persistent pronunciation dictionaries.
+  "Hash table  for   pronunciation dictionaries.
 Keys are either filenames, directory names, or major mode names.
 Values are alists containing string.pronunciation pairs.")
 
@@ -86,9 +86,7 @@ Values are alists containing string.pronunciation pairs.")
 
 ;;;###autoload
 (defun emacspeak-pronounce-add-dictionary-entry (key string pronunciation)
-  "Add dictionary entry.
-This adds pronunciation pair
-STRING.PRONUNCIATION to the dictionary.
+  " Adds pronunciation pair STRING.PRONUNCIATION to the dictionary.
 Argument KEY specifies a dictionary key e.g. directory, mode etc.
 Pronunciation can be a string or a cons-pair.
 If it is a string, that string is the new pronunciation.
@@ -115,8 +113,7 @@ the match  being passed to the func which returns  the new pronunciation."
              emacspeak-pronounce-pronunciation-table)))
 
 (defun emacspeak-pronounce-add-buffer-local-dictionary-entry (string pronunciation)
-  "Add specified pronunciation for current buffer.
-Arguments STRING and PRONUNCIATION specify what is being defined."
+  "Add  pronunciation for current buffer. "
   (cl-declare (special emacspeak-pronounce-pronunciation-table))
   (cond
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
@@ -158,10 +155,9 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
       (put child 'emacspeak-pronounce-supers orig))
     orig))
 
-(defun emacspeak-pronounce-compose-pronunciation-table (&optional buffer)
-  "Composes a pronunciation table for BUFFER. The default is current
-buffer. Handles inheritance of pronunciation dictionaries between
-modes."
+(defun emacspeak-pronounce-compose-pronunciation-table (&optional
+                                                        buffer)
+  "Composes a pronunciation table for BUFFER. "
   (setq buffer (or buffer (current-buffer)))
   (let* ((table (make-hash-table :test #'equal))
          (filename (buffer-file-name buffer))
@@ -232,14 +228,13 @@ modes."
 ;;{{{ composing the dictionary
 
 (defun emacspeak-pronounce-get-supers (child)
-  "Return list of supers.
-Argument CHILD specifies the mode whose supers are being requested."
+  "Return list of supers for mode `child'. "
   (get child 'emacspeak-pronounce-supers))
 
 ;;}}}
 
 (defvar emacspeak-pronounce-pronunciation-personality voice-lighten
-  "*Pronunciation personality.
+  "Pronunciation personality.
 This is the personality used when speaking things that have a pronunciation
 applied.")
 
@@ -251,14 +246,14 @@ applied.")
 (defcustom emacspeak-pronounce-dictionaries-file
   (expand-file-name ".dictionary"
                     emacspeak-user-directory)
-  "File that holds the persistent emacspeak pronunciation dictionaries."
+  "File that holds  emacspeak pronunciations."
   :type '(file :tag "Dictionary File ")
   :group 'emacspeak)
 
 
 
 (defun emacspeak-pronounce-save-dictionaries ()
-  "Writes out the persistent emacspeak pronunciation dictionaries."
+  "Saves  pronunciation dictionaries."
   (interactive)
   (cl-declare (special emacspeak-pronounce-dictionaries))
   (let* ((coding-system-for-write 'utf-8)
