@@ -1722,7 +1722,6 @@ This is so text marked invisible is silenced.")
 
 (defun dtk-speak (text)
   "Speak the TEXT string on the  tts.
-This is achieved by sending the text to the speech server.
 No-op if variable `dtk-quiet' is set to t.
 If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
