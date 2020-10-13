@@ -445,12 +445,9 @@ Here, prefix dtk is synonymous with tts.
 @findex dtk-add-cleanup-pattern
 
 @format
-Add this pattern to the list of repeating patterns that
-are cleaned up.  Optional interactive prefix arg deletes
-this pattern if previously added.  Cleaning up repeated
-patterns results in emacspeak speaking the pattern followed
-by a repeat count instead of speaking all the characters
-making up the pattern.  Thus, by adding the repeating
+Add this pattern to the list of repeating patterns.
+  Optional interactive prefix arg deletes
+this pattern if previously added.    Thus, by adding the repeating
 pattern ‘.’ (this is already added by default) emacspeak
 will say ‘‘aw fifteen dot’’ when speaking the string
 ‘‘...............’’ instead of ‘‘period period period period
@@ -641,7 +638,7 @@ Argument S specifies the syntax class.
 @findex dtk-set-language
 
 @format
-Set language according to the argument lang.
+Set language  to  lang.
 
 (fn LANG)
 @end format
@@ -659,7 +656,7 @@ Set language according to the argument lang.
 @findex dtk-set-next-language
 
 @format
-Switch to the next available language
+Switch to the next  language
 @end format
 @end deffn
 
@@ -729,7 +726,7 @@ Set the alias of the preferred language:
 For example if alias="en" lang="en_GB",
 then the following call:
  dtk-set-language("en")
-will set "en_GB".
+will set "en_GB". 
 
 (fn ALIAS LANG)
 @end format
@@ -747,7 +744,7 @@ will set "en_GB".
 @findex dtk-set-previous-language
 
 @format
-Switch to the previous available language
+Switch to the previous  language
 @end format
 @end deffn
 
@@ -918,7 +915,6 @@ Optional interactive prefix arg causes this setting to become global.
 
 @format
 Toggle speak-nonprinting-chars.
-Switches behavior of how characters with the high bit set are handled.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 @end format
@@ -1027,10 +1023,8 @@ Speak version.
 
 @defvar {User Option} dtk-cleanup-repeats
 List of repeating patterns to clean up.
-You can use  command  ‘dtk-add-cleanup-pattern’
+Use  command  ‘dtk-add-cleanup-pattern’
  bound to C-e d a  to add more patterns.
-Specify patterns that people use to decorate their ASCII files, and cause
-untold pain to the speech synthesizer.
 
 If more than 3 consecutive occurrences
 of a specified pattern is found, the TTS engine replaces it
@@ -1049,7 +1043,7 @@ Engine we use  for our local TTS  server.
 @end defvar
 
 @defvar {User Option} dtk-speak-nonprinting-chars
-*Option that specifies handling of non-printing chars.
+Option that specifies handling of non-printing chars.
 Non nil value means non printing characters  should be
 spoken as their octal value.
 Set this to t to avoid a dectalk bug that makes the speech box die if
@@ -1058,15 +1052,14 @@ it seems some accented characters in certain contexts.
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-base
-*Value of lowest tolerable speech rate.
+Value of lowest tolerable speech rate.
 
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-step
-*Value of speech rate increment.
-This determines step size used when setting speech rate via command
-‘dtk-set-predefined-speech-rate’.  Formula used is
-dtk-speech-rate-base  +  dtk-speech-rate-step*level.
+Value of speech rate increment.
+Determines step size  when setting speech rate via command
+‘dtk-set-predefined-speech-rate’.
 
 @end defvar
 
@@ -1116,7 +1109,7 @@ When called interactively, CHAR defaults to the character after point.
 @subsection dtk-unicode Options
 
 @defvar {User Option} dtk-unicode-character-replacement-alist
-Explicit replacements for some characters.
+Replacements for  characters.
 
 @end defvar
 
@@ -1126,13 +1119,13 @@ Alist of character name transformation rules.
 @end defvar
 
 @defvar {User Option} dtk-unicode-process-utf8
-Turn this off when working with TTS  engines that handle UTF8
-themselves, e.g., when using an Asian language.
+Turn this off when working with TTS  engines that handle UTF8. 
 
 @end defvar
 
 @defvar {User Option} dtk-unicode-untouched-charsets
-*Characters of these charsets are completely ignored by dtk-unicode-replace-chars.
+*Characters of these charsets are  ignored by
+  dtk-unicode-replace-chars.
 
 @end defvar
 
