@@ -634,7 +634,7 @@ To use this command, first  do `customize-variable' `org-capture-template'
 and assign  letter `h' to a template that creates the hyperlink on capture."
   (interactive)
   (require 'org)
-  (require 'org-eww)
+  (require 'ol-eww)
   (org-store-link nil)
   (org-capture nil "h"))
 (declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
