@@ -123,12 +123,12 @@
 
 (defvar sox-gen-p
   (eval-when-compile (executable-find "sox"))
-  "Should sox-gen commands attempt to invoke SoX.")
+  "Is sox available?")
 
 ;;}}}
 ;;{{{ SoX Command Generator:
 (defvar sox-gen-play (executable-find "play")
-  "Location of play from SoX utility.")
+  "Location of play from SoX.")
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
