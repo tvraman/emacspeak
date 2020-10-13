@@ -62,40 +62,21 @@
 (defgroup emacspeak nil
   "Emacspeak: The Complete Audio Desktop  "
   :link '(url-link :tag "Web" "http://emacspeak.sf.net"
-                   :help-echo "Visit Emacspeak Web Site")
-  :link '(url-link :tag "Blog Archive"
-                   l
-                 :help-echo "Read Local Emacspeak Blog Archive")
+                   :help-echo "Emacspeak  Site")
   :link '(url-link :tag "Blog" "http://emacspeak.blogspot.com"
-                   :help-echo "Read Emacspeak Blog")
-  :link '(url-link :tag "Papers"
-                   "http://emacspeak.sf.net/publications"
-                   :help-echo "Papers describing Emacspeak
-design and implementation.")
-  :link '(url-link :tag "Gist" "https://gist.github.com/tvraman"
-                   :help-echo "Useful Code Fragments")
-  :link '(url-link :tag "Emacs Tour" "http://www.gnu.org/s/emacs/tour/"
-                   :help-echo "A guided Tour Of Emacs")
-  :link '(url-link :tag "Search"
-                   "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
-                   :help-echo "Search Emacspeak mail archive at Vassar.")
+                   :help-echo "Emacspeak Blog")
   :link '(url-link :tag "Apps"
                    "https://tvraman.github.io/emacspeak/applications.html"
                    :help-echo "Browse available  applications on
 the Emacspeak desktop.")
   :link '(url-link :tag "Guide"
                    "https://tvraman.github.io/emacspeak/manual"
-                   :help-echo "Read online user guide.")
+                   :help-echo "online user guide.")
   :link '(url-link :tag "Tips"
                    "https://tvraman.github.io/emacspeak/tips.html"
-                   :help-echo "Read Emacspeak Tips and Tricks.")
-  :link   (list 'file-link :tag "NEWS" (expand-file-name
-                                        "etc/NEWS"
-                                        emacspeak-directory))
+                   :help-echo "Emacspeak Tips and Tricks.")
 ;;; end links
-  :prefix "emacspeak-"
-  :group 'applications
-  :group 'accessibility)
+  :group 'applications)
 
 ;;}}}
 ;;{{{ Package Setup Helper
