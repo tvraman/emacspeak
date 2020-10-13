@@ -59,11 +59,6 @@
 ;;}}}
 ;;{{{ Customizations
 
-(defgroup dtk-unicode nil
-  "Customization group for dtk-unicode."
-  :group 'emacspeak
-  :prefix "dtk-unicode-")
-
 (defcustom dtk-unicode-character-replacement-alist
   '(
     (? . "-")                       ; START OF GUARDED AREA
@@ -99,7 +94,7 @@
     (?ﬄ . "Ffl")                        ; latin small ligature ffl
     )
   "Explicit replacements for some characters."
-  :group 'dtk-unicode
+  :group 'dtk
   :type '(alist
           :key-type (character :tag "character")
           :value-type (string :tag "replacement")))
@@ -108,7 +103,7 @@
   "Turn this off when working with TTS  engines that handle UTF8
 themselves, e.g., when using an Asian language."
   :type 'boolean
-  :group 'dtk-unicode)
+  :group 'dtk)
 
 (defcustom dtk-unicode-name-transformation-rules-alist
   '(
@@ -120,7 +115,7 @@ themselves, e.g., when using an Asian language."
                                         ;("\\(.*\\) sign$" . (lambda (s) (match-string 1 s)))
     )
   "Alist of character name transformation rules."
-  :group 'dtk-unicode
+  :group 'dtk
   :type
   '(repeat
     (cons :value ("." . identity)
