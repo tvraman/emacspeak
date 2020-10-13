@@ -87,16 +87,13 @@
 ;;{{{  voice table
 
 (defvar outloud-default-voice-string "`v1"
-  "Default Outloud tag for  default voice --set to be a no-op.")
+  "Outloud tag for  default voice -- no-op.")
 
 (defvar outloud-voice-table (make-hash-table)
-  "Association between symbols and strings to set Outloud  voices.
-The string can set any voice parameter.")
+  "Association between symbols and strings to set Outloud  voices. ")
 
 (defun outloud-define-voice (name command-string)
-  "Define a Outloud  voice named NAME.
-This voice will be set   by sending the string
-COMMAND-STRING to the TTS engine."
+  "Map Outloud voice `name' to `command-string'. "
   (cl-declare (special outloud-voice-table))
   (puthash name command-string outloud-voice-table))
 
@@ -109,7 +106,7 @@ COMMAND-STRING to the TTS engine."
    (t (or  (gethash name outloud-voice-table)
            outloud-default-voice-string))))
 
-(defun outloud-get-voice-command (name)
+(defsubst outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (cl-declare (special dtk-speech-rate))
   (concat
@@ -155,20 +152,16 @@ COMMAND-STRING to the TTS engine."
 ;;{{{  hash table for mapping families to their dimensions
 
 (defvar outloud-css-code-tables (make-hash-table)
-  "Hash table holding vectors of outloud codes.
-Keys are symbols of the form <FamilyName-Dimension>.
-Values are vectors holding the control codes for the 10 settings.")
+  "Hash table holding vectors of outloud codes. ")
 
 (defun outloud-css-set-code-table (family dimension table)
-  "Set up voice FAMILY.
-Argument DIMENSION is the dimension being set,
-and TABLE gives the values along that dimension."
+  "Set up voice FAMILY. "
   (cl-declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash key table outloud-css-code-tables)))
 
 (defun outloud-css-get-code-table (family dimension)
-  "Retrieve table of values for specified FAMILY and DIMENSION."
+  "Retrieve table of values for  FAMILY and DIMENSION."
   (cl-declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
     (gethash key outloud-css-code-tables)))
@@ -267,7 +260,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 
 (defun outloud-get-average-pitch-code (value family)
-  "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
+  "Get  AVERAGE-PITCH for  VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value
       (aref (outloud-css-get-code-table family 'average-pitch)
@@ -352,7 +345,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 (defun outloud-get-pitch-range-code (value family)
-  "Get pitch-range code for specified VALUE and FAMILY."
+  "Get pitch-range code for  VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value
       (aref (outloud-css-get-code-table family 'pitch-range)
@@ -437,7 +430,7 @@ and TABLE gives the values along that dimension."
 ;;{{{  punctuations
 
 (defun outloud-get-punctuations-code (_value)
-  "Return string needed to set specified punctuations mode."
+  "Return string  to set  punctuations mode."
   "")
 
 ;;}}}
@@ -445,7 +438,7 @@ and TABLE gives the values along that dimension."
 ;;{{{  outloud-define-voice-from-speech-style
 
 (defun outloud-define-voice-from-speech-style (name style)
-  "Define NAME to be a outloud voice as specified by settings in STYLE."
+  "Define NAME  as  per   STYLE."
   (let* ((family(acss-family style))
          (command
           (concat
@@ -469,7 +462,7 @@ and TABLE gives the values along that dimension."
 ;;{{{ Configurater
 ;;;###autoload
 (defun outloud-configure-tts ()
-  "Configure TTS environment to use ViaVoice  family of synthesizers."
+  "Configure TTS environment to use Outloud."
   (cl-declare (special tts-default-speech-rate tts-default-voice
                        outloud-default-speech-rate
                        dtk-speech-rate-step dtk-speech-rate-base))
