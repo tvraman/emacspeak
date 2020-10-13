@@ -93,15 +93,14 @@
     (?ﬃ . "ffi")                        ; latin small ligature ffi
     (?ﬄ . "Ffl")                        ; latin small ligature ffl
     )
-  "Explicit replacements for some characters."
+  "Replacements for  characters."
   :group 'dtk
   :type '(alist
           :key-type (character :tag "character")
           :value-type (string :tag "replacement")))
 
 (defcustom dtk-unicode-process-utf8 t
-  "Turn this off when working with TTS  engines that handle UTF8
-themselves, e.g., when using an Asian language."
+  "Turn this off when working with TTS  engines that handle UTF8. "
   :type 'boolean
   :group 'dtk)
 
