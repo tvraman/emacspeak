@@ -50,12 +50,11 @@
 ;;; ems-interactive-p is reserved for use within Emacspeak advice.
 
 (defvar ems-called-interactively-p nil
-  "Flag recording interactive calls to functions adviced by Emacspeak.")
+  "Record interactive calls to adviced functions.")
 
 (defun ems-record-interactive-p (f)
-  "Predicate to test if we need to record interactive calls of
-this function. Memoizes result for future use by placing a
-property 'emacspeak on the function."
+  "Predicate to test if we  record interactive calls.
+ Memoizes result  via property 'emacspeak."
   (cond
    ((not (symbolp f)) nil)
    ((get f 'emacspeak) t) ; already memoized 
@@ -78,9 +77,9 @@ property 'emacspeak on the function."
     ad-do-it))
 ;;;###autoload
 (defsubst ems-interactive-p ()
-  "Check our interactive flag.
+  "Check  interactive flag.
 Return T if set and we are called from the advice for the current
-interactive command. Turn off the flag once used."
+ command. Turn off the flag once used."
   (when ems-called-interactively-p      ; interactive call
     (let ((caller (cl-second (backtrace-frame 1))) ; containing function name
           (caller-advice ; advice wrapper of containing function
@@ -102,7 +101,6 @@ interactive command. Turn off the flag once used."
   (let ((file-name-handler-alist nil)
          (load-source-file-function nil))
     (load file)))
-
 
 ;;}}}
 (provide 'emacspeak-load-path)
