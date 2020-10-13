@@ -58,6 +58,110 @@
 (require 'shell)
 
 ;;}}}
+;;{{{ comint
+
+(defun emacspeak-completion-pick-completion ()
+  "Pick completion and return safely where we came from."
+  (interactive)
+  (cl-declare (special completion-reference-buffer))
+  (let ((completion-ignore-case t))
+    (choose-completion-string (emacspeak-get-current-completion) completion-reference-buffer))
+  (emacspeak-auditory-icon 'select-object)
+  (cond
+   ((not (or
+          (window-minibuffer-p)
+          (one-window-p)
+          (window-dedicated-p (selected-window))))
+    (delete-window)
+    (bury-buffer "*Completions*")
+    (other-window 1))
+   (t
+    (kill-buffer "*Completions*")))
+  (emacspeak-speak-line))
+
+(defcustom emacspeak-comint-autospeak t
+  "Says if comint output is automatically spoken.
+You can use
+  `emacspeak-toggle-comint-autospeak` bound to
+  \\[emacspeak-toggle-comint-autospeak] to toggle this
+setting."
+  :group 'emacspeak-speak
+  :type 'boolean)
+
+(make-variable-buffer-local 'emacspeak-comint-autospeak)
+
+(defun emacspeak-toggle-comint-autospeak (&optional prefix)
+  "Toggle state of Emacspeak comint autospeak.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result."
+  (interactive "P")
+  (cl-declare (special emacspeak-comint-autospeak ))
+  (cond
+   (prefix
+    (setq-default
+     emacspeak-comint-autospeak
+     (not (default-value 'emacspeak-comint-autospeak)))
+    (setq emacspeak-comint-autospeak (default-value 'emacspeak-comint-autospeak)))
+   (t (make-local-variable 'emacspeak-comint-autospeak)
+      (setq emacspeak-comint-autospeak (not emacspeak-comint-autospeak))))
+  (when (called-interactively-p 'interactive)
+    (emacspeak-auditory-icon (if emacspeak-comint-autospeak "on" "off"))
+    (dtk-speak-and-echo
+     (format "Turned emacspeak-comint-autospeak %s  %s."
+             (if emacspeak-comint-autospeak "on" "off")
+             (if prefix "" " locally")))))
+
+
+
+;;;###autoload
+(defun emacspeak-toggle-inaudible-or-comint-autospeak ()
+  "Toggle comint-autospeak when in a comint buffer.
+Otherwise call voice-setup-toggle-silence-personality which toggles the
+personality under point."
+  (interactive)
+  (cond
+   ((derived-mode-p 'comint-mode) (funcall-interactively #'emacspeak-toggle-comint-autospeak))
+   (t (funcall-interactively #'voice-setup-toggle-silence-personality))))
+
+(defvar emacspeak-comint-output-monitor nil
+  "Switch to monitor comint output.
+When turned on,  comint output will be spoken even when the
+buffer is not current or its window live.")
+
+(make-variable-buffer-local 'emacspeak-comint-output-monitor)
+
+;;;###autoload
+(ems-generate-switcher 'emacspeak-toggle-comint-output-monitor
+                       'emacspeak-comint-output-monitor
+                       "Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.")
+
+(defun emacspeak-comint-speech-setup ()
+  "Speech setup for comint buffers."
+  (cl-declare (special comint-mode-map
+                       header-line-format emacspeak-use-header-line))
+  (when emacspeak-use-header-line
+    (setq
+     header-line-format
+     '((:eval
+        (format "%s %s %s"
+                (abbreviate-file-name default-directory)
+                (propertize (buffer-name) 'personality voice-annotate)
+                (if emacspeak-comint-autospeak
+                    (propertize "Autospeak" 'personality voice-smoothen)
+                  ""))))))
+  (dtk-set-punctuations 'all)
+  (define-key comint-mode-map "\C-o" 'switch-to-completions)
+  (emacspeak-pronounce-refresh-pronunciations))
+
+(add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
+
+;;}}}
 ;;{{{ Advice comint:
 (defadvice comint-delete-output (after emacspeak pre act comp)
   "Provide auditory feedback."
