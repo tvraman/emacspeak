@@ -57,51 +57,50 @@
 ;;;###autoload
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
-  "Directory where emacspeak is installed. ")
+  "emacspeak installation directory")
 
 ;;;###autoload
 (defvar emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
-  "Directory where emacspeak lisp files are  installed. ")
+  "Emacspeak lisp directory.")
 
 ;;;###autoload
 (defvar emacspeak-sounds-directory
   (expand-file-name  "sounds/" emacspeak-directory)
-  "Directory containing auditory icons for Emacspeak.")
+  "Auditory icons directory.")
 
 ;;;###autoload
 (defvar emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
-  "Directory holding XSL transformations.")
+  "XSL transformations.")
 
 ;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
-  "Directory containing miscellaneous files  for Emacspeak.")
+  "Misc directory.")
 
 ;;;###autoload
 (defvar emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
-  "Directory containing speech servers  for Emacspeak.")
+  "Speech servers directory.")
 
 ;;;###autoload
 (defvar emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
-  "Directory containing  Emacspeak info files.")
+  "Emacspeak reference.")
 
 ;;;###autoload
 (defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
-  "Directory where Emacspeak resource files
-such as pronunciation dictionaries are stored. ")
+  "Emacspeak resources, e.g. pronunciation dicts.")
 
 ;;;###autoload
 (defvar emacspeak-readme-file
   (expand-file-name "README" emacspeak-directory)
-  "README file from where we get Git  revision number.")
+  "README file with  Git  revision number.")
 
 ;;;###autoload
 (defvar emacspeak-curl-program (executable-find "curl")
-  "Name of CURL executable.")
+  "Curl location.")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
@@ -116,7 +115,7 @@ such as pronunciation dictionaries are stored. ")
         (nconc ext (mapcar #'upcase ext))
         'parens)
        "$")))
-  "Extensions that match media files.")
+  "Media file Extensions.")
 
 ;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
@@ -125,7 +124,7 @@ such as pronunciation dictionaries are stored. ")
      (regexp-opt
       (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
      "$"))
-  "Pattern for matching playlists.")
+  "Playlist pattern.")
 
 ;;}}}
 ;;{{{Load-path:
