@@ -3230,7 +3230,80 @@ speech-enable scheme support
 comint == command interaction.
 Advice comint and friends to speak.
 
+@subsection Emacspeak-Comint Commands
+
+@subsubsection emacspeak-completion-pick-completion
+@deffn {Command} emacspeak-completion-pick-completion   
+@findex emacspeak-completion-pick-completion
+
+@format
+Pick completion and return safely where we came from.
+@end format
+@end deffn
+
+@subsubsection emacspeak-toggle-comint-autospeak
+@deffn {Command} emacspeak-toggle-comint-autospeak  (&optional prefix)
+@findex emacspeak-toggle-comint-autospeak
+
+@format
+Toggle state of Emacspeak comint autospeak.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+
+(fn &optional PREFIX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-toggle-comint-output-monitor
+@deffn {Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
+@table @kbd
+@item C-e o
+@kindex C-e o
+@item <fn> o
+@kindex <fn> o
+@end table
+
+@findex emacspeak-toggle-comint-output-monitor
+
+@format
+Toggle state of Emacspeak comint monitor.
+When turned on, comint output is automatically spoken.  Turn this on if
+you want your shell to speak its results.  Interactive
+PREFIX arg means toggle the global default value, and then
+set the current local value to the result.
+@end format
+@end deffn
+
+@subsubsection emacspeak-toggle-inaudible-or-comint-autospeak
+@deffn {Command} emacspeak-toggle-inaudible-or-comint-autospeak   
+@table @kbd
+@item C-e C-q
+@kindex C-e C-q
+@item <fn> C-q
+@kindex <fn> C-q
+@end table
+
+@findex emacspeak-toggle-inaudible-or-comint-autospeak
+
+@format
+Toggle comint-autospeak when in a comint buffer.
+Otherwise call voice-setup-toggle-silence-personality which toggles the
+personality under point.
+@end format
+@end deffn
+
 @subsection emacspeak-comint Options
+
+@defvar {User Option} emacspeak-comint-autospeak
+Says if comint output is automatically spoken.
+You can use
+  ‘emacspeak-toggle-comint-autospeak‘ bound to
+  M-x emacspeak-toggle-comint-autospeak to toggle this
+setting.
+
+@end defvar
 
 @defvar {User Option} voice-comint-highlight-input
 Personality used for comint-highlight-input
@@ -14858,15 +14931,6 @@ Also display match context in minibuffer.
 @end format
 @end deffn
 
-@subsubsection emacspeak-completion-pick-completion
-@deffn {Command} emacspeak-completion-pick-completion   
-@findex emacspeak-completion-pick-completion
-
-@format
-Pick completion and return safely where we came from.
-@end format
-@end deffn
-
 @subsubsection emacspeak-completions-move-to-completion-group
 @deffn {Command} emacspeak-completions-move-to-completion-group   
 @findex emacspeak-completions-move-to-completion-group
@@ -16439,65 +16503,12 @@ current local  value to the result.
 @end format
 @end deffn
 
-@subsubsection emacspeak-toggle-comint-autospeak
-@deffn {Command} emacspeak-toggle-comint-autospeak  (&optional prefix)
-@findex emacspeak-toggle-comint-autospeak
-
-@format
-Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-
-(fn &optional PREFIX)
-@end format
-@end deffn
-
-@subsubsection emacspeak-toggle-comint-output-monitor
-@deffn {Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
-@table @kbd
-@item C-e o
-@kindex C-e o
-@item <fn> o
-@kindex <fn> o
-@end table
-
-@findex emacspeak-toggle-comint-output-monitor
-
-@format
-Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-@end format
-@end deffn
-
 @subsubsection emacspeak-toggle-header-line
 @deffn {Command} emacspeak-toggle-header-line   
 @findex emacspeak-toggle-header-line
 
 @format
 Toggle Emacspeak’s default header line.
-@end format
-@end deffn
-
-@subsubsection emacspeak-toggle-inaudible-or-comint-autospeak
-@deffn {Command} emacspeak-toggle-inaudible-or-comint-autospeak   
-@table @kbd
-@item C-e C-q
-@kindex C-e C-q
-@item <fn> C-q
-@kindex <fn> C-q
-@end table
-
-@findex emacspeak-toggle-inaudible-or-comint-autospeak
-
-@format
-Toggle comint-autospeak when in a comint buffer.
-Otherwise call voice-setup-toggle-silence-personality which toggles the
-personality under point.
 @end format
 @end deffn
 
@@ -16694,15 +16705,6 @@ any buffer where it is set.
 If t, then emacspeak echoes characters  as you type.
 You can
 use C-e d k to toggle this
-setting.
-
-@end defvar
-
-@defvar {User Option} emacspeak-comint-autospeak
-Says if comint output is automatically spoken.
-You can use
-  ‘emacspeak-toggle-comint-autospeak‘ bound to
-  M-x emacspeak-toggle-comint-autospeak to toggle this
 setting.
 
 @end defvar
