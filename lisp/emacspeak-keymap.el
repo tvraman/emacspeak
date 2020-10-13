@@ -67,7 +67,7 @@
     ("ESC" . "\e")
     ("SPC" . " ")
     ("DEL" . "\177"))
-  "AList mapping  kbd-char-names to char-values.")
+  "Map  kbd-char-names to char-values.")
 
 (defvar ems--kbd-mod-table
   '(
@@ -77,7 +77,7 @@
     (?M . ?\M-\^@)
     (?s . ?\s-\^@)
     (?S . ?\S-\^@))
-  "AList mapping modifier names to modifier bit-values.")
+  "Map modifier names to modifier bit-values.")
 
 ;;;###autoload
 
@@ -127,16 +127,16 @@
 ;;{{{ Custom Widget Types:
 
 (defun emacspeak-keymap-command-p (s)
-  "Check if `s' is suitable to be bound to a key."
+  "Test if `s' can to be bound to a key."
   (or (commandp s) (keymapp s)))
 
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
-  "Update keymap with specified binding."
+  "Update keymap with  binding."
   (define-key keymap  (ems-kbd (cl-first binding)) (cl-second binding)))
 
 (defun emacspeak-keymap-bindings-update (keymap bindings)
-  "Update keymap with specified list of bindings."
+  "Update keymap with  list of bindings."
   (cl-loop
    for binding in bindings
    do
@@ -170,7 +170,7 @@
 
 
 (defvar emacspeak-keymap nil
-  "Primary keymap used by emacspeak. ")
+  "Primary emacspeak keymap. ")
 
 (defvar emacspeak-dtk-submap nil
   "Submap used for DTK commands. ")
@@ -486,7 +486,7 @@
     ("|" emacspeak-wizards-squeeze-blanks)
     ("y" ytel)
     ("" desktop-clear)) 
-  "*Specifies personal key bindings for the audio desktop.
+  "Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
 `s' to command emacspeak-emergency-tts-restart
@@ -529,7 +529,7 @@ interactive command that the key sequence executes."
   'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
-  "*Specifies personal-ctlx key bindings for use with C-e C-x for
+  "Specifies personal-ctlx key bindings for use with C-e C-x for
 the audio desktop. Bindings specified here are available on
 prefix key C-e C-x for example, if you bind `C-s' to command
 emacspeak-emergency-tts-restart then that command will be
@@ -593,7 +593,7 @@ interactive command that the key sequence executes."
     ("p" proced)
     ("R" emacspeak-webspace-feed-reader)
     ("w" define-word))
-  "*Specifies super key bindings for the audio desktop. You can
+  "Specifies super key bindings for the audio desktop. You can
 turn the right `windows menu' keys on your Linux PC keyboard into
 a `super' key on Linux by having it emit the sequence `C-x@s'.
 
@@ -657,7 +657,7 @@ interactive command that the key sequence executes."
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)
     ("y" emacspeak-m-player-youtube-player)) 
-  "*Specifies alt key bindings for the audio desktop. You can turn the
+  "Specifies alt key bindings for the audio desktop. You can turn the
 `Pause' key on your Linux PC keyboard into a `alt' key on Linux by
 having it emit the sequence `C-x@a'.
 
@@ -713,7 +713,7 @@ command that the key sequence executes."
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
     ("z" suspend-frame)
     )
-  "*Specifies ctl-z  key bindings for the audio desktop. 
+  "Specifies ctl-z  key bindings for the audio desktop. 
 
 Bindings specified here are available on prefix key `C-z' for
 example, if you bind `zb' to command `suspend-frame ' then that command
@@ -786,7 +786,7 @@ interactive command that the key sequence executes."
     ("u" list-unicode-display)
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand))
-  "*Specifies hyper key bindings for the audio desktop. Emacs can
+  "Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
 keys on your Linux PC keyboard into a `hyper' key on Linux by
 having it emit the sequence `C-x@h'.
