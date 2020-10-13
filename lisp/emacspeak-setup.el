@@ -135,7 +135,7 @@ such as pronunciation dictionaries are stored. ")
 (unless noninteractive
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
-    (load  "emacspeak-loaddefs.el")))
+    (load  "emacspeak-loaddefs")))
 
 ;;}}}
 ;;; Start emacspeak if emacs   is interactive:
