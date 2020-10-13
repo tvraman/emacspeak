@@ -9535,7 +9535,7 @@ Note that the <fn> key found on laptops is denoted <fn>
 @subsection emacspeak-keymap Options
 
 @defvar {User Option} emacspeak-alt-keys
-*Specifies alt key bindings for the audio desktop. You can turn the
+Specifies alt key bindings for the audio desktop. You can turn the
 ‘Pause’ key on your Linux PC keyboard into a ‘alt’ key on Linux by
 having it emit the sequence ‘C-x@@a’.
 
@@ -9557,7 +9557,7 @@ command that the key sequence executes.
 @end defvar
 
 @defvar {User Option} emacspeak-ctl-z-keys
-*Specifies ctl-z  key bindings for the audio desktop. 
+Specifies ctl-z  key bindings for the audio desktop. 
 
 Bindings specified here are available on prefix key ‘C-z’ for
 example, if you bind ‘zb’ to command ‘suspend-frame ’ then that command
@@ -9576,7 +9576,7 @@ interactive command that the key sequence executes.
 @end defvar
 
 @defvar {User Option} emacspeak-hyper-keys
-*Specifies hyper key bindings for the audio desktop. Emacs can
+Specifies hyper key bindings for the audio desktop. Emacs can
 use the ‘hyper’ key as a modifier key. You can turn the ‘windows’
 keys on your Linux PC keyboard into a ‘hyper’ key on Linux by
 having it emit the sequence ‘C-x@@h’.
@@ -9598,7 +9598,7 @@ interactive command that the key sequence executes.
 @end defvar
 
 @defvar {User Option} emacspeak-personal-ctlx-keys
-*Specifies personal-ctlx key bindings for use with C-e C-x for
+Specifies personal-ctlx key bindings for use with C-e C-x for
 the audio desktop. Bindings specified here are available on
 prefix key C-e C-x for example, if you bind ‘C-s’ to command
 emacspeak-emergency-tts-restart then that command will be
@@ -9615,7 +9615,7 @@ interactive command that the key sequence executes.
 @end defvar
 
 @defvar {User Option} emacspeak-personal-keys
-*Specifies personal key bindings for the audio desktop.
+Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
 ‘s’ to command emacspeak-emergency-tts-restart
@@ -9634,7 +9634,7 @@ interactive command that the key sequence executes.
 @end defvar
 
 @defvar {User Option} emacspeak-super-keys
-*Specifies super key bindings for the audio desktop. You can
+Specifies super key bindings for the audio desktop. You can
 turn the right ‘windows menu’ keys on your Linux PC keyboard into
 a ‘super’ key on Linux by having it emit the sequence ‘C-x@@s’.
 
