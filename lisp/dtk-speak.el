@@ -66,10 +66,9 @@
    ((getenv "DTK_PROGRAM") (getenv "DTK_PROGRAM"))
    ((eq system-type 'darwin) "mac")
    (t "espeak"))
-  "The program to use to talk to the speech engine.
-Possible choices at present:
+  "Name of speech-server.
+Choices:
 dtk-exp     For the Dectalk Express.
-dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
 espeak      For eSpeak (default on Linux)
 mac for MAC TTS (default on Mac)")
