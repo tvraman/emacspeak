@@ -81,12 +81,14 @@ the Emacspeak desktop.")
 ;;}}}
 ;;{{{ Package Setup Helper
 
+
+
+;;; This function adds the appropriate form to `after-load-alist' to
+;;; set up Emacspeak support for a given package.  Argument MODULE (a
+;;; symbol)specifies the emacspeak module that implements the
+;;; speech-enabling extensions for `package' (a string).
 (defsubst emacspeak-do-package-setup (package module)
-  "Setup Emacspeak extension for a specific PACKAGE.
-This function adds the appropriate form to `after-load-alist' to
-set up Emacspeak support for a given package.  Argument MODULE (a
-symbol)specifies the emacspeak module that implements the
-speech-enabling extensions for `package' (a string)."
+  "Setup Emacspeak extension for   PACKAGE. "
   (with-eval-after-load package (require module)))
 
 ;;; DocView
@@ -276,10 +278,10 @@ speech-enabling extensions for `package' (a string)."
     ("yaml-mode" emacspeak-yaml)
     ("yasnippet" emacspeak-yasnippet)
     ("ytel" emacspeak-ytel))
-  "Packages to prepare Emacs to speech-enable.")
+  "Packages to  speech-enable.")
 
 (defun emacspeak-prepare-emacs ()
-  "Prepare Emacs to speech-enable packages as they are loaded."
+  "Prepare Emacs to speech-enable packages when loaded."
   (cl-declare (special emacspeak-packages-to-prepare))
   (setq-default line-move-visual nil)
   (setq use-dialog-box nil)
@@ -298,10 +300,7 @@ speech-enabling extensions for `package' (a string)."
 
 ;;;###autoload
 (defsubst emacspeak-setup-programming-mode ()
-  "Setup programming mode.
-Turns on audio indentation and sets
-punctuation mode to all, activates the dictionary and turns on split
-caps."
+  "Setup programming mode. "
   (cl-declare (special dtk-split-caps emacspeak-audio-indentation))
   (ems-with-messages-silenced
       (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
@@ -348,7 +347,7 @@ caps."
   :group 'emacspeak)
 
 (defsubst emacspeak-play-startup-icon ()
-  "Play startup icon if requested."
+  "Play startup icon."
   (cl-declare (special emacspeak-play-emacspeak-startup-icon
                        emacspeak-m-player-program))
   (when (and  emacspeak-play-emacspeak-startup-icon emacspeak-m-player-program)
@@ -371,23 +370,15 @@ caps."
 ;;;###autoload
 (defun emacspeak()
   "Start the Emacspeak Audio Desktop.
-Use Emacs as you normally would, emacspeak will provide you
-spoken feedback as you work.  Emacspeak also provides commands
+Use Emacs as you normally would, emacspeak provides
+ spoken feedback.  Emacspeak also provides commands
 for having parts of the current buffer, the mode-line etc to be
 spoken.
 
-If you are hearing this description as a result of pressing
-\\[emacspeak-describe-emacspeak] you may want to silence speech by
-pressing \\[dtk-stop] and then use the
-arrow keys in    the Help buffer to read the rest of
-this description, which includes a summary of all emacspeak
-keybindings.
+ Emacspeak commands use \\[emacspeak-prefix-command] as a prefix
+key.  You can configure TTS  with
+\\[emacspeak-dtk-submap-command] as a prefix.
 
-All emacspeak commands use \\[emacspeak-prefix-command] as a prefix
-key.  You can also set the state of the TTS engine by using
-\\[emacspeak-dtk-submap-command] as a prefix.  Here is a summary of all
-emacspeak commands along with their bindings.  You need to precede the
-keystrokes listed below with \\[emacspeak-prefix-command].
 
 \\{emacspeak-keymap}
 
