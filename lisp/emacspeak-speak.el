@@ -2485,15 +2485,19 @@ PREFIX arg means toggle the global default value, and then
 set the current local value to the result.")
 
 (defun emacspeak-comint-speech-setup ()
-  "Set up splitting of speech into chunks in comint modes."
+  "Speech setup for comint buffers."
   (cl-declare (special comint-mode-map
-                       emacspeak-use-header-line))
+                       header-line-format emacspeak-use-header-line))
   (when emacspeak-use-header-line
-    (setq header-line-format
-          '((:eval
-             (format "%s  %s"
-                     (abbreviate-file-name default-directory)
-                     (propertize (buffer-name) 'personality voice-annotate))))))
+    (setq
+     header-line-format
+     '((:eval
+        (format "%s %s %s"
+                (abbreviate-file-name default-directory)
+                (propertize (buffer-name) 'personality voice-annotate)
+                (if emacspeak-comint-autospeak
+                    (propertize "Autospeak" 'personality voice-smoothen)
+                  ""))))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
