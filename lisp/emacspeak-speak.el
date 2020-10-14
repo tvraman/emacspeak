@@ -2386,7 +2386,7 @@ Interactive prefix arg `browse'  repeatedly browses  through
   (cond
    (browse
     (emacspeak-execute-repeatedly
-     'emacspeak-next-personality-chunk))
+     'emacspeak-speak-next-personality-chunk))
    (t (emacspeak-speak-this-personality-chunk))))
 
 ;;}}}
