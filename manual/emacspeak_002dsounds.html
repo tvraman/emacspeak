@@ -106,55 +106,8 @@
 </pre>
       </div>
     </dd>
-  </dl><span id=
-  "emacspeak_002dset_002dauditory_002dicon_002dplayer"></span>
-  <h4 class="subsubsection">12.172.1.2
-  emacspeak-set-auditory-icon-player</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dset_002dauditory_002dicon_002dplayer">
-    Command: <strong>emacspeak-set-auditory-icon-player</strong>
-    <em>(player)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dset_002dauditory_002dicon_002dplayer-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Select  player used for producing auditory icons.
-Recommended choices:
-
-emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-queue-auditory-icon when using software TTS.
-
-(fn PLAYER)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dsounds_002dreset_002dlocal_002dplayer"></span>
-  <h4 class="subsubsection">12.172.1.3
-  emacspeak-sounds-reset-local-player</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dsounds_002dreset_002dlocal_002dplayer">
-    Command:
-    <strong>emacspeak-sounds-reset-local-player</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dsounds_002dreset_002dlocal_002dplayer-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Ask Emacspeak to use a local audio player.
-This lets me have Emacspeak switch to using audioplay on
-solaris after I’ve used it for a while from a remote session
-where it would use the more primitive speech-server based
-audio player.
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dsounds_002dselect_002dtheme"></span>
-  <h4 class="subsubsection">12.172.1.4
+  <h4 class="subsubsection">12.172.1.2
   emacspeak-sounds-select-theme</h4>
   <dl>
     <dt id="index-emacspeak_002dsounds_002dselect_002dtheme">
@@ -177,7 +130,7 @@ audio player.
     </dd>
   </dl><span id=
   "emacspeak_002dtoggle_002dauditory_002dicons"></span>
-  <h4 class="subsubsection">12.172.1.5
+  <h4 class="subsubsection">12.172.1.3
   emacspeak-toggle-auditory-icons</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dauditory_002dicons">
@@ -205,7 +158,7 @@ Optional interactive PREFIX arg toggles global value.
     <dt id="index-User-Option-703">Variable: <strong>User
     Option</strong> <em>emacspeak-auditory-icon-function</em></dt>
     <dd>
-      <p>*Function that plays auditory icons. play : Launches
+      <p>Function that plays auditory icons. play : Launches
       play-program to play. Serve: Send a command to the
       speech-server to play. Queue : Add auditory icon to speech
       queue. soxplay: Use sox to apply effect earwax for
@@ -232,13 +185,6 @@ Optional interactive PREFIX arg toggles global value.
     Option</strong> <em>emacspeak-sounds-default-theme</em></dt>
     <dd>
       <p>Default theme for auditory icons.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-707">Variable: <strong>User
-    Option</strong> <em>emacspeak-soxplay-command</em></dt>
-    <dd>
-      <p>Name of play executable from SoX</p>
     </dd>
   </dl>
   <hr />
