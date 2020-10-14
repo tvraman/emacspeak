@@ -115,15 +115,11 @@ Use `emacspeak-toggle-auditory-icons' bound to
   :group 'emacspeak)
 
 (defcustom emacspeak-play-program
-  (cond
-   ((getenv "EMACSPEAK_PLAY_PROGRAM")
-    (getenv "EMACSPEAK_PLAY_PROGRAM"))
-   ((file-exists-p "/usr/bin/aplay") "/usr/bin/aplay")
-   ((file-exists-p "/usr/bin/play") "/usr/bin/play")
-   ((file-exists-p "/usr/bin/audioplay") "/usr/bin/audioplay")
-   ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
-   (t (expand-file-name emacspeak-etc-directory "play")))
-  "Name of executable that plays sound files. "
+  (or
+   (getenv "EMACSPEAK_PLAY_PROGRAM")
+   (executable-find "aplay")
+   (executable-find "play"))
+  "Executable that plays sound files. "
   :group 'emacspeak
   :type 'string)
 
@@ -238,15 +234,6 @@ Do not set this by hand;
 (defvar emacspeak-sox (executable-find "sox")
   "Name of SoX executable.")
 
-
-(defun emacspeak-soxplay-auditory-icon (sound-name)
-  "Produce auditory icon SOUND-NAME.
-This uses SoX play and is specifically for use with headphones."
-  (cl-declare (special emacspeak-sox))
-  (let ((icon (emacspeak-get-sound-filename sound-name)))
-    (call-process shell-file-name nil nil nil shell-command-switch
-                  (format emacspeak-sox icon))))
-
 ;;}}}
 ;;{{{ Play icon list:
 
@@ -270,15 +257,12 @@ This uses SoX play and is specifically for use with headphones."
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
-soxplay: Use sox to apply effect earwax for headphones.
 Native : Use Emacs' builtin sound support.
 Use Serve when working with remote speech servers."
   :group 'emacspeak
   :type '(choice
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
-          (const emacspeak-play-auditory-icon)
-          (const emacspeak-soxplay-auditory-icon)
           (const emacspeak-queue-auditory-icon)))
 
 ;;;###autoload
