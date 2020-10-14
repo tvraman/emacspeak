@@ -415,7 +415,7 @@
 
 ;;;###autoload
 (defsubst emacspeak-eww-browser-check ()
-  "Check to see if functions are called from a browser buffer"
+  "Check  if  called from a EWW buffer"
   (cl-declare (special major-mode))
   (unless (eq major-mode 'eww-mode)
     (error "This command cannot be used outside browser buffers.")))
@@ -506,7 +506,7 @@ Useful in handling double-redirect from TuneIn."
 ;;{{{ Inline Helpers:
 
 (defun emacspeak-eww-prepare-eww ()
-  "Ensure that we are in an EWW buffer that is well set up."
+  "Ensure that we are in an EWW buffer that is  set up."
   (cl-declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (emacspeak-eww-current-dom) (error "No DOM!"))
@@ -737,20 +737,20 @@ Chrome/74.0.3724.8 Safari/537.36"
        (emacspeak-auditory-icon 'open-object)
        (dtk-speak (emacspeak-eww-current-title))))))
 
-(defvar emacspeak-eww-style nil
+(defvar-local emacspeak-eww-style nil
   "Record if we applied an  xsl style in this buffer.")
 
-(make-variable-buffer-local 'emacspeak-eww-style)
 
-(defvar emacspeak-eww-feed nil
+
+(defvar-local emacspeak-eww-feed nil
   "Record if this eww buffer is displaying a feed.")
 
-(make-variable-buffer-local 'emacspeak-eww-feed)
 
-(defvar emacspeak-eww-url-template nil
+
+(defvar-local emacspeak-eww-url-template nil
   "Record if this eww buffer is displaying a url-template.")
 
-(make-variable-buffer-local 'emacspeak-eww-url-template)
+
 
 ;;;Check cache if URL already open, otherwise cache.
 
@@ -1031,10 +1031,10 @@ Note that the Web browser should reset this hook after using it.")
 ;;}}}
 ;;{{{ element, class, role, id caches:
 
-(defvar emacspeak-eww-cache-updated nil
+(defvar-local emacspeak-eww-cache-updated nil
   "Records if caches are updated.")
 
-(make-variable-buffer-local 'emacspeak-eww-cache-updated)
+
 
 ;;; Mark cache to be dirty if we restore history:
 
@@ -1043,37 +1043,37 @@ Note that the Web browser should reset this hook after using it.")
   (setq emacspeak-eww-cache-updated nil)
   (emacspeak-eww-prepare-eww))
 
-(defvar eww-id-cache nil
+(defvar-local eww-id-cache nil
   "Cache of id values. Is buffer-local.")
 
-(make-variable-buffer-local 'eww-id-cache)
 
-(defvar eww-class-cache nil
+
+(defvar-local eww-class-cache nil
   "Cache of class values. Is buffer-local.")
 
-(make-variable-buffer-local 'eww-class-cache)
 
-(defvar eww-role-cache nil
+
+(defvar-local eww-role-cache nil
   "Cache of role values. Is buffer-local.")
 
-(make-variable-buffer-local 'eww-role-cache)
 
-(defvar eww-itemprop-cache nil
+
+(defvar-local eww-itemprop-cache nil
   "Cache of itemprop values. Is buffer-local.")
 
-(make-variable-buffer-local 'eww-itemprop-cache)
 
-(defvar eww-property-cache nil
+
+(defvar-local eww-property-cache nil
   "Cache of property values. Is buffer-local.")
 
-(make-variable-buffer-local 'eww-property-cache)
+
 
 ;;; Holds element names as strings.
 
-(defvar eww-element-cache nil
+(defvar-local eww-element-cache nil
   "Cache of element names. Is buffer-local.")
 
-(make-variable-buffer-local 'eww-element-cache)
+
 
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
