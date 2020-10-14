@@ -1583,7 +1583,7 @@ program. Port defaults to dtk-local-server-port"
   (setq dtk-local-server-process
         (start-process
          "LocalTTS"
-         "*localTTS*"
+"localTTS*"
          (expand-file-name dtk-speech-server-program emacspeak-servers-directory)
          (if prompt-port
              (read-from-minibuffer "Port:" "3333")

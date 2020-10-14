@@ -126,7 +126,7 @@
 
 (defcustom dtk-unicode-untouched-charsets
   '(ascii latin-iso8859-1)
-  "*Characters of these charsets are  ignored by
+"Characters of these charsets are  ignored by
   dtk-unicode-replace-chars."
   :group 'dtk
   :type '(repeat symbol))

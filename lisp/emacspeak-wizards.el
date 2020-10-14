@@ -317,7 +317,7 @@ previous window configuration."
   (cond
 ;;; First check if Messages buffer is already selected
    ((string-equal (buffer-name (window-buffer (selected-window)))
-                  "*Messages*")
+"Messages*")
     (when (window-configuration-p emacspeak-popup-messages-config-0)
       (set-window-configuration emacspeak-popup-messages-config-0))
     (setq emacspeak-popup-messages-config-0 nil)
@@ -1019,7 +1019,7 @@ Signals beginning  of buffer."
 (make-variable-buffer-local 'emacspeak-annotate-working-buffer)
 
 (defvar emacspeak-annotate-edit-buffer
-  "*emacspeak-annotation*"
+"emacspeak-annotation*"
   "Name of temporary buffer used to edit the annotation.")
 
 (defun emacspeak-annotate-get-annotation ()
@@ -2990,7 +2990,7 @@ where `sport' is either mlb or nba."
   "Format  MLB standing."
   (let-alist s
     (format
-     "** %s %s  are %s in the %s %s.
+"* %s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
@@ -3466,7 +3466,7 @@ Location is a Lat/Lng pair retrieved from Google Maps API."
          (let-alist p
            (insert
             (format
-             "** Forecast For %s: %s\n\n%s\n\n"
+"* Forecast For %s: %s\n\n%s\n\n"
              .name .shortForecast .detailedForecast)))
          (fill-region start (point)))
         )

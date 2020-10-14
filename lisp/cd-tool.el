@@ -48,7 +48,7 @@
 ;;; Code:
 
 (defcustom cd-tool-start-command "cdstart"
-  "*Name of cdstart command; most likely either \"cdstart\" or \"cdplay\"."
+"Name of cdstart command; most likely either \"cdstart\" or \"cdplay\"."
   :options '("cdstart" "cdplay")
   :group 'cd-tool
   :type 'string)

@@ -240,7 +240,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defvar emacspeak-websearch-foldoc-uri
   "http://foldoc.org/"
-  "*URI for launching a FolDoc  search.")
+"URI for launching a FolDoc  search.")
 
 
 (defun emacspeak-websearch-foldoc-search (query)
@@ -265,7 +265,7 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defvar emacspeak-websearch-gutenberg-uri
   "http://digital.library.upenn.edu/webbin/book/search?"
-  "*URI for Gutenberg search")
+"URI for Gutenberg search")
 
 ;;;###autoload
 (defun emacspeak-websearch-gutenberg (type query)

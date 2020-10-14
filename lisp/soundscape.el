@@ -341,7 +341,7 @@ See  \\{soundscape-default-theme} for details."
     ("TonkSpace" (tabulated-list-mode))
     ("WaterFlow"  (dired-mode))
     )
-  "*Specifies default map.
+"Specifies default map.
 Map is a list of lists, where the first element of each sublist
 is a Soundscape name, and the second element is a list of
 Soundscape names. Soundscape at position 0 (the first entry in

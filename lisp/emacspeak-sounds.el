@@ -266,7 +266,7 @@ This uses SoX play and is specifically for use with headphones."
 ;;{{{  setup play function
 
 (defcustom emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon
-  "*Function that plays auditory icons.
+"Function that plays auditory icons.
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.

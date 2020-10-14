@@ -78,7 +78,7 @@
 ;;{{{ Variables:
 
 (defvar emacspeak-librivox-buffer-name
-  "*Librivox Interaction*"
+"Librivox Interaction*"
   "Name of Librivox interaction buffer.")
 
 ;;}}}
@@ -229,7 +229,7 @@ Optional arg `offset' (default 0) is used for getting more results."
 
 (defvar emacspeak-librivox-genre-list
   '(
-    "*Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
+"Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
     "Ancient" "Animals" "Animals & Nature"
     "Anthologies" "Antiquity" "Art, Design & Architecture"
     "Arts" "Astronomy, Physics & Mechanics" "Ballads"

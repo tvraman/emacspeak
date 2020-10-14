@@ -124,7 +124,7 @@ server."
 (provide 'emacspeak-erc)
 ;;{{{ monitoring chatrooms 
 (defvar emacspeak-erc-room-monitor nil
-  "*Local to each chat room. If turned on,
+"Local to each chat room. If turned on,
 user is notified about activity in the room.")
 (make-variable-buffer-local 'emacspeak-erc-room-monitor)
 

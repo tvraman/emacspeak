@@ -358,7 +358,7 @@ part of the libxslt package."
         (shell-command
          command (current-buffer)
          (when emacspeak-xslt-keep-errors
-           "*xslt errors*")))
+"xslt errors*")))
       (when (get-buffer  "*xslt errors*")
         (bury-buffer "*xslt errors*"))
       (goto-char (point-max))

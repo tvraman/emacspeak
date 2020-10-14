@@ -143,7 +143,7 @@
 ;;{{{ advice commands
 
 (defvar emacspeak-solitaire-autoshow nil
-  "*T means rows and columns are toned as we move")
+"T means rows and columns are toned as we move")
 
 (defadvice solitaire-left (after emacspeak pre act comp)
   "Provide auditory feedback"

@@ -112,7 +112,7 @@
 
 (defconst  emacspeak-media-shortcuts-directory
   (expand-file-name "media/radio/" emacspeak-directory)
-  "*Directory where we organize   and media shortcuts. ")
+"Directory where we organize   and media shortcuts. ")
 
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player.")
@@ -221,7 +221,7 @@ This is set to nil when playing Internet  streams.")
 
 ;;;###autoload
 (defcustom emacspeak-media-location-bindings  nil
-  "*Map specific key sequences to launching MPlayer accelerators
+"Map specific key sequences to launching MPlayer accelerators
 on a specific directory."
   :group 'emacspeak-m-player
   :group 'emacspeak-media
@@ -1723,7 +1723,7 @@ Optional interactive prefix arg prompts for name to use for  player."
       (rename-buffer
        (if name
            (format "*%s*" (read-from-minibuffer "Name: "))
-         "*Persisted-M-Player*")
+"Persisted-M-Player*")
        'unique))
     (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'task-done)

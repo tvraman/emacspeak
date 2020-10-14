@@ -79,7 +79,7 @@
   :group 'emacspeak-gnus)
 
 (defcustom  emacspeak-gnus-large-article 100
-  "*Articles having more than
+"Articles having more than
 emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful."
