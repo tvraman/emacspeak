@@ -68,9 +68,7 @@
 ;;}}}
 ;;{{{  custom group
 
-(defgroup emacspeak-speak nil
-  "Basic speech output commands."
-  :group 'emacspeak)
+
 
 ;;}}}
 ;;{{{ This line:
@@ -100,7 +98,7 @@
   "If t, then emacspeak echoes lines as you type.
 You can use \\[emacspeak-toggle-line-echo] to set this
 option."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (ems-generate-switcher 'emacspeak-toggle-line-echo
@@ -113,7 +111,7 @@ current local  value to the result.")
   "If t, then emacspeak echoes words as you type.
 You can use \\[emacspeak-toggle-word-echo] to toggle this
 option."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (ems-generate-switcher 'emacspeak-toggle-word-echo
@@ -127,7 +125,7 @@ current local  value to the result.")
 You can
 use \\[emacspeak-toggle-character-echo] to toggle this
 setting."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (ems-generate-switcher 'emacspeak-toggle-character-echo
@@ -177,7 +175,7 @@ message area.  You can use command
 `emacspeak-toggle-speak-messages' bound to
 \\[emacspeak-toggle-speak-messages]."
 
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 ;;; Emacspeak silences messages from shell-command when called non-interactively.
@@ -568,7 +566,7 @@ If non-nil , then speaking a line indicates its indentation.
 You can use  command `emacspeak-toggle-audio-indentation' bound
 to \\[emacspeak-toggle-audio-indentation] to toggle this
 setting.."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (make-variable-buffer-local 'emacspeak-audio-indentation)
@@ -593,7 +591,7 @@ setting.."
 `speak'.  You can specify `tone' for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type '(choice
           (const :tag "Ignore" nil)
           (const :tag "speak" speak)
@@ -621,7 +619,7 @@ The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
 by cut -c on UNIX."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type '(choice
           (const :tag "None" nil)
           (repeat :tag "Filter Specification"
@@ -681,7 +679,7 @@ emacspeak-speak-filter-table)\n" k v)))
                     emacspeak-user-directory)
   "File where emacspeak filters are persisted."
   :type 'file
-  :group 'emacspeak-speak)
+  :group 'emacspeak)
 
 (defvar emacspeak-speak-filters-loaded-p nil
   "Records if we    have loaded filters in this session.")
@@ -799,7 +797,7 @@ Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
 with a long string of gibberish."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'number)
 
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
@@ -1449,7 +1447,7 @@ arrived mail."
   :type '(choice
           (const :tag "None" nil)
           (file :tag "Mail drop location"))
-  :group 'emacspeak-speak)
+  :group 'emacspeak)
 
 (defcustom emacspeak-voicemail-spool-file
   nil
@@ -1458,7 +1456,7 @@ arrived voicemail."
   :type '(choice
           (const :tag "None" nil)
           (file :tag "VoiceMail drop location"))
-  :group 'emacspeak-speak)
+  :group 'emacspeak)
 
 (defun emacspeak-get-file-size (filename)
   "Return file size for file FILENAME."
@@ -1480,7 +1478,7 @@ Alert the user only if mail has arrived since this time in the
   "Interval in seconds between mail alerts for the same pending
   message."
   :type 'integer
-  :group 'emacspeak-speak)
+  :group 'emacspeak)
 (defun emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the specified spool."
   (cl-declare (special emacspeak-mail-last-alerted-time
@@ -1521,7 +1519,7 @@ If you have online access to a voicemail drop, you can have a
   voice-mail alert set up by specifying the location of the
   voice-mail drop via custom option
 emacspeak-voicemail-spool-file."
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'boolean)
 
 (ems-generate-switcher 'emacspeak-toggle-mail-alert
@@ -1790,7 +1788,7 @@ Interactive prefix arg speaks buffer info."
   "List of coding systems on this platform."
   :type '(repeat
           (symbol :tag "Coding system"))
-  :group 'emacspeak-speak)
+  :group 'emacspeak)
 
 (defun ems-get-buffer-coding-system ()
   "Return buffer coding system info if relevant.
@@ -1936,7 +1934,7 @@ Default is to read the next word. "
   "Format string that specifies how the time should be spoken.
 See the documentation for function
 `format-time-string'"
-  :group 'emacspeak-speak
+  :group 'emacspeak
   :type 'string)
 
 ;;{{{ world clock
@@ -1945,7 +1943,7 @@ See the documentation for function
   "/usr/share/zoneinfo/"
   "Directory containing timezone data."
   :type 'directory
-  :group 'emacspeak-speak)
+  :group 'emacspeak)
 ;;;###autoload
 (defun emacspeak-speak-world-clock (zone &optional set)
   "Display current date and time  for specified zone.
@@ -2388,7 +2386,7 @@ Interactive prefix arg `browse'  repeatedly browses  through
   (cond
    (browse
     (emacspeak-execute-repeatedly
-     'emacspeak-speak-next-personality-chunk))
+     'emacspeak-next-personality-chunk))
    (t (emacspeak-speak-this-personality-chunk))))
 
 ;;}}}
