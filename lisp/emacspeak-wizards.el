@@ -139,6 +139,7 @@ Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode)))
 
 ;;; Execute action at point
+;;;###autoload
 (defun emacspeak-handle-action-at-point (&optional pos)
   "Execute action specified at point."
   (cl-declare (special emacspeak-action-mode))
