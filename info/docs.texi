@@ -14829,7 +14829,6 @@ Function that plays auditory icons.
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
-soxplay: Use sox to apply effect earwax for headphones.
 Native : Use Emacs’ builtin sound support.
 Use Serve when working with remote speech servers.
 
@@ -14841,7 +14840,7 @@ Set this to nil if using paplay from pulseaudio.
 @end defvar
 
 @defvar {User Option} emacspeak-play-program
-Name of executable that plays sound files. 
+Executable that plays sound files. 
 
 @end defvar
 
@@ -16420,6 +16419,17 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
 
 @format
 Switch back to buffer that generated completions.
+@end format
+@end deffn
+
+@subsubsection emacspeak-toggle-action-mode
+@deffn {Command} emacspeak-toggle-action-mode  (&optional prefix)
+@findex emacspeak-toggle-action-mode
+
+@format
+Toggle state of  Emacspeak  action mode.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
 @end format
 @end deffn
 
@@ -20563,17 +20573,6 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
-@end format
-@end deffn
-
-@subsubsection emacspeak-toggle-action-mode
-@deffn {Command} emacspeak-toggle-action-mode  (&optional prefix)
-@findex emacspeak-toggle-action-mode
-
-@format
-Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
 @end format
 @end deffn
 

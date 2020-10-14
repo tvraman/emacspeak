@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 13, 2020.
+last updated on October 14, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -7467,15 +7467,15 @@ appropriate subdirectories of emacspeak-sounds-directory
  -- Variable: User Option emacspeak-auditory-icon-function
      Function that plays auditory icons.  play : Launches play-program
      to play.  Serve: Send a command to the speech-server to play.
-     Queue : Add auditory icon to speech queue.  soxplay: Use sox to
-     apply effect earwax for headphones.  Native : Use Emacs’ builtin
-     sound support.  Use Serve when working with remote speech servers.
+     Queue : Add auditory icon to speech queue.  Native : Use Emacs’
+     builtin sound support.  Use Serve when working with remote speech
+     servers.
 
  -- Variable: User Option emacspeak-play-args
      Set this to nil if using paplay from pulseaudio.
 
  -- Variable: User Option emacspeak-play-program
-     Name of executable that plays sound files.
+     Executable that plays sound files.
 
  -- Variable: User Option emacspeak-sounds-default-theme
      Default theme for auditory icons.
@@ -8570,7 +8570,16 @@ of emacspeak from becoming dependent on the speech server modules
 
      Switch back to buffer that generated completions.
 
-12.173.1.100 emacspeak-toggle-audio-indentation
+12.173.1.100 emacspeak-toggle-action-mode
+.........................................
+
+ -- Command: emacspeak-toggle-action-mode (&optional prefix)
+
+     Toggle state of  Emacspeak  action mode.
+     Interactive PREFIX arg means toggle  the global default value, and then set the
+     current local  value to the result.
+
+12.173.1.101 emacspeak-toggle-audio-indentation
 ...............................................
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
@@ -8585,7 +8594,7 @@ of emacspeak from becoming dependent on the speech server modules
      line’s indentation.  Specifying ‘speak’
      results in the number of initial spaces being spoken.
 
-12.173.1.101 emacspeak-toggle-character-echo
+12.173.1.102 emacspeak-toggle-character-echo
 ............................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
@@ -8596,14 +8605,14 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.173.1.102 emacspeak-toggle-header-line
+12.173.1.103 emacspeak-toggle-header-line
 .........................................
 
  -- Command: emacspeak-toggle-header-line
 
      Toggle Emacspeak’s default header line.
 
-12.173.1.103 emacspeak-toggle-line-echo
+12.173.1.104 emacspeak-toggle-line-echo
 .......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -8614,7 +8623,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.173.1.104 emacspeak-toggle-mail-alert
+12.173.1.105 emacspeak-toggle-mail-alert
 ........................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
@@ -8627,7 +8636,7 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.173.1.105 emacspeak-toggle-show-point
+12.173.1.106 emacspeak-toggle-show-point
 ........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
@@ -8638,7 +8647,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.173.1.106 emacspeak-toggle-speak-line-invert-filter
+12.173.1.107 emacspeak-toggle-speak-line-invert-filter
 ......................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -8650,7 +8659,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.173.1.107 emacspeak-toggle-speak-messages
+12.173.1.108 emacspeak-toggle-speak-messages
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -8659,7 +8668,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle the state of whether emacspeak echoes messages.
 
-12.173.1.108 emacspeak-toggle-word-echo
+12.173.1.109 emacspeak-toggle-word-echo
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -8670,7 +8679,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.173.1.109 emacspeak-view-notifications
+12.173.1.110 emacspeak-view-notifications
 .........................................
 
  -- Command: emacspeak-view-notifications
@@ -8680,7 +8689,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.173.1.110 emacspeak-voiceify-rectangle
+12.173.1.111 emacspeak-voiceify-rectangle
 .........................................
 
  -- Command: emacspeak-voiceify-rectangle (start end &optional
@@ -8693,7 +8702,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.173.1.111 emacspeak-voiceify-region
+12.173.1.112 emacspeak-voiceify-region
 ......................................
 
  -- Command: emacspeak-voiceify-region (start end &optional personality)
@@ -8705,7 +8714,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.173.1.112 emacspeak-zap-tts
+12.173.1.113 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts
