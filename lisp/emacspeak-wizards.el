@@ -114,7 +114,7 @@
 ;;; of the form (before | after function)
 ;;; function to be executed before or after the unit of text at that
 ;;; point is spoken.
-
+;;;###autoload
 (defvar emacspeak-action-mode nil
   "Determines if action mode is active.
 Non-nil value means that any function that is set as the
