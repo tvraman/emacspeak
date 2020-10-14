@@ -762,7 +762,7 @@ the sense of the filter. "
 Argument START  and END specify region to speak."
   (interactive "r")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
-                       inhibit-point-motion-hooks))
+                       emacspeak-action-modeinhibit-point-motion-hooks))
   (let ((inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
         (deactivate-mark nil))
@@ -770,7 +770,7 @@ Argument START  and END specify region to speak."
       (save-restriction
         (narrow-to-region start end)
         (emacspeak-speak-voice-annotate-paragraphs)))
-    (emacspeak-handle-action-at-point)
+    (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
     (dtk-stop)
     (dtk-speak (buffer-substring start end))))
 
@@ -1023,9 +1023,10 @@ Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
 spelled out  instead of being spoken."
   (interactive "P")
-  (cl-declare (special emacspeak-speak-last-spoken-word-position))
+  (cl-declare (special emacspeak-speak-last-spoken-word-position
+                       emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
-  (emacspeak-handle-action-at-point)
+  (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
   (save-excursion
     (let ((orig (point))
           (inhibit-point-motion-hooks t)
@@ -1241,6 +1242,7 @@ setting to be global."
 With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point."
   (interactive "P")
+  (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
@@ -1252,7 +1254,7 @@ Negative prefix arg speaks from start of sentence to point."
       (setq end (point))
       (backward-sentence 1)
       (setq start (point))
-      (emacspeak-handle-action-at-point)
+      (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
@@ -1294,6 +1296,7 @@ With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
 If option  `voice-lock-mode' is on, then it will use any defined personality."
   (interactive "P")
+  (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
@@ -1302,7 +1305,7 @@ If option  `voice-lock-mode' is on, then it will use any defined personality."
           (end nil))
       (mark-page)
       (setq start (point))
-      (emacspeak-handle-action-at-point)
+      (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
       (setq end (mark))
       (cond
        ((null arg))
@@ -1317,6 +1320,7 @@ With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point.
 If voice-lock-mode is on, then it will use any defined personality. "
   (interactive "P")
+  (cl-declare (special emacspeak-action-mode))
   (when (listp arg) (setq arg (car arg)))
   (save-excursion
     (let ((orig (point))
@@ -1327,7 +1331,7 @@ If voice-lock-mode is on, then it will use any defined personality. "
       (setq end (point))
       (backward-paragraph 1)
       (setq start (point))
-      (emacspeak-handle-action-at-point)
+      (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
       (cond
        ((null arg))
        ((> arg 0) (setq start orig))
