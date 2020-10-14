@@ -108,53 +108,6 @@
    (t (json-read-file filename))))
 
 ;;}}}
-;;{{{  Actions
-
-;;; Setting value of property 'emacspeak-action to a list
-;;; of the form (before | after function)
-;;; function to be executed before or after the unit of text at that
-;;; point is spoken.
-;;;###autoload
-(defvar-local emacspeak-action-mode nil
-  "Determines if action mode is active.
-Non-nil value means that any function that is set as the
-value of property action is executed when the text at that
-point is spoken.")
-
-;;; Record in the mode line
-(or
- (assq 'emacspeak-action-mode minor-mode-alist)
- (setq minor-mode-alist
-       (append minor-mode-alist
-               '((emacspeak-action-mode " Action")))))
-
-;;; Return the appropriate action hook variable that defines actions
-;;; for this mode.
-
-(defun emacspeak-action-get-action-hook (mode)
-  "Retrieve action hook.
-Argument MODE defines action mode."
-  (intern (format "emacspeak-%s-actions-hook" mode)))
-
-;;; Execute action at point
-;;;###autoload
-(defun emacspeak-handle-action-at-point (&optional pos)
-  "Execute action specified at point."
-  (cl-declare (special emacspeak-action-mode))
-  (setq pos (or pos (point)))
-  (let ((action-spec (get-text-property (point) 'emacspeak-action)))
-    (when (and emacspeak-action-mode action-spec)
-      (condition-case nil
-          (funcall action-spec)
-        (error (message "Invalid actionat %s" (point)))))))
-
-(ems-generate-switcher 'emacspeak-toggle-action-mode
-                       'emacspeak-action-mode
-                       "Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.")
-
-;;}}}
 ;;{{{  Emacspeak News and Documentation
 
 
