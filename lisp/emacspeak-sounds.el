@@ -69,9 +69,8 @@
 ;;{{{  state of auditory icons
 
 (defvar emacspeak-use-auditory-icons t
-  "Tells if emacspeak should use auditory icons.
-Do not set this variable by hand,
-use `emacspeak-toggle-auditory-icons' bound to
+  "Control auditory icons.
+Use `emacspeak-toggle-auditory-icons' bound to
 \\[emacspeak-toggle-auditory-icons].")
 
 (make-variable-buffer-local 'emacspeak-use-auditory-icons)
@@ -95,7 +94,7 @@ use `emacspeak-toggle-auditory-icons' bound to
   (expand-file-name
    "classic/button.wav"
    emacspeak-sounds-directory)
-  "Default sound to play if requested icon not found.")
+  "Fallback icon.")
 
 (defvar emacspeak-sounds-themes-table
   (make-hash-table)
@@ -109,15 +108,11 @@ use `emacspeak-toggle-auditory-icons' bound to
   (setf (gethash  theme-name emacspeak-sounds-themes-table)
         file-ext))
 
-(defgroup emacspeak-sounds nil
-  "Emacspeak auditory icons."
-  :group 'emacspeak)
-
 (defcustom emacspeak-sounds-default-theme
   (expand-file-name "pan-chimes/" emacspeak-sounds-directory)
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
-  :group 'emacspeak-sounds)
+  :group 'emacspeak)
 
 (defcustom emacspeak-play-program
   (cond
@@ -129,7 +124,7 @@ use `emacspeak-toggle-auditory-icons' bound to
    ((file-exists-p "/usr/demo/SOUND/play") "/usr/demo/SOUND/play")
    (t (expand-file-name emacspeak-etc-directory "play")))
   "Name of executable that plays sound files. "
-  :group 'emacspeak-sounds
+  :group 'emacspeak
   :type 'string)
 
 (defvar emacspeak-sounds-current-theme
@@ -176,7 +171,7 @@ Do not set this by hand;
   (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-get-sound-filename (sound-name)
-  "Retrieve name of sound file that produces  auditory icon SOUND-NAME."
+  "Get name of  file that produces  auditory icon SOUND-NAME."
   (cl-declare (special emacspeak-sounds-themes-table
                        emacspeak-sounds-current-theme))
   (let ((f
@@ -223,7 +218,7 @@ Do not set this by hand;
   "Set this to nil if using paplay from pulseaudio."
   :type '(choice (string :tag "Arguments" "-q")
                  (const :tag "None" nil))
-  :group 'emacspeak-sounds)
+  :group 'emacspeak)
 
 (defun emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME."
@@ -243,19 +238,14 @@ Do not set this by hand;
 (defvar emacspeak-sox (executable-find "sox")
   "Name of SoX executable.")
 
-(defcustom emacspeak-soxplay-command 
-  (when(executable-find "play")
-    (format "%s -v 1.2 %%s  earwax &" (executable-find "play")))
-  "Name of play executable from SoX"
-  :group 'emacspeak-sounds
-  :type 'string)
+
 (defun emacspeak-soxplay-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME.
 This uses SoX play and is specifically for use with headphones."
-  (cl-declare (special emacspeak-soxplay-command))
+  (cl-declare (special emacspeak-sox))
   (let ((icon (emacspeak-get-sound-filename sound-name)))
     (call-process shell-file-name nil nil nil shell-command-switch
-                  (format emacspeak-soxplay-command icon))))
+                  (format emacspeak-sox icon))))
 
 ;;}}}
 ;;{{{ Play icon list:
@@ -283,7 +273,7 @@ Queue : Add auditory icon to speech queue.
 soxplay: Use sox to apply effect earwax for headphones.
 Native : Use Emacs' builtin sound support.
 Use Serve when working with remote speech servers."
-  :group 'emacspeak-sounds
+  :group 'emacspeak
   :type '(choice
           (const emacspeak-play-auditory-icon)
           (const emacspeak-serve-auditory-icon)
@@ -323,56 +313,6 @@ Optional interactive PREFIX arg toggles global value."
            (if prefix "" "locally"))
   (when emacspeak-use-auditory-icons
     (emacspeak-auditory-icon 'on)))
-
-(defvar emacspeak-sounds-auditory-icon-players
-  '("emacspeak-serve-auditory-icon"
-    "emacspeak-play-auditory-icon"
-    "emacspeak-play-auditory-icon")
-  "Table of auditory icon players used  when selecting a player.")
-
-(defun emacspeak-select-auditory-icon-player ()
-  "Pick a player for producing auditory icons."
-  (cl-declare (special emacspeak-sounds-auditory-icon-players))
-  (read
-   (completing-read "Select auditory icon player: "
-                    emacspeak-sounds-auditory-icon-players
-                    nil nil
-                    "emacspeak-")))
-
-(defun  emacspeak-set-auditory-icon-player (player)
-  "Select  player used for producing auditory icons.
-Recommended choices:
-
-emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-queue-auditory-icon when using software TTS."
-  (interactive
-   (list (emacspeak-select-auditory-icon-player)))
-  (cl-declare (special emacspeak-auditory-icon-function))
-  (setq emacspeak-auditory-icon-function player)
-  (when (called-interactively-p 'interactive)
-    (emacspeak-auditory-icon 'select-object)))
-
-;;}}}
-;;{{{ reset local player
-(defun emacspeak-sounds-reset-local-player ()
-  "Ask Emacspeak to use a local audio player.
-This lets me have Emacspeak switch to using audioplay on
-solaris after I've used it for a while from a remote session
-where it would use the more primitive speech-server based
-audio player."
-  (interactive)
-  (cl-declare (special emacspeak-play-program))
-  (if (file-exists-p "/usr/demo/SOUND/play")
-      (setq
-       emacspeak-play-program "/usr/demo/SOUND/play"
-       emacspeak-play-args "-i"
-       emacspeak-auditory-icon-function
-       'emacspeak-play-auditory-icon))
-  (if (file-exists-p "/usr/bin/audioplay")
-      (setq
-       emacspeak-play-program "/usr/bin/audioplay"
-       emacspeak-play-args "-i"
-       emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon)))
 
 ;;}}}
 ;;{{{  flush sound driver
