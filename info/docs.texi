@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1174 commands and 835 options.
+This chapter documents a total of 1171 commands and 834 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -299,7 +299,7 @@ default values, Press @kbd{C-j}.
 @findex amixer
 
 @format
-Interactively manipulate ALSA settings.
+Manipulate ALSA settings.
 Interactive prefix arg refreshes cache.
 
 (fn &optional REFRESH)
@@ -374,7 +374,7 @@ cap C   Save clip to disk
 @subsection cd-tool Options
 
 @defvar {User Option} cd-tool-start-command
-*Name of cdstart command; most likely either "cdstart" or "cdplay".
+Name of cdstart command; most likely either "cdstart" or "cdplay".
 
 @end defvar
 
@@ -398,14 +398,14 @@ This module is Dectalk specific.
 @findex dectalk
 
 @format
-Select Dectalk TTS server.
+Select Dectalk TTS.
 @end format
 @end deffn
 
 @subsection dectalk-voices Options
 
 @defvar {User Option} dectalk-default-speech-rate
-*Default speech rate at which TTS is started. 
+Default speech rate . 
 
 @end defvar
 
@@ -1124,7 +1124,7 @@ Turn this off when working with TTS  engines that handle UTF8.
 @end defvar
 
 @defvar {User Option} dtk-unicode-untouched-charsets
-*Characters of these charsets are  ignored by
+Characters of these charsets are  ignored by
   dtk-unicode-replace-chars.
 
 @end defvar
@@ -7833,7 +7833,7 @@ Catch up on all articles in current group.
 @subsection emacspeak-gnus Options
 
 @defvar {User Option} emacspeak-gnus-large-article
-*Articles having more than
+Articles having more than
 emacspeak-gnus-large-article lines will be considered to be a large article.
 A large article is not spoken all at once;
 instead you hear only the first screenful.
@@ -9062,7 +9062,7 @@ node-spec.
 @subsection emacspeak-info Options
 
 @defvar {User Option} emacspeak-info-select-node-speak-chunk
-*Specifies how much of the selected node gets spoken.
+Specifies how much of the selected node gets spoken.
 Possible values are:
 screenfull  -- speak the displayed screen
 node -- speak the entire node.
@@ -10910,7 +10910,7 @@ YouTube download tool
 @end defvar
 
 @defvar {User Option} emacspeak-media-location-bindings
-*Map specific key sequences to launching MPlayer accelerators
+Map specific key sequences to launching MPlayer accelerators
 on a specific directory.
 
 @end defvar
@@ -14125,7 +14125,7 @@ Activates pronunciation dictionaries if not already active.
 @findex emacspeak-pronounce-save-dictionaries
 
 @format
-Writes out the persistent emacspeak pronunciation dictionaries.
+Saves  pronunciation dictionaries.
 @end format
 @end deffn
 
@@ -14156,7 +14156,7 @@ Pronunciations for well known namespace URIs.
 @end defvar
 
 @defvar {User Option} emacspeak-pronounce-dictionaries-file
-File that holds the persistent emacspeak pronunciation dictionaries.
+File that holds  emacspeak pronunciations.
 
 @end defvar
 
@@ -14785,34 +14785,6 @@ Call amixer  command.
 @end format
 @end deffn
 
-@subsubsection emacspeak-set-auditory-icon-player
-@deffn {Command} emacspeak-set-auditory-icon-player  (player)
-@findex emacspeak-set-auditory-icon-player
-
-@format
-Select  player used for producing auditory icons.
-Recommended choices:
-
-emacspeak-serve-auditory-icon for  the wave device.
-emacspeak-queue-auditory-icon when using software TTS.
-
-(fn PLAYER)
-@end format
-@end deffn
-
-@subsubsection emacspeak-sounds-reset-local-player
-@deffn {Command} emacspeak-sounds-reset-local-player   
-@findex emacspeak-sounds-reset-local-player
-
-@format
-Ask Emacspeak to use a local audio player.
-This lets me have Emacspeak switch to using audioplay on
-solaris after I’ve used it for a while from a remote session
-where it would use the more primitive speech-server based
-audio player.
-@end format
-@end deffn
-
 @subsubsection emacspeak-sounds-select-theme
 @deffn {Command} emacspeak-sounds-select-theme  (theme)
 @table @kbd
@@ -14853,7 +14825,7 @@ Optional interactive PREFIX arg toggles global value.
 @subsection emacspeak-sounds Options
 
 @defvar {User Option} emacspeak-auditory-icon-function
-*Function that plays auditory icons.
+Function that plays auditory icons.
 play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
@@ -14875,11 +14847,6 @@ Name of executable that plays sound files.
 
 @defvar {User Option} emacspeak-sounds-default-theme
 Default theme for auditory icons. 
-
-@end defvar
-
-@defvar {User Option} emacspeak-soxplay-command
-Name of play executable from SoX
 
 @end defvar
 
@@ -23221,15 +23188,6 @@ Select Outloud server.
 @end format
 @end deffn
 
-@subsubsection outloud-32
-@deffn {Command} outloud-32   
-@findex outloud-32
-
-@format
-Select 32-Outloud server.
-@end format
-@end deffn
-
 @subsection outloud-voices Options
 
 @defvar {User Option} outloud-default-speech-rate
@@ -23974,14 +23932,7 @@ these are available via minibuffer history.
 @findex voice-setup-toggle-silence-personality
 
 @format
-Toggle audibility of personality under point  .
-If personality at point is currently audible, its
-face->personality map is cached in a buffer local variable, and
-its face->personality map is replaced by face->inaudible.  If
-personality at point is inaudible, and there is a cached value,
-then the original face->personality mapping is restored.  In
-either case, the buffer is refontified to have the new mapping
-take effect.
+Toggle audibility of personality under point  . 
 @end format
 @end deffn
 

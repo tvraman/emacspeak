@@ -1421,7 +1421,7 @@ news.
 ------------------------------
 
  -- Variable: User Option emacspeak-gnus-large-article
-     *Articles having more than emacspeak-gnus-large-article lines will
+     Articles having more than emacspeak-gnus-large-article lines will
      be considered to be a large article.  A large article is not spoken
      all at once; instead you hear only the first screenful.
 
@@ -2449,7 +2449,7 @@ This module speech-enables the Emacs Info Reader.
 -------------------------------
 
  -- Variable: User Option emacspeak-info-select-node-speak-chunk
-     *Specifies how much of the selected node gets spoken.  Possible
+     Specifies how much of the selected node gets spoken.  Possible
      values are: screenfull – speak the displayed screen node – speak
      the entire node.
 
@@ -2860,9 +2860,9 @@ found on laptops is denoted <fn>
 ---------------------------------
 
  -- Variable: User Option emacspeak-alt-keys
-     *Specifies alt key bindings for the audio desktop.  You can turn
-     the ‘Pause’ key on your Linux PC keyboard into a ‘alt’ key on Linux
-     by having it emit the sequence ‘C-x@a’.
+     Specifies alt key bindings for the audio desktop.  You can turn the
+     ‘Pause’ key on your Linux PC keyboard into a ‘alt’ key on Linux by
+     having it emit the sequence ‘C-x@a’.
 
      Bindings specified here are available on prefix key ‘alt’ (not to
      be confused with alt==meta) for example, if you bind ‘s’ to command
@@ -2880,7 +2880,7 @@ found on laptops is denoted <fn>
      command that the key sequence executes.
 
  -- Variable: User Option emacspeak-ctl-z-keys
-     *Specifies ctl-z key bindings for the audio desktop.
+     Specifies ctl-z key bindings for the audio desktop.
 
      Bindings specified here are available on prefix key ‘C-z’ for
      example, if you bind ‘zb’ to command ‘suspend-frame ’ then that
@@ -2897,7 +2897,7 @@ found on laptops is denoted <fn>
      command that the key sequence executes.
 
  -- Variable: User Option emacspeak-hyper-keys
-     *Specifies hyper key bindings for the audio desktop.  Emacs can use
+     Specifies hyper key bindings for the audio desktop.  Emacs can use
      the ‘hyper’ key as a modifier key.  You can turn the ‘windows’ keys
      on your Linux PC keyboard into a ‘hyper’ key on Linux by having it
      emit the sequence ‘C-x@h’.
@@ -2917,7 +2917,7 @@ found on laptops is denoted <fn>
      command that the key sequence executes.
 
  -- Variable: User Option emacspeak-personal-ctlx-keys
-     *Specifies personal-ctlx key bindings for use with C-e C-x for the
+     Specifies personal-ctlx key bindings for use with C-e C-x for the
      audio desktop.  Bindings specified here are available on prefix key
      C-e C-x for example, if you bind ‘C-s’ to command
      emacspeak-emergency-tts-restart then that command will be available
@@ -2932,7 +2932,7 @@ found on laptops is denoted <fn>
      command that the key sequence executes.
 
  -- Variable: User Option emacspeak-personal-keys
-     *Specifies personal key bindings for the audio desktop.  Bindings
+     Specifies personal key bindings for the audio desktop.  Bindings
      specified here are available on prefix key C-e x for example, if
      you bind ‘s’ to command emacspeak-emergency-tts-restart then that
      command will be available on key C-e x s.
@@ -2948,7 +2948,7 @@ found on laptops is denoted <fn>
      command that the key sequence executes.
 
  -- Variable: User Option emacspeak-super-keys
-     *Specifies super key bindings for the audio desktop.  You can turn
+     Specifies super key bindings for the audio desktop.  You can turn
      the right ‘windows menu’ keys on your Linux PC keyboard into a
      ‘super’ key on Linux by having it emit the sequence ‘C-x@s’.
 
@@ -4010,7 +4010,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      YouTube download tool
 
  -- Variable: User Option emacspeak-media-location-bindings
-     *Map specific key sequences to launching MPlayer accelerators on a
+     Map specific key sequences to launching MPlayer accelerators on a
      specific directory.
 
 
@@ -6791,7 +6791,7 @@ given file.
 
  -- Command: emacspeak-pronounce-save-dictionaries
 
-     Writes out the persistent emacspeak pronunciation dictionaries.
+     Saves  pronunciation dictionaries.
 
 12.145.1.10 emacspeak-pronounce-toggle-use-of-dictionaries
 ..........................................................
@@ -6819,8 +6819,7 @@ given file.
      Pronunciations for well known namespace URIs.
 
  -- Variable: User Option emacspeak-pronounce-dictionaries-file
-     File that holds the persistent emacspeak pronunciation
-     dictionaries.
+     File that holds emacspeak pronunciations.
 
  -- Variable: User Option
           emacspeak-pronounce-internet-smileys-pronunciations
@@ -7439,31 +7438,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      (fn &optional PREFIX)
 
-12.172.1.2 emacspeak-set-auditory-icon-player
-.............................................
-
- -- Command: emacspeak-set-auditory-icon-player (player)
-
-     Select  player used for producing auditory icons.
-     Recommended choices:
-
-     emacspeak-serve-auditory-icon for  the wave device.
-     emacspeak-queue-auditory-icon when using software TTS.
-
-     (fn PLAYER)
-
-12.172.1.3 emacspeak-sounds-reset-local-player
-..............................................
-
- -- Command: emacspeak-sounds-reset-local-player
-
-     Ask Emacspeak to use a local audio player.
-     This lets me have Emacspeak switch to using audioplay on
-     solaris after I’ve used it for a while from a remote session
-     where it would use the more primitive speech-server based
-     audio player.
-
-12.172.1.4 emacspeak-sounds-select-theme
+12.172.1.2 emacspeak-sounds-select-theme
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (theme)
@@ -7474,7 +7449,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      (fn THEME)
 
-12.172.1.5 emacspeak-toggle-auditory-icons
+12.172.1.3 emacspeak-toggle-auditory-icons
 ..........................................
 
  -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
@@ -7490,7 +7465,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 ---------------------------------
 
  -- Variable: User Option emacspeak-auditory-icon-function
-     *Function that plays auditory icons.  play : Launches play-program
+     Function that plays auditory icons.  play : Launches play-program
      to play.  Serve: Send a command to the speech-server to play.
      Queue : Add auditory icon to speech queue.  soxplay: Use sox to
      apply effect earwax for headphones.  Native : Use Emacs’ builtin
@@ -7504,9 +7479,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 
  -- Variable: User Option emacspeak-sounds-default-theme
      Default theme for auditory icons.
-
- -- Variable: User Option emacspeak-soxplay-command
-     Name of play executable from SoX
 
 
 File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands And Options

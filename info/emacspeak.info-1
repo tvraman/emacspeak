@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1174 commands and 835 options.
+   This chapter documents a total of 1171 commands and 834 options.
 
 * Menu:
 
@@ -3180,7 +3180,7 @@ To reset all controls to their default values, Press ‘C-j’.
 
  -- Command: amixer (&optional refresh)
 
-     Interactively manipulate ALSA settings.
+     Manipulate ALSA settings.
      Interactive prefix arg refreshes cache.
 
      (fn &optional REFRESH)
@@ -3245,7 +3245,7 @@ is a cd to wav converter.
 ----------------------
 
  -- Variable: User Option cd-tool-start-command
-     *Name of cdstart command; most likely either "cdstart" or "cdplay".
+     Name of cdstart command; most likely either "cdstart" or "cdplay".
 
 
 File: emacspeak.info,  Node: dectalk-voices,  Next: dom-addons,  Prev: cd-tool,  Up: Emacspeak Commands And Options
@@ -3266,13 +3266,13 @@ module is Dectalk specific.
      ‘C-e d C-d’
      ‘<fn> d C-d’
 
-     Select Dectalk TTS server.
+     Select Dectalk TTS.
 
 12.4.2 dectalk-voices Options
 -----------------------------
 
  -- Variable: User Option dectalk-default-speech-rate
-     *Default speech rate at which TTS is started.
+     Default speech rate .
 
 
 File: emacspeak.info,  Node: dom-addons,  Next: dtk-interp,  Prev: dectalk-voices,  Up: Emacspeak Commands And Options
@@ -3766,7 +3766,7 @@ This Provides Unicode support to the speech layer.
      Turn this off when working with TTS engines that handle UTF8.
 
  -- Variable: User Option dtk-unicode-untouched-charsets
-     *Characters of these charsets are ignored by
+     Characters of these charsets are ignored by
      dtk-unicode-replace-chars.
 
 

@@ -4990,13 +4990,6 @@ module is IBM ViaVoice Outloud specific.
 
      (fn &optional DEVICE)
 
-12.222.1.2 outloud-32
-.....................
-
- -- Command: outloud-32
-
-     Select 32-Outloud server.
-
 12.222.2 outloud-voices Options
 -------------------------------
 
@@ -5624,13 +5617,6 @@ be customized via custom see the documentation for defvoice.
      ‘<fn> M-q’
 
      Toggle audibility of personality under point  .
-     If personality at point is currently audible, its
-     face->personality map is cached in a buffer local variable, and
-     its face->personality map is replaced by face->inaudible.  If
-     personality at point is inaudible, and there is a cached value,
-     then the original face->personality mapping is restored.  In
-     either case, the buffer is refontified to have the new mapping
-     take effect.
 
 12.229.2 voice-setup Options
 ----------------------------
@@ -7149,7 +7135,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> &:                                emacspeak-wizards.  (line 1199)
 * <fn> ':                                emacspeak-pianobar. (line   45)
 * <fn> (:                                emacspeak-sounds.   (line   32)
-* <fn> ):                                emacspeak-sounds.   (line   67)
+* <fn> ):                                emacspeak-sounds.   (line   43)
 * <fn> ,:                                emacspeak-speak.    (line  940)
 * <fn> .:                                emacspeak-speak.    (line  358)
 * <fn> /:                                emacspeak-wizards.  (line  343)
@@ -7189,7 +7175,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> c:                                emacspeak-speak.    (line  307)
 * <fn> C:                                emacspeak-wizards.  (line   92)
 * <fn> C-@:                              emacspeak-speak.    (line  385)
-* <fn> C-a:                              emacspeak-sounds.   (line   78)
+* <fn> C-a:                              emacspeak-sounds.   (line   54)
 * <fn> C-b:                              emacspeak-bookshare.
                                                              (line   54)
 * <fn> C-c:                              emacspeak-wizards.  (line   31)
@@ -7550,7 +7536,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e &:                                 emacspeak-wizards.  (line 1198)
 * C-e ':                                 emacspeak-pianobar. (line   44)
 * C-e (:                                 emacspeak-sounds.   (line   31)
-* C-e ):                                 emacspeak-sounds.   (line   66)
+* C-e ):                                 emacspeak-sounds.   (line   42)
 * C-e ,:                                 emacspeak-speak.    (line  939)
 * C-e .:                                 emacspeak-speak.    (line  357)
 * C-e /:                                 Reading.            (line   91)
@@ -7596,7 +7582,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C:                                 emacspeak-wizards.  (line   91)
 * C-e C-@:                               Status Information. (line   71)
 * C-e C-@ <1>:                           emacspeak-speak.    (line  383)
-* C-e C-a:                               emacspeak-sounds.   (line   77)
+* C-e C-a:                               emacspeak-sounds.   (line   53)
 * C-e C-b:                               emacspeak-bookshare.
                                                              (line   53)
 * C-e C-c:                               emacspeak-wizards.  (line   30)
