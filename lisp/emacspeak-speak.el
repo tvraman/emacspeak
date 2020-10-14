@@ -2054,11 +2054,11 @@ Seconds value is also placed in the kill-ring."
 Optional interactive prefix arg `speak-rev' speaks only the Git revision number."
   (interactive "P")
   (cl-declare (special emacspeak-version emacspeak-sounds-directory
-                       emacspeak-use-auditory-icons))
+                       emacspeak-m-player-program emacspeak-use-auditory-icons))
   (let ((signature "Emacspeak "))
     (when
         (and (null speak-rev) emacspeak-use-auditory-icons
-             (executable-find "mplayer"))
+             emacspeak-m-player-program)
       (start-process
        "mp3" nil "mplayer"
        (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
