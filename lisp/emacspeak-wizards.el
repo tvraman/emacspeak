@@ -115,13 +115,11 @@
 ;;; function to be executed before or after the unit of text at that
 ;;; point is spoken.
 ;;;###autoload
-(defvar emacspeak-action-mode nil
+(defvar-local emacspeak-action-mode nil
   "Determines if action mode is active.
 Non-nil value means that any function that is set as the
 value of property action is executed when the text at that
 point is spoken.")
-
-(make-variable-buffer-local 'emacspeak-action-mode)
 
 ;;; Record in the mode line
 (or
