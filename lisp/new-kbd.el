@@ -63,6 +63,12 @@
     res))
 
 ;;; Tests:
+;;; Note that we fail on
+;;; "M-ESC"
+;;; "M-<DEL>"
+;;; "H-<RET>" etc,
+;;; But match on "H-RET"
+;;;  (thanks Drew Adams) Likely due to over-optimization.
 
 (let ((tests 
        '(
