@@ -315,7 +315,8 @@ Optional interactive PREFIX arg toggles global value."
   (let  ((file (expand-file-name (format "%s.mp3" name)
                                  emacspeak-prompts-directory)))
     (cl-assert (file-exists-p file) t  "File does not exist")
-    (call-process emacspeak-m-player-program nil  0 nil  file)))
+    (when emacspeak-m-player-program
+      (call-process emacspeak-m-player-program nil  0 nil  file))))
 
 ;;}}}
 (provide  'emacspeak-sounds)
