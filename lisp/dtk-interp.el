@@ -102,13 +102,14 @@
   (declare (indent 1) (debug t))
   `(let ((save-punctuation-mode dtk-punctuation-mode))
      (unwind-protect
-         (unless (eq ,setting save-punctuation-mode)
-           (dtk-interp-set-punctuations ,setting)
-           (setq dtk-punctuation-mode ,setting))
-       ,@body
+         (progn
+           (unless (eq ,setting save-punctuation-mode)
+             (dtk-interp-set-punctuations ,setting)
+             (setq dtk-punctuation-mode ,setting))
+           ,@body)
        (unless (eq ,setting save-punctuation-mode)
          (setq dtk-punctuation-mode save-punctuation-mode)
-         (dtk-interp-set-punctuations ,setting)))))
+         (dtk-interp-set-punctuations save-punctuation-mode)))))
 
 ;;}}}
 ;;{{{ silence
