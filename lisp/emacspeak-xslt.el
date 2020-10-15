@@ -95,7 +95,8 @@
                    emacspeak-xslt-directory
                    emacspeak-we-xsl-transform)))
 ;;;###autoload
-(defvar emacspeak-xslt-program "xsltproc"
+(defvar emacspeak-xslt-program
+  (executable-find "xsltproc")
   "Name of XSLT transformation engine.")
 
 (defvar emacspeak-xslt-options
