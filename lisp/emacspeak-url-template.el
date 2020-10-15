@@ -359,12 +359,10 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Finance Google Search"
- "https://finance.google.com/finance?q=%s"
+ "https://www.google.com/search?num=25&lite=90586&q=%s                                                                                                                                                                                                                           "
  (list "Finance Search: ")
- nil
- "Display content from Google Finance."
- #'(lambda (url)
-     (emacspeak-we-extract-by-id "res" url 'speak)))
+ #'emacspeak-eww-next-h2
+ "Display content from Google Finance.")
 
 ;;}}}
 ;;{{{ google scholar
