@@ -535,7 +535,6 @@ Sorenson
 sox
 Sox
 SoX
-soxplay
 spc
 SPC
 speakable
@@ -609,6 +608,7 @@ unescape
 unifont
 unmapped
 unmerged
+unnested
 unraised
 untranscode
 untrusted

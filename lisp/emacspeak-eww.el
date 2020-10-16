@@ -393,6 +393,15 @@
 ;;; to @code{C-x r e}. This command reads a eww-mark name with
 ;;; completion. Use this command with an interactive prefix arg to
 ;;; delete a previously created eww-mark.
+;;;
+;;; @subsection Table Browsing
+;;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
+;;;@kbd{M-LEFT} and @kbd{M-RIGHT}.
+;;; to speak the current, previous and next table cell
+;;;respectively. The latter commands also move to the cell being
+;;;spoken. This works for plain tables, not nested tables; for nested
+;;;tables, first have then @emph{unnested} using one of the XSLT
+;;;transforms like @code{sort-tables}.
 
 ;;; Code:
 
