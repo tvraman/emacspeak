@@ -1770,10 +1770,11 @@ Interactive prefix arg speaks buffer info."
   (cl-declare (special mode-name major-mode vc-mode
                        global-visual-line-mode visual-line-mode
                        header-line-format global-mode-string
-                       column-number-mode line-number-mode
+                       folding-mode column-number-mode line-number-mode
                        emacspeak-mail-alert mode-line-format))
   (with-current-buffer (window-buffer (selected-window))
     (force-mode-line-update)
+    (when folding-mode (emacspeak-auditory-icon 'ellipses))
     (when (and visual-line-mode (not global-visual-line-mode)) (sox-chime 2 2))
     (when emacspeak-mail-alert (emacspeak-mail-alert-user))
     (cond
@@ -1803,26 +1804,26 @@ Interactive prefix arg speaks buffer info."
             (put-text-property
              0 (length global-info) 'personality voice-bolden-medium global-info))
           (tts-with-punctuations
-           'all
-           (unless                     ; avoid pathological case
-               (and buffer-read-only (buffer-modified-p))
-             (when (and buffer-file-name (buffer-modified-p))
-               (emacspeak-auditory-icon 'modified-object))
-             (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
-           (dtk-speak
-            (concat
-             dir-info
-             (emacspeak-get-voicefied-buffer-name (buffer-name))
-             (when window-count (propertize window-count 'personality voice-smoothen))
-             (when vc-mode (propertize vc-mode 'personality voice-smoothen))
-             (when vc-state (format " %s " vc-state))
-             (when line-number-mode
-               (format "line %d" (emacspeak-get-current-line-number)))
-             (when column-number-mode
-               (format "Column %d" (current-column)))
-             (emacspeak-get-voicefied-mode-name mode-name)
-             (emacspeak-get-current-percentage-verbously)
-             global-info frame-info recursion-info))))))))))
+              'all
+            (unless                     ; avoid pathological case
+                (and buffer-read-only (buffer-modified-p))
+              (when (and buffer-file-name (buffer-modified-p))
+                (emacspeak-auditory-icon 'modified-object))
+              (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
+            (dtk-speak
+             (concat
+              dir-info
+              (emacspeak-get-voicefied-buffer-name (buffer-name))
+              (when window-count (propertize window-count 'personality voice-smoothen))
+              (when vc-mode (propertize vc-mode 'personality voice-smoothen))
+              (when vc-state (format " %s " vc-state))
+              (when line-number-mode
+                (format "line %d" (emacspeak-get-current-line-number)))
+              (when column-number-mode
+                (format "Column %d" (current-column)))
+              (emacspeak-get-voicefied-mode-name mode-name)
+              (emacspeak-get-current-percentage-verbously)
+              global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
