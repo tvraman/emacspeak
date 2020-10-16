@@ -2272,8 +2272,8 @@ With interactive prefix arg, move to the start of the table."
     (setq emacspeak-eww-table-current-cell 0)
     (goto-char (get-text-property (point) 'table-start)))
    (t
-    (setq emacspeak-eww-table-current-cell (1-
-                                            emacspeak-eww-table-current-cell))
+    (setq emacspeak-eww-table-current-cell
+          (1- emacspeak-eww-table-current-cell))
     (goto-char (previous-single-property-change (point) 'display))))
   (emacspeak-auditory-icon 'right)
   (dtk-speak
