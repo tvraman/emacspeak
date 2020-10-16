@@ -586,7 +586,8 @@ are available are cued by an auditory icon on the header line."
   (format "User-Agent: %s\r\n"
           "Mozilla/5.0 (X11; Linux x86_64) \
 AppleWebKit/537.36 (KHTML, like Gecko) \
-Chrome/74.0.3724.8 Safari/537.36"
+Chrome/86.0.4240.75 \
+Safari/537.36"
           )
   "User Agent string that is  sent when masquerading is on.")
 
