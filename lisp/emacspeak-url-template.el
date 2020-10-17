@@ -359,9 +359,10 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Finance Google Search"
- "https://www.google.com/search?num=25&lite=90586&q=%s                                                                                                                                                                                                                           "
- (list "Finance Search: ")
- #'emacspeak-eww-next-h2
+ "https://www.google.com/finance/quote/%s:NASDAQ"
+ (list
+  #'(lambda () (upcase (read-from-minibuffer "Stock Ticker:  "))))
+ nil
  "Display content from Google Finance.")
 
 ;;}}}
