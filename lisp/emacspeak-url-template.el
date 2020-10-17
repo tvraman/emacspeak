@@ -365,6 +365,18 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil
  "Display content from Google Finance.")
 
+
+(emacspeak-url-template-define
+ "Finance Nasdaq  Google "
+ "https://www.google.com/finance/quote/GOOG:NASDAQ"
+ nil
+ nil
+ "Display top stocks  from Google Finance."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-role "listitem" url 'speak)))
+
+
+
 ;;}}}
 ;;{{{ google scholar
 
