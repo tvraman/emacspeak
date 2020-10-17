@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 16, 2020.
+last updated on October 17, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -5771,7 +5771,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.231 URL Templates
 ====================
 
-This section documents a total of 75 URL Templates.
+This section documents a total of 76 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -5859,158 +5859,161 @@ out the following steps:
   25. Finance Google Search
 
      Display content from Google Finance.
-  26. FreeSound
+  26. Finance Summary From Google
+
+     Display top stocks from Google Finance.
+  27. FreeSound
 
      Search FreeSound.
-  27. GitHub Search
+  28. GitHub Search
 
      Perform a GitHub Search.
-  28. GoLang Browse
+  29. GoLang Browse
 
      Browse GoLang package documentation.
-  29. GoLang Lookup
+  30. GoLang Lookup
 
      Lookup GoLang package documentation.
-  30. GoLang Search
+  31. GoLang Search
 
      Search GoLang package documentation.
-  31. Google Basic
+  32. Google Basic
 
      Light-weight Google search.
-  32. Google News Search
+  33. Google News Search
 
      Search Google news.
-  33. Google Scholar
+  34. Google Scholar
 
      Google Scholar Search
-  34. Google Trends
+  35. Google Trends
 
      Google Trends
-  35. Google Weather
+  36. Google Weather
 
      Light-weight Google search.
-  36. Guardian RSS Feeds Directory
+  37. Guardian RSS Feeds Directory
 
      Guardian Feeds Directory
-  37. Hacker News Frontpage
+  38. Hacker News Frontpage
 
      Display Hacker News Front Page
-  38. Hacker News Search
+  39. Hacker News Search
 
      Display Hacker News Front Page
-  39. MLB Scorecard
+  40. MLB Scorecard
 
      Show MLB Scorecard.
-  40. MLB standings
+  41. MLB standings
 
      Display MLB standings.
-  41. Money Headlines From CNN
+  42. Money Headlines From CNN
 
      Money Headlines From CNN
-  42. NBA standings
+  43. NBA standings
 
      Display NBA standings.
-  43. NLS Bard Popular
+  44. NLS Bard Popular
 
      NLS Bard Catalog: Most Popular.  Login once before using this
      template.
-  44. NLS Bard Recent
+  45. NLS Bard Recent
 
      NLS Bard Catalog: Recently Added.  Login once before using this
      template.
-  45. NLS Bard Search
+  46. NLS Bard Search
 
      Search NLS Bard Catalog.  Login once before using this template.
-  46. NY Times Mobile
+  47. NY Times Mobile
 
      NYTimes Mobile Site
-  47. Old Time Radio
+  48. Old Time Radio
 
      This months Old Time Radio Programming
-  48. OpenLibrary
+  49. OpenLibrary
 
      Open Library Search
-  49. Patent Search From Google
+  50. Patent Search From Google
 
      Perform patent search via Google
-  50. RadioTime Browser
+  51. RadioTime Browser
 
      RadioTime Entry point.
-  51. RadioTime Categories
+  52. RadioTime Categories
 
      RadioTime Categories .
-  52. RadioTime Search
+  53. RadioTime Search
 
      RadioTime Search.
-  53. Reddit At Point.
+  54. Reddit At Point.
 
      Open RSS Feed for Reddit URL under point.
-  54. Reddit By Topic.
+  55. Reddit By Topic.
 
      Open RSS Feed for Reddit Topic.
-  55. Reddit Front Page.
+  56. Reddit Front Page.
 
      Open Feed for Reddit Front Page.
-  56. Reddit Search.
+  57. Reddit Search.
 
      Reddit Search Results Feed.
-  57. Seeking Alpha Stock Search
+  58. Seeking Alpha Stock Search
 
      Seeking Alpha search.
-  58. Sign in to Google
+  59. Sign in to Google
 
      Login to Google.
-  59. StreamWorld Radio
+  60. StreamWorld Radio
 
      Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
-  60. Tech News From CNet
+  61. Tech News From CNet
 
      Display tech news from CNET
-  61. TuneIn Radio
+  62. TuneIn Radio
 
      Translate StreamId to playable stream.
-  62. UPS Packages
+  63. UPS Packages
 
      Display package tracking information from UPS.
-  63. Washington Post
+  64. Washington Post
 
      Washington Post Contents
-  64. Wiki Data Search
+  65. Wiki Data Search
 
      Search WikiData.
-  65. WordNet Search
+  66. WordNet Search
 
      Look up term in WordNet.
-  66. Yahoo RSSNews
+  67. Yahoo RSSNews
 
      News From Yahoo As RSS.
-  67. Youtube News
+  68. Youtube News
 
      News Headlines From Youtube
-  68. fedex packages
+  69. fedex packages
 
      Display package tracking information from Fedex.
-  69. html Google News Search
+  70. html Google News Search
 
      Search Google news.
-  70. sourceforge Download
+  71. sourceforge Download
 
      Download specified file.
-  71. sourceforge browse mirrors
+  72. sourceforge browse mirrors
 
      Retrieve download page at Sourceforge for specified project.
-  72. sourceforge project
+  73. sourceforge project
 
      Open specified project page at SourceForge.
-  73. w3c IRC Logs
+  74. w3c IRC Logs
 
      Use this to pull up the archived logs from the W3C IRC. You need to
      know the exact name of the channel.
-  74. w3c Lists
+  75. w3c Lists
 
      Use this to pull up the archived mail from the W3C list.  You need
      to know the exact name of the list.
-  75. world CNN Content
+  76. world CNN Content
 
      Filter down to CNN content area.
 
