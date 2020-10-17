@@ -1120,8 +1120,13 @@ Note that the Web browser should reset this hook after using it.")
     (shr-generic dom)
     (put-text-property start (point) 'article 'eww-tag)))
 
+(defun emacspeak-eww-tag-comment (dom)
+  "insert whitespace --- see if this fixes cricinfo."
+  (insert " "))
+
 (defvar emacspeak-eww-shr-render-functions
   '((article . emacspeak-eww-tag-article)
+    (comment . emacspeak-eww-tag-comment)
     (title . eww-tag-title)
     (form . eww-tag-form)
     (input . eww-tag-input)
@@ -2303,11 +2308,11 @@ With interactive prefix arg, move to the start of the table."
 ;;{{{span: temporary fix
 ;;; Sites like cricinfo use bad markup and lose inter-word space
 
-(defadvice shr-tag-span (around emacspeak pre act comp)
-  "Render span with spaces around its content. "
-  (insert " ")
-  ad-do-it
-  (insert " "))
+;; (defadvice shr-tag-span (around emacspeak pre act comp)
+;;   "Render span with spaces around its content. "
+;;   (insert " ")
+;;   ad-do-it
+;;   (insert " "))
 
 ;;}}}
 (provide 'emacspeak-eww)
