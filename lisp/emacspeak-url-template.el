@@ -367,7 +367,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 
 (emacspeak-url-template-define
- "Finance Nasdaq  Google "
+ "Finance Summary From Google"
  "https://www.google.com/finance/quote/GOOG:NASDAQ"
  nil
  nil
