@@ -24171,7 +24171,7 @@ Turn screen white.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 76 URL Templates.
+This section documents a total of 75 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -24236,9 +24236,7 @@ List CNN Podcast media links.@item @b{Currency Converter}
 Currency Converter. Currencies can be a comma-separated list of
 codes.@item @b{Dictionary Lookup}
 
-Dictionary Lookup@item @b{Finance Google Search}
-
-Display content from Google Finance.@item @b{Finance Summary From Google}
+Dictionary Lookup@item @b{Finance Summary From Google}
 
 Display top stocks  from Google Finance.@item @b{FreeSound}
 
