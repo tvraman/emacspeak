@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 17, 2020.
+last updated on October 18, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -316,11 +316,12 @@ prefix arg to delete a previously created eww-mark.
 ----------------------
 
 Emacspeak EWW supports table navigation via keys ‘M-.’, ‘M-LEFT’ and
-‘M-RIGHT’.  to speak the current, previous and next table cell
+‘M-RIGHT’, to speak the current, previous and next table cell
 respectively.  The latter commands also move to the cell being spoken.
-This works for plain tables, not nested tables; for nested tables, first
-have then _unnested_ using one of the XSLT transforms like
-‘sort-tables’.
+You can get a sense of the table’s size via ‘M-,’ which speaks the
+number of rows and cells in the table.  This works for plain tables, not
+nested tables; for nested tables, first have then _unnested_ using one
+of the XSLT transforms like ‘sort-tables’.
 
 12.74.8 Emacspeak-Eww Commands
 ------------------------------
@@ -844,14 +845,21 @@ have then _unnested_ using one of the XSLT transforms like
 
      Speak current cell.
 
-12.74.8.59 emacspeak-eww-tags-at-point
+12.74.8.59 emacspeak-eww-table-speak-dimensions
+...............................................
+
+ -- Command: emacspeak-eww-table-speak-dimensions
+
+     Speak number of rows and cells.
+
+12.74.8.60 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.74.8.60 emacspeak-eww-update-title
+12.74.8.61 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)

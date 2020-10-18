@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1171 commands and 834 options.
+This chapter documents a total of 1172 commands and 834 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6516,10 +6516,11 @@ delete a previously created eww-mark.
 
 @subsection Table Browsing
 Emacspeak EWW supports table navigation via keys @kbd{M-.},
-@kbd{M-LEFT} and @kbd{M-RIGHT}.
+@kbd{M-LEFT} and @kbd{M-RIGHT},
 to speak the current, previous and next table cell
 respectively. The latter commands also move to the cell being
-spoken. This works for plain tables, not nested tables; for nested
+spoken.  You can get  a sense of the table's size via @kbd{M-,}
+which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
 tables, first have then @emph{unnested} using one of the XSLT
 transforms like @code{sort-tables}.
 
@@ -7170,6 +7171,15 @@ With interactive prefix arg, move to the start of the table.
 
 @format
 Speak current cell.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-table-speak-dimensions
+@deffn {Command} emacspeak-eww-table-speak-dimensions   
+@findex emacspeak-eww-table-speak-dimensions
+
+@format
+Speak number of rows and cells.
 @end format
 @end deffn
 
