@@ -586,11 +586,13 @@
   previously created eww-mark.</p><span id="Table-Browsing"></span>
   <h4 class="subsection">12.74.7 Table Browsing</h4>
   <p>Emacspeak EWW supports table navigation via keys
-  <kbd>M-.</kbd>, <kbd>M-LEFT</kbd> and <kbd>M-RIGHT</kbd>. to
+  <kbd>M-.</kbd>, <kbd>M-LEFT</kbd> and <kbd>M-RIGHT</kbd>, to
   speak the current, previous and next table cell respectively. The
-  latter commands also move to the cell being spoken. This works
-  for plain tables, not nested tables; for nested tables, first
-  have then <em>unnested</em> using one of the XSLT transforms like
+  latter commands also move to the cell being spoken. You can get a
+  sense of the table’s size via <kbd>M-,</kbd> which speaks the
+  number of rows and cells in the table. This works for plain
+  tables, not nested tables; for nested tables, first have then
+  <em>unnested</em> using one of the XSLT transforms like
   <code>sort-tables</code>.</p><span id=
   "Emacspeak_002dEww-Commands"></span>
   <h4 class="subsection">12.74.8 Emacspeak-Eww
@@ -1588,8 +1590,26 @@ With interactive prefix arg, move to the start of the table.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002deww_002dtags_002dat_002dpoint"></span>
+  "emacspeak_002deww_002dtable_002dspeak_002ddimensions"></span>
   <h4 class="subsubsection">12.74.8.59
+  emacspeak-eww-table-speak-dimensions</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002deww_002dtable_002dspeak_002ddimensions">
+    Command:
+    <strong>emacspeak-eww-table-speak-dimensions</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002deww_002dtable_002dspeak_002ddimensions-1">
+      </span>
+      <div class="format">
+        <pre class="format">Speak number of rows and cells.
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002deww_002dtags_002dat_002dpoint"></span>
+  <h4 class="subsubsection">12.74.8.60
   emacspeak-eww-tags-at-point</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dtags_002dat_002dpoint">
@@ -1603,7 +1623,7 @@ With interactive prefix arg, move to the start of the table.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dupdate_002dtitle"></span>
-  <h4 class="subsubsection">12.74.8.60
+  <h4 class="subsubsection">12.74.8.61
   emacspeak-eww-update-title</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dupdate_002dtitle">Command:
