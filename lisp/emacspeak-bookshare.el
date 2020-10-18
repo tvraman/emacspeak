@@ -550,7 +550,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
       (error "No handler defined for action %s" action)))
 
 (define-derived-mode emacspeak-bookshare-mode special-mode
-  "Bookshare Library Of Accessible Books And Periodicals"
+  "Bookshare Library"
   "A Bookshare front-end for the Emacspeak desktop.
 
 The Emacspeak Bookshare front-end is launched by command
