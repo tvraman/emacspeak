@@ -526,7 +526,7 @@ Optional interactive prefix arg author-first prints author at the
   (emacspeak-auditory-icon 'task-done))
 
 (define-derived-mode emacspeak-epub-mode special-mode
-  "EPub Interaction On The Emacspeak Audio Desktop"
+  "EPub Bookshelf"
   "An EPub Front-end.
 Letters do not insert themselves; instead, they are commands.
 \\{emacspeak-epub-mode-map}"
