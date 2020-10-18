@@ -2213,13 +2213,7 @@ with an interactive prefix arg. "
       'table-dom table-dom))
     ad-return-value))
 
-(defadvice shr-insert-table (around emacspeak pre act comp)
-  "Record table widths."
-  (let ((start (point))
-        (widths (ad-get-arg 1)))
-    ad-do-it
-    (put-text-property start (point) 'table-widths widths)
-    ad-return-value))
+
 
 (defvar-local emacspeak-eww-table-current-cell 0
   "Track current table cell to enable table navigation.
