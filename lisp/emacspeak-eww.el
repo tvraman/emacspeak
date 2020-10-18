@@ -2257,8 +2257,7 @@ Interactive prefix arg moves to the last cell in the table."
   (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (cl-assert
-   (< (1+ emacspeak-eww-table-current-cell)
-      (length (emacspeak-eww-table-cells)))
+   (< (1+ emacspeak-eww-table-current-cell) (length (emacspeak-eww-table-cells)))
    t "On last cell.")
   (cond
    (prefix
