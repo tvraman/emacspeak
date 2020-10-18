@@ -396,10 +396,11 @@
 ;;;
 ;;; @subsection Table Browsing
 ;;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
-;;;@kbd{M-LEFT} and @kbd{M-RIGHT}.
+;;;@kbd{M-LEFT} and @kbd{M-RIGHT},
 ;;; to speak the current, previous and next table cell
 ;;;respectively. The latter commands also move to the cell being
-;;;spoken. This works for plain tables, not nested tables; for nested
+;;;spoken.  You can get  a sense of the table's size via @kbd{M-,}
+;;;which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
 ;;;tables, first have then @emph{unnested} using one of the XSLT
 ;;;transforms like @code{sort-tables}.
 
@@ -672,6 +673,7 @@ Safari/537.36"
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<right>"  emacspeak-eww-table-next-cell)
      ("M-." emacspeak-eww-table-speak-cell)
+     ("M-," emacspeak-eww-table-speak-dimensions)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("I" eww-view-dom-having-id)
@@ -2222,8 +2224,25 @@ Value is specified as a position in the list of table cells.")
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
   (mapcar
-   #'(lambda (node) (dom-texts node " "))
+   #'(lambda (node)
+       (dom-texts node " "))
    (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
+
+(defsubst emacspeak-eww-table-row-count ()
+  "Returns number of table rows."
+  (length (dom-by-tag (get-text-property (point) 'table-dom) 'tr)))
+
+
+(defsubst emacspeak-eww-table-cell-count ()
+  "Returns number of  table cells."
+  (length (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
+(defun emacspeak-eww-table-speak-dimensions ()
+  "Speak number of rows and cells."
+  (interactive)
+  (dtk-speak
+   (format "Table with %s rows and %s cells"
+           (emacspeak-eww-table-row-count)
+           (emacspeak-eww-table-cell-count))))
 
 (defun emacspeak-eww-table-speak-cell ()
   "Speak current cell."
