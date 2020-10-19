@@ -2210,6 +2210,7 @@ with an interactive prefix arg. "
     (add-text-properties
      start (point)
      (list
+      'auditory-icon 'tick-tick
       'table-start start
       'table-end (1-  (point))
       'table-dom table-dom))
