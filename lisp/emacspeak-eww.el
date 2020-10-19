@@ -2257,30 +2257,29 @@ Value is specified as a position in the list of table cells.")
   "Speak  cell after moving to previous row. "
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
+  (emacspeak-eww-browser-check)
   (let* ((n-rows (emacspeak-eww-table-row-count))
          (n-cells (emacspeak-eww-table-cell-count))
          (quotient (/ n-cells n-rows)))
     (cl-assert
      (>= emacspeak-eww-table-current-cell quotient)
      t "On first row.")
-    (setq emacspeak-eww-table-current-cell
-          (- emacspeak-eww-table-current-cell quotient))
+    (cl-decf emacspeak-eww-table-current-cell quotient)
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
-
 
 (defun emacspeak-eww-table-next-row ()
   "Speak  cell after moving to next row. "
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
+  (emacspeak-eww-browser-check)
   (let* ((n-rows (emacspeak-eww-table-row-count))
          (n-cells (emacspeak-eww-table-cell-count))
          (quotient (/ n-cells n-rows)))
     (cl-assert
      (< (+ emacspeak-eww-table-current-cell quotient) n-cells)
      t "On last row.")
-    (setq emacspeak-eww-table-current-cell
-          (+ quotient emacspeak-eww-table-current-cell))
+    (cl-incf emacspeak-eww-table-current-cell quotient)
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
 
@@ -2289,6 +2288,7 @@ Value is specified as a position in the list of table cells.")
 Interactive prefix arg moves to the last cell in the table."
   (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
+  (emacspeak-eww-browser-check)
   (cl-assert
    (< (+ 1 emacspeak-eww-table-current-cell) (length (emacspeak-eww-table-cells)))
    t "On last cell.")
@@ -2296,8 +2296,7 @@ Interactive prefix arg moves to the last cell in the table."
    (prefix
     (setq
      emacspeak-eww-table-current-cell
-     (1- (length (emacspeak-eww-table-cells))))
-    (goto-char (get-text-property (point) 'table-end)))
+     (1- (length (emacspeak-eww-table-cells)))))
    (t
     (setq emacspeak-eww-table-current-cell
           (1+ emacspeak-eww-table-current-cell))
@@ -2311,6 +2310,7 @@ Interactive prefix arg moves to the last cell in the table."
 With interactive prefix arg, move to the start of the table."
   (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
+  (emacspeak-eww-browser-check)
   (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (cond
    (prefix
@@ -2318,8 +2318,7 @@ With interactive prefix arg, move to the start of the table."
     (goto-char (get-text-property (point) 'table-start)))
    (t
     (setq emacspeak-eww-table-current-cell
-          (1- emacspeak-eww-table-current-cell))
-    (goto-char (previous-single-property-change (point) 'display))))
+          (1- emacspeak-eww-table-current-cell))))
   (emacspeak-auditory-icon 'right)
   (dtk-speak
    (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
