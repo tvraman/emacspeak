@@ -997,13 +997,11 @@ Note that the Web browser should reset this hook after using it.")
       li dt dd p                        ; block-level: bullets, paras
       form blockquote                   ; block-level
       a b it em span                    ; in-line
-      br hr                             ; separators
-      td th ; table cells and headers
       table)
  do
  (eval
   `
-  (defadvice ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
+  (defadvice ,(intern (format "shr-tag-%s" tag)) (around eww-tag pre act comp)
     (let ((orig (point)))
       ad-do-it
       (let ((start
@@ -2355,13 +2353,14 @@ With interactive prefix arg, move to the start of the table."
 
 ;;}}}
 ;;{{{div: store dom pointer:
-(defadvice shr-tag-div (around emacspeak pre act comp)
+(defadvice shr-tag-div (around eww-dom pre act comp)
   "Persist dom to the div node as a text property."
   (let ((start (point)))
     ad-do-it
     (put-text-property
      start (point)
-     'eww-dom (ad-get-arg 0))))
+     'eww-dom (ad-get-arg 0))
+    ad-return-value))
 
 
 ;;}}}
