@@ -2203,7 +2203,8 @@ with an interactive prefix arg. "
 ;;; Point has to be within the displayed table.
 
 (defadvice shr-tag-table-1 (around emacspeak pre act comp)
-  "Cache pointer to table dom as a text property."
+  "Cache pointer to table dom as a text property,
+and add relevant properties to the rendered region."
   (let ((table-dom (ad-get-arg 0))
         (start (point)))
     ad-do-it
