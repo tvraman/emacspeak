@@ -2213,7 +2213,7 @@ and add relevant properties to the rendered region."
     (add-text-properties
      start (point)
      (list
-      'auditory-icon 'tick-tick
+      'auditory-icon 'fill-object
       'table-start start
       'table-end (1-  (point))
       'table-dom table-dom))
