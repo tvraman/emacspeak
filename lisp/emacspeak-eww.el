@@ -669,6 +669,7 @@ Safari/537.36"
      ("?" emacspeak-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
+     ("C-d" emacspeak-eww-dive-into-div)
      ("C-e" emacspeak-prefix-command)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<up>"  emacspeak-eww-table-previous-row)
@@ -1209,7 +1210,7 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-                                        ;(setq shr-base (shr-parse-base url))
+;;;(setq shr-base (shr-parse-base url))
     (shr-insert-document filtered-dom)
     (emacspeak-eww-set-dom filtered-dom)
     (emacspeak-eww-set-url url)
@@ -2363,10 +2364,15 @@ With interactive prefix arg, move to the start of the table."
     ad-return-value))
 
 
+(defun emacspeak-eww-dive-into-div ()
+  "Focus on current div by rendering it in a new buffer."
+  (interactive)
+  (let ((tags (emacspeak-eww-here-tags))
+        (dom (get-text-property (point) 'eww-dom)))
+    (cl-assert (memq 'div tags ) t "No div here.")
+    (emacspeak-eww-view-helper dom)))
+
 ;;}}}
-
-
-
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
