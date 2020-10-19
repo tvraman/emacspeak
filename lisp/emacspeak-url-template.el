@@ -357,9 +357,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ google finance
 
-
-
-
 (emacspeak-url-template-define
  "Finance Summary From Google"
  "https://finance.google.com"
@@ -368,8 +365,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Display top stocks  from Google Finance."
  #'(lambda (url)
      (emacspeak-we-extract-by-role "listitem" url 'speak)))
-
-
 
 ;;}}}
 ;;{{{ google scholar
