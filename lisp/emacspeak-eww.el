@@ -2370,7 +2370,8 @@ With interactive prefix arg, move to the start of the table."
   (let ((tags (emacspeak-eww-here-tags))
         (dom (get-text-property (point) 'eww-dom)))
     (cl-assert (memq 'div tags ) t "No div here.")
-    (emacspeak-eww-view-helper dom)))
+    (emacspeak-eww-view-helper
+     (dom-html-from-nodes (list dom) (eww-current-url)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
