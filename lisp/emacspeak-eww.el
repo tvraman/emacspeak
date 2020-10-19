@@ -671,6 +671,8 @@ Safari/537.36"
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
      ("M-<left>" emacspeak-eww-table-previous-cell)
+     ("M-<up>"  emacspeak-eww-table-previous-row)
+     ("M-<down>"  emacspeak-eww-table-next-row)
      ("M-<right>"  emacspeak-eww-table-next-cell)
      ("M-." emacspeak-eww-table-speak-cell)
      ("M-," emacspeak-eww-table-speak-dimensions)
@@ -2217,8 +2219,6 @@ and add relevant properties to the rendered region."
       'table-dom table-dom))
     ad-return-value))
 
-
-
 (defvar-local emacspeak-eww-table-current-cell 0
   "Track current table cell to enable table navigation.
 Value is specified as a position in the list of table cells.")
@@ -2234,10 +2234,10 @@ Value is specified as a position in the list of table cells.")
   "Returns number of table rows."
   (length (dom-by-tag (get-text-property (point) 'table-dom) 'tr)))
 
-
 (defsubst emacspeak-eww-table-cell-count ()
   "Returns number of  table cells."
   (length (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
+
 (defun emacspeak-eww-table-speak-dimensions ()
   "Speak number of rows and cells."
   (interactive)
@@ -2252,6 +2252,37 @@ Value is specified as a position in the list of table cells.")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (dtk-speak
    (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+
+(defun emacspeak-eww-table-previous-row ()
+  "Speak  cell after moving to previous row. "
+  (interactive)
+  (cl-declare (special emacspeak-eww-table-current-cell))
+  (let* ((n-rows (emacspeak-eww-table-row-count))
+         (n-cells (emacspeak-eww-table-cell-count))
+         (quotient (/ n-cells n-rows)))
+    (cl-assert
+     (>= emacspeak-eww-table-current-cell quotient)
+     t "On first row.")
+    (setq emacspeak-eww-table-current-cell
+          (- emacspeak-eww-table-current-cell quotient))
+    (emacspeak-auditory-icon 'large-movement)
+    (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
+
+
+(defun emacspeak-eww-table-next-row ()
+  "Speak  cell after moving to next row. "
+  (interactive)
+  (cl-declare (special emacspeak-eww-table-current-cell))
+  (let* ((n-rows (emacspeak-eww-table-row-count))
+         (n-cells (emacspeak-eww-table-cell-count))
+         (quotient (/ n-cells n-rows)))
+    (cl-assert
+     (< (+ emacspeak-eww-table-current-cell quotient) n-cells)
+     t "On last row.")
+    (setq emacspeak-eww-table-current-cell
+          (+ quotient emacspeak-eww-table-current-cell))
+    (emacspeak-auditory-icon 'large-movement)
+    (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
 
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
