@@ -2354,6 +2354,20 @@ With interactive prefix arg, move to the start of the table."
    (insert " "))
 
 ;;}}}
+;;{{{div: store dom pointer:
+(defadvice shr-tag-div (around emacspeak pre act comp)
+  "Persist dom to the div node as a text property."
+  (let ((start (point)))
+    ad-do-it
+    (put-text-property
+     start (point)
+     'eww-dom (ad-get-arg 0))))
+
+
+;;}}}
+
+
+
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
