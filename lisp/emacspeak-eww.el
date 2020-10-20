@@ -670,6 +670,7 @@ Safari/537.36"
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
      ("C-d" emacspeak-eww-dive-into-div)
+     ("C-t" emacspeak-eww-dive-into-table)
      ("C-e" emacspeak-prefix-command)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<up>"  emacspeak-eww-table-previous-row)
@@ -717,6 +718,7 @@ Safari/537.36"
      )
    do
    (emacspeak-keymap-update eww-mode-map binding)))
+
 
 (emacspeak-eww-setup)
 
@@ -2322,6 +2324,14 @@ With interactive prefix arg, move to the start of the table."
   (emacspeak-auditory-icon 'right)
   (dtk-speak
    (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+(defun emacspeak-eww-dive-into-table ()
+  "Focus on current table by rendering it in a new buffer."
+  (interactive)
+  (let ((dom (get-text-property (point) 'table-dom)))
+    (cl-assert dom t "No table here.")
+    (emacspeak-eww-view-helper
+     (dom-html-from-nodes (list dom) (eww-current-url)))))
+
 
 ;;}}}
 ;;{{{Form filling:
@@ -2354,7 +2364,8 @@ With interactive prefix arg, move to the start of the table."
    (insert " "))
 
 ;;}}}
-;;{{{div: store dom pointer:
+;;{{{Dive Into DOM: div
+
 (defadvice shr-tag-div (around eww-dom pre act comp)
   "Persist dom to the div node as a text property."
   (let ((start (point)))
@@ -2364,7 +2375,6 @@ With interactive prefix arg, move to the start of the table."
        start (point)
        'eww-dom (ad-get-arg 0)))
     ad-return-value))
-
 
 (defun emacspeak-eww-dive-into-div ()
   "Focus on current div by rendering it in a new buffer."
