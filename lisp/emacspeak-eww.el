@@ -2209,13 +2209,14 @@ and add relevant properties to the rendered region."
   (let ((table-dom (ad-get-arg 0))
         (start (point)))
     ad-do-it
-    (add-text-properties
-     start (point)
-     (list
-      'auditory-icon 'fill-object
-      'table-start start
-      'table-end (1-  (point))
-      'table-dom table-dom))
+    (unless (get-text-property start 'table-dom)
+      (add-text-properties
+       start (point)
+       (list
+        'auditory-icon 'fill-object
+        'table-start start
+        'table-end (1-  (point))
+        'table-dom table-dom)))
     ad-return-value))
 
 (defvar-local emacspeak-eww-table-current-cell 0
