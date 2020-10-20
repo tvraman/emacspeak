@@ -2201,6 +2201,36 @@ with an interactive prefix arg. "
       (concat " minus " (substring number 1)))))
 
 ;;}}}
+;;{{{span: temporary fix
+;;; Sites like cricinfo use bad markup and lose inter-word space
+
+ (defadvice shr-tag-span (around emacspeak pre act comp)
+   "Render span with spaces around its content. "
+   (insert " ")
+   ad-do-it
+   (insert " "))
+
+;;}}}
+;;{{{Form filling:
+
+(defun emacspeak-eww-fillin-form-field ()
+  "Fill in user or passwd field using auth-source backend."
+  (interactive)
+  (emacspeak-eww-browser-check)
+  (let ((url (eww-current-url))
+        (result nil))
+    (cl-assert url t "No current url")
+    (setq result
+          (cl-case
+              (read-char "u  User, p Password")
+            (?u  (url-user-for-url url))
+            (?p  (url-password-for-url url))
+            (otherwise nil)))
+    (cl-assert result t "No value found to insert here")
+    (when result (insert result))
+    (emacspeak-speak-line)))
+
+;;}}}
 ;;{{{Enable Table Browsing:
 ;;; Only works for plain tables, not nested tables.
 ;;; Point has to be within the displayed table.
@@ -2332,36 +2362,6 @@ With interactive prefix arg, move to the start of the table."
     (emacspeak-eww-view-helper
      (dom-html-from-nodes (list dom) (eww-current-url)))))
 
-
-;;}}}
-;;{{{Form filling:
-
-(defun emacspeak-eww-fillin-form-field ()
-  "Fill in user or passwd field using auth-source backend."
-  (interactive)
-  (emacspeak-eww-browser-check)
-  (let ((url (eww-current-url))
-        (result nil))
-    (cl-assert url t "No current url")
-    (setq result
-          (cl-case
-              (read-char "u  User, p Password")
-            (?u  (url-user-for-url url))
-            (?p  (url-password-for-url url))
-            (otherwise nil)))
-    (cl-assert result t "No value found to insert here")
-    (when result (insert result))
-    (emacspeak-speak-line)))
-
-;;}}}
-;;{{{span: temporary fix
-;;; Sites like cricinfo use bad markup and lose inter-word space
-
- (defadvice shr-tag-span (around emacspeak pre act comp)
-   "Render span with spaces around its content. "
-   (insert " ")
-   ad-do-it
-   (insert " "))
 
 ;;}}}
 ;;{{{Dive Into DOM: div
