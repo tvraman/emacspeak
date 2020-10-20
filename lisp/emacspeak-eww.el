@@ -2285,35 +2285,49 @@ Value is specified as a position in the list of table cells.")
   (dtk-speak
    (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
-(defun emacspeak-eww-table-previous-row ()
-  "Speak  cell after moving to previous row. "
-  (interactive)
+(defun emacspeak-eww-table-previous-row (&optional prefix)
+  "Speak  cell after moving to previous row.
+ Optional interactive prefix arg moves to start of table."
+  (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (emacspeak-eww-browser-check)
-  (let* ((n-rows (emacspeak-eww-table-row-count))
-         (n-cells (emacspeak-eww-table-cell-count))
-         (quotient (/ n-cells n-rows)))
-    (cl-assert
-     (>= emacspeak-eww-table-current-cell quotient)
-     t "On first row.")
-    (cl-decf emacspeak-eww-table-current-cell quotient)
-    (emacspeak-auditory-icon 'large-movement)
-    (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
+  (cond
+   (prefix
+    (goto-char (get-text-property (point) 'table-start))
+    (setq emacspeak-eww-table-current-cell 0))
+   (t
+    (let* ((n-rows (emacspeak-eww-table-row-count))
+           (n-cells (emacspeak-eww-table-cell-count))
+           (quotient (/ n-cells n-rows)))
+      (cl-assert
+       (>= emacspeak-eww-table-current-cell quotient)
+       t "On first row.")
+      (cl-decf emacspeak-eww-table-current-cell quotient)
+      (emacspeak-auditory-icon 'large-movement)
+      (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))))
 
-(defun emacspeak-eww-table-next-row ()
-  "Speak  cell after moving to next row. "
-  (interactive)
+(defun emacspeak-eww-table-next-row (&optional prefix)
+  "Speak  cell after moving to next row.
+ Optional interactive prefix arg moves to end of table."
+  (interactive "P")
   (cl-declare (special emacspeak-eww-table-current-cell))
   (emacspeak-eww-browser-check)
-  (let* ((n-rows (emacspeak-eww-table-row-count))
-         (n-cells (emacspeak-eww-table-cell-count))
-         (quotient (/ n-cells n-rows)))
-    (cl-assert
-     (< (+ emacspeak-eww-table-current-cell quotient) n-cells)
-     t "On last row.")
-    (cl-incf emacspeak-eww-table-current-cell quotient)
-    (emacspeak-auditory-icon 'large-movement)
-    (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
+  (cond
+   (prefix
+    (goto-char (get-text-property (point) 'table-end))
+    (setq
+     emacspeak-eww-table-current-cell
+     (1- (length (emacspeak-eww-table-cells)))))
+   (t
+    (let* ((n-rows (emacspeak-eww-table-row-count))
+           (n-cells (emacspeak-eww-table-cell-count))
+           (quotient (/ n-cells n-rows)))
+      (cl-assert
+       (< (+ emacspeak-eww-table-current-cell quotient) n-cells)
+       t "On last row.")
+      (cl-incf emacspeak-eww-table-current-cell quotient)
+      (emacspeak-auditory-icon 'large-movement)
+      (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))))
 
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
@@ -2326,6 +2340,7 @@ Interactive prefix arg moves to the last cell in the table."
    t "On last cell.")
   (cond
    (prefix
+    (goto-char (get-text-property (point) 'table-end))
     (setq
      emacspeak-eww-table-current-cell
      (1- (length (emacspeak-eww-table-cells)))))
@@ -2346,6 +2361,7 @@ With interactive prefix arg, move to the start of the table."
   (when  (zerop emacspeak-eww-table-current-cell  ) (error  "On first cell."))
   (cond
    (prefix
+    (goto-char (get-text-property (point) 'table-start))
     (setq emacspeak-eww-table-current-cell 0)
     (goto-char (get-text-property (point) 'table-start)))
    (t
@@ -2353,7 +2369,9 @@ With interactive prefix arg, move to the start of the table."
           (1- emacspeak-eww-table-current-cell))))
   (emacspeak-auditory-icon 'right)
   (dtk-speak
-   (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+   (elt (emacspeak-eww-table-cells)
+        emacspeak-eww-table-current-cell)))
+
 (defun emacspeak-eww-dive-into-table ()
   "Focus on current table by rendering it in a new buffer."
   (interactive)
