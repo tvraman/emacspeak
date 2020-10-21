@@ -200,7 +200,26 @@
 ;;;Filter out  DOM nodes having specified role. Valid role values
 ;;;are available via completion.
 ;;;@end table
+;;; @subsection Diving Into (Focusing) On Specific Content
 ;;;
+;;; Contrast this with filtering described in the previous section.
+;;; There, we discussed commands that @emph{filter} the DOM to render
+;;; specific types of elements. For HTML as spoken on the Web, there
+;;; is a separate use-case that is helpful as a dual to filtering,
+;;; namely, displaying a specific portion of a page, typically the
+;;; contents of a @code{div} element.
+;;; These elements often appear many times on a page, and can be
+;;; deeply nested, making it difficult to focus on the relevant
+;;; content on the page, e.g. news sites.
+;;; Commands @code{emacspeak-eww-dive-into-div} and
+;;; @code{emacspeak-eww-dive-into-table}
+;;; help  in such cases, @kbd{C-d} renders the @code{div} containing
+;;; point in a separate buffer; @kbd{C-t} does the same for
+;;; tables. As with the filtering commands, @kbd{l} returns to the
+;;; buffer where these commands were executed.
+;;; Long-term users of Emacspeak who still remember Emacs-W3 will
+;;; recognize this as the @emph{focus} command implemented by
+;;; Emacspeak for W3.
 ;;; @subsection Updated  Commands For Following  Links
 
 ;;; These key-bindings are available when point is on a link. They
