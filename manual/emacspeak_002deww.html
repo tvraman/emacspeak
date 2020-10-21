@@ -289,8 +289,29 @@
       nodes having specified role. Valid role values are available
       via completion.</p>
     </dd>
-  </dl><span id="Updated-Commands-For-Following-Links"></span>
-  <h4 class="subsection">12.74.3 Updated Commands For Following
+  </dl><span id=
+  "Diving-Into-_0028Focusing_0029-On-Specific-Content"></span>
+  <h4 class="subsection">12.74.3 Diving Into (Focusing) On Specific
+  Content</h4>
+  <p>Contrast this with filtering described in the previous
+  section. There, we discussed commands that <em>filter</em> the
+  DOM to render specific types of elements. For HTML as spoken on
+  the Web, there is a separate use-case that is helpful as a dual
+  to filtering, namely, displaying a specific portion of a page,
+  typically the contents of a <code>div</code> element. These
+  elements often appear many times on a page, and can be deeply
+  nested, making it difficult to focus on the relevant content on
+  the page, e.g. news sites. Commands
+  <code>emacspeak-eww-dive-into-div</code> and
+  <code>emacspeak-eww-dive-into-table</code> help in such cases,
+  <kbd>C-d</kbd> renders the <code>div</code> containing point in a
+  separate buffer; <kbd>C-t</kbd> does the same for tables. As with
+  the filtering commands, <kbd>l</kbd> returns to the buffer where
+  these commands were executed. Long-term users of Emacspeak who
+  still remember Emacs-W3 will recognize this as the <em>focus</em>
+  command implemented by Emacspeak for W3.</p><span id=
+  "Updated-Commands-For-Following-Links"></span>
+  <h4 class="subsection">12.74.4 Updated Commands For Following
   Links</h4>
   <p>These key-bindings are available when point is on a link. They
   enable context-specific actions for following links, e.g., to
@@ -335,7 +356,7 @@
       under point as a Youtube stream.</p>
     </dd>
   </dl><span id="Miscellaneous-Commands"></span>
-  <h4 class="subsection">12.74.4 Miscellaneous Commands</h4>
+  <h4 class="subsection">12.74.5 Miscellaneous Commands</h4>
   <dl compact="compact">
     <dt><kbd>C-RET</kbd></dt>
     <dd>
@@ -398,7 +419,7 @@
   Google-Search specific commands, many of which are available via
   prefix-key <kbd>G</kbd>.</p><span id=
   "Filtering-Content-Using-XSLT-And-XPath"></span>
-  <h4 class="subsection">12.74.5 Filtering Content Using XSLT And
+  <h4 class="subsection">12.74.6 Filtering Content Using XSLT And
   XPath</h4>
   <dl compact="compact">
     <dt><kbd>C-c</kbd></dt>
@@ -570,7 +591,7 @@
     </dd>
   </dl><span id=
   "EWW-And-EBooks-On-The-Emacspeak-Audio-Desktop"></span>
-  <h4 class="subsection">12.74.6 EWW And EBooks On The Emacspeak
+  <h4 class="subsection">12.74.7 EWW And EBooks On The Emacspeak
   Audio Desktop</h4>
   <p>Modules emacspeak-epub and emacspeak-bookshare provide EBook
   front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW
@@ -584,7 +605,7 @@
   e</code>. This command reads a eww-mark name with completion. Use
   this command with an interactive prefix arg to delete a
   previously created eww-mark.</p><span id="Table-Browsing"></span>
-  <h4 class="subsection">12.74.7 Table Browsing</h4>
+  <h4 class="subsection">12.74.8 Table Browsing</h4>
   <p>Emacspeak EWW supports table navigation via keys
   <kbd>M-.</kbd>, <kbd>M-LEFT</kbd> and <kbd>M-RIGHT</kbd>, to
   speak the current, previous and next table cell respectively. The
@@ -595,10 +616,10 @@
   <em>unnested</em> using one of the XSLT transforms like
   <code>sort-tables</code>.</p><span id=
   "Emacspeak_002dEww-Commands"></span>
-  <h4 class="subsection">12.74.8 Emacspeak-Eww
+  <h4 class="subsection">12.74.9 Emacspeak-Eww
   Commands</h4><span id=
   "emacspeak_002deww_002dadd_002dmark"></span>
-  <h4 class="subsubsection">12.74.8.1 emacspeak-eww-add-mark</h4>
+  <h4 class="subsubsection">12.74.9.1 emacspeak-eww-add-mark</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dadd_002dmark">Command:
     <strong>emacspeak-eww-add-mark</strong> <em>(name)</em></dt>
@@ -614,7 +635,7 @@
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dcurl_002dplay_002dmedia_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.74.8.2
+  <h4 class="subsubsection">12.74.9.2
   emacspeak-eww-curl-play-media-at-point</h4>
   <dl>
     <dt id=
@@ -633,7 +654,7 @@ Useful in handling double-redirect from TuneIn.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002ddelete_002dmark"></span>
-  <h4 class="subsubsection">12.74.8.3
+  <h4 class="subsubsection">12.74.9.3
   emacspeak-eww-delete-mark</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002ddelete_002dmark">Command:
@@ -650,8 +671,40 @@ Useful in handling double-redirect from TuneIn.
       </div>
     </dd>
   </dl><span id=
+  "emacspeak_002deww_002ddive_002dinto_002ddiv"></span>
+  <h4 class="subsubsection">12.74.9.4
+  emacspeak-eww-dive-into-div</h4>
+  <dl>
+    <dt id="index-emacspeak_002deww_002ddive_002dinto_002ddiv">
+    Command: <strong>emacspeak-eww-dive-into-div</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002deww_002ddive_002dinto_002ddiv-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Focus on current div by rendering it in a new buffer.
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002deww_002ddive_002dinto_002dtable"></span>
+  <h4 class="subsubsection">12.74.9.5
+  emacspeak-eww-dive-into-table</h4>
+  <dl>
+    <dt id="index-emacspeak_002deww_002ddive_002dinto_002dtable">
+    Command: <strong>emacspeak-eww-dive-into-table</strong></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002deww_002ddive_002dinto_002dtable-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Focus on current table by rendering it in a new buffer.
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
   "emacspeak_002deww_002dfillin_002dform_002dfield"></span>
-  <h4 class="subsubsection">12.74.8.4
+  <h4 class="subsubsection">12.74.9.6
   emacspeak-eww-fillin-form-field</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dfillin_002dform_002dfield">
@@ -667,7 +720,7 @@ Useful in handling double-redirect from TuneIn.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dgoogle_002dknowledge_002dcard"></span>
-  <h4 class="subsubsection">12.74.8.5
+  <h4 class="subsubsection">12.74.9.7
   emacspeak-eww-google-knowledge-card</h4>
   <dl>
     <dt id=
@@ -686,7 +739,7 @@ Warning, this is fragile, and depends on a stable id/class for the
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dlinks_002drel"></span>
-  <h4 class="subsubsection">12.74.8.6 emacspeak-eww-links-rel</h4>
+  <h4 class="subsubsection">12.74.9.8 emacspeak-eww-links-rel</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dlinks_002drel">Command:
     <strong>emacspeak-eww-links-rel</strong></dt>
@@ -701,7 +754,7 @@ are available are cued by an auditory icon on the header line.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dmarks_002dload"></span>
-  <h4 class="subsubsection">12.74.8.7 emacspeak-eww-marks-load</h4>
+  <h4 class="subsubsection">12.74.9.9 emacspeak-eww-marks-load</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dmarks_002dload">Command:
     <strong>emacspeak-eww-marks-load</strong></dt>
@@ -714,7 +767,8 @@ are available are cued by an auditory icon on the header line.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dmarks_002dsave"></span>
-  <h4 class="subsubsection">12.74.8.8 emacspeak-eww-marks-save</h4>
+  <h4 class="subsubsection">12.74.9.10
+  emacspeak-eww-marks-save</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dmarks_002dsave">Command:
     <strong>emacspeak-eww-marks-save</strong></dt>
@@ -727,7 +781,8 @@ are available are cued by an auditory icon on the header line.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dmasquerade"></span>
-  <h4 class="subsubsection">12.74.8.9 emacspeak-eww-masquerade</h4>
+  <h4 class="subsubsection">12.74.9.11
+  emacspeak-eww-masquerade</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dmasquerade">Command:
     <strong>emacspeak-eww-masquerade</strong></dt>
@@ -739,7 +794,7 @@ are available are cued by an auditory icon on the header line.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002ddd"></span>
-  <h4 class="subsubsection">12.74.8.10 emacspeak-eww-next-dd</h4>
+  <h4 class="subsubsection">12.74.9.12 emacspeak-eww-next-dd</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002ddd">Command:
     <strong>emacspeak-eww-next-dd</strong> <em>(&amp;optional
@@ -754,7 +809,7 @@ The dd is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002ddl"></span>
-  <h4 class="subsubsection">12.74.8.11 emacspeak-eww-next-dl</h4>
+  <h4 class="subsubsection">12.74.9.13 emacspeak-eww-next-dl</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002ddl">Command:
     <strong>emacspeak-eww-next-dl</strong> <em>(&amp;optional
@@ -769,7 +824,7 @@ The dl is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002ddt"></span>
-  <h4 class="subsubsection">12.74.8.12 emacspeak-eww-next-dt</h4>
+  <h4 class="subsubsection">12.74.9.14 emacspeak-eww-next-dt</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002ddt">Command:
     <strong>emacspeak-eww-next-dt</strong> <em>(&amp;optional
@@ -784,7 +839,7 @@ The dt is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002delement"></span>
-  <h4 class="subsubsection">12.74.8.13
+  <h4 class="subsubsection">12.74.9.15
   emacspeak-eww-next-element</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002delement">Command:
@@ -802,7 +857,7 @@ The dt is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory"></span>
-  <h4 class="subsubsection">12.74.8.14
+  <h4 class="subsubsection">12.74.9.16
   emacspeak-eww-next-element-from-history</h4>
   <dl>
     <dt id=
@@ -821,7 +876,7 @@ The dt is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dnext_002delement_002dlike_002dthis"></span>
-  <h4 class="subsubsection">12.74.8.15
+  <h4 class="subsubsection">12.74.9.17
   emacspeak-eww-next-element-like-this</h4>
   <dl>
     <dt id=
@@ -841,7 +896,7 @@ Prompts if content at point is enclosed by multiple elements.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh"></span>
-  <h4 class="subsubsection">12.74.8.16 emacspeak-eww-next-h</h4>
+  <h4 class="subsubsection">12.74.9.18 emacspeak-eww-next-h</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh">Command:
     <strong>emacspeak-eww-next-h</strong> <em>(&amp;optional
@@ -856,7 +911,7 @@ The h is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh1"></span>
-  <h4 class="subsubsection">12.74.8.17 emacspeak-eww-next-h1</h4>
+  <h4 class="subsubsection">12.74.9.19 emacspeak-eww-next-h1</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh1">Command:
     <strong>emacspeak-eww-next-h1</strong> <em>(&amp;optional
@@ -871,7 +926,7 @@ The h1 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh2"></span>
-  <h4 class="subsubsection">12.74.8.18 emacspeak-eww-next-h2</h4>
+  <h4 class="subsubsection">12.74.9.20 emacspeak-eww-next-h2</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh2">Command:
     <strong>emacspeak-eww-next-h2</strong> <em>(&amp;optional
@@ -886,7 +941,7 @@ The h2 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh3"></span>
-  <h4 class="subsubsection">12.74.8.19 emacspeak-eww-next-h3</h4>
+  <h4 class="subsubsection">12.74.9.21 emacspeak-eww-next-h3</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh3">Command:
     <strong>emacspeak-eww-next-h3</strong> <em>(&amp;optional
@@ -901,7 +956,7 @@ The h3 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh4"></span>
-  <h4 class="subsubsection">12.74.8.20 emacspeak-eww-next-h4</h4>
+  <h4 class="subsubsection">12.74.9.22 emacspeak-eww-next-h4</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh4">Command:
     <strong>emacspeak-eww-next-h4</strong> <em>(&amp;optional
@@ -916,7 +971,7 @@ The h4 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh5"></span>
-  <h4 class="subsubsection">12.74.8.21 emacspeak-eww-next-h5</h4>
+  <h4 class="subsubsection">12.74.9.23 emacspeak-eww-next-h5</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh5">Command:
     <strong>emacspeak-eww-next-h5</strong> <em>(&amp;optional
@@ -931,7 +986,7 @@ The h5 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dh6"></span>
-  <h4 class="subsubsection">12.74.8.22 emacspeak-eww-next-h6</h4>
+  <h4 class="subsubsection">12.74.9.24 emacspeak-eww-next-h6</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dh6">Command:
     <strong>emacspeak-eww-next-h6</strong> <em>(&amp;optional
@@ -946,7 +1001,7 @@ The h6 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dli"></span>
-  <h4 class="subsubsection">12.74.8.23 emacspeak-eww-next-li</h4>
+  <h4 class="subsubsection">12.74.9.25 emacspeak-eww-next-li</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dli">Command:
     <strong>emacspeak-eww-next-li</strong> <em>(&amp;optional
@@ -961,7 +1016,7 @@ The li is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dol"></span>
-  <h4 class="subsubsection">12.74.8.24 emacspeak-eww-next-ol</h4>
+  <h4 class="subsubsection">12.74.9.26 emacspeak-eww-next-ol</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dol">Command:
     <strong>emacspeak-eww-next-ol</strong> <em>(&amp;optional
@@ -976,7 +1031,7 @@ The ol is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dp"></span>
-  <h4 class="subsubsection">12.74.8.25 emacspeak-eww-next-p</h4>
+  <h4 class="subsubsection">12.74.9.27 emacspeak-eww-next-p</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dp">Command:
     <strong>emacspeak-eww-next-p</strong> <em>(&amp;optional
@@ -991,7 +1046,7 @@ The p is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dtable"></span>
-  <h4 class="subsubsection">12.74.8.26
+  <h4 class="subsubsection">12.74.9.28
   emacspeak-eww-next-table</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dtable">Command:
@@ -1008,7 +1063,7 @@ The table is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dnext_002dul"></span>
-  <h4 class="subsubsection">12.74.8.27 emacspeak-eww-next-ul</h4>
+  <h4 class="subsubsection">12.74.9.29 emacspeak-eww-next-ul</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dnext_002dul">Command:
     <strong>emacspeak-eww-next-ul</strong> <em>(&amp;optional
@@ -1023,7 +1078,7 @@ The ul is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dopen_002dmark"></span>
-  <h4 class="subsubsection">12.74.8.28 emacspeak-eww-open-mark</h4>
+  <h4 class="subsubsection">12.74.9.30 emacspeak-eww-open-mark</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dopen_002dmark">Command:
     <strong>emacspeak-eww-open-mark</strong> <em>(name
@@ -1046,7 +1101,7 @@ interactive prefix arg ‘delete’, delete that mark instead.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dplay_002dmedia_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.74.8.29
+  <h4 class="subsubsection">12.74.9.31
   emacspeak-eww-play-media-at-point</h4>
   <dl>
     <dt id=
@@ -1072,7 +1127,7 @@ Optional interactive prefix arg ‘playlist-p’ says to treat the
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002ddd"></span>
-  <h4 class="subsubsection">12.74.8.30
+  <h4 class="subsubsection">12.74.9.32
   emacspeak-eww-previous-dd</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002ddd">Command:
@@ -1089,7 +1144,7 @@ The dd is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002ddl"></span>
-  <h4 class="subsubsection">12.74.8.31
+  <h4 class="subsubsection">12.74.9.33
   emacspeak-eww-previous-dl</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002ddl">Command:
@@ -1106,7 +1161,7 @@ The dl is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002ddt"></span>
-  <h4 class="subsubsection">12.74.8.32
+  <h4 class="subsubsection">12.74.9.34
   emacspeak-eww-previous-dt</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002ddt">Command:
@@ -1124,7 +1179,7 @@ The dt is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dprevious_002delement"></span>
-  <h4 class="subsubsection">12.74.8.33
+  <h4 class="subsubsection">12.74.9.35
   emacspeak-eww-previous-element</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002delement">
@@ -1143,7 +1198,7 @@ The dt is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory"></span>
-  <h4 class="subsubsection">12.74.8.34
+  <h4 class="subsubsection">12.74.9.36
   emacspeak-eww-previous-element-from-history</h4>
   <dl>
     <dt id=
@@ -1162,7 +1217,7 @@ The dt is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dprevious_002delement_002dlike_002dthis"></span>
-  <h4 class="subsubsection">12.74.8.35
+  <h4 class="subsubsection">12.74.9.37
   emacspeak-eww-previous-element-like-this</h4>
   <dl>
     <dt id=
@@ -1183,7 +1238,7 @@ Prompts if content at point is enclosed by multiple elements.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh"></span>
-  <h4 class="subsubsection">12.74.8.36
+  <h4 class="subsubsection">12.74.9.38
   emacspeak-eww-previous-h</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh">Command:
@@ -1200,7 +1255,7 @@ The h is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh1"></span>
-  <h4 class="subsubsection">12.74.8.37
+  <h4 class="subsubsection">12.74.9.39
   emacspeak-eww-previous-h1</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh1">Command:
@@ -1217,7 +1272,7 @@ The h1 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh2"></span>
-  <h4 class="subsubsection">12.74.8.38
+  <h4 class="subsubsection">12.74.9.40
   emacspeak-eww-previous-h2</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh2">Command:
@@ -1234,7 +1289,7 @@ The h2 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh3"></span>
-  <h4 class="subsubsection">12.74.8.39
+  <h4 class="subsubsection">12.74.9.41
   emacspeak-eww-previous-h3</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh3">Command:
@@ -1251,7 +1306,7 @@ The h3 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh4"></span>
-  <h4 class="subsubsection">12.74.8.40
+  <h4 class="subsubsection">12.74.9.42
   emacspeak-eww-previous-h4</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh4">Command:
@@ -1268,7 +1323,7 @@ The h4 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh5"></span>
-  <h4 class="subsubsection">12.74.8.41
+  <h4 class="subsubsection">12.74.9.43
   emacspeak-eww-previous-h5</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh5">Command:
@@ -1285,7 +1340,7 @@ The h5 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dh6"></span>
-  <h4 class="subsubsection">12.74.8.42
+  <h4 class="subsubsection">12.74.9.44
   emacspeak-eww-previous-h6</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dh6">Command:
@@ -1302,7 +1357,7 @@ The h6 is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dli"></span>
-  <h4 class="subsubsection">12.74.8.43
+  <h4 class="subsubsection">12.74.9.45
   emacspeak-eww-previous-li</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dli">Command:
@@ -1319,7 +1374,7 @@ The li is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dol"></span>
-  <h4 class="subsubsection">12.74.8.44
+  <h4 class="subsubsection">12.74.9.46
   emacspeak-eww-previous-ol</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dol">Command:
@@ -1336,7 +1391,7 @@ The ol is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dp"></span>
-  <h4 class="subsubsection">12.74.8.45
+  <h4 class="subsubsection">12.74.9.47
   emacspeak-eww-previous-p</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dp">Command:
@@ -1353,7 +1408,7 @@ The p is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dtable"></span>
-  <h4 class="subsubsection">12.74.8.46
+  <h4 class="subsubsection">12.74.9.48
   emacspeak-eww-previous-table</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dtable">
@@ -1370,7 +1425,7 @@ The table is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dprevious_002dul"></span>
-  <h4 class="subsubsection">12.74.8.47
+  <h4 class="subsubsection">12.74.9.49
   emacspeak-eww-previous-ul</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dprevious_002dul">Command:
@@ -1388,7 +1443,7 @@ The ul is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dreading_002dsettings"></span>
-  <h4 class="subsubsection">12.74.8.48
+  <h4 class="subsubsection">12.74.9.50
   emacspeak-eww-reading-settings</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dreading_002dsettings">
@@ -1403,7 +1458,7 @@ The ul is automatically spoken if there is no user activity.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002drestore"></span>
-  <h4 class="subsubsection">12.74.8.49 emacspeak-eww-restore</h4>
+  <h4 class="subsubsection">12.74.9.51 emacspeak-eww-restore</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002drestore">Command:
     <strong>emacspeak-eww-restore</strong></dt>
@@ -1417,7 +1472,7 @@ The ul is automatically spoken if there is no user activity.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dshell_002dcommand_002don_002durl_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.74.8.50
+  <h4 class="subsubsection">12.74.9.52
   emacspeak-eww-shell-command-on-url-at-point</h4>
   <dl>
     <dt id=
@@ -1439,7 +1494,7 @@ Warning: Running shell script cbox through this fails mysteriously.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dsmart_002dtabs"></span>
-  <h4 class="subsubsection">12.74.8.51
+  <h4 class="subsubsection">12.74.9.53
   emacspeak-eww-smart-tabs</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dsmart_002dtabs">Command:
@@ -1464,7 +1519,7 @@ with an interactive prefix arg.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dsmart_002dtabs_002dadd"></span>
-  <h4 class="subsubsection">12.74.8.52
+  <h4 class="subsubsection">12.74.9.54
   emacspeak-eww-smart-tabs-add</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dsmart_002dtabs_002dadd">
@@ -1483,7 +1538,7 @@ with an interactive prefix arg.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dsmart_002dtabs_002dload"></span>
-  <h4 class="subsubsection">12.74.8.53
+  <h4 class="subsubsection">12.74.9.55
   emacspeak-eww-smart-tabs-load</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dsmart_002dtabs_002dload">
@@ -1498,7 +1553,7 @@ with an interactive prefix arg.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dsmart_002dtabs_002dsave"></span>
-  <h4 class="subsubsection">12.74.8.54
+  <h4 class="subsubsection">12.74.9.56
   emacspeak-eww-smart-tabs-save</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dsmart_002dtabs_002dsave">
@@ -1514,7 +1569,7 @@ with an interactive prefix arg.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dspeak_002dthis_002delement"></span>
-  <h4 class="subsubsection">12.74.8.55
+  <h4 class="subsubsection">12.74.9.57
   emacspeak-eww-speak-this-element</h4>
   <dl>
     <dt id=
@@ -1535,7 +1590,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dtable_002dnext_002dcell"></span>
-  <h4 class="subsubsection">12.74.8.56
+  <h4 class="subsubsection">12.74.9.58
   emacspeak-eww-table-next-cell</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dtable_002dnext_002dcell">
@@ -1554,8 +1609,27 @@ Interactive prefix arg moves to the last cell in the table.
       </div>
     </dd>
   </dl><span id=
+  "emacspeak_002deww_002dtable_002dnext_002drow"></span>
+  <h4 class="subsubsection">12.74.9.59
+  emacspeak-eww-table-next-row</h4>
+  <dl>
+    <dt id="index-emacspeak_002deww_002dtable_002dnext_002drow">
+    Command: <strong>emacspeak-eww-table-next-row</strong>
+    <em>(&amp;optional prefix)</em></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002deww_002dtable_002dnext_002drow-1"></span>
+      <div class="format">
+        <pre class="format">Speak  cell after moving to next row.
+ Optional interactive prefix arg moves to end of table.
+
+(fn &amp;optional PREFIX)
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
   "emacspeak_002deww_002dtable_002dprevious_002dcell"></span>
-  <h4 class="subsubsection">12.74.8.57
+  <h4 class="subsubsection">12.74.9.60
   emacspeak-eww-table-previous-cell</h4>
   <dl>
     <dt id=
@@ -1575,8 +1649,29 @@ With interactive prefix arg, move to the start of the table.
       </div>
     </dd>
   </dl><span id=
+  "emacspeak_002deww_002dtable_002dprevious_002drow"></span>
+  <h4 class="subsubsection">12.74.9.61
+  emacspeak-eww-table-previous-row</h4>
+  <dl>
+    <dt id=
+    "index-emacspeak_002deww_002dtable_002dprevious_002drow">
+    Command: <strong>emacspeak-eww-table-previous-row</strong>
+    <em>(&amp;optional prefix)</em></dt>
+    <dd>
+      <span id=
+      "index-emacspeak_002deww_002dtable_002dprevious_002drow-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Speak  cell after moving to previous row.
+ Optional interactive prefix arg moves to start of table.
+
+(fn &amp;optional PREFIX)
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
   "emacspeak_002deww_002dtable_002dspeak_002dcell"></span>
-  <h4 class="subsubsection">12.74.8.58
+  <h4 class="subsubsection">12.74.9.62
   emacspeak-eww-table-speak-cell</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dtable_002dspeak_002dcell">
@@ -1591,7 +1686,7 @@ With interactive prefix arg, move to the start of the table.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dtable_002dspeak_002ddimensions"></span>
-  <h4 class="subsubsection">12.74.8.59
+  <h4 class="subsubsection">12.74.9.63
   emacspeak-eww-table-speak-dimensions</h4>
   <dl>
     <dt id=
@@ -1609,7 +1704,7 @@ With interactive prefix arg, move to the start of the table.
     </dd>
   </dl><span id=
   "emacspeak_002deww_002dtags_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.74.8.60
+  <h4 class="subsubsection">12.74.9.64
   emacspeak-eww-tags-at-point</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dtags_002dat_002dpoint">
@@ -1623,7 +1718,7 @@ With interactive prefix arg, move to the start of the table.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww_002dupdate_002dtitle"></span>
-  <h4 class="subsubsection">12.74.8.61
+  <h4 class="subsubsection">12.74.9.65
   emacspeak-eww-update-title</h4>
   <dl>
     <dt id="index-emacspeak_002deww_002dupdate_002dtitle">Command:
@@ -1641,7 +1736,7 @@ With interactive prefix arg, move to the start of the table.
       </div>
     </dd>
   </dl><span id="emacspeak_002deww-Options"></span>
-  <h4 class="subsection">12.74.9 emacspeak-eww Options</h4>
+  <h4 class="subsection">12.74.10 emacspeak-eww Options</h4>
   <dl>
     <dt id="index-User-Option-245">Variable: <strong>User
     Option</strong> <em>emacspeak-eww-inhibit-images</em></dt>
