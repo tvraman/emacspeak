@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 18, 2020.
+last updated on October 20, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -140,7 +140,25 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
      ‘eww-view-dom-not-having-role’ Filter out DOM nodes having
      specified role.  Valid role values are available via completion.
 
-12.74.3 Updated Commands For Following Links
+12.74.3 Diving Into (Focusing) On Specific Content
+--------------------------------------------------
+
+Contrast this with filtering described in the previous section.  There,
+we discussed commands that _filter_ the DOM to render specific types of
+elements.  For HTML as spoken on the Web, there is a separate use-case
+that is helpful as a dual to filtering, namely, displaying a specific
+portion of a page, typically the contents of a ‘div’ element.  These
+elements often appear many times on a page, and can be deeply nested,
+making it difficult to focus on the relevant content on the page, e.g.
+news sites.  Commands ‘emacspeak-eww-dive-into-div’ and
+‘emacspeak-eww-dive-into-table’ help in such cases, ‘C-d’ renders the
+‘div’ containing point in a separate buffer; ‘C-t’ does the same for
+tables.  As with the filtering commands, ‘l’ returns to the buffer where
+these commands were executed.  Long-term users of Emacspeak who still
+remember Emacs-W3 will recognize this as the _focus_ command implemented
+by Emacspeak for W3.
+
+12.74.4 Updated Commands For Following Links
 --------------------------------------------
 
 These key-bindings are available when point is on a link.  They enable
@@ -170,7 +188,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      ‘emacspeak-m-player-youtube-player’ Play link under point as a
      Youtube stream.
 
-12.74.4 Miscellaneous Commands
+12.74.5 Miscellaneous Commands
 ------------------------------
 
 ‘C-RET’
@@ -204,7 +222,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 Google-Search specific commands, many of which are available via
 prefix-key ‘G’.
 
-12.74.5 Filtering Content Using XSLT And XPath
+12.74.6 Filtering Content Using XSLT And XPath
 ----------------------------------------------
 
 ‘C-c’
@@ -298,7 +316,7 @@ prefix-key ‘G’.
      ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
      filter by class values.
 
-12.74.6 EWW And EBooks On The Emacspeak Audio Desktop
+12.74.7 EWW And EBooks On The Emacspeak Audio Desktop
 -----------------------------------------------------
 
 Modules emacspeak-epub and emacspeak-bookshare provide EBook front-ends
@@ -312,7 +330,7 @@ To open a previously created eww-mark, use command
 eww-mark name with completion.  Use this command with an interactive
 prefix arg to delete a previously created eww-mark.
 
-12.74.7 Table Browsing
+12.74.8 Table Browsing
 ----------------------
 
 Emacspeak EWW supports table navigation via keys ‘M-.’, ‘M-LEFT’ and
@@ -323,10 +341,10 @@ number of rows and cells in the table.  This works for plain tables, not
 nested tables; for nested tables, first have then _unnested_ using one
 of the XSLT transforms like ‘sort-tables’.
 
-12.74.8 Emacspeak-Eww Commands
+12.74.9 Emacspeak-Eww Commands
 ------------------------------
 
-12.74.8.1 emacspeak-eww-add-mark
+12.74.9.1 emacspeak-eww-add-mark
 ................................
 
  -- Command: emacspeak-eww-add-mark (name)
@@ -335,7 +353,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn NAME)
 
-12.74.8.2 emacspeak-eww-curl-play-media-at-point
+12.74.9.2 emacspeak-eww-curl-play-media-at-point
 ................................................
 
  -- Command: emacspeak-eww-curl-play-media-at-point
@@ -344,7 +362,7 @@ of the XSLT transforms like ‘sort-tables’.
      the first line to MPlayer as a playlist.
      Useful in handling double-redirect from TuneIn.
 
-12.74.8.3 emacspeak-eww-delete-mark
+12.74.9.3 emacspeak-eww-delete-mark
 ...................................
 
  -- Command: emacspeak-eww-delete-mark (name)
@@ -353,14 +371,28 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn NAME)
 
-12.74.8.4 emacspeak-eww-fillin-form-field
+12.74.9.4 emacspeak-eww-dive-into-div
+.....................................
+
+ -- Command: emacspeak-eww-dive-into-div
+
+     Focus on current div by rendering it in a new buffer.
+
+12.74.9.5 emacspeak-eww-dive-into-table
+.......................................
+
+ -- Command: emacspeak-eww-dive-into-table
+
+     Focus on current table by rendering it in a new buffer.
+
+12.74.9.6 emacspeak-eww-fillin-form-field
 .........................................
 
  -- Command: emacspeak-eww-fillin-form-field
 
      Fill in user or passwd field using auth-source backend.
 
-12.74.8.5 emacspeak-eww-google-knowledge-card
+12.74.9.7 emacspeak-eww-google-knowledge-card
 .............................................
 
  -- Command: emacspeak-eww-google-knowledge-card
@@ -369,7 +401,7 @@ of the XSLT transforms like ‘sort-tables’.
      Warning, this is fragile, and depends on a stable id/class for the
        knowledge card.
 
-12.74.8.6 emacspeak-eww-links-rel
+12.74.9.8 emacspeak-eww-links-rel
 .................................
 
  -- Command: emacspeak-eww-links-rel
@@ -377,28 +409,28 @@ of the XSLT transforms like ‘sort-tables’.
      Display Link tags of type rel.  Web pages for which alternate links
      are available are cued by an auditory icon on the header line.
 
-12.74.8.7 emacspeak-eww-marks-load
+12.74.9.9 emacspeak-eww-marks-load
 ..................................
 
  -- Command: emacspeak-eww-marks-load
 
      Load saved marks.
 
-12.74.8.8 emacspeak-eww-marks-save
-..................................
+12.74.9.10 emacspeak-eww-marks-save
+...................................
 
  -- Command: emacspeak-eww-marks-save
 
      Save Emacspeak EWW marks.
 
-12.74.8.9 emacspeak-eww-masquerade
-..................................
+12.74.9.11 emacspeak-eww-masquerade
+...................................
 
  -- Command: emacspeak-eww-masquerade
 
      Toggle masquerade state.
 
-12.74.8.10 emacspeak-eww-next-dd
+12.74.9.12 emacspeak-eww-next-dd
 ................................
 
  -- Command: emacspeak-eww-next-dd (&optional speak)
@@ -407,7 +439,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the dd.
      The dd is automatically spoken if there is no user activity.
 
-12.74.8.11 emacspeak-eww-next-dl
+12.74.9.13 emacspeak-eww-next-dl
 ................................
 
  -- Command: emacspeak-eww-next-dl (&optional speak)
@@ -416,7 +448,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the dl.
      The dl is automatically spoken if there is no user activity.
 
-12.74.8.12 emacspeak-eww-next-dt
+12.74.9.14 emacspeak-eww-next-dt
 ................................
 
  -- Command: emacspeak-eww-next-dt (&optional speak)
@@ -425,7 +457,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the dt.
      The dt is automatically spoken if there is no user activity.
 
-12.74.8.13 emacspeak-eww-next-element
+12.74.9.15 emacspeak-eww-next-element
 .....................................
 
  -- Command: emacspeak-eww-next-element (el)
@@ -434,14 +466,14 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn EL)
 
-12.74.8.14 emacspeak-eww-next-element-from-history
+12.74.9.16 emacspeak-eww-next-element-from-history
 ..................................................
 
  -- Command: emacspeak-eww-next-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.74.8.15 emacspeak-eww-next-element-like-this
+12.74.9.17 emacspeak-eww-next-element-like-this
 ...............................................
 
  -- Command: emacspeak-eww-next-element-like-this (element)
@@ -451,7 +483,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn ELEMENT)
 
-12.74.8.16 emacspeak-eww-next-h
+12.74.9.18 emacspeak-eww-next-h
 ...............................
 
  -- Command: emacspeak-eww-next-h (&optional speak)
@@ -460,7 +492,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.74.8.17 emacspeak-eww-next-h1
+12.74.9.19 emacspeak-eww-next-h1
 ................................
 
  -- Command: emacspeak-eww-next-h1 (&optional speak)
@@ -469,7 +501,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.74.8.18 emacspeak-eww-next-h2
+12.74.9.20 emacspeak-eww-next-h2
 ................................
 
  -- Command: emacspeak-eww-next-h2 (&optional speak)
@@ -478,7 +510,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.74.8.19 emacspeak-eww-next-h3
+12.74.9.21 emacspeak-eww-next-h3
 ................................
 
  -- Command: emacspeak-eww-next-h3 (&optional speak)
@@ -487,7 +519,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.74.8.20 emacspeak-eww-next-h4
+12.74.9.22 emacspeak-eww-next-h4
 ................................
 
  -- Command: emacspeak-eww-next-h4 (&optional speak)
@@ -496,7 +528,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.74.8.21 emacspeak-eww-next-h5
+12.74.9.23 emacspeak-eww-next-h5
 ................................
 
  -- Command: emacspeak-eww-next-h5 (&optional speak)
@@ -505,7 +537,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.74.8.22 emacspeak-eww-next-h6
+12.74.9.24 emacspeak-eww-next-h6
 ................................
 
  -- Command: emacspeak-eww-next-h6 (&optional speak)
@@ -514,7 +546,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.74.8.23 emacspeak-eww-next-li
+12.74.9.25 emacspeak-eww-next-li
 ................................
 
  -- Command: emacspeak-eww-next-li (&optional speak)
@@ -523,7 +555,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.74.8.24 emacspeak-eww-next-ol
+12.74.9.26 emacspeak-eww-next-ol
 ................................
 
  -- Command: emacspeak-eww-next-ol (&optional speak)
@@ -532,7 +564,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.74.8.25 emacspeak-eww-next-p
+12.74.9.27 emacspeak-eww-next-p
 ...............................
 
  -- Command: emacspeak-eww-next-p (&optional speak)
@@ -541,7 +573,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.74.8.26 emacspeak-eww-next-table
+12.74.9.28 emacspeak-eww-next-table
 ...................................
 
  -- Command: emacspeak-eww-next-table (&optional speak)
@@ -550,7 +582,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.74.8.27 emacspeak-eww-next-ul
+12.74.9.29 emacspeak-eww-next-ul
 ................................
 
  -- Command: emacspeak-eww-next-ul (&optional speak)
@@ -559,7 +591,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.74.8.28 emacspeak-eww-open-mark
+12.74.9.30 emacspeak-eww-open-mark
 ..................................
 
  -- Command: emacspeak-eww-open-mark (name &optional delete)
@@ -571,7 +603,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn NAME &optional DELETE)
 
-12.74.8.29 emacspeak-eww-play-media-at-point
+12.74.9.31 emacspeak-eww-play-media-at-point
 ............................................
 
  -- Command: emacspeak-eww-play-media-at-point (&optional playlist-p)
@@ -585,7 +617,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PLAYLIST-P)
 
-12.74.8.30 emacspeak-eww-previous-dd
+12.74.9.32 emacspeak-eww-previous-dd
 ....................................
 
  -- Command: emacspeak-eww-previous-dd (&optional speak)
@@ -594,7 +626,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the dd.
      The dd is automatically spoken if there is no user activity.
 
-12.74.8.31 emacspeak-eww-previous-dl
+12.74.9.33 emacspeak-eww-previous-dl
 ....................................
 
  -- Command: emacspeak-eww-previous-dl (&optional speak)
@@ -603,7 +635,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the dl.
      The dl is automatically spoken if there is no user activity.
 
-12.74.8.32 emacspeak-eww-previous-dt
+12.74.9.34 emacspeak-eww-previous-dt
 ....................................
 
  -- Command: emacspeak-eww-previous-dt (&optional speak)
@@ -612,7 +644,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the dt.
      The dt is automatically spoken if there is no user activity.
 
-12.74.8.33 emacspeak-eww-previous-element
+12.74.9.35 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
@@ -621,14 +653,14 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn EL)
 
-12.74.8.34 emacspeak-eww-previous-element-from-history
+12.74.9.36 emacspeak-eww-previous-element-from-history
 ......................................................
 
  -- Command: emacspeak-eww-previous-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.74.8.35 emacspeak-eww-previous-element-like-this
+12.74.9.37 emacspeak-eww-previous-element-like-this
 ...................................................
 
  -- Command: emacspeak-eww-previous-element-like-this (element)
@@ -638,7 +670,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn ELEMENT)
 
-12.74.8.36 emacspeak-eww-previous-h
+12.74.9.38 emacspeak-eww-previous-h
 ...................................
 
  -- Command: emacspeak-eww-previous-h (&optional speak)
@@ -647,7 +679,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h.
      The h is automatically spoken if there is no user activity.
 
-12.74.8.37 emacspeak-eww-previous-h1
+12.74.9.39 emacspeak-eww-previous-h1
 ....................................
 
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
@@ -656,7 +688,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h1.
      The h1 is automatically spoken if there is no user activity.
 
-12.74.8.38 emacspeak-eww-previous-h2
+12.74.9.40 emacspeak-eww-previous-h2
 ....................................
 
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
@@ -665,7 +697,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h2.
      The h2 is automatically spoken if there is no user activity.
 
-12.74.8.39 emacspeak-eww-previous-h3
+12.74.9.41 emacspeak-eww-previous-h3
 ....................................
 
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
@@ -674,7 +706,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h3.
      The h3 is automatically spoken if there is no user activity.
 
-12.74.8.40 emacspeak-eww-previous-h4
+12.74.9.42 emacspeak-eww-previous-h4
 ....................................
 
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
@@ -683,7 +715,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h4.
      The h4 is automatically spoken if there is no user activity.
 
-12.74.8.41 emacspeak-eww-previous-h5
+12.74.9.43 emacspeak-eww-previous-h5
 ....................................
 
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
@@ -692,7 +724,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h5.
      The h5 is automatically spoken if there is no user activity.
 
-12.74.8.42 emacspeak-eww-previous-h6
+12.74.9.44 emacspeak-eww-previous-h6
 ....................................
 
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
@@ -701,7 +733,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the h6.
      The h6 is automatically spoken if there is no user activity.
 
-12.74.8.43 emacspeak-eww-previous-li
+12.74.9.45 emacspeak-eww-previous-li
 ....................................
 
  -- Command: emacspeak-eww-previous-li (&optional speak)
@@ -710,7 +742,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the li.
      The li is automatically spoken if there is no user activity.
 
-12.74.8.44 emacspeak-eww-previous-ol
+12.74.9.46 emacspeak-eww-previous-ol
 ....................................
 
  -- Command: emacspeak-eww-previous-ol (&optional speak)
@@ -719,7 +751,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the ol.
      The ol is automatically spoken if there is no user activity.
 
-12.74.8.45 emacspeak-eww-previous-p
+12.74.9.47 emacspeak-eww-previous-p
 ...................................
 
  -- Command: emacspeak-eww-previous-p (&optional speak)
@@ -728,7 +760,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the p.
      The p is automatically spoken if there is no user activity.
 
-12.74.8.46 emacspeak-eww-previous-table
+12.74.9.48 emacspeak-eww-previous-table
 .......................................
 
  -- Command: emacspeak-eww-previous-table (&optional speak)
@@ -737,7 +769,7 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the table.
      The table is automatically spoken if there is no user activity.
 
-12.74.8.47 emacspeak-eww-previous-ul
+12.74.9.49 emacspeak-eww-previous-ul
 ....................................
 
  -- Command: emacspeak-eww-previous-ul (&optional speak)
@@ -746,21 +778,21 @@ of the XSLT transforms like ‘sort-tables’.
      Optional interactive prefix arg speaks the ul.
      The ul is automatically spoken if there is no user activity.
 
-12.74.8.48 emacspeak-eww-reading-settings
+12.74.9.50 emacspeak-eww-reading-settings
 .........................................
 
  -- Command: emacspeak-eww-reading-settings
 
      Setup speech-rate, punctuation and split-caps for reading prose.
 
-12.74.8.49 emacspeak-eww-restore
+12.74.9.51 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.74.8.50 emacspeak-eww-shell-command-on-url-at-point
+12.74.9.52 emacspeak-eww-shell-command-on-url-at-point
 ......................................................
 
  -- Command: emacspeak-eww-shell-command-on-url-at-point (&optional
@@ -771,7 +803,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.8.51 emacspeak-eww-smart-tabs
+12.74.9.53 emacspeak-eww-smart-tabs
 ...................................
 
  -- Command: emacspeak-eww-smart-tabs (char &optional define)
@@ -784,7 +816,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn CHAR &optional DEFINE)
 
-12.74.8.52 emacspeak-eww-smart-tabs-add
+12.74.9.54 emacspeak-eww-smart-tabs-add
 .......................................
 
  -- Command: emacspeak-eww-smart-tabs-add (char url)
@@ -793,21 +825,21 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn CHAR URL)
 
-12.74.8.53 emacspeak-eww-smart-tabs-load
+12.74.9.55 emacspeak-eww-smart-tabs-load
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-load
 
      Load our smart tabsfrom a file.
 
-12.74.8.54 emacspeak-eww-smart-tabs-save
+12.74.9.56 emacspeak-eww-smart-tabs-save
 ........................................
 
  -- Command: emacspeak-eww-smart-tabs-save
 
      Save our smart tabs to a file for reloading.
 
-12.74.8.55 emacspeak-eww-speak-this-element
+12.74.9.57 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -818,7 +850,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn ELEMENT)
 
-12.74.8.56 emacspeak-eww-table-next-cell
+12.74.9.58 emacspeak-eww-table-next-cell
 ........................................
 
  -- Command: emacspeak-eww-table-next-cell (&optional prefix)
@@ -828,7 +860,17 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.8.57 emacspeak-eww-table-previous-cell
+12.74.9.59 emacspeak-eww-table-next-row
+.......................................
+
+ -- Command: emacspeak-eww-table-next-row (&optional prefix)
+
+     Speak  cell after moving to next row.
+      Optional interactive prefix arg moves to end of table.
+
+     (fn &optional PREFIX)
+
+12.74.9.60 emacspeak-eww-table-previous-cell
 ............................................
 
  -- Command: emacspeak-eww-table-previous-cell (&optional prefix)
@@ -838,28 +880,38 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.8.58 emacspeak-eww-table-speak-cell
+12.74.9.61 emacspeak-eww-table-previous-row
+...........................................
+
+ -- Command: emacspeak-eww-table-previous-row (&optional prefix)
+
+     Speak  cell after moving to previous row.
+      Optional interactive prefix arg moves to start of table.
+
+     (fn &optional PREFIX)
+
+12.74.9.62 emacspeak-eww-table-speak-cell
 .........................................
 
  -- Command: emacspeak-eww-table-speak-cell
 
      Speak current cell.
 
-12.74.8.59 emacspeak-eww-table-speak-dimensions
+12.74.9.63 emacspeak-eww-table-speak-dimensions
 ...............................................
 
  -- Command: emacspeak-eww-table-speak-dimensions
 
      Speak number of rows and cells.
 
-12.74.8.60 emacspeak-eww-tags-at-point
+12.74.9.64 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.74.8.61 emacspeak-eww-update-title
+12.74.9.65 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
@@ -868,8 +920,8 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn TITLE)
 
-12.74.9 emacspeak-eww Options
------------------------------
+12.74.10 emacspeak-eww Options
+------------------------------
 
  -- Variable: User Option emacspeak-eww-inhibit-images
      Turn this on to avoid rendering images.

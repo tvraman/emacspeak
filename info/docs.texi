@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1172 commands and 834 options.
+This chapter documents a total of 1176 commands and 834 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6322,7 +6322,26 @@ are available via completion.
 Filter out  DOM nodes having specified role. Valid role values
 are available via completion.
 @end table
+@subsection Diving Into (Focusing) On Specific Content
 
+Contrast this with filtering described in the previous section.
+There, we discussed commands that @emph{filter} the DOM to render
+specific types of elements. For HTML as spoken on the Web, there
+is a separate use-case that is helpful as a dual to filtering,
+namely, displaying a specific portion of a page, typically the
+contents of a @code{div} element.
+These elements often appear many times on a page, and can be
+deeply nested, making it difficult to focus on the relevant
+content on the page, e.g. news sites.
+Commands @code{emacspeak-eww-dive-into-div} and
+@code{emacspeak-eww-dive-into-table}
+help  in such cases, @kbd{C-d} renders the @code{div} containing
+point in a separate buffer; @kbd{C-t} does the same for
+tables. As with the filtering commands, @kbd{l} returns to the
+buffer where these commands were executed.
+Long-term users of Emacspeak who still remember Emacs-W3 will
+recognize this as the @emph{focus} command implemented by
+Emacspeak for W3.
 @subsection Updated  Commands For Following  Links
 
 These key-bindings are available when point is on a link. They
@@ -6556,6 +6575,24 @@ Useful in handling double-redirect from TuneIn.
 Interactively delete a mark with name ‘name’ at current position.
 
 (fn NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-dive-into-div
+@deffn {Command} emacspeak-eww-dive-into-div   
+@findex emacspeak-eww-dive-into-div
+
+@format
+Focus on current div by rendering it in a new buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-dive-into-table
+@deffn {Command} emacspeak-eww-dive-into-table   
+@findex emacspeak-eww-dive-into-table
+
+@format
+Focus on current table by rendering it in a new buffer.
 @end format
 @end deffn
 
@@ -7153,6 +7190,18 @@ Interactive prefix arg moves to the last cell in the table.
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-table-next-row
+@deffn {Command} emacspeak-eww-table-next-row  (&optional prefix)
+@findex emacspeak-eww-table-next-row
+
+@format
+Speak  cell after moving to next row.
+ Optional interactive prefix arg moves to end of table.
+
+(fn &optional PREFIX)
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-table-previous-cell
 @deffn {Command} emacspeak-eww-table-previous-cell  (&optional prefix)
 @findex emacspeak-eww-table-previous-cell
@@ -7160,6 +7209,18 @@ Interactive prefix arg moves to the last cell in the table.
 @format
 Speak previous cell after making it current.
 With interactive prefix arg, move to the start of the table.
+
+(fn &optional PREFIX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-table-previous-row
+@deffn {Command} emacspeak-eww-table-previous-row  (&optional prefix)
+@findex emacspeak-eww-table-previous-row
+
+@format
+Speak  cell after moving to previous row.
+ Optional interactive prefix arg moves to start of table.
 
 (fn &optional PREFIX)
 @end format
