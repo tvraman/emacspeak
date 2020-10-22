@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 20, 2020.
+last updated on October 22, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -850,7 +850,14 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn ELEMENT)
 
-12.74.9.58 emacspeak-eww-table-next-cell
+12.74.9.58 emacspeak-eww-table-data
+...................................
+
+ -- Command: emacspeak-eww-table-data
+
+     View  table at point as a data table using Emacspeak Table UI.
+
+12.74.9.59 emacspeak-eww-table-next-cell
 ........................................
 
  -- Command: emacspeak-eww-table-next-cell (&optional prefix)
@@ -860,7 +867,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.9.59 emacspeak-eww-table-next-row
+12.74.9.60 emacspeak-eww-table-next-row
 .......................................
 
  -- Command: emacspeak-eww-table-next-row (&optional prefix)
@@ -870,7 +877,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.9.60 emacspeak-eww-table-previous-cell
+12.74.9.61 emacspeak-eww-table-previous-cell
 ............................................
 
  -- Command: emacspeak-eww-table-previous-cell (&optional prefix)
@@ -880,7 +887,7 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.9.61 emacspeak-eww-table-previous-row
+12.74.9.62 emacspeak-eww-table-previous-row
 ...........................................
 
  -- Command: emacspeak-eww-table-previous-row (&optional prefix)
@@ -890,28 +897,28 @@ of the XSLT transforms like ‘sort-tables’.
 
      (fn &optional PREFIX)
 
-12.74.9.62 emacspeak-eww-table-speak-cell
+12.74.9.63 emacspeak-eww-table-speak-cell
 .........................................
 
  -- Command: emacspeak-eww-table-speak-cell
 
      Speak current cell.
 
-12.74.9.63 emacspeak-eww-table-speak-dimensions
+12.74.9.64 emacspeak-eww-table-speak-dimensions
 ...............................................
 
  -- Command: emacspeak-eww-table-speak-dimensions
 
      Speak number of rows and cells.
 
-12.74.9.64 emacspeak-eww-tags-at-point
+12.74.9.65 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.74.9.65 emacspeak-eww-update-title
+12.74.9.66 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)

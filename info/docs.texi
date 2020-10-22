@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1176 commands and 834 options.
+This chapter documents a total of 1177 commands and 834 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -7175,6 +7175,15 @@ Uses most recently navigated structural unit.
 Otherwise, prompts if content at point is enclosed by multiple elements.
 
 (fn ELEMENT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-table-data
+@deffn {Command} emacspeak-eww-table-data   
+@findex emacspeak-eww-table-data
+
+@format
+View  table at point as a data table using Emacspeak Table UI.
 @end format
 @end deffn
 
