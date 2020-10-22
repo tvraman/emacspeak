@@ -2281,12 +2281,9 @@ Value is specified as a position in the list of table cells.")
     (cl-assert table t "No table here.")
     (setq cells 
           (cl-loop
-           for r in
-           (dom-by-tag (get-text-property (point) 'table-dom) 'tr)
-           collect
+           for r in (dom-by-tag table 'tr) collect
            (cl-loop
-            for c in   (dom-by-tag r 'td)
-            collect
+            for c in   (dom-by-tag r 'td) collect
             (string-trim (dom-texts c " ")))))
     (apply #'vector (mapcar #'vconcat cells))))
 
