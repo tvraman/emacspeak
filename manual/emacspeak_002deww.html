@@ -355,8 +355,39 @@
       <p><code>emacspeak-m-player-youtube-player</code> Play link
       under point as a Youtube stream.</p>
     </dd>
-  </dl><span id="Miscellaneous-Commands"></span>
-  <h4 class="subsection">12.74.5 Miscellaneous Commands</h4>
+  </dl><span id="Table-Browsing"></span>
+  <h4 class="subsection">12.74.5 Table Browsing</h4>
+  <p>Summary Of Keyboard Commands:</p>
+  <ul>
+    <li><kbd>M-&lt;left&gt;</kbd> emacspeak-eww-table-previous-cell
+    — Speak previous cell.</li>
+    <li><kbd>M-&lt;right&gt;</kbd> emacspeak-eww-table-next-cell —
+    Speak previous cell.</li>
+    <li><kbd>M-&lt;up&gt;</kbd> emacspeak-eww-table-previous-row —
+    Speak cell above.</li>
+    <li><kbd>M-&lt;down&gt;</kbd> emacspeak-eww-table-next-row —
+    Speak cell below.</li>
+    <li><kbd>M-.</kbd> emacspeak-eww-table-speak-cell — Speak
+    current cell.</li>
+    <li><kbd>M-,</kbd> emacspeak-eww-table-speak-dimensions — Speak
+    number of rows and columns.</li>
+    <li><kbd>C-t</kbd> emacspeak-eww-dive-into-table — Focus on
+    table and display in a new buffer.</li>
+    <li><kbd>M-C-t</kbd> emacspeak-eww-table-data — Browse this
+    table in Emacspeak’s Table UI — See <a href=
+    "emacspeak_002dtable_002dui.html">emacspeak-table-ui</a>.</li>
+  </ul>
+  <p>Emacspeak EWW supports table navigation via keys
+  <kbd>M-.</kbd>, <kbd>M-LEFT</kbd> and <kbd>M-RIGHT</kbd>, to
+  speak the current, previous and next table cell respectively. The
+  latter commands also move to the cell being spoken. You can get a
+  sense of the table’s size via <kbd>M-,</kbd> which speaks the
+  number of rows and cells in the table. This works for plain
+  tables, not nested tables; for nested tables, first have then
+  <em>unnested</em> using one of the XSLT transforms like
+  <code>sort-tables</code>.</p><span id=
+  "Miscellaneous-Commands"></span>
+  <h4 class="subsection">12.74.6 Miscellaneous Commands</h4>
   <dl compact="compact">
     <dt><kbd>C-RET</kbd></dt>
     <dd>
@@ -419,7 +450,7 @@
   Google-Search specific commands, many of which are available via
   prefix-key <kbd>G</kbd>.</p><span id=
   "Filtering-Content-Using-XSLT-And-XPath"></span>
-  <h4 class="subsection">12.74.6 Filtering Content Using XSLT And
+  <h4 class="subsection">12.74.7 Filtering Content Using XSLT And
   XPath</h4>
   <dl compact="compact">
     <dt><kbd>C-c</kbd></dt>
@@ -591,7 +622,7 @@
     </dd>
   </dl><span id=
   "EWW-And-EBooks-On-The-Emacspeak-Audio-Desktop"></span>
-  <h4 class="subsection">12.74.7 EWW And EBooks On The Emacspeak
+  <h4 class="subsection">12.74.8 EWW And EBooks On The Emacspeak
   Audio Desktop</h4>
   <p>Modules emacspeak-epub and emacspeak-bookshare provide EBook
   front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW
@@ -604,17 +635,7 @@
   <code>emacspeak-eww-open-mark</code> bound to <code>C-x r
   e</code>. This command reads a eww-mark name with completion. Use
   this command with an interactive prefix arg to delete a
-  previously created eww-mark.</p><span id="Table-Browsing"></span>
-  <h4 class="subsection">12.74.8 Table Browsing</h4>
-  <p>Emacspeak EWW supports table navigation via keys
-  <kbd>M-.</kbd>, <kbd>M-LEFT</kbd> and <kbd>M-RIGHT</kbd>, to
-  speak the current, previous and next table cell respectively. The
-  latter commands also move to the cell being spoken. You can get a
-  sense of the table’s size via <kbd>M-,</kbd> which speaks the
-  number of rows and cells in the table. This works for plain
-  tables, not nested tables; for nested tables, first have then
-  <em>unnested</em> using one of the XSLT transforms like
-  <code>sort-tables</code>.</p><span id=
+  previously created eww-mark.</p><span id=
   "Emacspeak_002dEww-Commands"></span>
   <h4 class="subsection">12.74.9 Emacspeak-Eww
   Commands</h4><span id=
