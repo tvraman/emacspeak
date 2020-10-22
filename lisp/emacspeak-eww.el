@@ -2298,22 +2298,21 @@ Value is specified as a position in the list of table cells.")
 
 (defsubst emacspeak-eww-table-table ()
   "Return table cells as a table, a 2d structure."
-  (let ((cells nil)
+  (let ((data nil)
         (table (get-text-property (point) 'table-dom)))
     (cl-assert table t "No table here.")
-    (setq cells 
+    (setq data 
           (cl-loop
            for r in (dom-by-tag table 'tr) collect
            (cl-loop
             for c in   (dom-by-tag r 'td) collect
             (string-trim (dom-texts c " ")))))
-    (apply #'vector (mapcar #'vconcat cells))))
+    (apply #'vector (mapcar #'vconcat data))))
 
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
   (mapcar
-   #'(lambda (node)
-       (dom-texts node " "))
+   #'(lambda (node) (dom-texts node " "))
    (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
 
 (defsubst emacspeak-eww-table-row-count ()
@@ -2336,8 +2335,7 @@ Value is specified as a position in the list of table cells.")
   "Speak current cell."
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
-  (dtk-speak
-   (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
 
 (defun emacspeak-eww-table-previous-row (&optional prefix)
   "Speak  cell after moving to previous row.
@@ -2435,7 +2433,6 @@ With interactive prefix arg, move to the start of the table."
     (cl-assert dom t "No table here.")
     (emacspeak-eww-view-helper
      (dom-html-from-nodes (list dom) (eww-current-url)))))
-
 
 (defun emacspeak-eww-table-data ()
   "View  table at point as a data table using Emacspeak Table UI."
