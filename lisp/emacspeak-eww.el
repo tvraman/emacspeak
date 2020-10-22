@@ -2276,15 +2276,19 @@ Value is specified as a position in the list of table cells.")
 
 (defsubst emacspeak-eww-table-table ()
   "Return table cells as a table, a 2d structure."
-  (cl-assert (get-text-property (point) 'table-dom) t "No table here.")
-  (cl-loop
-   for r in
-   (dom-by-tag (get-text-property (point) 'table-dom) 'tr)
-   collect
-   (cl-loop
-    for c in   (dom-by-tag r 'td)
-    collect
-    (string-trim (dom-texts c " ")))))
+  (let ((cells nil)
+        (table (get-text-property (point) 'table-dom)))
+    (cl-assert table t "No table here.")
+    (setq cells 
+          (cl-loop
+           for r in
+           (dom-by-tag (get-text-property (point) 'table-dom) 'tr)
+           collect
+           (cl-loop
+            for c in   (dom-by-tag r 'td)
+            collect
+            (string-trim (dom-texts c " ")))))
+    (apply #'vector (mapcar #'vconcat cells))))
 
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
