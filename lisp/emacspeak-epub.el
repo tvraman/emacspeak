@@ -811,7 +811,7 @@ No book files are deleted."
            (format "EPub Bookshelf: %s" bookshelf-name)
            'face 'bold))
     (emacspeak-auditory-icon 'open-object)
-    (message "%s" bookshelf-name)))
+    (emacspeak-speak-header-line)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
