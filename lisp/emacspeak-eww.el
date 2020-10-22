@@ -2421,9 +2421,14 @@ With interactive prefix arg, move to the start of the table."
   (interactive)
   (let ((data (emacspeak-eww-table-table))
         (data-table nil)
-        (buffer (get-buffer-create (format  "Table: Data"))))
+        (inhibit-read-only t)
+        (buffer
+         (get-buffer-create
+          (format  "Table: %s" (emacspeak-eww-current-title)))))
     (setq data-table (emacspeak-table-make-table data))
-    (emacspeak-table-prepare-table-buffer data-table buffer)))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (emacspeak-table-prepare-table-buffer data-table buffer))))
 
 ;;}}}
 ;;{{{Dive Into DOM: div
