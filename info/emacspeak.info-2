@@ -188,7 +188,31 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
      ‘emacspeak-m-player-youtube-player’ Play link under point as a
      Youtube stream.
 
-12.74.5 Miscellaneous Commands
+12.74.5 Table Browsing
+----------------------
+
+Summary Of Keyboard Commands:
+   • ‘M-<left>’ emacspeak-eww-table-previous-cell — Speak previous cell.
+   • ‘M-<right>’ emacspeak-eww-table-next-cell — Speak previous cell.
+   • ‘M-<up>’ emacspeak-eww-table-previous-row — Speak cell above.
+   • ‘M-<down>’ emacspeak-eww-table-next-row — Speak cell below.
+   • ‘M-.’ emacspeak-eww-table-speak-cell — Speak current cell.
+   • ‘M-,’ emacspeak-eww-table-speak-dimensions — Speak number of rows
+     and columns.
+   • ‘C-t’ emacspeak-eww-dive-into-table — Focus on table and display in
+     a new buffer.
+   • ‘M-C-t’ emacspeak-eww-table-data — Browse this table in Emacspeak’s
+     Table UI — *Note emacspeak-table-ui::.
+
+   Emacspeak EWW supports table navigation via keys ‘M-.’, ‘M-LEFT’ and
+‘M-RIGHT’, to speak the current, previous and next table cell
+respectively.  The latter commands also move to the cell being spoken.
+You can get a sense of the table’s size via ‘M-,’ which speaks the
+number of rows and cells in the table.  This works for plain tables, not
+nested tables; for nested tables, first have then _unnested_ using one
+of the XSLT transforms like ‘sort-tables’.
+
+12.74.6 Miscellaneous Commands
 ------------------------------
 
 ‘C-RET’
@@ -222,7 +246,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 Google-Search specific commands, many of which are available via
 prefix-key ‘G’.
 
-12.74.6 Filtering Content Using XSLT And XPath
+12.74.7 Filtering Content Using XSLT And XPath
 ----------------------------------------------
 
 ‘C-c’
@@ -316,7 +340,7 @@ prefix-key ‘G’.
      ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
      filter by class values.
 
-12.74.7 EWW And EBooks On The Emacspeak Audio Desktop
+12.74.8 EWW And EBooks On The Emacspeak Audio Desktop
 -----------------------------------------------------
 
 Modules emacspeak-epub and emacspeak-bookshare provide EBook front-ends
@@ -329,17 +353,6 @@ To open a previously created eww-mark, use command
 ‘emacspeak-eww-open-mark’ bound to ‘C-x r e’.  This command reads a
 eww-mark name with completion.  Use this command with an interactive
 prefix arg to delete a previously created eww-mark.
-
-12.74.8 Table Browsing
-----------------------
-
-Emacspeak EWW supports table navigation via keys ‘M-.’, ‘M-LEFT’ and
-‘M-RIGHT’, to speak the current, previous and next table cell
-respectively.  The latter commands also move to the cell being spoken.
-You can get a sense of the table’s size via ‘M-,’ which speaks the
-number of rows and cells in the table.  This works for plain tables, not
-nested tables; for nested tables, first have then _unnested_ using one
-of the XSLT transforms like ‘sort-tables’.
 
 12.74.9 Emacspeak-Eww Commands
 ------------------------------
