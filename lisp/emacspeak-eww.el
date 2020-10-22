@@ -254,6 +254,36 @@
 ;;; Play link under point as a Youtube stream.
 ;;; @end table
 ;;;
+;;; @subsection Table Browsing
+
+;;; Summary Of Keyboard Commands:
+;;; @itemize
+;;; @item @kbd{M-<left>} emacspeak-eww-table-previous-cell@MDash{}
+;;; Speak previous cell.
+;;; @item @kbd{M-<right>} emacspeak-eww-table-next-cell @MDash{}
+;;; Speak previous cell.
+;;; @item @kbd{M-<up>} emacspeak-eww-table-previous-row @MDash{}
+;;; Speak cell above.
+;;; @item @kbd{M-<down>} emacspeak-eww-table-next-row @MDash{}
+;;; Speak  cell below. 
+;;; @item @kbd{M-.} emacspeak-eww-table-speak-cell @MDash{}
+;;; Speak current cell.
+;;; @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
+;;; Speak number of rows and columns.
+;;; @item @kbd{C-t} emacspeak-eww-dive-into-table@MDash{}
+;;; Focus on table and display in a new buffer.
+;;; @item @kbd{M-C-t} emacspeak-eww-table-data @MDash{}
+;;; Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
+;;; @end itemize
+
+;;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
+;;;@kbd{M-LEFT} and @kbd{M-RIGHT},
+;;; to speak the current, previous and next table cell
+;;;respectively. The latter commands also move to the cell being
+;;;spoken.  You can get  a sense of the table's size via @kbd{M-,}
+;;;which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
+;;;tables, first have then @emph{unnested} using one of the XSLT
+;;;transforms like @code{sort-tables}.
 
 ;;;@subsection Miscellaneous Commands
 
@@ -413,15 +443,6 @@
 ;;; completion. Use this command with an interactive prefix arg to
 ;;; delete a previously created eww-mark.
 ;;;
-;;; @subsection Table Browsing
-;;; Emacspeak EWW supports table navigation via keys @kbd{M-.},
-;;;@kbd{M-LEFT} and @kbd{M-RIGHT},
-;;; to speak the current, previous and next table cell
-;;;respectively. The latter commands also move to the cell being
-;;;spoken.  You can get  a sense of the table's size via @kbd{M-,}
-;;;which speaks the number of rows and cells in the table. This works for plain tables, not nested tables; for nested
-;;;tables, first have then @emph{unnested} using one of the XSLT
-;;;transforms like @code{sort-tables}.
 
 ;;; Code:
 
