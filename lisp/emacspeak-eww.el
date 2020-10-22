@@ -2305,7 +2305,11 @@ Value is specified as a position in the list of table cells.")
           (cl-loop
            for r in (dom-by-tag table 'tr) collect
            (cl-loop
-            for c in   (dom-by-tag r 'td) collect
+            for c in
+            (append
+             (dom-by-tag r 'th)
+             (dom-by-tag r 'td))
+            collect
             (string-trim (dom-texts c " ")))))
     (apply #'vector (mapcar #'vconcat data))))
 
@@ -2313,7 +2317,9 @@ Value is specified as a position in the list of table cells.")
   "Returns value of table cells as a list."
   (mapcar
    #'(lambda (node) (dom-texts node " "))
-   (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
+   (list
+    (dom-by-tag (get-text-property (point) 'table-dom) 'th)
+    (dom-by-tag (get-text-property (point) 'table-dom) 'td))))
 
 (defsubst emacspeak-eww-table-row-count ()
   "Returns number of table rows."
