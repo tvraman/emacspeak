@@ -2415,6 +2415,15 @@ With interactive prefix arg, move to the start of the table."
      (dom-html-from-nodes (list dom) (eww-current-url)))))
 
 
+(defun emacspeak-eww-table-data ()
+  "View  table at point as a data table using Emacspeak Table UI."
+  (interactive)
+  (let ((data (emacspeak-eww-table-table))
+        (data-table nil)
+        (buffer (get-buffer-create (format  "Table: Data"))))
+    (setq data-table (emacspeak-table-make-table data))
+    (emacspeak-table-prepare-table-buffer data-table buffer)))
+
 ;;}}}
 ;;{{{Dive Into DOM: div
 

@@ -479,7 +479,7 @@ Optional prefix arg prompts for a new filter."
     (skip-chars-backward "^,\n")))
 
 ;;}}}
-
+;;;###autoload
 (defun emacspeak-table-prepare-table-buffer (table buffer)
   "Prepare tabular data."
   (cl-declare (special emacspeak-table ems--positions))
