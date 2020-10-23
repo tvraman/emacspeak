@@ -161,8 +161,8 @@ ATTRIBUTE would typically be `class', `id' or the like."
     (libxml-parse-html-region (point-min) (point-max))))
 
 ;;}}}
-;;{{{dom-children-as-text
-(defun dom-children-as-text (node)
+;;{{{dom-node-as-text
+(defun dom-node-as-text (node)
   "Return all the text bits in the current node and some specific
 children, e.g. `a', concatenated."
   (mapconcat 
@@ -171,7 +171,7 @@ children, e.g. `a', concatenated."
         ((stringp c) c)
         ((or
           (eq (car c) 'a) (eq (car c) 'span))
-         (dom-children-as-text c))
+         (dom-node-as-text c))
         (t "")))
              (dom-children node)
              " "))

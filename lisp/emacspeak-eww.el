@@ -2320,7 +2320,7 @@ Value is specified as a position in the list of table cells.")
                (dom-by-tag r 'th)
                (dom-by-tag r 'td))
               collect
-              (string-trim (dom-children-as-text c)))))
+              (string-trim (dom-node-as-text c)))))
            (t ;;; no th case 
             (cl-loop
              for r in (dom-by-tag table 'tr) collect
@@ -2359,7 +2359,7 @@ Value is specified as a position in the list of table cells.")
   (interactive)
   (cl-declare (special ems--eww-table-cell))
   (dtk-speak
-   (dom-children-as-text
+   (dom-node-as-text
     (elt (emacspeak-eww-table-cells) ems--eww-table-cell))))
 
 (defun emacspeak-eww-table-previous-row (&optional prefix)
