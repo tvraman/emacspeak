@@ -433,10 +433,9 @@ Note that in the Curl output, we see lf rather than crlf.")
 
 ;;}}}
 ;;{{{ convert html to text
-
+;;;###autoload
 (defun g-html-string (html-string)
   "Return formatted string."
-  (or (require 'shr) (error "Need  emacs 24.4"))
   (with-temp-buffer
     (insert html-string)
     (shr-render-region  (point-min) (point-max))
