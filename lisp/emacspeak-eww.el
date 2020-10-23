@@ -2275,6 +2275,11 @@ with an interactive prefix arg. "
 ;;{{{Enable Table Browsing:
 ;;; Only works for plain tables, not nested tables.
 ;;; Point has to be within the displayed table.
+;;; Property values are part of the content,
+;;; And consequently the DOM ends up pointing back at itself.
+;;; This makes looking at the DOM hard, doesn't appear to have any
+;;;other negatives.
+;;; Overlays may avoid this problem.
 
 (defadvice shr-tag-table-1 (around emacspeak pre act comp)
   "Cache pointer to table dom as a text property,
@@ -2301,11 +2306,11 @@ Value is specified as a position in the list of table cells.")
 ;;; Handle tables with and without th cells differently.
   (let* ((data nil)
          (table (get-text-property (point) 'table-dom))
-         (head-p (dom-by-tag table 'th) ))
+         (head (dom-by-tag table 'th)))
     (cl-assert table t "No table here.")
     (setq data
           (cond
-           (head-p
+           (head
             (cl-loop
              for r in (dom-by-tag table 'tr) collect
              (cl-loop
@@ -2321,11 +2326,9 @@ Value is specified as a position in the list of table cells.")
              (cl-loop
               for c in (dom-by-tag r 'td) collect
               (string-trim (dom-text c)))))))
-    (if head-p
+    (if head
         (apply #'vector (mapcar #'vconcat  (cdr data)))
       (apply #'vector (mapcar #'vconcat  data)))))
-
-
 
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
@@ -2352,7 +2355,7 @@ Value is specified as a position in the list of table cells.")
            (emacspeak-eww-table-row-count)
            (emacspeak-eww-table-cell-count))))
 
-(defun emacspeak-eww-table-speak-cell ()
+(defsubst emacspeak-eww-table-speak-cell ()
   "Speak current cell."
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
@@ -2379,7 +2382,7 @@ Value is specified as a position in the list of table cells.")
        t "On first row.")
       (cl-decf emacspeak-eww-table-current-cell quotient)
       (emacspeak-auditory-icon 'large-movement)
-      (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))))
+      (emacspeak-eww-table-speak-cell)))))
 
 (defun emacspeak-eww-table-next-row (&optional prefix)
   "Speak  cell after moving to next row.
@@ -2402,7 +2405,7 @@ Value is specified as a position in the list of table cells.")
        t "On last row.")
       (cl-incf emacspeak-eww-table-current-cell quotient)
       (emacspeak-auditory-icon 'large-movement)
-      (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))))
+      (emacspeak-eww-table-speak-cell)))))
 
 (defun emacspeak-eww-table-next-cell (&optional prefix)
   "Speak next cell after making it current.
@@ -2421,12 +2424,10 @@ Interactive prefix arg moves to the last cell in the table."
    (t
     (goto-char (next-single-property-change (point) 'display))
     (skip-syntax-forward " ")
-    (setq emacspeak-eww-table-current-cell
-          (1+ emacspeak-eww-table-current-cell))
+    (cl-incf emacspeak-eww-table-current-cell 1)
     (goto-char (next-single-property-change (point) 'display))))
   (emacspeak-auditory-icon 'left)
-  (dtk-speak
-   (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+  (emacspeak-eww-table-speak-cell))
 
 (defun emacspeak-eww-table-previous-cell (&optional prefix)
   "Speak previous cell after making it current.
@@ -2445,9 +2446,7 @@ With interactive prefix arg, move to the start of the table."
     (skip-syntax-backward " ")
     (cl-decf emacspeak-eww-table-current-cell 1)))
   (emacspeak-auditory-icon 'right)
-  (dtk-speak
-   (elt (emacspeak-eww-table-cells)
-        emacspeak-eww-table-current-cell)))
+  (emacspeak-eww-table-speak-cell))
 
 (defun emacspeak-eww-dive-into-table ()
   "Focus on current table by rendering it in a new buffer."
