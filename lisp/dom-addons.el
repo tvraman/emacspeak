@@ -171,7 +171,7 @@ children, e.g. `a', concatenated."
         ((stringp c) c)
         ((or
           (eq (car c) 'a) (eq (car c) 'span))
-         (dom-text c))
+         (dom-children-as-text c))
         (t "")))
              (dom-children node)
              " "))
