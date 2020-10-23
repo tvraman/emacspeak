@@ -2305,13 +2305,9 @@ Value is specified as a position in the list of table cells.")
           (cl-loop
            for r in (dom-by-tag table 'tr) collect
            (cl-loop
-            for c in
-            (append
-             (dom-by-tag r 'th)
-             (dom-by-tag r 'td))
-            collect
-            (string-trim (dom-texts c " ")))));;; use no-break space
-    (apply #'vector (mapcar #'vconcat data))))
+            for c in (dom-by-tag r 'td) collect
+            (string-trim (dom-text c)))))
+    (apply #'vector (mapcar #'vconcat  data))))
 
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
