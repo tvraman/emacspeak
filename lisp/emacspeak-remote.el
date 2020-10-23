@@ -181,12 +181,7 @@ remote server, typically the desktop machine. Port is the tcp
 port that that host is listening on for speech requests."
   (interactive
    (list
-    (completing-read "Remote host: "
-                     emacspeak-eterm-remote-hosts-table ;completion table
-                     nil                ;predicate
-                     nil                ;must-match
-                     (emacspeak-remote-get-current-remote-hostname) ;initial input
-                     )
+    (read-from-minibuffer "Remote host: ")
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
   (cl-declare (special dtk-speaker-process dtk-program 
                        dtk-local-server-port

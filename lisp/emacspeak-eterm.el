@@ -1279,12 +1279,7 @@ completions for filename at point")))
 ;;}}}
 ;;{{{  Launch remote terminals
 
-(defvar emacspeak-eterm-remote-hosts-table
-  (make-vector 127 0)
-  "obarray used for completing hostnames when prompting for a remote
-host. Hosts are added whenever a new hostname is encountered, and the
-list of known hostnames is persisted in file named by
-emacspeak-eterm-remote-hostnames")
+
 (cl-declaim (special emacspeak-user-directory))
 (defvar emacspeak-eterm-remote-hosts-cache
   (expand-file-name ".hosts" emacspeak-user-directory)
@@ -1292,8 +1287,7 @@ emacspeak-eterm-remote-hostnames")
 
 (defun emacspeak-eterm-load-remote-hosts-cache ()
   "Load cached remote hostnames"
-  (cl-declare (special emacspeak-eterm-remote-hosts-table
-                       emacspeak-eterm-remote-hosts-cache))
+  (cl-declare (special emacspeak-eterm-remote-hosts-cache))
   (when (file-exists-p emacspeak-eterm-remote-hosts-cache)
     (let ((host nil)
           (hosts (find-file-noselect emacspeak-eterm-remote-hosts-cache)))
@@ -1313,8 +1307,7 @@ emacspeak-eterm-remote-hostnames")
 
 (defun emacspeak-eterm-cache-remote-host (host)
   "Add this hostname to cache of remote hostnames"
-  (cl-declare (special emacspeak-eterm-remote-hosts-table
-                       emacspeak-eterm-remote-hosts-cache))
+  (cl-declare (special emacspeak-eterm-remote-hosts-cache))
   (let ((buffer (find-file-noselect
                  emacspeak-eterm-remote-hosts-cache)))
     (save-current-buffer
@@ -1328,9 +1321,7 @@ emacspeak-eterm-remote-hostnames")
   "Start a terminal-emulator in a new buffer."
   (interactive
    (list
-    (completing-read "Remote host: "
-                     emacspeak-eterm-remote-hosts-table)))
-  (cl-declare (special emacspeak-eterm-remote-hosts-table))
+    (read-from-minibuffer "Remote host: ")))
   (require 'term)
   (set-buffer (make-term (format "%s-terminal" host)
                          "rlogin"nil  host))
