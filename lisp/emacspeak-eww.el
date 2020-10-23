@@ -2298,16 +2298,32 @@ Value is specified as a position in the list of table cells.")
 
 (defsubst emacspeak-eww-table-table ()
   "Return table cells as a table, a 2d structure."
-  (let ((data nil)
-        (table (get-text-property (point) 'table-dom)))
+;;; Handle tables with and without th cells differently.
+  (let* ((data nil)
+         (table (get-text-property (point) 'table-dom))
+         (head-p (dom-by-tag table 'th) ))
     (cl-assert table t "No table here.")
-    (setq data 
-          (cl-loop
-           for r in (dom-by-tag table 'tr) collect
-           (cl-loop
-            for c in (dom-by-tag r 'td) collect
-            (string-trim (dom-text c)))))
-    (apply #'vector (mapcar #'vconcat  data))))
+    (setq data
+          (cond
+           (head-p
+            (cl-loop
+             for r in (dom-by-tag table 'tr) collect
+             (cl-loop
+              for c in
+              (append
+               (dom-by-tag r 'th)
+               (dom-by-tag r 'td))
+              collect
+              (string-trim (dom-text c)))))
+           (t ;;; no th case 
+            (cl-loop
+             for r in (dom-by-tag table 'tr) collect
+             (cl-loop
+              for c in (dom-by-tag r 'td) collect
+              (string-trim (dom-text c)))))))
+    (if head-p
+        (apply #'vector (mapcar #'vconcat  (cdr data)))
+      (apply #'vector (mapcar #'vconcat  data)))))
 
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
@@ -2441,6 +2457,7 @@ With interactive prefix arg, move to the start of the table."
   (interactive)
   (let ((data (emacspeak-eww-table-table))
         (data-table nil)
+        (inhibit-read-only  t)
         (buffer
          (get-buffer-create
           (format  "Table: %s" (emacspeak-eww-current-title)))))
