@@ -2310,7 +2310,7 @@ Value is specified as a position in the list of table cells.")
              (dom-by-tag r 'th)
              (dom-by-tag r 'td))
             collect
-            (string-trim (dom-texts c " ")))))
+            (string-trim (dom-texts c " ")))));;; use no-break space
     (apply #'vector (mapcar #'vconcat data))))
 
 (defsubst emacspeak-eww-table-cells ()
