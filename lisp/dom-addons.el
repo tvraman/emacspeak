@@ -161,6 +161,22 @@ ATTRIBUTE would typically be `class', `id' or the like."
     (libxml-parse-html-region (point-min) (point-max))))
 
 ;;}}}
+;;{{{dom-children-as-text
+(defun dom-children-as-text (node)
+  "Return all the text bits in the current node and some specific
+children, e.g. `a', concatenated."
+  (mapconcat 
+   #'(lambda (c)
+       (cond
+        ((stringp c) c)
+        ((or
+          (eq (car c) 'a) (eq (car c) 'span))
+         (dom-text c))
+        (t "")))
+             (dom-children node)
+             " "))
+
+;;}}}
 (provide 'dom-addons)
 ;;{{{ end of file
 
