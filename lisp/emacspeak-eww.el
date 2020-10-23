@@ -2325,13 +2325,16 @@ Value is specified as a position in the list of table cells.")
         (apply #'vector (mapcar #'vconcat  (cdr data)))
       (apply #'vector (mapcar #'vconcat  data)))))
 
+
+
 (defsubst emacspeak-eww-table-cells ()
   "Returns value of table cells as a list."
-  (mapcar
-   #'(lambda (node) (dom-texts node " "))
-   (list
-    (dom-by-tag (get-text-property (point) 'table-dom) 'th)
-    (dom-by-tag (get-text-property (point) 'table-dom) 'td))))
+  (let* ((table (get-text-property (point) 'table-dom))
+         (head (dom-by-tag table 'th)))
+       (cond
+        (head
+         (cdr (append head (dom-by-tag table 'td))))
+        (t (dom-by-tag table 'td)))))
 
 (defsubst emacspeak-eww-table-row-count ()
   "Returns number of table rows."
@@ -2339,7 +2342,7 @@ Value is specified as a position in the list of table cells.")
 
 (defsubst emacspeak-eww-table-cell-count ()
   "Returns number of  table cells."
-  (length (dom-by-tag (get-text-property (point) 'table-dom) 'td)))
+  (length (emacspeak-eww-table-cells)))
 
 (defun emacspeak-eww-table-speak-dimensions ()
   "Speak number of rows and cells."
@@ -2353,7 +2356,9 @@ Value is specified as a position in the list of table cells.")
   "Speak current cell."
   (interactive)
   (cl-declare (special emacspeak-eww-table-current-cell))
-  (dtk-speak (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell)))
+  (dtk-speak
+   (dom-text
+    (elt (emacspeak-eww-table-cells) emacspeak-eww-table-current-cell))))
 
 (defun emacspeak-eww-table-previous-row (&optional prefix)
   "Speak  cell after moving to previous row.
