@@ -311,7 +311,6 @@
    ("M-m" emacspeak-toggle-mail-alert)
    ("M-p" emacspeak-show-property-at-point)
    ("M-q" voice-setup-toggle-silence-personality)
-   ("M-r" emacspeak-remote-connect-to-server)
    ("M-s" emacspeak-symlink-current-file)
    ("M-t" emacspeak-tapestry-describe-tapestry)
    ("M-u" emacspeak-feeds-add-feed)
