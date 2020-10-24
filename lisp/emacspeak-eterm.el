@@ -1280,10 +1280,17 @@ completions for filename at point")))
 ;;{{{  Launch remote terminals
 
 
-(cl-declaim (special emacspeak-user-directory))
+
 (defvar emacspeak-eterm-remote-hosts-cache
   (expand-file-name ".hosts" emacspeak-user-directory)
   "File where list of known remote hosts is cached")
+
+(defvar emacspeak-eterm-remote-hosts-table
+  (make-vector 127 0)
+  "obarray used for completing hostnames when prompting for a remote
+host. Hosts are added whenever a new hostname is encountered, and the
+list of known hostnames is persisted in file named by
+emacspeak-eterm-remote-hosts-cache")
 
 (defun emacspeak-eterm-load-remote-hosts-cache ()
   "Load cached remote hostnames"

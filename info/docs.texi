@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1177 commands and 834 options.
+This chapter documents a total of 1171 commands and 833 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -160,7 +160,6 @@ This chapter documents a total of 1177 commands and 834 options.
 * emacspeak-re-builder::speech-enable re-builder.
 * emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
 * emacspeak-related::Speech-enable RELATED buffer switching.
-* emacspeak-remote::Enables running remote Emacspeak sessions.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail -- Emacs' default mail agent.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
@@ -14357,96 +14356,6 @@ documents  possible via a table of contents buffer.
 
 RELATED ==  Switch among related buffers (melpa).
 Speech-enable interactive commands.
-
-@node emacspeak-remote
-@section emacspeak-remote
-
-In a running emacspeak session,
-nuke the running server and start talking to a remote speech server,
-after prompting for host and port
-
-@subsection Emacspeak-Remote Commands
-
-@subsubsection emacspeak-remote-connect-to-server
-@deffn {Command} emacspeak-remote-connect-to-server  (host port)
-@table @kbd
-@item C-e M-r
-@kindex C-e M-r
-@item <fn> M-r
-@kindex <fn> M-r
-@end table
-
-@findex emacspeak-remote-connect-to-server
-
-@format
-Connect to and start using remote speech server running on
-host host and listening on port port. Host is the hostname of the
-remote server, typically the desktop machine. Port is the tcp
-port that that host is listening on for speech requests.
-
-(fn HOST PORT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-remote-edit-current-remote-hostname
-@deffn {Command} emacspeak-remote-edit-current-remote-hostname   
-@findex emacspeak-remote-edit-current-remote-hostname
-
-@format
-Interactively set up where we came from.
-Value is persisted for use with ssh servers.
-@end format
-@end deffn
-
-@subsubsection emacspeak-remote-home
-@deffn {Command} emacspeak-remote-home   
-@findex emacspeak-remote-home
-
-@format
-Open ssh session to where we came from.
-Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-remote-quick-connect-to-server
-@deffn {Command} emacspeak-remote-quick-connect-to-server   
-@findex emacspeak-remote-quick-connect-to-server
-
-@format
-Connect to remote server.
-Does not prompt for host or port, but quietly uses the guesses
-that appear as defaults when prompting. Use this once you are
-sure the guesses are usually correct.
-@end format
-@end deffn
-
-@subsubsection emacspeak-remote-quick-connect-via-ssh
-@deffn {Command} emacspeak-remote-quick-connect-via-ssh   
-@findex emacspeak-remote-quick-connect-via-ssh
-
-@format
-Connect via ssh to remote Emacspeak server.
-Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-remote-ssh-to-server
-@deffn {Command} emacspeak-remote-ssh-to-server  (login host port)
-@findex emacspeak-remote-ssh-to-server
-
-@format
-Open ssh session to where we came from.
-
-(fn LOGIN HOST PORT)
-@end format
-@end deffn
-
-@subsection emacspeak-remote Options
-
-@defvar {User Option} emacspeak-remote-default-ssh-server
-Default ssh server to use for remote speech server.
-
-@end defvar
 
 @node emacspeak-rg
 @section emacspeak-rg

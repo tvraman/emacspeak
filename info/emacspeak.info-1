@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 22, 2020.
+last updated on October 24, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1177 commands and 834 options.
+   This chapter documents a total of 1171 commands and 833 options.
 
 * Menu:
 
@@ -3043,7 +3043,6 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-re-builder::speech-enable re-builder.
 * emacspeak-reftex::speech enable reftex, Cross-References In La)TeX.
 * emacspeak-related::Speech-enable RELATED buffer switching.
-* emacspeak-remote::Enables running remote Emacspeak sessions.
 * emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail – Emacs’ default mail agent.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
