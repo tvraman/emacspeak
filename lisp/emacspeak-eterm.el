@@ -1277,65 +1277,7 @@ there is terminal activity.")
 completions for filename at point")))
 
 ;;}}}
-;;{{{  Launch remote terminals
 
-(defvar emacspeak-eterm-remote-hosts-cache
-  (expand-file-name ".hosts" emacspeak-user-directory)
-  "File where list of known remote hosts is cached")
-
-(defvar emacspeak-eterm-remote-hosts-table
-  (make-vector 127 0)
-  "obarray used for completing hostnames when prompting for a remote
-host. Hosts are added whenever a new hostname is encountered, and the
-list of known hostnames is persisted in file named by
-emacspeak-eterm-remote-hosts-cache")
-
-(defun emacspeak-eterm-load-remote-hosts-cache ()
-  "Load cached remote hostnames"
-  (cl-declare (special emacspeak-eterm-remote-hosts-cache))
-  (when (file-exists-p emacspeak-eterm-remote-hosts-cache)
-    (let ((host nil)
-          (hosts (find-file-noselect emacspeak-eterm-remote-hosts-cache)))
-      (save-current-buffer
-        (set-buffer hosts)
-        (goto-char (point-min))
-        (while (not (eobp))
-          (setq host
-                (buffer-substring
-                 (point)
-                 (progn (end-of-line) (point))))
-          (intern host emacspeak-eterm-remote-hosts-table)
-          (forward-line 1))))))
-
-(cl-eval-when (load)
-  (emacspeak-eterm-load-remote-hosts-cache))
-
-(defun emacspeak-eterm-cache-remote-host (host)
-  "Add this hostname to cache of remote hostnames"
-  (cl-declare (special emacspeak-eterm-remote-hosts-cache))
-  (let ((buffer (find-file-noselect
-                 emacspeak-eterm-remote-hosts-cache)))
-    (save-current-buffer
-      (set-buffer buffer)
-      (goto-char (point-max))
-      (insert (format "%s\n" host))
-      (save-buffer))
-    (intern host emacspeak-eterm-remote-hosts-table)))
-;;;###autoload
-(defun emacspeak-eterm-remote-term (host)
-  "Start a terminal-emulator in a new buffer."
-  (interactive
-   (list
-    (read-from-minibuffer "Remote host: ")))
-  (require 'term)
-  (set-buffer (make-term (format "%s-terminal" host)
-                         "rlogin"nil  host))
-  (term-char-mode)
-  (unless (intern-soft host emacspeak-eterm-remote-hosts-table)
-    (emacspeak-eterm-cache-remote-host host))
-  (switch-to-buffer (format "*%s-terminal*" host)))
-
-;;}}}
 (provide 'emacspeak-eterm)
 ;;{{{  emacs local variables
 
