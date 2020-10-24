@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1171 commands and 833 options.
+This chapter documents a total of 1170 commands and 833 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5631,8 +5631,8 @@ To move around the terminal and have different parts spoken.
 
 @format
 Copy text from terminal to an Emacs REGISTER.
-This copies  region delimited by the emacspeak eterm marker 
-set by command M-x emacspeak-eterm-set-marker and the 
+This copies  region delimited by the emacspeak eterm marker
+set by command M-x emacspeak-eterm-set-marker and the
 emacspeak eterm pointer to a register.
 
 (fn REGISTER)
@@ -5683,8 +5683,8 @@ Move emacspeak eterm pointer to a specified LINE.
 
 @format
 Copy text from terminal to kill ring.
-This copies  region delimited by the emacspeak eterm marker 
-set by command M-x emacspeak-eterm-set-marker and the 
+This copies  region delimited by the emacspeak eterm marker
+set by command M-x emacspeak-eterm-set-marker and the
 emacspeak eterm pointer.
 @end format
 @end deffn
@@ -5718,7 +5718,7 @@ sent to the terminal as if it were typed by the user.
 @findex emacspeak-eterm-pointer-backward-word
 
 @format
-Move the pointer backward  by words. 
+Move the pointer backward  by words.
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
 
@@ -5743,7 +5743,7 @@ Argument COUNT specifies number of lines by which to move.
 @findex emacspeak-eterm-pointer-forward-word
 
 @format
-Move the pointer forward by words. 
+Move the pointer forward by words.
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
 
@@ -5858,17 +5858,6 @@ Argument COUNT .specifies number of lines by which to move.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eterm-remote-term
-@deffn {Command} emacspeak-eterm-remote-term  (host)
-@findex emacspeak-eterm-remote-term
-
-@format
-Start a terminal-emulator in a new buffer.
-
-(fn HOST)
-@end format
-@end deffn
-
 @subsubsection emacspeak-eterm-search-backward
 @deffn {Command} emacspeak-eterm-search-backward   
 @findex emacspeak-eterm-search-backward
@@ -5927,7 +5916,7 @@ and speaking that window upon seeing screen activity.
 
 @format
 Set Emacspeak eterm marker.
-This sets  the emacspeak eterm marker to the position pointed 
+This sets  the emacspeak eterm marker to the position pointed
 to by the emacspeak eterm pointer.
 @end format
 @end deffn
@@ -6050,8 +6039,8 @@ there is terminal activity.
 @findex emacspeak-eterm-toggle-review
 
 @format
-Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contents 
+Toggle state of eterm review.
+In review mode, you can move around the terminal and listen to the contents
 without sending input to the terminal itself.
 @end format
 @end deffn
@@ -6074,7 +6063,7 @@ Yank contents of  an eterm window at point.
 @format
 Toggle state of eterm autospeak.
 When eterm autospeak is turned on and the terminal is in line mode,
-all output to the terminal is automatically spoken. 
+all output to the terminal is automatically spoken.
   Interactive prefix arg means toggle  the global default value, and then set the
   current local  value to the result. 
 @end format

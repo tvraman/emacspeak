@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1171 commands and 833 options.
+   This chapter documents a total of 1170 commands and 833 options.
 
 * Menu:
 
@@ -7940,30 +7940,21 @@ move around the terminal and have different parts spoken.
 
      (fn COUNT)
 
-12.71.1.21 emacspeak-eterm-remote-term
-......................................
-
- -- Command: emacspeak-eterm-remote-term (host)
-
-     Start a terminal-emulator in a new buffer.
-
-     (fn HOST)
-
-12.71.1.22 emacspeak-eterm-search-backward
+12.71.1.21 emacspeak-eterm-search-backward
 ..........................................
 
  -- Command: emacspeak-eterm-search-backward
 
      Search backward on the terminal.
 
-12.71.1.23 emacspeak-eterm-search-forward
+12.71.1.22 emacspeak-eterm-search-forward
 .........................................
 
  -- Command: emacspeak-eterm-search-forward
 
      Search forward on the terminal.
 
-12.71.1.24 emacspeak-eterm-set-filter-window
+12.71.1.23 emacspeak-eterm-set-filter-window
 ............................................
 
  -- Command: emacspeak-eterm-set-filter-window (flag)
@@ -7978,7 +7969,7 @@ move around the terminal and have different parts spoken.
 
      (fn FLAG)
 
-12.71.1.25 emacspeak-eterm-set-focus-window
+12.71.1.24 emacspeak-eterm-set-focus-window
 ...........................................
 
  -- Command: emacspeak-eterm-set-focus-window (flag)
@@ -7993,7 +7984,7 @@ move around the terminal and have different parts spoken.
 
      (fn FLAG)
 
-12.71.1.26 emacspeak-eterm-set-marker
+12.71.1.25 emacspeak-eterm-set-marker
 .....................................
 
  -- Command: emacspeak-eterm-set-marker
@@ -8002,21 +7993,21 @@ move around the terminal and have different parts spoken.
      This sets  the emacspeak eterm marker to the position pointed
      to by the emacspeak eterm pointer.
 
-12.71.1.27 emacspeak-eterm-speak-cursor
+12.71.1.26 emacspeak-eterm-speak-cursor
 .......................................
 
  -- Command: emacspeak-eterm-speak-cursor
 
      Speak cursor position.
 
-12.71.1.28 emacspeak-eterm-speak-pointer
+12.71.1.27 emacspeak-eterm-speak-pointer
 ........................................
 
  -- Command: emacspeak-eterm-speak-pointer
 
      Speak current pointer position.
 
-12.71.1.29 emacspeak-eterm-speak-pointer-char
+12.71.1.28 emacspeak-eterm-speak-pointer-char
 .............................................
 
  -- Command: emacspeak-eterm-speak-pointer-char (&optional prefix)
@@ -8026,28 +8017,28 @@ move around the terminal and have different parts spoken.
 
      (fn &optional PREFIX)
 
-12.71.1.30 emacspeak-eterm-speak-pointer-line
+12.71.1.29 emacspeak-eterm-speak-pointer-line
 .............................................
 
  -- Command: emacspeak-eterm-speak-pointer-line
 
      Speak the line the pointer is on.
 
-12.71.1.31 emacspeak-eterm-speak-pointer-word
+12.71.1.30 emacspeak-eterm-speak-pointer-word
 .............................................
 
  -- Command: emacspeak-eterm-speak-pointer-word
 
      Speak the word  the pointer is on.
 
-12.71.1.32 emacspeak-eterm-speak-predefined-window
+12.71.1.31 emacspeak-eterm-speak-predefined-window
 ..................................................
 
  -- Command: emacspeak-eterm-speak-predefined-window
 
      Speak a predefined eterm window between 1 and 10.
 
-12.71.1.33 emacspeak-eterm-speak-screen
+12.71.1.32 emacspeak-eterm-speak-screen
 .......................................
 
  -- Command: emacspeak-eterm-speak-screen (&optional flag)
@@ -8058,7 +8049,7 @@ move around the terminal and have different parts spoken.
 
      (fn &optional FLAG)
 
-12.71.1.34 emacspeak-eterm-speak-window
+12.71.1.33 emacspeak-eterm-speak-window
 .......................................
 
  -- Command: emacspeak-eterm-speak-window (id)
@@ -8068,21 +8059,21 @@ move around the terminal and have different parts spoken.
 
      (fn ID)
 
-12.71.1.35 emacspeak-eterm-toggle-filter-window
+12.71.1.34 emacspeak-eterm-toggle-filter-window
 ...............................................
 
  -- Command: emacspeak-eterm-toggle-filter-window
 
      Toggle active state of filter window.
 
-12.71.1.36 emacspeak-eterm-toggle-focus-window
+12.71.1.35 emacspeak-eterm-toggle-focus-window
 ..............................................
 
  -- Command: emacspeak-eterm-toggle-focus-window
 
      Toggle active state of focus window.
 
-12.71.1.37 emacspeak-eterm-toggle-pointer-mode
+12.71.1.36 emacspeak-eterm-toggle-pointer-mode
 ..............................................
 
  -- Command: emacspeak-eterm-toggle-pointer-mode (&optional prefix)
@@ -8093,7 +8084,7 @@ move around the terminal and have different parts spoken.
      stays where it is rather than automatically moving to the terminal cursor when
      there is terminal activity.
 
-12.71.1.38 emacspeak-eterm-toggle-review
+12.71.1.37 emacspeak-eterm-toggle-review
 ........................................
 
  -- Command: emacspeak-eterm-toggle-review
@@ -8102,7 +8093,7 @@ move around the terminal and have different parts spoken.
      In review mode, you can move around the terminal and listen to the contents
      without sending input to the terminal itself.
 
-12.71.1.39 emacspeak-eterm-yank-window
+12.71.1.38 emacspeak-eterm-yank-window
 ......................................
 
  -- Command: emacspeak-eterm-yank-window (id)
@@ -8111,7 +8102,7 @@ move around the terminal and have different parts spoken.
 
      (fn ID)
 
-12.71.1.40 emacspeak-toggle-eterm-autospeak
+12.71.1.39 emacspeak-toggle-eterm-autospeak
 ...........................................
 
  -- Command: emacspeak-toggle-eterm-autospeak (&optional prefix)
