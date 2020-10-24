@@ -169,8 +169,7 @@ children, e.g. `a', concatenated."
    #'(lambda (c)
        (cond
         ((stringp c) c)
-        ((or
-          (eq (car c) 'a) (eq (car c) 'span))
+        ((memq (car c) '(a b i em span strong)) 
          (dom-node-as-text c))
         (t "")))
              (dom-children node)
