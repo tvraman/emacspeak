@@ -44,9 +44,7 @@
 ;;}}}
 ;;{{{  Introduction
 ;;; Commentary:
-;;; In a running emacspeak session,
-;;;nuke the running server and start talking to a remote speech server,
-;;;after prompting for host and port
+;;; This module is mostly obsolete.
 ;;; Code:
 ;;}}}
 ;;{{{  User customizations
@@ -173,6 +171,11 @@ Server is specified via custom option `emacspeak-remote-default-ssh-server'."
     (dtk-initialize)))
 (declare-function emacspeak-eterm-cache-remote-host "emacspeak-eterm" (host))
 
+(defvar emacspeak-eterm-remote-hosts-table
+  (make-vector 127 0)
+  "obarray used for completing hostnames when prompting for a remote
+host. Hosts are added whenever a new hostname is encountered. ")
+
 ;;;###autoload
 (defun  emacspeak-remote-connect-to-server (host port)
   "Connect to and start using remote speech server running on
@@ -183,8 +186,8 @@ port that that host is listening on for speech requests."
    (list
     (completing-read "Remote host: "
                      emacspeak-remote-hosts-table ;completion table
-                     nil                ;predicate
-                     nil                ;must-match
+                     nil                          ;predicate
+                     nil                          ;must-match
                      (emacspeak-remote-get-current-remote-hostname) ;initial input
                      )
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
