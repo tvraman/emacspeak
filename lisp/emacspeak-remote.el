@@ -182,7 +182,7 @@ port that that host is listening on for speech requests."
   (interactive
    (list
     (completing-read "Remote host: "
-                     emacspeak-eterm-remote-hosts-table ;completion table
+                     emacspeak-remote-hosts-table ;completion table
                      nil                ;predicate
                      nil                ;must-match
                      (emacspeak-remote-get-current-remote-hostname) ;initial input
@@ -190,13 +190,13 @@ port that that host is listening on for speech requests."
     (read-from-minibuffer "Remote port:" dtk-local-server-port)))
   (cl-declare (special dtk-speaker-process dtk-program 
                        dtk-local-server-port
-                       dtk-local-engine emacspeak-eterm-remote-hosts-table))
+                       dtk-local-engine emacspeak-remote-hosts-table))
   (let* ((dtk-program dtk-local-engine)
          (process-connection-type nil)  ;dont waste a pty
          (old-process dtk-speaker-process)
          (new-process
           (open-network-stream "remote-speaker" nil host port)))
-    (unless (intern-soft host emacspeak-eterm-remote-hosts-table)
+    (unless (intern-soft host emacspeak-remote-hosts-table)
       (emacspeak-eterm-cache-remote-host host))
     (accept-process-output)
     (cond
