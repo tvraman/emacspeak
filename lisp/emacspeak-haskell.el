@@ -85,23 +85,10 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 '(
-  haskell-add-import
-  haskell-align-imports
-  haskell-auto-insert-module-template
   haskell-c2hs-mode
   haskell-cabal-add-dependency
-  haskell-cabal-beginning-of-section
-  haskell-cabal-beginning-of-subsection
-  haskell-cabal-end-of-section
-  haskell-cabal-end-of-subsection
   haskell-cabal-find-or-create-source-file
   haskell-cabal-get-field
-  haskell-cabal-goto-benchmark-section
-  haskell-cabal-goto-common-section
-  haskell-cabal-goto-executable-section
-  haskell-cabal-goto-exposed-modules
-  haskell-cabal-goto-library-section
-  haskell-cabal-goto-test-suite-section
   haskell-cabal-guess-setting
   haskell-cabal-indent-line
   haskell-cabal-mode
@@ -257,6 +244,33 @@
   haskell-w3m-open-haddock
   haskell-yesod-parse-routes-mode
   )
+
+(cl-loop
+ for f in 
+ '(haskell-add-import haskell-align-imports haskell-auto-insert-module-template)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'task-done)))))
+
+(cl-loop
+ for f in 
+ '(
+   haskell-cabal-beginning-of-section haskell-cabal-beginning-of-subsection
+   haskell-cabal-end-of-section haskell-cabal-end-of-subsection
+   haskell-cabal-goto-benchmark-section haskell-cabal-goto-common-section
+  haskell-cabal-goto-executable-section haskell-cabal-goto-exposed-modules
+  haskell-cabal-goto-library-section haskell-cabal-goto-test-suite-section)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
 
 ;;}}}
