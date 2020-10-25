@@ -202,6 +202,13 @@
 
 
 ;;}}}
+;;{{{haskell-debugger:
+
+;;}}}
+;;{{{haskell-interactive
+
+;;}}}
+
 (provide 'emacspeak-haskell)
 ;;{{{ end of file
 
