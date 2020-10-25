@@ -1,5 +1,5 @@
-;;; emacspeak-haskell.el --- Speech-enable HASKELL  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
+;;; emacspeak-haskell.el --- Speech-enable HASKELL  -*- lexical-binding: t; -*-
 ;;; Description:  Speech-enable HASKELL An Emacs Interface to haskell
 ;;; Keywords: Emacspeak,  Audio Desktop haskell
 ;;{{{  LCD Archive entry:
@@ -85,64 +85,12 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 '(
-  haskell-c2hs-mode
-  haskell-cabal-add-dependency
-  haskell-cabal-find-or-create-source-file
-  haskell-cabal-get-field
-  haskell-cabal-guess-setting
-  haskell-cabal-indent-line
-  haskell-cabal-mode
-  haskell-cabal-next-section
-  haskell-cabal-next-subsection
-  haskell-cabal-previous-section
-  haskell-cabal-previous-subsection
-  haskell-cabal-section-end
-  haskell-cabal-subsection-arrange-lines
-  haskell-cabal-visit-file
-  haskell-check
-  haskell-collapse-mode
-  haskell-compilation-mode
-  haskell-compile
-  haskell-debug
-  haskell-debug-mode
-  haskell-debug/abandon
-  haskell-debug/break-on-function
-  haskell-debug/breakpoint-numbers
-  haskell-debug/continue
-  haskell-debug/delete
-  haskell-debug/next
-  haskell-debug/previous
-  haskell-debug/refresh
-  haskell-debug/select
-  haskell-debug/start-step
-  haskell-debug/step
-  haskell-debug/trace
-  haskell-decl-scan-mode
-  haskell-delete-indentation
   haskell-delete-nested
   haskell-describe
-  haskell-doc-ask-mouse-for-type
-  haskell-doc-check-active
-  haskell-doc-extract-and-insert-types
-  haskell-doc-get-global-fct-type
-  haskell-doc-imported-list
-  haskell-doc-install-keymap
-  haskell-doc-make-global-fct-index
-  haskell-doc-mode
-  haskell-doc-show-global-types
-  haskell-doc-show-prelude
-  haskell-doc-show-reserved
-  haskell-doc-show-strategy
-  haskell-doc-show-type
-  haskell-doc-show-user-defined
   haskell-ds-backward-decl
   haskell-ds-forward-decl
   haskell-error-mode
   haskell-font-lock--forward-type
-  haskell-forward-sexp
-  haskell-goto-first-error
-  haskell-goto-next-error
-  haskell-goto-prev-error
   haskell-hide-toggle
   haskell-hide-toggle-all
   haskell-hoogle
@@ -164,28 +112,6 @@
   haskell-indentation-indent-rigidly
   haskell-indentation-mode
   haskell-indentation-newline-and-indent
-  haskell-interactive-bring
-  haskell-interactive-copy-to-prompt
-  haskell-interactive-kill
-  haskell-interactive-mode
-  haskell-interactive-mode-beginning
-  haskell-interactive-mode-bol
-  haskell-interactive-mode-clear
-  haskell-interactive-mode-error-backward
-  haskell-interactive-mode-error-forward
-  haskell-interactive-mode-history-next
-  haskell-interactive-mode-history-previous
-  haskell-interactive-mode-kill-whole-line
-  haskell-interactive-mode-newline-indent
-  haskell-interactive-mode-prompt-next
-  haskell-interactive-mode-prompt-previous
-  haskell-interactive-mode-reset-error
-  haskell-interactive-mode-return
-  haskell-interactive-mode-space
-  haskell-interactive-mode-tab
-  haskell-interactive-mode-visit-error
-  haskell-interactive-switch
-  haskell-interactive-switch-back
   haskell-kill-nested
   haskell-kill-session-process
   haskell-literate-mode
@@ -199,9 +125,6 @@
   haskell-mode-generate-tags
   haskell-mode-goto-loc
   haskell-mode-insert-scc-at-point
-  haskell-mode-jump-to-def
-  haskell-mode-jump-to-def-or-tag
-  haskell-mode-jump-to-tag
   haskell-mode-kill-scc-at-point
   haskell-mode-menu
   haskell-mode-show-type-at
@@ -240,8 +163,6 @@
   haskell-svg-toggle-render-images
   haskell-unicode-input-method-enable
   haskell-update-ghc-support
-  haskell-version
-  haskell-w3m-open-haddock
   haskell-yesod-parse-routes-mode
   )
 
@@ -262,8 +183,15 @@
    haskell-cabal-beginning-of-section haskell-cabal-beginning-of-subsection
    haskell-cabal-end-of-section haskell-cabal-end-of-subsection
    haskell-cabal-goto-benchmark-section haskell-cabal-goto-common-section
-  haskell-cabal-goto-executable-section haskell-cabal-goto-exposed-modules
-  haskell-cabal-goto-library-section haskell-cabal-goto-test-suite-section)
+   haskell-cabal-goto-executable-section haskell-cabal-goto-exposed-modules
+   haskell-cabal-goto-library-section haskell-cabal-goto-test-suite-section
+   haskell-cabal-next-section haskell-cabal-next-subsection
+   haskell-cabal-previous-section haskell-cabal-previous-subsection
+   haskell-cabal-section-end haskell-cabal-indent-line haskell-delete-indentation
+   haskell-forward-sexp haskell-goto-first-error
+   haskell-goto-next-error haskell-goto-prev-error
+   haskell-mode-jump-to-def
+  haskell-mode-jump-to-def-or-tag haskell-mode-jump-to-tag)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
