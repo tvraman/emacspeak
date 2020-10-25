@@ -688,7 +688,9 @@ the emacspeak table clipboard instead."
   (cl-declare (special read-expression-map))
   (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
         (print-length nil)
+        (eval-expression-print-length nil)
         (print-level nil)
+        (eval-expression-print-level nil)
         (result (eval form)))
     (save-current-buffer
       (set-buffer buffer)
