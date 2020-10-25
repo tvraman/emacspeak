@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1170 commands and 833 options.
+This chapter documents a total of 1170 commands and 839 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -100,6 +100,7 @@ This chapter documents a total of 1170 commands and 833 options.
 * emacspeak-gridtext::Overlay Grids To filter columnar text.
 * emacspeak-gtags::Speech-enable GTAGS.
 * emacspeak-gud::Speech enable Emacs' debugger interface --covers GDB, JDB, and PerlDB.
+* emacspeak-haskell::
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
@@ -8901,6 +8902,49 @@ Package gtags interfaces Emacs to this tool.
 @section emacspeak-gud
 
 Provide additional advice to ease debugger interaction with gud
+
+@node emacspeak-haskell
+@section emacspeak-haskell
+
+Speech-enable package haskell-mode
+
+@subsection emacspeak-haskell Options
+
+@defvar {User Option} voice-haskell-interactive-face-compile-error
+Personality used for haskell-interactive-face-compile-error
+This personality uses  voice-warning whose  effect can be changed globally by customizing voice-warning-settings.
+
+@end defvar
+
+@defvar {User Option} voice-haskell-interactive-face-compile-warning
+Personality used for haskell-interactive-face-compile-warning
+This personality uses  voice-warning whose  effect can be changed globally by customizing voice-warning-settings.
+
+@end defvar
+
+@defvar {User Option} voice-haskell-interactive-face-garbage
+Personality used for haskell-interactive-face-garbage
+This personality uses  voice-monotone-light whose  effect can be changed globally by customizing voice-monotone-light-settings.
+
+@end defvar
+
+@defvar {User Option} voice-haskell-interactive-face-prompt
+Personality used for haskell-interactive-face-prompt
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-haskell-interactive-face-prompt-cont
+Personality used for haskell-interactive-face-prompt-cont
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} voice-haskell-interactive-face-result
+Personality used for haskell-interactive-face-result
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
 
 @node emacspeak-helm
 @section emacspeak-helm

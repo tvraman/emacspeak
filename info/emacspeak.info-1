@@ -2886,7 +2886,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1170 commands and 833 options.
+   This chapter documents a total of 1170 commands and 839 options.
 
 * Menu:
 
@@ -2983,6 +2983,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-gridtext::Overlay Grids To filter columnar text.
 * emacspeak-gtags::Speech-enable GTAGS.
 * emacspeak-gud::Speech enable Emacs’ debugger interface –covers GDB, JDB, and PerlDB.
+* emacspeak-haskell::
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
 * emacspeak-hide-lines::Speech-enable HIDE-LINES.
