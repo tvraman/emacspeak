@@ -2320,13 +2320,15 @@ Value is specified as a position in the list of table cells.")
                (dom-by-tag r 'th)
                (dom-by-tag r 'td))
               collect
-              (string-trim (dom-node-as-text c)))))
+              (string-trim
+               (with-temp-buffer (shr-insert-document c) (buffer-string))))))
            (t ;;; no th case 
             (cl-loop
              for r in (dom-by-tag table 'tr) collect
              (cl-loop
               for c in (dom-by-tag r 'td) collect
-              (string-trim (dom-text c)))))))
+              (string-trim
+               (with-temp-buffer (shr-insert-document c) (buffer-string))))))))
     (if head
         (apply #'vector (mapcar #'vconcat  (cdr data)))
       (apply #'vector (mapcar #'vconcat  data)))))
