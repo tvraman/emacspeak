@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1170 commands and 839 options.
+This chapter documents a total of 1169 commands and 839 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -6322,11 +6322,10 @@ contents of a @code{div} element.
 These elements often appear many times on a page, and can be
 deeply nested, making it difficult to focus on the relevant
 content on the page, e.g. news sites.
-Commands @code{emacspeak-eww-dive-into-div} and
-@code{emacspeak-eww-dive-into-table}
+Commands @code{emacspeak-eww-dive-into-div}
 help  in such cases, @kbd{C-d} renders the @code{div} containing
-point in a separate buffer; @kbd{C-t} does the same for
-tables. As with the filtering commands, @kbd{l} returns to the
+point in a separate buffer
+ As with the filtering commands, @kbd{l} returns to the
 buffer where these commands were executed.
 Long-term users of Emacspeak who still remember Emacs-W3 will
 recognize this as the @emph{focus} command implemented by
@@ -6380,9 +6379,7 @@ Speak  cell below.
 Speak current cell.
 @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
 Speak number of rows and columns.
-@item @kbd{C-t} emacspeak-eww-dive-into-table@MDash{}
-Focus on table and display in a new buffer.
-@item @kbd{M-C-t} emacspeak-eww-table-data @MDash{}
+@item @kbd{C-t} emacspeak-eww-table-data @MDash{}
 Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
 @end itemize
 
@@ -6594,15 +6591,6 @@ Interactively delete a mark with name ‘name’ at current position.
 
 @format
 Focus on current div by rendering it in a new buffer.
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-dive-into-table
-@deffn {Command} emacspeak-eww-dive-into-table   
-@findex emacspeak-eww-dive-into-table
-
-@format
-Focus on current table by rendering it in a new buffer.
 @end format
 @end deffn
 
