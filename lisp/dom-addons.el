@@ -162,19 +162,10 @@ ATTRIBUTE would typically be `class', `id' or the like."
 
 ;;}}}
 ;;{{{dom-node-as-text
-(defun dom-node-as-text (node)
+(defsubst dom-node-as-text (node)
   "Return all the text bits in the current node and some specific
 children, e.g. `a', concatenated."
-  (mapconcat 
-   #'(lambda (c)
-       (cond
-        ((stringp c) c)
-        ((memq (car c)
-               '(a b button div i img em h5 h6 small span strong))
-         (dom-node-as-text c))
-        (t "")))
-             (dom-children node)
-             " "))
+  (with-temp-buffer (shr-insert-document node) (buffer-string)))
 
 ;;}}}
 (provide 'dom-addons)
