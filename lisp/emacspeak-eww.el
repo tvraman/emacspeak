@@ -2300,30 +2300,21 @@ Value is specified as a position in the list of table cells.")
 
 (defsubst emacspeak-eww-table-table ()
   "Return table cells as a table, a 2d structure."
-;;; Handle tables with and without th cells differently.
   (let* ((data nil)
          (table (get-text-property (point) 'table-dom))
          (head (dom-by-tag table 'th)))
     (cl-assert table t "No table here.")
     (setq data
-          (cond
-           (head
-            (cl-loop
-             for r in (dom-by-tag table 'tr) collect
-             (cl-loop
-              for c in
-              (append
-               (dom-by-tag r 'th)
-               (dom-by-tag r 'td))
-              collect
-              (string-trim
-               (dom-node-as-text c)))))
-           (t ;;; no th case 
-            (cl-loop
-             for r in (dom-by-tag table 'tr) collect
-             (cl-loop
-              for c in (dom-by-tag r 'td) collect
-              (string-trim (dom-node-as-text c)))))))
+          (cl-loop
+           for r in (dom-by-tag table 'tr) collect
+           (cl-loop
+            for c in
+            (append
+             (dom-by-tag r 'th)
+             (dom-by-tag r 'td))
+            collect
+            (string-trim (dom-node-as-text c)))))
+    ;;; handle head case differently:
     (if head
         (apply #'vector (mapcar #'vconcat  (cdr data)))
       (apply #'vector (mapcar #'vconcat  data)))))
