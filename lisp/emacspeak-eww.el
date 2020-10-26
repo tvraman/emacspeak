@@ -211,11 +211,10 @@
 ;;; These elements often appear many times on a page, and can be
 ;;; deeply nested, making it difficult to focus on the relevant
 ;;; content on the page, e.g. news sites.
-;;; Commands @code{emacspeak-eww-dive-into-div} and
-;;; @code{emacspeak-eww-dive-into-table}
+;;; Commands @code{emacspeak-eww-dive-into-div} 
 ;;; help  in such cases, @kbd{C-d} renders the @code{div} containing
-;;; point in a separate buffer; @kbd{C-t} does the same for
-;;; tables. As with the filtering commands, @kbd{l} returns to the
+;;; point in a separate buffer
+;;;  As with the filtering commands, @kbd{l} returns to the
 ;;; buffer where these commands were executed.
 ;;; Long-term users of Emacspeak who still remember Emacs-W3 will
 ;;; recognize this as the @emph{focus} command implemented by
@@ -270,9 +269,7 @@
 ;;; Speak current cell.
 ;;; @item @kbd{M-,} emacspeak-eww-table-speak-dimensions @MDash{}
 ;;; Speak number of rows and columns.
-;;; @item @kbd{C-t} emacspeak-eww-dive-into-table@MDash{}
-;;; Focus on table and display in a new buffer.
-;;; @item @kbd{M-C-t} emacspeak-eww-table-data @MDash{}
+;;; @item @kbd{C-t} emacspeak-eww-table-data @MDash{}
 ;;; Browse this table in Emacspeak's Table UI @MDash{} @xref{emacspeak-table-ui}.
 ;;; @end itemize
 
@@ -710,8 +707,7 @@ Safari/537.36"
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
      ("C-d" emacspeak-eww-dive-into-div)
-     ("C-t" emacspeak-eww-dive-into-table)
-     ("M-C-t" emacspeak-eww-table-data)
+     ("C-t" emacspeak-eww-table-data)
      ("C-e" emacspeak-prefix-command)
      ("M-<left>" emacspeak-eww-table-previous-cell)
      ("M-<up>"  emacspeak-eww-table-previous-row)
@@ -2448,13 +2444,7 @@ With interactive prefix arg, move to the start of the table."
   (emacspeak-auditory-icon 'right)
   (emacspeak-eww-table-speak-cell))
 
-(defun emacspeak-eww-dive-into-table ()
-  "Focus on current table by rendering it in a new buffer."
-  (interactive)
-  (let ((dom (get-text-property (point) 'table-dom)))
-    (cl-assert dom t "No table here.")
-    (emacspeak-eww-view-helper
-     (dom-html-from-nodes (list dom) (eww-current-url)))))
+
 
 (defun emacspeak-eww-table-data ()
   "View  table at point as a data table using Emacspeak Table UI."
