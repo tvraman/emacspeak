@@ -201,6 +201,12 @@
        (emacspeak-speak-line)))))
 
 
+(defadvice haskell-cabal-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-setup-programming-mode)))
+
+
 ;;}}}
 ;;{{{haskell-debugger:
 
