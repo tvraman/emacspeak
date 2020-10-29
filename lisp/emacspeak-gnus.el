@@ -729,12 +729,32 @@ Helps to prevent words from being spelled instead of spoken."
 ;; experience, there are separate voices for the first four levels
 ;; and then they are repeated
 (voice-setup-add-map
- ;; NOTE
- ;; face names are either marked at the end of the line with a comment
- ;; consisting of the emacs version or they are unmarked.  The unmarked 
- ;; face names are for gnus shipped with emacs 22 
- ;; rdc 102206
  '(
+   (gnus-button voice-bolden)
+   (gnus-cite-attribution voice-smoothen)
+   (gnus-emphasis-bold-italic voice-bolden-medium)
+   (gnus-emphasis-underline-bold voice-lighten) 
+   (gnus-emphasis-underline-bold-italic  voice-lighten-extra)
+   (gnus-emphasis-underline-italic voice-lighten)
+   (gnus-group-mail-1  voice-brighten)
+   (gnus-group-mail-2  voice-animate)
+   (gnus-group-mail-3  voice-lighten)
+   (gnus-group-mail-low voice-smoothen)
+   (gnus-group-news-1  voice-highlight) 
+   (gnus-group-news-2  voice-lighten)
+   (gnus-group-news-3  voice-brighten)
+   (gnus-group-news-4  voice-lighten)
+   (gnus-group-news-5 voice-smoothen) 
+   (gnus-group-news-6 voice-annotate)
+   (gnus-group-news-low  voice-smoothen-extra)
+   (gnus-server-cloud  voice-animate)
+   (gnus-server-cloud-host  voice-lighten)
+   (gnus-splash  voice-brighten) 
+   (gnus-summary-high-undownloaded voice-highlight)
+   (gnus-summary-normal-unread  voice-bolden)
+   (gnus-x-face voice-monotone)
+    
+
    (gnus-cite-1 voice-bolden-medium)
    (gnus-cite-2 voice-lighten) 
    (gnus-cite-3 voice-lighten-extra)
