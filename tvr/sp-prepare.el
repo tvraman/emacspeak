@@ -4,7 +4,6 @@
   (define-key  smartparens-mode-map "\C-\M-a" 'beginning-of-defun)
   (define-key  smartparens-mode-map "\C-\M-e" 'end-of-defun)
   (define-key  smartparens-mode-map "\C-\M-k" 'kill-sexp)
-  (define-key  smartparens-mode-map "\C-\M- " 'mark-sexp)
   (define-key smartparens-mode-map "\M-a" 'sp-backward-down-sexp)
   (define-key smartparens-mode-map "\M-e" 'sp-up-sexp)
   (define-key smartparens-mode-map "\M-k" 'sp-kill-sexp)
