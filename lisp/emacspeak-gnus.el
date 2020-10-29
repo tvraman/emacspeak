@@ -753,8 +753,6 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-summary-high-undownloaded voice-highlight)
    (gnus-summary-normal-unread  voice-bolden)
    (gnus-x-face voice-monotone)
-    
-
    (gnus-cite-1 voice-bolden-medium)
    (gnus-cite-2 voice-lighten) 
    (gnus-cite-3 voice-lighten-extra)
@@ -797,36 +795,23 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-summary-high-unread voice-brighten-extra)
    (gnus-summary-selected voice-animate-extra)
    (gnus-summary-cancelled voice-bolden-extra)
-
    ;; group buffer personalities
    ;; I think the voice used for the groups in the buffer should be the 
    ;; default voice.  I might ask if there is a call for different voices 
    ;; as they are only necessary if users have persistently visible groups
    ;; in the case of empty groups, and voices for the various levels.
-   (gnus-group-mail-1-empty voice-bolden-extra)
-   (gnus-group-mail-2-empty voice-bolden-extra)
-   
-   (gnus-group-mail-3-empty  voice-bolden-extra)
-   
-   (gnus-group-mail-low-empty voice-bolden-extra)
-   
-   (gnus-group-news-1-empty voice-bolden-extra)
-   
-   (gnus-group-news-2-empty voice-bolden-extra)
-   
-   (gnus-group-news-3-empty voice-bolden-extra)
-   
-   (gnus-group-news-4-empty voice-bolden-extra)
-   
-   (gnus-group-news-5-empty voice-bolden-extra)
-   
-   (gnus-group-news-6-empty voice-bolden-extra)
-   
-   (gnus-group-news-low-empty voice-bolden-extra)
-   
-   
+   (gnus-group-mail-1-empty voice-monotone)
+   (gnus-group-mail-2-empty voice-monotone)
+   (gnus-group-mail-3-empty  voice-monotone)
+   (gnus-group-mail-low-empty voice-monotone)
+   (gnus-group-news-1-empty voice-monotone)
+   (gnus-group-news-2-empty voice-monotone)
+   (gnus-group-news-3-empty voice-monotone)
+   (gnus-group-news-4-empty voice-monotone)
+   (gnus-group-news-5-empty voice-monotone)
+   (gnus-group-news-6-empty voice-monotone)
+   (gnus-group-news-low-empty voice-monotone)
    ;; server buffer personalities
-
    (gnus-server-agent voice-bolden)
    (gnus-server-closed voice-bolden-medium)
    (gnus-server-denied voice-bolden-extra)
