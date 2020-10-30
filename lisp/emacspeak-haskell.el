@@ -57,7 +57,7 @@
  '(
    (haskell-c2hs-hook-name-face voice-lighten)
    (haskell-c2hs-hook-pair-face voice-brighten)
-   (haskell-constructor-face voice-monotone-medium)
+   (haskell-constructor-face voice-bolden)
    (haskell-debug-heading-face voice-smoothen-extra)
    (haskell-debug-keybinding-face voice-smoothen)
    (haskell-debug-muted-face voice-annotate)
@@ -214,7 +214,24 @@
 ;;{{{haskell-interactive
 
 ;;}}}
+;;{{{haskell-indentation
 
+(cl-loop
+ for f in 
+ '(
+   haskell-indentation-common-electric-command haskell-indentation-indent-backwards
+   haskell-indentation-indent-line haskell-indentation-indent-rigidly
+   haskell-indentation-newline-and-indent)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)))))
+
+
+;;}}}
 (provide 'emacspeak-haskell)
 ;;{{{ end of file
 
