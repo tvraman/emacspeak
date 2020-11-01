@@ -2114,8 +2114,8 @@ interactive prefix arg `delete', delete that mark instead."
            'at-end)
           (when (eq type 'local-file)
             (add-hook 'emacspeak-eww-post-process-hook
-                              #'emacspeak-speak-line
-                              'at-end))
+                      #'emacspeak-speak-line
+                      'at-end))
           )
         (funcall handler book)))))))
 
