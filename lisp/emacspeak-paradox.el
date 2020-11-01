@@ -68,7 +68,6 @@
    (paradox-starred-face voice-bolden-and-animate)
    (paradox-archive-face voice-smoothen)
    (paradox-commit-tag-face voice-brighten)
-   (paradox-download- voice-smoothen)
    (paradox-highlight-face voice-bolden)
    (paradox-homepage-button-face voice-bolden-medium)))
 
