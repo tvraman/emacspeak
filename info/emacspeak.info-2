@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on October 26, 2020.
+last updated on November 1, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -1508,6 +1508,11 @@ news.
  -- Variable: User Option emacspeak-gnus-punctuation-mode
      Pronunciation mode to use for gnus buffers.
 
+ -- Variable: User Option voice-gnus-button
+     Personality used for gnus-button This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
  -- Variable: User Option voice-gnus-cite-1
      Personality used for gnus-cite-1 This personality uses
      voice-bolden-medium whose effect can be changed globally by
@@ -1563,10 +1568,20 @@ news.
      voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
 
+ -- Variable: User Option voice-gnus-cite-attribution
+     Personality used for gnus-cite-attribution This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
  -- Variable: User Option voice-gnus-emphasis-bold
      Personality used for gnus-emphasis-bold This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option voice-gnus-emphasis-bold-italic
+     Personality used for gnus-emphasis-bold-italic This personality
+     uses voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
 
  -- Variable: User Option voice-gnus-emphasis-highlight-words
      Personality used for gnus-emphasis-highlight-words This personality
@@ -1588,60 +1603,130 @@ news.
      voice-brighten-extra whose effect can be changed globally by
      customizing voice-brighten-extra-settings.
 
+ -- Variable: User Option voice-gnus-emphasis-underline-bold
+     Personality used for gnus-emphasis-underline-bold This personality
+     uses voice-lighten whose effect can be changed globally by
+     customizing voice-lighten-settings.
+
+ -- Variable: User Option voice-gnus-emphasis-underline-bold-italic
+     Personality used for gnus-emphasis-underline-bold-italic This
+     personality uses voice-lighten-extra whose effect can be changed
+     globally by customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option voice-gnus-emphasis-underline-italic
+     Personality used for gnus-emphasis-underline-italic This
+     personality uses voice-lighten whose effect can be changed globally
+     by customizing voice-lighten-settings.
+
+ -- Variable: User Option voice-gnus-group-mail-1
+     Personality used for gnus-group-mail-1 This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
  -- Variable: User Option voice-gnus-group-mail-1-empty
      Personality used for gnus-group-mail-1-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-mail-2
+     Personality used for gnus-group-mail-2 This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option voice-gnus-group-mail-2-empty
      Personality used for gnus-group-mail-2-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-mail-3
+     Personality used for gnus-group-mail-3 This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option voice-gnus-group-mail-3-empty
      Personality used for gnus-group-mail-3-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-mail-low
+     Personality used for gnus-group-mail-low This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
 
  -- Variable: User Option voice-gnus-group-mail-low-empty
      Personality used for gnus-group-mail-low-empty This personality
-     uses voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-1
+     Personality used for gnus-group-news-1 This personality uses
+     voice-highlight whose effect can be changed globally by customizing
+     voice-highlight-settings.
 
  -- Variable: User Option voice-gnus-group-news-1-empty
      Personality used for gnus-group-news-1-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-2
+     Personality used for gnus-group-news-2 This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option voice-gnus-group-news-2-empty
      Personality used for gnus-group-news-2-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-3
+     Personality used for gnus-group-news-3 This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
 
  -- Variable: User Option voice-gnus-group-news-3-empty
      Personality used for gnus-group-news-3-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-4
+     Personality used for gnus-group-news-4 This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option voice-gnus-group-news-4-empty
      Personality used for gnus-group-news-4-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-5
+     Personality used for gnus-group-news-5 This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
 
  -- Variable: User Option voice-gnus-group-news-5-empty
      Personality used for gnus-group-news-5-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-6
+     Personality used for gnus-group-news-6 This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
 
  -- Variable: User Option voice-gnus-group-news-6-empty
      Personality used for gnus-group-news-6-empty This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option voice-gnus-group-news-low
+     Personality used for gnus-group-news-low This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
 
  -- Variable: User Option voice-gnus-group-news-low-empty
      Personality used for gnus-group-news-low-empty This personality
-     uses voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
 
  -- Variable: User Option voice-gnus-header-content
      Personality used for gnus-header-content This personality uses
@@ -1678,6 +1763,16 @@ news.
      voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
 
+ -- Variable: User Option voice-gnus-server-cloud
+     Personality used for gnus-server-cloud This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option voice-gnus-server-cloud-host
+     Personality used for gnus-server-cloud-host This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option voice-gnus-server-denied
      Personality used for gnus-server-denied This personality uses
      voice-bolden-extra whose effect can be changed globally by
@@ -1698,6 +1793,11 @@ news.
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
 
+ -- Variable: User Option voice-gnus-splash
+     Personality used for gnus-splash This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
  -- Variable: User Option voice-gnus-summary-cancelled
      Personality used for gnus-summary-cancelled This personality uses
      voice-bolden-extra whose effect can be changed globally by
@@ -1717,6 +1817,11 @@ news.
      Personality used for gnus-summary-high-ticked This personality uses
      voice-brighten-extra whose effect can be changed globally by
      customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option voice-gnus-summary-high-undownloaded
+     Personality used for gnus-summary-high-undownloaded This
+     personality uses voice-highlight whose effect can be changed
+     globally by customizing voice-highlight-settings.
 
  -- Variable: User Option voice-gnus-summary-high-unread
      Personality used for gnus-summary-high-unread This personality uses
@@ -1767,6 +1872,11 @@ news.
      Personality used for gnus-summary-normal-undownloaded This
      personality uses voice-bolden-and-animate whose effect can be
      changed globally by customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option voice-gnus-summary-normal-unread
+     Personality used for gnus-summary-normal-unread This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
 
  -- Variable: User Option voice-gnus-summary-selected
      Personality used for gnus-summary-selected This personality uses
