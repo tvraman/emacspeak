@@ -2002,7 +2002,7 @@ Warning, this is fragile, and depends on a stable id/class for the
      (let ((input (read-from-minibuffer "Mark: " nil nil nil nil "current")))
        (if (zerop (length input))
            "current" input)))))
-  (cl-declare (special emacspeak-eww-marks
+  (cl-declare (special emacspeak-eww-marks major-mode
                        emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (let ((bm
          (make-emacspeak-eww-mark
@@ -2011,11 +2011,15 @@ Warning, this is fragile, and depends on a stable id/class for the
           (cond
            ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
            ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
-           (t (error "EWW marks only work in EPub and Bookshare buffers.")))
+           ((and (string-match "^file:///" (eww-current-url))
+                 (not (string-match "^file:///tmp" (eww-current-url))))
+            'local-file)
+           (t (error "EWW marks only work in Local EWW pages,EPub and Bookshare buffers.")))
           :book
           (or
            (bound-and-true-p emacspeak-bookshare-this-book)
-           (bound-and-true-p emacspeak-epub-this-epub))
+           (bound-and-true-p emacspeak-epub-this-epub)
+           (substring (eww-current-url) 7))
           :point (point))))
     (puthash  name bm emacspeak-eww-marks)
     (emacspeak-eww-marks-save)
@@ -2031,6 +2035,11 @@ Warning, this is fragile, and depends on a stable id/class for the
     (setq
      buffer
      (cond
+      ((eq type 'local-file)
+       (cl-find-if
+        #'(lambda (b)
+            (string= book (with-current-buffer b (eww-current-url))))
+        (buffer-list)))
       ((eq type 'epub)
        (require 'emacspeak-epub)
        (cl-find-if
@@ -2075,7 +2084,6 @@ interactive prefix arg `delete', delete that mark instead."
       (completing-read "Mark: " emacspeak-eww-marks))
     current-prefix-arg))
   (cl-declare (special emacspeak-eww-marks))
-  (require 'eww)
   (cond
    (delete (emacspeak-eww-delete-mark name)
            (emacspeak-auditory-icon 'delete-object))
@@ -2095,6 +2103,7 @@ interactive prefix arg `delete', delete that mark instead."
               (cond
                ((eq type 'daisy) #'emacspeak-bookshare-eww)
                ((eq type 'epub) #'emacspeak-epub-eww)
+               ((eq type 'local-file) #'eww-open-file)
                (t (error "Unknown book type."))))
         (when point
           (add-hook
