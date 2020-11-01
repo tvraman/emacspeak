@@ -2111,7 +2111,12 @@ interactive prefix arg `delete', delete that mark instead."
            #'(lambda ()
                (goto-char point)
                (emacspeak-auditory-icon 'large-movement))
-           'at-end))
+           'at-end)
+          (when (eq type 'local-file)
+            (add-hook 'emacspeak-eww-post-process-hook
+                              #'emacspeak-speak-line
+                              'at-end))
+          )
         (funcall handler book)))))))
 
 (defun emacspeak-eww-marks-save ()
