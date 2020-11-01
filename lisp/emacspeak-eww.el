@@ -2038,7 +2038,9 @@ Warning, this is fragile, and depends on a stable id/class for the
       ((eq type 'local-file)
        (cl-find-if
         #'(lambda (b)
-            (string= book (with-current-buffer b (eww-current-url))))
+            (string= book (with-current-buffer b
+                            (and (eww-current-url)
+                                 (substring (eww-current-url) 7)))))
         (buffer-list)))
       ((eq type 'epub)
        (require 'emacspeak-epub)
@@ -2055,7 +2057,7 @@ Warning, this is fragile, and depends on a stable id/class for the
         (buffer-list)))
       (t (error "Unknown book type %s" type))))
     (when buffer
-      (funcall-interactively #'switch-to-buffer buffer)
+      (funcall-interactively #'pop-to-buffer buffer)
       (when point (goto-char point))
       (emacspeak-auditory-icon 'large-movement)
       t)))
