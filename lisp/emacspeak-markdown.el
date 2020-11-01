@@ -74,7 +74,6 @@
    (markdown-link-face voice-bolden)
    (markdown-missing-link-face voice-animate)
    (markdown-reference-face voice-lighten)
-   (markdown-footnote-face voice-smoothen)
    (markdown-url-face voice-bolden-and-animate)
    (markdown-link-title-face voice-lighten)
    (markdown-line-break-face voice-monotone)
