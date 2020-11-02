@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-11-02 Mon 10:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web: Data Tables Can Be More Than Screen-Deep</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Web: Data Tables Can Be More Than Screen-Deep</h1>
+<div id="outline-container-org64a9abd" class="outline-2">
+<h2 id="org64a9abd"><span class="section-number-2">1</span> Executive Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A few years ago, layout tables made speaking Web content difficult;
+that phase has now morphed into an even more horrifying soup of <code>div</code>
+and <code>span</code> tags styled by CSS. This also means that now, if you
+encounter a <code>table</code> element, it likely contains some useful data;
+also, deeply nested tables are beginning to feel like a thing of the
+past.
+</p>
+
+<p>
+Sadly, this has not made getting data out of HTML tables any easier. A
+combination of badly created markup, many redundant DOM nodes that
+exist purely for enabling DOM scripting, and heavy-weight DOM
+structures that   result from  code-generation have mostly created
+a different, but equally appalling situation .
+</p>
+
+<p>
+One of the primary reasons to do everything in a rich end-user
+environment like Emacs is the ability to share data across tasks and
+being able to manipulate data as <i>data</i>, rather than working with that
+data's underlying visual representation. Emacs can now render Web
+documents that are content focused, so the next immediate desire is to
+be able to extract data in a useful form from EWW rendered pages. This
+article describes one simple approach that lets me turn HTML tables
+found in the wild into a coherent tabular data structure  that I can
+ access meaningfully via emacspeak to obtain multiple <i>spoken views</i> of
+the data.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdcbe2b4" class="outline-2">
+<h2 id="orgdcbe2b4"><span class="section-number-2">2</span> Initial Approach That Failed</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I first tried to see if I could make EWW annotate the rendered <i>table
+data</i> with text properties &#x2014; sadly that proved impossible to do in
+the current implementation. Note however that Emacspeak does use text
+properties to provide access to other aspects of HTML document
+structure such as section headers, and moving through the rendered
+tables in an EWW buffer.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5e26cc4" class="outline-2">
+<h2 id="org5e26cc4"><span class="section-number-2">3</span> Ensuring That EWW Rendered Tables Are More than Screen-Deep</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+I implemented the approach described below a couple of weeks ago and
+it appears to work well barring a few known limitations.
+</p>
+
+<ol class="org-ol">
+<li>I  <a href="#orgf4ac815">advice</a> EWW to store a pointer to the <i>Table DOM</i> in the EWW buffer.</li>
+<li>I defined a <a href="#org5da504b">function</a> that converts the DOM nodes from the
+<i>table-dom</i> into a two-dimensional vector.</li>
+<li>I then <a href="#org1814a73">pass</a> this structure to Emacspeak's <i>Table-UI</i> module to
+obtain a browsable two-dimensional structure.</li>
+<li>Module <a href="#org67024ea">emacspeak-table-ui</a> enables the user to obtain multiple
+<i>spoken views</i>  of the  tabular data.</li>
+</ol>
+
+<p>
+See the following sections for details on each of these steps.
+</p>
+</div>
+
+<div id="outline-container-orgfcef362" class="outline-3">
+<h3 id="orgfcef362"><span class="section-number-3">3.1</span> Storing A Pointer To The Table-DOM <a id="orgf4ac815"></a></h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #b6a0ff;">defadvice</span> <span style="color: #feacd0;">shr-tag-table-1</span> (around emacspeak pre act comp) 
+  <span style="color: #c6eaff;">"Cache pointer to table dom as a text property"</span>
+  (<span style="color: #b6a0ff;">let</span> ((table-dom (ad-get-arg 0))
+        (start (point)))
+    ad-do-it
+    (<span style="color: #b6a0ff;">unless</span> (get-text-property start 'table-dom)
+      (put-text-property start (point)
+                         'table-dom table-dom))
+    ad-return-value))
+</pre>
+</div>
+
+<p>
+This advice stores a pointer to the <i>DOM</i> of the table being rendered
+over the region  containing the rendering.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf92b80e" class="outline-3">
+<h3 id="orgf92b80e"><span class="section-number-3">3.2</span> Generate A Tabular Structure From The Dom <a id="org5da504b"></a></h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Function <code>emacspeak-eww-table-table</code> generates a two-dimensional
+vector that encaspulates the tabular data.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #b6a0ff;">defun</span> <span style="color: #feacd0;">emacspeak-eww-table-table</span> ()
+  <span style="color: #c6eaff;">"Return table cells as a table, a 2d structure."</span>
+  (<span style="color: #b6a0ff;">let*</span> ((data nil)
+         (table (get-text-property (point) 'table-dom))
+         (head (dom-by-tag table 'th)))
+    (<span style="color: #dbbe5f;">cl-assert</span> table t <span style="color: #79a8ff;">"No table here."</span>)
+    (<span style="color: #b6a0ff;">setq</span> data
+          (<span style="color: #b6a0ff;">cl-loop</span>
+           for r in (dom-by-tag table 'tr) collect
+           (<span style="color: #b6a0ff;">cl-loop</span>
+            for c in
+            (append
+             (dom-by-tag r 'th)
+             (dom-by-tag r 'td))
+            collect
+            (string-trim (dom-node-as-text c)))))
+    <span style="color: #a8a8a8;">;;; </span><span style="color: #a8a8a8;">handle head case differently:</span>
+    (<span style="color: #b6a0ff;">if</span> head
+        (apply #'vector (mapcar #'vconcat  (cdr data)))
+      (apply #'vector (mapcar #'vconcat  data)))))
+</pre>
+</div>
+
+
+<p>
+The above code handles the case where there are header (i.e., <span class="underline">th</span>)
+cells specially to avoid a bug where we get two copies of the data.
+The nested loops  generates a list of lists, and the final call
+turns this into a two-dimensional vector.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc296d95" class="outline-3">
+<h3 id="orgc296d95"><span class="section-number-3">3.3</span> Browsing Tables As Data  <a id="org1814a73"></a></h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Interactive command <code>emacspeak-eww-table-data</code> (bound to <span class="underline">C-t</span>) takes the <i>table</i> at
+point, i.e. when point is anywhere within a table rendering, and
+creates a browsable table buffer as implemented by module 
+<a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-table-ui.el#L483">emacspeak-table-ui</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #b6a0ff;">defun</span> <span style="color: #feacd0;">emacspeak-eww-table-data</span> ()
+  <span style="color: #c6eaff;">"View  table at point as a data table using Emacspeak Table UI."</span>
+  (<span style="color: #b6a0ff;">interactive</span>)
+  (<span style="color: #b6a0ff;">let</span> ((data (emacspeak-eww-table-table))
+        (data-table nil)
+        (inhibit-read-only  t)
+        (buffer
+         (get-buffer-create
+          (format  <span style="color: #79a8ff;">"Table: %s"</span> (emacspeak-eww-current-title)))))
+    (<span style="color: #b6a0ff;">setq</span> data-table (emacspeak-table-make-table data))
+      (emacspeak-table-prepare-table-buffer data-table buffer)))
+</pre>
+</div>
+
+<p>
+The two-dimensional vector described earlier is now converted to a
+tabular structure as expected  by module <code>emacspeak-table-ui</code>, the
+primary difference being that this structure explicitly captures row
+and column headers.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org42c5fab" class="outline-3">
+<h3 id="org42c5fab"><span class="section-number-3">3.4</span> Browsing The Tabular Data <a id="org67024ea"></a></h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Emacspeak's <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dtable.html#emacspeak_002dtable">Table UI</a> allows one to:
+</p>
+
+<ol class="org-ol">
+<li>Move through table cells, either by row or column.</li>
+<li>Determine what is spoken  during such navigation,</li>
+<li>Spoken views can include cell value, row header and column header.</li>
+<li>For more advanced use-cases, one can define a <i>row filter</i> or
+<i>column filter</i>, think of these as specialized <i>formatters</i> that
+can format  selected cells and their headers into a
+natural-sounding sentence.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-11-02 Mon 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2020-11-02 Mon 10:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
