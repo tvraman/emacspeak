@@ -7,11 +7,11 @@ encounter a ~table~ element, it likely contains some useful data;
 also, deeply nested tables are beginning to feel like a thing of the
 past.
 
-Sadly, this has not made getting data out of HTML tables any easier, a
+Sadly, this has not made getting data out of HTML tables any easier. A
 combination of badly created markup, many redundant DOM nodes that
-appear to exist purely for enabling DOM scripting, and  heavy-weight
-DOM structures that are the result of code-generation  
-have mostly created a different, but equally horrifying situation.
+exist purely for enabling DOM scripting, and heavy-weight DOM
+structures that   result from  code-generation have mostly created
+a different, but equally appalling situation .
 
 One of the primary reasons to do everything in a rich end-user
 environment like Emacs is the ability to share data across tasks and
@@ -21,36 +21,36 @@ documents that are content focused, so the next immediate desire is to
 be able to extract data in a useful form from EWW rendered pages. This
 article describes one simple approach that lets me turn HTML tables
 found in the wild into a coherent tabular data structure  that I can
-then render meaningfully via emacspeak to obtain multiple /views/ of
+ access meaningfully via emacspeak to obtain multiple /spoken views/ of
 the data.
 
 * Initial Approach That Failed
 
 I first tried to see if I could make EWW annotate the rendered /table
-data/
-with text properties --- sadly that proved impossible to do in the
-current implementation. Note however that Emacspeak does use text
+data/ with text properties --- sadly that proved impossible to do in
+the current implementation. Note however that Emacspeak does use text
 properties to provide access to other aspects of HTML document
-structure such as section headers.
+structure such as section headers, and moving through the rendered
+tables in an EWW buffer.
 
 * Ensuring That EWW Rendered Tables Are More than Screen-Deep
 
 I implemented the approach described below a couple of weeks ago and
 it appears to work well barring a few known limitations.
 
-  1. I  /adviced/ EWW to store a pointer to the /Table DOM/ in the EWW buffer.
-  2. I defined a function that converts the DOM nodes from the
+  1. I  [[advice][advice]] EWW to store a pointer to the /Table DOM/ in the EWW buffer.
+  2. I defined a [[data][function]] that converts the DOM nodes from the
      /table-dom/ into a two-dimensional vector.
-  3. I then pass this structure to Emacspeak's /Table-UI/ module to
+  3. I then [[pass][pass]] this structure to Emacspeak's /Table-UI/ module to
      obtain a browsable two-dimensional structure.
-  4. Module /emacspeak-table-ui/ enables the user to obtain multiple
+  4. Module [[ui][emacspeak-table-ui]] enables the user to obtain multiple
      /spoken views/  of the  tabular data.
 
 See the following sections for details on each of these steps.
 
-** Storing A Pointer To The Table-DOM
+** Storing A Pointer To The Table-DOM <<advice>>
    
-#+b egin_src  emacs-lisp 
+#+begin_src  emacs-lisp 
 (defadvice shr-tag-table-1 (around emacspeak pre act comp) 
   "Cache pointer to table dom as a text property"
   (let ((table-dom (ad-get-arg 0))
@@ -65,7 +65,7 @@ See the following sections for details on each of these steps.
 This advice stores a pointer to the /DOM/ of the table being rendered
 over the region  containing the rendering.
 
-** Generate A Tabular Structure From The Dom
+** Generate A Tabular Structure From The Dom <<data>>
 
 Function ~emacspeak-eww-table-table~ generates a two-dimensional
 vector that encaspulates the tabular data.
@@ -99,7 +99,7 @@ cells specially to avoid a bug where we get two copies of the data.
 The nested loops  generates a list of lists, and the final call
 turns this into a two-dimensional vector.
 
-** Browsing Tables As Data 
+** Browsing Tables As Data  <<pass>>
 
 Interactive command ~emacspeak-eww-table-data~ (bound to _C-t_) takes the /table/ at
 point, i.e. when point is anywhere within a table rendering, and
@@ -125,7 +125,7 @@ tabular structure as expected  by module ~emacspeak-table-ui~, the
 primary difference being that this structure explicitly captures row
 and column headers.
 
-** Browsing The Tabular Data
+** Browsing The Tabular Data <<ui>>
 
 Emacspeak's [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dtable.html#emacspeak_002dtable][Table UI]] allows one to:
 

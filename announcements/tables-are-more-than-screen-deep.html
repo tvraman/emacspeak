@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-02 Mon 09:41 -->
+<!-- 2020-11-02 Mon 10:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Web: Data Tables Can Be More Than Screen-Deep</title>
@@ -243,8 +243,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Web: Data Tables Can Be More Than Screen-Deep</h1>
-<div id="outline-container-org10d3109" class="outline-2">
-<h2 id="org10d3109"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-org64a9abd" class="outline-2">
+<h2 id="org64a9abd"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 A few years ago, layout tables made speaking Web content difficult;
@@ -256,11 +256,11 @@ past.
 </p>
 
 <p>
-Sadly, this has not made getting data out of HTML tables any easier, a
+Sadly, this has not made getting data out of HTML tables any easier. A
 combination of badly created markup, many redundant DOM nodes that
-appear to exist purely for enabling DOM scripting, and  heavy-weight
-DOM structures that are the result of code-generation  
-have mostly created a different, but equally horrifying situation.
+exist purely for enabling DOM scripting, and heavy-weight DOM
+structures that   result from  code-generation have mostly created
+a different, but equally appalling situation .
 </p>
 
 <p>
@@ -272,28 +272,28 @@ documents that are content focused, so the next immediate desire is to
 be able to extract data in a useful form from EWW rendered pages. This
 article describes one simple approach that lets me turn HTML tables
 found in the wild into a coherent tabular data structure  that I can
-then render meaningfully via emacspeak to obtain multiple <i>views</i> of
+ access meaningfully via emacspeak to obtain multiple <i>spoken views</i> of
 the data.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0ca0043" class="outline-2">
-<h2 id="org0ca0043"><span class="section-number-2">2</span> Initial Approach That Failed</h2>
+<div id="outline-container-orgdcbe2b4" class="outline-2">
+<h2 id="orgdcbe2b4"><span class="section-number-2">2</span> Initial Approach That Failed</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I first tried to see if I could make EWW annotate the rendered <i>table
-data</i>
-with text properties &#x2014; sadly that proved impossible to do in the
-current implementation. Note however that Emacspeak does use text
+data</i> with text properties &#x2014; sadly that proved impossible to do in
+the current implementation. Note however that Emacspeak does use text
 properties to provide access to other aspects of HTML document
-structure such as section headers.
+structure such as section headers, and moving through the rendered
+tables in an EWW buffer.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0d62bb7" class="outline-2">
-<h2 id="org0d62bb7"><span class="section-number-2">3</span> Ensuring That EWW Rendered Tables Are More than Screen-Deep</h2>
+<div id="outline-container-org5e26cc4" class="outline-2">
+<h2 id="org5e26cc4"><span class="section-number-2">3</span> Ensuring That EWW Rendered Tables Are More than Screen-Deep</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 I implemented the approach described below a couple of weeks ago and
@@ -301,12 +301,12 @@ it appears to work well barring a few known limitations.
 </p>
 
 <ol class="org-ol">
-<li>I  <i>adviced</i> EWW to store a pointer to the <i>Table DOM</i> in the EWW buffer.</li>
-<li>I defined a function that converts the DOM nodes from the
+<li>I  <a href="#orgf4ac815">advice</a> EWW to store a pointer to the <i>Table DOM</i> in the EWW buffer.</li>
+<li>I defined a <a href="#org5da504b">function</a> that converts the DOM nodes from the
 <i>table-dom</i> into a two-dimensional vector.</li>
-<li>I then pass this structure to Emacspeak's <i>Table-UI</i> module to
+<li>I then <a href="#org1814a73">pass</a> this structure to Emacspeak's <i>Table-UI</i> module to
 obtain a browsable two-dimensional structure.</li>
-<li>Module <i>emacspeak-table-ui</i> enables the user to obtain multiple
+<li>Module <a href="#org67024ea">emacspeak-table-ui</a> enables the user to obtain multiple
 <i>spoken views</i>  of the  tabular data.</li>
 </ol>
 
@@ -315,22 +315,21 @@ See the following sections for details on each of these steps.
 </p>
 </div>
 
-<div id="outline-container-org205907b" class="outline-3">
-<h3 id="org205907b"><span class="section-number-3">3.1</span> Storing A Pointer To The Table-DOM</h3>
+<div id="outline-container-orgfcef362" class="outline-3">
+<h3 id="orgfcef362"><span class="section-number-3">3.1</span> Storing A Pointer To The Table-DOM <a id="orgf4ac815"></a></h3>
 <div class="outline-text-3" id="text-3-1">
-<p>
-#+b egin<sub>src</sub>  emacs-lisp 
-(defadvice shr-tag-table-1 (around emacspeak pre act comp) 
-  "Cache pointer to table dom as a text property"
-  (let ((table-dom (ad-get-arg 0))
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #b6a0ff;">defadvice</span> <span style="color: #feacd0;">shr-tag-table-1</span> (around emacspeak pre act comp) 
+  <span style="color: #c6eaff;">"Cache pointer to table dom as a text property"</span>
+  (<span style="color: #b6a0ff;">let</span> ((table-dom (ad-get-arg 0))
         (start (point)))
     ad-do-it
-    (unless (get-text-property start 'table-dom)
+    (<span style="color: #b6a0ff;">unless</span> (get-text-property start 'table-dom)
       (put-text-property start (point)
                          'table-dom table-dom))
     ad-return-value))
-#+end<sub>src</sub>
-</p>
+</pre>
+</div>
 
 <p>
 This advice stores a pointer to the <i>DOM</i> of the table being rendered
@@ -339,8 +338,8 @@ over the region  containing the rendering.
 </div>
 </div>
 
-<div id="outline-container-org06b659a" class="outline-3">
-<h3 id="org06b659a"><span class="section-number-3">3.2</span> Generate A Tabular Structure From The Dom</h3>
+<div id="outline-container-orgf92b80e" class="outline-3">
+<h3 id="orgf92b80e"><span class="section-number-3">3.2</span> Generate A Tabular Structure From The Dom <a id="org5da504b"></a></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Function <code>emacspeak-eww-table-table</code> generates a two-dimensional
@@ -381,8 +380,8 @@ turns this into a two-dimensional vector.
 </div>
 </div>
 
-<div id="outline-container-orgee97ff4" class="outline-3">
-<h3 id="orgee97ff4"><span class="section-number-3">3.3</span> Browsing Tables As Data</h3>
+<div id="outline-container-orgc296d95" class="outline-3">
+<h3 id="orgc296d95"><span class="section-number-3">3.3</span> Browsing Tables As Data  <a id="org1814a73"></a></h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Interactive command <code>emacspeak-eww-table-data</code> (bound to <span class="underline">C-t</span>) takes the <i>table</i> at
@@ -415,8 +414,8 @@ and column headers.
 </div>
 </div>
 
-<div id="outline-container-org0c8029a" class="outline-3">
-<h3 id="org0c8029a"><span class="section-number-3">3.4</span> Browsing The Tabular Data</h3>
+<div id="outline-container-org42c5fab" class="outline-3">
+<h3 id="org42c5fab"><span class="section-number-3">3.4</span> Browsing The Tabular Data <a id="org67024ea"></a></h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Emacspeak's <a href="https://tvraman.github.io/emacspeak/manual/emacspeak_002dtable.html#emacspeak_002dtable">Table UI</a> allows one to:
@@ -438,7 +437,7 @@ natural-sounding sentence.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2020-11-02 Mon 00:00</p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2020-11-02 Mon 09:41</p>
+<p class="date">Created: 2020-11-02 Mon 10:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
