@@ -36,6 +36,303 @@
   <openSearch:itemsPerPage>1000
   </openSearch:itemsPerPage>
 <entry>
+    <id>tag:blogger.com,1999:blog-20280042.post-1034175706000724531</id><published>
+      2020-11-02T10:54:00.001-08:00
+    </published>
+    <updated>2020-11-02T10:54:26.262-08:00</updated><title type='text'>
+      Web: Data Tables Can Be More Than Screen-Deep
+    </title>
+    <content type='html'>&lt;div id=&quot;content&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Web: Data Tables Can Be More Than
+      Screen-Deep&lt;/h1&gt;
+      &lt;div id=&quot;outline-container-org64a9abd&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org64a9abd&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive
+      Summary&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+      &lt;p&gt;
+      A few years ago, layout tables made speaking Web content difficult;
+      that phase has now morphed into an even more horrifying soup of
+      &lt;code&gt;div&lt;/code&gt;
+      and &lt;code&gt;span&lt;/code&gt; tags styled by CSS. This also
+      means that now, if you
+      encounter a &lt;code&gt;table&lt;/code&gt; element, it likely
+      contains some useful data;
+      also, deeply nested tables are beginning to feel like a thing of the
+      past.
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      Sadly, this has not made getting data out of HTML tables any easier.
+      A
+      combination of badly created markup, many redundant DOM nodes that
+      exist purely for enabling DOM scripting, and heavy-weight DOM
+      structures that   result from  code-generation have mostly created
+      a different, but equally appalling situation .
+      &lt;/p&gt;
+      
+      &lt;p&gt;
+      One of the primary reasons to do everything in a rich end-user
+      environment like Emacs is the ability to share data across tasks and
+      being able to manipulate data as &lt;i&gt;data&lt;/i&gt;, rather
+      than working with that
+      data&#39;s underlying visual representation. Emacs can now render
+      Webdocuments that are content focused, so the next immediate desire
+      is to
+      be able to extract data in a useful form from EWW rendered pages.
+      This
+      article describes one simple approach that lets me turn HTML tables
+      found in the wild into a coherent tabular data structure  that I can
+      access meaningfully via emacspeak to obtain multiple &lt;i&gt;spoken
+      views&lt;/i&gt; of
+      the data.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgdcbe2b4&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;orgdcbe2b4&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Initial
+      Approach That Failed&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+      &lt;p&gt;
+      I first tried to see if I could make EWW annotate the rendered
+      &lt;i&gt;table
+      data&lt;/i&gt; with text properties &amp;#x2014; sadly that proved
+      impossible to do in
+      the current implementation. Note however that Emacspeak does use
+      textproperties to provide access to other aspects of HTML document
+      structure such as section headers, and moving through the rendered
+      tables in an EWW buffer.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org5e26cc4&quot;
+      class=&quot;outline-2&quot;&gt;
+      &lt;h2 id=&quot;org5e26cc4&quot;&gt;&lt;span
+      class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Ensuring That
+      EWW Rendered Tables Are More than Screen-Deep&lt;/h2&gt;
+      &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+      &lt;p&gt;
+      I implemented the approach described below a couple of weeks ago and
+      it appears to work well barring a few known limitations.
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;I  &lt;a href=&quot;#orgf4ac815&quot;&gt;advice&lt;/a&gt;
+      EWW to store a pointer to the &lt;i&gt;Table DOM&lt;/i&gt; in the
+      EWW buffer.&lt;/li&gt;
+      &lt;li&gt;I defined a &lt;a
+      href=&quot;#org5da504b&quot;&gt;function&lt;/a&gt; that converts the
+      DOM nodes from the
+      &lt;i&gt;table-dom&lt;/i&gt; into a two-dimensional
+      vector.&lt;/li&gt;
+      &lt;li&gt;I then &lt;a
+      href=&quot;#org1814a73&quot;&gt;pass&lt;/a&gt; this structure to
+      Emacspeak&#39;s &lt;i&gt;Table-UI&lt;/i&gt; module to
+      obtain a browsable two-dimensional structure.&lt;/li&gt;
+      &lt;li&gt;Module &lt;a
+      href=&quot;#org67024ea&quot;&gt;emacspeak-table-ui&lt;/a&gt; enables
+      the user to obtain multiple
+      &lt;i&gt;spoken views&lt;/i&gt;  of the  tabular data.&lt;/li&gt;
+      &lt;/ol&gt;
+      
+      &lt;p&gt;
+      See the following sections for details on each of these steps.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgfcef362&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgfcef362&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; Storing A
+      Pointer To The Table-DOM &lt;a
+      id=&quot;orgf4ac815&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defadvice&lt;/span&gt; &lt;span
+      style=&quot;color: #feacd0;&quot;&gt;shr-tag-table-1&lt;/span&gt;
+      (around emacspeak pre act comp) 
+      &lt;span style=&quot;color: #c6eaff;&quot;&gt;&quot;Cache pointer to
+      table dom as a text property&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((table-dom (ad-get-arg 0))
+      (start (point)))
+      ad-do-it
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;unless&lt;/span&gt;
+      (get-text-property start &#39;table-dom)
+      (put-text-property start (point)
+      &#39;table-dom table-dom))
+      ad-return-value))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      This advice stores a pointer to the &lt;i&gt;DOM&lt;/i&gt; of the
+      table being rendered
+      over the region  containing the rendering.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgf92b80e&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgf92b80e&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.2&lt;/span&gt; Generate A
+      Tabular Structure From The Dom &lt;a
+      id=&quot;org5da504b&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-2&quot;&gt;
+      &lt;p&gt;
+      Function &lt;code&gt;emacspeak-eww-table-table&lt;/code&gt;
+      generates a two-dimensional
+      vector that encaspulates the tabular data.
+      &lt;/p&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color:
+      #feacd0;&quot;&gt;emacspeak-eww-table-table&lt;/span&gt; ()
+      &lt;span style=&quot;color: #c6eaff;&quot;&gt;&quot;Return table
+      cells as a table, a 2d structure.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let*&lt;/span&gt;
+      ((data nil)
+      (table (get-text-property (point) &#39;table-dom))
+      (head (dom-by-tag table &#39;th)))
+      (&lt;span style=&quot;color:
+      #dbbe5f;&quot;&gt;cl-assert&lt;/span&gt; table t &lt;span
+      style=&quot;color: #79a8ff;&quot;&gt;&quot;No table
+      here.&quot;&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      data          (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;cl-loop&lt;/span&gt;
+      for r in (dom-by-tag table &#39;tr) collect
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;cl-loop&lt;/span&gt;
+      for c in
+      (append
+      (dom-by-tag r &#39;th)
+      (dom-by-tag r &#39;td))
+      collect
+      (string-trim (dom-node-as-text c)))))
+      &lt;span style=&quot;color: #a8a8a8;&quot;&gt;;;;
+      &lt;/span&gt;&lt;span style=&quot;color: #a8a8a8;&quot;&gt;handle
+      head case differently:&lt;/span&gt;
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;if&lt;/span&gt; head
+      (apply #&#39;vector (mapcar #&#39;vconcat  (cdr data)))
+      (apply #&#39;vector (mapcar #&#39;vconcat  data)))))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      
+      &lt;p&gt;
+      The above code handles the case where there are header (i.e.,
+      &lt;span class=&quot;underline&quot;&gt;th&lt;/span&gt;)
+      cells specially to avoid a bug where we get two copies of the data.
+      The nested loops  generates a list of lists, and the final call
+      turns this into a two-dimensional vector.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-orgc296d95&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;orgc296d95&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.3&lt;/span&gt; Browsing
+      Tables As Data  &lt;a
+      id=&quot;org1814a73&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
+      &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-3&quot;&gt;
+      &lt;p&gt;
+      Interactive command
+      &lt;code&gt;emacspeak-eww-table-data&lt;/code&gt; (bound to &lt;span
+      class=&quot;underline&quot;&gt;C-t&lt;/span&gt;) takes the
+      &lt;i&gt;table&lt;/i&gt; at
+      point, i.e. when point is anywhere within a table rendering, and
+      creates a browsable table buffer as implemented by module 
+      &lt;a
+      
+      href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-table-ui.el#L483&quot;&gt;emacspeak-table-ui&lt;/a&gt;.
+      &lt;/p&gt;
+      
+      &lt;div class=&quot;org-src-container&quot;&gt;
+      &lt;pre class=&quot;src src-emacs-lisp&quot;&gt;(&lt;span
+      style=&quot;color: #b6a0ff;&quot;&gt;defun&lt;/span&gt; &lt;span
+      style=&quot;color:
+      #feacd0;&quot;&gt;emacspeak-eww-table-data&lt;/span&gt; ()
+      &lt;span style=&quot;color: #c6eaff;&quot;&gt;&quot;View  table at
+      point as a data table using Emacspeak Table UI.&quot;&lt;/span&gt;
+      (&lt;span style=&quot;color:
+      #b6a0ff;&quot;&gt;interactive&lt;/span&gt;)
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;let&lt;/span&gt;
+      ((data (emacspeak-eww-table-table))
+      (data-table nil)
+      (inhibit-read-only  t)
+      (buffer
+      (get-buffer-create
+      (format  &lt;span style=&quot;color: #79a8ff;&quot;&gt;&quot;Table:
+      %s&quot;&lt;/span&gt; (emacspeak-eww-current-title)))))
+      (&lt;span style=&quot;color: #b6a0ff;&quot;&gt;setq&lt;/span&gt;
+      data-table (emacspeak-table-make-table data))
+      (emacspeak-table-prepare-table-buffer data-table buffer)))
+      &lt;/pre&gt;
+      &lt;/div&gt;
+      
+      &lt;p&gt;
+      The two-dimensional vector described earlier is now converted to a
+      tabular structure as expected  by module
+      &lt;code&gt;emacspeak-table-ui&lt;/code&gt;, the
+      primary difference being that this structure explicitly captures row
+      and column headers.
+      &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div id=&quot;outline-container-org42c5fab&quot;
+      class=&quot;outline-3&quot;&gt;
+      &lt;h3 id=&quot;org42c5fab&quot;&gt;&lt;span
+      class=&quot;section-number-3&quot;&gt;3.4&lt;/span&gt; Browsing The
+      Tabular Data &lt;a
+      id=&quot;org67024ea&quot;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div
+      class=&quot;outline-text-3&quot; id=&quot;text-3-4&quot;&gt;
+      &lt;p&gt;
+      Emacspeak&#39;s &lt;a
+      
+      href=&quot;https://tvraman.github.io/emacspeak/manual/emacspeak_002dtable.html#emacspeak_002dtable&quot;&gt;Table UI&lt;/a&gt; allows one to:
+      &lt;/p&gt;
+      
+      &lt;ol class=&quot;org-ol&quot;&gt;
+      &lt;li&gt;Move through table cells, either by row or
+      column.&lt;/li&gt;
+      &lt;li&gt;Determine what is spoken  during such
+      navigation,&lt;/li&gt;
+      &lt;li&gt;Spoken views can include cell value, row header and column
+      header.&lt;/li&gt;
+      &lt;li&gt;For more advanced use-cases, one can define a &lt;i&gt;row
+      filter&lt;/i&gt; or
+      &lt;i&gt;column filter&lt;/i&gt;, think of these as specialized
+      &lt;i&gt;formatters&lt;/i&gt; that
+      can format  selected cells and their headers into a
+      natural-sounding sentence.&lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    </content>
+    <link rel='edit' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/1034175706000724531'/>
+    <link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default/1034175706000724531'/>
+    <link rel='alternate' type='text/html' href='https://emacspeak.blogspot.com/2020/11/web-data-tables-can-be-more-than-screen.html' title='Web: Data Tables Can Be More Than Screen-Deep'/>
+    <author>
+      <name>T. V. Raman</name><uri>
+        http://www.blogger.com/profile/03589687652590194428
+      </uri>
+      <email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='https://img1.blogblog.com/img/b16-rounded.gif'/>
+    </author>
+  </entry>
+<entry>
     <id>tag:blogger.com,1999:blog-20280042.post-2853057356022218696</id><published>
       2020-10-10T07:52:00.000-07:00
     </published>
