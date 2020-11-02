@@ -1,0 +1,153 @@
+* Executive Summary 
+
+A few years ago, layout tables made speaking Web content difficult;
+that phase has now morphed into an even more horrifying soup of ~div~
+and ~span~ tags styled by CSS. This also means that now, if you
+encounter a ~table~ element, it likely contains some useful data;
+also, deeply nested tables are beginning to feel like a thing of the
+past.
+
+Sadly, this has not made getting data out of HTML tables any easier, a
+combination of badly created markup, many redundant DOM nodes that
+appear to exist purely for enabling DOM scripting, and  heavy-weight
+DOM structures that are the result of code-generation  
+have mostly created a different, but equally horrifying situation.
+
+One of the primary reasons to do everything in a rich end-user
+environment like Emacs is the ability to share data across tasks and
+being able to manipulate data as /data/, rather than working with that
+data's underlying visual representation. Emacs can now render Web
+documents that are content focused, so the next immediate desire is to
+be able to extract data in a useful form from EWW rendered pages. This
+article describes one simple approach that lets me turn HTML tables
+found in the wild into a coherent tabular data structure  that I can
+then render meaningfully via emacspeak to obtain multiple /views/ of
+the data.
+
+* Initial Approach That Failed
+
+I first tried to see if I could make EWW annotate the rendered /table
+data/
+with text properties --- sadly that proved impossible to do in the
+current implementation. Note however that Emacspeak does use text
+properties to provide access to other aspects of HTML document
+structure such as section headers.
+
+* Ensuring That EWW Rendered Tables Are More than Screen-Deep
+
+I implemented the approach described below a couple of weeks ago and
+it appears to work well barring a few known limitations.
+
+  1. I  /adviced/ EWW to store a pointer to the /Table DOM/ in the EWW buffer.
+  2. I defined a function that converts the DOM nodes from the
+     /table-dom/ into a two-dimensional vector.
+  3. I then pass this structure to Emacspeak's /Table-UI/ module to
+     obtain a browsable two-dimensional structure.
+  4. Module /emacspeak-table-ui/ enables the user to obtain multiple
+     /spoken views/  of the  tabular data.
+
+See the following sections for details on each of these steps.
+
+** Storing A Pointer To The Table-DOM
+   
+#+b egin_src  emacs-lisp 
+(defadvice shr-tag-table-1 (around emacspeak pre act comp) 
+  "Cache pointer to table dom as a text property"
+  (let ((table-dom (ad-get-arg 0))
+        (start (point)))
+    ad-do-it
+    (unless (get-text-property start 'table-dom)
+      (put-text-property start (point)
+                         'table-dom table-dom))
+    ad-return-value))
+#+end_src
+
+This advice stores a pointer to the /DOM/ of the table being rendered
+over the region  containing the rendering.
+
+** Generate A Tabular Structure From The Dom
+
+Function ~emacspeak-eww-table-table~ generates a two-dimensional
+vector that encaspulates the tabular data.
+
+#+begin_src  emacs-lisp
+(defun emacspeak-eww-table-table ()
+  "Return table cells as a table, a 2d structure."
+  (let* ((data nil)
+         (table (get-text-property (point) 'table-dom))
+         (head (dom-by-tag table 'th)))
+    (cl-assert table t "No table here.")
+    (setq data
+          (cl-loop
+           for r in (dom-by-tag table 'tr) collect
+           (cl-loop
+            for c in
+            (append
+             (dom-by-tag r 'th)
+             (dom-by-tag r 'td))
+            collect
+            (string-trim (dom-node-as-text c)))))
+    ;;; handle head case differently:
+    (if head
+        (apply #'vector (mapcar #'vconcat  (cdr data)))
+      (apply #'vector (mapcar #'vconcat  data)))))
+#+end_src
+
+
+The above code handles the case where there are header (i.e., _th_)
+cells specially to avoid a bug where we get two copies of the data.
+The nested loops  generates a list of lists, and the final call
+turns this into a two-dimensional vector.
+
+** Browsing Tables As Data 
+
+Interactive command ~emacspeak-eww-table-data~ (bound to _C-t_) takes the /table/ at
+point, i.e. when point is anywhere within a table rendering, and
+creates a browsable table buffer as implemented by module 
+[[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-table-ui.el#L483][emacspeak-table-ui]].
+
+#+begin_src  emacs-lisp
+(defun emacspeak-eww-table-data ()
+  "View  table at point as a data table using Emacspeak Table UI."
+  (interactive)
+  (let ((data (emacspeak-eww-table-table))
+        (data-table nil)
+        (inhibit-read-only  t)
+        (buffer
+         (get-buffer-create
+          (format  "Table: %s" (emacspeak-eww-current-title)))))
+    (setq data-table (emacspeak-table-make-table data))
+      (emacspeak-table-prepare-table-buffer data-table buffer)))
+#+end_src
+
+The two-dimensional vector described earlier is now converted to a
+tabular structure as expected  by module ~emacspeak-table-ui~, the
+primary difference being that this structure explicitly captures row
+and column headers.
+
+** Browsing The Tabular Data
+
+Emacspeak's [[https://tvraman.github.io/emacspeak/manual/emacspeak_002dtable.html#emacspeak_002dtable][Table UI]] allows one to:
+
+  1. Move through table cells, either by row or column.
+  2. Determine what is spoken  during such navigation,
+  3. Spoken views can include cell value, row header and column header.
+  4. For more advanced use-cases, one can define a /row filter/ or
+     /column filter/, think of these as specialized /formatters/ that
+     can format  selected cells and their headers into a
+     natural-sounding sentence.
+
+  
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:t title:t toc:nil todo:t |:t
+#+title: Web: Data Tables Can Be More Than Screen-Deep
+#+date: <2020-11-02 Mon>
+#+author: T.V Raman
+#+email: raman@google.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.0.50 (Org mode 9.3)
