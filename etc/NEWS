@@ -19,6 +19,9 @@ convenience commands.
 If you wish to restore the default Emacs behavior, bind _C-z_ to
 command _suspend-frame_ after Emacspeak has been loaded.
 
+** Speech-Enabled Haskell Mode
+
+Module ~emacspeak-haskell~ speech-enables package ~haskell-mode~.
 
 ** Speech-Enable Package Syslog
 
