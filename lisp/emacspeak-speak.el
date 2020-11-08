@@ -1774,7 +1774,7 @@ Interactive prefix arg speaks buffer info."
                        emacspeak-mail-alert mode-line-format))
   (with-current-buffer (window-buffer (selected-window))
     (force-mode-line-update)
-    (when folding-mode (emacspeak-auditory-icon 'ellipses))
+    (when (bound-and-true-p folding-mode) (emacspeak-auditory-icon 'ellipses))
     (when (and visual-line-mode (not global-visual-line-mode)) (sox-chime 2 2))
     (when emacspeak-mail-alert (emacspeak-mail-alert-user))
     (cond
