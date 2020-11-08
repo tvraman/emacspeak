@@ -449,11 +449,12 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile(require 'subr-x))
+(require 'emacspeak-preamble)
 (require 'eww  )
 (require 'dom)
 (require 'dom-addons)
+(require 'emacspeak-we)
 (require 'emacspeak-google)
-(require 'emacspeak-preamble)
 (declare-function emacspeak-epub-eww
                   "emacspeak-epub" (epub-file &optional broken-ncx))
 
