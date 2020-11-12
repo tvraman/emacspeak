@@ -70,7 +70,7 @@
 ;;{{{ Interactive Commands:
 
 '(
-vterm-clear
+
 vterm-clear-scrollback
 vterm-copy-mode
 vterm-copy-mode-done
@@ -153,6 +153,25 @@ vterm-yank
 vterm-yank-pop
 vterm-yank-primary
 )
+
+(defadvice vterm-clear (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'scroll)
+    (message "Cleared screen")))
+
+
+(defadvice vterm-clear-scrollback (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'scroll)
+    (message "Cleared scrollback")))
+
+(defadvice vterm-copy-mode-done (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
 
 
 (with-eval-after-load "vterm"
