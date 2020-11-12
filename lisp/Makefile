@@ -268,6 +268,7 @@ emacspeak-typo.elc \
 emacspeak-url-template.elc \
 emacspeak-vdiff.elc \
 emacspeak-view.elc \
+emacspeak-vterm.elc \
 emacspeak-vuiet.elc \
 emacspeak-vm.elc \
 emacspeak-wdired.elc \
@@ -548,6 +549,7 @@ emacspeak-url-template.elc: emacspeak-url-template.el  emacspeak-we.elc
 emacspeak-vdiff.elc: emacspeak-vdiff.el dtk-speak.elc voice-setup.elc
 emacspeak-vuiet.elc: emacspeak-vuiet.el dtk-speak.elc voice-setup.elc
 emacspeak-view.elc: emacspeak-view.el dtk-speak.elc voice-setup.elc
+emacspeak-vterm.elc: emacspeak-vterm.el dtk-speak.elc voice-setup.elc
 emacspeak-vm.elc: emacspeak-vm.el dtk-speak.elc voice-setup.elc
 emacspeak-wdired.elc: emacspeak-wdired.el dtk-speak.elc voice-setup.elc
 emacspeak-we.elc: emacspeak-we.el 
