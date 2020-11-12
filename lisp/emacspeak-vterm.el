@@ -166,10 +166,10 @@ vterm-yank-primary
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-;; (defadvice vterm--self-insert (after emacspeak pre act comp)
-;;   "Provide auditory feedback."
-;;   (when (and (characterp last-input-event) (ems-interactive-p))
-;;     (emacspeak-speak-this-char last-input-event)))
+(defadvice vterm--self-insert (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (and (characterp last-input-event) (ems-interactive-p))
+    (dtk-notify-letter (format "%c" last-input-event))))
 
 (cl-loop
  for f in 
@@ -199,11 +199,19 @@ vterm-yank-primary
 
 ;;}}}
 ;;{{{Handle output:
+;;; This gets what you type (input)
 
 (defadvice vterm--flush-output (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (dtk-speak (ad-get-arg 0)))
+  (let ((output (ad-get-arg 0)))
+    (when (> (length output) 1) ;;; short-term kluge
+      (dtk-speak output ))))
 
+
+(defadvice vterm--filter (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (let ((input (ad-get-arg 1)))
+    (dtk-speak  (ansi-color-filter-apply input) )))
 
 ;;}}}
 (provide 'emacspeak-vterm)
