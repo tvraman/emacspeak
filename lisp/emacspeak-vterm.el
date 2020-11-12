@@ -53,113 +53,112 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
-'(
-(vterm-color-black voice-bolden)
-(vterm-color-blue voice-brighten)
-(vterm-color-cyan voice-smoothen)
-(vterm-color-default 'paul)
-(vterm-color-green voice-lighten)
-(vterm-color-inverse-video 'betty)
-(vterm-color-magenta voice-annotate)
-(vterm-color-underline voice-monotone)
-(vterm-color-white 'paul)
-(vterm-color-yellow voice-animate)))
+(voice-setup-add-map
+ '(
+   (vterm-color-black voice-bolden)
+   (vterm-color-blue voice-brighten)
+   (vterm-color-cyan voice-smoothen)
+   (vterm-color-default 'paul)
+   (vterm-color-green voice-lighten)
+   (vterm-color-inverse-video 'betty)
+   (vterm-color-magenta voice-annotate)
+   (vterm-color-underline voice-monotone)
+   (vterm-color-white 'paul)
+   (vterm-color-yellow voice-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
 '(
 
-vterm-clear-scrollback
-vterm-copy-mode
-vterm-copy-mode-done
-vterm-mode
-vterm-module-compile
-vterm-other-window
-vterm-reset-cursor-point
-vterm-send-C-a
-vterm-send-C-b
-vterm-send-C-c
-vterm-send-C-d
-vterm-send-C-e
-vterm-send-C-f
-vterm-send-C-g
-vterm-send-C-h
-vterm-send-C-i
-vterm-send-C-j
-vterm-send-C-k
-vterm-send-C-l
-vterm-send-C-m
-vterm-send-C-n
-vterm-send-C-o
-vterm-send-C-p
-vterm-send-C-q
-vterm-send-C-r
-vterm-send-C-s
-vterm-send-C-t
-vterm-send-C-u
-vterm-send-C-v
-vterm-send-C-w
-vterm-send-C-x
-vterm-send-C-y
-vterm-send-C-z
-vterm-send-M-a
-vterm-send-M-b
-vterm-send-M-c
-vterm-send-M-d
-vterm-send-M-e
-vterm-send-M-f
-vterm-send-M-g
-vterm-send-M-h
-vterm-send-M-i
-vterm-send-M-j
-vterm-send-M-k
-vterm-send-M-l
-vterm-send-M-m
-vterm-send-M-n
-vterm-send-M-o
-vterm-send-M-p
-vterm-send-M-q
-vterm-send-M-r
-vterm-send-M-s
-vterm-send-M-t
-vterm-send-M-u
-vterm-send-M-v
-vterm-send-M-w
-vterm-send-M-x
-vterm-send-M-y
-vterm-send-M-z
-vterm-send-backspace
-vterm-send-ctrl-slash
-vterm-send-delete
-vterm-send-down
-vterm-send-escape
-vterm-send-left
-vterm-send-meta-backspace
-vterm-send-meta-comma
-vterm-send-meta-dot
-vterm-send-next
-vterm-send-prior
-vterm-send-return
-vterm-send-right
-vterm-send-space
-vterm-send-start
-vterm-send-stop
-vterm-send-tab
-vterm-send-up
-vterm-undo
-vterm-yank
-vterm-yank-pop
-vterm-yank-primary
-)
+  vterm-clear-scrollback
+  vterm-copy-mode
+  vterm-copy-mode-done
+  vterm-mode
+  vterm-module-compile
+  vterm-other-window
+  vterm-reset-cursor-point
+  vterm-send-C-a
+  vterm-send-C-b
+  vterm-send-C-c
+  vterm-send-C-d
+  vterm-send-C-e
+  vterm-send-C-f
+  vterm-send-C-g
+  vterm-send-C-h
+  vterm-send-C-i
+  vterm-send-C-j
+  vterm-send-C-k
+  vterm-send-C-l
+  vterm-send-C-m
+  vterm-send-C-n
+  vterm-send-C-o
+  vterm-send-C-p
+  vterm-send-C-q
+  vterm-send-C-r
+  vterm-send-C-s
+  vterm-send-C-t
+  vterm-send-C-u
+  vterm-send-C-v
+  vterm-send-C-w
+  vterm-send-C-x
+  vterm-send-C-y
+  vterm-send-C-z
+  vterm-send-M-a
+  vterm-send-M-b
+  vterm-send-M-c
+  vterm-send-M-d
+  vterm-send-M-e
+  vterm-send-M-f
+  vterm-send-M-g
+  vterm-send-M-h
+  vterm-send-M-i
+  vterm-send-M-j
+  vterm-send-M-k
+  vterm-send-M-l
+  vterm-send-M-m
+  vterm-send-M-n
+  vterm-send-M-o
+  vterm-send-M-p
+  vterm-send-M-q
+  vterm-send-M-r
+  vterm-send-M-s
+  vterm-send-M-t
+  vterm-send-M-u
+  vterm-send-M-v
+  vterm-send-M-w
+  vterm-send-M-x
+  vterm-send-M-y
+  vterm-send-M-z
+  vterm-send-backspace
+  vterm-send-ctrl-slash
+  vterm-send-delete
+  vterm-send-down
+  vterm-send-escape
+  vterm-send-left
+  vterm-send-meta-backspace
+  vterm-send-meta-comma
+  vterm-send-meta-dot
+  vterm-send-next
+  vterm-send-prior
+  vterm-send-return
+  vterm-send-right
+  vterm-send-space
+  vterm-send-start
+  vterm-send-stop
+  vterm-send-tab
+  vterm-send-up
+  vterm-undo
+  vterm-yank
+  vterm-yank-pop
+  vterm-yank-primary
+  )
 
 (defadvice vterm-clear (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Cleared screen")))
-
 
 (defadvice vterm-clear-scrollback (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -173,20 +172,19 @@ vterm-yank-primary
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 
-
 (with-eval-after-load "vterm"
   (cl-declaim (special vterm-mode-map))
   (define-key vterm-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command)
   )
 (defadvice vterm (after emacspeak pre act comp)
   "Provide auditory feedback."
-  
+
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (cl-loop
- for f in 
+ for f in
  '(vterm-end-of-line vterm-beginning-of-line)
  do
  (eval
@@ -197,7 +195,7 @@ vterm-yank-primary
        (emacspeak-speak-line)))))
 
 (cl-loop
- for f in 
+ for f in
  '(vterm-previous-prompt vterm-next-prompt)
  do
  (eval
@@ -206,10 +204,6 @@ vterm-yank-primary
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
-
-
-
-
 
 ;;}}}
 ;;{{{Handle output:
@@ -220,7 +214,6 @@ vterm-yank-primary
   (let ((output (ad-get-arg 0)))
     (when (> (length output) 1) ;;; short-term kluge
       (dtk-speak output ))))
-
 
 (defadvice vterm--filter (after emacspeak pre act comp)
   "Provide auditory feedback."
