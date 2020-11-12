@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1169 commands and 861 options.
+This chapter documents a total of 1169 commands and 863 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -205,6 +205,7 @@ This chapter documents a total of 1169 commands and 861 options.
 * emacspeak-vdiff::Speech-enable VDIFF.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
 * emacspeak-vm::Speech enable VMMail.
+* emacspeak-vterm::Speech-enable VTERM.
 * emacspeak-vuiet::Speech-enable VUIET.
 * emacspeak-wdired::Speech-enable wdired.
 * emacspeak-we::Transform Web Pages Using XSLT.
@@ -11521,36 +11522,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} voice-magit-popup-argument
-Personality used for magit-popup-argument
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-disabled-argument
-Personality used for magit-popup-disabled-argument
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-heading
-Personality used for magit-popup-heading
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-key
-Personality used for magit-popup-key
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} voice-magit-popup-option-value
-Personality used for magit-popup-option-value
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
 @defvar {User Option} voice-magit-reflog-amend
 Personality used for magit-reflog-amend
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
@@ -13514,12 +13485,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} voice-org-block-background
-Personality used for org-block-background
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
 @defvar {User Option} voice-org-checkbox
 Personality used for org-checkbox
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
@@ -13637,12 +13602,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @defvar {User Option} voice-org-inlinetask
 Personality used for org-inlinetask
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} voice-org-latex-and-export-specials
-Personality used for org-latex-and-export-specials
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
@@ -14002,12 +13961,6 @@ Succinct Summary.
 @defvar {User Option} voice-paradox-description-face-multiline
 Personality used for paradox-description-face-multiline
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} voice-paradox-download-
-Personality used for paradox-download-
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
@@ -19030,6 +18983,73 @@ Note that some badly formed mime messages  cause trouble.
 
 @end defvar
 
+@node emacspeak-vterm
+@section emacspeak-vterm
+
+VTERM == vterm using native vterm library
+
+@subsection emacspeak-vterm Options
+
+@defvar {User Option} voice-vterm-color-black
+Personality used for vterm-color-black
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-blue
+Personality used for vterm-color-blue
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-cyan
+Personality used for vterm-color-cyan
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-default
+Personality used for vterm-color-default
+This personality uses  ’paul whose  effect can be changed globally by customizing ’paul-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-green
+Personality used for vterm-color-green
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-inverse-video
+Personality used for vterm-color-inverse-video
+This personality uses  ’betty whose  effect can be changed globally by customizing ’betty-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-magenta
+Personality used for vterm-color-magenta
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-underline
+Personality used for vterm-color-underline
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-white
+Personality used for vterm-color-white
+This personality uses  ’paul whose  effect can be changed globally by customizing ’paul-settings.
+
+@end defvar
+
+@defvar {User Option} voice-vterm-color-yellow
+Personality used for vterm-color-yellow
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @node emacspeak-vuiet
 @section emacspeak-vuiet
 
@@ -24047,10 +24067,13 @@ documentation for defvoice.
 @format
 Toggle voice lock mode.
 
-If called interactively, enable Voice-Lock mode if ARG is
-positive, and disable it if ARG is zero or negative.  If called
-from Lisp, also enable the mode if ARG is omitted or nil, and
-toggle it if ARG is ‘toggle’; disable the mode otherwise.
+If called interactively, toggle ‘Voice-Lock mode’.  If the prefix
+argument is positive, enable the mode, and if it is zero or
+negative, disable the mode.
+
+If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
 
 The mode’s hook is called both when the mode is enabled and when
 it is disabled.

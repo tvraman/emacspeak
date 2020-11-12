@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 1, 2020.
+last updated on November 12, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -4536,31 +4536,6 @@ git://github.com/magit/magit.git
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
 
- -- Variable: User Option voice-magit-popup-argument
-     Personality used for magit-popup-argument This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option voice-magit-popup-disabled-argument
-     Personality used for magit-popup-disabled-argument This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
-
- -- Variable: User Option voice-magit-popup-heading
-     Personality used for magit-popup-heading This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option voice-magit-popup-key
-     Personality used for magit-popup-key This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option voice-magit-popup-option-value
-     Personality used for magit-popup-option-value This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
  -- Variable: User Option voice-magit-reflog-amend
      Personality used for magit-reflog-amend This personality uses
      voice-animate whose effect can be changed globally by customizing
@@ -6253,11 +6228,6 @@ http://orgmode.org/
      whose effect can be changed globally by customizing
      voice-monotone-settings.
 
- -- Variable: User Option voice-org-block-background
-     Personality used for org-block-background This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
  -- Variable: User Option voice-org-checkbox
      Personality used for org-checkbox This personality uses
      voice-animate whose effect can be changed globally by customizing
@@ -6357,11 +6327,6 @@ http://orgmode.org/
      Personality used for org-inlinetask This personality uses
      voice-smoothen-extra whose effect can be changed globally by
      customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option voice-org-latex-and-export-specials
-     Personality used for org-latex-and-export-specials This personality
-     uses voice-monotone whose effect can be changed globally by
-     customizing voice-monotone-settings.
 
  -- Variable: User Option voice-org-level-1
      Personality used for org-level-1 This personality uses
@@ -6683,11 +6648,6 @@ commands.
      Personality used for paradox-description-face-multiline This
      personality uses voice-monotone whose effect can be changed
      globally by customizing voice-monotone-settings.
-
- -- Variable: User Option voice-paradox-download-
-     Personality used for paradox-download- This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-perl,  Next: emacspeak-pianobar,  Prev: emacspeak-paradox,  Up: Emacspeak Commands And Options
