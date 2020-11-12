@@ -166,10 +166,10 @@ vterm-yank-primary
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice vterm--self-insert (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (and (characterp last-input-event) (ems-interactive-p))
-    (emacspeak-speak-this-char last-input-event)))
+;; (defadvice vterm--self-insert (after emacspeak pre act comp)
+;;   "Provide auditory feedback."
+;;   (when (and (characterp last-input-event) (ems-interactive-p))
+;;     (emacspeak-speak-this-char last-input-event)))
 
 (cl-loop
  for f in 
@@ -195,6 +195,14 @@ vterm-yank-primary
 
 
 
+
+
+;;}}}
+;;{{{Handle output:
+
+(defadvice vterm--flush-output (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (dtk-speak (ad-get-arg 0)))
 
 
 ;;}}}
