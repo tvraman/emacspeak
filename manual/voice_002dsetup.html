@@ -63,7 +63,7 @@
   </div>
   <hr />
   <span id="voice_002dsetup-1"></span>
-  <h3 class="section">12.229 voice-setup</h3>
+  <h3 class="section">12.230 voice-setup</h3>
   <p>A voice is to audio as a font is to a visual display. A
   personality is to audio as a face is to a visual display.</p>
   <p>Voice-lock-mode is a minor mode that causes your comments to
@@ -96,9 +96,9 @@
   specifications see special form defvoice Voices defined via
   defvoice can be customized via custom see the documentation for
   defvoice.</p><span id="Voice_002dSetup-Commands"></span>
-  <h4 class="subsection">12.229.1 Voice-Setup
+  <h4 class="subsection">12.230.1 Voice-Setup
   Commands</h4><span id="voice_002dlock_002dmode"></span>
-  <h4 class="subsubsection">12.229.1.1 voice-lock-mode</h4>
+  <h4 class="subsubsection">12.230.1.1 voice-lock-mode</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode">Command:
     <strong>voice-lock-mode</strong> <em>(&amp;optional
@@ -113,10 +113,13 @@
       <div class="format">
         <pre class="format">Toggle voice lock mode.
 
-If called interactively, enable Voice-Lock mode if ARG is
-positive, and disable it if ARG is zero or negative.  If called
-from Lisp, also enable the mode if ARG is omitted or nil, and
-toggle it if ARG is ‘toggle’; disable the mode otherwise.
+If called interactively, toggle ‘Voice-Lock mode’.  If the prefix
+argument is positive, enable the mode, and if it is zero or
+negative, disable the mode.
+
+If called from Lisp, toggle the mode if ARG is ‘toggle’.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
 
 The mode’s hook is called both when the mode is enabled and when
 it is disabled.
@@ -127,7 +130,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dlock_002dmode_002d_002dturn_002don"></span>
-  <h4 class="subsubsection">12.229.1.2 voice-lock-mode–turn-on</h4>
+  <h4 class="subsubsection">12.230.1.2 voice-lock-mode–turn-on</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode_002d_002dturn_002don">
     Command: <strong>voice-lock-mode--turn-on</strong></dt>
@@ -141,7 +144,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dsetup_002ddescribe_002dpersonality"></span>
-  <h4 class="subsubsection">12.229.1.3
+  <h4 class="subsubsection">12.230.1.3
   voice-setup-describe-personality</h4>
   <dl>
     <dt id="index-voice_002dsetup_002ddescribe_002dpersonality">
@@ -170,7 +173,7 @@ these are available via minibuffer history.
     </dd>
   </dl><span id=
   "voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></span>
-  <h4 class="subsubsection">12.229.1.4
+  <h4 class="subsubsection">12.230.1.4
   voice-setup-toggle-silence-personality</h4>
   <dl>
     <dt id=
@@ -192,114 +195,114 @@ these are available via minibuffer history.
       </div>
     </dd>
   </dl><span id="voice_002dsetup-Options"></span>
-  <h4 class="subsection">12.229.2 voice-setup Options</h4>
+  <h4 class="subsection">12.230.2 voice-setup Options</h4>
   <dl>
-    <dt id="index-User-Option-832">Variable: <strong>User
+    <dt id="index-User-Option-834">Variable: <strong>User
     Option</strong> <em>voice-animate-extra-settings</em></dt>
     <dd>
       <p>Adds extra animation to current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-833">Variable: <strong>User
+    <dt id="index-User-Option-835">Variable: <strong>User
     Option</strong> <em>voice-animate-medium-settings</em></dt>
     <dd>
       <p>Adds medium animation current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-834">Variable: <strong>User
+    <dt id="index-User-Option-836">Variable: <strong>User
     Option</strong> <em>voice-animate-settings</em></dt>
     <dd>
       <p>Animates current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-835">Variable: <strong>User
+    <dt id="index-User-Option-837">Variable: <strong>User
     Option</strong> <em>voice-annotate-settings</em></dt>
     <dd>
       <p>Indicate annotation.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-836">Variable: <strong>User
+    <dt id="index-User-Option-838">Variable: <strong>User
     Option</strong> <em>voice-bolden-and-animate-settings</em></dt>
     <dd>
       <p>Bolden and animate current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-837">Variable: <strong>User
+    <dt id="index-User-Option-839">Variable: <strong>User
     Option</strong> <em>voice-bolden-extra-settings</em></dt>
     <dd>
       <p>Extra bolden current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-838">Variable: <strong>User
+    <dt id="index-User-Option-840">Variable: <strong>User
     Option</strong> <em>voice-bolden-medium-settings</em></dt>
     <dd>
       <p>Add medium bolden current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-839">Variable: <strong>User
+    <dt id="index-User-Option-841">Variable: <strong>User
     Option</strong> <em>voice-bolden-settings</em></dt>
     <dd>
       <p>Bolden current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-840">Variable: <strong>User
+    <dt id="index-User-Option-842">Variable: <strong>User
     Option</strong> <em>voice-brighten-extra-settings</em></dt>
     <dd>
       <p>Extra brighten current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-841">Variable: <strong>User
+    <dt id="index-User-Option-843">Variable: <strong>User
     Option</strong> <em>voice-brighten-medium-settings</em></dt>
     <dd>
       <p>Brighten (medium) current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-842">Variable: <strong>User
+    <dt id="index-User-Option-844">Variable: <strong>User
     Option</strong> <em>voice-brighten-settings</em></dt>
     <dd>
       <p>Brighten current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-843">Variable: <strong>User
+    <dt id="index-User-Option-845">Variable: <strong>User
     Option</strong> <em>voice-indent-settings</em></dt>
     <dd>
       <p>Indicate indentation .</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-844">Variable: <strong>User
+    <dt id="index-User-Option-846">Variable: <strong>User
     Option</strong> <em>voice-lighten-extra-settings</em></dt>
     <dd>
       <p>Add extra lightness to current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-845">Variable: <strong>User
+    <dt id="index-User-Option-847">Variable: <strong>User
     Option</strong> <em>voice-lighten-medium-settings</em></dt>
     <dd>
       <p>Add medium lightness to current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-846">Variable: <strong>User
+    <dt id="index-User-Option-848">Variable: <strong>User
     Option</strong> <em>voice-lighten-settings</em></dt>
     <dd>
       <p>Lighten current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-847">Variable: <strong>User
+    <dt id="index-User-Option-849">Variable: <strong>User
     Option</strong> <em>voice-lock-mode-hook</em></dt>
     <dd>
       <p>Hook run after entering or leaving ‘voice-lock-mode’. No
@@ -309,7 +312,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-848">Variable: <strong>User
+    <dt id="index-User-Option-850">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-0-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 0 of ACSS structure to
@@ -317,7 +320,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-849">Variable: <strong>User
+    <dt id="index-User-Option-851">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-1-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 1 of ACSS structure to
@@ -325,7 +328,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-850">Variable: <strong>User
+    <dt id="index-User-Option-852">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-2-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 2 of ACSS structure to
@@ -333,7 +336,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-851">Variable: <strong>User
+    <dt id="index-User-Option-853">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-3-settings</em></dt>
     <dd>
       <p>Overlay voice that sets dimension 3 of ACSS structure to
@@ -341,21 +344,21 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-852">Variable: <strong>User
+    <dt id="index-User-Option-854">Variable: <strong>User
     Option</strong> <em>voice-monotone-light-settings</em></dt>
     <dd>
       <p>Turns current voice into a light monotone.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-853">Variable: <strong>User
+    <dt id="index-User-Option-855">Variable: <strong>User
     Option</strong> <em>voice-monotone-medium-settings</em></dt>
     <dd>
       <p>Turns current voice into a medium monotone.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-854">Variable: <strong>User
+    <dt id="index-User-Option-856">Variable: <strong>User
     Option</strong> <em>voice-monotone-settings</em></dt>
     <dd>
       <p>Turns current voice into a monotone and speaks all
@@ -363,7 +366,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-855">Variable: <strong>User
+    <dt id="index-User-Option-857">Variable: <strong>User
     Option</strong> <em>voice-punctuations-all-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks all
@@ -371,7 +374,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-856">Variable: <strong>User
+    <dt id="index-User-Option-858">Variable: <strong>User
     Option</strong> <em>voice-punctuations-none-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks no
@@ -379,7 +382,7 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-857">Variable: <strong>User
+    <dt id="index-User-Option-859">Variable: <strong>User
     Option</strong> <em>voice-punctuations-some-settings</em></dt>
     <dd>
       <p>Turns current voice into one that speaks some
@@ -387,28 +390,28 @@ these are available via minibuffer history.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-858">Variable: <strong>User
+    <dt id="index-User-Option-860">Variable: <strong>User
     Option</strong> <em>voice-smoothen-extra-settings</em></dt>
     <dd>
       <p>Extra smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-859">Variable: <strong>User
+    <dt id="index-User-Option-861">Variable: <strong>User
     Option</strong> <em>voice-smoothen-medium-settings</em></dt>
     <dd>
       <p>Add medium smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-860">Variable: <strong>User
+    <dt id="index-User-Option-862">Variable: <strong>User
     Option</strong> <em>voice-smoothen-settings</em></dt>
     <dd>
       <p>Smoothen current voice.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-861">Variable: <strong>User
+    <dt id="index-User-Option-863">Variable: <strong>User
     Option</strong> <em>voice-womanize-1-settings</em></dt>
     <dd>
       <p>Apply first female voice.</p>
