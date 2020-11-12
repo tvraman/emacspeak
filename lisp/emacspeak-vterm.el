@@ -154,11 +154,15 @@ vterm-yank-pop
 vterm-yank-primary
 )
 
+
+(with-eval-after-load "vterm"
+  (cl-declaim (special vterm-mode-map))
+  (define-key vterm-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command)
+  )
 (defadvice vterm (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (cl-declare (special vterm-keymap-exceptions))
+  
   (when (ems-interactive-p)
-    (cl-pushnew "C-e" vterm-keymap-exceptions)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
