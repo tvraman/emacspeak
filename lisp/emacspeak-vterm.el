@@ -194,6 +194,13 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
+(defadvice vterm-reset-cursor-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
+
+
 (cl-loop
  for f in
  '(vterm-previous-prompt vterm-next-prompt)
@@ -207,7 +214,7 @@
 
 ;;}}}
 ;;{{{Handle output:
-;;; This gets what you type (input)
+;;; This sends what you typed to the term process.
 
 (defadvice vterm--flush-output (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -215,10 +222,24 @@
     (when (> (length output) 1) ;;; short-term kluge
       (dtk-speak output ))))
 
+;;; this is the process output
+
 (defadvice vterm--filter (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (let ((input (ad-get-arg 1)))
-    (dtk-speak  (ansi-color-filter-apply input) )))
+  (let ((buffer (process-buffer (ad-get-arg 0)))
+        (input (ad-get-arg 1)))
+    (with-current-buffer buffer
+      (unless
+          (string-match "^\r" input) ;;; skip invisible output)
+        (let
+            ((prompt-p
+              (save-excursion
+                (or (looking-at shell-prompt-pattern)
+                    (looking-at comint-prompt-regexp)))))
+          (cond
+           ((not prompt-p) (dtk-speak input))
+           ( prompt-p (emacspeak-auditory-icon 'item))))
+        ad-return-value))))
 
 ;;}}}
 (provide 'emacspeak-vterm)
