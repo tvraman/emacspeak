@@ -166,11 +166,6 @@ vterm-yank-primary
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(defadvice vterm--self-insert (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (and (characterp last-input-event) (ems-interactive-p))
-    (dtk-notify-letter (format "%c" last-input-event))))
-
 (cl-loop
  for f in 
  '(vterm-end-of-line vterm-beginning-of-line)
