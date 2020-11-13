@@ -213,7 +213,7 @@
        (emacspeak-speak-line)))))
 
 ;;}}}
-;;{{{Handle output:
+;;{{{Handle output and terminal updates:
 ;;; This sends what you typed to the term process.
 
 (defadvice vterm--flush-output (after emacspeak pre act comp)
@@ -233,6 +233,15 @@ just play an  auditory icon."
     (cond
      ((not prompt-p) (dtk-speak input))
      ( prompt-p (emacspeak-auditory-icon 'item)))))
+
+
+(defadvice vterm--redraw (around emacspeak pre act comp)
+  "Watch what happens, then speak the right thing."
+  (let ((orig (point)))
+    ad-do-it
+    (when (not (= orig (point)))
+      (emacspeak-speak-region orig (point)))
+    ad-return-value))
 
 ;;}}}
 (provide 'emacspeak-vterm)
