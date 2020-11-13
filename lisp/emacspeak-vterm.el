@@ -275,8 +275,7 @@
 just play an  auditory icon. This behavior is active when
   `emacspeak-comint-autospeak' is turned on."
   (when emacspeak-comint-autospeak
-    (let ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1))))
-          (prompt-p ))
+    (let ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1)))))
       (cond
        ((string-match shell-prompt-pattern input)(emacspeak-auditory-icon 'item))
        (t  (dtk-speak input))))))
