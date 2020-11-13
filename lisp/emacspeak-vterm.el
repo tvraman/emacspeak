@@ -230,26 +230,33 @@
       ad-do-it
       (setq new-row (1+ (count-lines (point-min) (point)))
             new-column (current-column))
+      (ems-with-messages-silenced
+          (message "Event: %c row: %d col: %d new-row: %d new-col: %d"
+                   last-command-event
+                   row column
+                   new-row new-column))
       (cond
        ((and ;;; backspace or 127
          (or (eq last-command-event 127) (eq last-command-event 'backspace)) 
          (= new-row row) (= -1 (- new-column column)) ;;; backspace
          current-char)
+        (ems-with-messages-silenced (message "char del"))
         (dtk-tone-deletion)
         (emacspeak-speak-this-char current-char))
        ((and
-         (= new-row row)
-         (= 1 (- new-column column)))   ;you inserted a character:
-        (if (eq 32 last-command-event)  ;;; word echo 
+         (= new-row row) (= 1 (- new-column column))) ;you inserted a
+                                        ;character:
+        (ems-with-messages-silenced (message "char insert"))
+        (if (eq 32 last-command-event) ;;; word echo 
             (save-excursion
-              (backward-char 2)
-              (emacspeak-speak-word nil))
+              (backward-char 2) (emacspeak-speak-word nil))
           (emacspeak-speak-this-char (preceding-char))))
        ((and
-         (= new-row row)
-         (= 1 (abs(- new-column column))))
-        (emacspeak-speak-this-char (following-char)))
+         (= new-row row) (= 1 (abs(- new-column column))))
+        (ems-with-messages-silenced (message "char motion"))
+        (emacspeak-speak-this-char (preceding-char)))
        ((= row new-row)
+        (ems-with-messages-silenced (message "left/right motion"))
         (if (= 32 (following-char))
             (save-excursion ;;; speak word in vi word navigation
               (forward-char 1)
