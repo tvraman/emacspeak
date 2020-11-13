@@ -231,14 +231,12 @@
       (setq new-row (1+ (count-lines (point-min) (point)))
             new-column (current-column))
       (cond
-       ((and
-         (or (eq last-command-event 127) ; xterm/console sends 127
-             (eq last-command-event 'backspace)) ; X sends 'backspace
-         (= new-row row)
-         (= -1 (- new-column column))
-         current-char)                  ;you backspaced?
-        (emacspeak-speak-this-char current-char)
-        (dtk-tone-deletion))
+       ((and ;;; backspace or 127
+         (or (eq last-command-event 127) (eq last-command-event 'backspace)) 
+         (= new-row row) (= -1 (- new-column column)) ;;; backspace
+         current-char)
+        (dtk-tone-deletion)
+        (emacspeak-speak-this-char current-char))
        ((and
          (= new-row row)
          (= 1 (- new-column column)))   ;you inserted a character:
