@@ -223,7 +223,6 @@
 
 (defadvice vterm--flush-output (around emacspeak pre act comp)
   "Provide auditory feedback."
-  (unless emacspeak-comint-autospeak
     (let ((current-char (preceding-char))
           (row (1+ (count-lines (point-min) (point))))
           (column (current-column))
@@ -265,20 +264,10 @@
               (forward-char 1)
               (emacspeak-speak-word))
           (emacspeak-speak-word)))
-       (t (emacspeak-speak-line))))))
+       (t (emacspeak-speak-line)))))
 
-;;; this is the process output
-;;; Implement comint autospeak behavior in this advice:
 
-(defadvice vterm--filter (after emacspeak pre act comp)
-  "Speak process output unless it matches the prompt, in which case we
-just play an  auditory icon. This behavior is active when
-  `emacspeak-comint-autospeak' is turned on."
-  (let ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1)))))
-    (cond
-     ((string-match shell-prompt-pattern input)(emacspeak-auditory-icon 'item))
-     (t  (dtk-speak input))))
-  ad-return-value)
+
 
 ;;}}}
 (provide 'emacspeak-vterm)
