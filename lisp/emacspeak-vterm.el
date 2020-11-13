@@ -215,23 +215,30 @@
 ;;}}}
 ;;{{{Handle output and terminal updates:
 ;;; This sends what you typed to the term process.
+;;; Handle terminal emulation logic here, as per term-emulate-term in
+;;;emacspeak-eterm.
+;;; Simpler because for now, we dont implement sub-windows etc.
 
-(defadvice vterm--flush-output (after emacspeak pre act comp)
+(defadvice vterm--flush-output (around emacspeak pre act comp)
   "Provide auditory feedback."
-  (let ((output (ad-get-arg 0)))
-    (when (> (length output) 1) ;;; short-term kluge
-      (dtk-speak output ))))
+  (let ((output (ad-get-arg 0))
+        )
+    ad-do-it
+    ))
 
 ;;; this is the process output
+;;; Implement comint autospeak behavior in this advice:
 
 (defadvice vterm--filter (after emacspeak pre act comp)
   "Speak process output unless it matches the prompt, in which case we
-just play an  auditory icon."
-  (let ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1))))
-         (prompt-p ))
-    (cond
-     ((string-match shell-prompt-pattern input)(emacspeak-auditory-icon 'item))
-     (t  (dtk-speak input) ))))
+just play an  auditory icon. This behavior is active when
+  `emacspeak-comint-autospeak' is turned on."
+  (when emacspeak-comint-autospeak
+    (let ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1))))
+          (prompt-p ))
+      (cond
+       ((string-match shell-prompt-pattern input)(emacspeak-auditory-icon 'item))
+       (t  (dtk-speak input))))))
 
 ;;}}}
 (provide 'emacspeak-vterm)
