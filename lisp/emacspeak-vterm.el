@@ -226,14 +226,18 @@
 (defvar ems--vterm-column nil
   "Cache vterm column.")
 
+(defvar ems--vterm-char nil
+  "Cache current char.")
+
 (defadvice vterm--flush-output (before emacspeak pre act comp)
   "Cache state."
   (setq ems--vterm-row(1+ (count-lines (point-min) (point)))
-        ems--vterm-column (current-column)))
+        ems--vterm-column (current-column)
+        ems--vterm-char (preceding-char)))
 
 (defadvice vterm--redraw (after emacspeak pre act comp)
   "Speech-enable term emulation."
-  (let ((current-char (preceding-char))
+  (let ((current-char ems--vterm-char)
         (row ems--vterm-row)
         (column ems--vterm-column)
         (new-row (1+ (count-lines (point-min) (point))))
