@@ -227,21 +227,11 @@
 (defadvice vterm--filter (after emacspeak pre act comp)
   "Speak process output unless it matches the prompt, in which case we
 just play an  auditory icon."
-  (let* ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1))))
-         (prompt-p
-          (or (string-match shell-prompt-pattern input))))
+  (let ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1))))
+         (prompt-p ))
     (cond
-     ((not prompt-p) (dtk-speak input))
-     ( prompt-p (emacspeak-auditory-icon 'item)))))
-
-
-(defadvice vterm--redraw (around emacspeak pre act comp)
-  "Watch what happens, then speak the right thing."
-  (let ((orig (point)))
-    ad-do-it
-    (when (not (= orig (point)))
-      (emacspeak-speak-region orig (point)))
-    ad-return-value))
+     ((string-match shell-prompt-pattern input)(emacspeak-auditory-icon 'item))
+     (t  (dtk-speak input) ))))
 
 ;;}}}
 (provide 'emacspeak-vterm)
