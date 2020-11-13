@@ -214,9 +214,8 @@
 
 ;;}}}
 ;;{{{Handle output and terminal updates:
-;;; This sends what you typed to the term process.
-;;; Handle terminal emulation logic here, as per term-emulate-term in
-;;;emacspeak-eterm.
+;;; This sends what you typed to the term process.  Handle terminal
+;;; emulation logic here, as per term-emulate-term in emacspeak-eterm.
 ;;; Simpler because for now, we dont implement sub-windows etc.
 
 (defadvice vterm--flush-output (around emacspeak pre act comp)
@@ -240,23 +239,25 @@
          current-char)                  ;you backspaced?
         (emacspeak-speak-this-char current-char)
         (dtk-tone-deletion))
-       ((and (= new-row row)
-             (= 1 (- new-column column))) ;you inserted a character:
-        (if (eq 32 last-command-event)    ;;; word echo 
+       ((and
+         (= new-row row)
+         (= 1 (- new-column column)))   ;you inserted a character:
+        (if (eq 32 last-command-event)  ;;; word echo 
             (save-excursion
               (backward-char 2)
               (emacspeak-speak-word nil))
           (emacspeak-speak-this-char (preceding-char))))
-       ((and (= new-row row)
-             (= 1 (abs(- new-column column))))
-        (emacspeak-speak-this-char (following-char))))
-      ((= row new-row)
-       (if (= 32 (following-char))
-           (save-excursion ;;; speak word in vi word navigation
-             (forward-char 1)
-             (emacspeak-speak-word))
-         (emacspeak-speak-word)))
-      (t (emacspeak-speak-line)))))
+       ((and
+         (= new-row row)
+         (= 1 (abs(- new-column column))))
+        (emacspeak-speak-this-char (following-char)))
+       ((= row new-row)
+        (if (= 32 (following-char))
+            (save-excursion ;;; speak word in vi word navigation
+              (forward-char 1)
+              (emacspeak-speak-word))
+          (emacspeak-speak-word)))
+       (t (emacspeak-speak-line))))))
 
 ;;; this is the process output
 ;;; Implement comint autospeak behavior in this advice:
