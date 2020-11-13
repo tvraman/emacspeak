@@ -227,7 +227,7 @@
 (defadvice vterm--filter (after emacspeak pre act comp)
   "Provide auditory feedback."
   (let ((buffer (process-buffer (ad-get-arg 0)))
-        (input (ad-get-arg 1)))
+        (input (ansi-color-filter-apply (ad-get-arg 1))))
     (with-current-buffer buffer
       (unless
           (string-match "^\r" input) ;;; skip invisible output)
