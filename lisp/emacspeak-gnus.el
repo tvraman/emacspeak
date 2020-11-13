@@ -265,7 +265,7 @@ this group is being deselected."
  Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (dtk-speak "listing matching groups with unread articles... done")))
+    (dtk-notify-speak "listing matching groups with unread articles... done")))
 
 (defadvice gnus-group-list-zombies (after emacspeak pre act)
   "Provide auditory feedback.
@@ -299,7 +299,7 @@ this group is being deselected."
        ad-do-it
        (when (ems-interactive-p)
          (if (= saved-point (point))
-             (dtk-speak "No more articles")
+             (dtk-notify-speak "No more articles")
            (progn 
              (emacspeak-auditory-icon 'mark-object)
              (emacspeak-gnus-summary-speak-subject))))
@@ -358,7 +358,7 @@ Indicate change of selection with
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'close-object)
       (if (eq cur-group (gnus-group-group-name))
-          (dtk-speak "No more unread newsgroups")
+          (dtk-notify-speak "No more unread newsgroups")
         (progn 
           (emacspeak-speak-line))))
     ad-return-value))
@@ -372,7 +372,7 @@ Indicate change of selection with
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'close-object)
       (if (eq cur-group (gnus-group-group-name))
-          (dtk-speak "No more unread newsgroups")
+          (dtk-notify-speak "No more unread newsgroups")
         (progn 
           (emacspeak-speak-line))))
     ad-return-value))
@@ -384,7 +384,7 @@ Indicate change of selection with
     ad-do-it
     (when (ems-interactive-p)
       (if (= saved-point (point))
-          (dtk-speak "No more articles ")
+          (dtk-notify-speak "No more articles ")
         (progn 
           (emacspeak-auditory-icon 'select-object)
           (dtk-speak (gnus-summary-article-subject)))))
@@ -397,7 +397,7 @@ Produce an auditory icon if possible."
     ad-do-it
     (when (ems-interactive-p)
       (if (= saved-point (point))
-          (dtk-speak "No more articles ")
+          (dtk-notify-speak "No more articles ")
         (progn 
           (emacspeak-auditory-icon 'select-object)
           (dtk-speak (gnus-summary-article-subject)))))
@@ -410,7 +410,7 @@ Produce an auditory icon if possible."
     ad-do-it
     (when (ems-interactive-p)
       (if (= saved-point (point))
-          (dtk-speak "No more unread articles ")
+          (dtk-notify-speak "No more unread articles ")
         (progn 
           (emacspeak-auditory-icon 'select-object)
           (dtk-speak (gnus-summary-article-subject)))))
@@ -423,7 +423,7 @@ Produce an auditory icon if possible."
     ad-do-it
     (when (ems-interactive-p)
       (if (= saved-point (point))
-          (dtk-speak "No more articles ")
+          (dtk-notify-speak "No more articles ")
         (progn 
           (emacspeak-auditory-icon 'select-object)
           (dtk-speak (gnus-summary-article-subject)))))
@@ -436,7 +436,7 @@ Produce an auditory icon if possible."
     ad-do-it
     (when (ems-interactive-p)
       (if (= saved-point (point))
-          (dtk-speak "No more articles ")
+          (dtk-notify-speak "No more articles ")
         (progn 
           (emacspeak-auditory-icon 'select-object)
           (dtk-speak (gnus-summary-article-subject)))))
