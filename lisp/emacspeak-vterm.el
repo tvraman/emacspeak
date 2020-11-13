@@ -217,45 +217,58 @@
 ;;; This sends what you typed to the term process.  Handle terminal
 ;;; emulation logic here, as per term-emulate-term in emacspeak-eterm.
 ;;; Simpler because for now, we dont implement sub-windows etc.
+;;; ad-do-it doesn't update for native module functions?
+(defvar-local ems--vterm-row nil
+  "Record vterm row before most recent update.")
 
-(defadvice vterm--flush-output (around emacspeak pre act comp)
-  "Provide auditory feedback."
+
+(defvar-local ems--vterm-column nil
+  "Record vterm column before most recent update.")
+
+(defvar-local ems--vterm-char nil
+  "Record vterm current char  before most recent update.")
+
+(defadvice vterm--flush-output (before emacspeak pre act comp)
+  "Record state."
   (unless emacspeak-comint-autospeak
-    (let ((current-char (preceding-char))
-          (row (1+ (count-lines (point-min) (point))))
-          (column (current-column))
-          (new-row nil)
-          (new-column nil)
-          (opoint (point)))
-      ad-do-it
-      (setq new-row (1+ (count-lines (point-min) (point)))
-            new-column (current-column))
+    (setq
+     ems--vterm-row (1+ (count-lines (point-min) (point)))
+     ems--vterm-column (current-column)
+     ems--vterm-char (preceding-char))))
+
+
+(defadvice vterm--flush-output (after emacspeak pre act comp)
+  "Provide auditory feedback."
+      (unless emacspeak-comint-autospeak
+        (let ((current-char (preceding-char))
+              (row (1+ (count-lines (point-min) (point))))
+          (column (current-column)))
       (ems-with-messages-silenced
           (message "Event: %c row: %d col: %d new-row: %d new-col: %d"
                    last-command-event
-                   row column
-                   new-row new-column))
+                   ems--vterm-row ems--vterm-column
+                   row column))
       (cond
        ((and ;;; backspace or 127
          (or (eq last-command-event 127) (eq last-command-event 'backspace)) 
-         (= new-row row) (= -1 (- new-column column)) ;;; backspace
+         (= ems--vterm-row row) (= -1 (- column ems--vterm-column)) ;;; backspace
          current-char)
         (ems-with-messages-silenced (message "char del"))
         (dtk-tone-deletion)
         (emacspeak-speak-this-char current-char))
        ((and
-         (= new-row row) (= 1 (- new-column column))) ;you inserted a
-                                        ;character:
+         (= ems--vterm-row row) (= 1 (- column ems--vterm-column)))
+;;; char insert
         (ems-with-messages-silenced (message "char insert"))
         (if (eq 32 last-command-event) ;;; word echo 
             (save-excursion
               (backward-char 2) (emacspeak-speak-word nil))
-          (emacspeak-speak-this-char (preceding-char))))
+          (emacspeak-speak-this-char current-char)))
        ((and
-         (= new-row row) (= 1 (abs(- new-column column))))
+         (= ems--vterm-row row) (= 1 (abs(- ems--vterm-column column))))
         (ems-with-messages-silenced (message "char motion"))
-        (emacspeak-speak-this-char (preceding-char)))
-       ((= row new-row)
+        (emacspeak-speak-this-char current-char))
+       ((= row ems--vterm-row)
         (ems-with-messages-silenced (message "left/right motion"))
         (if (= 32 (following-char))
             (save-excursion ;;; speak word in vi word navigation
