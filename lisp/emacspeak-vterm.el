@@ -220,24 +220,29 @@
 ;;; ad-do-it doesn't update for native module functions?
 ;;; tried with before/after advice pair, and we still dont see the
 ;;;updates, so going back to around advice.
+(defvar ems--vterm-row nil
+  "Cache row.")
 
-(defadvice vterm--flush-output (around emacspeak pre act comp)
-  "Provide auditory feedback."
-    (let ((current-char (preceding-char))
-          (row (1+ (count-lines (point-min) (point))))
-          (column (current-column))
-          (new-row nil)
-          (new-column nil)
-          (opoint (point)))
-      ad-do-it
-      ;;; At this point, we should see updated values, but dont.
-      (setq new-row (1+ (count-lines (point-min) (point)))
-            new-column (current-column))
+(defvar ems--vterm-column nil
+  "Cache vterm column.")
+
+(defadvice vterm--flush-output (before emacspeak pre act comp)
+  "Cache state."
+  (setq ems--vterm-row(1+ (count-lines (point-min) (point)))
+        ems--vterm-column (current-column)))
+
+(defadvice vterm--redraw (after emacspeak pre act comp)
+  "Speech-enable term emulation."
+  (let ((current-char (preceding-char))
+        (row ems--vterm-row)
+        (column ems--vterm-column)
+        (new-row (1+ (count-lines (point-min) (point))))
+        (new-column (current-column)))
       (ems-with-messages-silenced
-          (message
-           "Event: %c row: %d col: %d new-row: %d new-col: %d"
-           last-command-event
-           row column new-row new-column))
+          (message "Event: %c row: %d col: %d new-row: %d new-col: %d"
+                   last-command-event
+                   row column
+                   new-row new-column))
       (cond
        ((and ;;; backspace or 127
          (or (eq last-command-event 127) (eq last-command-event 'backspace)) 
@@ -247,7 +252,8 @@
         (dtk-tone-deletion)
         (emacspeak-speak-this-char current-char))
        ((and
-         (= new-row row) (= 1 (- new-column column))) ;char insert
+         (= new-row row) (= 1 (- new-column column))) ;you inserted a
+                                        ;character:
         (ems-with-messages-silenced (message "char insert"))
         (if (eq 32 last-command-event) ;;; word echo 
             (save-excursion
@@ -265,8 +271,6 @@
               (emacspeak-speak-word))
           (emacspeak-speak-word)))
        (t (emacspeak-speak-line)))))
-
-
 
 
 ;;}}}
