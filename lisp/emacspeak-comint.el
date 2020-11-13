@@ -117,12 +117,14 @@ set the current local value to the result."
 
 ;;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()
-  "Toggle comint-autospeak when in a comint buffer.
+  "Toggle comint-autospeak when in a comint or vterm buffer.
 Otherwise call voice-setup-toggle-silence-personality which toggles the
 personality under point."
   (interactive)
   (cond
-   ((derived-mode-p 'comint-mode) (funcall-interactively #'emacspeak-toggle-comint-autospeak))
+   ((or (derived-mode-p 'comint-mode)
+        (eq 'vterm-mode major-mode))
+    (funcall-interactively #'emacspeak-toggle-comint-autospeak))
    (t (funcall-interactively #'voice-setup-toggle-silence-personality))))
 
 (defvar emacspeak-comint-output-monitor nil
