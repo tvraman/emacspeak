@@ -239,9 +239,9 @@
 
 (defadvice vterm--flush-output (after emacspeak pre act comp)
   "Provide auditory feedback."
-      (unless emacspeak-comint-autospeak
-        (let ((current-char (preceding-char))
-              (row (1+ (count-lines (point-min) (point))))
+  (unless emacspeak-comint-autospeak
+    (let ((current-char (preceding-char))
+          (row (1+ (count-lines (point-min) (point))))
           (column (current-column)))
       (ems-with-messages-silenced
           (message "Event: %c row: %d col: %d new-row: %d new-col: %d"
