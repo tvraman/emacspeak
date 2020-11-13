@@ -1086,8 +1086,7 @@ emacspeak-toggle-eterm-autospeak bound to
   (cl-declare (special emacspeak-eterm-row emacspeak-eterm-column
                        eterm-line-mode eterm-char-mode
                        emacspeak-eterm-filter-window emacspeak-eterm-pointer-mode
-                       emacspeak-eterm-autospeak
-                       term-current-row term-current-column))
+                       emacspeak-eterm-autospeak))
   (when (process-live-p (ad-get-arg 0))
     (let ((emacspeak-eterm-window (get-buffer-window (process-buffer (ad-get-arg 0))))
           (emacspeak-eterm-row (term-current-row))
