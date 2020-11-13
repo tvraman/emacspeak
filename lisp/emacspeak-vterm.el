@@ -225,21 +225,14 @@
 ;;; this is the process output
 
 (defadvice vterm--filter (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (let ((buffer (process-buffer (ad-get-arg 0)))
-        (input (ansi-color-filter-apply (ad-get-arg 1))))
-    (with-current-buffer buffer
-      (unless
-          (string-match "^\r" input) ;;; skip invisible output)
-        (let
-            ((prompt-p
-              (save-excursion
-                (or (looking-at shell-prompt-pattern)
-                    (looking-at comint-prompt-regexp)))))
-          (cond
-           ((not prompt-p) (dtk-speak input))
-           ( prompt-p (emacspeak-auditory-icon 'item))))
-        ad-return-value))))
+  "Speak process output unless it matches the prompt, in which case we
+just play an  auditory icon."
+  (let* ((input (string-trim (ansi-color-filter-apply (ad-get-arg 1))))
+         (prompt-p
+          (or (string-match shell-prompt-pattern input))))
+    (cond
+     ((not prompt-p) (dtk-speak input))
+     ( prompt-p (emacspeak-auditory-icon 'item)))))
 
 ;;}}}
 (provide 'emacspeak-vterm)
