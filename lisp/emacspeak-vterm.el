@@ -260,12 +260,10 @@
       (dtk-tone-deletion)
       (emacspeak-speak-this-char current-char))
      ((and
-       (= new-row row) (= 1 (- new-column column))) ;you inserted a
-                                        ;character:
+       (= new-row row) (= 1 (- new-column column)));;; char insert
       (ems-with-messages-silenced (message "char insert"))
       (if (eq 32 last-command-event) ;;; word echo 
-          (save-excursion
-            (backward-char 2) (emacspeak-speak-word nil))
+          (save-excursion (backward-char 2) (emacspeak-speak-word nil))
         (emacspeak-speak-this-char (preceding-char))))
      ((and
        (= new-row row) (= 1 (abs(- new-column column))))
