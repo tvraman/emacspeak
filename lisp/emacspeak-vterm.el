@@ -232,10 +232,14 @@
 (defvar ems--vterm-char nil
   "Cache current char.")
 
+(defvar ems--vterm-opoint nil
+  "Cache current point.")
+
 (defadvice vterm--flush-output (before emacspeak pre act comp)
   "Cache state before input event is processed."
   (setq ems--vterm-row(1+ (count-lines (point-min) (point))) ;;; line number
         ems--vterm-column (current-column) ;;; column number
+        ems--vterm-opoint (point)
         ems--vterm-char (preceding-char)))
 
 ;;; speech-enable term update loop, using previously cached state.
@@ -243,6 +247,7 @@
 (defadvice vterm--redraw (after emacspeak pre act comp)
   "Speech-enable term emulation."
   (let ((current-char ems--vterm-char)
+        (opoint ems--vterm-opoint)
         (row ems--vterm-row)
         (column ems--vterm-column)
         (new-row (1+ (count-lines (point-min) (point))))
@@ -270,13 +275,18 @@
       (emacspeak-speak-this-char
        (if (< column new-column) (preceding-char) (following-char))))
      ((= row new-row)
-      (ems-with-messages-silenced (message "left/right motion"))
+      (ems-with-messages-silenced (message "left/right motion on line"))
       (if (= 32 (following-char))
           (save-excursion ;;; speak word in vi word navigation
             (forward-char 1)
             (emacspeak-speak-word))
         (emacspeak-speak-word)))
-     (t (emacspeak-speak-line)))))
+     (t
+      (if emacspeak-comint-autospeak
+          (dtk-speak
+           (string-trim
+            (ansi-color-filter-apply (buffer-substring opoint (point)))))
+          (emacspeak-speak-line))))))
 
 
 ;;}}}
