@@ -254,7 +254,7 @@
         (new-column (current-column)))
     (ems-with-messages-silenced
         (message
-         "Event: %c row: %d col: %d new-row: %d new-col: %d char: %c"
+         "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
          last-command-event row column
          new-row new-column ems--vterm-char))
     (cond
@@ -272,15 +272,12 @@
      ((and
        (= new-row row) (= 1 (abs(- new-column column))))
       (ems-with-messages-silenced (message "char motion"))
-      (emacspeak-speak-this-char
-       (if (< column new-column) (preceding-char) (following-char))))
+      (emacspeak-speak-this-char (following-char)))
      ((= row new-row)
       (ems-with-messages-silenced (message "left/right motion on line"))
-      (if (= 32 (following-char))
-          (save-excursion ;;; speak word in vi word navigation
-            (forward-char 1)
-            (emacspeak-speak-word))
-        (emacspeak-speak-word)))
+      (if (= 32 (following-char)) ;;; vi word nav
+          (save-excursion (forward-char 1) (emacspeak-speak-word))
+            (emacspeak-speak-word)))
      (t
       (if emacspeak-comint-autospeak
           (dtk-speak
