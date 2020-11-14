@@ -173,9 +173,11 @@
     (emacspeak-speak-line)))
 
 (with-eval-after-load "vterm"
-  (cl-declaim (special vterm-mode-map))
-  (define-key vterm-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command)
-  )
+  (cl-declaim (special vterm-mode-map vterm-copy-mode-map))
+  (define-key vterm-mode-map (ems-kbd "C-e")
+    'emacspeak-prefix-command)
+  (define-key vterm-copy-mode-map (ems-kbd "C-e") 'emacspeak-prefix-command))
+
 (defadvice vterm (after emacspeak pre act comp)
   "Provide auditory feedback."
 
