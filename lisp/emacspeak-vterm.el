@@ -276,7 +276,7 @@
       (ems-with-messages-silenced (message "char motion"))
       (emacspeak-speak-this-char (following-char)))
      ((= row new-row)
-      (ems-with-messages-silenced (message "left/right motion on line"))
+      (ems-with-messages-silenced (message "left/right motion"))
       (if (= 32 (following-char)) ;;; vi word nav
           (save-excursion (forward-char 1) (emacspeak-speak-word))
             (emacspeak-speak-word)))
