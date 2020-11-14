@@ -22,6 +22,13 @@ command _suspend-frame_ after Emacspeak has been loaded.
 ** Speech-Enabled Haskell Mode
 
 Module ~emacspeak-haskell~ speech-enables package ~haskell-mode~.
+** Speech-Enable VTerm
+
+Package ~vterm~ is a new terminal emulator that uses an underlying
+native module to communicate to the terminal, resulting in
+faster/better terminal emulation that Emacs' native-elisp ~term.el~.
+Module ~emacspeak-vterm~ contains an early attempt at speech-enabling
+this terminal.
 
 ** Speech-Enable Package Syslog
 
