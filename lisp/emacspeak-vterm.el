@@ -267,7 +267,8 @@
      ((and
        (= new-row row) (= 1 (abs(- new-column column))))
       (ems-with-messages-silenced (message "char motion"))
-      (emacspeak-speak-this-char (preceding-char)))
+      (emacspeak-speak-this-char
+       (if (< column new-column) (preceding-char) (following-char))))
      ((= row new-row)
       (ems-with-messages-silenced (message "left/right motion"))
       (if (= 32 (following-char))
