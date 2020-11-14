@@ -255,10 +255,9 @@
     (cond
      ((and ;;; backspace or 127
        (memq  last-command-event    '(127 backspace))
-       (= new-row row) (= -1 (- new-column column)) ;;; backspace
-       current-char)
+       (= new-row row) (= -1 (- new-column column)))
       (dtk-tone-deletion)
-      (emacspeak-speak-this-char current-char))
+    (emacspeak-speak-this-char current-char))
      ((and
        (= new-row row) (= 1 (- new-column column)));;; char insert
       (ems-with-messages-silenced (message "char insert"))
