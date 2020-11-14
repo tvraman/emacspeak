@@ -285,7 +285,9 @@
       (if emacspeak-comint-autospeak
           (dtk-speak
            (string-trim
-            (ansi-color-filter-apply (buffer-substring (1+ opoint) (point)))))
+            (ansi-color-filter-apply
+             (save-excursion
+               (beginning-of-line) (buffer-substring (1+ opoint) (point))))))
           (emacspeak-speak-line))))))
 
 
