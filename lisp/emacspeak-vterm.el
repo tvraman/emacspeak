@@ -139,7 +139,8 @@
        (emacspeak-speak-line)))))
 
 ;;}}}
-;;{{{Handle output and terminal updates:
+;;{{{Speech-enable term emulation:
+
 ;;; This sends what you typed to the term process.  Handle terminal
 ;;; emulation logic here, as per term-emulate-term in emacspeak-eterm.
 ;;; Simpler because for now, we dont implement sub-windows etc.
@@ -178,11 +179,11 @@
         (column ems--vterm-column)
         (new-row (1+ (count-lines (point-min) (point))))
         (new-column (current-column)))
-    (ems-with-messages-silenced
+    (ems-with-messages-silenced ;;; debug output
         (message
          "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
          last-command-event row column
-         new-row new-column ems--vterm-char))
+         new-row new-column current-char))
     (cond
      ((and ;;; backspace or 127
        (memq  last-command-event    '(127 backspace))
@@ -197,7 +198,7 @@
         (emacspeak-speak-this-char (preceding-char))))
      ((and
        (= new-row row) (= 1 (abs(- new-column column))))
-      (ems-with-messages-silenced (message "char motion"))
+      (ems-with-messages-silenced (message "horizontal char motion"))
       (emacspeak-speak-this-char (following-char)))
      ((= row new-row)
       (ems-with-messages-silenced (message "left/right motion"))
@@ -212,7 +213,6 @@
              (save-excursion
                (beginning-of-line) (buffer-substring (1+ opoint) (point))))))
           (emacspeak-speak-line))))))
-
 
 ;;}}}
 (provide 'emacspeak-vterm)
