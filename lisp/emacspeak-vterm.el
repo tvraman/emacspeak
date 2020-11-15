@@ -40,7 +40,15 @@
 
 ;;; Commentary:
 ;;; VTERM == vterm using native vterm library
-
+;;; @subsection Usage
+;;; @itemize
+;;; @item Turn on @code{emacspeak-comint-autospeak} for using  the
+;;; shell.
+;;; @itemize Turn off @code{emacspeak-comint-autospeak} when using
+;;; full-screen ncurses apps like @code{vi}.
+;;; @item Use @code{vterm-copy-mode} to review the contents of the
+;;; terminal.
+;;; @end itemize
 ;;; Code:
 
 ;;}}}
