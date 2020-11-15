@@ -162,12 +162,19 @@
 (defvar ems--vterm-opoint nil
   "Cache current point.")
 
-(defadvice vterm--flush-output (before emacspeak pre act comp)
-  "Cache state before input event is processed."
+(defsubst emacspeak-vterm-snapshot ()
+  "Snapshot VTerm state."
+  (cl-declare (special ems--vterm-char ems--vterm-opoint
+                       ems--vterm-row ems--vterm-column))
   (setq ems--vterm-row(1+ (count-lines (point-min) (point))) ;;; line number
         ems--vterm-column (current-column) ;;; column number
         ems--vterm-opoint (point)
-        ems--vterm-char (preceding-char)))
+        ems--vterm-char (preceding-char))
+  )
+
+(defadvice vterm--flush-output (before emacspeak pre act comp)
+  "Cache state before input event is processed."
+  (emacspeak-vterm-snapshot))
 
 ;;; speech-enable term update loop, using previously cached state.
 
