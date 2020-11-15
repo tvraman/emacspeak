@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 12, 2020.
+last updated on November 14, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -1703,7 +1703,16 @@ File: emacspeak.info,  Node: emacspeak-vterm,  Next: emacspeak-vuiet,  Prev: ema
 
 VTERM == vterm using native vterm library
 
-12.199.1 emacspeak-vterm Options
+12.199.1 Usage
+--------------
+
+   • Turn on ‘emacspeak-comint-autospeak’ for using the shell.
+   • Turn off ‘emacspeak-comint-autospeak’ when using full-screen
+     ncurses apps like ‘vi’.
+   • Use ‘vterm-copy-mode’ to review the contents of the terminal — ‘C-c
+     C-t’.
+
+12.199.2 emacspeak-vterm Options
 --------------------------------
 
  -- Variable: User Option voice-vterm-color-black

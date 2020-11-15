@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 12, 2020.
+last updated on November 14, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -5660,7 +5660,7 @@ comint == command interaction.  Advice comint and friends to speak.
      ‘C-e C-q’
      ‘<fn> C-q’
 
-     Toggle comint-autospeak when in a comint buffer.
+     Toggle comint-autospeak when in a comint or vterm buffer.
      Otherwise call voice-setup-toggle-silence-personality which toggles the
      personality under point.
 
