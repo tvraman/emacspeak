@@ -129,6 +129,12 @@
     (emacspeak-speak-line)))
 
 
+(defadvice vterm-send-return (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-vterm-snapshot))
+
+
+
 (cl-loop
  for f in
  '(vterm-previous-prompt vterm-next-prompt)
@@ -193,7 +199,6 @@
          "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
          last-command-event row column
          new-row new-column current-char))
-    (emacspeak-vterm-snapshot)
     (cond
      ((and ;;; backspace or 127
        (memq  last-command-event    '(127 backspace))
@@ -224,6 +229,7 @@
                (save-excursion
                  (beginning-of-line) (buffer-substring (1+ opoint) (point)))))))
         (emacspeak-speak-line))))))
+
 
 ;;}}}
 (provide 'emacspeak-vterm)
