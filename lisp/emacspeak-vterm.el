@@ -193,6 +193,7 @@
          "Event: %c r: %d c: %d new-row: %d new-col: %d char: %c"
          last-command-event row column
          new-row new-column current-char))
+    (emacspeak-vterm-snapshot)
     (cond
      ((and ;;; backspace or 127
        (memq  last-command-event    '(127 backspace))
@@ -216,13 +217,13 @@
         (emacspeak-speak-word)))
      (t
       (if emacspeak-comint-autospeak
-          (dtk-speak
-           (string-trim
-            (ansi-color-filter-apply
-             (save-excursion
-               (beginning-of-line) (buffer-substring (1+ opoint) (point))))))
-        (emacspeak-speak-line))))
-    (emacspeak-vterm-snapshot)))
+          (let ((dtk-stop-immediately  nil))
+            (dtk-speak
+             (string-trim
+              (ansi-color-filter-apply
+               (save-excursion
+                 (beginning-of-line) (buffer-substring (1+ opoint) (point)))))))
+        (emacspeak-speak-line))))))
 
 ;;}}}
 (provide 'emacspeak-vterm)
