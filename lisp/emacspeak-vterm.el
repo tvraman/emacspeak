@@ -80,12 +80,14 @@
 
 (defadvice vterm-clear (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (emacspeak-vterm-snapshot)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Cleared screen")))
 
 (defadvice vterm-clear-scrollback (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (emacspeak-vterm-snapshot)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Cleared scrollback")))
@@ -196,9 +198,9 @@
        (memq  last-command-event    '(127 backspace))
        (= new-row row) (= -1 (- new-column column)))
       (dtk-tone-deletion)
-    (emacspeak-speak-this-char current-char))
+      (emacspeak-speak-this-char current-char))
      ((and
-       (= new-row row) (= 1 (- new-column column)));;; char insert
+       (= new-row row) (= 1 (- new-column column))) ;;; char insert
       (ems-with-messages-silenced (message "char insert"))
       (if (eq 32 last-command-event) ;;; word echo 
           (save-excursion (backward-char 2) (emacspeak-speak-word nil))
@@ -211,7 +213,7 @@
       (ems-with-messages-silenced (message "left/right motion"))
       (if (= 32 (following-char)) ;;; vi word nav
           (save-excursion (forward-char 1) (emacspeak-speak-word))
-            (emacspeak-speak-word)))
+        (emacspeak-speak-word)))
      (t
       (if emacspeak-comint-autospeak
           (dtk-speak
@@ -219,7 +221,8 @@
             (ansi-color-filter-apply
              (save-excursion
                (beginning-of-line) (buffer-substring (1+ opoint) (point))))))
-          (emacspeak-speak-line))))))
+        (emacspeak-speak-line))))
+    (emacspeak-vterm-snapshot)))
 
 ;;}}}
 (provide 'emacspeak-vterm)
