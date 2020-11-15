@@ -47,7 +47,7 @@
 ;;; @itemize Turn off @code{emacspeak-comint-autospeak} when using
 ;;; full-screen ncurses apps like @code{vi}.
 ;;; @item Use @code{vterm-copy-mode} to review the contents of the
-;;; terminal.
+;;; terminal @MDash{} @kbd{C-c C-t}.
 ;;; @end itemize
 ;;; Code:
 

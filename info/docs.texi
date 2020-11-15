@@ -3282,7 +3282,7 @@ set the current local value to the result.
 @findex emacspeak-toggle-inaudible-or-comint-autospeak
 
 @format
-Toggle comint-autospeak when in a comint buffer.
+Toggle comint-autospeak when in a comint or vterm buffer.
 Otherwise call voice-setup-toggle-silence-personality which toggles the
 personality under point.
 @end format
@@ -18987,6 +18987,15 @@ Note that some badly formed mime messages  cause trouble.
 @section emacspeak-vterm
 
 VTERM == vterm using native vterm library
+@subsection Usage
+@itemize
+@item Turn on @code{emacspeak-comint-autospeak} for using  the
+shell.
+@itemize Turn off @code{emacspeak-comint-autospeak} when using
+full-screen ncurses apps like @code{vi}.
+@item Use @code{vterm-copy-mode} to review the contents of the
+terminal @MDash{} @kbd{C-c C-t}.
+@end itemize
 
 @subsection emacspeak-vterm Options
 
