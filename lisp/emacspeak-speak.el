@@ -2028,6 +2028,7 @@ Optional second arg `set' sets the TZ environment variable as well."
   "Speak the time.
 Optional interactive prefix arg `C-u'invokes world clock.
 Timezone is specified using minibuffer completion.
+Copies time to kill-ring.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (cl-declare (special emacspeak-speak-time-format-string))
@@ -2035,11 +2036,13 @@ Second interactive prefix sets clock to new timezone."
   (cond
    (world (call-interactively 'emacspeak-speak-world-clock))
    (t
-    (tts-with-punctuations
-     'some
-     (dtk-notify-speak
-      (format-time-string emacspeak-speak-time-format-string
-                          (current-time) (getenv "TZ")))))))
+    (let ((time-string
+           (format-time-string emacspeak-speak-time-format-string
+                               (current-time) (getenv "TZ"))))
+       (kill-new time-string)
+      (tts-with-punctuations
+          'some
+        (dtk-notify-speak time-string))))))
 
 
 (defun emacspeak-speak-seconds-since-epoch (seconds)
