@@ -158,16 +158,16 @@
 ;;; and an after advice on vterm--redraw to implement the spoken
 ;;;feedback loop.
 
-(defvar ems--vterm-row nil
+(defvar-local ems--vterm-row nil
   "Cache row.")
 
-(defvar ems--vterm-column nil
+(defvar-local ems--vterm-column nil
   "Cache vterm column.")
 
-(defvar ems--vterm-char nil
+(defvar-local ems--vterm-char nil
   "Cache current char.")
 
-(defvar ems--vterm-opoint nil
+(defvar-local ems--vterm-opoint nil
   "Cache current point.")
 
 (defsubst emacspeak-vterm-snapshot ()
