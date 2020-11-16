@@ -1355,15 +1355,15 @@ Optional prefix arg `best' chooses highest quality."
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
   (let ((u
-         (shell-command-to-string
-          (format "%s -f %s -g '%s' 2> /dev/null"
-                  emacspeak-m-player-youtube-dl
-                  (if best
-                      (ems--m-p-get-yt-audio-last-fmt url)
-                    (ems--m-p-get-yt-audio-first-fmt url))
-                  url))))
+         (string-trim
+          (shell-command-to-string
+           (format "%s -f %s -g '%s' 2> /dev/null"
+                   emacspeak-m-player-youtube-dl
+                   (if best
+                       (ems--m-p-get-yt-audio-last-fmt url)
+                     (ems--m-p-get-yt-audio-first-fmt url))
+                   url)))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
-    (setq u (substring u 0 -1))
     (kill-new u)
     (emacspeak-m-player u)))
 
