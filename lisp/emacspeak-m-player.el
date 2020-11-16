@@ -1354,6 +1354,8 @@ Optional prefix arg `best' chooses highest quality."
   (cl-declare (special emacspeak-m-player-youtube-dl))
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
+  (when (string-prefix-p (emacspeak-google-result-url-prefix) url)
+    (setq url (emacspeak-google-canonicalize-result-url url)))
   (let ((u
          (string-trim
           (shell-command-to-string
