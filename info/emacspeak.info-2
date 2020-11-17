@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 14, 2020.
+last updated on November 16, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -8591,6 +8591,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speak the time.
      Optional interactive prefix arg ‘C-u’invokes world clock.
      Timezone is specified using minibuffer completion.
+     Copies time to kill-ring.
      Second interactive prefix sets clock to new timezone.
 
      (fn &optional WORLD)

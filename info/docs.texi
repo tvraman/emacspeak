@@ -16412,6 +16412,7 @@ personality.
 Speak the time.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
+Copies time to kill-ring.
 Second interactive prefix sets clock to new timezone.
 
 (fn &optional WORLD)
