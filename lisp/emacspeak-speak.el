@@ -2085,7 +2085,7 @@ Seconds value is also placed in the kill-ring."
     result))
 
 (defvar emacspeak-codename
-  (propertize "WorkAtHomeDog" 'face 'bold)
+  (propertize "EfficientDog" 'face 'bold)
   "Code name of present release.")
 
 (defun emacspeak-setup-get-revision ()
@@ -2099,7 +2099,7 @@ Seconds value is also placed in the kill-ring."
       "")))
 
 (defvar emacspeak-version
-  (concat "52.0,   " emacspeak-codename)
+  (concat "53.0,   " emacspeak-codename)
   "Version number for Emacspeak.")
 
 ;;;###autoload
