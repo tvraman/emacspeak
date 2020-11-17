@@ -1342,6 +1342,10 @@ flat classical club dance full-bass full-bass-and-treble
      "%s -F '%s' | grep '^[0-9]'   | grep audio |tail -1 | cut -f 1 -d \' \'"
      emacspeak-m-player-youtube-dl url))
    0 -1))
+
+(declare-function emacspeak-google-canonicalize-result-url "emacspeak-google" (url))
+(declare-function emacspeak-google-result-url-prefix "emacspeak-google" nil)
+
 ;;;###autoload
 (defun emacspeak-m-player-youtube-player (url &optional best)
   "Use youtube-dl and mplayer to stream the audio for YouTube content.
