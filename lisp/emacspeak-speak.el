@@ -2026,6 +2026,7 @@ Optional second arg `set' sets the TZ environment variable as well."
 ;;;###autoload
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
+Spoken time  is available in the *notifications* buffer via C-h T.
 Optional interactive prefix arg `C-u'invokes world clock.
 Timezone is specified using minibuffer completion.
 
