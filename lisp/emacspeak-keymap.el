@@ -201,7 +201,7 @@
            ("B" customize-browse)
            ("G" customize-group)
            ("M-m" describe-minor-mode-from-indicator)
-           ("T" emacspeak-view-notifications)
+           ("N" emacspeak-view-notifications)
            ("M-F" find-function-at-point)
            ("M-V" find-variable-at-point)
            ("M-f" find-function)
