@@ -108,7 +108,6 @@ Produce timing information as the last step."
   (tab-rename "Home"))
 
 ;;}}}
-
 ;;{{{ tvr-shell-bind-keys:
 
 (defsubst tvr-shell-bind-keys ()
