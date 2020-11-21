@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-11-16 Mon 19:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Announcing Emacspeak 52.0—WorkAtHomeDog!</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Announcing Emacspeak 52.0—WorkAtHomeDog!</h1>
+<p>
+The enjoyment of one's tools is an essential ingredient of successful work. &#x2013; Donald E. Knuth
+</p>
+
+<div id="outline-container-org5a6e85f" class="outline-2">
+<h2 id="org5a6e85f"><span class="section-number-2">1</span> For Immediate Release:</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+San Jose, CA, (Nov 22, 2020)
+</p>
+</div>
+
+<div id="outline-container-org20a78c7" class="outline-3">
+<h3 id="org20a78c7"><span class="section-number-3">1.1</span> Emacspeak 53.0 (EfficientDog) 🦮 Unleashed!</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+&#x2014; Making Telecommuting Fun Again!
+</p>
+
+<p>
+Advancing Accessibility In The Age Of User-Aware Interfaces &#x2014; Zero
+cost of Ownership makes priceless software Universally affordable!
+</p>
+
+<p>
+Emacspeak Inc (NASDOG: ESPK) &#x2014; <a href="http://github.com/tvraman/emacspeak">http://github.com/tvraman/emacspeak</a>
+&#x2014; announces the immediate world-wide availability of <a href="https://github.com/tvraman/emacspeak/releases/download/53.0/emacspeak-53.0.tar.bz2">Emacspeak 53.0</a>
+(EfficientDog) 🦮  &#x2014; a powerful audio desktop that leverages today's evolving
+Data, Social and Assistant-Oriented Internet cloud   to enable working
+efficiently and effectively from anywhere!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7bead7a" class="outline-2">
+<h2 id="org7bead7a"><span class="section-number-2">2</span> Investors Note:</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+With several prominent tweeters expanding coverage of <span class="underline">#emacspeak</span>,
+NASDOG: ESPK has now been consistently trading over the social net at
+levels close to that once attained by DogCom high-fliers—and as of
+Nov  2020 is trading at levels close to that achieved by once
+better known stocks in the tech sector.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc0b8c05" class="outline-2">
+<h2 id="orgc0b8c05"><span class="section-number-2">3</span> What Is It?</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Emacspeak is a fully functional audio desktop that provides complete
+eyes-free access to all major 32 and 64 bit operating environments. By
+seamlessly blending live access to all aspects of the Internet such as
+ubiquitous assistance, Web-surfing, blogging, remote software
+development, social computing and electronic messaging into the audio
+desktop, Emacspeak enables speech access to local and remote
+information with a consistent and well-integrated user interface. A
+rich suite of task-oriented tools provides efficient speech-enabled
+access to the evolving assistant-oriented social Internet cloud.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga0f706e" class="outline-2">
+<h2 id="orga0f706e"><span class="section-number-2">4</span> Major Enhancements:</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+This version <b>requires</b> emacs-26.1 or later. 
+</p>
+
+
+<ol class="org-ol">
+<li>Speech-Enabled Haskell Mode ⁡</li>
+<li>Speech-Enable VTerm  🖳</li>
+<li>Speech-Enable Package Syslog  </li>
+<li>Speech-enable Package hide-lines  𐇪</li>
+<li>Speech-Enable Racer 🖹</li>
+<li>Speech-Enable Eglot 󠀁</li>
+<li>speech-Enable project.el 📽</li>
+<li>Speech-Enable rust-mode 🦊</li>
+<li>Emacspeak-sdcv &#x2014; speech-Enable Stardict Interaction 🤩</li>
+<li>Add CTL-Z As A New Prefix Keymap ⌨</li>
+</ol>
+
+<p>
+— And a lot more than will fit this margin. … 🗞
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd40f131" class="outline-2">
+<h2 id="orgd40f131"><span class="section-number-2">5</span> Establishing Liberty, Equality And Freedom:</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+  Never a toy system, Emacspeak is voluntarily bundled with all
+major Linux distributions. Though designed to be modular,
+distributors have freely chosen to bundle the fully integrated
+system without any undue pressure—a documented success for
+the integrated innovation embodied by Emacspeak. As the system
+evolves, both upgrades and downgrades continue to be available at
+the same zero-cost to all users. The integrity of the Emacspeak
+codebase is ensured by the reliable and secure Linux platform
+and the underlying GIT versioning software used to develop and distribute the system.
+</p>
+
+<p>
+Extensive studies have shown that thanks to these features, users
+consider Emacspeak to be absolutely priceless. Thanks to this
+wide-spread user demand, the present version remains   priceless
+as ever—it is being made available at the same zero-cost as
+previous releases.
+</p>
+
+<p>
+At the same time, Emacspeak continues to innovate in the area of
+eyes-free Assistance and social interaction and carries forward the
+well-established Open Source tradition of introducing user interface
+features that eventually show up in luser environments.
+</p>
+
+<p>
+On this theme, when once challenged by a proponent of a crash-prone
+but well-marketed mousetrap with the assertion "Emacs is a system from
+the 70's", the creator of Emacspeak evinced surprise at the unusual
+candor manifest in the assertion that it would take popular
+idiot-proven interfaces until the year 2070 to catch up to where the
+Emacspeak audio desktop is today. Industry experts welcomed this
+refreshing breath of Courage Certainty and Clarity (CCC) at a time
+when users are reeling from the Fear Uncertainty and Doubt (FUD)
+unleashed by complex software systems backed by even more convoluted
+press releases.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org839f959" class="outline-2">
+<h2 id="org839f959"><span class="section-number-2">6</span> Independent Test Results:</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Independent test results have proven that unlike some modern (and
+not so modern) software, Emacspeak can be safely uninstalled without
+adversely affecting the continued performance of the computer. These
+same tests also revealed that once uninstalled, the user stopped
+functioning altogether. Speaking with Aster Labrador, the creator of
+Emacspeak once pointed out that these results re-emphasize the
+user-centric design of Emacspeak; “It is the user &#x2014; and not the
+computer&#x2013; that stops functioning when Emacspeak is uninstalled!”.
+</p>
+</div>
+
+<div id="outline-container-org9adfe87" class="outline-3">
+<h3 id="org9adfe87"><span class="section-number-3">6.1</span> Note from Aster,Bubbles and Tilden:</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+UnDoctored Videos Inc. is looking for volunteers to star in a
+video demonstrating such complete user failure.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84ee605" class="outline-2">
+<h2 id="org84ee605"><span class="section-number-2">7</span> Obtaining Emacspeak:</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Emacspeak can be downloaded from GitHub &#x2014; see
+<a href="https://github.com/tvraman/emacspeak">https://github.com/tvraman/emacspeak</a> you can visit Emacspeak on the
+WWW at <a href="http://emacspeak.sf.net">http://emacspeak.sf.net</a>. You can subscribe to the emacspeak
+mailing list — emacspeak@cs.vassar.edu — by sending mail to the
+list request address emacspeak-request@cs.vassar.edu. The <a href="http://emacspeak.blogspot.com">Emacspeak Blog</a> is a good source for news about recent enhancements and how to
+use them.
+</p>
+
+<p>
+The latest development snapshot of Emacspeak is always available at
+<a href="https://github.com/tvraman/emacspeak">GitHub</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org070e659" class="outline-2">
+<h2 id="org070e659"><span class="section-number-2">8</span> History:</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Emacspeak 53.0 (EfficientDog)  focuses on  efficiency.</li>
+<li>Emacspeak 52.0 (WorkAtHomeDog) makes working remotely a pleasurable experience.</li>
+<li>Bigger and more powerful than any smart assistAnt, AssistDog provides</li>
+</ul>
+<p>
+instant access to the most relevant information at all times.
+</p>
+<ul class="org-ul">
+<li>Emacspeak 50.0 (SageDog) embraces the wisdom of stability as
+opposed to rapid change and the concomitant  creation of bugs.🚭:  Naturally Intelligent (NI)™ at how information is spoken, Emacspeak</li>
+</ul>
+<p>
+is entirely free of Artificial Ingredients (AI)™.
+</p>
+<ul class="org-ul">
+<li>Emacspeak 49.0 (WiseDog) leverages the wisdom gleaned from
+earlier releases to provide an enhanced  auditory experience.</li>
+<li>Emacspeak 48.0  (ServiceDog) builds on earlier releases to provide
+continued end-user value.</li>
+<li>Emacspeak 47.0 (GentleDog) goes the next step in being helpful
+while letting users learn and grow.</li>
+<li>Emacspeak 46.0 (HelpfulDog) heralds the  coming of Smart Assistants.</li>
+<li>Emacspeak 45.0 (IdealDog) is named in recognition of Emacs'
+excellent integration with various programming language
+environments &#x2014; thanks to this, Emacspeak is the IDE of choice
+for eyes-free software engineering.</li>
+<li>Emacspeak 44.0 continues the steady pace of innovation on the
+audio desktop.</li>
+<li>Emacspeak  43.0 brings even more end-user efficiency by leveraging the
+ability to spatially place multiple audio streams to provide timely
+auditory feedback.</li>
+<li>Emacspeak 42.0 while moving to GitHub from Google Code continues to
+innovate in the areas of auditory user interfaces and efficient,
+light-weight Internet access.</li>
+<li>Emacspeak 41.0 continues to improve 
+on  the desire to provide not just equal, but superior access —
+technology when correctly implemented can significantly enhance the
+human ability.</li>
+<li>Emacspeak 40.0 goes back to Web basics by enabling
+<a href="http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html">efficient access</a> to large amounts of readable Web content.</li>
+<li>Emacspeak 39.0 continues the Emacspeak tradition of increasing the breadth of
+user tasks that are covered without introducing unnecessary
+bloatware.</li>
+<li>Emacspeak 38.0 is the latest in a series of award-winning
+releases from Emacspeak Inc.</li>
+<li>Emacspeak 37.0 continues the tradition of
+delivering robust software as reflected by its code-name.</li>
+<li>Emacspeak 36.0 enhances the audio desktop with many new tools including full
+EPub support — hence the name EPubDog.</li>
+<li>Emacspeak 35.0 is all about
+teaching a new dog old tricks — and is aptly code-named HeadDog in
+on  of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)
+established a new beach-head with respect to rapid task completion in
+an eyes-free environment.</li>
+<li>Emacspeak-33.0 AKA StarDog brings
+unparalleled cloud access to the audio desktop.</li>
+<li>Emacspeak 32.0 AKA
+LuckyDog continues to innovate via open technologies for better
+access.</li>
+<li>Emacspeak 31.0 AKA TweetDog — adds tweeting to the Emacspeak
+desktop.</li>
+<li>Emacspeak 30.0 AKA SocialDog brings the Social Web to the
+audio desktop—you cant but be social if you speak!</li>
+<li>Emacspeak 29.0—AKAAbleDog—is a testament to the resilliance and innovation
+embodied by Open Source software—it would not exist without the
+thriving Emacs community that continues to ensure that Emacs remains
+one of the premier user environments despite perhaps also being one of
+the oldest.</li>
+<li>Emacspeak 28.0—AKA PuppyDog—exemplifies the rapid pace of
+development evinced by Open Source software.</li>
+<li>Emacspeak 27.0—AKA
+FastDog—is the latest in a sequence of upgrades that make previous
+releases obsolete and downgrades unnecessary.</li>
+<li>Emacspeak 26—AKA
+LeadDog—continues the tradition of introducing innovative access
+solutions that are unfettered by the constraints inherent in
+traditional adaptive technologies.</li>
+<li>Emacspeak 25 —AKA ActiveDog
+—re-activates open, unfettered access to online
+information.</li>
+<li>Emacspeak-Alive —AKA LiveDog —enlivens open, unfettered
+information access with a series of live updates that once again
+demonstrate the power and agility of open source software
+development.</li>
+<li>Emacspeak 23.0 &#x2014; AKA Retriever—went the extra mile in
+fetching full access.</li>
+<li>Emacspeak 22.0 —AKA GuideDog —helps users
+navigate the Web more effectively than ever before.</li>
+<li>Emacspeak 21.0
+—AKA PlayDog —continued the 
+Emacspeak tradition of relying on enhanced
+productivity to liberate users.</li>
+<li>Emacspeak-20.0 —AKA LeapDog —continues
+the long established GNU/Emacs tradition of integrated innovation to
+create a pleasurable computing environment for eyes-free
+interaction.</li>
+<li>emacspeak-19.0 &#x2013;AKA WorkDog&#x2013; is designed to enhance
+user productivity at work and leisure.</li>
+<li>Emacspeak-18.0 &#x2013;code named
+GoodDog&#x2013; continued the Emacspeak tradition of enhancing user
+productivity and thereby reducing total cost of
+ownership.</li>
+<li>Emacspeak-17.0 &#x2013;code named HappyDog&#x2013; enhances user
+productivity by exploiting today's evolving WWW
+standards.</li>
+<li>Emacspeak-16.0 &#x2013;code named CleverDog&#x2013; the follow-up to
+SmartDog&#x2013; continued the tradition of working better, faster,
+smarter.</li>
+<li>Emacspeak-15.0 &#x2013;code named SmartDog&#x2013;followed up on TopDog
+as the next in a continuing  series of award-winning audio desktop
+releases from  Emacspeak Inc.</li>
+<li>Emacspeak-14.0 &#x2013;code named TopDog&#x2013;was</li>
+</ul>
+<p>
+the first release of this millennium. 
+</p>
+<ul class="org-ul">
+<li>Emacspeak-13.0 &#x2013;codenamed
+YellowLab&#x2013; was the closing release of the
+20th. century.</li>
+<li>Emacspeak-12.0 &#x2013;code named GoldenDog&#x2013; began
+leveraging the evolving semantic WWW to provide task-oriented speech
+access to Webformation.</li>
+<li>Emacspeak-11.0 &#x2013;code named Aster&#x2013; went the
+final step in making Linux a zero-cost Internet access solution for
+blind and visually impaired users.</li>
+<li>Emacspeak-10.0 &#x2013;(AKA
+Emacspeak-2000) code named WonderDog&#x2013; continued the tradition of
+award-winning software releases designed to make eyes-free computing a
+productive and pleasurable experience.</li>
+<li>Emacspeak-9.0 &#x2013;(AKA
+Emacspeak 99) code named BlackLab&#x2013; continued to innovate in the areas
+of speech interaction and interactive accessibility.</li>
+<li>Emacspeak-8.0 &#x2013;(AKA Emacspeak-98++) code named BlackDog&#x2013; was a major upgrade to
+the speech output extension to Emacs.</li>
+<li>Emacspeak-95 (code named Illinois) was released as OpenSource on
+the Internet in May 1995 as the first complete speech interface
+to UNIX workstations. The subsequent release, Emacspeak-96 (code
+named Egypt) made available in May 1996 provided significant
+enhancements to the interface. Emacspeak-97 (Tennessee) went
+further in providing a true audio desktop. Emacspeak-98
+integrated Internetworking into all aspects of the audio desktop
+to provide the first fully interactive speech-enabled WebTop.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6e91043" class="outline-2">
+<h2 id="org6e91043"><span class="section-number-2">9</span> About Emacspeak:</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Originally based at Cornell (NY) —
+<a href="http://www.cs.cornell.edu/home/raman">http://www.cs.cornell.edu/home/raman</a> —home to Auditory User
+Interfaces (AUI) on the WWW,  Emacspeak is now maintained on GitHub
+—<a href="https://github.com/tvraman/emacspeak">https://github.com/tvraman/emacspeak</a>. The system is mirrored
+world-wide by an international network of software archives and
+bundled voluntarily with all major Linux distributions. On Monday,
+April 12, 1999, Emacspeak became part of the <a href="http://tvraman.github.io/emacspeak/blog/smithsonian-study.html">Smithsonian's Permanent
+Research Collection</a> on Information Technology at the Smithsonian's
+National Museum of American History.
+</p>
+
+<p>
+The Emacspeak mailing list is archived at Vassar &#x2013;the home of the
+Emacspeak mailing list&#x2013; thanks to Greg Priest-Dorman, and provides a
+valuable knowledge base for new users. Note that we are currently
+looking for a new home for the mailing list &#x2014; stay tuned; in the
+meantime, the list is available via
+<b>nntp+news.gmane.io:gmane.emacs.emacspeak.general</b>
+from within Gnus.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7179250" class="outline-2">
+<h2 id="org7179250"><span class="section-number-2">10</span> Press/Analyst Contact: Tilden Labrador</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Going forward, Tilden acknowledges his exclusive monopoly on
+setting the direction of the Emacspeak Audio Desktop (🦮) and
+promises to exercise this freedom to innovate and her resulting
+power responsibly (as before) in the interest of all dogs.
+</p>
+
+<p>
+*About This Release:
+</p>
+<hr />
+
+<p>
+Windows-Free (WF) is a favorite battle-cry of The League Against
+Forced Fenestration (LAFF).  &#x2013;see
+<a href="http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm">http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm</a> for details on
+the ill-effects of Forced Fenestration.
+</p>
+
+<p>
+CopyWrite )C( Aster, Hubbell and Tilden Labrador. All Writes Reserved.
+HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
+Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
+their respective owners.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2020-11-16 Mon 19:10</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
