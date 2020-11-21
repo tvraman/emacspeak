@@ -1,0 +1,122 @@
+#    -*- mode: org -*-
+The enjoyment of one's tools is an essential ingredient of successful work.
+ -- Donald E. Knuth
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 53 --- Emacspeak 53 User Visible Changes
+
+This version requires Emacs-27.1 or later.
+** Add CTL-Z As A New Prefix Keymap
+By default Emacs uses _C-z_ to command _suspend-frame_.
+Emacspeak now redefines _C-z_ to be a prefix keymap, and binds command
+_suspend-frame_ to key _C-z z_.
+This now enables one more complete keymap for binding additional
+convenience commands.
+If you wish to restore the default Emacs behavior, bind _C-z_ to
+command _suspend-frame_ after Emacspeak has been loaded.
+
+** Speech-Enabled Haskell Mode
+
+Module ~emacspeak-haskell~ speech-enables package ~haskell-mode~.
+** Speech-Enable VTerm
+
+Package ~vterm~ is a new terminal emulator that uses an underlying
+native module to communicate to the terminal, resulting in
+faster/better terminal emulation that Emacs' native-elisp ~term.el~.
+Module ~emacspeak-vterm~ contains an early attempt at speech-enabling
+this terminal.
+
+** Speech-Enable Package Syslog
+
+Speech-enable ~syslog~ for working with log files.
+This replaces the now very old ~analog~ in my regular work-flow.
+
+** Speech-enable Package ~hide-lines~
+
+A light-weight package for hide/show matching lines.
+
+** Speech-Enable Racer
+
+Module ~emacspeak-racer~ speech-enables ~racer~ for Rust documentation
+and completion.
+** Speech-Enable Eglot
+
+
+Module ~emacspeak-eglot~ speech-enables ~eglot~ for lsp  support.
+** speech-Enable project.el
+
+Module ~emacspeak-project~ speech-enables package ~project~.
+
+
+** Speech-Enable rust-mode
+
+Module ~emacspeak-rust-mode~ speech-enables ~rust-mode~.
+
+
+** Speech-Enable YTEl
+
+Module ~emacspeak-ytel~ speech-enables package ~ytel~, an Elisp API
+bridge to YT.
+
+** Emacspeak-sdcv --- speech-Enable Stardict Interaction
+
+
+Module ~emacspeak-sdcv~ speech-enables emacs package ~sdcv~ to enable
+interaction with Stardict dictionaries.
+
+
+** Module ~emacspeak-tdtd~ Is Obsolete 
+
+Package ~tdtd~ which supported editing of SGML DTDs has disappeared
+from its source location, making module ~emacspeak-tdtd~ obsolete.
+
+** Module  ~emacspeak-kite~ Is Obsolete.
+
+Package ~kite~ is obsolete --- use Indium for live debugging of Web
+
+** Module  ~emacspeak-jss~ Is Obsolete.
+
+Package ~jss~ is obsolete --- use Indium for live debugging of Web
+And NodeJS Apps
+** Stripped Down ~emacspeak-bbc~
+
+The BBC Backstage API is obsolete and long gone; this is reflected in
+a lighter-weight, stripped down ~emacspeak-bbc~.
+** G-Client Modules Merged Into Emacs/lisp
+
+Modules from sub-package ~g-client~ that are still in use have been
+merged into the _emacspeak/lisp_ directory.
+
+** Module ~emacspeak-xml-shell~ Is Obsolete
+
+Long live XML!
+
+** Module ~emacspeak-vlc~ Is Obsolete
+
+It was never completed and hasn't been used, marking it obsolete.
+This also obsoletes the wizards pertaining to ~IHeart Radio~.
+
+
+** Emacspeak Start-Up Has Been Optimized 
+
+Emacspeak takes advantage of features like  ~make-thread~ in Emacs 26
+and later to optimize Emacspeak's start-up time.
+
+** Auth-Source And EWW
+
+If you use ~auth-source~ and its various supported backends to manage
+authentication information, you can now use _C-RET_
+(~emacspeak-eww-fillin-form-field~) to insert the user-name and/or
+password  into the input field.
+
+
+** Module ~emacspeak-npr~ Is Marked Obsolete 
+
+
+The API used by module ~emacspeak-npr~ has been retired by  [[npr.org]] in
+favor of their newer NPR-One API. Module ~emacspeak-npr~ is therefore
+obsolete and no longer supported.
