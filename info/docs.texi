@@ -16410,9 +16410,10 @@ personality.
 
 @format
 Speak the time.
+Spoken time  is available in the *notifications* buffer via C-h N.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
-Copies time to kill-ring.
+
 Second interactive prefix sets clock to new timezone.
 
 (fn &optional WORLD)
@@ -16719,12 +16720,12 @@ current local  value to the result.
 @subsubsection emacspeak-view-notifications
 @deffn {Command} emacspeak-view-notifications   
 @table @kbd
-@item C-h T
-@kindex C-h T
-@item <f1> T
-@kindex <f1> T
-@item <help> T
-@kindex <help> T
+@item C-h N
+@kindex C-h N
+@item <f1> N
+@kindex <f1> N
+@item <help> N
+@kindex <help> N
 @end table
 
 @findex emacspeak-view-notifications
