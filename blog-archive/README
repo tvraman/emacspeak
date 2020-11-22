@@ -11,10 +11,11 @@ Files:
 
 raw.xml was pulled using 
 
-wget -O raw.xml 'http://emacspeak.blogspot.com/feeds/posts/default?max-results=1000'
+wget -O raw.xml 'http://emacspeak.blogspot.com/feeds/posts/default?max-results=10'
+to get most recent 10 articles.
 
 
-articles.html: xsltproc ../xsl/atom-view.xsl raw.xml >articles.html
+articles.html: xsltproc ../xsl/atom-view.xsl full.xml >articles.html
 
 Mon 05 Oct 2020 02:25:14 PM PDT
 
@@ -22,9 +23,9 @@ Mon 05 Oct 2020 02:25:14 PM PDT
 file full.xml is being hand-constructed by appending missing past articles by hand, those retrieved from previous git snapshots of emacspeak.
 Going forward:
 
-  1. Pull raw.xml using wget.
+  1. Pull as many articles as needed from raw.xml using wget.
   2. Pick up newer <entry> elements from raw.xml and add to the front
-     of raw.xml
+     of full.xml
   3. Generate articles.html
 
   
