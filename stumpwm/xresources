@@ -1,5 +1,5 @@
 ! XResources 
-
+! see https://wiki.archlinux.org/index.php/Xterm
 Emacs.bitmapIcon:         off
 Emacs.menuBar:            off
 Emacs.verticalScrollBars: off
@@ -12,8 +12,11 @@ Emacs*font:	-adobe-helvetica-medium-r-normal--25-*-*-*-p-130-iso10646-1
 !Emacs*font:	-adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
 !Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
 
+XTerm.termName: xterm-256color
 XTerm*Background:	black
 XTerm*Foreground:	white
+XTerm.vt100.selectToClipboard:	true
+
 XTerm*VT100.translations:	#override \n\
  Ctrl <Key>semicolon: string(0x18) string("@h") \n\
  Ctrl <Key>comma: string(0x18) string("@a") \n\
