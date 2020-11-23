@@ -24368,7 +24368,7 @@ Turn screen white.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 75 URL Templates.
+This section documents a total of 76 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -24461,7 +24461,9 @@ Guardian Feeds  Directory@item @b{Hacker  News Frontpage}
 
 Display Hacker News Front Page@item @b{Hacker  News Search}
 
-Display Hacker News Front Page@item @b{MLB Scorecard}
+Display Hacker News Front Page@item @b{Hoogle Haskell API Search}
+
+Haskell API Search against a local server.@item @b{MLB Scorecard}
 
 Show MLB Scorecard.@item @b{MLB standings}
 
