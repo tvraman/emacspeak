@@ -877,6 +877,17 @@ Format is stationid+AM/FM."
      (emacspeak-m-player url 'playlist)))
 
 ;;}}}
+;;{{{Hoogle
+
+(emacspeak-url-template-define
+ "Hoogle Haskell API Search"
+ "http://localhost:8080/?hoogle=%s"
+ (list "Hoogle: ")
+ #'emacspeak-eww-next-h1
+ "Haskell API Search against a local server.")
+
+;;}}}
+
 ;;{{{ Bing RSS
 
 (emacspeak-url-template-define
