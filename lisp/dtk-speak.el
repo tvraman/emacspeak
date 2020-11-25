@@ -482,7 +482,7 @@ it seems some accented characters in certain contexts."
          (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
 (defconst dtk-caps-prefix
-  " cap "
+  (propertize  " cap " 'personality 'acss-p3-s1-r3)
   "Prefix used to indicate capitalization")
 
 (defun dtk-handle-capitalization ()
@@ -495,11 +495,10 @@ it seems some accented characters in certain contexts."
       (goto-char (point-min))
       (while (re-search-forward "\\b[A-Z]" nil t)
         (setq face (get-text-property (point) 'face))
-        (replace-match
-         (concat dtk-caps-prefix " \\&") t)
         (when face
           (save-excursion
             (backward-char 1)
+            (insert dtk-caps-prefix)
             (put-text-property (point) (1+ (point)) 'face face)))))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
