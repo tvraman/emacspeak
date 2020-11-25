@@ -494,7 +494,7 @@ it seems some accented characters in certain contexts."
       (goto-char (point-min))
       (while (re-search-forward "\\b[A-Z]" nil t)
         (replace-match
-         (concat dtk-caps-prefix "\\&") t)))))
+         (concat dtk-caps-prefix " \\&") t)))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
