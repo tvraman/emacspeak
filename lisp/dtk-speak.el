@@ -481,6 +481,20 @@ it seems some accented characters in certain contexts."
         (replace-match
          (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
+(defconst dtk-caps-prefix
+  (propertize "cap " 'personality voice-annotate)
+  "Prefix used to indicate capitalization")
+
+(defun dtk-handle-capitalization ()
+  "Handle capitalization for all engines"
+  (cl-declare (special dtk-capitalize dtk-caps-prefixe))
+  (when dtk-capitalize
+    (let ((inhibit-read-only t)
+          (case-fold-search nil))
+      (goto-char (point-min))
+      (while (re-search-forward "\\b[A-Z]" nil t)
+        (replace-match
+         (concat dtk-caps-prefix "\\&") t)))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -541,6 +555,7 @@ it seems some accented characters in certain contexts."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
+    (dtk-handle-capitalization)
 ;;; fix control chars
     (dtk-fix-control-chars)))
 
