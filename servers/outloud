@@ -427,7 +427,7 @@ proc clean {element} {
         set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         while {$allcaps } {
             if {[string length $match] <=3} {
-                set abbrev " $abbrev_tone$match"
+                set abbrev  $match
                 regsub -all {[A-Z]} $abbrev {& `p1 } abbrev
                 regsub -all A $abbrev {[ey]} abbrev 
                 regsub $match $element  $abbrev element
