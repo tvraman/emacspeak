@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
    (haskell-c2hs-hook-name-face voice-lighten)
    (haskell-c2hs-hook-pair-face voice-brighten)
@@ -167,7 +167,7 @@
   )
 
 (cl-loop
- for f in 
+ for f in
  '(haskell-add-import haskell-align-imports haskell-auto-insert-module-template)
  do
  (eval
@@ -178,7 +178,7 @@
        (emacspeak-auditory-icon 'task-done)))))
 
 (cl-loop
- for f in 
+ for f in
  '(
    haskell-cabal-beginning-of-section haskell-cabal-beginning-of-subsection
    haskell-cabal-end-of-section haskell-cabal-end-of-subsection
@@ -191,7 +191,7 @@
    haskell-forward-sexp haskell-goto-first-error
    haskell-goto-next-error haskell-goto-prev-error
    haskell-mode-jump-to-def
-  haskell-mode-jump-to-def-or-tag haskell-mode-jump-to-tag)
+   haskell-mode-jump-to-def-or-tag haskell-mode-jump-to-tag)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -200,12 +200,10 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-
 (defadvice haskell-cabal-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-setup-programming-mode)))
-
 
 ;;}}}
 ;;{{{haskell-debugger:
@@ -217,7 +215,7 @@
 ;;{{{haskell-indentation
 
 (cl-loop
- for f in 
+ for f in
  '(
    haskell-indentation-common-electric-command haskell-indentation-indent-backwards
    haskell-indentation-indent-line haskell-indentation-indent-rigidly
@@ -230,6 +228,14 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'select-object)))))
 
+;;}}}
+;;{{{haskell-mode-hook:
+
+(add-hook
+ 'haskell-mode-hook
+ #'(lambda ()
+     (haskell-indentation-mode )
+     (dtk-toggle-capitalization)))
 
 ;;}}}
 (provide 'emacspeak-haskell)
