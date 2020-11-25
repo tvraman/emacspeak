@@ -816,8 +816,7 @@ will say ``aw fifteen dot'' when speaking the string
       (dtk-interp-sync)
       (when
           (if (fboundp 'called-interactively-p)
-              (called-interactively-p 'interactive)
-            (interactive-p))
+              (called-interactively-p 'interactive))
         (emacspeak-auditory-icon (if ,switch "on" "off"))
         (dtk-speak-and-echo
          (format "Turned %s %s  %s."
