@@ -143,7 +143,7 @@ with a repeat count. "
 `dtk-set-character-scale' bound to \\[dtk-set-character-scale].")
 
 (defvar-local dtk-capitalize nil
-  "Non-nil means produce a beep to indicate  capitalization.
+  "Non-nil means  indicate  capitalization.
 Use command dtk-toggle-capitalization
 bound to \\[dtk-toggle-capitalization].")
 
