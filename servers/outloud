@@ -413,7 +413,7 @@ proc clean {element} {
     } else {
         regsub -all  {[*&()\"]} $element  {}   element
         regsub -all { \-([0-9]+\.[0-9]+)} $element \
-            {minus `p3 \1 } element
+            { minus `p3 \1 } element
         regsub -all {([a-zA-Z])([@!;/:()=\#,.\"])+([0-9a-zA-Z])} $element \
             {\1 `p5 \3} element
         regsub -all {``} $element { `ar } element
