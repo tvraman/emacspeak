@@ -89,9 +89,9 @@ Note that some badly formed mime messages  cause trouble."
 
 (defun emacspeak-vm-mode-setup ()
   "Setup function placed on vm-mode-hook by Emacspeak."
-  (cl-declare (special  dtk-punctuation-mode dtk-allcaps-beep))
+  (cl-declare (special  dtk-punctuation-mode dtk-allcaps))
   (setq dtk-punctuation-mode 'all)
-  (when dtk-allcaps-beep
+  (when dtk-allcaps
     (dtk-toggle-allcaps-beep)))
 
 ;;}}}

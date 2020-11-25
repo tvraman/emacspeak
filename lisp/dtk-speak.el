@@ -148,7 +148,7 @@ Use command dtk-toggle-capitalization
 bound to \\[dtk-toggle-capitalization].")
 
 
-(defvar-local dtk-allcaps-beep nil
+(defvar-local dtk-allcaps nil
   "Option to indicate capitalization.
 Non-nil means produce a beep to indicate upper case words in conjunction with
 split caps. Use command
@@ -497,6 +497,23 @@ it seems some accented characters in certain contexts."
             (goto-char (match-beginning 0))
             (insert dtk-caps-prefix))))))
 
+
+(defconst dtk-allcaps-prefix
+  (propertize  " AllCaps " 'personality 'acss-p3-s1-r3)
+  "Prefix used to indicate AllCaps")
+
+(defun dtk-handle-allcaps ()
+  "Handle allcaps for all engines"
+  (cl-declare (special dtk-allcaps dtk-allcaps-prefix))
+  (when  dtk-allcaps
+    (let ((inhibit-read-only t)
+          (case-fold-search nil))
+      (goto-char (point-min))
+      (while (re-search-forward "\\b[A-Z]+" nil t)
+        (save-excursion
+          (goto-char (match-beginning 0))
+          (insert dtk-allcaps-prefix))))))
+
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
 ;;; string\". Second argument, mode, is the pronunciation
@@ -556,6 +573,7 @@ it seems some accented characters in certain contexts."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
+    (dtk-handle-allcaps)
     (dtk-handle-capitalization)
 ;;; fix control chars
     (dtk-fix-control-chars)))
@@ -943,7 +961,7 @@ Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
 (ems-generate-switcher 'dtk-toggle-allcaps-beep
-                       'dtk-allcaps-beep
+                       'dtk-allcaps
                        "Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
@@ -1733,7 +1751,7 @@ only speak upto the first ctrl-m."
                dtk-speech-rate dtk-speak-nonprinting-chars
                dtk-quiet dtk-chunk-separator-syntax inhibit-modification-hooks
                voice-lock-mode dtk-punctuation-mode
-               dtk-split-caps dtk-capitalize dtk-allcaps-beep
+               dtk-split-caps dtk-capitalize dtk-allcaps
                emacspeak-pronounce-pronunciation-table selective-display))
 ;;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
@@ -1769,7 +1787,7 @@ only speak upto the first ctrl-m."
           (complement-sep (dtk-complement-chunk-separator-syntax))
           (speech-rate dtk-speech-rate)
           (capitalize dtk-capitalize)
-          (all-caps dtk-allcaps-beep)
+          (all-caps dtk-allcaps)
           (split-caps dtk-split-caps)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
           (start 1)
@@ -1790,7 +1808,7 @@ only speak upto the first ctrl-m."
          dtk-punctuation-mode mode
          dtk-split-caps split-caps
          dtk-capitalize capitalize
-         dtk-allcaps-beep all-caps
+         dtk-allcaps all-caps
          dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)

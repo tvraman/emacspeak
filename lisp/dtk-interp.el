@@ -65,7 +65,7 @@
 (defvar dtk-speaker-process)
 (defvar dtk-punctuation-mode)
 (defvar dtk-capitalize)
-(defvar dtk-allcaps-beep)
+(defvar dtk-allcaps)
 (defvar dtk-split-caps)
 (defvar dtk-speech-rate)
 
@@ -176,13 +176,13 @@
   (cl-declare (special dtk-speaker-process
                        dtk-punctuation-mode dtk-speech-rate
                        dtk-capitalize dtk-split-caps
-                       dtk-allcaps-beep))
+                       dtk-allcaps))
   (process-send-string
    dtk-speaker-process
    (format "tts_sync_state %s %s %s %s %s\n"
            dtk-punctuation-mode
            (if dtk-capitalize 1 0)
-           (if dtk-allcaps-beep 1 0)
+           (if dtk-allcaps 1 0)
            (if dtk-split-caps 1 0)
            dtk-speech-rate)))
 

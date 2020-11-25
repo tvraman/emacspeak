@@ -63,7 +63,7 @@
                dtk-speak-treat-embedded-punctuations-specially
                dtk-quiet dtk-chunk-separator-syntax
                voice-lock-mode dtk-punctuation-mode
-               dtk-split-caps dtk-capitalize dtk-allcaps-beep
+               dtk-split-caps dtk-capitalize dtk-allcaps
                emacspeak-pronounce-pronunciation-table
                selective-display))
 ;;; ensure text is a  string
@@ -90,7 +90,7 @@
           (complement-separator (dtk-complement-chunk-separator-syntax))
           
           (capitalize dtk-capitalize)
-          (all-caps dtk-allcaps-beep)
+          (all-caps dtk-allcaps)
           (split-caps dtk-split-caps)
           (inherit-enable-multibyte-characters enable-multibyte-characters)
           (tts-scratch-buffer (get-buffer-create "*TTS-Debug*"))
@@ -108,7 +108,7 @@
          dtk-punctuation-mode mode
          dtk-split-caps split-caps
          dtk-capitalize capitalize
-         dtk-allcaps-beep all-caps
+         dtk-allcaps all-caps
          dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)
