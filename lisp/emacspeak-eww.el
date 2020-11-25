@@ -2246,14 +2246,6 @@ with an interactive prefix arg. "
 ;;}}}
 ;;{{{Pronunciations:
 
-(emacspeak-pronounce-add-dictionary-entry
- 'eww-mode
- (concat " -" emacspeak-pronounce-number-pattern)
- (cons
-  #'re-search-forward
-  #'(lambda (number)
-      (concat " minus " (substring number 1)))))
-
 ;;}}}
 ;;{{{span: temporary fix
 ;;; Sites like cricinfo use bad markup and lose inter-word space
