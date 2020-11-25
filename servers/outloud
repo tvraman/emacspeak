@@ -424,13 +424,6 @@ proc clean {element} {
     }
     regsub -all {\240} $element " " element
     if {$tts(split_caps) } {
-        if  {$tts(allcaps_beep)} {
-            set tone "`ar `p20 `4 "
-            set abbrev_tone "`ar `p30   `4 "
-        } else {
-            set tone ""
-            set abbrev_tone ""
-        }
         set allcaps [regexp {[^a-zA-Z0-9]?([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         while {$allcaps } {
             if {[string length $match] <=3} {
