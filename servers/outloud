@@ -423,10 +423,6 @@ proc clean {element} {
         regsub -all -- {-}  $element {dash    } element 
     }
     regsub -all {\240} $element " " element
-    if {$tts(capitalize) } {
-        set ret [regsub -all {[A-Z]} $element {`ah & `3 } element]
-        if  {$ret!=0} {beep 1111 25}
-    }
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {
             set tone "`ar `p20 `4 "

@@ -482,7 +482,7 @@ it seems some accented characters in certain contexts."
          (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
 (defconst dtk-caps-prefix
-  (propertize "cap " 'personality voice-annotate)
+  (propertize "cap " 'personality 'acss-p4-s0-r4)
   "Prefix used to indicate capitalization")
 
 (defun dtk-handle-capitalization ()
