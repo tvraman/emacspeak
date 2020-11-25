@@ -490,16 +490,12 @@ it seems some accented characters in certain contexts."
   (cl-declare (special dtk-capitalize dtk-caps-prefix))
   (when dtk-capitalize
     (let ((inhibit-read-only t)
-          (face nil)
           (case-fold-search nil))
       (goto-char (point-min))
       (while (re-search-forward "\\b[A-Z]" nil t)
-        (setq face (get-text-property (point) 'face))
-        (when face
           (save-excursion
-            (backward-char 1)
-            (insert dtk-caps-prefix)
-            (put-text-property (point) (1+ (point)) 'face face)))))))
+            (goto-char (match-beginning 0))
+            (insert dtk-caps-prefix))))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
