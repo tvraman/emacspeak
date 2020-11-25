@@ -482,19 +482,25 @@ it seems some accented characters in certain contexts."
          (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
 (defconst dtk-caps-prefix
-  (propertize "cap " 'personality 'acss-p4-s0-r4)
+  " cap "
   "Prefix used to indicate capitalization")
 
 (defun dtk-handle-capitalization ()
   "Handle capitalization for all engines"
-  (cl-declare (special dtk-capitalize dtk-caps-prefixe))
+  (cl-declare (special dtk-capitalize dtk-caps-prefix))
   (when dtk-capitalize
     (let ((inhibit-read-only t)
+          (face nil)
           (case-fold-search nil))
       (goto-char (point-min))
       (while (re-search-forward "\\b[A-Z]" nil t)
+        (setq face (get-text-property (point) 'face))
         (replace-match
-         (concat dtk-caps-prefix " \\&") t)))))
+         (concat dtk-caps-prefix " \\&") t)
+        (when face
+          (save-excursion
+            (backward-char 1)
+            (put-text-property (point) (1+ (point)) 'face face)))))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
