@@ -432,7 +432,7 @@ proc clean {element} {
                 regsub -all A $abbrev {[ey]} abbrev 
                 regsub $match $element  $abbrev element
             } else {
-                regsub $match $element "$tone[string tolower $match]"  element
+                regsub $match $element "[string tolower $match]"  element
             }
             set allcaps [regexp {[^a-zA-Z0-9]([A-Z][A-Z0-9]+)[^a-zA-Z0-9]} $element full  match ]
         }
