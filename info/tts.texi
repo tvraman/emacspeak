@@ -149,16 +149,6 @@ Toggle capitalization.  when set, capitalization is indicated by a
 @emph{cap} before the word, and upper-case words are indicated with a
 @emph{acc} before the word.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
-
-@findex dtk-toggle-caps
-@kindex C-e d  cap c
-@item C-e d  cap C
-@code{dtk-toggle-allcaps}
-
-Toggle allcaps.  When set, allcaps words are indicated by a short
-@emph{ac}.  Interactive PREFIX arg means toggle the global default value,
-and then set the current local value to the result.  Note that
-
 @end table
 
 In addition, Emacspeak can convey the indentation of lines as they are

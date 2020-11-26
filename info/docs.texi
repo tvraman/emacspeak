@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1169 commands and 863 options.
+This chapter documents a total of 1168 commands and 863 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -833,29 +833,8 @@ Optional arg ‘all’ or interactive call   silences notification stream as wel
 @end format
 @end deffn
 
-@subsubsection dtk-toggle-allcaps
-@deffn {Command} dtk-toggle-allcaps  (&optional prefix)
-@table @kbd
-@item C-e d C
-@kindex C-e d C
-@item <fn> d C
-@kindex <fn> d C
-@end table
-
-@findex dtk-toggle-allcaps
-
-@format
-Toggle allcaps.
-when set, allcaps words  are  indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-Note that allcaps is a very useful thing when programming.
-However it is irritating to have it on when reading documents.
-@end format
-@end deffn
-
-@subsubsection dtk-toggle-capitalization
-@deffn {Command} dtk-toggle-capitalization  (&optional prefix)
+@subsubsection dtk-toggle-caps
+@deffn {Command} dtk-toggle-caps  (&optional prefix)
 @table @kbd
 @item C-e d c
 @kindex C-e d c
@@ -863,13 +842,14 @@ However it is irritating to have it on when reading documents.
 @kindex <fn> d c
 @end table
 
-@findex dtk-toggle-capitalization
+@findex dtk-toggle-caps
 
 @format
-Toggle capitalization.
-when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
+Toggle caps.
+when set, capitalized words are preceded by a short ‘cap’, and
+upper-case words are preceded by a ‘ac’ spoken in a lower voice.
+Interactive PREFIX arg means toggle the global default value, and
+then set the current local value to the result.
 @end format
 @end deffn
 
