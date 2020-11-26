@@ -500,7 +500,7 @@ it seems some accented characters in certain contexts."
 
 
 (defconst dtk-allcaps-prefix
-  (propertize  " allCaps " 'personality 'acss-p3-s1-r3)
+  (propertize  " ac " 'personality 'acss-p3-s1-r3)
   "Prefix used to indicate AllCaps")
 
 (defun dtk-handle-allcaps ()
