@@ -233,11 +233,11 @@ mixed-case (@acronym{AKA} Camel Case) identifiers.
 tts_capitalize flag
 @end example
 
-Indicate capitalization via a beep tone or voice pitch.
+Indicate capitalization.
 
 @example
-tts_allcaps_beep flag
+tts_allcaps flag
 @end example
 
-Setting this flag produces a high-pitched beep when speaking words
-that are in all-caps, e.g. abbreviations.
+Setting this flag precedes upper-case words with a @em{ac}. 
+
