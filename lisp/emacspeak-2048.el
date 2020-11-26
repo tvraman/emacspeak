@@ -262,7 +262,7 @@ Optional interactive prefix arg prompts for a filename."
      "Provide spoken feedback"
      (when (ems-interactive-p)
        (cond
-        ((some #'identity *2048-combines-this-move*)
+        ((cl-some #'identity *2048-combines-this-move*)
          (emacspeak-auditory-icon 'item))
         (t (emacspeak-auditory-icon 'close-object)))
        (emacspeak-2048-speak-board)
