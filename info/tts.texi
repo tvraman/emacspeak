@@ -149,7 +149,7 @@ Toggle capitalization.  when set, capitalization is indicated by a
 @em{cap} before the word.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 
-@findex dtk-toggle-allcaps-beep
+@findex dtk-toggle-allcaps
 @kindex C-e d  cap C
 @item C-e d  cap C
 @code{dtk-toggle-allcaps}
