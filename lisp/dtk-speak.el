@@ -493,9 +493,10 @@ it seems some accented characters in certain contexts."
           (case-fold-search nil))
       (goto-char (point-min))
       (while (re-search-forward "\\b[A-Z]" nil t)
-          (save-excursion
+        (save-excursion
+          (unless (looking-at "[A-Z]")
             (goto-char (match-beginning 0))
-            (insert dtk-caps-prefix))))))
+            (insert dtk-caps-prefix)))))))
 
 
 (defconst dtk-allcaps-prefix
@@ -509,7 +510,7 @@ it seems some accented characters in certain contexts."
     (let ((inhibit-read-only t)
           (case-fold-search nil))
       (goto-char (point-min))
-      (while (re-search-forward "\\b[A-Z][A-Z0-9_-]+\\b" nil t)
+      (while (re-search-forward "\\b[A-Z][A-Z0-9]+\\b" nil t)
         (save-excursion
           (goto-char (match-beginning 0))
           (insert dtk-allcaps-prefix))))))
