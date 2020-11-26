@@ -364,7 +364,7 @@
  '(
    ("," dtk-toggle-punctuation-mode)
    ("V" tts-speak-version)
-   ("C" dtk-toggle-allcaps-beep)
+   ("C" dtk-toggle-allcaps)
    ("L" dtk-local-server)
    ("N" dtk-set-next-language)
    ("P" dtk-set-previous-language)

@@ -92,7 +92,7 @@ Note that some badly formed mime messages  cause trouble."
   (cl-declare (special  dtk-punctuation-mode dtk-allcaps))
   (setq dtk-punctuation-mode 'all)
   (when dtk-allcaps
-    (dtk-toggle-allcaps-beep)))
+    (dtk-toggle-allcaps)))
 
 ;;}}}
 ;;{{{ inline helpers

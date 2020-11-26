@@ -152,7 +152,7 @@ bound to \\[dtk-toggle-capitalization].")
   "Option to indicate capitalization.
 Non-nil means produce a beep to indicate upper case words in conjunction with
 split caps. Use command
-`dtk-toggle-allcaps-beep' bound to \\[dtk-toggle-allcaps-beep].")
+`dtk-toggle-allcaps' bound to \\[dtk-toggle-allcaps].")
 
 (defconst dtk-punctuation-mode-alist
   '("some" "all" "none")
@@ -509,7 +509,7 @@ it seems some accented characters in certain contexts."
     (let ((inhibit-read-only t)
           (case-fold-search nil))
       (goto-char (point-min))
-      (while (re-search-forward "\\b[A-Z0-9_-]+\\b" nil t)
+      (while (re-search-forward "\\b[A-Z][A-Z0-9_-]+\\b" nil t)
         (save-excursion
           (goto-char (match-beginning 0))
           (insert dtk-allcaps-prefix))))))
@@ -960,13 +960,13 @@ value, and then set the current local value to the result.")
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
-(ems-generate-switcher 'dtk-toggle-allcaps-beep
+(ems-generate-switcher 'dtk-toggle-allcaps
                        'dtk-allcaps
-                       "Toggle allcaps-beep.
+                       "Toggle allcaps.
 when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
-Note that allcaps-beep is a very useful thing when programming.
+Note that allcaps is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
 (defun dtk-set-punctuations (mode &optional prefix)

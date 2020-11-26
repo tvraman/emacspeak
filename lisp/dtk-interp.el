@@ -266,7 +266,7 @@
 ;;}}}
 ;;{{{ allcaps beep
 
-(defsubst dtk-interp-toggle-allcaps-beep (flag)
+(defsubst dtk-interp-toggle-allcaps (flag)
   (cl-declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_allcaps_beep  %s\n"
