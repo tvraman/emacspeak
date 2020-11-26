@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1168 commands and 863 options.
+This chapter documents a total of 1168 commands and 865 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1001,6 +1001,16 @@ Speak version.
 @end deffn
 
 @subsection dtk-speak Options
+
+@defvar {User Option} dtk-allcaps-prefix
+Prefix used to indicate AllCaps
+
+@end defvar
+
+@defvar {User Option} dtk-caps-prefix
+Prefix used to indicate capitalization
+
+@end defvar
 
 @defvar {User Option} dtk-cleanup-repeats
 List of repeating patterns to clean up.
