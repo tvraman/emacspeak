@@ -146,19 +146,18 @@ value to the result.
 @code{dtk-toggle-capitalization}
 
 Toggle capitalization.  when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
+@em{cap} before the word.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 
 @findex dtk-toggle-allcaps-beep
 @kindex C-e d  cap C
 @item C-e d  cap C
-@code{dtk-toggle-allcaps-beep}
+@code{dtk-toggle-allcaps}
 
-Toggle allcaps-beep.  When set, allcaps words are indicated by a short
-beep.  Interactive PREFIX arg means toggle the global default value,
+Toggle allcaps.  When set, allcaps words are indicated by a short
+@em{ac}.  Interactive PREFIX arg means toggle the global default value,
 and then set the current local value to the result.  Note that
-allcaps-beep is a very useful thing when programming.  However it is
-irritating to have it on when reading documents.
+
 @end table
 
 In addition, Emacspeak can convey the indentation of lines as they are
