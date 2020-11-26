@@ -478,7 +478,7 @@ it seems some accented characters in certain contexts."
          nil t))))))
 (defconst dtk-caps-regexp
   (concat
-   "\\(\\b[A-Z][A-Z0-9]+\\b\\)"
+   "\\(\\b[A-Z][A-Z0-9_-]+\\b\\)"
    "\\|"
    "\\(\\b[A-Z]\\)")
   "Match capitalized or upper-case words.")
