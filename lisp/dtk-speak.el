@@ -483,13 +483,22 @@ it seems some accented characters in certain contexts."
    "\\(\\b[A-Z]\\)")
   "Match capitalized or upper-case words.")
 
-(defconst dtk-caps-prefix
+(defcustom dtk-caps-prefix
   (propertize  " cap " 'personality 'acss-p3-s1-r3)
-  "Prefix used to indicate capitalization")
+  "Prefix used to indicate capitalization":type 'string
+  :group 'tts
+  :set #'(lambda (sym val)
+           (setq-default sym
+                         (propertize  val 'personality 'acss-p3-s1-r3))))
 
-(defconst dtk-allcaps-prefix
+(defcustom dtk-allcaps-prefix
   (propertize  " acc " 'personality 'acss-p3-s1-r3)
-  "Prefix used to indicate AllCaps")
+  "Prefix used to indicate AllCaps"
+  :type 'string
+  :group 'tts
+  :set #'(lambda (sym val)
+           (setq-default sym
+                         (propertize  val 'personality 'acss-p3-s1-r3))))
 
 (defun dtk-handle-caps ()
   "Handle capitalization for all engines"
