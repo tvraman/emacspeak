@@ -878,6 +878,7 @@ Format is stationid+AM/FM."
 
 ;;}}}
 ;;{{{Hoogle
+(declare-function emacspeak-eww-next-h1 "emacspeak-eww" (&optional speak))
 
 (emacspeak-url-template-define
  "Hoogle Haskell API Search"
