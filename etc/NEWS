@@ -10,3 +10,15 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 54 --- Emacspeak 53 User Visible Changes
 
 This version requires Emacs-27.1 or later.
+
+
+** Capitalization And AllCaps
+
+Emacspeak used to convey capitalization and all-caps via beeps when
+options _dtk-capitalize_ and/or _dtk-allcaps_ were turned on. This
+worked wlel with the Dectalk that could splice in tones, but doesn't
+work well with other engines.  As of this version, Emacspeak replaces
+thos beeps with short utterances --- _cap_ for an initial capital
+letter, and _ac_ for a word in all-caps. These options are now on by
+default in all programming modes.
+
