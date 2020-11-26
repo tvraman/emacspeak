@@ -228,16 +228,3 @@ tts_split_caps flag
 
 Set state of @emph{split caps} processing. Turn this on to speak
 mixed-case (@acronym{AKA} Camel Case) identifiers.
-
-@example
-tts_capitalize flag
-@end example
-
-Indicate capitalization.
-
-@example
-tts_allcaps flag
-@end example
-
-Setting this flag precedes upper-case words with a @emph{ac}. 
-

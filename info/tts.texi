@@ -139,18 +139,19 @@ Toggle split caps mode.  Split caps mode is useful when reading
 Hungarian notation in program source code.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
 value to the result.
-
-@findex dtk-toggle-capitalization
-@kindex C-e d c
+@code{dtk-toggle-caps}
 @item C-e d c
-@code{dtk-toggle-capitalization}
+@kindex C-e d c
+@findex dtk-toggle-caps
+
 
 Toggle capitalization.  when set, capitalization is indicated by a
-@emph{cap} before the word.  Interactive PREFIX arg means toggle the global default
+@emph{cap} before the word, and upper-case words are indicated with a
+@emph{acc} before the word.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 
-@findex dtk-toggle-allcaps
-@kindex C-e d  cap C
+@findex dtk-toggle-caps
+@kindex C-e d  cap c
 @item C-e d  cap C
 @code{dtk-toggle-allcaps}
 
