@@ -149,18 +149,6 @@ Capitalized words are preceded by `cap', and upper-case words are
 Use command dtk-toggle-caps
 bound to \\[dtk-toggle-caps].")
 
-(defvar-local dtk-capitalize nil
-  "Non-nil means  indicate  capitalization.
-Use command dtk-toggle-capitalization
-bound to \\[dtk-toggle-capitalization].")
-
-
-(defvar-local dtk-allcaps nil
-  "Option to indicate capitalization.
-Non-nil means produce a beep to indicate upper case words in conjunction with
-split caps. Use command
-`dtk-toggle-allcaps' bound to \\[dtk-toggle-allcaps].")
-
 (defconst dtk-punctuation-mode-alist
   '("some" "all" "none")
   "Alist of valid punctuation modes, values are strings.")
@@ -499,6 +487,10 @@ it seems some accented characters in certain contexts."
    "\\(\\b[A-Z]\\)")
   "Match capitalized or upper-case words.")
 
+(defconst dtk-allcaps-prefix
+  (propertize  " ac " 'personality 'acss-p3-s1-r3)
+  "Prefix used to indicate AllCaps")
+
 (defun dtk-handle-caps ()
   "Handle capitalization for all engines"
   (cl-declare (special dtk-caps dtk-caps-regexp
@@ -516,36 +508,6 @@ it seems some accented characters in certain contexts."
              ((= 1  (- (match-end 0) (match-beginning 0)))
               (insert dtk-caps-prefix))
              (t (insert dtk-allcaps-prefix)))))))))
-
-(defun dtk-handle-capitalization ()
-  "Handle capitalization for all engines"
-  (cl-declare (special dtk-capitalize dtk-caps-prefix))
-  (when dtk-capitalize
-    (let ((inhibit-read-only t)
-          (case-fold-search nil))
-      (goto-char (point-min))
-      (while (re-search-forward "\\b[A-Z]" nil t)
-        (save-excursion
-          (unless (looking-at "[A-Z]")
-            (goto-char (match-beginning 0))
-            (insert dtk-caps-prefix)))))))
-
-
-(defconst dtk-allcaps-prefix
-  (propertize  " ac " 'personality 'acss-p3-s1-r3)
-  "Prefix used to indicate AllCaps")
-
-(defun dtk-handle-allcaps ()
-  "Handle allcaps for all engines"
-  (cl-declare (special dtk-allcaps dtk-allcaps-prefix))
-  (when  dtk-allcaps
-    (let ((inhibit-read-only t)
-          (case-fold-search nil))
-      (goto-char (point-min))
-      (while (re-search-forward "\\b[A-Z][A-Z0-9]+\\b" nil t)
-        (save-excursion
-          (goto-char (match-beginning 0))
-          (insert dtk-allcaps-prefix))))))
 
 ;;; Takes a string, and replaces occurrences  of this pattern
 ;;; that are longer than 3 by a string of the form \"count
@@ -606,8 +568,7 @@ it seems some accented characters in certain contexts."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
-    (dtk-handle-allcaps)
-    (dtk-handle-capitalization)
+    (dtk-handle-caps)
 ;;; fix control chars
     (dtk-fix-control-chars)))
 
@@ -989,28 +950,13 @@ upper-case words are preceded by a `ac' spoken in a lower voice.
 Interactive PREFIX arg means toggle the global default value, and
 then set the current local value to the result.")
 
-(ems-generate-switcher
- 'dtk-toggle-capitalization
- 'dtk-capitalize
- "Toggle capitalization.
-when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.")
+
 
 (ems-generate-switcher 'dtk-toggle-speak-nonprinting-chars
                        'dtk-speak-nonprinting-chars
                        "Toggle speak-nonprinting-chars.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
-
-(ems-generate-switcher 'dtk-toggle-allcaps
-                       'dtk-allcaps
-                       "Toggle allcaps.
-when set, allcaps words  are  indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-Note that allcaps is a very useful thing when programming.
-However it is irritating to have it on when reading documents.")
 
 (defun dtk-set-punctuations (mode &optional prefix)
   "Set punctuation mode to MODE.
@@ -1794,7 +1740,7 @@ only speak upto the first ctrl-m."
                dtk-speech-rate dtk-speak-nonprinting-chars
                dtk-quiet dtk-chunk-separator-syntax inhibit-modification-hooks
                voice-lock-mode dtk-punctuation-mode
-               dtk-split-caps dtk-capitalize dtk-allcaps
+               dtk-split-caps 
                emacspeak-pronounce-pronunciation-table selective-display))
 ;;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
@@ -1829,8 +1775,7 @@ only speak upto the first ctrl-m."
           (inherit-strip-octals tts-strip-octals)
           (complement-sep (dtk-complement-chunk-separator-syntax))
           (speech-rate dtk-speech-rate)
-          (capitalize dtk-capitalize)
-          (all-caps dtk-allcaps)
+          (caps dtk-caps)
           (split-caps dtk-split-caps)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
           (start 1)
@@ -1850,8 +1795,7 @@ only speak upto the first ctrl-m."
          emacspeak-use-auditory-icons use-auditory-icons
          dtk-punctuation-mode mode
          dtk-split-caps split-caps
-         dtk-capitalize capitalize
-         dtk-allcaps all-caps
+         dtk-caps caps
          dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)

@@ -303,14 +303,12 @@ the Emacspeak desktop.")
 ;;;###autoload
 (defsubst emacspeak-setup-programming-mode ()
   "Setup programming mode. "
-  (cl-declare (special dtk-split-caps emacspeak-audio-indentation
-                       dtk-allcaps dtk-capitalize))
+  (cl-declare (special dtk-split-caps emacspeak-audio-indentation dtk-caps))
   (ems-with-messages-silenced
       (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
     (dtk-set-punctuations 'all)
     (or dtk-split-caps (dtk-toggle-split-caps))
-    (or dtk-allcaps (dtk-toggle-allcaps))
-    (or dtk-capitalize (dtk-toggle-capitalization))
+    (or dtk-caps (dtk-toggle-caps))
     (emacspeak-pronounce-refresh-pronunciations)
     (or emacspeak-audio-indentation (emacspeak-toggle-audio-indentation))))
 

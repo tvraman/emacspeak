@@ -64,8 +64,7 @@
 
 (defvar dtk-speaker-process)
 (defvar dtk-punctuation-mode)
-(defvar dtk-capitalize)
-(defvar dtk-allcaps)
+
 (defvar dtk-split-caps)
 (defvar dtk-speech-rate)
 
@@ -174,15 +173,11 @@
 
 (defsubst dtk-interp-sync ()
   (cl-declare (special dtk-speaker-process
-                       dtk-punctuation-mode dtk-speech-rate
-                       dtk-capitalize dtk-split-caps
-                       dtk-allcaps))
+                       dtk-punctuation-mode dtk-speech-rate dtk-split-caps))
   (process-send-string
    dtk-speaker-process
-   (format "tts_sync_state %s %s %s %s %s\n"
+   (format "tts_sync_state %s %s %s\n"
            dtk-punctuation-mode
-           (if dtk-capitalize 1 0)
-           (if dtk-allcaps 1 0)
            (if dtk-split-caps 1 0)
            dtk-speech-rate)))
 
@@ -255,24 +250,8 @@
                                (if flag 1 0))))
 
 ;;}}}
-;;{{{ capitalization
 
-(defsubst dtk-interp-toggle-capitalization (flag)
-  (cl-declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "tts_capitalize  %s\n"
-                               (if flag 1 0))))
 
-;;}}}
-;;{{{ allcaps beep
-
-(defsubst dtk-interp-toggle-allcaps (flag)
-  (cl-declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format "tts_allcaps_beep  %s\n"
-                               (if flag 1 0))))
-
-;;}}}
 ;;{{{ punctuations
 
 (defsubst dtk-interp-set-punctuations (mode)

@@ -364,7 +364,6 @@
  '(
    ("," dtk-toggle-punctuation-mode)
    ("V" tts-speak-version)
-   ("C" dtk-toggle-allcaps)
    ("L" dtk-local-server)
    ("N" dtk-set-next-language)
    ("P" dtk-set-previous-language)
@@ -379,7 +378,7 @@
    ("C-m" dtk-set-chunk-separator-syntax)
    ("C-o" outloud)
    ("a" dtk-add-cleanup-pattern)
-   ("c" dtk-toggle-capitalization)
+   ("c" dtk-toggle-caps)
    ("d" dtk-select-server)
    ("f" dtk-set-character-scale)
    ("i" emacspeak-toggle-audio-indentation)
