@@ -63,7 +63,7 @@
                dtk-speak-treat-embedded-punctuations-specially
                dtk-quiet dtk-chunk-separator-syntax
                voice-lock-mode dtk-punctuation-mode
-               dtk-split-caps dtk-capitalize dtk-allcaps
+               dtk-split-caps dtk-caps
                emacspeak-pronounce-pronunciation-table
                selective-display))
 ;;; ensure text is a  string
@@ -88,9 +88,7 @@
           (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)
           (complement-separator (dtk-complement-chunk-separator-syntax))
-          
-          (capitalize dtk-capitalize)
-          (all-caps dtk-allcaps)
+          (caps dtk-caps)
           (split-caps dtk-split-caps)
           (inherit-enable-multibyte-characters enable-multibyte-characters)
           (tts-scratch-buffer (get-buffer-create "*TTS-Debug*"))
@@ -107,8 +105,8 @@
          dtk-chunk-separator-syntax inherit-chunk-separator-syntax
          dtk-punctuation-mode mode
          dtk-split-caps split-caps
-         dtk-capitalize capitalize
-         dtk-allcaps all-caps
+         dtk-caps caps
+         
          dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
          tts-strip-octals inherit-strip-octals
          voice-lock-mode voice-lock)
