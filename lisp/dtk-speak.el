@@ -142,6 +142,13 @@ with a repeat count. "
   Use command
 `dtk-set-character-scale' bound to \\[dtk-set-character-scale].")
 
+(defvar-local dtk-caps nil
+  "Non-nil means  indicate  capitalization.
+Capitalized words are preceded by `cap', and upper-case words are
+  preceded by `ac' spoken in a lower voice.
+Use command dtk-toggle-caps
+bound to \\[dtk-toggle-caps].")
+
 (defvar-local dtk-capitalize nil
   "Non-nil means  indicate  capitalization.
 Use command dtk-toggle-capitalization
@@ -484,6 +491,31 @@ it seems some accented characters in certain contexts."
 (defconst dtk-caps-prefix
   (propertize  " cap " 'personality 'acss-p3-s1-r3)
   "Prefix used to indicate capitalization")
+
+(defconst dtk-caps-regexp
+  (concat
+   "\\(\\b[A-Z][A-Z0-9]+\\b\\)"
+   "\\|"
+   "\\(\\b[A-Z]\\)")
+  "Match capitalized or upper-case words.")
+
+(defun dtk-handle-caps ()
+  "Handle capitalization for all engines"
+  (cl-declare (special dtk-caps dtk-caps-regexp
+                       dtk-caps-prefix dtk-allcaps-prefix))
+  (when dtk-caps
+    (let ((inhibit-read-only t)
+          (case-fold-search nil))
+      (goto-char (point-min))
+      (while
+          (re-search-forward dtk-caps-regexp nil t)
+        (save-excursion
+          (save-match-data
+            (goto-char (match-beginning 0))
+            (cond
+             ((= 1  (- (match-end 0) (match-beginning 0)))
+              (insert dtk-caps-prefix))
+             (t (insert dtk-allcaps-prefix)))))))))
 
 (defun dtk-handle-capitalization ()
   "Handle capitalization for all engines"
@@ -948,9 +980,19 @@ Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.")
 
-(ems-generate-switcher 'dtk-toggle-capitalization
-                       'dtk-capitalize
-                       "Toggle capitalization.
+(ems-generate-switcher
+ 'dtk-toggle-caps
+ 'dtk-caps
+ "Toggle caps.
+when set, capitalized words are preceded by a short `cap', and
+upper-case words are preceded by a `ac' spoken in a lower voice.
+Interactive PREFIX arg means toggle the global default value, and
+then set the current local value to the result.")
+
+(ems-generate-switcher
+ 'dtk-toggle-capitalization
+ 'dtk-capitalize
+ "Toggle capitalization.
 when set, capitalization is indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
