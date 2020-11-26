@@ -103,9 +103,9 @@ Produce timing information as the last step."
 (defsubst tvr-tabs ()
   "Set up my tab-bar."
   (tab-new)
-  (tab-rename "Books")
+  (tab-rename "books")
   (tab-next)
-  (tab-rename "Home"))
+  (tab-rename "home"))
 
 ;;}}}
 ;;{{{ tvr-shell-bind-keys:
