@@ -234,8 +234,7 @@
 (add-hook
  'haskell-mode-hook
  #'(lambda ()
-     (haskell-indentation-mode )
-     (unless dtk-capitalize (dtk-toggle-capitalization))))
+     (haskell-indentation-mode )))
 
 ;;}}}
 (provide 'emacspeak-haskell)
