@@ -833,8 +833,8 @@ Optional arg ‘all’ or interactive call   silences notification stream as wel
 @end format
 @end deffn
 
-@subsubsection dtk-toggle-allcaps-beep
-@deffn {Command} dtk-toggle-allcaps-beep  (&optional prefix)
+@subsubsection dtk-toggle-allcaps
+@deffn {Command} dtk-toggle-allcaps  (&optional prefix)
 @table @kbd
 @item C-e d C
 @kindex C-e d C
@@ -842,14 +842,14 @@ Optional arg ‘all’ or interactive call   silences notification stream as wel
 @kindex <fn> d C
 @end table
 
-@findex dtk-toggle-allcaps-beep
+@findex dtk-toggle-allcaps
 
 @format
-Toggle allcaps-beep.
+Toggle allcaps.
 when set, allcaps words  are  indicated by a
 short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
-Note that allcaps-beep is a very useful thing when programming.
+Note that allcaps is a very useful thing when programming.
 However it is irritating to have it on when reading documents.
 @end format
 @end deffn

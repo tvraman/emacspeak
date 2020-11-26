@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 23, 2020.
+last updated on November 25, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -880,17 +880,17 @@ applied to all buffers by preceding these commands with ‘C-u’.
      ‘dtk-toggle-capitalization’
 
      Toggle capitalization.  when set, capitalization is indicated by a
-     short beep.  Interactive PREFIX arg means toggle the global default
-     value, and then set the current local value to the result.
+     _cap_ before the word.  Interactive PREFIX arg means toggle the
+     global default value, and then set the current local value to the
+     result.
 
 ‘C-e d cap C’
-     ‘dtk-toggle-allcaps-beep’
+     ‘dtk-toggle-allcaps’
 
-     Toggle allcaps-beep.  When set, allcaps words are indicated by a
-     short beep.  Interactive PREFIX arg means toggle the global default
+     Toggle allcaps.  When set, allcaps words are indicated by a short
+     _ac_.  Interactive PREFIX arg means toggle the global default
      value, and then set the current local value to the result.  Note
-     that allcaps-beep is a very useful thing when programming.  However
-     it is irritating to have it on when reading documents.
+     that
 
    In addition, Emacspeak can convey the indentation of lines as they
 are spoken — This is relevant when programming and is the default when
@@ -3564,18 +3564,18 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      (fn &optional ALL)
 
-12.7.1.22 dtk-toggle-allcaps-beep
-.................................
+12.7.1.22 dtk-toggle-allcaps
+............................
 
- -- Command: dtk-toggle-allcaps-beep (&optional prefix)
+ -- Command: dtk-toggle-allcaps (&optional prefix)
      ‘C-e d C’
      ‘<fn> d C’
 
-     Toggle allcaps-beep.
+     Toggle allcaps.
      when set, allcaps words  are  indicated by a
      short beep.  Interactive PREFIX arg means toggle the global default
      value, and then set the current local value to the result.
-     Note that allcaps-beep is a very useful thing when programming.
+     Note that allcaps is a very useful thing when programming.
      However it is irritating to have it on when reading documents.
 
 12.7.1.23 dtk-toggle-capitalization

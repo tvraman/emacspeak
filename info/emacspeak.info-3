@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 23, 2020.
+last updated on November 25, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
@@ -6324,12 +6324,11 @@ mixed-case (AKA Camel Case) identifiers.
 
      tts_capitalize flag
 
-   Indicate capitalization via a beep tone or voice pitch.
+   Indicate capitalization.
 
-     tts_allcaps_beep flag
+     tts_allcaps flag
 
-   Setting this flag produces a high-pitched beep when speaking words
-that are in all-caps, e.g.  abbreviations.
+   Setting this flag precedes upper-case words with a _ac_.
 
 
 File: emacspeak.info,  Node: Emacspeak At Twenty,  Next: Acknowledgments,  Prev: TTS Servers,  Up: Top
@@ -7718,7 +7717,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-y:                               emacspeak-wizards.  (line   50)
 * C-e cap V:                             Status Information. (line   38)
 * C-e d cap C:                           Speech Output Control.
-                                                             (line   73)
+                                                             (line   74)
 * C-e d cap V:                           Miscellaneous.      (line   84)
 * C-e d ,:                               dtk-speak.          (line  301)
 * C-e d 0:                               dtk-speak.          (line  171)

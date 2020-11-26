@@ -146,7 +146,7 @@ value to the result.
 @code{dtk-toggle-capitalization}
 
 Toggle capitalization.  when set, capitalization is indicated by a
-@em{cap} before the word.  Interactive PREFIX arg means toggle the global default
+@emph{cap} before the word.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 
 @findex dtk-toggle-allcaps
@@ -155,7 +155,7 @@ value, and then set the current local value to the result.
 @code{dtk-toggle-allcaps}
 
 Toggle allcaps.  When set, allcaps words are indicated by a short
-@em{ac}.  Interactive PREFIX arg means toggle the global default value,
+@emph{ac}.  Interactive PREFIX arg means toggle the global default value,
 and then set the current local value to the result.  Note that
 
 @end table

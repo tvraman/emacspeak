@@ -239,5 +239,5 @@ Indicate capitalization.
 tts_allcaps flag
 @end example
 
-Setting this flag precedes upper-case words with a @em{ac}. 
+Setting this flag precedes upper-case words with a @emph{ac}. 
 
