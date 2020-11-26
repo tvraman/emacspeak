@@ -476,10 +476,6 @@ it seems some accented characters in certain contexts."
         (replace-match
          (format " %s " (aref dtk-character-to-speech-table char))
          nil t))))))
-(defconst dtk-caps-prefix
-  (propertize  " cap " 'personality 'acss-p3-s1-r3)
-  "Prefix used to indicate capitalization")
-
 (defconst dtk-caps-regexp
   (concat
    "\\(\\b[A-Z][A-Z0-9]+\\b\\)"
@@ -487,8 +483,12 @@ it seems some accented characters in certain contexts."
    "\\(\\b[A-Z]\\)")
   "Match capitalized or upper-case words.")
 
+(defconst dtk-caps-prefix
+  (propertize  " cap " 'personality 'acss-p3-s1-r3)
+  "Prefix used to indicate capitalization")
+
 (defconst dtk-allcaps-prefix
-  (propertize  " ac " 'personality 'acss-p3-s1-r3)
+  (propertize  " acc " 'personality 'acss-p3-s1-r3)
   "Prefix used to indicate AllCaps")
 
 (defun dtk-handle-caps ()
