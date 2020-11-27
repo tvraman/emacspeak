@@ -536,10 +536,12 @@ current local  value to the result.")
 (defun emacspeak-get-current-percentage-verbously ()
   "Return percentage of position into current buffer as a string."
   (let ((percent (emacspeak-get-current-percentage-into-buffer)))
-    (cond
-     ((= 0 percent) " top ")
-     ((= 100 percent) " bottom ")
-     (t (format " %d%% " percent)))))
+    (propertize
+     (cond
+      ((= 0 percent) " top ")
+      ((= 100 percent) " bottom ")
+      (t (format " %d%% " percent)))
+     'personality voice-monotone)))
 
 (defun emacspeak-goto-percent (percent)
   "Move to end  PERCENT of buffer like in View mode.
@@ -1734,24 +1736,21 @@ Interactive prefix arg speaks buffer info."
                        (eq major-mode 'comint-mode))
                (abbreviate-file-name default-directory))))
         (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
-        (setq
-         window-count
-         (if (> window-count 1)
-             (format " %s " window-count)
-           nil))
+        (setq window-count ;;; int->string
+              (if (> window-count 1) (format " %s " window-count) nil))
         (cond
          ((stringp mode-line-format) (dtk-speak (downcase mode-line-format)))
          (t                             ;process modeline
           (unless (zerop (length global-info))
             (put-text-property
-             0 (length global-info) 'personality voice-bolden-medium global-info))
-          (tts-with-punctuations
-              'all
-            (unless                     ; avoid pathological case
-                (and buffer-read-only (buffer-modified-p))
-              (when (and buffer-file-name (buffer-modified-p))
-                (emacspeak-auditory-icon 'modified-object))
-              (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
+             0 (length global-info) 'personality voice-bolden-medium
+             global-info))
+          ;;; avoid pathological case
+          (unless (and buffer-read-only (buffer-modified-p)) 
+            (when (and buffer-file-name (buffer-modified-p))
+              (emacspeak-auditory-icon 'modified-object))
+            (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
+          (tts-with-punctuations 'all
             (dtk-speak
              (concat
               dir-info
@@ -1764,9 +1763,9 @@ Interactive prefix arg speaks buffer info."
               (when column-number-mode
                 (format "column %d" (current-column)))
               (propertize
-               (downcase (format-mode-line mode-name))
-               'personality voice-animate)
-              (emacspeak-get-current-percentage-verbously)
+               (downcase
+                (format-mode-line mode-name)) 'personality voice-animate)
+               (emacspeak-get-current-percentage-verbously) 
               global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
