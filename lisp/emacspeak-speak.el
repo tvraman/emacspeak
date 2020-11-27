@@ -1581,29 +1581,6 @@ Turning on this option results in Emacspeak producing an auditory icon
 indicating the arrival  of new mail when displaying the mode line.")
 
 ;;}}}
-;;{{{ Cache Voicefied mode-names
-
-(defvar emacspeak-voicefied-mode-names
-  (make-hash-table :test 'eq)
-  "Hash table mapping mode-names to their voicefied equivalents.")
-
-(defun emacspeak-get-voicefied-mode-name (m-name)
-  "Return voicefied version of mode-name `m-name'"
-  (cl-declare (special emacspeak-voicefied-mode-names))
-  (let* ((mode-name-str
-          (if (stringp m-name)
-              m-name
-            (format-mode-line m-name)))
-         (result (gethash mode-name-str emacspeak-voicefied-mode-names)))
-    (or result
-        (progn
-          (setq result (copy-sequence mode-name-str))
-          (put-text-property 0 (length result)
-                             'personality voice-animate result)
-          (puthash mode-name-str result emacspeak-voicefied-mode-names)
-          result))))
-
-;;}}}
 ;;{{{ Cache Voicefied buffer-names
 
 (defvar emacspeak-voicefied-buffer-names
@@ -1821,8 +1798,9 @@ Interactive prefix arg speaks buffer info."
                 (format "line %d" (emacspeak-get-current-line-number)))
               (when column-number-mode
                 (format "column %d" (current-column)))
-              (emacspeak-get-voicefied-mode-name
-               (downcase (format-mode-line mode-name)))
+              (propertize
+               (downcase (format-mode-line mode-name))
+               'personality voice-animate)
               (emacspeak-get-current-percentage-verbously)
               global-info frame-info recursion-info))))))))))
 
