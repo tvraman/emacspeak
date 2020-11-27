@@ -251,7 +251,9 @@ Default is to return NullAgent if name not found."
 (defun soundscape-current ()
   "Return names of currently running scapes."
   (cl-declare (special soundscape--scapes))
-  (mapconcat #'soundscape-lookup-scape soundscape--scapes " "))
+  (concat
+   (mapconcat #'soundscape-lookup-scape soundscape--scapes " ")
+   " "))
 
 ;;}}}
 ;;{{{ Modes->SoundScapes:
