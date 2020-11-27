@@ -211,6 +211,10 @@ Use Custom to customize where possible. "
   (abbrev-mode)
   (unless (eq major-mode 'org-mode) (orgalist-mode)))
 
+(defun tvr-emacs-lisp-mode-hook ()
+  "Dont need capitalize support in emacs lisp."
+  (when dtk-caps (dtk-toggle-caps)))
+
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
   (local-set-key "\C-m" 'newline-and-indent)
