@@ -1848,20 +1848,17 @@ Optional interactive prefix arg `log-msg' logs spoken info to
 ;;;###autoload
 (defun emacspeak-speak-buffer-filename (&optional filename)
   "Speak name of file being visited in current buffer.
-Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file.
-Interactive prefix arg `filename' speaks only the final path
-component.
-The result is put in the kill ring for convenience."
+Speak default directory if invoked in a dired buffer, or when the
+buffer is not visiting any file.  Interactive prefix arg
+`filename' speaks only the final path component.  The result is
+put in the kill ring for convenience."
   (interactive "P")
-  (let ((location (or (buffer-file-name)
-                      default-directory)))
+  (let ((dtk-caps t)
+        (location (or (buffer-file-name) default-directory)))
     (when filename
-      (setq location
-            (file-name-nondirectory location)))
+      (setq location (file-name-nondirectory location)))
     (kill-new location)
-    (dtk-speak
-     location)))
+    (dtk-speak location)))
 
 ;;}}}
 ;;{{{ Speak header-line
