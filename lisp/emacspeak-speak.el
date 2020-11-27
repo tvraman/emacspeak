@@ -1833,14 +1833,15 @@ current coding system, then we return an empty string."
 ;;;###autoload
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
   "Speak the minor mode-information.
-Optional  interactive prefix arg `log-msg' logs spoken info to *Messages*."
+Optional interactive prefix arg `log-msg' logs spoken info to
+*Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
   (force-mode-line-update)
   (let ((cs (ems-get-buffer-coding-system))
-        (info (format-mode-line minor-mode-alist)))
+        (info  (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
-    (dtk-speak (concat info cs))))
+    (dtk-speak (downcase (concat info cs)))))
 
 (cl--defalias 'emacspeak-speak-line-number 'what-line)
 
