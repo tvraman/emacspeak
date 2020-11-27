@@ -250,8 +250,6 @@
                                (if flag 1 0))))
 
 ;;}}}
-
-
 ;;{{{ punctuations
 
 (defsubst dtk-interp-set-punctuations (mode)
