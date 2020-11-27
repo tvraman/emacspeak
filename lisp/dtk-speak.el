@@ -80,8 +80,6 @@ mac for MAC TTS (default on Mac)")
 
 (defvar emacspeak-pronounce-pronunciation-table)
 (defvar emacspeak-ssh-tts-server)
-(defvar emacspeak-auditory-icon-function)
-
 (defvar emacspeak-use-auditory-icons)
 (defvar emacspeak-pronounce-pronunciation-personality)
 
@@ -139,8 +137,8 @@ with a repeat count. "
 
 (defvar dtk-character-scale 1.1
   "Factor by which speech rate is scaled when characters are spoken.
-  Use command
-`dtk-set-character-scale' bound to \\[dtk-set-character-scale].")
+  Use command `dtk-set-character-scale' bound to
+\\[dtk-set-character-scale].")
 
 (defvar-local dtk-caps nil
   "Non-nil means  indicate  capitalization.
@@ -173,7 +171,6 @@ bound to \\[dtk-toggle-caps].")
   "Compute face->voice mapping."
   (when value 
     (let ((voice nil))
-      (condition-case nil
           (cond
            ((symbolp value)
             (setq voice (voice-setup-get-voice-for-face value)))
@@ -182,13 +179,13 @@ bound to \\[dtk-toggle-caps].")
             (setq voice
                   (delq nil
                         (mapcar   #'voice-setup-get-voice-for-face value)))))
-        (error nil))
+        
       voice)))
 
 (defsubst dtk-get-style (&optional pos)
   " Return value is a personality that can be applied to the
-content when speaking. Default `pos' to point. Property `personality'
-has higher precedence than `face'."
+content when speaking. Default `pos' to point. Property
+`personality' has higher precedence than `face'."
   (or pos (setq pos (point)))
   (or
    (get-text-property pos 'personality)
@@ -488,7 +485,7 @@ it seems some accented characters in certain contexts."
   "Prefix used to indicate capitalization":type 'string
   :group 'tts
   :set #'(lambda (sym val)
-           (setq-default sym
+           (set-default sym
                          (propertize  val 'personality 'acss-p3-s1-r3))))
 
 (defcustom dtk-allcaps-prefix
@@ -497,7 +494,7 @@ it seems some accented characters in certain contexts."
   :type 'string
   :group 'tts
   :set #'(lambda (sym val)
-           (setq-default sym
+           (set-default sym
                          (propertize  val 'personality 'acss-p3-s1-r3))))
 
 (defun dtk-handle-caps ()
@@ -929,23 +926,26 @@ current local  value to the result."
                dtk-character-scale
                (if prefix "" "locally")))))
 
-(ems-generate-switcher 'dtk-toggle-quiet
-                       'dtk-quiet
-                       "Toggles state of  dtk-quiet.
-Turning on this switch silences speech.
-Optional interactive prefix arg causes this setting to become global.")
+(ems-generate-switcher
+ 'dtk-toggle-quiet
+ 'dtk-quiet
+ "Toggles state of  dtk-quiet.
+Turning on this switch silences speech.  Optional interactive
+prefix arg causes this setting to become global.")
 
-(ems-generate-switcher 'dtk-toggle-split-caps
-                       'dtk-split-caps
-                       "Toggle split caps mode.
-Split caps mode is useful when reading
-Hungarian notation in program source code.  Interactive PREFIX arg
-means toggle the global default value, and then set the current local
-value to the result.")
+(ems-generate-switcher
+ 'dtk-toggle-split-caps
+ 'dtk-split-caps
+ "Toggle split caps mode.
+Split caps mode is useful when reading Hungarian notation in
+program source code.  Interactive PREFIX arg means toggle the
+global default value, and then set the current local value to the
+result.")
 
-(ems-generate-switcher 'dtk-toggle-strip-octals
-                       'tts-strip-octals
-                       "Toggle stripping of octals.
+(ems-generate-switcher
+ 'dtk-toggle-strip-octals
+ 'tts-strip-octals
+ "Toggle stripping of octals.
 Interactive prefix arg means
  toggle the global default value, and then set the current local
 value to the result.")
@@ -959,11 +959,10 @@ upper-case words are preceded by a `ac' spoken in a lower voice.
 Interactive PREFIX arg means toggle the global default value, and
 then set the current local value to the result.")
 
-
-
-(ems-generate-switcher 'dtk-toggle-speak-nonprinting-chars
-                       'dtk-speak-nonprinting-chars
-                       "Toggle speak-nonprinting-chars.
+(ems-generate-switcher
+ 'dtk-toggle-speak-nonprinting-chars
+ 'dtk-speak-nonprinting-chars
+ "Toggle speak-nonprinting-chars.
 Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.")
 
@@ -1500,7 +1499,7 @@ available TTS servers.")
 
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
-  (cl-declare (special dtk-program emacspeak-auditory-icon-function
+  (cl-declare (special dtk-program
                        tts-configured-engines))
   (unless tts-name (setq tts-name dtk-program))
   (cond
@@ -1522,8 +1521,7 @@ available TTS servers.")
       (or
        (string-match "^ssh" tts-name)   ;remote server
        (string-match "^cloud" tts-name) ; cloud
-       (string-match "^log" tts-name))
-    (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon)))
+       (string-match "^log" tts-name))))
 
 (defvar tts-device "default"
   "Name of current sound device in use.")
