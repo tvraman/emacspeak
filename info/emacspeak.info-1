@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 26, 2020.
+last updated on November 28, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -3586,8 +3586,8 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
  -- Command: dtk-toggle-quiet (&optional prefix)
 
      Toggles state of  dtk-quiet.
-     Turning on this switch silences speech.
-     Optional interactive prefix arg causes this setting to become global.
+     Turning on this switch silences speech.  Optional interactive
+     prefix arg causes this setting to become global.
 
 12.7.1.25 dtk-toggle-speak-nonprinting-chars
 ............................................
@@ -3608,10 +3608,10 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘<fn> d s’
 
      Toggle split caps mode.
-     Split caps mode is useful when reading
-     Hungarian notation in program source code.  Interactive PREFIX arg
-     means toggle the global default value, and then set the current local
-     value to the result.
+     Split caps mode is useful when reading Hungarian notation in
+     program source code.  Interactive PREFIX arg means toggle the
+     global default value, and then set the current local value to the
+     result.
 
 12.7.1.27 dtk-toggle-splitting-on-white-space
 .............................................
@@ -4240,6 +4240,9 @@ forms not needed in Emacs 22.
 
  -- Variable: User Option emacspeak-speak-errors
      Specifies if error messages are cued.
+
+ -- Variable: User Option emacspeak-speak-messages-filter
+     List of strings used to filter spoken messages.
 
  -- Variable: User Option emacspeak-speak-tooltips
      Enable to get tooltips spoken.

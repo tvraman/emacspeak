@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 26, 2020.
+last updated on November 28, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -7580,13 +7580,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 12.172.2 emacspeak-sounds Options
 ---------------------------------
 
- -- Variable: User Option emacspeak-auditory-icon-function
-     Function that plays auditory icons.  play : Launches play-program
-     to play.  Serve: Send a command to the speech-server to play.
-     Queue : Add auditory icon to speech queue.  Native : Use Emacs’
-     builtin sound support.  Use Serve when working with remote speech
-     servers.
-
  -- Variable: User Option emacspeak-play-args
      Set this to nil if using paplay from pulseaudio.
 
@@ -7877,11 +7870,10 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> C-f’
 
      Speak name of file being visited in current buffer.
-     Speak default directory if invoked in a dired buffer,
-     or when the buffer is not visiting any file.
-     Interactive prefix arg ‘filename’ speaks only the final path
-     component.
-     The result is put in the kill ring for convenience.
+     Speak default directory if invoked in a dired buffer, or when the
+     buffer is not visiting any file.  Interactive prefix arg
+     ‘filename’ speaks only the final path component.  The result is
+     put in the kill ring for convenience.
 
      (fn &optional FILENAME)
 
@@ -8155,7 +8147,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the last message from Emacs once again.
      The message is also placed in the kill ring for convenient yanking
-     if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
+     if ‘emacspeak-speak-message-again-copy-as-kill’ is set.
 
      (fn &optional FROM-MESSAGE-CACHE)
 
@@ -8209,7 +8201,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> M’
 
      Speak the minor mode-information.
-     Optional  interactive prefix arg ‘log-msg’ logs spoken info to *Messages*.
+     Optional interactive prefix arg ‘log-msg’ logs spoken info to
+     *Messages*.
 
      (fn &optional LOG-MSG)
 
