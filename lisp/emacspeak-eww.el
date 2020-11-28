@@ -1036,7 +1036,7 @@ Note that the Web browser should reset this hook after using it.")
       math                              ; mathml
       ul ol dl                          ; Lists
       li dt dd p                        ; block-level: bullets, paras
-      form blockquote                   ; block-level
+      pre form blockquote                   ; block-level
       a b it em span                    ; in-line
       table)
  do
