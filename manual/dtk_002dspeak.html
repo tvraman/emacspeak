@@ -533,35 +533,11 @@ Optional arg ‘all’ or interactive call   silences notification stream as wel
 </pre>
       </div>
     </dd>
-  </dl><span id="dtk_002dtoggle_002dallcaps"></span>
-  <h4 class="subsubsection">12.7.1.22 dtk-toggle-allcaps</h4>
+  </dl><span id="dtk_002dtoggle_002dcaps"></span>
+  <h4 class="subsubsection">12.7.1.22 dtk-toggle-caps</h4>
   <dl>
-    <dt id="index-dtk_002dtoggle_002dallcaps-1">Command:
-    <strong>dtk-toggle-allcaps</strong> <em>(&amp;optional
-    prefix)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e d C</kbd></dt>
-        <dd><span id="index-C_002de-d-C"></span></dd>
-        <dt><kbd>&lt;fn&gt; d C</kbd></dt>
-        <dd><span id="index-_003cfn_003e-d-C"></span></dd>
-      </dl><span id="index-dtk_002dtoggle_002dallcaps-2"></span>
-      <div class="format">
-        <pre class="format">Toggle allcaps.
-when set, allcaps words  are  indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-Note that allcaps is a very useful thing when programming.
-However it is irritating to have it on when reading documents.
-</pre>
-      </div>
-    </dd>
-  </dl><span id="dtk_002dtoggle_002dcapitalization"></span>
-  <h4 class="subsubsection">12.7.1.23
-  dtk-toggle-capitalization</h4>
-  <dl>
-    <dt id="index-dtk_002dtoggle_002dcapitalization-1">Command:
-    <strong>dtk-toggle-capitalization</strong> <em>(&amp;optional
+    <dt id="index-dtk_002dtoggle_002dcaps-1">Command:
+    <strong>dtk-toggle-caps</strong> <em>(&amp;optional
     prefix)</em></dt>
     <dd>
       <dl compact="compact">
@@ -569,18 +545,18 @@ However it is irritating to have it on when reading documents.
         <dd><span id="index-C_002de-d-c-1"></span></dd>
         <dt><kbd>&lt;fn&gt; d c</kbd></dt>
         <dd><span id="index-_003cfn_003e-d-c"></span></dd>
-      </dl><span id=
-      "index-dtk_002dtoggle_002dcapitalization-2"></span>
+      </dl><span id="index-dtk_002dtoggle_002dcaps-2"></span>
       <div class="format">
-        <pre class="format">Toggle capitalization.
-when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
+        <pre class="format">Toggle caps.
+when set, capitalized words are preceded by a short ‘cap’, and
+upper-case words are preceded by a ‘ac’ spoken in a lower voice.
+Interactive PREFIX arg means toggle the global default value, and
+then set the current local value to the result.
 </pre>
       </div>
     </dd>
   </dl><span id="dtk_002dtoggle_002dpunctuation_002dmode"></span>
-  <h4 class="subsubsection">12.7.1.24
+  <h4 class="subsubsection">12.7.1.23
   dtk-toggle-punctuation-mode</h4>
   <dl>
     <dt id="index-dtk_002dtoggle_002dpunctuation_002dmode">Command:
@@ -604,7 +580,7 @@ Interactive PREFIX arg makes the new setting global.
       </div>
     </dd>
   </dl><span id="dtk_002dtoggle_002dquiet"></span>
-  <h4 class="subsubsection">12.7.1.25 dtk-toggle-quiet</h4>
+  <h4 class="subsubsection">12.7.1.24 dtk-toggle-quiet</h4>
   <dl>
     <dt id="index-dtk_002dtoggle_002dquiet-1">Command:
     <strong>dtk-toggle-quiet</strong> <em>(&amp;optional
@@ -613,14 +589,14 @@ Interactive PREFIX arg makes the new setting global.
       <span id="index-dtk_002dtoggle_002dquiet-2"></span>
       <div class="format">
         <pre class="format">Toggles state of  dtk-quiet.
-Turning on this switch silences speech.
-Optional interactive prefix arg causes this setting to become global.
+Turning on this switch silences speech.  Optional interactive
+prefix arg causes this setting to become global.
 </pre>
       </div>
     </dd>
   </dl><span id=
   "dtk_002dtoggle_002dspeak_002dnonprinting_002dchars"></span>
-  <h4 class="subsubsection">12.7.1.26
+  <h4 class="subsubsection">12.7.1.25
   dtk-toggle-speak-nonprinting-chars</h4>
   <dl>
     <dt id=
@@ -643,7 +619,7 @@ value, and then set the current local value to the result.
       </div>
     </dd>
   </dl><span id="dtk_002dtoggle_002dsplit_002dcaps"></span>
-  <h4 class="subsubsection">12.7.1.27 dtk-toggle-split-caps</h4>
+  <h4 class="subsubsection">12.7.1.26 dtk-toggle-split-caps</h4>
   <dl>
     <dt id="index-dtk_002dtoggle_002dsplit_002dcaps-1">Command:
     <strong>dtk-toggle-split-caps</strong> <em>(&amp;optional
@@ -658,16 +634,16 @@ value, and then set the current local value to the result.
       "index-dtk_002dtoggle_002dsplit_002dcaps-2"></span>
       <div class="format">
         <pre class="format">Toggle split caps mode.
-Split caps mode is useful when reading
-Hungarian notation in program source code.  Interactive PREFIX arg
-means toggle the global default value, and then set the current local
-value to the result.
+Split caps mode is useful when reading Hungarian notation in
+program source code.  Interactive PREFIX arg means toggle the
+global default value, and then set the current local value to the
+result.
 </pre>
       </div>
     </dd>
   </dl><span id=
   "dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"></span>
-  <h4 class="subsubsection">12.7.1.28
+  <h4 class="subsubsection">12.7.1.27
   dtk-toggle-splitting-on-white-space</h4>
   <dl>
     <dt id=
@@ -701,7 +677,7 @@ since the synthesizer is getting a word at a time.
       </div>
     </dd>
   </dl><span id="dtk_002dtoggle_002dstrip_002doctals"></span>
-  <h4 class="subsubsection">12.7.1.29 dtk-toggle-strip-octals</h4>
+  <h4 class="subsubsection">12.7.1.28 dtk-toggle-strip-octals</h4>
   <dl>
     <dt id="index-dtk_002dtoggle_002dstrip_002doctals">Command:
     <strong>dtk-toggle-strip-octals</strong> <em>(&amp;optional
@@ -723,7 +699,7 @@ value to the result.
       </div>
     </dd>
   </dl><span id="tts_002drestart"></span>
-  <h4 class="subsubsection">12.7.1.30 tts-restart</h4>
+  <h4 class="subsubsection">12.7.1.29 tts-restart</h4>
   <dl>
     <dt id="index-tts_002drestart">Command:
     <strong>tts-restart</strong></dt>
@@ -741,7 +717,7 @@ value to the result.
       </div>
     </dd>
   </dl><span id="tts_002dspeak_002dversion"></span>
-  <h4 class="subsubsection">12.7.1.31 tts-speak-version</h4>
+  <h4 class="subsubsection">12.7.1.30 tts-speak-version</h4>
   <dl>
     <dt id="index-tts_002dspeak_002dversion-1">Command:
     <strong>tts-speak-version</strong></dt>
@@ -761,6 +737,20 @@ value to the result.
   <h4 class="subsection">12.7.2 dtk-speak Options</h4>
   <dl>
     <dt id="index-User-Option-3">Variable: <strong>User
+    Option</strong> <em>dtk-allcaps-prefix</em></dt>
+    <dd>
+      <p>Prefix used to indicate AllCaps</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-4">Variable: <strong>User
+    Option</strong> <em>dtk-caps-prefix</em></dt>
+    <dd>
+      <p>Prefix used to indicate capitalization</p>
+    </dd>
+  </dl>
+  <dl>
+    <dt id="index-User-Option-5">Variable: <strong>User
     Option</strong> <em>dtk-cleanup-repeats</em></dt>
     <dd>
       <p>List of repeating patterns to clean up. Use command
@@ -772,21 +762,21 @@ value to the result.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-4">Variable: <strong>User
+    <dt id="index-User-Option-6">Variable: <strong>User
     Option</strong> <em>dtk-cloud-server</em></dt>
     <dd>
       <p>Set this to your preferred cloud TTS server.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-5">Variable: <strong>User
+    <dt id="index-User-Option-7">Variable: <strong>User
     Option</strong> <em>dtk-local-engine</em></dt>
     <dd>
       <p>Engine we use for our local TTS server.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-6">Variable: <strong>User
+    <dt id="index-User-Option-8">Variable: <strong>User
     Option</strong> <em>dtk-speak-nonprinting-chars</em></dt>
     <dd>
       <p>Option that specifies handling of non-printing chars. Non
@@ -797,14 +787,14 @@ value to the result.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-7">Variable: <strong>User
+    <dt id="index-User-Option-9">Variable: <strong>User
     Option</strong> <em>dtk-speech-rate-base</em></dt>
     <dd>
       <p>Value of lowest tolerable speech rate.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-8">Variable: <strong>User
+    <dt id="index-User-Option-10">Variable: <strong>User
     Option</strong> <em>dtk-speech-rate-step</em></dt>
     <dd>
       <p>Value of speech rate increment. Determines step size when
@@ -813,14 +803,14 @@ value to the result.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-9">Variable: <strong>User
+    <dt id="index-User-Option-11">Variable: <strong>User
     Option</strong> <em>dtk-use-tones</em></dt>
     <dd>
       <p>Allow tones to be turned off.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-10">Variable: <strong>User
+    <dt id="index-User-Option-12">Variable: <strong>User
     Option</strong> <em>tts-notification-device</em></dt>
     <dd>
       <p>Virtual ALSA device to use for notifications stream.</p>
