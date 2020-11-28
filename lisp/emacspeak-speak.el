@@ -2461,6 +2461,10 @@ Interactive prefix arg `browse'  repeatedly browses  through
   (message "Point is  %d%% into  the current buffer"
            (emacspeak-get-current-percentage-into-buffer)))
 
+(defvar ems--message-filter-pattern nil
+  "Internal variable that holds pattern used to filter spoken
+  messages.")
+
 ;;}}}
 ;;{{{  Speak the last message again:
 

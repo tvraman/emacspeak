@@ -786,19 +786,30 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 (defvar emacspeak-lazy-message-time (current-time)
   "Records when we last spoke a message.")
 
+(defcustom emacspeak-speak-messages-filter
+  '("psession")
+  "List of strings used to filter spoken messages."
+  :type '(repeat :tag "Filtered Strings"
+                 (const 'sring ))
+  :set #'(lambda (sym val)
+           (set-default sym val )
+           (setq ems--message-filter-pattern (apply #'regexp-quote val)))
+  :group 'emacspeak-speak)
+
+
 (defadvice momentary-string-display (around emacspeak pre act comp)
   "Provide spoken feedback."
   (ems-with-messages-silenced
-   (let ((msg (ad-get-arg 0))
-         (exit (ad-get-arg 2)))
-     (dtk-speak
-      (format "%s %s"
-              msg
-              (format "Press %s to exit "
-                      (if exit
-                          (format "%c" exit)
-                        "space"))))
-     ad-do-it)))
+      (let ((msg (ad-get-arg 0))
+            (exit (ad-get-arg 2)))
+        (dtk-speak
+         (format "%s %s"
+                 msg
+                 (format "Press %s to exit "
+                         (if exit
+                             (format "%c" exit)
+                           "space"))))
+        ad-do-it)))
 
 (defvar emacspeak-advice-progress-reporter t
   "Set to true if progress reporter should produce an auditory icon.")
@@ -823,6 +834,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   `(defadvice ,f (around emacspeak pre act comp)
      "Speak the message."
      (cl-declare (special emacspeak-last-message inhibit-message
+                          ems--message-filter-pattern
                           emacspeak-speak-messages emacspeak-lazy-message-time))
      (let ((inhibit-read-only t)
            (m nil))
@@ -835,8 +847,9 @@ see option emacspeak-untabify-fixes-non-breaking-space."
        (when
            (and
             (null inhibit-message)
-            m ; our message
+            m                           ; our message
             emacspeak-speak-messages    ; speaking messages
+            (not (string-match ems--message-filter-pattern m))
             (< 0.1
                (float-time
                 (time-subtract (current-time) emacspeak-lazy-message-time))))
