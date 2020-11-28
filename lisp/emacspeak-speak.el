@@ -2464,22 +2464,22 @@ Interactive prefix arg `browse'  repeatedly browses  through
 ;;}}}
 ;;{{{  Speak the last message again:
 
-(defvar emacspeak-speak-message-again-should-copy-to-kill-ring t
+(defvar emacspeak-speak-message-again-copy-as-kill t
   "If set, asking for last message will copy it to the kill ring.")
 
 ;;;###autoload
 (defun emacspeak-speak-message-again (&optional from-message-cache)
   "Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
-if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
+if `emacspeak-speak-message-again-copy-as-kill' is set."
   (interactive "P")
   (cl-declare (special emacspeak-last-message
-                       emacspeak-speak-message-again-should-copy-to-kill-ring))
+                       emacspeak-speak-message-again-copy-as-kill))
   (cond
    (from-message-cache
     (dtk-speak emacspeak-last-message)
     (when (and (called-interactively-p 'interactive)
-               emacspeak-speak-message-again-should-copy-to-kill-ring)
+               emacspeak-speak-message-again-copy-as-kill)
       (kill-new emacspeak-last-message)))
    (t
     (save-current-buffer
@@ -2488,7 +2488,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
       (skip-syntax-backward " >")
       (emacspeak-speak-line)
       (when (and (called-interactively-p 'interactive)
-                 emacspeak-speak-message-again-should-copy-to-kill-ring)
+                 emacspeak-speak-message-again-copy-as-kill)
         (kill-new (ems--this-line)))))))
 
 (defun emacspeak-announce (announcement)
