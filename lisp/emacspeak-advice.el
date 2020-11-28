@@ -790,7 +790,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   '("psession")
   "List of strings used to filter spoken messages."
   :type '(repeat :tag "Filtered Strings"
-                 (const 'sring ))
+                 (string :tag "String" ))
   :set #'(lambda (sym val)
            (set-default sym val )
            (setq ems--message-filter-pattern (apply #'regexp-quote val)))
