@@ -564,6 +564,7 @@ instead, always play an auditory icon when the shell prompt is displayed."
                     (process-id (get-buffer-process (current-buffer))))))
         (error)))))
 
+
 (define-minor-mode dirtrack-procfs-mode
   "Toggle procfs-based directory tracking (Dirtrack-Procfs mode).
 With a prefix argument ARG, enable Dirtrack-Procfs mode if ARG is
@@ -578,7 +579,7 @@ process PID's current working directory.
 
 Turning on Dirtrack-Procfs mode automatically turns off
 Shell-Dirtrack mode; turning it off does not re-enable it."
-  nil "Dir" nil
+  nil "D" nil
   (if (not dirtrack-procfs-mode)
       (remove-hook 'comint-preoutput-filter-functions
                    #'emacspeak-shell-dirtrack-procfs t)
