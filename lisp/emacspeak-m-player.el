@@ -212,7 +212,7 @@ This is set to nil when playing Internet  streams.")
       "network=0" "statusline=0" "cplayer=0"
       "seek=0"
       ) ":")
-   "-slave"  "-softvol" "-softvol-max" "300" "-quiet")
+   "-slave"  "-softvol" "-softvol-max" "300" "-quiet" "-use-filedir-conf")
   "Default options for MPlayer.")
 
 (defvar emacspeak-m-player-options
