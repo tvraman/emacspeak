@@ -1057,9 +1057,6 @@ You should not modify this variable;
 Use command  `dtk-set-punctuations' bound to
 \\[dtk-set-punctuations].  .")
 
-
-
-
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers.
 File .servers is expected to contain name of one server per
