@@ -111,6 +111,9 @@ This moves them into the Spam folder."
     ad-do-it
     ad-return-value))
 
+;;; For message.el in emacs 28
+(push 'signature message-shoot-gnksa-feet)
+
 (provide 'file-xoauth2)
 ;;; local variables:
 ;;; folded-file: t
