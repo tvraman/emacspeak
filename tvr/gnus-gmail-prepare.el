@@ -112,7 +112,8 @@ This moves them into the Spam folder."
     ad-return-value))
 
 ;;; For message.el in emacs 28
-(push 'signature message-shoot-gnksa-feet)
+(when (bound-and-true-p message-shoot-gnksa-feet)
+  (push 'signature message-shoot-gnksa-feet))
 
 (provide 'file-xoauth2)
 ;;; local variables:
