@@ -1775,24 +1775,6 @@ Interactive prefix arg speaks buffer info."
                           (buffer-name))))
 
 ;;}}}
-;;;Helper --return string describing coding system info
-
-(defcustom emacspeak-speak-default-os-coding-system
-  `(ucs-8-emacs prefer-utf-8-unix undecided-unix ,(default-value 'buffer-file-coding-system))
-  "List of coding systems on this platform."
-  :type '(repeat
-          (symbol :tag "Coding system"))
-  :group 'emacspeak)
-
-(defsubst ems-get-buffer-coding-system ()
-  "Return buffer coding system info if relevant.
-If emacspeak-speak-default-os-coding-system is set and contains  the
-current coding system, then we return an empty string."
-  (cl-declare (special buffer-file-coding-system voice-lighten
-                       emacspeak-speak-default-os-coding-system))
-  (if (memq buffer-file-coding-system emacspeak-speak-default-os-coding-system)
-      ""
-    (propertize (format "%s" buffer-file-coding-system) 'personality voice-lighten)))
 
 ;;;###autoload
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
@@ -1801,11 +1783,9 @@ Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
-  (let ((cs
-         (propertize (ems-get-buffer-coding-system ) 'personality voice-lighten))
-        (info  (format-mode-line minor-mode-alist)))
+  (let ((info  (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
-    (dtk-speak (downcase (concat cs info)))))
+    (dtk-speak (downcase info))))
 
 (cl--defalias 'emacspeak-speak-line-number 'what-line)
 
