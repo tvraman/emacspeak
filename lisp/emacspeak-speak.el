@@ -1778,7 +1778,7 @@ Interactive prefix arg speaks buffer info."
 ;;;Helper --return string describing coding system info
 
 (defcustom emacspeak-speak-default-os-coding-system
-  `(prefer-utf-8-unix undecided-unix ,(default-value 'buffer-file-coding-system))
+  `(ucs-8-emacs prefer-utf-8-unix undecided-unix ,(default-value 'buffer-file-coding-system))
   "List of coding systems on this platform."
   :type '(repeat
           (symbol :tag "Coding system"))
