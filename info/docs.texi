@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1168 commands and 865 options.
+This chapter documents a total of 1168 commands and 864 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -16827,11 +16827,6 @@ arrived mail.
 
 @defvar {User Option} emacspeak-silence-hook
 Functions run after emacspeak-silence is called.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-default-os-coding-system
-List of coding systems on this platform.
 
 @end defvar
 

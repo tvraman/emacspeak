@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on November 28, 2020.
+last updated on November 30, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
@@ -8875,9 +8875,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-silence-hook
      Functions run after emacspeak-silence is called.
-
- -- Variable: User Option emacspeak-speak-default-os-coding-system
-     List of coding systems on this platform.
 
  -- Variable: User Option emacspeak-speak-filter-persistent-store
      File where emacspeak filters are persisted.
