@@ -1801,11 +1801,11 @@ Optional interactive prefix arg `log-msg' logs spoken info to
 *Messages*."
   (interactive "P")
   (cl-declare (special minor-mode-alist))
-  (force-mode-line-update)
-  (let ((cs (ems-get-buffer-coding-system))
+  (let ((cs
+         (propertize (ems-get-buffer-coding-system ) 'personality voice-lighten))
         (info  (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
-    (dtk-speak (downcase (concat info cs)))))
+    (dtk-speak (downcase (concat cs info)))))
 
 (cl--defalias 'emacspeak-speak-line-number 'what-line)
 
