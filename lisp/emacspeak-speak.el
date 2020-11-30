@@ -1784,7 +1784,7 @@ Interactive prefix arg speaks buffer info."
           (symbol :tag "Coding system"))
   :group 'emacspeak)
 
-(defun ems-get-buffer-coding-system ()
+(defsubst ems-get-buffer-coding-system ()
   "Return buffer coding system info if relevant.
 If emacspeak-speak-default-os-coding-system is set and contains  the
 current coding system, then we return an empty string."
