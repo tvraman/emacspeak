@@ -64,16 +64,13 @@
         (message "Brightness is %d" (round  (read value))))
        (t (message "Brightness is %s" value))))))
 
-;;; forward declaration:
-(defvar emacspeak-speak-messages)
-(defvar emacspeak-use-auditory-icons)
 ;;;###autoload
 (defun xbacklight-set (brightness)
   "Set brightness, a percentage value."
   (interactive "nBrightness: ")
   (cl-declare (special xbacklight-cmd))
       (when xbacklight-cmd
-        (shell-command (format "%s -set %s" xbacklight-cmd brightness)))
+        (shell-command (format "%s -set %s &" xbacklight-cmd brightness)))
     (xbacklight-get))
 
 (defvar xbacklight-step  10
@@ -83,14 +80,14 @@
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
-      (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
+      (shell-command (format "%s -inc %s &" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
 ;;;###autoload
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
-   (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step))
+   (shell-command (format "%s -dec %s &" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
 ;;;###autoload
