@@ -462,7 +462,8 @@
   (define-key outline-minor-mode-map (ems-kbd "C-o e") 'tvr-org-enumerate)
   (when (fboundp 'org-end-of-line)
     (define-key org-mode-map emacspeak-prefix  'emacspeak-prefix-command)
-    (emacspeak-setup-programming-mode)))
+    (emacspeak-setup-programming-mode)
+    (dtk-toggle-caps -1)))
 
 (add-hook 'org-mode-hook #'emacspeak-org-mode-setup)
 
