@@ -57,31 +57,6 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ color to voice
-
-(defun emacspeak-ansi-color-to-voice (face-spec)
-  "Return a voice corresponding to specified face-spec."
-  (cl-declare (special ansi-color-names-vector ))
-  (condition-case nil
-      (let* ((voice-name nil)
-             (color (cdr (assq 'foreground-color  face-spec)))
-             (color-index
-              (when color
-                (cl-position  color ansi-color-names-vector :test #'string-equal)))
-             (style nil)
-             (color-parameter (if color-index
-                  (+ 1 color-index)
-                1)))
-        (setq style (make-acss))
-        (setf (acss-average-pitch style) color-parameter)
-        (setf (acss-pitch-range style) color-parameter)
-        (setf (acss-richness style) (- 9 color-parameter))
-        (setf (acss-stress style) (- 9 color-parameter))
-        (setq voice-name (acss-personality-from-speech-style  style))
-        voice-name)
-    (error nil)))
-
-;;}}}
 ;;{{{ advice interactive commands
 
 (defadvice ansi-color-for-comint-mode-on (after emacspeak pre act comp)
