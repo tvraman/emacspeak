@@ -117,6 +117,7 @@
 
 (defadvice jdee-run (after emacspeak pre act comp)
   "Provide auditory feedback"
+  (cl-declare (special emacspeak-comint-autospeak))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (setq emacspeak-comint-autospeak nil)
