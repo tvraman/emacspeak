@@ -46,14 +46,14 @@
 
 (defvar xbacklight-cmd
   (executable-find "xbacklight")
-  "Location of xbacklight executable.")
+  "xbacklight executable.")
 
 ;;}}}
 ;;{{{ Commands:
 
 ;;;###autoload
 (defun xbacklight-get ()
-  "Get current brightness level."
+  "Get  brightness level."
   (interactive)
   (cl-declare (special xbacklight-cmd))
   (when xbacklight-cmd
@@ -69,38 +69,28 @@
 (defvar emacspeak-use-auditory-icons)
 ;;;###autoload
 (defun xbacklight-set (brightness)
-  "Set brightness to  specified level.
-`brightness' is a percentage value."
+  "Set brightness, a percentage value."
   (interactive "nBrightness: ")
   (cl-declare (special xbacklight-cmd))
-  (ems-with-messages-silenced
       (when xbacklight-cmd
-        (shell-command (format "%s -set %s"
-                               xbacklight-cmd brightness)))
-    (xbacklight-get)))
-
-(defgroup xbacklight nil
-  "Control XBacklight from Emacs."
-  :group 'emacspeak
-  :group 'applications)
+        (shell-command (format "%s -set %s" xbacklight-cmd brightness)))
+    (xbacklight-get))
 
 (defvar xbacklight-step  10
   "Step-size used when incrementing and decrementing brightness.")
+
 ;;;###autoload
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
-  (ems-with-messages-silenced
-   (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
-   (xbacklight-get))
+      (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
 ;;;###autoload
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
-  (ems-with-messages-silenced
-   (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step)))
+   (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
 ;;;###autoload
