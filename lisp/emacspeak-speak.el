@@ -1785,7 +1785,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
   (cl-declare (special minor-mode-alist))
   (let ((info  (format-mode-line minor-mode-alist)))
     (when log-msg (ems--log-message info))
-    (dtk-speak (downcase info))))
+    (dtk-speak  info)))
 
 (cl--defalias 'emacspeak-speak-line-number 'what-line)
 
