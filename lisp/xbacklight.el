@@ -94,13 +94,13 @@
 (defun xbacklight-black ()
   "Turn screen black."
   (interactive)
-  (xbacklight-set 0))
+  (xbacklight-set "0"))
 
 ;;;###autoload
 (defun xbacklight-white ()
   "Turn screen white."
   (interactive)
-  (xbacklight-set 100))
+   (xbacklight-set "100"))
 
 ;;}}}
 (provide 'xbacklight)
