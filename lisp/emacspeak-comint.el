@@ -590,21 +590,6 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 
 
 ;;}}}
-;;{{{ advice ansi-color:
-
-(defadvice ansi-color-for-comint-mode-on (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'on)
-    (message "Ansi escape sequences will be processed.")))
-
-(defadvice ansi-color-for-comint-mode-off (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'off)
-    (message "Ansi escape sequences will not be processed.")))
-
-;;}}}
 (provide 'emacspeak-comint)
 ;;{{{ end of file
 
