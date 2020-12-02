@@ -1338,52 +1338,6 @@ prompts for and sets value of the file local pattern."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;{{{  spotting words
-
-(defcustom emacspeak-wizards-spot-words-extension ".tex"
-  "Default file extension  used when spotting words."
-  :type 'string
-  :group 'emacspeak-wizards)
-
-(defun emacspeak-wizards-spot-words (ext word)
-  "Searches recursively in all files with extension `ext'
-for `word' and displays hits in a compilation buffer."
-  (interactive
-   (list
-    (read-from-minibuffer "Extension: "
-                          emacspeak-wizards-spot-words-extension)
-    (read-from-minibuffer "Word: "
-                          (thing-at-point 'word))))
-  (cl-declare (special emacspeak-wizards-spot-words-extension))
-  (compile
-   (format
-    "find . -type f -name '*%s' -print0 | xargs -0 -e grep -n -e \"\\b%s\\b\" "
-    ext word))
-  (setq emacspeak-wizards-spot-words-extension ext)
-  (emacspeak-auditory-icon 'task-done))
-;;;###autoload
-(defun emacspeak-wizards-fix-typo (ext word correction)
-  "Search and replace  recursively in all files with extension `ext'
-for `word' and replace it with correction.
-Use with caution."
-  (interactive
-   (list
-    (read-from-minibuffer "Extension: "
-                          emacspeak-wizards-spot-words-extension)
-    (read-from-minibuffer "Word: "
-                          (thing-at-point 'word))
-    (read-from-minibuffer "Correction: "
-                          (thing-at-point 'word))))
-  (cl-declare (special emacspeak-wizards-spot-words-extension))
-  (compile
-   (format
-    "find . -type f -name '*%s' -print0 \
-| xargs -0 -e  perl -pi -e \'s/%s/%s/g' "
-    ext word correction))
-  (setq emacspeak-wizards-spot-words-extension ext)
-  (emacspeak-auditory-icon 'task-done))
-
-;;}}}
 ;;{{{ pod -- perl online docs
 (declare-function cperl-pod2man-build-command "cperl-mode" nil)
 
