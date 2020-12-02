@@ -92,7 +92,6 @@ emacspeak-abc-mode.elc \
 emacspeak-add-log.elc \
 emacspeak-amark.elc \
 emacspeak-analog.elc \
-emacspeak-ansi-color.elc \
 emacspeak-apt-sources.elc \
 emacspeak-arc.elc \
 emacspeak-auctex.elc \
@@ -357,7 +356,6 @@ emacspeak-abc-mode.elc: emacspeak-abc-mode.el dtk-speak.elc
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
 emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc voice-setup.elc
-emacspeak-ansi-color.elc: emacspeak-ansi-color.el dtk-speak.elc voice-setup.elc
 emacspeak-apt-sources.elc: emacspeak-apt-sources.el dtk-speak.elc voice-setup.elc
 emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc voice-setup.elc
