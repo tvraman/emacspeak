@@ -23,7 +23,6 @@ This chapter documents a total of 1168 commands and 864 options.
 * emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.
 * emacspeak-analog::Speech-enable analog -- a log viewer.
-* emacspeak-ansi-color::Speech-enable ansi-color terminal.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
 * emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment.
@@ -1842,15 +1841,6 @@ Move up and speak current field.
 Speak current field.
 @end format
 @end deffn
-
-@node emacspeak-ansi-color
-@section emacspeak-ansi-color
-
-Module ansi-color (bundled with Emacs 21)
-handles ansi escape sequences and turns them into
-appropriate faces.
-This is useful in things like shell buffers.
-This module maps ansi codes to the appropriate voices.
 
 @node emacspeak-apt-sources
 @section emacspeak-apt-sources
@@ -24311,7 +24301,7 @@ Decrease brightness by  by one step.
 @findex xbacklight-get
 
 @format
-Get current brightness level.
+Get  brightness level.
 @end format
 @end deffn
 
@@ -24329,8 +24319,7 @@ Increase brightness by  by one step.
 @findex xbacklight-set
 
 @format
-Set brightness to  specified level.
-‘brightness’ is a percentage value.
+Set brightness, a percentage value.
 
 (fn BRIGHTNESS)
 @end format
