@@ -1807,11 +1807,9 @@ put in the kill ring for convenience."
 ;;}}}
 ;;{{{ Speak header-line
 
-(defcustom emacspeak-use-header-line t
+(defvar emacspeak-use-header-line t
   "Use default header line defined  by Emacspeak for buffers that
-dont customize the header."
-  :type 'boolean
-  :group 'emacspeak)
+dont customize the header.")
 
 (defvar emacspeak-header-line-format
   '((:eval (buffer-name)))
