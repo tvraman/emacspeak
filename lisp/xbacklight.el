@@ -70,24 +70,24 @@
   (interactive "nBrightness: ")
   (cl-declare (special xbacklight-cmd))
       (when xbacklight-cmd
-        (shell-command (format "%s -set %s &" xbacklight-cmd brightness)))
+        (start-process "XBacklight" nil xbacklight-cmd "-set" brightness))
     (xbacklight-get))
 
-(defvar xbacklight-step  10
+(defvar xbacklight-step  "10"
   "Step-size used when incrementing and decrementing brightness.")
 
 ;;;###autoload
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
-      (shell-command (format "%s -inc %s &" xbacklight-cmd xbacklight-step))
+  (start-process "XBacklight" nil  xbacklight-cmd "-inc" xbacklight-step)
   (xbacklight-get))
 
 ;;;###autoload
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
-   (shell-command (format "%s -dec %s &" xbacklight-cmd xbacklight-step))
+  (start-process "XBacklight" nil xbacklight-cmd  "-dec" xbacklight-step)
   (xbacklight-get))
 
 ;;;###autoload
