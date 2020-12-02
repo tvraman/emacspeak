@@ -67,7 +67,7 @@
 ;;;###autoload
 (defun xbacklight-set (brightness)
   "Set brightness, a percentage value."
-  (interactive "nBrightness: ")
+  (interactive "sBrightness: ")
   (cl-declare (special xbacklight-cmd))
       (when xbacklight-cmd
         (start-process "XBacklight" nil xbacklight-cmd "-set" brightness))
