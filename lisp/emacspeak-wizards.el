@@ -1513,9 +1513,6 @@ Ubuntu and Debian this is group `tty'.")
   "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
-;;{{{ google Transcoder
-
-;;}}}
 ;;{{{ longest line in region
 ;;;###autoload
 (defun emacspeak-wizards-find-longest-line-in-region (start end)
@@ -3329,7 +3326,6 @@ q: Quit color wheel, after copying current hex value to kill-ring."
 
 ;;}}}
 ;;{{{ Smart Scratch:
-
 
 (defun emacspeak-wizards-scratch ()
   "Switch to *scratch* buffer, creating it if necessary."
