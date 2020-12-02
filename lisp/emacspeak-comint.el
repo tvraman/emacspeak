@@ -113,8 +113,6 @@ set the current local value to the result."
              (if emacspeak-comint-autospeak "on" "off")
              (if prefix "" " locally")))))
 
-
-
 ;;;###autoload
 (defun emacspeak-toggle-inaudible-or-comint-autospeak ()
   "Toggle comint-autospeak when in a comint or vterm buffer.
