@@ -807,7 +807,7 @@ before-string, or after-string) is indicated with auditory icon
   (interactive "P")
   (cl-declare (special
                voice-animate voice-indent linum-mode
-               dtk-stop-immediately dtk-punctuation-mode dtk-cleanup-repeats
+                ked rdtk-punctuation-mode dtk-cleanup-repeats
                emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
                ems--speak-max-line emacspeak-show-point
                emacspeak-decoration-rule emacspeak-horizontal-rule
@@ -927,7 +927,11 @@ before-string, or after-string) is indicated with auditory icon
      ((or (null result) (= 0 (length result)))
       (message "No speakable overlay properties here."))
      (t
-      (emacspeak-auditory-icon 'ellipses)
+      (emacspeak-auditory-icon
+       (cond
+        (before 'left)
+        (after 'right)
+        (t 'ellipses)))
       (dtk-speak result)))))
 
 ;;;###autoload
