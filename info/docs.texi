@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1168 commands and 864 options.
+This chapter documents a total of 1166 commands and 861 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1128,6 +1128,30 @@ It actually does very little:
 It sets up Emacs to load package-specific
 Emacspeak modules as each package is loaded.
 It implements function emacspeak which loads the rest of the system.
+
+@subsection Emacspeak Commands
+
+@subsubsection emacspeak-toggle-audio-indentation
+@deffn {Command} emacspeak-toggle-audio-indentation  (&optional prefix)
+@table @kbd
+@item C-e d i
+@kindex C-e d i
+@item <fn> d i
+@kindex <fn> d i
+@end table
+
+@findex emacspeak-toggle-audio-indentation
+
+@format
+Toggle state of  Emacspeak  audio indentation.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+Specifying the method of indentation as ‘tones’
+results in the Dectalk producing a tone whose length is a function of the
+line’s indentation.  Specifying ‘speak’
+results in the number of initial spaces being spoken.
+@end format
+@end deffn
 
 @subsection emacspeak Options
 
@@ -15650,10 +15674,10 @@ any other key to speak entire help.
 Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
 point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
-indentation with a tone or a spoken message if audio indentation is in
-use see ‘emacspeak-toggle-audio-indentation’ bound to
+indentation with a   spoken message if audio indentation is on
+ see ‘emacspeak-toggle-audio-indentation’ bound to
 C-e d i.  Indicates position of point
-with an aural highlight if option ‘emacspeak-show-point’ is turned on
+with an aural highlight if option ‘emacspeak-show-point’ is  on
 --see command ‘emacspeak-toggle-show-point’ bound to
 C-e C-d.  Lines that start hidden blocks of text,
 e.g.  outline header lines, or header lines of blocks created by
@@ -16342,17 +16366,6 @@ Spell word at  point.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-text-range
-@deffn {Command} emacspeak-speak-text-range  (property)
-@findex emacspeak-speak-text-range
-
-@format
-Speak text range identified by this PROPERTY.
-
-(fn PROPERTY)
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-this-face-chunk
 @deffn {Command} emacspeak-speak-this-face-chunk   
 @findex emacspeak-speak-this-face-chunk
@@ -16532,28 +16545,6 @@ Switch back to buffer that generated completions.
 Toggle state of  Emacspeak  action mode.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
-@end format
-@end deffn
-
-@subsubsection emacspeak-toggle-audio-indentation
-@deffn {Command} emacspeak-toggle-audio-indentation  (&optional prefix)
-@table @kbd
-@item C-e d i
-@kindex C-e d i
-@item <fn> d i
-@kindex <fn> d i
-@end table
-
-@findex emacspeak-toggle-audio-indentation
-
-@format
-Toggle state of  Emacspeak  audio indentation.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-Specifying the method of indentation as ‘tones’
-results in the Dectalk producing a tone whose length is a function of the
-line’s indentation.  Specifying ‘speak’
-results in the number of initial spaces being spoken.
 @end format
 @end deffn
 
@@ -16758,18 +16749,9 @@ Send this command to the TTS directly.
 
 @defvar {User Option} emacspeak-audio-indentation
 Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.
 You can use  command ‘emacspeak-toggle-audio-indentation’ bound
 to C-e d i to toggle this
-setting..
-
-@end defvar
-
-@defvar {User Option} emacspeak-audio-indentation-method
-Current technique used to cue indentation.  Default is
-‘speak’.  You can specify ‘tone’ for producing a beep
-indicating the indentation.  Automatically becomes local in
-any buffer where it is set.
+setting.
 
 @end defvar
 
@@ -16861,12 +16843,6 @@ See the documentation for function
 
 @defvar {User Option} emacspeak-speak-zoneinfo-directory
 Directory containing timezone data.
-
-@end defvar
-
-@defvar {User Option} emacspeak-use-header-line
-Use default header line defined  by Emacspeak for buffers that
-dont customize the header.
 
 @end defvar
 
@@ -21286,7 +21262,7 @@ Nuke read-only property on text range.
 @end deffn
 
 @subsubsection emacspeak-wizards-fix-typo
-@deffn {Command} emacspeak-wizards-fix-typo  (ext word correction)
+@deffn {Command} emacspeak-wizards-fix-typo  [Arg list not available until function definition is loaded.]
 @findex emacspeak-wizards-fix-typo
 
 @format
@@ -21972,18 +21948,6 @@ Make ISO date-time speech friendly.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-spot-words
-@deffn {Command} emacspeak-wizards-spot-words  (ext word)
-@findex emacspeak-wizards-spot-words
-
-@format
-Searches recursively in all files with extension ‘ext’
-for ‘word’ and displays hits in a compilation buffer.
-
-(fn EXT WORD)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-squeeze-blanks
 @deffn {Command} emacspeak-wizards-squeeze-blanks  (start end)
 @table @kbd
@@ -22331,11 +22295,6 @@ sorted in lexical order with duplicates removed when saving.
 
 @defvar {User Option} emacspeak-wizards-project-shells
 List of shell-name/initial-directory pairs.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-spot-words-extension
-Default file extension  used when spotting words.
 
 @end defvar
 

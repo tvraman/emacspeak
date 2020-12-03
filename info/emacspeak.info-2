@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 1, 2020.
+last updated on December 2, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -7109,10 +7109,10 @@ of emacspeak from becoming dependent on the speech server modules
      Speaks current line.  With prefix ARG, speaks the rest of the line
      from point.  Negative prefix optional arg speaks from start of line to
      point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
-     indentation with a tone or a spoken message if audio indentation is in
-     use see ‘emacspeak-toggle-audio-indentation’ bound to
+     indentation with a   spoken message if audio indentation is on
+      see ‘emacspeak-toggle-audio-indentation’ bound to
      C-e d i.  Indicates position of point
-     with an aural highlight if option ‘emacspeak-show-point’ is turned on
+     with an aural highlight if option ‘emacspeak-show-point’ is  on
      –see command ‘emacspeak-toggle-show-point’ bound to
      C-e C-d.  Lines that start hidden blocks of text,
      e.g.  outline header lines, or header lines of blocks created by
@@ -7578,23 +7578,14 @@ of emacspeak from becoming dependent on the speech server modules
 
      Spell word at  point.
 
-12.172.1.87 emacspeak-speak-text-range
-......................................
-
- -- Command: emacspeak-speak-text-range (property)
-
-     Speak text range identified by this PROPERTY.
-
-     (fn PROPERTY)
-
-12.172.1.88 emacspeak-speak-this-face-chunk
+12.172.1.87 emacspeak-speak-this-face-chunk
 ...........................................
 
  -- Command: emacspeak-speak-this-face-chunk
 
      Speak chunk of text around point that has current face.
 
-12.172.1.89 emacspeak-speak-this-personality-chunk
+12.172.1.88 emacspeak-speak-this-personality-chunk
 ..................................................
 
  -- Command: emacspeak-speak-this-personality-chunk
@@ -7602,7 +7593,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speak chunk of text around point that has current
      personality.
 
-12.172.1.90 emacspeak-speak-time
+12.172.1.89 emacspeak-speak-time
 ................................
 
  -- Command: emacspeak-speak-time (&optional world)
@@ -7618,7 +7609,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional WORLD)
 
-12.172.1.91 emacspeak-speak-version
+12.172.1.90 emacspeak-speak-version
 ...................................
 
  -- Command: emacspeak-speak-version (&optional speak-rev)
@@ -7630,7 +7621,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional SPEAK-REV)
 
-12.172.1.92 emacspeak-speak-visual-line
+12.172.1.91 emacspeak-speak-visual-line
 .......................................
 
  -- Command: emacspeak-speak-visual-line
@@ -7638,7 +7629,7 @@ of emacspeak from becoming dependent on the speech server modules
      Speaks current visual line.
      Cues the start of a physical line with auditory icon ‘left’.
 
-12.172.1.93 emacspeak-speak-voice-annotate-paragraphs
+12.172.1.92 emacspeak-speak-voice-annotate-paragraphs
 .....................................................
 
  -- Command: emacspeak-speak-voice-annotate-paragraphs
@@ -7647,7 +7638,7 @@ of emacspeak from becoming dependent on the speech server modules
      Here, paragraph is taken to mean a chunk of text preceded by a blank line.
      Useful to do this before you listen to an entire buffer.
 
-12.172.1.94 emacspeak-speak-which-function
+12.172.1.93 emacspeak-speak-which-function
 ..........................................
 
  -- Command: emacspeak-speak-which-function
@@ -7658,7 +7649,7 @@ of emacspeak from becoming dependent on the speech server modules
      which-func without turning that mode on.  We actually use
      semantic to do the work.
 
-12.172.1.95 emacspeak-speak-window-information
+12.172.1.94 emacspeak-speak-window-information
 ..............................................
 
  -- Command: emacspeak-speak-window-information
@@ -7667,7 +7658,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speaks information about current window.
 
-12.172.1.96 emacspeak-speak-word
+12.172.1.95 emacspeak-speak-word
 ................................
 
  -- Command: emacspeak-speak-word (&optional arg)
@@ -7682,7 +7673,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn &optional ARG)
 
-12.172.1.97 emacspeak-speak-word-interactively
+12.172.1.96 emacspeak-speak-word-interactively
 ..............................................
 
  -- Command: emacspeak-speak-word-interactively
@@ -7692,7 +7683,7 @@ of emacspeak from becoming dependent on the speech server modules
      ’r’ to speak the rest.
      any other key to speak entire word.
 
-12.172.1.98 emacspeak-speak-world-clock
+12.172.1.97 emacspeak-speak-world-clock
 .......................................
 
  -- Command: emacspeak-speak-world-clock (zone &optional set)
@@ -7702,15 +7693,15 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn ZONE &optional SET)
 
-12.172.1.99 emacspeak-switch-to-reference-buffer
+12.172.1.98 emacspeak-switch-to-reference-buffer
 ................................................
 
  -- Command: emacspeak-switch-to-reference-buffer
 
      Switch back to buffer that generated completions.
 
-12.172.1.100 emacspeak-toggle-action-mode
-.........................................
+12.172.1.99 emacspeak-toggle-action-mode
+........................................
 
  -- Command: emacspeak-toggle-action-mode (&optional prefix)
 
@@ -7718,22 +7709,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.172.1.101 emacspeak-toggle-audio-indentation
-...............................................
-
- -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
-     ‘C-e d i’
-     ‘<fn> d i’
-
-     Toggle state of  Emacspeak  audio indentation.
-     Interactive PREFIX arg means toggle  the global default value, and then set the
-     current local  value to the result.
-     Specifying the method of indentation as ‘tones’
-     results in the Dectalk producing a tone whose length is a function of the
-     line’s indentation.  Specifying ‘speak’
-     results in the number of initial spaces being spoken.
-
-12.172.1.102 emacspeak-toggle-character-echo
+12.172.1.100 emacspeak-toggle-character-echo
 ............................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
@@ -7744,14 +7720,14 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.172.1.103 emacspeak-toggle-header-line
+12.172.1.101 emacspeak-toggle-header-line
 .........................................
 
  -- Command: emacspeak-toggle-header-line
 
      Toggle Emacspeak’s default header line.
 
-12.172.1.104 emacspeak-toggle-line-echo
+12.172.1.102 emacspeak-toggle-line-echo
 .......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
@@ -7762,7 +7738,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.172.1.105 emacspeak-toggle-mail-alert
+12.172.1.103 emacspeak-toggle-mail-alert
 ........................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
@@ -7775,7 +7751,7 @@ of emacspeak from becoming dependent on the speech server modules
      Turning on this option results in Emacspeak producing an auditory icon
      indicating the arrival  of new mail when displaying the mode line.
 
-12.172.1.106 emacspeak-toggle-show-point
+12.172.1.104 emacspeak-toggle-show-point
 ........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
@@ -7786,7 +7762,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.172.1.107 emacspeak-toggle-speak-line-invert-filter
+12.172.1.105 emacspeak-toggle-speak-line-invert-filter
 ......................................................
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
@@ -7798,7 +7774,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.172.1.108 emacspeak-toggle-speak-messages
+12.172.1.106 emacspeak-toggle-speak-messages
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
@@ -7807,7 +7783,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Toggle the state of whether emacspeak echoes messages.
 
-12.172.1.109 emacspeak-toggle-word-echo
+12.172.1.107 emacspeak-toggle-word-echo
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
@@ -7818,7 +7794,7 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
 
-12.172.1.110 emacspeak-view-notifications
+12.172.1.108 emacspeak-view-notifications
 .........................................
 
  -- Command: emacspeak-view-notifications
@@ -7828,7 +7804,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display notifications.
 
-12.172.1.111 emacspeak-voiceify-rectangle
+12.172.1.109 emacspeak-voiceify-rectangle
 .........................................
 
  -- Command: emacspeak-voiceify-rectangle (start end &optional
@@ -7841,7 +7817,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.172.1.112 emacspeak-voiceify-region
+12.172.1.110 emacspeak-voiceify-region
 ......................................
 
  -- Command: emacspeak-voiceify-region (start end &optional personality)
@@ -7853,7 +7829,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.172.1.113 emacspeak-zap-tts
+12.172.1.111 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts
@@ -7866,16 +7842,9 @@ of emacspeak from becoming dependent on the speech server modules
 --------------------------------
 
  -- Variable: User Option emacspeak-audio-indentation
-     Option indicating if line indentation is cued.  If non-nil , then
-     speaking a line indicates its indentation.  You can use command
+     Option indicating if line indentation is cued.  You can use command
      ‘emacspeak-toggle-audio-indentation’ bound to C-e d i to toggle
-     this setting..
-
- -- Variable: User Option emacspeak-audio-indentation-method
-     Current technique used to cue indentation.  Default is ‘speak’.
-     You can specify ‘tone’ for producing a beep indicating the
-     indentation.  Automatically becomes local in any buffer where it is
-     set.
+     this setting.
 
  -- Variable: User Option emacspeak-character-echo
      If t, then emacspeak echoes characters as you type.  You can use
@@ -7930,10 +7899,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
-
- -- Variable: User Option emacspeak-use-header-line
-     Use default header line defined by Emacspeak for buffers that dont
-     customize the header.
 
  -- Variable: User Option emacspeak-voicemail-spool-file
      Mail spool file examined to alert you about newly arrived

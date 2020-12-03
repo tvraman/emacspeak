@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 1, 2020.
+last updated on December 2, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -892,18 +892,7 @@ working with program source.
 
      Toggle state of Emacspeak audio indentation.  Interactive PREFIX
      arg means toggle the global default value, and then set the current
-     local value to the result.  Specifying the method of indentation as
-     ‘tones’ results in the speech-server producing a tone whose length
-     is a function of the line’s indentation.  Specifying ‘speak’
-     results in the number of initial spaces being spoken.
-
-     Indentation feedback style is set by option
-     ‘emacspeak-audio-indentation-method’
-
-     The default value is ‘"speak"’
-
-     See variable ‘emacspeak-audio-indentation-methods’ for possible
-     values.  Automatically becomes local in any buffer where it is set.
+     local value to the result.
 
 
 File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output Control,  Up: Speech System
@@ -2877,7 +2866,7 @@ is useful in understanding how emacspeak works with a given package;
 thus, when learning to use the Emacs Web Browser (EWW), read the EWW
 documentation, then read *Note emacspeak-eww::.
 
-   This chapter documents a total of 1168 commands and 864 options.
+   This chapter documents a total of 1166 commands and 861 options.
 
 * Menu:
 
@@ -3765,7 +3754,25 @@ Emacs to load package-specific Emacspeak modules as each package is
 loaded.  It implements function emacspeak which loads the rest of the
 system.
 
-12.9.1 emacspeak Options
+12.9.1 Emacspeak Commands
+-------------------------
+
+12.9.1.1 emacspeak-toggle-audio-indentation
+...........................................
+
+ -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
+     ‘C-e d i’
+     ‘<fn> d i’
+
+     Toggle state of  Emacspeak  audio indentation.
+     Interactive PREFIX arg means toggle  the global default value, and then set the
+     current local  value to the result.
+     Specifying the method of indentation as ‘tones’
+     results in the Dectalk producing a tone whose length is a function of the
+     line’s indentation.  Specifying ‘speak’
+     results in the number of initial spaces being spoken.
+
+12.9.2 emacspeak Options
 ------------------------
 
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
