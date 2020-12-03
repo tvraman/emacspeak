@@ -738,8 +738,6 @@ current local  value to the result.")
 ;;}}}
 ;;{{{  Speak units of text
 
-
-
 (defun emacspeak-speak-region (start end)
   "Speak region.
 Argument START  and END specify region to speak."
