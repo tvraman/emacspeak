@@ -815,7 +815,7 @@ before-string, or after-string) is indicated with auditory icon
                emacspeak-audio-indentation))
   (dtk-stop)
   (when (listp arg) (setq arg (car arg)))
-  (let ((inhibit-field-text-motion t)
+  (let* ((inhibit-field-text-motion t)
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
