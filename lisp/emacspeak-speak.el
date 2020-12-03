@@ -965,9 +965,8 @@ Cues the start of a physical line with auditory icon `left'."
       (dtk-speak line))))
 
 (defvar-local emacspeak-speak-last-spoken-word-position nil
-  "Records position of the last word that was spoken.
-Local to each buffer.  Used to decide if we should spell the word
-rather than speak it.")
+"Records position of the last word spoken  .
+Local to each buffer.  Used to decide if we  spell or speak the word. ")
 
 (defun emacspeak-speak-spell-word (word)
   "Spell WORD."
@@ -987,7 +986,6 @@ rather than speak it.")
                    (concat result
                            char-string)))
     (dtk-speak result)))
-
 
 (defun emacspeak-speak-spell-current-word ()
   "Spell word at  point."
@@ -1032,7 +1030,7 @@ spelled out  instead of being spoken."
       (funcall speaker (buffer-substring start end)))))
 
 (defun emacspeak-is-alpha-p (c)
-  "Check if argument C is an alphabetic character."
+  "Check if `C' is an alphabetic char."
   (and (= ?w (char-syntax c))
        (dtk-unicode-char-untouched-p c)))
 
