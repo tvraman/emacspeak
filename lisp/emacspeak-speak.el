@@ -546,10 +546,9 @@ Also set the mark at the position where point was."
 
 (defcustom emacspeak-audio-indentation nil
   "Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.
 You can use  command `emacspeak-toggle-audio-indentation' bound
 to \\[emacspeak-toggle-audio-indentation] to toggle this
-setting.."
+setting."
   :group 'emacspeak
   :type 'boolean)
 
@@ -557,42 +556,6 @@ setting.."
 
 ;;; Indicate indentation.
 ;;; Argument indent   indicates number of columns to indent.
-
-(defun ems--tone-indent (indent)
-  "Produce tone indent."
-  (when (> indent 1)
-    (let ((duration (+ 50 (* 20 indent)))
-          (dtk-stop-immediately nil))
-      (dtk-tone 250 duration))))
-
-(defvar emacspeak-audio-indentation-methods
-  '(("speak" . "speak")
-    ("tone" . "tone"))
-  "Possible methods of indicating indentation.")
-
-(defcustom emacspeak-audio-indentation-method 'speak
-  "Current technique used to cue indentation.  Default is
-`speak'.  You can specify `tone' for producing a beep
-indicating the indentation.  Automatically becomes local in
-any buffer where it is set."
-  :group 'emacspeak
-  :type '(choice
-          (const :tag "Ignore" nil)
-          (const :tag "speak" speak)
-          (const :tag "tone" tone)))
-
-(make-variable-buffer-local
- 'emacspeak-audio-indentation-method)
-;;;###autoload
-(ems-generate-switcher 'emacspeak-toggle-audio-indentation
-                       'emacspeak-audio-indentation
-                       "Toggle state of  Emacspeak  audio indentation.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-Specifying the method of indentation as `tones'
-results in the Dectalk producing a tone whose length is a function of the
-line's indentation.  Specifying `speak'
-results in the number of initial spaces being spoken.")
 
 ;;}}}
 ;;{{{ filtering columns
@@ -843,10 +806,10 @@ with a long string of gibberish."
   "Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
 point.  Voicifies if option `voice-lock-mode' is on.  Indicates
-indentation with a tone or a spoken message if audio indentation is in
-use see `emacspeak-toggle-audio-indentation' bound to
+indentation with a   spoken message if audio indentation is on
+ see `emacspeak-toggle-audio-indentation' bound to
 \\[emacspeak-toggle-audio-indentation].  Indicates position of point
-with an aural highlight if option `emacspeak-show-point' is turned on
+with an aural highlight if option `emacspeak-show-point' is  on
 --see command `emacspeak-toggle-show-point' bound to
 \\[emacspeak-toggle-show-point].  Lines that start hidden blocks of text,
 e.g.  outline header lines, or header lines of blocks created by
@@ -916,9 +879,6 @@ with auditory icon `more'.  These can then be spoken using command
        (emacspeak-speak-line-apply-column-filter
         line emacspeak-speak-line-invert-filter)))
     (when emacspeak-audio-indentation (setq indent (current-indentation)))
-    (when (and (null arg) emacspeak-audio-indentation
-               (eq emacspeak-audio-indentation-method 'tone))
-      (ems--tone-indent indent))
     (when (or (invisible-p end)
               (get-text-property start 'emacspeak-hidden-block))
       (emacspeak-auditory-icon 'ellipses))
@@ -954,10 +914,11 @@ with auditory icon `more'.  These can then be spoken using command
               t))))
         (when speakable
           (when
-              (and (null arg) indent (> indent 0)
-                   (eq 'speak emacspeak-audio-indentation-method))
-            (setq indent (format "indent %d" indent))
-            (setq indent (propertize indent 'personality voice-indent))
+              (and (null arg) indent (> indent 0))
+            (setq indent
+                  (propertize
+                   (format "indent %d" indent)
+                   'personality voice-indent))
             (setq line (concat indent line)))
           (when linenum
             (setq linenum (format "%d" linenum))
