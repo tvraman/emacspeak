@@ -689,9 +689,6 @@ the sense of the filter. "
     (setq emacspeak-speak-line-column-filter nil))))
 
 ;;}}}
-;;{{{  Speak units of text
-
-
 ;;{{{  Actions
 
 ;;; Setting value of property 'emacspeak-action to a list
@@ -739,6 +736,10 @@ Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
 ;;}}}
+;;{{{  Speak units of text
+
+
+
 (defun emacspeak-speak-region (start end)
   "Speak region.
 Argument START  and END specify region to speak."
