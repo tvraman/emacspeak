@@ -560,31 +560,20 @@ setting."
 ;;}}}
 ;;{{{ filtering columns
 
-(defcustom emacspeak-speak-line-column-filter nil
+(defvar-local emacspeak-speak-line-column-filter nil
   "List that specifies columns to be filtered.
 The list when set holds pairs of start-col.end-col pairs
 that specifies the columns that should not be spoken.
 Each column contains a single character --this is inspired
-by cut -c on UNIX."
-  :group 'emacspeak
-  :type '(choice
-          (const :tag "None" nil)
-          (repeat :tag "Filter Specification"
-                  (list
-                   (integer :tag "Start Column")
-                   (integer :tag "End Column")))))
+by cut -c on UNIX.")
 
 (defvar emacspeak-speak-filter-table (make-hash-table)
   "Hash table holding persistent filters.")
 
-(make-variable-buffer-local 'emacspeak-speak-line-column-filter)
-
-(defvar emacspeak-speak-line-invert-filter nil
+(defvar-local emacspeak-speak-line-invert-filter nil
   "Non-nil means the sense of `filter' is inverted when filtering
 columns in a line --see
 command emacspeak-speak-line-set-column-filter.")
-
-(make-variable-buffer-local 'emacspeak-speak-line-invert-filter)
 
 (ems-generate-switcher 'emacspeak-toggle-speak-line-invert-filter
                        'emacspeak-speak-line-invert-filter
