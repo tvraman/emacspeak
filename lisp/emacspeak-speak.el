@@ -1307,8 +1307,7 @@ Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
 voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'."
   (interactive "P")
-  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
-                       inhibit-point-motion-hooks))
+  (cl-declare (special emacspeak-speak-voice-annotated-paragraphs))
   (let ((inhibit-point-motion-hooks t))
     (when (not emacspeak-speak-voice-annotated-paragraphs)
       (emacspeak-speak-voice-annotate-paragraphs))
@@ -1339,14 +1338,10 @@ Useful to listen to a buffer without switching  contexts."
     (set-buffer buffer)
     (emacspeak-speak-buffer)))
 
-;;;###autoload
-(defun emacspeak-speak-front-of-buffer ()
-  "Speak   the buffer from start to   point"
-  (interactive)
-  (emacspeak-speak-buffer -1))
+
 
 ;;;###autoload
-(defun emacspeak-speak-rest-of-buffer ()
+(defsubst emacspeak-speak-rest-of-buffer ()
   "Speak remainder of the buffer starting at point"
   (interactive)
   (emacspeak-auditory-icon 'select-object)
