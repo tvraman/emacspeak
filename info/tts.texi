@@ -163,20 +163,7 @@ when working with program source.
 
 Toggle state of Emacspeak audio indentation.  Interactive PREFIX arg
 means toggle the global default value, and then set the current local
-value to the result.  Specifying the method of indentation as `tones'
-results in the speech-server producing a tone whose length is a
-function of the line's indentation.  Specifying `speak' results in the
-number of initial spaces being spoken.
-
-@vindex emacspeak-audio-indentation-method
-Indentation feedback style is set by option
-@code{emacspeak-audio-indentation-method}
-
-The default value is @code{"speak"}
-
-@vindex emacspeak-audio-indentation-methods
-See variable @code{emacspeak-audio-indentation-methods} for possible
-values.  Automatically becomes local in any buffer where it is set.
+value to the result.  
 
 @end table
 @node Miscellaneous
