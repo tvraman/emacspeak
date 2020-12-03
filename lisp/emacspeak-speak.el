@@ -194,9 +194,6 @@ message area.  You can use command
 ;;}}}
 ;;{{{ Utility command to run and tabulate shell output
 
-(defvar emacspeak-speak-run-shell-command-history nil
-  "Records history of commands used so far.")
-
 ;;;###autoload
 (defun emacspeak-speak-run-shell-command (command &optional read-as-csv)
   "Invoke shell COMMAND and display its output as a table. The
@@ -210,18 +207,12 @@ and executing command `emacspeak-table-display-table-in-region'
 normally bound to \\[emacspeak-table-display-table-in-region]."
   (interactive
    (list
-    (read-from-minibuffer "Shell command: "
-                          nil           ;initial input
-                          nil           ; keymap
-                          nil           ;read
-                          'emacspeak-speak-run-shell-command-history)
+    (read-from-minibuffer "Shell command: ")
     current-prefix-arg))
   (let ((buffer-name (format "%s" command))
         (start nil)
         (end nil))
     (shell-command command buffer-name)
-    (cl-pushnew command
-                emacspeak-speak-run-shell-command-history :test 'string-equal)
     (save-current-buffer
       (set-buffer buffer-name)
       (untabify (point-min) (point-max))
