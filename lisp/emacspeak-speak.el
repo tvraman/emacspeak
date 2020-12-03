@@ -807,11 +807,13 @@ before-string, or after-string) is indicated with auditory icon
   (interactive "P")
   (cl-declare (special
                voice-animate voice-indent linum-mode
-                ked rdtk-punctuation-mode dtk-cleanup-repeats
+               ked rdtk-punctuation-mode dtk-cleanup-repeats
                emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
                ems--speak-max-line emacspeak-show-point
                emacspeak-decoration-rule emacspeak-horizontal-rule
-               emacspeak-unspeakable-rule emacspeak-audio-indentation))
+               emacspeak-unspeakable-rule
+               emacspeak-audio-indentation))
+  (dtk-stop)
   (when (listp arg) (setq arg (car arg)))
   (let ((inhibit-field-text-motion t)
         (inhibit-read-only t)
@@ -851,10 +853,10 @@ before-string, or after-string) is indicated with auditory icon
     (setq line
           (if emacspeak-show-point
               (ems-set-pause-temporarily
-               orig (1+ orig) 5
-               (ems-set-personality-temporarily
-                orig (1+ orig) voice-animate
-                (buffer-substring start end)))
+                  orig (1+ orig) 5
+                  (ems-set-personality-temporarily
+                      orig (1+ orig) voice-animate
+                      (buffer-substring start end)))
             (buffer-substring start end)))
     (when (and (null arg) emacspeak-speak-line-column-filter)
       (setq
@@ -1158,25 +1160,6 @@ Pronounces character phonetically unless  called with a PREFIX arg."
   "tell me what this is"
   (interactive)
   (dtk-speak (dtk-unicode-name-for-char char)))
-
-;;}}}
-;;{{{ emacspeak-speak-display-char
-
-;;;###autoload
-(defun emacspeak-speak-display-char (&optional prefix)
-  "Display char under point using current speech display table.
-Behavior is the same as command `emacspeak-speak-char'
-bound to \\[emacspeak-speak-char]
-for characters in the range 0--127.
-Optional argument PREFIX  specifies that the character should be spoken phonetically."
-  (interactive "P")
-  (cl-declare (special dtk-display-table))
-  (let ((char (following-char)))
-    (cond
-     ((and dtk-display-table
-           (> char 127))
-      (dtk-dispatch (aref dtk-display-table char)))
-     (t (emacspeak-speak-char prefix)))))
 
 ;;}}}
 ;;{{{ emacspeak-speak-set-display-table
