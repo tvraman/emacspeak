@@ -939,8 +939,7 @@ before-string, or after-string) is indicated with auditory icon
   "Speaks current visual line.
 Cues the start of a physical line with auditory icon `left'."
   (interactive)
-  (cl-declare (special dtk-stop-immediately emacspeak-show-point))
-  (when dtk-stop-immediately (dtk-stop))
+  (cl-declare (special  emacspeak-show-point))
   (let ((inhibit-field-text-motion t)
         (inhibit-read-only t)
         (start nil)
