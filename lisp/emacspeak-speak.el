@@ -813,7 +813,6 @@ before-string, or after-string) is indicated with auditory icon
                emacspeak-decoration-rule emacspeak-horizontal-rule
                emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg)))
-  (when dtk-stop-immediately (dtk-stop))
   (let ((inhibit-field-text-motion t)
         (dtk-cleanup-repeats
          (cond
