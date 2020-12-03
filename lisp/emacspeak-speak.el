@@ -1363,16 +1363,8 @@ Negative prefix arg speaks from start of buffer to point."
      (t (emacspeak-auditory-icon 'button)
         (dtk-speak "First ask for help")))))
 
-;;;###autoload
-(defun emacspeak-speak-minibuffer (&optional arg)
-  "Speak the minibuffer contents
- With prefix arg, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point."
-  (interactive "P")
-  (let ((minibuff (window-buffer (minibuffer-window))))
-    (save-current-buffer
-      (set-buffer minibuff)
-      (emacspeak-speak-buffer arg))))
+
+
 
 ;;;###autoload
 (defun emacspeak-get-current-completion ()
