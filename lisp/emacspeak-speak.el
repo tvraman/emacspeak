@@ -230,7 +230,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
 ;;{{{ Notifications:
 
 (defun emacspeak--notifications-init ()
-  "Init Notifications stream."
+  "Init Notifications buffer."
   (let ((buffer (get-buffer-create "*Notifications*")))
     (with-current-buffer buffer
       (special-mode)
@@ -250,10 +250,10 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
   (funcall-interactively #'pop-to-buffer emacspeak-notifications-buffer))
 
 (defconst emacspeak-notifications-max 128
-  "Number of notifications to retain.")
+  " notifications cache-size")
 
 (defun emacspeak-notifications-truncate ()
-  "Trim notifications buffer."
+  "Trim notifications cache."
   (cl-declare (special emacspeak-notifications-buffer emacspeak-notifications-max))
   (with-current-buffer emacspeak-notifications-buffer
     (let ((lines (count-lines (point-min) (point-max)))
