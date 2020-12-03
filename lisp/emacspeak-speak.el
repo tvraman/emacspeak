@@ -768,7 +768,7 @@ non-alphanumeric characters.  emacspeak will generate a tone
 instead of speaking such lines when punctuation mode is set
 to some.")
 
-(defcustom emacspeak-speak-maximum-line-length 512
+(defcustom ems--speak-max-line 512
   "Threshold for determining `long' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
@@ -777,7 +777,7 @@ with a long string of gibberish."
   :group 'emacspeak
   :type 'number)
 
-(make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
+(make-variable-buffer-local 'ems--speak-max-line)
 
 (defconst emacspeak-speak-blank-line-regexp
   "^[[:space:]]+$"
@@ -788,29 +788,30 @@ with a long string of gibberish."
 
 ;;;###autoload
 (defun emacspeak-speak-line (&optional arg)
-  "Speaks current line.  With prefix ARG, speaks the rest of the line
-from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option `voice-lock-mode' is on.  Indicates
-indentation with a   spoken message if audio indentation is on
- see `emacspeak-toggle-audio-indentation' bound to
-\\[emacspeak-toggle-audio-indentation].  Indicates position of point
-with an aural highlight if option `emacspeak-show-point' is  on
---see command `emacspeak-toggle-show-point' bound to
-\\[emacspeak-toggle-show-point].  Lines that start hidden blocks of text,
-e.g.  outline header lines, or header lines of blocks created by
-command `emacspeak-hide-or-expose-block' are indicated with auditory
-icon ellipses. Presence of additional presentational overlays (created
-via property display, before-string, or after-string) is indicated
-with auditory icon `more'.  These can then be spoken using command
+  "Speaks current line.  With prefix ARG, speaks the rest of the
+line from point.  Negative prefix optional arg speaks from start
+of line to point.  Indicates indentation with a spoken message if
+audio indentation is on see `emacspeak-toggle-audio-indentation'
+bound to \\[emacspeak-toggle-audio-indentation].  Indicates
+position of point with an aural highlight if option
+`emacspeak-show-point' is on --see command
+`emacspeak-toggle-show-point' bound to
+\\[emacspeak-toggle-show-point].  Lines that start hidden blocks
+of text, e.g.  outline header lines, or header lines of blocks
+created by command `emacspeak-hide-or-expose-block' are indicated
+with auditory icon ellipses. Presence of additional
+presentational overlays (created via property display,
+before-string, or after-string) is indicated with auditory icon
+`more'.  These can then be spoken using command
 \\[emacspeak-speak-overlay-properties]."
   (interactive "P")
-  (cl-declare (special voice-animate voice-indent linum-mode
-                       dtk-stop-immediately dtk-punctuation-mode
-                       dtk-cleanup-repeats
-                       emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
-                       emacspeak-speak-maximum-line-length emacspeak-show-point
-                       emacspeak-decoration-rule emacspeak-horizontal-rule
-                       emacspeak-unspeakable-rule emacspeak-audio-indentation))
+  (cl-declare (special
+               voice-animate voice-indent linum-mode
+               dtk-stop-immediately dtk-punctuation-mode dtk-cleanup-repeats
+               emacspeak-speak-line-invert-filter emacspeak-speak-blank-line-regexp
+               ems--speak-max-line emacspeak-show-point
+               emacspeak-decoration-rule emacspeak-horizontal-rule
+               emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg)))
   (when dtk-stop-immediately (dtk-stop))
   (let ((inhibit-field-text-motion t)
@@ -889,11 +890,11 @@ with auditory icon `more'.  These can then be spoken using command
            (speakable ;; should we speak this line?
             (cond
              ((or selective-display
-                  (< l emacspeak-speak-maximum-line-length)
+                  (< l ems--speak-max-line)
                   (get-text-property start 'speak-line))
               t)
              ((y-or-n-p (format "Speak  this  %s long line? " l))
-              (setq emacspeak-speak-maximum-line-length (1+ l))
+              (setq ems--speak-max-line (1+ l))
               (with-silent-modifications
                 (put-text-property start end 'speak-line t))
               t))))
