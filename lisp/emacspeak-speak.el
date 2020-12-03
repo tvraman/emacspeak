@@ -305,8 +305,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
 
 (defmacro ems-set-personality-temporarily (start end value &rest body)
   "Temporarily set personality.
-Argument START   specifies the start of the region to operate on.
-Argument END specifies the end of the region.
+Arguments start and end specify the region.
 Argument VALUE is the personality to set temporarily
 Argument BODY specifies forms to execute."
   (declare (indent 1) (debug t))
@@ -325,8 +324,7 @@ Argument BODY specifies forms to execute."
 
 (defmacro ems-set-pause-temporarily (start end duration &rest body)
   "Temporarily set property pause.
-Argument START   specifies the start of the region to operate on.
-Argument END specifies the end of the region.
+Arguments start and end specify region.
 Argument duration specifies duration in milliseconds.
 Argument BODY specifies forms to execute."
   (declare (indent 1) (debug t))
