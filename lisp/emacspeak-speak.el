@@ -359,7 +359,6 @@ Argument BODY specifies forms to execute."
 
 (defun emacspeak-speak-text-range (property)
   "Speak text range identified by this PROPERTY."
-  (interactive)
   (dtk-speak (emacspeak-speak-get-text-range property)))
 
 ;;}}}
