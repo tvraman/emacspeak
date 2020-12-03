@@ -814,11 +814,6 @@ before-string, or after-string) is indicated with auditory icon
                emacspeak-unspeakable-rule emacspeak-audio-indentation))
   (when (listp arg) (setq arg (car arg)))
   (let ((inhibit-field-text-motion t)
-        (dtk-cleanup-repeats
-         (cond
-          ((and emacspeak-show-point
-                (= ?\) (char-syntax (following-char)))))
-          (t dtk-cleanup-repeats)))
         (inhibit-read-only t)
         (inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
@@ -826,18 +821,21 @@ before-string, or after-string) is indicated with auditory icon
         (before (get-char-property (point) 'before-string))
         (after (get-char-property (point) 'after-string))
         (display (get-char-property (point) 'display))
-        (start nil)
-        (end nil)
+        (start (line-beginning-position))
+        (end (line-end-position))
         (line nil)
         (orig (point))
+        (dtk-cleanup-repeats
+         (cond
+          ((and emacspeak-show-point
+                (= ?\) (char-syntax (following-char)))))
+          (t dtk-cleanup-repeats)))
         (linenum
          (when
              (or (bound-and-true-p display-line-numbers)
                  (bound-and-true-p linenum-mode))
            (line-number-at-pos)))
         (indent nil))
-    (setq start (line-beginning-position)
-          end (line-end-position))
 ;;;determine what to speak based on prefix arg
     (cond
      ((null arg))
