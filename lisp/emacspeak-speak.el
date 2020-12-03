@@ -491,10 +491,10 @@ Value returned is compatible with `encode-time'."
 ;;{{{ Showing the point:
 
 (defvar emacspeak-show-point nil
-  " If T, then command  `emacspeak-speak-line' indicates position of point by an
-aural highlight.  You can use
-command `emacspeak-toggle-show-point' bound to
-\\[emacspeak-toggle-show-point] to toggle this setting.")
+  " If T, command `emacspeak-speak-line' \\[emacspeak-speak-line]
+indicates position of point by an aural highlight.  
+Command `emacspeak-toggle-show-point' bound to
+\\[emacspeak-toggle-show-point]  toggles this setting.")
 
 (ems-generate-switcher 'emacspeak-toggle-show-point
                        'emacspeak-show-point
