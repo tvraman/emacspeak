@@ -412,7 +412,7 @@ Useful to do this before you listen to an entire buffer."
       (setq emacspeak-speak-voice-annotated-paragraphs t))))
 
 ;;}}}
-;;{{{ helper function --decode ISO date-time used in ical:
+;;{{{ helper function --decode ISO date-time 
 
 (defvar emacspeak-speak-iso-datetime-pattern
   "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)Z?"
@@ -440,8 +440,7 @@ Useful to do this before you listen to an entire buffer."
     ;; create the decoded date-time
     (condition-case nil
         (format-time-string emacspeak-speak-time-format-string
-                            (encode-time second minute hour day month
-                                         year))
+                            (encode-time second minute hour day month year))
       (error iso))))
 
 ;;}}}
