@@ -739,11 +739,10 @@ current local  value to the result.")
 ;;{{{  Speak units of text
 
 (defun emacspeak-speak-region (start end)
-  "Speak region.
-Argument START  and END specify region to speak."
+  "Speak region bounded by start and end. "
   (interactive "r")
   (cl-declare (special emacspeak-speak-voice-annotated-paragraphs
-                       emacspeak-action-modeinhibit-point-motion-hooks))
+                       emacspeak-action-mode))
   (let ((inhibit-point-motion-hooks t)
         (inhibit-modification-hooks t)
         (deactivate-mark nil))
@@ -752,19 +751,16 @@ Argument START  and END specify region to speak."
         (narrow-to-region start end)
         (emacspeak-speak-voice-annotate-paragraphs)))
     (when emacspeak-action-mode  (emacspeak-handle-action-at-point))
-    (dtk-stop)
     (dtk-speak (buffer-substring start end))))
 
-(defvar emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
+(defconst emacspeak-horizontal-rule "^\\([=_-]\\)\\1+$"
   "Regular expression to match horizontal rules in ascii text.")
 
-(defvar emacspeak-decoration-rule
+(defconst emacspeak-decoration-rule
   "^[ \t!@#$%^&*()<>|_=+/\\,.;:-]+$"
   "Regular expressions to match lines that are purely decorative ascii.")
 
-
-
-(defvar emacspeak-unspeakable-rule
+(defconst emacspeak-unspeakable-rule
   "^[^0-9a-zA-Z]+$"
   "Pattern to match lines of special chars.
 This is a regular expression that matches lines containing only
@@ -783,11 +779,12 @@ with a long string of gibberish."
 
 (make-variable-buffer-local 'emacspeak-speak-maximum-line-length)
 
-(defvar emacspeak-speak-blank-line-regexp
+(defconst emacspeak-speak-blank-line-regexp
   "^[[:space:]]+$"
   "Pattern that matches white space.")
+
 ;;; Forward Declaration:
-(defvar linum-mode nil)
+;(defvar linum-mode nil)
 
 ;;;###autoload
 (defun emacspeak-speak-line (&optional arg)
