@@ -403,6 +403,7 @@ commands and options for details."
   (make-thread #'(lambda () (ems--fastload "emacspeak-advice")))
   (emacspeak-sounds-define-theme emacspeak-sounds-default-theme ".wav")
   (emacspeak-setup-programming-modes)
+  (setq line-number-mode nil column-number-mode nil)
   (make-thread #'emacspeak-prepare-emacs)
   (global-visual-line-mode -1)
   (transient-mark-mode -1)
