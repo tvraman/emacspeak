@@ -2052,7 +2052,6 @@ Speak that chunk after moving."
 ;;}}}
 ;;{{{ speaking face   chunks
 
-
 (defun emacspeak-speak-this-face-chunk ()
   "Speak chunk of text around point that has current face."
   (interactive)
@@ -2061,39 +2060,6 @@ Speak that chunk after moving."
     (emacspeak-speak-region
      (if  start (1+ start) (point-min))
      (or end (point-max)))))
-
-
-(defun emacspeak-speak-next-face-chunk ()
-  "Moves to the front of next chunk having current style.
-Speak that chunk after moving."
-  (interactive)
-  (let ((face (get-text-property (point) 'face))
-        (this-end (next-single-property-change (point) 'face))
-        (next-start nil))
-    (cond
-     ((and (< this-end (point-max))
-           (setq next-start (next-single-property-change this-end 'face)))
-      (goto-char next-start)
-      (when (eq face  (get-text-property (point) 'face))
-        (emacspeak-speak-this-face-chunk)))
-     (t (message "No more chunks with current face.")))))
-
-
-(defun emacspeak-speak-previous-face-chunk ()
-  "Moves to the front of previous chunk having current face.
-Speak that chunk after moving."
-  (interactive)
-  (let ((face (get-text-property (point) 'face))
-        (this-start (previous-single-property-change (point)  'face))
-        (prev-end nil))
-    (cond
-     ((and (> this-start (point-min))
-           (setq prev-end
-                 (previous-single-property-change (1- this-start) 'face)))
-      (goto-char prev-end)
-      (when (eq face (get-text-property (point) 'face))
-        (emacspeak-speak-this-face-chunk)))
-     (t (error "No previous  chunks with current face.")))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly,
