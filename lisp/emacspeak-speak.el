@@ -1406,15 +1406,12 @@ arrived mail."
           (file :tag "Mail drop location"))
   :group 'emacspeak)
 
-(defun emacspeak-get-file-size (filename)
+(defsubst emacspeak-get-file-size (filename)
   "Return file size for file FILENAME."
-  (or (nth 7 (file-attributes filename))
-      0))
+  (or (nth 7 (file-attributes filename)) 0))
 
 (defvar emacspeak-mail-last-alerted-time (list 0 0)
-  "Least  significant 16 digits of the time when mail alert was last issued.
-Alert the user only if mail has arrived since this time in the
-  future.")
+  "Least  significant 16 digits of the time when mail alert was last issued. ")
 
 (defun emacspeak-mail-get-last-mail-arrival-time (f)
   "Return time when mail  last arrived."
@@ -1427,6 +1424,7 @@ Alert the user only if mail has arrived since this time in the
   message."
   :type 'integer
   :group 'emacspeak)
+
 (defun emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the specified spool."
   (cl-declare (special emacspeak-mail-last-alerted-time
@@ -1453,8 +1451,7 @@ Alert the user only if mail has arrived since this time in the
     (emacspeak-auditory-icon 'new-mail)))
 
 (defcustom emacspeak-mail-alert t
-  "Option to indicate cueing of new mail.
-If t, emacspeak will alert you about newly arrived mail
+  " If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
 You can use command
