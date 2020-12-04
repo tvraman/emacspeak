@@ -2017,24 +2017,6 @@ Speak that chunk after moving."
 ;;; this helper is here since text-property-any doesn't work
 ;;; backwards
 
-(defun ems-backwards-text-property-any (max min property value)
-  "Scan backwards from max till we find specified property setting.
-Return buffer position or nil on failure."
-  (let ((result nil)
-        (start max)
-        (continue t))
-    (save-excursion
-      (while (and continue
-                  (not (or (< (point) min) (bobp))))
-        (backward-char 1)
-        (setq start (previous-single-property-change (point) property))
-        (if (null start)
-            (setq continue nil)
-          (setq continue (not (eq value (get-text-property start property)))))
-        (or continue (setq result start)))
-      result)))
-
-
 (defun emacspeak-speak-previous-personality-chunk ()
   "Moves to the front of previous chunk having current personality.
 Speak that chunk after moving."
@@ -2049,15 +2031,6 @@ Speak that chunk after moving."
 
 ;;}}}
 ;;{{{ speaking face   chunks
-
-(defun emacspeak-speak-this-face-chunk ()
-  "Speak chunk of text around point that has current face."
-  (interactive)
-  (let ((start (previous-single-property-change (point) 'face))
-        (end (next-single-property-change (point) 'face )))
-    (emacspeak-speak-region
-     (if  start (1+ start) (point-min))
-     (or end (point-max)))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly,

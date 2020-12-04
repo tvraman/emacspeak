@@ -94,7 +94,7 @@
              "Speak thing moved to."
              (when (ems-interactive-p)
                (emacspeak-auditory-icon 'mark-object)
-               (emacspeak-speak-this-face-chunk)))))
+               (emacspeak-speak-this-personality-chunk)))))
 
 (defun emacspeak-twittering-speak-this-tweet (&optional copy-as-kill)
   "Speak tweet under point.
