@@ -1469,7 +1469,8 @@ Turning on this option results in Emacspeak producing an auditory icon
 indicating the arrival  of new mail when displaying the mode line.")
 
 ;;}}}
-;;{{{ Cache Voicefied buffer-names
+;;{{{ Mode line info collectors 
+
 (defsubst emacspeak-get-voicefied-recursion-info (level)
   "Return voicefied version of this recursive-depth level."
   (cond
@@ -1487,12 +1488,11 @@ indicating the arrival  of new mail when displaying the mode line.")
      (format " %s " (frame-parameter frame 'name))
      'personality voice-lighten-extra ))))
 
-
-;}}}
+;;}}}
 ;;{{{  Speak mode line information
 
 ;;;compute current line number
-(defun emacspeak-get-current-line-number ()
+(defsubst emacspeak-get-current-line-number ()
   (let ((start (point)))
     (save-excursion
       (save-restriction
