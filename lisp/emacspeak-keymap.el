@@ -246,6 +246,7 @@
    ("," emacspeak-speak-skim-buffer)
    ("." dtk-notify-stop)
    ("." emacspeak-speak-current-field)
+   ("C-." emacspeak-speak-this-personality-chunk)
    ("/" emacspeak-speak-this-buffer-other-window-display)
    (":" emacspeak-m-player-shuffle)
    (";" emacspeak-multimedia)
