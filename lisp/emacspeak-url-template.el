@@ -358,6 +358,13 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;{{{ google finance
 
 (emacspeak-url-template-define
+ "Finance  Google"
+ "https://finance.google.com/quote/%s"
+ (list "Ticker:Exchange ")
+ nil
+ "Lookup ticker on Google Finance.")
+
+(emacspeak-url-template-define
  "Finance Summary From Google"
  "https://finance.google.com"
  nil
