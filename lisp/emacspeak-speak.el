@@ -2030,9 +2030,6 @@ Speak that chunk after moving."
      (t (error "No previous  chunks with current personality.")))))
 
 ;;}}}
-;;{{{ speaking face   chunks
-
-;;}}}
 ;;{{{  Execute command repeatedly,
 
 ;;;###autoload
