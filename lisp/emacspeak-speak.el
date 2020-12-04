@@ -1990,17 +1990,14 @@ location of the mark is indicated by an aural highlight. "
 ;;}}}
 ;;{{{ speaking personality chunks
 
-
 (defun emacspeak-speak-this-personality-chunk ()
-  "Speak chunk of text around point that has current
-personality."
+  "Speak chunk of text around point that has current personality."
   (interactive)
   (let ((start (dtk-previous-style-change (point)))
         (end (dtk-next-style-change (point))))
     (emacspeak-speak-region
      (if  start (1+ start) (point-min))
      (or  end  (point-max)))))
-
 
 (defun emacspeak-speak-next-personality-chunk ()
   "Moves to the front of next chunk having current personality.
@@ -2020,28 +2017,21 @@ Speak that chunk after moving."
 ;;; this helper is here since text-property-any doesn't work
 ;;; backwards
 
-(defun ems-backwards-text-property-any (max min property
-                                            value)
-  "Scan backwards from max till we find specified property
-                                               setting.
+(defun ems-backwards-text-property-any (max min property value)
+  "Scan backwards from max till we find specified property setting.
 Return buffer position or nil on failure."
   (let ((result nil)
         (start max)
         (continue t))
     (save-excursion
       (while (and continue
-                  (not
-                   (or (< (point) min)
-                       (bobp))))
+                  (not (or (< (point) min) (bobp))))
         (backward-char 1)
         (setq start (previous-single-property-change (point) property))
         (if (null start)
             (setq continue nil)
-          (setq continue
-                (not (eq value
-                         (get-text-property start property)))))
-        (or continue
-            (setq result start)))
+          (setq continue (not (eq value (get-text-property start property)))))
+        (or continue (setq result start)))
       result)))
 
 
@@ -2057,24 +2047,7 @@ Speak that chunk after moving."
            (emacspeak-speak-this-personality-chunk)))
      (t (error "No previous  chunks with current personality.")))))
 
-(defun emacspeak-speak-face-interval-and-move ()
-  "Speaks region delimited by text in current face, and moves past the chunk."
-  (interactive)
-  (let ((face (get-char-property (point) 'face))
-        (start (point))
-        (end nil))
-;;; skip over opening delimiter
-    (goto-char (next-single-char-property-change start 'face))
-    (when (eobp) (error "End of buffer"))
-    (setq end
-          (or
-           (text-property-any (point) (point-max)
-                              'face face)
-           (point-max)))
-    (dtk-speak
-     (buffer-substring start end))
-    (goto-char end)
-    (emacspeak-auditory-icon 'large-movement)))
+
 
 ;;}}}
 ;;{{{ speaking face   chunks
