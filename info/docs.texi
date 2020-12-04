@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1166 commands and 861 options.
+This chapter documents a total of 1159 commands and 859 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -220,7 +220,6 @@ This chapter documents a total of 1166 commands and 861 options.
 * emacspeak-xslt::Implements Emacspeak  xslt transform engine.
 * emacspeak-yaml::Speech-enable YAML.
 * emacspeak-yasnippet::Speech-enable YASNIPPET.
-* emacspeak-ytel::Speech-enable YTEL.
 * espeak-voices::Define  Espeak tags.
 * extra-muggles::Additional Hydras For The Emacspeak Desktop.
 * g-utils::Google Client Utilities.
@@ -1128,30 +1127,6 @@ It actually does very little:
 It sets up Emacs to load package-specific
 Emacspeak modules as each package is loaded.
 It implements function emacspeak which loads the rest of the system.
-
-@subsection Emacspeak Commands
-
-@subsubsection emacspeak-toggle-audio-indentation
-@deffn {Command} emacspeak-toggle-audio-indentation  (&optional prefix)
-@table @kbd
-@item C-e d i
-@kindex C-e d i
-@item <fn> d i
-@kindex <fn> d i
-@end table
-
-@findex emacspeak-toggle-audio-indentation
-
-@format
-Toggle state of  Emacspeak  audio indentation.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-Specifying the method of indentation as ‘tones’
-results in the Dectalk producing a tone whose length is a function of the
-line’s indentation.  Specifying ‘speak’
-results in the number of initial spaces being spoken.
-@end format
-@end deffn
 
 @subsection emacspeak Options
 
@@ -15578,36 +15553,12 @@ Seconds value is also placed in the kill-ring.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-display-char
-@deffn {Command} emacspeak-speak-display-char  (&optional prefix)
-@findex emacspeak-speak-display-char
-
-@format
-Display char under point using current speech display table.
-Behavior is the same as command ‘emacspeak-speak-char’
-bound to C-e c
-for characters in the range 0--127.
-Optional argument PREFIX  specifies that the character should be spoken phonetically.
-
-(fn &optional PREFIX)
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-face-interval-and-move
 @deffn {Command} emacspeak-speak-face-interval-and-move   
 @findex emacspeak-speak-face-interval-and-move
 
 @format
 Speaks region delimited by text in current face, and moves past the chunk.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-front-of-buffer
-@deffn {Command} emacspeak-speak-front-of-buffer   
-@findex emacspeak-speak-front-of-buffer
-
-@format
-Speak   the buffer from start to   point
 @end format
 @end deffn
 
@@ -15671,20 +15622,21 @@ any other key to speak entire help.
 @findex emacspeak-speak-line
 
 @format
-Speaks current line.  With prefix ARG, speaks the rest of the line
-from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
-indentation with a   spoken message if audio indentation is on
- see ‘emacspeak-toggle-audio-indentation’ bound to
-C-e d i.  Indicates position of point
-with an aural highlight if option ‘emacspeak-show-point’ is  on
---see command ‘emacspeak-toggle-show-point’ bound to
-C-e C-d.  Lines that start hidden blocks of text,
-e.g.  outline header lines, or header lines of blocks created by
-command ‘emacspeak-hide-or-expose-block’ are indicated with auditory
-icon ellipses. Presence of additional presentational overlays (created
-via property display, before-string, or after-string) is indicated
-with auditory icon ‘more’.  These can then be spoken using command
+Speaks current line.  With prefix ARG, speaks the rest of the
+line from point.  Negative prefix optional arg speaks from start
+of line to point.  Indicates indentation with a spoken message if
+audio indentation is on see ‘emacspeak-toggle-audio-indentation’
+bound to C-e d i.  Indicates
+position of point with an aural highlight if option
+‘emacspeak-show-point’ is on --see command
+‘emacspeak-toggle-show-point’ bound to
+C-e C-d.  Lines that start hidden blocks
+of text, e.g.  outline header lines, or header lines of blocks
+created by command ‘emacspeak-hide-or-expose-block’ are indicated
+with auditory icon ellipses. Presence of additional
+presentational overlays (created via property display,
+before-string, or after-string) is indicated with auditory icon
+‘more’.  These can then be spoken using command
 C-e C-M-l.
 
 (fn &optional ARG)
@@ -15812,19 +15764,6 @@ Speaks time value specified as microseconds  since epoch, e.g. as from float-tim
 Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
 
 (fn MS)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-minibuffer
-@deffn {Command} emacspeak-speak-minibuffer  (&optional arg)
-@findex emacspeak-speak-minibuffer
-
-@format
-Speak the minibuffer contents
- With prefix arg, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point.
-
-(fn &optional ARG)
 @end format
 @end deffn
 
@@ -16203,8 +16142,7 @@ program, arguments specify the START and END of the rectangle.
 @findex emacspeak-speak-region
 
 @format
-Speak region.
-Argument START  and END specify region to speak.
+Speak region bounded by start and end. 
 
 (fn START END)
 @end format
@@ -16548,6 +16486,28 @@ current local  value to the result.
 @end format
 @end deffn
 
+@subsubsection emacspeak-toggle-audio-indentation
+@deffn {Command} emacspeak-toggle-audio-indentation  (&optional prefix)
+@table @kbd
+@item C-e d i
+@kindex C-e d i
+@item <fn> d i
+@kindex <fn> d i
+@end table
+
+@findex emacspeak-toggle-audio-indentation
+
+@format
+Toggle state of  Emacspeak  audio indentation.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+Specifying the method of indentation as ‘tones’
+results in the Dectalk producing a tone whose length is a function of the
+line’s indentation.  Specifying ‘speak’
+results in the number of initial spaces being spoken.
+@end format
+@end deffn
+
 @subsubsection emacspeak-toggle-character-echo
 @deffn {Command} emacspeak-toggle-character-echo  (&optional prefix)
 @table @kbd
@@ -16804,24 +16764,6 @@ Functions run after emacspeak-silence is called.
 
 @defvar {User Option} emacspeak-speak-filter-persistent-store
 File where emacspeak filters are persisted.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-line-column-filter
-List that specifies columns to be filtered.
-The list when set holds pairs of start-col.end-col pairs
-that specifies the columns that should not be spoken.
-Each column contains a single character --this is inspired
-by cut -c on UNIX.
-
-@end defvar
-
-@defvar {User Option} emacspeak-speak-maximum-line-length
-Threshold for determining ‘long’ lines.
-Emacspeak will ask for confirmation before speaking lines
-that are longer than this length.  This is to avoid accidentally
-opening a binary file and torturing the speech synthesizer
-with a long string of gibberish.
 
 @end defvar
 
@@ -21261,19 +21203,6 @@ Nuke read-only property on text range.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-fix-typo
-@deffn {Command} emacspeak-wizards-fix-typo  [Arg list not available until function definition is loaded.]
-@findex emacspeak-wizards-fix-typo
-
-@format
-Search and replace  recursively in all files with extension ‘ext’
-for ‘word’ and replace it with correction.
-Use with caution.
-
-(fn EXT WORD CORRECTION)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-frame-colors
 @deffn {Command} emacspeak-wizards-frame-colors   
 @findex emacspeak-wizards-frame-colors
@@ -22427,49 +22356,6 @@ This module speech-enables yaml-mode.
 @section emacspeak-yasnippet
 
 YASNIPPET ==  Template based editing using snippets.
-
-@node emacspeak-ytel
-@section emacspeak-ytel
-
-YTEL ==  Youtube From Elisp
-Install package ytel from Melpa.
-
-@subsection Emacspeak-Ytel Commands
-
-@subsubsection emacspeak-ytel-download
-@deffn {Command} emacspeak-ytel-download  (id)
-@findex emacspeak-ytel-download
-
-@format
-Download video at point.
-
-(fn ID)
-@end format
-@end deffn
-
-@subsubsection emacspeak-ytel-play-at-point
-@deffn {Command} emacspeak-ytel-play-at-point  (id &optional best)
-@findex emacspeak-ytel-play-at-point
-
-@format
-Play video. Argument ‘id’ is the video-id.
-Play current video in ytel when called interactively.
-Optional interactive prefix arg ‘best’ picks best audio format.
-
-(fn ID &optional BEST)
-@end format
-@end deffn
-
-@subsubsection emacspeak-ytel-yank
-@deffn {Command} emacspeak-ytel-yank  (id)
-@findex emacspeak-ytel-yank
-
-@format
-Yank youtube URL  for video at point.
-
-(fn ID)
-@end format
-@end deffn
 
 @node espeak-voices
 @section espeak-voices

@@ -179,7 +179,6 @@ elfeed
 Elfeed
 ELFEED
 elisp
-Elisp
 ELISP
 Eloquennce
 elpa
@@ -369,7 +368,6 @@ mcp
 MDash
 melpa
 mELPA
-Melpa
 MELPA
 metapost
 minibuffer
@@ -595,6 +593,8 @@ transcoded
 transcoder
 Treese
 trplayer
+tts
+TTS
 TuneIn
 tvr
 twarc
@@ -694,8 +694,6 @@ YAML
 yasnippet
 YASNIPPET
 ytel
-Ytel
-YTEL
 yyyy
 yyyymmdd
 zam
