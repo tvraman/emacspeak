@@ -1951,9 +1951,6 @@ Argument STRING specifies the alphanumeric phone number."
     string))
 
 ;;}}}
-;;{{{ Ordinal Numbers:
-
-;;}}}
 ;;{{{ speaking marks
 
 ;;; Intelligent mark feedback for emacspeak:
