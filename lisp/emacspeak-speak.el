@@ -1953,8 +1953,6 @@ Argument STRING specifies the alphanumeric phone number."
 ;;}}}
 ;;{{{ Ordinal Numbers:
 
-
-
 ;;}}}
 ;;{{{ speaking marks
 
@@ -1969,8 +1967,7 @@ where `exchange-point-and-mark' \\[exchange-point-and-mark] would
 jump.  Numeric prefix arg 'COUNT' speaks line containing mark 'n'
 where 'n' is one less than the number of times one has to jump
 using `set-mark-command' to get to this marked position.  The
-location of the mark is indicated by an aural highlight achieved
-by a change in voice personality."
+location of the mark is indicated by an aural highlight. "
   (interactive "p")
   (unless (mark) (error "No marks set in this buffer"))
   (when (and current-prefix-arg (> count (length mark-ring)))
@@ -1978,8 +1975,7 @@ by a change in voice personality."
   (let ((line nil)
         (pos nil)
         (context
-         (format "mark %s "
-                 (if current-prefix-arg count 0))))
+         (format "mark %s " (if current-prefix-arg count 0))))
     (put-text-property 0 (length context)
                        'personality voice-annotate context)
     (setq pos
@@ -1989,10 +1985,10 @@ by a change in voice personality."
     (save-excursion
       (goto-char pos)
       (ems-set-personality-temporarily
-       pos (1+ pos) voice-animate
-       (setq line (ems--this-line))))
-    (dtk-speak
-     (concat context line))))
+          pos (1+ pos) voice-animate
+          (setq line (ems--this-line)))
+      (dtk-speak
+       (concat context line)))))
 
 ;;}}}
 ;;{{{ speaking personality chunks
