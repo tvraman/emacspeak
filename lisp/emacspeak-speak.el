@@ -2047,8 +2047,6 @@ Speak that chunk after moving."
            (emacspeak-speak-this-personality-chunk)))
      (t (error "No previous  chunks with current personality.")))))
 
-
-
 ;;}}}
 ;;{{{ speaking face   chunks
 
