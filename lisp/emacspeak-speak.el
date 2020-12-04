@@ -1500,9 +1500,7 @@ indicating the arrival  of new mail when displaying the mode line.")
         (goto-char (point-min))
         (+ 1 (count-lines start (point)))))))
 
-;;; make line-number-mode buffer local
-(cl-declaim (special line-number-mode))
-(make-variable-buffer-local 'line-number-mode)
+
 (setq-default line-number-mode nil)
 
 ;;; make column-number-mode buffer local
