@@ -783,8 +783,16 @@ with a long string of gibberish."
   "^[[:space:]]+$"
   "Pattern that matches white space.")
 
-;;; Forward Declaration:
-;(defvar linum-mode nil)
+
+(ems-generate-switcher 'emacspeak-toggle-audio-indentation
+                       'emacspeak-audio-indentation
+                       "Toggle state of  Emacspeak  audio indentation.
+Interactive PREFIX arg means toggle  the global default value, and then set the
+current local  value to the result.
+Specifying the method of indentation as `tones'
+results in the Dectalk producing a tone whose length is a function of the
+line's indentation.  Specifying `speak'
+results in the number of initial spaces being spoken.")
 
 ;;;###autoload
 (defun emacspeak-speak-line (&optional arg)
