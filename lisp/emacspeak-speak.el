@@ -1406,15 +1406,6 @@ arrived mail."
           (file :tag "Mail drop location"))
   :group 'emacspeak)
 
-(defcustom emacspeak-voicemail-spool-file
-  nil
-  "Mail spool file examined  to alert you about newly
-arrived voicemail."
-  :type '(choice
-          (const :tag "None" nil)
-          (file :tag "VoiceMail drop location"))
-  :group 'emacspeak)
-
 (defun emacspeak-get-file-size (filename)
   "Return file size for file FILENAME."
   (or (nth 7 (file-attributes filename))
@@ -1456,13 +1447,10 @@ Alert the user only if mail has arrived since this time in the
 
 (defun emacspeak-mail-alert-user ()
   "Alerts user about the arrival of new mail."
-  (cl-declare (special emacspeak-mail-spool-file emacspeak-voicemail-spool-file))
+  (cl-declare (special emacspeak-mail-spool-file))
   (when (and emacspeak-mail-spool-file
              (emacspeak-mail-alert-user-p emacspeak-mail-spool-file))
-    (emacspeak-auditory-icon 'new-mail))
-  (when (and emacspeak-voicemail-spool-file
-             (emacspeak-mail-alert-user-p emacspeak-voicemail-spool-file))
-    (emacspeak-auditory-icon 'voice-mail)))
+    (emacspeak-auditory-icon 'new-mail)))
 
 (defcustom emacspeak-mail-alert t
   "Option to indicate cueing of new mail.
@@ -1471,11 +1459,7 @@ with an auditory icon when
 displaying the mode line.
 You can use command
 `emacspeak-toggle-mail-alert' bound to
-\\[emacspeak-toggle-mail-alert] to set this option.
-If you have online access to a voicemail drop, you can have a
-  voice-mail alert set up by specifying the location of the
-  voice-mail drop via custom option
-emacspeak-voicemail-spool-file."
+\\[emacspeak-toggle-mail-alert] to set this option. "
   :group 'emacspeak
   :type 'boolean)
 

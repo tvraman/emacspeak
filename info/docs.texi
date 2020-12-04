@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1159 commands and 859 options.
+This chapter documents a total of 1159 commands and 858 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -16737,11 +16737,7 @@ with an auditory icon when
 displaying the mode line.
 You can use command
 ‘emacspeak-toggle-mail-alert’ bound to
-C-e M-m to set this option.
-If you have online access to a voicemail drop, you can have a
-  voice-mail alert set up by specifying the location of the
-  voice-mail drop via custom option
-emacspeak-voicemail-spool-file.
+C-e M-m to set this option. 
 
 @end defvar
 
@@ -16785,12 +16781,6 @@ See the documentation for function
 
 @defvar {User Option} emacspeak-speak-zoneinfo-directory
 Directory containing timezone data.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voicemail-spool-file
-Mail spool file examined  to alert you about newly
-arrived voicemail.
 
 @end defvar
 

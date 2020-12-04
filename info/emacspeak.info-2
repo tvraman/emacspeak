@@ -7842,10 +7842,7 @@ of emacspeak from becoming dependent on the speech server modules
      Option to indicate cueing of new mail.  If t, emacspeak will alert
      you about newly arrived mail with an auditory icon when displaying
      the mode line.  You can use command ‘emacspeak-toggle-mail-alert’
-     bound to C-e M-m to set this option.  If you have online access to
-     a voicemail drop, you can have a voice-mail alert set up by
-     specifying the location of the voice-mail drop via custom option
-     emacspeak-voicemail-spool-file.
+     bound to C-e M-m to set this option.
 
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
@@ -7871,10 +7868,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.
-
- -- Variable: User Option emacspeak-voicemail-spool-file
-     Mail spool file examined to alert you about newly arrived
-     voicemail.
 
  -- Variable: User Option emacspeak-word-echo
      If t, then emacspeak echoes words as you type.  You can use C-e d w
