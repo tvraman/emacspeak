@@ -278,7 +278,7 @@ the Emacspeak desktop.")
     ("xref" emacspeak-xref)
     ("yaml-mode" emacspeak-yaml)
     ("yasnippet" emacspeak-yasnippet)
-    ("ytel" emacspeak-ytel))
+    )
   "Packages to  speech-enable.")
 
 (defun emacspeak-prepare-emacs ()
