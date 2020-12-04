@@ -1501,24 +1501,14 @@ indicating the arrival  of new mail when displaying the mode line.")
         (+ 1 (count-lines start (point)))))))
 
 
-(setq-default line-number-mode nil)
 
-;;; make column-number-mode buffer local
-(cl-declaim (special column-number-mode))
-(make-variable-buffer-local 'column-number-mode)
-(setq-default column-number-mode nil)
-;;{{{   mode line speaker
 
 (defun emacspeak-speak-which-function ()
   "Speak which function we are on.  Uses which-function from
-which-func without turning that mode on.  We actually use
-semantic to do the work."
+which-func without turning that mode on.  "
   (interactive)
-  (require 'semantic "semantic")
     (require 'which-func)
-    (message (or
-              (which-function)
-              "Not inside a function.")))
+    (message (or (which-function) "Not inside a function.")))
 
 (defun emacspeak-speak-buffer-info ()
   "Speak buffer information."
@@ -1655,7 +1645,7 @@ Interactive prefix arg speaks buffer info."
                          (dtk-speak
                           (buffer-name))))
 
-;;}}}
+
 
 ;;;###autoload
 (defun emacspeak-speak-minor-mode-line (&optional log-msg)
