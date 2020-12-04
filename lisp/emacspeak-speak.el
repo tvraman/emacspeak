@@ -79,6 +79,7 @@
 
 ;;}}}
 ;;{{{Helper: Log Message Quietly
+
 (defun ems--log-message (m)
   "Log a message without echoing it."
   (let ((inhibit-read-only t))
@@ -1753,8 +1754,6 @@ offset. Default  is to speak the previous word. "
       (emacspeak-speak-word 1))
      (t (dtk-speak "Not that many words ")))))
 
-
-
 ;;}}}
 ;;{{{  Speak misc information e.g. time, version, current-kill  etc
 
@@ -1766,13 +1765,12 @@ See the documentation for function
   :group 'emacspeak
   :type 'string)
 
-;;{{{ world clock
-
 (defcustom emacspeak-speak-zoneinfo-directory
   "/usr/share/zoneinfo/"
   "Directory containing timezone data."
   :type 'directory
   :group 'emacspeak)
+
 ;;;###autoload
 (defun emacspeak-speak-world-clock (zone &optional set)
   "Display current date and time  for specified zone.
@@ -1782,9 +1780,7 @@ Optional second arg `set' sets the TZ environment variable as well."
     (let ((completion-ignore-case t)
           (ido-case-fold t)
           (read-file-name-completion-ignore-case t))
-      (read-file-name
-       "Timezone: "
-       emacspeak-speak-zoneinfo-directory))
+      (read-file-name "Timezone: " emacspeak-speak-zoneinfo-directory))
     current-prefix-arg))
   (cl-declare (special emacspeak-speak-time-format-string
                        ido-case-fold emacspeak-speak-zoneinfo-directory))
@@ -1800,14 +1796,12 @@ Optional second arg `set' sets the TZ environment variable as well."
                     " in %s, %%Z, %%z "
                     (substring zone (length emacspeak-speak-zoneinfo-directory)))))))
 
-;;}}}
 ;;;###autoload
 (defun emacspeak-speak-time (&optional world)
   "Speak the time.
 Spoken time  is available in the *notifications* buffer via \\[emacspeak-view-notifications].
 Optional interactive prefix arg `C-u'invokes world clock.
 Timezone is specified using minibuffer completion.
-
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (cl-declare (special emacspeak-speak-time-format-string))
@@ -1818,40 +1812,30 @@ Second interactive prefix sets clock to new timezone."
     (let ((time-string
            (format-time-string emacspeak-speak-time-format-string
                                (current-time) (getenv "TZ"))))
-      (tts-with-punctuations
-          'some
-        (dtk-notify-speak time-string))))))
-
+      (tts-with-punctuations 'some (dtk-notify-speak time-string))))))
 
 (defun emacspeak-speak-seconds-since-epoch (seconds)
   "Speaks time value specified as seconds  since epoch, e.g. as from float-time."
   (interactive
-   (list
-    (read-minibuffer "Seconds: "
-                     (word-at-point))))
+   (list (read-minibuffer "Seconds: " (word-at-point))))
   (cl-declare (special emacspeak-speak-time-format-string))
   (message
    (format-time-string
     emacspeak-speak-time-format-string (seconds-to-time seconds))))
 
-
 (defun emacspeak-speak-microseconds-since-epoch (ms)
   "Speaks time value specified as microseconds  since epoch, e.g. as from float-time."
   (interactive
-   (list
-    (read-minibuffer "MicroSeconds: " (word-at-point))))
+   (list (read-minibuffer "MicroSeconds: " (word-at-point))))
   (let ((seconds (/ ms 1000000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
-
 
 (defun emacspeak-speak-milliseconds-since-epoch (ms)
   "Speaks time value specified as milliseconds  since epoch, e.g. as from float-time."
   (interactive
-   (list
-    (read-minibuffer "MilliSeconds: " (word-at-point))))
+   (list (read-minibuffer "MilliSeconds: " (word-at-point))))
   (let ((seconds (/ ms 1000)))
     (emacspeak-speak-seconds-since-epoch seconds)))
-
 
 (defun emacspeak-speak-date-as-seconds (time)
   "Read time value as a human-readable string, return seconds.
@@ -1861,7 +1845,8 @@ Seconds value is also placed in the kill-ring."
     (message "%s" result)
     (kill-new result)
     result))
-
+;;}}}
+;;{{{ Codenames etc.
 (defvar emacspeak-codename
   (propertize "EfficientDog" 'face 'bold)
   "Code name of present release.")
@@ -1905,22 +1890,19 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision number.
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (&optional count)
-  "Speak the current kill entry.
-This is the text that will be yanked in
-by the next \\[yank]. Prefix numeric arg, COUNT, specifies that the
-text that will be yanked as a result of a \\[yank] followed by count-1
-\\[yank-pop] be spoken. The kill number that is spoken says what
-numeric prefix arg to give to command yank."
+  "Speak the current kill.
+This is what will be yanked by the next \\[yank]. Prefix numeric
+arg, COUNT, specifies that the text that will be yanked as a
+result of a \\[yank] followed by count-1 \\[yank-pop] be
+spoken. The kill number that is spoken says what numeric prefix
+arg to give to command yank."
   (interactive "p")
   (let ((context
          (format "kill %s "
                  (if current-prefix-arg (+ 1 count) 1))))
-    (put-text-property 0 (length context)
-                       'personality voice-annotate context)
-    (dtk-speak
-     (concat
-      context
-      (current-kill (if current-prefix-arg count 0) t)))))
+    (put-text-property 0 (length context) 'personality voice-annotate context)
+    (dtk-speak 
+(concat context (current-kill (if current-prefix-arg count 0) t)))))
 
 ;;;###autoload
 (defun emacspeak-zap-tts ()
@@ -1967,15 +1949,6 @@ Argument STRING specifies the alphanumeric phone number."
                      (otherwise character)))
              (cl-incf i))
     string))
-
-
-(defun emacspeak-dial-dtk (number)
-  "Prompt for and dial a phone NUMBER with the Dectalk."
-  (interactive "sEnter phone number to dial:")
-  (let ((dtk-stop-immediately nil))
-    (dtk-dispatch (format "[:dial %s]"
-                          (emacspeak-speak-string-to-phone-number number)))
-    (sit-for 4)))
 
 ;;}}}
 ;;{{{ Ordinal Numbers:
