@@ -15197,7 +15197,7 @@ Default is to read the next line.
 @end deffn
 
 @subsubsection emacspeak-read-next-word
-@deffn {Command} emacspeak-read-next-word  (&optional arg)
+@deffn {Command} emacspeak-read-next-word  [Arg list not available until function definition is loaded.]
 @findex emacspeak-read-next-word
 
 @format
@@ -15228,7 +15228,7 @@ Default is to read the previous line.
 @end deffn
 
 @subsubsection emacspeak-read-previous-word
-@deffn {Command} emacspeak-read-previous-word  (&optional arg)
+@deffn {Command} emacspeak-read-previous-word  [Arg list not available until function definition is loaded.]
 @findex emacspeak-read-previous-word
 
 @format
@@ -16399,8 +16399,7 @@ Useful to do this before you listen to an entire buffer.
 
 @format
 Speak which function we are on.  Uses which-function from
-which-func without turning that mode on.  We actually use
-semantic to do the work.
+which-func without turning that mode on.  
 @end format
 @end deffn
 
@@ -16731,8 +16730,7 @@ option.
 @end defvar
 
 @defvar {User Option} emacspeak-mail-alert
-Option to indicate cueing of new mail.
-If t, emacspeak will alert you about newly arrived mail
+ If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
 You can use command

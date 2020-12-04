@@ -6796,7 +6796,8 @@ of emacspeak from becoming dependent on the speech server modules
 12.172.1.19 emacspeak-read-next-word
 ....................................
 
- -- Command: emacspeak-read-next-word (&optional arg)
+ -- Command: emacspeak-read-next-word [Arg list not available until
+          function definition is loaded.]
 
      Read next word, specified as a numeric  arg, without moving.
      Default is to read the next word.
@@ -6818,7 +6819,8 @@ of emacspeak from becoming dependent on the speech server modules
 12.172.1.21 emacspeak-read-previous-word
 ........................................
 
- -- Command: emacspeak-read-previous-word (&optional arg)
+ -- Command: emacspeak-read-previous-word [Arg list not available until
+          function definition is loaded.]
 
      Read previous word, specified as a prefix arg, without moving.
      Default is to read the previous word.
@@ -7615,8 +7617,7 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> M-w’
 
      Speak which function we are on.  Uses which-function from
-     which-func without turning that mode on.  We actually use
-     semantic to do the work.
+     which-func without turning that mode on.
 
 12.172.1.91 emacspeak-speak-window-information
 ..............................................
@@ -7839,10 +7840,9 @@ of emacspeak from becoming dependent on the speech server modules
      to set this option.
 
  -- Variable: User Option emacspeak-mail-alert
-     Option to indicate cueing of new mail.  If t, emacspeak will alert
-     you about newly arrived mail with an auditory icon when displaying
-     the mode line.  You can use command ‘emacspeak-toggle-mail-alert’
-     bound to C-e M-m to set this option.
+     If t, emacspeak will alert you about newly arrived mail with an
+     auditory icon when displaying the mode line.  You can use command
+     ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to set this option.
 
  -- Variable: User Option emacspeak-mail-alert-interval
      Interval in seconds between mail alerts for the same pending
