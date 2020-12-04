@@ -1753,19 +1753,7 @@ offset. Default  is to speak the previous word. "
       (emacspeak-speak-word 1))
      (t (dtk-speak "Not that many words ")))))
 
-;;;###autoload
-(defun emacspeak-read-previous-word (&optional arg)
-  "Read previous word, specified as a prefix arg, without moving.
-Default is to read the previous word. "
-  (interactive "p")
-  (emacspeak-read-word-internal (- (or arg 1))))
 
-;;;###autoload
-(defun emacspeak-read-next-word (&optional arg)
-  "Read next word, specified as a numeric  arg, without moving.
-Default is to read the next word. "
-  (interactive "p")
-  (emacspeak-read-word-internal (or arg 1)))
 
 ;;}}}
 ;;{{{  Speak misc information e.g. time, version, current-kill  etc
