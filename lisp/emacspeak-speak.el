@@ -2158,15 +2158,9 @@ The message is also placed in the kill ring for convenient yanking "
 ;;{{{  Using emacs's windows usefully:
 
 ;;Return current window contents
-(defun emacspeak-get-window-contents ()
+(defsubst emacspeak-get-window-contents ()
   "Return window contents."
-  (let ((start nil))
-    (save-excursion
-      (move-to-window-line 0)
-      (setq start (point))
-      (move-to-window-line -1)
-      (end-of-line)
-      (buffer-substring start (point)))))
+    (save-excursion (buffer-substring (window-start) (window-end))))
 
 ;;;###autoload
 (defun emacspeak-speak-window-information ()
@@ -2186,54 +2180,22 @@ Speaks entire window irrespective of point."
   (interactive)
   (emacspeak-speak-region (window-start) (window-end)))
 
-;;;###autoload
-(defun emacspeak-speak-other-window (&optional arg)
-  "Speak contents of `other' window.
-Speaks entire window irrespective of point.
-Semantics  of `other' is the same as for the builtin Emacs command
-`other-window'.
-Optional argument ARG  specifies `other' window to speak."
-  (interactive "nSpeak window")
-  (save-excursion
-    (save-window-excursion
-      (other-window arg)
-      (save-current-buffer
-        (set-buffer (window-buffer))
-        (emacspeak-speak-region
-         (max (point-min) (window-start))
-         (min (point-max) (window-end)))))))
-
-;;;###autoload
-(defun emacspeak-speak-next-window ()
-  "Speak the next window."
-  (interactive)
-  (emacspeak-speak-other-window 1))
-
-;;;###autoload
-(defun emacspeak-speak-previous-window ()
-  "Speak the previous window."
-  (interactive)
-  (emacspeak-speak-other-window -1))
-
-
 (defun emacspeak-owindow-scroll-up ()
   "Scroll up the window that command `other-window' would move to.
 Speak the window contents after scrolling."
   (interactive)
-  (let ((window (selected-window)))
-    (other-window 1)
-    (call-interactively 'scroll-up)
-    (select-window window)))
+  (save-window-excursion
+      (other-window 1)
+      (call-interactively 'scroll-up)))
 
 
 (defun emacspeak-owindow-scroll-down ()
   "Scroll down  the window that command `other-window' would move to.
 Speak the window contents after scrolling."
   (interactive)
-  (let ((window (selected-window)))
+  (save-window-excursion
     (other-window 1)
-    (call-interactively 'scroll-down)
-    (select-window window)))
+    (call-interactively 'scroll-down)))
 
 
 (defun emacspeak-owindow-next-line (count)
@@ -2280,23 +2242,21 @@ Numeric prefix arg COUNT specifies number of lines to move."
 
 
 (defun emacspeak-speak-predefined-window (&optional arg)
-  "Speak one of the first 10 windows on the screen.
+  "Speak one of the first 10 windows on the screen, 0 is current window.
 Speaks entire window irrespective of point.  Semantics of `other'
 is the same as for the Emacs builtin `other-window'."
   (interactive "P")
   (cl-declare (special last-input-event))
-  (let* ((window-size-change-functions nil)
-         (window
+  (let* ((window
           (cond
            ((not (called-interactively-p 'interactive)) arg)
            (t
-                (read (format "%c" last-input-event))))))
+            (read (format "%c" last-input-event))))))
     (or (numberp window)
-        (setq window (1- (read-number "Window   between 1 and 9 to speak" 1))))
-    (save-excursion
+        (setq window  (read-number "Window   between 1 and 9:" 1)))
       (save-window-excursion
         (other-window window)
-        (emacspeak-speak-region (window-start) (window-end))))))
+        (emacspeak-speak-region (window-start) (window-end)))))
 
 ;;}}}
 ;;{{{  Intelligent interactive commands for reading:
