@@ -2085,21 +2085,15 @@ was spoken.  Any other key continues to speak the buffer."
 (defun emacspeak-speak-field (start end)
   "Speaks field delimited by arguments START and END."
   (cl-declare (special voice-annotate))
-  (let ((header (or (get-text-property start 'field-name) "")))
-    (dtk-speak
-     (concat
-      (progn (put-text-property 0 (length header)
-                                'personality voice-annotate
-                                header)
-             header)
-      " "
-      (buffer-substring start end)))))
+  (let ((header  (get-text-property start 'field-name)))
+    (when header
+       (propertize  header 'personality voice-annotate))
+     (dtk-speak (concat header " " (buffer-substring start end)))))
 
 (defun emacspeak-speak-current-field ()
   "Speak current field."
   (interactive)
-  (emacspeak-speak-region (field-beginning)
-                          (field-end)))
+  (emacspeak-speak-region (field-beginning) (field-end)))
 
 (defun emacspeak-speak-next-field ()
   "Move to and speak next field."
