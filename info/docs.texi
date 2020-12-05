@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1159 commands and 858 options.
+This chapter documents a total of 1152 commands and 858 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -15000,17 +15000,6 @@ char, or dont move.
 @end format
 @end deffn
 
-@subsubsection emacspeak-dial-dtk
-@deffn {Command} emacspeak-dial-dtk  (number)
-@findex emacspeak-dial-dtk
-
-@format
-Prompt for and dial a phone NUMBER with the Dectalk.
-
-(fn NUMBER)
-@end format
-@end deffn
-
 @subsubsection emacspeak-execute-repeatedly
 @deffn {Command} emacspeak-execute-repeatedly  (command)
 @findex emacspeak-execute-repeatedly
@@ -15196,18 +15185,6 @@ Default is to read the next line.
 @end format
 @end deffn
 
-@subsubsection emacspeak-read-next-word
-@deffn {Command} emacspeak-read-next-word  [Arg list not available until function definition is loaded.]
-@findex emacspeak-read-next-word
-
-@format
-Read next word, specified as a numeric  arg, without moving.
-Default is to read the next word. 
-
-(fn &optional ARG)
-@end format
-@end deffn
-
 @subsubsection emacspeak-read-previous-line
 @deffn {Command} emacspeak-read-previous-line  (&optional arg)
 @table @kbd
@@ -15222,18 +15199,6 @@ Default is to read the next word.
 @format
 Read previous line, specified by an offset, without moving.
 Default is to read the previous line. 
-
-(fn &optional ARG)
-@end format
-@end deffn
-
-@subsubsection emacspeak-read-previous-word
-@deffn {Command} emacspeak-read-previous-word  [Arg list not available until function definition is loaded.]
-@findex emacspeak-read-previous-word
-
-@format
-Read previous word, specified as a prefix arg, without moving.
-Default is to read the previous word. 
 
 (fn &optional ARG)
 @end format
@@ -15295,7 +15260,7 @@ Speak extent delimited by point and last character typed.
 @end deffn
 
 @subsubsection emacspeak-speak-browse-buffer-by-style
-@deffn {Command} emacspeak-speak-browse-buffer-by-style  (&optional browse)
+@deffn {Command} emacspeak-speak-browse-buffer-by-style  [Arg list not available until function definition is loaded.]
 @findex emacspeak-speak-browse-buffer-by-style
 
 @format
@@ -15475,12 +15440,12 @@ Speak current field.
 @findex emacspeak-speak-current-kill
 
 @format
-Speak the current kill entry.
-This is the text that will be yanked in
-by the next <S-insertchar>. Prefix numeric arg, COUNT, specifies that the
-text that will be yanked as a result of a <S-insertchar> followed by count-1
-M-x yank-pop be spoken. The kill number that is spoken says what
-numeric prefix arg to give to command yank.
+Speak the current kill.
+This is what will be yanked by the next <S-insertchar>. Prefix numeric
+arg, COUNT, specifies that the text that will be yanked as a
+result of a <S-insertchar> followed by count-1 M-x yank-pop be
+spoken. The kill number that is spoken says what numeric prefix
+arg to give to command yank.
 
 (fn &optional COUNT)
 @end format
@@ -15508,8 +15473,7 @@ where ‘exchange-point-and-mark’ C-x C-x would
 jump.  Numeric prefix arg ’COUNT’ speaks line containing mark ’n’
 where ’n’ is one less than the number of times one has to jump
 using ‘set-mark-command’ to get to this marked position.  The
-location of the mark is indicated by an aural highlight achieved
-by a change in voice personality.
+location of the mark is indicated by an aural highlight. 
 
 (fn COUNT)
 @end format
@@ -15550,15 +15514,6 @@ Read time value as a human-readable string, return seconds.
 Seconds value is also placed in the kill-ring.
 
 (fn TIME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-face-interval-and-move
-@deffn {Command} emacspeak-speak-face-interval-and-move   
-@findex emacspeak-speak-face-interval-and-move
-
-@format
-Speaks region delimited by text in current face, and moves past the chunk.
 @end format
 @end deffn
 
@@ -15718,8 +15673,7 @@ the sense of the filter.
 
 @format
 Speak the last message from Emacs once again.
-The message is also placed in the kill ring for convenient yanking
-if ‘emacspeak-speak-message-again-copy-as-kill’ is set.
+The message is also placed in the kill ring for convenient yanking 
 
 (fn &optional FROM-MESSAGE-CACHE)
 @end format
@@ -15807,16 +15761,6 @@ Interactive prefix arg speaks buffer info.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-next-face-chunk
-@deffn {Command} emacspeak-speak-next-face-chunk   
-@findex emacspeak-speak-next-face-chunk
-
-@format
-Moves to the front of next chunk having current style.
-Speak that chunk after moving.
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-next-field
 @deffn {Command} emacspeak-speak-next-field   
 @table @kbd
@@ -15835,16 +15779,6 @@ Move to and speak next field.
 
 @subsubsection emacspeak-speak-next-personality-chunk
 @deffn {Command} emacspeak-speak-next-personality-chunk   
-@findex emacspeak-speak-next-personality-chunk
-
-@format
-Moves to the front of next chunk having current personality.
-Speak that chunk after moving.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-next-window
-@deffn {Command} emacspeak-speak-next-window   
 @table @kbd
 @item C-e C-n
 @kindex C-e C-n
@@ -15852,6 +15786,15 @@ Speak that chunk after moving.
 @kindex <fn> C-n
 @end table
 
+@findex emacspeak-speak-next-personality-chunk
+
+@format
+Moves to the front of next personality change and speak it. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-next-window
+@deffn {Command} emacspeak-speak-next-window  [Arg list not available until function definition is loaded.]
 @findex emacspeak-speak-next-window
 
 @format
@@ -15879,7 +15822,7 @@ Useful to listen to a buffer without switching  contexts.
 @end deffn
 
 @subsubsection emacspeak-speak-other-window
-@deffn {Command} emacspeak-speak-other-window  (&optional arg)
+@deffn {Command} emacspeak-speak-other-window  [Arg list not available until function definition is loaded.]
 @findex emacspeak-speak-other-window
 
 @format
@@ -16046,25 +15989,11 @@ Speak character before point.
 @findex emacspeak-speak-predefined-window
 
 @format
-Speak one of the first 10 windows on the screen.
-Speaks entire window irrespective of point.
-In general, you’ll never have Emacs split the screen into more than
-two or three.
-Argument ARG determines the ’other’ window to speak.
-Semantics  of ‘other’ is the same as for the builtin Emacs command
-‘other-window’.
+Speak one of the first 10 windows on the screen, 0 is current window.
+Speaks entire window irrespective of point.  Semantics of ‘other’
+is the same as for the Emacs builtin ‘other-window’.
 
 (fn &optional ARG)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-previous-face-chunk
-@deffn {Command} emacspeak-speak-previous-face-chunk   
-@findex emacspeak-speak-previous-face-chunk
-
-@format
-Moves to the front of previous chunk having current face.
-Speak that chunk after moving.
 @end format
 @end deffn
 
@@ -16086,16 +16015,6 @@ Move to previous field and speak it.
 
 @subsubsection emacspeak-speak-previous-personality-chunk
 @deffn {Command} emacspeak-speak-previous-personality-chunk   
-@findex emacspeak-speak-previous-personality-chunk
-
-@format
-Moves to the front of previous chunk having current personality.
-Speak that chunk after moving.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-previous-window
-@deffn {Command} emacspeak-speak-previous-window   
 @table @kbd
 @item C-e C-p
 @kindex C-e C-p
@@ -16103,6 +16022,16 @@ Speak that chunk after moving.
 @kindex <fn> C-p
 @end table
 
+@findex emacspeak-speak-previous-personality-chunk
+
+@format
+Moves to the front of previous personality change  and
+  speak it. 
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-previous-window
+@deffn {Command} emacspeak-speak-previous-window  [Arg list not available until function definition is loaded.]
 @findex emacspeak-speak-previous-window
 
 @format
@@ -16304,22 +16233,19 @@ Spell word at  point.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-this-face-chunk
-@deffn {Command} emacspeak-speak-this-face-chunk   
-@findex emacspeak-speak-this-face-chunk
-
-@format
-Speak chunk of text around point that has current face.
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-this-personality-chunk
 @deffn {Command} emacspeak-speak-this-personality-chunk   
+@table @kbd
+@item C-e C-.
+@kindex C-e C-.
+@item <fn> C-.
+@kindex <fn> C-.
+@end table
+
 @findex emacspeak-speak-this-personality-chunk
 
 @format
-Speak chunk of text around point that has current
-personality.
+Speak chunk of text having personality at  point.
 @end format
 @end deffn
 
@@ -16339,7 +16265,6 @@ Speak the time.
 Spoken time  is available in the *notifications* buffer via C-h N.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
-
 Second interactive prefix sets clock to new timezone.
 
 (fn &optional WORLD)
@@ -24170,7 +24095,7 @@ Turn screen white.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 76 URL Templates.
+This section documents a total of 77 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -24235,7 +24160,9 @@ List CNN Podcast media links.@item @b{Currency Converter}
 Currency Converter. Currencies can be a comma-separated list of
 codes.@item @b{Dictionary Lookup}
 
-Dictionary Lookup@item @b{Finance Summary From Google}
+Dictionary Lookup@item @b{Finance  Google}
+
+Lookup ticker on Google Finance.@item @b{Finance Summary From Google}
 
 Display top stocks  from Google Finance.@item @b{FreeSound}
 
