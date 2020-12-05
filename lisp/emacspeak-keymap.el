@@ -708,6 +708,7 @@ command that the key sequence executes."
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" emacspeak-wizards-eww-buffer-list)
     ("f" emacspeak-wizards-generate-finder)
+    ("m" pop-global-mark)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
     ("z" suspend-frame)
