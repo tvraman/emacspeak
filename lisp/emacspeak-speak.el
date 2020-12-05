@@ -2131,39 +2131,28 @@ was spoken.  Any other key continues to speak the buffer."
   (message "Point is  %d%% into  the current buffer"
            (emacspeak-get-current-percentage-into-buffer)))
 
-(defvar ems--message-filter-pattern nil
-  "Internal variable that holds pattern used to filter spoken
-  messages.")
-
 ;;}}}
 ;;{{{  Speak the last message again:
-
-(defvar emacspeak-speak-message-again-copy-as-kill t
-  "If set, asking for last message will copy it to the kill ring.")
+(defvar ems--message-filter-pattern nil
+  "Internal variable holding  pattern used to filter spoken messages.")
 
 ;;;###autoload
 (defun emacspeak-speak-message-again (&optional from-message-cache)
   "Speak the last message from Emacs once again.
-The message is also placed in the kill ring for convenient yanking
-if `emacspeak-speak-message-again-copy-as-kill' is set."
+The message is also placed in the kill ring for convenient yanking "
   (interactive "P")
-  (cl-declare (special emacspeak-last-message
-                       emacspeak-speak-message-again-copy-as-kill))
+  (cl-declare (special emacspeak-last-message))
+  (when  (called-interactively-p 'interactive)
+      (kill-new emacspeak-last-message))
   (cond
-   (from-message-cache
-    (dtk-speak emacspeak-last-message)
-    (when (and (called-interactively-p 'interactive)
-               emacspeak-speak-message-again-copy-as-kill)
-      (kill-new emacspeak-last-message)))
+   (from-message-cache (dtk-speak emacspeak-last-message))
    (t
     (save-current-buffer
       (set-buffer "*Messages*")
       (goto-char (point-max))
       (skip-syntax-backward " >")
       (emacspeak-speak-line)
-      (when (and (called-interactively-p 'interactive)
-                 emacspeak-speak-message-again-copy-as-kill)
-        (kill-new (ems--this-line)))))))
+      (when  (called-interactively-p 'interactive) (kill-new (ems--this-line)))))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
