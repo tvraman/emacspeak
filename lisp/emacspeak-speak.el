@@ -2024,13 +2024,12 @@ location of the mark is indicated by an aural highlight. "
      (t (error "did not move")))))
 
 ;;}}}
-;;{{{  Execute command repeatedly,
+;;{{{  Execute command repeatedly:
 
 ;;;###autoload
 (defun emacspeak-execute-repeatedly (command)
   "Execute COMMAND repeatedly."
-  (interactive
-   (list (read-command "Command to execute repeatedly:")))
+  (interactive (list (read-command "Command to execute repeatedly:")))
   (let ((key "")
         (pos (point))
         (continue t)
@@ -2040,9 +2039,7 @@ location of the mark is indicated by an aural highlight. "
       (cond
        ((= (point) pos) (setq continue nil))
        (t (setq pos (point))
-          (setq key
-                (let ((dtk-stop-immediately nil))
-                  (read-key-sequence message)))
+          (setq key (read-key-sequence message))
           (when (and (stringp key)
                      (not (= 32 (string-to-char key))))
             (dtk-stop)
@@ -2062,19 +2059,6 @@ was spoken.  Any other key continues to speak the buffer."
          (key-binding (read-key-sequence "Press navigation key to repeat: "))))
     (unless command (error "You specified an invalid key sequence.  "))
     (emacspeak-execute-repeatedly command)))
-
-;;;###autoload
-(defun      emacspeak-speak-browse-buffer-by-style (&optional browse)
-  "Browse current buffer by style.
-Default is to speak chunk having current style.
-Interactive prefix arg `browse'  repeatedly browses  through
-  chunks having same style as the current text chunk."
-  (interactive "P")
-  (cond
-   (browse
-    (emacspeak-execute-repeatedly
-     'emacspeak-speak-next-personality-chunk))
-   (t (emacspeak-speak-this-personality-chunk))))
 
 ;;}}}
 ;;{{{  skimming
