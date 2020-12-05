@@ -2009,7 +2009,6 @@ location of the mark is indicated by an aural highlight. "
      ((and (< this-end (point-max))
            (setq next-start (dtk-next-style-change this-end (point-max))))
       (goto-char next-start)
-      (forward-char 1)
       (emacspeak-speak-this-personality-chunk))
      (t (error "Did not move")))))
 
@@ -2020,9 +2019,8 @@ location of the mark is indicated by an aural highlight. "
   (let ((this-start (dtk-previous-style-change (point))))
     (cond
      ((and (> this-start (point-min))
-           (goto-char (dtk-previous-style-change (point)))
-           (backward-char 1)
-           (emacspeak-speak-this-personality-chunk)))
+           (goto-char (dtk-previous-style-change (1- this-start))))
+      (emacspeak-speak-this-personality-chunk))
      (t (error "did not move")))))
 
 ;;}}}
