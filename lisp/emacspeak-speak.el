@@ -1991,32 +1991,30 @@ location of the mark is indicated by an aural highlight. "
 ;;{{{ speaking personality chunks
 
 (defun emacspeak-speak-this-personality-chunk ()
-  "Speak chunk of text around point that has current personality."
+  "Speak chunk of text having personality at  point."
   (interactive)
   (let ((start (dtk-previous-style-change (point)))
         (end (dtk-next-style-change (point))))
     (emacspeak-speak-region
-     (if  start (1+ start) (point-min))
+     (or   start (point-min))
      (or  end  (point-max)))))
 
 (defun emacspeak-speak-next-personality-chunk ()
-  "Moves to the front of next chunk having current personality.
-Speak that chunk after moving."
+  "Moves to the front of next personality change and speak it. "
   (interactive)
   (let ((this-end (dtk-next-style-change (point) (point-max)))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
-           (setq next-start
-                 (dtk-next-style-change this-end (point-max))))
+           (setq next-start (dtk-next-style-change this-end (point-max))))
       (goto-char next-start)
       (forward-char 1)
       (emacspeak-speak-this-personality-chunk))
      (t (error "No more chunks with current personality.")))))
 
 (defun emacspeak-speak-previous-personality-chunk ()
-  "Moves to the front of previous chunk having current personality.
-Speak that chunk after moving."
+  "Moves to the front of previous personality change  and
+  speak it. "
   (interactive)
   (let ((this-start (dtk-previous-style-change (point))))
     (cond
