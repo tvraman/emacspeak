@@ -5,6 +5,7 @@
 ;;; Keywords: Emacspeak,  Spoken Output
 ;;{{{  LCD Archive entry:
 
+
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |tv.raman.tv@gmail.com
 ;;; A speech interface to Emacs |
@@ -2010,7 +2011,7 @@ location of the mark is indicated by an aural highlight. "
       (goto-char next-start)
       (forward-char 1)
       (emacspeak-speak-this-personality-chunk))
-     (t (error "No more chunks with current personality.")))))
+     (t (error "Did not move")))))
 
 (defun emacspeak-speak-previous-personality-chunk ()
   "Moves to the front of previous personality change  and
@@ -2022,7 +2023,7 @@ location of the mark is indicated by an aural highlight. "
            (goto-char (dtk-previous-style-change (point)))
            (backward-char 1)
            (emacspeak-speak-this-personality-chunk)))
-     (t (error "No previous  chunks with current personality.")))))
+     (t (error "did not move")))))
 
 ;;}}}
 ;;{{{  Execute command repeatedly,
