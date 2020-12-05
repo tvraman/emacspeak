@@ -2154,11 +2154,6 @@ The message is also placed in the kill ring for convenient yanking "
       (emacspeak-speak-line)
       (when  (called-interactively-p 'interactive) (kill-new (ems--this-line)))))))
 
-(defun emacspeak-announce (announcement)
-  "Speak the ANNOUNCEMENT, if possible.
-Otherwise just display a message."
-  (message announcement))
-
 ;;}}}
 ;;{{{  Using emacs's windows usefully:
 
