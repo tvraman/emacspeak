@@ -2014,9 +2014,6 @@ Speak that chunk after moving."
       (emacspeak-speak-this-personality-chunk))
      (t (error "No more chunks with current personality.")))))
 
-;;; this helper is here since text-property-any doesn't work
-;;; backwards
-
 (defun emacspeak-speak-previous-personality-chunk ()
   "Moves to the front of previous chunk having current personality.
 Speak that chunk after moving."
