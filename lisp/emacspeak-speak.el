@@ -2718,7 +2718,8 @@ char, or dont move. "
 
 ;;;###autoload
 (defun emacspeak-mark-backward-mark ()
-  "Cycle backward through the mark ring."
+  "Cycle backward through the mark ring.
+To cycle forward, use pop-to-mark-command bound to \\[pop-to-mark-command] "
   (interactive)
   (cl-declare (special mark-ring))
   (unless mark-ring (error "Mark ring is empty."))
