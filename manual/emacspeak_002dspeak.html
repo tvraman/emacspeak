@@ -65,16 +65,16 @@
   </div>
   <hr />
   <span id="emacspeak_002dspeak-1"></span>
-  <h3 class="section">12.172 emacspeak-speak</h3>
+  <h3 class="section">12.173 emacspeak-speak</h3>
   <p>This module defines the core speech services used by
   emacspeak. It depends on the speech server interface modules It
   protects other parts of emacspeak from becoming dependent on the
   speech server modules</p><span id=
   "Emacspeak_002dSpeak-Commands"></span>
-  <h4 class="subsection">12.172.1 Emacspeak-Speak
+  <h4 class="subsection">12.173.1 Emacspeak-Speak
   Commands</h4><span id=
   "emacspeak_002d_002dchoose_002dcompletion"></span>
-  <h4 class="subsubsection">12.172.1.1
+  <h4 class="subsubsection">12.173.1.1
   emacspeak–choose-completion</h4>
   <dl>
     <dt id="index-emacspeak_002d_002dchoose_002dcompletion">
@@ -88,7 +88,7 @@
       </div>
     </dd>
   </dl><span id="emacspeak_002d_002dpersist_002dvariable"></span>
-  <h4 class="subsubsection">12.172.1.2
+  <h4 class="subsubsection">12.173.1.2
   emacspeak–persist-variable</h4>
   <dl>
     <dt id="index-emacspeak_002d_002dpersist_002dvariable">Command:
@@ -106,7 +106,7 @@ Arranges for ‘VAR’ to be restored when ‘file’ is loaded.
       </div>
     </dd>
   </dl><span id="emacspeak_002dblink_002dmatching_002dopen"></span>
-  <h4 class="subsubsection">12.172.1.3
+  <h4 class="subsubsection">12.173.1.3
   emacspeak-blink-matching-open</h4>
   <dl>
     <dt id="index-emacspeak_002dblink_002dmatching_002dopen">
@@ -123,7 +123,7 @@ Also display match context in minibuffer.
     </dd>
   </dl><span id=
   "emacspeak_002dcompletions_002dmove_002dto_002dcompletion_002dgroup"></span>
-  <h4 class="subsubsection">12.172.1.4
+  <h4 class="subsubsection">12.173.1.4
   emacspeak-completions-move-to-completion-group</h4>
   <dl>
     <dt id=
@@ -142,23 +142,8 @@ char, or dont move.
 </pre>
       </div>
     </dd>
-  </dl><span id="emacspeak_002ddial_002ddtk"></span>
-  <h4 class="subsubsection">12.172.1.5 emacspeak-dial-dtk</h4>
-  <dl>
-    <dt id="index-emacspeak_002ddial_002ddtk-1">Command:
-    <strong>emacspeak-dial-dtk</strong> <em>(number)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002ddial_002ddtk-2"></span>
-      <div class="format">
-        <pre class=
-        "format">Prompt for and dial a phone NUMBER with the Dectalk.
-
-(fn NUMBER)
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dexecute_002drepeatedly"></span>
-  <h4 class="subsubsection">12.172.1.6
+  <h4 class="subsubsection">12.173.1.5
   emacspeak-execute-repeatedly</h4>
   <dl>
     <dt id="index-emacspeak_002dexecute_002drepeatedly">Command:
@@ -175,7 +160,7 @@ char, or dont move.
       </div>
     </dd>
   </dl><span id="emacspeak_002dgoto_002dpercent"></span>
-  <h4 class="subsubsection">12.172.1.7 emacspeak-goto-percent</h4>
+  <h4 class="subsubsection">12.173.1.6 emacspeak-goto-percent</h4>
   <dl>
     <dt id="index-emacspeak_002dgoto_002dpercent">Command:
     <strong>emacspeak-goto-percent</strong> <em>(percent)</em></dt>
@@ -198,7 +183,7 @@ Also set the mark at the position where point was.
       </div>
     </dd>
   </dl><span id="emacspeak_002dmark_002dbackward_002dmark"></span>
-  <h4 class="subsubsection">12.172.1.8
+  <h4 class="subsubsection">12.173.1.7
   emacspeak-mark-backward-mark</h4>
   <dl>
     <dt id="index-emacspeak_002dmark_002dbackward_002dmark">
@@ -211,12 +196,13 @@ Also set the mark at the position where point was.
       "index-emacspeak_002dmark_002dbackward_002dmark-1"></span>
       <div class="format">
         <pre class="format">Cycle backward through the mark ring.
+To cycle forward, use pop-to-mark-command bound to &lt;C-down&gt; 
 </pre>
       </div>
     </dd>
   </dl><span id=
   "emacspeak_002dminibuffer_002dchoose_002dcompletion"></span>
-  <h4 class="subsubsection">12.172.1.9
+  <h4 class="subsubsection">12.173.1.8
   emacspeak-minibuffer-choose-completion</h4>
   <dl>
     <dt id=
@@ -233,7 +219,7 @@ Also set the mark at the position where point was.
     </dd>
   </dl><span id=
   "emacspeak_002dminibuffer_002dnext_002dcompletion"></span>
-  <h4 class="subsubsection">12.172.1.10
+  <h4 class="subsubsection">12.173.1.9
   emacspeak-minibuffer-next-completion</h4>
   <dl>
     <dt id=
@@ -251,7 +237,7 @@ Also set the mark at the position where point was.
     </dd>
   </dl><span id=
   "emacspeak_002dminibuffer_002dprevious_002dcompletion"></span>
-  <h4 class="subsubsection">12.172.1.11
+  <h4 class="subsubsection">12.173.1.10
   emacspeak-minibuffer-previous-completion</h4>
   <dl>
     <dt id=
@@ -269,7 +255,7 @@ Also set the mark at the position where point was.
       </div>
     </dd>
   </dl><span id="emacspeak_002dopen_002dinfo"></span>
-  <h4 class="subsubsection">12.172.1.12 emacspeak-open-info</h4>
+  <h4 class="subsubsection">12.173.1.11 emacspeak-open-info</h4>
   <dl>
     <dt id="index-emacspeak_002dopen_002dinfo">Command:
     <strong>emacspeak-open-info</strong></dt>
@@ -286,7 +272,7 @@ Also set the mark at the position where point was.
       </div>
     </dd>
   </dl><span id="emacspeak_002dowindow_002dnext_002dline"></span>
-  <h4 class="subsubsection">12.172.1.13
+  <h4 class="subsubsection">12.173.1.12
   emacspeak-owindow-next-line</h4>
   <dl>
     <dt id="index-emacspeak_002dowindow_002dnext_002dline-1">
@@ -309,7 +295,7 @@ Numeric prefix arg COUNT can specify number of lines to move.
     </dd>
   </dl><span id=
   "emacspeak_002dowindow_002dprevious_002dline"></span>
-  <h4 class="subsubsection">12.172.1.14
+  <h4 class="subsubsection">12.173.1.13
   emacspeak-owindow-previous-line</h4>
   <dl>
     <dt id="index-emacspeak_002dowindow_002dprevious_002dline-1">
@@ -331,7 +317,7 @@ Numeric prefix arg COUNT specifies number of lines to move.
       </div>
     </dd>
   </dl><span id="emacspeak_002dowindow_002dscroll_002ddown"></span>
-  <h4 class="subsubsection">12.172.1.15
+  <h4 class="subsubsection">12.173.1.14
   emacspeak-owindow-scroll-down</h4>
   <dl>
     <dt id="index-emacspeak_002dowindow_002dscroll_002ddown-1">
@@ -350,7 +336,7 @@ Speak the window contents after scrolling.
       </div>
     </dd>
   </dl><span id="emacspeak_002dowindow_002dscroll_002dup"></span>
-  <h4 class="subsubsection">12.172.1.16
+  <h4 class="subsubsection">12.173.1.15
   emacspeak-owindow-scroll-up</h4>
   <dl>
     <dt id="index-emacspeak_002dowindow_002dscroll_002dup-1">
@@ -369,7 +355,7 @@ Speak the window contents after scrolling.
       </div>
     </dd>
   </dl><span id="emacspeak_002dowindow_002dspeak_002dline"></span>
-  <h4 class="subsubsection">12.172.1.17
+  <h4 class="subsubsection">12.173.1.16
   emacspeak-owindow-speak-line</h4>
   <dl>
     <dt id="index-emacspeak_002dowindow_002dspeak_002dline">
@@ -387,7 +373,7 @@ Speak the window contents after scrolling.
       </div>
     </dd>
   </dl><span id="emacspeak_002dread_002dnext_002dline"></span>
-  <h4 class="subsubsection">12.172.1.18
+  <h4 class="subsubsection">12.173.1.17
   emacspeak-read-next-line</h4>
   <dl>
     <dt id="index-emacspeak_002dread_002dnext_002dline-1">Command:
@@ -411,27 +397,8 @@ Default is to read the next line.
 </pre>
       </div>
     </dd>
-  </dl><span id="emacspeak_002dread_002dnext_002dword"></span>
-  <h4 class="subsubsection">12.172.1.19
-  emacspeak-read-next-word</h4>
-  <dl>
-    <dt id="index-emacspeak_002dread_002dnext_002dword">Command:
-    <strong>emacspeak-read-next-word</strong> <em>(&amp;optional
-    arg)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dread_002dnext_002dword-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Read next word, specified as a numeric  arg, without moving.
-Default is to read the next word. 
-
-(fn &amp;optional ARG)
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dread_002dprevious_002dline"></span>
-  <h4 class="subsubsection">12.172.1.20
+  <h4 class="subsubsection">12.173.1.18
   emacspeak-read-previous-line</h4>
   <dl>
     <dt id="index-emacspeak_002dread_002dprevious_002dline-1">
@@ -454,27 +421,8 @@ Default is to read the previous line.
 </pre>
       </div>
     </dd>
-  </dl><span id="emacspeak_002dread_002dprevious_002dword"></span>
-  <h4 class="subsubsection">12.172.1.21
-  emacspeak-read-previous-word</h4>
-  <dl>
-    <dt id="index-emacspeak_002dread_002dprevious_002dword">
-    Command: <strong>emacspeak-read-previous-word</strong>
-    <em>(&amp;optional arg)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dread_002dprevious_002dword-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Read previous word, specified as a prefix arg, without moving.
-Default is to read the previous word. 
-
-(fn &amp;optional ARG)
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dshell_002dcommand"></span>
-  <h4 class="subsubsection">12.172.1.22
+  <h4 class="subsubsection">12.173.1.19
   emacspeak-shell-command</h4>
   <dl>
     <dt id="index-emacspeak_002dshell_002dcommand">Command:
@@ -497,7 +445,7 @@ Default is to read the previous word.
       </div>
     </dd>
   </dl><span id="emacspeak_002dsilence"></span>
-  <h4 class="subsubsection">12.172.1.23 emacspeak-silence</h4>
+  <h4 class="subsubsection">12.173.1.20 emacspeak-silence</h4>
   <dl>
     <dt id="index-emacspeak_002dsilence">Command:
     <strong>emacspeak-silence</strong></dt>
@@ -516,7 +464,7 @@ configure which media players get silenced or paused/resumed.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dchar"></span>
-  <h4 class="subsubsection">12.172.1.24
+  <h4 class="subsubsection">12.173.1.21
   emacspeak-speak-and-skip-extent-upto-char</h4>
   <dl>
     <dt id=
@@ -539,7 +487,7 @@ Speak text between point and the char we hit.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dthis_002dchar"></span>
-  <h4 class="subsubsection">12.172.1.25
+  <h4 class="subsubsection">12.173.1.22
   emacspeak-speak-and-skip-extent-upto-this-char</h4>
   <dl>
     <dt id=
@@ -558,14 +506,15 @@ Speak text between point and the char we hit.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dbrowse_002dbuffer_002dby_002dstyle"></span>
-  <h4 class="subsubsection">12.172.1.26
+  <h4 class="subsubsection">12.173.1.23
   emacspeak-speak-browse-buffer-by-style</h4>
   <dl>
     <dt id=
     "index-emacspeak_002dspeak_002dbrowse_002dbuffer_002dby_002dstyle">
     Command:
     <strong>emacspeak-speak-browse-buffer-by-style</strong>
-    <em>(&amp;optional browse)</em></dt>
+    <em>[Arg list not available until function definition is
+    loaded.]</em></dt>
     <dd>
       <span id=
       "index-emacspeak_002dspeak_002dbrowse_002dbuffer_002dby_002dstyle-1">
@@ -581,7 +530,7 @@ Interactive prefix arg ‘browse’  repeatedly browses  through
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dbuffer"></span>
-  <h4 class="subsubsection">12.172.1.27 emacspeak-speak-buffer</h4>
+  <h4 class="subsubsection">12.173.1.24 emacspeak-speak-buffer</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dbuffer-1">Command:
     <strong>emacspeak-speak-buffer</strong> <em>(&amp;optional
@@ -607,7 +556,7 @@ voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dbuffer_002dfilename"></span>
-  <h4 class="subsubsection">12.172.1.28
+  <h4 class="subsubsection">12.173.1.25
   emacspeak-speak-buffer-filename</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dbuffer_002dfilename-1">
@@ -635,7 +584,7 @@ put in the kill ring for convenience.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dbuffer_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.29
+  <h4 class="subsubsection">12.173.1.26
   emacspeak-speak-buffer-interactively</h4>
   <dl>
     <dt id=
@@ -660,7 +609,7 @@ any other key to speak entire buffer.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dchar"></span>
-  <h4 class="subsubsection">12.172.1.30 emacspeak-speak-char</h4>
+  <h4 class="subsubsection">12.173.1.27 emacspeak-speak-char</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dchar-1">Command:
     <strong>emacspeak-speak-char</strong> <em>(&amp;optional
@@ -681,7 +630,7 @@ Pronounces character phonetically unless  called with a PREFIX arg.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dchar_002dname"></span>
-  <h4 class="subsubsection">12.172.1.31
+  <h4 class="subsubsection">12.173.1.28
   emacspeak-speak-char-name</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dchar_002dname">Command:
@@ -698,7 +647,7 @@ Pronounces character phonetically unless  called with a PREFIX arg.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dcompletions_002dif_002davailable"></span>
-  <h4 class="subsubsection">12.172.1.32
+  <h4 class="subsubsection">12.173.1.29
   emacspeak-speak-completions-if-available</h4>
   <dl>
     <dt id=
@@ -715,7 +664,7 @@ Pronounces character phonetically unless  called with a PREFIX arg.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dcontinuously"></span>
-  <h4 class="subsubsection">12.172.1.33
+  <h4 class="subsubsection">12.173.1.30
   emacspeak-speak-continuously</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dcontinuously">Command:
@@ -740,7 +689,7 @@ was spoken.  Any other key continues to speak the buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dcurrent_002dcolumn"></span>
-  <h4 class="subsubsection">12.172.1.34
+  <h4 class="subsubsection">12.173.1.31
   emacspeak-speak-current-column</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dcurrent_002dcolumn-1">
@@ -759,7 +708,7 @@ was spoken.  Any other key continues to speak the buffer.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dcurrent_002dfield"></span>
-  <h4 class="subsubsection">12.172.1.35
+  <h4 class="subsubsection">12.173.1.32
   emacspeak-speak-current-field</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dcurrent_002dfield">
@@ -778,7 +727,7 @@ was spoken.  Any other key continues to speak the buffer.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dcurrent_002dkill"></span>
-  <h4 class="subsubsection">12.172.1.36
+  <h4 class="subsubsection">12.173.1.33
   emacspeak-speak-current-kill</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dcurrent_002dkill-1">
@@ -793,19 +742,19 @@ was spoken.  Any other key continues to speak the buffer.
       </dl><span id=
       "index-emacspeak_002dspeak_002dcurrent_002dkill-2"></span>
       <div class="format">
-        <pre class="format">Speak the current kill entry.
-This is the text that will be yanked in
-by the next &lt;S-insertchar&gt;. Prefix numeric arg, COUNT, specifies that the
-text that will be yanked as a result of a &lt;S-insertchar&gt; followed by count-1
-M-x yank-pop be spoken. The kill number that is spoken says what
-numeric prefix arg to give to command yank.
+        <pre class="format">Speak the current kill.
+This is what will be yanked by the next &lt;S-insertchar&gt;. Prefix numeric
+arg, COUNT, specifies that the text that will be yanked as a
+result of a &lt;S-insertchar&gt; followed by count-1 M-x yank-pop be
+spoken. The kill number that is spoken says what numeric prefix
+arg to give to command yank.
 
 (fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dcurrent_002dmark"></span>
-  <h4 class="subsubsection">12.172.1.37
+  <h4 class="subsubsection">12.173.1.34
   emacspeak-speak-current-mark</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dcurrent_002dmark-1">
@@ -830,8 +779,7 @@ where ‘exchange-point-and-mark’ C-x C-x would
 jump.  Numeric prefix arg ’COUNT’ speaks line containing mark ’n’
 where ’n’ is one less than the number of times one has to jump
 using ‘set-mark-command’ to get to this marked position.  The
-location of the mark is indicated by an aural highlight achieved
-by a change in voice personality.
+location of the mark is indicated by an aural highlight. 
 
 (fn COUNT)
 </pre>
@@ -839,7 +787,7 @@ by a change in voice personality.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dcurrent_002dpercentage"></span>
-  <h4 class="subsubsection">12.172.1.38
+  <h4 class="subsubsection">12.173.1.35
   emacspeak-speak-current-percentage</h4>
   <dl>
     <dt id=
@@ -862,7 +810,7 @@ by a change in voice personality.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dcurrent_002dwindow"></span>
-  <h4 class="subsubsection">12.172.1.39
+  <h4 class="subsubsection">12.173.1.36
   emacspeak-speak-current-window</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dcurrent_002dwindow">
@@ -878,7 +826,7 @@ Speaks entire window irrespective of point.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002ddate_002das_002dseconds"></span>
-  <h4 class="subsubsection">12.172.1.40
+  <h4 class="subsubsection">12.173.1.37
   emacspeak-speak-date-as-seconds</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002ddate_002das_002dseconds">
@@ -896,27 +844,8 @@ Seconds value is also placed in the kill-ring.
 </pre>
       </div>
     </dd>
-  </dl><span id=
-  "emacspeak_002dspeak_002dface_002dinterval_002dand_002dmove"></span>
-  <h4 class="subsubsection">12.172.1.41
-  emacspeak-speak-face-interval-and-move</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dspeak_002dface_002dinterval_002dand_002dmove">
-    Command:
-    <strong>emacspeak-speak-face-interval-and-move</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dface_002dinterval_002dand_002dmove-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Speaks region delimited by text in current face, and moves past the chunk.
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dspeak_002dheader_002dline"></span>
-  <h4 class="subsubsection">12.172.1.42
+  <h4 class="subsubsection">12.173.1.38
   emacspeak-speak-header-line</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dheader_002dline-1">
@@ -935,7 +864,7 @@ Seconds value is also placed in the kill-ring.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dhelp"></span>
-  <h4 class="subsubsection">12.172.1.43 emacspeak-speak-help</h4>
+  <h4 class="subsubsection">12.173.1.39 emacspeak-speak-help</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dhelp-1">Command:
     <strong>emacspeak-speak-help</strong> <em>(&amp;optional
@@ -958,7 +887,7 @@ Negative prefix arg speaks from start of buffer to point.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dhelp_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.44
+  <h4 class="subsubsection">12.173.1.40
   emacspeak-speak-help-interactively</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dhelp_002dinteractively">
@@ -977,7 +906,7 @@ any other key to speak entire help.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dline"></span>
-  <h4 class="subsubsection">12.172.1.45 emacspeak-speak-line</h4>
+  <h4 class="subsubsection">12.173.1.41 emacspeak-speak-line</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dline-1">Command:
     <strong>emacspeak-speak-line</strong> <em>(&amp;optional
@@ -1014,7 +943,7 @@ C-e C-M-l.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dline_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.46
+  <h4 class="subsubsection">12.173.1.42
   emacspeak-speak-line-interactively</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dline_002dinteractively">
@@ -1038,7 +967,7 @@ any other key to speak entire line.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dline_002dnumber"></span>
-  <h4 class="subsubsection">12.172.1.47
+  <h4 class="subsubsection">12.173.1.43
   emacspeak-speak-line-number</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dline_002dnumber-1">
@@ -1059,7 +988,7 @@ any other key to speak entire line.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dline_002dset_002dcolumn_002dfilter"></span>
-  <h4 class="subsubsection">12.172.1.48
+  <h4 class="subsubsection">12.173.1.44
   emacspeak-speak-line-set-column-filter</h4>
   <dl>
     <dt id=
@@ -1093,7 +1022,7 @@ the sense of the filter.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dmessage_002dagain"></span>
-  <h4 class="subsubsection">12.172.1.49
+  <h4 class="subsubsection">12.173.1.45
   emacspeak-speak-message-again</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dmessage_002dagain-1">
@@ -1110,8 +1039,7 @@ the sense of the filter.
       <div class="format">
         <pre class=
         "format">Speak the last message from Emacs once again.
-The message is also placed in the kill ring for convenient yanking
-if ‘emacspeak-speak-message-again-copy-as-kill’ is set.
+The message is also placed in the kill ring for convenient yanking 
 
 (fn &amp;optional FROM-MESSAGE-CACHE)
 </pre>
@@ -1119,7 +1047,7 @@ if ‘emacspeak-speak-message-again-copy-as-kill’ is set.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dmessage_002dat_002dtime"></span>
-  <h4 class="subsubsection">12.172.1.50
+  <h4 class="subsubsection">12.173.1.46
   emacspeak-speak-message-at-time</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dmessage_002dat_002dtime">
@@ -1145,7 +1073,7 @@ See documentation for command run-at-time for details on time-spec.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dmicroseconds_002dsince_002depoch"></span>
-  <h4 class="subsubsection">12.172.1.51
+  <h4 class="subsubsection">12.173.1.47
   emacspeak-speak-microseconds-since-epoch</h4>
   <dl>
     <dt id=
@@ -1167,7 +1095,7 @@ See documentation for command run-at-time for details on time-spec.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dmilliseconds_002dsince_002depoch"></span>
-  <h4 class="subsubsection">12.172.1.52
+  <h4 class="subsubsection">12.173.1.48
   emacspeak-speak-milliseconds-since-epoch</h4>
   <dl>
     <dt id=
@@ -1189,7 +1117,7 @@ See documentation for command run-at-time for details on time-spec.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dminor_002dmode_002dline"></span>
-  <h4 class="subsubsection">12.172.1.53
+  <h4 class="subsubsection">12.173.1.49
   emacspeak-speak-minor-mode-line</h4>
   <dl>
     <dt id=
@@ -1214,7 +1142,7 @@ Optional interactive prefix arg ‘log-msg’ logs spoken info to
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dmode_002dline"></span>
-  <h4 class="subsubsection">12.172.1.54
+  <h4 class="subsubsection">12.173.1.50
   emacspeak-speak-mode-line</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dmode_002dline-1">Command:
@@ -1237,25 +1165,8 @@ Interactive prefix arg speaks buffer info.
 </pre>
       </div>
     </dd>
-  </dl><span id=
-  "emacspeak_002dspeak_002dnext_002dface_002dchunk"></span>
-  <h4 class="subsubsection">12.172.1.55
-  emacspeak-speak-next-face-chunk</h4>
-  <dl>
-    <dt id="index-emacspeak_002dspeak_002dnext_002dface_002dchunk">
-    Command: <strong>emacspeak-speak-next-face-chunk</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dnext_002dface_002dchunk-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Moves to the front of next chunk having current style.
-Speak that chunk after moving.
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dspeak_002dnext_002dfield"></span>
-  <h4 class="subsubsection">12.172.1.56
+  <h4 class="subsubsection">12.173.1.51
   emacspeak-speak-next-field</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dnext_002dfield">Command:
@@ -1275,7 +1186,7 @@ Speak that chunk after moving.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dnext_002dpersonality_002dchunk"></span>
-  <h4 class="subsubsection">12.172.1.57
+  <h4 class="subsubsection">12.173.1.52
   emacspeak-speak-next-personality-chunk</h4>
   <dl>
     <dt id=
@@ -1283,29 +1194,29 @@ Speak that chunk after moving.
     Command:
     <strong>emacspeak-speak-next-personality-chunk</strong></dt>
     <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dnext_002dpersonality_002dchunk-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Moves to the front of next chunk having current personality.
-Speak that chunk after moving.
-</pre>
-      </div>
-    </dd>
-  </dl><span id="emacspeak_002dspeak_002dnext_002dwindow"></span>
-  <h4 class="subsubsection">12.172.1.58
-  emacspeak-speak-next-window</h4>
-  <dl>
-    <dt id="index-emacspeak_002dspeak_002dnext_002dwindow-1">
-    Command: <strong>emacspeak-speak-next-window</strong></dt>
-    <dd>
       <dl compact="compact">
         <dt><kbd>C-e C-n</kbd></dt>
         <dd><span id="index-C_002de-C_002dn-1"></span></dd>
         <dt><kbd>&lt;fn&gt; C-n</kbd></dt>
         <dd><span id="index-_003cfn_003e-C_002dn"></span></dd>
       </dl><span id=
+      "index-emacspeak_002dspeak_002dnext_002dpersonality_002dchunk-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Moves to the front of next personality change and speak it. 
+</pre>
+      </div>
+    </dd>
+  </dl><span id="emacspeak_002dspeak_002dnext_002dwindow"></span>
+  <h4 class="subsubsection">12.173.1.53
+  emacspeak-speak-next-window</h4>
+  <dl>
+    <dt id="index-emacspeak_002dspeak_002dnext_002dwindow-1">
+    Command: <strong>emacspeak-speak-next-window</strong> <em>[Arg
+    list not available until function definition is
+    loaded.]</em></dt>
+    <dd>
+      <span id=
       "index-emacspeak_002dspeak_002dnext_002dwindow-2"></span>
       <div class="format">
         <pre class="format">Speak the next window.
@@ -1313,7 +1224,7 @@ Speak that chunk after moving.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dother_002dbuffer"></span>
-  <h4 class="subsubsection">12.172.1.59
+  <h4 class="subsubsection">12.173.1.54
   emacspeak-speak-other-buffer</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dother_002dbuffer">
@@ -1336,12 +1247,13 @@ Useful to listen to a buffer without switching  contexts.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dother_002dwindow"></span>
-  <h4 class="subsubsection">12.172.1.60
+  <h4 class="subsubsection">12.173.1.55
   emacspeak-speak-other-window</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dother_002dwindow-1">
-    Command: <strong>emacspeak-speak-other-window</strong>
-    <em>(&amp;optional arg)</em></dt>
+    Command: <strong>emacspeak-speak-other-window</strong> <em>[Arg
+    list not available until function definition is
+    loaded.]</em></dt>
     <dd>
       <span id=
       "index-emacspeak_002dspeak_002dother_002dwindow-2"></span>
@@ -1358,7 +1270,7 @@ Optional argument ARG  specifies ‘other’ window to speak.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002doverlay_002dproperties"></span>
-  <h4 class="subsubsection">12.172.1.61
+  <h4 class="subsubsection">12.173.1.56
   emacspeak-speak-overlay-properties</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002doverlay_002dproperties">
@@ -1380,7 +1292,7 @@ Optional argument ARG  specifies ‘other’ window to speak.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dpage"></span>
-  <h4 class="subsubsection">12.172.1.62 emacspeak-speak-page</h4>
+  <h4 class="subsubsection">12.173.1.57 emacspeak-speak-page</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dpage-1">Command:
     <strong>emacspeak-speak-page</strong> <em>(&amp;optional
@@ -1404,7 +1316,7 @@ If option  ‘voice-lock-mode’ is on, then it will use any defined personality
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dpage_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.63
+  <h4 class="subsubsection">12.173.1.58
   emacspeak-speak-page-interactively</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dpage_002dinteractively">
@@ -1428,7 +1340,7 @@ any other key to speak entire page.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dparagraph"></span>
-  <h4 class="subsubsection">12.172.1.64
+  <h4 class="subsubsection">12.173.1.59
   emacspeak-speak-paragraph</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dparagraph-1">Command:
@@ -1454,7 +1366,7 @@ If voice-lock-mode is on, then it will use any defined personality.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dparagraph_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.65
+  <h4 class="subsubsection">12.173.1.60
   emacspeak-speak-paragraph-interactively</h4>
   <dl>
     <dt id=
@@ -1480,7 +1392,7 @@ any other key to speak entire paragraph.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dpreceding_002dchar"></span>
-  <h4 class="subsubsection">12.172.1.66
+  <h4 class="subsubsection">12.173.1.61
   emacspeak-speak-preceding-char</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dpreceding_002dchar">
@@ -1495,7 +1407,7 @@ any other key to speak entire paragraph.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dpredefined_002dwindow"></span>
-  <h4 class="subsubsection">12.172.1.67
+  <h4 class="subsubsection">12.173.1.62
   emacspeak-speak-predefined-window</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dpredefined_002dwindow-1">
@@ -1547,41 +1459,17 @@ any other key to speak entire paragraph.
       "index-emacspeak_002dspeak_002dpredefined_002dwindow-2"></span>
       <div class="format">
         <pre class=
-        "format">Speak one of the first 10 windows on the screen.
-Speaks entire window irrespective of point.
-In general, you’ll never have Emacs split the screen into more than
-two or three.
-Argument ARG determines the ’other’ window to speak.
-Semantics  of ‘other’ is the same as for the builtin Emacs command
-‘other-window’.
+        "format">Speak one of the first 10 windows on the screen, 0 is current window.
+Speaks entire window irrespective of point.  Semantics of ‘other’
+is the same as for the Emacs builtin ‘other-window’.
 
 (fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dspeak_002dprevious_002dface_002dchunk"></span>
-  <h4 class="subsubsection">12.172.1.68
-  emacspeak-speak-previous-face-chunk</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dspeak_002dprevious_002dface_002dchunk">
-    Command:
-    <strong>emacspeak-speak-previous-face-chunk</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dprevious_002dface_002dchunk-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Moves to the front of previous chunk having current face.
-Speak that chunk after moving.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dspeak_002dprevious_002dfield"></span>
-  <h4 class="subsubsection">12.172.1.69
+  <h4 class="subsubsection">12.173.1.63
   emacspeak-speak-previous-field</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dprevious_002dfield">
@@ -1601,7 +1489,7 @@ Speak that chunk after moving.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dprevious_002dpersonality_002dchunk"></span>
-  <h4 class="subsubsection">12.172.1.70
+  <h4 class="subsubsection">12.173.1.64
   emacspeak-speak-previous-personality-chunk</h4>
   <dl>
     <dt id=
@@ -1609,30 +1497,31 @@ Speak that chunk after moving.
     Command:
     <strong>emacspeak-speak-previous-personality-chunk</strong></dt>
     <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dprevious_002dpersonality_002dchunk-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Moves to the front of previous chunk having current personality.
-Speak that chunk after moving.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dspeak_002dprevious_002dwindow"></span>
-  <h4 class="subsubsection">12.172.1.71
-  emacspeak-speak-previous-window</h4>
-  <dl>
-    <dt id="index-emacspeak_002dspeak_002dprevious_002dwindow-1">
-    Command: <strong>emacspeak-speak-previous-window</strong></dt>
-    <dd>
       <dl compact="compact">
         <dt><kbd>C-e C-p</kbd></dt>
         <dd><span id="index-C_002de-C_002dp-1"></span></dd>
         <dt><kbd>&lt;fn&gt; C-p</kbd></dt>
         <dd><span id="index-_003cfn_003e-C_002dp"></span></dd>
       </dl><span id=
+      "index-emacspeak_002dspeak_002dprevious_002dpersonality_002dchunk-1"></span>
+      <div class="format">
+        <pre class=
+        "format">Moves to the front of previous personality change  and
+  speak it. 
+</pre>
+      </div>
+    </dd>
+  </dl><span id=
+  "emacspeak_002dspeak_002dprevious_002dwindow"></span>
+  <h4 class="subsubsection">12.173.1.65
+  emacspeak-speak-previous-window</h4>
+  <dl>
+    <dt id="index-emacspeak_002dspeak_002dprevious_002dwindow-1">
+    Command: <strong>emacspeak-speak-previous-window</strong>
+    <em>[Arg list not available until function definition is
+    loaded.]</em></dt>
+    <dd>
+      <span id=
       "index-emacspeak_002dspeak_002dprevious_002dwindow-2"></span>
       <div class="format">
         <pre class="format">Speak the previous window.
@@ -1640,7 +1529,7 @@ Speak that chunk after moving.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002drectangle"></span>
-  <h4 class="subsubsection">12.172.1.72
+  <h4 class="subsubsection">12.173.1.66
   emacspeak-speak-rectangle</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002drectangle-1">Command:
@@ -1664,7 +1553,7 @@ program, arguments specify the START and END of the rectangle.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dregion"></span>
-  <h4 class="subsubsection">12.172.1.73 emacspeak-speak-region</h4>
+  <h4 class="subsubsection">12.173.1.67 emacspeak-speak-region</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dregion-1">Command:
     <strong>emacspeak-speak-region</strong> <em>(start
@@ -1686,7 +1575,7 @@ program, arguments specify the START and END of the rectangle.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002drest_002dof_002dbuffer"></span>
-  <h4 class="subsubsection">12.172.1.74
+  <h4 class="subsubsection">12.173.1.68
   emacspeak-speak-rest-of-buffer</h4>
   <dl>
     <dt id=
@@ -1708,7 +1597,7 @@ program, arguments specify the START and END of the rectangle.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002drun_002dshell_002dcommand"></span>
-  <h4 class="subsubsection">12.172.1.75
+  <h4 class="subsubsection">12.173.1.69
   emacspeak-speak-run-shell-command</h4>
   <dl>
     <dt id=
@@ -1741,7 +1630,7 @@ normally bound to C-e M-i.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dseconds_002dsince_002depoch"></span>
-  <h4 class="subsubsection">12.172.1.76
+  <h4 class="subsubsection">12.173.1.70
   emacspeak-speak-seconds-since-epoch</h4>
   <dl>
     <dt id=
@@ -1761,7 +1650,7 @@ normally bound to C-e M-i.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dsentence"></span>
-  <h4 class="subsubsection">12.172.1.77
+  <h4 class="subsubsection">12.173.1.71
   emacspeak-speak-sentence</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dsentence">Command:
@@ -1780,7 +1669,7 @@ Negative prefix arg speaks from start of sentence to point.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dset_002ddisplay_002dtable"></span>
-  <h4 class="subsubsection">12.172.1.78
+  <h4 class="subsubsection">12.173.1.72
   emacspeak-speak-set-display-table</h4>
   <dl>
     <dt id=
@@ -1801,7 +1690,7 @@ setting to be global.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dsexp"></span>
-  <h4 class="subsubsection">12.172.1.79 emacspeak-speak-sexp</h4>
+  <h4 class="subsubsection">12.173.1.73 emacspeak-speak-sexp</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dsexp-1">Command:
     <strong>emacspeak-speak-sexp</strong> <em>(&amp;optional
@@ -1824,7 +1713,7 @@ Negative prefix arg speaks from start of sexp to point.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dsexp_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.80
+  <h4 class="subsubsection">12.173.1.74
   emacspeak-speak-sexp-interactively</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dsexp_002dinteractively">
@@ -1843,7 +1732,7 @@ any other key to speak entire sexp.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dskim_002dbuffer"></span>
-  <h4 class="subsubsection">12.172.1.81
+  <h4 class="subsubsection">12.173.1.75
   emacspeak-speak-skim-buffer</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dskim_002dbuffer">Command:
@@ -1864,7 +1753,7 @@ any other key to speak entire sexp.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dspaces_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.172.1.82
+  <h4 class="subsubsection">12.173.1.76
   emacspeak-speak-spaces-at-point</h4>
   <dl>
     <dt id=
@@ -1891,7 +1780,7 @@ any other key to speak entire sexp.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dspell_002dcurrent_002dword"></span>
-  <h4 class="subsubsection">12.172.1.83
+  <h4 class="subsubsection">12.173.1.77
   emacspeak-speak-spell-current-word</h4>
   <dl>
     <dt id=
@@ -1907,24 +1796,8 @@ any other key to speak entire sexp.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dspeak_002dthis_002dface_002dchunk"></span>
-  <h4 class="subsubsection">12.172.1.84
-  emacspeak-speak-this-face-chunk</h4>
-  <dl>
-    <dt id="index-emacspeak_002dspeak_002dthis_002dface_002dchunk">
-    Command: <strong>emacspeak-speak-this-face-chunk</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dthis_002dface_002dchunk-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Speak chunk of text around point that has current face.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dspeak_002dthis_002dpersonality_002dchunk"></span>
-  <h4 class="subsubsection">12.172.1.85
+  <h4 class="subsubsection">12.173.1.78
   emacspeak-speak-this-personality-chunk</h4>
   <dl>
     <dt id=
@@ -1932,18 +1805,21 @@ any other key to speak entire sexp.
     Command:
     <strong>emacspeak-speak-this-personality-chunk</strong></dt>
     <dd>
-      <span id=
-      "index-emacspeak_002dspeak_002dthis_002dpersonality_002dchunk-1">
-      </span>
+      <dl compact="compact">
+        <dt><kbd>C-e C-.</kbd></dt>
+        <dd><span id="index-C_002de-C_002d_002e"></span></dd>
+        <dt><kbd>&lt;fn&gt; C-.</kbd></dt>
+        <dd><span id="index-_003cfn_003e-C_002d_002e"></span></dd>
+      </dl><span id=
+      "index-emacspeak_002dspeak_002dthis_002dpersonality_002dchunk-1"></span>
       <div class="format">
         <pre class=
-        "format">Speak chunk of text around point that has current
-personality.
+        "format">Speak chunk of text having personality at  point.
 </pre>
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dtime"></span>
-  <h4 class="subsubsection">12.172.1.86 emacspeak-speak-time</h4>
+  <h4 class="subsubsection">12.173.1.79 emacspeak-speak-time</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dtime-1">Command:
     <strong>emacspeak-speak-time</strong> <em>(&amp;optional
@@ -1960,7 +1836,6 @@ personality.
 Spoken time  is available in the *notifications* buffer via C-h N.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
-
 Second interactive prefix sets clock to new timezone.
 
 (fn &amp;optional WORLD)
@@ -1968,7 +1843,7 @@ Second interactive prefix sets clock to new timezone.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dversion"></span>
-  <h4 class="subsubsection">12.172.1.87
+  <h4 class="subsubsection">12.173.1.80
   emacspeak-speak-version</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dversion-1">Command:
@@ -1992,7 +1867,7 @@ Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision num
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dvisual_002dline"></span>
-  <h4 class="subsubsection">12.172.1.88
+  <h4 class="subsubsection">12.173.1.81
   emacspeak-speak-visual-line</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dvisual_002dline">Command:
@@ -2008,7 +1883,7 @@ Cues the start of a physical line with auditory icon ‘left’.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs"></span>
-  <h4 class="subsubsection">12.172.1.89
+  <h4 class="subsubsection">12.173.1.82
   emacspeak-speak-voice-annotate-paragraphs</h4>
   <dl>
     <dt id=
@@ -2029,7 +1904,7 @@ Useful to do this before you listen to an entire buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dwhich_002dfunction"></span>
-  <h4 class="subsubsection">12.172.1.90
+  <h4 class="subsubsection">12.173.1.83
   emacspeak-speak-which-function</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dwhich_002dfunction">
@@ -2045,14 +1920,13 @@ Useful to do this before you listen to an entire buffer.
       <div class="format">
         <pre class=
         "format">Speak which function we are on.  Uses which-function from
-which-func without turning that mode on.  We actually use
-semantic to do the work.
+which-func without turning that mode on.  
 </pre>
       </div>
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dwindow_002dinformation"></span>
-  <h4 class="subsubsection">12.172.1.91
+  <h4 class="subsubsection">12.173.1.84
   emacspeak-speak-window-information</h4>
   <dl>
     <dt id=
@@ -2074,7 +1948,7 @@ semantic to do the work.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dword"></span>
-  <h4 class="subsubsection">12.172.1.92 emacspeak-speak-word</h4>
+  <h4 class="subsubsection">12.173.1.85 emacspeak-speak-word</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dword-1">Command:
     <strong>emacspeak-speak-word</strong> <em>(&amp;optional
@@ -2099,7 +1973,7 @@ spelled out  instead of being spoken.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dword_002dinteractively"></span>
-  <h4 class="subsubsection">12.172.1.93
+  <h4 class="subsubsection">12.173.1.86
   emacspeak-speak-word-interactively</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dword_002dinteractively">
@@ -2118,7 +1992,7 @@ any other key to speak entire word.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dworld_002dclock"></span>
-  <h4 class="subsubsection">12.172.1.94
+  <h4 class="subsubsection">12.173.1.87
   emacspeak-speak-world-clock</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dworld_002dclock">Command:
@@ -2138,7 +2012,7 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
     </dd>
   </dl><span id=
   "emacspeak_002dswitch_002dto_002dreference_002dbuffer"></span>
-  <h4 class="subsubsection">12.172.1.95
+  <h4 class="subsubsection">12.173.1.88
   emacspeak-switch-to-reference-buffer</h4>
   <dl>
     <dt id=
@@ -2156,7 +2030,7 @@ Optional second arg ‘set’ sets the TZ environment variable as well.
       </div>
     </dd>
   </dl><span id="emacspeak_002dtoggle_002daction_002dmode"></span>
-  <h4 class="subsubsection">12.172.1.96
+  <h4 class="subsubsection">12.173.1.89
   emacspeak-toggle-action-mode</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002daction_002dmode">
@@ -2175,7 +2049,7 @@ current local  value to the result.
     </dd>
   </dl><span id=
   "emacspeak_002dtoggle_002daudio_002dindentation"></span>
-  <h4 class="subsubsection">12.172.1.97
+  <h4 class="subsubsection">12.173.1.90
   emacspeak-toggle-audio-indentation</h4>
   <dl>
     <dt id=
@@ -2204,7 +2078,7 @@ results in the number of initial spaces being spoken.
     </dd>
   </dl><span id=
   "emacspeak_002dtoggle_002dcharacter_002decho"></span>
-  <h4 class="subsubsection">12.172.1.98
+  <h4 class="subsubsection">12.173.1.91
   emacspeak-toggle-character-echo</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dcharacter_002decho-1">
@@ -2227,7 +2101,7 @@ current local  value to the result.
       </div>
     </dd>
   </dl><span id="emacspeak_002dtoggle_002dheader_002dline"></span>
-  <h4 class="subsubsection">12.172.1.99
+  <h4 class="subsubsection">12.173.1.92
   emacspeak-toggle-header-line</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dheader_002dline">
@@ -2241,7 +2115,7 @@ current local  value to the result.
       </div>
     </dd>
   </dl><span id="emacspeak_002dtoggle_002dline_002decho"></span>
-  <h4 class="subsubsection">12.172.1.100
+  <h4 class="subsubsection">12.173.1.93
   emacspeak-toggle-line-echo</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dline_002decho-1">
@@ -2263,7 +2137,7 @@ current local  value to the result.
       </div>
     </dd>
   </dl><span id="emacspeak_002dtoggle_002dmail_002dalert"></span>
-  <h4 class="subsubsection">12.172.1.101
+  <h4 class="subsubsection">12.173.1.94
   emacspeak-toggle-mail-alert</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dmail_002dalert">Command:
@@ -2287,7 +2161,7 @@ indicating the arrival  of new mail when displaying the mode line.
       </div>
     </dd>
   </dl><span id="emacspeak_002dtoggle_002dshow_002dpoint"></span>
-  <h4 class="subsubsection">12.172.1.102
+  <h4 class="subsubsection">12.173.1.95
   emacspeak-toggle-show-point</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dshow_002dpoint">Command:
@@ -2310,7 +2184,7 @@ current local  value to the result.
     </dd>
   </dl><span id=
   "emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter"></span>
-  <h4 class="subsubsection">12.172.1.103
+  <h4 class="subsubsection">12.173.1.96
   emacspeak-toggle-speak-line-invert-filter</h4>
   <dl>
     <dt id=
@@ -2336,7 +2210,7 @@ current local  value to the result.
     </dd>
   </dl><span id=
   "emacspeak_002dtoggle_002dspeak_002dmessages"></span>
-  <h4 class="subsubsection">12.172.1.104
+  <h4 class="subsubsection">12.173.1.97
   emacspeak-toggle-speak-messages</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dspeak_002dmessages">
@@ -2357,7 +2231,7 @@ current local  value to the result.
       </div>
     </dd>
   </dl><span id="emacspeak_002dtoggle_002dword_002decho"></span>
-  <h4 class="subsubsection">12.172.1.105
+  <h4 class="subsubsection">12.173.1.98
   emacspeak-toggle-word-echo</h4>
   <dl>
     <dt id="index-emacspeak_002dtoggle_002dword_002decho-1">
@@ -2379,7 +2253,7 @@ current local  value to the result.
       </div>
     </dd>
   </dl><span id="emacspeak_002dview_002dnotifications"></span>
-  <h4 class="subsubsection">12.172.1.106
+  <h4 class="subsubsection">12.173.1.99
   emacspeak-view-notifications</h4>
   <dl>
     <dt id="index-emacspeak_002dview_002dnotifications">Command:
@@ -2400,7 +2274,7 @@ current local  value to the result.
       </div>
     </dd>
   </dl><span id="emacspeak_002dvoiceify_002drectangle"></span>
-  <h4 class="subsubsection">12.172.1.107
+  <h4 class="subsubsection">12.173.1.100
   emacspeak-voiceify-rectangle</h4>
   <dl>
     <dt id="index-emacspeak_002dvoiceify_002drectangle">Command:
@@ -2420,7 +2294,7 @@ Prompts for PERSONALITY  with completion when called interactively.
       </div>
     </dd>
   </dl><span id="emacspeak_002dvoiceify_002dregion"></span>
-  <h4 class="subsubsection">12.172.1.108
+  <h4 class="subsubsection">12.173.1.101
   emacspeak-voiceify-region</h4>
   <dl>
     <dt id="index-emacspeak_002dvoiceify_002dregion">Command:
@@ -2439,7 +2313,7 @@ Prompts for PERSONALITY  with completion when called interactively.
       </div>
     </dd>
   </dl><span id="emacspeak_002dzap_002dtts"></span>
-  <h4 class="subsubsection">12.172.1.109 emacspeak-zap-tts</h4>
+  <h4 class="subsubsection">12.173.1.102 emacspeak-zap-tts</h4>
   <dl>
     <dt id="index-emacspeak_002dzap_002dtts">Command:
     <strong>emacspeak-zap-tts</strong></dt>
@@ -2456,9 +2330,9 @@ Prompts for PERSONALITY  with completion when called interactively.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak-Options"></span>
-  <h4 class="subsection">12.172.2 emacspeak-speak Options</h4>
+  <h4 class="subsection">12.173.2 emacspeak-speak Options</h4>
   <dl>
-    <dt id="index-User-Option-728">Variable: <strong>User
+    <dt id="index-User-Option-733">Variable: <strong>User
     Option</strong> <em>emacspeak-audio-indentation</em></dt>
     <dd>
       <p>Option indicating if line indentation is cued. You can use
@@ -2467,7 +2341,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-729">Variable: <strong>User
+    <dt id="index-User-Option-734">Variable: <strong>User
     Option</strong> <em>emacspeak-character-echo</em></dt>
     <dd>
       <p>If t, then emacspeak echoes characters as you type. You
@@ -2475,7 +2349,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-730">Variable: <strong>User
+    <dt id="index-User-Option-735">Variable: <strong>User
     Option</strong> <em>emacspeak-line-echo</em></dt>
     <dd>
       <p>If t, then emacspeak echoes lines as you type. You can use
@@ -2483,21 +2357,17 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-731">Variable: <strong>User
+    <dt id="index-User-Option-736">Variable: <strong>User
     Option</strong> <em>emacspeak-mail-alert</em></dt>
     <dd>
-      <p>Option to indicate cueing of new mail. If t, emacspeak
-      will alert you about newly arrived mail with an auditory icon
-      when displaying the mode line. You can use command
-      ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to set this
-      option. If you have online access to a voicemail drop, you
-      can have a voice-mail alert set up by specifying the location
-      of the voice-mail drop via custom option
-      emacspeak-voicemail-spool-file.</p>
+      <p>If t, emacspeak will alert you about newly arrived mail
+      with an auditory icon when displaying the mode line. You can
+      use command ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to
+      set this option.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-732">Variable: <strong>User
+    <dt id="index-User-Option-737">Variable: <strong>User
     Option</strong> <em>emacspeak-mail-alert-interval</em></dt>
     <dd>
       <p>Interval in seconds between mail alerts for the same
@@ -2505,7 +2375,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-733">Variable: <strong>User
+    <dt id="index-User-Option-738">Variable: <strong>User
     Option</strong> <em>emacspeak-mail-spool-file</em></dt>
     <dd>
       <p>Mail spool file examined to alert you about newly arrived
@@ -2513,14 +2383,14 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-734">Variable: <strong>User
+    <dt id="index-User-Option-739">Variable: <strong>User
     Option</strong> <em>emacspeak-silence-hook</em></dt>
     <dd>
       <p>Functions run after emacspeak-silence is called.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-735">Variable: <strong>User
+    <dt id="index-User-Option-740">Variable: <strong>User
     Option</strong>
     <em>emacspeak-speak-filter-persistent-store</em></dt>
     <dd>
@@ -2528,7 +2398,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-736">Variable: <strong>User
+    <dt id="index-User-Option-741">Variable: <strong>User
     Option</strong> <em>emacspeak-speak-messages</em></dt>
     <dd>
       <p>Option indicating if messages are spoken. If nil,
@@ -2538,7 +2408,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-737">Variable: <strong>User
+    <dt id="index-User-Option-742">Variable: <strong>User
     Option</strong>
     <em>emacspeak-speak-time-format-string</em></dt>
     <dd>
@@ -2548,7 +2418,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-738">Variable: <strong>User
+    <dt id="index-User-Option-743">Variable: <strong>User
     Option</strong>
     <em>emacspeak-speak-zoneinfo-directory</em></dt>
     <dd>
@@ -2556,15 +2426,7 @@ Prompts for PERSONALITY  with completion when called interactively.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-739">Variable: <strong>User
-    Option</strong> <em>emacspeak-voicemail-spool-file</em></dt>
-    <dd>
-      <p>Mail spool file examined to alert you about newly arrived
-      voicemail.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-740">Variable: <strong>User
+    <dt id="index-User-Option-744">Variable: <strong>User
     Option</strong> <em>emacspeak-word-echo</em></dt>
     <dd>
       <p>If t, then emacspeak echoes words as you type. You can use
