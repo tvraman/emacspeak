@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1152 commands and 858 options.
+This chapter documents a total of 1152 commands and 863 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -168,6 +168,7 @@ This chapter documents a total of 1152 commands and 858 options.
 * emacspeak-rust-mode::Speech-enable RUST-MODE.
 * emacspeak-sage::Speech-enable SAGE.
 * emacspeak-sdcv::Speech-enable SDCV.
+* emacspeak-selectrum::Speech-enable SELECTRUM.
 * emacspeak-ses::Speech-enable ses spread-sheet.
 * emacspeak-setup::Setup Emacspeak environment --loaded to start Emacspeak.
 * emacspeak-sgml-mode::Speech enable SGML mode.
@@ -14649,6 +14650,43 @@ You can install additional stardict dictionaries, see
 This module sets up Emacs module sdcv to use all the installed
 dictionaries found on the system.
 
+@node emacspeak-selectrum
+@section emacspeak-selectrum
+
+SELECTRUM ==  Flexibly select from lists.
+
+@subsection emacspeak-selectrum Options
+
+@defvar {User Option} voice-selectrum-completion-annotation
+Personality used for selectrum-completion-annotation
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-selectrum-completion-docsig
+Personality used for selectrum-completion-docsig
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} voice-selectrum-current-candidate
+Personality used for selectrum-current-candidate
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} voice-selectrum-primary-highlight
+Personality used for selectrum-primary-highlight
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} voice-selectrum-secondary-highlight
+Personality used for selectrum-secondary-highlight
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @node emacspeak-ses
 @section emacspeak-ses
 
@@ -15042,6 +15080,7 @@ Also set the mark at the position where point was.
 
 @format
 Cycle backward through the mark ring.
+To cycle forward, use pop-to-mark-command bound to <C-down> 
 @end format
 @end deffn
 
