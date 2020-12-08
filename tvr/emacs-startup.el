@@ -215,7 +215,9 @@ Use Custom to customize where possible. "
 (defun tvr-emacs-lisp-mode-hook ()
   "Dont need capitalize support in emacs lisp."
   (cl-declare (special dtk-caps))
-  (when dtk-caps (setq-default dtk-caps nil)))
+  (when dtk-caps
+    (setq dtk-caps nil)
+    (setq-default dtk-caps nil)))
 
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
