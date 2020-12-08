@@ -212,21 +212,18 @@ Use Custom to customize where possible. "
   (abbrev-mode)
   (unless (eq major-mode 'org-mode) (orgalist-mode)))
 
-(defun tvr-emacs-lisp-mode-hook ()
-  "Dont need capitalize support in emacs lisp."
-  (cl-declare (special dtk-caps))
-  (when dtk-caps
-    (setq dtk-caps nil)
-    (setq-default dtk-caps nil)))
-
 (defun tvr-prog-mode-hook ()
   "TVR:prog-mode"
+  (cl-declare (special dtk-caps))
   (local-set-key "\C-m" 'newline-and-indent)
   (company-mode)
   (hs-minor-mode)
   (auto-fill-mode)
   (cond
    ((memq major-mode '(emacs-lisp-mode lisp-mode lisp-interaction-mode))
+    (when dtk-caps
+      (setq dtk-caps nil)
+      (setq-default dtk-caps nil))
     (lispy-mode ))
    (t (smartparens-mode)))
   (yas-minor-mode)
