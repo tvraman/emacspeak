@@ -3531,63 +3531,6 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
       (dtk-speak-list (list  .city .region_name)))))
 
 ;;}}}
-;;{{{ytel via invideous:
-(declare-function ytel-get-current-video "ytel" nil)
-(declare-function ytel-video-id "ytel" (cl-x))
-
-
-(defvar emacspeak-wizards-yt-url-pattern
-  "https://www.youtube.com/watch?v=%s"
-  "Youtube URL pattern.")
-
-;;;###autoload
-(defun emacspeak-wizards-ytel-play-at-point (id &optional best)
-  "Play video. Argument `id' is the video-id.
-Play current video in ytel when called interactively.
-Optional interactive prefix arg `best' picks best audio format."
-  (interactive
-   (list
-    (ytel-video-id (ytel-get-current-video))
-    current-prefix-arg))
-  (cl-declare (special emacspeak-wizards-yt-url-pattern))
-  (or (require 'ytel 'no-error)
-      (error "Install package ytel from melpa."))
-  (funcall-interactively
-   #'emacspeak-m-player-youtube-player
-   (format emacspeak-wizards-yt-url-pattern id)
-   best))
-
-(defun emacspeak-wizards-ytel-download (id )
-  "Download video at point."
-  (interactive
-   (list (ytel-video-id (ytel-get-current-video))))
-  (cl-declare (special emacspeak-m-player-youtube-dl
-                       emacspeak-wizards-yt-url-pattern))
-  (or (require 'ytel 'no-error)
-      (error "Install package ytel from melpa."))
-  (let ((default-directory (expand-file-name "~/Downloads")))
-    (shell-command
-     (format "%s '%s' & "
-             emacspeak-m-player-youtube-dl
-             (format emacspeak-wizards-yt-url-pattern id)))))
-
-(when
-    (and (locate-library "ytel")
-         (boundp 'ytel-mode-map)
-         (keymapp ytel-mode-map))
-  (cl-declaim (special ytel-mode-map))
-  (define-key  ytel-mode-map (ems-kbd "d") #'emacspeak-wizards-ytel-download)
-  (define-key  ytel-mode-map (ems-kbd "RET") #'emacspeak-wizards-ytel-play-at-point)
-  (define-key  ytel-mode-map "." #'emacspeak-wizards-ytel-play-at-point))
-
-
-(defadvice ytel (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'opten-object)
-    (emacspeak-speak-line)))
-
-;;}}}
 ;;{{{  Submit bugs
 
 (defconst emacspeak-bug-address
