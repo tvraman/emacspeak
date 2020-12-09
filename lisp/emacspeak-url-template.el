@@ -1329,19 +1329,6 @@ template."
 
 
 ;;}}}
-;;{{{Youtube News:
-
-(declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
-(declare-function eww-display-dom-by-class "emacspeak-eww" (class))
-
-(emacspeak-url-template-define
- "Youtube News"
- "https://www.youtube.com/news?disable_polymer=1"
- nil
- #'(lambda nil (eww-display-dom-by-element 'h3))
- "News Headlines From Youtube")
-
-;;}}}
 ;;{{{Currency Conversion:
 
 (defcustom emacspeak-url-template-currency-base
