@@ -172,6 +172,8 @@ Use Custom to customize where possible. "
    (global-set-key (ems-kbd (format "C-c %s" i)) 'emacspeak-wizards-shell-by-key))
 ;;; Smarten up ctl-x-map
   (define-key ctl-x-map "c" 'compile)
+  (define-key ctl-x-map "g" 'magit-status)
+  (define-key ctl-x-map "\M-g" 'magit-dispatch)
   (define-key ctl-x-map "j" 'pop-global-mark)
   (define-key ctl-x-map "u"  'undo-only)
   (define-key ctl-x-map (ems-kbd "C-u") 'undo-redo)
