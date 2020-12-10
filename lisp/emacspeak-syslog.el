@@ -82,7 +82,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (forward-line -2)
-    (emacspeak-speak-line-number)
+    (what-line)
     (emacspeak-auditory-icon 'ellipses)))
 
 

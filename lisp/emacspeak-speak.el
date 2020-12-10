@@ -1660,7 +1660,7 @@ Optional interactive prefix arg `log-msg' logs spoken info to
     (when log-msg (ems--log-message info))
     (dtk-speak  info)))
 
-(cl--defalias 'emacspeak-speak-line-number 'what-line)
+
 
 ;;;###autoload
 (defun emacspeak-speak-buffer-filename (&optional filename)
