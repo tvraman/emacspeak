@@ -574,7 +574,7 @@ interactive command that the key sequence executes."
     ("." emacspeak-wizards-shell-directory-reset)
     ("a" emacspeak-wizards-execute-asynchronously)
     ("f" flyspell-mode)
-    ("g" emacspeak-google-tts-region)
+    ("g" magit-file-dispatch)
     ("j" ido-imenu-anywhere)
     ("o" org-switchb)
     ("n" emacspeak-wizards-google-news)
