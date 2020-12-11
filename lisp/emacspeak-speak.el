@@ -2532,7 +2532,6 @@ Argument O specifies overlay."
 ;;}}}
 ;;{{{ Speaking spaces
 
-
 (defun emacspeak-speak-spaces-at-point ()
   "Speak the white space at point."
   (interactive)
@@ -2553,7 +2552,7 @@ Argument O specifies overlay."
 ;;}}}
 ;;{{{  completion helpers
 
-;;{{{ switching to completions window from minibuffer:
+;;; switching to completions window from minibuffer:
 
 (defun emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
@@ -2630,7 +2629,7 @@ char, or dont move. "
              (format "%c" char)
              'emacspeak-completions-move-to-completion-group)))
 
-;;}}}
+
 
 ;;}}}
 ;;{{{ mark convenience commands
