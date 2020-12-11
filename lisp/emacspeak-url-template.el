@@ -447,10 +447,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Search Google news."
  #'emacspeak-url-template-google-atom-news-display)
 
-
-
-
-
 ;;}}}
 ;;{{{ Google Structured Data Parser:
 
@@ -559,6 +555,7 @@ name of the list.")
       emacspeak-we-url-executor 'emacspeak-url-template-cnn-content))
  "News Headlines From CNN"
  #'emacspeak-feeds-rss-display)
+(declare-function eww-display-dom-by-element "emacspeak-eww" (tag))
 
 (emacspeak-url-template-define
  "Money Headlines From CNN"
