@@ -2368,18 +2368,6 @@ program, arguments specify the START and END of the rectangle."
   (require 'rect)
   (dtk-speak-list (extract-rectangle start end)))
 
-;;; helper function: emacspeak-put-personality
-
-
-
-;;; Compute table of possible voices to use in completing-read
-;;; We rely on dectalk-voice-table as our default voice table.
-;;; Names defined in this --- and other voice tables --- are
-;;; generic --and  not device specific.
-;;;
-
-
-
 ;;}}}
 ;;{{{  Matching delimiters:
 
