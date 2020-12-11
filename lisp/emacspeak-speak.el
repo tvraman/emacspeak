@@ -2569,9 +2569,9 @@ Argument O specifies overlay."
         (save-match-data
           (with-silent-modifications
             (while (search-forward string nil t)
-              (put-text-property (match-beginning 0)
-                                 (match-end 0)
-                                 'personality 'inaudible))))))))
+              (put-text-property
+               (match-beginning 0) (match-end 0)
+               'personality 'inaudible))))))))
 
 
 (defun emacspeak-switch-to-reference-buffer ()
