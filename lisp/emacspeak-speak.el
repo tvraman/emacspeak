@@ -2660,19 +2660,17 @@ To cycle forward, use pop-to-mark-command bound to \\[pop-to-mark-command] "
 
 ;;}}}
 ;;{{{  speak message at time
+
 ;;;###autoload
 (defun emacspeak-speak-message-at-time (time message)
-  "Set up ring-at-time to speak message at specified time.
-Provides simple stop watch functionality in addition to other things.
+  "Speak message at specified time.
+Provides simple stop watch functionality.
 See documentation for command run-at-time for details on time-spec."
-  (interactive
-   (list
-    (read-from-minibuffer "Time specification:  ")
+  (interactive (list (read-from-minibuffer "Time specification:  ")
     (read-from-minibuffer "Message: ")))
   (run-at-time
    time nil
    #'(lambda (m)
-       (message m)
        (dtk-notify-speak m)
        (when emacspeak-use-auditory-icons (emacspeak-play-auditory-icon 'alarm))
        (sox-tones))
