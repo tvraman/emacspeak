@@ -7125,8 +7125,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘C-e @’
      ‘<fn> @’
 
-     Set up ring-at-time to speak message at specified time.
-     Provides simple stop watch functionality in addition to other things.
+     Speak message at specified time.
+     Provides simple stop watch functionality.
      See documentation for command run-at-time for details on time-spec.
 
      (fn TIME MESSAGE)
