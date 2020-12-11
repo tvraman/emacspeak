@@ -2719,9 +2719,6 @@ configure which media players get silenced or paused/resumed."
   (run-hooks 'emacspeak-silence-hook))
 
 ;;}}}
-;;{{{ Search
-
-;;}}}
 ;;{{{ Smart date prompers:
 
 (defun emacspeak-speak-collect-date (prompt time-format-string)
