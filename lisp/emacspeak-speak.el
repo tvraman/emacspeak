@@ -2558,7 +2558,7 @@ Argument O specifies overlay."
   "Return contents of the minibuffer."
   (save-current-buffer
     (set-buffer (window-buffer (minibuffer-window)))
-    (minibuffer-contents-no-properties)))
+    (minibuffer-contents)))
 
 ;;; Make all occurrences of string inaudible
 (defun emacspeak-make-string-inaudible (string)
