@@ -236,22 +236,9 @@ Speak field or char moved to."
     'emacspeak-analog-backward-field-or-char)
   (define-key analog-mode-map '[right] 'emacspeak-analog-forward-field-or-char)
   (define-key analog-mode-map '[up] 'emacspeak-analog-previous-line)
-  (define-key analog-mode-map '[down] 'emacspeak-analog-next-line)
-  )
+  (define-key analog-mode-map '[down] 'emacspeak-analog-next-line))
 
-(defun emacspeak-analog-update-edit-keys ()
-  "We define keys that invoke editing commands to invoke
-emacspeak-speak-and-skip-extent-upto-char "
-  (cl-declare (special analog-mode-map))
-  (mapcar 
-   #'(lambda (cmd)
-       (cl-loop for k in
-                (where-is-internal cmd)
-                do
-                (define-key analog-mode-map k
-                  'emacspeak-speak-and-skip-extent-upto-this-char)))
-   (list 'emacspeak-self-insert-command
-         'completion-separator-self-insert-command)))
+
 
 ;;}}}
 (provide 'emacspeak-analog)

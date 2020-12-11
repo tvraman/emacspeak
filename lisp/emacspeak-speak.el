@@ -2633,6 +2633,7 @@ char, or dont move. "
 ;;{{{ mark convenience commands
 
 (defun emacspeak-mark-speak-mark-line ()
+  "Helper to speak line containing mark."
   (cl-declare (special voice-animate))
   (emacspeak-auditory-icon 'mark-object)
   (ems-set-personality-temporarily (point) (1+ (point))
@@ -2656,34 +2657,6 @@ To cycle forward, use pop-to-mark-command bound to \\[pop-to-mark-command] "
       (move-marker target nil)
       (when (called-interactively-p 'interactive)
         (emacspeak-mark-speak-mark-line)))))
-
-;;}}}
-;;{{{ speaking an extent of text delimited by specified char
-
-
-(defun emacspeak-speak-and-skip-extent-upto-char (char)
-  "Search forward from point until we hit char.
-Speak text between point and the char we hit."
-  (interactive (list (read-char "Char: ")))
-  (let ((start (point))
-        (goal nil))
-    (save-excursion
-      (cond
-       ((search-forward (format "%c" char)
-                        (point-max)
-                        'no-error)
-        (setq goal (point))
-        (emacspeak-speak-region start goal)
-        (emacspeak-auditory-icon 'select-object))
-       (t (error "Could not find %c" char))))
-    (when goal (goto-char goal))))
-
-
-(defun emacspeak-speak-and-skip-extent-upto-this-char ()
-  "Speak extent delimited by point and last character typed."
-  (interactive)
-  (cl-declare (special last-input-event))
-  (emacspeak-speak-and-skip-extent-upto-char last-input-event))
 
 ;;}}}
 ;;{{{  speak message at time
