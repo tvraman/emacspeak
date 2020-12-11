@@ -2629,8 +2629,6 @@ char, or dont move. "
              (format "%c" char)
              'emacspeak-completions-move-to-completion-group)))
 
-
-
 ;;}}}
 ;;{{{ mark convenience commands
 
