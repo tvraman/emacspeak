@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2018, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
@@ -336,7 +337,6 @@
    ("e" end-of-line)
    ("g" emacspeak-epub)
    ("h" emacspeak-speak-help)
-   ("i" emacspeak-tabulate-region)
    ("j" emacspeak-hide-or-expose-block)
    ("k" emacspeak-speak-current-kill)
    ("l" emacspeak-speak-line)

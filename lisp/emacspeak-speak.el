@@ -2133,6 +2133,7 @@ was spoken.  Any other key continues to speak the buffer."
 
 ;;}}}
 ;;{{{  Speak the last message again:
+
 (defvar ems--message-filter-pattern nil
   "Internal variable holding  pattern used to filter spoken messages.")
 
@@ -2400,8 +2401,7 @@ Prompts for PERSONALITY  with completion when called interactively."
     (when (called-interactively-p 'interactive)
       (setq personality
             (read
-             (completing-read "Use personality: "
-                              personality-table nil t))))
+             (completing-read "Use personality: " personality-table nil t))))
     (with-silent-modifications
       (operate-on-rectangle
        #'(lambda (start-seg _begextra _endextra)
