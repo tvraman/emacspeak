@@ -2520,7 +2520,6 @@ Also display match context in minibuffer."
   "Kill BUFFER BUF if it exists."
   (and buffer
        (get-buffer buffer)
-       (buffer-name (get-buffer buffer))
        (kill-buffer buffer)))
 
 (defun emacspeak-overlay-get-text (o)
