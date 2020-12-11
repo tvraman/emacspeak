@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1152 commands and 863 options.
+This chapter documents a total of 1140 commands and 863 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -8871,15 +8871,6 @@ Optional interactive prefix arg ‘lang’ specifies  language identifier.
 
 @subsubsection emacspeak-google-tts-region
 @deffn {Command} emacspeak-google-tts-region  (start end &optional ask-lang)
-@table @kbd
-@item C-. g
-@kindex C-. g
-@item C-' g
-@kindex C-' g
-@item C-x @@ s g
-@kindex C-x @@ s g
-@end table
-
 @findex emacspeak-google-tts-region
 
 @format
@@ -15277,41 +15268,6 @@ configure which media players get silenced or paused/resumed.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-and-skip-extent-upto-char
-@deffn {Command} emacspeak-speak-and-skip-extent-upto-char  (char)
-@findex emacspeak-speak-and-skip-extent-upto-char
-
-@format
-Search forward from point until we hit char.
-Speak text between point and the char we hit.
-
-(fn CHAR)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-and-skip-extent-upto-this-char
-@deffn {Command} emacspeak-speak-and-skip-extent-upto-this-char   
-@findex emacspeak-speak-and-skip-extent-upto-this-char
-
-@format
-Speak extent delimited by point and last character typed.
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-browse-buffer-by-style
-@deffn {Command} emacspeak-speak-browse-buffer-by-style  [Arg list not available until function definition is loaded.]
-@findex emacspeak-speak-browse-buffer-by-style
-
-@format
-Browse current buffer by style.
-Default is to speak chunk having current style.
-Interactive prefix arg ‘browse’  repeatedly browses  through
-  chunks having same style as the current text chunk.
-
-(fn &optional BROWSE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-buffer
 @deffn {Command} emacspeak-speak-buffer  (&optional arg)
 @table @kbd
@@ -15656,22 +15612,6 @@ any other key to speak entire line.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-line-number
-@deffn {Command} emacspeak-speak-line-number   
-@table @kbd
-@item C-e C-l
-@kindex C-e C-l
-@item <fn> C-l
-@kindex <fn> C-l
-@end table
-
-@findex emacspeak-speak-line-number
-
-@format
-Print the current buffer line number and narrowed line number of point.
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-line-set-column-filter
 @deffn {Command} emacspeak-speak-line-set-column-filter  (filter)
 @table @kbd
@@ -15832,15 +15772,6 @@ Moves to the front of next personality change and speak it.
 @end format
 @end deffn
 
-@subsubsection emacspeak-speak-next-window
-@deffn {Command} emacspeak-speak-next-window  [Arg list not available until function definition is loaded.]
-@findex emacspeak-speak-next-window
-
-@format
-Speak the next window.
-@end format
-@end deffn
-
 @subsubsection emacspeak-speak-other-buffer
 @deffn {Command} emacspeak-speak-other-buffer  (buffer)
 @table @kbd
@@ -15857,21 +15788,6 @@ Speak specified buffer.
 Useful to listen to a buffer without switching  contexts.
 
 (fn BUFFER)
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-other-window
-@deffn {Command} emacspeak-speak-other-window  [Arg list not available until function definition is loaded.]
-@findex emacspeak-speak-other-window
-
-@format
-Speak contents of ‘other’ window.
-Speaks entire window irrespective of point.
-Semantics  of ‘other’ is the same as for the builtin Emacs command
-‘other-window’.
-Optional argument ARG  specifies ‘other’ window to speak.
-
-(fn &optional ARG)
 @end format
 @end deffn
 
@@ -16066,15 +15982,6 @@ Move to previous field and speak it.
 @format
 Moves to the front of previous personality change  and
   speak it. 
-@end format
-@end deffn
-
-@subsubsection emacspeak-speak-previous-window
-@deffn {Command} emacspeak-speak-previous-window  [Arg list not available until function definition is loaded.]
-@findex emacspeak-speak-previous-window
-
-@format
-Speak the previous window.
 @end format
 @end deffn
 
@@ -16621,34 +16528,6 @@ current local  value to the result.
 
 @format
 Display notifications.
-@end format
-@end deffn
-
-@subsubsection emacspeak-voiceify-rectangle
-@deffn {Command} emacspeak-voiceify-rectangle  (start end &optional personality)
-@findex emacspeak-voiceify-rectangle
-
-@format
-Voicify the current rectangle.
-When calling from a program,arguments are
-START END personality
-Prompts for PERSONALITY  with completion when called interactively.
-
-(fn START END &optional PERSONALITY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-voiceify-region
-@deffn {Command} emacspeak-voiceify-region  (start end &optional personality)
-@findex emacspeak-voiceify-region
-
-@format
-Voicify the current region.
-When calling from a program,arguments are
-START END personality.
-Prompts for PERSONALITY  with completion when called interactively.
-
-(fn START END &optional PERSONALITY)
 @end format
 @end deffn
 
@@ -17914,28 +17793,6 @@ The processed  data is  presented using emacspeak table navigation.
 
 This module is a simple table recognizer.
 Can recognize the columns in tabulated output, e.g. ps, ls output
-
-@subsection Emacspeak-Tabulate Commands
-
-@subsubsection emacspeak-tabulate-region
-@deffn {Command} emacspeak-tabulate-region  (start end &optional mark-fields)
-@table @kbd
-@item C-e i
-@kindex C-e i
-@item <fn> i
-@kindex <fn> i
-@end table
-
-@findex emacspeak-tabulate-region
-
-@format
-Voicifies the white-space of a table if one found.  Optional interactive prefix
-arg mark-fields specifies if the header row information is used to mark fields
-in the white-space.
-
-(fn START END &optional MARK-FIELDS)
-@end format
-@end deffn
 
 @node emacspeak-tapestry
 @section emacspeak-tapestry
@@ -21191,11 +21048,6 @@ external package.
 
 @subsubsection emacspeak-wizards-generate-finder
 @deffn {Command} emacspeak-wizards-generate-finder   
-@table @kbd
-@item C-z f
-@kindex C-z f
-@end table
-
 @findex emacspeak-wizards-generate-finder
 
 @format
@@ -22080,30 +21932,6 @@ Buffer menu filtered by  mode of current-buffer.
 Read a personality  and apply it to the current line.
 
 (fn PERSONALITY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-ytel-download
-@deffn {Command} emacspeak-wizards-ytel-download  (id)
-@findex emacspeak-wizards-ytel-download
-
-@format
-Download video at point.
-
-(fn ID)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-ytel-play-at-point
-@deffn {Command} emacspeak-wizards-ytel-play-at-point  (id &optional best)
-@findex emacspeak-wizards-ytel-play-at-point
-
-@format
-Play video. Argument ‘id’ is the video-id.
-Play current video in ytel when called interactively.
-Optional interactive prefix arg ‘best’ picks best audio format.
-
-(fn ID &optional BEST)
 @end format
 @end deffn
 
@@ -24134,7 +23962,7 @@ Turn screen white.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 77 URL Templates.
+This section documents a total of 76 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -24291,9 +24119,7 @@ Search WikiData.@item @b{WordNet Search}
 
 Look up term in WordNet.@item @b{Yahoo RSSNews}
 
-News  From Yahoo As RSS.@item @b{Youtube News}
-
-News Headlines From Youtube@item @b{fedex packages}
+News  From Yahoo As RSS.@item @b{fedex packages}
 
 Display package tracking information from Fedex.@item @b{html Google News Search}
 
