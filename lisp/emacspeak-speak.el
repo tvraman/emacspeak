@@ -2522,7 +2522,7 @@ Also display match context in minibuffer."
        (get-buffer buffer)
        (kill-buffer buffer)))
 
-(defun emacspeak-overlay-get-text (o)
+(defsubst emacspeak-overlay-get-text (o)
   "Return text under overlay OVERLAY.
 Argument O specifies overlay."
   (save-current-buffer
