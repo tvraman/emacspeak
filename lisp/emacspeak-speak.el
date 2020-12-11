@@ -1846,6 +1846,7 @@ Seconds value is also placed in the kill-ring."
     (message "%s" result)
     (kill-new result)
     result))
+
 ;;}}}
 ;;{{{ Codenames etc.
 (defvar emacspeak-codename
@@ -2511,14 +2512,6 @@ Also display match context in minibuffer."
                    (substring-no-properties
                     open-paren-line-string))
           (sit-for blink-matching-delay)))))))
-
-(defun emacspeak-use-customized-blink-paren ()
-  "A customized blink-paren to speak  matching opening paren.
-We need to call this in case Emacs is anal and loads its own
-builtin blink-paren function which does not talk."
-  (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
-  (and (called-interactively-p 'interactive)
-       (message "Using customized blink-paren function provided by Emacspeak.")))
 
 ;;}}}
 ;;{{{  Auxillary functions:
