@@ -707,7 +707,9 @@ command that the key sequence executes."
   '(
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" emacspeak-wizards-eww-buffer-list)
-    ("f" emacspeak-wizards-generate-finder)
+    ("f" magit-file-dispatch)
+    ("d" magit-dispatch)
+    ("s" magit-status)
     ("m" pop-global-mark)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
