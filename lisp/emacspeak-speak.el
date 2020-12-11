@@ -2369,11 +2369,8 @@ program, arguments specify the START and END of the rectangle."
   (dtk-speak-list (extract-rectangle start end)))
 
 ;;; helper function: emacspeak-put-personality
-;;; sets property 'personality to personality
-(defun emacspeak-put-personality (start end personality)
-  "Apply specified personality to region delimited by START and END.
-Argument PERSONALITY gives the value for property personality."
-  (put-text-property start end 'personality personality))
+
+
 
 ;;; Compute table of possible voices to use in completing-read
 ;;; We rely on dectalk-voice-table as our default voice table.
@@ -2381,58 +2378,7 @@ Argument PERSONALITY gives the value for property personality."
 ;;; generic --and  not device specific.
 ;;;
 
-(defun emacspeak-possible-voices ()
-  "Return possible voices."
-  (cl-declare (special dectalk-voice-table))
-  (cl-loop for key being the hash-keys of dectalk-voice-table
-           collect (cons
-                    (symbol-name key)
-                    (symbol-name key))))
 
-
-(defun emacspeak-voiceify-rectangle (start end &optional personality)
-  "Voicify the current rectangle.
-When calling from a program,arguments are
-START END personality
-Prompts for PERSONALITY  with completion when called interactively."
-  (interactive "r")
-  (require 'rect)
-  (let ((personality-table (emacspeak-possible-voices)))
-    (when (called-interactively-p 'interactive)
-      (setq personality
-            (read
-             (completing-read "Use personality: " personality-table nil t))))
-    (with-silent-modifications
-      (operate-on-rectangle
-       #'(lambda (start-seg _begextra _endextra)
-           (emacspeak-put-personality start-seg (point) personality))
-       start end nil))))
-
-
-(defun emacspeak-voiceify-region (start end &optional personality)
-  "Voicify the current region.
-When calling from a program,arguments are
-START END personality.
-Prompts for PERSONALITY  with completion when called interactively."
-  (interactive "r")
-  (let ((personality-table (emacspeak-possible-voices)))
-    (when (called-interactively-p 'interactive)
-      (setq personality
-            (read
-             (completing-read "Use personality: "
-                              personality-table nil t))))
-    (put-text-property start end 'personality personality)))
-
-(defun emacspeak-put-text-property-on-rectangle (start end prop value)
-  "Set property to specified value for each line in the rectangle.
-Argument START and END specify the rectangle.
-Argument PROP specifies the property and VALUE gives the
-value to apply."
-  (require 'rect)
-  (operate-on-rectangle
-   #'(lambda (start-seg _begextra _endextra)
-       (put-text-property start-seg (point) prop value))
-   start end nil))
 
 ;;}}}
 ;;{{{  Matching delimiters:

@@ -140,20 +140,6 @@ Fields are assumed to be delimited by whitespace. "
                 new-guesses nil))
         guesses))))
 
-(defun ems-tabulate-process-column (tl tr br _bl mark-headers start)
-  (let ((header (buffer-substring  tl tr))
-        (personality-table (emacspeak-possible-voices)))
-    (emacspeak-voiceify-rectangle
-     tl br 
-     (intern (completing-read
-              (format "Personality for column %s from  %s through %s"
-                      header (- tl start) (- tr start))
-              personality-table  nil t)))
-    (and mark-headers
-         (emacspeak-put-text-property-on-rectangle
-          tl br
-          'field-name header))))
-
 ;;;  White space contains a list of intervals giving position of inter
 ;;;  columnal space. All calculations are done in terms of buffer
 ;;;  position.
