@@ -2719,7 +2719,7 @@ configure which media players get silenced or paused/resumed."
   (run-hooks 'emacspeak-silence-hook))
 
 ;;}}}
-;;{{{ Smart date prompers:
+;;{{{ Smart date prompe:
 
 (defun emacspeak-speak-collect-date (prompt time-format-string)
   "Smart date collector.
@@ -2832,6 +2832,7 @@ This function is sensitive to calendar mode when prompting."
 
 ;;}}}
 ;;{{{ Describe help map:
+
 ;;;###autoload
 (defun describe-help-keys ()
   "Show bindings under C-h."
