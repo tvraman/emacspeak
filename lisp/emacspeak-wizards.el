@@ -488,8 +488,8 @@ With optional interactive prefix arg `frame', move to previous frame instead."
 ;;}}}
 ;;{{{  readng different displays of same buffer
 ;;;###autoload
-(defun emacspeak-speak-this-buffer-other-window-display (&optional arg)
-  "Speak this buffer as displayed in a different frame.  Emacs
+(defun emacspeak-speak-this-buffer-other-window-display ( window)
+  "Speak this buffer as displayed in a different frame or window.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
 portions of the buffer.  This is equivalent to leaving a
@@ -500,27 +500,19 @@ displays you wish to speak.  Typically you will have two or
 at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to speak."
-  (interactive "P")
-  (let ((window
-         (or arg
-             (condition-case nil
-                 (read (format "%c" last-input-event))
-               (error nil))))
-        (win nil)
-        (window-list (get-buffer-window-list
-                      (current-buffer)
-                      nil 'visible)))
+  (interactive (list (read-number "Frame Or Window: " 0)))
+  (let ((win nil)
+        (window-list (get-buffer-window-list (current-buffer) nil 'visible)))
     (or (numberp window)
         (setq window
               (read-minibuffer "Display    to speak")))
-    (setq win
-          (nth (% window (length window-list))
-               window-list))
+    (setq win (nth (% window (length window-list)) window-list))
     (save-excursion
       (save-window-excursion
         (emacspeak-speak-region
          (window-point win)
          (window-end win))))))
+
 ;;;###autoload
 (defun emacspeak-speak-this-buffer-previous-display ()
   "Speak this buffer as displayed in a `previous' window.
