@@ -464,18 +464,8 @@ To leave, press \\[keyboard-quit]."
                  frame-names-alist nil t nil 'frame-name-history)))
     (if (= (length input) 0)
         default)))
-;;;###autoload
-(defun emacspeak-frame-label-or-switch-to-labelled-frame (&optional prefix)
-  "Switch to labelled frame.
-With optional PREFIX argument, label current frame."
-  (interactive "P")
-  (cond
-   (prefix
-    (call-interactively 'set-frame-name))
-   (t (call-interactively 'select-frame-by-name)))
-  (when (called-interactively-p 'interactive)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+
+
 
 ;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
