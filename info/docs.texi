@@ -20307,7 +20307,7 @@ meaning of ‘next’.
 @end deffn
 
 @subsubsection emacspeak-speak-this-buffer-other-window-display
-@deffn {Command} emacspeak-speak-this-buffer-other-window-display  (&optional arg)
+@deffn {Command} emacspeak-speak-this-buffer-other-window-display  (window)
 @table @kbd
 @item C-e /
 @kindex C-e /
@@ -20318,7 +20318,7 @@ meaning of ‘next’.
 @findex emacspeak-speak-this-buffer-other-window-display
 
 @format
-Speak this buffer as displayed in a different frame.  Emacs
+Speak this buffer as displayed in a different frame or window.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
 portions of the buffer.  This is equivalent to leaving a
@@ -20330,7 +20330,7 @@ at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to speak.
 
-(fn &optional ARG)
+(fn WINDOW)
 @end format
 @end deffn
 
