@@ -486,21 +486,11 @@
     ("" desktop-clear)
 
     ) 
-  "Specifies personal key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
-for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e x s.
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
-
-Command is an interactive command or a prefix-command that can be
-bound to a key. 
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes."
+  "Key bindings for  C-e x.
+For example, binding  `s' to 
+emacspeak-emergency-tts-restart makes  it available on C-e x s.
+KEYS should be a string  in the format used by `kbd'.
+Command is an interactive command or a prefix-command ."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal Keymap"
@@ -529,19 +519,13 @@ interactive command that the key sequence executes."
   'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
-  "Specifies personal-ctlx key bindings for use with C-e C-x for
-the audio desktop. Bindings specified here are available on
-prefix key C-e C-x for example, if you bind `C-s' to command
-emacspeak-emergency-tts-restart then that command will be
-available on key C-e C-x C-s. KEYS should be a string constant in
-the format used for saving keyboard macros (see `edmacro-mode').
-
-Command is an interactive command or a prefix-command that can be
-bound to a key.
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes."
+  "Key bindings for use with C-e C-x.
+ Bindings specified here are available on
+prefix key C-e C-x, for example, binding  `C-s' to 
+emacspeak-emergency-tts-restart makes it 
+available on key C-e C-x C-s. KEYS should be a string  in
+the format used by `kbd'.
+Command is an interactive command or a prefix-command . "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal-Ctlx Keymap"
@@ -569,30 +553,29 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-super-keys 
   '(
-    ("SPC"  emacspeak-wizards-scratch)
+        ("." emacspeak-wizards-shell-directory-reset)
+    ("C-n" emacspeak-wizards-google-headlines)
+    ("R" emacspeak-webspace-feed-reader)
+    ("S" soundscape-stop)
+    ("a" emacspeak-wizards-execute-asynchronously)
     ("c" calculator)
     ("d" emacspeak-dired-downloads)
-    ("." emacspeak-wizards-shell-directory-reset)
-    ("a" emacspeak-wizards-execute-asynchronously)
+    ("e" elfeed)
     ("f" flyspell-mode)
     ("g" magit-file-dispatch)
-    ("j" ido-imenu-anywhere)
-    ("o" org-switchb)
+    ("h" emacspeak-m-player-from-media-history)
+    ("l" emacspeak-m-player-locate-media)
+    ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("n" emacspeak-wizards-google-news)
-    ("C-n" emacspeak-wizards-google-headlines)
+    ("p" proced)
     ("q" emacspeak-wizards-iex-show-quote)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
-    ("S" soundscape-stop)
-    ("e" elfeed)
-    ("h" emacspeak-m-player-from-media-history)
-    ("l" emacspeak-m-player-locate-media)
-    ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
-    ("p" proced)
-    ("R" emacspeak-webspace-feed-reader)
-    ("w" define-word))
+    ("w" define-word)
+    )
+("SPC"  emacspeak-wizards-scratch)
   "Specifies super key bindings for the audio desktop. You can
 turn the right `windows menu' keys on your Linux PC keyboard into
 a `super' key on Linux by having it emit the sequence `C-x@s'.
