@@ -550,7 +550,8 @@ Command is an interactive command or a prefix-command . "
 
 (defcustom emacspeak-super-keys 
   '(
-        ("." emacspeak-wizards-shell-directory-reset)
+    ("SPC"  emacspeak-wizards-scratch)
+    ("." emacspeak-wizards-shell-directory-reset)
     ("C-n" emacspeak-wizards-google-headlines)
     ("R" emacspeak-webspace-feed-reader)
     ("S" soundscape-stop)
@@ -572,7 +573,6 @@ Command is an interactive command or a prefix-command . "
     ("u" soundscape-update-mood)
     ("w" define-word)
     )
-("SPC"  emacspeak-wizards-scratch)
   "Specifies super key bindings for the audio desktop. You can
 Bindings specified here are available on prefix key `super' for
 example, if you bind `s' to command
