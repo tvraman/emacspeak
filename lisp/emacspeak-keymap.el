@@ -706,13 +706,13 @@ command that the key sequence executes."
 (defcustom emacspeak-ctl-z-keys 
   '(
     ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("d" magit-dispatch)
     ("e" emacspeak-wizards-eww-buffer-list)
     ("f" magit-file-dispatch)
-    ("d" magit-dispatch)
-    ("s" magit-status)
     ("m" pop-global-mark)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
     ("p" emacspeak-wizards-cycle-to-previous-buffer)
+    ("s" magit-status)
     ("z" suspend-frame)
     )
   "Specifies ctl-z  key bindings for the audio desktop. 
