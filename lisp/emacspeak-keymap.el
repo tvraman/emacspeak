@@ -658,8 +658,7 @@ Command is an interactive command or a prefix-command. "
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
-(global-set-key "\C-x@a"
-                'emacspeak-alt-keymap)
+(global-set-key "\C-x@a" 'emacspeak-alt-keymap)
 
 ;;}}}
 ;;{{{ Create a C-z keymap that is customizable 
@@ -685,21 +684,10 @@ Command is an interactive command or a prefix-command. "
     ("s" magit-status)
     ("z" suspend-frame)
     )
-  "Specifies ctl-z  key bindings for the audio desktop. 
-
-Bindings specified here are available on prefix key `C-z' for
-example, if you bind `zb' to command `suspend-frame ' then that command
-will be available on key `C-z z'.
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
-
-Command is an interactive command or a prefix-command that can be
-bound to a key. 
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes."
+  " Bindings specified here are available on prefix key `C-z' for
+example, binding `z' to `suspend-frame' makes it available on `C-z z'.
+KEYS should be a string  in the format used by `kbd'.
+Command is an interactive command or a prefix-command. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak C-Z  Keys"
@@ -754,24 +742,11 @@ interactive command that the key sequence executes."
     ("w" emacspeak-wizards-noaa-weather)
     ("y" yas-expand)
     )
-  "Specifies hyper key bindings for the audio desktop. Emacs can
-use the `hyper' key as a modifier key. You can turn the `windows'
-keys on your Linux PC keyboard into a `hyper' key on Linux by
-having it emit the sequence `C-x@h'.
-
+  "Hyper-Key bindings.
 Bindings specified here are available on prefix key `hyper' for
-example, if you bind `b' to command `bbdb ' then that command
-will be available on key `hyper b'.
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
-
-Command is an interactive command or a prefix-command that can be
-bound to a key. 
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes."
+example, binding `b' to command `bbdb ' makes it available on key
+`hyper b'.  KEYS should be a string in the format used by
+`kbd'. Command is an interactive command or a prefix-command . "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Hyper Keys"
