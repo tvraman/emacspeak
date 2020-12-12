@@ -689,7 +689,7 @@ meaning of ‘next’.
     "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay-1">
     Command:
     <strong>emacspeak-speak-this-buffer-other-window-display</strong>
-    <em>(&amp;optional arg)</em></dt>
+    <em>(window)</em></dt>
     <dd>
       <dl compact="compact">
         <dt><kbd>C-e /</kbd></dt>
@@ -700,7 +700,7 @@ meaning of ‘next’.
       "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay-2"></span>
       <div class="format">
         <pre class=
-        "format">Speak this buffer as displayed in a different frame.  Emacs
+        "format">Speak this buffer as displayed in a different frame or window.  Emacs
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
 portions of the buffer.  This is equivalent to leaving a
@@ -712,7 +712,7 @@ at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to speak.
 
-(fn &amp;optional ARG)
+(fn WINDOW)
 </pre>
       </div>
     </dd>
