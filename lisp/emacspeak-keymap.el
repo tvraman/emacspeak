@@ -53,6 +53,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'subr-x))
+
 ;;}}}
 ;;{{{ems-kbd: replacement for function kbd
 
@@ -167,14 +168,13 @@
 ;;{{{  variables:
 
 (defvar emacspeak-prefix (ems-kbd "C-e")
-  "Default prefix key used for emacspeak. ")
-
+  "Emacspeak Prefix key. ")
 
 (defvar emacspeak-keymap nil
   "Primary emacspeak keymap. ")
 
 (defvar emacspeak-dtk-submap nil
-  "Submap used for DTK commands. ")
+  "Submap used for TTS commands. ")
 
 (defvar emacspeak-table-submap nil
   "Submap used for table  commands. ")
@@ -191,6 +191,7 @@
 (global-set-key (ems-kbd "<XF86WakeUp>")  'emacspeak-prefix-command)
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (ems-kbd "C-t")  'emacspeak-table-submap-command)
+
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
 
@@ -198,36 +199,36 @@
 
 (cl-loop for binding in
          '(
-           (":" describe-help-keys)
+                      ("'" describe-text-properties)
+           ("," emacspeak-wizards-color-at-point)
+           ("/" describe-face)
+           ("=" emacspeak-wizards-swap-fg-and-bg)
            ("B" customize-browse)
-           ("G" customize-group)
-           ("M-m" describe-minor-mode-from-indicator)
-           ("N" emacspeak-view-notifications)
-           ("M-F" find-function-at-point)
-           ("M-V" find-variable-at-point)
-           ("M-f" find-function)
-           ("M-k" find-function-on-key)
-           ("M-v" find-variable)
-           ("V" customize-variable)
+           ("C-<tab>" emacs-index-search)
            ("C-e"   emacspeak-describe-emacspeak)
            ("C-j" finder-commentary)
            ("C-l" emacspeak-learn-emacs-mode)
            ("C-m" man)
-           ("C-s" emacspeak-wizards-customize-saved)
            ("C-r" info-display-manual)
+           ("C-s" emacspeak-wizards-customize-saved)
+           ("C-v" voice-setup-describe-personality)
+           ("G" customize-group)
+           ("M" emacspeak-speak-popup-messages)
+           ("M-F" find-function-at-point)
+           ("M-V" find-variable-at-point)
+           ("M-f" find-function)
+           ("M-k" find-function-on-key)
+           ("M-m" describe-minor-mode-from-indicator)
+           ("M-v" find-variable)
+           ("N" emacspeak-view-notifications)
            ("SPC" customize-group)
            ("TAB" emacspeak-info-wizard)
-           ("C-<tab>" emacs-index-search)
-           ("M" emacspeak-speak-popup-messages)
-           ("'" describe-text-properties)
+           ("V" customize-variable)
            ("\"" emacspeak-wizards-list-voices)
-           ("," emacspeak-wizards-color-at-point)
-           ("=" emacspeak-wizards-swap-fg-and-bg)
-           ("\\" emacspeak-wizards-color-diff-at-point)
-           ("/" describe-face)
-           ("C-v" voice-setup-describe-personality)
            ("\;" describe-font)
+           ("\\" emacspeak-wizards-color-diff-at-point)
            ("p" list-packages)
+(":" describe-help-keys)
            )
          do
          (emacspeak-keymap-update help-map binding))
