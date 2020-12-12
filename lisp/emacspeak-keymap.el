@@ -577,9 +577,6 @@ Command is an interactive command or a prefix-command . "
     )
 ("SPC"  emacspeak-wizards-scratch)
   "Specifies super key bindings for the audio desktop. You can
-turn the right `windows menu' keys on your Linux PC keyboard into
-a `super' key on Linux by having it emit the sequence `C-x@s'.
-
 Bindings specified here are available on prefix key `super' for
 example, if you bind `s' to command
 emacspeak-emergency-tts-restart then that command will be
@@ -618,15 +615,13 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-alt-keys 
   '(
-    ("," emacspeak-eldoc-speak-doc)
-    ("SPC" emacspeak-eww-smart-tabs)
+            ("," emacspeak-eldoc-speak-doc)
     ("a" emacspeak-feeds-atom-display)
     ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("d" sdcv-search-input)
     ("e" eww)
     ("f" emacspeak-wizards-find-file-as-root)
-    ("g" rg-dwim)
     ("g" rg)
     ("l" eww-open-file)
     ("m" magit-status)
@@ -639,22 +634,16 @@ interactive command that the key sequence executes."
     ("t" emacspeak-wizards-tune-in-radio-browse)
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)
-    ("y" emacspeak-m-player-youtube-player)) 
+    ("y" emacspeak-m-player-youtube-player)
+("SPC" emacspeak-eww-smart-tabs)
+    ) 
   "Alt key bindings.
 These bindings  are available on prefix key `alt' (not to be
  confused with alt==meta) for example, binding `s' to 
  emacspeak-emergency-tts-restart makes it  available
  on key `ALT s'
-
-KEYS is a string  in the format used for saving
-keyboard macros (see `edmacro-mode').
-
-Command is an interactive command or a prefix-command that can be
-bound to a key.
-
-The value of this variable is an association list. The car of each
-element specifies a key sequence. The cdr specifies an interactive
-command that the key sequence executes."
+KEYS is a string  in the format used by `kbd'.
+Command is an interactive command or a prefix-command. "
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Alt Keymap"
