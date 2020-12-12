@@ -640,16 +640,13 @@ interactive command that the key sequence executes."
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)
     ("y" emacspeak-m-player-youtube-player)) 
-  "Specifies alt key bindings for the audio desktop. You can turn the
-`Pause' key on your Linux PC keyboard into a `alt' key on Linux by
-having it emit the sequence `C-x@a'.
-
-Bindings specified here are available on prefix key `alt' (not to be
- confused with alt==meta) for example, if you bind `s' to command
- emacspeak-emergency-tts-restart then that command will be available
+  "Alt key bindings.
+These bindings  are available on prefix key `alt' (not to be
+ confused with alt==meta) for example, binding `s' to 
+ emacspeak-emergency-tts-restart makes it  available
  on key `ALT s'
 
-KEYS should be a string constant in the format used for saving
+KEYS is a string  in the format used for saving
 keyboard macros (see `edmacro-mode').
 
 Command is an interactive command or a prefix-command that can be
