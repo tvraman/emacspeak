@@ -449,7 +449,9 @@
 
 (defcustom emacspeak-personal-keys 
   '(
-    ("0" emacspeak-wizards-shell-by-key) 
+    ("," emacspeak-wizards-shell-directory-set)
+    ("." emacspeak-wizards-shell-directory-reset)
+    ("0" emacspeak-wizards-shell-by-key)
     ("1" emacspeak-wizards-shell-by-key) 
     ("2" emacspeak-wizards-shell-by-key) 
     ("3" emacspeak-wizards-shell-by-key) 
@@ -459,14 +461,13 @@
     ("7" emacspeak-wizards-shell-by-key) 
     ("8" emacspeak-wizards-shell-by-key) 
     ("9" emacspeak-wizards-shell-by-key) 
-    ("." emacspeak-wizards-shell-directory-reset)
-    ("," emacspeak-wizards-shell-directory-set)
     ("=" emacspeak-wizards-find-longest-line-in-region)
+    ("C" emacspeak-wizards-colors)
+    ("SPC" emacspeak-jabber-speak-recent-message)
     ("a" emacspeak-wizards-alpha-vantage-quotes)
     ("b" battery)
-    ("C" emacspeak-wizards-colors)
-    ("d" deadgrep)
     ("c" emacspeak-wizards-color-wheel)
+    ("d" deadgrep)
     ("e" emacspeak-we-xsl-map)
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
@@ -475,16 +476,16 @@
     ("o" emacspeak-wizards-occur-header-lines)
     ("p" paradox-list-packages)
     ("q" emacspeak-wizards-quote)
-    ("w" emacspeak-wizards-noaa-weather)
     ("r" jabber-activity-switch-to)
-    ("SPC" emacspeak-jabber-speak-recent-message)
     ("s" emacspeak-emergency-tts-restart)
     ("t" emacspeak-speak-telephone-directory)
     ("u" emacspeak-wizards-units)
     ("v" emacspeak-wizards-vc-viewer)
+    ("w" emacspeak-wizards-noaa-weather)
     ("|" emacspeak-wizards-squeeze-blanks)
-    ("y" ytel)
-    ("" desktop-clear)) 
+    ("" desktop-clear)
+
+    ) 
   "Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
