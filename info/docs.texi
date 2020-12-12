@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1140 commands and 863 options.
+This chapter documents a total of 1138 commands and 863 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -537,6 +537,13 @@ Shutdown notification TTS stream.
 
 @subsubsection dtk-notify-stop
 @deffn {Command} dtk-notify-stop   
+@table @kbd
+@item C-e .
+@kindex C-e .
+@item <fn> .
+@kindex <fn> .
+@end table
+
 @findex dtk-notify-stop
 
 @format
@@ -9774,109 +9781,55 @@ Note that the <fn> key found on laptops is denoted <fn>
 @subsection emacspeak-keymap Options
 
 @defvar {User Option} emacspeak-alt-keys
-Specifies alt key bindings for the audio desktop. You can turn the
-‘Pause’ key on your Linux PC keyboard into a ‘alt’ key on Linux by
-having it emit the sequence ‘C-x@@a’.
-
-Bindings specified here are available on prefix key ‘alt’ (not to be
- confused with alt==meta) for example, if you bind ‘s’ to command
- emacspeak-emergency-tts-restart then that command will be available
+Alt key bindings.
+These bindings  are available on prefix key ‘alt’ (not to be
+ confused with alt==meta) for example, binding ‘s’ to 
+ emacspeak-emergency-tts-restart makes it  available
  on key ‘ALT s’
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see ‘edmacro-mode’).
-
-Command is an interactive command or a prefix-command that can be
-bound to a key.
-
-The value of this variable is an association list. The car of each
-element specifies a key sequence. The cdr specifies an interactive
-command that the key sequence executes.
+KEYS is a string  in the format used by ‘kbd’.
+Command is an interactive command or a prefix-command. 
 
 @end defvar
 
 @defvar {User Option} emacspeak-ctl-z-keys
-Specifies ctl-z  key bindings for the audio desktop. 
-
-Bindings specified here are available on prefix key ‘C-z’ for
-example, if you bind ‘zb’ to command ‘suspend-frame ’ then that command
-will be available on key ‘C-z z’.
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see ‘edmacro-mode’).
-
-Command is an interactive command or a prefix-command that can be
-bound to a key. 
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
+ Bindings specified here are available on prefix key ‘C-z’ for
+example, binding ‘z’ to ‘suspend-frame’ makes it available on ‘C-z z’.
+KEYS should be a string  in the format used by ‘kbd’.
+Command is an interactive command or a prefix-command. 
 
 @end defvar
 
 @defvar {User Option} emacspeak-hyper-keys
-Specifies hyper key bindings for the audio desktop. Emacs can
-use the ‘hyper’ key as a modifier key. You can turn the ‘windows’
-keys on your Linux PC keyboard into a ‘hyper’ key on Linux by
-having it emit the sequence ‘C-x@@h’.
-
+Hyper-Key bindings.
 Bindings specified here are available on prefix key ‘hyper’ for
-example, if you bind ‘b’ to command ‘bbdb ’ then that command
-will be available on key ‘hyper b’.
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see ‘edmacro-mode’).
-
-Command is an interactive command or a prefix-command that can be
-bound to a key. 
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
+example, binding ‘b’ to command ‘bbdb ’ makes it available on key
+‘hyper b’.  KEYS should be a string in the format used by
+‘kbd’. Command is an interactive command or a prefix-command . 
 
 @end defvar
 
 @defvar {User Option} emacspeak-personal-ctlx-keys
-Specifies personal-ctlx key bindings for use with C-e C-x for
-the audio desktop. Bindings specified here are available on
-prefix key C-e C-x for example, if you bind ‘C-s’ to command
-emacspeak-emergency-tts-restart then that command will be
-available on key C-e C-x C-s. KEYS should be a string constant in
-the format used for saving keyboard macros (see ‘edmacro-mode’).
-
-Command is an interactive command or a prefix-command that can be
-bound to a key.
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
+Key bindings for use with C-e C-x.
+ Bindings specified here are available on
+prefix key C-e C-x, for example, binding  ‘C-s’ to 
+emacspeak-emergency-tts-restart makes it 
+available on key C-e C-x C-s. KEYS should be a string  in
+the format used by ‘kbd’.
+Command is an interactive command or a prefix-command . 
 
 @end defvar
 
 @defvar {User Option} emacspeak-personal-keys
-Specifies personal key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
-for example, if you bind
-‘s’ to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e x s.
-
-KEYS should be a string constant in the format used for saving
-keyboard macros (see ‘edmacro-mode’).
-
-Command is an interactive command or a prefix-command that can be
-bound to a key. 
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
+Key bindings for  C-e x.
+For example, binding  ‘s’ to 
+emacspeak-emergency-tts-restart makes  it available on C-e x s.
+KEYS should be a string  in the format used by ‘kbd’.
+Command is an interactive command or a prefix-command .
 
 @end defvar
 
 @defvar {User Option} emacspeak-super-keys
 Specifies super key bindings for the audio desktop. You can
-turn the right ‘windows menu’ keys on your Linux PC keyboard into
-a ‘super’ key on Linux by having it emit the sequence ‘C-x@@s’.
-
 Bindings specified here are available on prefix key ‘super’ for
 example, if you bind ‘s’ to command
 emacspeak-emergency-tts-restart then that command will be
@@ -15410,10 +15363,10 @@ Speak the current column.
 @subsubsection emacspeak-speak-current-field
 @deffn {Command} emacspeak-speak-current-field   
 @table @kbd
-@item C-e .
-@kindex C-e .
-@item <fn> .
-@kindex <fn> .
+@item C-e f
+@kindex C-e f
+@item <fn> f
+@kindex <fn> f
 @end table
 
 @findex emacspeak-speak-current-field
@@ -20036,25 +19989,6 @@ emacspeak-emergency-tts-server.
 @end format
 @end deffn
 
-@subsubsection emacspeak-frame-label-or-switch-to-labelled-frame
-@deffn {Command} emacspeak-frame-label-or-switch-to-labelled-frame  (&optional prefix)
-@table @kbd
-@item C-e M-f
-@kindex C-e M-f
-@item <fn> M-f
-@kindex <fn> M-f
-@end table
-
-@findex emacspeak-frame-label-or-switch-to-labelled-frame
-
-@format
-Switch to labelled frame.
-With optional PREFIX argument, label current frame.
-
-(fn &optional PREFIX)
-@end format
-@end deffn
-
 @subsubsection emacspeak-kill-buffer-quietly
 @deffn {Command} emacspeak-kill-buffer-quietly   
 @table @kbd
@@ -20421,37 +20355,10 @@ meaning of ‘previous’.
 
 @subsubsection emacspeak-ssh-tts-restart
 @deffn {Command} emacspeak-ssh-tts-restart   
-@table @kbd
-@item C-e <delete>
-@kindex C-e <delete>
-@item C-e <(deletechar>
-@kindex C-e <(deletechar>
-@item <fn> <delete>
-@kindex <fn> <delete>
-@item <fn> <(deletechar>
-@kindex <fn> <(deletechar>
-@end table
-
 @findex emacspeak-ssh-tts-restart
 
 @format
 Restart specified ssh tts server.
-@end format
-@end deffn
-
-@subsubsection emacspeak-submit-bug
-@deffn {Command} emacspeak-submit-bug   
-@table @kbd
-@item C-e C-M-b
-@kindex C-e C-M-b
-@item <fn> C-M-b
-@kindex <fn> C-M-b
-@end table
-
-@findex emacspeak-submit-bug
-
-@format
-Function to submit a bug to the programs maintainer.
 @end format
 @end deffn
 
@@ -21609,12 +21516,12 @@ Define current directory as this shell’s project directory.
 @table @kbd
 @item C-e <f11>
 @kindex C-e <f11>
-@item C-; j
-@kindex C-; j
+@item C-; C-j
+@kindex C-; C-j
 @item <fn> <f11>
 @kindex <fn> <f11>
-@item C-x @@ h j
-@kindex C-x @@ h j
+@item C-x @@ h C-j
+@kindex C-x @@ h C-j
 @end table
 
 @findex emacspeak-wizards-shell-toggle
