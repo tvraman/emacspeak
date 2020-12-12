@@ -74,93 +74,56 @@
     <dt id="index-User-Option-435">Variable: <strong>User
     Option</strong> <em>emacspeak-alt-keys</em></dt>
     <dd>
-      <p>Specifies alt key bindings for the audio desktop. You can
-      turn the ‘Pause’ key on your Linux PC keyboard into a ‘alt’
-      key on Linux by having it emit the sequence ‘C-x@a’.</p>
-      <p>Bindings specified here are available on prefix key ‘alt’
-      (not to be confused with alt==meta) for example, if you bind
-      ‘s’ to command emacspeak-emergency-tts-restart then that
-      command will be available on key ‘ALT s’</p>
-      <p>KEYS should be a string constant in the format used for
-      saving keyboard macros (see ‘edmacro-mode’).</p>
-      <p>Command is an interactive command or a prefix-command that
-      can be bound to a key.</p>
-      <p>The value of this variable is an association list. The car
-      of each element specifies a key sequence. The cdr specifies
-      an interactive command that the key sequence executes.</p>
+      <p>Alt key bindings. These bindings are available on prefix
+      key ‘alt’ (not to be confused with alt==meta) for example,
+      binding ‘s’ to emacspeak-emergency-tts-restart makes it
+      available on key ‘ALT s’ KEYS is a string in the format used
+      by ‘kbd’. Command is an interactive command or a
+      prefix-command.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-436">Variable: <strong>User
     Option</strong> <em>emacspeak-ctl-z-keys</em></dt>
     <dd>
-      <p>Specifies ctl-z key bindings for the audio desktop.</p>
       <p>Bindings specified here are available on prefix key ‘C-z’
-      for example, if you bind ‘zb’ to command ‘suspend-frame ’
-      then that command will be available on key ‘C-z z’.</p>
-      <p>KEYS should be a string constant in the format used for
-      saving keyboard macros (see ‘edmacro-mode’).</p>
-      <p>Command is an interactive command or a prefix-command that
-      can be bound to a key.</p>
-      <p>The value of this variable is an association list. The car
-      of each element specifies a key sequence. The cdr specifies
-      an interactive command that the key sequence executes.</p>
+      for example, binding ‘z’ to ‘suspend-frame’ makes it
+      available on ‘C-z z’. KEYS should be a string in the format
+      used by ‘kbd’. Command is an interactive command or a
+      prefix-command.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-437">Variable: <strong>User
     Option</strong> <em>emacspeak-hyper-keys</em></dt>
     <dd>
-      <p>Specifies hyper key bindings for the audio desktop. Emacs
-      can use the ‘hyper’ key as a modifier key. You can turn the
-      ‘windows’ keys on your Linux PC keyboard into a ‘hyper’ key
-      on Linux by having it emit the sequence ‘C-x@h’.</p>
-      <p>Bindings specified here are available on prefix key
-      ‘hyper’ for example, if you bind ‘b’ to command ‘bbdb ’ then
-      that command will be available on key ‘hyper b’.</p>
-      <p>KEYS should be a string constant in the format used for
-      saving keyboard macros (see ‘edmacro-mode’).</p>
-      <p>Command is an interactive command or a prefix-command that
-      can be bound to a key.</p>
-      <p>The value of this variable is an association list. The car
-      of each element specifies a key sequence. The cdr specifies
-      an interactive command that the key sequence executes.</p>
+      <p>Hyper-Key bindings. Bindings specified here are available
+      on prefix key ‘hyper’ for example, binding ‘b’ to command
+      ‘bbdb ’ makes it available on key ‘hyper b’. KEYS should be a
+      string in the format used by ‘kbd’. Command is an interactive
+      command or a prefix-command .</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-438">Variable: <strong>User
     Option</strong> <em>emacspeak-personal-ctlx-keys</em></dt>
     <dd>
-      <p>Specifies personal-ctlx key bindings for use with C-e C-x
-      for the audio desktop. Bindings specified here are available
-      on prefix key C-e C-x for example, if you bind ‘C-s’ to
-      command emacspeak-emergency-tts-restart then that command
-      will be available on key C-e C-x C-s. KEYS should be a string
-      constant in the format used for saving keyboard macros (see
-      ‘edmacro-mode’).</p>
-      <p>Command is an interactive command or a prefix-command that
-      can be bound to a key.</p>
-      <p>The value of this variable is an association list. The car
-      of each element specifies a key sequence. The cdr specifies
-      an interactive command that the key sequence executes.</p>
+      <p>Key bindings for use with C-e C-x. Bindings specified here
+      are available on prefix key C-e C-x, for example, binding
+      ‘C-s’ to emacspeak-emergency-tts-restart makes it available
+      on key C-e C-x C-s. KEYS should be a string in the format
+      used by ‘kbd’. Command is an interactive command or a
+      prefix-command .</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-439">Variable: <strong>User
     Option</strong> <em>emacspeak-personal-keys</em></dt>
     <dd>
-      <p>Specifies personal key bindings for the audio desktop.
-      Bindings specified here are available on prefix key C-e x for
-      example, if you bind ‘s’ to command
-      emacspeak-emergency-tts-restart then that command will be
-      available on key C-e x s.</p>
-      <p>KEYS should be a string constant in the format used for
-      saving keyboard macros (see ‘edmacro-mode’).</p>
-      <p>Command is an interactive command or a prefix-command that
-      can be bound to a key.</p>
-      <p>The value of this variable is an association list. The car
-      of each element specifies a key sequence. The cdr specifies
-      an interactive command that the key sequence executes.</p>
+      <p>Key bindings for C-e x. For example, binding ‘s’ to
+      emacspeak-emergency-tts-restart makes it available on C-e x
+      s. KEYS should be a string in the format used by ‘kbd’.
+      Command is an interactive command or a prefix-command .</p>
     </dd>
   </dl>
   <dl>
@@ -168,10 +131,7 @@
     Option</strong> <em>emacspeak-super-keys</em></dt>
     <dd>
       <p>Specifies super key bindings for the audio desktop. You
-      can turn the right ‘windows menu’ keys on your Linux PC
-      keyboard into a ‘super’ key on Linux by having it emit the
-      sequence ‘C-x@s’.</p>
-      <p>Bindings specified here are available on prefix key
+      can Bindings specified here are available on prefix key
       ‘super’ for example, if you bind ‘s’ to command
       emacspeak-emergency-tts-restart then that command will be
       available on key ‘super s’. KEYS should be a string constant
