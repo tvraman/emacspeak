@@ -3531,35 +3531,6 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
       (dtk-speak-list (list  .city .region_name)))))
 
 ;;}}}
-;;{{{  Submit bugs
-
-(defconst emacspeak-bug-address
-  "emacspeak@cs.vassar.edu"
-  "Address for bug reports and questions.")
-
-(defun emacspeak-submit-bug ()
-  "Function to submit a bug to the programs maintainer."
-  (interactive)
-  (require 'reporter)
-  (when
-      (yes-or-no-p "Are you sure you want to submit a bug report? ")
-    (let (
-          (vars '(
-                  emacs-version
-                  system-type
-                  emacspeak-version  dtk-program)))
-      (mapc
-       #'(lambda (x)
-           (if (not (and (boundp x) (symbol-value x)))
-               (setq vars (delq x vars))))
-       vars)
-      (reporter-submit-bug-report
-       emacspeak-bug-address
-       (concat "Emacspeak Version: " emacspeak-version)
-       vars nil nil
-       "Description of Problem:"))))
-
-;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
 
 ;;; This makes it easy to consolidate personal bindings across machines.
