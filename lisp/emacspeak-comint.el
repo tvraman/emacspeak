@@ -150,12 +150,12 @@ set the current local value to the result.")
      header-line-format
      '((:eval
         (concat
-                (abbreviate-file-name default-directory)
-                (propertize (buffer-name) 'personality voice-annotate)
-                (if emacspeak-comint-autospeak
-                    (propertize "Autospeak" 'personality voice-lighten)
-                  "")
-                (format "%s" (length (window-list))))))))
+         (abbreviate-file-name default-directory)
+         (propertize (buffer-name) 'personality voice-annotate)
+         (when emacspeak-comint-autospeak
+           (propertize "Autospeak" 'personality voice-lighten))
+         (when (> (length (window-list)) 1)
+           (format "%s" (length (window-list)))))))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
