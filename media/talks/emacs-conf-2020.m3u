@@ -1,0 +1,122 @@
+#EXTM3U
+#PLAYLIST: EmacsConf 2020
+#EXTALB: EmacsConf 2020
+#EXTGENRE: Speech
+#EXTINF:-1,Nov 28 Opening Remarks
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--00-opening-remarks.webm
+#EXTINF:-1,Emacs News Highlights - Sacha Chua
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--01-emacs-news-highlights--sacha-chua.webm
+#EXTINF:-1,An Emacs Developer Story: From User to Package Maintainer - Leo Vivier
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--02-an-emacs-developer-story-from-user-to-package-maintainer--leo-vivier.webm
+#EXTINF:-1,Idea to Novel Superstructure: Emacs for Writing - Bala Ramadurai
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--03-idea-to-novel-superstructure--bala-ramadurai.webm
+#EXTINF:-1,Idea to Novel Superstructure: Emacs for Writing - Questions - Bala Ramadurai
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--03-idea-to-novel-superstructure-emacs-for-writing--questions--bala-ramadurai.webm
+#EXTINF:-1,Music in Plain Text - Jonathan Gregory
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--04-music-in-plain-text--jonathan-gregory.webm
+#EXTINF:-1,Bard Bivou(m)acs - Building a bandcamp-like page for an album of music - Grant Shangreaux
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--05-bard-bivoumacs-building-a-bandcamp-like-page-for-an-album-of-music--grant-shangreaux.webm
+#EXTINF:-1,Bard Bivou(m)acs - Building a bandcamp-like page for an album of music - Questions - Grant Shangreaux
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--05-bard-bivoumacs-building-a-bandcamp-like-page-for-an-album-of-music--questions--grant-shangreaux.webm
+#EXTINF:-1,Trivial Emacs Kits - Corwin Brust
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--06-trivial-emacs-kits--corwin-brust.webm
+#EXTINF:-1,Beyond Vim and Emacs: A Scalable UI Paradigm - Sid Kasivajhula
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--07-beyond-vim-and-emacs-a-scalable-ui-paradigm--sid-kasivajhula.webm
+#EXTINF:-1,Beyond Vim and Emacs: A Scalable UI Paradigm - Questions - Sid Kasivajhula
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--07-beyond-vim-and-emacs-a-scalable-ui-paradigm--questions--sid-kasivajhula.webm
+#EXTINF:-1,Building reproducible Emacs - Andrew Tropin (abcdw)
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--08-building-reproducible-emacs--andrew-tropin.webm
+#EXTINF:-1,On why most of the best features in eev look like 5-minute hacks - Eduardo Ochs
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--21-on-why-most-of-the-best-features-in-eev-look-like-5-minute-hacks--eduardo-ochs.webm
+#EXTINF:-1,Orgmode - your life in plain text - Rainer König
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--09-orgmode-your-life-in-plain-text--rainer-koenig.webm
+#EXTINF:-1,Orgmode - your life in plain text - Questions - Rainer König
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--09-orgmode-your-life-in-plain-text--questions--rainer-konig.webm
+#EXTINF:-1,Lead your future with Org - Andrea
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--10-lead-your-future-with-org--andrea.webm
+#EXTINF:-1,the org-gtd package: opinions about Getting Things Done - Aldric
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--11-the-org-gtd-package-opinions-about-getting-things-done--aldric.webm
+#EXTINF:-1,One Big-ass Org File or multiple tiny ones?  Finally, the End of the debate! - Leo Vivier
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--12-one-big-ass-org-file-or-multiple-tiny-ones-finally-the-end-of-the-debate--leo-vivier.webm
+#EXTINF:-1,Experience Report: Steps to "Emacs Hyper Notebooks" - Joseph Corneli, Raymond Puzio, and Cameron Ray Smith
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--13-experience-report-steps-to-emacs-hyper-notebooks--joseph-corneli-raymond-puzio-cameron-ray-smith.webm
+#EXTINF:-1,README-Driven Design - Adam Ard
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--14-readme-driven-design--adam-ard.webm
+#EXTINF:-1,Moving from Jekyll to OrgMode, an experience report - Adolfo Villafiorita
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--15-moving-from-jekyll-to-orgmode-an-experience-report--adolfo-villafiorita.webm
+#EXTINF:-1,Moving from Jekyll to OrgMode, an experience report - Adolfo Villafiorita
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--15-moving-from-jekyll-to-orgmode-an-experience-report--prerec--adolfo-villafiorita.webm
+#EXTINF:-1,Org-roam: Presentation, Demonstration, and What's on the Horizon - Leo Vivier
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--16-org-roam-presentation-demonstration-and-whats-on-the-horizon--leo-vivier.webm
+#EXTINF:-1,Org-mode and Org-Roam for Scholars and Researchers - Noorah Alhasan
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--17-org-mode-and-org-roam-for-scholars-and-researchers--noorah-alhasan.webm
+#EXTINF:-1,Org-roam: Technical Presentation - Leo Vivier
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--18-org-roam-technical-presentation--leo-vivier.webm
+#EXTINF:-1,Sharing blogs (and more) with org-webring - Brett Gilio
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--19-sharing-blogs-and-more-with-org-webring--brett-gilio.webm
+#EXTINF:-1,OMG Macros - Corwin Brust
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--20-omg-macros--corwin-brust.webm
+#EXTINF:-1,Nov 28 - Closing remarks (part 1)
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--40-closing-remarks-part-1.webm
+#EXTINF:-1,Nov 28 - Closing remarks (part 2)
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--40-closing-remarks-part-2.webm
+#EXTINF:-1,Nov 29 - Opening remarks
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--41-opening-remarks.webm
+#EXTINF:-1,Powering-up Special Blocks - Musa Al-hassy
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--22-powering-up-special-blocks--musa-al-hassy.webm
+#EXTINF:-1,Incremental Parsing with emacs-tree-sitter - Tuấn-Anh Nguyễn
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--23-incremental-parsing-with-emacs-tree-sitter--tuan-anh-nguyen.webm
+#EXTINF:-1,Incremental Parsing with emacs-tree-sitter - Questions - Tuấn-Anh Nguyễn
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--23-incremental-parsing-with-emacs-tree-sitter--questions--tuan-anh-nguyen.webm
+#EXTINF:-1,Analyze code quality through Emacs: a smart forensics approach and the story of a hack - Andrea
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--24-analyze-code-quality-through-emacs-a-smart-forensics-approach-and-the-story-of-a-hack--andrea.webm
+#EXTINF:-1,Traverse complex JSON structures with live feedback - Zen Monk Alain M. Lafon
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--25-traverse-complex-json-structures-with-live-feedback-counsel-jq--zen-monk-alain-m-lafon.webm
+#EXTINF:-1,Emacs as a Highschooler: How It Changed My Life - Pierce Wang
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--26-emacs-as-a-highschooler-how-it-changed-my-life--pierce-wang.webm
+#EXTINF:-1,Emacs as a Highschooler: How It Changed My Life - Questions - Pierce Wang
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--26-emacs-as-a-highschooler-how-it-changed-my-life--questions--pierce-wang.webm
+#EXTINF:-1,State of Retro Gaming in Emacs - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Alien - Vasilij "wasamasa" Schneidermann 
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-alien--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Brix - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-brix--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Car - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-car--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Joust - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-joust--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Kaleidoscope - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-kaleidoscope--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Sierpinski - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-sierpinski--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Demo: Tetris - Vasilij "wasamasa" Schneidermann
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--27-state-of-retro-gaming-in-emacs-chip8-demo-tetris--vasilij-wasamasa-schneidermann.webm
+#EXTINF:-1,Welcome To The Dungeon - Erik Elmshauser and Corwin Brust
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--28-welcome-to-the-dungeon--erik-elmshauser-corwin-brust.webm
+#EXTINF:-1,A tour of vterm - Gabriele Bozzola
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--30-a-tour-of-vterm--gabriele-bozzola-sbozzolo.webm
+#EXTINF:-1,A tour of vterm - Questions - Gabriele Bozzola
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--30-a-tour-of-vterm--questions--gabriele-bozzola-sbozzolo.webm
+#EXTINF:-1,Lakota Language and Emacs - Grant Shangreaux
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--31-lakota-language-and-emacs--grant-shangreaux.webm
+#EXTINF:-1,Lakota Language and Emacs - Questions - Grant Shangreaux
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--31-lakota-language-and-emacs--questions--grant-shangreaux.webm
+#EXTINF:-1,Object Oriented Code in the Gnus Newsreader - Eric Abrahamsen
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--32-object-oriented-code-in-the-gnus-newsreader--eric-abrahamsen.webm
+#EXTINF:-1,Maxima a computer algebra system in Emacs - Fermin MF
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--33-maxima-a-computer-algebra-system-in-emacs--fermin.webm
+#EXTINF:-1,Extend Emacs to Modern GUI Applications with EAF - Matthew Zeng
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--34-extend-emacs-to-modern-gui-applications-with-eaf--matthew-zeng.webm
+#EXTINF:-1,WAVEing at Repetitive Repetitive Repetitive Music - Zachary Kanfer
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--35-waveing-at-repetitive-repetitive-repetitive-music-zmusic--zachary-kanfer.webm
+#EXTINF:-1,WAVEing at Repetitive Repetitive Repetitive Music - Questions - Zachary Kanfer
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--35-waveing-at-repetitive-repetitive-repetitive-music-zmusic--questions--zachary-kanfer.webm
+#EXTINF:-1,Emacs development update - John Wiegley
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--38-emacs-development-update--john-wiegley.webm
+#EXTINF:-1,NonGNU ELPA - Richard Stallman
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--39-nongnu-elpa--richard-stallman.webm
+#EXTINF:-1,NonGNU ELPA - Questions - Richard Stallman
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--39-nongnu-elpa--questions--richard-stallman.webm
+#EXTINF:-1,Nov 29, Closing remarks
+https://mirror.csclub.uwaterloo.ca/emacsconf/2020/emacsconf-2020--42-closing-remarks.webm
