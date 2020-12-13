@@ -149,12 +149,13 @@ set the current local value to the result.")
     (setq
      header-line-format
      '((:eval
-        (format "%s %s %s"
+        (concat
                 (abbreviate-file-name default-directory)
                 (propertize (buffer-name) 'personality voice-annotate)
                 (if emacspeak-comint-autospeak
-                    (propertize "Autospeak" 'personality voice-smoothen)
-                  ""))))))
+                    (propertize "Autospeak" 'personality voice-lighten)
+                  "")
+                (format "%s" (length (window-list))))))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
   (emacspeak-pronounce-refresh-pronunciations))
