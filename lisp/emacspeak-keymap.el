@@ -721,7 +721,6 @@ Command is an interactive command or a prefix-command. "
     ("C-a" emacspeak-wizards-term)
     ("C-e" eshell)
     ("C-j" emacspeak-wizards-shell-toggle)
-    ("C-u" emacspeak-feeds-browse)
     ("TAB" hippie-expand)
     ("b" eww-list-buffers)
     ("d" magit-dispatch)
