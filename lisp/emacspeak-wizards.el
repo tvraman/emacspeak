@@ -1850,7 +1850,7 @@ Direction specifies previous/next."
 
 ;;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)
-  "Run Emacs built-in `shell' command when not in a shell buffer, or
+  "Run Emacs  `shell' command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
 switches to `next' shell buffer. When called from outside a shell
 buffer, find the most `appropriate shell' and switch to it. Once
