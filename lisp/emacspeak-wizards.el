@@ -256,38 +256,16 @@ Prompts for the new location and preserves modification time
 ;;}}}
 ;;{{{ pop up messages buffer
 
-;;; Internal variable to memoize window configuration
 
-(defvar emacspeak-popup-messages-config-0 nil
-  "Memoizes window configuration.")
+
+
 ;;;###autoload
 (defun emacspeak-speak-popup-messages ()
-  "Pop up messages buffer.
-If it is already selected then hide it and try to restore
-previous window configuration."
+  "Pop up Messages  and switch to it."
   (interactive)
-  (cond
-;;; First check if Messages buffer is already selected
-   ((string-equal (buffer-name (window-buffer (selected-window)))
-"Messages*")
-    (when (window-configuration-p emacspeak-popup-messages-config-0)
-      (set-window-configuration emacspeak-popup-messages-config-0))
-    (setq emacspeak-popup-messages-config-0 nil)
-    (bury-buffer "*Messages*")
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line))
-                                        ; popup Messages buffer
-   (t
-;;; Memoize current window configuration only if buffer isn't yet visible
-    (setq emacspeak-popup-messages-config-0
-          (and (not (get-buffer-window "*Messages*"))
-               (current-window-configuration)))
-    (pop-to-buffer "*Messages*" nil t)
-                                        ; position cursor on the last message
-    (goto-char (point-max))
-    (beginning-of-line (and (bolp) 0))
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line))))
+  (select-window (view-echo-area-messages))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-read-previous-line))
 
 ;;}}}
 ;;{{{ Network interface utils:
