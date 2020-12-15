@@ -8,5 +8,5 @@
 export TERM=xterm
 export DTK_PROGRAM=cloud-outloud
 pidof emacs || emacs --daemon
-emacsclient -c -e "(setq frame-title-format \"Remote-Emacs\")" &
+emacsclient -c -F "'(name . \"Remote-Emacs\"))" &
 
