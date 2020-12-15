@@ -1,0 +1,11 @@
+#!/bin/sh
+# Start Emacs and connect to the  daemon.
+# Set display here, and launch this script in an ssh session that has
+# reverse-forwarded port 6000
+# --- see bash-utiles/remote.
+# Result: Emacs frame pops up on local (laptop for example).
+
+export TERM=xterm
+export DTK_PROGRAM=cloud-outloud
+pidof emacs || emacs --daemon
+emacsclient -c &
