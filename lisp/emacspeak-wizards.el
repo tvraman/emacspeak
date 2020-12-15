@@ -433,18 +433,6 @@ To leave, press \\[keyboard-quit]."
 ;;}}}
 ;;{{{ labelled frames
 
-(defun emacspeak-frame-read-frame-label ()
-  "Read a frame label with completion."
-  (let* ((frame-names-alist (make-frame-names-alist))
-         (default (car (car frame-names-alist)))
-         (input (completing-read
-                 (format "Select Frame (default %s): " default)
-                 frame-names-alist nil t nil 'frame-name-history)))
-    (if (= (length input) 0)
-        default)))
-
-
-
 ;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)
   "Move to next buffer.
