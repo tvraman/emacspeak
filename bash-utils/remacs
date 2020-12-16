@@ -1,9 +1,10 @@
 #!/bin/sh
 # Start Emacs and connect to the  daemon.
+# This script is not used, here to help debug the setup.
 # Result: Emacs frame pops up on local (laptop for example).
 
 export TERM=xterm
 export DTK_PROGRAM=cloud-outloud
 pidof emacs || emacs --daemon
-emacsclient -c -a -F "'(name . \"Remote-Emacs\"))"'' &
+emacsclient -c  -F "'(name . \"Remote-Emacs\")" '' &
 
