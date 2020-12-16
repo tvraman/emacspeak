@@ -26,8 +26,8 @@ function remote () {
     delay 1.3 1 .76 .54 .27 \
     remix  - \
     fade h 0 2.7 2.5 norm -1 &
-# Open SSH Connection and Forward X11 as well 
-        ssh -R 6000:localhost:6000 -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
+# Open SSH Connection 
+        ssh  -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
 }
 
 #setup tts, but dont ssh.
