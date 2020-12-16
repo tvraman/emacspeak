@@ -3540,8 +3540,9 @@ Remote workstation is set via custom `emacspeak-wizards-remote-workstation'."
    "-R" "2222:localhost:2222" ;;; emacs speech server
    "-R" "3333:localhost:3333" ;;; emacspeak notification server
    emacspeak-wizards-remote-workstation ;;; emacsclient launch script
-   "/usr/local/bin/remacs" 
-   ))
+   
+   
+   "remacs"))
 
 ;;}}}
 
