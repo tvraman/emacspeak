@@ -3529,8 +3529,9 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
   :group 'emacspeak-wizards)
 
 (defun emacspeak-wizards-remote-frame ()
-  "Open a frame on a remote Emacs.
-Remote workstation is set via custom `emacspeak-wizards-remote-workstation'."
+  "Open a frame on a remote Emacs, run emacs --daemon there first
+  before using this command.   Remote workstation is set via
+  custom `emacspeak-wizards-remote-workstation'."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
   (let((title '((name . "\"Remote-Emacs\"")))
