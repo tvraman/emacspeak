@@ -467,6 +467,7 @@
     ("c" emacspeak-wizards-color-wheel)
     ("d" deadgrep)
     ("e" emacspeak-we-xsl-map)
+    ("f" emacspeak-wizards-remote-frame)
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
     ("j" emacspeak-jabber-popup-roster)
