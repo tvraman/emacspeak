@@ -3533,16 +3533,17 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
 Remote workstation is set via custom `emacspeak-wizards-remote-workstation'."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
-  (start-process
-   "REmacs" "*REmacs*"
-   "ssh"
-   "-X"                       ;;; forward X11
-   "-R" "2222:localhost:2222" ;;; emacs speech server
-   "-R" "3333:localhost:3333" ;;; emacspeak notification server
-   emacspeak-wizards-remote-workstation ;;; emacsclient launch script
-   
-   
-   "remacs"))
+  (let((process-environment
+        '("TERM=xterm" )))
+      (start-process
+       "REmacs" "*REmacs*"
+       "ssh"
+       "-X"                       ;;; forward X11
+       "-R" "2222:localhost:2222" ;;; emacs speech server
+       "-R" "3333:localhost:3333" ;;; emacspeak notification server
+       emacspeak-wizards-remote-workstation ;;; emacsclient launch script
+       "emacsclient"
+       "-c")))
 
 ;;}}}
 
