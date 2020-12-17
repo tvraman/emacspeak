@@ -1541,35 +1541,6 @@ Interactive  arguments specify filename pattern and search pattern."
       (emacspeak-auditory-icon 'open-object))))
 
 ;;}}}
-;;{{{ tramp wizard
-(defcustom emacspeak-wizards-tramp-locations nil
-  "Tramp locations used by Emacspeak tramp wizard.
-Locations added here via custom can be opened using command
-emacspeak-wizards-tramp-open-location
-bound to \\[emacspeak-wizards-tramp-open-location]."
-  :type '(repeat
-          (cons :tag "Tramp"
-                (string :tag "Name")
-                (string :tag "Location")))
-  :group 'emacspeak-wizards)
-
-
-(defun emacspeak-wizards-tramp-open-location (name)
-  "Open specified tramp location.
-Location is specified by name."
-  (interactive
-   (list
-    (let ((completion-ignore-case t))
-      (completing-read "Location:"
-                       emacspeak-wizards-tramp-locations
-                       nil 'must-match))))
-  (cl-declare (special emacspeak-wizards-tramp-locations))
-  (let ((location (cdr (assoc name
-                              emacspeak-wizards-tramp-locations))))
-    (find-file
-     (read-file-name "Open: " location))))
-
-;;}}}
 ;;{{{ ISO dates
 ;;; implementation based on icalendar.el
 
