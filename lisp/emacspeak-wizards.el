@@ -3496,7 +3496,10 @@ Remote workstation is given by `emacspeak-wizards-remote-workstation'."
    (> (length emacspeak-wizards-remote-workstation) 0) t 
    "Set emacspeak-wizards-remote-workstation first.")
   (let((process-environment '("TERM=xterm" ))
-       (title '((name . "Remote-Emacs"))))
+       (title 
+`((name . 
+,(format "%s:Emacs"
+(cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
     (start-process
      "REmacs" "*REmacs*" "ssh"
      "-X"                       ;;; forward X11
