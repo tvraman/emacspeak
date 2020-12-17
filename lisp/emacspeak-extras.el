@@ -49,6 +49,7 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'term)
 
 ;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
@@ -505,6 +506,10 @@ name of a clipboard file."
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
+
+(declare-function emacspeak-table-paste-from-clipboard "emacspeak-extras" t)
+
+
 ;;;###autoload
 (defun emacspeak-clipboard-paste (&optional paste-table)
   "Yank contents of the Emacspeak clipboard at point.
@@ -529,6 +534,8 @@ the emacspeak table clipboard instead."
 
 ;;}}}
 ;;{{{ edit file as root using sudo vi
+(declare-function emacspeak-eterm-record-window "emacspeak-extras" t)
+(declare-function emacspeak-eterm-set-filter-window "emacspeak-extras" t)
 
 (defun emacspeak-wizards-vi-as-su-file (file)
   "Launch sudo vi on specified file in a terminal."
