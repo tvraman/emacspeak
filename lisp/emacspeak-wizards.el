@@ -1286,31 +1286,6 @@ prompts for and sets value of the file local pattern."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;{{{ pod -- perl online docs
-(declare-function cperl-pod2man-build-command "cperl-mode" nil)
-
-(defun emacspeak-wizards-display-pod-as-manpage (filename)
-  "Create a virtual manpage in Emacs from the Perl Online Documentation."
-  (interactive
-   (list
-    (expand-file-name
-     (read-file-name "Enter name of POD file: "))))
-  (cl-declare (special pod2man-program))
-  (require 'man)
-  (let* ((pod2man-args (concat filename " | nroff -man "))
-         (bufname (concat "Man " filename))
-         (buffer (generate-new-buffer bufname)))
-    (save-current-buffer
-      (set-buffer buffer)
-      (let ((process-environment (copy-sequence process-environment)))
-        ;; Prevent any attempt to use display terminal fanciness.
-        (setenv "TERM" "dumb")
-        (set-process-sentinel
-         (start-process pod2man-program buffer "sh" "-c"
-                        (format (cperl-pod2man-build-command) pod2man-args))
-         'Man-bgproc-sentinel)))))
-
-;;}}}
 ;;{{{ VC viewer
 (defvar emacspeak-wizards-vc-viewer-command
   "setterm -dump %s -file %s"
