@@ -530,6 +530,32 @@ the emacspeak table clipboard instead."
 ;;}}}
 ;;{{{ edit file as root using sudo vi
 
+(defun emacspeak-wizards-vi-as-su-file (file)
+  "Launch sudo vi on specified file in a terminal."
+  (interactive
+   (list
+    (expand-file-name
+     (read-file-name "SU Edit File: "))))
+  (require 'term)
+  (delete-other-windows)
+  (switch-to-buffer
+   (term-ansi-make-term
+    (generate-new-buffer-name
+     (format "vi-%s"
+             (file-name-nondirectory file)))
+    "sudo"
+    nil
+    "vi"
+    file))
+  (emacspeak-eterm-record-window 1
+                                 (cons 0 1)
+                                 (cons 79 20)
+                                 'right-stretch 'left-stretch)
+  (emacspeak-eterm-set-filter-window 1)
+  (term-char-mode)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-line))
+
 ;;}}}
 (provide 'emacspeak-extras)
 ;;{{{ end of file
