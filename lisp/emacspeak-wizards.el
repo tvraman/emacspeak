@@ -3479,7 +3479,6 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
       (dtk-speak-list (list  .city .region_name)))))
 
 ;;}}}
-;;; emacs  <-> org  archived, find it via git blame
 ;;{{{ Open Frame On Remote Emacs:
 
 (defcustom emacspeak-wizards-remote-workstation ""
