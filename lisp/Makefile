@@ -280,6 +280,7 @@ emacspeak-windmove.elc \
 emacspeak-winring.elc \
 emacspeak-woman.elc \
 emacspeak-wizards.elc  \
+emacspeak-extras.elc \
 emacspeak-xref.elc \
 emacspeak-xslt.elc \
 emacspeak-yaml.elc \
@@ -560,6 +561,7 @@ emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc voice-setup.elc
 emacspeak-woman.elc: emacspeak-woman.el dtk-speak.elc
 emacspeak-windmove.elc: emacspeak-windmove.el dtk-speak.elc voice-setup.elc
 emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc voice-setup.elc
+emacspeak-extras.elc: emacspeak-extras.el dtk-speak.elc voice-setup.elc
 emacspeak-xref.elc: emacspeak-xref.el dtk-speak.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
 emacspeak-yaml.elc: emacspeak-yaml.el dtk-speak.elc
