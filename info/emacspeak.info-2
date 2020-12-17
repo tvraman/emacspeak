@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 13, 2020.
+last updated on December 16, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-feeds,  Next: emacspeak-filtertext,  Prev: emacspeak-eww,  Up: Emacspeak Commands And Options
@@ -60,9 +60,7 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-browse (feed)
      ‘C-e C-u’
-     ‘C-; C-u’
      ‘<fn> C-u’
-     ‘C-x @ h C-u’
 
      Browse specified  feed.
 

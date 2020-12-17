@@ -4,7 +4,7 @@
 
 @include intro-docs.texi
 
-This chapter documents a total of 1138 commands and 863 options.
+This chapter documents a total of 1139 commands and 864 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -7389,12 +7389,8 @@ Display ATOM feed.
 @table @kbd
 @item C-e C-u
 @kindex C-e C-u
-@item C-; C-u
-@kindex C-; C-u
 @item <fn> C-u
 @kindex <fn> C-u
-@item C-x @@ h C-u
-@kindex C-x @@ h C-u
 @end table
 
 @findex emacspeak-feeds-browse
@@ -20241,9 +20237,7 @@ Speak host name.
 @findex emacspeak-speak-popup-messages
 
 @format
-Pop up messages buffer.
-If it is already selected then hide it and try to restore
-previous window configuration.
+Pop up Messages  and switch to it.
 @end format
 @end deffn
 
@@ -20807,10 +20801,10 @@ Prompt for and execute an Emacspeak command.
 @subsubsection emacspeak-wizards-find-file-as-root
 @deffn {Command} emacspeak-wizards-find-file-as-root  (file)
 @table @kbd
-@item C-, f
-@kindex C-, f
-@item C-x @@ a f
-@kindex C-x @@ a f
+@item C-; r
+@kindex C-; r
+@item C-x @@ h r
+@kindex C-x @@ h r
 @end table
 
 @findex emacspeak-wizards-find-file-as-root
@@ -21343,6 +21337,23 @@ t   :  tops/last
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-remote-frame
+@deffn {Command} emacspeak-wizards-remote-frame   
+@table @kbd
+@item C-e x f
+@kindex C-e x f
+@item <fn> x f
+@kindex <fn> x f
+@end table
+
+@findex emacspeak-wizards-remote-frame
+
+@format
+Open a frame on a remote Emacs.
+Remote workstation is set via custom ‘emacspeak-wizards-remote-workstation’.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-scratch
 @deffn {Command} emacspeak-wizards-scratch   
 @table @kbd
@@ -21373,16 +21384,18 @@ Interactively prompt for foreground and background colors.
 @subsubsection emacspeak-wizards-shell
 @deffn {Command} emacspeak-wizards-shell  (&optional prefix)
 @table @kbd
-@item C-; s
-@kindex C-; s
-@item C-x @@ h s
-@kindex C-x @@ h s
+@item C-. s
+@kindex C-. s
+@item C-' s
+@kindex C-' s
+@item C-x @@ s s
+@kindex C-x @@ s s
 @end table
 
 @findex emacspeak-wizards-shell
 
 @format
-Run Emacs built-in ‘shell’ command when not in a shell buffer, or
+Run Emacs  ‘shell’ command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
 switches to ‘next’ shell buffer. When called from outside a shell
 buffer, find the most ‘appropriate shell’ and switch to it. Once
@@ -21627,10 +21640,10 @@ Swap foreground and background.
 @subsubsection emacspeak-wizards-term
 @deffn {Command} emacspeak-wizards-term  (create)
 @table @kbd
-@item C-; a
-@kindex C-; a
-@item C-x @@ h a
-@kindex C-x @@ h a
+@item C-; C-a
+@kindex C-; C-a
+@item C-x @@ h C-a
+@kindex C-x @@ h C-a
 @end table
 
 @findex emacspeak-wizards-term
@@ -21911,6 +21924,11 @@ sorted in lexical order with duplicates removed when saving.
 
 @defvar {User Option} emacspeak-wizards-project-shells
 List of shell-name/initial-directory pairs.
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-remote-workstation
+Name of remote workstation.
 
 @end defvar
 
@@ -22955,15 +22973,6 @@ communication == email, IM, ... map to  the same @emph{mood}.
 
 @subsubsection soundscape
 @deffn {Command} soundscape  (scape)
-@table @kbd
-@item C-. s
-@kindex C-. s
-@item C-' s
-@kindex C-' s
-@item C-x @@ s s
-@kindex C-x @@ s s
-@end table
-
 @findex soundscape
 
 @format
@@ -23039,15 +23048,6 @@ This is then saved to soundscape-device for future use.
 
 @subsubsection soundscape-stop
 @deffn {Command} soundscape-stop  (scape)
-@table @kbd
-@item C-. S
-@kindex C-. S
-@item C-' S
-@kindex C-' S
-@item C-x @@ s S
-@kindex C-x @@ s S
-@end table
-
 @findex soundscape-stop
 
 @format
