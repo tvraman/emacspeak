@@ -3492,6 +3492,9 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
 Remote workstation is given by `emacspeak-wizards-remote-workstation'."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
+  (cl-assert 
+   (> (length emacspeak-wizards-remote-workstation) 0) t 
+   "Set emacspeak-wizards-remote-workstation first.")
   (let((process-environment '("TERM=xterm" ))
        (title '((name . "Remote-Emacs"))))
     (start-process
@@ -3502,8 +3505,7 @@ Remote workstation is given by `emacspeak-wizards-remote-workstation'."
      emacspeak-wizards-remote-workstation
      "emacsclient" "-c"
 "-a" "''"
-"-F" (shell-quote-argument (prin1-to-string title))
-)))
+"-F" (shell-quote-argument (prin1-to-string title)))))
 
 ;;}}}
 
