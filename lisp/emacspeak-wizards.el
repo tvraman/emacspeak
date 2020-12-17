@@ -2045,18 +2045,6 @@ Default is to add autoload cookies to current file."
   (emacspeak-speak-line))
 
 ;;}}}
-;;{{{ Braille
-
-;;;###autoload
-(defun emacspeak-wizards-braille (s)
-  "Insert Braille string at point."
-  (interactive "sBraille: ")
-  (require 'toy-braille)
-  (insert (get-toy-braille-string s))
-  (emacspeak-auditory-icon 'yank-object)
-  (message "Brailled %s" s))
-
-;;}}}
 ;;{{{  Buffer Cycling:
 (defun emacspeak-wizards-buffer-cycle-previous (mode)
   "Return previous  buffer in cycle order having same major mode as `mode'."
