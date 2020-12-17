@@ -382,9 +382,6 @@ user."
     (emacspeak-speak-mode-line)))
 
 ;;}}}
-;;{{{ edit file as root using sudo vi
-
-;;}}}
 ;;{{{ browse chunks
 
 (defun emacspeak-wizards-move-and-speak (command count)
@@ -431,7 +428,7 @@ To leave, press \\[keyboard-quit]."
   (emacspeak-speak-buffer))
 
 ;;}}}
-;;{{{ labelled frames
+;;{{{ Frame Nav:
 
 ;;;###autoload
 (defun emacspeak-next-frame-or-buffer (&optional frame)

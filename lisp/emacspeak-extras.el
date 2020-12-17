@@ -528,6 +528,9 @@ the emacspeak table clipboard instead."
                clipboard-file))))
 
 ;;}}}
+;;{{{ edit file as root using sudo vi
+
+;;}}}
 (provide 'emacspeak-extras)
 ;;{{{ end of file
 
