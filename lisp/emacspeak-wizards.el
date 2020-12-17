@@ -1311,16 +1311,6 @@ prompts for and sets value of the file local pattern."
          'Man-bgproc-sentinel)))))
 
 ;;}}}
-;;{{{ fix text that has gotten read-only accidentally
-
-(defun emacspeak-wizards-fix-read-only-text (start end)
-  "Nuke read-only property on text range."
-  (interactive "r")
-  (let ((inhibit-read-only t))
-    (put-text-property start end
-                       'read-only nil)))
-
-;;}}}
 ;;{{{ VC viewer
 (defvar emacspeak-wizards-vc-viewer-command
   "setterm -dump %s -file %s"

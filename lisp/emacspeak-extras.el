@@ -324,6 +324,16 @@ Interactive  arguments specify filename pattern and search pattern."
   (emacspeak-auditory-icon 'task-done))
 
 ;;}}}
+;;{{{ fix text that has gotten read-only accidentally
+
+(defun emacspeak-wizards-fix-read-only-text (start end)
+  "Nuke read-only property on text range."
+  (interactive "r")
+  (let ((inhibit-read-only t))
+    (put-text-property start end
+                       'read-only nil)))
+
+;;}}}
 (provide 'emacspeak-extras)
 ;;{{{ end of file
 
