@@ -359,6 +359,79 @@ Interactive  arguments specify filename pattern and search pattern."
          'Man-bgproc-sentinel)))))
 
 ;;}}}
+;;{{{ annotation wizard
+
+;;; I use this to collect my annotations into a buffer
+;;; e.g. an email message to be sent out--
+;;; while reading and commenting on large documents.
+
+(defun emacspeak-annotate-make-buffer-list (&optional buffer-list)
+  "Returns names from BUFFER-LIST excluding those beginning with a space."
+  (let (buf-name)
+    (delq nil (mapcar
+               #'(lambda (b)
+                   (setq buf-name (buffer-name b))
+                   (and (stringp buf-name)
+                        (/= (length buf-name) 0)
+                        (/= (aref buf-name 0) ?\ )
+                        b))
+               (or buffer-list
+                   (buffer-list))))))
+
+(defvar emacspeak-annotate-working-buffer nil
+  "Buffer that annotations go to.")
+
+(make-variable-buffer-local 'emacspeak-annotate-working-buffer)
+
+(defvar emacspeak-annotate-edit-buffer
+"emacspeak-annotation*"
+  "Name of temporary buffer used to edit the annotation.")
+
+(defun emacspeak-annotate-get-annotation ()
+  "Pop up a temporary buffer and collect the annotation."
+  (cl-declare (special emacspeak-annotate-edit-buffer))
+  (let ((annotation nil))
+    (pop-to-buffer
+     (get-buffer-create emacspeak-annotate-edit-buffer))
+    (erase-buffer)
+    (message "Exit recursive edit when done.")
+    (recursive-edit)
+    (local-set-key "\C-c\C-c" 'exit-recursive-edit)
+    (setq annotation (buffer-string))
+    (bury-buffer)
+    annotation))
+;;;###autoload
+(defun emacspeak-annotate-add-annotation (&optional reset)
+  "Add annotation to the annotation working buffer.
+Prompt for annotation buffer if not already set.
+Interactive prefix arg `reset' prompts for the annotation
+buffer even if one is already set.
+Annotation is entered in a temporary buffer and the
+annotation is inserted into the working buffer when complete."
+  (interactive "P")
+  (cl-declare (special emacspeak-annotate-working-buffer))
+  (when (or reset
+            (null emacspeak-annotate-working-buffer))
+    (setq emacspeak-annotate-working-buffer
+          (get-buffer-create
+           (read-buffer "Annotation working buffer: "
+                        (cadr (emacspeak-annotate-make-buffer-list))))))
+  (let ((annotation nil)
+        (work-buffer emacspeak-annotate-working-buffer)
+        (parent-buffer (current-buffer)))
+    (message "Adding annotation to %s"
+             emacspeak-annotate-working-buffer)
+    (save-window-excursion
+      (save-current-buffer
+        (setq annotation
+              (emacspeak-annotate-get-annotation))
+        (set-buffer work-buffer)
+        (insert annotation)
+        (insert "\n"))
+      (switch-to-buffer parent-buffer))
+    (emacspeak-auditory-icon 'close-object)))
+
+;;}}}
 (provide 'emacspeak-extras)
 ;;{{{ end of file
 
