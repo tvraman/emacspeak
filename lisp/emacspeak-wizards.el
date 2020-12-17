@@ -3546,7 +3546,9 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
      "-R" "2222:localhost:2222" ;;; emacs speech server
      "-R" "3333:localhost:3333" ;;; emacspeak notification server
      emacspeak-wizards-remote-workstation
-     "emacsclient" "-c")))
+     "emacsclient" "-c"
+"-a" "''"
+)))
 
 ;;}}}
 
