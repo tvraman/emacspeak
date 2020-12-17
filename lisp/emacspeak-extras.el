@@ -131,6 +131,40 @@
   (message "Brailled %s" s))
 
 ;;}}}
+;;{{{ Add autoload cookies:
+
+(defvar emacspeak-autoload-cookie-pattern
+  ";;;###autoload"
+  "autoload cookie pattern.")
+
+
+(defun emacspeak-wizards-add-autoload-cookies (&optional f)
+  "Add autoload cookies to file f.
+Default is to add autoload cookies to current file."
+  (interactive)
+  (cl-declare (special emacspeak-autoload-cookie-pattern))
+  (or f (setq f (buffer-file-name)))
+  (let ((buffer (find-file-noselect f))
+        (count 0))
+    (with-current-buffer buffer
+      (goto-char (point-min))
+      (unless (eq major-mode 'emacs-lisp-mode)
+        (error "Not an Emacs Lisp file."))
+      (condition-case nil
+          (while (not (eobp))
+            (re-search-forward "^ *(interactive")
+            (beginning-of-defun)
+            (forward-line -1)
+            (unless (looking-at emacspeak-autoload-cookie-pattern)
+              (cl-incf count)
+              (forward-line 1)
+              (beginning-of-line)
+              (insert
+               (format "%s\n" emacspeak-autoload-cookie-pattern)))
+            (end-of-defun))
+        (error "Added %d autoload cookies." count)))))
+
+;;}}}
 (provide 'emacspeak-extras)
 ;;{{{ end of file
 
