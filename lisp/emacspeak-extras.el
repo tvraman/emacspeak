@@ -432,6 +432,31 @@ annotation is inserted into the working buffer when complete."
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
+;;{{{  launch Curl
+
+(defcustom emacspeak-curl-cookie-store
+  (expand-file-name "~/.curl-cookies")
+  "Cookie store used by Curl."
+  :type 'file
+  :group 'emacspeak-wizards)
+
+
+(defun emacspeak-curl (url)
+  "Grab URL using Curl, and preview it with a browser ."
+  (interactive "sURL: ")
+  (cl-declare (special emacspeak-curl-program
+                       emacspeak-curl-cookie-store))
+  (with-temp-buffer
+    (shell-command
+     (format
+      "%s -s --location-trusted --cookie-jar %s --cookie %s '%s'
+2>/dev/null"
+      emacspeak-curl-program
+      emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
+     (current-buffer))
+    (browse-url-of-buffer)))
+
+;;}}}
 (provide 'emacspeak-extras)
 ;;{{{ end of file
 
