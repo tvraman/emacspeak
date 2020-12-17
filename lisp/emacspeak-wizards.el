@@ -3528,18 +3528,13 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
   :type 'string
   :group 'emacspeak-wizards)
 
-
-;;; Note: the frame title doesn't get set correctly,
-;;; See remacs script for the invocation that does set it.
-;;; Elisp plus shell quoting is a tangled mess.
-
 (defun emacspeak-wizards-remote-frame ()
-  "Open a frame on a remote Emacs, run emacs --daemon there first
-  before using this command.   Remote workstation is set via
-  custom `emacspeak-wizards-remote-workstation'."
+  "Open a frame on a remote Emacs.  
+Remote workstation is given by `emacspeak-wizards-remote-workstation'."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
-  (let((process-environment '("TERM=xterm" )))
+  (let((process-environment '("TERM=xterm" ))
+       (title '((name . "Remote-Emacs"))))
     (start-process
      "REmacs" "*REmacs*" "ssh"
      "-X"                       ;;; forward X11
@@ -3548,6 +3543,7 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
      emacspeak-wizards-remote-workstation
      "emacsclient" "-c"
 "-a" "''"
+"-F" (shell-quote-argument (prin1-to-string title))
 )))
 
 ;;}}}
