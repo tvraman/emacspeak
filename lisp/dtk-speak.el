@@ -66,7 +66,7 @@
    ((getenv "DTK_PROGRAM") (getenv "DTK_PROGRAM"))
    ((eq system-type 'darwin) "mac")
    (t "espeak"))
-  "Name of speech-server.
+  "Speech-server.
 Choices:
 dtk-exp     For the Dectalk Express.
 outloud     For IBM ViaVoice Outloud
@@ -87,13 +87,12 @@ mac for MAC TTS (default on Mac)")
 ;;{{{  user customizations:
 
 (defgroup tts nil
-  "TTS customizations for the Emacspeak audio desktop."
+  "TTS customizations."
   :group 'emacspeak
   :prefix "dtk-")
 
 (defvar-local tts-strip-octals nil
-  "Set to T to strip all octal chars before speaking.
-Particularly useful for web browsing.")
+  "Strip all octal chars before speaking. ")
 
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
@@ -103,14 +102,13 @@ Particularly useful for web browsing.")
 
 (defcustom dtk-speech-rate-step
   (if (string-match "dtk" dtk-program) 50 8)
-  "Value of speech rate increment.
-Determines step size  when setting speech rate via command
+  "Value of speech rate increment used by command
 `dtk-set-predefined-speech-rate'."
   :type 'integer
   :group 'tts)
 
 (defvar-local dtk-quiet nil
-  "Switch to silence speech via 
+  "Silence speech via 
  command `dtk-toggle-quiet' bound to \\[dtk-toggle-quiet].")
 
 (defvar-local  dtk-split-caps t
@@ -127,7 +125,7 @@ Use  command  `dtk-add-cleanup-pattern'
  bound to \\[dtk-add-cleanup-pattern]  to add more patterns.
 
 If more than 3 consecutive occurrences
-of a specified pattern is found, the TTS engine replaces it
+of a specified pattern is found, emacspeak replaces it
 with a repeat count. "
   :type '(repeat (string :tag "pattern"))
   :group 'tts)
@@ -136,7 +134,7 @@ with a repeat count. "
 ;;{{{  internal variables
 
 (defvar dtk-character-scale 1.1
-  "Factor by which speech rate is scaled when characters are spoken.
+  "Factor by which speech rate is scaled when speaking letters.
   Use command `dtk-set-character-scale' bound to
 \\[dtk-set-character-scale].")
 
@@ -149,7 +147,7 @@ bound to \\[dtk-toggle-caps].")
 
 (defconst dtk-punctuation-mode-alist
   '("some" "all" "none")
-  "Alist of valid punctuation modes, values are strings.")
+  "Table of valid punctuation modes.")
 
 (defvar-local dtk-speech-rate
   (if (string-match "dtk" dtk-program)
