@@ -3489,7 +3489,7 @@ Optional interactive prefix arg reverse-geocodes using Google Maps."
 
 (defun emacspeak-wizards-remote-frame ()
   "Open a frame on a remote Emacs.  
-Remote workstation is given by `emacspeak-wizards-remote-workstation'."
+Remote workstation is  `emacspeak-wizards-remote-workstation'."
   (interactive )
   (cl-declare (special emacspeak-wizards-remote-workstation))
   (cl-assert 
