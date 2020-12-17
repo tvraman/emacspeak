@@ -3511,7 +3511,6 @@ Remote workstation is  `emacspeak-wizards-remote-workstation'."
 "-F" (shell-quote-argument (prin1-to-string title)))))
 
 ;;}}}
-
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
