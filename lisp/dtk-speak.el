@@ -1606,7 +1606,6 @@ program. Port defaults to dtk-local-server-port"
 ;;}}}
 ;;{{{  initialize the speech process
 
-
 (defcustom tts-notification-device
   (eval-when-compile
     (or (getenv "ALSA_NOTIFY")
@@ -1661,29 +1660,17 @@ program. Port defaults to dtk-local-server-port"
     (delete-process dtk-notify-process)))
 
 (defun tts-restart ()
-  "Use this to nuke the currently running TTS server and restart it."
+  "Restart TTS server."
   (interactive)
   (dtk-initialize)
   (dtk-interp-sync))
-
 
 ;;}}}
 ;;{{{  interactively select how text is split:
 
 (defun dtk-toggle-splitting-on-white-space ()
   "Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as `shell-mode' and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak's stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time."
+Split text  by clause boundaries, or also split on  whitespace.  "
   (interactive)
   (cl-declare (special dtk-chunk-separator-syntax))
   (cond
@@ -1697,8 +1684,6 @@ since the synthesizer is getting a word at a time."
 
 (defun dtk-set-chunk-separator-syntax (s)
   "Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
 Argument S specifies the syntax class."
 
   (interactive
@@ -1721,9 +1706,7 @@ This is so text marked invisible is silenced.")
 
 (defun dtk-speak (text)
   "Speak the TEXT string on the  tts.
-No-op if variable `dtk-quiet' is set to t.
-If option `outline-minor-mode' is on and selective display is in effect,
-only speak upto the first ctrl-m."
+No-op if  `dtk-quiet' is set to t. "
   (cl-declare (special dtk-yank-excluded-properties
                dtk-speaker-process dtk-stop-immediately
                tts-strip-octals inhibit-point-motion-hooks
@@ -1821,14 +1804,14 @@ only speak upto the first ctrl-m."
 (defvar emacspeak-speak-messages)
 
 (defmacro ems-with-messages-silenced (&rest body)
-  "Evaluate body  after temporarily silencing auditory error feedback."
+  "Evaluate body  after temporarily silencing messages."
   (declare (indent 1) (debug t))
   `(let ((emacspeak-speak-messages nil)
          (inhibit-message t))
      ,@body))
 
 (defun dtk-speak-and-echo (message)
-  "Speak message and echo it to the message area."
+  "Speak message and echo it."
   (ems-with-messages-silenced
    (dtk-speak message)
    (message "%s" message)))
@@ -1912,8 +1895,7 @@ inserted.  Otherwise it is a number that specifies grouping"
 ;;{{{ Notify:
 
 (defun dtk-notify-process ()
-  "Return valid TTS handle for notifications.
-Returns nil if the result would not be a valid process handle."
+  "Return  Notification TTS handle or nil. "
   (cl-declare (special dtk-notify-process dtk-speaker-process
                         dtk-program))
   (let ((result
@@ -1932,15 +1914,13 @@ Returns nil if the result would not be a valid process handle."
     (when dtk-speaker-process (dtk-stop))))
 
 (defun dtk-notify-apply (func text)
-  "Internal helper to handle notifications.
-Applies func to text with dtk-speaker-process bound to the  notification stream."
+  " Applies func to text with dtk-speaker-process bound to the  notification stream."
   (let ((dtk-speaker-process (dtk-notify-process)))
     (funcall func text)))
 (declare-function emacspeak-log-notification "emacspeak-speak" (text))
 
 (defun dtk-notify-speak (text &optional dont-log)
   "Speak text on notification stream.
-Fall back to dtk-speak if notification stream not available.
 Notification is logged in the notifications buffer unless `dont-log' is T. "
   (cl-declare (special dtk-speaker-process emacspeak-last-message))
   (unless dont-log (emacspeak-log-notification text))
