@@ -3064,7 +3064,7 @@ Remote workstation is  `emacspeak-wizards-remote-workstation'."
                          (cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
     (start-process
      "REmacs" "*REmacs*" "ssh"
-     "-X"                       ;;; forward X11
+     "-Y"                       ;;; forward Trusted X11
      emacspeak-wizards-remote-workstation
      "emacsclient" "-c"
      "-a" "''"
