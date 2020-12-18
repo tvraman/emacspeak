@@ -80,6 +80,7 @@ This chapter documents a total of 1139 commands and 864 options.
 * emacspeak-eudc::Speech enable  LDAP directory client.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
+* emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
 * emacspeak-filtertext::Utilities to filter text.
 * emacspeak-fix-interactive::Make  Emacs' builtin prompts   speak.
@@ -447,11 +448,7 @@ Here, prefix dtk is synonymous with tts.
 @format
 Add this pattern to the list of repeating patterns.
   Optional interactive prefix arg deletes
-this pattern if previously added.    Thus, by adding the repeating
-pattern ‘.’ (this is already added by default) emacspeak
-will say ‘‘aw fifteen dot’’ when speaking the string
-‘‘...............’’ instead of ‘‘period period period period
-’’
+this pattern if previously added.    
 
 (fn &optional DELETE)
 @end format
@@ -469,7 +466,7 @@ will say ‘‘aw fifteen dot’’ when speaking the string
 @findex dtk-cloud
 
 @format
-Select preferred Cloud TTS server.
+Select  Cloud TTS server.
 @end format
 @end deffn
 
@@ -563,8 +560,7 @@ Stop  speech on notification stream.
 @findex dtk-reset-state
 
 @format
-Restore sanity to the Dectalk.
-Typically used after the Dectalk has been power   cycled.
+Reset TTS engine.
 @end format
 @end deffn
 
@@ -602,11 +598,10 @@ ALSA_DEFAULT to specified device before starting the server.
 @findex dtk-set-character-scale
 
 @format
-Set scale FACTOR for   speech rate.
-Speech rate is scaled by this factor
-when speaking characters.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result.
+Set character scale FACTOR for   speech rate.
+Speech rate is scaled by this factor when speaking characters.
+Interactive PREFIX arg means set the global default value, and
+then set the current local value to the result.
 
 (fn FACTOR &optional PREFIX)
 @end format
@@ -625,8 +620,6 @@ current local  value to the result.
 
 @format
 Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
 Argument S specifies the syntax class.
 
 (fn S)
@@ -663,7 +656,7 @@ Set language  to  lang.
 @findex dtk-set-next-language
 
 @format
-Switch to the next  language
+Switch to  next  language
 @end format
 @end deffn
 
@@ -751,7 +744,7 @@ will set "en_GB".
 @findex dtk-set-previous-language
 
 @format
-Switch to the previous  language
+Switch to  previous  language
 @end format
 @end deffn
 
@@ -812,7 +805,7 @@ Interactive PREFIX arg sets punctuation mode globally.
 @findex dtk-set-rate
 
 @format
-Set speaking RATE for the tts.
+Set speaking RATE.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 
@@ -832,7 +825,7 @@ current local  value to the result.
 @findex dtk-stop
 
 @format
-Stop speech now.
+Stop speech.
 Optional arg ‘all’ or interactive call   silences notification stream as well.
 
 (fn &optional ALL)
@@ -940,18 +933,7 @@ result.
 
 @format
 Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as ‘shell-mode’ and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak’s stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time.
+Split text  by clause boundaries, or also split on  whitespace.  
 @end format
 @end deffn
 
@@ -986,7 +968,7 @@ value to the result.
 @findex tts-restart
 
 @format
-Use this to nuke the currently running TTS server and restart it.
+Restart TTS server.
 @end format
 @end deffn
 
@@ -1024,7 +1006,7 @@ Use  command  ‘dtk-add-cleanup-pattern’
  bound to C-e d a  to add more patterns.
 
 If more than 3 consecutive occurrences
-of a specified pattern is found, the TTS engine replaces it
+of a specified pattern is found, emacspeak replaces it
 with a repeat count. 
 
 @end defvar
@@ -1054,14 +1036,13 @@ Value of lowest tolerable speech rate.
 @end defvar
 
 @defvar {User Option} dtk-speech-rate-step
-Value of speech rate increment.
-Determines step size  when setting speech rate via command
+Value of speech rate increment used by command
 ‘dtk-set-predefined-speech-rate’.
 
 @end defvar
 
 @defvar {User Option} dtk-use-tones
-Allow tones to be turned off.
+Toggle tones. 
 
 @end defvar
 
@@ -7328,6 +7309,269 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} voice-shr-strike-through
 Personality used for shr-strike-through
 This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@node emacspeak-extras
+@section emacspeak-extras
+
+Infrequently used wizards archived for posterity.
+
+@subsection Emacspeak-Extras Commands
+
+@subsubsection emacspeak-annotate-add-annotation
+@deffn {Command} emacspeak-annotate-add-annotation  (&optional reset)
+@findex emacspeak-annotate-add-annotation
+
+@format
+Add annotation to the annotation working buffer.
+Prompt for annotation buffer if not already set.
+Interactive prefix arg ‘reset’ prompts for the annotation
+buffer even if one is already set.
+Annotation is entered in a temporary buffer and the
+annotation is inserted into the working buffer when complete.
+
+(fn &optional RESET)
+@end format
+@end deffn
+
+@subsubsection emacspeak-clipboard-copy
+@deffn {Command} emacspeak-clipboard-copy  (start end &optional prompt)
+@table @kbd
+@item C-e C-c
+@kindex C-e C-c
+@item <fn> C-c
+@kindex <fn> C-c
+@end table
+
+@findex emacspeak-clipboard-copy
+
+@format
+Copy contents of the region to the emacspeak clipboard. Previous
+contents of the clipboard will be overwritten. The Emacspeak clipboard
+is a convenient way of sharing information between independent
+Emacspeak sessions running on the same or different machines. Do not
+use this for sharing information within an Emacs session --Emacs’
+register commands are far more efficient and light-weight. Optional
+interactive prefix arg results in Emacspeak prompting for the
+clipboard file to use. Argument START and END specifies
+region. Optional argument PROMPT specifies whether we prompt for the
+name of a clipboard file.
+
+(fn START END &optional PROMPT)
+@end format
+@end deffn
+
+@subsubsection emacspeak-clipboard-paste
+@deffn {Command} emacspeak-clipboard-paste  (&optional paste-table)
+@table @kbd
+@item C-e C-y
+@kindex C-e C-y
+@item <fn> C-y
+@kindex <fn> C-y
+@end table
+
+@findex emacspeak-clipboard-paste
+
+@format
+Yank contents of the Emacspeak clipboard at point.
+The Emacspeak clipboard is a convenient way of sharing information between
+independent Emacspeak sessions running on the same or different
+machines.  Do not use this for sharing information within an Emacs
+session --Emacs’ register commands are far more efficient and
+light-weight.  Optional interactive prefix arg pastes from
+the emacspeak table clipboard instead.
+
+(fn &optional PASTE-TABLE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-curl
+@deffn {Command} emacspeak-curl  (url)
+@findex emacspeak-curl
+
+@format
+Grab URL using Curl, and preview it with a browser .
+
+(fn URL)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-add-autoload-cookies
+@deffn {Command} emacspeak-wizards-add-autoload-cookies  (&optional f)
+@findex emacspeak-wizards-add-autoload-cookies
+
+@format
+Add autoload cookies to file f.
+Default is to add autoload cookies to current file.
+
+(fn &optional F)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-bindings-from-org
+@deffn {Command} emacspeak-wizards-bindings-from-org  (variable filename)
+@findex emacspeak-wizards-bindings-from-org
+
+@format
+Load bindings from a specified file.
+
+(fn VARIABLE FILENAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-bindings-to-org
+@deffn {Command} emacspeak-wizards-bindings-to-org  (variable filename)
+@findex emacspeak-wizards-bindings-to-org
+
+@format
+Persists mapping to org file.
+
+(fn VARIABLE FILENAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-braille
+@deffn {Command} emacspeak-wizards-braille  (s)
+@findex emacspeak-wizards-braille
+
+@format
+Insert Braille string at point.
+
+(fn S)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-display-pod-as-manpage
+@deffn {Command} emacspeak-wizards-display-pod-as-manpage  (filename)
+@findex emacspeak-wizards-display-pod-as-manpage
+
+@format
+Create a virtual manpage in Emacs from the Perl Online Documentation.
+
+(fn FILENAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-find-grep
+@deffn {Command} emacspeak-wizards-find-grep  (glob pattern)
+@findex emacspeak-wizards-find-grep
+
+@format
+Run compile using find and grep.
+Interactive  arguments specify filename pattern and search pattern.
+
+(fn GLOB PATTERN)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-fix-read-only-text
+@deffn {Command} emacspeak-wizards-fix-read-only-text  (start end)
+@findex emacspeak-wizards-fix-read-only-text
+
+@format
+Nuke read-only property on text range.
+
+(fn START END)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-generate-voice-sampler
+@deffn {Command} emacspeak-wizards-generate-voice-sampler  (step)
+@findex emacspeak-wizards-generate-voice-sampler
+
+@format
+Generate a buffer that shows a sample line in all the ACSS settings
+for the current voice family.
+
+(fn STEP)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-list-voices
+@deffn {Command} emacspeak-wizards-list-voices  (pattern)
+@table @kbd
+@item C-h "
+@kindex C-h "
+@item <f1> "
+@kindex <f1> "
+@item <help> "
+@kindex <help> "
+@end table
+
+@findex emacspeak-wizards-list-voices
+
+@format
+Show all defined voice-face mappings  in a help buffer.
+Sample text to use comes from variable
+  ‘ems--wizards-sampler-text 
+
+(fn PATTERN)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-midi-using-m-score
+@deffn {Command} emacspeak-wizards-midi-using-m-score  (midi-file)
+@findex emacspeak-wizards-midi-using-m-score
+
+@format
+Play midi file using mscore from musescore package.
+
+(fn MIDI-FILE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-show-defined-voices
+@deffn {Command} emacspeak-wizards-show-defined-voices   
+@findex emacspeak-wizards-show-defined-voices
+
+@format
+Display a buffer with sample text in the defined voices.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-tramp-open-location
+@deffn {Command} emacspeak-wizards-tramp-open-location  (name)
+@findex emacspeak-wizards-tramp-open-location
+
+@format
+Open specified tramp location.
+Location is specified by name.
+
+(fn NAME)
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-voice-sampler
+@deffn {Command} emacspeak-wizards-voice-sampler  (personality)
+@findex emacspeak-wizards-voice-sampler
+
+@format
+Read a personality  and apply it to the current line.
+
+(fn PERSONALITY)
+@end format
+@end deffn
+
+@subsection emacspeak-extras Options
+
+@defvar {User Option} emacspeak-clipboard-file
+File used to save Emacspeak clipboard.
+The emacspeak clipboard provides a convenient mechanism for exchanging
+information between different Emacs sessions.
+
+@end defvar
+
+@defvar {User Option} emacspeak-curl-cookie-store
+Cookie store used by Curl.
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-tramp-locations
+Tramp locations used by Emacspeak tramp wizard.
+Locations added here via custom can be opened using command
+emacspeak-wizards-tramp-open-location
+bound to M-x emacspeak-wizards-tramp-open-location.
 
 @end defvar
 
@@ -19829,73 +20073,6 @@ Contains various wizards for the Emacspeak desktop.
 
 @subsection Emacspeak-Wizards Commands
 
-@subsubsection emacspeak-annotate-add-annotation
-@deffn {Command} emacspeak-annotate-add-annotation  (&optional reset)
-@findex emacspeak-annotate-add-annotation
-
-@format
-Add annotation to the annotation working buffer.
-Prompt for annotation buffer if not already set.
-Interactive prefix arg ‘reset’ prompts for the annotation
-buffer even if one is already set.
-Annotation is entered in a temporary buffer and the
-annotation is inserted into the working buffer when complete.
-
-(fn &optional RESET)
-@end format
-@end deffn
-
-@subsubsection emacspeak-clipboard-copy
-@deffn {Command} emacspeak-clipboard-copy  (start end &optional prompt)
-@table @kbd
-@item C-e C-c
-@kindex C-e C-c
-@item <fn> C-c
-@kindex <fn> C-c
-@end table
-
-@findex emacspeak-clipboard-copy
-
-@format
-Copy contents of the region to the emacspeak clipboard. Previous
-contents of the clipboard will be overwritten. The Emacspeak clipboard
-is a convenient way of sharing information between independent
-Emacspeak sessions running on the same or different machines. Do not
-use this for sharing information within an Emacs session --Emacs’
-register commands are far more efficient and light-weight. Optional
-interactive prefix arg results in Emacspeak prompting for the
-clipboard file to use. Argument START and END specifies
-region. Optional argument PROMPT specifies whether we prompt for the
-name of a clipboard file.
-
-(fn START END &optional PROMPT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-clipboard-paste
-@deffn {Command} emacspeak-clipboard-paste  (&optional paste-table)
-@table @kbd
-@item C-e C-y
-@kindex C-e C-y
-@item <fn> C-y
-@kindex <fn> C-y
-@end table
-
-@findex emacspeak-clipboard-paste
-
-@format
-Yank contents of the Emacspeak clipboard at point.
-The Emacspeak clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs’ register commands are far more efficient and
-light-weight.  Optional interactive prefix arg pastes from
-the emacspeak table clipboard instead.
-
-(fn &optional PASTE-TABLE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-copy-current-file
 @deffn {Command} emacspeak-copy-current-file   
 @table @kbd
@@ -19915,17 +20092,6 @@ Prompts for the new location and preserves modification time
   a file in an existing directory, the specified name is
   used.  Asks for confirmation if the copy will result in an
   existing file being overwritten.
-@end format
-@end deffn
-
-@subsubsection emacspeak-curl
-@deffn {Command} emacspeak-curl  (url)
-@findex emacspeak-curl
-
-@format
-Grab URL using Curl, and preview it with a browser .
-
-(fn URL)
 @end format
 @end deffn
 
@@ -20409,18 +20575,6 @@ Browse  Emacspeak productivity tips.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-add-autoload-cookies
-@deffn {Command} emacspeak-wizards-add-autoload-cookies  (&optional f)
-@findex emacspeak-wizards-add-autoload-cookies
-
-@format
-Add autoload cookies to file f.
-Default is to add autoload cookies to current file.
-
-(fn &optional F)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-alpha-vantage-quotes
 @deffn {Command} emacspeak-wizards-alpha-vantage-quotes  (ticker &optional custom)
 @table @kbd
@@ -20438,39 +20592,6 @@ Retrieve stock quote data from Alpha Vantage. Prompts for ‘ticker’
 access to the various functions provided by alpha-vantage.
 
 (fn TICKER &optional CUSTOM)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-bindings-from-org
-@deffn {Command} emacspeak-wizards-bindings-from-org  (variable filename)
-@findex emacspeak-wizards-bindings-from-org
-
-@format
-Load bindings from a specified file.
-
-(fn VARIABLE FILENAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-bindings-to-org
-@deffn {Command} emacspeak-wizards-bindings-to-org  (variable filename)
-@findex emacspeak-wizards-bindings-to-org
-
-@format
-Persists mapping to org file.
-
-(fn VARIABLE FILENAME)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-braille
-@deffn {Command} emacspeak-wizards-braille  (s)
-@findex emacspeak-wizards-braille
-
-@format
-Insert Braille string at point.
-
-(fn S)
 @end format
 @end deffn
 
@@ -20635,17 +20756,6 @@ Cycles to next buffer having same mode.
 
 @format
 Cycles to previous buffer having same mode.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-display-pod-as-manpage
-@deffn {Command} emacspeak-wizards-display-pod-as-manpage  (filename)
-@findex emacspeak-wizards-display-pod-as-manpage
-
-@format
-Create a virtual manpage in Emacs from the Perl Online Documentation.
-
-(fn FILENAME)
 @end format
 @end deffn
 
@@ -20818,18 +20928,6 @@ user.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-find-grep
-@deffn {Command} emacspeak-wizards-find-grep  (glob pattern)
-@findex emacspeak-wizards-find-grep
-
-@format
-Run compile using find and grep.
-Interactive  arguments specify filename pattern and search pattern.
-
-(fn GLOB PATTERN)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-find-longest-line-in-region
 @deffn {Command} emacspeak-wizards-find-longest-line-in-region  (start end)
 @table @kbd
@@ -20902,17 +21000,6 @@ key             binding
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-fix-read-only-text
-@deffn {Command} emacspeak-wizards-fix-read-only-text  (start end)
-@findex emacspeak-wizards-fix-read-only-text
-
-@format
-Nuke read-only property on text range.
-
-(fn START END)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-frame-colors
 @deffn {Command} emacspeak-wizards-frame-colors   
 @findex emacspeak-wizards-frame-colors
@@ -20953,18 +21040,6 @@ external package.
 
 @format
 Generate a widget-enabled finder wizard.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-generate-voice-sampler
-@deffn {Command} emacspeak-wizards-generate-voice-sampler  (step)
-@findex emacspeak-wizards-generate-voice-sampler
-
-@format
-Generate a buffer that shows a sample line in all the ACSS settings
-for the current voice family.
-
-(fn STEP)
 @end format
 @end deffn
 
@@ -21143,39 +21218,6 @@ Show price for symbol in current row
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-list-voices
-@deffn {Command} emacspeak-wizards-list-voices  (pattern)
-@table @kbd
-@item C-h "
-@kindex C-h "
-@item <f1> "
-@kindex <f1> "
-@item <help> "
-@kindex <help> "
-@end table
-
-@findex emacspeak-wizards-list-voices
-
-@format
-Show all defined voice-face mappings  in a help buffer.
-Sample text to use comes from variable
-  ‘ems--wizards-sampler-text 
-
-(fn PATTERN)
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-midi-using-m-score
-@deffn {Command} emacspeak-wizards-midi-using-m-score  (midi-file)
-@findex emacspeak-wizards-midi-using-m-score
-
-@format
-Play midi file using mscore from musescore package.
-
-(fn MIDI-FILE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-mlb-standings
 @deffn {Command} emacspeak-wizards-mlb-standings  (&optional raw)
 @findex emacspeak-wizards-mlb-standings
@@ -21349,8 +21391,8 @@ t   :  tops/last
 @findex emacspeak-wizards-remote-frame
 
 @format
-Open a frame on a remote Emacs.
-Remote workstation is set via custom ‘emacspeak-wizards-remote-workstation’.
+Open a frame on a remote Emacs.  
+Remote workstation is  ‘emacspeak-wizards-remote-workstation’.
 @end format
 @end deffn
 
@@ -21545,15 +21587,6 @@ Switch to the shell buffer and cd to
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-show-defined-voices
-@deffn {Command} emacspeak-wizards-show-defined-voices   
-@findex emacspeak-wizards-show-defined-voices
-
-@format
-Display a buffer with sample text in the defined voices.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-show-eval-result
 @deffn {Command} emacspeak-wizards-show-eval-result  (form)
 @table @kbd
@@ -21684,18 +21717,6 @@ Toggle pronunciation of mm-dd-yyyy dates.
 
 @format
 Toggle pronunciation of yyyymmdd  dates.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-tramp-open-location
-@deffn {Command} emacspeak-wizards-tramp-open-location  (name)
-@findex emacspeak-wizards-tramp-open-location
-
-@format
-Open specified tramp location.
-Location is specified by name.
-
-(fn NAME)
 @end format
 @end deffn
 
@@ -21844,30 +21865,7 @@ Buffer menu filtered by  mode of current-buffer.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-voice-sampler
-@deffn {Command} emacspeak-wizards-voice-sampler  (personality)
-@findex emacspeak-wizards-voice-sampler
-
-@format
-Read a personality  and apply it to the current line.
-
-(fn PERSONALITY)
-@end format
-@end deffn
-
 @subsection emacspeak-wizards Options
-
-@defvar {User Option} emacspeak-clipboard-file
-File used to save Emacspeak clipboard.
-The emacspeak clipboard provides a convenient mechanism for exchanging
-information between different Emacs sessions.
-
-@end defvar
-
-@defvar {User Option} emacspeak-curl-cookie-store
-Cookie store used by Curl.
-
-@end defvar
 
 @defvar {User Option} emacspeak-emergency-tts-server
 TTS server to use in an emergency.
@@ -21929,14 +21927,6 @@ List of shell-name/initial-directory pairs.
 
 @defvar {User Option} emacspeak-wizards-remote-workstation
 Name of remote workstation.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-tramp-locations
-Tramp locations used by Emacspeak tramp wizard.
-Locations added here via custom can be opened using command
-emacspeak-wizards-tramp-open-location
-bound to M-x emacspeak-wizards-tramp-open-location.
 
 @end defvar
 

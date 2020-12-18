@@ -12,7 +12,7 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 16, 2020.
+last updated on December 18, 2020.
 
 
 File: emacspeak.info,  Node: Top,  Next: Copyright,  Up: (dir)
@@ -2943,6 +2943,7 @@ documentation, then read *Note emacspeak-eww::.
 * emacspeak-eudc::Speech enable  LDAP directory client.
 * emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
+* emacspeak-extras::Speech-enable EXTRAS.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
 * emacspeak-filtertext::Utilities to filter text.
 * emacspeak-fix-interactive::Make  Emacs’ builtin prompts   speak.
@@ -3293,11 +3294,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
 
      Add this pattern to the list of repeating patterns.
        Optional interactive prefix arg deletes
-     this pattern if previously added.    Thus, by adding the repeating
-     pattern ‘.’ (this is already added by default) emacspeak
-     will say ‘‘aw fifteen dot’’ when speaking the string
-     ‘‘...............’’ instead of ‘‘period period period period
-     ’’
+     this pattern if previously added.
 
      (fn &optional DELETE)
 
@@ -3308,7 +3305,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d C-c’
      ‘<fn> d C-c’
 
-     Select preferred Cloud TTS server.
+     Select  Cloud TTS server.
 
 12.7.1.3 dtk-list-languages
 ...........................
@@ -3365,8 +3362,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d R’
      ‘<fn> d R’
 
-     Restore sanity to the Dectalk.
-     Typically used after the Dectalk has been power   cycled.
+     Reset TTS engine.
 
 12.7.1.9 dtk-select-server
 ..........................
@@ -3390,11 +3386,10 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d f’
      ‘<fn> d f’
 
-     Set scale FACTOR for   speech rate.
-     Speech rate is scaled by this factor
-     when speaking characters.
-     Interactive PREFIX arg means set   the global default value, and then set the
-     current local  value to the result.
+     Set character scale FACTOR for   speech rate.
+     Speech rate is scaled by this factor when speaking characters.
+     Interactive PREFIX arg means set the global default value, and
+     then set the current local value to the result.
 
      (fn FACTOR &optional PREFIX)
 
@@ -3406,8 +3401,6 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘<fn> d RET’
 
      Interactively set how text is split in chunks.
-     See the Emacs documentation on syntax tables for details on how characters are
-     classified into various syntactic classes.
      Argument S specifies the syntax class.
 
      (fn S)
@@ -3430,7 +3423,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d N’
      ‘<fn> d N’
 
-     Switch to the next  language
+     Switch to  next  language
 
 12.7.1.14 dtk-set-predefined-speech-rate
 ........................................
@@ -3484,7 +3477,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d P’
      ‘<fn> d P’
 
-     Switch to the previous  language
+     Switch to  previous  language
 
 12.7.1.17 dtk-set-punctuations
 ..............................
@@ -3527,7 +3520,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e d r’
      ‘<fn> d r’
 
-     Set speaking RATE for the tts.
+     Set speaking RATE.
      Interactive PREFIX arg means set   the global default value, and then set the
      current local  value to the result.
 
@@ -3540,7 +3533,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e s’
      ‘<fn> s’
 
-     Stop speech now.
+     Stop speech.
      Optional arg ‘all’ or interactive call   silences notification stream as well.
 
      (fn &optional ALL)
@@ -3611,18 +3604,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘<fn> d SPC’
 
      Toggle splitting of speech on white space.
-     This affects the internal state of emacspeak that decides if we split
-     text purely by clause boundaries, or also include
-     whitespace.  By default, emacspeak sends a clause at a time
-     to the speech device.  This produces fluent speech for
-     normal use.  However in modes such as ‘shell-mode’ and some
-     programming language modes, clause markers appear
-     infrequently, and this can result in large amounts of text
-     being sent to the speech device at once, making the system
-     unresponsive when asked to stop talking.  Splitting on white
-     space makes emacspeak’s stop command responsive.  However,
-     when splitting on white space, the speech sounds choppy
-     since the synthesizer is getting a word at a time.
+     Split text  by clause boundaries, or also split on  whitespace.
 
 12.7.1.28 dtk-toggle-strip-octals
 .................................
@@ -3643,7 +3625,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘C-e C-s’
      ‘<fn> C-s’
 
-     Use this to nuke the currently running TTS server and restart it.
+     Restart TTS server.
 
 12.7.1.30 tts-speak-version
 ...........................
@@ -3668,7 +3650,7 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      ‘dtk-add-cleanup-pattern’ bound to C-e d a to add more patterns.
 
      If more than 3 consecutive occurrences of a specified pattern is
-     found, the TTS engine replaces it with a repeat count.
+     found, emacspeak replaces it with a repeat count.
 
  -- Variable: User Option dtk-cloud-server
      Set this to your preferred cloud TTS server.
@@ -3686,11 +3668,11 @@ Defines the TTS interface.  Here, prefix dtk is synonymous with tts.
      Value of lowest tolerable speech rate.
 
  -- Variable: User Option dtk-speech-rate-step
-     Value of speech rate increment.  Determines step size when setting
-     speech rate via command ‘dtk-set-predefined-speech-rate’.
+     Value of speech rate increment used by command
+     ‘dtk-set-predefined-speech-rate’.
 
  -- Variable: User Option dtk-use-tones
-     Allow tones to be turned off.
+     Toggle tones.
 
  -- Variable: User Option tts-notification-device
      Virtual ALSA device to use for notifications stream.
@@ -8161,7 +8143,7 @@ EVIL == VIM In Emacs This is work-in-progress and is not complete.
      globally by customizing voice-smoothen-settings.
 
 
-File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-feeds,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-eww,  Next: emacspeak-extras,  Prev: emacspeak-evil,  Up: Emacspeak Commands And Options
 
 12.73 emacspeak-eww
 ===================
