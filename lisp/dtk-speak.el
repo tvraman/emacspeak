@@ -160,7 +160,7 @@ bound to \\[dtk-toggle-caps].")
 ;;{{{Style Helper:
 
 (defsubst dtk-plain-cons-p (value)
-  "Help identify (a . b)."
+  "Identify (a . b)."
   (and (consp value) (not (proper-list-p value))))
 
 ;;; Helper: Get face->voice mapping
@@ -177,13 +177,11 @@ bound to \\[dtk-toggle-caps].")
             (setq voice
                   (delq nil
                         (mapcar   #'voice-setup-get-voice-for-face value)))))
-        
       voice)))
 
 (defsubst dtk-get-style (&optional pos)
-  " Return value is a personality that can be applied to the
-content when speaking. Default `pos' to point. Property
-`personality' has higher precedence than `face'."
+  " Return  style that is applied 
+ to  content  based on personality or face at `POS'.   "
   (or pos (setq pos (point)))
   (or
    (get-text-property pos 'personality)
@@ -193,15 +191,15 @@ content when speaking. Default `pos' to point. Property
 ;;{{{ Tone Helpers:
 
 (defsubst dtk-tone-deletion ()
-  "Tone used to indicate deletion."
+  "Deletion Tone."
   (dtk-tone 500 75 'force))
 
 (defsubst dtk-tone-upcase ()
-  "Tone used to indicate  upcase."
+  "Upcase Tone."
   (dtk-tone 800 100 'force))
 
 (defsubst dtk-tone-downcase ()
-  "Tone used to indicate  lower case."
+  "Downcase tone."
   (dtk-tone 600 100 'force))
 
 ;;}}}
@@ -211,8 +209,7 @@ content when speaking. Default `pos' to point. Property
 ;;compilation
 
 (defun tts-apply-pronunciations (pronunciation-table)
-  "Applies pronunciations specified in pronunciation table to current buffer.
-Modifies text and point in buffer."
+  "Applies pronunciations per pronunciation table to current buffer. "
   (cl-declare (special emacspeak-pronounce-pronunciation-personality))
   (cl-loop
    for w in
@@ -265,8 +262,9 @@ Modifies text and point in buffer."
 
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
- 
+
 (defun dtk--skip-invisible-forward ()
+  "Move across invisible text."
   (while (and (not (eobp))
               (invisible-p (point)))
     (goto-char
@@ -300,8 +298,7 @@ Modifies text and point in buffer."
 ;;{{{  Tones, Language, formatting speech etc.
 
 (defun dtk-silence (duration &optional force)
-  "Produce `duration' ms of silence.
-Optional argument FORCE  flushes the command to the speech server."
+  "Produce `duration' ms of silence. "
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
   (unless dtk-quiet
@@ -310,7 +307,7 @@ Optional argument FORCE  flushes the command to the speech server."
                           (if force "\nd" "")))))
 
 (defcustom dtk-use-tones t
-  "Allow tones to be turned off."
+  "Toggle tones. "
   :type 'boolean
   :group 'tts)
 
@@ -318,8 +315,7 @@ Optional argument FORCE  flushes the command to the speech server."
   "Produce a tone.
 Argument PITCH   is specified in hertz.
 Argument DURATION  is specified in milliseconds.
-Uses a 5ms fade-in and fade-out.
-Optional argument FORCE  flushes the command to the speech server."
+Uses a 5ms fade-in and fade-out. "
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-use-tones dtk-speak-server-initialized))
   (unless
@@ -337,14 +333,14 @@ Optional argument FORCE  flushes the command to the speech server."
     (dtk-interp-language lang (called-interactively-p 'interactive))))
 
 (defun dtk-set-next-language ()
-  "Switch to the next  language"
+  "Switch to  next  language"
   (interactive)
   (cl-declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-next-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-previous-language ()
-  "Switch to the previous  language"
+  "Switch to  previous  language"
   (interactive)
   (cl-declare (special dtk-quiet dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -496,7 +492,7 @@ it seems some accented characters in certain contexts."
                          (propertize  val 'personality 'acss-p3-s1-r3))))
 
 (defun dtk-handle-caps ()
-  "Handle capitalization for all engines"
+  "Handle capitalization"
   (cl-declare (special dtk-caps dtk-caps-regexp
                        dtk-caps-prefix dtk-allcaps-prefix))
   (when dtk-caps
@@ -577,7 +573,7 @@ it seems some accented characters in certain contexts."
     (dtk-fix-control-chars)))
 
 (defun dtk-fix-backslash ()
-  "Quote backslash characters as appropriate."
+  "Quote backslash characters."
   (goto-char (point-min))
   (while (search-forward "\\" nil t)
     (replace-match " backslash " nil t)))
@@ -590,7 +586,7 @@ it seems some accented characters in certain contexts."
 ;;; leaves point at the end of the chunk.
 ;;; returns  distance moved; nil if stationery
 (defvar-local dtk-chunk-separator-syntax ".>)$\""
-  "Syntax classes  to identify chunks when splitting text.")
+  "Syntax classes  used when   splitting text.")
 
 (defsubst dtk-complement-chunk-separator-syntax ()
   "Return complement of syntactic class that splits clauses."
@@ -610,7 +606,7 @@ it seems some accented characters in certain contexts."
          #'(lambda (x) (= x ?-))
          dtk-chunk-separator-syntax)))
 
-;;; invariance: looking at complement
+;;; invarianc: looking at complement
 ;;; move across the complement and the following separator
 ;;; return value is a boolean indicating if we moved.
 ;;; side-effect is to move across a chunk
@@ -622,8 +618,6 @@ Argument COMPLEMENT  is the complement of separator."
   (> (+ (skip-syntax-forward complement)
         (skip-syntax-forward separator))
      0))
-
-;;; efficient way of voice changing
 
 (defun dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
@@ -766,7 +760,7 @@ Here,  change is any change in property personality, face or font-lock-face."
 ;;; ifyou want to quote the text, see dtk-speak
 
 (defun dtk-dispatch (string)
-  "Send request STRING to speech server."
+  "Send request  to speech server."
   (cl-declare (special dtk-speaker-process
                        dtk-speak-server-initialized
                        dtk-quiet))
@@ -776,7 +770,7 @@ Here,  change is any change in property personality, face or font-lock-face."
 
 
 (defun dtk-stop (&optional all)
-  "Stop speech now.
+  "Stop speech.
 Optional arg `all' or interactive call   silences notification stream as well."
   (interactive "P")
   (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
@@ -794,11 +788,7 @@ Optional arg `all' or interactive call   silences notification stream as well."
 (defun dtk-add-cleanup-pattern (&optional delete)
   "Add this pattern to the list of repeating patterns.
   Optional interactive prefix arg deletes
-this pattern if previously added.    Thus, by adding the repeating
-pattern `.' (this is already added by default) emacspeak
-will say ``aw fifteen dot'' when speaking the string
-``...............'' instead of ``period period period period
-''"
+this pattern if previously added.    "
   (interactive "P")
   (cl-declare (special dtk-cleanup-repeats))
   (cond
@@ -817,7 +807,7 @@ will say ``aw fifteen dot'' when speaking the string
 
 ;;;###autoload
 (defun ems-generate-switcher (command switch documentation)
-  "Generate desired command to switch the specified state."
+  "Generate  command to switch  state."
   (eval
    `(defun ,command (&optional prefix)
       ,documentation
@@ -845,7 +835,7 @@ will say ``aw fifteen dot'' when speaking the string
 ;;{{{  sending commands
 
 (defun dtk-set-rate (rate &optional prefix)
-  "Set speaking RATE for the tts.
+  "Set speaking RATE.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result."
   (interactive
@@ -903,11 +893,10 @@ speech rate:")))
                    (if prefix "" "locally")))))))
 
 (defun dtk-set-character-scale (factor &optional prefix)
-  "Set scale FACTOR for   speech rate.
-Speech rate is scaled by this factor
-when speaking characters.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result."
+  "Set character scale FACTOR for   speech rate.
+Speech rate is scaled by this factor when speaking characters.
+Interactive PREFIX arg means set the global default value, and
+then set the current local value to the result."
   (interactive "nEnter new factor:\nP")
   (cl-declare (special dtk-character-scale dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -1021,8 +1010,7 @@ Interactive PREFIX arg makes the new setting global."
              (if prefix "" "locally"))))
 
 (defun dtk-reset-state ()
-  "Restore sanity to the Dectalk.
-Typically used after the Dectalk has been power   cycled."
+  "Reset TTS engine."
   (interactive)
   (cl-declare (special dtk-speaker-process
                        dtk-speak-server-initialized))
@@ -1519,7 +1507,7 @@ available TTS servers.")
        (string-match "^log" tts-name))))
 
 (defvar tts-device "default"
-  "Name of current sound device in use.")
+  "Name of  sound device.")
 
 (defcustom dtk-cloud-server "cloud-outloud"
   "Set this to your preferred cloud TTS server."
@@ -1563,7 +1551,7 @@ ALSA_DEFAULT to specified device before starting the server."
       (dtk-initialize))))
 
 (defun dtk-cloud ()
-  "Select preferred Cloud TTS server."
+  "Select  Cloud TTS server."
   (interactive)
   (cl-declare (special dtk-cloud-server))
   (dtk-select-server dtk-cloud-server)
@@ -1586,6 +1574,7 @@ ALSA_DEFAULT to specified device before starting the server."
           (const :tag "Viavoice Outloud" "outloud")
           (const :tag "32Bit ViaVoice on 64Bit Linux" "32-outloud"))
   :group 'dtk)
+
 (defun dtk-local-server (program &optional prompt-port)
   "Select and start an local speech server interactively. Local server
 lets Emacspeak on a remote host connect back via SSH port forwarding
@@ -1607,7 +1596,7 @@ program. Port defaults to dtk-local-server-port"
   (setq dtk-local-server-process
         (start-process
          "LocalTTS"
-"localTTS*"
+         "localTTS*"
          (expand-file-name dtk-speech-server-program emacspeak-servers-directory)
          (if prompt-port
              (read-from-minibuffer "Port:" "3333")
