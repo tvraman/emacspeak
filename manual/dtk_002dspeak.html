@@ -84,11 +84,7 @@
         <pre class=
         "format">Add this pattern to the list of repeating patterns.
   Optional interactive prefix arg deletes
-this pattern if previously added.    Thus, by adding the repeating
-pattern ‘.’ (this is already added by default) emacspeak
-will say ‘‘aw fifteen dot’’ when speaking the string
-‘‘...............’’ instead of ‘‘period period period period
-’’
+this pattern if previously added.    
 
 (fn &amp;optional DELETE)
 </pre>
@@ -107,7 +103,7 @@ will say ‘‘aw fifteen dot’’ when speaking the string
         <dd><span id="index-_003cfn_003e-d-C_002dc"></span></dd>
       </dl><span id="index-dtk_002dcloud-1"></span>
       <div class="format">
-        <pre class="format">Select preferred Cloud TTS server.
+        <pre class="format">Select  Cloud TTS server.
 </pre>
       </div>
     </dd>
@@ -211,8 +207,7 @@ program. Port defaults to dtk-local-server-port
         <dd><span id="index-_003cfn_003e-d-R"></span></dd>
       </dl><span id="index-dtk_002dreset_002dstate-1"></span>
       <div class="format">
-        <pre class="format">Restore sanity to the Dectalk.
-Typically used after the Dectalk has been power   cycled.
+        <pre class="format">Reset TTS engine.
 </pre>
       </div>
     </dd>
@@ -255,11 +250,11 @@ ALSA_DEFAULT to specified device before starting the server.
       </dl><span id=
       "index-dtk_002dset_002dcharacter_002dscale-2"></span>
       <div class="format">
-        <pre class="format">Set scale FACTOR for   speech rate.
-Speech rate is scaled by this factor
-when speaking characters.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result.
+        <pre class=
+        "format">Set character scale FACTOR for   speech rate.
+Speech rate is scaled by this factor when speaking characters.
+Interactive PREFIX arg means set the global default value, and
+then set the current local value to the result.
 
 (fn FACTOR &amp;optional PREFIX)
 </pre>
@@ -285,8 +280,6 @@ current local  value to the result.
       <div class="format">
         <pre class=
         "format">Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
 Argument S specifies the syntax class.
 
 (fn S)
@@ -326,7 +319,7 @@ Argument S specifies the syntax class.
       </dl><span id=
       "index-dtk_002dset_002dnext_002dlanguage-1"></span>
       <div class="format">
-        <pre class="format">Switch to the next  language
+        <pre class="format">Switch to  next  language
 </pre>
       </div>
     </dd>
@@ -431,7 +424,7 @@ will set "en_GB".
       </dl><span id=
       "index-dtk_002dset_002dprevious_002dlanguage-1"></span>
       <div class="format">
-        <pre class="format">Switch to the previous  language
+        <pre class="format">Switch to  previous  language
 </pre>
       </div>
     </dd>
@@ -510,7 +503,7 @@ Interactive PREFIX arg sets punctuation mode globally.
         <dd><span id="index-_003cfn_003e-d-r"></span></dd>
       </dl><span id="index-dtk_002dset_002drate-2"></span>
       <div class="format">
-        <pre class="format">Set speaking RATE for the tts.
+        <pre class="format">Set speaking RATE.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 
@@ -531,7 +524,7 @@ current local  value to the result.
         <dd><span id="index-_003cfn_003e-s"></span></dd>
       </dl><span id="index-dtk_002dstop-2"></span>
       <div class="format">
-        <pre class="format">Stop speech now.
+        <pre class="format">Stop speech.
 Optional arg ‘all’ or interactive call   silences notification stream as well.
 
 (fn &amp;optional ALL)
@@ -666,18 +659,7 @@ result.
       <div class="format">
         <pre class=
         "format">Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as ‘shell-mode’ and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak’s stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time.
+Split text  by clause boundaries, or also split on  whitespace.  
 </pre>
       </div>
     </dd>
@@ -716,8 +698,7 @@ value to the result.
         <dd><span id="index-_003cfn_003e-C_002ds"></span></dd>
       </dl><span id="index-tts_002drestart-1"></span>
       <div class="format">
-        <pre class=
-        "format">Use this to nuke the currently running TTS server and restart it.
+        <pre class="format">Restart TTS server.
 </pre>
       </div>
     </dd>
@@ -762,7 +743,7 @@ value to the result.
       ‘dtk-add-cleanup-pattern’ bound to C-e d a to add more
       patterns.</p>
       <p>If more than 3 consecutive occurrences of a specified
-      pattern is found, the TTS engine replaces it with a repeat
+      pattern is found, emacspeak replaces it with a repeat
       count.</p>
     </dd>
   </dl>
@@ -802,8 +783,7 @@ value to the result.
     <dt id="index-User-Option-10">Variable: <strong>User
     Option</strong> <em>dtk-speech-rate-step</em></dt>
     <dd>
-      <p>Value of speech rate increment. Determines step size when
-      setting speech rate via command
+      <p>Value of speech rate increment used by command
       ‘dtk-set-predefined-speech-rate’.</p>
     </dd>
   </dl>
@@ -811,7 +791,7 @@ value to the result.
     <dt id="index-User-Option-11">Variable: <strong>User
     Option</strong> <em>dtk-use-tones</em></dt>
     <dd>
-      <p>Allow tones to be turned off.</p>
+      <p>Toggle tones.</p>
     </dd>
   </dl>
   <dl>

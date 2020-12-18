@@ -65,97 +65,13 @@
   </div>
   <hr />
   <span id="emacspeak_002dwizards-1"></span>
-  <h3 class="section">12.208 emacspeak-wizards</h3>
+  <h3 class="section">12.209 emacspeak-wizards</h3>
   <p>Contains various wizards for the Emacspeak
   desktop.</p><span id="Emacspeak_002dWizards-Commands"></span>
-  <h4 class="subsection">12.208.1 Emacspeak-Wizards
+  <h4 class="subsection">12.209.1 Emacspeak-Wizards
   Commands</h4><span id=
-  "emacspeak_002dannotate_002dadd_002dannotation"></span>
-  <h4 class="subsubsection">12.208.1.1
-  emacspeak-annotate-add-annotation</h4>
-  <dl>
-    <dt id="index-emacspeak_002dannotate_002dadd_002dannotation">
-    Command: <strong>emacspeak-annotate-add-annotation</strong>
-    <em>(&amp;optional reset)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dannotate_002dadd_002dannotation-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Add annotation to the annotation working buffer.
-Prompt for annotation buffer if not already set.
-Interactive prefix arg ‘reset’ prompts for the annotation
-buffer even if one is already set.
-Annotation is entered in a temporary buffer and the
-annotation is inserted into the working buffer when complete.
-
-(fn &amp;optional RESET)
-</pre>
-      </div>
-    </dd>
-  </dl><span id="emacspeak_002dclipboard_002dcopy"></span>
-  <h4 class="subsubsection">12.208.1.2
-  emacspeak-clipboard-copy</h4>
-  <dl>
-    <dt id="index-emacspeak_002dclipboard_002dcopy">Command:
-    <strong>emacspeak-clipboard-copy</strong> <em>(start end
-    &amp;optional prompt)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-c</kbd></dt>
-        <dd><span id="index-C_002de-C_002dc"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-c</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dc"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dclipboard_002dcopy-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Copy contents of the region to the emacspeak clipboard. Previous
-contents of the clipboard will be overwritten. The Emacspeak clipboard
-is a convenient way of sharing information between independent
-Emacspeak sessions running on the same or different machines. Do not
-use this for sharing information within an Emacs session –Emacs’
-register commands are far more efficient and light-weight. Optional
-interactive prefix arg results in Emacspeak prompting for the
-clipboard file to use. Argument START and END specifies
-region. Optional argument PROMPT specifies whether we prompt for the
-name of a clipboard file.
-
-(fn START END &amp;optional PROMPT)
-</pre>
-      </div>
-    </dd>
-  </dl><span id="emacspeak_002dclipboard_002dpaste"></span>
-  <h4 class="subsubsection">12.208.1.3
-  emacspeak-clipboard-paste</h4>
-  <dl>
-    <dt id="index-emacspeak_002dclipboard_002dpaste">Command:
-    <strong>emacspeak-clipboard-paste</strong> <em>(&amp;optional
-    paste-table)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e C-y</kbd></dt>
-        <dd><span id="index-C_002de-C_002dy"></span></dd>
-        <dt><kbd>&lt;fn&gt; C-y</kbd></dt>
-        <dd><span id="index-_003cfn_003e-C_002dy"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dclipboard_002dpaste-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Yank contents of the Emacspeak clipboard at point.
-The Emacspeak clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session –Emacs’ register commands are far more efficient and
-light-weight.  Optional interactive prefix arg pastes from
-the emacspeak table clipboard instead.
-
-(fn &amp;optional PASTE-TABLE)
-</pre>
-      </div>
-    </dd>
-  </dl><span id="emacspeak_002dcopy_002dcurrent_002dfile"></span>
-  <h4 class="subsubsection">12.208.1.4
+  "emacspeak_002dcopy_002dcurrent_002dfile"></span>
+  <h4 class="subsubsection">12.209.1.1
   emacspeak-copy-current-file</h4>
   <dl>
     <dt id="index-emacspeak_002dcopy_002dcurrent_002dfile">Command:
@@ -180,23 +96,8 @@ Prompts for the new location and preserves modification time
 </pre>
       </div>
     </dd>
-  </dl><span id="emacspeak_002dcurl"></span>
-  <h4 class="subsubsection">12.208.1.5 emacspeak-curl</h4>
-  <dl>
-    <dt id="index-emacspeak_002dcurl">Command:
-    <strong>emacspeak-curl</strong> <em>(url)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002dcurl-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Grab URL using Curl, and preview it with a browser .
-
-(fn URL)
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dcustomize"></span>
-  <h4 class="subsubsection">12.208.1.6 emacspeak-customize</h4>
+  <h4 class="subsubsection">12.209.1.2 emacspeak-customize</h4>
   <dl>
     <dt id="index-emacspeak_002dcustomize">Command:
     <strong>emacspeak-customize</strong></dt>
@@ -213,7 +114,7 @@ Prompts for the new location and preserves modification time
       </div>
     </dd>
   </dl><span id="emacspeak_002ddescribe_002demacspeak"></span>
-  <h4 class="subsubsection">12.208.1.7
+  <h4 class="subsubsection">12.209.1.3
   emacspeak-describe-emacspeak</h4>
   <dl>
     <dt id="index-emacspeak_002ddescribe_002demacspeak">Command:
@@ -235,7 +136,7 @@ Prompts for the new location and preserves modification time
     </dd>
   </dl><span id=
   "emacspeak_002demergency_002dtts_002drestart"></span>
-  <h4 class="subsubsection">12.208.1.8
+  <h4 class="subsubsection">12.209.1.4
   emacspeak-emergency-tts-restart</h4>
   <dl>
     <dt id="index-emacspeak_002demergency_002dtts_002drestart">
@@ -261,7 +162,7 @@ emacspeak-emergency-tts-server.
       </div>
     </dd>
   </dl><span id="emacspeak_002dkill_002dbuffer_002dquietly"></span>
-  <h4 class="subsubsection">12.208.1.9
+  <h4 class="subsubsection">12.209.1.5
   emacspeak-kill-buffer-quietly</h4>
   <dl>
     <dt id="index-emacspeak_002dkill_002dbuffer_002dquietly">
@@ -281,7 +182,7 @@ emacspeak-emergency-tts-server.
       </div>
     </dd>
   </dl><span id="emacspeak_002dlearn_002demacs_002dmode"></span>
-  <h4 class="subsubsection">12.208.1.10
+  <h4 class="subsubsection">12.209.1.6
   emacspeak-learn-emacs-mode</h4>
   <dl>
     <dt id="index-emacspeak_002dlearn_002demacs_002dmode">Command:
@@ -308,7 +209,7 @@ To leave, press C-g.
       </div>
     </dd>
   </dl><span id="emacspeak_002dlink_002dcurrent_002dfile"></span>
-  <h4 class="subsubsection">12.208.1.11
+  <h4 class="subsubsection">12.209.1.7
   emacspeak-link-current-file</h4>
   <dl>
     <dt id="index-emacspeak_002dlink_002dcurrent_002dfile">Command:
@@ -334,7 +235,7 @@ Prompts for the new location and preserves modification time
     </dd>
   </dl><span id=
   "emacspeak_002dnext_002dframe_002dor_002dbuffer"></span>
-  <h4 class="subsubsection">12.208.1.12
+  <h4 class="subsubsection">12.209.1.8
   emacspeak-next-frame-or-buffer</h4>
   <dl>
     <dt id="index-emacspeak_002dnext_002dframe_002dor_002dbuffer">
@@ -356,7 +257,7 @@ With optional interactive prefix arg ‘frame’, move to next frame instead.
     </dd>
   </dl><span id=
   "emacspeak_002dprevious_002dframe_002dor_002dbuffer"></span>
-  <h4 class="subsubsection">12.208.1.13
+  <h4 class="subsubsection">12.209.1.9
   emacspeak-previous-frame-or-buffer</h4>
   <dl>
     <dt id=
@@ -379,7 +280,7 @@ With optional interactive prefix arg ‘frame’, move to previous frame instead
     </dd>
   </dl><span id=
   "emacspeak_002dselect_002dthis_002dbuffer_002dnext_002ddisplay"></span>
-  <h4 class="subsubsection">12.208.1.14
+  <h4 class="subsubsection">12.209.1.10
   emacspeak-select-this-buffer-next-display</h4>
   <dl>
     <dt id=
@@ -407,7 +308,7 @@ meaning of ‘next’.
     </dd>
   </dl><span id=
   "emacspeak_002dselect_002dthis_002dbuffer_002dother_002dwindow_002ddisplay"></span>
-  <h4 class="subsubsection">12.208.1.15
+  <h4 class="subsubsection">12.209.1.11
   emacspeak-select-this-buffer-other-window-display</h4>
   <dl>
     <dt id=
@@ -439,7 +340,7 @@ the display to select.
     </dd>
   </dl><span id=
   "emacspeak_002dselect_002dthis_002dbuffer_002dprevious_002ddisplay"></span>
-  <h4 class="subsubsection">12.208.1.16
+  <h4 class="subsubsection">12.209.1.12
   emacspeak-select-this-buffer-previous-display</h4>
   <dl>
     <dt id=
@@ -467,7 +368,7 @@ meaning of ‘previous’.
     </dd>
   </dl><span id=
   "emacspeak_002dshow_002dproperty_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.208.1.17
+  <h4 class="subsubsection">12.209.1.13
   emacspeak-show-property-at-point</h4>
   <dl>
     <dt id=
@@ -494,7 +395,7 @@ If no property is set, show a message and exit.
     </dd>
   </dl><span id=
   "emacspeak_002dshow_002dstyle_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.208.1.18
+  <h4 class="subsubsection">12.209.1.14
   emacspeak-show-style-at-point</h4>
   <dl>
     <dt id="index-emacspeak_002dshow_002dstyle_002dat_002dpoint">
@@ -515,7 +416,7 @@ If no property is set, show a message and exit.
     </dd>
   </dl><span id=
   "emacspeak_002dskip_002dblank_002dlines_002dbackward"></span>
-  <h4 class="subsubsection">12.208.1.19
+  <h4 class="subsubsection">12.209.1.15
   emacspeak-skip-blank-lines-backward</h4>
   <dl>
     <dt id=
@@ -537,7 +438,7 @@ Signals beginning  of buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dskip_002dblank_002dlines_002dforward"></span>
-  <h4 class="subsubsection">12.208.1.20
+  <h4 class="subsubsection">12.209.1.16
   emacspeak-skip-blank-lines-forward</h4>
   <dl>
     <dt id=
@@ -558,7 +459,7 @@ Signals end of buffer.
       </div>
     </dd>
   </dl><span id="emacspeak_002dspeak_002dhostname"></span>
-  <h4 class="subsubsection">12.208.1.21
+  <h4 class="subsubsection">12.209.1.17
   emacspeak-speak-hostname</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dhostname">Command:
@@ -578,7 +479,7 @@ Signals end of buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dpopup_002dmessages"></span>
-  <h4 class="subsubsection">12.208.1.22
+  <h4 class="subsubsection">12.209.1.18
   emacspeak-speak-popup-messages</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dpopup_002dmessages">
@@ -594,15 +495,13 @@ Signals end of buffer.
       </dl><span id=
       "index-emacspeak_002dspeak_002dpopup_002dmessages-1"></span>
       <div class="format">
-        <pre class="format">Pop up messages buffer.
-If it is already selected then hide it and try to restore
-previous window configuration.
+        <pre class="format">Pop up Messages  and switch to it.
 </pre>
       </div>
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dshow_002dactive_002dnetwork_002dinterfaces"></span>
-  <h4 class="subsubsection">12.208.1.23
+  <h4 class="subsubsection">12.209.1.19
   emacspeak-speak-show-active-network-interfaces</h4>
   <dl>
     <dt id=
@@ -631,7 +530,7 @@ also copied to the kill ring for convenient yanking.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dtelephone_002ddirectory"></span>
-  <h4 class="subsubsection">12.208.1.24
+  <h4 class="subsubsection">12.209.1.20
   emacspeak-speak-telephone-directory</h4>
   <dl>
     <dt id="index-emacspeak_002dspeak_002dtelephone_002ddirectory">
@@ -655,7 +554,7 @@ With prefix arg, opens the phone book for editing.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay"></span>
-  <h4 class="subsubsection">12.208.1.25
+  <h4 class="subsubsection">12.209.1.21
   emacspeak-speak-this-buffer-next-display</h4>
   <dl>
     <dt id=
@@ -682,7 +581,7 @@ meaning of ‘next’.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay"></span>
-  <h4 class="subsubsection">12.208.1.26
+  <h4 class="subsubsection">12.209.1.22
   emacspeak-speak-this-buffer-other-window-display</h4>
   <dl>
     <dt id=
@@ -718,7 +617,7 @@ the display to speak.
     </dd>
   </dl><span id=
   "emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay"></span>
-  <h4 class="subsubsection">12.208.1.27
+  <h4 class="subsubsection">12.209.1.23
   emacspeak-speak-this-buffer-previous-display</h4>
   <dl>
     <dt id=
@@ -744,7 +643,7 @@ meaning of ‘previous’.
       </div>
     </dd>
   </dl><span id="emacspeak_002dssh_002dtts_002drestart"></span>
-  <h4 class="subsubsection">12.208.1.28
+  <h4 class="subsubsection">12.209.1.24
   emacspeak-ssh-tts-restart</h4>
   <dl>
     <dt id="index-emacspeak_002dssh_002dtts_002drestart">Command:
@@ -759,7 +658,7 @@ meaning of ‘previous’.
     </dd>
   </dl><span id=
   "emacspeak_002dsymlink_002dcurrent_002dfile"></span>
-  <h4 class="subsubsection">12.208.1.29
+  <h4 class="subsubsection">12.209.1.25
   emacspeak-symlink-current-file</h4>
   <dl>
     <dt id="index-emacspeak_002dsymlink_002dcurrent_002dfile">
@@ -784,7 +683,7 @@ Prompts for the new location and preserves modification time
       </div>
     </dd>
   </dl><span id="emacspeak_002dview_002demacspeak_002dnews"></span>
-  <h4 class="subsubsection">12.208.1.30
+  <h4 class="subsubsection">12.209.1.26
   emacspeak-view-emacspeak-news</h4>
   <dl>
     <dt id="index-emacspeak_002dview_002demacspeak_002dnews">
@@ -804,7 +703,7 @@ Prompts for the new location and preserves modification time
       </div>
     </dd>
   </dl><span id="emacspeak_002dview_002demacspeak_002dtips"></span>
-  <h4 class="subsubsection">12.208.1.31
+  <h4 class="subsubsection">12.209.1.27
   emacspeak-view-emacspeak-tips</h4>
   <dl>
     <dt id="index-emacspeak_002dview_002demacspeak_002dtips">
@@ -823,30 +722,8 @@ Prompts for the new location and preserves modification time
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002dadd_002dautoload_002dcookies"></span>
-  <h4 class="subsubsection">12.208.1.32
-  emacspeak-wizards-add-autoload-cookies</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies">
-    Command:
-    <strong>emacspeak-wizards-add-autoload-cookies</strong>
-    <em>(&amp;optional f)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies-1">
-      </span>
-      <div class="format">
-        <pre class="format">Add autoload cookies to file f.
-Default is to add autoload cookies to current file.
-
-(fn &amp;optional F)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002dalpha_002dvantage_002dquotes"></span>
-  <h4 class="subsubsection">12.208.1.33
+  <h4 class="subsubsection">12.209.1.28
   emacspeak-wizards-alpha-vantage-quotes</h4>
   <dl>
     <dt id=
@@ -873,62 +750,8 @@ access to the various functions provided by alpha-vantage.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002dbindings_002dfrom_002dorg"></span>
-  <h4 class="subsubsection">12.208.1.34
-  emacspeak-wizards-bindings-from-org</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dbindings_002dfrom_002dorg">
-    Command: <strong>emacspeak-wizards-bindings-from-org</strong>
-    <em>(variable filename)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dbindings_002dfrom_002dorg-1">
-      </span>
-      <div class="format">
-        <pre class="format">Load bindings from a specified file.
-
-(fn VARIABLE FILENAME)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dwizards_002dbindings_002dto_002dorg"></span>
-  <h4 class="subsubsection">12.208.1.35
-  emacspeak-wizards-bindings-to-org</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dbindings_002dto_002dorg">
-    Command: <strong>emacspeak-wizards-bindings-to-org</strong>
-    <em>(variable filename)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dbindings_002dto_002dorg-1"></span>
-      <div class="format">
-        <pre class="format">Persists mapping to org file.
-
-(fn VARIABLE FILENAME)
-</pre>
-      </div>
-    </dd>
-  </dl><span id="emacspeak_002dwizards_002dbraille"></span>
-  <h4 class="subsubsection">12.208.1.36
-  emacspeak-wizards-braille</h4>
-  <dl>
-    <dt id="index-emacspeak_002dwizards_002dbraille">Command:
-    <strong>emacspeak-wizards-braille</strong> <em>(s)</em></dt>
-    <dd>
-      <span id="index-emacspeak_002dwizards_002dbraille-1"></span>
-      <div class="format">
-        <pre class="format">Insert Braille string at point.
-
-(fn S)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002dcleanup_002dshell_002dpath"></span>
-  <h4 class="subsubsection">12.208.1.37
+  <h4 class="subsubsection">12.209.1.29
   emacspeak-wizards-cleanup-shell-path</h4>
   <dl>
     <dt id=
@@ -947,7 +770,7 @@ access to the various functions provided by alpha-vantage.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dcolor_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.208.1.38
+  <h4 class="subsubsection">12.209.1.30
   emacspeak-wizards-color-at-point</h4>
   <dl>
     <dt id=
@@ -971,7 +794,7 @@ access to the various functions provided by alpha-vantage.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dcolor_002ddiff_002dat_002dpoint"></span>
-  <h4 class="subsubsection">12.208.1.39
+  <h4 class="subsubsection">12.209.1.31
   emacspeak-wizards-color-diff-at-point</h4>
   <dl>
     <dt id=
@@ -998,7 +821,7 @@ With interactive prefix arg, set foreground and background color first.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dcolor_002dwheel"></span>
-  <h4 class="subsubsection">12.208.1.40
+  <h4 class="subsubsection">12.209.1.32
   emacspeak-wizards-color-wheel</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dcolor_002dwheel">
@@ -1034,7 +857,7 @@ q: Quit color wheel, after copying current hex value to kill-ring.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dcolors"></span>
-  <h4 class="subsubsection">12.208.1.41
+  <h4 class="subsubsection">12.209.1.33
   emacspeak-wizards-colors</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dcolors">Command:
@@ -1056,7 +879,7 @@ under point as either the foreground or background color.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dcount_002dslides_002din_002dregion"></span>
-  <h4 class="subsubsection">12.208.1.42
+  <h4 class="subsubsection">12.209.1.34
   emacspeak-wizards-count-slides-in-region</h4>
   <dl>
     <dt id=
@@ -1077,7 +900,7 @@ under point as either the foreground or background color.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dcustomize_002dsaved"></span>
-  <h4 class="subsubsection">12.208.1.43
+  <h4 class="subsubsection">12.209.1.35
   emacspeak-wizards-customize-saved</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dcustomize_002dsaved">
@@ -1104,7 +927,7 @@ updating custom settings for a specific package or group of packages.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dcycle_002dto_002dnext_002dbuffer"></span>
-  <h4 class="subsubsection">12.208.1.44
+  <h4 class="subsubsection">12.209.1.36
   emacspeak-wizards-cycle-to-next-buffer</h4>
   <dl>
     <dt id=
@@ -1128,7 +951,7 @@ updating custom settings for a specific package or group of packages.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dcycle_002dto_002dprevious_002dbuffer"></span>
-  <h4 class="subsubsection">12.208.1.45
+  <h4 class="subsubsection">12.209.1.37
   emacspeak-wizards-cycle-to-previous-buffer</h4>
   <dl>
     <dt id=
@@ -1152,30 +975,8 @@ updating custom settings for a specific package or group of packages.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage"></span>
-  <h4 class="subsubsection">12.208.1.46
-  emacspeak-wizards-display-pod-as-manpage</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage">
-    Command:
-    <strong>emacspeak-wizards-display-pod-as-manpage</strong>
-    <em>(filename)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Create a virtual manpage in Emacs from the Perl Online Documentation.
-
-(fn FILENAME)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002denumerate_002dmatching_002dcommands"></span>
-  <h4 class="subsubsection">12.208.1.47
+  <h4 class="subsubsection">12.209.1.38
   emacspeak-wizards-enumerate-matching-commands</h4>
   <dl>
     <dt id=
@@ -1197,7 +998,7 @@ updating custom settings for a specific package or group of packages.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002denumerate_002dmatching_002dfaces"></span>
-  <h4 class="subsubsection">12.208.1.48
+  <h4 class="subsubsection">12.209.1.39
   emacspeak-wizards-enumerate-matching-faces</h4>
   <dl>
     <dt id=
@@ -1218,7 +1019,7 @@ updating custom settings for a specific package or group of packages.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002denumerate_002dobsolete_002dfaces"></span>
-  <h4 class="subsubsection">12.208.1.49
+  <h4 class="subsubsection">12.209.1.40
   emacspeak-wizards-enumerate-obsolete-faces</h4>
   <dl>
     <dt id=
@@ -1238,7 +1039,7 @@ mapped to voices.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002denumerate_002duncovered_002dcommands"></span>
-  <h4 class="subsubsection">12.208.1.50
+  <h4 class="subsubsection">12.209.1.41
   emacspeak-wizards-enumerate-uncovered-commands</h4>
   <dl>
     <dt id=
@@ -1262,7 +1063,7 @@ filters out commands that dont have an active key-binding.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002denumerate_002dunmapped_002dfaces"></span>
-  <h4 class="subsubsection">12.208.1.51
+  <h4 class="subsubsection">12.209.1.42
   emacspeak-wizards-enumerate-unmapped-faces</h4>
   <dl>
     <dt id=
@@ -1283,7 +1084,7 @@ filters out commands that dont have an active key-binding.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002despeak_002dline"></span>
-  <h4 class="subsubsection">12.208.1.52
+  <h4 class="subsubsection">12.209.1.43
   emacspeak-wizards-espeak-line</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002despeak_002dline">
@@ -1299,7 +1100,7 @@ filters out commands that dont have an active key-binding.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002despeak_002dregion"></span>
-  <h4 class="subsubsection">12.208.1.53
+  <h4 class="subsubsection">12.209.1.44
   emacspeak-wizards-espeak-region</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002despeak_002dregion">
@@ -1318,7 +1119,7 @@ filters out commands that dont have an active key-binding.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002despeak_002dstring"></span>
-  <h4 class="subsubsection">12.208.1.54
+  <h4 class="subsubsection">12.209.1.45
   emacspeak-wizards-espeak-string</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002despeak_002dstring">
@@ -1337,7 +1138,7 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002deww_002dbuffer_002dlist"></span>
-  <h4 class="subsubsection">12.208.1.55
+  <h4 class="subsubsection">12.209.1.46
   emacspeak-wizards-eww-buffer-list</h4>
   <dl>
     <dt id=
@@ -1357,7 +1158,7 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dexec_002dpath_002dfrom_002dshell"></span>
-  <h4 class="subsubsection">12.208.1.56
+  <h4 class="subsubsection">12.209.1.47
   emacspeak-wizards-exec-path-from-shell</h4>
   <dl>
     <dt id=
@@ -1375,7 +1176,7 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dexecute_002dasynchronously"></span>
-  <h4 class="subsubsection">12.208.1.57
+  <h4 class="subsubsection">12.209.1.48
   emacspeak-wizards-execute-asynchronously</h4>
   <dl>
     <dt id=
@@ -1403,7 +1204,7 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dexecute_002demacspeak_002dcommand"></span>
-  <h4 class="subsubsection">12.208.1.58
+  <h4 class="subsubsection">12.209.1.49
   emacspeak-wizards-execute-emacspeak-command</h4>
   <dl>
     <dt id=
@@ -1429,7 +1230,7 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dfind_002dfile_002das_002droot"></span>
-  <h4 class="subsubsection">12.208.1.59
+  <h4 class="subsubsection">12.209.1.50
   emacspeak-wizards-find-file-as-root</h4>
   <dl>
     <dt id=
@@ -1438,10 +1239,10 @@ Lang is obtained from property ‘lang’ on string, or  via an interactive prom
     <em>(file)</em></dt>
     <dd>
       <dl compact="compact">
-        <dt><kbd>C-, f</kbd></dt>
-        <dd><span id="index-C_002d_002c-f"></span></dd>
-        <dt><kbd>C-x @ a f</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-a-f"></span></dd>
+        <dt><kbd>C-; r</kbd></dt>
+        <dd><span id="index-C_002d_003b-r"></span></dd>
+        <dt><kbd>C-x @ h r</kbd></dt>
+        <dd><span id="index-C_002dx-_0040-h-r"></span></dd>
       </dl><span id=
       "index-emacspeak_002dwizards_002dfind_002dfile_002das_002droot-1"></span>
       <div class="format">
@@ -1454,27 +1255,9 @@ user.
 </pre>
       </div>
     </dd>
-  </dl><span id="emacspeak_002dwizards_002dfind_002dgrep"></span>
-  <h4 class="subsubsection">12.208.1.60
-  emacspeak-wizards-find-grep</h4>
-  <dl>
-    <dt id="index-emacspeak_002dwizards_002dfind_002dgrep">Command:
-    <strong>emacspeak-wizards-find-grep</strong> <em>(glob
-    pattern)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dfind_002dgrep-1"></span>
-      <div class="format">
-        <pre class="format">Run compile using find and grep.
-Interactive  arguments specify filename pattern and search pattern.
-
-(fn GLOB PATTERN)
-</pre>
-      </div>
-    </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion"></span>
-  <h4 class="subsubsection">12.208.1.61
+  <h4 class="subsubsection">12.209.1.51
   emacspeak-wizards-find-longest-line-in-region</h4>
   <dl>
     <dt id=
@@ -1500,7 +1283,7 @@ Moves to the longest line when called interactively.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion"></span>
-  <h4 class="subsubsection">12.208.1.62
+  <h4 class="subsubsection">12.209.1.52
   emacspeak-wizards-find-longest-paragraph-in-region</h4>
   <dl>
     <dt id=
@@ -1522,7 +1305,7 @@ Moves to the longest paragraph when called interactively.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion"></span>
-  <h4 class="subsubsection">12.208.1.63
+  <h4 class="subsubsection">12.209.1.53
   emacspeak-wizards-find-shortest-line-in-region</h4>
   <dl>
     <dt id=
@@ -1543,7 +1326,7 @@ Moves to the shortest line when called interactively.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dfinder_002dfind"></span>
-  <h4 class="subsubsection">12.208.1.64
+  <h4 class="subsubsection">12.209.1.54
   emacspeak-wizards-finder-find</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dfinder_002dfind">
@@ -1562,7 +1345,7 @@ directory to where find is to be launched.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dfinder_002dmode"></span>
-  <h4 class="subsubsection">12.208.1.65
+  <h4 class="subsubsection">12.209.1.55
   emacspeak-wizards-finder-mode</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dfinder_002dmode">
@@ -1584,28 +1367,8 @@ key             binding
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002dfix_002dread_002donly_002dtext"></span>
-  <h4 class="subsubsection">12.208.1.66
-  emacspeak-wizards-fix-read-only-text</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext">
-    Command: <strong>emacspeak-wizards-fix-read-only-text</strong>
-    <em>(start end)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext-1">
-      </span>
-      <div class="format">
-        <pre class="format">Nuke read-only property on text range.
-
-(fn START END)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002dframe_002dcolors"></span>
-  <h4 class="subsubsection">12.208.1.67
+  <h4 class="subsubsection">12.209.1.56
   emacspeak-wizards-frame-colors</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dframe_002dcolors">
@@ -1621,7 +1384,7 @@ key             binding
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dfree_002dgeo_002dip"></span>
-  <h4 class="subsubsection">12.208.1.68
+  <h4 class="subsubsection">12.209.1.57
   emacspeak-wizards-free-geo-ip</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dfree_002dgeo_002dip">
@@ -1641,7 +1404,7 @@ Optional interactive prefix arg reverse-geocodes using Google Maps.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dgen_002dfn_002ddecl"></span>
-  <h4 class="subsubsection">12.208.1.69
+  <h4 class="subsubsection">12.209.1.58
   emacspeak-wizards-gen-fn-decl</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dgen_002dfn_002ddecl">
@@ -1662,7 +1425,7 @@ external package.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dgenerate_002dfinder"></span>
-  <h4 class="subsubsection">12.208.1.70
+  <h4 class="subsubsection">12.209.1.59
   emacspeak-wizards-generate-finder</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dgenerate_002dfinder">
@@ -1678,31 +1441,8 @@ external package.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler"></span>
-  <h4 class="subsubsection">12.208.1.71
-  emacspeak-wizards-generate-voice-sampler</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler">
-    Command:
-    <strong>emacspeak-wizards-generate-voice-sampler</strong>
-    <em>(step)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Generate a buffer that shows a sample line in all the ACSS settings
-for the current voice family.
-
-(fn STEP)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002dgoogle_002dheadlines"></span>
-  <h4 class="subsubsection">12.208.1.72
+  <h4 class="subsubsection">12.209.1.60
   emacspeak-wizards-google-headlines</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dgoogle_002dheadlines">
@@ -1725,7 +1465,7 @@ for the current voice family.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dgoogle_002dnews"></span>
-  <h4 class="subsubsection">12.208.1.73
+  <h4 class="subsubsection">12.209.1.61
   emacspeak-wizards-google-news</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dgoogle_002dnews">
@@ -1748,7 +1488,7 @@ for the current voice family.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dhow_002dmany_002dmatches"></span>
-  <h4 class="subsubsection">12.208.1.74
+  <h4 class="subsubsection">12.209.1.62
   emacspeak-wizards-how-many-matches</h4>
   <dl>
     <dt id=
@@ -1776,7 +1516,7 @@ With interactive prefix arg, prompts for and remembers the file local pattern.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dshow_002dfinancials"></span>
-  <h4 class="subsubsection">12.208.1.75
+  <h4 class="subsubsection">12.209.1.63
   emacspeak-wizards-iex-show-financials</h4>
   <dl>
     <dt id=
@@ -1798,7 +1538,7 @@ Optional interactive prefix arg refreshes cache.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dshow_002dmetadata"></span>
-  <h4 class="subsubsection">12.208.1.76
+  <h4 class="subsubsection">12.209.1.64
   emacspeak-wizards-iex-show-metadata</h4>
   <dl>
     <dt id=
@@ -1816,7 +1556,7 @@ Optional interactive prefix arg refreshes cache.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dshow_002dnews"></span>
-  <h4 class="subsubsection">12.208.1.77
+  <h4 class="subsubsection">12.209.1.65
   emacspeak-wizards-iex-show-news</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dnews">
@@ -1836,7 +1576,7 @@ Optional interactive prefix arg refreshes cache.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dshow_002dprice"></span>
-  <h4 class="subsubsection">12.208.1.78
+  <h4 class="subsubsection">12.209.1.66
   emacspeak-wizards-iex-show-price</h4>
   <dl>
     <dt id=
@@ -1861,7 +1601,7 @@ Optional interactive prefix arg refreshes cache.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dshow_002dquote"></span>
-  <h4 class="subsubsection">12.208.1.79
+  <h4 class="subsubsection">12.209.1.67
   emacspeak-wizards-iex-show-quote</h4>
   <dl>
     <dt id=
@@ -1895,7 +1635,7 @@ P: Show live price for current stock.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dshow_002dtops"></span>
-  <h4 class="subsubsection">12.208.1.80
+  <h4 class="subsubsection">12.209.1.68
   emacspeak-wizards-iex-show-tops</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002diex_002dshow_002dtops">
@@ -1911,7 +1651,7 @@ P: Show live price for current stock.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dthis_002dfinancials"></span>
-  <h4 class="subsubsection">12.208.1.81
+  <h4 class="subsubsection">12.209.1.69
   emacspeak-wizards-iex-this-financials</h4>
   <dl>
     <dt id=
@@ -1930,7 +1670,7 @@ P: Show live price for current stock.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dthis_002dnews"></span>
-  <h4 class="subsubsection">12.208.1.82
+  <h4 class="subsubsection">12.209.1.70
   emacspeak-wizards-iex-this-news</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002diex_002dthis_002dnews">
@@ -1945,7 +1685,7 @@ P: Show live price for current stock.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002diex_002dthis_002dprice"></span>
-  <h4 class="subsubsection">12.208.1.83
+  <h4 class="subsubsection">12.209.1.71
   emacspeak-wizards-iex-this-price</h4>
   <dl>
     <dt id=
@@ -1959,57 +1699,9 @@ P: Show live price for current stock.
 </pre>
       </div>
     </dd>
-  </dl><span id="emacspeak_002dwizards_002dlist_002dvoices"></span>
-  <h4 class="subsubsection">12.208.1.84
-  emacspeak-wizards-list-voices</h4>
-  <dl>
-    <dt id="index-emacspeak_002dwizards_002dlist_002dvoices">
-    Command: <strong>emacspeak-wizards-list-voices</strong>
-    <em>(pattern)</em></dt>
-    <dd>
-      <dl compact="compact">
-        <dt><kbd>C-h "</kbd></dt>
-        <dd><span id="index-C_002dh-_0022"></span></dd>
-        <dt><kbd>&lt;f1&gt; "</kbd></dt>
-        <dd><span id="index-_003cf1_003e-_0022"></span></dd>
-        <dt><kbd>&lt;help&gt; "</kbd></dt>
-        <dd><span id="index-_003chelp_003e-_0022"></span></dd>
-      </dl><span id=
-      "index-emacspeak_002dwizards_002dlist_002dvoices-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Show all defined voice-face mappings  in a help buffer.
-Sample text to use comes from variable
-  ‘ems–wizards-sampler-text 
-
-(fn PATTERN)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
-  "emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore"></span>
-  <h4 class="subsubsection">12.208.1.85
-  emacspeak-wizards-midi-using-m-score</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore">
-    Command: <strong>emacspeak-wizards-midi-using-m-score</strong>
-    <em>(midi-file)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dmidi_002dusing_002dm_002dscore-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Play midi file using mscore from musescore package.
-
-(fn MIDI-FILE)
-</pre>
-      </div>
-    </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dmlb_002dstandings"></span>
-  <h4 class="subsubsection">12.208.1.86
+  <h4 class="subsubsection">12.209.1.72
   emacspeak-wizards-mlb-standings</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dmlb_002dstandings">
@@ -2028,7 +1720,7 @@ Optional interactive prefix arg shows  unprocessed results.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dmove_002dand_002dspeak"></span>
-  <h4 class="subsubsection">12.208.1.87
+  <h4 class="subsubsection">12.209.1.73
   emacspeak-wizards-move-and-speak</h4>
   <dl>
     <dt id=
@@ -2053,7 +1745,7 @@ command.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dnba_002dstandings"></span>
-  <h4 class="subsubsection">12.208.1.88
+  <h4 class="subsubsection">12.209.1.74
   emacspeak-wizards-nba-standings</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dnba_002dstandings">
@@ -2071,7 +1763,7 @@ Optional interactive prefix arg shows  unprocessed results.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dnext_002dbullet"></span>
-  <h4 class="subsubsection">12.208.1.89
+  <h4 class="subsubsection">12.209.1.75
   emacspeak-wizards-next-bullet</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dnext_002dbullet">
@@ -2086,7 +1778,7 @@ Optional interactive prefix arg shows  unprocessed results.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dnext_002dinteractive_002ddefun"></span>
-  <h4 class="subsubsection">12.208.1.90
+  <h4 class="subsubsection">12.209.1.76
   emacspeak-wizards-next-interactive-defun</h4>
   <dl>
     <dt id=
@@ -2105,7 +1797,7 @@ Optional interactive prefix arg shows  unprocessed results.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dnoaa_002dweather"></span>
-  <h4 class="subsubsection">12.208.1.91
+  <h4 class="subsubsection">12.209.1.77
   emacspeak-wizards-noaa-weather</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dnoaa_002dweather">
@@ -2138,7 +1830,7 @@ weather for ‘gmaps-my-address’.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002doccur_002dheader_002dlines"></span>
-  <h4 class="subsubsection">12.208.1.92
+  <h4 class="subsubsection">12.209.1.78
   emacspeak-wizards-occur-header-lines</h4>
   <dl>
     <dt id=
@@ -2166,7 +1858,7 @@ prompts for and sets value of the file local pattern.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dpdf_002dopen"></span>
-  <h4 class="subsubsection">12.208.1.93
+  <h4 class="subsubsection">12.209.1.79
   emacspeak-wizards-pdf-open</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dpdf_002dopen">Command:
@@ -2190,7 +1882,7 @@ Optional interactive prefix arg ask-pwd prompts for password.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dprevious_002dbullet"></span>
-  <h4 class="subsubsection">12.208.1.94
+  <h4 class="subsubsection">12.209.1.80
   emacspeak-wizards-previous-bullet</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dprevious_002dbullet">
@@ -2206,7 +1898,7 @@ Optional interactive prefix arg ask-pwd prompts for password.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dquote"></span>
-  <h4 class="subsubsection">12.208.1.95
+  <h4 class="subsubsection">12.209.1.81
   emacspeak-wizards-quote</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dquote">Command:
@@ -2236,8 +1928,29 @@ t   :  tops/last
 </pre>
       </div>
     </dd>
+  </dl><span id=
+  "emacspeak_002dwizards_002dremote_002dframe"></span>
+  <h4 class="subsubsection">12.209.1.82
+  emacspeak-wizards-remote-frame</h4>
+  <dl>
+    <dt id="index-emacspeak_002dwizards_002dremote_002dframe">
+    Command: <strong>emacspeak-wizards-remote-frame</strong></dt>
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-e x f</kbd></dt>
+        <dd><span id="index-C_002de-x-f"></span></dd>
+        <dt><kbd>&lt;fn&gt; x f</kbd></dt>
+        <dd><span id="index-_003cfn_003e-x-f"></span></dd>
+      </dl><span id=
+      "index-emacspeak_002dwizards_002dremote_002dframe-1"></span>
+      <div class="format">
+        <pre class="format">Open a frame on a remote Emacs.  
+Remote workstation is  ‘emacspeak-wizards-remote-workstation’.
+</pre>
+      </div>
+    </dd>
   </dl><span id="emacspeak_002dwizards_002dscratch"></span>
-  <h4 class="subsubsection">12.208.1.96
+  <h4 class="subsubsection">12.209.1.83
   emacspeak-wizards-scratch</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dscratch">Command:
@@ -2259,7 +1972,7 @@ t   :  tops/last
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dset_002dcolors"></span>
-  <h4 class="subsubsection">12.208.1.97
+  <h4 class="subsubsection">12.209.1.84
   emacspeak-wizards-set-colors</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dset_002dcolors">
@@ -2274,7 +1987,7 @@ t   :  tops/last
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dshell"></span>
-  <h4 class="subsubsection">12.208.1.98
+  <h4 class="subsubsection">12.209.1.85
   emacspeak-wizards-shell</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dshell">Command:
@@ -2282,15 +1995,17 @@ t   :  tops/last
     prefix)</em></dt>
     <dd>
       <dl compact="compact">
-        <dt><kbd>C-; s</kbd></dt>
-        <dd><span id="index-C_002d_003b-s"></span></dd>
-        <dt><kbd>C-x @ h s</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-h-s"></span></dd>
+        <dt><kbd>C-. s</kbd></dt>
+        <dd><span id="index-C_002d_002e-s"></span></dd>
+        <dt><kbd>C-' s</kbd></dt>
+        <dd><span id="index-C_002d_0027-s"></span></dd>
+        <dt><kbd>C-x @ s s</kbd></dt>
+        <dd><span id="index-C_002dx-_0040-s-s"></span></dd>
       </dl><span id=
       "index-emacspeak_002dwizards_002dshell-1"></span>
       <div class="format">
         <pre class=
-        "format">Run Emacs built-in ‘shell’ command when not in a shell buffer, or
+        "format">Run Emacs  ‘shell’ command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
 switches to ‘next’ shell buffer. When called from outside a shell
 buffer, find the most ‘appropriate shell’ and switch to it. Once
@@ -2303,7 +2018,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshell_002dby_002dkey"></span>
-  <h4 class="subsubsection">12.208.1.99
+  <h4 class="subsubsection">12.209.1.86
   emacspeak-wizards-shell-by-key</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dshell_002dby_002dkey">
@@ -2371,7 +2086,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile"></span>
-  <h4 class="subsubsection">12.208.1.100
+  <h4 class="subsubsection">12.209.1.87
   emacspeak-wizards-shell-command-on-current-file</h4>
   <dl>
     <dt id=
@@ -2397,7 +2112,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshell_002ddirectory_002dreset"></span>
-  <h4 class="subsubsection">12.208.1.101
+  <h4 class="subsubsection">12.209.1.88
   emacspeak-wizards-shell-directory-reset</h4>
   <dl>
     <dt id=
@@ -2426,7 +2141,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshell_002ddirectory_002dset"></span>
-  <h4 class="subsubsection">12.208.1.102
+  <h4 class="subsubsection">12.209.1.89
   emacspeak-wizards-shell-directory-set</h4>
   <dl>
     <dt id=
@@ -2449,7 +2164,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshell_002dtoggle"></span>
-  <h4 class="subsubsection">12.208.1.103
+  <h4 class="subsubsection">12.209.1.90
   emacspeak-wizards-shell-toggle</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dshell_002dtoggle">
@@ -2474,27 +2189,8 @@ of the source buffer.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002dshow_002ddefined_002dvoices"></span>
-  <h4 class="subsubsection">12.208.1.104
-  emacspeak-wizards-show-defined-voices</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dshow_002ddefined_002dvoices">
-    Command:
-    <strong>emacspeak-wizards-show-defined-voices</strong></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dshow_002ddefined_002dvoices-1">
-      </span>
-      <div class="format">
-        <pre class=
-        "format">Display a buffer with sample text in the defined voices.
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002dshow_002deval_002dresult"></span>
-  <h4 class="subsubsection">12.208.1.105
+  <h4 class="subsubsection">12.209.1.91
   emacspeak-wizards-show-eval-result</h4>
   <dl>
     <dt id=
@@ -2516,7 +2212,7 @@ of the source buffer.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dshow_002dface"></span>
-  <h4 class="subsubsection">12.208.1.106
+  <h4 class="subsubsection">12.209.1.92
   emacspeak-wizards-show-face</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dshow_002dface">Command:
@@ -2535,7 +2231,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dshow_002dmemory_002dused"></span>
-  <h4 class="subsubsection">12.208.1.107
+  <h4 class="subsubsection">12.209.1.93
   emacspeak-wizards-show-memory-used</h4>
   <dl>
     <dt id=
@@ -2553,7 +2249,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dspeak_002diso_002ddatetime"></span>
-  <h4 class="subsubsection">12.208.1.108
+  <h4 class="subsubsection">12.209.1.94
   emacspeak-wizards-speak-iso-datetime</h4>
   <dl>
     <dt id=
@@ -2573,7 +2269,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dsqueeze_002dblanks"></span>
-  <h4 class="subsubsection">12.208.1.109
+  <h4 class="subsubsection">12.209.1.95
   emacspeak-wizards-squeeze-blanks</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dsqueeze_002dblanks">
@@ -2597,7 +2293,7 @@ of the source buffer.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dswap_002dfg_002dand_002dbg"></span>
-  <h4 class="subsubsection">12.208.1.110
+  <h4 class="subsubsection">12.209.1.96
   emacspeak-wizards-swap-fg-and-bg</h4>
   <dl>
     <dt id=
@@ -2619,17 +2315,16 @@ of the source buffer.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dterm"></span>
-  <h4 class="subsubsection">12.208.1.111
-  emacspeak-wizards-term</h4>
+  <h4 class="subsubsection">12.209.1.97 emacspeak-wizards-term</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dterm">Command:
     <strong>emacspeak-wizards-term</strong> <em>(create)</em></dt>
     <dd>
       <dl compact="compact">
-        <dt><kbd>C-; a</kbd></dt>
-        <dd><span id="index-C_002d_003b-a"></span></dd>
-        <dt><kbd>C-x @ h a</kbd></dt>
-        <dd><span id="index-C_002dx-_0040-h-a"></span></dd>
+        <dt><kbd>C-; C-a</kbd></dt>
+        <dd><span id="index-C_002d_003b-C_002da"></span></dd>
+        <dt><kbd>C-x @ h C-a</kbd></dt>
+        <dd><span id="index-C_002dx-_0040-h-C_002da"></span></dd>
       </dl><span id=
       "index-emacspeak_002dwizards_002dterm-1"></span>
       <div class="format">
@@ -2644,7 +2339,7 @@ term if needed.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dterminal"></span>
-  <h4 class="subsubsection">12.208.1.112
+  <h4 class="subsubsection">12.209.1.98
   emacspeak-wizards-terminal</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dterminal">Command:
@@ -2662,7 +2357,7 @@ term if needed.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer"></span>
-  <h4 class="subsubsection">12.208.1.113
+  <h4 class="subsubsection">12.209.1.99
   emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</h4>
   <dl>
     <dt id=
@@ -2681,7 +2376,7 @@ term if needed.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer"></span>
-  <h4 class="subsubsection">12.208.1.114
+  <h4 class="subsubsection">12.209.1.100
   emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</h4>
   <dl>
     <dt id=
@@ -2699,29 +2394,8 @@ term if needed.
       </div>
     </dd>
   </dl><span id=
-  "emacspeak_002dwizards_002dtramp_002dopen_002dlocation"></span>
-  <h4 class="subsubsection">12.208.1.115
-  emacspeak-wizards-tramp-open-location</h4>
-  <dl>
-    <dt id=
-    "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation">
-    Command: <strong>emacspeak-wizards-tramp-open-location</strong>
-    <em>(name)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation-1">
-      </span>
-      <div class="format">
-        <pre class="format">Open specified tramp location.
-Location is specified by name.
-
-(fn NAME)
-</pre>
-      </div>
-    </dd>
-  </dl><span id=
   "emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse"></span>
-  <h4 class="subsubsection">12.208.1.116
+  <h4 class="subsubsection">12.209.1.101
   emacspeak-wizards-tune-in-radio-browse</h4>
   <dl>
     <dt id=
@@ -2747,7 +2421,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch"></span>
-  <h4 class="subsubsection">12.208.1.117
+  <h4 class="subsubsection">12.209.1.102
   emacspeak-wizards-tune-in-radio-search</h4>
   <dl>
     <dt id=
@@ -2768,7 +2442,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dunits"></span>
-  <h4 class="subsubsection">12.208.1.118
+  <h4 class="subsubsection">12.209.1.103
   emacspeak-wizards-units</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dunits">Command:
@@ -2787,7 +2461,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dvc_002dn"></span>
-  <h4 class="subsubsection">12.208.1.119
+  <h4 class="subsubsection">12.209.1.104
   emacspeak-wizards-vc-n</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dvc_002dn">Command:
@@ -2801,7 +2475,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dvc_002dview_002dmode"></span>
-  <h4 class="subsubsection">12.208.1.120
+  <h4 class="subsubsection">12.209.1.105
   emacspeak-wizards-vc-view-mode</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dvc_002dview_002dmode">
@@ -2825,7 +2499,7 @@ during initialization.
       </div>
     </dd>
   </dl><span id="emacspeak_002dwizards_002dvc_002dviewer"></span>
-  <h4 class="subsubsection">12.208.1.121
+  <h4 class="subsubsection">12.209.1.106
   emacspeak-wizards-vc-viewer</h4>
   <dl>
     <dt id="index-emacspeak_002dwizards_002dvc_002dviewer">Command:
@@ -2849,7 +2523,7 @@ during initialization.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dvc_002dviewer_002drefresh"></span>
-  <h4 class="subsubsection">12.208.1.122
+  <h4 class="subsubsection">12.209.1.107
   emacspeak-wizards-vc-viewer-refresh</h4>
   <dl>
     <dt id=
@@ -2867,7 +2541,7 @@ during initialization.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode"></span>
-  <h4 class="subsubsection">12.208.1.123
+  <h4 class="subsubsection">12.209.1.108
   emacspeak-wizards-view-buffers-filtered-by-m-player-mode</h4>
   <dl>
     <dt id=
@@ -2889,7 +2563,7 @@ during initialization.
     </dd>
   </dl><span id=
   "emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode"></span>
-  <h4 class="subsubsection">12.208.1.124
+  <h4 class="subsubsection">12.209.1.109
   emacspeak-wizards-view-buffers-filtered-by-this-mode</h4>
   <dl>
     <dt id=
@@ -2918,45 +2592,10 @@ during initialization.
 </pre>
       </div>
     </dd>
-  </dl><span id=
-  "emacspeak_002dwizards_002dvoice_002dsampler"></span>
-  <h4 class="subsubsection">12.208.1.125
-  emacspeak-wizards-voice-sampler</h4>
-  <dl>
-    <dt id="index-emacspeak_002dwizards_002dvoice_002dsampler">
-    Command: <strong>emacspeak-wizards-voice-sampler</strong>
-    <em>(personality)</em></dt>
-    <dd>
-      <span id=
-      "index-emacspeak_002dwizards_002dvoice_002dsampler-1"></span>
-      <div class="format">
-        <pre class=
-        "format">Read a personality  and apply it to the current line.
-
-(fn PERSONALITY)
-</pre>
-      </div>
-    </dd>
   </dl><span id="emacspeak_002dwizards-Options"></span>
-  <h4 class="subsection">12.208.2 emacspeak-wizards Options</h4>
+  <h4 class="subsection">12.209.2 emacspeak-wizards Options</h4>
   <dl>
-    <dt id="index-User-Option-800">Variable: <strong>User
-    Option</strong> <em>emacspeak-clipboard-file</em></dt>
-    <dd>
-      <p>File used to save Emacspeak clipboard. The emacspeak
-      clipboard provides a convenient mechanism for exchanging
-      information between different Emacs sessions.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-801">Variable: <strong>User
-    Option</strong> <em>emacspeak-curl-cookie-store</em></dt>
-    <dd>
-      <p>Cookie store used by Curl.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-802">Variable: <strong>User
+    <dt id="index-User-Option-803">Variable: <strong>User
     Option</strong> <em>emacspeak-emergency-tts-server</em></dt>
     <dd>
       <p>TTS server to use in an emergency. Set this to a TTS
@@ -2969,7 +2608,7 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-803">Variable: <strong>User
+    <dt id="index-User-Option-804">Variable: <strong>User
     Option</strong> <em>emacspeak-iex-api-key</em></dt>
     <dd>
       <p>Web API key for IEX Finance access. See IEX Login Console
@@ -2978,7 +2617,7 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-804">Variable: <strong>User
+    <dt id="index-User-Option-805">Variable: <strong>User
     Option</strong>
     <em>emacspeak-speak-telephone-directory</em></dt>
     <dd>
@@ -2987,14 +2626,14 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-805">Variable: <strong>User
+    <dt id="index-User-Option-806">Variable: <strong>User
     Option</strong> <em>emacspeak-ssh-tts-server</em></dt>
     <dd>
       <p>SSH TTS server to use by default.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-806">Variable: <strong>User
+    <dt id="index-User-Option-807">Variable: <strong>User
     Option</strong>
     <em>emacspeak-wizards-alpha-vantage-api-key</em></dt>
     <dd>
@@ -3004,7 +2643,7 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-807">Variable: <strong>User
+    <dt id="index-User-Option-808">Variable: <strong>User
     Option</strong>
     <em>emacspeak-wizards-find-switches-widget</em></dt>
     <dd>
@@ -3012,7 +2651,7 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-808">Variable: <strong>User
+    <dt id="index-User-Option-809">Variable: <strong>User
     Option</strong>
     <em>emacspeak-wizards-pdf-to-text-options</em></dt>
     <dd>
@@ -3020,7 +2659,7 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-809">Variable: <strong>User
+    <dt id="index-User-Option-810">Variable: <strong>User
     Option</strong>
     <em>emacspeak-wizards-personal-portfolio</em></dt>
     <dd>
@@ -3031,20 +2670,18 @@ during initialization.
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-810">Variable: <strong>User
+    <dt id="index-User-Option-811">Variable: <strong>User
     Option</strong> <em>emacspeak-wizards-project-shells</em></dt>
     <dd>
       <p>List of shell-name/initial-directory pairs.</p>
     </dd>
   </dl>
   <dl>
-    <dt id="index-User-Option-811">Variable: <strong>User
-    Option</strong> <em>emacspeak-wizards-tramp-locations</em></dt>
+    <dt id="index-User-Option-812">Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-remote-workstation</em></dt>
     <dd>
-      <p>Tramp locations used by Emacspeak tramp wizard. Locations
-      added here via custom can be opened using command
-      emacspeak-wizards-tramp-open-location bound to M-x
-      emacspeak-wizards-tramp-open-location.</p>
+      <p>Name of remote workstation.</p>
     </dd>
   </dl>
   <hr />
