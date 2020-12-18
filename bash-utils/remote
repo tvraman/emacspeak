@@ -27,7 +27,7 @@ function remote () {
     remix  - \
     fade h 0 2.7 2.5 norm -1 &
 # Open SSH Connection 
-        ssh  -X -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
+        ssh  -Y -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
 }
 
 #setup tts, but dont ssh.
