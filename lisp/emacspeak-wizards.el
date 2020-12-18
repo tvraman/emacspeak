@@ -3059,18 +3059,16 @@ Remote workstation is  `emacspeak-wizards-remote-workstation'."
    "Set emacspeak-wizards-remote-workstation first.")
   (let((process-environment '("TERM=xterm" ))
        (title 
-`((name . 
-,(format "%s:Emacs"
-(cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
+        `((name . 
+                ,(format "%s:Emacs"
+                         (cl-first (split-string emacspeak-wizards-remote-workstation "\\.")))))))
     (start-process
      "REmacs" "*REmacs*" "ssh"
      "-X"                       ;;; forward X11
-     "-R" "2222:localhost:2222" ;;; emacs speech server
-     "-R" "3333:localhost:3333" ;;; emacspeak notification server
      emacspeak-wizards-remote-workstation
      "emacsclient" "-c"
-"-a" "''"
-"-F" (shell-quote-argument (prin1-to-string title)))))
+     "-a" "''"
+     "-F" (shell-quote-argument (prin1-to-string title)))))
 
 ;;}}}
 (provide 'emacspeak-wizards)
