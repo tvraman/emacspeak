@@ -559,7 +559,9 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (with-current-buffer gnus-article-buffer
       (emacspeak-auditory-icon 'open-object)
-      (emacspeak-hide-all-blocks-in-buffer)
+      (condition-case nil 
+          (emacspeak-hide-all-blocks-in-buffer)
+        (error nil))
       (emacspeak-gnus-speak-article-body))))
 
 (defadvice gnus-summary-next-page (after emacspeak pre act)
