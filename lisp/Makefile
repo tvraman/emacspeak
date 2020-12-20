@@ -77,6 +77,7 @@ CORE_OBJECTS =  \
 emacspeak.elc \
 emacspeak-setup.elc \
 emacspeak-load-path.elc \
+emacspeak-preamble.elc \
 emacspeak-advice.elc\
 emacspeak-keymap.elc\
 emacspeak-fix-interactive.elc\
@@ -355,6 +356,7 @@ amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el dtk-speak.elc
 emacspeak-abc-mode.elc: emacspeak-abc-mode.el dtk-speak.elc 
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
+emacspeak-preamble.elc: emacspeak-preamble.el
 emacspeak-advice.elc: emacspeak-advice.el dtk-speak.elc voice-setup.elc
 emacspeak-analog.elc: emacspeak-analog.el dtk-speak.elc voice-setup.elc
 emacspeak-apt-sources.elc: emacspeak-apt-sources.el dtk-speak.elc voice-setup.elc
