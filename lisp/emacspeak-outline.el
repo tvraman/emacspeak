@@ -284,25 +284,7 @@ except that the outline section is  spoken"
 ;;}}}
 
 ;;}}}
-;;{{{ foldout specific advice
 
-(and (locate-library "foldout")
-     (require 'foldout))
-(defadvice foldout-zoom-subtree (after emacspeak pre act comp)
-  "Provide auditory feedback about the child we zoomed into"
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)
-    (message
-     "Zoomed into outline %s containing %s lines"
-     (ems--this-line) (count-lines (point-min) (point-max)))))
-
-(defadvice foldout-exit-fold (after emacspeak pre act comp)
-  "Provide auditory feedback when exiting a fold"
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-line)))
-
-;;}}}
 ;;{{{ Personalities (
 (voice-setup-add-map
  '(
@@ -327,7 +309,25 @@ except that the outline section is  spoken"
 ;;}}}
 
 ;;}}}
+;;{{{ foldout specific advice
 
+
+(with-eval-after-load "foldout"
+  (defadvice foldout-zoom-subtree (after emacspeak pre act comp)
+    "Provide auditory feedback about the child we zoomed into"
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'open-object)
+      (message
+       "Zoomed into outline %s containing %s lines"
+       (ems--this-line) (count-lines (point-min) (point-max)))))
+
+  (defadvice foldout-exit-fold (after emacspeak pre act comp)
+    "Provide auditory feedback when exiting a fold"
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-speak-line))))
+
+;;}}}
 (provide  'emacspeak-outline)
 ;;{{{  emacs local variables
 
