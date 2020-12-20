@@ -45,12 +45,13 @@
 ;;{{{ requires
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'desktop)
-(require 'rmailsort)
-(require 'emacspeak-desktop)
 
 ;;}}}
 ;;{{{  customizations:
+(declare-function rmail-display-labels "rmail" nil)
+(declare-function rmail-msgend "rmail" (n))
+(declare-function rmail-msgbeg "rmail" (n))
+(declare-function rmail-get-header "rmail" (name &optional msgnum))
 
 (cl-declaim (special rmail-ignored-headers))
 (setq rmail-ignored-headers
@@ -67,10 +68,8 @@
   (let ((subject (rmail-get-header "Subject" message))
         (to (rmail-get-header "To" message))
         (from (rmail-get-header "From" message))
-        (lines (count-lines (rmail-msgbeg message)
-                            (rmail-msgend message)))
-        (labels (let ((rmail-current-message message))
-                  (rmail-display-labels))))
+        (lines (count-lines (rmail-msgbeg message) (rmail-msgend message)))
+        (labels (rmail-display-labels)))
     (dtk-speak
      (format "%s %s   %s %s labelled %s "
              (or from "")
