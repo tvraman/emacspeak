@@ -386,11 +386,14 @@ already disabled."
 ;;;###autoload
 (defun emacspeak-dbus-setup ()
   "Turn on all defined handlers."
-  (nm-enable)
+  (require 'dbus)
+  (when (dbus-list-known-names :session)
+    
+    (nm-enable)
     (emacspeak-dbus-sleep-enable)
     (emacspeak-dbus-udisks-enable)
     (emacspeak-dbus-upower-enable)
-    (emacspeak-dbus-watch-screen-lock))
+    (emacspeak-dbus-watch-screen-lock)))
 
 ;;}}}
 (provide 'emacspeak-dbus)
