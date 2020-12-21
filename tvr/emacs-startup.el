@@ -47,8 +47,6 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-(require 'dbus)
-
 (defvar tvr-site-lib
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Site libs.")
@@ -203,8 +201,6 @@ Use Custom to customize where possible. "
   (tvr-customize)      ;;; customizations
   (with-eval-after-load 'yasnippet (yas-reload-all))
   (tvr-time-load (load "emacspeak-muggles"))
-  (when (dbus-list-known-names :session)
-    (make-thread #'emacspeak-dbus-setup))
   (soundscape-toggle)
   (emacspeak-wizards-project-shells-initialize))
 
