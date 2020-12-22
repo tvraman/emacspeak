@@ -63,7 +63,7 @@
   </div>
   <hr />
   <span id="voice_002dsetup-1"></span>
-  <h3 class="section">12.230 voice-setup</h3>
+  <h3 class="section">12.229 voice-setup</h3>
   <p>A voice is to audio as a font is to a visual display. A
   personality is to audio as a face is to a visual display.</p>
   <p>Voice-lock-mode is a minor mode that causes your comments to
@@ -77,7 +77,33 @@
   <p>To make the text you type be voiceified, use M-x
   voice-lock-mode. When this minor mode is on, the voices of the
   current line are updated with every insertion or deletion.</p>
-  <p>How faces map to voices: TTS engine specific modules e.g.,
+  <p>Voice-Lock And Aural CSS: The CSS Speech Style Sheet
+  specification defines a number of abstract device independent
+  voice properties. A setting conforming to the CSS speech
+  specification can be represented in elisp as a structure.</p>
+  <p>We will refer to this structure as a "speech style". This
+  structure needs to be mapped to device dependent codes to produce
+  the desired effect. This module forms a bridge between emacs
+  packages that wish to implement audio formatting and Emacspeak’s
+  TTS module. Emacspeak produces voice change effects by examining
+  the value of text-property ’personality.</p>
+  <p>Think of a buffer of formatted text along with the
+  text-property ’personality appropriately set as a "aural display
+  list". Module voice-setup.el help applications like EWW produce
+  audio-formatted output by calling function
+  acss-personality-from-speech-style with a "speech-style" –a
+  structure as defined in this module and get back a symbol that
+  they then assign to the value of property ’personality.
+  Emacspeak’s rendering engine then does the needful at the time
+  speech is produced. Function acss-personality-from-speech-style
+  does the following: Takes as input a "speech style" (1) Computes
+  a symbol that will be used henceforth to refer to this specific
+  speech style. (2) Examines emacspeak’s internal voice table to
+  see if this speech style has a voice already defined. If so it
+  returns immediately. Otherwise, it does the additional work of
+  defining a -voice for future use. See its use in this module to
+  see how voices are defined independent of a given TTS engine. How
+  faces map to voices: TTS engine specific modules e.g.,
   dectalk-voices.el and outloud-voices.el define a standard set of
   voice names. This module maps standard "personality" names to
   these pre-defined voices. It does this via special form
@@ -96,9 +122,9 @@
   specifications see special form defvoice Voices defined via
   defvoice can be customized via custom see the documentation for
   defvoice.</p><span id="Voice_002dSetup-Commands"></span>
-  <h4 class="subsection">12.230.1 Voice-Setup
+  <h4 class="subsection">12.229.1 Voice-Setup
   Commands</h4><span id="voice_002dlock_002dmode"></span>
-  <h4 class="subsubsection">12.230.1.1 voice-lock-mode</h4>
+  <h4 class="subsubsection">12.229.1.1 voice-lock-mode</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode">Command:
     <strong>voice-lock-mode</strong> <em>(&amp;optional
@@ -130,7 +156,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dlock_002dmode_002d_002dturn_002don"></span>
-  <h4 class="subsubsection">12.230.1.2 voice-lock-mode–turn-on</h4>
+  <h4 class="subsubsection">12.229.1.2 voice-lock-mode–turn-on</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode_002d_002dturn_002don">
     Command: <strong>voice-lock-mode--turn-on</strong></dt>
@@ -144,7 +170,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dsetup_002ddescribe_002dpersonality"></span>
-  <h4 class="subsubsection">12.230.1.3
+  <h4 class="subsubsection">12.229.1.3
   voice-setup-describe-personality</h4>
   <dl>
     <dt id="index-voice_002dsetup_002ddescribe_002dpersonality">
@@ -163,9 +189,7 @@ it is disabled.
       <div class="format">
         <pre class=
         "format">Describe specified voice — analogous to C-h /.
-When called interactively, ‘personality’ defaults to first personality at point.
-If there are multiple personalities at point,
-these are available via minibuffer history.
+When called interactively, ‘personality’ defaults to first personality at point. 
 
 (fn PERSONALITY)
 </pre>
@@ -173,7 +197,7 @@ these are available via minibuffer history.
     </dd>
   </dl><span id=
   "voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></span>
-  <h4 class="subsubsection">12.230.1.4
+  <h4 class="subsubsection">12.229.1.4
   voice-setup-toggle-silence-personality</h4>
   <dl>
     <dt id=
@@ -195,19 +219,19 @@ these are available via minibuffer history.
       </div>
     </dd>
   </dl><span id="voice_002dsetup-Options"></span>
-  <h4 class="subsection">12.230.2 voice-setup Options</h4>
+  <h4 class="subsection">12.229.2 voice-setup Options</h4>
   <dl>
     <dt id="index-User-Option-835">Variable: <strong>User
     Option</strong> <em>voice-animate-extra-settings</em></dt>
     <dd>
-      <p>Adds extra animation to current voice.</p>
+      <p>Adds extra animation.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-836">Variable: <strong>User
     Option</strong> <em>voice-animate-medium-settings</em></dt>
     <dd>
-      <p>Adds medium animation current voice.</p>
+      <p>Adds medium animation.</p>
     </dd>
   </dl>
   <dl>
@@ -221,28 +245,28 @@ these are available via minibuffer history.
     <dt id="index-User-Option-838">Variable: <strong>User
     Option</strong> <em>voice-annotate-settings</em></dt>
     <dd>
-      <p>Indicate annotation.</p>
+      <p>Annotation..</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-839">Variable: <strong>User
     Option</strong> <em>voice-bolden-and-animate-settings</em></dt>
     <dd>
-      <p>Bolden and animate current voice.</p>
+      <p>Bolden and animate.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-840">Variable: <strong>User
     Option</strong> <em>voice-bolden-extra-settings</em></dt>
     <dd>
-      <p>Extra bolden current voice.</p>
+      <p>Extra bolden.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-841">Variable: <strong>User
     Option</strong> <em>voice-bolden-medium-settings</em></dt>
     <dd>
-      <p>Add medium bolden current voice.</p>
+      <p>Add medium bolden.</p>
     </dd>
   </dl>
   <dl>
@@ -256,42 +280,42 @@ these are available via minibuffer history.
     <dt id="index-User-Option-843">Variable: <strong>User
     Option</strong> <em>voice-brighten-extra-settings</em></dt>
     <dd>
-      <p>Extra brighten current voice.</p>
+      <p>Extra brighten.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-844">Variable: <strong>User
     Option</strong> <em>voice-brighten-medium-settings</em></dt>
     <dd>
-      <p>Brighten (medium) current voice.</p>
+      <p>Brighten (medium).</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-845">Variable: <strong>User
     Option</strong> <em>voice-brighten-settings</em></dt>
     <dd>
-      <p>Brighten current voice.</p>
+      <p>Brighten.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-846">Variable: <strong>User
     Option</strong> <em>voice-indent-settings</em></dt>
     <dd>
-      <p>Indicate indentation .</p>
+      <p>Indent voice .</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-847">Variable: <strong>User
     Option</strong> <em>voice-lighten-extra-settings</em></dt>
     <dd>
-      <p>Add extra lightness to current voice.</p>
+      <p>Add extra lightness.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-848">Variable: <strong>User
     Option</strong> <em>voice-lighten-medium-settings</em></dt>
     <dd>
-      <p>Add medium lightness to current voice.</p>
+      <p>Add medium lightness.</p>
     </dd>
   </dl>
   <dl>
@@ -315,92 +339,84 @@ these are available via minibuffer history.
     <dt id="index-User-Option-851">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-0-settings</em></dt>
     <dd>
-      <p>Overlay voice that sets dimension 0 of ACSS structure to
-      8.</p>
+      <p>Pitch to 8.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-852">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-1-settings</em></dt>
     <dd>
-      <p>Overlay voice that sets dimension 1 of ACSS structure to
-      8.</p>
+      <p>Pitch-range to 8.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-853">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-2-settings</em></dt>
     <dd>
-      <p>Overlay voice that sets dimension 2 of ACSS structure to
-      8.</p>
+      <p>Richness to 8.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-854">Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-3-settings</em></dt>
     <dd>
-      <p>Overlay voice that sets dimension 3 of ACSS structure to
-      8.</p>
+      <p>Smoothness to 8.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-855">Variable: <strong>User
     Option</strong> <em>voice-monotone-light-settings</em></dt>
     <dd>
-      <p>Turns current voice into a light monotone.</p>
+      <p>Add light monotone and speak punctuations.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-856">Variable: <strong>User
     Option</strong> <em>voice-monotone-medium-settings</em></dt>
     <dd>
-      <p>Turns current voice into a medium monotone.</p>
+      <p>Add medium monotone and speak punctuations.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-857">Variable: <strong>User
     Option</strong> <em>voice-monotone-settings</em></dt>
     <dd>
-      <p>Turns current voice into a monotone and speaks all
-      punctuations.</p>
+      <p>Add monotone and speaks all punctuations.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-858">Variable: <strong>User
     Option</strong> <em>voice-punctuations-all-settings</em></dt>
     <dd>
-      <p>Turns current voice into one that speaks all
-      punctuations.</p>
+      <p>Add speaks all punctuations.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-859">Variable: <strong>User
     Option</strong> <em>voice-punctuations-none-settings</em></dt>
     <dd>
-      <p>Turns current voice into one that speaks no
-      punctuations.</p>
+      <p>Add speaks no punctuations.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-860">Variable: <strong>User
     Option</strong> <em>voice-punctuations-some-settings</em></dt>
     <dd>
-      <p>Turns current voice into one that speaks some
-      punctuations.</p>
+      <p>Add speaks some punctuations.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-861">Variable: <strong>User
     Option</strong> <em>voice-smoothen-extra-settings</em></dt>
     <dd>
-      <p>Extra smoothen current voice.</p>
+      <p>Extra smoothen.</p>
     </dd>
   </dl>
   <dl>
     <dt id="index-User-Option-862">Variable: <strong>User
     Option</strong> <em>voice-smoothen-medium-settings</em></dt>
     <dd>
-      <p>Add medium smoothen current voice.</p>
+      <p>Add medium smoothen.</p>
     </dd>
   </dl>
   <dl>
