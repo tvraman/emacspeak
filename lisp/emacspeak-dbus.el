@@ -388,7 +388,6 @@ already disabled."
   "Turn on all defined handlers."
   (require 'dbus)
   (when (dbus-list-known-names :session)
-    
     (nm-enable)
     (emacspeak-dbus-sleep-enable)
     (emacspeak-dbus-udisks-enable)
