@@ -1494,11 +1494,10 @@ available TTS servers.")
    ((string-match "espeak$" tts-name) (espeak-configure-tts))
 ;;; generic configure
    (t (plain-configure-tts)))
-  (dtk-set-rate tts-default-speech-rate t)
-  (dtk-interp-sync)
+  ;(dtk-set-rate tts-default-speech-rate t)
+  ;(dtk-interp-sync)
     (unless (member tts-name tts-configured-engines)
-      (cl-pushnew tts-name tts-configured-engines
-                  :test #'string-equal)
+      (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
       (ems--fastload "voice-setup"))
   (when
       (or

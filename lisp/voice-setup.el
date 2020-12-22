@@ -91,46 +91,53 @@
 (eval-when-compile (require 'easy-mmode))
 
 (require 'acss-structure)
-(require 'dectalk-voices)
-
 
 ;;}}}
 ;;{{{ customization group
 
 (defgroup voice-fonts nil
-  "Customize voices"
+  "Voices"
   :group 'emacspeak)
 
 (declare-function tts-list-voices "dectalk-voices")
 (unless (fboundp 'tts-list-voices)
-  (fset 'tts-list-voices #'dectalk-list-voices))
+  (let ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak")))
+    (cond
+     ((string-match "outloud" tts-name)
+      (require 'outloud-voices))
+     ((string-match "dtk" tts-name)
+      (require 'dectalk-voices))
+     ((string-match "mac$" tts-name)
+      (require 'mac-voices))
+     ((string-match "espeak$" tts-name)
+      (require 'espeak-voices))
+     (t (require 'plain-voices)))
+    (tts-configure-synthesis-setup tts-name)))
 
 ;;}}}
 ;;{{{  helper for voice custom items:
 
 (defun voice-setup-custom-menu ()
-  "Return a choice widget used to select  voices."
+  " Choice widget  to select  voices."
   `(choice
     (symbol :tag "Other")
     ,@(mapcar 
        #'(lambda (voice)(list 'const voice))
        (tts-list-voices))))
 
-
-
 ;;}}}
 ;;{{{ map faces to voices
 
 (defvar voice-setup-face-voice-table (make-hash-table :test #'eq)
-  "Hash table holding face to voice mapping.")
+  "Face to voice mapping.")
 
 (defsubst voice-setup-set-voice-for-face (face voice)
-  "Map face --a symbol-- to relevant voice."
+  "Map face  to  voice."
   (cl-declare (special  voice-setup-face-voice-table))
   (setf (gethash face voice-setup-face-voice-table) voice))
 
 (defsubst voice-setup-get-voice-for-face (face)
-  "Retrieve face --a symbol-- to relevant voice."
+  "Return face to  voice."
   (cl-declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
 
@@ -142,7 +149,7 @@
 ;;; the mapping is changed via custom.
 
 (defmacro  def-voice-font (personality voice face doc &rest args)
-  "Define personality and map it to specified face."
+  "Define personality and map it to face."
   (declare (indent 1) (debug t))
   (let ((documentation
          (concat
@@ -174,7 +181,7 @@
          (put  ',voice ',personality t)))))
 
 (defun voice-setup-name-personality (face-name)
-  "Compute personality name to use."
+  "Get personality name to use."
   (let ((name nil))
     (setq name
           (or
@@ -194,7 +201,7 @@
     name))
 
 (defun voice-setup-map-face (face voice)
-  "Invoke def-voice-font with appropriately generated personality name."
+  "Invoke def-voice-font with  generated personality name."
   (let ((doc (format "Personality used for %s" face))
         (personality
          (intern (voice-setup-name-personality (symbol-name face)))))
@@ -230,9 +237,7 @@
     voice))
 
 (defun voice-setup-observing-personalities  (voice-name)
-  "Return a list of personalities that are `observing' VOICE-NAME.
-Observing personalities are automatically updated when settings for
-VOICE-NAME are  changed."
+  "Return a list of personalities that are `observing' VOICE-NAME. "
   (let* ((plist (symbol-plist voice-name))
          (l (1- (length plist))))
     (cl-loop for i from 0 to l by 2
@@ -249,11 +254,11 @@ VOICE-NAME are  changed."
 ;;; note that for now we dont use  gain settings
 
 (defmacro defvoice (personality settings doc)
-  "Define voice using ACSS setting.  Setting is a list of the form
-(list paul 5 5 5 5 'all) which defines a standard male voice
-that speaks `all' punctuations.  Once
-defined, the newly declared personality can be customized by calling
-command \\[customize-variable] on <personality>-settings. "
+  "Define personality using ACSS setting.  Setting is a list of the form
+(list paul 5 5 5 5 'all) which is the  male voice
+that speaks `all' punctuations.  
+Personality can be customized 
+by  \\[customize-variable] on <personality>-settings. "
   (declare (indent 1) (debug t))
   `(progn
      (defvar  ,personality
@@ -303,70 +308,70 @@ command \\[customize-variable] on <personality>-settings. "
 ;;; these voices are device independent 
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
-  "Turns current voice into one that  speaks all punctuations.")
+  "Add   speaks all punctuations.")
 
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
-  "Turns current voice into one that  speaks some punctuations.")
+  "Add speaks some punctuations.")
 
 (defvoice  voice-punctuations-none (list nil nil nil nil  nil "none")
-  "Turns current voice into one that  speaks no punctuations.")
+  "Add speaks no punctuations.")
 
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
-  "Turns current voice into a monotone and speaks all punctuations.")
+  "Add monotone and speaks all punctuations.")
 
 (defvoice  voice-monotone-medium (list nil nil 2 2  nil 'all)
-  "Turns current voice into a medium monotone.")
+  "Add medium monotone and speak punctuations.")
 
 (defvoice  voice-monotone-light (list nil nil 4 4   nil 'all)
-  "Turns current voice into a light monotone.")
+  "Add light monotone and speak punctuations.")
 
 (defvoice voice-animate-extra (list nil 8 8 6)
-  "Adds extra animation  to current voice.")
+  "Adds extra animation.")
 
 (defvoice voice-animate (list nil 7 7 4)
   "Animates current voice.")
 
 (defvoice voice-animate-medium (list nil 6 6  3)
-  "Adds medium animation  current voice.")
+  "Adds medium animation.")
 
 (defvoice voice-smoothen-extra (list nil nil nil 4 5)
-  "Extra smoothen current voice.")
+  "Extra smoothen.")
 
 (defvoice voice-smoothen-medium (list nil nil nil 3 4)
-  "Add medium smoothen current voice.")
+  "Add medium smoothen.")
 
 (defvoice voice-smoothen (list nil nil  2 2)
   "Smoothen current voice.")
 
 (defvoice voice-brighten-medium (list nil nil nil 5 6)
-  "Brighten  (medium) current voice.")
+  "Brighten  (medium).")
 
 (defvoice voice-brighten (list nil nil nil 6 7)
-  "Brighten current voice.")
+  "Brighten.")
 
 (defvoice voice-brighten-extra (list nil nil nil 7 8)
-  "Extra brighten current voice.")
+  "Extra brighten.")
 
 (defvoice voice-bolden (list nil 3 6 6  6)
   "Bolden current voice.")
 
 (defvoice voice-bolden-medium (list nil 2 6 7  7)
-  "Add medium bolden current voice.")
+  "Add medium bolden.")
 
 (defvoice voice-bolden-extra (list nil 1 6 7 8)
-  "Extra bolden current voice.")
+  "Extra bolden.")
 
 (defvoice voice-lighten (list nil 6 6 2   nil)
   "Lighten current voice.")
 
 (defvoice voice-lighten-medium (list nil 7 7 3  nil)
-  "Add medium lightness to  current voice.")
+  "Add medium lightness.")
 
 (defvoice voice-lighten-extra (list nil 9 8 7   nil)
-  "Add extra lightness to  current voice.")
+  "Add extra lightness.")
 
 (defvoice voice-bolden-and-animate (list nil 3 8 8 8)
-  "Bolden and animate  current voice.")
+  "Bolden and animate.")
 
 (defvoice voice-womanize-1 (list 'betty 5 nil nil nil nil)
   "Apply first female voice.")
@@ -375,10 +380,10 @@ command \\[customize-variable] on <personality>-settings. "
 ;;{{{  indentation and annotation
 
 (defvoice voice-indent (list nil nil 3 1 3)
-  "Indicate indentation .")
+  "Indent voice .")
 
 (defvoice voice-annotate (list nil nil 4 0 4)
-  "Indicate annotation.")
+  "Annotation..")
 
 ;;}}}
 ;;{{{ voice overlays
@@ -386,19 +391,19 @@ command \\[customize-variable] on <personality>-settings. "
 ;;; these are suitable to use as "overlay voices".
 (defvoice voice-lock-overlay-0
   (list nil 8 nil nil nil nil)
-  "Overlay voice that sets dimension 0 of ACSS structure to 8.")
+  "Pitch to 8.")
 
 (defvoice voice-lock-overlay-1
   (list nil nil 8 nil nil nil)
-  "Overlay voice that sets dimension 1 of ACSS structure to 8.")
+  "Pitch-range to 8.")
 
 (defvoice voice-lock-overlay-2
   (list nil nil nil 8 nil nil)
-  "Overlay voice that sets dimension 2 of ACSS structure to 8.")
+  " Richness to 8.")
 
 (defvoice voice-lock-overlay-3
   (list nil  nil nil nil 8 nil)
-  "Overlay voice that sets dimension 3 of ACSS structure to 8.")
+  "Smoothness to 8.")
 
 ;;}}}
 ;;{{{  Define some voice personalities:
@@ -521,9 +526,7 @@ command \\[customize-variable] on <personality>-settings. "
 
 (defun voice-setup-describe-personality(personality)
   "Describe specified voice --- analogous to \\[describe-face].
-When called interactively, `personality' defaults to first personality at point.
-If there are multiple personalities at point,
-these are available via minibuffer history."
+When called interactively, `personality' defaults to first personality at point. "
   (interactive
    (list
     (let* ((v (dtk-get-style)))
@@ -558,9 +561,10 @@ these are available via minibuffer history."
 
 ;;}}}
 ;;{{{Apply Personality:
+
 ;;; Both functions below handle property changes in a "other" buffer correctly.
 (defun voice-setup-add (start end voice &optional object)
-  "Apply personality VOICE to specified region in object."
+  "Apply personality VOICE to  region in object."
   (when
       (and
        (integerp start) (integerp end)
@@ -571,8 +575,7 @@ these are available via minibuffer history."
         (put-text-property start end 'personality voice object)))))
 
 (defun voice-setup-remove  (start end voice &optional object)
-  "Remove specified personality VOICE from text bounded by start and
-end in object. "
+  "Remove  personality VOICE from region in object. "
   (when
       (and
        voice
