@@ -52,22 +52,11 @@
 ;;; Code:
 
 ;;}}}
-;;{{{  Define locations
-
-;;;###autoload
-(defvar emacspeak-directory
-  (expand-file-name "../" (file-name-directory load-file-name))
-  "emacspeak installation directory")
-
-;;;###autoload
-(defvar emacspeak-lisp-directory
-  (expand-file-name  "lisp/" emacspeak-directory)
-  "Emacspeak lisp directory.")
-
-;;}}}
 ;;{{{Load-path:
 
-(push emacspeak-lisp-directory load-path)
+(push
+ (expand-file-name "../lisp" (file-name-directory load-file-name))
+ load-path)
 (require 'emacspeak-preamble)
 (unless noninteractive
   (let ((file-name-handler-alist nil)
