@@ -44,6 +44,7 @@
 (eval-when-compile (require 'subr-x))
 (require 'advice)
 (setq ad-redefinition-action 'accept)
+
 (require 'emacspeak-load-path)
 (require 'voice-setup)
 (require 'dtk-speak)

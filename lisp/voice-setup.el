@@ -42,23 +42,56 @@
 ;;; A voice is to audio as a font is to a visual display.
 ;;; A personality is to audio as a face is to a visual display.
 ;;;
-;; Voice-lock-mode is a minor mode that causes your comments to be
-;; spoken in one personality, strings in another, reserved words in another,
-;; documentation strings in another, and so on.
+;;; Voice-lock-mode is a minor mode that causes your comments to be
+;;; spoken in one personality, strings in another, reserved words in another,
+;;; documentation strings in another, and so on.
 ;;
-;; Comments will be spoken in `voice-comment-personality'.
-;; Strings will be spoken in `voice-string-personality'.
-;; Function and variable names (in their defining forms) will be
-;;  spoken in `voice-function-name-personality'.
-;; Reserved words will be spoken in `voice-keyword-personality'.
+;;; Comments will be spoken in `voice-comment-personality'.
+;;; Strings will be spoken in `voice-string-personality'.
+;;; Function and variable names (in their defining forms) will be
+;;;  spoken in `voice-function-name-personality'.
+;;; Reserved words will be spoken in `voice-keyword-personality'.
 ;;
-;; To make the text you type be voiceified, use M-x voice-lock-mode.
-;; When this minor mode is on, the voices of the current line are
-;; updated with every insertion or deletion.
-;;
-
+;;; To make the text you type be voiceified, use M-x voice-lock-mode.
+;;; When this minor mode is on, the voices of the current line are
+;;; updated with every insertion or deletion.
 ;;
 
+;;
+;;; Voice-Lock And Aural CSS:
+;;; The CSS Speech Style Sheet specification defines a number of
+;;; abstract device independent voice properties.
+;;; A setting conforming to the CSS speech specification can be
+;;; represented in elisp as a structure.
+
+;;; We will refer to this structure as a "speech style".  This
+;;; structure needs to be mapped to device dependent codes to produce
+;;; the desired effect.  This module forms a bridge between emacs
+;;; packages    that wish to implement audio formatting 
+;;; and Emacspeak's TTS module.  Emacspeak produces voice
+;;; change effects by examining the value of text-property
+;;; 'personality.
+
+;;; Think of a buffer of formatted text along with the text-property
+;;; 'personality appropriately set as a "aural display list".
+;;; Module voice-setup.el  help applications like EWW
+;;;  produce audio-formatted output by calling  function
+;;; acss-personality-from-speech-style  with a  "speech-style"
+;;; --a structure as defined in this module and get back a symbol that
+;;; they then assign to the value of property 'personality.
+;;;Emacspeak's rendering engine then does the needful at the time
+;;;speech is produced.
+;;; Function acss-personality-from-speech-style does the following:
+;;; Takes as input a "speech style"
+;;;(1)  Computes a symbol that will be used henceforth to refer to this
+;;; specific speech style.
+;;; (2) Examines emacspeak's internal voice table to see if this
+;;; speech style has a voice already defined.
+;;; If so it returns immediately.
+;;; Otherwise, it does the additional work of defining a -voice for
+;;; future use.
+;;; See its use in   this module to see how voices are defined
+;;; independent of a given TTS engine.
 ;;; How faces map to voices: TTS engine specific modules e.g.,
 ;;; dectalk-voices.el and outloud-voices.el define a standard set
 ;;; of voice names.  This module maps standard "personality"
@@ -89,9 +122,6 @@
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 (eval-when-compile (require 'easy-mmode))
-
-(require 'acss-structure)
-
 ;;}}}
 ;;{{{ customization group
 
@@ -115,6 +145,10 @@
 
 ;;; may be redefined at runtime when alternative tts engine is
 ;;; configured.
+
+
+(declare-function tts-define-voice-from-speech-style "voice-setup" (name style))
+(declare-function tts-voice-defined-p "voice-setup" (name))
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.

@@ -41,7 +41,14 @@
 (setq ad-redefinition-action 'accept)
 
 (cl-pushnew (file-name-directory load-file-name) load-path :test #'string-equal)
+;;{{{acss-structure:
+(cl-defstruct  acss
+  family
+  gain left-volume right-volume
+  average-pitch pitch-range stress richness
+  punctuations)
 
+;;}}}
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
