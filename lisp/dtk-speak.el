@@ -1477,9 +1477,7 @@ available TTS servers.")
 (defun tts-voice-reset-code ()
   "Return voice reset code."
   (tts-get-voice-command tts-default-voice))
-(defvar tts-configured-engines nil
-  "Record TTS engines that   have been configured in this emacs session.")
-
+;;;###autoload
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
   (cl-declare (special dtk-program

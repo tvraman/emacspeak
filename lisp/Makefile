@@ -47,7 +47,7 @@ BATCH = -batch -q -no-site-file     \
 -f package-initialize \
 --eval '(setq file-name-handler-alist nil gc-cons-threshold 64000000 \
 load-source-file-function  nil)' 
-DEPS=-l $(SRC)/emacspeak-load-path.el -l $(SRC)/emacspeak-loaddefs.el 
+DEPS=-l $(SRC)/emacspeak-preamble.el -l $(SRC)/emacspeak-loaddefs.el 
 
 
 
@@ -76,7 +76,6 @@ emacspeak-sounds.elc
 CORE_OBJECTS =  \
 emacspeak.elc \
 emacspeak-setup.elc \
-emacspeak-load-path.elc \
 emacspeak-preamble.elc \
 emacspeak-advice.elc\
 emacspeak-keymap.elc\
@@ -311,7 +310,7 @@ lint:
 	echo "." |\
 emacs -batch -q \
 -f package-initialize \
--l advice.el -l emacspeak-load-path.el  -l emacspeak-loaddefs.el \
+-l advice.el -l emacspeak-preamble.el  -l emacspeak-loaddefs.el \
 -l g-utils.el \
 -f elint-directory 
 
@@ -320,12 +319,12 @@ emacs -batch -q \
 
 emacspeak-loaddefs.el: force
 	@echo ";;;Auto generated" > emacspeak-loaddefs.el
-	$(EMACS) $(BATCH)  -l ./emacspeak-load-path.el  \
+	$(EMACS) $(BATCH)  -l ./emacspeak-preamble.el  \
 	-l ./emacspeak-autoload.el  \
 	-f emacspeak-auto-generate-autoloads
 
 custom: force
-	$(EMACS) $(BATCH) -l ./emacspeak-load-path.el  -l cus-dep -l ./emacspeak-autoload.el \
+	$(EMACS) $(BATCH) -l ./emacspeak-preamble.el  -l cus-dep -l ./emacspeak-autoload.el \
 -f emacspeak-auto-custom-make-dependencies "."
 	cat cus-load.el  >> emacspeak-loaddefs.el
 	rm -f cus-load.el

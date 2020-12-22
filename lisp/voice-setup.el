@@ -129,6 +129,9 @@
   "Voices"
   :group 'emacspeak)
 
+;;;###autoload
+(defvar tts-configured-engines nil
+  "Record TTS engines that   have been configured in this emacs session.")
 
 (let ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak")))
   (unless (member tts-name tts-configured-engines)
