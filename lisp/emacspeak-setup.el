@@ -64,73 +64,11 @@
   (expand-file-name  "lisp/" emacspeak-directory)
   "Emacspeak lisp directory.")
 
-;;;###autoload
-(defvar emacspeak-sounds-directory
-  (expand-file-name  "sounds/" emacspeak-directory)
-  "Auditory icons directory.")
-
-;;;###autoload
-(defvar emacspeak-xslt-directory
-  (expand-file-name "xsl/" emacspeak-directory)
-  "XSL transformations.")
-
-;;;###autoload
-(defvar emacspeak-etc-directory
-  (expand-file-name  "etc/" emacspeak-directory)
-  "Misc directory.")
-
-;;;###autoload
-(defvar emacspeak-servers-directory
-  (expand-file-name  "servers/" emacspeak-directory)
-  "Speech servers directory.")
-
-;;;###autoload
-(defvar emacspeak-info-directory
-  (expand-file-name  "info/" emacspeak-directory)
-  "Emacspeak reference.")
-
-;;;###autoload
-(defvar emacspeak-user-directory (expand-file-name "~/.emacspeak/")
-  "Emacspeak resources, e.g. pronunciation dicts.")
-
-;;;###autoload
-(defvar emacspeak-readme-file
-  (expand-file-name "README" emacspeak-directory)
-  "README file with  Git  revision number.")
-
-;;;###autoload
-(defvar emacspeak-curl-program (executable-find "curl")
-  "Curl location.")
-
-;;;###autoload
-(defvar emacspeak-media-extensions
-  (eval-when-compile
-    (let
-        ((ext
-          '("mov" "wma" "wmv" "flv" "m4a" "m4b"  "flac" "aiff" "aac" "opus ""mkv"
-            "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
-      (concat
-       "\\."
-       (regexp-opt
-        (nconc ext (mapcar #'upcase ext))
-        'parens)
-       "$")))
-  "Media file Extensions.")
-
-;;;###autoload
-(defvar  emacspeak-m-player-playlist-pattern
-  (eval-when-compile
-    (concat
-     (regexp-opt
-      (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
-     "$"))
-  "Playlist pattern.")
-
 ;;}}}
 ;;{{{Load-path:
 
 (push emacspeak-lisp-directory load-path)
-
+(require 'emacspeak-preamble)
 (unless noninteractive
   (let ((file-name-handler-alist nil)
         (load-source-file-function nil))
