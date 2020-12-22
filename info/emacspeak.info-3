@@ -12,12 +12,12 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on December 18, 2020.
+last updated on December 22, 2020.
 
 
 File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
 
-12.175 emacspeak-speedbar
+12.174 emacspeak-speedbar
 =========================
 
 This module advises speedbar.el for use with Emacs.  The latest speedbar
@@ -27,17 +27,17 @@ addition to speech enabling all interactive commands.  Emacspeak also
 adds an Emacspeak environment specific entry point to speedbar
 –emacspeak-speedbar-goto-speedbar– and binds this
 
-12.175.1 Emacspeak-Speedbar Commands
+12.174.1 Emacspeak-Speedbar Commands
 ------------------------------------
 
-12.175.1.1 emacspeak-speedbar-click
+12.174.1.1 emacspeak-speedbar-click
 ...................................
 
  -- Command: emacspeak-speedbar-click
 
      Does the equivalent of the mouse click from the keyboard
 
-12.175.1.2 emacspeak-speedbar-goto-speedbar
+12.174.1.2 emacspeak-speedbar-goto-speedbar
 ...........................................
 
  -- Command: emacspeak-speedbar-goto-speedbar
@@ -47,7 +47,7 @@ adds an Emacspeak environment specific entry point to speedbar
 
 File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands And Options
 
-12.176 emacspeak-sql
+12.175 emacspeak-sql
 ====================
 
 This module speech enables sql-mode– available from the Emacs package
@@ -57,45 +57,45 @@ to SQL interface where you can interactively evaluate SQL expressions.
 
 File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev: emacspeak-sql,  Up: Emacspeak Commands And Options
 
-12.177 emacspeak-sudoku
+12.176 emacspeak-sudoku
 =======================
 
 Playing SuDoku using speech output.  Written to discover what type of
 feedback one needs for this task.  See
 http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
 
-12.177.1 Emacspeak-Sudoku Commands
+12.176.1 Emacspeak-Sudoku Commands
 ----------------------------------
 
-12.177.1.1 emacspeak-sudoku-board-columns-summarize
+12.176.1.1 emacspeak-sudoku-board-columns-summarize
 ...................................................
 
  -- Command: emacspeak-sudoku-board-columns-summarize
 
      Summarize columns — speaks number of remaining cells.
 
-12.177.1.2 emacspeak-sudoku-board-distribution-summarize
+12.176.1.2 emacspeak-sudoku-board-distribution-summarize
 ........................................................
 
  -- Command: emacspeak-sudoku-board-distribution-summarize
 
      Shows distribution of filled numbers.
 
-12.177.1.3 emacspeak-sudoku-board-rows-summarize
+12.176.1.3 emacspeak-sudoku-board-rows-summarize
 ................................................
 
  -- Command: emacspeak-sudoku-board-rows-summarize
 
      Summarize rows — speaks number of remaining cells.
 
-12.177.1.4 emacspeak-sudoku-board-sub-squares-summarize
+12.176.1.4 emacspeak-sudoku-board-sub-squares-summarize
 .......................................................
 
  -- Command: emacspeak-sudoku-board-sub-squares-summarize
 
      Summarize sub-squares — speaks number of remaining cells.
 
-12.177.1.5 emacspeak-sudoku-board-summarizer
+12.176.1.5 emacspeak-sudoku-board-summarizer
 ............................................
 
  -- Command: emacspeak-sudoku-board-summarizer
@@ -108,133 +108,133 @@ http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.htm
      s   Sub-square Distribution.
 
 
-12.177.1.6 emacspeak-sudoku-down-sub-square
+12.176.1.6 emacspeak-sudoku-down-sub-square
 ...........................................
 
  -- Command: emacspeak-sudoku-down-sub-square
 
      Move to top-left corner of  sub-square below current one.
 
-12.177.1.7 emacspeak-sudoku-erase-current-column
+12.176.1.7 emacspeak-sudoku-erase-current-column
 ................................................
 
  -- Command: emacspeak-sudoku-erase-current-column
 
      Erase current column.
 
-12.177.1.8 emacspeak-sudoku-erase-current-row
+12.176.1.8 emacspeak-sudoku-erase-current-row
 .............................................
 
  -- Command: emacspeak-sudoku-erase-current-row
 
      Erase current row.
 
-12.177.1.9 emacspeak-sudoku-erase-current-sub-square
+12.176.1.9 emacspeak-sudoku-erase-current-sub-square
 ....................................................
 
  -- Command: emacspeak-sudoku-erase-current-sub-square
 
      Erase current sub-square.
 
-12.177.1.10 emacspeak-sudoku-hint
+12.176.1.10 emacspeak-sudoku-hint
 .................................
 
  -- Command: emacspeak-sudoku-hint
 
      Provide hint for current cell.
 
-12.177.1.11 emacspeak-sudoku-history-pop
+12.176.1.11 emacspeak-sudoku-history-pop
 ........................................
 
  -- Command: emacspeak-sudoku-history-pop
 
      Pop saved state off stack and redraw board.
 
-12.177.1.12 emacspeak-sudoku-history-push
+12.176.1.12 emacspeak-sudoku-history-push
 .........................................
 
  -- Command: emacspeak-sudoku-history-push
 
      Push current state on to history stack.
 
-12.177.1.13 emacspeak-sudoku-how-many-remaining
+12.176.1.13 emacspeak-sudoku-how-many-remaining
 ...............................................
 
  -- Command: emacspeak-sudoku-how-many-remaining
 
      Speak number of remaining squares to fill.
 
-12.177.1.14 emacspeak-sudoku-next-sub-square
+12.176.1.14 emacspeak-sudoku-next-sub-square
 ............................................
 
  -- Command: emacspeak-sudoku-next-sub-square
 
      Move to top-left corner of next sub-square.
 
-12.177.1.15 emacspeak-sudoku-previous-sub-square
+12.176.1.15 emacspeak-sudoku-previous-sub-square
 ................................................
 
  -- Command: emacspeak-sudoku-previous-sub-square
 
      Move to top-left corner of previous sub-square.
 
-12.177.1.16 emacspeak-sudoku-speak-current-cell-coordinates
+12.176.1.16 emacspeak-sudoku-speak-current-cell-coordinates
 ...........................................................
 
  -- Command: emacspeak-sudoku-speak-current-cell-coordinates
 
      speak current cell coordinates.
 
-12.177.1.17 emacspeak-sudoku-speak-current-cell-value
+12.176.1.17 emacspeak-sudoku-speak-current-cell-value
 .....................................................
 
  -- Command: emacspeak-sudoku-speak-current-cell-value
 
      Speak value in current cell.
 
-12.177.1.18 emacspeak-sudoku-speak-current-column
+12.176.1.18 emacspeak-sudoku-speak-current-column
 .................................................
 
  -- Command: emacspeak-sudoku-speak-current-column
 
      Speak current column.
 
-12.177.1.19 emacspeak-sudoku-speak-current-row
+12.176.1.19 emacspeak-sudoku-speak-current-row
 ..............................................
 
  -- Command: emacspeak-sudoku-speak-current-row
 
      Speak current row.
 
-12.177.1.20 emacspeak-sudoku-speak-current-sub-square
+12.176.1.20 emacspeak-sudoku-speak-current-sub-square
 .....................................................
 
  -- Command: emacspeak-sudoku-speak-current-sub-square
 
      Speak current sub-square.
 
-12.177.1.21 emacspeak-sudoku-speak-remaining-in-column
+12.176.1.21 emacspeak-sudoku-speak-remaining-in-column
 ......................................................
 
  -- Command: emacspeak-sudoku-speak-remaining-in-column
 
      Speaks number of remaining cells in current column.
 
-12.177.1.22 emacspeak-sudoku-speak-remaining-in-row
+12.176.1.22 emacspeak-sudoku-speak-remaining-in-row
 ...................................................
 
  -- Command: emacspeak-sudoku-speak-remaining-in-row
 
      Speaks number of remaining cells in current row.
 
-12.177.1.23 emacspeak-sudoku-speak-remaining-in-sub-square
+12.176.1.23 emacspeak-sudoku-speak-remaining-in-sub-square
 ..........................................................
 
  -- Command: emacspeak-sudoku-speak-remaining-in-sub-square
 
      Speaks number of remaining cells in current sub-square.
 
-12.177.1.24 emacspeak-sudoku-up-sub-square
+12.176.1.24 emacspeak-sudoku-up-sub-square
 ..........................................
 
  -- Command: emacspeak-sudoku-up-sub-square
@@ -244,7 +244,7 @@ http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.htm
 
 File: emacspeak.info,  Node: emacspeak-supercite,  Next: emacspeak-syslog,  Prev: emacspeak-sudoku,  Up: Emacspeak Commands And Options
 
-12.178 emacspeak-supercite
+12.177 emacspeak-supercite
 ==========================
 
 Speech-enable supercite.
@@ -252,13 +252,13 @@ Speech-enable supercite.
 
 File: emacspeak.info,  Node: emacspeak-syslog,  Next: emacspeak-tab-bar,  Prev: emacspeak-supercite,  Up: Emacspeak Commands And Options
 
-12.179 emacspeak-syslog
+12.178 emacspeak-syslog
 =======================
 
 SYSLOG-MODE == Working with various log files.  Install package
 syslog-mode from melpa.
 
-12.179.1 emacspeak-syslog Options
+12.178.1 emacspeak-syslog Options
 ---------------------------------
 
  -- Variable: User Option voice-syslog-debug
@@ -309,7 +309,7 @@ syslog-mode from melpa.
 
 File: emacspeak.info,  Node: emacspeak-tab-bar,  Next: emacspeak-table,  Prev: emacspeak-syslog,  Up: Emacspeak Commands And Options
 
-12.180 emacspeak-tab-bar
+12.179 emacspeak-tab-bar
 ========================
 
 tab-bar == tabs for window configuration.  Speech-enable tab-bar
@@ -317,7 +317,7 @@ interaction.  If you have BROWSE-URL-NEW-WINDOW-FLAG set to T to have
 EWW open Web pages in a new buffer, then set
 EWW-BROWSE-URL-NEW-WINDOW-IS-TAB to nil to avoid leaking tabs.
 
-12.180.1 emacspeak-tab-bar Options
+12.179.1 emacspeak-tab-bar Options
 ----------------------------------
 
  -- Variable: User Option voice-tab-bar
@@ -343,7 +343,7 @@ EWW-BROWSE-URL-NEW-WINDOW-IS-TAB to nil to avoid leaking tabs.
 
 File: emacspeak.info,  Node: emacspeak-table,  Next: emacspeak-table-ui,  Prev: emacspeak-tab-bar,  Up: Emacspeak Commands And Options
 
-12.181 emacspeak-table
+12.180 emacspeak-table
 ======================
 
 Implements a module that provides a high level interface to tabulated
@@ -352,15 +352,15 @@ information.
 
 File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Prev: emacspeak-table,  Up: Emacspeak Commands And Options
 
-12.182 emacspeak-table-ui
+12.181 emacspeak-table-ui
 =========================
 
 User interface to tables
 
-12.182.1 Emacspeak-Table-Ui Commands
+12.181.1 Emacspeak-Table-Ui Commands
 ------------------------------------
 
-12.182.1.1 emacspeak-table-copy-current-element-to-kill-ring
+12.181.1.1 emacspeak-table-copy-current-element-to-kill-ring
 ............................................................
 
  -- Command: emacspeak-table-copy-current-element-to-kill-ring
@@ -369,7 +369,7 @@ User interface to tables
 
      Copy current table element to kill ring.
 
-12.182.1.2 emacspeak-table-copy-current-element-to-register
+12.181.1.2 emacspeak-table-copy-current-element-to-register
 ...........................................................
 
  -- Command: emacspeak-table-copy-current-element-to-register (register)
@@ -380,7 +380,7 @@ User interface to tables
 
      (fn REGISTER)
 
-12.182.1.3 emacspeak-table-copy-to-clipboard
+12.181.1.3 emacspeak-table-copy-to-clipboard
 ............................................
 
  -- Command: emacspeak-table-copy-to-clipboard
@@ -390,7 +390,7 @@ User interface to tables
      Copy table in current buffer to the table clipboard.
      Current buffer must be in emacspeak-table mode.
 
-12.182.1.4 emacspeak-table-display-table-in-region
+12.181.1.4 emacspeak-table-display-table-in-region
 ..................................................
 
  -- Command: emacspeak-table-display-table-in-region (start end)
@@ -409,7 +409,7 @@ User interface to tables
 
      (fn START END)
 
-12.182.1.5 emacspeak-table-find-csv-file
+12.181.1.5 emacspeak-table-find-csv-file
 ........................................
 
  -- Command: emacspeak-table-find-csv-file (filename)
@@ -421,7 +421,7 @@ User interface to tables
 
      (fn FILENAME)
 
-12.182.1.6 emacspeak-table-find-file
+12.181.1.6 emacspeak-table-find-file
 ....................................
 
  -- Command: emacspeak-table-find-file (filename)
@@ -437,7 +437,7 @@ User interface to tables
 
      (fn FILENAME)
 
-12.182.1.7 emacspeak-table-goto
+12.181.1.7 emacspeak-table-goto
 ...............................
 
  -- Command: emacspeak-table-goto (row column)
@@ -448,7 +448,7 @@ User interface to tables
 
      (fn ROW COLUMN)
 
-12.182.1.8 emacspeak-table-goto-bottom
+12.181.1.8 emacspeak-table-goto-bottom
 ......................................
 
  -- Command: emacspeak-table-goto-bottom
@@ -459,7 +459,7 @@ User interface to tables
 
      Goes to the bottom of the current column.
 
-12.182.1.9 emacspeak-table-goto-left
+12.181.1.9 emacspeak-table-goto-left
 ....................................
 
  -- Command: emacspeak-table-goto-left
@@ -470,7 +470,7 @@ User interface to tables
 
      Goes to the left of the current row.
 
-12.182.1.10 emacspeak-table-goto-right
+12.181.1.10 emacspeak-table-goto-right
 ......................................
 
  -- Command: emacspeak-table-goto-right
@@ -481,7 +481,7 @@ User interface to tables
 
      Goes to the right of the current row.
 
-12.182.1.11 emacspeak-table-goto-top
+12.181.1.11 emacspeak-table-goto-top
 ....................................
 
  -- Command: emacspeak-table-goto-top
@@ -492,7 +492,7 @@ User interface to tables
 
      Goes to the top of the current column.
 
-12.182.1.12 emacspeak-table-mode
+12.181.1.12 emacspeak-table-mode
 ................................
 
  -- Command: emacspeak-table-mode
@@ -624,7 +624,7 @@ User interface to tables
      this mode runs the hook ‘emacspeak-table-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.182.1.13 emacspeak-table-next-column
+12.181.1.13 emacspeak-table-next-column
 .......................................
 
  -- Command: emacspeak-table-next-column (&optional count)
@@ -639,7 +639,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.182.1.14 emacspeak-table-next-row
+12.181.1.14 emacspeak-table-next-row
 ....................................
 
  -- Command: emacspeak-table-next-row (&optional count)
@@ -654,7 +654,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.182.1.15 emacspeak-table-paste-from-clipboard
+12.181.1.15 emacspeak-table-paste-from-clipboard
 ................................................
 
  -- Command: emacspeak-table-paste-from-clipboard
@@ -663,7 +663,7 @@ User interface to tables
      Use the major  mode of this buffer to  decide what kind of table
      markup to use.
 
-12.182.1.16 emacspeak-table-previous-column
+12.181.1.16 emacspeak-table-previous-column
 ...........................................
 
  -- Command: emacspeak-table-previous-column (&optional count)
@@ -678,7 +678,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.182.1.17 emacspeak-table-previous-row
+12.181.1.17 emacspeak-table-previous-row
 ........................................
 
  -- Command: emacspeak-table-previous-row (&optional count)
@@ -693,7 +693,7 @@ User interface to tables
 
      (fn &optional COUNT)
 
-12.182.1.18 emacspeak-table-search
+12.181.1.18 emacspeak-table-search
 ..................................
 
  -- Command: emacspeak-table-search (&optional what)
@@ -707,7 +707,7 @@ User interface to tables
 
      (fn &optional WHAT)
 
-12.182.1.19 emacspeak-table-search-column
+12.181.1.19 emacspeak-table-search-column
 .........................................
 
  -- Command: emacspeak-table-search-column
@@ -716,7 +716,7 @@ User interface to tables
 
      Search in current table column.
 
-12.182.1.20 emacspeak-table-search-headers
+12.181.1.20 emacspeak-table-search-headers
 ..........................................
 
  -- Command: emacspeak-table-search-headers
@@ -727,7 +727,7 @@ User interface to tables
      row or column to search and pattern to look for.  If there is a
      match, makes the matching row or column current.
 
-12.182.1.21 emacspeak-table-search-row
+12.181.1.21 emacspeak-table-search-row
 ......................................
 
  -- Command: emacspeak-table-search-row
@@ -736,7 +736,7 @@ User interface to tables
 
      Search in current table row.
 
-12.182.1.22 emacspeak-table-select-automatic-speaking-method
+12.181.1.22 emacspeak-table-select-automatic-speaking-method
 ............................................................
 
  -- Command: emacspeak-table-select-automatic-speaking-method
@@ -746,7 +746,7 @@ User interface to tables
      Interactively select the kind of automatic speech to produce when
      browsing table elements
 
-12.182.1.23 emacspeak-table-sort-on-current-column
+12.181.1.23 emacspeak-table-sort-on-current-column
 ..................................................
 
  -- Command: emacspeak-table-sort-on-current-column
@@ -755,7 +755,7 @@ User interface to tables
 
      Sort table on current column.
 
-12.182.1.24 emacspeak-table-speak-both-headers-and-element
+12.181.1.24 emacspeak-table-speak-both-headers-and-element
 ..........................................................
 
  -- Command: emacspeak-table-speak-both-headers-and-element
@@ -764,7 +764,7 @@ User interface to tables
 
      Speak  both row and column header and table element
 
-12.182.1.25 emacspeak-table-speak-column-filtered
+12.181.1.25 emacspeak-table-speak-column-filtered
 .................................................
 
  -- Command: emacspeak-table-speak-column-filtered (&optional prefix)
@@ -776,7 +776,7 @@ User interface to tables
 
      (fn &optional PREFIX)
 
-12.182.1.26 emacspeak-table-speak-column-header-and-element
+12.181.1.26 emacspeak-table-speak-column-header-and-element
 ...........................................................
 
  -- Command: emacspeak-table-speak-column-header-and-element
@@ -785,7 +785,7 @@ User interface to tables
 
      Speak  column header and table element
 
-12.182.1.27 emacspeak-table-speak-coordinates
+12.181.1.27 emacspeak-table-speak-coordinates
 .............................................
 
  -- Command: emacspeak-table-speak-coordinates
@@ -794,7 +794,7 @@ User interface to tables
 
      Speak current table coordinates.
 
-12.182.1.28 emacspeak-table-speak-current-element
+12.181.1.28 emacspeak-table-speak-current-element
 .................................................
 
  -- Command: emacspeak-table-speak-current-element
@@ -803,7 +803,7 @@ User interface to tables
 
      Speak current table element
 
-12.182.1.29 emacspeak-table-speak-dimensions
+12.181.1.29 emacspeak-table-speak-dimensions
 ............................................
 
  -- Command: emacspeak-table-speak-dimensions
@@ -812,7 +812,7 @@ User interface to tables
 
      Speak current table dimensions.
 
-12.182.1.30 emacspeak-table-speak-row-filtered
+12.181.1.30 emacspeak-table-speak-row-filtered
 ..............................................
 
  -- Command: emacspeak-table-speak-row-filtered (&optional prefix)
@@ -824,7 +824,7 @@ User interface to tables
 
      (fn &optional PREFIX)
 
-12.182.1.31 emacspeak-table-speak-row-header-and-element
+12.181.1.31 emacspeak-table-speak-row-header-and-element
 ........................................................
 
  -- Command: emacspeak-table-speak-row-header-and-element
@@ -833,7 +833,7 @@ User interface to tables
 
      Speak  row header and table element
 
-12.182.1.32 emacspeak-table-ui-filter-load
+12.181.1.32 emacspeak-table-ui-filter-load
 ..........................................
 
  -- Command: emacspeak-table-ui-filter-load (file)
@@ -844,7 +844,7 @@ User interface to tables
 
      (fn FILE)
 
-12.182.1.33 emacspeak-table-ui-filter-save
+12.181.1.33 emacspeak-table-ui-filter-save
 ..........................................
 
  -- Command: emacspeak-table-ui-filter-save (file)
@@ -855,7 +855,7 @@ User interface to tables
 
      (fn FILE)
 
-12.182.1.34 emacspeak-table-view-csv-buffer
+12.181.1.34 emacspeak-table-view-csv-buffer
 ...........................................
 
  -- Command: emacspeak-table-view-csv-buffer (&optional buffer-name)
@@ -867,7 +867,7 @@ User interface to tables
 
      (fn &optional BUFFER-NAME)
 
-12.182.1.35 emacspeak-table-view-csv-url
+12.181.1.35 emacspeak-table-view-csv-url
 ........................................
 
  -- Command: emacspeak-table-view-csv-url (url &optional buffer-name)
@@ -880,7 +880,7 @@ User interface to tables
 
 File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Prev: emacspeak-table-ui,  Up: Emacspeak Commands And Options
 
-12.183 emacspeak-tabulate
+12.182 emacspeak-tabulate
 =========================
 
 This module is a simple table recognizer.  Can recognize the columns in
@@ -889,15 +889,15 @@ tabulated output, e.g.  ps, ls output
 
 File: emacspeak.info,  Node: emacspeak-tapestry,  Next: emacspeak-tar,  Prev: emacspeak-tabulate,  Up: Emacspeak Commands And Options
 
-12.184 emacspeak-tapestry
+12.183 emacspeak-tapestry
 =========================
 
 emacspeak extensions to speak window widnow layouts
 
-12.184.1 Emacspeak-Tapestry Commands
+12.183.1 Emacspeak-Tapestry Commands
 ------------------------------------
 
-12.184.1.1 emacspeak-speak-window-layout
+12.183.1.1 emacspeak-speak-window-layout
 ........................................
 
  -- Command: emacspeak-speak-window-layout (&optional details)
@@ -908,7 +908,7 @@ emacspeak extensions to speak window widnow layouts
 
      (fn &optional DETAILS)
 
-12.184.1.2 emacspeak-tapestry-describe-tapestry
+12.183.1.2 emacspeak-tapestry-describe-tapestry
 ...............................................
 
  -- Command: emacspeak-tapestry-describe-tapestry (&optional details)
@@ -921,7 +921,7 @@ emacspeak extensions to speak window widnow layouts
 
      (fn &optional DETAILS)
 
-12.184.1.3 emacspeak-tapestry-select-window-by-name
+12.183.1.3 emacspeak-tapestry-select-window-by-name
 ...................................................
 
  -- Command: emacspeak-tapestry-select-window-by-name (buffer-name)
@@ -938,29 +938,29 @@ emacspeak extensions to speak window widnow layouts
 
 File: emacspeak.info,  Node: emacspeak-tar,  Next: emacspeak-tcl,  Prev: emacspeak-tapestry,  Up: Emacspeak Commands And Options
 
-12.185 emacspeak-tar
+12.184 emacspeak-tar
 ====================
 
 Auditory interface to tar mode
 
-12.185.1 Emacspeak-Tar Commands
+12.184.1 Emacspeak-Tar Commands
 -------------------------------
 
-12.185.1.1 emacspeak-tar-speak-file-date
+12.184.1.1 emacspeak-tar-speak-file-date
 ........................................
 
  -- Command: emacspeak-tar-speak-file-date
 
      Speak date of file current entry
 
-12.185.1.2 emacspeak-tar-speak-file-permissions
+12.184.1.2 emacspeak-tar-speak-file-permissions
 ...............................................
 
  -- Command: emacspeak-tar-speak-file-permissions
 
      Speak permissions of file current entry
 
-12.185.1.3 emacspeak-tar-speak-file-size
+12.184.1.3 emacspeak-tar-speak-file-size
 ........................................
 
  -- Command: emacspeak-tar-speak-file-size
@@ -970,7 +970,7 @@ Auditory interface to tar mode
 
 File: emacspeak.info,  Node: emacspeak-tcl,  Next: emacspeak-tempo,  Prev: emacspeak-tar,  Up: Emacspeak Commands And Options
 
-12.186 emacspeak-tcl
+12.185 emacspeak-tcl
 ====================
 
 Provide additional advice to tcl-mode
@@ -978,7 +978,7 @@ Provide additional advice to tcl-mode
 
 File: emacspeak.info,  Node: emacspeak-tempo,  Next: emacspeak-tetris,  Prev: emacspeak-tcl,  Up: Emacspeak Commands And Options
 
-12.187 emacspeak-tempo
+12.186 emacspeak-tempo
 ======================
 
 tempo.el provides the infrastructure for building up templates.  This is
@@ -988,29 +988,29 @@ extends Emacspeak to provide fluent spoken feedback
 
 File: emacspeak.info,  Node: emacspeak-tetris,  Next: emacspeak-texinfo,  Prev: emacspeak-tempo,  Up: Emacspeak Commands And Options
 
-12.188 emacspeak-tetris
+12.187 emacspeak-tetris
 =======================
 
 Speech-enables tetris.
 
-12.188.1 Emacspeak-Tetris Commands
+12.187.1 Emacspeak-Tetris Commands
 ----------------------------------
 
-12.188.1.1 emacspeak-tetris-goto-bottom-row
+12.187.1.1 emacspeak-tetris-goto-bottom-row
 ...........................................
 
  -- Command: emacspeak-tetris-goto-bottom-row
 
      Move to and speak bottom row
 
-12.188.1.2 emacspeak-tetris-goto-top-row
+12.187.1.2 emacspeak-tetris-goto-top-row
 ........................................
 
  -- Command: emacspeak-tetris-goto-top-row
 
      Move to and speak the top row
 
-12.188.1.3 emacspeak-tetris-speak-column
+12.187.1.3 emacspeak-tetris-speak-column
 ........................................
 
  -- Command: emacspeak-tetris-speak-column (&optional x)
@@ -1019,56 +1019,56 @@ Speech-enables tetris.
 
      (fn &optional X)
 
-12.188.1.4 emacspeak-tetris-speak-coordinates
+12.187.1.4 emacspeak-tetris-speak-coordinates
 .............................................
 
  -- Command: emacspeak-tetris-speak-coordinates
 
      Speak current position
 
-12.188.1.5 emacspeak-tetris-speak-current-shape
+12.187.1.5 emacspeak-tetris-speak-current-shape
 ...............................................
 
  -- Command: emacspeak-tetris-speak-current-shape
 
      Speak current shape
 
-12.188.1.6 emacspeak-tetris-speak-current-shape-and-coordinates
+12.187.1.6 emacspeak-tetris-speak-current-shape-and-coordinates
 ...............................................................
 
  -- Command: emacspeak-tetris-speak-current-shape-and-coordinates
 
      Speak shape orientation and coordinates
 
-12.188.1.7 emacspeak-tetris-speak-next-shape
+12.187.1.7 emacspeak-tetris-speak-next-shape
 ............................................
 
  -- Command: emacspeak-tetris-speak-next-shape
 
      Speak next shape
 
-12.188.1.8 emacspeak-tetris-speak-row
+12.187.1.8 emacspeak-tetris-speak-row
 .....................................
 
  -- Command: emacspeak-tetris-speak-row
 
      Speak current tetris row
 
-12.188.1.9 emacspeak-tetris-speak-row-number
+12.187.1.9 emacspeak-tetris-speak-row-number
 ............................................
 
  -- Command: emacspeak-tetris-speak-row-number
 
      Speak where on the tetris board we are
 
-12.188.1.10 emacspeak-tetris-speak-score
+12.187.1.10 emacspeak-tetris-speak-score
 ........................................
 
  -- Command: emacspeak-tetris-speak-score
 
      Speak the score
 
-12.188.1.11 emacspeak-tetris-speak-x-coordinate
+12.187.1.11 emacspeak-tetris-speak-x-coordinate
 ...............................................
 
  -- Command: emacspeak-tetris-speak-x-coordinate
@@ -1078,7 +1078,7 @@ Speech-enables tetris.
 
 File: emacspeak.info,  Node: emacspeak-texinfo,  Next: emacspeak-threes,  Prev: emacspeak-tetris,  Up: Emacspeak Commands And Options
 
-12.189 emacspeak-texinfo
+12.188 emacspeak-texinfo
 ========================
 
 This module speech enables net-texinfo mode
@@ -1086,7 +1086,7 @@ This module speech enables net-texinfo mode
 
 File: emacspeak.info,  Node: emacspeak-threes,  Next: emacspeak-tide,  Prev: emacspeak-texinfo,  Up: Emacspeak Commands And Options
 
-12.190 emacspeak-threes
+12.189 emacspeak-threes
 =======================
 
 THREES == threes game.  This module speech-enable the game.
@@ -1122,38 +1122,38 @@ well as getting a column-specific view of the board.
 is spoken after the current state of the board.  You can use ‘SPC’ and
 ‘/’ to review the board.
 
-12.190.1 Emacspeak-Threes Commands
+12.189.1 Emacspeak-Threes Commands
 ----------------------------------
 
-12.190.1.1 emacspeak-threes-0
+12.189.1.1 emacspeak-threes-0
 .............................
 
  -- Command: emacspeak-threes-0
 
      Set next tile.
 
-12.190.1.2 emacspeak-threes-1
+12.189.1.2 emacspeak-threes-1
 .............................
 
  -- Command: emacspeak-threes-1
 
      Set next tile.
 
-12.190.1.3 emacspeak-threes-2
+12.189.1.3 emacspeak-threes-2
 .............................
 
  -- Command: emacspeak-threes-2
 
      Set next tile.
 
-12.190.1.4 emacspeak-threes-3
+12.189.1.4 emacspeak-threes-3
 .............................
 
  -- Command: emacspeak-threes-3
 
      Set next tile.
 
-12.190.1.5 emacspeak-threes-export
+12.189.1.5 emacspeak-threes-export
 ..................................
 
  -- Command: emacspeak-threes-export (&optional prompt)
@@ -1164,7 +1164,7 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      (fn &optional PROMPT)
 
-12.190.1.6 emacspeak-threes-import
+12.189.1.6 emacspeak-threes-import
 ..................................
 
  -- Command: emacspeak-threes-import (&optional prompt)
@@ -1174,14 +1174,14 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      (fn &optional PROMPT)
 
-12.190.1.7 emacspeak-threes-pop-state
+12.189.1.7 emacspeak-threes-pop-state
 .....................................
 
  -- Command: emacspeak-threes-pop-state
 
      Reset state from stack.
 
-12.190.1.8 emacspeak-threes-prune-stack
+12.189.1.8 emacspeak-threes-prune-stack
 .......................................
 
  -- Command: emacspeak-threes-prune-stack (drop)
@@ -1190,42 +1190,42 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      (fn DROP)
 
-12.190.1.9 emacspeak-threes-push-state
+12.189.1.9 emacspeak-threes-push-state
 ......................................
 
  -- Command: emacspeak-threes-push-state
 
      Push current game state on stack.
 
-12.190.1.10 emacspeak-threes-score
+12.189.1.10 emacspeak-threes-score
 ..................................
 
  -- Command: emacspeak-threes-score
 
      Speak the score.
 
-12.190.1.11 emacspeak-threes-speak-board
+12.189.1.11 emacspeak-threes-speak-board
 ........................................
 
  -- Command: emacspeak-threes-speak-board
 
      Speak the board.
 
-12.190.1.12 emacspeak-threes-speak-empty-count
+12.189.1.12 emacspeak-threes-speak-empty-count
 ..............................................
 
  -- Command: emacspeak-threes-speak-empty-count
 
      Speak number of cells that are non-empty.
 
-12.190.1.13 emacspeak-threes-speak-next
+12.189.1.13 emacspeak-threes-speak-next
 .......................................
 
  -- Command: emacspeak-threes-speak-next
 
      Speak upcoming tile.
 
-12.190.1.14 emacspeak-threes-speak-transposed-board
+12.189.1.14 emacspeak-threes-speak-transposed-board
 ...................................................
 
  -- Command: emacspeak-threes-speak-transposed-board
@@ -1235,13 +1235,13 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
 File: emacspeak.info,  Node: emacspeak-tide,  Next: emacspeak-todo-mode,  Prev: emacspeak-threes,  Up: Emacspeak Commands And Options
 
-12.191 emacspeak-tide
+12.190 emacspeak-tide
 =====================
 
 TIDE == Typescript IDE for emacs.  This module speech-enables both tide
 and typescript-mode.
 
-12.191.1 emacspeak-tide Options
+12.190.1 emacspeak-tide Options
 -------------------------------
 
  -- Variable: User Option voice-tide-file
@@ -1262,7 +1262,7 @@ and typescript-mode.
 
 File: emacspeak.info,  Node: emacspeak-todo-mode,  Next: emacspeak-transient,  Prev: emacspeak-tide,  Up: Emacspeak Commands And Options
 
-12.192 emacspeak-todo-mode
+12.191 emacspeak-todo-mode
 ==========================
 
 todo-mode (part of Emacs 21) provides todo-lists that can be integrated
@@ -1271,13 +1271,13 @@ with the Emacs calendar.  This module speech-enables todo-mode
 
 File: emacspeak.info,  Node: emacspeak-transient,  Next: emacspeak-twittering,  Prev: emacspeak-todo-mode,  Up: Emacspeak Commands And Options
 
-12.193 emacspeak-transient
+12.192 emacspeak-transient
 ==========================
 
 TRANSIENT == Transient commands — used by magit and friends.  This
 module speech-enables transient.
 
-12.193.1 Introduction
+12.192.1 Introduction
 ---------------------
 
 Package Transient is similar to package Hydra in the sense that it can
@@ -1295,7 +1295,7 @@ complex packages like Magit would be difficult because the list of
 available commands (potentially very long) gets spoken in its entirety
 by the advice on transient–show.
 
-12.193.2 Browsing Contents Of transient–show
+12.192.2 Browsing Contents Of transient–show
 --------------------------------------------
 
 When executing a command defined via Transient — e.g.  command
@@ -1305,10 +1305,10 @@ displays a *transient-emacspeak* buffer that displays the contents of
 the most recently displayed transient choices.  Pressing ‘C-c’ resumes
 the transient; Pressing ‘C-q’ quits the transient.
 
-12.193.3 Emacspeak-Transient Commands
+12.192.3 Emacspeak-Transient Commands
 -------------------------------------
 
-12.193.3.1 emacspeak-transient-mode
+12.192.3.1 emacspeak-transient-mode
 ...................................
 
  -- Command: emacspeak-transient-mode
@@ -1323,7 +1323,7 @@ the transient; Pressing ‘C-q’ quits the transient.
      —             ——-
 
 
-12.193.4 emacspeak-transient Options
+12.192.4 emacspeak-transient Options
 ------------------------------------
 
  -- Variable: User Option voice-transient-argument
@@ -1389,7 +1389,7 @@ the transient; Pressing ‘C-q’ quits the transient.
 
 File: emacspeak.info,  Node: emacspeak-twittering,  Next: emacspeak-typo,  Prev: emacspeak-transient,  Up: Emacspeak Commands And Options
 
-12.194 emacspeak-twittering
+12.193 emacspeak-twittering
 ===========================
 
 module twittering-mode.el is found on the emacs wiki This module
@@ -1399,17 +1399,17 @@ broken.
 
    Advises interactive functions to speak
 
-12.194.1 Emacspeak-Twittering Commands
+12.193.1 Emacspeak-Twittering Commands
 --------------------------------------
 
-12.194.1.1 emacspeak-twittering-jump-to-following-url
+12.193.1.1 emacspeak-twittering-jump-to-following-url
 .....................................................
 
  -- Command: emacspeak-twittering-jump-to-following-url
 
      Move to and open closest URI  following point.
 
-12.194.1.2 emacspeak-twittering-speak-this-tweet
+12.193.1.2 emacspeak-twittering-speak-this-tweet
 ................................................
 
  -- Command: emacspeak-twittering-speak-this-tweet (&optional
@@ -1420,7 +1420,7 @@ broken.
 
      (fn &optional COPY-AS-KILL)
 
-12.194.1.3 emacspeak-twittering-twarc
+12.193.1.3 emacspeak-twittering-twarc
 .....................................
 
  -- Command: emacspeak-twittering-twarc (&optional whose)
@@ -1434,7 +1434,7 @@ broken.
 
 File: emacspeak.info,  Node: emacspeak-typo,  Next: emacspeak-url-template,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 
-12.195 emacspeak-typo
+12.194 emacspeak-typo
 =====================
 
 TYPO == Typographical Editing This module speech-enables typo-mode.
@@ -1444,7 +1444,7 @@ inserted char.
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-vdiff,  Prev: emacspeak-typo,  Up: Emacspeak Commands And Options
 
-12.196 emacspeak-url-template
+12.195 emacspeak-url-template
 =============================
 
 It is often useful to have “parametrized hot list entries” i.e., hotlist
@@ -1453,10 +1453,10 @@ values for the parametrized portions of the URL e.g.  the date.  See
 *Note URL Templates::, for details on the URL templates that are
 presently defined.
 
-12.196.1 Emacspeak-Url-Template Commands
+12.195.1 Emacspeak-Url-Template Commands
 ----------------------------------------
 
-12.196.1.1 emacspeak-url-template-fetch
+12.195.1.1 emacspeak-url-template-fetch
 .......................................
 
  -- Command: emacspeak-url-template-fetch (&optional documentation)
@@ -1471,7 +1471,7 @@ presently defined.
 
      (fn &optional DOCUMENTATION)
 
-12.196.1.2 emacspeak-url-template-help
+12.195.1.2 emacspeak-url-template-help
 ......................................
 
  -- Command: emacspeak-url-template-help
@@ -1480,7 +1480,7 @@ presently defined.
      Use Emacs completion to obtain a list of available
      resources.
 
-12.196.1.3 emacspeak-url-template-load
+12.195.1.3 emacspeak-url-template-load
 ......................................
 
  -- Command: emacspeak-url-template-load (file)
@@ -1489,7 +1489,7 @@ presently defined.
 
      (fn FILE)
 
-12.196.1.4 emacspeak-url-template-nls-add-to-wishlist
+12.195.1.4 emacspeak-url-template-nls-add-to-wishlist
 .....................................................
 
  -- Command: emacspeak-url-template-nls-add-to-wishlist (book)
@@ -1498,7 +1498,7 @@ presently defined.
 
      (fn BOOK)
 
-12.196.1.5 emacspeak-url-template-save
+12.195.1.5 emacspeak-url-template-save
 ......................................
 
  -- Command: emacspeak-url-template-save (file)
@@ -1507,7 +1507,7 @@ presently defined.
 
      (fn FILE)
 
-12.196.2 emacspeak-url-template Options
+12.195.2 emacspeak-url-template Options
 ---------------------------------------
 
  -- Variable: User Option emacspeak-url-template-currency-base
@@ -1519,7 +1519,7 @@ presently defined.
 
 File: emacspeak.info,  Node: emacspeak-vdiff,  Next: emacspeak-view,  Prev: emacspeak-url-template,  Up: Emacspeak Commands And Options
 
-12.197 emacspeak-vdiff
+12.196 emacspeak-vdiff
 ======================
 
 VDIFF == vimdiff Installable from melpa, vdiff enables synchronized
@@ -1532,31 +1532,31 @@ provides commands that speak the current hunk.  These are bound in
    • ‘emacspeak-vdiff-speak-other-hunk’ bound to ‘C-SPC’.
    • ‘emacspeak-vdiff-speak-other-line’ bound to ‘l’.
 
-12.197.1 Emacspeak-Vdiff Commands
+12.196.1 Emacspeak-Vdiff Commands
 ---------------------------------
 
-12.197.1.1 emacspeak-vdiff-speak-other-hunk
+12.196.1.1 emacspeak-vdiff-speak-other-hunk
 ...........................................
 
  -- Command: emacspeak-vdiff-speak-other-hunk
 
      Speak corresponding hunk from other buffer.
 
-12.197.1.2 emacspeak-vdiff-speak-other-line
+12.196.1.2 emacspeak-vdiff-speak-other-line
 ...........................................
 
  -- Command: emacspeak-vdiff-speak-other-line
 
      Speak corresponding line from other buffer.
 
-12.197.1.3 emacspeak-vdiff-speak-this-hunk
+12.196.1.3 emacspeak-vdiff-speak-this-hunk
 ..........................................
 
  -- Command: emacspeak-vdiff-speak-this-hunk
 
      Speak VDiff hunk under point.
 
-12.197.2 emacspeak-vdiff Options
+12.196.2 emacspeak-vdiff Options
 --------------------------------
 
  -- Variable: User Option voice-vdiff-refine-added
@@ -1572,15 +1572,15 @@ provides commands that speak the current hunk.  These are bound in
 
 File: emacspeak.info,  Node: emacspeak-view,  Next: emacspeak-vm,  Prev: emacspeak-vdiff,  Up: Emacspeak Commands And Options
 
-12.198 emacspeak-view
+12.197 emacspeak-view
 =====================
 
 Provide additional advice to view-mode
 
-12.198.1 Emacspeak-View Commands
+12.197.1 Emacspeak-View Commands
 --------------------------------
 
-12.198.1.1 emacspeak-view-line-to-top
+12.197.1.1 emacspeak-view-line-to-top
 .....................................
 
  -- Command: emacspeak-view-line-to-top
@@ -1590,30 +1590,30 @@ Provide additional advice to view-mode
 
 File: emacspeak.info,  Node: emacspeak-vm,  Next: emacspeak-vterm,  Prev: emacspeak-view,  Up: Emacspeak Commands And Options
 
-12.199 emacspeak-vm
+12.198 emacspeak-vm
 ===================
 
 This module extends the mail reader vm.  Uses voice locking for message
 headers and cited messages
 
-12.199.1 Emacspeak-Vm Commands
+12.198.1 Emacspeak-Vm Commands
 ------------------------------
 
-12.199.1.1 emacspeak-vm-browse-message
+12.198.1.1 emacspeak-vm-browse-message
 ......................................
 
  -- Command: emacspeak-vm-browse-message
 
      Browse an email message –read it paragraph at a time.
 
-12.199.1.2 emacspeak-vm-catch-up-all-messages
+12.198.1.2 emacspeak-vm-catch-up-all-messages
 .............................................
 
  -- Command: emacspeak-vm-catch-up-all-messages
 
      Mark all messages in folder to be deleted. Use with caution.
 
-12.199.1.3 emacspeak-vm-locate-subject-line
+12.198.1.3 emacspeak-vm-locate-subject-line
 ...........................................
 
  -- Command: emacspeak-vm-locate-subject-line
@@ -1622,42 +1622,42 @@ headers and cited messages
      Useful when you’re reading a message
      that has been forwarded multiple times.
 
-12.199.1.4 emacspeak-vm-mode-line
+12.198.1.4 emacspeak-vm-mode-line
 .................................
 
  -- Command: emacspeak-vm-mode-line
 
      VM mode line information.
 
-12.199.1.5 emacspeak-vm-speak-labels
+12.198.1.5 emacspeak-vm-speak-labels
 ....................................
 
  -- Command: emacspeak-vm-speak-labels
 
      Speak a message’s labels
 
-12.199.1.6 emacspeak-vm-speak-message
+12.198.1.6 emacspeak-vm-speak-message
 .....................................
 
  -- Command: emacspeak-vm-speak-message
 
      Move point to the message body.
 
-12.199.1.7 emacspeak-vm-toggle-html-mime-demotion
+12.198.1.7 emacspeak-vm-toggle-html-mime-demotion
 .................................................
 
  -- Command: emacspeak-vm-toggle-html-mime-demotion
 
      Toggle state of HTML Mime promotion/Demotion.
 
-12.199.1.8 emacspeak-vm-yank-header
+12.198.1.8 emacspeak-vm-yank-header
 ...................................
 
  -- Command: emacspeak-vm-yank-header
 
      Yank specified header into kill ring.
 
-12.199.2 emacspeak-vm Options
+12.198.2 emacspeak-vm Options
 -----------------------------
 
  -- Variable: User Option emacspeak-vm-cal2text
@@ -1682,12 +1682,12 @@ headers and cited messages
 
 File: emacspeak.info,  Node: emacspeak-vterm,  Next: emacspeak-vuiet,  Prev: emacspeak-vm,  Up: Emacspeak Commands And Options
 
-12.200 emacspeak-vterm
+12.199 emacspeak-vterm
 ======================
 
 VTERM == vterm using native vterm library
 
-12.200.1 Usage
+12.199.1 Usage
 --------------
 
    • Turn on ‘emacspeak-comint-autospeak’ for using the shell.
@@ -1696,7 +1696,7 @@ VTERM == vterm using native vterm library
    • Use ‘vterm-copy-mode’ to review the contents of the terminal — ‘C-c
      C-t’.
 
-12.200.2 emacspeak-vterm Options
+12.199.2 emacspeak-vterm Options
 --------------------------------
 
  -- Variable: User Option voice-vterm-color-black
@@ -1751,16 +1751,16 @@ VTERM == vterm using native vterm library
 
 File: emacspeak.info,  Node: emacspeak-vuiet,  Next: emacspeak-wdired,  Prev: emacspeak-vterm,  Up: Emacspeak Commands And Options
 
-12.201 emacspeak-vuiet
+12.200 emacspeak-vuiet
 ======================
 
 VUIET == Emacs Music Explorer And Player with last.fm integration This
 module speech-enables vuiet.
 
-12.201.1 Emacspeak-Vuiet Commands
+12.200.1 Emacspeak-Vuiet Commands
 ---------------------------------
 
-12.201.1.1 emacspeak-vuiet-track-info
+12.200.1.1 emacspeak-vuiet-track-info
 .....................................
 
  -- Command: emacspeak-vuiet-track-info
@@ -1770,7 +1770,7 @@ module speech-enables vuiet.
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-vuiet,  Up: Emacspeak Commands And Options
 
-12.202 emacspeak-wdired
+12.201 emacspeak-wdired
 =======================
 
 Speech-enable wdired to permit in-place renaming of groups of files.
@@ -1778,7 +1778,7 @@ Speech-enable wdired to permit in-place renaming of groups of files.
 
 File: emacspeak.info,  Node: emacspeak-we,  Next: emacspeak-websearch,  Prev: emacspeak-wdired,  Up: Emacspeak Commands And Options
 
-12.203 emacspeak-we
+12.202 emacspeak-we
 ===================
 
 we is for webedit Invoke XSLT to edit/transform Web pages before they
@@ -1786,10 +1786,10 @@ get rendered.  we makes emacspeak’s webedit layer independent of a given
 Emacs web browser EWW This module will use the abstraction provided by
 browse-url to handle Web pages.
 
-12.203.1 Emacspeak-We Commands
+12.202.1 Emacspeak-We Commands
 ------------------------------
 
-12.203.1.1 emacspeak-we-class-filter-and-follow
+12.202.1.1 emacspeak-we-class-filter-and-follow
 ...............................................
 
  -- Command: emacspeak-we-class-filter-and-follow (class url &optional
@@ -1804,7 +1804,7 @@ browse-url to handle Web pages.
 
      (fn CLASS URL &optional PROMPT)
 
-12.203.1.2 emacspeak-we-class-filter-and-follow-link
+12.202.1.2 emacspeak-we-class-filter-and-follow-link
 ....................................................
 
  -- Command: emacspeak-we-class-filter-and-follow-link (&optional
@@ -1819,7 +1819,7 @@ browse-url to handle Web pages.
 
      (fn &optional PROMPT)
 
-12.203.1.3 emacspeak-we-count-matches
+12.202.1.3 emacspeak-we-count-matches
 .....................................
 
  -- Command: emacspeak-we-count-matches (url locator)
@@ -1830,7 +1830,7 @@ browse-url to handle Web pages.
 
      (fn URL LOCATOR)
 
-12.203.1.4 emacspeak-we-count-nested-tables
+12.202.1.4 emacspeak-we-count-nested-tables
 ...........................................
 
  -- Command: emacspeak-we-count-nested-tables (url)
@@ -1841,7 +1841,7 @@ browse-url to handle Web pages.
 
      (fn URL)
 
-12.203.1.5 emacspeak-we-count-tables
+12.202.1.5 emacspeak-we-count-tables
 ....................................
 
  -- Command: emacspeak-we-count-tables (url)
@@ -1852,7 +1852,7 @@ browse-url to handle Web pages.
 
      (fn URL)
 
-12.203.1.6 emacspeak-we-extract-by-class
+12.202.1.6 emacspeak-we-extract-by-class
 ........................................
 
  -- Command: emacspeak-we-extract-by-class (class url &optional speak)
@@ -1865,7 +1865,7 @@ browse-url to handle Web pages.
 
      (fn CLASS URL &optional SPEAK)
 
-12.203.1.7 emacspeak-we-extract-by-class-list
+12.202.1.7 emacspeak-we-extract-by-class-list
 .............................................
 
  -- Command: emacspeak-we-extract-by-class-list (classes url &optional
@@ -1880,7 +1880,7 @@ browse-url to handle Web pages.
 
      (fn CLASSES URL &optional SPEAK)
 
-12.203.1.8 emacspeak-we-extract-by-id
+12.202.1.8 emacspeak-we-extract-by-id
 .....................................
 
  -- Command: emacspeak-we-extract-by-id (id url &optional speak)
@@ -1894,7 +1894,7 @@ browse-url to handle Web pages.
 
      (fn ID URL &optional SPEAK)
 
-12.203.1.9 emacspeak-we-extract-by-id-list
+12.202.1.9 emacspeak-we-extract-by-id-list
 ..........................................
 
  -- Command: emacspeak-we-extract-by-id-list (ids url &optional speak)
@@ -1907,7 +1907,7 @@ browse-url to handle Web pages.
 
      (fn IDS URL &optional SPEAK)
 
-12.203.1.10 emacspeak-we-extract-by-role
+12.202.1.10 emacspeak-we-extract-by-role
 ........................................
 
  -- Command: emacspeak-we-extract-by-role (role url &optional speak)
@@ -1920,7 +1920,7 @@ browse-url to handle Web pages.
 
      (fn ROLE URL &optional SPEAK)
 
-12.203.1.11 emacspeak-we-extract-matching-urls
+12.202.1.11 emacspeak-we-extract-matching-urls
 ..............................................
 
  -- Command: emacspeak-we-extract-matching-urls (pattern url &optional
@@ -1932,7 +1932,7 @@ browse-url to handle Web pages.
 
      (fn PATTERN URL &optional SPEAK)
 
-12.203.1.12 emacspeak-we-extract-nested-table
+12.202.1.12 emacspeak-we-extract-nested-table
 .............................................
 
  -- Command: emacspeak-we-extract-nested-table (index url &optional
@@ -1947,7 +1947,7 @@ browse-url to handle Web pages.
 
      (fn INDEX URL &optional SPEAK)
 
-12.203.1.13 emacspeak-we-extract-nested-table-list
+12.202.1.13 emacspeak-we-extract-nested-table-list
 ..................................................
 
  -- Command: emacspeak-we-extract-nested-table-list (tables url
@@ -1959,7 +1959,7 @@ browse-url to handle Web pages.
 
      (fn TABLES URL &optional SPEAK)
 
-12.203.1.14 emacspeak-we-extract-speakable
+12.202.1.14 emacspeak-we-extract-speakable
 ..........................................
 
  -- Command: emacspeak-we-extract-speakable (url &optional speak)
@@ -1970,7 +1970,7 @@ browse-url to handle Web pages.
 
      (fn URL &optional SPEAK)
 
-12.203.1.15 emacspeak-we-extract-table-by-match
+12.202.1.15 emacspeak-we-extract-table-by-match
 ...............................................
 
  -- Command: emacspeak-we-extract-table-by-match (match url &optional
@@ -1983,7 +1983,7 @@ browse-url to handle Web pages.
 
      (fn MATCH URL &optional SPEAK)
 
-12.203.1.16 emacspeak-we-extract-table-by-position
+12.202.1.16 emacspeak-we-extract-table-by-position
 ..................................................
 
  -- Command: emacspeak-we-extract-table-by-position (pos url &optional
@@ -1996,7 +1996,7 @@ browse-url to handle Web pages.
 
      (fn POS URL &optional SPEAK)
 
-12.203.1.17 emacspeak-we-extract-tables-by-match-list
+12.202.1.17 emacspeak-we-extract-tables-by-match-list
 .....................................................
 
  -- Command: emacspeak-we-extract-tables-by-match-list (match-list url
@@ -2010,7 +2010,7 @@ browse-url to handle Web pages.
 
      (fn MATCH-LIST URL &optional SPEAK)
 
-12.203.1.18 emacspeak-we-extract-tables-by-position-list
+12.202.1.18 emacspeak-we-extract-tables-by-position-list
 ........................................................
 
  -- Command: emacspeak-we-extract-tables-by-position-list (positions url
@@ -2024,7 +2024,7 @@ browse-url to handle Web pages.
 
      (fn POSITIONS URL &optional SPEAK)
 
-12.203.1.19 emacspeak-we-follow-and-extract-main
+12.202.1.19 emacspeak-we-follow-and-extract-main
 ................................................
 
  -- Command: emacspeak-we-follow-and-extract-main (&optional speak)
@@ -2035,7 +2035,7 @@ browse-url to handle Web pages.
 
      (fn &optional SPEAK)
 
-12.203.1.20 emacspeak-we-follow-and-filter-by-id
+12.202.1.20 emacspeak-we-follow-and-filter-by-id
 ................................................
 
  -- Command: emacspeak-we-follow-and-filter-by-id (id prompt)
@@ -2049,7 +2049,7 @@ browse-url to handle Web pages.
 
      (fn ID PROMPT)
 
-12.203.1.21 emacspeak-we-junk-by-class
+12.202.1.21 emacspeak-we-junk-by-class
 ......................................
 
  -- Command: emacspeak-we-junk-by-class (class url &optional speak)
@@ -2062,7 +2062,7 @@ browse-url to handle Web pages.
 
      (fn CLASS URL &optional SPEAK)
 
-12.203.1.22 emacspeak-we-junk-by-class-list
+12.202.1.22 emacspeak-we-junk-by-class-list
 ...........................................
 
  -- Command: emacspeak-we-junk-by-class-list (classes url &optional
@@ -2079,7 +2079,7 @@ browse-url to handle Web pages.
 
      (fn CLASSES URL &optional SPEAK)
 
-12.203.1.23 emacspeak-we-style-filter
+12.202.1.23 emacspeak-we-style-filter
 .....................................
 
  -- Command: emacspeak-we-style-filter (style url &optional speak)
@@ -2093,7 +2093,7 @@ browse-url to handle Web pages.
 
      (fn STYLE URL &optional SPEAK)
 
-12.203.1.24 emacspeak-we-toggle-xsl-keep-result
+12.202.1.24 emacspeak-we-toggle-xsl-keep-result
 ...............................................
 
  -- Command: emacspeak-we-toggle-xsl-keep-result
@@ -2102,7 +2102,7 @@ browse-url to handle Web pages.
 
      Toggle xsl keep result flag.
 
-12.203.1.25 emacspeak-we-url-expand-and-execute
+12.202.1.25 emacspeak-we-url-expand-and-execute
 ...............................................
 
  -- Command: emacspeak-we-url-expand-and-execute (&optional prefix)
@@ -2113,7 +2113,7 @@ browse-url to handle Web pages.
 
      (fn &optional PREFIX)
 
-12.203.1.26 emacspeak-we-url-rewrite-and-follow
+12.202.1.26 emacspeak-we-url-rewrite-and-follow
 ...............................................
 
  -- Command: emacspeak-we-url-rewrite-and-follow (&optional prompt)
@@ -2130,7 +2130,7 @@ browse-url to handle Web pages.
 
      (fn &optional PROMPT)
 
-12.203.1.27 emacspeak-we-xpath-filter-and-follow
+12.202.1.27 emacspeak-we-xpath-filter-and-follow
 ................................................
 
  -- Command: emacspeak-we-xpath-filter-and-follow (&optional prompt)
@@ -2144,7 +2144,7 @@ browse-url to handle Web pages.
 
      (fn &optional PROMPT)
 
-12.203.1.28 emacspeak-we-xpath-junk-and-follow
+12.202.1.28 emacspeak-we-xpath-junk-and-follow
 ..............................................
 
  -- Command: emacspeak-we-xpath-junk-and-follow (&optional prompt)
@@ -2159,7 +2159,7 @@ browse-url to handle Web pages.
 
      (fn &optional PROMPT)
 
-12.203.1.29 emacspeak-we-xsl-toggle
+12.202.1.29 emacspeak-we-xsl-toggle
 ...................................
 
  -- Command: emacspeak-we-xsl-toggle
@@ -2168,7 +2168,7 @@ browse-url to handle Web pages.
 
      Toggle  application of XSL transformations.
 
-12.203.1.30 emacspeak-we-xslt-apply
+12.202.1.30 emacspeak-we-xslt-apply
 ...................................
 
  -- Command: emacspeak-we-xslt-apply (xsl)
@@ -2179,7 +2179,7 @@ browse-url to handle Web pages.
 
      (fn XSL)
 
-12.203.1.31 emacspeak-we-xslt-filter
+12.202.1.31 emacspeak-we-xslt-filter
 ....................................
 
  -- Command: emacspeak-we-xslt-filter (path url &optional speak)
@@ -2191,7 +2191,7 @@ browse-url to handle Web pages.
 
      (fn PATH URL &optional SPEAK)
 
-12.203.1.32 emacspeak-we-xslt-junk
+12.202.1.32 emacspeak-we-xslt-junk
 ..................................
 
  -- Command: emacspeak-we-xslt-junk (path url &optional speak)
@@ -2202,7 +2202,7 @@ browse-url to handle Web pages.
 
      (fn PATH URL &optional SPEAK)
 
-12.203.1.33 emacspeak-we-xslt-select
+12.202.1.33 emacspeak-we-xslt-select
 ....................................
 
  -- Command: emacspeak-we-xslt-select (xsl)
@@ -2213,7 +2213,7 @@ browse-url to handle Web pages.
 
      (fn XSL)
 
-12.203.2 emacspeak-we Options
+12.202.2 emacspeak-we Options
 -----------------------------
 
  -- Variable: User Option emacspeak-we-filters-rename-buffer
@@ -2222,15 +2222,15 @@ browse-url to handle Web pages.
 
 File: emacspeak.info,  Node: emacspeak-websearch,  Next: emacspeak-webspace,  Prev: emacspeak-we,  Up: Emacspeak Commands And Options
 
-12.204 emacspeak-websearch
+12.203 emacspeak-websearch
 ==========================
 
 This module provides utility functions for searching the WWW
 
-12.204.1 Emacspeak-Websearch Commands
+12.203.1 Emacspeak-Websearch Commands
 -------------------------------------
 
-12.204.1.1 emacspeak-websearch-accessible-google
+12.203.1.1 emacspeak-websearch-accessible-google
 ................................................
 
  -- Command: emacspeak-websearch-accessible-google (query &optional
@@ -2241,14 +2241,14 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional OPTIONS)
 
-12.204.1.2 emacspeak-websearch-amazon-search
+12.203.1.2 emacspeak-websearch-amazon-search
 ............................................
 
  -- Command: emacspeak-websearch-amazon-search
 
      Amazon search.
 
-12.204.1.3 emacspeak-websearch-ask-jeeves
+12.203.1.3 emacspeak-websearch-ask-jeeves
 .........................................
 
  -- Command: emacspeak-websearch-ask-jeeves (query)
@@ -2257,7 +2257,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.4 emacspeak-websearch-biblio-search
+12.203.1.4 emacspeak-websearch-biblio-search
 ............................................
 
  -- Command: emacspeak-websearch-biblio-search (query)
@@ -2266,7 +2266,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.5 emacspeak-websearch-citeseer-search
+12.203.1.5 emacspeak-websearch-citeseer-search
 ..............................................
 
  -- Command: emacspeak-websearch-citeseer-search (term)
@@ -2275,7 +2275,7 @@ This module provides utility functions for searching the WWW
 
      (fn TERM)
 
-12.204.1.6 emacspeak-websearch-dispatch
+12.203.1.6 emacspeak-websearch-dispatch
 .......................................
 
  -- Command: emacspeak-websearch-dispatch
@@ -2285,7 +2285,7 @@ This module provides utility functions for searching the WWW
       Press ‘?’ to list available search engines.
         This interface attempts to speak the most relevant information on the result page.
 
-12.204.1.7 emacspeak-websearch-foldoc-search
+12.203.1.7 emacspeak-websearch-foldoc-search
 ............................................
 
  -- Command: emacspeak-websearch-foldoc-search (query)
@@ -2294,7 +2294,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.8 emacspeak-websearch-google
+12.203.1.8 emacspeak-websearch-google
 .....................................
 
  -- Command: emacspeak-websearch-google (query &optional flag)
@@ -2305,7 +2305,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY &optional FLAG)
 
-12.204.1.9 emacspeak-websearch-google-feeling-lucky
+12.203.1.9 emacspeak-websearch-google-feeling-lucky
 ...................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
@@ -2314,21 +2314,21 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.10 emacspeak-websearch-google-news
+12.203.1.10 emacspeak-websearch-google-news
 ...........................................
 
  -- Command: emacspeak-websearch-google-news
 
      Invoke Google News url template.
 
-12.204.1.11 emacspeak-websearch-google-search-in-date-range
+12.203.1.11 emacspeak-websearch-google-search-in-date-range
 ...........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.204.1.12 emacspeak-websearch-google-with-toolbelt
+12.203.1.12 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
@@ -2337,7 +2337,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.13 emacspeak-websearch-gutenberg
+12.203.1.13 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
@@ -2346,14 +2346,14 @@ This module provides utility functions for searching the WWW
 
      (fn TYPE QUERY)
 
-12.204.1.14 emacspeak-websearch-help
+12.203.1.14 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.204.1.15 emacspeak-websearch-merriam-webster-search
+12.203.1.15 emacspeak-websearch-merriam-webster-search
 ......................................................
 
  -- Command: emacspeak-websearch-merriam-webster-search (query)
@@ -2362,7 +2362,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.16 emacspeak-websearch-wikipedia-search
+12.203.1.16 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
@@ -2371,7 +2371,7 @@ This module provides utility functions for searching the WWW
 
      (fn QUERY)
 
-12.204.1.17 emacspeak-websearch-youtube-search
+12.203.1.17 emacspeak-websearch-youtube-search
 ..............................................
 
  -- Command: emacspeak-websearch-youtube-search (query)
@@ -2383,15 +2383,15 @@ This module provides utility functions for searching the WWW
 
 File: emacspeak.info,  Node: emacspeak-webspace,  Next: emacspeak-widget,  Prev: emacspeak-websearch,  Up: Emacspeak Commands And Options
 
-12.205 emacspeak-webspace
+12.204 emacspeak-webspace
 =========================
 
 WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
-12.205.1 Emacspeak-Webspace Commands
+12.204.1 Emacspeak-Webspace Commands
 ------------------------------------
 
-12.205.1.1 emacspeak-webspace-feed-reader
+12.204.1.1 emacspeak-webspace-feed-reader
 .........................................
 
  -- Command: emacspeak-webspace-feed-reader (&optional refresh)
@@ -2404,28 +2404,28 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
      (fn &optional REFRESH)
 
-12.205.1.2 emacspeak-webspace-filter
+12.204.1.2 emacspeak-webspace-filter
 ....................................
 
  -- Command: emacspeak-webspace-filter
 
      Open headline at point by following its link property and filter for content.
 
-12.205.1.3 emacspeak-webspace-headlines
+12.204.1.3 emacspeak-webspace-headlines
 .......................................
 
  -- Command: emacspeak-webspace-headlines
 
      Startup Headlines ticker using RSS/Atom  feeds.
 
-12.205.1.4 emacspeak-webspace-headlines-browse
+12.204.1.4 emacspeak-webspace-headlines-browse
 ..............................................
 
  -- Command: emacspeak-webspace-headlines-browse
 
      Display buffer of browsable headlines.
 
-12.205.1.5 emacspeak-webspace-headlines-update
+12.204.1.5 emacspeak-webspace-headlines-update
 ..............................................
 
  -- Command: emacspeak-webspace-headlines-update
@@ -2433,7 +2433,7 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
      Setup news updates.
      Updated headlines found in emacspeak-webspace-headlines.
 
-12.205.1.6 emacspeak-webspace-mode
+12.204.1.6 emacspeak-webspace-mode
 ..................................
 
  -- Command: emacspeak-webspace-mode
@@ -2465,21 +2465,21 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
      this mode runs the hook ‘emacspeak-webspace-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.205.1.7 emacspeak-webspace-open
+12.204.1.7 emacspeak-webspace-open
 ..................................
 
  -- Command: emacspeak-webspace-open
 
      Open headline at point by following its link property.
 
-12.205.1.8 emacspeak-webspace-yank-link
+12.204.1.8 emacspeak-webspace-yank-link
 .......................................
 
  -- Command: emacspeak-webspace-yank-link
 
      Yank link under point into kill ring.
 
-12.205.2 emacspeak-webspace Options
+12.204.2 emacspeak-webspace Options
 -----------------------------------
 
  -- Variable: User Option emacspeak-webspace-feeds
@@ -2488,37 +2488,37 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
 File: emacspeak.info,  Node: emacspeak-widget,  Next: emacspeak-windmove,  Prev: emacspeak-webspace,  Up: Emacspeak Commands And Options
 
-12.206 emacspeak-widget
+12.205 emacspeak-widget
 =======================
 
 This module implements the necessary extensions to provide talking
 widgets.
 
-12.206.1 Emacspeak-Widget Commands
+12.205.1 Emacspeak-Widget Commands
 ----------------------------------
 
-12.206.1.1 emacspeak-widget-browse-widget-interactively
+12.205.1.1 emacspeak-widget-browse-widget-interactively
 .......................................................
 
  -- Command: emacspeak-widget-browse-widget-interactively
 
      Allows you to browse a widget
 
-12.206.1.2 emacspeak-widget-help
+12.205.1.2 emacspeak-widget-help
 ................................
 
  -- Command: emacspeak-widget-help
 
      Speak help for widget under point.
 
-12.206.1.3 emacspeak-widget-summarize-parent
+12.205.1.3 emacspeak-widget-summarize-parent
 ............................................
 
  -- Command: emacspeak-widget-summarize-parent
 
      Summarize parent of widget at point.
 
-12.206.1.4 emacspeak-widget-summarize-widget-under-point
+12.205.1.4 emacspeak-widget-summarize-widget-under-point
 ........................................................
 
  -- Command: emacspeak-widget-summarize-widget-under-point (&optional
@@ -2530,7 +2530,7 @@ widgets.
 
      (fn &optional LEVEL)
 
-12.206.1.5 emacspeak-widget-update-from-minibuffer
+12.205.1.5 emacspeak-widget-update-from-minibuffer
 ..................................................
 
  -- Command: emacspeak-widget-update-from-minibuffer (pos)
@@ -2539,7 +2539,7 @@ widgets.
 
      (fn POS)
 
-12.206.2 emacspeak-widget Options
+12.205.2 emacspeak-widget Options
 ---------------------------------
 
  -- Variable: User Option voice-widget-button
@@ -2575,7 +2575,7 @@ widgets.
 
 File: emacspeak.info,  Node: emacspeak-windmove,  Next: emacspeak-winring,  Prev: emacspeak-widget,  Up: Emacspeak Commands And Options
 
-12.207 emacspeak-windmove
+12.206 emacspeak-windmove
 =========================
 
 Package windmove (bundled with Emacs 21) provides commands for
@@ -2584,7 +2584,7 @@ navigating to windows based on relative position.
 
 File: emacspeak.info,  Node: emacspeak-winring,  Next: emacspeak-wizards,  Prev: emacspeak-windmove,  Up: Emacspeak Commands And Options
 
-12.208 emacspeak-winring
+12.207 emacspeak-winring
 ========================
 
 window configurations in emacs are very useful you can display the same
@@ -2595,15 +2595,15 @@ module speech-enables it.
 
 File: emacspeak.info,  Node: emacspeak-wizards,  Next: emacspeak-woman,  Prev: emacspeak-winring,  Up: Emacspeak Commands And Options
 
-12.209 emacspeak-wizards
+12.208 emacspeak-wizards
 ========================
 
 Contains various wizards for the Emacspeak desktop.
 
-12.209.1 Emacspeak-Wizards Commands
+12.208.1 Emacspeak-Wizards Commands
 -----------------------------------
 
-12.209.1.1 emacspeak-copy-current-file
+12.208.1.1 emacspeak-copy-current-file
 ......................................
 
  -- Command: emacspeak-copy-current-file
@@ -2618,7 +2618,7 @@ Contains various wizards for the Emacspeak desktop.
        used.  Asks for confirmation if the copy will result in an
        existing file being overwritten.
 
-12.209.1.2 emacspeak-customize
+12.208.1.2 emacspeak-customize
 ..............................
 
  -- Command: emacspeak-customize
@@ -2627,7 +2627,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Customize Emacspeak.
 
-12.209.1.3 emacspeak-describe-emacspeak
+12.208.1.3 emacspeak-describe-emacspeak
 .......................................
 
  -- Command: emacspeak-describe-emacspeak
@@ -2637,7 +2637,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Give a brief overview of emacspeak.
 
-12.209.1.4 emacspeak-emergency-tts-restart
+12.208.1.4 emacspeak-emergency-tts-restart
 ..........................................
 
  -- Command: emacspeak-emergency-tts-restart
@@ -2650,7 +2650,7 @@ Contains various wizards for the Emacspeak desktop.
      Will start TTS engine specified by
      emacspeak-emergency-tts-server.
 
-12.209.1.5 emacspeak-kill-buffer-quietly
+12.208.1.5 emacspeak-kill-buffer-quietly
 ........................................
 
  -- Command: emacspeak-kill-buffer-quietly
@@ -2659,7 +2659,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Kill current buffer without asking for confirmation.
 
-12.209.1.6 emacspeak-learn-emacs-mode
+12.208.1.6 emacspeak-learn-emacs-mode
 .....................................
 
  -- Command: emacspeak-learn-emacs-mode
@@ -2672,7 +2672,7 @@ Contains various wizards for the Emacspeak desktop.
      Helps you learn the keys.  You can press keys and hear what they do.
      To leave, press C-g.
 
-12.209.1.7 emacspeak-link-current-file
+12.208.1.7 emacspeak-link-current-file
 ......................................
 
  -- Command: emacspeak-link-current-file
@@ -2686,7 +2686,7 @@ Contains various wizards for the Emacspeak desktop.
        a file in an existing directory, the specified name is
        used.  Signals an error if target already exists.
 
-12.209.1.8 emacspeak-next-frame-or-buffer
+12.208.1.8 emacspeak-next-frame-or-buffer
 .........................................
 
  -- Command: emacspeak-next-frame-or-buffer (&optional frame)
@@ -2697,7 +2697,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional FRAME)
 
-12.209.1.9 emacspeak-previous-frame-or-buffer
+12.208.1.9 emacspeak-previous-frame-or-buffer
 .............................................
 
  -- Command: emacspeak-previous-frame-or-buffer (&optional frame)
@@ -2708,7 +2708,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional FRAME)
 
-12.209.1.10 emacspeak-select-this-buffer-next-display
+12.208.1.10 emacspeak-select-this-buffer-next-display
 .....................................................
 
  -- Command: emacspeak-select-this-buffer-next-display
@@ -2720,7 +2720,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘emacspeak-select-this-buffer-other-window-display’ for the
      meaning of ‘next’.
 
-12.209.1.11 emacspeak-select-this-buffer-other-window-display
+12.208.1.11 emacspeak-select-this-buffer-other-window-display
 .............................................................
 
  -- Command: emacspeak-select-this-buffer-other-window-display
@@ -2740,7 +2740,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional ARG)
 
-12.209.1.12 emacspeak-select-this-buffer-previous-display
+12.208.1.12 emacspeak-select-this-buffer-previous-display
 .........................................................
 
  -- Command: emacspeak-select-this-buffer-previous-display
@@ -2752,7 +2752,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘emacspeak-select-this-buffer-other-window-display’ for the
      meaning of ‘previous’.
 
-12.209.1.13 emacspeak-show-property-at-point
+12.208.1.13 emacspeak-show-property-at-point
 ............................................
 
  -- Command: emacspeak-show-property-at-point (&optional property)
@@ -2766,7 +2766,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PROPERTY)
 
-12.209.1.14 emacspeak-show-style-at-point
+12.208.1.14 emacspeak-show-style-at-point
 .........................................
 
  -- Command: emacspeak-show-style-at-point
@@ -2775,7 +2775,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Show value of property personality (and possibly face) at point.
 
-12.209.1.15 emacspeak-skip-blank-lines-backward
+12.208.1.15 emacspeak-skip-blank-lines-backward
 ...............................................
 
  -- Command: emacspeak-skip-blank-lines-backward
@@ -2785,7 +2785,7 @@ Contains various wizards for the Emacspeak desktop.
      The line under point is   then spoken.
      Signals beginning  of buffer.
 
-12.209.1.16 emacspeak-skip-blank-lines-forward
+12.208.1.16 emacspeak-skip-blank-lines-forward
 ..............................................
 
  -- Command: emacspeak-skip-blank-lines-forward
@@ -2795,7 +2795,7 @@ Contains various wizards for the Emacspeak desktop.
      The line under point is then spoken.
      Signals end of buffer.
 
-12.209.1.17 emacspeak-speak-hostname
+12.208.1.17 emacspeak-speak-hostname
 ....................................
 
  -- Command: emacspeak-speak-hostname
@@ -2804,7 +2804,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Speak host name.
 
-12.209.1.18 emacspeak-speak-popup-messages
+12.208.1.18 emacspeak-speak-popup-messages
 ..........................................
 
  -- Command: emacspeak-speak-popup-messages
@@ -2814,7 +2814,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Pop up Messages  and switch to it.
 
-12.209.1.19 emacspeak-speak-show-active-network-interfaces
+12.208.1.19 emacspeak-speak-show-active-network-interfaces
 ..........................................................
 
  -- Command: emacspeak-speak-show-active-network-interfaces (&optional
@@ -2829,7 +2829,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional ADDRESS)
 
-12.209.1.20 emacspeak-speak-telephone-directory
+12.208.1.20 emacspeak-speak-telephone-directory
 ...............................................
 
  -- Command: emacspeak-speak-telephone-directory (&optional edit)
@@ -2841,7 +2841,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional EDIT)
 
-12.209.1.21 emacspeak-speak-this-buffer-next-display
+12.208.1.21 emacspeak-speak-this-buffer-next-display
 ....................................................
 
  -- Command: emacspeak-speak-this-buffer-next-display
@@ -2853,7 +2853,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘emacspeak-speak-this-buffer-other-window-display’ for the
      meaning of ‘next’.
 
-12.209.1.22 emacspeak-speak-this-buffer-other-window-display
+12.208.1.22 emacspeak-speak-this-buffer-other-window-display
 ............................................................
 
  -- Command: emacspeak-speak-this-buffer-other-window-display (window)
@@ -2874,7 +2874,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn WINDOW)
 
-12.209.1.23 emacspeak-speak-this-buffer-previous-display
+12.208.1.23 emacspeak-speak-this-buffer-previous-display
 ........................................................
 
  -- Command: emacspeak-speak-this-buffer-previous-display
@@ -2886,14 +2886,14 @@ Contains various wizards for the Emacspeak desktop.
      ‘emacspeak-speak-this-buffer-other-window-display’ for the
      meaning of ‘previous’.
 
-12.209.1.24 emacspeak-ssh-tts-restart
+12.208.1.24 emacspeak-ssh-tts-restart
 .....................................
 
  -- Command: emacspeak-ssh-tts-restart
 
      Restart specified ssh tts server.
 
-12.209.1.25 emacspeak-symlink-current-file
+12.208.1.25 emacspeak-symlink-current-file
 ..........................................
 
  -- Command: emacspeak-symlink-current-file
@@ -2907,7 +2907,7 @@ Contains various wizards for the Emacspeak desktop.
        a file in an existing directory, the specified name is
        used.  Signals an error if target already exists.
 
-12.209.1.26 emacspeak-view-emacspeak-news
+12.208.1.26 emacspeak-view-emacspeak-news
 .........................................
 
  -- Command: emacspeak-view-emacspeak-news
@@ -2916,7 +2916,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Display emacspeak News for a given version.
 
-12.209.1.27 emacspeak-view-emacspeak-tips
+12.208.1.27 emacspeak-view-emacspeak-tips
 .........................................
 
  -- Command: emacspeak-view-emacspeak-tips
@@ -2925,7 +2925,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Browse  Emacspeak productivity tips.
 
-12.209.1.28 emacspeak-wizards-alpha-vantage-quotes
+12.208.1.28 emacspeak-wizards-alpha-vantage-quotes
 ..................................................
 
  -- Command: emacspeak-wizards-alpha-vantage-quotes (ticker &optional
@@ -2939,14 +2939,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn TICKER &optional CUSTOM)
 
-12.209.1.29 emacspeak-wizards-cleanup-shell-path
+12.208.1.29 emacspeak-wizards-cleanup-shell-path
 ................................................
 
  -- Command: emacspeak-wizards-cleanup-shell-path
 
      Cleans up duplicates in shell path env variable.
 
-12.209.1.30 emacspeak-wizards-color-at-point
+12.208.1.30 emacspeak-wizards-color-at-point
 ............................................
 
  -- Command: emacspeak-wizards-color-at-point
@@ -2956,7 +2956,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Echo foreground/background color at point.
 
-12.209.1.31 emacspeak-wizards-color-diff-at-point
+12.208.1.31 emacspeak-wizards-color-diff-at-point
 .................................................
 
  -- Command: emacspeak-wizards-color-diff-at-point (&optional set)
@@ -2969,7 +2969,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional SET)
 
-12.209.1.32 emacspeak-wizards-color-wheel
+12.208.1.32 emacspeak-wizards-color-wheel
 .........................................
 
  -- Command: emacspeak-wizards-color-wheel (start)
@@ -2993,7 +2993,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START)
 
-12.209.1.33 emacspeak-wizards-colors
+12.208.1.33 emacspeak-wizards-colors
 ....................................
 
  -- Command: emacspeak-wizards-colors
@@ -3003,7 +3003,7 @@ Contains various wizards for the Emacspeak desktop.
      Display list of colors and setup a callback to activate color
      under point as either the foreground or background color.
 
-12.209.1.34 emacspeak-wizards-count-slides-in-region
+12.208.1.34 emacspeak-wizards-count-slides-in-region
 ....................................................
 
  -- Command: emacspeak-wizards-count-slides-in-region (start end)
@@ -3012,7 +3012,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.35 emacspeak-wizards-customize-saved
+12.208.1.35 emacspeak-wizards-customize-saved
 .............................................
 
  -- Command: emacspeak-wizards-customize-saved (pattern)
@@ -3025,7 +3025,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.209.1.36 emacspeak-wizards-cycle-to-next-buffer
+12.208.1.36 emacspeak-wizards-cycle-to-next-buffer
 ..................................................
 
  -- Command: emacspeak-wizards-cycle-to-next-buffer
@@ -3035,7 +3035,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Cycles to next buffer having same mode.
 
-12.209.1.37 emacspeak-wizards-cycle-to-previous-buffer
+12.208.1.37 emacspeak-wizards-cycle-to-previous-buffer
 ......................................................
 
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
@@ -3045,7 +3045,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Cycles to previous buffer having same mode.
 
-12.209.1.38 emacspeak-wizards-enumerate-matching-commands
+12.208.1.38 emacspeak-wizards-enumerate-matching-commands
 .........................................................
 
  -- Command: emacspeak-wizards-enumerate-matching-commands (pattern)
@@ -3054,7 +3054,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.209.1.39 emacspeak-wizards-enumerate-matching-faces
+12.208.1.39 emacspeak-wizards-enumerate-matching-faces
 ......................................................
 
  -- Command: emacspeak-wizards-enumerate-matching-faces (pattern)
@@ -3063,7 +3063,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN)
 
-12.209.1.40 emacspeak-wizards-enumerate-obsolete-faces
+12.208.1.40 emacspeak-wizards-enumerate-obsolete-faces
 ......................................................
 
  -- Command: emacspeak-wizards-enumerate-obsolete-faces
@@ -3071,7 +3071,7 @@ Contains various wizards for the Emacspeak desktop.
      utility function to enumerate old, obsolete maps that we have still
      mapped to voices.
 
-12.209.1.41 emacspeak-wizards-enumerate-uncovered-commands
+12.208.1.41 emacspeak-wizards-enumerate-uncovered-commands
 ..........................................................
 
  -- Command: emacspeak-wizards-enumerate-uncovered-commands (pattern
@@ -3083,7 +3083,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PATTERN &optional BOUND-ONLY)
 
-12.209.1.42 emacspeak-wizards-enumerate-unmapped-faces
+12.208.1.42 emacspeak-wizards-enumerate-unmapped-faces
 ......................................................
 
  -- Command: emacspeak-wizards-enumerate-unmapped-faces (&optional
@@ -3093,14 +3093,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PATTERN)
 
-12.209.1.43 emacspeak-wizards-espeak-line
+12.208.1.43 emacspeak-wizards-espeak-line
 .........................................
 
  -- Command: emacspeak-wizards-espeak-line
 
      Speak line using espeak polyglot wizard.
 
-12.209.1.44 emacspeak-wizards-espeak-region
+12.208.1.44 emacspeak-wizards-espeak-region
 ...........................................
 
  -- Command: emacspeak-wizards-espeak-region (start end)
@@ -3109,7 +3109,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.45 emacspeak-wizards-espeak-string
+12.208.1.45 emacspeak-wizards-espeak-string
 ...........................................
 
  -- Command: emacspeak-wizards-espeak-string (string)
@@ -3119,7 +3119,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn STRING)
 
-12.209.1.46 emacspeak-wizards-eww-buffer-list
+12.208.1.46 emacspeak-wizards-eww-buffer-list
 .............................................
 
  -- Command: emacspeak-wizards-eww-buffer-list
@@ -3127,14 +3127,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Display list of open EWW buffers.
 
-12.209.1.47 emacspeak-wizards-exec-path-from-shell
+12.208.1.47 emacspeak-wizards-exec-path-from-shell
 ..................................................
 
  -- Command: emacspeak-wizards-exec-path-from-shell
 
      Update exec-path from shell path.
 
-12.209.1.48 emacspeak-wizards-execute-asynchronously
+12.208.1.48 emacspeak-wizards-execute-asynchronously
 ....................................................
 
  -- Command: emacspeak-wizards-execute-asynchronously (key)
@@ -3146,7 +3146,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn KEY)
 
-12.209.1.49 emacspeak-wizards-execute-emacspeak-command
+12.208.1.49 emacspeak-wizards-execute-emacspeak-command
 .......................................................
 
  -- Command: emacspeak-wizards-execute-emacspeak-command (command)
@@ -3157,7 +3157,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND)
 
-12.209.1.50 emacspeak-wizards-find-file-as-root
+12.208.1.50 emacspeak-wizards-find-file-as-root
 ...............................................
 
  -- Command: emacspeak-wizards-find-file-as-root (file)
@@ -3170,7 +3170,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILE)
 
-12.209.1.51 emacspeak-wizards-find-longest-line-in-region
+12.208.1.51 emacspeak-wizards-find-longest-line-in-region
 .........................................................
 
  -- Command: emacspeak-wizards-find-longest-line-in-region (start end)
@@ -3182,7 +3182,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.52 emacspeak-wizards-find-longest-paragraph-in-region
+12.208.1.52 emacspeak-wizards-find-longest-paragraph-in-region
 ..............................................................
 
  -- Command: emacspeak-wizards-find-longest-paragraph-in-region (start
@@ -3193,7 +3193,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.53 emacspeak-wizards-find-shortest-line-in-region
+12.208.1.53 emacspeak-wizards-find-shortest-line-in-region
 ..........................................................
 
  -- Command: emacspeak-wizards-find-shortest-line-in-region (start end)
@@ -3203,7 +3203,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.54 emacspeak-wizards-finder-find
+12.208.1.54 emacspeak-wizards-finder-find
 .........................................
 
  -- Command: emacspeak-wizards-finder-find (directory)
@@ -3213,7 +3213,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn DIRECTORY)
 
-12.209.1.55 emacspeak-wizards-finder-mode
+12.208.1.55 emacspeak-wizards-finder-mode
 .........................................
 
  -- Command: emacspeak-wizards-finder-mode
@@ -3228,14 +3228,14 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.209.1.56 emacspeak-wizards-frame-colors
+12.208.1.56 emacspeak-wizards-frame-colors
 ..........................................
 
  -- Command: emacspeak-wizards-frame-colors
 
      Display frame’s foreground/background color seetting.
 
-12.209.1.57 emacspeak-wizards-free-geo-ip
+12.208.1.57 emacspeak-wizards-free-geo-ip
 .........................................
 
  -- Command: emacspeak-wizards-free-geo-ip (&optional reverse-geocode)
@@ -3245,7 +3245,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional REVERSE-GEOCODE)
 
-12.209.1.58 emacspeak-wizards-gen-fn-decl
+12.208.1.58 emacspeak-wizards-gen-fn-decl
 .........................................
 
  -- Command: emacspeak-wizards-gen-fn-decl (f &optional ext)
@@ -3256,14 +3256,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn F &optional EXT)
 
-12.209.1.59 emacspeak-wizards-generate-finder
+12.208.1.59 emacspeak-wizards-generate-finder
 .............................................
 
  -- Command: emacspeak-wizards-generate-finder
 
      Generate a widget-enabled finder wizard.
 
-12.209.1.60 emacspeak-wizards-google-headlines
+12.208.1.60 emacspeak-wizards-google-headlines
 ..............................................
 
  -- Command: emacspeak-wizards-google-headlines
@@ -3273,7 +3273,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Display just the headlines from Google News for fast loading.
 
-12.209.1.61 emacspeak-wizards-google-news
+12.208.1.61 emacspeak-wizards-google-news
 .........................................
 
  -- Command: emacspeak-wizards-google-news
@@ -3283,7 +3283,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Clean up news.google.com for  skimming the news.
 
-12.209.1.62 emacspeak-wizards-how-many-matches
+12.208.1.62 emacspeak-wizards-how-many-matches
 ..............................................
 
  -- Command: emacspeak-wizards-how-many-matches (start end &optional
@@ -3299,7 +3299,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END &optional PREFIX)
 
-12.209.1.63 emacspeak-wizards-iex-show-financials
+12.208.1.63 emacspeak-wizards-iex-show-financials
 .................................................
 
  -- Command: emacspeak-wizards-iex-show-financials (symbol &optional
@@ -3311,14 +3311,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn SYMBOL &optional REFRESH)
 
-12.209.1.64 emacspeak-wizards-iex-show-metadata
+12.208.1.64 emacspeak-wizards-iex-show-metadata
 ...............................................
 
  -- Command: emacspeak-wizards-iex-show-metadata
 
      Account metadata.
 
-12.209.1.65 emacspeak-wizards-iex-show-news
+12.208.1.65 emacspeak-wizards-iex-show-news
 ...........................................
 
  -- Command: emacspeak-wizards-iex-show-news (symbol &optional refresh)
@@ -3329,7 +3329,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn SYMBOL &optional REFRESH)
 
-12.209.1.66 emacspeak-wizards-iex-show-price
+12.208.1.66 emacspeak-wizards-iex-show-price
 ............................................
 
  -- Command: emacspeak-wizards-iex-show-price (symbol)
@@ -3340,7 +3340,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn SYMBOL)
 
-12.209.1.67 emacspeak-wizards-iex-show-quote
+12.208.1.67 emacspeak-wizards-iex-show-quote
 ............................................
 
  -- Command: emacspeak-wizards-iex-show-quote (&optional refresh)
@@ -3360,35 +3360,35 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional REFRESH)
 
-12.209.1.68 emacspeak-wizards-iex-show-tops
+12.208.1.68 emacspeak-wizards-iex-show-tops
 ...........................................
 
  -- Command: emacspeak-wizards-iex-show-tops
 
      Uses tops/last end-point to show brief portfolio quotes.
 
-12.209.1.69 emacspeak-wizards-iex-this-financials
+12.208.1.69 emacspeak-wizards-iex-this-financials
 .................................................
 
  -- Command: emacspeak-wizards-iex-this-financials
 
      Show financials for symbol in current row
 
-12.209.1.70 emacspeak-wizards-iex-this-news
+12.208.1.70 emacspeak-wizards-iex-this-news
 ...........................................
 
  -- Command: emacspeak-wizards-iex-this-news
 
      Show news for symbol in current row
 
-12.209.1.71 emacspeak-wizards-iex-this-price
+12.208.1.71 emacspeak-wizards-iex-this-price
 ............................................
 
  -- Command: emacspeak-wizards-iex-this-price
 
      Show price for symbol in current row
 
-12.209.1.72 emacspeak-wizards-mlb-standings
+12.208.1.72 emacspeak-wizards-mlb-standings
 ...........................................
 
  -- Command: emacspeak-wizards-mlb-standings (&optional raw)
@@ -3398,7 +3398,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.209.1.73 emacspeak-wizards-move-and-speak
+12.208.1.73 emacspeak-wizards-move-and-speak
 ............................................
 
  -- Command: emacspeak-wizards-move-and-speak (command count)
@@ -3412,7 +3412,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND COUNT)
 
-12.209.1.74 emacspeak-wizards-nba-standings
+12.208.1.74 emacspeak-wizards-nba-standings
 ...........................................
 
  -- Command: emacspeak-wizards-nba-standings (&optional raw)
@@ -3422,21 +3422,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.209.1.75 emacspeak-wizards-next-bullet
+12.208.1.75 emacspeak-wizards-next-bullet
 .........................................
 
  -- Command: emacspeak-wizards-next-bullet
 
      Navigate to and speak next ‘bullet’.
 
-12.209.1.76 emacspeak-wizards-next-interactive-defun
+12.208.1.76 emacspeak-wizards-next-interactive-defun
 ....................................................
 
  -- Command: emacspeak-wizards-next-interactive-defun
 
      Move point to the next interactive defun
 
-12.209.1.77 emacspeak-wizards-noaa-weather
+12.208.1.77 emacspeak-wizards-noaa-weather
 ..........................................
 
  -- Command: emacspeak-wizards-noaa-weather (&optional ask)
@@ -3454,7 +3454,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional ASK)
 
-12.209.1.78 emacspeak-wizards-occur-header-lines
+12.208.1.78 emacspeak-wizards-occur-header-lines
 ................................................
 
  -- Command: emacspeak-wizards-occur-header-lines (&optional prefix)
@@ -3469,7 +3469,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.209.1.79 emacspeak-wizards-pdf-open
+12.208.1.79 emacspeak-wizards-pdf-open
 ......................................
 
  -- Command: emacspeak-wizards-pdf-open (filename &optional ask-pwd)
@@ -3481,14 +3481,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILENAME &optional ASK-PWD)
 
-12.209.1.80 emacspeak-wizards-previous-bullet
+12.208.1.80 emacspeak-wizards-previous-bullet
 .............................................
 
  -- Command: emacspeak-wizards-previous-bullet
 
      Navigate to and speak previous ‘bullet’.
 
-12.209.1.81 emacspeak-wizards-quote
+12.208.1.81 emacspeak-wizards-quote
 ...................................
 
  -- Command: emacspeak-wizards-quote (&optional refresh)
@@ -3507,7 +3507,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional REFRESH)
 
-12.209.1.82 emacspeak-wizards-remote-frame
+12.208.1.82 emacspeak-wizards-remote-frame
 ..........................................
 
  -- Command: emacspeak-wizards-remote-frame
@@ -3517,7 +3517,7 @@ Contains various wizards for the Emacspeak desktop.
      Open a frame on a remote Emacs.
      Remote workstation is  ‘emacspeak-wizards-remote-workstation’.
 
-12.209.1.83 emacspeak-wizards-scratch
+12.208.1.83 emacspeak-wizards-scratch
 .....................................
 
  -- Command: emacspeak-wizards-scratch
@@ -3527,14 +3527,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Switch to *scratch* buffer, creating it if necessary.
 
-12.209.1.84 emacspeak-wizards-set-colors
+12.208.1.84 emacspeak-wizards-set-colors
 ........................................
 
  -- Command: emacspeak-wizards-set-colors
 
      Interactively prompt for foreground and background colors.
 
-12.209.1.85 emacspeak-wizards-shell
+12.208.1.85 emacspeak-wizards-shell
 ...................................
 
  -- Command: emacspeak-wizards-shell (&optional prefix)
@@ -3551,7 +3551,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.209.1.86 emacspeak-wizards-shell-by-key
+12.208.1.86 emacspeak-wizards-shell-by-key
 ..........................................
 
  -- Command: emacspeak-wizards-shell-by-key (&optional prefix)
@@ -3588,7 +3588,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.209.1.87 emacspeak-wizards-shell-command-on-current-file
+12.208.1.87 emacspeak-wizards-shell-command-on-current-file
 ...........................................................
 
  -- Command: emacspeak-wizards-shell-command-on-current-file (command)
@@ -3599,7 +3599,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND)
 
-12.209.1.88 emacspeak-wizards-shell-directory-reset
+12.208.1.88 emacspeak-wizards-shell-directory-reset
 ...................................................
 
  -- Command: emacspeak-wizards-shell-directory-reset
@@ -3611,7 +3611,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Set current directory to this shell’s initial directory if one was defined.
 
-12.209.1.89 emacspeak-wizards-shell-directory-set
+12.208.1.89 emacspeak-wizards-shell-directory-set
 .................................................
 
  -- Command: emacspeak-wizards-shell-directory-set
@@ -3620,7 +3620,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Define current directory as this shell’s project directory.
 
-12.209.1.90 emacspeak-wizards-shell-toggle
+12.208.1.90 emacspeak-wizards-shell-toggle
 ..........................................
 
  -- Command: emacspeak-wizards-shell-toggle
@@ -3632,7 +3632,7 @@ Contains various wizards for the Emacspeak desktop.
      Switch to the shell buffer and cd to
       the directory of the previously current buffer.
 
-12.209.1.91 emacspeak-wizards-show-eval-result
+12.208.1.91 emacspeak-wizards-show-eval-result
 ..............................................
 
  -- Command: emacspeak-wizards-show-eval-result (form)
@@ -3642,7 +3642,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FORM)
 
-12.209.1.92 emacspeak-wizards-show-face
+12.208.1.92 emacspeak-wizards-show-face
 .......................................
 
  -- Command: emacspeak-wizards-show-face (face)
@@ -3651,14 +3651,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FACE)
 
-12.209.1.93 emacspeak-wizards-show-memory-used
+12.208.1.93 emacspeak-wizards-show-memory-used
 ..............................................
 
  -- Command: emacspeak-wizards-show-memory-used
 
      Convenience command to view state of memory used in this session so far.
 
-12.209.1.94 emacspeak-wizards-speak-iso-datetime
+12.208.1.94 emacspeak-wizards-speak-iso-datetime
 ................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -3667,7 +3667,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.209.1.95 emacspeak-wizards-squeeze-blanks
+12.208.1.95 emacspeak-wizards-squeeze-blanks
 ............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -3678,7 +3678,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.209.1.96 emacspeak-wizards-swap-fg-and-bg
+12.208.1.96 emacspeak-wizards-swap-fg-and-bg
 ............................................
 
  -- Command: emacspeak-wizards-swap-fg-and-bg
@@ -3688,7 +3688,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Swap foreground and background.
 
-12.209.1.97 emacspeak-wizards-term
+12.208.1.97 emacspeak-wizards-term
 ..................................
 
  -- Command: emacspeak-wizards-term (create)
@@ -3702,7 +3702,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.209.1.98 emacspeak-wizards-terminal
+12.208.1.98 emacspeak-wizards-terminal
 ......................................
 
  -- Command: emacspeak-wizards-terminal (program)
@@ -3711,21 +3711,21 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PROGRAM)
 
-12.209.1.99 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.208.1.99 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ...............................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.209.1.100 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.208.1.100 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.209.1.101 emacspeak-wizards-tune-in-radio-browse
+12.208.1.101 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -3737,7 +3737,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.209.1.102 emacspeak-wizards-tune-in-radio-search
+12.208.1.102 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -3746,7 +3746,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.209.1.103 emacspeak-wizards-units
+12.208.1.103 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -3755,14 +3755,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units in a comint sub-process.
 
-12.209.1.104 emacspeak-wizards-vc-n
+12.208.1.104 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.209.1.105 emacspeak-wizards-vc-view-mode
+12.208.1.105 emacspeak-wizards-vc-view-mode
 ...........................................
 
  -- Command: emacspeak-wizards-vc-view-mode
@@ -3778,7 +3778,7 @@ Contains various wizards for the Emacspeak desktop.
      this mode runs the hook ‘emacspeak-wizards-vc-view-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.209.1.106 emacspeak-wizards-vc-viewer
+12.208.1.106 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -3789,14 +3789,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.209.1.107 emacspeak-wizards-vc-viewer-refresh
+12.208.1.107 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.209.1.108 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.208.1.108 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -3805,7 +3805,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  m-player mode.
 
-12.209.1.109 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.208.1.109 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -3818,7 +3818,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  mode of current-buffer.
 
-12.209.2 emacspeak-wizards Options
+12.208.2 emacspeak-wizards Options
 ----------------------------------
 
  -- Variable: User Option emacspeak-emergency-tts-server
@@ -3864,12 +3864,12 @@ Contains various wizards for the Emacspeak desktop.
 
 File: emacspeak.info,  Node: emacspeak-woman,  Next: emacspeak-xkcd,  Prev: emacspeak-wizards,  Up: Emacspeak Commands And Options
 
-12.210 emacspeak-woman
+12.209 emacspeak-woman
 ======================
 
 WOMAN == Man pages implemented in Emacs Lisp
 
-12.210.1 emacspeak-woman Options
+12.209.1 emacspeak-woman Options
 --------------------------------
 
  -- Variable: User Option voice-woman-bold
@@ -3895,16 +3895,16 @@ WOMAN == Man pages implemented in Emacs Lisp
 
 File: emacspeak.info,  Node: emacspeak-xkcd,  Next: emacspeak-xref,  Prev: emacspeak-woman,  Up: Emacspeak Commands And Options
 
-12.211 emacspeak-xkcd
+12.210 emacspeak-xkcd
 =====================
 
 XKCD == XKCD In Emacs View XKCD comics in Emacs.  Speech enables package
 xkcd Augments it by displaying the alt text and the transcript.
 
-12.211.1 Emacspeak-Xkcd Commands
+12.210.1 Emacspeak-Xkcd Commands
 --------------------------------
 
-12.211.1.1 emacspeak-xkcd-open-explanation-browser
+12.210.1.1 emacspeak-xkcd-open-explanation-browser
 ..................................................
 
  -- Command: emacspeak-xkcd-open-explanation-browser
@@ -3914,7 +3914,7 @@ xkcd Augments it by displaying the alt text and the transcript.
 
 File: emacspeak.info,  Node: emacspeak-xref,  Next: emacspeak-xslt,  Prev: emacspeak-xkcd,  Up: Emacspeak Commands And Options
 
-12.212 emacspeak-xref
+12.211 emacspeak-xref
 =====================
 
 XREF == Cross-references in source code.  This is part of Emacs 25.
@@ -3923,17 +3923,17 @@ This module speech-enables xref
 
 File: emacspeak.info,  Node: emacspeak-xslt,  Next: emacspeak-yaml,  Prev: emacspeak-xref,  Up: Emacspeak Commands And Options
 
-12.213 emacspeak-xslt
+12.212 emacspeak-xslt
 =====================
 
 libxml and libxsl are XML libraries for GNOME. xsltproc is a xslt
 processor using libxsl this module defines routines for applying xsl
 transformations using xsltproc
 
-12.213.1 Emacspeak-Xslt Commands
+12.212.1 Emacspeak-Xslt Commands
 --------------------------------
 
-12.213.1.1 emacspeak-xslt-view
+12.212.1.1 emacspeak-xslt-view
 ..............................
 
  -- Command: emacspeak-xslt-view (style url)
@@ -3942,7 +3942,7 @@ transformations using xsltproc
 
      (fn STYLE URL)
 
-12.213.1.2 emacspeak-xslt-view-file
+12.212.1.2 emacspeak-xslt-view-file
 ...................................
 
  -- Command: emacspeak-xslt-view-file (style file)
@@ -3951,7 +3951,7 @@ transformations using xsltproc
 
      (fn STYLE FILE)
 
-12.213.1.3 emacspeak-xslt-view-region
+12.212.1.3 emacspeak-xslt-view-region
 .....................................
 
  -- Command: emacspeak-xslt-view-region (style start end &optional
@@ -3961,7 +3961,7 @@ transformations using xsltproc
 
      (fn STYLE START END &optional UNESCAPE-CHARENT)
 
-12.213.1.4 emacspeak-xslt-view-xml
+12.212.1.4 emacspeak-xslt-view-xml
 ..................................
 
  -- Command: emacspeak-xslt-view-xml (style url &optional
@@ -3974,7 +3974,7 @@ transformations using xsltproc
 
 File: emacspeak.info,  Node: emacspeak-yaml,  Next: emacspeak-yasnippet,  Prev: emacspeak-xslt,  Up: Emacspeak Commands And Options
 
-12.214 emacspeak-yaml
+12.213 emacspeak-yaml
 =====================
 
 YAML == Yet Another Markup Language This module speech-enables
@@ -3983,7 +3983,7 @@ yaml-mode.
 
 File: emacspeak.info,  Node: emacspeak-yasnippet,  Next: espeak-voices,  Prev: emacspeak-yaml,  Up: Emacspeak Commands And Options
 
-12.215 emacspeak-yasnippet
+12.214 emacspeak-yasnippet
 ==========================
 
 YASNIPPET == Template based editing using snippets.
@@ -3991,16 +3991,16 @@ YASNIPPET == Template based editing using snippets.
 
 File: emacspeak.info,  Node: espeak-voices,  Next: extra-muggles,  Prev: emacspeak-yasnippet,  Up: Emacspeak Commands And Options
 
-12.216 espeak-voices
+12.215 espeak-voices
 ====================
 
 This module defines the various voices used in voice-lock mode by the
 ESpeak TTS engine.
 
-12.216.1 Espeak-Voices Commands
+12.215.1 Espeak-Voices Commands
 -------------------------------
 
-12.216.1.1 espeak
+12.215.1.1 espeak
 .................
 
  -- Command: espeak
@@ -4009,7 +4009,7 @@ ESpeak TTS engine.
 
      Start ESpeak engine.
 
-12.216.2 espeak-voices Options
+12.215.2 espeak-voices Options
 ------------------------------
 
  -- Variable: User Option espeak-default-speech-rate
@@ -4018,7 +4018,7 @@ ESpeak TTS engine.
 
 File: emacspeak.info,  Node: extra-muggles,  Next: g-utils,  Prev: espeak-voices,  Up: Emacspeak Commands And Options
 
-12.217 extra-muggles
+12.216 extra-muggles
 ====================
 
 MUGGLES == Emacspeak spells for power-users.  These are extra hydras
@@ -4033,14 +4033,14 @@ You need to install package Hydra first: ‘M-x package-install hydra’.
    Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.
 
-12.217.1 Using Hydras
+12.216.1 Using Hydras
 ---------------------
 
 See the high-level documentation for the Hydra package by executing ‘C-h
 C-j ’ hydra ‘RET’.  The documentation in this section uses the same
 terminology as shown in the hydra package documentation.
 
-12.217.2 Extra Muggles
+12.216.2 Extra Muggles
 ----------------------
 
    • View-Mode: ‘C-. v’ Temporarily behave like view-mode.
@@ -4058,10 +4058,10 @@ silence speaking of Hydra hints, Muggles can bind command
 ‘emacspeak-hydra-toggle-talkative’.  As an example, Muggle ‘ViewMode’
 binds ‘s’ to this command.
 
-12.217.3 Extra-Muggles Commands
+12.216.3 Extra-Muggles Commands
 -------------------------------
 
-12.217.3.1 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
+12.216.3.1 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
 ............................................................
 
  -- Command: emacspeak-muggles-emacspeak-m-player-mode-map-cmd
@@ -4069,7 +4069,7 @@ binds ‘s’ to this command.
 
      Temporarily use keymap emacspeak-m-player-mode-map
 
-12.217.3.2 emacspeak-muggles-info-summary/body
+12.216.3.2 emacspeak-muggles-info-summary/body
 ..............................................
 
  -- Command: emacspeak-muggles-info-summary/body
@@ -4121,7 +4121,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
-12.217.3.3 emacspeak-muggles-m-player/body
+12.216.3.3 emacspeak-muggles-m-player/body
 ..........................................
 
  -- Command: emacspeak-muggles-m-player/body
@@ -4188,7 +4188,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
-12.217.3.4 emacspeak-muggles-outliner/body
+12.216.3.4 emacspeak-muggles-outliner/body
 ..........................................
 
  -- Command: emacspeak-muggles-outliner/body
@@ -4221,7 +4221,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
-12.217.3.5 emacspeak-muggles-pianobar-key-map-cmd
+12.216.3.5 emacspeak-muggles-pianobar-key-map-cmd
 .................................................
 
  -- Command: emacspeak-muggles-pianobar-key-map-cmd
@@ -4229,7 +4229,7 @@ binds ‘s’ to this command.
 
      Temporarily use keymap pianobar-key-map
 
-12.217.3.6 emacspeak-muggles-smartparens/body
+12.216.3.6 emacspeak-muggles-smartparens/body
 .............................................
 
  -- Command: emacspeak-muggles-smartparens/body
@@ -4270,7 +4270,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-smartparens/body’.
 
-12.217.3.7 emacspeak-muggles-view/body
+12.216.3.7 emacspeak-muggles-view/body
 ......................................
 
  -- Command: emacspeak-muggles-view/body
@@ -4331,7 +4331,7 @@ binds ‘s’ to this command.
 
      The body can be accessed via ‘emacspeak-muggles-view/body’.
 
-12.217.3.8 emacspeak-origami/body
+12.216.3.8 emacspeak-origami/body
 .................................
 
  -- Command: emacspeak-origami/body
@@ -4354,13 +4354,13 @@ binds ‘s’ to this command.
 
 File: emacspeak.info,  Node: g-utils,  Next: gm-nnir,  Prev: extra-muggles,  Up: Emacspeak Commands And Options
 
-12.218 g-utils
+12.217 g-utils
 ==============
 
 Common Code e.g.  helper functions.  Used by modules like gphoto,
 gblogger etc.
 
-12.218.1 g-utils Options
+12.217.1 g-utils Options
 ------------------------
 
  -- Variable: User Option g-atom-view-xsl
@@ -4385,16 +4385,16 @@ gblogger etc.
 
 File: emacspeak.info,  Node: gm-nnir,  Next: gmaps,  Prev: g-utils,  Up: Emacspeak Commands And Options
 
-12.219 gm-nnir
+12.218 gm-nnir
 ==============
 
 Makes search GMail more convenient.  IMap search operators, GMail search
 extensions.
 
-12.219.1 Gm-Nnir Commands
+12.218.1 Gm-Nnir Commands
 -------------------------
 
-12.219.1.1 gm-nnir-group-make-gmail-group
+12.218.1.1 gm-nnir-group-make-gmail-group
 .........................................
 
  -- Command: gm-nnir-group-make-gmail-group (query)
@@ -4405,7 +4405,7 @@ extensions.
 
      (fn QUERY)
 
-12.219.1.2 gm-nnir-group-make-nnir-group
+12.218.1.2 gm-nnir-group-make-nnir-group
 ........................................
 
  -- Command: gm-nnir-group-make-nnir-group (q)
@@ -4418,15 +4418,15 @@ extensions.
 
 File: emacspeak.info,  Node: gmaps,  Next: ladspa,  Prev: gm-nnir,  Up: Emacspeak Commands And Options
 
-12.220 gmaps
+12.219 gmaps
 ============
 
 Implements the Google Maps API
 
-12.220.1 Gmaps Commands
+12.219.1 Gmaps Commands
 -----------------------
 
-12.220.1.1 gmaps
+12.219.1.1 gmaps
 ................
 
  -- Command: gmaps
@@ -4439,7 +4439,7 @@ Implements the Google Maps API
 
      (fn)
 
-12.220.1.2 gmaps-bicycling-directions
+12.219.1.2 gmaps-bicycling-directions
 .....................................
 
  -- Command: gmaps-bicycling-directions (origin destination)
@@ -4450,7 +4450,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.220.1.3 gmaps-directions
+12.219.1.3 gmaps-directions
 ...........................
 
  -- Command: gmaps-directions (origin destination mode)
@@ -4459,7 +4459,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION MODE)
 
-12.220.1.4 gmaps-driving-directions
+12.219.1.4 gmaps-driving-directions
 ...................................
 
  -- Command: gmaps-driving-directions (origin destination)
@@ -4470,21 +4470,21 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.220.1.5 gmaps-locations-load
+12.219.1.5 gmaps-locations-load
 ...............................
 
  -- Command: gmaps-locations-load
 
      Load saved GMaps locations.
 
-12.220.1.6 gmaps-locations-save
+12.219.1.6 gmaps-locations-save
 ...............................
 
  -- Command: gmaps-locations-save
 
      Save GMaps Locations.
 
-12.220.1.7 gmaps-mode
+12.219.1.7 gmaps-mode
 .....................
 
  -- Command: gmaps-mode
@@ -4516,7 +4516,7 @@ Implements the Google Maps API
      M-i		backward-button
 
 
-12.220.1.8 gmaps-place-details
+12.219.1.8 gmaps-place-details
 ..............................
 
  -- Command: gmaps-place-details
@@ -4528,7 +4528,7 @@ Implements the Google Maps API
 
      (fn)
 
-12.220.1.9 gmaps-place-reviews
+12.219.1.9 gmaps-place-reviews
 ..............................
 
  -- Command: gmaps-place-reviews
@@ -4536,7 +4536,7 @@ Implements the Google Maps API
      Display reviews for place at point.
      Place details need to have been expanded first.
 
-12.220.1.10 gmaps-places-nearby
+12.219.1.10 gmaps-places-nearby
 ...............................
 
  -- Command: gmaps-places-nearby (&optional clear-filter)
@@ -4548,7 +4548,7 @@ Implements the Google Maps API
 
      (fn &optional CLEAR-FILTER)
 
-12.220.1.11 gmaps-places-search
+12.219.1.11 gmaps-places-search
 ...............................
 
  -- Command: gmaps-places-search (query &optional clear-filter)
@@ -4561,7 +4561,7 @@ Implements the Google Maps API
 
      (fn QUERY &optional CLEAR-FILTER)
 
-12.220.1.12 gmaps-set-current-filter
+12.219.1.12 gmaps-set-current-filter
 ....................................
 
  -- Command: gmaps-set-current-filter (&optional all)
@@ -4571,7 +4571,7 @@ Implements the Google Maps API
 
      (fn &optional ALL)
 
-12.220.1.13 gmaps-set-current-location
+12.219.1.13 gmaps-set-current-location
 ......................................
 
  -- Command: gmaps-set-current-location (address)
@@ -4582,7 +4582,7 @@ Implements the Google Maps API
 
      (fn ADDRESS)
 
-12.220.1.14 gmaps-set-current-radius
+12.219.1.14 gmaps-set-current-radius
 ....................................
 
  -- Command: gmaps-set-current-radius (radius)
@@ -4593,7 +4593,7 @@ Implements the Google Maps API
 
      (fn RADIUS)
 
-12.220.1.15 gmaps-transit-directions
+12.219.1.15 gmaps-transit-directions
 ....................................
 
  -- Command: gmaps-transit-directions (origin destination)
@@ -4604,7 +4604,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.220.1.16 gmaps-walking-directions
+12.219.1.16 gmaps-walking-directions
 ....................................
 
  -- Command: gmaps-walking-directions (origin destination)
@@ -4615,7 +4615,7 @@ Implements the Google Maps API
 
      (fn ORIGIN DESTINATION)
 
-12.220.2 gmaps Options
+12.219.2 gmaps Options
 ----------------------
 
  -- Variable: User Option gmaps-api-key
@@ -4629,7 +4629,7 @@ Implements the Google Maps API
 
 File: emacspeak.info,  Node: ladspa,  Next: mac-voices,  Prev: gmaps,  Up: Emacspeak Commands And Options
 
-12.221 ladspa
+12.220 ladspa
 =============
 
 This module uses tools from the Ladspa SDK to expose Ladspa plugins in a
@@ -4642,10 +4642,10 @@ zam-plugins wah-plugins vco-plugins tap-plugins swh-plugins rev-plugins
 mcp-plugins liquidsoap-plugin-ladspa ladspa-foo-plugins
 invada-studio-plugins-ladspa fil-plugins
 
-12.221.1 Ladspa Commands
+12.220.1 Ladspa Commands
 ------------------------
 
-12.221.1.1 ladspa
+12.220.1.1 ladspa
 .................
 
  -- Command: ladspa (&optional refresh)
@@ -4654,28 +4654,28 @@ invada-studio-plugins-ladspa fil-plugins
 
      (fn &optional REFRESH)
 
-12.221.1.2 ladspa-analyse-plugin-at-point
+12.220.1.2 ladspa-analyse-plugin-at-point
 .........................................
 
  -- Command: ladspa-analyse-plugin-at-point
 
      Analyse plugin at point.
 
-12.221.1.3 ladspa-edit-control
+12.220.1.3 ladspa-edit-control
 ..............................
 
  -- Command: ladspa-edit-control
 
      Edit Ladspa control  at point by prompting for control values.
 
-12.221.1.4 ladspa-instantiate
+12.220.1.4 ladspa-instantiate
 .............................
 
  -- Command: ladspa-instantiate
 
      Instantiate plugin at point by prompting for control values.
 
-12.221.1.5 ladspa-mode
+12.220.1.5 ladspa-mode
 ......................
 
  -- Command: ladspa-mode
@@ -4701,13 +4701,13 @@ invada-studio-plugins-ladspa fil-plugins
 
 File: emacspeak.info,  Node: mac-voices,  Next: outloud-voices,  Prev: ladspa,  Up: Emacspeak Commands And Options
 
-12.222 mac-voices
+12.221 mac-voices
 =================
 
 This module defines the various voices used in voice-lock mode by Mac
 TTS.
 
-12.222.1 mac-voices Options
+12.221.1 mac-voices Options
 ---------------------------
 
  -- Variable: User Option mac-default-speech-rate
@@ -4716,16 +4716,16 @@ TTS.
 
 File: emacspeak.info,  Node: outloud-voices,  Next: plain-voices,  Prev: mac-voices,  Up: Emacspeak Commands And Options
 
-12.223 outloud-voices
+12.222 outloud-voices
 =====================
 
 This module defines the various voices used in voice-lock mode.  This
 module is IBM ViaVoice Outloud specific.
 
-12.223.1 Outloud-Voices Commands
+12.222.1 Outloud-Voices Commands
 --------------------------------
 
-12.223.1.1 outloud
+12.222.1.1 outloud
 ..................
 
  -- Command: outloud (&optional device)
@@ -4736,7 +4736,7 @@ module is IBM ViaVoice Outloud specific.
 
      (fn &optional DEVICE)
 
-12.223.2 outloud-voices Options
+12.222.2 outloud-voices Options
 -------------------------------
 
  -- Variable: User Option outloud-default-speech-rate
@@ -4745,7 +4745,7 @@ module is IBM ViaVoice Outloud specific.
 
 File: emacspeak.info,  Node: plain-voices,  Next: soundscape,  Prev: outloud-voices,  Up: Emacspeak Commands And Options
 
-12.224 plain-voices
+12.223 plain-voices
 ===================
 
 This module defines the various voices used in voice-lock mode.  This
@@ -4755,7 +4755,7 @@ implemented appropriate voice-locking controls
 
 File: emacspeak.info,  Node: soundscape,  Next: sox,  Prev: plain-voices,  Up: Emacspeak Commands And Options
 
-12.225 soundscape
+12.224 soundscape
 =================
 
 Soundscapes <https://en.wikipedia.org/wiki/Soundscape> define an
@@ -4792,10 +4792,10 @@ that is loaded using ‘(soundscape-load soundscape-default-theme)’.
 Emacs modes that provide similar functionality e.g., communication ==
 email, IM, ...  map to the same _mood_.
 
-12.225.1 Soundscape Commands
+12.224.1 Soundscape Commands
 ----------------------------
 
-12.225.1.1 soundscape
+12.224.1.1 soundscape
 .....................
 
  -- Command: soundscape (scape)
@@ -4804,14 +4804,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.225.1.2 soundscape-kill
+12.224.1.2 soundscape-kill
 ..........................
 
  -- Command: soundscape-kill
 
      Stop all running soundscapes.
 
-12.225.1.3 soundscape-listener
+12.224.1.3 soundscape-listener
 ..............................
 
  -- Command: soundscape-listener (&optional restart)
@@ -4822,14 +4822,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional RESTART)
 
-12.225.1.4 soundscape-listener-shutdown
+12.224.1.4 soundscape-listener-shutdown
 .......................................
 
  -- Command: soundscape-listener-shutdown
 
      Shutdown listener.
 
-12.225.1.5 soundscape-remote
+12.224.1.5 soundscape-remote
 ............................
 
  -- Command: soundscape-remote (names)
@@ -4838,7 +4838,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn NAMES)
 
-12.225.1.6 soundscape-restart
+12.224.1.6 soundscape-restart
 .............................
 
  -- Command: soundscape-restart (&optional device)
@@ -4852,7 +4852,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional DEVICE)
 
-12.225.1.7 soundscape-stop
+12.224.1.7 soundscape-stop
 ..........................
 
  -- Command: soundscape-stop (scape)
@@ -4861,14 +4861,14 @@ email, IM, ...  map to the same _mood_.
 
      (fn SCAPE)
 
-12.225.1.8 soundscape-theme
+12.224.1.8 soundscape-theme
 ...........................
 
  -- Command: soundscape-theme
 
      Shows default theme in a special buffer.
 
-12.225.1.9 soundscape-toggle
+12.224.1.9 soundscape-toggle
 ............................
 
  -- Command: soundscape-toggle
@@ -4880,7 +4880,7 @@ email, IM, ...  map to the same _mood_.
      When turned on, Soundscapes are automatically run based on current major mode.
      Run command M-x soundscape-theme to see the default mode->mood mapping.
 
-12.225.1.10 soundscape-update-mood
+12.224.1.10 soundscape-update-mood
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
@@ -4894,7 +4894,7 @@ email, IM, ...  map to the same _mood_.
 
      (fn &optional PROMPT-MODE)
 
-12.225.2 soundscape Options
+12.224.2 soundscape Options
 ---------------------------
 
  -- Variable: User Option soundscape-data
@@ -4914,7 +4914,7 @@ email, IM, ...  map to the same _mood_.
 
 File: emacspeak.info,  Node: sox,  Next: sox-gen,  Prev: soundscape,  Up: Emacspeak Commands And Options
 
-12.226 sox
+12.225 sox
 ==========
 
 This module defines a convenient speech-enabled interface for editing
@@ -4931,10 +4931,10 @@ ladspa.el.  To use ladspa effects with SoX, you need a relatively new
 build of Sox; The stock SoX that is package for Debian/Ubuntu does not
 always work.  This module can be used independent of Emacspeak.
 
-12.226.1 Sox Commands
+12.225.1 Sox Commands
 ---------------------
 
-12.226.1.1 sox-add-effect
+12.225.1.1 sox-add-effect
 .........................
 
  -- Command: sox-add-effect (name)
@@ -4943,7 +4943,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.226.1.2 sox-delete-effect-at-point
+12.225.1.2 sox-delete-effect-at-point
 .....................................
 
  -- Command: sox-delete-effect-at-point
@@ -4954,14 +4954,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.226.1.3 sox-edit-effect-at-point
+12.225.1.3 sox-edit-effect-at-point
 ...................................
 
  -- Command: sox-edit-effect-at-point
 
      Edit effect at point.
 
-12.226.1.4 sox-mode
+12.225.1.4 sox-mode
 ...................
 
  -- Command: sox-mode
@@ -4976,7 +4976,7 @@ always work.  This module can be used independent of Emacspeak.
      —             ——-
 
 
-12.226.1.5 sox-open-file
+12.225.1.5 sox-open-file
 ........................
 
  -- Command: sox-open-file (snd-file)
@@ -4987,14 +4987,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SND-FILE)
 
-12.226.1.6 sox-play
+12.225.1.6 sox-play
 ...................
 
  -- Command: sox-play
 
      Play sound from current context.
 
-12.226.1.7 sox-refresh
+12.225.1.7 sox-refresh
 ......................
 
  -- Command: sox-refresh
@@ -5005,7 +5005,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn)
 
-12.226.1.8 sox-save
+12.225.1.8 sox-save
 ...................
 
  -- Command: sox-save (save-file)
@@ -5014,7 +5014,7 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn SAVE-FILE)
 
-12.226.1.9 sox-set-effect
+12.225.1.9 sox-set-effect
 .........................
 
  -- Command: sox-set-effect (name)
@@ -5023,14 +5023,14 @@ always work.  This module can be used independent of Emacspeak.
 
      (fn NAME)
 
-12.226.1.10 sox-show-timestamp
+12.225.1.10 sox-show-timestamp
 ..............................
 
  -- Command: sox-show-timestamp
 
      Show timestamp   in stream.
 
-12.226.1.11 sox-stop
+12.225.1.11 sox-stop
 ....................
 
  -- Command: sox-stop
@@ -5040,13 +5040,13 @@ always work.  This module can be used independent of Emacspeak.
 
 File: emacspeak.info,  Node: sox-gen,  Next: tetris,  Prev: sox,  Up: Emacspeak Commands And Options
 
-12.227 sox-gen
+12.226 sox-gen
 ==============
 
 Provides binaural audio along with pre-defined themes.  This module can
 be used independent of Emacspeak.
 
-12.227.1 Binaural Beats Using SoX
+12.226.1 Binaural Beats Using SoX
 ---------------------------------
 
 A binaural beat is an auditory illusion perceived when two different
@@ -5074,7 +5074,7 @@ binaural beat sequences by customizing
  -- Variable: User Option sox-binaural-gain-offset to a positive value
    — default is 0.
 
-12.227.1.1 High-Level Commands For Pre-Defined Binaural Beats
+12.226.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
 
 These commands can be called directly to play one of the predefined
@@ -5109,10 +5109,10 @@ binaural beats.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
-12.227.2 Sox-Gen Commands
+12.226.2 Sox-Gen Commands
 -------------------------
 
-12.227.2.1 sox-beats-binaural
+12.226.2.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -5122,7 +5122,7 @@ binaural beats.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-12.227.2.2 sox-binaural
+12.226.2.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -5133,7 +5133,7 @@ binaural beats.
 
      (fn NAME DURATION)
 
-12.227.2.3 sox-chakras
+12.226.2.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -5143,7 +5143,7 @@ binaural beats.
 
      (fn THEME DURATION)
 
-12.227.2.4 sox-relax
+12.226.2.4 sox-relax
 ....................
 
  -- Command: sox-relax (length)
@@ -5153,7 +5153,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.227.2.5 sox-rev-up
+12.226.2.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (length)
@@ -5163,7 +5163,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.227.2.6 sox-slide-binaural
+12.226.2.6 sox-slide-binaural
 .............................
 
  -- Command: sox-slide-binaural (name-1 name-2 duration)
@@ -5172,7 +5172,7 @@ binaural beats.
 
      (fn NAME-1 NAME-2 DURATION)
 
-12.227.2.7 sox-tone-binaural
+12.226.2.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -5182,7 +5182,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.227.2.8 sox-tone-slide-binaural
+12.226.2.8 sox-tone-slide-binaural
 ..................................
 
  -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
@@ -5193,7 +5193,7 @@ binaural beats.
 
      (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 
-12.227.2.9 sox-turn-down
+12.226.2.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (length)
@@ -5203,7 +5203,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.227.2.10 sox-wind-down
+12.226.2.10 sox-wind-down
 .........................
 
  -- Command: sox-wind-down (length)
@@ -5213,7 +5213,7 @@ binaural beats.
 
      (fn LENGTH)
 
-12.227.3 sox-gen Options
+12.226.3 sox-gen Options
 ------------------------
 
  -- Variable: User Option sox-binaural-gain-offset
@@ -5227,13 +5227,13 @@ binaural beats.
 
 File: emacspeak.info,  Node: tetris,  Next: toy-braille,  Prev: sox-gen,  Up: Emacspeak Commands And Options
 
-12.228 tetris
+12.227 tetris
 =============
 
 
 File: emacspeak.info,  Node: toy-braille,  Next: voice-setup,  Prev: tetris,  Up: Emacspeak Commands And Options
 
-12.229 toy-braille
+12.228 toy-braille
 ==================
 
 This is a bit of toy code to write in braille.  To try this, load this
@@ -5266,7 +5266,7 @@ configured).
 
 File: emacspeak.info,  Node: voice-setup,  Next: xbacklight,  Prev: toy-braille,  Up: Emacspeak Commands And Options
 
-12.230 voice-setup
+12.229 voice-setup
 ==================
 
 A voice is to audio as a font is to a visual display.  A personality is
@@ -5286,9 +5286,35 @@ be spoken in ‘voice-string-personality’.  Function and variable names
 When this minor mode is on, the voices of the current line are updated
 with every insertion or deletion.
 
-   How faces map to voices: TTS engine specific modules e.g.,
-dectalk-voices.el and outloud-voices.el define a standard set of voice
-names.  This module maps standard "personality" names to these
+   Voice-Lock And Aural CSS: The CSS Speech Style Sheet specification
+defines a number of abstract device independent voice properties.  A
+setting conforming to the CSS speech specification can be represented in
+elisp as a structure.
+
+   We will refer to this structure as a "speech style".  This structure
+needs to be mapped to device dependent codes to produce the desired
+effect.  This module forms a bridge between emacs packages that wish to
+implement audio formatting and Emacspeak’s TTS module.  Emacspeak
+produces voice change effects by examining the value of text-property
+’personality.
+
+   Think of a buffer of formatted text along with the text-property
+’personality appropriately set as a "aural display list".  Module
+voice-setup.el help applications like EWW produce audio-formatted output
+by calling function acss-personality-from-speech-style with a
+"speech-style" –a structure as defined in this module and get back a
+symbol that they then assign to the value of property ’personality.
+Emacspeak’s rendering engine then does the needful at the time speech is
+produced.  Function acss-personality-from-speech-style does the
+following: Takes as input a "speech style" (1) Computes a symbol that
+will be used henceforth to refer to this specific speech style.  (2)
+Examines emacspeak’s internal voice table to see if this speech style
+has a voice already defined.  If so it returns immediately.  Otherwise,
+it does the additional work of defining a -voice for future use.  See
+its use in this module to see how voices are defined independent of a
+given TTS engine.  How faces map to voices: TTS engine specific modules
+e.g., dectalk-voices.el and outloud-voices.el define a standard set of
+voice names.  This module maps standard "personality" names to these
 pre-defined voices.  It does this via special form def-voice-font which
 takes a personality name, a voice name and a face name to set up the
 mapping between face and personality, and personality and voice.  Newer
@@ -5305,10 +5331,10 @@ available via custom.  new voices can be defined using CSS style
 specifications see special form defvoice Voices defined via defvoice can
 be customized via custom see the documentation for defvoice.
 
-12.230.1 Voice-Setup Commands
+12.229.1 Voice-Setup Commands
 -----------------------------
 
-12.230.1.1 voice-lock-mode
+12.229.1.1 voice-lock-mode
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
@@ -5330,14 +5356,14 @@ be customized via custom see the documentation for defvoice.
 
      (fn &optional ARG)
 
-12.230.1.2 voice-lock-mode–turn-on
+12.229.1.2 voice-lock-mode–turn-on
 ..................................
 
  -- Command: voice-lock-mode--turn-on
 
      Turn on Voice Lock mode .
 
-12.230.1.3 voice-setup-describe-personality
+12.229.1.3 voice-setup-describe-personality
 ...........................................
 
  -- Command: voice-setup-describe-personality (personality)
@@ -5347,12 +5373,10 @@ be customized via custom see the documentation for defvoice.
 
      Describe specified voice — analogous to C-h /.
      When called interactively, ‘personality’ defaults to first personality at point.
-     If there are multiple personalities at point,
-     these are available via minibuffer history.
 
      (fn PERSONALITY)
 
-12.230.1.4 voice-setup-toggle-silence-personality
+12.229.1.4 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
@@ -5361,50 +5385,50 @@ be customized via custom see the documentation for defvoice.
 
      Toggle audibility of personality under point  .
 
-12.230.2 voice-setup Options
+12.229.2 voice-setup Options
 ----------------------------
 
  -- Variable: User Option voice-animate-extra-settings
-     Adds extra animation to current voice.
+     Adds extra animation.
 
  -- Variable: User Option voice-animate-medium-settings
-     Adds medium animation current voice.
+     Adds medium animation.
 
  -- Variable: User Option voice-animate-settings
      Animates current voice.
 
  -- Variable: User Option voice-annotate-settings
-     Indicate annotation.
+     Annotation..
 
  -- Variable: User Option voice-bolden-and-animate-settings
-     Bolden and animate current voice.
+     Bolden and animate.
 
  -- Variable: User Option voice-bolden-extra-settings
-     Extra bolden current voice.
+     Extra bolden.
 
  -- Variable: User Option voice-bolden-medium-settings
-     Add medium bolden current voice.
+     Add medium bolden.
 
  -- Variable: User Option voice-bolden-settings
      Bolden current voice.
 
  -- Variable: User Option voice-brighten-extra-settings
-     Extra brighten current voice.
+     Extra brighten.
 
  -- Variable: User Option voice-brighten-medium-settings
-     Brighten (medium) current voice.
+     Brighten (medium).
 
  -- Variable: User Option voice-brighten-settings
-     Brighten current voice.
+     Brighten.
 
  -- Variable: User Option voice-indent-settings
-     Indicate indentation .
+     Indent voice .
 
  -- Variable: User Option voice-lighten-extra-settings
-     Add extra lightness to current voice.
+     Add extra lightness.
 
  -- Variable: User Option voice-lighten-medium-settings
-     Add medium lightness to current voice.
+     Add medium lightness.
 
  -- Variable: User Option voice-lighten-settings
      Lighten current voice.
@@ -5415,40 +5439,40 @@ be customized via custom see the documentation for defvoice.
      binds it.  (This is true for all hook variables.)
 
  -- Variable: User Option voice-lock-overlay-0-settings
-     Overlay voice that sets dimension 0 of ACSS structure to 8.
+     Pitch to 8.
 
  -- Variable: User Option voice-lock-overlay-1-settings
-     Overlay voice that sets dimension 1 of ACSS structure to 8.
+     Pitch-range to 8.
 
  -- Variable: User Option voice-lock-overlay-2-settings
-     Overlay voice that sets dimension 2 of ACSS structure to 8.
+     Richness to 8.
 
  -- Variable: User Option voice-lock-overlay-3-settings
-     Overlay voice that sets dimension 3 of ACSS structure to 8.
+     Smoothness to 8.
 
  -- Variable: User Option voice-monotone-light-settings
-     Turns current voice into a light monotone.
+     Add light monotone and speak punctuations.
 
  -- Variable: User Option voice-monotone-medium-settings
-     Turns current voice into a medium monotone.
+     Add medium monotone and speak punctuations.
 
  -- Variable: User Option voice-monotone-settings
-     Turns current voice into a monotone and speaks all punctuations.
+     Add monotone and speaks all punctuations.
 
  -- Variable: User Option voice-punctuations-all-settings
-     Turns current voice into one that speaks all punctuations.
+     Add speaks all punctuations.
 
  -- Variable: User Option voice-punctuations-none-settings
-     Turns current voice into one that speaks no punctuations.
+     Add speaks no punctuations.
 
  -- Variable: User Option voice-punctuations-some-settings
-     Turns current voice into one that speaks some punctuations.
+     Add speaks some punctuations.
 
  -- Variable: User Option voice-smoothen-extra-settings
-     Extra smoothen current voice.
+     Extra smoothen.
 
  -- Variable: User Option voice-smoothen-medium-settings
-     Add medium smoothen current voice.
+     Add medium smoothen.
 
  -- Variable: User Option voice-smoothen-settings
      Smoothen current voice.
@@ -5459,7 +5483,7 @@ be customized via custom see the documentation for defvoice.
 
 File: emacspeak.info,  Node: xbacklight,  Next: URL Templates,  Prev: voice-setup,  Up: Emacspeak Commands And Options
 
-12.231 xbacklight
+12.230 xbacklight
 =================
 
 Provide an emacs front-end to xbacklight.  This is a tool that controls
@@ -5469,38 +5493,38 @@ xbacklight
    This module is most easily used in conjunction with hydra: M-x
 package-install hydra
 
-12.231.1 Xbacklight Commands
+12.230.1 Xbacklight Commands
 ----------------------------
 
-12.231.1.1 xbacklight-black
+12.230.1.1 xbacklight-black
 ...........................
 
  -- Command: xbacklight-black
 
      Turn screen black.
 
-12.231.1.2 xbacklight-decrement
+12.230.1.2 xbacklight-decrement
 ...............................
 
  -- Command: xbacklight-decrement
 
      Decrease brightness by  by one step.
 
-12.231.1.3 xbacklight-get
+12.230.1.3 xbacklight-get
 .........................
 
  -- Command: xbacklight-get
 
      Get  brightness level.
 
-12.231.1.4 xbacklight-increment
+12.230.1.4 xbacklight-increment
 ...............................
 
  -- Command: xbacklight-increment
 
      Increase brightness by  by one step.
 
-12.231.1.5 xbacklight-set
+12.230.1.5 xbacklight-set
 .........................
 
  -- Command: xbacklight-set (brightness)
@@ -5509,7 +5533,7 @@ package-install hydra
 
      (fn BRIGHTNESS)
 
-12.231.1.6 xbacklight-white
+12.230.1.6 xbacklight-white
 ...........................
 
  -- Command: xbacklight-white
@@ -5519,7 +5543,7 @@ package-install hydra
 
 File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Commands And Options
 
-12.232 URL Templates
+12.231 URL Templates
 ====================
 
 This section documents a total of 76 URL Templates.
@@ -6856,7 +6880,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> C-e:                              emacspeak-wizards.  (line   41)
 * <f1> C-l:                              emacspeak-wizards.  (line   75)
 * <f1> C-s:                              emacspeak-wizards.  (line  426)
-* <f1> C-v:                              voice-setup.        (line   80)
+* <f1> C-v:                              voice-setup.        (line  106)
 * <f1> M:                                emacspeak-wizards.  (line  218)
 * <f1> N:                                emacspeak-speak.    (line 1036)
 * <f1> TAB:                              emacspeak-info.     (line   38)
@@ -7009,7 +7033,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> d s:                              dtk-speak.          (line  315)
 * <fn> d SPC:                            dtk-speak.          (line  328)
 * <fn> d V:                              dtk-speak.          (line  359)
-* <fn> d v:                              voice-setup.        (line   51)
+* <fn> d v:                              voice-setup.        (line   77)
 * <fn> d w:                              emacspeak-speak.    (line 1025)
 * <fn> d z:                              emacspeak-speak.    (line 1046)
 * <fn> DEL:                              cd-tool.            (line   21)
@@ -7034,7 +7058,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> M-l:                              emacspeak-wizards.  (line   86)
 * <fn> M-m:                              emacspeak-speak.    (line  980)
 * <fn> M-p:                              emacspeak-wizards.  (line  166)
-* <fn> M-q:                              voice-setup.        (line   95)
+* <fn> M-q:                              voice-setup.        (line  119)
 * <fn> M-s:                              emacspeak-wizards.  (line  307)
 * <fn> M-t:                              emacspeak-tapestry. (line   28)
 * <fn> M-u:                              emacspeak-feeds.    (line   17)
@@ -7133,7 +7157,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> C-e:                            emacspeak-wizards.  (line   42)
 * <help> C-l:                            emacspeak-wizards.  (line   76)
 * <help> C-s:                            emacspeak-wizards.  (line  427)
-* <help> C-v:                            voice-setup.        (line   81)
+* <help> C-v:                            voice-setup.        (line  107)
 * <help> M:                              emacspeak-wizards.  (line  219)
 * <help> N:                              emacspeak-speak.    (line 1037)
 * <help> TAB:                            emacspeak-info.     (line   39)
@@ -7436,7 +7460,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d SPC:                             dtk-speak.          (line  327)
 * C-e d t:                               Miscellaneous.      (line   79)
 * C-e d V:                               dtk-speak.          (line  358)
-* C-e d v:                               voice-setup.        (line   50)
+* C-e d v:                               voice-setup.        (line   76)
 * C-e d w:                               Controlling Echo.   (line   25)
 * C-e d w <1>:                           emacspeak-speak.    (line 1024)
 * C-e d z:                               Miscellaneous.      (line   90)
@@ -7471,7 +7495,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M-l:                               emacspeak-wizards.  (line   85)
 * C-e M-m:                               emacspeak-speak.    (line  979)
 * C-e M-p:                               emacspeak-wizards.  (line  165)
-* C-e M-q:                               voice-setup.        (line   94)
+* C-e M-q:                               voice-setup.        (line  118)
 * C-e M-s:                               emacspeak-wizards.  (line  306)
 * C-e M-t:                               emacspeak-tapestry. (line   27)
 * C-e M-u:                               emacspeak-feeds.    (line   16)
@@ -7582,7 +7606,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h C-e:                               emacspeak-wizards.  (line   40)
 * C-h C-l:                               emacspeak-wizards.  (line   73)
 * C-h C-s:                               emacspeak-wizards.  (line  425)
-* C-h C-v:                               voice-setup.        (line   79)
+* C-h C-v:                               voice-setup.        (line  105)
 * C-h M:                                 emacspeak-wizards.  (line  217)
 * C-h N:                                 emacspeak-speak.    (line 1035)
 * C-h TAB:                               emacspeak-info.     (line   37)

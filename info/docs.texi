@@ -7,7 +7,6 @@
 This chapter documents a total of 1139 commands and 864 options.
 
 @menu
-* acss-structure::CSS -- Cascaded Speech Style structure.
 * amixer::Control AMixer from Emacs.
 * cd-tool::Play  CDs from Emacs.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
@@ -240,43 +239,6 @@ This chapter documents a total of 1139 commands and 864 options.
 * xbacklight::Control Display Brightness From Emacs.
 * URL Templates ::
 @end menu
-
-@node acss-structure
-@section acss-structure
-
-The CSS Speech Style Sheet specification defines a number of
-abstract device independent voice properties.
-A setting conforming to the CSS speech specification can be
-represented in elisp as a structure.
-
-We will refer to this structure as a "speech style".  This
-structure needs to be mapped to device dependent codes to produce
-the desired effect.  This module forms a bridge between emacs
-packages    that wish to implement audio formatting
-and Emacspeak's TTS module.  Emacspeak produces voice
-change effects by examining the value of text-property
-'personality.
-
-Think of a buffer of formatted text along with the text-property
-'personality appropriately set as a "aural display list".
-Module voice-setup.el  help applications like EWW
- produce audio-formatted output by calling  function
-acss-personality-from-speech-style  with a  "speech-style"
---a structure as defined in this module and get back a symbol that
-they then assign to the value of property 'personality.
-Emacspeak's rendering engine then does the needful at the time
-speech is produced.
-Function acss-personality-from-speech-style does the following:
-Takes as input a "speech style"
-(1)  Computes a symbol that will be used henceforth to refer to this
-specific speech style.
-(2) Examines emacspeak's internal voice table to see if this
-speech style has a voice already defined.
-If so it returns immediately.
-Otherwise, it does the additional work of defining a -voice for
-future use.
-See module voice-setup.el  to see how voices are defined
-independent of a given TTS engine.
 
 @node amixer
 @section amixer
@@ -23524,13 +23486,47 @@ documentation strings in another, and so on.
 Comments will be spoken in `voice-comment-personality'.
 Strings will be spoken in `voice-string-personality'.
 Function and variable names (in their defining forms) will be
-spoken in `voice-function-name-personality'.
+ spoken in `voice-function-name-personality'.
 Reserved words will be spoken in `voice-keyword-personality'.
 
 To make the text you type be voiceified, use M-x voice-lock-mode.
 When this minor mode is on, the voices of the current line are
 updated with every insertion or deletion.
 
+Voice-Lock And Aural CSS:
+The CSS Speech Style Sheet specification defines a number of
+abstract device independent voice properties.
+A setting conforming to the CSS speech specification can be
+represented in elisp as a structure.
+
+We will refer to this structure as a "speech style".  This
+structure needs to be mapped to device dependent codes to produce
+the desired effect.  This module forms a bridge between emacs
+packages    that wish to implement audio formatting
+and Emacspeak's TTS module.  Emacspeak produces voice
+change effects by examining the value of text-property
+'personality.
+
+Think of a buffer of formatted text along with the text-property
+'personality appropriately set as a "aural display list".
+Module voice-setup.el  help applications like EWW
+ produce audio-formatted output by calling  function
+acss-personality-from-speech-style  with a  "speech-style"
+--a structure as defined in this module and get back a symbol that
+they then assign to the value of property 'personality.
+Emacspeak's rendering engine then does the needful at the time
+speech is produced.
+Function acss-personality-from-speech-style does the following:
+Takes as input a "speech style"
+(1)  Computes a symbol that will be used henceforth to refer to this
+specific speech style.
+(2) Examines emacspeak's internal voice table to see if this
+speech style has a voice already defined.
+If so it returns immediately.
+Otherwise, it does the additional work of defining a -voice for
+future use.
+See its use in   this module to see how voices are defined
+independent of a given TTS engine.
 How faces map to voices: TTS engine specific modules e.g.,
 dectalk-voices.el and outloud-voices.el define a standard set
 of voice names.  This module maps standard "personality"
@@ -23609,9 +23605,7 @@ Turn on Voice Lock mode .
 
 @format
 Describe specified voice --- analogous to C-h /.
-When called interactively, ‘personality’ defaults to first personality at point.
-If there are multiple personalities at point,
-these are available via minibuffer history.
+When called interactively, ‘personality’ defaults to first personality at point. 
 
 (fn PERSONALITY)
 @end format
@@ -23636,12 +23630,12 @@ Toggle audibility of personality under point  .
 @subsection voice-setup Options
 
 @defvar {User Option} voice-animate-extra-settings
-Adds extra animation  to current voice.
+Adds extra animation.
 
 @end defvar
 
 @defvar {User Option} voice-animate-medium-settings
-Adds medium animation  current voice.
+Adds medium animation.
 
 @end defvar
 
@@ -23651,22 +23645,22 @@ Animates current voice.
 @end defvar
 
 @defvar {User Option} voice-annotate-settings
-Indicate annotation.
+Annotation..
 
 @end defvar
 
 @defvar {User Option} voice-bolden-and-animate-settings
-Bolden and animate  current voice.
+Bolden and animate.
 
 @end defvar
 
 @defvar {User Option} voice-bolden-extra-settings
-Extra bolden current voice.
+Extra bolden.
 
 @end defvar
 
 @defvar {User Option} voice-bolden-medium-settings
-Add medium bolden current voice.
+Add medium bolden.
 
 @end defvar
 
@@ -23676,32 +23670,32 @@ Bolden current voice.
 @end defvar
 
 @defvar {User Option} voice-brighten-extra-settings
-Extra brighten current voice.
+Extra brighten.
 
 @end defvar
 
 @defvar {User Option} voice-brighten-medium-settings
-Brighten  (medium) current voice.
+Brighten  (medium).
 
 @end defvar
 
 @defvar {User Option} voice-brighten-settings
-Brighten current voice.
+Brighten.
 
 @end defvar
 
 @defvar {User Option} voice-indent-settings
-Indicate indentation .
+Indent voice .
 
 @end defvar
 
 @defvar {User Option} voice-lighten-extra-settings
-Add extra lightness to  current voice.
+Add extra lightness.
 
 @end defvar
 
 @defvar {User Option} voice-lighten-medium-settings
-Add medium lightness to  current voice.
+Add medium lightness.
 
 @end defvar
 
@@ -23718,62 +23712,62 @@ No problems result if this variable is not bound.
 @end defvar
 
 @defvar {User Option} voice-lock-overlay-0-settings
-Overlay voice that sets dimension 0 of ACSS structure to 8.
+Pitch to 8.
 
 @end defvar
 
 @defvar {User Option} voice-lock-overlay-1-settings
-Overlay voice that sets dimension 1 of ACSS structure to 8.
+Pitch-range to 8.
 
 @end defvar
 
 @defvar {User Option} voice-lock-overlay-2-settings
-Overlay voice that sets dimension 2 of ACSS structure to 8.
+ Richness to 8.
 
 @end defvar
 
 @defvar {User Option} voice-lock-overlay-3-settings
-Overlay voice that sets dimension 3 of ACSS structure to 8.
+Smoothness to 8.
 
 @end defvar
 
 @defvar {User Option} voice-monotone-light-settings
-Turns current voice into a light monotone.
+Add light monotone and speak punctuations.
 
 @end defvar
 
 @defvar {User Option} voice-monotone-medium-settings
-Turns current voice into a medium monotone.
+Add medium monotone and speak punctuations.
 
 @end defvar
 
 @defvar {User Option} voice-monotone-settings
-Turns current voice into a monotone and speaks all punctuations.
+Add monotone and speaks all punctuations.
 
 @end defvar
 
 @defvar {User Option} voice-punctuations-all-settings
-Turns current voice into one that  speaks all punctuations.
+Add   speaks all punctuations.
 
 @end defvar
 
 @defvar {User Option} voice-punctuations-none-settings
-Turns current voice into one that  speaks no punctuations.
+Add speaks no punctuations.
 
 @end defvar
 
 @defvar {User Option} voice-punctuations-some-settings
-Turns current voice into one that  speaks some punctuations.
+Add speaks some punctuations.
 
 @end defvar
 
 @defvar {User Option} voice-smoothen-extra-settings
-Extra smoothen current voice.
+Extra smoothen.
 
 @end defvar
 
 @defvar {User Option} voice-smoothen-medium-settings
-Add medium smoothen current voice.
+Add medium smoothen.
 
 @end defvar
 
