@@ -99,23 +99,33 @@
   "Voices"
   :group 'emacspeak)
 
-(declare-function tts-list-voices "dectalk-voices")
 
 (let ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak")))
   (unless (member tts-name tts-configured-engines)
     (cond
-     ((string-match "outloud" tts-name)
-      (require 'outloud-voices))
-     ((string-match "dtk" tts-name)
-      (require 'dectalk-voices))
-     ((string-match "mac$" tts-name)
-      (require 'mac-voices))
-     ((string-match "espeak$" tts-name)
-      (require 'espeak-voices))
+     ((string-match "outloud" tts-name) (require 'outloud-voices))
+     ((string-match "dtk" tts-name) (require 'dectalk-voices))
+     ((string-match "mac$" tts-name) (require 'mac-voices))
+     ((string-match "espeak$" tts-name) (require 'espeak-voices))
      (t (require 'plain-voices)))
-    (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
-    (ems--fastload "voice-setup"))
+    (cl-pushnew tts-name tts-configured-engines :test #'string-equal))
   (tts-configure-synthesis-setup tts-name))
+
+
+(defun tts-list-voices ()
+  "List  voices."
+  (cl-declare (special dectalk-voice-table espeak-voice-table
+                       plain-voice-table mac-voice-table
+                       outloud-voice-table))
+  (let* ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak"))
+         (voice-table
+          (cond
+           ((string-match "outloud" tts-name) outloud-voice-table)
+           ((string-match "dtk" tts-name) dectalk-voice-table)
+           ((string-match "mac$" tts-name) mac-voice-table)
+           ((string-match "espeak$" tts-name) espeak-voice-table)
+           (t plain-voice-table))))
+    (cl-loop for k being the hash-keys of voice-table collect   k)))
 
 ;;}}}
 ;;{{{  helper for voice custom items:
