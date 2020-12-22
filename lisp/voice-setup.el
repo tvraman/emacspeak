@@ -100,8 +100,9 @@
   :group 'emacspeak)
 
 (declare-function tts-list-voices "dectalk-voices")
-(unless (fboundp 'tts-list-voices)
-  (let ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak")))
+
+(let ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak")))
+  (unless (member tts-name tts-configured-engines)
     (cond
      ((string-match "outloud" tts-name)
       (require 'outloud-voices))
@@ -112,7 +113,9 @@
      ((string-match "espeak$" tts-name)
       (require 'espeak-voices))
      (t (require 'plain-voices)))
-    (tts-configure-synthesis-setup tts-name)))
+    (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
+    (ems--fastload "voice-setup"))
+  (tts-configure-synthesis-setup tts-name))
 
 ;;}}}
 ;;{{{  helper for voice custom items:
