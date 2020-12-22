@@ -127,6 +127,7 @@ Produce timing information as the last step."
 Reset gc-cons-threshold to a smaller value  and play
 startup sound."
   (cl-declare (special emacspeak-sounds-directory))
+  (run-with-idle-timer 1 nil #'emacspeak-dbus-setup)
   (setq gc-cons-threshold 64000000)
   (start-process
    "play" nil "aplay"
