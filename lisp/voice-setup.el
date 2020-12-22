@@ -133,7 +133,7 @@
 (defvar tts-configured-engines nil
   "Record TTS engines that   have been configured in this emacs session.")
 
-(let ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak")))
+(let ((tts-name (or dtk-program  "espeak")))
   (unless (member tts-name tts-configured-engines)
     (cond
      ((string-match "outloud" tts-name) (require 'outloud-voices))
@@ -186,7 +186,7 @@ Finally return the symbol"
   (cl-declare (special dectalk-voice-table espeak-voice-table
                        plain-voice-table mac-voice-table
                        outloud-voice-table))
-  (let* ((tts-name (or (getenv "DTK_PROGRAM") dtk-program "espeak"))
+  (let* ((tts-name (or dtk-program  "espeak"))
          (voice-table
           (cond
            ((string-match "outloud" tts-name) outloud-voice-table)
