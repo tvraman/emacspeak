@@ -1498,12 +1498,7 @@ available TTS servers.")
   ;(dtk-interp-sync)
     (unless (member tts-name tts-configured-engines)
       (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
-      (ems--fastload "voice-setup"))
-  (when
-      (or
-       (string-match "^ssh" tts-name)   ;remote server
-       (string-match "^cloud" tts-name) ; cloud
-       (string-match "^log" tts-name))))
+      (ems--fastload "voice-setup")))
 
 (defvar tts-device "default"
   "Name of  sound device.")
