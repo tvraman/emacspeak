@@ -112,6 +112,38 @@
   (tts-configure-synthesis-setup tts-name))
 
 
+
+;;; may be redefined at runtime when alternative tts engine is
+;;; configured.
+
+(defun acss-personality-from-speech-style (style)
+  "First compute a symbol that will be name for this STYLE.
+Then see if a voice defined for it.
+Finally return the symbol"
+  (cond
+   ((and (acss-gain style) (= 0 (acss-gain style)))
+    'inaudible)
+   (t
+    (let ((f (acss-family style))
+          (a (acss-average-pitch style))
+          (p (acss-pitch-range style))
+          (s (acss-stress style))
+          (r (acss-richness style))
+          (m (acss-punctuations style))
+          (name nil))
+      (setq name 
+            (intern
+             (format "acss%s%s%s%s%s%s"
+                     (if f (format "-%s" f) "")
+                     (if a (format "-a%s" a) "")
+                     (if p (format "-p%s" p) "")
+                     (if s (format "-s%s" s) "")
+                     (if r (format "-r%s" r) "")
+                     (if m (format "-%s" m) ""))))
+      (unless (tts-voice-defined-p name)
+        (tts-define-voice-from-speech-style name style))
+      name))))
+
 (defun tts-list-voices ()
   "List  voices."
   (cl-declare (special dectalk-voice-table espeak-voice-table
