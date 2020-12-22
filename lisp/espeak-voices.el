@@ -454,15 +454,6 @@ and TABLE gives the values along that dimension."
     (espeak-define-voice name command)))
 
 ;;}}}
-;;{{{ list voices 
-
-(defun espeak-list-voices ()
-  "List defined voices."
-  (cl-declare (special espeak-voice-table))
-  (cl-loop for k being the hash-keys of espeak-voice-table 
-           collect   k))
-
-;;}}}
 ;;{{{ Configurater 
 
 (defvar espeak-character-to-speech-table nil
@@ -484,7 +475,6 @@ and TABLE gives the values along that dimension."
   (cl-declare (special tts-default-speech-rate
                        espeak-default-speech-rate
                        dtk-speaker-process))
-  (fset 'tts-list-voices'espeak-list-voices)
   (fset 'tts-voice-defined-p 'espeak-voice-defined-p)
   (fset 'tts-get-voice-command 'espeak-get-voice-command)
   (fset

@@ -451,14 +451,6 @@
     (outloud-define-voice name command)))
 
 ;;}}}
-;;{{{ list voices
-
-(defun outloud-list-voices ()
-  "List defined voices."
-  (cl-declare (special outloud-voice-table))
-  (cl-loop for k being the hash-keys of outloud-voice-table collect   k))
-
-;;}}}
 ;;{{{ Configurater
 ;;;###autoload
 (defun outloud-configure-tts ()
@@ -466,7 +458,6 @@
   (cl-declare (special tts-default-speech-rate tts-default-voice
                        outloud-default-speech-rate
                        dtk-speech-rate-step dtk-speech-rate-base))
-  (fset 'tts-list-voices'outloud-list-voices)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
   (fset 'tts-get-voice-command 'outloud-get-voice-command)
   (fset

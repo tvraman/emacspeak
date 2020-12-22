@@ -602,15 +602,6 @@ and TABLE gives the values along that dimension."
     (dectalk-define-voice name command)))
 
 ;;}}}
-;;{{{ list voices
-
-(defun dectalk-list-voices ()
-  "List defined voices."
-  (cl-declare (special dectalk-voice-table))
-  (cl-loop for k being the hash-keys of dectalk-voice-table
-           collect   k))
-
-;;}}}
 ;;{{{ configurater
 
 ;;;###autoload
@@ -619,7 +610,6 @@ and TABLE gives the values along that dimension."
   (cl-declare (special  dectalk-default-speech-rate
                         tts-default-speech-rate tts-default-voice))
   (setq tts-default-voice 'paul)
-  (fset 'tts-list-voices 'dectalk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
   (fset 'tts-get-voice-command 'dectalk-get-voice-command)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)

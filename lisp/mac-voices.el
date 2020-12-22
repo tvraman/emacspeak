@@ -379,21 +379,11 @@ and TABLE gives the values along that dimension."
     (mac-define-voice name command)))
 
 ;;}}}
-;;{{{ list voices 
-
-(defun mac-list-voices ()
-  "List defined voices."
-  (cl-declare (special mac-voice-table))
-  (cl-loop for k being the hash-keys of mac-voice-table 
-           collect   k))
-
-;;}}}
 ;;{{{ Configurater 
 ;;;###autoload
 (defun mac-configure-tts ()
   "Configure TTS environment to use mac  family of synthesizers."
   (cl-declare (special tts-default-speech-rate mac-default-speech-rate))
-  (fset 'tts-list-voices'mac-list-voices)
   (fset 'tts-voice-defined-p 'mac-voice-defined-p)
   (fset 'tts-get-voice-command 'mac-get-voice-command)
   (fset 'tts-define-voice-from-speech-style 'mac-define-voice-from-speech-style)

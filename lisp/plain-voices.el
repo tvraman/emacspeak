@@ -574,15 +574,6 @@ and TABLE gives the values along that dimension."
     (plain-define-voice name command)))
 
 ;;}}}
-;;{{{ list voices
-
-(defun plain-list-voices ()
-  "List defined voices."
-  (cl-declare (special plain-voice-table))
-  (cl-loop for k being the hash-keys of plain-voice-table
-           collect   k))
-
-;;}}}
 ;;{{{ configurater
 ;;;###autoload
 (defun plain-configure-tts ()
@@ -591,7 +582,6 @@ and TABLE gives the values along that dimension."
                         tts-default-speech-rate
                         tts-default-voice))
   (setq tts-default-voice 'paul)
-  (fset 'tts-list-voices 'plain-list-voices)
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)
   (fset 'tts-get-voice-command 'plain-get-voice-command)
   (fset 'tts-voice-defined-p 'plain-voice-defined-p)
