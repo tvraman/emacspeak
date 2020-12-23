@@ -378,7 +378,6 @@
    ("V" tts-speak-version)
    ("a" dtk-add-cleanup-pattern)
    ("c" dtk-toggle-caps)
-   ("d" dtk-select-server)
    ("f" dtk-set-character-scale)
    ("i" emacspeak-toggle-audio-indentation)
    ("k" emacspeak-toggle-character-echo)

@@ -1494,21 +1494,14 @@ available TTS servers.")
 
 (defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
-When called interactively, restarts speech server.
 Argument PROGRAM specifies the speech server program.
  Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server."
-  (interactive
-   (list
-    (completing-read
-     "Select speech server:"
-     (or dtk-servers-alist (tts-setup-servers-alist))
-     nil t)
-    current-prefix-arg))
-  (cl-declare (special dtk-program dtk-servers-alist
+  (interactive "p")
+  (cl-declare (special dtk-program 
                        tts-device emacspeak-servers-directory
                         emacspeak-ssh-tts-server))
-  (when (and (called-interactively-p 'interactive) device)
+  (when  device
     (setq tts-device
           (completing-read "Device: "
                            (split-string (shell-command-to-string "aplay -L | grep tts"))
@@ -1519,9 +1512,7 @@ ALSA_DEFAULT to specified device before starting the server."
     (when
         (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
-      (setq-default emacspeak-ssh-tts-server ssh-server))
-    (when (called-interactively-p 'interactive)
-      (dtk-initialize))))
+      (setq-default emacspeak-ssh-tts-server ssh-server))))
 
 (defun dtk-cloud ()
   "Select  Cloud TTS server."
