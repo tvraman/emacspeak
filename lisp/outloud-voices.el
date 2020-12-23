@@ -475,6 +475,10 @@
    '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
 
 ;;}}}
+
+;;; Configure on load
+(outloud-configure-tts)
+
 (provide 'outloud-voices)
 ;;{{{  emacs local variables
 

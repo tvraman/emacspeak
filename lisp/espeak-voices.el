@@ -485,6 +485,10 @@ and TABLE gives the values along that dimension."
   (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1)))
 
 ;;}}}
+
+;;; Configure on load
+(espeak-configure-tts)
+
 (provide 'espeak-voices)
 ;;{{{  emacs local variables
 

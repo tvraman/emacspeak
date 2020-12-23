@@ -622,6 +622,11 @@ and TABLE gives the values along that dimension."
                 dtk-speech-rate-base 150))
 
 ;;}}}
+
+;;; Configure on load
+(dectalk-configure-tts)
+
+
 (provide 'dectalk-voices)
 ;;{{{  emacs local variables
 

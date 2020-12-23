@@ -382,7 +382,7 @@ and TABLE gives the values along that dimension."
 ;;{{{ Configurater 
 ;;;###autoload
 (defun mac-configure-tts ()
-  "Configure TTS environment to use mac  family of synthesizers."
+  "Configure TTS environment to use mac  TTS."
   (cl-declare (special tts-default-speech-rate mac-default-speech-rate))
   (fset 'tts-voice-defined-p 'mac-voice-defined-p)
   (fset 'tts-get-voice-command 'mac-get-voice-command)
@@ -394,6 +394,10 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ tts-env for Mac:
+
+;;; Configure on load
+(mac-configure-tts)
+
 (provide 'mac-voices)
 ;;{{{  emacs local variables
 

@@ -52,7 +52,7 @@
 
 ;;}}}
 ;;;{{{  Top-level TTS  switcher
-
+;;{{{plain:
 ;;;### autoload
 (defun plain ()
   "Select Plain TTS server."
@@ -590,6 +590,13 @@ and TABLE gives the values along that dimension."
   (set-default 'tts-default-speech-rate plain-default-speech-rate))
 
 ;;}}}
+
+;;; Configure on load
+
+(plain-configure-tts)
+(plain-configure-tts)
+
+
 (provide 'plain-voices)
 ;;{{{  emacs local variables
 

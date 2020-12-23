@@ -139,22 +139,6 @@
   "TTS name."
   (or dtk-program  "espeak"))
 
-;;;###autoload
-(defun tts-configure-synthesis-setup (&optional tts-name)
-  "Setup synthesis environment. "
-  (cl-declare (special dtk-program tts-configured-engines))
-  (unless tts-name (setq tts-name dtk-program))
-  (cond
-   ((string-match "outloud" tts-name) (outloud-configure-tts))
-   ((string-match "dtk" tts-name) (dectalk-configure-tts))
-   ((string-match "mac$" tts-name) (mac-configure-tts))
-   ((string-match "espeak$" tts-name) (espeak-configure-tts))
-   (t (plain-configure-tts)))
-    (unless (member tts-name tts-configured-engines)
-      (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
-      (ems--fastload "voice-defs")))
-
-
 (let ((tts-name (voice-setup-guess-tts)))
   (cond
    ((string-match "outloud" tts-name) (require 'outloud-voices))
@@ -162,8 +146,7 @@
    ((string-match "mac$" tts-name) (require 'mac-voices))
    ((string-match "espeak$" tts-name) (require 'espeak-voices))
    (t (require 'plain-voices)))
-  (cl-pushnew tts-name tts-configured-engines :test #'string-equal)
-  (tts-configure-synthesis-setup tts-name))
+  (cl-pushnew tts-name tts-configured-engines :test #'string-equal))
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.

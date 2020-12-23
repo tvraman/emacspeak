@@ -1620,7 +1620,6 @@ program. Port defaults to dtk-local-server-port"
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process))
       (setq dtk-speaker-process new-process)
-      (tts-configure-synthesis-setup dtk-program)
       (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
       (when (tts-multistream-p dtk-program) (dtk-notify-initialize))))))
 

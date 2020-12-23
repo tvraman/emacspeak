@@ -340,11 +340,11 @@ custom: force
 dtk-interp.elc: dtk-interp.el
 dtk-unicode.elc: dtk-unicode.el
 dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc 
-dectalk-voices.elc: dectalk-voices.el voice-setup.elc 
-outloud-voices.elc: outloud-voices.el voice-setup.elc 
-plain-voices.elc: plain-voices.el voice-setup.elc 
-mac-voices.elc: mac-voices.el voice-setup.elc 
-espeak-voices.elc: espeak-voices.el voice-setup.elc 
+dectalk-voices.elc: dectalk-voices.el 
+outloud-voices.elc: outloud-voices.el 
+plain-voices.elc: plain-voices.el 
+mac-voices.elc: mac-voices.el 
+espeak-voices.elc: espeak-voices.el 
 voice-setup.elc: voice-setup.el 
 voice-defs.elc: voice-defs.elc 
 emacspeak-amark.elc: emacspeak-amark.el
