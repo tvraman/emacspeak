@@ -346,7 +346,7 @@ plain-voices.elc: plain-voices.el voice-setup.elc
 mac-voices.elc: mac-voices.el voice-setup.elc 
 espeak-voices.elc: espeak-voices.el voice-setup.elc 
 voice-setup.elc: voice-setup.el 
-voice-defs.elc: voice-defs.elc voice-setup.elc
+voice-defs.elc: voice-defs.elc 
 emacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 nm.elc: nm.el
