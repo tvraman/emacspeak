@@ -42,9 +42,10 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; This module defines the various voices used in voice-lock mode.
+;;;  Interface to outloud server.
 ;;; This module is IBM ViaVoice Outloud specific.
 ;;; Code:
+
 ;;}}}
 ;;{{{ Required modules
 
@@ -52,33 +53,25 @@
 (cl-declaim  (optimize  (safety 0) (speed 3)))
 
 (require 'dtk-unicode)
+
 ;;}}}
 ;;{{{ Customizations:
 
 (defcustom outloud-default-speech-rate 50
-  "Default speech rate for outloud."
+  "Default speech rate."
   :group 'tts
   :type 'integer
   :set #'(lambda(sym val)
            (set-default sym val)
-           (when (and (getenv "DTK_PROGRAM")
-                      (string-match "outloud" (getenv "DTK_PROGRAM")))
+           (when (string-match "outloud" dtk-program)
              (setq-default dtk-speech-rate val))))
 
-;;}}}
-;;{{{ Forward declarations:
-
-;;; From dtkk-speak.el:
-(defvar dtk-speech-rate)
-(defvar tts-default-speech-rate)
-(defvar dtk-speech-rate-step)
-(defvar dtk-speech-rate-base)
 ;;}}}
 ;;{{{ Top level TTS  switcher
 
 ;;;###autoload
 (defun outloud (&optional device)
-  "Select Outloud server."
+  "Start Outloud."
   (interactive "P")
   (ems--fastload "voice-defs")
   (outloud-configure-tts)
@@ -91,11 +84,11 @@
 (defvar outloud-default-voice-string "`v1"
   "Outloud tag for  default voice -- no-op.")
 
-(defvar outloud-voice-table (make-hash-table)
+(defvar outloud-voice-table (make-hash-table :test #'eq)
   "Association between symbols and strings to set Outloud  voices. ")
 
 (defun outloud-define-voice (name command-string)
-  "Map Outloud voice `name' to `command-string'. "
+  "Map  voice `name' to `command-string'. "
   (cl-declare (special outloud-voice-table))
   (puthash name command-string outloud-voice-table))
 
