@@ -24,8 +24,7 @@
   <link href="Emacspeak-Commands-And-Options.html" rel="up" title=
   "Emacspeak Commands And Options" />
   <link href="xbacklight.html" rel="next" title="xbacklight" />
-  <link href="toy_002dbraille.html" rel="prev" title=
-  "toy-braille" />
+  <link href="voice_002ddefs.html" rel="prev" title="voice-defs" />
   <style type="text/css">
   /*<![CDATA[*/
   <!--
@@ -53,8 +52,8 @@
   <span id="voice_002dsetup"></span>
   <div class="header">
     <p>Next: <a href="xbacklight.html" accesskey="n" rel=
-    "next">xbacklight</a>, Previous: <a href="toy_002dbraille.html"
-    accesskey="p" rel="prev">toy-braille</a>, Up: <a href=
+    "next">xbacklight</a>, Previous: <a href="voice_002ddefs.html"
+    accesskey="p" rel="prev">voice-defs</a>, Up: <a href=
     "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
     "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
@@ -63,7 +62,7 @@
   </div>
   <hr />
   <span id="voice_002dsetup-1"></span>
-  <h3 class="section">12.229 voice-setup</h3>
+  <h3 class="section">12.230 voice-setup</h3>
   <p>A voice is to audio as a font is to a visual display. A
   personality is to audio as a face is to a visual display.</p>
   <p>Voice-lock-mode is a minor mode that causes your comments to
@@ -122,9 +121,9 @@
   specifications see special form defvoice Voices defined via
   defvoice can be customized via custom see the documentation for
   defvoice.</p><span id="Voice_002dSetup-Commands"></span>
-  <h4 class="subsection">12.229.1 Voice-Setup
+  <h4 class="subsection">12.230.1 Voice-Setup
   Commands</h4><span id="voice_002dlock_002dmode"></span>
-  <h4 class="subsubsection">12.229.1.1 voice-lock-mode</h4>
+  <h4 class="subsubsection">12.230.1.1 voice-lock-mode</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode">Command:
     <strong>voice-lock-mode</strong> <em>(&amp;optional
@@ -156,7 +155,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dlock_002dmode_002d_002dturn_002don"></span>
-  <h4 class="subsubsection">12.229.1.2 voice-lock-mode–turn-on</h4>
+  <h4 class="subsubsection">12.230.1.2 voice-lock-mode–turn-on</h4>
   <dl>
     <dt id="index-voice_002dlock_002dmode_002d_002dturn_002don">
     Command: <strong>voice-lock-mode--turn-on</strong></dt>
@@ -170,7 +169,7 @@ it is disabled.
     </dd>
   </dl><span id=
   "voice_002dsetup_002ddescribe_002dpersonality"></span>
-  <h4 class="subsubsection">12.229.1.3
+  <h4 class="subsubsection">12.230.1.3
   voice-setup-describe-personality</h4>
   <dl>
     <dt id="index-voice_002dsetup_002ddescribe_002dpersonality">
@@ -197,7 +196,7 @@ When called interactively, ‘personality’ defaults to first personality at po
     </dd>
   </dl><span id=
   "voice_002dsetup_002dtoggle_002dsilence_002dpersonality"></span>
-  <h4 class="subsubsection">12.229.1.4
+  <h4 class="subsubsection">12.230.1.4
   voice-setup-toggle-silence-personality</h4>
   <dl>
     <dt id=
@@ -219,114 +218,9 @@ When called interactively, ‘personality’ defaults to first personality at po
       </div>
     </dd>
   </dl><span id="voice_002dsetup-Options"></span>
-  <h4 class="subsection">12.229.2 voice-setup Options</h4>
+  <h4 class="subsection">12.230.2 voice-setup Options</h4>
   <dl>
-    <dt id="index-User-Option-835">Variable: <strong>User
-    Option</strong> <em>voice-animate-extra-settings</em></dt>
-    <dd>
-      <p>Adds extra animation.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-836">Variable: <strong>User
-    Option</strong> <em>voice-animate-medium-settings</em></dt>
-    <dd>
-      <p>Adds medium animation.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-837">Variable: <strong>User
-    Option</strong> <em>voice-animate-settings</em></dt>
-    <dd>
-      <p>Animates current voice.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-838">Variable: <strong>User
-    Option</strong> <em>voice-annotate-settings</em></dt>
-    <dd>
-      <p>Annotation..</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-839">Variable: <strong>User
-    Option</strong> <em>voice-bolden-and-animate-settings</em></dt>
-    <dd>
-      <p>Bolden and animate.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-840">Variable: <strong>User
-    Option</strong> <em>voice-bolden-extra-settings</em></dt>
-    <dd>
-      <p>Extra bolden.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-841">Variable: <strong>User
-    Option</strong> <em>voice-bolden-medium-settings</em></dt>
-    <dd>
-      <p>Add medium bolden.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-842">Variable: <strong>User
-    Option</strong> <em>voice-bolden-settings</em></dt>
-    <dd>
-      <p>Bolden current voice.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-843">Variable: <strong>User
-    Option</strong> <em>voice-brighten-extra-settings</em></dt>
-    <dd>
-      <p>Extra brighten.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-844">Variable: <strong>User
-    Option</strong> <em>voice-brighten-medium-settings</em></dt>
-    <dd>
-      <p>Brighten (medium).</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-845">Variable: <strong>User
-    Option</strong> <em>voice-brighten-settings</em></dt>
-    <dd>
-      <p>Brighten.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-846">Variable: <strong>User
-    Option</strong> <em>voice-indent-settings</em></dt>
-    <dd>
-      <p>Indent voice .</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-847">Variable: <strong>User
-    Option</strong> <em>voice-lighten-extra-settings</em></dt>
-    <dd>
-      <p>Add extra lightness.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-848">Variable: <strong>User
-    Option</strong> <em>voice-lighten-medium-settings</em></dt>
-    <dd>
-      <p>Add medium lightness.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-849">Variable: <strong>User
-    Option</strong> <em>voice-lighten-settings</em></dt>
-    <dd>
-      <p>Lighten current voice.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-850">Variable: <strong>User
+    <dt id="index-User-Option-864">Variable: <strong>User
     Option</strong> <em>voice-lock-mode-hook</em></dt>
     <dd>
       <p>Hook run after entering or leaving ‘voice-lock-mode’. No
@@ -335,109 +229,11 @@ When called interactively, ‘personality’ defaults to first personality at po
       variables.)</p>
     </dd>
   </dl>
-  <dl>
-    <dt id="index-User-Option-851">Variable: <strong>User
-    Option</strong> <em>voice-lock-overlay-0-settings</em></dt>
-    <dd>
-      <p>Pitch to 8.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-852">Variable: <strong>User
-    Option</strong> <em>voice-lock-overlay-1-settings</em></dt>
-    <dd>
-      <p>Pitch-range to 8.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-853">Variable: <strong>User
-    Option</strong> <em>voice-lock-overlay-2-settings</em></dt>
-    <dd>
-      <p>Richness to 8.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-854">Variable: <strong>User
-    Option</strong> <em>voice-lock-overlay-3-settings</em></dt>
-    <dd>
-      <p>Smoothness to 8.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-855">Variable: <strong>User
-    Option</strong> <em>voice-monotone-light-settings</em></dt>
-    <dd>
-      <p>Add light monotone and speak punctuations.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-856">Variable: <strong>User
-    Option</strong> <em>voice-monotone-medium-settings</em></dt>
-    <dd>
-      <p>Add medium monotone and speak punctuations.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-857">Variable: <strong>User
-    Option</strong> <em>voice-monotone-settings</em></dt>
-    <dd>
-      <p>Add monotone and speaks all punctuations.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-858">Variable: <strong>User
-    Option</strong> <em>voice-punctuations-all-settings</em></dt>
-    <dd>
-      <p>Add speaks all punctuations.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-859">Variable: <strong>User
-    Option</strong> <em>voice-punctuations-none-settings</em></dt>
-    <dd>
-      <p>Add speaks no punctuations.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-860">Variable: <strong>User
-    Option</strong> <em>voice-punctuations-some-settings</em></dt>
-    <dd>
-      <p>Add speaks some punctuations.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-861">Variable: <strong>User
-    Option</strong> <em>voice-smoothen-extra-settings</em></dt>
-    <dd>
-      <p>Extra smoothen.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-862">Variable: <strong>User
-    Option</strong> <em>voice-smoothen-medium-settings</em></dt>
-    <dd>
-      <p>Add medium smoothen.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-863">Variable: <strong>User
-    Option</strong> <em>voice-smoothen-settings</em></dt>
-    <dd>
-      <p>Smoothen current voice.</p>
-    </dd>
-  </dl>
-  <dl>
-    <dt id="index-User-Option-864">Variable: <strong>User
-    Option</strong> <em>voice-womanize-1-settings</em></dt>
-    <dd>
-      <p>Apply first female voice.</p>
-    </dd>
-  </dl>
   <hr />
   <div class="header">
     <p>Next: <a href="xbacklight.html" accesskey="n" rel=
-    "next">xbacklight</a>, Previous: <a href="toy_002dbraille.html"
-    accesskey="p" rel="prev">toy-braille</a>, Up: <a href=
+    "next">xbacklight</a>, Previous: <a href="voice_002ddefs.html"
+    accesskey="p" rel="prev">voice-defs</a>, Up: <a href=
     "Emacspeak-Commands-And-Options.html" accesskey="u" rel=
     "up">Emacspeak Commands And Options</a> &nbsp; [<a href=
     "index.html#SEC_Contents" title="Table of contents" rel=
